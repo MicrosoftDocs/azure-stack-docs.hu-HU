@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Az Azure Stack operátori dokumentációja
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: Az Azure Stack operátori dokumentációja – oktatóanyagok és API-referencia
+  description: 'Ismerje meg, hogyan használható az Azure Stack az Azure-szolgáltatások továbbítására az adatközpontból. Ismerje meg, és a fejlesztői csomag vagy integrált rendszerek környezet szolgáltatások bemutatásához.'
+  services: azure-stack
+  author: jeffgilb
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/16/2018
+  ms.author: jeffgilb
+abstract:
+  description: 'A Microsoft Azure Stack egy hibrid felhőplatform, amellyel Azure-szolgáltatásokat biztosíthat az adatközpontjából. Megismerheti az Azure Stack integrált rendszerek infrastruktúra kezelése és szolgáltatásajánlatokhoz útmutatóink és oktatóanyagaink segítségével.<br/><br/>Ha Ön egy Azure Stack-felhasználó, aki szolgáltatásokat használ, vagy hoz létre az alkalmazások az Azure Stack, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentáció</a>.<br/><br/>Ha érdeklik az az Azure Stack Development Kit (ASDK), egy egy csomópontos üzembe helyezhető Azure Stacket ingyenesen, és töltse le az Azure Stack operátorait tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentáció</a>.'
+sections:
+  - title: Első lépések
+    items:
+      - type: paragraph
+        text: A hardver beállítása és üzembe helyezése az Azure Stack Development Kit.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            text: Az Azure Stack fejlesztőkészlet telepítése
+            href: ../asdk/asdk-download.md
+  - title: Részletes útmutatók
+    items:
+      - type: paragraph
+        text: Ismerje meg a szolgáltatások hozzáadása az Azure Stack üzemelő példányához.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">Virtuális gépek az Azure Stackben biztosítása</a>
+          - html: <a href="/azure-stack/operator/azure-stack-tutorial-sql-server">Az Azure Stackben SQL-adatbázisok biztosítása</a>
+          - html: <a href="/azure-stack/operator/azure-stack-tutorial-sql">Magas rendelkezésre állású SQL-adatbázisok létrehozása</a>
+          - html: <a href="/azure-stack/operator/azure-stack-tutorial-mysql">Magas rendelkezésre állású MySQL-adatbázisok létrehozása</a>
+          - html: <a href="/azure-stack/operator/azure-stack-tutorial-app-service">Az Azure Stackben webalkalmazások biztosítása</a>
+  - title: Ingyenes Pluralsight videós képzés
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Az Azure Stack alapjainak elsajátítása
+            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
+  - title: Leírások
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Parancssor
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

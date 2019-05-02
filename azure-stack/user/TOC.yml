@@ -1,0 +1,256 @@
+- name: Az Azure Stack felhasználói dokumentációja
+  href: index.yml
+- name: Áttekintés
+  items:
+    - name: Fő szempontok
+      href: azure-stack-considerations.md
+- name: Gyors útmutatók
+  expanded: true
+  items:
+    - name: Windows rendszerű virtuális gép létrehozása – Portál
+      href: azure-stack-quick-windows-portal.md
+    - name: Windows rendszerű virtuális gép létrehozása – PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md
+    - name: Windows rendszerű virtuális gép létrehozása – Parancssori felület
+      href: azure-stack-quick-create-vm-windows-cli.md
+    - name: Linux rendszerű virtuális gép létrehozása – Portál
+      href: azure-stack-quick-linux-portal.md
+    - name: Linux rendszerű virtuális gép létrehozása – PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md
+    - name: Linux rendszerű virtuális gép létrehozása – Parancssori felület
+      href: azure-stack-quick-create-vm-linux-cli.md
+- name: Oktatóanyagok
+  items:
+    - name: Gyakori feladatok
+      items:
+        - name: Előfizetés egy ajánlatra
+          href: azure-stack-subscribe-services.md
+        - name: Virtuális gép létrehozása sablonból
+          href: azure-stack-create-vm-template.md
+    - name: Hibrid felhő minták
+      items:
+        - name: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
+          href: azure-stack-solution-pipeline.md
+        - name: A hibrid felhőbeli identitás konfigurálása
+          href: azure-stack-solution-hybrid-identity.md
+        - name: Hibrid felhő-kapcsolat konfigurálása
+          href: azure-stack-solution-hybrid-connectivity.md
+        - name: Hozzon létre egy előkészített adatelemzési megoldással
+          href: azure-stack-solution-staged-data-analytics.md
+        - name: A felhőbe irányuló méretezési megoldások létrehozása az Azure-ral
+          href: azure-stack-solution-cloud-burst.md
+        - name: Földrajzilag elosztott alkalmazás megoldás létrehozása
+          href: azure-stack-solution-geo-distributed.md
+        - name: Hibrid felhőalapú megoldás üzembe helyezése
+          href: azure-stack-solution-hybrid-cloud.md
+- name: Útmutatók
+  items:
+    - name: Az Azure Stack Portal használata
+      href: azure-stack-use-portal.md
+    - name: Kapcsolódás a PowerShell-lel
+      href: azure-stack-powershell-configure-user.md
+    - name: Az Azure Stack API használata
+      href: azure-stack-rest-api-use.md
+    - name: Biztonság és megfelelőség
+      items:
+        - name: Szerepköralapú hozzáférés-vezérlés alkalmazása
+          href: azure-stack-manage-permissions.md
+        - name: Szolgáltatásnevek használata
+          href: Azure-stack-create-service-principals.md
+    - name: Szolgáltatások használata
+      items:
+        - name: Compute
+          items:
+            - name: Áttekintés
+              href: azure-stack-compute-overview.md
+            - name: A virtuális gépekkel kapcsolatos szempontok
+              href: azure-stack-vm-considerations.md
+            - name: A virtuális gépek mérete
+              href: azure-stack-vm-sizes.md
+            - name: Virtuálisgép-lemezek kezelése
+              href: azure-stack-manage-vm-disks.md
+            - name: Felügyelt lemez-megfontolások
+              href: azure-stack-managed-disk-considerations.md
+            - name: A virtuális gépek védelme
+              href: azure-stack-manage-vm-protect.md
+            - name: Virtuális gép frissítése és kezelése
+              href: vm-update-management.md
+            - name: Az SQL Server virtuális gépekkel kapcsolatos szempontok
+              href: azure-stack-sql-server-vm-considerations.md
+        - name: Storage
+          items:
+            - name: Áttekintés
+              href: azure-stack-storage-overview.md
+            - name: A tárterülettel kapcsolatos szempontok
+              href: azure-stack-acs-differences.md
+            - name: Tárolásfejlesztési eszközök
+              href: azure-stack-storage-dev.md
+            - name: Adatátviteli eszközök
+              href: azure-stack-storage-transfer.md
+            - name: A Storage Explorer csatlakoztatása
+              href: azure-stack-storage-connect-se.md
+        - name: Network (Hálózat)
+          items:
+            - name: Áttekintés
+              href: azure-stack-network-overview.md
+            - name: Hálózati megfontolások
+              href: azure-stack-network-differences.md
+            - name: VPN-átjárók
+              items:
+                - name: Csatlakozás VPN használatával
+                  href: azure-stack-connect-vpn.md
+                - name: Tudnivalók a VPN gatewayről
+                  href: azure-stack-vpn-gateway-about-vpn-gateways.md
+                - name: IPSec/IKE kapcsolati szabályzatok konfigurálása
+                  href: azure-stack-vpn-s2s.md
+                - name: A VPN gateway beállításairól
+                  href: azure-stack-vpn-gateway-settings.md
+            - name: iDNS az Azure Stackhez
+              href: azure-stack-understanding-dns.md
+            - name: DNS az Azure Stackben
+              href: azure-stack-dns.md
+        - name: Key Vault
+          items:
+            - name: Áttekintés
+              href: azure-stack-key-vault-intro.md
+            - name: Felügyelet a Portalon keresztül
+              href: azure-stack-key-vault-manage-portal.md
+            - name: Kezelés a Powershell-lel
+              href: azure-stack-key-vault-manage-powershell.md
+            - name: Virtuális gép létrehozása titkos kóddal
+              href: azure-stack-key-vault-deploy-vm-with-secret.md
+            - name: Virtuális gép létrehozása tanúsítvánnyal
+              href: azure-stack-key-vault-push-secret-into-vm.md
+            - name: Hitelesítő adatok Store a Key Vaultban
+              href: azure-stack-key-vault-store-credentials.md
+            - name: KeyVault-mintaalkalmazás
+              href: azure-stack-key-vault-sample-app.md
+        - name: Azure Monitor
+          href: azure-stack-metrics-azure-data.md
+          items:
+            - name: Támogatott metrikák
+              href: azure-stack-metrics-supported.md
+            - name: Azure monitorozási adatok felhasználásához
+              href: azure-stack-metrics-monitor.md
+        - name: Megoldássablonok
+          items:
+            - name: Ethereum üzembe helyezése
+              href: azure-stack-ethereum.md
+            - name: A Service Fabric-fürt üzembe helyezése
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: Kubernetes-fürt üzembe helyezése
+              href: azure-stack-solution-template-kubernetes-deploy.md
+              items:
+                - name: Az Azure AD-vel Kubernetes üzembe helyezése
+                  href: azure-stack-solution-template-kubernetes-azuread.md
+                - name: A Kubernetes az AD FS üzembe helyezése
+                  href: azure-stack-solution-template-kubernetes-adfs.md
+                - name: A Kubernetes-irányítópult engedélyezése
+                  href: azure-stack-solution-template-kubernetes-dashboard.md
+                - name: Kubernetes-fürt hibaelhárítása
+                  href: azure-stack-solution-template-kubernetes-trouble.md
+            - name: A Cognitive Services üzembe helyezése
+              href: azure-stack-solution-template-cognitive-services.md
+    - name: Alkalmazások készítése
+      items:
+        - name: Fejlesztés az Azure Stackhez
+          href: azure-stack-developer.md
+        - name: Fejlesztési környezet beállítása
+          href: azure-stack-dev-start.md
+          items:
+            - name: Az Azure Stack PowerShell áttekintése
+              href: azure-stack-powershell-overview.md
+            - name: Az Azure Stack PowerShell telepítése
+              href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              maintainContext: true
+            - name: Kapcsolódás a PowerShell-lel
+              href: azure-stack-powershell-configure-user.md
+            - name: Azure Stack-eszközök letöltése
+              href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              maintainContext: true
+            - name: Futtassa a Powershellt a Docker használatával
+              href: azure-stack-powershell-user-docker.md
+            - name: A Visual Studio telepítése
+              href: azure-stack-install-visual-studio.md
+            - name: Nyilvános SSH-kulcsot használ
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Linux rendszerű virtuális gép egy webalkalmazás üzembe helyezése
+              href: azure-stack-dev-start-howto-deploy-linux.md
+            - name: API-verzióprofilok használatával
+              href: azure-stack-version-profiles.md
+              items:
+                - name: .NET
+                  href: azure-stack-version-profiles-net.md
+                - name: Java
+                  href: azure-stack-version-profiles-java.md
+                - name: Azure CLI
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: Indítás
+                  href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
+                - name: Python
+                  href: azure-stack-version-profiles-python.md
+                - name: Erőforrás-szolgáltató profil által támogatott API-k
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
+        - name: Az Azure Stack közös központi telepítések
+          href: azure-stack-dev-start-deploy-app.md
+          items:
+            - name: 'A .net Core telepítése (C#) egy virtuális géphez'
+              href: azure-stack-dev-start-howto-vm-dotnet.md
+            - name: A Java virtuális gép üzembe helyezése
+              href: azure-stack-dev-start-howto-vm-java.md
+            - name: Nyissa meg egy virtuális gép üzembe helyezése
+              href: azure-stack-dev-start-howto-vm-go.md
+            - name: A Ruby egy virtuális gép üzembe helyezése
+              href: azure-stack-dev-start-howto-vm-ruby.md
+            - name: Python virtuális gép üzembe helyezése
+              href: azure-stack-dev-start-howto-vm-python.md
+            - name: NodeJS a virtuális gép üzembe helyezése
+              href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: Az Azure Stack házirendmodul használata
+          href: azure-stack-policy-module.md
+        - name: Sablonok használata
+          items:
+            - name: Sablonok áttekintése
+              href: azure-stack-arm-templates.md
+            - name: Sablon kapcsolatos szempontok
+              href: azure-stack-develop-templates.md
+            - name: Sablonok ellenőrzése
+              href: azure-stack-validate-templates.md
+            - name: Üzembe helyezés a portállal
+              href: azure-stack-deploy-template-portal.md
+            - name: Üzembe helyezés a PowerShell-lel
+              href: azure-stack-deploy-template-powershell.md
+            - name: Üzembe helyezés a Visual Studióval
+              href: azure-stack-deploy-template-visual-studio.md
+    - name: Felhőszolgáltató engedélyezése
+      href: azure-stack-csp-enable-billing-usage-tracking.md
+- name: Leírások
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+    - name: Az Azure Stack – REST API-böngésző
+      href: /rest/api/
+    - name: Azure Stack parancssori felület
+      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+- name: Kapcsolódó témakörök
+  items:
+    - name: Az Azure Stack operátori dokumentációja
+      href: /azure-stack/operator/
+    - name: ASDK dokumentációja
+      href: /azure-stack/asdk/
+- name: További források
+  items:
+    - name: Azure Stack-ütemterv
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Az Azure Stack MSDN-fórum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Az Azure Stack-dokumentáció visszajelzés
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Díjszabási információk
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Képzés és tanúsítványok
+      href: /azure-stack/operator/azure-stack-train-and-cert

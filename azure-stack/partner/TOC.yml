@@ -1,0 +1,64 @@
+- name: Az Azure Stack-Partner dokumentációja
+  href: index.yml
+- name: Áttekintés
+  href: index.yml
+  expanded: true
+  items:
+    - name: Az Azure stack-beli szolgáltatás érvényesítése
+      href: azure-stack-vaas-overview.md
+    - name: Kibocsátási megjegyzések
+      href: azure-stack-vaas-release-notes.md
+- name: Oktatóanyag
+  items:
+    - name: Az erőforrások beállítása
+      href: azure-stack-vaas-set-up-resources.md
+    - name: A PowerShell-lel az Azure Stack Kódérvényesítés automatizálása
+      href: azure-stack-vaas-automate-with-powershell.md
+- name: Hogyan útmutató
+  items:
+    - name: A helyi ügynök telepítése
+      href: azure-stack-vaas-local-agent.md
+    - name: A vizsgálat ütemezése
+      href: azure-stack-vaas-schedule-test-pass.md
+    - name: OEM-csomag létrehozása
+      href: azure-stack-vaas-create-oem-package.md
+    - name: OEM-csomagok érvényesítése
+      href: azure-stack-vaas-validate-oem-package.md
+    - name: Egy új Azure Stack megoldás ellenőrzése
+      href: azure-stack-vaas-validate-solution-new.md
+    - name: A Microsoft szoftverfrissítések ellenőrzése
+      href: azure-stack-vaas-validate-microsoft-updates.md
+    - name: Interaktív funkció ellenőrzési tesztelés
+      href: azure-stack-vaas-interactive-feature-verification.md
+- name: Alapelvek
+  items:
+    - name: Fő fogalmak
+      href: azure-stack-vaas-key-concepts.md
+    - name: Ajánlott eljárások
+      href: azure-stack-vaas-best-practice.md
+    - name: Figyelheti és kezelheti a VaaS portálon tesztek
+      href: azure-stack-vaas-monitor-test.md
+    - name: Általános munkafolyamat-paraméterek
+      href: azure-stack-vaas-parameters.md
+    - name: Érvényesítési szolgáltatás hibaelhárítása
+      href: azure-stack-vaas-troubleshoot.md
+- name: Kapcsolódó témakörök
+  items:
+    - name: Azure Stack – dokumentáció
+      href: /azure-stack/operator
+    - name: Azure Active Directory
+      href: /azure/active-directory/
+- name: További források
+  items:
+    - name: Azure Stack-ütemterv
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Az Azure Stack MSDN-fórum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
+    - name: Az Azure Stack-dokumentáció visszajelzés
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Díjszabási információk
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Képzés és tanúsítványok
+      href: /azure-stack/operator/azure-stack-train-and-cert

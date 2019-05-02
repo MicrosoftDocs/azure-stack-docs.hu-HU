@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack-partner – dokumentáció
+metadata:
+  document_id: null
+  title: Azure Stack-partner D\documentation – oktatóanyagok és API-t R\reference
+  description: 'Ismerje meg, hogyan érvényesítheti a hardvert, az Azure Stack gazdagépen. Érvényesítés szolgáltatásként egy natív Azure-szolgáltatás a Microsoft Azure Stack-ajánlatok közös vannak mérnöki megoldáspartnerek számára készült.'
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: johnhas
+abstract:
+  description: 'Érvényesítési szolgáltatás segítségével ellenőrizze a hardver, az Azure Stackkel való használathoz. A szolgáltatás egy vannak közös mérnöki a Microsoft Azure Stack-ajánlatok megoldáspartnerek számára készült, natív Azure-szolgáltatás áll.'
+sections:
+  - title: 5 perces rövid útmutatók
+    items:
+      - type: paragraph
+        text: 'Ismerje meg, az érvényesítési tesztek alapján a hardver ütemezése egy portált használata.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/i_account-management.svg
+            text: 'Az érvényesítés használja egy portált, az első vizsgálat ütemezése'
+            href: azure-stack-vaas-schedule-test-pass.md
+  - title: Részletes útmutatók
+    items:
+      - type: paragraph
+        text: Útmutató az Azure Stack hardver ellenőrzése.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Új Azure Stack-megoldás ellenőrzése</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM-csomagok érvényesítése</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">A Microsoft szoftverfrissítések ellenőrzése</a>
