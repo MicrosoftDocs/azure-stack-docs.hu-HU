@@ -16,16 +16,16 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: 1588d403d62e416367ea59c70e28e456cb17495a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
-ms.translationtype: HT
+ms.openlocfilehash: 8b061b3c6843540bcf1d6a6379b9181a9d757c5d
+ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987617"
+ms.locfileid: "64988115"
 ---
-# <a name="azure-stack-known-issues"></a>Ismert problémák az Azure Stack
+# <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
-Ez a cikk felsorolja a támogatott verzióiban az Azure Stack szolgáltatással kapcsolatos ismert problémák. A lista frissül, mint az új kiadásokkal és a gyorsjavítások jelennek meg.
+Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista frissül új problémák azonosítva.
 
 > [!IMPORTANT]  
 > Tekintse át az ebben a szakaszban a frissítés alkalmazása előtt.

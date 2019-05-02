@@ -6,18 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/02/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 7d9cfd742473c7a7050978a25f4b574fa0e4ba8c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
-ms.translationtype: HT
+ms.openlocfilehash: 67149ffa1d602cb0bbab020f0af3f317cb0aac4d
+ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985329"
+ms.locfileid: "64988158"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Az Azure Stack adatközpont integrációja - identitás
+
 Az identitás-szolgáltatóktól, Azure Active Directory (Azure AD) vagy az Active Directory összevonási szolgáltatások (AD FS) használatával az Azure-verem üzembe helyezhető. Ellenőrizze a kiválasztott Azure Stack üzembe helyezése előtt. Egy csatlakoztatott esetben válassza ki az Azure AD vagy az AD FS. A leválasztott esetben csak az AD FS használata támogatott.
 
 > [!IMPORTANT]
@@ -56,8 +57,8 @@ A következő információkat szükség, mint a bemenetek az automatizálás par
 
 |Paraméter|Leírás|Példa|
 |---------|---------|---------|
-|CustomADGlobalCatalog|A cél az Active Directory-erdő teljes Tartományneve<br>hogy szeretné-e integrálása|Contoso.com|
-|CustomADAdminCredentials|Egy LDAP-olvasási engedéllyel rendelkező felhasználó|YOURDOMAIN\graphservice|
+|`CustomADGlobalCatalog`|A cél az Active Directory-erdő teljes Tartományneve<br>hogy szeretné-e integrálása|Contoso.com|
+|`CustomADAdminCredentials`|Egy LDAP-olvasási engedéllyel rendelkező felhasználó|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Active Directory-helyek konfigurálása
 
@@ -101,6 +102,13 @@ Ebben az eljárásban az Adatközpont-hálózatát, amely képes kommunikálni a
 
    > [!IMPORTANT]
    > Várja meg a hitelesítő adatait az előugró (a Get-Credential nem támogatott a rendszerjogosultságú végpontját), és adja meg a Graph szolgáltatás fiók hitelesítő adatait.
+
+3. A **Register-DirectoryService** parancsmag rendelkezik, amelyet használhat bizonyos esetekben ha a meglévő Active Directory-ellenőrzés nem választható paramétereket. Amikor ez a parancsmag végrehajtása, azt ellenőrzi, hogy a megadott tartományban, a gyökértartomány, globáliskatalógus-kiszolgáló elérhető, és a megadott fiók csak olvasási hozzáférést biztosít.
+
+   |Paraméter|Leírás|
+   |---------|---------|
+   |`-SkipRootDomainValidation`|Itt adhatja meg, hogy egy gyermektartomány kell használni, a javasolt gyökértartomány helyett.|
+   |`-Force`|Figyelmen kívül hagyja az összes érvényesség-ellenőrzések.|
 
 #### <a name="graph-protocols-and-ports"></a>Graph-protokollok és portok
 

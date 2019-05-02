@@ -16,12 +16,12 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: d5fe03a0e523e03bfd14c6de2f1466669db97b85
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
-ms.translationtype: HT
+ms.openlocfilehash: 576ca42d231aa12d88ed307df610a769a7907622
+ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987606"
+ms.locfileid: "64988109"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Az Azure Stack tevékenység ellenőrzőlista
 
@@ -37,14 +37,14 @@ Ez a cikk az Azure Stack-operátorok ellenőrzőlistája, frissítéssel kapcsol
 | Problémák megoldása        | Oldja meg a működési problémákat által azonosított **Test-AzureStack**.                |
 | Alkalmazza a legújabb gyorsjavítások | A alkalmazni a legújabb gyorsjavításokat, amelyek érvényesek a jelenleg telepített kiadása.         |
 | Capacity planner eszközt futtatása | Ügyeljen arra, hogy a legújabb verzióját használja a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) végrehajtására a számítási feladatok tervezésekor és méretezése. A legújabb verzió hibajavításokat tartalmaz, és olyan megjelent új funkciókat biztosít minden egyes Azure Stack a frissítéssel. |
-| Frissítés jelent meg       | Csak csatlakoztatott forgatókönyvekben Azure Stack üzemelő példányok rendszeres időnként ellenőrzik egy biztonságos végpontot, és automatikusan értesíti, ha egy frissítés érhető el a felhőben. Kapcsolat nélküli ügyfelek letöltése, és az új 1901 csomag használatával importálja a [folyamatot az itt leírtak szerint](azure-stack-apply-updates.md).               |
+| Frissítés jelent meg       | Csak csatlakoztatott forgatókönyvekben Azure Stack üzemelő példányok rendszeres időnként ellenőrzik egy biztonságos végpontot, és automatikusan értesíti, ha egy frissítés érhető el a felhőben. Kapcsolat nélküli ügyfelek letöltése, és az új 1904-es csomag használatával importálja a [folyamatot az itt leírtak szerint](azure-stack-apply-updates.md).               |
 
 ## <a name="during-azure-stack-update"></a>Azure Stack frissítése közben.
 
 | Tevékenység              | Részletek                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
 | A frissítés kezelése         | [Kezelheti a frissítéseket az Azure Stack segítségével az operátor portal](azure-stack-updates.md). |
-| A frissítés figyelése        | Az operátor portálon nem érhető el, ha [monitorozása az Azure Stack segítségével az operátor portal frissítések](azure-stack-monitor-update.md). |
+| A frissítés figyelése        | Az operátor portálon nem érhető el, ha [monitorozása az Azure Stack használatával a privilegizált végpont frissítések](azure-stack-monitor-update.md). |
 | Frissítések folytatása            | Sikertelen frissítés esetén, szervizelés után [frissítéseket az Azure Stack használatával a privilegizált végpont folytatása](azure-stack-monitor-update.md). |
 
 > [!IMPORTANT]  
