@@ -1,0 +1,31 @@
+- name: Dokumentumok
+  tocHref: /
+  topicHref: /
+  items:
+    - name: Azure Stack
+      tocHref: /azure-stack/
+      topicHref: /azure-stack/operator/index
+      items:
+        - name: ASDK
+          tocHref: /azure-stack/asdk/
+          topicHref: /azure-stack/asdk/index
+        - name: Művelet
+          tocHref: /azure-stack/operator/
+          topicHref: /azure-stack/operator/index
+          items:
+            - name: Útmutató végigvezeti a / biztonsági mentése az Azure Stackben
+              tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
+              topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
+              items:
+                - name: Fájlok és alkalmazások biztonsági mentése az Azure Stackben
+                  tocHref: /azure/backup/backup-mabs-files-applications-azure-stack
+                  topicHref: /azure/backup/backup-mabs-files-applications-azure-stack
+                - name: Az Azure Stack-alapú virtuális gépek replikálása az Azure-bA
+                  tocHref: /azure/site-recovery/azure-stack-site-recovery
+                  topicHref: /azure/site-recovery/azure-stack-site-recovery
+        - name: Partner
+          tocHref: /azure-stack/partner/
+          topicHref: /azure-stack/partner/index
+        - name: Felhasználó
+          tocHref: /azure-stack/user/
+          topicHref: /azure-stack/user/index
