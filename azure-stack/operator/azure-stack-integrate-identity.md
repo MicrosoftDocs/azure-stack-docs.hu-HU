@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 67149ffa1d602cb0bbab020f0af3f317cb0aac4d
-ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.openlocfilehash: ec0a4b0dc020d9c2c977c7b75b1785cfc98446f6
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988158"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097104"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Az Azure Stack adatközpont integrációja - identitás
 
@@ -55,10 +55,10 @@ Gráf csak egyetlen Active Directory-erdővel rendelkező integrációs támogat
 
 A következő információkat szükség, mint a bemenetek az automatizálás paraméterek:
 
-|Paraméter|Leírás|Példa|
-|---------|---------|---------|
-|`CustomADGlobalCatalog`|A cél az Active Directory-erdő teljes Tartományneve<br>hogy szeretné-e integrálása|Contoso.com|
-|`CustomADAdminCredentials`|Egy LDAP-olvasási engedéllyel rendelkező felhasználó|YOURDOMAIN\graphservice|
+|Paraméter|Üzembe helyezés munkalap paraméter|Leírás|Példa|
+|---------|---------|---------|---------|
+|`CustomADGlobalCatalog`|AD FS-erdő teljes Tartományneve|A cél az Active Directory-erdő teljes Tartományneve<br>hogy szeretné-e integrálása|Contoso.com|
+|`CustomADAdminCredentials`| |Egy LDAP-olvasási engedéllyel rendelkező felhasználó|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Active Directory-helyek konfigurálása
 
@@ -127,10 +127,10 @@ Az Azure Stackben Graph szolgáltatás a következő protokollok és portok seg�
 
 Az alábbi adatokra szükség az automation-paraméterek bemenetként:
 
-|Paraméter|Leírás|Példa|
-|---------|---------|---------|
-|CustomAdfsName|A jogcímeket szolgáltató neve.<br>Ezzel a módszerrel a az AD FS kezdőlapja jelenik meg.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Összevonási metaadatok hivatkozás| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|Paraméter|Üzembe helyezés munkalap paraméter|Leírás|Példa|
+|---------|---------|---------|---------|
+|CustomAdfsName|ADFS-szolgáltató neve|A jogcímeket szolgáltató neve.<br>Ezzel a módszerrel a az AD FS kezdőlapja jelenik meg.|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS-metaadatok URI|Összevonási metaadatok hivatkozás| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Az eseményindító automation beállítása az Azure Stack a jogcím-szolgáltatói megbízhatóság

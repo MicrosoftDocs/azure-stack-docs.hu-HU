@@ -3,8 +3,8 @@ title: Egyéni Piactéri elem közzététele az Azure Stackben (felhőüzemeltet
 description: Az Azure Stack operátorait szerint megtudhatja, hogyan egyéni Piactéri elem közzététele az Azure Stackben.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 6c1750e6a523828400b3d06d4e1c22fb34f8273f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 70a1e1223accda5dfb273372da486588fb030afc
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172759"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Az Azure Stack piactéren – áttekintés
 
@@ -37,7 +36,7 @@ Az Azure Stack operátorait szerint dönt, hogy a hozzáadni kívánt elemek (k�
 
 Nyissa meg a Marketplace-en, a felügyeleti portálon válassza az **+ erőforrás létrehozása**.
 
-![Piactér](media/azure-stack-publish-custom-marketplace-item/image1.png)
+![Marketplace](media/azure-stack-marketplace/marketplace1.png)
 
 ## <a name="marketplace-items"></a>Marketplace-elemek
 
@@ -49,7 +48,7 @@ Minden Marketplace-en elemnek:
 * A metaadatok, például a karakterláncokat, az ikonok és az egyéb marketinganyag.
 * Formázási információk megjelenítéséhez a cikk a portálon.
 
-A piactéren közzétett minden eleme az Azure Gallery-csomag (.azpkg) formátumot használja. Üzembe helyezés vagy a futásidejű erőforrások hozzáadása (kód, a szoftver vagy virtuálisgép-lemezképek zip-fájlok) az Azure Stackhez külön-külön, a Piactéri elem nem részeként.
+A piactéren közzétett minden eleme az Azure Gallery-csomag (.azpkg) formátumot használja. Üzembe helyezés vagy a futásidejű erőforrások hozzáadása (kód, a szoftver vagy virtuálisgép-rendszerképek a .zip kiterjesztésű fájlok) az Azure Stackhez külön-külön, a Piactéri elem nem részeként.
 
 Az 1803 és az újabb Azure Stack alakítja lemezképek ritka fájlokat, amikor letöltik az Azure-ban, vagy ha egyéni lemezképeket tölthetnek fel. Ez a folyamat hozzáadja az idő kép hozzáadásakor viszont helyet takarít, és lerövidíti az üzembe helyezés ilyen rendszerképpel. Új képek csak érvényes átalakítás. Meglévő lemezképek nem változnak.
 
@@ -57,5 +56,3 @@ Az 1803 és az újabb Azure Stack alakítja lemezképek ritka fájlokat, amikor 
 
 * [Piactéri termékek letöltése](azure-stack-download-azure-marketplace-item.md)  
 * [Hozzon létre, és a Piactéri elem közzététele](azure-stack-create-and-publish-marketplace-item.md)
-
-<!-- Update_Description: wording update -->

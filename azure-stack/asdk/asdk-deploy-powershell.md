@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 7a78a5101e37ee1deeef3cb5923009bc08f26751
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2e260145b2e17dd4475d81f576d84e0145fbc199
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983803"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172392"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>A parancssorból a ASDK üzembe helyezése
 A ASDK olyan kiértékeléséhez, és mutassa be az Azure Stack-szolgáltatások és szolgáltatások telepítését, tesztelési és fejlesztési környezet. Letöltés működik, és szüksége a környezet hardver előkészítése, és néhány (Ez több óráig fog tartani) parancsfájlok futtatása. Ezt követően bejelentkezhet a rendszergazdai és felhasználói portált az Azure Stack használatának megkezdéséhez.
@@ -65,7 +65,7 @@ A ASDK gazdaszámítógép CloudBuilder.vhdx rendszerindítás konfigurálása:
 > Gondoskodjon arról, hogy közvetlen fizikai gép vagy a fejlesztői csomag gazdagépnek KVM-hozzáférés, az újraindítás előtt. Amikor először indítja el a virtuális gép, felszólítja, hogy a Windows Server-telepítés befejezéséhez. Adja meg a fejlesztői csomag gazdaszámítógép-ba való bejelentkezéshez használt hitelesítő adatokkal rendszergazda. 
 
 ### <a name="prepare-the-development-kit-host-using-powershell"></a>A PowerShell-lel development kit gazdagép előkészítése 
-A csomag után gazdaszámítógép sikeresen elindította a lemezképpel CloudBuilder.vhdx, jelentkezzen be az azonos helyi rendszergazdai hitelesítő adatokat a development kit gazdaszámítógép-ba való bejelentkezéshez használt (és a Windows Server véglegesítése részeként megadott A telepítő a számítógép indított VHD-ből). 
+A fejlesztői csomag gazdaszámítógép után sikeresen a CloudBuilder.vhdx lemezképpel indul el a rendszer a azonos helyi rendszergazdai hitelesítő adatokkal jelentkezhetnek a development kit gazdaszámítógép-ba való bejelentkezéshez használt (és a Windows Server véglegesítése részeként megadott A telepítő a számítógép indított VHD-ből). 
 
 > [!NOTE]
 > Igény szerint beállíthatja úgy is [Azure Stack telemetriai beállítások](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry) *előtt* a ASDK telepítése.
@@ -93,7 +93,7 @@ Futtassa a következő PowerShell-parancsok az Azure AD-vel fejlesztőkészlet t
 
 Az Azure AD hitelesítő adatait, meg kell adnia ASDK telepítési néhány percig. Az Azure AD-bérlő globális rendszergazdai hitelesítő adatait kell megadnia. 
 
-Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen újbóli regisztrációra a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.
+Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen érvényességének visszaállítása a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Az AD FS az Azure Stack üzembe helyezése 
 A csomag telepítéséhez **az AD FS használata Identitásszolgáltatóként**, futtassa a következő PowerShell-parancsokat (egyszerűen adja hozzá a - UseADFS paraméter): 
@@ -144,10 +144,10 @@ Ha a környezet nem rendelkezik DHCP-kompatibilis, majd meg kell adnia a követk
 |AdminPassword|Szükséges|A helyi rendszergazda fiók és minden egyéb felhasználói fiók beállítása development kit központi telepítésének részeként létrehozott összes virtuális gépet. Ezt a jelszót meg kell egyeznie a jelenlegi helyi rendszergazda jelszavát, a gazdagépen.|
 |InfraAzureDirectoryTenantName|Szükséges|Beállítja a bérlőcímtárat. Használja ezt a paramétert, egy adott címtár megadására, ahol az AAD-fiók jogosult több címtár kezelésére. Teljes név formátumban egy AAD Directory-bérlő. onmicrosoft.com vagy egy Azure AD ellenőrizte az egyéni tartomány nevét.|
 |TimeServer|Szükséges|Ez a paraméter használatával adja meg a megadott idő kiszolgálót. Ez a paraméter egy érvényes idő-kiszolgáló IP-címét meg kell adni. Kiszolgálók nevei nem támogatottak.|
-|InfraAzureDirectoryTenantAdminCredential|Optional|Beállítja az Azure Active Directory felhasználónevet és jelszót. Ezeket az Azure a hitelesítő adatokat kell lennie a szervezeti azonosítóval.|
-|InfraAzureEnvironment|Optional|Válassza ki a Azure-környezet, amellyel az Azure Stack üzemelő példányához regisztrálni szeretne. Nyilvános Azure, Azure - Kína, Azure - US Government a lehetőségek között.|
-|DNSForwarder|Optional|DNS-kiszolgáló létrehozása az Azure Stack üzembe helyezés részeként. Ahhoz, hogy a számítógépek belül a megoldás a stamp kívül nevek feloldása, adja meg a meglévő infrastruktúra DNS-kiszolgáló. A stamp a DNS-kiszolgáló ezen a kiszolgálón ismeretlen névfeloldási kérelmeket továbbítja.|
-|Ismétlés|Optional|Ez a jelző használatával futtassa újra a központi telepítés. Az összes korábbi bemenet használata esetén. Az adatok ismételt beírására korábban megadott nem támogatott, mert több egyedi értékeket jönnek létre és üzembe helyezéshez használt.|
+|InfraAzureDirectoryTenantAdminCredential|Választható|Beállítja az Azure Active Directory felhasználónevet és jelszót. Ezeket az Azure a hitelesítő adatokat kell lennie a szervezeti azonosítóval.|
+|InfraAzureEnvironment|Választható|Válassza ki a Azure-környezet, amellyel az Azure Stack üzemelő példányához regisztrálni szeretne. Globális Azure, Azure - Kína, Azure - US Government a lehetőségek között.|
+|DNSForwarder|Választható|DNS-kiszolgáló létrehozása az Azure Stack üzembe helyezés részeként. Ahhoz, hogy a számítógépek belül a megoldás a stamp kívül nevek feloldása, adja meg a meglévő infrastruktúra DNS-kiszolgáló. A stamp a DNS-kiszolgáló ezen a kiszolgálón ismeretlen névfeloldási kérelmeket továbbítja.|
+|Ismétlés|Választható|Ez a jelző használatával futtassa újra a központi telepítés. Az összes korábbi bemenet használata esetén. Korábban megadott adatok ismételt megadása nem támogatott, mert több egyedi értékeket jönnek létre és üzembe helyezéshez használt.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Üzembe helyezés utáni konfigurációk végrehajtása

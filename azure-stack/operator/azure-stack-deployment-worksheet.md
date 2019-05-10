@@ -3,25 +3,24 @@ title: Üzembehelyezési munkalap az Azure Stack integrált rendszerek |} A Micr
 description: Ismerje meg, hogyan telepítse, és a központi telepítési munkalap eszköz használatával az Azure Stack üzembe helyezése.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: wamota
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/19/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/19/2019
+ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: eb904e022ec9e9645c45c313a27b5fdc4c82b195
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172669"
 ---
 # <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>Az Azure Stack integrált rendszerek üzembehelyezési munkalap
 
@@ -48,7 +47,7 @@ Az üzembehelyezési munkalap egyes kiadásainak egy egyszeri minden gép, amely
 2. A PowerShell-ablakban, a modul telepítéséhez az [PowerShell-galériából](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
 
    ```PowerShell
-   Install-Module -Name Azs.Deployment.Worksheet -RequiredVersion 1.1902.TBD.1 -Repository PSGallery
+   Install-Module -Name Azs.Deployment.Worksheet -Repository PSGallery
    ```
 
 Ha egy nem megbízható tárházból telepítéséről szóló üzenetet kap, nyomja le az **Y** a telepítés folytatásához.

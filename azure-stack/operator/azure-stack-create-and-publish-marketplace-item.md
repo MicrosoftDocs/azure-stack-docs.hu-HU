@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8c77441f458e87a3b8da60541261338abb78057c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172566"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Piactéri termék létrehozása és közzététele
 
@@ -40,10 +40,10 @@ ms.locfileid: "64985422"
    /Contoso.TodoList/DeploymentTemplates/
    ```
 
-3. [Azure Resource Manager-sablon létrehozása] ((/Azure/Azure-Resource-Manager/Resource-Group-Authoring-Templates), vagy válasszon ki egy sablont a Githubból. A Piactéri elem a sablont használja az erőforrás létrehozásához.
+3. [Hozzon létre egy Azure Resource Manager-sablon](/azure/azure-resource-manager/resource-group-authoring-templates) , vagy válasszon ki egy sablont a Githubból. A Piactéri elem a sablont használja az erőforrás létrehozásához.
 
-    > [!Note]  
-    > Keményen soha nem kód a titkos kulcsok termékazonosító kulcsok, jelszót vagy az Azure Resource Manager-sablon bármely ügyfél azonosításra alkalmas adatok. A sablon JSON-fájlok érhetők el, hitelesítés nélkül a katalógusban közzététele után. Az összes titkos Store [kulcs Vault]((/azure/azure-resource-manager/resource-manager-keyvault-parameter), és hívja a sablonon belül azokat.
+    > [!NOTE]  
+    > Soha nem keményen kód például a termékazonosító kulcsokhoz, a jelszót vagy bármely ügyfél azonosításra alkalmas információk az Azure Resource Manager-sablon titkos kulcsok. A sablon JSON-fájlok érhetők el, hitelesítés nélkül a katalógusban közzététele után. Az összes titkos Store [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) , és azokat a sablonon belül.
 
 4. Győződjön meg arról, hogy az erőforrás sikeresen telepíthető-e, tesztelje a sablon a Microsoft Azure Stack API-kkal.
 5. Ha a sablont a virtuálisgép-lemezkép támaszkodik, kövesse az utasításokat [virtuálisgép-lemezkép hozzáadása az Azure Stackhez](azure-stack-add-vm-image.md).
@@ -54,6 +54,7 @@ ms.locfileid: "64985422"
    > Négy ikon méretek (kicsi, közepes, nagy mennyiségű, széles) szükség, a Piactéri elem megfelelően létrehozásához.
    >
    >
+
 8. Az a **Manifest.json** fájl, módosítsa **neve** a Piactéri elem nevét. Módosítson **közzétevő** a neve vagy a vállalat.
 9. Alatt **összetevők**, módosítsa **neve** és **elérési út** a Azure Resource Manager-sablon, amely tartalmazza a megfelelő információkkal történő:
 
@@ -84,7 +85,7 @@ ms.locfileid: "64985422"
     ```
 
     > [!NOTE]
-    > A teljes elérési útja a kimeneti csomaghoz léteznie kell. Például ha a kimeneti elérési út C:\MarketPlaceItem\yourpackage.azpkg, a mappa C:\MarketPlaceItem léteznie kell.
+    > A teljes elérési útja a kimeneti csomaghoz léteznie kell. Például, ha a kimeneti elérési út C:\MarketPlaceItem\yourpackage.azpkg, a mappa **C:\MarketPlaceItem** léteznie kell.
     >
     >
 
@@ -108,7 +109,8 @@ ms.locfileid: "64985422"
 4. Ugrás a portálra. Most láthatja a portálon, a Piactéri elem, az operátornak, vagy a felhasználó. A csomag listában való megjelenése több percet is igénybe vehet.
 
 5. A Piactéri elem már megtörtént az Azure Stack piactéren. Kiválaszthatja, hogy törli-e a Blob storage-helyről.
-    > [!Caution]  
+
+    > [!CAUTION]  
     > Az összes alapértelmezett katalógus összetevők és az egyéni katalógus összetevőkhöz most már hozzáférhetők-hitelesítést a következő URL-címek nélkül:  
 `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
@@ -129,24 +131,24 @@ ms.locfileid: "64985422"
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Name (Név) | Szükséges | Típus | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Típus | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
 | Name (Név) |X |String |[A-Za-z0-9]+ | |
-| Közzétevő |X |String |[A-Za-z0-9]+ | |
+| Gyártó |X |String |[A-Za-z0-9]+ | |
 | Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metaadatok
 
-| Name (Név) | Szükséges | Típus | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Típus | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
-| Megjelenítendő név |X |String |Az ajánlás 80 karakter |A portál nem jelenítik meg a konfigurációelem nevét szabályosan Ha hosszabb 80 karakternél. |
-| PublisherDisplayName |X |String |Az ajánlás 30 karakter |A portál nem jelenítik meg a közzétevő neve szabályosan ha 30 karakternél hosszabb. |
+| Megjelenítendő név |X |String |Az ajánlás 80 karakter |A portál nem jelenítik meg az elem neve helyesen Ha hosszabb 80 karakternél. |
+| PublisherDisplayName |X |String |Az ajánlás 30 karakter |A portál nem jelenítik meg a közzétevő neve helyesen ha 30 karakternél hosszabb. |
 | PublisherLegalName |X |String |Legfeljebb 256 karakter hosszú lehet | |
 | Összegzés |X |String |60 és 100 karakter | |
 | LongSummary |X |String |140 és 256 karakter |Még alkalmazhatók az Azure Stackben. |
-| Leírás |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500-as és 5000 karakternél | |
+| Leírás |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500-as és 5000 karakternél | |
 
-### <a name="images"></a>Képek
+### <a name="images"></a>Rendszerképek
 
 A piactéren az alábbi ikonok használja:
 
@@ -154,35 +156,35 @@ A piactéren az alábbi ikonok használja:
 | --- | --- | --- | --- |
 | Széles körű |255 px |115 px |Mindig szükséges. |
 | Nagy |115 px |115 px |Mindig szükséges. |
-| Közepes |90 px |90 px |Mindig szükséges. |
+| Közepesen súlyos |90 px |90 px |Mindig szükséges. |
 | Kicsi |40 px |40 px |Mindig szükséges. |
-| Képernyőfelvétel |533 px |32 px |Optional |
+| Képernyőfelvétel |533 px |32 px |Választható |
 
 ### <a name="categories"></a>Categories
 
-Minden Marketplace-elem egy kategóriát, amely azonosítja, ahol az elem megjelenik a portál felhasználói Felületét kell megcímkézni. Azure Stack a meglévő kategóriák közül választhat (számítási, adatok + tárolás, stb.), vagy válasszon egy újat.
+Minden Marketplace-elem egy kategóriát, amely azonosítja, ahol az elem megjelenik a portál felhasználói Felületét kell megcímkézni. Azure Stack a meglévő kategóriák közül választhat (**számítási**, **adatok + tárolás**használatához és így tovább), vagy újat kell beállítania.
 
 ### <a name="links"></a>Hivatkozások
 
 Minden Marketplace-elem lehetnek különböző további tartalmakra is hivatkozik. A hivatkozások megadott neve és URI-k listáját:
 
-| Name (Név) | Szükséges | Típus | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Típus | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
-| Megjelenítendő név |X |String |Legfeljebb 64 karakter hosszú lehet | |
+| Megjelenítendő név |X |String |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>További tulajdonságok
 
 Mellett az előző metaadatok Marketplace szerzők megadhat egyéni kulcs/érték pár adatokat a következő formátumban:
 
-| Name (Név) | Szükséges | Típus | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Típus | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
-| Megjelenítendő név |X |String |Legfeljebb 25 karakterből álló | |
-| Érték |X |String |Legfeljebb 30 karakter hosszú lehet | |
+| Megjelenítendő név |X |String |Legfeljebb 25 karakterből álló. | |
+| Érték |X |String |Legfeljebb 30 karakter hosszú lehet. | |
 
 ### <a name="html-sanitization"></a>HTML-tisztító
 
-Bármely mező, amely lehetővé teszi, hogy a HTML a következő elemek és attribútumok használata engedélyezett:
+Bármely mező, amely lehetővé teszi, hogy a HTML, a következő [elemek és attribútumok használata engedélyezett](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization):
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
@@ -197,3 +199,8 @@ Ikonok és a szöveg a Marketplace-elemek az Azure Stack portálon látható mó
 ### <a name="marketplace-item-details-blade"></a>Piactéri elem részletei panel
 
 ![Piactéri elem részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+
+## <a name="next-steps"></a>További lépések
+
+* [Az Azure Stack piactéren – áttekintés](azure-stack-marketplace.md)
+* [Piactéri termékek letöltése](azure-stack-download-azure-marketplace-item.md)

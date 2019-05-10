@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: aaa929924399eb7e999bccdaa45e5ae9ce0dfa3a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 9aa090f301a7444736773744215981214e41747e
+ms.sourcegitcommit: eb7ea8aee806b5c770397fa6ccf24cef2d6308bf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985360"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65431523"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack-diagnosztikai eszközök
 
@@ -104,7 +104,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 * Gyűjtsön naplókat azokról a virtuális gép és BareMetal szerepkörök, a dátum szerinti szűrést a naplófájlokon 8 órával ezelőtt és 2 órával ezelőtt között az adott időszakban:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 * Naplók gyűjtése és a megadott Azure Storage blob-tárolóban tárolja őket. Ehhez a művelethez általános szintaxisa a következőképpen történik:
@@ -170,7 +170,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
-  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSMonitoringService  |Tartomány                         |KeyVaultInternalDataPlane      |SeedRingServices|
   |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |

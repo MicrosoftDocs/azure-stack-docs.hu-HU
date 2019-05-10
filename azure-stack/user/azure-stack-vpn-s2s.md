@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 05/07/2019
 ms.author: sethm
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: eb3649beb2acc56663988d2710c633d7032262ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: ab5b0b5ac0e67a2a625285bd37a04b084fa8da0f
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985923"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386605"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>IPsec/IKE-házirend site-to-site VPN-kapcsolatok konfigurálása
 
@@ -104,7 +104,7 @@ A következő táblázat felsorolja a megfelelő, az egyéni házirend által t�
 
 | Diffie-Hellman Group | DHGroup   | PFSGroup      | Kulcshossz    |
 |----------------------|-----------|---------------|---------------|
-| 1                    | DHGroup1  | PFS1          | 768 bites MODP  |
+| 1.                    | DHGroup1  | PFS1          | 768 bites MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 bites MODP |
 | 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048 bites MODP |
 | 19                   | ECP256    | ECP256        | 256 bites ECP   |

@@ -3,25 +3,24 @@ title: Az Azure Stack PowerShell telepítése |} A Microsoft Docs
 description: Ismerje meg az Azure Stack PowerShell telepítése.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 04/13/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/09/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 04/13/2019
-ms.openlocfilehash: d523e981663218f39815e3bfe3911f8c8f4c363f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: a1923c06d31ff32e1c7e5d50e3b70330d16d25c5
+ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293761"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506135"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Az Azure Stack PowerShell telepítése
 
@@ -29,7 +28,7 @@ ms.locfileid: "64293761"
 
 Dolgozunk a felhőben, telepítenie kell az Azure Stack-kompatibilis PowerShell-modulok. Keresztül szolgáltatás engedélyezve van a kompatibilitási *API profilok*.
 
-API-profilok kezeléséhez az Azure és az Azure Stack közötti tartalmaznak. Egy API-verzióprofil egy Azure Resource Manager PowerShell-modulok az adott API-verziókat. Minden felhőalapú platform a támogatott API-verzióprofilok készletével rendelkezik. Például az Azure Stack egy adott profil verziót támogatja például **2018-03-01-hibrid**. Amikor telepít egy profilt, az Azure Resource Manager PowerShell-modulok, amelyek megfelelnek a megadott profil vannak telepítve. Azure Stack-verzió 1811 vagy korábbi használhatók. Az Azure Stack 1901 vagy újabb verzió, a fejlesztők használhatják az AzureRM-modulok **2.4.0** a megfelelő Azure Resource Manager PowerShell-modulok telepítéséhez.
+API-profilok kezeléséhez az Azure és az Azure Stack közötti tartalmaznak. Egy API-verzióprofil egy Azure Resource Manager PowerShell-modulok az adott API-verziókat. Minden felhőalapú platform a támogatott API-verzióprofilok készletével rendelkezik. Például az Azure Stack egy adott profil verziót támogatja például **2018-03-01-hibrid**. Amikor telepít egy profilt, az Azure Resource Manager PowerShell-modulok, amelyek megfelelnek a megadott profil vannak telepítve.
 
 Azure Stack kompatibilis PowerShell-modulok az internethez csatlakoztatott, részben csatlakoztatva vagy leválasztott forgatókönyvek is telepítheti. Ez a cikk végigvezeti a részletes utasításokat a forgatókönyvekben.
 
@@ -97,7 +96,19 @@ Telepítési három lépésből áll:
 
 Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői munkaállomáson telepítendő:
 
-- Az Azure Stack 1901 vagy újabb verziója csak az alábbi két modul telepítése:
+- A buildek 1904-es vagy újabb:
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+    
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Get-AzureRMProfile -Update
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.7.2
+    ```
+  
+- Az Azure Stack 1903 vagy korábbi, csak az alábbi két modul telepítése:
 
     ```powershell  
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -123,21 +134,6 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
-
-- Az Azure Stack 1810 vagy korábbi, telepítse a profilt használó **AzureRM.Bootstrapper**:
-
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0
-    ```
-
-> [!Note]  
-> Frissítése az Azure PowerShell-lel a **2017-03-09-profile** való **2018-03-01-hibrid**, tekintse át a [áttelepítési útmutató](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
 ### <a name="enable-additional-storage-features"></a>További tárolási szolgáltatások engedélyezése
 
@@ -289,4 +285,4 @@ Az Internet eléréséhez proxykiszolgáló használatát igénylő forgatókön
 - [Azure Stack-eszközök letöltése a githubról](azure-stack-powershell-download.md)
 - [Az Azure Stack felhasználói PowerShell-környezet konfigurálása](../user/azure-stack-powershell-configure-user.md)
 - [Az Azure Stack-operátorokról PowerShell-környezet konfigurálása](azure-stack-powershell-configure-admin.md)
-- [API-verzióprofilok kezelése az Azure Stackben](../user/azure-stack-version-profiles.md)
+- [Az Azure Stackben API-verzióprofilok kezelése](../user/azure-stack-version-profiles.md)

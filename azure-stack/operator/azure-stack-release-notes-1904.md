@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1904 frissítése |} A Microsoft Docs
+title: Az Azure Stack 1904 kibocsátási megjegyzései |} A Microsoft Docs
 description: Ismerje meg Azure Stack integrált rendszerek, beleértve az újdonságokat, 1904 frissítésével kapcsolatos ismert problémák, valamint a helyét, a frissítés letöltése.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: fd93ba34b712d5f6c4dc71c226e176f44a7bc6dc
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/06/2019
+ms.openlocfilehash: 7047c44ec4828c07eeaefdf29bcfef3762942b21
+ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987628"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65453730"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -48,6 +48,8 @@ Az Azure Stack 1904 frissítés buildszáma **1.1904.0.36**.
 ### <a name="improvements"></a>Fejlesztései
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
+
+- A frissítés 1904 hasznos Azure Stack az Azure Stack gazdagépek nem tartalmazza az alapul szolgáló operációs rendszer összetevői frissítését tartalmazza. Ez lehetővé teszi az egyes frissítések felvenni a hatókörbe. Ennek eredményeképpen a várt idő vesz igénybe a 1904 frissítés végrehajtásához kevesebb (nagyjából 16 órán át, de a pontos idő változhat). Ez csökkenése futásidejű hasonlít a 1903 frissítést. Azonban ezt követő frissítésekben az operációs rendszert, úgy a különböző modulok frissítéseit is tartalmazhat. Jövőbeli frissítések hasonló útmutatást nyújtanak a frissítés várható idejét az adattartalomban szereplő függően.
 
 - 1904 jelentős fejlesztések történtek a szoftveralapú hálózatkezelés (SDN) stack. Ezek a fejlesztések általános karbantartási és az SDN-verem az Azure Stackben megbízhatóságának növelése érdekében.
 
@@ -159,6 +161,9 @@ A frissítés alkalmazásához, mindenképpen tekintse át a következő inform�
 - [Ismert problémák](azure-stack-release-notes-known-issues-1904.md)
 - [Biztonsági frissítések](azure-stack-release-notes-security-updates-1904.md)
 - [Alkalmazása a frissítés előtti és utáni tevékenységek ellenőrzőlista](azure-stack-release-notes-checklist.md)
+
+> [!NOTE]
+> Ügyeljen arra, hogy a legújabb verzióját használja a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) végrehajtására a számítási feladatok tervezésekor és méretezése. A legújabb verzió hibajavításokat tartalmaz, és olyan megjelent új funkciókat biztosít minden egyes Azure Stack a frissítéssel.
 
 ## <a name="download-the-update"></a>A frissítés letöltése
 

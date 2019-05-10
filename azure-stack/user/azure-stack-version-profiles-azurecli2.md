@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: a0f01a70be83a556dfa0f8839711c2de1e7c688e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/08/2019
+ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
+ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301208"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473876"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-verzióprofilok használata az Azure CLI-vel az Azure Stackben
 
@@ -81,69 +81,20 @@ Beállíthat egy nyilvánosan elérhető végponton, amelyen egy virtuális gép
 
 ### <a name="install-or-upgrade-cli"></a>Telepítse vagy frissítse a parancssori felület
 
-Jelentkezzen be a fejlesztő munkaállomás, és telepítse a parancssori felület. Az Azure Stack 2.0 vagy az Azure CLI-vel újabb verziója szükséges. Az API-profilok legújabb verzióját a CLI aktuális verziója szükséges.  Ismertetett lépéseket követve telepítheti a parancssori felület a [az Azure CLI telepítése](https://docs.microsoft.com/cli/azure/install-azure-cli) cikk. Annak ellenőrzéséhez, hogy a telepítés sikeres volt-e, nyisson meg egy terminált vagy parancssort, és futtassa a következő parancsot:
+Jelentkezzen be a fejlesztő munkaállomás, és telepítse a parancssori felület. Az Azure Stack 2.0 vagy az Azure CLI-vel újabb verziója szükséges. Az API-profilok legújabb verzióját a CLI aktuális verziója szükséges.  Ismertetett lépéseket követve telepítheti a parancssori felület a [az Azure CLI telepítése](https://docs.microsoft.com/cli/azure/install-azure-cli) cikk. 
 
-```shell
-az --version
-```
+1. Annak ellenőrzéséhez, hogy a telepítés sikeres volt-e, nyisson meg egy terminált vagy parancssort, és futtassa a következő parancsot:
 
-Az Azure CLI és a számítógépen telepített függő könyvtárak verzióját kell megjelennie.
-
-### <a name="install-python-on-windows"></a>A Python telepítése Windows
-
-1. Telepítés [a rendszeren a Python 3](https://www.python.org/downloads/).
-
-2. PIP frissítésére. PIP Csomagkezelő Pythonhoz készült. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
-
-    ```powershell  
-    python -m pip install --upgrade pip
+    ```shell
+    az --version
     ```
 
-3. Telepítse a **certifi** modul. [Certifi](https://pypi.org/project/certifi/) modul és a egy legfelső szintű tanúsítványok gyűjteménye megbízhatósága SSL-tanúsítványok érvényesítése közben TLS gazdagép identitásának ellenőrzésére szolgál. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
+    Az Azure CLI és a számítógépen telepített függő könyvtárak verzióját kell megjelennie.
 
-    ```powershell
-    pip install certifi
-    ```
+    ![Az Azure CLI az Azure Stack Python-hely](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-### <a name="install-python-on-linux"></a>A Python telepítése Linux rendszeren
+2. Jegyezze meg a parancssori felület Python-hely. A ASDK futtatásakor meg kell ezen a helyen a tanúsítványt.
 
-1. Python 2.7 verziót és a Python 3.5-ös alapértelmezés szerint az Ubuntu 16.04-lemezképet tartalmaz. A Python 3-as verzió a következő parancs futtatásával ellenőrizheti:
-
-    ```bash  
-    python3 --version
-    ```
-
-2. PIP frissítésére. PIP Csomagkezelő Pythonhoz készült. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. Telepítse a **certifi** modul. [Certifi](https://pypi.org/project/certifi/) gyűjteménye, legfelső szintű tanúsítványok az SSL-tanúsítványok megbízhatósága ellenőrzése közben a TLS-gazdagép identitásának ellenőrzésére. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
-
-    ```bash
-    pip3 install certifi
-    ```
-
-### <a name="install-python-on-macos"></a>A Python telepítése macOS rendszeren
-
-1. Telepítés [a rendszeren a Python 3](https://www.python.org/downloads/). A Python 3.7 kiadásokhoz Python.org letöltési két bináris telepítő lehetőséget biztosít. Az alapértelmezett változat 64-bit-csak, és macOS (Mavericks) 10.9 és újabb rendszereken működik. A python-verzió ellenőrzéséhez nyissa meg a terminált, és a következő parancs beírásával:
-
-    ```bash  
-    python3 --version
-    ```
-
-2. PIP frissítésére. PIP Csomagkezelő Pythonhoz készült. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. Telepítse a **certifi** modul. [Certifi](https://pypi.org/project/certifi/) modul és a egy legfelső szintű tanúsítványok gyűjteménye megbízhatósága SSL-tanúsítványok érvényesítése közben TLS gazdagép identitásának ellenőrzésére szolgál. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
-
-    ```bash
-    pip3 install certifi
-    ```
 
 ## <a name="windows-azure-ad"></a>Windows (az Azure AD)
 
@@ -153,15 +104,20 @@ Ez a szakasz végigvezeti beállítása CLI Ha használja az Azure AD, az identi
 
 A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató tanúsítványát a távoli gépen kell. Nem kell ehhez az integrált rendszerekkel.
 
-Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatónak, hozzáfűzése a meglévő Python-tanúsítványt.
+Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatóként hozzáfűzése a meglévő Python-tanúsítvány telepítése az Azure CLI-vel a Python-verzió. Előfordulhat, hogy a saját Python-példányt futtató. Az Azure parancssori felület Python saját verzióját tartalmazza.
 
-1. Keresse meg a tanúsítvány helye a gépen. A hely eltérőek lehetnek attól függően, hol telepítette a Python. Nyisson meg egy parancssort, vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
+1. Keresse meg a tanúsítvány helye a gépen.  A hely találhatja meg a következő parancs futtatásával `az --version`.
+
+2. Lépjen abba a mappába, amely tartalmazza azt a parancssori felület Python-alkalmazás használ. Érdemes a python verzióját futtatják. Ha a rendszer elérési ÚTJA állította be a Python, a Python futtatásának végrehajtja Python saját verzióját. Ehelyett érdemes a CLI által használt verziója fut, és adja hozzá a tanúsítvány azt a verziót. A parancssori felület Python lehet például: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+
+    A következő parancsokat használja:
 
     ```powershell  
-      python -c "import certifi; print(certifi.where())"
+    cd "c:\pathtoyourcliversionofpython"
+    .\python -c "import certifi; print(certifi.where())"
     ```
 
-    Jegyezze fel a tanúsítvány helye. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Az operációs rendszer és a Python telepített verzióját az adott elérési út függ.
+    Jegyezze fel a tanúsítvány helye. Például: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Az adott elérési út az operációs rendszer és a CLI telepítés függ.
 
 2. Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatósági a meglévő Python-tanúsítvány hozzáfűzésével.
 
@@ -212,7 +168,7 @@ Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatónak, 
     | Környezet neve | AzureStackUser | Használat `AzureStackUser` a felhasználói környezet. Ha Ön operátor, adja meg `AzureStackAdmin`. |
     | Resource Manager-végpont | https://management.local.azurestack.external | A **ResourceManagerUrl** van az Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` A **ResourceManagerUrl** integrált rendszerek van: `https://management.<region>.<fqdn>/` A szükséges metaadatokat lekéréséhez: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Ha a rendszer integrált végpont kérdése van, lépjen kapcsolatba a felhő üzemeltetője. |
     | Storage-végpont | local.azurestack.external | `local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
-    | Keyvalut utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
+    | Keyvault-utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
     | Virtuálisgép-lemezkép alias doc végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-lemezkép aliasok tartalmazó dokumentum URI-t. További információkért lásd: [### állítsa be a virtuális gép aliasok végpontjának](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -228,7 +184,7 @@ Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatónak, 
 1. Frissítés az Ön környezetének konfigurációját az Azure Stack meghatározott API verzió profil használatára. Frissítse a konfigurációt, futtassa a következő parancsot:
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
@@ -332,7 +288,7 @@ A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató t
     | Környezet neve | AzureStackUser | Használat `AzureStackUser` a felhasználói környezet. Ha Ön operátor, adja meg `AzureStackAdmin`. |
     | Resource Manager-végpont | https://management.local.azurestack.external | A **ResourceManagerUrl** van az Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` A **ResourceManagerUrl** integrált rendszerek van: `https://management.<region>.<fqdn>/` A szükséges metaadatokat lekéréséhez: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Ha a rendszer integrált végpont kérdése van, lépjen kapcsolatba a felhő üzemeltetője. |
     | Storage-végpont | local.azurestack.external | `local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
-    | Keyvalut utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
+    | Keyvault-utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
     | Virtuálisgép-lemezkép alias doc végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-lemezkép aliasok tartalmazó dokumentum URI-t. További információkért lásd: [### állítsa be a virtuális gép aliasok végpontjának](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -408,7 +364,7 @@ A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató t
 
 Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatósági a meglévő Python-tanúsítvány hozzáfűzésével.
 
-1. Keresse meg a tanúsítvány helye a gépen. A hely eltérőek lehetnek attól függően, hol telepítette a Python. A pip és a certifi kell [modul](#install-python-on-linux). A bash használatával a következő Python-parancsot használhatja:
+1. Keresse meg a tanúsítvány helye a gépen. A hely eltérőek lehetnek attól függően, hol telepítette a Python. Szüksége lesz a pipet és a certifi modul telepítve van. A bash használatával a következő Python-parancsot használhatja:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -448,7 +404,7 @@ A következő lépések segítségével csatlakozhat az Azure Stack:
     | Környezet neve | AzureStackUser | Használat `AzureStackUser` a felhasználói környezet. Ha Ön operátor, adja meg `AzureStackAdmin`. |
     | Resource Manager-végpont | https://management.local.azurestack.external | A **ResourceManagerUrl** van az Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` A **ResourceManagerUrl** integrált rendszerek van: `https://management.<region>.<fqdn>/` A szükséges metaadatokat lekéréséhez: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Ha a rendszer integrált végpont kérdése van, lépjen kapcsolatba a felhő üzemeltetője. |
     | Storage-végpont | local.azurestack.external | `local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
-    | Keyvalut utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
+    | Keyvault-utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
     | Virtuálisgép-lemezkép alias doc végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-lemezkép aliasok tartalmazó dokumentum URI-t. További információkért lásd: [### állítsa be a virtuális gép aliasok végpontjának](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -519,7 +475,7 @@ A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató t
 
 Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatósági a meglévő Python-tanúsítvány hozzáfűzésével.
 
-1. Keresse meg a tanúsítvány helye a gépen. A hely eltérőek lehetnek attól függően, hol telepítette a Python. A pip és a certifi kell [modul](#install-python-on-linux). A bash használatával a következő Python-parancsot használhatja:
+1. Keresse meg a tanúsítvány helye a gépen. A hely eltérőek lehetnek attól függően, hol telepítette a Python. Szüksége lesz a pipet és a certifi modul telepítve van. A bash használatával a következő Python-parancsot használhatja:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -559,7 +515,7 @@ A következő lépések segítségével csatlakozhat az Azure Stack:
     | Környezet neve | AzureStackUser | Használat `AzureStackUser` a felhasználói környezet. Ha Ön operátor, adja meg `AzureStackAdmin`. |
     | Resource Manager-végpont | https://management.local.azurestack.external | A **ResourceManagerUrl** van az Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/` A **ResourceManagerUrl** integrált rendszerek van: `https://management.<region>.<fqdn>/` A szükséges metaadatokat lekéréséhez: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Ha a rendszer integrált végpont kérdése van, lépjen kapcsolatba a felhő üzemeltetője. |
     | Storage-végpont | local.azurestack.external | `local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
-    | Keyvalut utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
+    | Keyvault-utótag | .vault.local.azurestack.external | `.vault.local.azurestack.external` a ASDK szól. Egy integrált rendszer érdemes a rendszer egy végpontot használja.  |
     | Virtuálisgép-lemezkép alias doc végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-lemezkép aliasok tartalmazó dokumentum URI-t. További információkért lásd: [### állítsa be a virtuális gép aliasok végpontjának](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  

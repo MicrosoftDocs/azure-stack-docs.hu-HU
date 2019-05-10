@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: da0740cd416af26f3e9c284c2ff405d6e06ffcb7
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296863"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172641"
 ---
 # <a name="azure-stack-capacity-planner"></a>Az Azure Stack Capacity Planner
 Az Azure Stack Capacity Planner egy táblázatot, használja az Azure Stack resource kapacitástervezés. A capacity planner lehetőséget nyújt a számítási erőforrások különböző hozzárendelések tervezéséhez, és tekintse meg, hogyan ezek lenne elférjenek hardver ajánlatok kijelölés. Az Azure Stack Számológép használatára vonatkozó részletes útmutatást az alábbiakban találhatók.
@@ -32,7 +32,7 @@ Az alábbiakban röviden összefoglalja a munkalapok az Azure Stack Capacity Pla
 |Lap neve|Leírás|
 |-----|-----|
 |Verzió-jogi nyilatkozat|A kalkulátor, a verziószámot és a kiadott dátum célja rövid áttekintést.|
-|Utasítások|Az Azure Stack Capacity Planner használata részletes útmutatást nyújt.|
+|Útmutatás|Az Azure Stack Capacity Planner használata részletes útmutatást nyújt.|
 |DefinedSolutionSKUs|Többoszlopos tábla, amely legfeljebb öt hardver kapcsolatos definíciókat tartalmazza. Ebben a táblázatban szerepelnek példák. A célja, hogy a felhasználó módosíthatja-e a használatra tekinti a rendszer konfigurációját, vagy vásároljon részletei.|
 |DefineByVMFootprint|Keresse meg a megfelelő hardver SKU hozzon létre egy gyűjteményt a különböző méretű és virtuális gépek mennyiségét.|
 |DefineByWorkloadFootprint|Keresse meg a megfelelő hardver SKU hoz létre az Azure Stack-munkaterhelések gyűjteménye.|

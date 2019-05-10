@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 027ecdee933a7f63be506f93b108071cabc34b71
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f9678374d07dfad78b7d8fe0cf66c02ea1ccd5be
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983820"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172413"
 ---
 # <a name="connect-to-the-asdk"></a>Csatlakozás a ASDK
 
@@ -101,7 +101,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Ha a telepítés sikeres, **azurestack** a VPN-kapcsolatok listájában jelenik meg.
+Ha a telepítés sikeres, **Azure Stack** a VPN-kapcsolatok listájában jelenik meg.
 
 ![Hálózati kapcsolatok](media/asdk-connect/vpn.png)  
 
@@ -116,7 +116,7 @@ Ha a telepítés sikeres, **azurestack** a VPN-kapcsolatok listájában jelenik 
       -Password $Password
     ```
 
-  * Válassza ki a helyi számítógépen **hálózati beállítások** > **VPN** > **azurestack** > **csatlakoztatása**. A bejelentkezési parancssorba írja be a felhasználónevet (**AzureStack\AzureStackAdmin**) és a jelszót.
+  * Válassza ki a helyi számítógépen **hálózati beállítások** > **VPN** > **Azure Stack** > **csatlakoztatása**. A bejelentkezési parancssorba írja be a felhasználónevet (**AzureStack\AzureStackAdmin**) és a jelszót.
 
 Az első csatlakozás alkalmával a kéri az Azure Stack főtanúsítványának a telepítendő **AzureStackCertificateAuthority** a helyi számítógép tanúsítványtárolójában. Ebben a lépésben ASDK hitelesítésszolgáltató (CA) hozzáadása a megbízható gazdagépek listájához. Kattintson a **Igen** a tanúsítvány telepítéséhez.
 
@@ -133,4 +133,4 @@ Jelentkezzen be a megfelelő előfizetést hitelesítő adataival az erőforrás
 
 ## <a name="next-steps"></a>További lépések
 
-[hibaelhárítással](asdk-troubleshooting.md)
+[Hibaelhárítás](asdk-troubleshooting.md)

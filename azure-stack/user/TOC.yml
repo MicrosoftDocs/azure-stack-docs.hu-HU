@@ -27,7 +27,8 @@
           href: azure-stack-subscribe-services.md
         - name: Virtuális gép létrehozása sablonból
           href: azure-stack-create-vm-template.md
-    - name: Hibrid felhő minták
+    - name: Hibrid felhőalkalmazások
+      href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
           href: azure-stack-solution-pipeline.md
@@ -185,7 +186,7 @@
                   href: azure-stack-version-profiles-java.md
                 - name: Azure CLI
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: Indítás
+                - name: Ugrás
                   href: azure-stack-version-profiles-go.md
                 - name: Ruby
                   href: azure-stack-version-profiles-ruby.md
@@ -222,6 +223,8 @@
               href: azure-stack-deploy-template-portal.md
             - name: Üzembe helyezés a PowerShell-lel
               href: azure-stack-deploy-template-powershell.md
+            - name: Üzembe helyezés a parancssori felület
+              href: azure-stack-deploy-template-command-line.md
             - name: Üzembe helyezés a Visual Studióval
               href: azure-stack-deploy-template-visual-studio.md
     - name: Felhőszolgáltató engedélyezése

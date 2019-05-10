@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6ef30cc182160f1065f8e98a91208f067e5ae353
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 13ed98041c1bb6ae914a0f03c9ef109011be0471
+ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983843"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506068"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK telepítés utáni konfigurációs feladatok
 
-Miután [telepítése az Azure Stack Development Kit (ASDK)](asdk-install.md), meg kell néhány ajánlott telepítés utáni konfigurációs módosítások jelentkezve AzureStack\AzureStackAdmin ASDK a gazdagépen. 
+Miután [telepítése az Azure Stack Development Kit (ASDK)](asdk-install.md), meg kell néhány ajánlott telepítés utáni konfigurációs módosítások közben a ASDK gazdagépen AzureStack\AzureStackAdmin néven jelentkezett be. 
 
 ## <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
 
@@ -46,7 +46,19 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
 
 - **Internetkapcsolattal rendelkező** ASDK állomásról. Futtassa a következő PowerShell-parancsfájlt a development kit telepítésen ezeket a modulokat telepíteni:
 
-- Az Azure Stack 1901 vagy újabb verziója:
+- A buildek 1904-es vagy újabb:
+
+    ```powershell  
+      # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+      Install-Module -Name AzureRM.BootStrapper
+      
+      # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+      Get-AzureRMProfile -Update
+      Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+      Install-Module -Name AzureStack -RequiredVersion 1.7.2
+    ```
+
+- Az Azure Stack 1903 vagy korábbi, csak az alábbi két modul telepítése:
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -68,19 +80,6 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
 
     # Install Azure Stack Module Version 1.6.0.
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
-    ```
-
-  - Az Azure Stack 1810 vagy korábbi:
-
-    ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    # Install Azure Stack Module Version 1.5.0.
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
   Ha a telepítés sikeres, a kimenetben az AzureRM- és AzureStack modulok jelennek meg.

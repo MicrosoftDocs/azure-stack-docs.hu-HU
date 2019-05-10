@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: aad953cdc210a213e0a3dd2ddc8a983d71ca53cf
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f0aef7d1699065664f2013076ed2b12b24a06d4d
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984044"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172444"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Az Azure Stack Development Kit (ASDK) telepítése
 Miután [a ASDK számítógép előkészítése](asdk-prepare-host.md), a ASDK is üzembe helyezhetők az alábbi lépéseket követve ebben a cikkben a CloudBuilder.vhdx lemezképpel.
@@ -42,7 +42,7 @@ A jelen cikkben ismertetett lépések bemutatják, hogyan helyezhet üzembe a gr
 
     ![](media/asdk-install/2.PNG) 
   
-   Ha úgy dönt, hogy az Azure-előfizetés identitásszolgáltatókhoz, szüksége van-e internetkapcsolat, a teljes neve az Azure AD directory-bérlő formájában *domainname*. onmicrosoft.com vagy egy Azure AD ellenőrizte az egyéni tartomány nevét és globális a megadott könyvtár rendszergazdai hitelesítő adataival.<br><br>Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen újbóli regisztrációra a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.<br><br>Az AD FS használata Identitásszolgáltatóként, az alapértelmezett stamp címtárszolgáltatás szolgál. Jelentkezzen be az alapértelmezett fiók azurestackadmin@azurestack.local, és a jelszó használata a telepítés során megadottal.
+   Ha úgy dönt, hogy az Azure-előfizetés identitásszolgáltatókhoz, szüksége van-e internetkapcsolat, a teljes neve az Azure AD directory-bérlő formájában *domainname*. onmicrosoft.com vagy egy Azure AD ellenőrizte az egyéni tartomány nevét és globális a megadott könyvtár rendszergazdai hitelesítő adataival.<br><br>Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen érvényességének visszaállítása a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.<br><br>Az AD FS használata Identitásszolgáltatóként, az alapértelmezett stamp címtárszolgáltatás szolgál. Jelentkezzen be az alapértelmezett fiók azurestackadmin@azurestack.local, és a jelszó használata a telepítés során megadottal.
 
    > [!NOTE]
    > A legjobb eredmények érdekében még akkor is, ha az AD FS használata Identitásszolgáltatóként, kapcsolat nélküli Azure Stack-környezet használni kívánt célszerű telepíteni a ASDK, ha az internethez csatlakozik. Ezzel a módszerrel a development kit telepítést része a Windows Server 2016 próbaverzió a központi telepítéskor aktiválható.

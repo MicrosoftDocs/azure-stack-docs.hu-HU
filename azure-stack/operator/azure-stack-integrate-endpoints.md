@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 05/02/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 1f87633568a5a66c016b53f062f11ca733730092
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 262b1790b102483daca1a77d475815b34aa7a1b2
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985227"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097114"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Az Azure Stack adatközpont integrációja – végpontok közzététele
 
@@ -73,9 +73,9 @@ Az Azure Stack csak transzparens proxy kiszolgálók támogatja. A központi tel
 
 |Cél|Destination URL|Protocol|Portok|Forráshálózat|
 |---------|---------|---------|---------|---------|
-|Identitás|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|
+|Azonosító|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|
 |Marketplace-en szindikálás|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
-|Javítás & frissítése|https://&#42;.azureedge.net|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
+|Javítás & frissítése|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
 |Regisztráció|https:\//management.azure.com|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
 |Használat|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Nyilvános virtuális IP - / 27-eset|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*. jövőben a Microsoft<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|

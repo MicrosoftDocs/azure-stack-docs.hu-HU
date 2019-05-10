@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9cfb61f5aca9d3e00f5ad6e07151e62fb4a70a60
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
+ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984718"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65030539"
 ---
 # <a name="azure-stack-servicing-policy"></a>Az Azure Stack karbantartási szabályzat
 
@@ -66,9 +66,9 @@ Gyorsjavítások letölthető és telepíthető csakúgy, mint a rendszeres telj
 
 ## <a name="keep-your-system-under-support"></a>A rendszer a támogatás
 
-A folytatáshoz szeretne támogatást kapni az Azure Stack üzemelő példányához kell tartania, aktuális. A frissítések késleltetésének házirend van: Az Azure Stack üzembe helyezés támogatása megmarad, kell a legutóbb kiadott frissített verzió, vagy futtathatja az alábbiak közül a két előző frissítési verziók. Gyorsjavítások nem veszi figyelembe a nagyobb frissítési verziókat. Ha az Azure Stack-felhő mögött *több mint két frissítések*, azt a megfelelő számít, és frissítenie kell a legalább a minimális támogatott verziót szeretne támogatást kapni.
+A folytatáshoz szeretne támogatást kapni az Azure Stack üzemelő példányához kell tartania, aktuális. A frissítések késleltetésének házirend: támogatási megőrzési ideje az Azure Stack üzemelő frissítés nemrég kiadott verzióját futtató vagy a két előző frissítési verziók valamelyikével kell azt. Gyorsjavítások nem veszi figyelembe a nagyobb frissítési verziókat. Ha az Azure Stack-felhő mögött *több mint két frissítések*, azt a megfelelő számít, és frissítenie kell a legalább a minimális támogatott verziót szeretne támogatást kapni.
 
-Például ha a rendelkezésre álló legfrissebb frissített verziót 1805, és az előző két frissítési csomagokat is 1804 és 1803 verziója, 1803 és 1804 is maradnak támogatása. Azonban az 1802, nem támogatott. A szabályzat igaznak, ha egy hónapban, vagy két nincs kiadási. Például a jelenlegi kiadásban 1805, és nincs 1804 kiadás volt, az előző két frissítési csomagokat 1803 és 1802 továbbra is támogatott.
+Például ha a rendelkezésre álló legfrissebb frissített verziót 1904, és az előző két frissítési csomagokat is 1903 és 1902 verziója, 1902 és 1903 is maradnak támogatása. Azonban 1901, nem támogatott. A szabályzat igaznak, ha egy hónapban, vagy két nincs kiadási. Például a jelenlegi kiadásban 1807, és nincs 1806 kiadás volt, az előző két frissítési csomagokat 1805 és 1804 továbbra is támogatott.
 
 A szoftverfrissítési csomagokat a Microsoft nem összesítő és a korábbi frissítési csomag vagy gyorsjavítás előfeltételként szükséges. Ha úgy dönt, hogy egy vagy több frissítések késleltetése, fontolja meg a teljes runtime, ha szeretne kapni a legújabb verzióra.
 

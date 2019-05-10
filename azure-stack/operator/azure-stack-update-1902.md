@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 719fa829f5dca122fdb219608c5b40aa255297c8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: a220bdef3a1243510bf7d9ace5991cd638c93f28
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984098"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65387139"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 frissítése
 
@@ -123,6 +123,9 @@ Az Azure Stack-gyorsjavítások csak alkalmazhatók az Azure Stackkel integrált
 - Fejlesztések hardverleltározást a Get-AzureStackStampInformation.
 
 - ERCS infrastruktúrán futó műveletek megbízhatóságának javítása érdekében a memória ERCS példányonként növeli a 8 GB-tól 12 GB. Az Azure Stackkel integrált rendszerek telepítés esetén az eredmény egy 12 GB-os növekedést teljes.
+
+<!-- 110303935 IcM Reported by HKEX -->
+- 1902 javít egy problémát a hálózati vezérlők VSwitch szolgáltatás, amely az adott csomóponton lévő összes virtuális gép offline állapotba.  A probléma miatt nem elsődleges adatveszteség állapotba, ha az elsődleges nem érhető el, de a szerepkör nem lett feladatátadása megtörtént egy másik, megfelelő példányához, amely kapcsolatba lép a Microsoft támogatási szolgálatához csak oldható elakad.
 
 > [!IMPORTANT]
 > Ahhoz, hogy a javítási és frissítési folyamat a lehető legkevesebb bérlői állásidőt eredményez, ellenőrizze, hogy az Azure Stack-blokk 12 GB-nál több szabad terület a rendelkezik a **kapacitás** panelen. Láthatja, hogy ez a memória növelése megjelennek a **kapacitás** panelen a frissítés sikeres telepítése után.
@@ -226,6 +229,8 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
    - Egy több-bérlős környezet van beállítva, ha a virtuális gépek üzembe helyezéséhez egy adott előfizetéshez tartozó és a Vendég címtár egy belső hiba miatt meghiúsulhat. A hiba elhárításához kövesse az alábbi lépéseket a [Ez a cikk](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) újrakonfigurálása a Vendég címtárak mindegyike.
 
 - Egy Ubuntu 18.04 létrehozott virtuális gép SSH-engedélyezési engedélyezve van a nem teszi lehetővé, hogy jelentkezzen be az SSH-kulcsok használata. Áthidaló megoldásként használja a Linux-bővítményt a Virtuálisgép-hozzáférés SSH-kulcsok megvalósításához a kiépítés után, vagy jelszóalapú hitelesítés használatára.
+
+- A méretezési készlet nem távolítható el a **Virtual Machine Scale Sets** panelen. Áthidaló megoldásként válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
 
 ### <a name="networking"></a>Hálózat  
 

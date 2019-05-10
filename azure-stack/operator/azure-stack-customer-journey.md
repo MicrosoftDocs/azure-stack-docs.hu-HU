@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 55439e1af1a5244c265572bfe6d01b26800312db
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b68618bf1755310471901e89b8b154e34e3c0794
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172714"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Az Azure Stack adatközpont integrációja
 
@@ -33,7 +33,7 @@ Az Azure Stack ügyfélként kell várhatóan az alábbi lépéseket:
 |-----|-----|-----|-----|-----|-----|-----|
 |**Microsoft**|Partner bevonása a vásárlás előtti támogatás biztosításához.|Készítse elő a szoftverlicencelés és szerződések igény szerint.|Adja meg a szükséges eszközök, adatközpont integrációs követelményeinek és a dokumentáció gyűjtéséhez az ügyfél.|Adja meg a legújabb alapkonfiguráció buildek és eszközt lánc frissítések havi kiadása ütemben történik.|–|A Microsoft támogatási szakemberei segítséget nyújt az összes üzembe helyezési problémák.|
 |**Partner**|Javasolt megoldási lehetőségeket az ügyfelek igényei alapján.<br><br>A koncepció igazolása (POC) javaslatot, ha szükséges.<br><br>Üzleti kapcsolatot létesíteni.<br><br>Döntse el, a támogatási szint.|Készítse elő a szükséges szerződéseket az ügyfélnél.<br><br>Vevői beszerzési rendelés létrehozása.<br><br>Döntse el, szállítási eseményeket egy idővonalon megjelenítve.<br><br>Csatlakozás a Microsoft-ügyfél, szükség esetén.|Adja meg az ügyfél a szükséges képzés biztosítása az összes üzembe helyezési Előfeltételek és a datacenter ismeretekkel integrálási lehetőségek.<br><br>Segítséget nyújt az ügyfél-érvényesítéssel tapasztalható a begyűjtött adatok teljességét és pontosságának biztosítása érdekében.|A alkalmazni a legutóbbi ellenőrzött alapkonfiguráció build.<br><br>A alkalmazni a szükséges a Microsoft központi telepítési eszközkészlet.|Adjon ki kiváló hardvert, hogy az ügyfél telephelyén.|A központi telepítés helyszíni mérnökként kezeli.<br><br>Állvány és a stack.<br><br>Hardver életciklus-gazdagép (HLH) telepítése.<br><br>Az Azure Stack üzemelő példányához.<br><br>Aktuális ügyfélnek ki.|
-|**Ügyfél**|Importálni kívánt használati esetek ismertetik, és adja meg a követelményeknek.|A számlázási modellt használja, tekintse át és hagyja jóvá a szerződések meghatározására.|Végezze el az üzembe helyezés munkalap, és győződjön meg, hogy az összes üzembe helyezési Előfeltételek fennállnak és készen áll a központi telepítés.|–|Készítse elő a datacenter úgy, hogy minden szükséges power és hűtéssel szegély kapcsolat és egyéb szükséges adatközpont integrációja követelmény teljesülnek.|-Előfizetés hitelesítő adatait, és támogatja a megadott adatokkal kapcsolatos kérdések esetén üzembe helyezés során érhetők el.|
+|**Ügyfél**|Importálni kívánt használati esetek ismertetik, és adja meg a követelményeknek.|A számlázási modellt használja, tekintse át és hagyja jóvá a szerződések meghatározására.|Végezze el a [üzembehelyezési munkalap](azure-stack-deployment-worksheet.md), és ellenőrizze, hogy az összes üzembe helyezési Előfeltételek a következők fennállnak és telepítésre készen áll.|–|Készítse elő a datacenter úgy, hogy minden szükséges power és hűtéssel szegély kapcsolat és egyéb szükséges adatközpont integrációja követelmény teljesülnek.|-Előfizetés hitelesítő adatait, és támogatja a megadott adatokkal kapcsolatos kérdések esetén üzembe helyezés során érhetők el.|
 | | | | | | | |
 
 

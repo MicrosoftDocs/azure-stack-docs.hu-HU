@@ -16,12 +16,12 @@ ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 981e16fdcf636f6fbe587896f45c31bf4ac59900
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: cfa4ec1209e78d8e7281048b6d6685ac5488734d
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985629"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097064"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack csatlakozni az Azure VPN használatával
 
@@ -29,7 +29,7 @@ ms.locfileid: "64985629"
 
 Ez a cikk bemutatja, hogyan hozhat létre az Azure Stack egy virtuális hálózat csatlakoztatása egy virtuális hálózatot az Azure-ban a site-to-site VPN.
 
-## <a name="before-you-begin"></a>Előzetes teendők
+## <a name="before-you-begin"></a>Előkészületek
 
 A kapcsolat konfigurációját, győződjön meg arról, hogy rendelkezik a következőkkel, mielőtt elkezdené:
 
@@ -51,8 +51,8 @@ A hálózati konfiguráció példák táblázatban példák ebben a cikkben hasz
 |Virtuális hálózat neve     |Azs-VNet|AzureVNet |
 |Virtuális hálózat címtere |10.1.0.0/16|10.100.0.0/16|
 |Alhálózat neve     |Előtér|Előtér|
-|Alhálózati címtartomány|10.1.0.0/24 |10.100.0.0/24 |
-|Átjáró alhálózata     |10.1.1.0/24|10.100.1.0/24|
+|Alhálózat címtartománya|10.1.0.0/24 |10.100.0.0/24 |
+|Átjáróalhálózat     |10.1.1.0/24|10.100.1.0/24|
 
 ## <a name="create-the-network-resources-in-azure"></a>A hálózati erőforrások létrehozása az Azure-ban
 
@@ -233,9 +233,9 @@ A VPN-kapcsolat ellenőrzéséhez hozzon létre két virtuális gépet: az Azure
 6. Adjon meg egy **előfizetés**, **erőforráscsoport**, és **hely**, majd válassza ki **OK**.
 7. Az a **mérete** szakaszban, ehhez a példányhoz válassza ki a virtuális gép méretét, és válassza ki **kiválasztása**.
 8. Az a **beállítások** területen fogadja el az alapértelmezett értéket. Győződjön meg arról, hogy a **Azs-VNet** virtuális hálózat van kiválasztva. Győződjön meg arról, hogy az alhálózat beállítása pedig **10.1.0.0/24**. Ezután kattintson az **OK** gombra.
-9. Az a **összefoglalás** szakaszt, tekintse át a beállításokat, és válassza ki * OK ** gombra.
+9. Az a **összefoglalás** szakaszt, tekintse át a beállításokat, és válassza ki **OK**.
 
-## <a name="test-the-connection"></a>A kapcsolat tesztelése
+## <a name="test-the-connection"></a>Kapcsolat tesztelése
 
 A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irányban áramló adatok kérheti. A kapcsolat tesztelése a legegyszerűbb módja,-ping teszt elvégzésével:
 

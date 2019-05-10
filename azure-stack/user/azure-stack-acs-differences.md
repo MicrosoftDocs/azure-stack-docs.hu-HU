@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 3d1fb9e7a3d25e9eeab0f1f2a0cc1a48ed6112a2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: e2bfea5cb7bb068a4cf3ca64dc3852b450a37066
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985983"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097087"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Az Azure Stack-tár: Különbségek és szempontok
 
@@ -38,9 +38,9 @@ Ez a cikk az Azure Storage szolgáltatások ismert Azure Stack Storage különbs
 |Az Azure storage service encryption az inaktív adatok|256 bites AES-titkosítás. Támogatja a titkosítást, felhasználó által kezelt kulcsok használata a Key Vaultban.|BitLocker 128 bites AES-titkosítást. Titkosítás az ügyfél által kezelt kulcsok használata nem támogatott.
 |Tárfiók típusa|Általános célú V1, V2 és Blob storage-fiókok|Csak általános célú V1.
 |Replikációs beállítások|Helyileg redundáns tárolás, georedundáns tárolás, georedundáns írásvédett tárolás és zónaredundáns tárolás|Helyileg redundáns tárolás.
-|Prémium szintű Storage|Teljes mértékben támogatott.|Bővítheti, de nincs teljesítményszint vagy garantálja.
+|Prémium szintű Storage|Nagy teljesítményű és kis késésű tárolási kapacitás biztosítása. Csak a prémium szintű storage-fiókok támogatják a lapblobokat.|Bővítheti, de nincs teljesítményszint vagy garantálja. Nem lenne letiltása a blokkblobokat, hozzáfűző blobok, táblák és üzenetsorok, a prémium szintű storage-fiókok.
 |Felügyelt lemezek|Prémium és standard szintű támogatott|1808 vagy újabb verzió használata esetén támogatott.
-|A blob neve|1024 karakter hosszúságú (2048 bájt)|880 karakter (1,760 bájt)
+|Blob neve|1024 karakter hosszúságú (2048 bájt)|880 karakter (1,760 bájt)
 |Block blob maximális mérete|4,75 TB (100 MB X 50 000 blokk)|Az 1802-es frissítés vagy újabb verzió 4,75 TB (100 MB x 50 000 blokk) 50 000 x 4 MB (KB. 195 GB), a korábbi verziók.
 |Blob pillanatkép-másolás lap|Biztonsági mentés nem felügyelt virtuális Géphez csatolt Azure lemezeken futó virtuális gépek támogatott|Még nem támogatott.
 |Blob növekményes pillanatkép-másolás lap|Prémium és standard oldala az Azure-blobok támogatott|Még nem támogatott.

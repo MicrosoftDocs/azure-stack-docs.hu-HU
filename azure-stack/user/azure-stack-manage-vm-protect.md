@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 3a58ada2d8b6d392ba8fb3ec6099ffa4d7114cfa
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 23eb807b8ce1930a0eac30603eae74af87b6ee2c
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985857"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172708"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Az Azure Stack üzembe helyezett virtuális gépek védelme
 
@@ -155,7 +155,7 @@ Az Azure Stack üzemelő példány fontos szempontjai:
 | Replikálás és feladatátvételi virtuális gépek egy külön Azure Stack-példányt | Ajánlott | A feladatátvételi esetben szüksége lesz egy második teljesen működőképes Azure Stack-felhővel rendelkezik, kiterjesztett alkalmazás állásidő elkerülése érdekében. |
 | Replikálás és feladatátvételi virtuális gépek közvetlenül az Azure-ban vagy egy megbízható szolgáltató | Ajánlott | Mindaddig, amíg az adatvédelem és a szabályozási követelményeknek is megfelel, replikálja az adatokat globális Azure-ban vagy egy megbízható szolgáltató. Ideális esetben a szolgáltató is fut-e az Azure Stack így konzisztencia működési élményt nyújt a feladatátvételt követően. |
 | Az alkalmazás adatait az azonos Azure Stack-felhőben lévő biztonsági mentési cél üzembe helyezése | Nem ajánlott. | Kerülje a azonos Azure Stack-felhőben lévő biztonsági másolatok tárolásához. A felhő nem tervezett üzemkimaradások megmaradhat az elsődleges és a biztonsági mentési adatokat. Ha szeretné üzembe helyezni a biztonsági mentési cél (optimalizálást a biztonsági mentési és visszaállítási célokra) egy olyan virtuális berendezésre, választja, gondoskodnia kell minden adatot folyamatosan másol egy külső biztonsági mentési helyre. |
-| Fizikai tartalék készülék, ahol az Azure Stack megoldás telepítve van-e az azonos rack üzembe helyezése | Nem támogatott | Ezen a ponton az időben bármely egyéb eszközök nem lehet csatlakozni, amelyek nem részei az eredeti megoldásban kapcsolók tetején. |
+| Fizikai tartalék készülék, ahol az Azure Stack megoldás telepítve van-e az azonos rack üzembe helyezése | Érvénytelen érték | Ezen a ponton az időben bármely egyéb eszközök nem lehet csatlakozni, amelyek nem részei az eredeti megoldásban kapcsolók tetején. |
 
 ## <a name="next-steps"></a>További lépések
 

@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 68ba971ada087bed31a65db037963b601953f1c6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296599"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386624"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Ajánlat delegálása az Azure Stackben
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Az Azure Stack-operátorokról, milyen gyakran szeretné mások regisztráló felhasználók és előfizetések létrehozása. Például ha Ön a szolgáltató, érdemes lehet a viszonteladók számára a felhasználók regisztrálása és kezelheti azokat az Ön nevében is. Vagy már a vállalat egy központi informatikai csoport része, előfordulhat, hogy szeretné-e felhasználói regisztrációkor más informatikai munkatársakkal való delegálására.
+Az Azure Stack operátorait, előfordulhat, hogy szeretné mások regisztráló felhasználók és előfizetések létrehozása. Például ha Ön a szolgáltató, érdemes lehet a viszonteladók számára a felhasználók regisztrálása és kezelheti azokat az Ön nevében is. Vagy már a vállalat egy központi informatikai csoport része, előfordulhat, hogy szeretné-e felhasználói regisztrációkor más informatikai munkatársakkal való delegálására.
 
 Delegálás megkönnyíti a érhet el és kezelheti a több felhasználó ezt úgy teheti meg saját maga is, mint az alábbi ábrán látható módon:
 
@@ -34,9 +34,7 @@ Delegálás megkönnyíti a érhet el és kezelheti a több felhasználó ezt ú
 
 Delegálás a delegált szolgáltatói kezeli a-ajánlat (delegált ajánlat), és a végfelhasználók számára, hogy az ajánlat bevonása nélkül-előfizetések szerzi be a rendszergazda.
 
-## <a name="understand-delegation-roles-and-steps"></a>Delegálás szerepkörök és lépéseket ismertetése
-
-### <a name="delegation-roles"></a>Delegálás szerepkörök
+## <a name="delegation-roles"></a>Delegálás szerepkörök
 
 A következő szerepkörök delegálása részét képezik:
 
@@ -46,7 +44,7 @@ A következő szerepkörök delegálása részét képezik:
 
 * *Felhasználók* iratkozzon fel az ajánlatok, és alkalmazza őket a számítási feladatok létrehozása a virtuális gépek, az adattárolás, kezelése és így tovább.
 
-### <a name="delegation-steps"></a>Delegálás lépések
+## <a name="delegation-steps"></a>Delegálás lépések
 
 Delegálás beállítása két alapvető lépésből áll:
 
@@ -58,7 +56,7 @@ A következő ábrán látható a delegálás beállításának lépéseit:
 
 ![A delegált szolgáltatói létrehozása, és lehetővé teszi számukra a felhasználói regisztrációhoz](media/azure-stack-delegated-provider/image2.png)
 
-#### <a name="delegated-provider-requirements"></a>Delegált szolgáltatói követelményei
+### <a name="delegated-provider-requirements"></a>Delegált szolgáltatói követelményei
 
 Delegált szolgáltatói funkcionálni, egy felhasználó kapcsolatot hoz létre a fő szolgáltatójával egy előfizetés létrehozásával. Ehhez az előfizetéshez, hogy a jogot arra, hogy a delegált ajánlatokkal nevében fő szolgáltató jelenleg a delegált szolgáltatói azonosítja.
 

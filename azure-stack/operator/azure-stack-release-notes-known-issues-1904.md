@@ -1,5 +1,5 @@
 ---
-title: Az Azure Stack kibocsátási megjegyzések – ismert problémák a 1904 |} A Microsoft Docs
+title: Ismert problémák az Azure Stack 1904 |} A Microsoft Docs
 description: Ismerje meg az Azure Stack 1904 ismert problémáiról.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: 8b061b3c6843540bcf1d6a6379b9181a9d757c5d
-ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 4438fdb5b97a4e08632b9c4f55fc03c91ef3aa97
+ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988115"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65453720"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -76,27 +76,30 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 
 ## <a name="networking"></a>Hálózat
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Terheléselosztó
 
 #### <a name="add-backend-pool"></a>Háttérkészlet hozzáadása
+
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon, ha megpróbálja hozzáadni egy **Háttérkészlet** , egy **terheléselosztó**, a művelet meghiúsul, a hibaüzenet "nem sikerült frissíteni a Load Balancer...".
+- OK: A felhasználói portálon, ha megpróbálja hozzáadni egy **Háttérkészlet** , egy **terheléselosztó**, a művelet meghiúsul, a hibaüzenet **nem sikerült frissíteni a Load Balancer...** .
 - Szervizelési: A PowerShell, parancssori felület vagy a Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
 - Előfordulás: Közös
 
 #### <a name="create-inbound-nat"></a>Bejövő NAT létrehozása
+
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon, ha megpróbál létrehozni egy **bejövő NAT-szabály** számára egy **Load Balancer**, a művelet meghiúsul, a hibaüzenet "Nem sikerült frissíteni a Load Balancer...".
+- OK: A felhasználói portálon, ha megpróbál létrehozni egy **bejövő NAT-szabály** számára egy **Load Balancer**, a művelet meghiúsul, a hibaüzenet **nem sikerült frissíteni a Load Balancer...** .
 - Szervizelési: A PowerShell, parancssori felület vagy a Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
 - Előfordulás: Közös
 
-#### <a name="create-load-balancer"></a>Load Balancer létrehozása 
+#### <a name="create-load-balancer"></a>Load Balancer létrehozása
+
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon a **Load Balancer létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** Load Balancer Termékváltozat. Ez a beállítás nem támogatott az Azure Stackben.
-- Szervizelési: Ehelyett használja az alapszintű Load Balancer beállításait.
+- Szervizelési: Az alapszintű load balancer beállítások használata.
 - Előfordulás: Közös
 
-### <a name="public-ip-address"></a>Nyilvános IP-cím
+#### <a name="public-ip-address"></a>Nyilvános IP-cím
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon a **nyilvános IP-cím létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** Termékváltozat. A **Standard** Termékváltozat nem támogatott az Azure Stackben.
@@ -115,9 +118,18 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
 
+#### <a name="centos"></a>CentOS
+
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A virtuális gép méretezési beállítása (VMSS) létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. CentOS 7.2 nem érhető el az Azure Stacken.
 - Szervizelési: Az üzembe helyezéshez használt egy másik operációs rendszert, vagy adjon meg egy másik CentOS lemezképet a marketplace-ről telepítené az üzemeltető által letöltött Azure Resource Manager sablonnal.
+- Előfordulás: Közös
+
+#### <a name="remove-scale-set"></a>Méretezési csoport eltávolítása
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: A méretezési készlet nem távolítható el a **Virtual Machine Scale Sets** panelen.
+- Szervizelési: Válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
 - Előfordulás: Közös
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
@@ -135,7 +147,7 @@ Miután engedélyezte az automatikus biztonsági mentést, a Feladatütemező sz
 - Alkalmazható: Ez az új probléma 1904 kiadással.
 - OK: A probléma van a szolgáltatásban, amely az ütemezési konfiguráció elvesztését eredményezi egy hiba miatt. Ez a hiba nem változik, a tárolási helyét, a felhasználónevet, a jelszó vagy a titkosítási kulcs.
 - Szervizelési: A probléma megoldásához nyissa meg a biztonsági mentési infrastruktúra erőforrás-szolgáltató a biztonsági mentés vezérlő beállítások panelre, és válassza **engedélyezze az automatikus biztonsági mentés**. Ellenőrizze, hogy a kívánt gyakoriság és megőrzési időszak beállítása.
-- Előfordulás: Alacsony
+- Előfordulás: Kicsi
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

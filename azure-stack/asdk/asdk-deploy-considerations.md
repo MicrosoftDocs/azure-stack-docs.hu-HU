@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 05/06/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 113760a1c2fbbb024aee50904c14509398d9e24b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172434"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Tervezési megfontolások az Azure Stack üzemelő példányához
 Az Azure Stack Development Kit (ASDK), üzembe helyezése előtt győződjön meg arról, a fejlesztői csomag fogadó számítógép megfelel-e az ebben a cikkben ismertetett követelményeknek.
@@ -30,10 +30,10 @@ Az Azure Stack Development Kit (ASDK), üzembe helyezése előtt győződjön me
 ## <a name="hardware"></a>Hardver
 | Összetevő | Minimális | Ajánlott |
 | --- | --- | --- |
-| Lemezmeghajtók: Operációs rendszer |1 operációsrendszer-lemez, legalább 200 GB szabad rendszerpartíció (SSD vagy HDD) |1 rendszerlemez legalább 200 GB szabad tárhellyel a rendszerpartícióhoz (SSD vagy HDD) |
+| Lemezmeghajtók: Operációs rendszer: |1 operációsrendszer-lemez, legalább 200 GB szabad rendszerpartíció (SSD vagy HDD) |1 rendszerlemez legalább 200 GB szabad tárhellyel a rendszerpartícióhoz (SSD vagy HDD) |
 | Lemezmeghajtók: Általános development kit adatok<sup>*</sup>  |4 lemez. Mindegyik lemez legalább 240 GB tárhellyel (SSD vagy HDD) biztosít. Az összes rendelkezésre álló lemezek használhatók. |4 lemez. Mindegyik lemez legalább 400 GB tárhellyel (SSD vagy HDD) biztosít. Az összes rendelkezésre álló lemezek használhatók. |
 | Számítási: CPU |Kettős foglalat: 16 fizikai mag (összesen) |Kettős foglalat: 20 fizikai mag (összesen) |
-| Számítási: Memory (Memória) |192 GB RAM |256 GB RAM |
+| Számítási: Memória |192 GB RAM |256 GB RAM |
 | Számítási: BIOS-BAN |Hyper-V engedélyezve (SLAT-támogatással) |Hyper-V engedélyezve (SLAT-támogatással) |
 | Hálózat: Hálózati adapter |A Windows Server 2012 R2 hitelesítésével. Speciális jellemzők nem szükségesek |A Windows Server 2012 R2 hitelesítésével. Speciális jellemzők nem szükségesek |
 | Hardveres tanúsítványembléma |[Certified for Windows Server 2012 R2 rendszerben](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2016-ban](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
@@ -90,12 +90,12 @@ Az Azure Stack üzembe helyezése egy Azure AD-fiókkal, el kell készítenie az
    
    | **Az Azure Active Directory-fiók** | **Támogatott?** |
    | --- | --- |
-   | Munkahelyi vagy iskolai fiók érvényes Public Azure-előfizetéssel |Igen |
-   | Microsoft-fiók érvényes Public Azure-előfizetéssel |Igen |
+   | Munkahelyi vagy iskolai fiók érvényes globális Azure-előfizetéssel |Igen |
+   | Érvényes globális Azure-előfizetéssel rendelkező Microsoft-Account |Igen |
    | Munkahelyi vagy iskolai fiók érvényes China Azure-előfizetéssel |Igen |
    | Munkahelyi vagy iskolai fiók érvényes US Government Azure-előfizetéssel |Igen |
 
-Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen újbóli regisztrációra a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.
+Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen érvényességének visszaállítása a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.
 
 ## <a name="network"></a>Network (Hálózat)
 ### <a name="switch"></a>Kapcsoló
