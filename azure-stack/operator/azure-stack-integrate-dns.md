@@ -11,12 +11,12 @@ ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: 294c811b9ddf86455b91f180663aa4b3814a7b34
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: a0b41e88fb7c56eec83b4e9e60f30d4f2f16cb4f
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506155"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521325"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Az Azure Stack adatközpont integrációja - DNS
 
@@ -55,17 +55,17 @@ Tudják feloldani a DNS-nevek Azure Stack-végpontok és a külső Azure Stack, 
 
 ### <a name="dns-name-labels"></a>DNS name labels
 
-DNS hozzáadása az Azure Stack támogatja, hogy a névfeloldás a nyilvános IP-címeket nyilvános IP-cím felirat neve. Ez lehet egy kényelmes módot kínálnak a felhasználók alkalmazásokat és név szerint az Azure Stack-ben üzemeltetett szolgáltatások eléréséhez. A DNS-névcímke használja, mint az infrastruktúra-végpontokra némileg eltérő névtér. A fenti példa névtér következő a névtér a DNS-név címke a következőképpen jelenik meg:
+DNS hozzáadása az Azure Stack támogatja, hogy a névfeloldás a nyilvános IP-címeket nyilvános IP-cím felirat neve. Ez lehet egy kényelmes módot kínálnak a felhasználók alkalmazásokat és név szerint az Azure Stack-ben üzemeltetett szolgáltatások eléréséhez. A DNS-névcímke használja, mint az infrastruktúra-végpontokra némileg eltérő névtér. Az előző példa-névteret, az alábbi DNS-név címke névterét a következőképpen jelenik meg:
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
-Ezért ha egy bérlő azt jelzi, hogy egy érték **Myapp** DNS neve felirat mezőjében egy nyilvános IP-cím erőforrás, egy A rekordot hoz létre **myapp** zónában **east.cloudapp.cloud.fabrikam.com**  az Azure Stack külső DNS-kiszolgálón. Az eredményül kapott teljesen minősített Tartományneve a következőképpen jelenik meg:
+Ezért ha egy bérlő azt jelzi, hogy egy érték **Myapp** DNS neve felirat mezőjében egy nyilvános IP-cím erőforrás, egy A rekordot hoz létre **myapp** zónában **east.cloudapp.cloud.fabrikam.com**  az Azure Stack külső DNS-kiszolgálón. Az eredményül kapott teljesen minősített tartománynevét a következőképpen jelenik meg:
 
 `myapp.east.cloudapp.cloud.fabrikam.com`
 
-Ha azt szeretné, ez a funkció használatát, és használja ezt a névteret, a DNS-kiszolgálók, amelyek a külső DNS-zónát az Azure Stack, amelyek a szülőzónában, valamint a használni kívánt DNS-kiszolgálókkal kell integrálni. Erre azért, mint a névteret, az Azure Stack Szolgáltatásvégpontok másik névteret, hogy kell létrehozása egy további delegálás vagy feltételes továbbítási szabályt a.
+Ha azt szeretné, ez a funkció használatát, és használja ezt a névteret, a DNS-kiszolgálók, amelyek a külső DNS-zónát az Azure Stack, amelyek a szülőzónában, valamint a használni kívánt DNS-kiszolgálókkal kell integrálni. Erre azért, mint a névteret, az Azure Stack Szolgáltatásvégpontok másik névteret, hogy létre kell hoznia egy további delegálás vagy feltételes továbbítás szabály.
 
-A DNS-név címke működésével kapcsolatos további információkért lásd: [DNS használata az Azure Stackben](../user/azure-stack-dns.md). 
+A DNS-név címke működésével kapcsolatos további információkért lásd: [DNS használata az Azure Stackben](../user/azure-stack-dns.md).
 
 ## <a name="resolution-and-delegation"></a>Feloldás és delegálás
 

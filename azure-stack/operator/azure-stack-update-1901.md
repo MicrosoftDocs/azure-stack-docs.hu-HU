@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: e89a2fc4adbe4a9d399cec67608c1c63748692e7
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387132"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532385"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 frissítése
 
@@ -221,6 +221,8 @@ Ez a frissítés a következő biztonsági frissítéseket telepíti:
 További információ a biztonsági rések, kattintson a fenti hivatkozásokat a, vagy tekintse meg a Microsoft Tudásbázis cikkei [4480977](https://support.microsoft.com/en-us/help/4480977).
 
 ## <a name="known-issues-with-the-update-process"></a>A frissítési folyamat ismert problémái
+
+- Próbál telepíteni egy Azure Stack-frissítést, ha a frissítés állapota sikertelen lehet, hogy, és az állapotváltozáshoz **PreparationFailed**. A frissítés erőforrás-szolgáltató (URP) nem képes megfelelően viheti át a fájlokat a storage-tárolót egy belső infrastruktúrát megosztáshoz feldolgozási okozza. 1901 (1.1901.0.95) verziójával kezdődően is használhatja a probléma megoldásához kattintva **frissítés most** újra (nem **folytatása**). A URP ezután törli a fájlokat az előző próbálkozás, és a letöltés ismét elindul.
 
 - Futtatásakor [Test-AzureStack](azure-stack-diagnostic-test.md), ha a **AzsInfraRoleSummary** vagy a **AzsPortalApiSummary** teszt sikertelen, a rendszer felszólítja a Futtatás  **Test-AzureStack** együtt a `-Repair` jelzőt.  Ha ezt a parancsot futtatta, a következő hibaüzenettel meghiúsul:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 

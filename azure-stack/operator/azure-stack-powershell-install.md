@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: a1923c06d31ff32e1c7e5d50e3b70330d16d25c5
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: 1c555f39bdf37314bae05666d39daca50cde2c4e
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506135"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532239"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Az Azure Stack PowerShell telepítése
 
@@ -96,7 +96,7 @@ Telepítési három lépésből áll:
 
 Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői munkaállomáson telepítendő:
 
-- A buildek 1904-es vagy újabb:
+- Az Azure Stackhez 1904-es vagy újabb verziója:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -180,7 +180,18 @@ Telepítés négy lépésből áll:
 
 ### <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
 
-- Az Azure Stack 1901 vagy újabb verziója.
+- Az Azure Stack 1904-es vagy újabb verziója.
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
+    ```
+
+- Az Azure Stack 1903 vagy valamely korábbi rendszerrel.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop

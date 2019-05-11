@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4438fdb5b97a4e08632b9c4f55fc03c91ef3aa97
-ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: f2e20377a976c5dba7a63d9f8cf8b3e2d100e060
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65453720"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532263"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -29,6 +29,13 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 
 > [!IMPORTANT]  
 > Tekintse át az ebben a szakaszban a frissítés alkalmazása előtt.
+
+## <a name="update-process"></a>Frissítési eljárás
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: Próbál telepíteni egy Azure Stack-frissítést, ha a frissítés állapota sikertelen lehet, hogy, és az állapotváltozáshoz **PreparationFailed**. A frissítés erőforrás-szolgáltató (URP) nem képes megfelelően viheti át a fájlokat a storage-tárolót egy belső infrastruktúrát megosztáshoz feldolgozási okozza.
+- Szervizelési: 1901 (1.1901.0.95) verziójával kezdődően is használhatja a probléma megoldásához kattintva **frissítés most** újra (nem **folytatása**). A URP ezután törli a fájlokat az előző próbálkozás, és a letöltés ismét elindul.
+- Előfordulás: Közös
 
 ## <a name="portal"></a>Portál
 
@@ -139,15 +146,14 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 - Szervizelési: A Linux-bővítményt a Virtuálisgép-hozzáférési használja az SSH-kulcsok megvalósításához a kiépítés után, vagy a jelszóalapú hitelesítés használatára.
 - Előfordulás: Közös
 
-## <a name="infrastructure-backup"></a>Infrastruktúra biztonsági mentése
-
-<!--Bug 3615401 - scheduler config lost; new issue in YYMM;  hectorl-->
-Miután engedélyezte az automatikus biztonsági mentést, a Feladatütemező szolgáltatás hiányzóra tiltva váratlanul. A biztonsági mentési hálózativezérlő-szolgáltatás észleli, hogy az automatikus biztonsági mentés le vannak tiltva, és figyelmeztetés a felügyeleti portálon. Ez a figyelmeztetés várható, ha az automatikus biztonsági mentés le vannak tiltva.
+### <a name="compute-host-agent-alert"></a>Gazdagép-ügynök riasztás COMPUTE
 
 - Alkalmazható: Ez az új probléma 1904 kiadással.
-- OK: A probléma van a szolgáltatásban, amely az ütemezési konfiguráció elvesztését eredményezi egy hiba miatt. Ez a hiba nem változik, a tárolási helyét, a felhasználónevet, a jelszó vagy a titkosítási kulcs.
-- Szervizelési: A probléma megoldásához nyissa meg a biztonsági mentési infrastruktúra erőforrás-szolgáltató a biztonsági mentés vezérlő beállítások panelre, és válassza **engedélyezze az automatikus biztonsági mentés**. Ellenőrizze, hogy a kívánt gyakoriság és megőrzési időszak beállítása.
-- Előfordulás: Kicsi
+- OK: "Compute gazdagép-ügynök" figyelmeztetés jelenik meg a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja.
+- Szervizelési:
+  - Ez a riasztás figyelmen kívül hagyható. Az ügynök nem válaszol nincs hatással az operátor és felhasználói műveletek vagy felhasználói alkalmazás. A riasztás 24 óra múlva újra megjelenik, ha manuálisan le van zárva.
+  - A Microsoft ügyfélszolgálatához a szolgáltatás indítási beállítás módosításával javítani tudja a problémát. Ehhez a támogatási jegy megnyitása. Ha a csomópont újraindítása után a rendszer újra egy új riasztás jelenik meg.
+- Előfordulás: Közös
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

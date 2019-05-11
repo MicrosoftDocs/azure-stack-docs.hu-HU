@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 44a510b8110bacbb51b987a0393f1bc04c594fcd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985771"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521241"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Oktatóanyag: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
 
@@ -94,7 +94,7 @@ Ez az oktatóanyag feltételezi, hogy néhány alapvető ismeretek az Azure és 
 ### <a name="developer-tool-requirements"></a>Fejlesztői eszköz követelményei
 
 * Hozzon létre egy [Azure fejlesztési és üzemeltetési szolgáltatások munkaterület](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). A regisztrációs folyamat hoz létre a projekt neve **MyFirstProject**.
-* [Visual Studio 2017 telepítése](https://docs.microsoft.com/visualstudio/install/install-visual-studio) és [jelentkezzen be az Azure DevOps-szolgáltatásokkal](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* [Telepítse a Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) és [jelentkezzen be az Azure DevOps-szolgáltatásokkal](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Csatlakozás a projekthez, és [helyben klónozhatja](https://www.visualstudio.com/docs/git/gitquickstart).
 
   > [!Note]

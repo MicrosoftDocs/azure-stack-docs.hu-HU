@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 03efa5e8e0dbb3ec29748383914d3d0361bc124b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986158"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521255"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker parancsmag-referencia
 
@@ -209,7 +209,7 @@ $PaaSCertificates = @{
     'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
 }
-Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates - RegionName east -FQDN azurestack.contoso.com
+Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
 Ebben a példában egy kivonattáblát elérési utak és a jelszavakat az egyes PaaS tanúsítvány jön létre. Tanúsítványok elhagyható. `Start-AzsReadinessChecker` ellenőrzi, hogy mindegyik PFX elérési út létezik, és érvényesíti azokat a régió **kelet** és külső FQDN **azurestack.contoso.com**.
@@ -241,7 +241,7 @@ Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai sz�
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Példa: Azure-identitás (üzembe helyezés támogatása) üzembe helyezési adatok ellenőrzése
 
-```PowerSHell
+```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
@@ -278,7 +278,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 Ebben a példában a PFX-jelszó megadása kötelező a biztonság. A Ssl.pfx fájlt importálja a helyi számítógép tanúsítványtárolójába, ugyanazt a jelszót újra exportálva, és Ssl_new.pfx elmentve. Ez az eljárás szolgál, ha a tanúsítványok ellenőrzését megjelölt, hogy nem rendelkezik titkos kulccsal a **helyi gép** attribútumkészletet, a tanúsítványlánc megszakad, nem számít tanúsítványok találhatók a PFX vagy a tanúsítványlánc a nem megfelelő sorrendben.
 
-### <a name="example-view-validation-report-deployment-support"></a>Például: ellenőrzési jelentés megjelenítése (üzembe helyezés támogatás)
+### <a name="example-view-validation-report-deployment-and-support"></a>Például: ellenőrzési jelentés megjelenítése (üzembe helyezés és támogatás)
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -304,9 +304,9 @@ Az Azure Stack üzembe helyezési régió nevét adja meg.
 |----------------------------|--------------|
 |Típus:                       |String        |
 |Pozíció:                   |nevű         |
-|Alapértelmezett érték:              |None          |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)         |
-|Helyettesítő karakterek elfogadása: |False (Hamis)         |
+|Alapértelmezett érték:              |Egyik sem          |
+|Adatcsatorna bemenetének elfogadása:      |Hamis         |
+|Helyettesítő karakterek elfogadása: |Hamis         |
 
 ### <a name="-fqdn"></a>-FQDN
 
@@ -317,8 +317,8 @@ Adja meg az Azure Stack üzembe helyezés külső teljes Tartományneve, is alia
 |Típus:                       |String        |
 |Pozíció:                   |nevű         |
 |Alapértelmezett érték:              |ExternalFQDN, ExternalDomainName |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)         |
-|Helyettesítő karakterek elfogadása: |False (Hamis)         |
+|Adatcsatorna bemenetének elfogadása:      |Hamis         |
+|Helyettesítő karakterek elfogadása: |Hamis         |
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
@@ -328,10 +328,10 @@ Adja meg az Azure Stack üzembe helyezési identitás rendszer érvényes érté
 |----------------------------|--------------|
 |Típus:                       |String        |
 |Pozíció:                   |nevű         |
-|Alapértelmezett érték:              |None          |
+|Alapértelmezett érték:              |Egyik sem          |
 |Érvényes értékek:               |'AAD','ADFS'  |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)         |
-|Helyettesítő karakterek elfogadása: |False (Hamis)         |
+|Adatcsatorna bemenetének elfogadása:      |Hamis         |
+|Helyettesítő karakterek elfogadása: |Hamis         |
 
 ### <a name="-pfxpassword"></a>-PfxPassword
 
@@ -341,9 +341,9 @@ Adja meg a tanúsítvány PFX-fájlok társított jelszót.
 |----------------------------|---------|
 |Típus:                       |SecureString |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-paascertificates"></a>-PaaSCertificates
 
@@ -353,9 +353,9 @@ Az elérési utak és a jelszavakat a PaaS-tanúsítványokat tartalmazó kivona
 |----------------------------|---------|
 |Típus:                       |Kivonattábla |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
@@ -365,9 +365,9 @@ Itt adható meg az Azure Stack üzembe helyezési adatok JSON-konfigurációs f�
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-pfxpath"></a>-PfxPath
 
@@ -377,9 +377,9 @@ Ezt az eszközt a tanúsítványok ellenőrzését aszinkronitást-importálási
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-exportpfxpath"></a>-ExportPFXPath  
 
@@ -389,9 +389,9 @@ Megadja a eredő PFX-fájlt az importálási/exportálási rutin a cél elérés
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-subject"></a>-Tulajdonos
 
@@ -401,9 +401,9 @@ A tanúsítvány-kérelem létrehozása egy rendezett szótár, az e-mail tárgy
 |----------------------------|---------|
 |Típus:                       |OrderedDictionary   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-requesttype"></a>-RequestType
 
@@ -416,10 +416,10 @@ A SAN adja meg a tanúsítványkérelem. Érvényes értékek a következők **M
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
+|Alapértelmezett érték:              |Egyik sem     |
 |Érvényes értékek:               |'MultipleCSR','SingleCSR' |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-outputrequestpath"></a>-OutputRequestPath
 
@@ -429,9 +429,9 @@ Megadja a tanúsítványfájlok kérelem elérési út. Könyvtár már létezni
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
@@ -441,9 +441,9 @@ Adja meg az Azure Active Directory szolgáltatás rendszergazdája számára az 
 |----------------------------|---------|
 |Típus:                       |PSCredential   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
@@ -453,9 +453,9 @@ Azure Stack központi telepítéshez használt adja meg az Azure Active Director
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
@@ -465,10 +465,10 @@ Az Azure-szolgáltatások tartalmazó a fiókok, könyvtárak és az előfizeté
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
+|Alapértelmezett érték:              |Egyik sem     |
 |Érvényes értékek:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
@@ -478,9 +478,9 @@ Megadja, hogy a regisztráció az Azure Stack-regisztráció használandó.
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
@@ -490,9 +490,9 @@ Itt adhatja meg a regisztrációs előfizetés-azonosító használható az Azur
 |----------------------------|---------|
 |Típus:                       |Guid     |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |None     |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Egyik sem     |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-reportpath"></a>-ReportPath
 
@@ -502,9 +502,9 @@ Készültségi jelentés elérési útja, alapértelmezés szerint az aktuális 
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Összes      |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Alapértelmezett érték:              |Az összes      |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ## <a name="optional-parameters"></a>Választható paraméterek
 
@@ -525,8 +525,8 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
 |Alapértelmezett érték:              |. \Certificates |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-includepaas"></a>-IncludePaaS  
 
@@ -536,9 +536,9 @@ Itt adhatja meg, e PaaS-szolgáltatások/állomásnevek hozzá kell adni a tanú
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
 |Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |False (Hamis)             |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
-|Helyettesítő karakterek elfogadása: |False (Hamis)             |
+|Alapértelmezett érték:              |Hamis             |
+|Adatcsatorna bemenetének elfogadása:      |Hamis             |
+|Helyettesítő karakterek elfogadása: |Hamis             |
 
 ### <a name="-reportsections"></a>-ReportSections
 
@@ -548,10 +548,10 @@ Itt adhatja meg, hogy csak az jeleníti meg a jelentés összefoglaló, az átte
 |----------------------------|---------|
 |Típus:                       |String   |
 |Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Összes      |
+|Alapértelmezett érték:              |Az összes      |
 |Érvényes értékek:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
-|Helyettesítő karakterek elfogadása: |False (Hamis)    |
+|Adatcsatorna bemenetének elfogadása:      |Hamis    |
+|Helyettesítő karakterek elfogadása: |Hamis    |
 
 ### <a name="-summary"></a>-Összefoglaló
 
@@ -561,9 +561,9 @@ Itt adhatja meg, hogy csak az jeleníti meg a jelentés összefoglaló, az átte
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
 |Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |False (Hamis)             |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
-|Helyettesítő karakterek elfogadása: |False (Hamis)             |
+|Alapértelmezett érték:              |Hamis             |
+|Adatcsatorna bemenetének elfogadása:      |Hamis             |
+|Helyettesítő karakterek elfogadása: |Hamis             |
 
 ### <a name="-cleanreport"></a>-CleanReport
 
@@ -574,9 +574,9 @@ Eltávolítja az előző végrehajtás és érvényesítési előzmények, és a
 |Típus:                       |SwitchParameter   |
 |Aliasnevek:                    |CF-hez                |
 |Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |False (Hamis)             |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
-|Helyettesítő karakterek elfogadása: |False (Hamis)             |
+|Alapértelmezett érték:              |Hamis             |
+|Adatcsatorna bemenetének elfogadása:      |Hamis             |
+|Helyettesítő karakterek elfogadása: |Hamis             |
 
 ### <a name="-outputpath"></a>-OutputPath
 
@@ -587,8 +587,8 @@ Itt adható meg egy egyéni elérési út készültségi jelentés a JSON és a 
 |Típus:                       |String            |
 |Pozíció:                   |nevű             |
 |Alapértelmezett érték:              |$ENV: TEMP\AzsReadinessChecker  |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
-|Helyettesítő karakterek elfogadása: |False (Hamis)             |
+|Adatcsatorna bemenetének elfogadása:      |Hamis             |
+|Helyettesítő karakterek elfogadása: |Hamis             |
 
 ### <a name="-confirm"></a>-Confirm
 
@@ -599,9 +599,9 @@ A parancsmag futtatása előtt megerősítést kér.
 |Típus:                       |SwitchParameter   |
 |Aliasnevek:                    |CF-hez                |
 |Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |False (Hamis)             |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
-|Helyettesítő karakterek elfogadása: |False (Hamis)             |
+|Alapértelmezett érték:              |Hamis             |
+|Adatcsatorna bemenetének elfogadása:      |Hamis             |
+|Helyettesítő karakterek elfogadása: |Hamis             |
 
 ### <a name="-whatif"></a>-WhatIf
 
@@ -612,6 +612,6 @@ Megmutatja, hogy mi történne a parancsmag futtatásakor. A parancsmag nem fut.
 |Típus:                       |SwitchParameter   |
 |Aliasnevek:                    |wi                |
 |Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |False (Hamis)             |
-|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
-|Helyettesítő karakterek elfogadása: |False (Hamis)             |
+|Alapértelmezett érték:              |Hamis             |
+|Adatcsatorna bemenetének elfogadása:      |Hamis             |
+|Helyettesítő karakterek elfogadása: |Hamis             |

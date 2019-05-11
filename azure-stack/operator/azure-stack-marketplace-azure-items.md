@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: b2e3944be7a7d5322683d21cca7e558020a82d7e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306180"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521310"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -31,7 +31,7 @@ ms.locfileid: "64306180"
 
 Minden alkalommal, amikor frissítések érhetők el a virtuális gép (VM) bővítményeket használ, akkor le kell töltenie őket. A termék szállított bővítmények nem frissítik a normál javítási és frissítési folyamata; tehát keressen frissítéseket gyakran. Más bővítmények csak az Marketplace Management szolgáltatáson keresztül érhetők el.
 
-|  | Konfigurációelem neve | Leírás | Közzétevő | Operációs rendszer típusa |
+|  | Konfigurációelem neve | Leírás | Gyártó | Operációs rendszer típusa |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS Extension](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Töltse le a bővítmény telepítéséhez bármely SQL Server, a Windows Piactéri elem – Ez a bővítmény megadása kötelező.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Egyéni szkriptbővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **A Custom Script bővítmény a Windows beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
@@ -52,10 +52,10 @@ Minden alkalommal, amikor frissítések érhetők el a virtuális gép (VM) bőv
 
 A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a megoldássablonok támogatja. Töltse le a függőségek külön-külön jelezve. Alkalmazások, például az SQL Server és a Machine Learning-kiszolgáló szükséges, megfelelő licencre, kivéve, ha a ingyenes vagy próbaverziója megjelölve.
 
-|  | Konfigurációelem neve | Leírás | Közzétevő |
+|  | Konfigurációelem neve | Leírás | Gyártó |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Egyszerűen üzembe helyezhető, költséghatékony, alkalmazásorientáltak és a felhasználó-központú nagyvállalati szintű megoldások. Ezek a lemezképek rendszeresen frissülnek a legújabb javításokat. **Fontos információk: A képek előtt 2018. január 18 kell kell hagyni, a legújabb verziókat cseréli le.** | Microsoft |
-| ![A SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 próbaverziójának a Windows Server 2012 Datacenter és a Visual Studio 2017 community Edition kiadását. | Microsoft |
+| ![A SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 próbaverziójának a Windows Server 2012 Datacenter és a 2019 Visual Studio community Edition kiadását. | Microsoft |
 | ![A SharePoint Server 2016 próbaverzióját](media/azure-stack-marketplace-azure-items/sharepoint.png) | [A SharePoint Server 2016 próbaverzióját](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | A Microsoft SharePoint Server 2016 próbaverzióját a Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [Az SQL Server 2014 SP2, Windows Server 2012 R2 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |
@@ -81,11 +81,11 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 
 ## <a name="linux-distributions"></a>Linux-disztribúciók
 
-|  | Konfigurációelem neve | Leírás | Közzétevő |
+|  | Konfigurációelem neve | Leírás | Gyártó |
 | --- | --- | --- | --- |
 | ![Törölje a Linux operációs rendszer](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Törölje a Linux operációs rendszer](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Linux-disztribúció Intel architektúra optimalizált hivatkozást. | Linux-projekt törlése |
 | ![A CoreOS tároló Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [A CoreOS tároló Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Tároló Linux modern és minimális Linux-disztribúció, így könnyedén futtathat tárolókat, kezelheti a fürtöket, és a kiszolgálók zökkenőmentes frissítését – az összes összetevő, amely lehetővé számítási. | CoreOS |
-| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server rendszer a világ legnépszerűbb Linux felhőalapú környezetek. | Canonical |
+| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server rendszer a világ legnépszerűbb Linux felhőalapú környezetek. | Kanonikus |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux egyike a népszerű Linux-disztribúció. | credativ |
 | ![CentOS-alapú 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Ehhez a terjesztéshez Linux CentOS alapul, és a Rogue Wave szoftver által biztosított. | Rogue Wave Software (korábbi nevén OpenLogic)  |
 | ![CentOS-alapú 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Ehhez a terjesztéshez Linux CentOS alapul, és a Rogue Wave szoftver által biztosított. | Rogue Wave Software (korábbi nevén OpenLogic)  |
@@ -98,7 +98,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Külső BYOL, ingyenes, próba képek és megoldássablonok
 
-|  | Konfigurációelem neve | Leírás | Közzétevő |
+|  | Konfigurációelem neve | Leírás | Gyártó |
 | --- | --- | --- | --- |
 | ![A10-es vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10-es vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Az a10-es hálózatok vThunder Alkalmazáskézbesítési vezérlőt a Microsoft Azure kifejezetten robotfejlesztési célra készült nagy teljesítményű, a rugalmasságot, és egyszerűen telepíthető alkalmazáselérés és -kiszolgáló terheléselosztás optimalizáltuk, hogy fut natív módon az Azure-felhőben. | A10 Networks |
 | ![Útválasztó arista vEOS](media/azure-stack-marketplace-azure-items/arista.png) | [Útválasztó arista vEOS](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Az Arista vEOS útválasztó a funkciókban gazdag, többfelhős, és több hipervizorral rendelkező virtuális útválasztó, amellyel a nagyvállalatok és felhőszolgáltatók hozhat létre egységes, rendkívül biztonságos és skálázható hibrid hálózatok. | Arista hálózatok |
@@ -228,7 +228,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Értékesítési CRM X2Engine](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [Értékesítési CRM X2Engine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Kompakt marketinges, értékesítési és ügyfél szolgáltatás alkalmazás. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | Tartalomkezelő rendszer és webes portál Program, amely létrehozza a dinamikus webhelyeket. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Nyílt forráskódú CRM rendszert: Mobil-, közösségi és Gamified. | Bitnami |
-| ![A Check Point vSEC biztonsági kezelése](media/azure-stack-marketplace-azure-items/checkpoint.png) | [A Check Point vSEC biztonsági kezelése](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | A Check Point vSEC tesz lehetővé a fejlett, többrétegű fenyegetések megelőzése vevő eszközök az Azure-ban védelme a kártevők és kifinomult fenyegetések. **Mindkét ellenőrzési pont a vSEC Piactéri termékek letöltése.** | Ellenőrzőpont |
+| ![A Check Point vSEC biztonsági kezelése](media/azure-stack-marketplace-azure-items/checkpoint.png) | [A Check Point vSEC biztonsági kezelése](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | A Check Point vSEC tesz lehetővé a fejlett, többrétegű fenyegetések megelőzése vevő eszközök az Azure-ban védelme a kártevők és kifinomult fenyegetések. **Mindkét ellenőrzési pont a vSEC Piactéri termékek letöltése.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Elkészítheti, telepítheti, és kezelés a Chef Automate, a folyamatos automatizálási platformmal. **Mindkét Chef Piactéri termékek letöltése**. | Chef Software, Inc |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Átfogó megoldást kínál a biztonsági mentési és helyreállítási, alkalmazás és a virtuális gépek migrálása az Azure Stacket és vészhelyreállítás az Azure Stack-környezet egyetlen megoldásban. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Szabályozhatja, figyelését és virtuális gépek titkosítása egyszerű és megbízható. **Töltse le az összes CloudLink SecureVM-elemek.** | Dell EMC |

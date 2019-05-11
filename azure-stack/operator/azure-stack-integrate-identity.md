@@ -6,16 +6,16 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: ec0a4b0dc020d9c2c977c7b75b1785cfc98446f6
-ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: 47c619b1f490f4e4d3498a7c83501f24e96c77b4
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65097104"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532294"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Az Azure Stack adatközpont integrációja - identitás
 

@@ -3,26 +3,25 @@ title: Identitásarchitektúra az Azure Stackhez |} A Microsoft Docs
 description: Ismerje meg az identitás architektúra is használhatja az Azure Stack használatával.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/09/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 9ae8a55d04c34ec65d964927fd25c3bc01adeae4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: e09451c1bf49a2de075388f555cb7b80e70db63f
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297699"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532320"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identitásarchitektúra az Azure Stackhez
 
@@ -35,14 +34,14 @@ Az Ön által választott identitásszolgáltató korlátozhatja a beállításo
 
 |Funkció vagy forgatókönyv        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Csatlakozik az internethez     |Igen       |Optional|
+|Csatlakozik az internethez     |Igen       |Választható|
 |Több-bérlős támogatás     |Igen       |Nem      |
 |A piactéren az ajánlat elemek |Igen       |Igen. Használatát igényli a [offline Marketplace szindikálási](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) eszközt.|
 |Az Active Directory Authentication Library (ADAL) támogatása |Igen |Igen|
 |Azure CLI-vel, a Visual Studio és a PowerShell hálózatdiagnosztikai eszközök támogatása  |Igen |Igen|
 |Az Azure Portalon keresztül szolgáltatásnevek létrehozása     |Igen |Nem|
 |Szolgáltatásnevek létrehozása tanúsítványokkal      |Igen |Igen|
-|Szolgáltatásnevek létrehozása titkos kulcsok (kulcsok)    |Igen |Nem|
+|Szolgáltatásnevek létrehozása titkos kulcsok (kulcsok)    |Igen |Igen|
 |Alkalmazások használhatják a Graph szolgáltatás           |Igen |Nem|
 |Alkalmazások identitásszolgáltató használhatják a bejelentkezéshez |Igen |Igen. Szükséges összevonni a helyszíni alkalmazások az AD FS-példányok. |
 
@@ -101,4 +100,3 @@ Ez a topológia szolgáltatások a következő jellemzőkkel:
 ## <a name="next-steps"></a>További lépések
 - [Az identitások áttekintése](azure-stack-identity-overview.md)   
 - [Adatközpont integrációja - identitás](azure-stack-integrate-identity.md)
-<!-- Update_Description: link update -->
