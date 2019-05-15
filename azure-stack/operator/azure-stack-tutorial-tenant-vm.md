@@ -3,7 +3,7 @@ title: Virtuális gépek az Azure Stack-felhasználók számára elérhetővé |
 description: 'Útmutató: virtuális gépek elérhetővé tétele az Azure Stackben'
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: 3fa165c5c921c9539e5ceea82ff3b8dd00f787a8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 949161cd90099d5b9486d7a10524fd915692c897
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984565"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618393"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Oktatóanyag: virtuális gépek számára elérhetővé az Azure Stack-felhasználók
 
@@ -53,7 +53,7 @@ Ajánlatok egy vagy több olyan csomag, amelyet szolgáltatók vásárolhatja me
 
 1. A **új ajánlat**, adja meg egy **megjelenített név** és **erőforrásnév**, és ezután válasszon ki egy új vagy meglévő **erőforráscsoport**. A megjelenítendő név az ajánlat rövid neve. Csak a felhő üzemeltetője láthatja az erőforrás nevét, amelynek a neve, amely segítségével a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással működik.
 
-   ![Megjelenített név](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
 1. Válassza ki **Alapcsomagok**, majd a a **terv** szakaszban jelölje be **Hozzáadás** hozzáadása egy új csomagot az ajánlat.
 

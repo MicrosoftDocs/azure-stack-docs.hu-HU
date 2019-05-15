@@ -3,7 +3,7 @@ title: Kapacitás megtervezése az Azure Stackhez |} A Microsoft Docs
 description: További információ az Azure Stack üzemelő példányok kapacitástervezése.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 1a5bde916779961f9cc4c099b57324b8ddbd3bda
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: ad8fdc9181bb013735b8787658d1893e28c3799c
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984500"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618853"
 ---
 # <a name="azure-stack-capacity-planning"></a>Az Azure Stack kapacitásának megtervezése
 Az Azure Stack megoldás kiértékelésekor nincsenek hardver konfigurációs lehetőségeket, amelyek közvetlen hatással vannak az Azure Stack-felhő összesített kapacitását. Ezek a CPU, memória sűrűség, tárolási konfigurációt, és a teljes megoldás méretezési vagy kiszolgálók száma, a klasszikus lehetőségek. Ellentétben a hagyományos virtualizálási megoldás az egyszerű számtani felhasználható kapacitás meghatározásához ezeket az összetevőket nem vonatkozik. Az első ennek oka, hogy az Azure Stack tervezésnek lesz-e üzemeltetni az infrastruktúrát vagy felügyeleti összetevők magát a megoldáson belül. A második oka, hogy a megoldás kapacitás némelyike rugalmasság; feladat foglalt a megoldás szoftverek oly módon, hogy bérlői számítási feladatok frissítése.

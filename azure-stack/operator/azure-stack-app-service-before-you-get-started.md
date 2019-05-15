@@ -3,7 +3,7 @@ title: Az Azure Stack App Service üzembe helyezése előtt |} A Microsoft Docs
 description: Lépést végre kell hajtania, az Azure Stack App Service üzembe helyezése
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2728a37811e67de52dda2d259f692593fbcc270c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290846"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618272"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Mielőtt elkezdené, az Azure Stack App Service-szel
 
@@ -365,7 +365,7 @@ Kövesse az alábbi lépéseket:
 | AzureStackAdminCredential | Szükséges | Null | Az Azure AD szolgáltatás rendszergazdai hitelesítő adataihoz. |
 | CertificateFilePath | Szükséges | Null | **Teljes elérési útja** , az identitás alkalmazástanúsítvány-fájlja korábban létrehozott. |
 | CertificatePassword | Szükséges | Null | Olyan jelszót, amely segít megvédeni a tanúsítvány titkos kulcsa. |
-| Környezet | Optional | AzureCloud | A neve, a támogatott Felhőbeli környezet, amelyben a cél Azure Active Directory Graph szolgáltatás érhető el.  Megengedett értékek: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
+| Környezet | Választható | AzureCloud | A neve, a támogatott Felhőbeli környezet, amelyben a cél Azure Active Directory Graph szolgáltatás érhető el.  Megengedett értékek: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory összevonási szolgáltatások alkalmazás létrehozása
 

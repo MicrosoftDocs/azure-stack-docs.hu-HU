@@ -3,7 +3,7 @@ title: Az Azure Stack App Service üzembe helyezése a magas rendelkezésre áll
 description: Ismerje meg, hogyan helyezhet üzembe az App Service-ben az Azure Stack használatával a magas rendelkezésre állású konfigurációval.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a5311427e15fb690d70aca1da570d2c717e6176c
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477222"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618355"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Magas rendelkezésre állású konfigurációban App Service üzembe helyezése
 
@@ -171,7 +171,7 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
     ![Várt hiba-párbeszédpanelen.](media/app-service-deploy-ha/08.png)
 
     Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-    - Forrás: Bármelyik
+    - Adatforrás: Bármely
     - Forrás porttartomány: *
     - Cél: IP-címek
     - Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
@@ -207,10 +207,10 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
     |Szerepkör|Alapértelmezett|Magas rendelkezésre állású javaslat|
     |-----|-----|-----|
     |Vezérlői szerepkör|2|2|
-    |Felügyeleti szerepkör|1|3|
-    |Közzétevői szerepkör|1|3|
-    |Előtér-kiszolgálói szerepkör|1|3|
-    |Megosztott feldolgozói szerepkör|1|10|
+    |Felügyeleti szerepkör|1.|3|
+    |Közzétevői szerepkör|1.|3|
+    |Előtér-kiszolgálói szerepkör|1.|3|
+    |Megosztott feldolgozói szerepkör|1.|10|
     |     |     |     |
 
     ![Infrastruktúra-szerepkör példány értékek](media/app-service-deploy-ha/12.png)

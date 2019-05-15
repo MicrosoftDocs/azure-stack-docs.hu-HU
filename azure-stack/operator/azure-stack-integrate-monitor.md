@@ -3,7 +3,7 @@ title: Külső figyelő megoldás integrálása az Azure Stackkel való használ
 description: Ismerje meg, hogyan integrálhatja az Azure Stacket külső figyelési megoldással az adatközpontban.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 98fdd9c1d69b8c4199987123517f2edefba0d6e2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985236"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618833"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Külső figyelő megoldás integrálása az Azure Stack használatával
 
@@ -130,7 +130,7 @@ Ha nem használja az Operations Manager, Nagios, illetve a Nagios-alapú megold�
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
 
 További információ a beépített állapot-ellenőrzés: [figyelni és riasztásokat az Azure Stackben](azure-stack-monitor-health.md).
 

@@ -3,7 +3,7 @@ title: Mi az Azure Stack? | Microsoft Docs
 description: Ismerje meg, hogyan Azure Stack teszi lehetővé az adatközpontban található Azure-szolgáltatások futtatásához.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 382fc49caf12a578584c8680edb30a321e82ea00
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985052"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618064"
 ---
 # <a name="azure-stack-overview"></a>Az Azure Stack áttekintése
 
@@ -57,7 +57,7 @@ Az Azure Stack iparági szabványos hardver épül, és már használhatja az Az
 
 Az Azure Stack-architektúra lehetővé teszi, hogy az Azure-szolgáltatásokat a peremhálózaton biztosíthat a távoli helyeken vagy a nem állandó hálózati kapcsolat, kapcsolódik az internethez. Helyileg az Azure Stackben adatok feldolgozására, és ezután összesítésben, az Azure-ban a további feldolgozás és elemzés hibrid megoldásokat hozhat létre. Végül mivel az Azure Stack telepített helyszíni, pedig megfelelhet a konkrét szabályozási vagy a házirend követelményeinek rugalmasságával helyszíni üzembe helyezése felhőalapú alkalmazás bármilyen kód átírása nélkül. 
 
-## <a name="deployment-options"></a>Üzembe helyezési beállítások
+## <a name="deployment-options"></a>Telepítési beállítások
 
 ### <a name="production-or-evaluation-environments"></a>Éles vagy a kiértékelési környezet
 Az Azure Stack az igényeinek, éles környezetben való használatra Azure Stack integrált rendszerek és az Azure Stack Development Kit (ASDK) Azure Stack értékelési két üzembe helyezési lehetőség érhető el:

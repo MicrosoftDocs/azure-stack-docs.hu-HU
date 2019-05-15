@@ -3,7 +3,7 @@ title: A Microsoft Azure Stack hibaelhárítása |} A Microsoft Docs
 description: Az Azure Stack Development Kit (ASDK) hibaelhárítási információkat.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a890e02ae1f2447db6fd25329881a4daa4e489b2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 70985ce475ecfe956646941c6b61d70176639eac
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986059"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617489"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>A Microsoft Azure Stack Development Kit (ASDK) hibáinak elhárítása
 Ez a cikk a ASDK általános hibaelhárítási információkat nyújt. Ha nem ismertetett problémát tapasztal, ellenőrizze, hogy ellenőrizze a [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) további segítséget és információt.  
@@ -43,7 +43,7 @@ Ha hibát tapasztal a telepítés során, a központi telepítést a sikertelen 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Az üzembe helyezés végén a PowerShell-munkamenet még meg nyitva, és semmilyen kimenet nem jelenik meg.
 Ez a viselkedés esetén valószínűleg csak egy PowerShell-parancsablakban alapértelmezett viselkedését eredményét lett kiválasztva. A development kit központi telepítés sikeres volt, de a parancsfájl az ablak kiválasztásakor szünetel. Ellenőrizheti a telepítés véget ért által keresett szót "Válassza" a parancsablakban címsorában. Kijelölésének, az ESC billentyű lenyomásával, és azt követően a befejezési üzenetet jelenjenek meg.
 
-## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+## <a name="virtual-machines"></a>Virtuális gépek
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett kép és a katalógus elem
 Virtuális gépek az Azure Stack üzembe helyezése előtt hozzá kell adni egy Windows Server rendszerképet és a katalógus elemet.
 

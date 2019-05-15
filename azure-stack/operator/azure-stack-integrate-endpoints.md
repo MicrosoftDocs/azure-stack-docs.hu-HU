@@ -2,20 +2,20 @@
 title: Az Azure Stack adatközpont integrációja – végpontok közzététele |} A Microsoft Docs
 description: A helyi adatközpontban Azure Stack-végpontok közzététele
 services: azure-stack
-author: jeffgilb
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
 ms.date: 05/02/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 262b1790b102483daca1a77d475815b34aa7a1b2
-ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
+ms.openlocfilehash: 885568035070bc4f74b94cddff200302fccfbb72
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65097114"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618102"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Az Azure Stack adatközpont integrációja – végpontok közzététele
 

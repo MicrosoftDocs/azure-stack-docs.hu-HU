@@ -3,7 +3,7 @@ title: SQL-adatbázisok használata az Azure Stackben |} A Microsoft Docs
 description: Ismerje meg, hogyan telepítheti az SQL-adatbázisok szolgáltatásként az Azure Stack és az első lépéseket az SQL Server erőforrás-szolgáltató adapter üzembe helyezéséhez.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
 ms.lastreviewed: 03/18/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: ee64106c97a07e1b3ceb84c4ca932b19bc6d83b8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 7cc05316222f7652e8c5eecbad6a02eee901e697
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292727"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617955"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Az SQL Server erőforrás-szolgáltató az Azure Stack üzembe helyezése
 
@@ -83,7 +83,7 @@ Futtassa a DeploySqlProvider.ps1 parancsfájlt, amely a következő feladatokat 
 
 A parancssorból a következő paramétereket is megadhat. Ha nem, vagy ha minden paraméter ellenőrzése sikertelen, kéri, hogy adja meg a szükséges paramétereket.
 
-| Paraméter neve | Leírás | Megjegyzés vagy az alapértelmezett érték |
+| Paraméternév | Leírás | Megjegyzés vagy az alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A felhő rendszergazdájához, a kiemelt végponthoz eléréséhez szükséges hitelesítő adatait. | _Kötelező_ |
 | **AzCredential** | Az Azure Stack szolgáltatás-rendszergazdai fiók hitelesítő adatait. Használja az Azure Stack üzembe helyezéséhez használt hitelesítő adatokkal. | _Kötelező_ |

@@ -3,7 +3,7 @@ title: Az Azure Stack infrastruktúrájának biztonsági mentési szolgáltatás
 description: Ez a cikk az Azure Stack infrastruktúra Backup szolgáltatás – referenciaanyag tartalmazza.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 890eb9a6f5b817c3bf77e18ce7019b9e99709d49
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7b95dba4b3462b2c0e36aa1464faf217fccd7a6a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983613"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617798"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastruktúra biztonsági mentési szolgáltatás leírása
 
@@ -139,10 +139,10 @@ Ezek a korlátok megfontolnia tervezése, telepítése és üzemeltetése a Micr
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Biztonsági mentés típusa                                                      | Csak teljes    | Infrastruktúra biztonsági mentést vezérlő csak a teljes biztonsági mentést támogatja. Nem támogatja a növekményes biztonsági mentéseket.                                          |
 | Ütemezett biztonsági mentések                                                | Ütemezett és manuális  | Biztonsági mentés vezérlő támogatja az ütemezett és igény szerinti biztonsági mentéseket                                                                                 |
-| Maximális párhuzamos biztonsági mentési feladatok                                   | 1            | Biztonsági mentés vezérlő példányonként csak egy aktív biztonsági mentési feladat támogatott.                                                                  |
+| Maximális párhuzamos biztonsági mentési feladatok                                   | 1.            | Biztonsági mentés vezérlő példányonként csak egy aktív biztonsági mentési feladat támogatott.                                                                  |
 | Hálózati kapcsoló konfigurálására                                     | Nincs a hatókörben | Rendszergazda készítsen biztonsági másolatot az OEM-eszközök használata a hálózati kapcsoló konfigurálására. Tekintse meg az Azure Stack minden OEM gyártója által biztosított dokumentációt. |
 | Hardver életciklus gazdagép                                          | Nincs a hatókörben | Rendszergazda hardver életciklus gazdagépre OEM eszközök használatával kell készíteni. Tekintse meg az Azure Stack minden OEM gyártója által biztosított dokumentációt.      |
-| Fájlmegosztások maximális száma                                    | 1            | Csak egy fájlmegosztás biztonsági mentési adatok tárolására használható                                                                                        |
+| Fájlmegosztások maximális száma                                    | 1.            | Csak egy fájlmegosztás biztonsági mentési adatok tárolására használható                                                                                        |
 | App Services, a függvény, az SQL, a mysql erőforrás-szolgáltató adatok biztonsági mentése | Nincs a hatókörben | Tekintse meg a központi telepítésére és felügyeletére értéknövelt RPs Microsoft által létrehozott közzétett útmutatást.                                                  |
 | Biztonsági mentési külső erőforrás-szolgáltatók                              | Nincs a hatókörben | Tekintse meg a központi telepítésére és felügyeletére értéknövelt RPs külső gyártók által létrehozott közzétett útmutatást.                                          |
 

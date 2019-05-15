@@ -3,8 +3,8 @@ title: Az Azure Stack-tűzfal tervezése az Azure Stack integrált rendszerek |}
 description: A több csomópontos, az Azure Stack Azure-kapcsolattal rendelkező üzemelő példányok az Azure Stack tűzfal szempontokat ismerteti.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297589"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618685"
 ---
 # <a name="azure-stack-firewall-integration"></a>Az Azure Stack tűzfal integrációja
 Javasoljuk, hogy egy tűzfal eszköz segítségével biztonságos Azure Stack segítségével. Tűzfalak segítségével többek között elosztott--szolgáltatásmegtagadásos (DDOS) támadások, behatolásérzékelési és a tartalomvizsgálat szemben. Azonban akkor is válhat az Azure storage-szolgáltatásokhoz hasonlóan a blobok, táblák és üzenetsorok átviteli szűk keresztmetszetté.
@@ -62,7 +61,7 @@ Vállalati intranetes vagy szegélyhálózat-alapú üzembe helyezés Azure Stac
 
 ![Azure Stack szegélyhálózat-alapú hálózat – példa](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
 Tudjon meg többet [Azure Stack-végpontok által használt portokról és protokollokról](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>További lépések

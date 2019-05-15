@@ -3,7 +3,7 @@ title: Általános adatközpont integrációja szempontok az Azure Stack integr�
 description: Ismerje meg, mi mindent most tervezheti meg és készítse elő az Adatközpont integrációja az Azure Stack több csomópontos.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 9aa8ec8bbbda1548088ad9dfeb389d292a0e1fbb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 53289e46a2f29a03535958b76743db107f6ecf64
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985382"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617784"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack integrált rendszerek adatközpont integrációja szempontjai
 Ha érdeklik az Azure Stackkel integrált rendszereknél, tisztában kell lennie a főbb tervezési megfontolások körül a rendszerbe állítás és az hogyan illeszkedik a a rendszer az adatközpontban. Ez a cikk segítséget nyújt az Azure Stack több csomópontos rendszerének fontos infrastruktúra döntéseket ezeket a szempontokat magas szintű áttekintést nyújt. A felsorolt szempontok megismerése segít az használatakor a számítógép-Gyártói hardver gyártójától, azok az Azure Stack üzembe helyezése a helyi adatközpontban.  
@@ -192,7 +192,7 @@ Linux vagy Windows IaaS virtuális gépek biztonsági mentése, kell használnia
 
 Egy másodlagos helyre replikálja az adatokat, és az alkalmazás feladatátadását, ha katasztrófa történik, használhatja az Azure Site Recovery vagy támogatott külső termékekhez. Alkalmazások, amelyek támogatják a natív replikáció esetén (például a Microsoft SQL Server) is, adatokat egy másik helyre, ahol az alkalmazás fut. replikálhatja.
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
 
 - További információ a használati esetek, vásárlás, partnerek és OEM hardverszállítók: a [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) termékoldalán.
 - Az ütemterv és a rendelkezésre állás földrajzi információ az Azure Stack integrált rendszerek, tekintse meg a: [Azure Stack: Azure-bővítmény](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 

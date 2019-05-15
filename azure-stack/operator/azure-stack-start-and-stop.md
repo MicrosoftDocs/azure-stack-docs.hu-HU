@@ -3,8 +3,8 @@ title: Elindítása és leállítása az Azure Stackben |} A Microsoft Docs
 description: Megtudhatja, hogyan indítása és leállítása az Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/19/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/19/2019
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: e4806dffd30786384adf92a50c3ac6879d8d4526
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292144"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618548"
 ---
 # <a name="start-and-stop-azure-stack"></a>Elindítása és leállítása az Azure Stackben
 Ez a cikk megfelelően állítsa le és indítsa újra az Azure Stack-szolgáltatásokat az eljárást kell követnie. Leállítás fizikailag a teljes Azure Stack-környezet lesz kikapcsolásához. Bekapcsolja az összes infrastruktúra-szerepkörök a indítsa el, és adja vissza a bérlői erőforrásokat az áramellátási állapot, leállítás előtt voltak.

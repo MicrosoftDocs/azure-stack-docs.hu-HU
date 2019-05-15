@@ -3,7 +3,7 @@ title: Az Azure leválasztott telepítési döntések meghozatalában az Azure S
 description: Tervezési megfontolások a több csomópontos, az Azure Stack Azure-kapcsolattal rendelkező központi telepítések központi telepítési határozza meg.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 239e2f1ad0ee75a7342c3092521e3604d4bc97ae
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: df0989886d34581950eca04ebe63104d477d003f
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985532"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618027"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Az Azure leválasztott telepítés tervezési megfontolások az Azure Stack integrált rendszerek
 Miután döntött [hogyan fogja integrálja az Azure Stack a hibridfelhő-környezet](azure-stack-connection-models.md), az Azure Stack telepítési döntések is véglegesítése.
@@ -57,7 +57,7 @@ Telemetria|Nem érhető el - Telemetriai adatokat az Azure Stack, és minden kü
 |Tanúsítványok|Nem érhető el – az internetkapcsolat szükség a visszavont tanúsítványok listája (CRL), és Online tanúsítvány állapotának protokoll (OSCP) szolgáltatások HTTPS kontextusában.|
 |Key-Vault|Sérült – Key vault gyakori használati eset az, hogy egy alkalmazás futásidőben titkos kódok olvasását. Ennek az alkalmazásnak kell egy egyszerű szolgáltatást a címtárban. Az Azure Active Directoryban hozzáadható a szolgáltatásnevek alapértelmezés szerint, normál felhasználók (nem rendszergazda jogosultságú). Az Active Directory (AD FS használatával) nincsenek. Ez egy küszöbértéket a helyezi a teljes körű felhasználói élményt, mert az egyik mindig haladjon végig a directory-rendszergazda bármely alkalmazás hozzáadása.| 
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
 - További információ a használati esetek, vásárlás, partnerek és OEM hardverszállítók: a [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) termékoldalán.
 - Az ütemterv és a rendelkezésre állás földrajzi információ az Azure Stack integrált rendszerek, tekintse meg a: [Azure Stack: Azure-bővítmény](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - A Microsoft Azure Stack csomagolás és a díjszabással kapcsolatos további [töltse le a .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 

@@ -3,7 +3,7 @@ title: Az SQL futtató kiszolgálókat az Azure Stackben |} A Microsoft Docs
 description: Hogyan adja hozzá az SQL Server-példányok üzembe helyezés az SQL-Adapter erőforrás-szolgáltatón keresztül.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 54394d654bafae669addb2ccb0ceeb9cc4e3a6ed
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: a56e1e8c3c5109c638432652adf9260f59f6a467
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984923"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618449"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Az erőforrás-szolgáltató SQL üzemeltetési kiszolgáló hozzáadása
 

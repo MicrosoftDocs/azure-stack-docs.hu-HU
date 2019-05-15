@@ -3,7 +3,7 @@ title: Az Azure Stack SQL erőforrás-szolgáltató frissítése |} A Microsoft 
 description: Ismerje meg, hogyan frissítheti az Azure Stack SQL erőforrás-szolgáltató.
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5238c60493820fe6d784049da9862b4347e563c4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292210"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617825"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató frissítése
 
@@ -52,7 +52,7 @@ Miután a *UpdateSQLProvider.ps1* a szkript létrehoz egy új virtuális Gépet,
 
 Megadhatja az alábbi paramétereket a parancssorból való futtatásakor a **UpdateSQLProvider.ps1** PowerShell-parancsfájlt. Ha nem, vagy ha minden paraméter ellenőrzése sikertelen, kéri, hogy adja meg a szükséges paramétereket.
 
-| Paraméter neve | Leírás | Megjegyzés vagy az alapértelmezett érték |
+| Paraméternév | Leírás | Megjegyzés vagy az alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A felhő rendszergazdájához, a kiemelt végponthoz eléréséhez szükséges hitelesítő adatait. | _Kötelező_ |
 | **AzCredential** | Az Azure Stack szolgáltatás-rendszergazdai fiók hitelesítő adatait. Használja az Azure Stack üzembe helyezéséhez használt hitelesítő adatokkal. | _Kötelező_ |

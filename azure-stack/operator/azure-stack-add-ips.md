@@ -3,7 +3,7 @@ title: Nyilvános IP-címek hozzáadása az Azure Stackben |} A Microsoft Docs
 description: Ismerje meg, hogyan több nyilvános IP-címek hozzáadása az Azure Stackhez.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 3697dd623f7531491cac7e8f7d8a327de0c02af7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 9fb373d350c5225de4b6bb2f53b2ff75185a4096
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986091"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618295"
 ---
 # <a name="add-public-ip-addresses"></a>Add Public IP Addresses
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*  

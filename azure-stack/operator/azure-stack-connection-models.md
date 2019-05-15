@@ -3,7 +3,7 @@ title: Az Azure Stackkel integrált rendszerek kapcsolati modellek |} A Microsof
 description: Tervezési megfontolások az Azure Stack több csomópontos központi telepítés határozza meg.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 3c37ef0ea2262a52696a0bdf765eae36a37a4194
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: da48a9a04c9daaf2d7a29bc2d4b300563bebd6e5
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986257"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618964"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Az Azure Stackkel integrált rendszerek kapcsolati modellek
 Ha Ön a powerappsot, olvassa az Azure Stackkel integrált rendszer, kell megérteni [több adatközpont integrációja szempontok](azure-stack-datacenter-integration.md) való határozza meg, hogyan elférnek a rendszer a helyi adatközpontban Azure Stack üzembe helyezéshez. Emellett szüksége annak eldöntése, hogyan fogja integrálja az Azure Stack a hibridfelhő-környezet. Ez a cikk a főbb kérdései, többek között az Azure-kapcsolat, ügyfélidentitás-tárolóval, és a számlázási modell döntések áttekintést nyújt.
@@ -43,7 +43,7 @@ Kiválaszthatja, hogy csatlakozik az internethez (és az Azure-bA), vagy csatlak
 |AD FS|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
 |Fogyasztás alapú számlázáshoz|![Támogatott](media/azure-stack-connection-models/check.png)| |
 |Kapacitás-alapú számlázás|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
-|Licencek| Nagyvállalati szerződés vagy a Cloud Solution Provider | Nagyvállalati Szerződés |
+|Licencelés| Nagyvállalati szerződés vagy a Cloud Solution Provider | Nagyvállalati szerződés |
 |A javítások és frissítések|Frissítési csomag közvetlenül az internetről letölthető az Azure Stackhez |  Szükséges<br><br>Cserélhető adathordozó is szükséges<br> és a egy különálló csatlakoztatott eszköz |
 | Regisztráció | Automatikus | Szükséges<br><br>Cserélhető adathordozó is szükséges<br> és a egy különálló csatlakoztatott eszköz |
 

@@ -3,7 +3,7 @@ title: Azure Stack és a globális Azure összehasonlítása |} A Microsoft Docs
 description: Ismerje meg, hogyan nyújt a Microsoft, Azure és az Azure Stack operációsrendszer-szolgáltatások az Azure-ökoszisztéma hasznosítása
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/03/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: d604175cede436dc7d07020271d61c19f2fd542a
-ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
+ms.openlocfilehash: 768d4bd9ad2d70878e9794b1ba315559e76884df
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65097144"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618754"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Globális Azure, Azure Stack és az Azure Stack HCl közötti különbségek
 

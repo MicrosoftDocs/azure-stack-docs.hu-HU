@@ -6,14 +6,14 @@ metadata:
   title: Az Azure Stack Development Kit dokumentációja – oktatóanyagok és API-referencia
   description: 'Ismerje meg, hogyan helyezheti üzembe, és az Azure Stack fejlesztői készletének használata.'
   services: azure-stack
-  author: jeffgilb
+  author: mattbriggs
   manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/13/2018
-  ms.author: jeffgilb
+  ms.author: mabrigg
 abstract:
   description: 'Az Azure Stack Development Kit (ASDK) egy egy csomópontos üzembe helyezhető Azure Stacket, letöltheti és használhatja az ingyenes. Egy környezet, amelyben az Azure Stack értékeli és API-k használatával, és az Azure-ral nem éles környezetben konzisztens eszköztámogatás modern alkalmazások fejlesztése a ASDK hivatott. <br/><br/>Ha Ön az Azure Stack operátorait, akik az integrált rendszerek infrastruktúrát felügyeli, és szolgáltatásokat kínál, tekintse meg a <a href="/azure-stack/operator">operátori dokumentációja</a>.<br/><br/>Ha Ön egy Azure Stack-felhasználó, aki szolgáltatásokat használ, vagy hoz létre az alkalmazások az Azure Stack, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentáció</a>.'
 sections:

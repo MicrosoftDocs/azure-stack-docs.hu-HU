@@ -3,7 +3,7 @@ title: Az Azure Stack üzembe helyezési hálózati forgalom |} A Microsoft Docs
 description: Ez a cikk azt ismerteti, milyen hatással vannak az Azure Stack üzembe helyezési hálózati folyamatokkal kapcsolatos.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 8cc4ba5aa7861143c0ee2c48ba3c93206930eada
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 20ec9e6ea8831e6667a282074ba28b16da3180f9
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984509"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618995"
 ---
 # <a name="about-deployment-network-traffic"></a>Üzembe helyezés hálózati forgalomról
 Hálózati forgalom adatfolyamait során az Azure Stack ismertetése telepítési létfontosságú sikeres bevezetését. Ez a cikk végigvezeti várt hálózati forgalom megismerése milyen szolgáltatásokat biztosít a telepítési folyamat során.

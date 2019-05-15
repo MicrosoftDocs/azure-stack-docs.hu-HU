@@ -3,7 +3,7 @@ title: Tárolási kapacitás tervezése az Azure Stackben |} A Microsoft Docs
 description: További információ a tárolási kapacitás tervezése az Azure Stack üzemelő példányok.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 02/20/2019
-ms.openlocfilehash: 1d111d56d58869121f6833fe5c7ea15664883aaa
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 549428b7a47065dfcb0bdb55ff100332b066f4bc
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984475"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618897"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Az Azure Stack tárolási kapacitásának megtervezése
 Az alábbi szakaszok az Azure Stack tárolókapacitást biztosítanak tervezési információkat a megoldások tárolási szükségletek segítség.

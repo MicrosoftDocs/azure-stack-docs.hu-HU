@@ -3,7 +3,7 @@ title: Ajánlat magas rendelkezésre állású MySQL-adatbázisok az Azure Stack
 description: Ismerje meg, hogyan hozhat létre egy MySQL-kiszolgáló erőforrás-szolgáltató gazdaszámítógép és a magas rendelkezésre állású MySQL-adatbázisok az Azure Stack használatával.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f620b8f2d1abe4d656e8f7cf8c34a5798d517e2a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1b1ebd27f87030b34b132eb31c4b4ae83f13a3b0
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300515"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618223"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Oktatóanyag: Magas rendelkezésre állású MySQL-adatbázisok ajánlat
 
@@ -110,11 +110,11 @@ Alapértelmezés szerint nincs nyilvános hozzáférés van konfigurálva MySQL-
 
 1. A felügyeleti portálon keresse meg a MySQL-fürt üzembe helyezésekor létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoport (**alapértelmezett-alhálózat-sg**):
 
-   ![nyitás](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![megnyitás](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Válassza ki **bejövő biztonsági szabályok** majd **Hozzáadás**.<br><br>Adja meg **3306-os** a a **Célporttartomány** , és megadhat egy leírást a a **neve** és **leírás** mezőket. Kattintson a Hozzáadás gombra kattintva zárja be a bejövő biztonsági szabály párbeszédpanel.
 
-   ![nyitás](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![megnyitás](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>A MySQL-fürt külső hozzáférés konfigurálása
 A MySQL-fürt hozzáadása az Azure Stack MySQL-kiszolgáló gazdagépként, előtt külső hozzáférés engedélyezve kell lennie.

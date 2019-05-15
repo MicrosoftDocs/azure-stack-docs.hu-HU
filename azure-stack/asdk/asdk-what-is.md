@@ -3,7 +3,7 @@ title: Bevezetés az Azure Stack Development Kit (ASDK) való |} A Microsoft Doc
 description: Leírja, mi a ASDK és gyakori alkalmazási esetei kiértékelését a Microsoft Azure Stackhez.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 02/08/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: edde001bece869e1398ee13fbcc7b3fa32616cfa
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 08f5d51eb4ded47d1e52ec53d4c75903d13c8815
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290021"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617684"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Mi az az Azure Stack Development Kit?
 [A Microsoft Azure Stack integrált rendszerek](../operator/azure-stack-overview.md) mérete 4 és 16 közötti csomópontjáról tartományt, és közösen egy hardver partner és a Microsoft által támogatott. Azure Stack integrált rendszerek használatával engedélyezhető az új forgatókönyvek használhatók a termelési számítási feladatokhoz. Ha Ön az Azure Stack operátorait, akik az integrált rendszerek infrastruktúrát felügyeli, és szolgáltatásokat kínál, tekintse meg a [operátori dokumentációja](/azure-stack/operator).

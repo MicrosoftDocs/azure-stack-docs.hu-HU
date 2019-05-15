@@ -3,7 +3,7 @@ title: Üzembe helyezése az Azure Stack – PowerShell |} A Microsoft Docs
 description: Ez a cikk a ASDK a parancssorból, PowerShell használatával telepítse.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 05/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 2e260145b2e17dd4475d81f576d84e0145fbc199
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 05a3d0a88f4852395942d58ac798d2eb06a1d766
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172392"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617563"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>A parancssorból a ASDK üzembe helyezése
 A ASDK olyan kiértékeléséhez, és mutassa be az Azure Stack-szolgáltatások és szolgáltatások telepítését, tesztelési és fejlesztési környezet. Letöltés működik, és szüksége a környezet hardver előkészítése, és néhány (Ez több óráig fog tartani) parancsfájlok futtatása. Ezt követően bejelentkezhet a rendszergazdai és felhasználói portált az Azure Stack használatának megkezdéséhez.
