@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 04/15/2019
-ms.openlocfilehash: 3098381f13835cc2062df36a967412bf98a4547f
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984700"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706327"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack titkos kulcsainak rotálása
 
@@ -34,7 +34,7 @@ Az összes a tanúsítványok, jelszavak, biztonságos karakterláncok és kulcs
 
 - **Külső titkos kódok**
 
-Infrastruktúra-szolgáltatás tanúsítványai kívülre irányuló szolgáltatások, amelyek az Azure Stack – operátor által biztosított. Külső titkos kódok a tanúsítványok, a következő szolgáltatásokat tartalmazza:
+Infrastruktúra-szolgáltatás tanúsítványok kívülre irányuló szolgáltatások, az Azure Stack – operátor által biztosított. Külső titkos kódok a tanúsítványok, a következő szolgáltatásokat tartalmazza:
 
 - Adminisztrátori portál
 - Nyilvános portálra
@@ -300,11 +300,11 @@ A **Start-SecretRotation** parancsmag a infrastruktúra titkos kulcsok az Azure 
 
 | Paraméter | Típus | Szükséges | Pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False (Hamis)  | nevű  | None  | A fájlmegosztás elérési útját a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása. Záró könyvtárnak kell lennie **\Certificates**. |
-| `CertificatePassword` | SecureString | False (Hamis)  | nevű  | None  | A jelszó - PfXFilesPath megadott összes tanúsítvány esetében. Kötelező érték, ha PfxFilesPath biztosított külső titkos kódok vannak-e forgatni. |
-| `Internal` | String | False (Hamis) | nevű | None | Belső jelző bármikor belső infrastruktúra titkos kulcsok rotálására felhasználja az Azure Stack operátorait kell használni. |
-| `PathAccessCredential` | PSCredential | False (Hamis)  | nevű  | None  | A fájlmegosztáson az PowerShell hitelesítő adatait a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása.  |
-| `ReRun` | SwitchParameter | False (Hamis)  | nevű  | None  | Bármikor titkos Elforgatás van reattempted sikertelen próbálkozások után futtassa újra kell használni. |
+| `PfxFilesPath` | String  | Hamis  | nevű  | Egyik sem  | A fájlmegosztás elérési útját a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása. Záró könyvtárnak kell lennie **\Certificates**. |
+| `CertificatePassword` | SecureString | Hamis  | nevű  | Egyik sem  | A jelszó - PfXFilesPath megadott összes tanúsítvány esetében. Kötelező érték, ha PfxFilesPath biztosított külső titkos kódok vannak-e forgatni. |
+| `Internal` | String | Hamis | nevű | Egyik sem | Belső jelző bármikor belső infrastruktúra titkos kulcsok rotálására felhasználja az Azure Stack operátorait kell használni. |
+| `PathAccessCredential` | PSCredential | Hamis  | nevű  | Egyik sem  | A fájlmegosztáson az PowerShell hitelesítő adatait a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása.  |
+| `ReRun` | SwitchParameter | Hamis  | nevű  | Egyik sem  | Bármikor titkos Elforgatás van reattempted sikertelen próbálkozások után futtassa újra kell használni. |
 
 ### <a name="examples"></a>Példák
 

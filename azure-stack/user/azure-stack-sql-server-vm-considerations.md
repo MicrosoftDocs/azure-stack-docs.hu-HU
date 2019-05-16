@@ -1,5 +1,5 @@
 ---
-title: Használja az SQL Server ajánlott eljárásokat és az Azure Stack virtuális gépek teljesítményének növelése érdekében |} A Microsoft Docs
+title: Az SQL Server ajánlott eljárások az Azure Stackben teljesítmény optimalizálása érdekében. | Microsoft Docs
 description: Ez a cikk az SQL server ajánlott eljárások a teljesítmény növelése és az Azure Stack-beli virtuális gépeken az SQL Server optimalizálása.
 services: azure-stack
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77e7e994e382e5e359ba133ccc9e5a9b35a74153
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 628e7bcb994c92bd00425b4ba11a45ebd1ff8f54
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985585"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712357"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>SQL server – gyakorlati tanácsok az Azure Stackben teljesítményének optimalizálása
 
-Ez a cikk az SQL server ajánlott eljárások az SQL Server optimalizálása és a Microsoft Azure Stack virtuális gépek teljesítményének növelése érdekében. Amikor az Azure Stack virtuális gépeken futó SQL Server, az azonos adatbázis teljesítmény-finomhangolási beállításokat használják alkalmazható az SQL Server egy helyi kiszolgálói környezetben. A relációs adatbázisok az Azure Stack-felhőben a teljesítmény számos tényezőtől függ. Tényezők közé tartozik a családba tartozó virtuális gépek és az adatlemezek konfigurációja.
+Ez a cikk az SQL server ajánlott eljárások az SQL Server optimalizálása és a Microsoft Azure Stack virtuális gépek teljesítményének növelése érdekében. Amikor az Azure Stack virtuális gépeken futó SQL Server, az azonos adatbázis teljesítmény-finomhangolási beállításokat használják alkalmazható az SQL Server egy helyi kiszolgálói környezetben. A teljesítmény, a relációs adatbázisok az Azure Stack-felhőben sok tényező befolyásolja, többek között a virtuális gép családi méretét és az adatlemezek konfigurációja függ.
 
 Az SQL Server-rendszerképeken létrehozásakor [fontolja meg az Azure Stack portálon a virtuális gépek kiépítése](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Töltse le az SQL IaaS-bővítményt a Marketplace-kezelés az Azure Stack felügyeleti portálon, és töltse le a választott SQL virtuális gép virtuális merevlemezek (VHD). Ezek közé tartozik a SQL2014SP2 SQL2016SP1 és SQL2017.
 
@@ -61,7 +61,7 @@ Teljesítmény-és nagybetűket alkalmazások, a következő [virtuálisgép-mé
 
 - **SQL Server Standard edition és a Web edition:** DS2 vagy újabb
 
-Az Azure Stack a DS, DS_v2 és virtuális gép családi sorozat közötti teljesítménybeli különbségek nem.
+Az Azure Stack nem a DS, DS_v2 és virtuális gép családi sorozat közötti teljesítménybeli különbségek.
 
 ## <a name="storage-guidance"></a>Storage útmutatója
 
@@ -92,13 +92,13 @@ Operációsrendszer-lemez, amelyek rendszerindító és a egy futó operációs 
 
 ### <a name="temporary-disk"></a>Ideiglenes lemez
 
-Az ideiglenes meghajtó, a következő címkét: a **D** meghajtó, nincs megőrizve. Ne tárolja a bármely hajtja megszakad, például a felhasználói adatbázis-fájlokat vagy a felhasználó tranzakciós naplófájlokat, az adatok a **D** meghajtót.
+Az ideiglenes meghajtó, a következő címkét: a **D** meghajtó, a nem állandó. Ön nem hajlandó elveszíti az adatokat ne tároljon a **D** meghajtót. Ez magában foglalja a felhasználói adatbázis-fájlokat és a tranzakciós naplófájlok felhasználói.
 
 Azt javasoljuk, hogy az egyes adatlemezek biztosít az adatok akár 2,300 Lemezenként maximum való tárolásának TempDB adatlemezt.
 
 ### <a name="data-disks"></a>Adatlemezek
 
-- **Adatlemezek használata az adatok és a naplófájlok.** Nem használ lemez szétosztottsága befolyásolhatja, ha a virtuális gépről, amely támogatja a Premium storage, ahol egy lemezen található a naplófájlokat, és tartalmazza, az adatok és a TempDB-fájlok a másik két adatlemezek használata. Az egyes adatlemezek számos IOPS és sávszélesség (MB/s) függően a virtuálisgép-család leírtak szerint [virtuális gépek méretei az Azure Stackben támogatott](azure-stack-vm-sizes.md). Ha egy lemez-csíkozást technika, például a tárolóhelyek használ, helyezze el az összes adathoz és naplófájlhoz ugyanazon a meghajtón (beleértve a TempDB adatbázis). Ez a konfiguráció lehetővé teszi az SQL Server feldolgozható, függetlenül attól, hogy melyik fájlt kell őket egy adott időpontban elérhető IOPS maximális számát.
+- **Adatlemezek használata az adatok és a naplófájlok.** Nem használ lemez szétosztottsága befolyásolhatja, ha a virtuális gépről, amely támogatja a Premium storage, ahol egy lemezen található a naplófájlokat, és tartalmazza, az adatok és a TempDB-fájlok a másik két adatlemezek használata. Az egyes adatlemezek számos IOPS és sávszélesség (MB/s) függően a virtuálisgép-család leírtak szerint [virtuális gépek méretei az Azure Stackben támogatott](azure-stack-vm-sizes.md). A lemez-csíkozást technika, például a tárolóhelyek használata, helyezze el az összes adathoz és naplófájlhoz ugyanazon a meghajtón (beleértve a TempDB adatbázis). Ez a konfiguráció lehetővé teszi az SQL Server feldolgozható, függetlenül attól, hogy melyik fájlt kell őket egy adott időpontban elérhető IOPS maximális számát.
 
 > [!NOTE]  
 > Amikor üzembe helyez egy SQL Server virtuális gépet a portálon, lehetősége van a tárolókonfiguráció szerkesztésekor. A konfigurációtól függően az Azure Stack egy vagy több lemezt konfigurál. Több lemez mostantól egyetlen tárolókészlet. Az adathoz és naplófájlhoz együtt találhatók ebben a konfigurációban.
@@ -121,8 +121,8 @@ Azt javasoljuk, hogy az egyes adatlemezek biztosít az adatok akár 2,300 Lemeze
        ```
 
 - A betöltés elvárásainak alapuló tárolókészlet társított lemezek számát határozza meg. Ne feledje, hogy a különböző virtuálisgép-méretek lehetővé teszik a különböző számú csatlakoztatott adatlemezekkel. További információkért lásd: [virtuális gépek méretei az Azure Stackben támogatott](azure-stack-vm-sizes.md).
-- Annak érdekében, hogy a lehetséges maximális IOPS adatlemezek lekéréséhez a javaslat által támogatott az adatlemezek maximális száma hozzáadandó a [virtuálisgép-méret](azure-stack-vm-sizes.md) és lemez szétosztottsága befolyásolhatja.
-- **NTFS foglalási egységek mérete:** Az adatlemez formázásakor javasoljuk, hogy használja-e egy 64 KB-os foglalási egységek mérete az adatok és a naplófájlok, valamint a TempDB.
+- A lehetséges maximális IOPS adatlemezek lekéréséhez a javaslat által támogatott az adatlemezek maximális száma hozzáadása a [virtuálisgép-méret](azure-stack-vm-sizes.md) és használandó lemez szétosztottsága befolyásolhatja.
+- **NTFS foglalási egységek mérete:** Az adatlemez formázásakor javasoljuk egy 64 KB-os foglalási egységek mérete az adatok és a naplófájlok, valamint a TempDB használja.
 - **Lemez felügyeleti eljárások:** Amikor egy adatlemez eltávolítása, állítsa le az SQL Server szolgáltatás módosítása során. Ezenkívül nem változnak a gyorsítótár beállításait a lemezeken, nem biztosít semmilyen teljesítménybeli javulást.
 
 > [!WARNING]  
@@ -130,10 +130,10 @@ Azt javasoljuk, hogy az egyes adatlemezek biztosít az adatok akár 2,300 Lemeze
 
 ## <a name="io-guidance"></a>I/o-útmutató
 
-- Érdemes megfontolni a azonnali fájl inicializálása a kezdeti fájl kiosztható szükséges idő csökkentése érdekében. Azonnali fájl inicializálása kihasználásához, az SQL Server (MSSQLSERVER) szolgáltatás fiók számára biztosítson **SE_MANAGE_VOLUME_NAME** , és adja azt hozzá a **kötet-karbantartási feladatok végrehajtása** biztonsági a házirend. Ha egy SQL Server platform-lemezképet használ az Azure-hoz, az alapértelmezett szolgáltatásfiók (**NT Service\MSSQLSERVER**) nem adódik hozzá a **kötet-karbantartási feladatok végrehajtása** biztonsági házirend. Más szóval azonnali fájl inicializálása nincs engedélyezve az SQL Server Azure platformlemezkép. Az SQL Server szolgáltatási fiókja való hozzáadása után a **kötet-karbantartási feladatok végrehajtása** biztonsági házirend, indítsa újra az SQL Server szolgáltatást. Ez a funkció használatára vonatkozó biztonsági szempontokat is lehet. További információkért lásd: [adatbázis fájl inicializálása](https://msdn.microsoft.com/library/ms175935.aspx).
-- **Automatikus növekedésre** váratlan növekedés okokból van. Az adat- és naplófájlok növekedésének napi elszámolással, az adatbázisnál nem felügyeli. Automatikus növekedésre használatos, ha előre növelheti a fájl használatával a **mérete** váltani.
+- Érdemes megfontolni a azonnali fájl inicializálása a kezdeti fájl kiosztható szükséges idő csökkentése érdekében. Azonnali fájl inicializálása kihasználásához, az SQL Server (MSSQLSERVER) szolgáltatás fiók számára biztosítson **SE_MANAGE_VOLUME_NAME** , és adja azt hozzá a **kötet-karbantartási feladatok végrehajtása** biztonsági a házirend. Ha egy SQL Server platform-lemezképet használja az Azure-hoz, az alapértelmezett szolgáltatásfiók (**NT Service\MSSQLSERVER**) nem adódik hozzá a **kötet-karbantartási feladatok végrehajtása** biztonsági házirend. Más szóval azonnali fájl inicializálása egy SQL Server Azure-platform lemezkép nincs engedélyezve. Az SQL Server szolgáltatási fiókja való hozzáadása után a **kötet-karbantartási feladatok végrehajtása** biztonsági házirend, indítsa újra az SQL Server szolgáltatást. Ez a funkció használatára vonatkozó biztonsági szempontokat is lehet. További információkért lásd: [adatbázis fájl inicializálása](https://msdn.microsoft.com/library/ms175935.aspx).
+- **Automatikus növekedésre** váratlan növekedés okokból van. Az adat- és naplófájlok növekedésének napi elszámolással, az adatbázisnál nem kezelheti. Automatikus növekedésre használatos, ha előre növelheti a fájl használatával a **mérete** váltani.
 - Győződjön meg arról, hogy **többletterheléshez** elkerülése érdekében a felesleges terhelését, amelyek hátrányosan befolyásolhatja a teljesítményt le van tiltva.
-- A telepítő alapértelmezett biztonsági mentés és adatbázis-fájlok helye. A javaslatok használata ebben a cikkben és a kiszolgálói tulajdonságok ablakában végezze el a módosításokat. Útmutatásért lásd: [megtekinteni vagy módosítani az alapértelmezett helyek az adat- és naplófájlok (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Az alábbi képernyőfelvételen látható, hogy ezek a változások hol mutat be:
+- A telepítő alapértelmezett biztonsági mentés és adatbázis-fájlok helye. A javaslatok használata ebben a cikkben és a kiszolgálói tulajdonságok ablakában végezze el a módosításokat. Útmutatásért lásd: [megtekinteni vagy módosítani az alapértelmezett helyek az adat- és naplófájlok (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). Az alábbi képernyőképen látható ezeket a módosításokat:
 
     > ![Megtekinteni vagy módosítani az alapértelmezett helyek](./media/sql-server-vm-considerations/image1.png)
 
@@ -145,13 +145,12 @@ Azt javasoljuk, hogy az egyes adatlemezek biztosít az adatok akár 2,300 Lemeze
 
 Egyes központi telepítések további teljesítménybeli előnyök speciális konfigurációs technikákkal elérése érdekében. Az alábbi listában néhány SQL Server szolgáltatást, amely segítenek jobb teljesítményt emeli ki:
 
-- **Azure biztonsági mentés** **storage.** Amikor a biztonsági mentések végrehajtásához az Azure Stack virtuális gépeken futó SQL Server, SQL Server biztonsági másolat URL-címre is használhatja. Ez a funkció az SQL Server 2012 SP1 CU2 kezdődően elérhető, és a biztonsági mentés a csatlakoztatott adatlemezekkel ajánlott.
+- **Azure biztonsági mentés** **storage.** Ha a biztonsági mentések készítése az Azure Stack virtuális gépeken futó SQL Server, SQL Server biztonsági másolat URL-címet is használhatja. Ez a funkció az SQL Server 2012 SP1 CU2 kezdődően elérhető, és a biztonsági mentés a csatlakoztatott adatlemezekkel ajánlott.
 
-    Ha a biztonsági mentési vagy visszaállítási használatával az Azure storage, kövesse a ajánlásai [SQL Server biztonsági másolat URL-cím ajánlott eljárások és hibaelhárítás](https://msdn.microsoft.com/library/jj919149.aspx) és [visszaállítani a biztonsági mentések Azure-ban tárolt Microsoft](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Ezeket a biztonsági másolatokat használatával is automatizálható [automatikus biztonsági mentés az SQL Server az Azure Virtual machines gépeken](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
+    Ha biztonsági mentése vagy visszaállítása az Azure storage használatával, kövesse a ajánlásai [SQL Server biztonsági másolat URL-cím ajánlott eljárások és hibaelhárítás](https://msdn.microsoft.com/library/jj919149.aspx) és [visszaállítani a biztonsági mentések Azure-ban tárolt Microsoft](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Ezeket a biztonsági másolatokat használatával is automatizálható [automatikus biztonsági mentés az SQL Server az Azure Virtual machines gépeken](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
 
 -   **Készítsen biztonsági másolatot az Azure Stack-tárolóba.** Készíthető az Azure Stack storage hasonlóan végezhető, mint a biztonsági mentés az Azure Storage. SQL Server Management Studio (SSMS) belüli biztonsági másolat létrehozásakor meg kell manuálisan adja meg a konfigurációs adatokat. Nem használható az SSMS a storage-tárolóba vagy a közös hozzáférésű Jogosultságkód létrehozása. SSMS csak csatlakozik Azure-előfizetések, nem az Azure Stack-előfizetést. Ehelyett szeretne létrehozni a tárfiókot, a tároló és a közös hozzáférésű Jogosultságkód vagy a PowerShell-lel az Azure Stack portálon.
 
-    Amikor helyezze el az adatokat az SQL Server biztonsági másolat párbeszédpanel:
 
     ![Az SQL Server biztonsági másolat](./media/sql-server-vm-considerations/image3.png)
 

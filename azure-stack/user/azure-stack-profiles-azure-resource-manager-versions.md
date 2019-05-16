@@ -14,16 +14,16 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 0d088dcfaf97173d267a1f4638751650b7befba2
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 36fd25897e2d45d454f8e1f956f5e72991d45059
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473800"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706260"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Erőforrás-szolgáltató API-ja verziókat támogatja az Azure Stackben profilok
 
-Ez a cikk az Azure Stack által használt minden egyes API-profil az erőforrás-szolgáltató és a verziószámok találja. Ez a cikk a táblázatokban a verziók mindegyik erőforrás-szolgáltató és a profilok az API-verziók esetében támogatott. Mindegyik erőforrás-szolgáltató erőforrás-típusok és adott verziószámok tartalmazza. 
+Ez a cikk az Azure Stack által használt minden egyes API-profil az erőforrás-szolgáltató és a verziószámok találja. Ez a cikk a táblázatokban a verziók mindegyik erőforrás-szolgáltató és a profilok az API-verziók esetében támogatott. Mindegyik erőforrás-szolgáltató erőforrás-típusok és adott verziószámok tartalmazza.
 
 Az API-profil három elnevezési konvenciókat használja:
 
@@ -33,10 +33,10 @@ Az API-profil három elnevezési konvenciókat használja:
 
 Egy API-profilokat és verzió kiadási ütem az Azure Stack, ismertetését [kezelése API-verzióprofilok az Azure Stackben](azure-stack-version-profiles.md).
 
-> [!Note]  
+> [!Note]
 > A **legújabb** API-profil tartalmazza az erőforrás-szolgáltató API legújabb verzióját, és nem szerepel ebben a cikkben.
 
-## <a name="overview-of-2019---03-01-hybrid"></a>A 2019 - 03-01-hibrid áttekintése
+## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>A 2019-03-01-hibrid profil áttekintése
 
 | Erőforrás-szolgáltató | Api-version |
 |-----------------------------------------------|-----------------------------------------------------|
@@ -50,9 +50,9 @@ Egy API-profilokat és verzió kiadási ütem az Azure Stack, ismertetését [ke
 | Microsoft.Authorization (házirend műveletek) | 2016-09-01 |
 | Microsoft.Insights | 2018-01-01 |
 
-Az egyes erőforrástípusok a szolgáltatók a API-profilban verziók listáját lásd: [részleteit a 2019-03-01-hibrid](#details-for-the-2019-03-01-hybrid) profilt.
+Az egyes erőforrástípusok a szolgáltatók a API-profilban verziók listáját lásd: [a 2019-03-01-hibrid profil részletei](#details-for-the-2019-03-01-hybrid-profile).
 
-## <a name="details-for-the-2019-03-01-hybrid"></a>A 2019-03-01-hibrid részletei
+## <a name="details-for-the-2019-03-01-hybrid-profile"></a>A 2019-03-01-hibrid profil részletei
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 

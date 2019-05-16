@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 7047c44ec4828c07eeaefdf29bcfef3762942b21
-ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
+ms.openlocfilehash: 78a42d458f77385114c476bd810cea89380423fa
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65453730"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706306"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -149,6 +149,8 @@ Az Azure Stack 1904 frissítés buildszáma **1.1904.0.36**.
 - Javítva lett egy probléma, amelyben Ha egy előfizetésre, a közreműködő szerepkört rendeltek, de nem kifejezetten adott felhasználó olvasási engedéllyel, hiba jött létre, amely **... Az ügyfél "somelogonaccount@domain.com" objektum azonosítója {GUID} nem rendelkezik a művelet végrehajtására...**  megkísérlésekor. a módosítás mentéséhez egy erőforráshoz.
 
 - Kijavítva, amelyben a Marketplace-en felügyeleti képernyő üres volt a kapcsolat nélküli szindikálási eszköz használt tölthet fel képeket, és ezek közül bármelyik hiányzik a URI(s) ikonra.
+
+- Kijavítva egy probléma, amely ebben az esetben a termékek, amelyek nem sikerült letölteni a marketplace-kezelés törölhető.
 
 ### <a name="security-updates"></a>Biztonsági frissítések
 

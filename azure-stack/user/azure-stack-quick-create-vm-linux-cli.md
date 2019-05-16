@@ -1,6 +1,6 @@
 ---
-title: Linux virtuális gép létrehozása az Azure CLI-vel az Azure Stackben |} A Microsoft Docs
-description: Linux virtuális gép létrehozása a CLI használatával az Azure Stackben.
+title: Hozzon létre egy Linuxos virtuális gép az Azure CLI használatával az Azure Stackben |} A Microsoft Docs
+description: Hozzon létre egy Linuxos virtuális gép az Azure Stack parancssori felület használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: aa744414b554d5da72a63e8af6371bc94b2d6b39
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: d31ee453dda8bb83ff24c07902d7a1250490bb08
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477393"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712397"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Linux rendszerű kiszolgáló virtuális gép létrehozása az Azure Stack az Azure parancssori felület használatával
+# <a name="quickstart-create-a-linux-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Azure CLI használatával az Azure Stackben Linux rendszerű kiszolgáló virtuális gép létrehozása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -38,7 +38,7 @@ Létrehozhat egy Ubuntu Server 16.04 LTS virtuális gépet az Azure parancssori 
 
    Az Azure Stack piactéren alapértelmezés szerint nem tartalmaz a Linux-rendszerképen. Adja meg az Azure Stack-operátorokról lekérése a **Ubuntu Server 16.04 LTS** rendszerképre van szüksége. Az operátor leírt lépéseket követve használhat a [Piactéri termékek letöltése az Azure-ból az Azure Stackhez](../operator/azure-stack-download-azure-marketplace-item.md) cikk.
 
-* Az Azure Stack egy adott verzióját az Azure CLI használatával az erőforrások létrehozásához és kezeléséhez szükséges. Ha nem rendelkezik az Azure CLI, Azure Stack konfigurált, jelentkezzen be a [development Kitet](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), vagy egy Windows-alapú külső ügyfél Ha [VPN-kapcsolaton keresztül csatlakozó](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) , és kövesse a lépéseket a [ Telepítse és konfigurálja az Azure CLI-vel](azure-stack-version-profiles-azurecli2.md).
+* Az Azure Stack egy adott verzióját az Azure CLI használatával az erőforrások létrehozásához és kezeléséhez szükséges. Ha nem rendelkezik az Azure CLI, Azure Stack konfigurált, jelentkezzen be a [development Kitet](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (vagy egy Windows-alapú külső ügyfél Ha [VPN-kapcsolaton keresztül csatlakozó](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)), és kövesse a lépéseket a [ Telepítse és konfigurálja az Azure CLI-vel](azure-stack-version-profiles-azurecli2.md).
 
 * Egy nyilvános SSH-kulcsot a név id_rsa.pub mentése a Windows felhasználói profilja .ssh könyvtárában. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [nyilvános SSH-kulcs használatával](azure-stack-dev-start-howto-ssh-public-key.md).
 
@@ -47,9 +47,9 @@ Létrehozhat egy Ubuntu Server 16.04 LTS virtuális gépet az Azure parancssori 
 Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezelése az Azure Stack-erőforrások. A fejlesztői készlet vagy az Azure Stack integrált rendszerek, futtassa a [az csoport létrehozása](/cli/azure/group#az-group-create) parancs használatával hozzon létre egy erőforráscsoportot.
 
 > [!NOTE]
->  Hitelesítésikód-példák az összes változót értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
+> A Kódminták minden változóját értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
 
-Az alábbi példa egy helyi helyen myResourceGroup nevű erőforráscsoportot hoz létre.
+Az alábbi példa létrehoz egy helyi helyen myResourceGroup nevű erőforráscsoportot: 
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-A virtuális gép létrehozása a [az virtuális gép létrehozása](/cli/azure/vm#az-vm-create) parancsot. Az alábbi példában a myVM nevű virtuális Gépet hoz létre. Ebben a példában használja Bemutatofelhasznalo rendszergazdanevet és Demouser@123 felhasználói jelszót. Ezeket az értékeket módosítsa úgy, hogy válasszon a környezetének megfelelő.
+A virtuális gép létrehozása a [az virtuális gép létrehozása](/cli/azure/vm#az-vm-create) parancsot. Az alábbi példában a myVM nevű virtuális Gépet hoz létre. Ebben a példában Bemutatofelhasznalo használ egy rendszergazdai felhasználónevet és a Demouser@123 rendszergazdai jelszót. Ezeket az értékeket módosítsa úgy, hogy válasszon a környezetének megfelelő.
 
 ```cli
 az vm create \
@@ -69,11 +69,11 @@ az vm create \
   --location local
 ```
 
-A nyilvános IP-címet adja vissza a **PublicIpAddress** paraméter. Jegyezze fel ezt a címet, mert szüksége lesz rá a virtuális gép eléréséhez.
+A nyilvános IP-címet adja vissza a **PublicIpAddress** paraméter. Jegyezze fel ezt a címet, mert szüksége lesz, hogy a virtuális gép használja.
 
 ## <a name="open-port-80-for-web-traffic"></a>A 80-as port megnyitása a webes adatforgalom számára
 
-Mivel a virtuális gép futtatása az IIS-webkiszolgálón történik, meg kell nyitnia az internetes forgalmat a 80-as porton. A kívánt port megnyitásához használja az [az vm open-port](/cli/azure/vm) parancsot.
+Mivel a virtuális gép futtatása az IIS-webkiszolgálón történik, meg kell nyitnia az internetes forgalmat a 80-as porton. Használja a [az vm open-port](/cli/azure/vm) parancsot a kívánt port megnyitásához: 
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -103,7 +103,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Az NGINX telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. Nyisson meg egy webböngészőt, és keresse meg a ```http://<public IP address>```.
+Az NGINX telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. Nyisson meg egy böngészőt, és váltson ```http://<public IP address>```.
 
 ![Az NGINX web server kezdőlap](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

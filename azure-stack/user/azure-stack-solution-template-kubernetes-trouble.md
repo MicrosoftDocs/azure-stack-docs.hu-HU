@@ -1,6 +1,6 @@
 ---
-title: Hibaelhárítás a Kubernetes üzembe helyezés az Azure Stackben |} A Microsoft Docs
-description: Ismerje meg, hogyan háríthatók el a Kubernetes üzembe helyezés az Azure Stacken.
+title: Hibaelhárítás a Kubernetes üzembe helyezés az Azure Stackhez |} A Microsoft Docs
+description: Ismerje meg, hogyan háríthatók el a Kubernetes üzembe helyezés az Azure Stackhez.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 2d4176ceaf1651539a248928faf2034376a8b97a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300251"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712426"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Az Azure Stack a Kubernetes üzembe helyezés hibaelhárítása
 
@@ -28,11 +28,11 @@ ms.locfileid: "64300251"
 > [!Note]  
 > Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió.
 
-A következő cikket úgy tűnik, a Kubernetes-fürt hibaelhárítása. Tekintse át a központi telepítési riasztás, és a telepítéshez szükséges elemek által a központi telepítés állapotának áttekintése. Szüksége lehet a telepítési naplók gyűjtése az Azure Stack vagy a Linux rendszerű virtuális gépek, amelyeken Kubernetes. Emellett szüksége lehet az Azure Stack rendszergazdai naplók lekérése egy felügyeleti végpont használata.
+Ez a cikk áttekinti a Kubernetes-fürt hibaelhárítása. Hibaelhárítás megkezdéséhez tekintse át az elemek, a telepítéshez szükséges. Szüksége lehet a telepítési naplók gyűjtése az Azure Stack vagy a Linux rendszerű virtuális gépek, amelyeken Kubernetes. Naplók lekérése egy felügyeleti végpont, lépjen kapcsolatba az Azure Stack-rendszergazdához.
 
 ## <a name="overview-of-kubernetes-deployment"></a>Kubernetes telepítésének áttekintése
 
-A fürt hibaelhárítás megkezdése előtt érdemes áttekinteni az Azure Stack-beli Kubernetes-fürt üzembe helyezési folyamat. A központi telepítés a virtuális gépek létrehozása és telepítése az ACS Engine, a fürt számára egy megoldás Azure Resource Manager-sablon használatával.
+Mielőtt a fürthöz, a hibaelhárításhoz tekintse át az Azure Stack-beli Kubernetes-fürt üzembe helyezési folyamat. A központi telepítés a virtuális gépek létrehozása és telepítése az AKS-motor a fürt számára egy megoldás Azure Resource Manager-sablon használatával.
 
 ### <a name="kubernetes-deployment-workflow"></a>Kubernetes-telepítési munkafolyamat
 
@@ -48,7 +48,7 @@ Az alábbi ábrán látható, az általános folyamat a fürt üzembe helyezés�
     -  **Felhasználónév**: A felhasználónév, a Linux rendszerű virtuális gépek, amelyek a Kubernetes-fürt és a DVM részei.
     -  **Nyilvános SSH-kulcs**: A kulcs, amely az összes Linux-számítógép, a Kubernetes-fürt és a DVM részeként létrehozott engedély szolgál.
     -  **Egyszerű szolgáltatás**: A Kubernetes Azure felhőszolgáltató által használt azonosítója. Az ügyfél-azonosító az Alkalmazásazonosítót azonosította az eseményt, az egyszerű szolgáltatás létrehozásakor. 
-    -  **Titkos Ügyfélkód**: Az egyszerű szolgáltatás létrehozásakor létrehozott kulcs azokat.
+    -  **Titkos Ügyfélkód**: A kulcsot hozott létre, az egyszerű szolgáltatás létrehozásakor.
 
 2. Az üzemelő példány virtuális gép létrehozása és az egyéni szkriptek futtatására szolgáló bővítmény.
     -  Az üzembe helyezés Linux rendszerű virtuális gép létrehozása a marketplace Linux-rendszerképek használatával **Ubuntu Server 16.04-LTS**.
@@ -56,8 +56,8 @@ Az alábbi ábrán látható, az általános folyamat a fürt üzembe helyezés�
     -  A DVM egyéni parancsfájl futtatásával. A szkript a következő feladatokat hajtja végre:
         1. A katalógus végpont lekérése az Azure Resource Manager-metaadatok végpontja.
         2. Az active directory erőforrás-azonosító lekérése az Azure Resource Manager-metaadatok végpontja.
-        3. Az API-modell betölti az ACS-motor.
-        4. Az ACS Engine telepíti a Kubernetes-fürt, és menti az Azure Stack felhő profilt `/etc/kubernetes/azurestackcloud.json`.
+        3. Betölti az AKS-motor az API modelljében.
+        4. Az AKS-motor telepíti a Kubernetes-fürt, és menti az Azure Stack felhő profilt `/etc/kubernetes/azurestackcloud.json`.
 3. A fő virtuális gépek létrehozásához.
 
 4. Töltse le és futtassa egyéni parancsfájl-kiterjesztés.
@@ -81,9 +81,9 @@ Az alábbi ábrán látható, az általános folyamat a fürt üzembe helyezés�
     - Beállítja a **kubelet** szolgáltatás.
     - A Kubernetes-fürthöz csatlakozik.
 
-## <a name="steps-for-troubleshooting"></a>Hibaelhárítási lépések
+## <a name="steps-to-troubleshoot-kubernetes"></a>Kubernetes hibaelhárítása
 
-A virtuális gépeken, amelyek támogatják a Kubernetes-fürtöt is összegyűjtheti a naplókat. Emellett áttekintheti a telepítési naplót. Szüksége lehet az Azure Stack rendszergazdai ellenőrizni a verziószámot, amely használja, és a naplók lekérése az Azure Stacken, amely a központi telepítés kapcsolódó van szüksége az Azure Stack-kommunikációhoz.
+Összegyűjtheti, és tekintse át a telepítési naplók a virtuális gépeken, amelyek támogatják a Kubernetes-fürthöz. Az Azure Stack rendszergazdai ellenőrizni a verziószámot, amely használja, és a naplók lekérése az Azure Stacken, amely a központi telepítés kapcsolódó van szüksége az Azure Stack-kommunikációhoz.
 
 1. Tekintse át a [központi telepítési állapot](#review-deployment-status) és a naplók lekérése a főcsomópont a Kubernetes-fürtben.
 2. Győződjön meg arról, hogy használ-e az Azure Stack legújabb verzióját. Ha biztos abban, hogy melyik verziót használ, lépjen kapcsolatba az Azure Stack rendszergazdai.
@@ -94,7 +94,7 @@ A virtuális gépeken, amelyek támogatják a Kubernetes-fürtöt is összegyűj
 4.  Ha a virtuális gép **OK**, majd kiértékelheti a DVM. Ha a DVM hibaüzenetet:
 
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a kulcsot, amelyet Ön hozott létre.  
-    - Az Azure Stack-rendszergazdától a naplók begyűjtéséről az Azure Stack használatával a privilegizált végpontokat kell. További információkért lásd: [Azure Stack-diagnosztikai eszközök](../operator/azure-stack-diagnostics.md).
+    - Az Azure Stack rendszergazdájától kérheti le a a naplókat az Azure Stack használatával a privilegizált végpontok. További információkért lásd: [Azure Stack-diagnosztikai eszközök](../operator/azure-stack-diagnostics.md).
 5. Ha az üzembe helyezéssel kapcsolatos kérdése van, közzéteheti, vagy tekintse meg, ha valaki már megválaszolta a kérdést a [Azure Stack-fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Tekintse át a telepítés állapota
@@ -105,15 +105,15 @@ Ha a Kubernetes-fürtöt telepít, a telepítés állapota minden olyan problém
 2. Válassza ki **erőforráscsoportok**, majd válassza ki a nevét, amelyet a Kubernetes-fürt üzembe helyezésekor használt erőforráscsoport.
 3. Válassza ki **központi telepítések**, majd válassza ki a **üzemelő példány neve**.
 
-    ![Hibaelhárítás](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Hibáinak elhárítása a Kubernetes: jelölje be telepítési](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-4.  Tekintse meg a hibaelhárítási ablakot. Minden üzembe helyezett erőforrás a következő információkat biztosítja:
+4.  Olvassa el a Hibaelhárítás ablakot. Minden üzembe helyezett erőforrás a következő információkat biztosítja:
     
     | Tulajdonság | Leírás |
     | ----     | ----        |
-    | Erőforrás | Az erőforrás neve. |
+    | Resource | Az erőforrás neve. |
     | Típus | Az erőforrás-szolgáltató és az erőforrás típusát. |
-    | status | Az elem állapota. |
+    | Állapot | Az elem állapota. |
     | Időbélyeg | Az az idő, UTC-időbélyeg. |
     | Művelet részletei | A művelet részleteit, például az erőforrás-szolgáltató, amely során a műveletet az erőforrás-végpont és az erőforrás nevét. |
 
@@ -125,7 +125,7 @@ Ha az Azure Stack portal nem biztosít elég információt ahhoz, hogy az üzemb
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Szüksége lesz a gép kezelheti az Azure Stack egy Bash-parancssort. Egy Windows-gépen, kap egy Bash parancssor telepítésével [Git for Windows](https://git-scm.com/downloads). Hely telepítése után a _a Git Bash_ a start menüben.
+Szüksége van a gépen, kezelheti az Azure Stack egy Bash-parancssort. Egy Windows-gépen, kap egy Bash parancssor telepítésével [Git for Windows](https://git-scm.com/downloads). Hely telepítése után a _a Git Bash_ a start menüben.
 
 ### <a name="retrieving-the-logs"></a>A naplók beolvasása
 
@@ -150,18 +150,18 @@ Kövesse az alábbi lépéseket gyűjtése és a fürt naplók letöltéséhez:
     | -h, --help  | Nyomtatási parancs használata. | |
     | -i – identitás-fájlja | A Kubernetes-fürt létrehozásakor a Piactéri elem átadása az RSA titkos kulcs fájlját. Szükséges a távoli, a Kubernetes-csomópontokon. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
     | -m, --master-host   | A nyilvános IP-cím vagy a fő Kubernetes csomópont teljesen minősített tartománynevét (FQDN). A virtuális gép neve kezdődik `k8s-master-`. | IP-cím: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u: – a felhasználó          | A Kubernetes-fürt létrehozásakor a Piactéri elem átadása a felhasználó nevét. A Kubernetes-csomópontokon a távoli szükséges | azureuser (alapértelmezett érték) |
+    | -u: – a felhasználó          | A Kubernetes-fürt létrehozásakor a Piactéri elem átadása a felhasználó nevét. Szükséges a távoli, a Kubernetes-csomópontokon. | azureuser (alapértelmezett érték) |
 
 
-   Amikor hozzáadja a paraméterértékeket, a parancs előfordulhat, hogy a következőhöz hasonló:
+   Amikor hozzáadja a paraméterértékeket, a parancs a következőhöz hasonló ebben a példában:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Néhány perc múlva a parancsfájl kimenete nevű könyvtárat a gyűjtött naplók `KubernetesLogs_{{time-stamp}}`. Hiba található egy könyvtárat a fürthöz tartozó egyes virtuális gépekhez.
+4. Néhány perc múlva a parancsfájl kimenete nevű könyvtárat a gyűjtött naplók `KubernetesLogs_{{time-stamp}}`. Van egy könyvtár találhat a fürthöz tartozó egyes virtuális gépekhez.
 
-    A naplózási gyűjtő parancsfájlt is keressen hibákat a naplófájlokban, és tartalmazzák a hibaelhárítási lépések, ha akkor fordul elő, egy ismert probléma található. Győződjön meg arról, hogy a legújabb verzióra, szoftver-és ismert problémák keresése növelését parancsfájl futtatásakor.
+    A naplózási gyűjtő parancsfájlt is keresse meg a naplófájlokban szereplő hibákat, és tartalmazza a hibaelhárítási lépések, ha úgy találja, hogy egy ismert probléma. Ellenőrizze, hogy a legújabb verzióra, szoftver-és ismert problémák keresése növelését parancsfájl futtatásakor.
 
 > [!Note]  
 > Tekintse meg a GitHub [tárház](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) a naplózási gyűjtő parancsfájllal kapcsolatos további részleteket.

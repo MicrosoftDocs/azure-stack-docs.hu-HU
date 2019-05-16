@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: fad8c68683b965c6716e600d2ea171c7e508d203
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532323"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712326"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 frissítése
 
@@ -216,7 +216,8 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
 ### <a name="app-service"></a>App Service
 
 <!-- 2352906 - IS ASDK -->
-- A storage erőforrás-szolgáltatót regisztrálnia kell, az előfizetés az első Azure-függvény létrehozása előtt.
+- Bérlők az előfizetésben az első Azure-függvény létrehozása előtt a storage erőforrás-szolgáltatót regisztrálnia kell.
+- Néhány bérlői portál felhasználói élményeket egy alkalmazással a portál keretrendszer való inkompatibilitás miatt megszakadt 1903; alapvetően felhasználói üzembehelyezési pontok, az éles és a helyrendszer-bővítmények tesztelése. A probléma megkerüléséhez használja a [Azure App Service PowerShell-modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) vagy a [Azure CLI-vel](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). A portál felülete az Azure App Service az Azure Stack 1.6-os (6. frissítés) a soron következő kiadásban lesz visszaállítva.
 
 <!-- ### Usage -->
 

@@ -1,6 +1,6 @@
 ---
 title: Windows virtuális gép létrehozása az Azure Stacken Azure parancssori felületével |} A Microsoft Docs
-description: Ismerje meg, hogyan Windows virtuális gép létrehozása az Azure Stack az Azure CLI használatával
+description: Windows virtuális gép létrehozása az Azure Stack az Azure CLI használatával
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 67e0ccfa883e79d66eb9ca38a6cf15f00154c487
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ccc0590248ead0d01d2ce5b4e5af8f8140638bf2
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301142"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712377"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Windows Server virtuális gép létrehozása az Azure Stack az Azure parancssori felület használatával
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Az Azure Stack az Azure parancssori felület használatával a Windows Server virtuális gép létrehozása
 
 ‎*A következőkre vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -45,7 +45,7 @@ Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezel
 > [!NOTE]
 >  Hitelesítésikód-példák az összes változót értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
 
-Az alábbi példa egy helyi helyen myResourceGroup nevű erőforráscsoportot hoz létre.
+Az alábbi példa létrehoz egy helyi helyen myResourceGroup nevű erőforráscsoportot:
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuális gépet (VM) használatával a [az virtuális gép létrehozása](/cli/azure/vm#az-vm-create) parancsot. Az alábbi példában a myVM nevű virtuális Gépet hoz létre. Ebben a példában használja Bemutatofelhasznalo rendszergazdanevet és Demouser@123 felhasználói jelszót. Ezeket az értékeket módosítsa úgy, hogy válasszon a környezetének megfelelő.
+Hozzon létre egy virtuális gépet (VM) használatával a [az virtuális gép létrehozása](/cli/azure/vm#az-vm-create) parancsot. Az alábbi példában a myVM nevű virtuális Gépet hoz létre. Ebben a példában Bemutatofelhasznalo használ egy rendszergazdai felhasználónevet és a Demouser@123 rendszergazdai jelszót. Ezeket az értékeket módosítsa úgy, hogy válasszon a környezetének megfelelő.
 
 ```cli
 az vm create \
@@ -65,13 +65,13 @@ az vm create \
   --location local
 ```
 
-A virtuális gép létrehozásakor a **PublicIPAddress** paraméter a kimenet tartalmazza a virtuális gép nyilvános IP-címét. Jegyezze fel ezt a címet, mert szüksége lesz rá a virtuális gép eléréséhez.
+A virtuális gép létrehozásakor a **PublicIPAddress** paraméter a kimenet tartalmazza a virtuális gép nyilvános IP-címét. Jegyezze fel ezt a címet, mert szüksége lesz, hogy a virtuális gép használja.
 
 ## <a name="open-port-80-for-web-traffic"></a>A 80-as port megnyitása a webes adatforgalom számára
 
 Mivel ez a virtuális gép futtatása az IIS-webkiszolgálón történik, meg kell nyitnia az internetes forgalmat a 80-as porton.
 
-Használja a [az vm open-port](/cli/azure/vm) parancs használatával nyissa meg a 80-as porton.
+Használja a [az vm open-port](/cli/azure/vm) parancsot a 80-as port megnyitásához:
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -79,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>Csatlakozás a virtuális géphez
 
-A következő paranccsal hozzon létre egy távoli asztali kapcsolatot a virtuális gép. Cserélje le a "Nyilvános IP-cím" a virtuális gép IP-címmel. Amikor a rendszer kéri, adja meg a felhasználónevet és jelszót, amelyet a virtuális gép használt.
+A következő paranccsal hozzon létre egy távoli asztali kapcsolatot a virtuális gép. Cserélje le a "Nyilvános IP-cím" a virtuális gép IP-címmel. Ha a rendszer kéri, adja meg a felhasználónevet és jelszót, amelyet a virtuális gép használt.
 
 ```
 mstsc /v <Public IP Address>
@@ -87,7 +87,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Az IIS telepítése a PowerShell-lel
 
-Most, hogy a virtuális gép jelentkezett be, a PowerShell használatával telepítse az IIS szolgáltatást. Indítsa el a Powershellt a virtuális gépen, és futtassa a következő parancsot:
+Most, hogy a virtuális géphez már bejelentkezett, a PowerShell használatával telepítse az IIS szolgáltatást. Indítsa el a Powershellt a virtuális gépen, és futtassa a következő parancsot:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -95,7 +95,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Az IIS kezdőlapjának megtekintése
 
-Egy tetszőleges webböngészőben használhatja az alapértelmezett IIS kezdőlapjának megtekintéséhez. Az előző szakaszban leírt nyilvános IP-cím használatával keresse fel az alapértelmezett oldalt.
+Egy böngészőt, használhatja az alapértelmezett IIS kezdőlapjának megtekintéséhez. Az előző szakaszban szereplő nyilvános IP-cím használatával keresse fel az alapértelmezett oldalt:
 
 ![Alapértelmezett IIS-webhely](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 

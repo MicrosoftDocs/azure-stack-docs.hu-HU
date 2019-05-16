@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1c555f39bdf37314bae05666d39daca50cde2c4e
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: d95e1b593ac5ab87bdd6b0a98703de5a4f6dab1a
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532239"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706359"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Az Azure Stack PowerShell telepítése
 
@@ -63,7 +63,7 @@ Get-PSRepository -Name "PSGallery"
 Ha a tárház nincs regisztrálva, nyisson meg egy rendszergazda jogú PowerShell-munkamenetet, és futtassa a következő parancsot:
 
 ```powershell
-Register-PsRepository -Default
+Register-PSRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
@@ -103,7 +103,7 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
     Install-Module -Name AzureRM.BootStrapper
     
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Get-AzureRMProfile -Update
+    Get-AzureRmProfile -Update
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
@@ -113,7 +113,7 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
     ```powershell  
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
 
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
@@ -147,7 +147,7 @@ Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
 
 # Remove incompatible storage module installed by AzureRM.Storage
-Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
+Uninstall-Module -Name Azure.Storage -RequiredVersion 4.6.1 -Force
 
 # Load the modules explicitly specifying the versions
 Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
@@ -260,7 +260,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
    Install-Module -Name AzureRM -Repository $RepoName
 

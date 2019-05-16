@@ -12,22 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 05/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 85484e7428c4b384c2081d4f55af5e79259cc9d8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/13/2019
+ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617511"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712232"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Tervezési megfontolások az Azure Stack üzemelő példányához
+
 Az Azure Stack Development Kit (ASDK), üzembe helyezése előtt győződjön meg arról, a fejlesztői csomag fogadó számítógép megfelel-e az ebben a cikkben ismertetett követelményeknek.
 
-
 ## <a name="hardware"></a>Hardver
+
 | Összetevő | Minimális | Ajánlott |
 | --- | --- | --- |
 | Lemezmeghajtók: Operációs rendszer: |1 operációsrendszer-lemez, legalább 200 GB szabad rendszerpartíció (SSD vagy HDD) |1 rendszerlemez legalább 200 GB szabad tárhellyel a rendszerpartícióhoz (SSD vagy HDD) |
@@ -39,6 +40,8 @@ Az Azure Stack Development Kit (ASDK), üzembe helyezése előtt győződjön me
 | Hardveres tanúsítványembléma |[Certified for Windows Server 2012 R2 rendszerben](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2016-ban](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Kell több mint kapacitás ez javasolt, ha azt tervezi, hogy számos hozzáadása a [Piactéri elemek](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból.
+
+### <a name="hardware-notes"></a>A hardverre vonatkozó megjegyzések
 
 **Adatlemez-meghajtó konfigurációja:** Minden adatmeghajtónak ugyanolyan típusú (csak SAS, minden SATA vagy minden NVMe) és kapacitást kell lennie. Ha SAS-lemezmeghajtókat használ, egyetlen elérési úttal kell őket összekapcsolnia (az MPIO nem engedélyezett, a többutas működés támogatása biztosított).
 
@@ -63,6 +66,22 @@ Az Azure Stack Development Kit (ASDK), üzembe helyezése előtt győződjön me
 **Példa HBA**: LSI 9207-8i, LSI-9300-8i vagy LSI-9265-8i átmenő módban
 
 OEM mintakonfigurációk is elérhetők.
+
+### <a name="storage-resiliency-for-the-asdk"></a>Tárolási rugalmasságát a ASDK
+
+Egyetlen csomópont rendszerként a ASDK nem tervezett éles redundancia az Azure Stackkel integrált rendszer érvényesítése. Azonban növelheti a ASDK HDD és SSD meghajtók optimális kombinációja révén az alapul szolgáló tárhely-redundancia szintjét. Kétutas tükrözés konfiguráció, hasonlóan egy RAID1 helyett egy egyszerű rugalmassági konfigurációban, amely egy RAID0 hasonló telepítheti. Használja a közvetlen tárolóhelyek alapjául szolgáló konfigurációs elegendő kapacitással, típusa és meghajtók száma.
+
+Storage rugalmasságot kétutas tükrözés konfiguráció használata:
+
+- A rendszer két terabájtnál nagyobb HDD-kapacitás.
+- Ha a ASDK az SSD-k nem rendelkezik, szüksége lesz legalább nyolc HDD kétutas tükrözés konfiguráció.
+- Ha a ASDK HDD-k, valamint SSD-k kell legalább öt HDD. Azonban hat HHDs használata ajánlott. A hat HDD, lenne is kell javasoljuk, hogy megfelelő legalább három SSD-k a rendszer, hogy rendelkezzen egy gyorsítótár (SSD) szolgáltatása két kapacitás lemezmeghajtók (HDD).
+
+Példa kétutas tükrözés konfiguráció:
+
+- Nyolc HDD-k
+- Három SSD / hat HDD
+- Négy SSD / nyolc HDD
 
 ## <a name="operating-system"></a>Operációs rendszer
 |  | **Követelmények** |
@@ -126,4 +145,7 @@ Az Azure Stack internet-hozzáférésre van szüksége, közvetlenül vagy a tra
 
 
 ## <a name="next-steps"></a>További lépések
-[Töltse le a ASDK központi telepítési csomag](asdk-download.md)
+
+- [Töltse le a ASDK központi telepítési csomag](asdk-download.md)
+- További információk a közvetlen tárolóhelyekkel, lásd: [a közvetlen tárolóhelyek áttekintése](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+

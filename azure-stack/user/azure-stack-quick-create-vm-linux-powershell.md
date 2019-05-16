@@ -1,6 +1,6 @@
 ---
-title: Linux rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával |} A Microsoft Docs
-description: Linux rendszerű virtuális gép létrehozása a PowerShell-lel az Azure Stackben.
+title: Az Azure Stack PowerShell használatával Linux rendszerű virtuális gép létrehozása |} A Microsoft Docs
+description: Hozzon létre egy Linux virtuális gép az Azure Stack PowerShell használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 95b81f6af8caa3e0f4dd7639614bed1b78915539
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 55f1395d66262b268b9107f196528270c1546bba
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477406"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712285"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Linuxos virtuális gép létrehozása az Azure Stack PowerShell használatával
+# <a name="quickstart-create-a-linux-server-virtual-machine-using-powershell-in-azure-stack"></a>Gyors útmutató: Az Azure Stack PowerShell használatával Linux rendszerű kiszolgáló virtuális gép létrehozása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -46,7 +46,10 @@ Ubuntu Server 16.04 LTS virtuális gépként az Azure Stack PowerShell használa
 
 ## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
-Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezelése az Azure Stack-erőforrások. A fejlesztői készlet vagy az Azure Stackkel integrált rendszereknél futtassa a következő kódblokk egy erőforráscsoport létrehozásához. A jelen dokumentum összes változót értékek vannak hozzárendelve, használja ezeket az értékeket, vagy rendelje hozzá az új értékekkel.
+Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezelése az Azure Stack-erőforrások. A fejlesztői készlet vagy az Azure Stackkel integrált rendszereknél futtassa a következő kódblokk egy erőforráscsoport létrehozásához. 
+
+> [!NOTE]
+> A Kódminták minden változóját értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
 
 ```powershell  
 # Create variables to store the location and resource group names.
@@ -206,7 +209,7 @@ New-AzureRmVM `
 ## <a name="quick-create-virtual-machine---full-script"></a>Gyors létrehozás virtuális gép – teljes szkript
 
 > [!NOTE]
-> Több vagy kevesebb egyesíti a fenti kódrészlettel, de a hitelesítési kulcs az SSH-jelszó helyett.
+> Ez lényegében a fenti kódrészlettel egyesített együtt, de a jelszót az SSH-kulcsot a hitelesítéshez helyett.
 
 ```powershell
 ## Create a resource group
@@ -374,13 +377,13 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Csatlakozás a virtuális géphez
 
-A virtuális gép üzembe helyezését követően konfigurálja a virtuális gép SSH-kapcsolatot. A virtuális gép nyilvános IP-címének visszaadásához használja a [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) parancsot.
+A virtuális gép üzembe helyezését követően konfigurálja a virtuális gép SSH-kapcsolatot. Használja a [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) parancsot a virtuális gép nyilvános IP-címének lekéréséhez.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Az ssh-val telepített ügyfél rendszer a következő parancs segítségével csatlakozhat a virtuális géphez. Ha Windows dolgozik, akkor használhatja [Putty](https://www.putty.org/) a kapcsolat létrehozásához.
+Az ssh-val telepített ügyfél rendszer a következő parancs segítségével csatlakozhat a virtuális géphez. Ha Windows rendszeren dolgozik, akkor használhatja [Putty](https://www.putty.org/) a kapcsolat létrehozásához.
 
 ```
 ssh <Public IP Address>
@@ -404,7 +407,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Az NGINX telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. Nyisson meg egy webböngészőt, és keresse meg a ```http://<public IP address>```.
+Az NGINX telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. Nyisson meg egy webböngészőt, és váltson ```http://<public IP address>```.
 
 ![Az NGINX web server kezdőlap](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

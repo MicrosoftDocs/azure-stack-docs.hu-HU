@@ -3,24 +3,23 @@ title: Virtuálisgép-méretek támogatott az Azure Stackben |} A Microsoft Docs
 description: A támogatott virtuális gépek méretei az Azure Stackben referenciája.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/02/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/02/2019
+ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d2507fd649e10cd442af86195a731caaf467e8d9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300427"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712278"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Az Azure Stackben támogatott virtuálisgép-méretek
 
@@ -39,20 +38,20 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 > [!NOTE]
 > *Alapszintű A* virtuálisgép-méretek esetében kivezettük [virtuálisgép-méretezési csoportok létrehozása](../operator/azure-stack-compute-add-scalesets.md) (VMSS) a portálon keresztül. Ez a méret a VMSS létrehozásához, használja a PowerShell vagy a sablont.
 
-|Méret – méret\név |vCPU     |Memory (Memória) | Ideiglenes lemez max. mérete | Maximális operációsrendszer-lemez átviteli sebesség: (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. teljesítménye (IOPS) | Hálózati adapterek maximális száma |    
+|Méret – méret\név |vCPU     |Memória | Ideiglenes lemez max. mérete | Maximális operációsrendszer-lemez átviteli sebesség: (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. teljesítménye (IOPS) | Hálózati adapterek maximális száma |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
-|**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |
-|**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1   |
-|**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |1   |
-|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |1   |
+|**A0\Basic_A0**  |1.    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1.   |
+|**A1\Basic_A1**  |1.    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1.   |
+|**A2\Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1.   |
+|**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |1.   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |1.   |
 
 ### <a name="standard-a"></a>Standard A 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |    
 |----------------|--|------|----|----|----|-------|---------|
-|**Standard_A0** |1 |0.768 |20  |500 |500 |1x500  |1 |
-|**Standard_A1** |1 |1.75  |70  |500 |500 |2x500  |1 |
-|**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |1 |
+|**Standard_A0** |1. |0.768 |20  |500 |500 |1x500  |1. |
+|**Standard_A1** |1. |1.75  |70  |500 |500 |2x500  |1. |
+|**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |1. |
 |**Standard_A3** |4 |7     |285 |500 |500 |8x500  |2 |
 |**Standard_A4** |8 |14    |605 |500 |500 |16x500 |4 |
 |**Standard_A5** |2 |14    |135 |500 |500 |4x500  |2 |
@@ -64,7 +63,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-----------------|----|----|-----|-----|------|--------------|---------|
-|**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2 / 2x500   |2 |
+|**Standard_A1_v2**  |1.   |2   |10   |500 |1000  |2 / 2x500   |2 |
 |**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4 / 4x500   |2 |
 |**Standard_A4v2**   |4   |8   |40   |500 |4000  |8 / 8x500   |4 |
 |**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16 / 16x500 |8 |
@@ -75,7 +74,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 ### <a name="d-series"></a>D-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |----------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1** |1   |3.5 |50   |500 |3000  |4 / 4x500   |1 |
+|**Standard_D1** |1.   |3.5 |50   |500 |3000  |4 / 4x500   |1. |
 |**Standard_D2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
 |**Standard_D3** |4   |14  |200  |500 |12000 |16 / 16x500 |4 |
 |**Standard_D4** |8   |28  |400  |500 |24000 |32 / 32x500 |8 |
@@ -84,7 +83,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 ### <a name="ds-series"></a>DS-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |1   |3.5 |7    |1000 |4000  |4 / 4x2300   |1 |
+|**Standard_DS1** |1.   |3.5 |7    |1000 |4000  |4 / 4x2300   |1. |
 |**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 |
@@ -92,7 +91,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 ### <a name="dv2-series"></a>Dv2-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-------------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1_v2** |1   |3.5 |50   |500 |3000  |4 / 4x500   |1 |
+|**Standard_D1_v2** |1.   |3.5 |50   |500 |3000  |4 / 4x500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
 |**Standard_D3_v2** |4   |14  |200  |500 |12000 |16 / 16x500 |4 |
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32 / 32x500 |8 |
@@ -101,7 +100,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 ### <a name="dsv2-series"></a>DSv2-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4 / 4x2300   |1 |
+|**Standard_DS1_v2** |1.   |3.5 |7   |1000 |4000  |4 / 4x2300   |1. |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 |
@@ -114,7 +113,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-----------------|----|----|-----|----|------|------------|---------|
-|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x500   |2 |
+|**Standard_F1**  |1.   |2   |16   |500 |3000  |4 / 4x500   |2 |
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8x500   |2 |
 |**Standard_F4**  |4   |8   |64   |500 |12000 |16 / 16x500 |4 |
 |**Standard_F8**  |8   |16  |128  |500 |24000 |32 / 32x500 |8 |
@@ -126,7 +125,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tárhely (GB)  | Az operációs rendszer maximális lemezteljesítményét (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. száma / átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_F1s**  |1   |2   |4   |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_F1s**  |1.   |2   |4   |1000 |4000  |4 / 4x2300   |2 |
 |**Standard_F2s**  |2   |4   |8   |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_F4s**  |4   |8   |16  |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_F8s**  |8   |16  |32  |1000 |32000 |32 / 32x2300 |8 |
@@ -146,7 +145,7 @@ Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken h
 |**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
-## <a name="memory-optimized"></a>Memóriaoptimalizált
+## <a name="memory-optimized"></a>Memóriahasználatra optimalizált
 
 A memória optimalizált Virtuálisgép-méretek adja meg a magas memória – Processzor arány célja, hogy olyan relációs adatbázis-kiszolgálókhoz, közepes és nagy gyorsítótárakhoz és memóriabeli elemzésekhez.
 
@@ -187,5 +186,3 @@ A memória optimalizált Virtuálisgép-méretek adja meg a magas memória – P
 ## <a name="next-steps"></a>További lépések
 
 [Szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md)
-
-<!-- Update_Description: wording update -->

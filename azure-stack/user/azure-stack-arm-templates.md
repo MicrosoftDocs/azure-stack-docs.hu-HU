@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: b2f2427f7dcf9265f379995f1e854c382e24a9c7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 37e5ef80462f7e31d18972de007303b12b5a3108
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297875"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712253"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Az Azure Resource Manager-sablonok használata az Azure Stackben
 
@@ -35,14 +35,14 @@ A következő gyorsindítási sablonok érhetők el a [GitHub](https://aka.ms/az
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>A SharePoint Server (nem – magas rendelkezésre állású üzembe helyezés) üzembe helyezése
 
-Használja a PowerShell DSC bővítmény [hozzon létre egy SharePoint Server 2013-farmban](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , amely tartalmazza az alábbi forrásanyagokat:
+A PowerShell-lel [Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview/overview) (DSC) bővítmény [hozzon létre egy SharePoint Server 2013-farmban](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) , amely tartalmazza az alábbi forrásanyagokat:
 
 * Virtuális hálózat
 * Három tárfiókot tartalmaz
 * Két a külső terheléselosztók
 * Egy virtuális gép (VM) egy új erdő egyetlen tartományt a tartományvezérlővel konfigurálva
 * Egy virtuális Gépet egy önálló SQL Server 2014-kiszolgáló
-* Egy virtuális Gépet egy egy számítógépen a SharePoint Server 2013-farm
+* Egy virtuális Gépet egy egy gépen a SharePoint Server 2013-farm
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>(Nem nagy – rendelkezésre állás – telepítési) AD üzembe helyezése
 
@@ -77,7 +77,7 @@ A PowerShell DSC bővítmény segítségével egy meglévő virtuális gép hely
 
 ## <a name="cancel-a-running-template-deployment"></a>Mégse sablon üzemelő példányban
 
-Mégse sablon üzemelő példányban, használja a [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell-parancsmagot.
+Mégse sablon üzemelő példányban, használja a [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [parancsmag](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview).
 
 ## <a name="next-steps"></a>További lépések
 

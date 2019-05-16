@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f2e20377a976c5dba7a63d9f8cf8b3e2d100e060
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.lastreviewed: 05/15/2019
+ms.openlocfilehash: 86817d0d22854bf2bb0d2372f2a25e15a3de7c48
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532263"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712299"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -69,10 +69,18 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 
 ### <a name="marketplace-management"></a>Marketplace-en kezelése
 
-- Alkalmazható: A probléma 1904 vonatkozik.
-- OK: A piactér felügyeleti képernyő esetén nem látható, jelentkezzen be a felügyeleti portálon.
+- Alkalmazható: Ez az új probléma 1904 kiadással.
+- OK: A piactér felügyeleti képernyő a látható esetén nem jelentkezik be a felügyeleti portálon.
 - Szervizelési: Frissítse a böngészőt.
 - Előfordulás: Időszakos
+
+### <a name="marketplace-management"></a>Marketplace-en kezelése
+
+- Alkalmazható: A probléma 1904 vonatkozik.
+- OK: A piactér felügyeleti lapján adminisztrátori portál "Hozzáadása az Azure" panelen eredmények szűrésekor helytelen szűrt eredmények jelenhet meg. 
+- Szervizelési: Kijavítjuk neve oszlop szerint rendezheti az eredményeket, és az eredményeket. 
+- Előfordulás: Időszakos
+
 
 ### <a name="upload-blob"></a>Blob feltöltése
 
@@ -89,20 +97,20 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon, ha megpróbálja hozzáadni egy **Háttérkészlet** , egy **terheléselosztó**, a művelet meghiúsul, a hibaüzenet **nem sikerült frissíteni a Load Balancer...** .
-- Szervizelési: A PowerShell, parancssori felület vagy a Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
+- Szervizelési: Használja a Powershellt, CLI vagy az Azure Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
 - Előfordulás: Közös
 
 #### <a name="create-inbound-nat"></a>Bejövő NAT létrehozása
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon, ha megpróbál létrehozni egy **bejövő NAT-szabály** számára egy **Load Balancer**, a művelet meghiúsul, a hibaüzenet **nem sikerült frissíteni a Load Balancer...** .
-- Szervizelési: A PowerShell, parancssori felület vagy a Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
+- Szervizelési: Használja a Powershellt, CLI vagy az Azure Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
 - Előfordulás: Közös
 
-#### <a name="create-load-balancer"></a>Load Balancer létrehozása
+#### <a name="create-load-balancer"></a>Terheléselosztó létrehozása
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon a **Load Balancer létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** Load Balancer Termékváltozat. Ez a beállítás nem támogatott az Azure Stackben.
+- OK: A felhasználói portálon a **Load Balancer létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** terheléselosztó Termékváltozat. Ez a beállítás nem támogatott az Azure Stackben.
 - Szervizelési: Az alapszintű load balancer beállítások használata.
 - Előfordulás: Közös
 
@@ -110,7 +118,7 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon a **nyilvános IP-cím létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** Termékváltozat. A **Standard** Termékváltozat nem támogatott az Azure Stackben.
-- Szervizelési: Használja helyette alapszintű Termékváltozat nyilvános IP-címet.
+- Szervizelési: Használja a **alapszintű** Termékváltozat ehelyett nyilvános IP-címek.
 - Előfordulás: Közös
 
 ## <a name="compute"></a>Compute
@@ -149,15 +157,19 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 ### <a name="compute-host-agent-alert"></a>Gazdagép-ügynök riasztás COMPUTE
 
 - Alkalmazható: Ez az új probléma 1904 kiadással.
-- OK: "Compute gazdagép-ügynök" figyelmeztetés jelenik meg a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja.
+- OK: A **számítási gazdagép-ügynök** figyelmeztetés jelenik meg, a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja.
 - Szervizelési:
   - Ez a riasztás figyelmen kívül hagyható. Az ügynök nem válaszol nincs hatással az operátor és felhasználói műveletek vagy felhasználói alkalmazás. A riasztás 24 óra múlva újra megjelenik, ha manuálisan le van zárva.
   - A Microsoft ügyfélszolgálatához a szolgáltatás indítási beállítás módosításával javítani tudja a problémát. Ehhez a támogatási jegy megnyitása. Ha a csomópont újraindítása után a rendszer újra egy új riasztás jelenik meg.
 - Előfordulás: Közös
 
+## <a name="app-service"></a>App Service
+
+- Bérlők az előfizetésben az első Azure-függvény létrehozása előtt a storage erőforrás-szolgáltatót regisztrálnia kell.
+- Néhány bérlői portál felhasználói élményeket egy alkalmazással a portál keretrendszer való inkompatibilitás miatt megszakadt 1903; alapvetően felhasználói üzembehelyezési pontok, az éles és a helyrendszer-bővítmények tesztelése. A probléma megkerüléséhez használja a [Azure App Service PowerShell-modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) vagy a [Azure CLI-vel](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). A portál felülete az Azure App Service az Azure Stack 1.6-os (6. frissítés) a soron következő kiadásban lesz visszaállítva.
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
-<!-- ## App Service -->
 <!-- ## Usage -->
 <!-- ### Identity -->
 <!-- ### Marketplace -->

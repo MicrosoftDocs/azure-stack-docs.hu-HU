@@ -16,13 +16,13 @@ ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
-ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: b98be2ae02e65fea9356f35f2d2554e57dfb5628
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618064"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706288"
 ---
 # <a name="azure-stack-overview"></a>Az Azure Stack áttekintése
 
@@ -76,17 +76,17 @@ Dönthet úgy, hogy az Azure Stack üzembe helyezése vagy **csatlakoztatott** a
 > További információkért lásd: a szempontjai [csatlakoztatott](azure-stack-connected-deployment.md) és [leválasztott](azure-stack-disconnected-deployment.md) üzembe helyezési modellel. 
 
 ### <a name="identity-provider"></a>Identitásszolgáltató 
-Az Azure Stack Identitásszolgáltatóként, vagy az Azure Active Directory (Azure AD), vagy az Active Directory összevonási szolgáltatások (AD FS) létesíteni az Azure Stack-identitásokat használ. 
+Az Azure Stack vagy az Azure Active Directory (Azure AD), vagy az Active Directory összevonási szolgáltatások (AD FS) használatával biztosítja az identitásokat. Az Azure AD a Microsoft felhőalapú, több-bérlős identitásszolgáltató. Internetkapcsolattal rendelkező üzemelő példányok a legtöbb hibrid forgatókönyvek kialakítását ügyfélidentitás-tárolóval, az Azure AD használatára. 
+
+Az Azure Stack kapcsolat nélküli környezetben szeretné használni az Active Directory összevonási szolgáltatások (AD FS). Az Azure Stack erőforrás-szolgáltatók és más alkalmazásokhoz hasonlóan az AD FS vagy az Azure ad-ben működik. Az Azure Stack saját Active Directory-példányból, és a egy Active Directory Graph API is tartalmaz.
 
 > [!IMPORTANT]
-> Ez a fő döntési pont! Választhatja az Azure AD vagy az AD FS, az identitásszolgáltató egy egyszeri döntési üzembe helyezéskor kell végrehajtania. Nem módosíthatja ezt később ismételt üzembe helyezése a teljes rendszer nélkül.
-
-Az Azure AD a Microsoft felhőalapú, több-bérlős identitásszolgáltató. Internetkapcsolattal rendelkező üzemelő példányok a legtöbb hibrid forgatókönyvek kialakítását ügyfélidentitás-tárolóval, az Azure AD használatára. Azonban előfordulhat, hogy használni kívánja az Active Directory összevonási szolgáltatások (AD FS) az Azure Stack kapcsolat nélküli telepítésekhez. Az Azure Stack erőforrás-szolgáltatók és más alkalmazások működnek az AD FS-sel ugyanolyan módon, az Azure ad-ben. Az Azure Stack saját Active Directory-példányból, és a egy Active Directory Graph API is tartalmaz. 
+> Az identitásszolgáltató üzembe helyezés után nem módosítható. Egy másik identitás-szolgáltatót használ, meg kell helyezze újra üzembe az Azure Stack.
 
 > További, az Azure Stack identitás szempontokról [áttekintése az Azure stack-identitás](azure-stack-identity-overview.md).
 
 ## <a name="how-is-azure-stack-managed"></a>Hogyan kezeli az Azure Stack?
-Miután az Azure Stack egy integrált rendszerek üzembe helyezési vagy ASDK telepítés már telepítve lett, az elsődleges interakció az Azure Stack módszereket a felügyeleti portálon, a felhasználói portál és a PowerShell. Az Azure Stack portálon minden egyes biztonsági külön példányok az Azure Resource Manager által. Egy **Azure Stack-operátorokról** használ a felügyeleti portálon kezelheti az Azure Stack, és van például a bérlő létrehozása ajánlatok és karbantartására használható integrált rendszer állapotának és a figyelő állapotát. A felhasználói portál (más néven a bérlői portál) önkiszolgáló élményt nyújt a felhőbeli erőforrások, például a virtuális gépek, tárfiókok és a web apps fogyasztását. 
+A felügyeleti portál, felhasználói portállal, kezelheti az Azure Stack vagy [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Az Azure Stack portálon minden egyes biztonsági külön példányok az Azure Resource Manager által. Egy **Azure Stack-operátorokról** használ a felügyeleti portálon kezelheti az Azure Stack, és van például a bérlő létrehozása ajánlatok és karbantartására használható integrált rendszer állapotának és a figyelő állapotát. A felhasználói portál (más néven a bérlői portál) önkiszolgáló élményt nyújt a felhőbeli erőforrások, például a virtuális gépek, tárfiókok és a web apps fogyasztását. 
 
 > A felügyeleti portál használatával az Azure Stack kezelésével kapcsolatos további információkért tekintse meg a használatát a [Azure Stack a felügyeleti portál rövid](azure-stack-manage-portals.md).
 
@@ -102,14 +102,14 @@ Ha az Azure Stack van konfigurálva, egy **Azure Stack felhasználói** (más n�
 Erőforrás-szolgáltatók olyan webszolgáltatásokat, amelyekhez alapjai az összes Azure Stack IaaS és PaaS-szolgáltatások. Az Azure Resource Manager-szolgáltatásokhoz való hozzáférés biztosításához másik erőforrás-szolgáltatók támaszkodik. Mindegyik erőforrás-szolgáltató segítségével a konfigurálása, valamint szabályozhatja a megfelelő erőforrásokkal. Szolgáltatás-rendszergazdákat is hozzáadhat új egyéni erőforrás-szolgáltatók. 
 
 ### <a name="foundational-resource-providers"></a>Alapvető erőforrás-szolgáltatók 
-Nincsenek három alapvető IaaS erőforrás-szolgáltatók: Számítási, hálózati és tárolási:
+Nincsenek három alapvető IaaS erőforrás-szolgáltatók: 
 
-- **COMPUTE**. A számítási erőforrás-szolgáltató lehetővé teszi, hogy az Azure Stack-bérlők számára saját virtuális gépek létrehozása. A számítási erőforrás-szolgáltató képes létrehozni virtuális gépeket, valamint a virtuális gépi bővítmények tartalmazza. A virtuálisgép-bővítmény szolgáltatás segít az IaaS-képességeket nyújt a Windows és Linux rendszerű virtuális gépek.  Tegyük fel a számítási erőforrás-szolgáltató használatával egy Linux rendszerű virtuális gép üzembe helyezése és futtatása a Bash-szkriptek konfigurálása a virtuális gép üzembe helyezése során.
+- **COMPUTE**. A számítási erőforrás-szolgáltató lehetővé teszi, hogy az Azure Stack-bérlők számára saját virtuális gépek létrehozása. A számítási erőforrás-szolgáltató képes létrehozni virtuális gépeket, valamint a virtuális gépi bővítmények tartalmazza. A virtuálisgép-bővítmény szolgáltatás segít az IaaS-képességeket nyújt a Windows és Linux rendszerű virtuális gépek. Tegyük fel a számítási erőforrás-szolgáltató használatával egy Linux rendszerű virtuális gép üzembe helyezése és futtatása a Bash-szkriptek konfigurálása a virtuális gép üzembe helyezése során.
 - **Hálózati erőforrás-szolgáltató**. A hálózati erőforrás-szolgáltató a magánfelhő hálózati függvény virtualizációs (NFV) és a szoftveralapú hálózatkezelés (SDN) funkciókat kínál. A hálózati erőforrás-szolgáltató használatával olyan erőforrásokhoz, mint a szoftveres terheléselosztókat, nyilvános IP-címek, hálózati biztonsági csoportok és virtuális hálózatok létrehozása.
-- **Tárolásierőforrás-szolgáltató**. A Tárolásierőforrás-szolgáltató négy egységes Azure-storage-szolgáltatások nyújtásának: [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [várólista](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [tábla](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage), és a KeyVault felügyeletének biztosító felügyeleti és titkos adatait, például a jelszavak és tanúsítványok naplózását. A tárolásierőforrás-szolgáltató nyújt egy felhőalapú felügyeleti társzolgáltatás megkönnyítése érdekében a service provider felügyeleti egységes Azure-Storage-szolgáltatás is. Az Azure Storage tárolja, és hívhat le nagy mennyiségű strukturálatlan adat, például dokumentumokat és médiafájlokat az Azure-Blobok, rugalmasan és strukturált NoSQL-alapú adatok az Azure Tables segítségével. 
+- **Tárolásierőforrás-szolgáltató**. A Tárolásierőforrás-szolgáltató négy egységes Azure-storage-szolgáltatások nyújtásának: [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [várólista](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [tábla](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage), és [KeyVault](https://docs.microsoft.com/azure/key-vault/) fiókkezelés felügyeleti biztosít és titkok, mint a jelszavak és tanúsítványok naplózásához. A tárolásierőforrás-szolgáltató nyújt egy felhőalapú felügyeleti társzolgáltatás megkönnyítése érdekében a service provider felügyeleti egységes Azure-Storage-szolgáltatás is. Az Azure Storage tárolja, és hívhat le nagy mennyiségű strukturálatlan adat, például dokumentumokat és médiafájlokat az Azure-Blobok, rugalmasan és strukturált NoSQL-alapú adatok az Azure Tables segítségével. 
 
 ### <a name="optional-resource-providers"></a>Nem kötelező erőforrás-szolgáltatók
-Nincsenek három választható PaaS erőforrás-szolgáltató üzembe helyezése és használata az Azure Stack használatával: App Service-ben, az SQL Server és a MySQL-kiszolgáló erőforrás-szolgáltatók:
+Nincsenek három választható PaaS erőforrás-szolgáltató üzembe helyezése és használata az Azure Stack használatával: 
 
 - **App Service-ben**. [Az Azure App Service az Azure Stacken](azure-stack-app-service-overview.md) érhető el a Microsoft Azure platform –-szolgáltatásként (PaaS) ajánlat az Azure Stackhez. A szolgáltatás lehetővé teszi, hogy a belső vagy külső ügyfelei számára, hogy hozzon létre a webes API-t és az Azure Functions alkalmazások bármilyen platformra vagy eszközre. 
 - **Egy SQL Server**. Használja a [erőforrás-szolgáltató SQL Server](azure-stack-sql-resource-provider.md) az Azure Stack, szolgáltatásként nyújtott SQL Database-adatbázisok. Miután telepítette az erőforrás-szolgáltató, és csatlakoztathatja azt egy vagy több SQL Server-példányt, és a felhasználók felhőbeli natív alkalmazásokat, webhelyeket, amelyek az SQL és egyéb számítási feladatokat, amelyek használják az SQL adatbázist is létrehozhat.
@@ -120,7 +120,7 @@ Magas rendelkezésre állás az Azure-beli virtuális gépre kiterjedő éles re
 
 Azure Stack infrastruktúrája már hatással a meghibásodások, míg az alapul szolgáló technológiát (feladatátvételi fürtszolgáltatás) továbbra is leállást bizonyos virtuális gépek érintett fizikai kiszolgálón hardverhiba esetén. Az Azure Stack támogatja a rendelkezésre állási csoport, amely legfeljebb három tartalék tartományt az Azure-ral konzisztens kellene.
 
-- **Tartalék tartományok**. Virtuális gépeket egy rendelkezésre állási csoportot helyezett osztja szét őket lehető legegyenletesebben több tartalék tartomány (az Azure Stack-csomópontok) keresztül lesz fizikailag különítve egymástól. Hardverhiba esetén a sikertelen tartalék tartomány virtuális gépeket fogja indítani a többi tartalék tartományban, de, külön tartalék tartományokban, ha lehetséges, a más virtuális gépek ugyanazon rendelkezésre állási csoportban tartani. A hardver visszatér online állapotba, ha virtuális gépek fog rebalanced magas rendelkezésre állás fenntartása érdekében. 
+- **Tartalék tartományok**. Virtuális gépeket egy rendelkezésre állási csoportot helyezett osztja szét őket lehető legegyenletesebben több tartalék tartomány (az Azure Stack-csomópontok) keresztül lesz fizikailag különítve egymástól. Hardverhiba esetén a sikertelen tartalék tartomány virtuális gépeket fog a többi tartalék tartományban újraindul, de tartott külön tartalék tartományokban a más virtuális gépek ugyanazon rendelkezésre állási csoportja, ha lehetséges. A hardver visszatér online állapotba, ha virtuális gépek fog rebalanced magas rendelkezésre állás fenntartása érdekében. 
  
 - **Frissítési tartományok**. Frissítési tartományok egy másik Azure demonstráció létrehozásában, amely a rendelkezésre állási csoportokat magas rendelkezésre állást biztosít. Frissítési tartomány, amelyek karbantartása egy időben is mennek keresztül alapul szolgáló hardver logikai csoportjai. Az azonos frissítési tartományban található virtuális gépek együtt tervezett karbantartás során újraindul. Bérlő virtuális gépek létrehozása rendelkezésre állási csoportban, mint az Azure platform automatikusan elosztja a virtuális gépek között ezek frissítési tartományok. Az Azure Stackben, virtuális gépek élő áttelepítése a fürt többi online gazdagép között, a mögöttes állomás frissítése előtt. A gazdagép frissítése közben nem bérlői jár, mivel a frissítési tartomány funkció az Azure Stacken csak létezik sablon kompatibilitás érdekében az Azure-ral. 
 
@@ -132,7 +132,7 @@ Az Azure Stack RBAC rendelkezik, amelyek érvényesek az összes erőforrástíp
 > Lásd: [Manage Role-Based hozzáférés-vezérlés](azure-stack-manage-permissions.md) további információt. 
 
 ## <a name="reporting-usage-data"></a>Jelentéskészítés a használati adatok
-A Microsoft Azure Stack gyűjti és összesíti az összes erőforrás-szolgáltató különböző használati adatait, és továbbítja azt az Azure-bA a feldolgozáshoz az Azure kereskedelmi. Az Azure Stacken az összegyűjtött használati adatok a REST API-n keresztül is megtekinthetők. Van egy egységes Azure-bérlői API-t, valamint a szolgáltató és delegált szolgáltató API-k az összes bérlő előfizetés használati adatainak beolvasásához. Ezeket az adatokat egy külső eszközzel vagy a szolgáltatás számlázási vagy költséghelyi elszámolás integrálásához használható. Használat az Azure kereskedelmi által feldolgozott, amint azt az Azure számlázási portálján lehet megtekinteni.
+Az Azure Stack gyűjti és összesíti az összes erőforrás-szolgáltató különböző használati adatait, és továbbítja azt az Azure-bA a feldolgozáshoz az Azure kereskedelmi. Az Azure Stacken az összegyűjtött használati adatok a REST API-n keresztül is megtekinthetők. Van egy egységes Azure-bérlői API-t, valamint a szolgáltató és delegált szolgáltató API-k az összes bérlő előfizetés használati adatainak beolvasásához. Ezeket az adatokat egy külső eszközzel vagy a szolgáltatás számlázási vagy költséghelyi elszámolás integrálásához használható. Használat az Azure kereskedelmi által feldolgozott, amint azt az Azure számlázási portálján lehet megtekinteni.
 
 > Tudjon meg többet [Azure Stack használati adatokról szóló jelentéseket küldeni az Azure-bA](azure-stack-usage-reporting.md).
 

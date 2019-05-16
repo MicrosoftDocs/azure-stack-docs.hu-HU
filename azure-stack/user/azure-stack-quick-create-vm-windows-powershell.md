@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 04b2f2a5e4e9caa8e8eacc47b44c60a6884a6837
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986034"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712440"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Gyors útmutató: A Windows Server virtuális gép létrehozása az Azure Stack PowerShell használatával
 
@@ -46,7 +46,10 @@ Létrehozhat egy Windows Server 2016 virtuális gép (VM) az Azure Stack PowerSh
 
 ## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
-Egy erőforráscsoport olyan logikai tároló, amely az Azure Stack erőforrások üzembe helyezése és felügyelt. A fejlesztői készlet vagy az Azure Stackkel integrált rendszereknél futtassa a következő kódblokk egy erőforráscsoport létrehozásához. A jelen dokumentum összes változót értékek vannak hozzárendelve, használja ezeket az értékeket, vagy rendelje hozzá az új értékekkel.
+Egy erőforráscsoport olyan logikai tároló, amely az Azure Stack erőforrások üzembe helyezése és felügyelt. A fejlesztői készlet vagy az Azure Stackkel integrált rendszereknél futtassa a következő kódblokk egy erőforráscsoport létrehozásához. 
+
+> [!NOTE]
+> A Kódminták minden változóját értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -60,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Tároló-erőforrások létrehozása
 
-Hozzon létre egy tárfiókot, és a egy storage-tároló, a Windows Server 2016-ban tárolja.
+Hozzon létre egy tárfiókot és a egy storage-tároló, a Windows Server 2016-ban tárolja.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -109,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Hálózati biztonsági csoport és hálózati biztonsági csoportszabály létrehozása
 
-A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális gépet. Lehetővé teszi, hogy hozzon létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezése és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
+A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális gépet. Hozzunk létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezéséhez és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -214,7 +217,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-A következő paranccsal hozzon létre egy távoli asztali munkamenetet a virtuális géppel. Cserélje le az IP-címet a virtuális gépe nyilvános IP-címére. Amikor a rendszer kéri, adja meg a felhasználónevet és jelszót, amely a virtuális gép létrehozásakor használt.
+A következő paranccsal hozzon létre egy távoli asztali munkamenetet a virtuális géppel. Cserélje le az IP-címet a virtuális gépe *publicIPAddress* címére. Amikor a rendszer kéri, adja meg a felhasználónevet és jelszót a virtuális gép létrehozásakor használt.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -222,7 +225,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>IIS telepítése a PowerShell használatával
 
-Miután bejelentkezett az Azure-beli virtuális gépre, egyetlen PowerShell-utasítással telepítheti az IIS-t, és engedélyezheti, hogy a helyi tűzfalszabály átengedje a webforgalmat. Nyisson meg egy PowerShell-parancssort, és futtassa a következő parancsot:
+Most, hogy már bejelentkezett az Azure virtuális géphez, egyetlen sor PowerShell segítségével az IIS telepítése és engedélyezése a helyi tűzfalszabály átengedje a webforgalmat. Nyisson meg egy PowerShell-parancssort, és futtassa a következő parancsot:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -230,11 +233,11 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Az IIS kezdőlapjának megtekintése
 
-A telepített IIS-t, és nyissa meg a virtuális Gépen a 80-as porton egy tetszőleges webböngészőben használhatja az alapértelmezett IIS kezdőlapjának megtekintése. Használja a *publicIpAddress* az előző szakaszban, és látogasson el az alapértelmezett oldalt a dokumentált.
+A telepített IIS-t, és nyissa meg a virtuális Gépen a 80-as porton bármely böngészőben használhatja az alapértelmezett IIS kezdőlapjának megtekintése. Használja a *publicIpAddress* az előző szakaszban, és látogasson el az alapértelmezett oldalt a dokumentált.
 
 ![Alapértelmezett IIS-webhely](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>A virtuális gép törlése
+## <a name="delete-the-virtual-machine"></a>Törölje a következő virtuális gépet:
 
 Ha már nincs rá szükség, a következő paranccsal eltávolítható az erőforráscsoport, amely tartalmazza a virtuális gép és a kapcsolódó erőforrásokkal:
 
