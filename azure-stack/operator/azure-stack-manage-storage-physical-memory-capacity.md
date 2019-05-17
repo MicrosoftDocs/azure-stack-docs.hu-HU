@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e81a02c7d9384cc50c9a8fe1afcc519475ca9d77
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3aa69f1ea6e16b582a17da867c4895413d0043d2
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985101"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782381"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Az Azure Stack fizikai memória-kapacitás kezelése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek*
 
-A teljes rendelkezésre álló memória-kapacitás az Azure Stack növelése érdekében hozzáadhat további memória. Az Azure Stack a fizikai kiszolgálót is nevezik egy *skálázási egység csomópont*. Minden skálázási egység tagcsomópontja egyetlen skálázási egység azonos mennyiségű memóriával kell rendelkeznie.
+A teljes rendelkezésre álló memória-kapacitás az Azure Stack növelése érdekében hozzáadhat további memória. Az Azure Stackben, a fizikai kiszolgálót is nevezik egy *skálázási egység csomópont*. Minden skálázási egység tagcsomópontja egyetlen skálázási egység azonos mennyiségű memóriával kell rendelkeznie.
 
 > [!note]  
 > A folytatás előtt tekintse meg a gyártó dokumentációját annak ellenőrzéséhez, hogy egy a gyártó támogatja a fizikai memória frissítése. Az OEM hardver szállítójával támogatási szerződés megkövetelheti, hogy a szállító hajtsa végre a fizikai kiszolgáló rack elhelyezése és az eszköz belső vezérlőprogramjának frissítése.

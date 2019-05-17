@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
+ms.reviewer: thoroet
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 893f3ef3f6b7d98d781d05982d243d44ada1411e
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984736"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782411"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Az Azure Stack fizikai lemez cseréje
 
@@ -35,7 +36,7 @@ Tényleges lemezcsere lépései eltérőek lesznek a számítógépgyártó (OEM
 ## <a name="review-disk-alert-information"></a>Lemez riasztási információk áttekintése
 Ha egy lemez meghibásodik, kap egy riasztást, mely arra kéri, hogy kapcsolat megszakadt-e egy fizikai lemezt.
 
- ![Riasztás megjelenítése megszakad a fizikai lemez](media/azure-stack-replace-disk/DiskAlert.png)
+![Riasztás megjelenítése megszakad a fizikai lemez](media/azure-stack-replace-disk/DiskAlert.png)
 
 Megnyitja a riasztás, ha a riasztás leírása tartalmazza a skálázási egység csomópont és a lemezre, le kell cserélnie fizikai tárolóhely pontos helyét. Az Azure Stack további segít azonosítani a meghibásodott lemezt LED kijelző képességek segítségével.
 

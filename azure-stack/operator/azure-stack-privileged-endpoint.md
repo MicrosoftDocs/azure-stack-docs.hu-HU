@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 056aea3016f5ea33059c001d043d3843a787cb92
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984959"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782417"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>A kiemelt jogosultságú végpont használata az Azure Stackben
 

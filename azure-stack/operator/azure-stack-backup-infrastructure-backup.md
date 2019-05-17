@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 1c096428bca07f557d62d0984ca1da1f428e9c28
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: d2b7ec8beedcc0ffbcf881dd09d513d3e0b61426
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290439"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782222"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Az Azure Stackhez az infrastruktúra biztonsági mentési szolgáltatással a biztonsági mentés és adat-helyreállítás
 
@@ -32,7 +32,7 @@ Amikor készen áll a felhőben üzembe éles engedélyezheti a biztonsági ment
 Mielőtt engedélyezné a biztonsági mentési szolgáltatás, ellenőrizze, hogy [követelmények teljesülnek](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Az infrastruktúra biztonsági mentési szolgáltatás nem tartalmaz felhasználói adatokat és alkalmazásokat. Tekintse meg [védelme az Azure Stack üzembe helyezett virtuális gépek](../user/azure-stack-manage-vm-protect.md) hogyan védheti meg bővebben IaaS VM-alapú alkalmazások. Az átfogó ismereteket bemutatja, hogyan védheti alkalmazásait az Azure Stacken, tekintse meg a [üzleti folytonossági és vészhelyreállítási helyreállítási tanulmány az Azure Stack szempontjai](https://aka.ms/azurestackbcdrconsiderationswp).
+> Az infrastruktúra biztonsági mentési szolgáltatás nem tartalmaz felhasználói adatokat és alkalmazásokat. További információkért lásd: [védelme az Azure Stack üzembe helyezett virtuális gépek](../user/azure-stack-manage-vm-protect.md) hogyan védheti meg bővebben IaaS VM-alapú alkalmazások. Az átfogó ismereteket bemutatja, hogyan védheti alkalmazásait az Azure Stacken, tekintse meg a [üzleti folytonossági és vészhelyreállítási helyreállítási tanulmány az Azure Stack szempontjai](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>A biztonsági mentési infrastruktúra-szolgáltatás
 

@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 0658943a36673df4658b6f1951ed7992996aba41
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc5c756075b2dbeb789727a6c6647cf3e97cac28
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617472"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782116"
 ---
 # <a name="redeploy-the-asdk"></a>Telepítse újra a ASDK
 Ebből a cikkből elsajátíthatja, hogyan ismételt üzembe helyezése az Azure Stack Development Kit (ASDK) egy nem éles környezetben. A ASDK frissítése nem támogatott, mivel teljesen ismételt üzembe helyezése áthelyezése egy újabb verzióra kell. Még csak át szeretné kezdje újra a folyamatot az alapoktól bármikor telepítse újra a ASDK.
@@ -39,7 +39,7 @@ A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegis
 
 2. Futtassa a következő PowerShell-parancsokat regisztrációjának törlése az ASDK telepítése és törlése a **azurestack** az erőforráscsoporthoz az Azure-előfizetéséhez:
 
-   ```Powershell    
+   ```powershell    
    #Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 

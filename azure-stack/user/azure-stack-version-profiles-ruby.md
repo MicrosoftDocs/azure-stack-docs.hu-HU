@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: fa3058f42986063946b943652a1e261b9a34e5d7
-ms.sourcegitcommit: 24d5c16132d4c40a760ad6f631739af86188a09f
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: 1bf4842746aa6a7bcdeedb41f58c267919cf1542
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64910147"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782551"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>API-verzióprofilok használata az Azure Stackben Ruby használatával
 
@@ -85,10 +85,10 @@ gem install 'azure_sdk'
 
 Azure Ruby SDK használatához az Azure Stack használatával, adja meg a következő értékeket, és adja meg a következő értékeket a környezeti változókat. Az utasításokat lásd a táblázat az operációs rendszerének a a környezeti változók beállítása után.
 
-| Érték | Környezeti változók | Leírás |
+| Value | Környezeti változók | Leírás |
 | --- | --- | --- |
 | Bérlőazonosító | AZURE_TENANT_ID | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md). |
-| Ügyfél-azonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű alkalmazást azonosító mentése az előző szakaszban Ez a dokumentum az egyszerű szolgáltatás létrehozásakor.  |
+| Ügyfélazonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű alkalmazást azonosító mentése az előző szakaszban Ez a dokumentum az egyszerű szolgáltatás létrehozásakor.  |
 | Előfizetés azonosítója | AZURE_SUBSCRIPTION_ID | A [előfizetés-azonosító](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben. |
 | Titkos ügyfélkulcs | AZURE_CLIENT_SECRET | A szolgáltatás egyszerű alkalmazás titkos kulcs mentése egyszerű szolgáltatás létrehozásakor. |
 | Resource Manager-végpont | ARM_ENDPOINT | Lásd: [az Azure Stack resource manager-végpont](#the-azure-stack-resource-manager-endpoint).  |

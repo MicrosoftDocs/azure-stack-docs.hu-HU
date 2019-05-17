@@ -9,12 +9,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0f4133052022963e1ed0457dd479a00bcc5bb749
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: ca8d81e9d0baf08adde257340b2a8ac3bffd6c36
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490059"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783191"
 ---
 # <a name="how-to-use-an-ssh-public-key"></a>Nyilvános SSH-kulcs használata
 
@@ -22,7 +22,7 @@ Előfordulhat, hogy szeretne létrehozni a nyilvános és titkos ssh-kulcs egy S
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>A Windows egy nyilvános SSH-kulcs létrehozása
 
-Ebben a szakaszban a PuTTY key generator használandó hozzon létre egy nyilvános SSH-kulcsot és titkos kulcsból álló kulcspárt a Linux rendszerű gépek biztonságos kapcsolatot az Azure Stack létrehozásakor. A puTTY SSH és a Telnet a Windows és Unix-platformokon, egy ingyenes megvalósítását az egy `xterm` terminálemulátorral.
+Ebben a szakaszban a PuTTY key generator használandó hozzon létre egy nyilvános SSH-kulcsot és titkos kulcsból álló kulcspárt a Linux rendszerű gépek biztonságos kapcsolatot az Azure Stack létrehozásakor. A puTTY egy ingyenes terminálemulátorral, amely lehetővé teszi, az SSH és a Telnet használatával egy kiszolgálóhoz való csatlakozáshoz.
 
 1. [Töltse le és telepítse a Puttyt a gép.](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -59,12 +59,6 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
 A nyilvános kulcs használatakor másolása és beillesztése a teljes környezetében, a szövegmező értékét, amikor egy alkalmazás megkérdezi a kulcs.
 
-<!-- 
-## Create an SSH public key on Linux
-
-ToDo: I need to write this section.
-
--->
 ## <a name="connect-with-ssh-using-putty"></a>Csatlakozzon az ssh-val a PuTTY használatával
 
 Ha már telepítette a putty-t, hogy a megosztottelérésikulcs-készítő és a egy SSH-ügyfél. Nyissa meg a PuTTY SSH-ügyfél, a csatlakozási értékeket és SSH-kulcs konfigurálásával, és ha ugyanazon a hálózaton, az Azure Stack, csatlakozzon a virtuális Géphez.

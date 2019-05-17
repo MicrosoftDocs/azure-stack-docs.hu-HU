@@ -3,25 +3,24 @@ title: Csomópont kapcsolatos műveletek méretezése az Azure Stackben |} A Mic
 description: Ismerje meg, megtekintheti a csomópont aktuális állapotát, és használja a a power kikapcsolása, letiltása és csomópont műveleteket az Azure Stackkel integrált rendszerek folytatása.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/22/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293255"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782338"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skálázási egység csomópont műveletek az Azure Stackben
 
@@ -57,9 +56,9 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 
 ### <a name="node-operational-states"></a>Csomópont működési állapotok
 
-| status | Leírás |
+| Állapot | Leírás |
 |----------------------|-------------------------------------------------------------------|
-| Fut | A csomópont tevékenyen részt vesz a skálázási egység. |
+| Futtatás | A csomópont tevékenyen részt vesz a skálázási egység. |
 | Leállítva | A csomópont nem érhető el. |
 | Hozzáadás | A csomópont aktívan ad hozzá a skálázási egység. |
 | Javítás | A csomópont aktívan javítása folyamatban van. |
@@ -86,7 +85,7 @@ Ez a művelet általában akkor használatos, amikor egy csomópont lefagyott á
 
 A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -94,13 +93,13 @@ A valószínűtlen eset, hogy a leállítási művelet nem működik, majd prób
 
 További információkért lásd: [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Indítás
+## <a name="start"></a>Kezdés
 
 A **start** művelet bekapcsolja a csomóponton. Legyen ugyanaz, mintha a főkapcsoló. 
  
 A kezdő művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -119,7 +118,7 @@ Ez a művelet általában a mező helyettesítő részből áll, például egy e
 
 A kiürítési művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -131,7 +130,7 @@ A **folytatása** művelet folytatja a letiltott csomópontot, és munkaterhelé
 
 A művelet folytatása futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssorba, és futtassa a következő parancsmagot:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -150,7 +149,7 @@ A javítási művelet futtatásakor adja meg a BMC IP-címet kell.
 
 Futtasson javítási műveletet, és nyisson meg egy rendszergazda jogú PowerShell-parancssorban futtassa a következő parancsmagot:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -164,7 +163,7 @@ Ha a leállítási művelet sikertelen, próbálja meg a [kiürítési](#drain) 
 
 A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

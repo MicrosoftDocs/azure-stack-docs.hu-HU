@@ -9,22 +9,18 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: e788be6315078fccee020fefe6ad79a20485c382
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: dbf6083ff81d045d92d488eda5cfab757093bb7e
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482104"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782883"
 ---
 # <a name="how-to-deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Java-webalkalmazás üzembe helyezése egy virtuális Gépet az Azure Stackben
 
 Létrehozhat egy virtuális Gépet, a Python webalkalmazás az Azure Stackben üzemeltetéséhez. Ez a cikk megvizsgálja a lépéseket követheti a kiszolgáló, a Python-webalkalmazás üzemeltetéséhez a kiszolgáló konfigurálása, és üzembe kell helyezni az alkalmazás beállítását.
 
-Java az egyidejű, osztály-alapú, objektumorientált, és rendelkezik, néhány megvalósítás függőségek, a lehető készült általános célú számítógép-programozási nyelvet. Az, hogy a "egyszer írható, bárhol futtatható", az alkalmazásfejlesztők szolgál, amely a lefordított kódot futtathatja az összes olyan platformon, amely támogatja a Java jelölője nélkül Java jelentése. Ismerje meg, a Java programozási nyelv és további források keresése a Javához készült: [Java.com](https://www.java.com).
-
-Ez a cikk részletesen ismerteti az telepítéséhez és a egy Apache Tomcat-kiszolgáló konfigurálása Linux rendszerű virtuális gépen az Azure Stack, és ezután betöltése egy Java webes alkalmazás erőforrás-(WAR-) fájlt a kiszolgálóra. WAR-fájl segítségével terjesztése JAR-fájlok, JavaServer Pages, a Java Servlet, a Java osztályok, XML fájlok, címke kódtárak, statikus weblapok (HTML- és a kapcsolódó fájlokat) és más erőforrások, amelyek együtt alkotják a webalkalmazás gyűjteménye.
-
-Az Apache Tomcat, más néven Tomcat kiszolgálót, egy nyílt forráskódú Java-Szervlet tároló az Apache Software Foundation által fejlesztett. Tomcat számos Java EE-alapú vonatkozó előírásokat, beleértve a Java Servlet, a JavaServer Pages, a Java-EL és a WebSocket valósítja meg, és a környezetet biztosít a "tiszta Java" HTTP web server mely javában kódot futtathatja.
+Ez a cikk részletesen ismerteti az telepítéséhez és a egy Apache Tomcat-kiszolgáló konfigurálása Linux rendszerű virtuális gépen az Azure Stack, és ezután betöltése egy Java webes alkalmazás erőforrás-(WAR-) fájlt a kiszolgálóra. WAR-fájl segítségével terjesztése JAR-fájlok, a Java-erőforrások, például az osztályok, szöveg, képek, XML és HTML és más erőforrások, egy webalkalmazás eredményjelző tartalmazó tömörített fájl gyűjteménye.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
@@ -34,9 +30,9 @@ Az Apache Tomcat, más néven Tomcat kiszolgálót, egy nyílt forráskódú Jav
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
-    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az alkalmazásprotokoll elosztott, együttműködő, hipermédia információs rendszerekhez. Az ügyfelek a webalkalmazás nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS) az kiterjesztése a Hypertext Transfer Protocol (HTTP). A számítógép hálózaton szolgál a biztonságos kommunikáció érdekében. Az ügyfelek a web Apps, és a nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 22 | SSH | Secure Shell (SSH) egy olyan titkosítási hálózati protokoll, a hálózati szolgáltatások biztonságos működő-nem biztonságos hálózaton keresztül. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
+    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
+    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is.  |
+    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
     | 3389 | RDP | Választható. A távoli asztali protokoll lehetővé teszi egy távoli asztali kapcsolatot egy grafikus felhasználói felületen a gép.   |
     | 8080 | Egyéni | Az alapértelmezett port az Apache Tomcat szolgáltatás a 8080-as. Üzemi kiszolgáló esetén célszerű továbbítani a forgalmat a 80-as és 443-as porton keresztül. |
 
@@ -65,7 +61,7 @@ Az Apache Tomcat, más néven Tomcat kiszolgálót, egy nyílt forráskódú Jav
             sudo groupadd tomcat
         ```
      
-    - Második, hozzon létre egy új Tomcat felhasználót, és adja hozzá a felhasználó a tomcat csoport az egy kezdőkönyvtárát `/opt/tomcat`, ahol Tomcat telepíti, és az-shell, `/bin/false` (így senki sem be tud jelentkezni a fiók):
+    - Ezután hozzon létre egy Tomcat felhasználó. Adja hozzá a felhasználót a tomcat csoport egy kezdőkönyvtárát `/opt/tomcat`. Tomcat telepíti a könyvtárhoz:
         ```bash  
             sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
         ```
@@ -79,7 +75,7 @@ Az Apache Tomcat, más néven Tomcat kiszolgálót, egy nyílt forráskódú Jav
             curl -O <URL for the tar for the latest version of Tomcat 8>
         ```
 
-    - A Tomcat harmadik, telepítse a `/opt/tomcat` könyvtár. A következő könyvtár létrehozásának, majd bontsa ki az archívumot, a következő parancsokkal:
+    - A Tomcat harmadik, telepítse a `/opt/tomcat` könyvtár. Hozza létre a mappát.  Nyissa meg az archívum:
 
         ```bash  
             sudo mkdir /opt/tomcat
@@ -97,7 +93,7 @@ Az Apache Tomcat, más néven Tomcat kiszolgálót, egy nyílt forráskódú Jav
 
 5. Hozzon létre egy `systemd` fájlja. így a Tomcat szolgáltatásként is futtathatja.
 
-    - Tomcat tudnia kell, amelyen telepítve van a Java. Ezt az elérési utat gyakran nevezik **JAVA_HOME**. A hely megkereséséhez futtatásával:
+    - Tomcat tudnia kell, amelyre telepítve van a Java. Ezt az elérési utat gyakran nevezik **JAVA_HOME**. A hely megkereséséhez futtatásával:
 
         ```bash  
             sudo update-java-alternatives -l
@@ -289,3 +285,4 @@ Az Azure-ban a Java-alkalmazások fejlesztésével kapcsolatos útmutatásért l
 
 - Learn more about how to [Develop for Azure Stack](azure-stack-dev-start.md)
 - Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
+- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).

@@ -3,25 +3,24 @@ title: Azure Stack-eszközök letöltése a githubról |} A Microsoft Docs
 description: Ismerje meg, hogyan töltse le az Azure Stack használatához szükséges eszközöket.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e7c24431a508e45fea0a61025b62f9bc3443d97b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 722fea2777071fa78c89372a21fe52022a56f264
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293838"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782256"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Azure Stack-eszközök letöltése a githubról
 
@@ -64,5 +63,7 @@ A **AzureStack-eszközök** tárház, amely támogatja a következő funkciók a
 
 
 ## <a name="next-steps"></a>További lépések
-* [Az Azure Stack felhasználói PowerShell-környezet konfigurálása](../user/azure-stack-powershell-configure-user.md)   
-* [Csatlakozás az Azure Stack Development Kit egy VPN-kapcsolaton keresztül](../asdk/asdk-connect.md)  
+
+- [Az Azure Stack PowerShell használatának első lépései](../user/azure-stack-powershell-overview.md)
+- [Az Azure Stack felhasználói PowerShell-környezet konfigurálása](../user/azure-stack-powershell-configure-user.md)   
+- [Csatlakozás az Azure Stack Development Kit egy VPN-kapcsolaton keresztül](../asdk/asdk-connect.md)  

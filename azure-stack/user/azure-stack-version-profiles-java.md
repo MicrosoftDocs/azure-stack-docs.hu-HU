@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: 175c684d8f92355c5669c0e37ff5a4dfb993ea61
-ms.sourcegitcommit: 24d5c16132d4c40a760ad6f631739af86188a09f
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: 90c4665b1519e078015f9a6096417c2d97425da9
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64910084"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782748"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-verzióprofilok használata az Azure Stackben Javával
 
@@ -94,7 +94,7 @@ Az Azure Java SDK használata az Azure Stack használatával, adja meg a követk
 | Érték                     | Környezeti változók | Leírás                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bérlőazonosító                 | AZURE_TENANT_ID            | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md).                                                          |
-| Ügyfél-azonosító                 | AZURE_CLIENT_ID             | A szolgáltatás egyszerű Alkalmazásazonosítót az egyszerű szolgáltatás létrehozása az előző szakaszban mentett.                                                                                              |
+| Ügyfélazonosító                 | AZURE_CLIENT_ID             | A szolgáltatás egyszerű Alkalmazásazonosítót az egyszerű szolgáltatás létrehozása az előző szakaszban mentett.                                                                                              |
 | Előfizetés azonosítója           | AZURE_SUBSCRIPTION_ID      | A [előfizetés-azonosító](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben.                |
 | Titkos ügyfélkulcs             | AZURE_CLIENT_SECRET        | A szolgáltatás egyszerű alkalmazás titkos kulcs mentése az egyszerű szolgáltatás létrehozásakor.                                                                                                                                   |
 | Resource Manager-végpont | ARM_ENDPOINT              | Lásd: [az Azure Stack Resource Manager-végpontot](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
@@ -128,7 +128,7 @@ Ha a ASDK használ, meg kell bíznia a hitelesítésszolgáltató főtanúsítv�
 
 1. Egy parancssorban módosítsa a könyvtár % JAVA_HOME%\bin.
 
-1. Futtassa az alábbi parancsot:
+1. Futtassa a következő parancsot:
 
    ```shell
    .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit

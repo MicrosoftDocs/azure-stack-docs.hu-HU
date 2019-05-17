@@ -9,18 +9,18 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 7744d1adcdcb1dde53c6ef887498a9a3978f4513
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 24774e122be0c4088c4d5841f71318d266bad78f
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481939"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782684"
 ---
 # <a name="how-to-deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Ruby-webalkalmazás üzembe helyezése egy virtuális Gépet az Azure Stackben
 
 Létrehozhat egy Virtuálisgép-a Ruby-webalkalmazás létrehozása az Azure Stack futtatásához. Ez a cikk megvizsgálja a lépéseket követheti a kiszolgáló, a Ruby-webalkalmazás üzemeltetéséhez a kiszolgáló konfigurálása, és üzembe kell helyezni az alkalmazás beállítását.
 
-A Ruby egy nyelv alapos egyenleg. A létrehozója, Yukihiro "Matz" Matsumoto, létesítéssel részek saját kedvenc nyelvén (Perl, Smalltalk, Eiffel, akadálymentes és Lisp), funkcionális programozási imperatív programozási az elosztott terhelésű új nyelv kialakításához. Ismerje meg, a Ruby programozási nyelvet és további források keresése Python: [Ruby-lang.org](https://www.ruby-lang.org).
+
 
 Ez a cikk fogja használni a Ruby és a egy Ruby on Rails webalkalmazás keretrendszerben.
 
@@ -32,9 +32,9 @@ Ez a cikk fogja használni a Ruby és a egy Ruby on Rails webalkalmazás keretre
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
-    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az alkalmazásprotokoll elosztott, együttműködő, hipermédia információs rendszerekhez. Az ügyfelek a webalkalmazás nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS) az kiterjesztése a Hypertext Transfer Protocol (HTTP). A számítógép hálózaton szolgál a biztonságos kommunikáció érdekében. Az ügyfelek a web Apps, és a nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 22 | SSH | Secure Shell (SSH) egy olyan titkosítási hálózati protokoll, a hálózati szolgáltatások biztonságos működő-nem biztonságos hálózaton keresztül. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
+    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
+    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is.  |
+    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
     | 3389 | RDP | Választható. A távoli asztali protokoll lehetővé teszi egy távoli asztali kapcsolatot egy grafikus felhasználói felületen a gép.   |
     | 3000 | Egyéni | 3000 portot használja a Ruby-a-rails webes keretrendszer fejlesztés alatt. Üzemi kiszolgáló esetén célszerű továbbítani a forgalmat a 80-as és 443-as porton keresztül. |
 
@@ -103,3 +103,4 @@ Ez a cikk fogja használni a Ruby és a egy Ruby on Rails webalkalmazás keretre
 
 - Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md)
 - Ismerje meg [közös üzemelő példányok az Azure stack-beli iaas](azure-stack-dev-start-deploy-app.md).
+- Ismerje meg, a Ruby programozási nyelvet és további források keresése Python: [Ruby-lang.org](https://www.ruby-lang.org).

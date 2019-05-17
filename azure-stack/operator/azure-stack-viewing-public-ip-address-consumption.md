@@ -3,24 +3,24 @@ title: Nyilvános IP-címek használatának megtekintése az Azure Stackben |} A
 description: A rendszergazdák megtekinthetik a használatalapú nyilvános IP-címek a régióban
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 01/14/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2cb1dde60f8d8aa76e0b678347df9be120c39e7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 35dc40fc3539038ab3c44318374e8c1fb327e6e4
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294916"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782435"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Nyilvános IP-címek használatának megtekintése az Azure Stackben
 
@@ -73,5 +73,3 @@ Eltérő esetben, amelyek meghatározzák, hogy a cím megjelenik egy listában,
 ## <a name="next-steps"></a>További lépések
 
 [Az Azure Stack Tárfiókok kezelése](azure-stack-manage-storage-accounts.md)
-
-<!-- Update_Description: wording update -->

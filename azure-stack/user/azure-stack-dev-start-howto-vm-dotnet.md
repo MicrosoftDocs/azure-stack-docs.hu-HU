@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b41c64d64a2c2abe6d1f145f11c2d4d84686b207
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617700"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783086"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Üzembe helyezése egy C# egy virtuális géphez az Azure Stack ASP.NET-webalkalmazás
 
 Létrehozhat egy virtuális gép (VM) a gazdagépen a C# ASP.NET-webalkalmazás létrehozása az Azure Stack. Ez a cikk ismerteti a kiszolgáló beállításakor kövesse az utasításokat, hogy a gazdagép konfigurálása a C# ASP.NET-WebApp, és telepíteni az alkalmazást közvetlenül a Visual Studióból.
-
-C#egy általános célú, több paradigmát programozási nyelv kitérve erős beírni, betűrendbe hatókörrel rendelkező, feltétlenül szükséges, deklaratív, működési, általános, objektumorientált, és programozási oktatnak összetevő-orientált van. Ismerje meg, hogy a C# programozási nyelvet, és keresse meg a további erőforrások az C#, tekintse meg a [ C# útmutató](https://docs.microsoft.com/dotnet/csharp/).
 
 Ez a cikk egy C# 6.0 Windows 2016-kiszolgálón futó ASP.NET Core 2.2 használó alkalmazásokban.
 
@@ -59,10 +57,11 @@ Ez a cikk egy C# 6.0 Windows 2016-kiszolgálón futó ASP.NET Core 2.2 használ�
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
-    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az alkalmazásprotokoll elosztott, együttműködő, hipermédia információs rendszerekhez. Az ügyfelek a webalkalmazás nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS) az kiterjesztése a Hypertext Transfer Protocol (HTTP). A számítógép hálózaton szolgál a biztonságos kommunikáció érdekében. Az ügyfelek a webalkalmazás nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 22 | SSH | Secure Shell (SSH) egy olyan titkosítási hálózati protokoll, a hálózati szolgáltatások biztonságos működő-nem biztonságos hálózaton keresztül. Ezt a kapcsolatot használja az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez. |
-    | 3389 | RDP | Választható. Távoli asztal protokoll (RDP) lehetővé teszi, hogy a grafikus felhasználói felület használata a gép egy távoli asztali kapcsolatot.   |
+    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
+    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is.  |
+    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
+    | 3389 | RDP | Választható. A távoli asztali protokoll lehetővé teszi egy távoli asztali kapcsolatot egy grafikus felhasználói felületen a gép.   |
+    | 8080 | Egyéni | Az alapértelmezett port az Apache Tomcat szolgáltatás a 8080-as. Üzemi kiszolgáló esetén célszerű továbbítani a forgalmat a 80-as és 443-as porton keresztül. |
 
     Minden egyes porthoz:
 
@@ -131,7 +130,7 @@ A közzétételi célként a virtuális gép létrehozása az Azure Stackben.
 1. Kattintson a **Publish** (Közzététel) elemre.
 1. Nyissa meg az új kiszolgálóra. Megtekintheti a futó webalkalmazás.
 
-    ```HTTP  
+    ```http  
         mywebapp.local.cloudapp.azurestack.external
     ```
 
@@ -139,3 +138,4 @@ A közzétételi célként a virtuális gép létrehozása az Azure Stackben.
 
 - Ismerje meg, hogyan [állítsa be a fejlesztési környezetet az Azure Stackben](azure-stack-dev-start.md).
 - Ismerje meg [közös üzemelő példányok az Azure stack-beli iaas](azure-stack-dev-start-deploy-app.md).
+- Ismerje meg, hogy a C# programozási nyelvet, és keresse meg a további erőforrások az C#, tekintse meg a [ C# útmutató](https://docs.microsoft.com/dotnet/csharp/)

@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 37ff24258b12c9b042c7b0dc5a113a62d1d1ec60
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 2c0997599b8da1f77f61e0953eb56f834f718efb
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477347"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782833"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Gyors útmutató: Linux rendszerű kiszolgáló virtuális gép létrehozása az Azure Stack portálon
 
@@ -49,7 +49,7 @@ Létrehozhat egy Ubuntu Server 16.04 LTS virtuális gépet az Azure Stack-portá
 
 Szüksége lesz egy SSH-kulcspár ebben a cikkben minden lépést befejezéséhez. Ha rendelkezik egy meglévő SSH-kulcspárral, kihagyhatja ezt a lépést.
 
-1. Keresse meg a PuTTY telepítési mappájából (az alapértelmezett hely a ```C:\Program Files\PuTTY```), és futtassa ```puttygen.exe```.
+1. Keresse meg a PuTTY telepítési mappájából (az alapértelmezett hely a `C:\Program Files\PuTTY`), és futtassa `puttygen.exe`.
 2. A PuTTY Key Generator ablakában győződjön meg arról a **készítése a kulcs típusa,** értékre van állítva **RSA**, és a **létrehozott kulcs bitjeinek száma** értékre van állítva **2048**. Amikor elkészült, kattintson a **Generate**.
 
    ![PuTTY Key Generator-konfiguráció](media/azure-stack-quick-linux-portal/Putty01.PNG)
@@ -106,7 +106,7 @@ Jelentkezzen be az Azure Stack portálon. Az Azure Stack portálon címe attól 
    ![Virtuális gép csatlakoztatása](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. A másolatot görgessen a **kategória** ablakot, és kattintson **munkamenet**.
-5. Az a **gazdagép nevét (vagy IP-cím)** mezőbe illessze be az Azure Stack portálon látható kapcsolati karakterláncban. Ebben a példában a karakterlánc van ```asadmin@192.168.102.34```.
+5. Az a **gazdagép nevét (vagy IP-cím)** mezőbe illessze be az Azure Stack portálon látható kapcsolati karakterláncban. Ebben a példában a karakterlánc van `asadmin@192.168.102.34`.
 
    ![PuTTY konfigurációs kapcsolati karakterlánc](media/azure-stack-quick-linux-portal/Putty04.PNG)
 
@@ -137,7 +137,7 @@ A hálózati biztonsági csoport (NSG) feladata a bejövő és kimenő forgalom 
 1. A virtuális gépen **áttekintése** lap, kattintson a nevére a **erőforráscsoport**.
 2. Válassza ki a **hálózati biztonsági csoport** a virtuális gép. A hálózati biztonsági csoport a **Típus** oszlop segítségével azonosítható.
 3. A bal oldali menüben a **beállítások**, kattintson a **bejövő biztonsági szabályok**.
-4. Kattintson a **Hozzáadás** parancsra.
+4. Kattintson a **Hozzáadás**lehetőségre.
 5. A **Név** mezőbe írja be a **http** karakterláncot. Ügyeljen rá, hogy a **Porttartomány** értéke 80, a **Művelet** értéke pedig **Engedélyezés** legyen.
 6. Kattintson az **OK** gombra
 
@@ -145,7 +145,7 @@ A hálózati biztonsági csoport (NSG) feladata a bejövő és kimenő forgalom 
 
 Az NGINX telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. (A nyilvános IP-cím jelenik meg a virtuális gép – áttekintés oldalra.)
 
-Nyisson meg egy webböngészőt, és keresse meg a ```http://<public IP address>```.
+Nyisson meg egy webböngészőt, és keresse meg a `http://<public IP address>`.
 
 ![Az NGINX web server kezdőlap](media/azure-stack-quick-linux-portal/linux-05.PNG)
 

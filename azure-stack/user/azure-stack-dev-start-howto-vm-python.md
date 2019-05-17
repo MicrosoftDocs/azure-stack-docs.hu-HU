@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b1a588dd084962c095a534f6569333b34e694bc6
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: b4042596924030711a23ea8814aa8f58fd62063f
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481840"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782697"
 ---
 # <a name="how-to-deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Python-WebApp üzembe helyezése egy virtuális Gépet az Azure Stackben
 
 Létrehozhat egy virtuális Gépet, a Python webalkalmazás az Azure Stackben üzemeltetéséhez. Ez a cikk megvizsgálja a lépéseket követheti a kiszolgáló, a Python-webalkalmazás üzemeltetéséhez a kiszolgáló konfigurálása, és üzembe kell helyezni az alkalmazás beállítását.
-
-Python-értelmezett, magas szintű, általános célú programozási nyelv. Béla van Rossum által létrehozott, és 1991 ben jelent meg először, a Python rendelkezik, amelyek kiemelik a kód olvashatóság érdekében a Tervező filozófia nevezetesen használatával jelentős elválasztó karakter. Biztosít, amelyek lehetővé teszik a kis- és nagy skálázását követve rugalmasan méretezhető egyértelmű programozási szerkezeteket. Ismerje meg, a Python programozási nyelvet és további források keresése Python: [Python.org](https://www.python.org).
 
 Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környezetben futó 3.x.
 
@@ -32,9 +30,9 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
-    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az alkalmazásprotokoll elosztott, együttműködő, hipermédia információs rendszerekhez. Az ügyfelek a webalkalmazás nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS) az kiterjesztése a Hypertext Transfer Protocol (HTTP). A számítógép hálózaton szolgál a biztonságos kommunikáció érdekében. Az ügyfelek a web Apps, és a nyilvános IP- vagy DNS-nevét, illetve a virtuális gép fog csatlakozni. |
-    | 22 | SSH | Secure Shell (SSH) egy olyan titkosítási hálózati protokoll, a hálózati szolgáltatások biztonságos működő-nem biztonságos hálózaton keresztül. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
+    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
+    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is.  |
+    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
     | 3389 | RDP | Választható. A távoli asztali protokoll lehetővé teszi egy távoli asztali kapcsolatot egy grafikus felhasználói felületen a gép.   |
     | 5000, 8000 | Egyéni | A Flask webes keretrendszer fejlesztés alatt által használt portok 5000-es, a 8000-es. Üzemi kiszolgáló esetén célszerű továbbítani a forgalmat a 80-as és 443-as porton keresztül. |
 
@@ -54,7 +52,7 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
     ```
 
 
-3. Telepítse az nginx-et. [Az Nginx](https://www.nginx.com/resources/wiki/) egy webkiszolgáló, amely fordított is használható, a terheléselosztó, levelezési proxy és HTTP-gyorsítótár. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+3. Telepítse az nginx-et. [Az Nginx](https://www.nginx.com/resources/wiki/) Könnyített webkiszolgáló. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
 
     ```bash  
        sudo apt-get -y install nginx git
@@ -117,3 +115,4 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
 
 - Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md)
 - Ismerje meg [közös üzemelő példányok az Azure stack-beli iaas](azure-stack-dev-start-deploy-app.md).
+- Ismerje meg, a Python programozási nyelvet és további források keresése Python: [Python.org](https://www.python.org).

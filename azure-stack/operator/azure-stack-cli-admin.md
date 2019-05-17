@@ -3,24 +3,23 @@ title: Azure CLI-vel engedélyezése az Azure Stack felhasználói |} A Microsof
 description: Az Azure Stacken erőforrásokat üzembe helyezheti és kezelheti a többplatformos parancssori felület (CLI) használata
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-origin.date: 01/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.lastreviewed: 01/15/2019
-ms.openlocfilehash: efec1cc58b263c9580ab4a8ab3d7973a8f230d93
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290351"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782319"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure CLI-vel engedélyezése az Azure Stack-felhasználók számára
 
@@ -61,7 +60,7 @@ certutil -encode root.cer root.pem
 
 Az Azure Stack-operátorok egy nyilvánosan elérhető végponton, amelyen egy virtuális gép alias fájlt kell beállítania. A virtuális gép alias fájl nem egy JSON-fájl által biztosított rendszerképek köznapi neve. A nevet fogja használni, ha telepít egy virtuális Gépet az Azure CLI-vel paraméterként.  
 
-Alias fájlt hozzá egy bejegyzést, előtt győződjön meg arról, hogy Ön [töltse le a rendszerképeket az Azure Marketplace-ről](azure-stack-download-azure-marketplace-item.md) vagy [közzé saját egyéni rendszerképét](azure-stack-add-vm-image.md). Ha egy egyéni rendszerkép közzététele, jegyezze fel a közzétevő, ajánlat, Termékváltozat és verzió közzététele során megadott információk. Ha egy lemezképet a marketplace webhelyről, az információk használatával megtekintheti a ```Get-AzureVMImage``` parancsmagot.  
+Alias fájlt hozzá egy bejegyzést, előtt győződjön meg arról, hogy Ön [töltse le a rendszerképeket az Azure Marketplace-ről](azure-stack-download-azure-marketplace-item.md) vagy [közzé saját egyéni rendszerképét](azure-stack-add-vm-image.md). Ha egy egyéni rendszerkép közzététele, jegyezze fel a közzétevő, ajánlat, Termékváltozat és verzió közzététele során megadott információk. Ha egy lemezképet a marketplace webhelyről, az információk használatával megtekintheti a `Get-AzureVMImage` parancsmagot.  
 
 A [alias mintafájl](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) számos gyakori rendszerképpel aliasok érhető el. Kiindulási pontként használhatja azt. A gazdagép egy helyet, ahol a CLI-ügyfelek számára is elérhetővé válik a fájlhoz. Egyik módja a fájlt a blob storage-fiókot üzemeltethet, és az URL-cím megosztása a felhasználókkal:
 

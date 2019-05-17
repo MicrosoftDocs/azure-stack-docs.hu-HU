@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 01/05/2019
+ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ab3b93d313a185a55f86232bf7bc3a7d4b46ef3d
-ms.sourcegitcommit: 24d5c16132d4c40a760ad6f631739af86188a09f
+ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64910102"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782587"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-verzióprofilok használata az Azure Stackben Pythonnal
 
@@ -51,14 +51,14 @@ A Python SDK API-verzióprofilok célozhat meg például az Azure Stack és a gl
 
 Az Azure Stack az Azure Python SDK használatához adja meg a következő értékeket, és adja meg az értékeket a környezeti változókat. Az utasításokat lásd a táblázat az operációs rendszerének a a környezeti változók beállítása után.
 
-| Érték | Környezeti változók | Leírás |
+| Value | Környezeti változók | Leírás |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Bérlőazonosító | AZURE_TENANT_ID | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md). |
-| Ügyfél-azonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű Alkalmazásazonosító egyszerű szolgáltatás létrehozásakor ez a cikk az előző szakaszban mentett. |
+| Ügyfélazonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű Alkalmazásazonosító egyszerű szolgáltatás létrehozásakor ez a cikk az előző szakaszban mentett. |
 | Előfizetés azonosítója | AZURE_SUBSCRIPTION_ID | A [előfizetés-azonosító](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben. |
 | Titkos ügyfélkulcs | AZURE_CLIENT_SECRET | A szolgáltatás egyszerű alkalmazás titkos kulcs mentése az egyszerű szolgáltatás létrehozásakor. |
 | Resource Manager-végpont | ARM_ENDPOINT | Tekintse meg a [Azure Stack Resource Manager-végpontot](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
-| Resource Location (Erőforrás helye) | AZURE_RESOURCE_LOCATION | Az Azure Stack környezettel erőforrás helye.
+| Erőforrás helye | AZURE_RESOURCE_LOCATION | Az Azure Stack környezettel erőforrás helye.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Az Azure Stack hitelesítésszolgáltató főtanúsítványát a megbízható
 
@@ -124,7 +124,7 @@ Az Azure stack-Python SDK-val érhető el Kódminták a következők:
 A következő mintakód segítségével gyakori felügyeleti feladatok végrehajtása a virtuális gépek az Azure stack. A mintakód bemutatja, hogy:
 
 - Virtuális gépek létrehozása:
-  - Linuxos virtuális gép létrehozása
+  - Linux rendszerű virtuális gép létrehozása
   - Windows rendszerű virtuális gép létrehozása
 - A virtuális gép frissítése:
   - Bontsa ki a meghajtó

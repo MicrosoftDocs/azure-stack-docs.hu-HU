@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e51dd3a467bcba9eaf36fc729e37780cf7b626dd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3ca7624627ff02cc3ef230a510038f2db5ff5247
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985085"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782309"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Az Azure Stack nyilvános kulcsokra épülő infrastruktúra tanúsítványkövetelmények
 
@@ -74,7 +74,7 @@ Az üzembe helyezés a [régió] és [externalfqdn] értékeknek egyezniük kell
 | Felügyeleti portál | adminportal.&lt;region>.&lt;fqdn> | Portálok | &lt;region>.&lt;fqdn> |
 | Azure Resource Manager-nyilvános | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Az Azure Resource Manager-rendszergazda | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Altartományokra is kibővített SSL-tanúsítvány) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Altartományokra is kibővített SSL-tanúsítvány) | Blobtároló | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Altartományokra is kibővített SSL-tanúsítvány) | Table Storage | table.&lt;region>.&lt;fqdn> |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Altartományokra is kibővített SSL-tanúsítvány) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Altartományokra is kibővített SSL-tanúsítvány) | Key Vault | vault.&lt;region>.&lt;fqdn> |
@@ -113,9 +113,8 @@ A következő táblázat ismerteti a végpontok és a szükséges az SQL- és My
 
 <sup>2</sup> A &#42;.appservice. *&lt;régió >. &lt;teljesen minősített tartományneve >* helyettesítő tanúsítvány nem használható helyett ezeket a tanúsítványokat (api.appservice. *&lt;régió >. &lt;teljesen minősített tartományneve >*, ftp.appservice. *&lt;régió >. &lt;teljesen minősített tartományneve >*, és sso.appservice. *&lt;régió >. &lt;teljesen minősített tartományneve >*. Az App Service explicit módon a végpontok külön tanúsítványok használata szükséges. 
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
 Ismerje meg, hogyan [készítése a PKI-tanúsítványokat az Azure Stack üzemelő példányához](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>További lépések
 [Identitásintegráció](azure-stack-integrate-identity.md)
-

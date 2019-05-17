@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b28a90ceca59e5cd072018b217d81d101c1b0853
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 0cef39147fdbc62fe0652b1e387aa23f5ecb8487
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782897"
 ---
 # <a name="get-started-with-powershell-on-azure-stack"></a>Az Azure Stack PowerShell használatának első lépései
 
@@ -31,7 +31,7 @@ Ez a cikk segít kiigazodni között saját magának, ezek más PowerShell-modul
 | API | PowerShell-referencia | REST-referencia |
 | --- | --- | --- |
 | 1. Globális Azure Resource Manager | [Az Azure PowerShell-modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API-böngésző](https://docs.microsoft.com/rest/api/) |
-| 2. Az Azure Stack Resource Manager | [API-verzióprofilok kezelése az Azure Stackben](azure-stack-version-profiles.md) | [API-verzióprofilok kezelése az Azure Stackben](azure-stack-version-profiles.md) |
+| 2. Az Azure Stack Resource Manager | [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md) | [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md) |
 | 3. Az Azure Stack rendszergazdai végpontok | [Azure Stack Admin Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST API-böngésző -, az Azure Stack](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
 | 4.  Az Azure Stack kiemelt végponthoz | [A kiemelt végpont használata az Azure Stackben](../operator/azure-stack-privileged-endpoint.md) | |
 
@@ -47,11 +47,11 @@ A következő blokkban ábrán az egyes PowerShell-modulok a kapcsolat. A gép s
 
 ### <a name="global-azure"></a>Globális Azure
 
-Az Azure PowerShell-parancsmagokat, amelyek az Azure Resource Manager-modell aktuális verzióját használják az Azure-erőforrások kezeléséhez biztosít. Az Azure PowerShell a .NET Standardet használja, így Windows, macOS és Linux rendszereken is elérhető. Az Azure PowerShell az Azure Cloud Shellben is elérhető. További információért lásd [az Azure PowerShell használatának első lépéseit](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Az Azure PowerShell parancsmagok, amelyek a jelenlegi verzió az Azure Resource Manager használata az Azure-erőforrások használata egy készletét tartalmazza. Az Azure PowerShell a .NET Standard szintű használja. Ez azt jelenti, hogy a Windows, macOS és Linux rendszereken is használhatja a PowerShell-verziókat. Az Azure PowerShell az Azure Cloud Shellben is elérhető. További információért lásd [az Azure PowerShell használatának első lépéseit](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### <a name="azure-stack-resource-manager"></a>Az Azure Stack Resource Manager
 
-Az Azure Stack PowerShell-parancsmagot is, melyek korábbi verziók az Azure Resource Manager kompatibilis az erőforrás-szolgáltatók az Azure Stackben biztosít. Mindegyik erőforrás-szolgáltató az Azure Stackben a globális Azure-ban található szolgáltató régebbi verzióját használja. Könnyebben koordinálja az egyes Azure Stack által támogatott szolgáltató verziója, használhat API-t. Az Azure Stack PowerShell PowerShell 5.1 használja és csak a Windows. További információkért lásd: [kezelése API-verzióprofilok az Azure Stackben](azure-stack-version-profiles.md).
+Az Azure Stack PowerShell parancsmag-előző verziók, az Azure Resource Manager használata biztosít. Ezek a parancsmagok kompatibilisek az erőforrás-szolgáltatók az Azure Stackben. Mindegyik erőforrás-szolgáltató az Azure Stackben a globális Azure-ban található szolgáltató régebbi verzióját használja. Könnyebben koordinálja az egyes Azure Stack által támogatott szolgáltató verziója, használhat API-t. Az Azure Stack PowerShell PowerShell 5.1 használja és csak a Windows. További információkért lásd: [kezelése API-verzióprofilok az Azure Stackben](azure-stack-version-profiles.md).
 
 ### <a name="azure-stack-administrator"></a>Azure Stack-rendszergazda
 
