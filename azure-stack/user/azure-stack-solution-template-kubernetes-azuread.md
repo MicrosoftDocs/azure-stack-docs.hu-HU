@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/17/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301967"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855389"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Üzembe helyezése Kubernetes az Azure Stackhez az Azure Active Directoryval
 
@@ -61,25 +61,21 @@ Első lépésként ellenőrizze, hogy a megfelelő engedélyekkel rendelkezik, �
 
 1. Hozzon létre egy Azure AD-alkalmazást.
 
-    a. Válassza ki **az Azure Active Directory** > **+ Alkalmazásregisztrációk** > **új Alkalmazásregisztráció**.
-
-    b. Adjon meg egy **neve** az alkalmazás.
-
-    c. Válassza ki **webalkalmazás / API**.
-
-    d. Adja meg `http://localhost` számára a **bejelentkezési URL-**.
-
-    c. Kattintson a **Create** (Létrehozás) gombra.
+    a. Jelentkezzen be az Azure-fiók révén a [az Azure portal](https://portal.azure.com).  
+    b. Válassza ki **Azure Active Directory** > **alkalmazásregisztrációk** > **új regisztrációs**.  
+    c. Adja meg az alkalmazás nevét és URL-címét.  
+    d. Válassza ki a **támogatott fióktípusok**.  
+    e.  Adjon hozzá `http://localhost` az URI-t az alkalmazás számára. Válassza ki **webes** szeretne létrehozni az alkalmazás számára. Miután beállította az értékeket, válassza ki a **regisztrálása**.
 
 1. Jegyezze fel az **alkalmazás azonosítóját**. A fürt létrehozásakor kell a azonosítója. Az azonosító néven van hivatkozott **egyszerű szolgáltatás ügyfél-azonosító**.
 
-1. Válassza ki **beállítások** > **kulcsok**.
+1. Az egyszerű szolgáltatásnév paneljén válassza **új titkos ügyfélkulcsot**. **Beállítások** > **kulcsok**. Létre kell hoznia az egyszerű szolgáltatásnév a hitelesítési kulcs.
 
     a. Adja meg a **leírás**.
 
     b. Válassza ki **soha nem jár le** a **lejárat**.
 
-    c. Kattintson a **Mentés** gombra. Győződjön meg, vegye figyelembe a kulcs karakterláncát. Szüksége lesz a kulcs karakterláncát a fürt létrehozásakor. A kulcs hivatkozik a **egyszerű szolgáltatás titkos Ügyfélkód**.
+    c. Válassza a **Hozzáadás** lehetőséget. Győződjön meg, vegye figyelembe a kulcs karakterláncát. Szüksége lesz a kulcs karakterláncát a fürt létrehozásakor. A kulcs hivatkozik a **egyszerű szolgáltatás titkos Ügyfélkód**.
 
 ## <a name="give-the-service-principal-access"></a>A szolgáltatás egyszerű hozzáférést
 

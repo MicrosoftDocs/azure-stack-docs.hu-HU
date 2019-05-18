@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3fc50d068eb07d7da2d55d855b2ea8ea758ca6b1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300614"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855376"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Alkalmazások hozzáférést biztosíthat az Azure Stack-erőforrások egyszerű szolgáltatások létrehozásával
 
@@ -59,7 +59,7 @@ Ha az Azure Stack az Azure AD használja, mint az ügyfélidentitás-tárolóval
 > [!NOTE]
 > Ellenőrizze, hogy rendelkezik a [szükséges Azure AD-engedélyekről](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) egyszerű szolgáltatás létrehozása előtt.
 
-### <a name="create-service-principal"></a>Egyszerű szolgáltatás létrehozása
+### <a name="create-service-principal"></a>Szolgáltatásnév létrehozása
 
 Az alkalmazás egyszerű szolgáltatás létrehozása:
 
@@ -68,6 +68,8 @@ Az alkalmazás egyszerű szolgáltatás létrehozása:
 3. Adjon meg egy nevet.
 4. Válassza ki a **támogatott fióktípusok**.
 5.  Adjon hozzá egy URI-t az alkalmazáshoz. Válassza ki **webes** szeretne létrehozni az alkalmazás számára. Miután beállította az értékeket, válassza ki a **regisztrálása**.
+
+Létrehozott egy egyszerű szolgáltatást az alkalmazás.
 
 ### <a name="get-credentials"></a>Hitelesítő adatok beolvasása
 

@@ -9,56 +9,55 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b4042596924030711a23ea8814aa8f58fd62063f
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: f37e963ad73a361f9d4cd5a6e68ec4213d5f32fb
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782697"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838321"
 ---
-# <a name="how-to-deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Python-WebApp üzembe helyezése egy virtuális Gépet az Azure Stackben
+# <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack"></a>Python-WebApp üzembe helyezése egy virtuális Gépet az Azure Stackben
 
-Létrehozhat egy virtuális Gépet, a Python webalkalmazás az Azure Stackben üzemeltetéséhez. Ez a cikk megvizsgálja a lépéseket követheti a kiszolgáló, a Python-webalkalmazás üzemeltetéséhez a kiszolgáló konfigurálása, és üzembe kell helyezni az alkalmazás beállítását.
+Létrehozhat egy virtuális Gépet, a Python-webalkalmazás létrehozása az Azure Stack futtatásához. Ebben a cikkben állítson be egy kiszolgálót, konfigurálja a kiszolgálót, a Python-webalkalmazás üzemeltetéséhez, és az alkalmazás üzembe helyezése az Azure Stack.
 
-Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környezetben futó 3.x.
+Ebben a cikkben Python 3.x Flask virtuális környezetben futó Nginx-kiszolgálón.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Állítsa be a virtuális gép, állítsa be az Azure Stackben. Kövesse a [Linux virtuális gép üzembe helyezése az Azure Stackben webalkalmazás üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
+1. Állítsa be a virtuális gép az Azure Stackben utasításait követve [Linux virtuális gép üzembe helyezése az Azure Stackben webalkalmazás üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. A virtuális gép hálózati panelen ellenőrizze, a következő portokat érhetők el:
+2. A virtuális gép hálózati ablaktáblán győződjön meg arról, hogy elérhetők-e a következő portokat:
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is.  |
-    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
-    | 3389 | RDP | Választható. A távoli asztali protokoll lehetővé teszi egy távoli asztali kapcsolatot egy grafikus felhasználói felületen a gép.   |
-    | 5000, 8000 | Egyéni | A Flask webes keretrendszer fejlesztés alatt által használt portok 5000-es, a 8000-es. Üzemi kiszolgáló esetén célszerű továbbítani a forgalmat a 80-as és 443-as porton keresztül. |
+    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is. |
+    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Ezt a kapcsolatot használja az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez. |
+    | 3389 | RDP | Választható. A távoli asztal protokoll (RDP) lehetővé teszi, hogy egy távoli asztali kapcsolatot egy grafikus felhasználói felületet használja a gépén.   |
+    | 5000, 8000 | Egyéni | A fejlesztés, a Flask webes keretrendszer által használt portokat. Üzemi kiszolgáló esetén irányíthatja a forgalmat a 80-as és 443-as porton keresztül. |
 
 ## <a name="install-python"></a>Telepítse a Pythont
 
-1. Csatlakozzon a virtuális géphez az SSH-ügyfél használatával. Útmutatásért lásd: [a PuTTy SSH-n keresztüli csatlakozás](azure-stack-dev-start-howto-ssh-public-key.md#connect-via-ssh-with-putty).
-2. A bash parancssorban a virtuális Gépen írja be a következő parancsokat:
+1. Csatlakozás a virtuális gép az SSH-ügyfél használatával. Útmutatásért lásd: [a PuTTy SSH-n keresztüli csatlakozás](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+2. A bash parancssorban a virtuális Gépen adja meg a következő parancsot:
 
     ```bash  
     sudo apt-get -y install python3 python3-venv python3-dev
     ```
 
-3. A telepítés ellenőrzése. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+3. A telepítés ellenőrzése. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
 
     ```bash  
         python -version
     ```
 
-
-3. Telepítse az nginx-et. [Az Nginx](https://www.nginx.com/resources/wiki/) Könnyített webkiszolgáló. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+3. [Az Nginx telepítése](https://www.nginx.com/resources/wiki/), egy egyszerű webkiszolgálót. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
 
     ```bash  
        sudo apt-get -y install nginx git
     ```
 
-4. A Git telepítése. [A Git](https://git-scm.com) egy rendszer széles körben elterjedt változat és forráskód kód management (SCM). Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+4. [A Git telepítése](https://git-scm.com), a széles körben elosztott verziókezelő és forráskód code system management (SCM). Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
 
     ```bash  
        sudo apt-get -y install git
@@ -66,7 +65,7 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
 
 ## <a name="deploy-and-run-the-app"></a>Az alkalmazás üzembe helyezése és futtatása
 
-1. Állítsa be a virtuális gépen a Git-tárházhoz. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+1. Állítsa be a virtuális gépen a Git-tárházhoz. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsokat:
 
     ```bash  
        git clone https://github.com/mattbriggs/flask-hello-world.git
@@ -74,7 +73,7 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
        cd flask-hello-world
     ```
 
-2. Hozzon létre egy virtuális környezetet, és adja meg azt a csomagfüggőségek.  Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+2. Hozzon létre egy virtuális környezetet, és adja meg azt a csomagfüggőségek. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsokat:
 
     ```bash  
     python3 -m venv venv
@@ -86,7 +85,7 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
     flask run -h 0.0.0.0
     ```
 
-3.  Most nyissa meg az új kiszolgálóra, és megjelenik a futó webalkalmazás.
+3. Nyissa meg az új kiszolgálóra. Megtekintheti a futó webalkalmazás.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:5000
@@ -94,8 +93,9 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
 
 ## <a name="update-your-server"></a>A kiszolgáló frissítése
 
-1. Csatlakozhat a virtuális gép az SSH-munkamenet. Írja be a kiszolgáló leállítására `CTRL+C`.
-2. Írja be a következő parancsokat:
+1. Csatlakozhat a virtuális gép az SSH-munkamenet. A kiszolgáló leállításához írja be a Ctrl + C billentyűkombinációt.
+
+2. A következő parancsokat:
 
     ```bash  
     deactivate
@@ -103,7 +103,7 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
     git pull
     ```
 
-3. Aktiválja a virtuális környezetet, és indítsa el az alkalmazást
+3. Aktiválja a virtuális környezetet, és az alkalmazás elindításához:
 
     ```bash  
     source venv/bin/activate
@@ -113,6 +113,6 @@ Ez a cikk fogja használni a Python Flask Ngnix kiszolgálón virtuális környe
 
 ## <a name="next-steps"></a>További lépések
 
-- Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md)
+- Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md).
 - Ismerje meg [közös üzemelő példányok az Azure stack-beli iaas](azure-stack-dev-start-deploy-app.md).
 - Ismerje meg, a Python programozási nyelvet és további források keresése Python: [Python.org](https://www.python.org).

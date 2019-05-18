@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 86817d0d22854bf2bb0d2372f2a25e15a3de7c48
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 48136220e2d784a61b3275ca9f79b82e0e8bfb69
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712299"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855351"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -77,10 +77,16 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 ### <a name="marketplace-management"></a>Marketplace-en kezelése
 
 - Alkalmazható: A probléma 1904 vonatkozik.
-- OK: A piactér felügyeleti lapján adminisztrátori portál "Hozzáadása az Azure" panelen eredmények szűrésekor helytelen szűrt eredmények jelenhet meg. 
-- Szervizelési: Kijavítjuk neve oszlop szerint rendezheti az eredményeket, és az eredményeket. 
+- OK: Az eredmények szűrésekor a **hozzáadása az Azure-ból** panelen a felügyeleti portálon a Marketplace-en felügyeleti lap helytelen szűrt eredmények jelenhetnek meg. 
+- Szervizelési: A neve oszlop szerint rendezheti az eredményeket, és az eredmények ki kell javítani. 
 - Előfordulás: Időszakos
 
+### <a name="marketplace-management"></a>Marketplace-en kezelése
+
+- Alkalmazható: A probléma 1904 vonatkozik.
+- OK: Ha a felügyeleti portálon a Marketplace-en felügyeleti eredményez, látni fogja a duplikált kiadó nevek alapján a közzétevő legördülő. 
+- Szervizelési: Válassza ki az összes a Piactéri termékek publisher a rendelkezésre álló helyes lista az ismétlődéseket. 
+- Előfordulás: Időszakos
 
 ### <a name="upload-blob"></a>Blob feltöltése
 

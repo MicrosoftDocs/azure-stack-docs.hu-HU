@@ -1,5 +1,5 @@
 ---
-title: Egy Node.js-alkalmazás üzembe helyezése egy virtuális géphez az Azure Stackben |} A Microsoft Docs
+title: Node.js-alkalmazás üzembe helyezése egy virtuális géphez az Azure Stackben |} A Microsoft Docs
 description: Egy Node.js-alkalmazás üzembe helyezése az Azure Stack.
 services: azure-stack
 author: mattbriggs
@@ -9,53 +9,54 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 879e4e552fbeaa6178f06f85959d543680b2bd3e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 4fcf76b8f4950fa7ca919d57281c5662b31e96f6
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782714"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838300"
 ---
-# <a name="how-to-deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Node.js-webalkalmazás üzembe helyezése egy virtuális Gépet az Azure Stackben
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Node.js-webalkalmazás üzembe helyezése egy virtuális Gépet az Azure Stackben
 
-Létrehozhat egy virtuális Gépet, a Node.js webalkalmazás az Azure Stackben üzemeltetéséhez. Ez a cikk megvizsgálja a lépéseket követheti a kiszolgáló, a csomópont webalkalmazás üzemeltetéséhez a kiszolgáló konfigurálása, és üzembe kell helyezni az alkalmazás beállítását.
+Létrehozhat egy virtuális gépet (VM) egy Node.js-webalkalmazás létrehozása az Azure Stack futtatásához. Ebben a cikkben állítson be egy kiszolgálót, konfigurálja a kiszolgálót a Node.js-webalkalmazás üzemeltetéséhez, és az alkalmazás üzembe helyezése az Azure Stack.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Állítsa be a virtuális gép, állítsa be az Azure Stackben. Kövesse a [Linux virtuális gép üzembe helyezése az Azure Stackben webalkalmazás üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
+1. Állítsa be a virtuális gép az Azure Stackben utasításait követve [Linux virtuális gép üzembe helyezése az Azure Stackben webalkalmazás üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. A virtuális gép hálózati panelen ellenőrizze, a következő portokat érhetők el:
+2. A virtuális gép hálózati ablaktáblán győződjön meg arról, hogy elérhetők-e a következő portokat:
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is.  |
-    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez használandó ehhez a kapcsolathoz. |
-    | 3389 | RDP | Választható. A távoli asztali protokoll lehetővé teszi egy távoli asztali kapcsolatot egy grafikus felhasználói felületen a gép.   |
-    | 1337 | Egyéni | A Node.js 1337 portot használja. Üzemi kiszolgáló esetén célszerű továbbítani a forgalmat a 80-as és 443-as porton keresztül. |
+    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is. |
+    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Ezt a kapcsolatot használja az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez. |
+    | 3389 | RDP | Választható. A távoli asztal protokoll (RDP) lehetővé teszi, hogy egy távoli asztali kapcsolatot egy grafikus felhasználói felületet használja a gépén.   |
+    | 1337 | Egyéni | A Node.js által használt port. Üzemi kiszolgáló esetén irányíthatja a forgalmat a 80-as és 443-as porton keresztül. |
 
 ## <a name="install-node"></a>Csomópont telepítése
 
-1. Csatlakozzon a virtuális géphez az SSH-ügyfél használatával. Útmutatásért lásd: [a PuTTy SSH-n keresztüli csatlakozás](azure-stack-dev-start-howto-ssh-public-key.md#connect-via-ssh-with-putty).
-1. A bash parancssorban a virtuális Gépen írja be a következő parancsokat:
+1. Csatlakozás a virtuális gép az SSH-ügyfél használatával. Útmutatásért lásd: [a PuTTY SSH-n keresztüli csatlakozás](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+
+1. A bash parancssorban a virtuális Gépen adja meg a következő parancsot:
 
     ```bash  
       sudo apt install nodejs-legacy
     ```
 
-2. Telepítse az npm-et. [Az NPM](https://www.npmjs.com/) egy Csomagkezelő, a Node.js-csomagokat vagy modulok. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+2. [Telepítse az NPM](https://www.npmjs.com/), a Node.js-csomagokat vagy modulok Csomagkezelő. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, adja meg a következő parancsot:
 
     ```bash  
        go version
     ```
 
-3. A Git telepítése. [A Git](https://git-scm.com) egy rendszer széles körben elterjedt változat és forráskód kód management (SCM). Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+3. [A Git telepítése](https://git-scm.com), egy széles körben elosztott verzió- és forráskód code system management (SCM). Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
 
     ```bash  
        sudo apt-get -y install git
     ```
 
-3. A telepítés ellenőrzése. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+3. A telepítés ellenőrzése. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
 
     ```bash  
        node -v
@@ -63,7 +64,7 @@ Létrehozhat egy virtuális Gépet, a Node.js webalkalmazás az Azure Stackben �
 
 ## <a name="deploy-and-run-the-app"></a>Az alkalmazás üzembe helyezése és futtatása
 
-1. Állítsa be a virtuális gépen a Git-tárházhoz. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsokat:
+1. Állítsa be a virtuális gépen a Git-tárházhoz. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsokat:
 
     ```bash  
        git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
@@ -72,13 +73,13 @@ Létrehozhat egy virtuális Gépet, a Node.js webalkalmazás az Azure Stackben �
         npm start
     ```
 
-2. Az alkalmazás elindításához. Az SSH-munkamenetben, továbbra is csatlakozik a virtuális géphez, írja be a következő parancsot:
+2. Az alkalmazás elindításához. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
 
     ```bash  
        sudo node app.js
     ```
 
-3.  Most nyissa meg az új kiszolgálóra, és megjelenik a futó webalkalmazás.
+3. Nyissa meg az új kiszolgálóra. Megtekintheti a futó webalkalmazás.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:1337
@@ -86,6 +87,6 @@ Létrehozhat egy virtuális Gépet, a Node.js webalkalmazás az Azure Stackben �
 
 ## <a name="next-steps"></a>További lépések
 
-- Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md)
+- Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md).
 - Ismerje meg [közös üzemelő példányok az Azure stack-beli iaas](azure-stack-dev-start-deploy-app.md).
 - További tudnivalók a programozási nyelv csomópont és további források keresése csomópont: [Nodejs.org](https://nodejs.org).
