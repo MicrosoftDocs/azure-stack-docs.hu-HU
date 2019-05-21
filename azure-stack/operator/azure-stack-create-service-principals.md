@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 05/17/2019
 ms.author: sethm
-ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 8d6548ada50a25350f622d7bc7460005f4abc401
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 1bb07c1725d5c8ed81ec4b8ccc546a4d41dc64e0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295125"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855333"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Hozzáférést biztosít az alkalmazásoknak az Azure Stackhez
 
@@ -47,13 +47,15 @@ Az egyszerű szolgáltatás létrehozása után az AD FS és az Azure Active Dir
 
 Ha helyezte az Azure Stack az Azure Active Directoryval (Azure AD), az identity management-szolgáltatás, létrehozhat egyszerű szolgáltatásokat, mint az Azure-ban végezhet el. Ez a szakasz bemutatja, hogyan végezheti el a lépéseket a portálon keresztül. Ellenőrizze, hogy rendelkezik az [Azure ad-ben permissions]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) megkezdése előtt szükséges.
 
-### <a name="create-service-principal"></a>Egyszerű szolgáltatás létrehozása
+### <a name="create-service-principal"></a>Szolgáltatásnév létrehozása
 
 Ebben a szakaszban az alkalmazást képviselő Azure AD-alkalmazásokhoz (egyszerű szolgáltatásnevének) létrehozása.
 
 1. Jelentkezzen be az Azure-fiók révén a [az Azure portal](https://portal.azure.com).
-2. Válassza ki **Azure Active Directory** > **alkalmazásregisztrációk** > **új alkalmazás regisztrálása**
-3. Adja meg az alkalmazás nevét és URL-címét. Válassza ki vagy **webalkalmazás / API** vagy **natív** szeretne létrehozni az alkalmazás számára. Miután beállította az értékeket, válassza ki a **létrehozás**.
+2. Válassza ki **Azure Active Directory** > **alkalmazásregisztrációk** > **új regisztrációs**.
+3. Adja meg az alkalmazás nevét és URL-címét. 
+4. Válassza ki a **támogatott fióktípusok**.
+5.  Adjon hozzá egy URI-t az alkalmazáshoz. Válassza ki **webes** szeretne létrehozni az alkalmazás számára. Miután beállította az értékeket, válassza ki a **regisztrálása**.
 
 Létrehozott egy egyszerű szolgáltatást az alkalmazás.
 
@@ -61,18 +63,17 @@ Létrehozott egy egyszerű szolgáltatást az alkalmazás.
 
 Ha programozott módon jelentkezik be, ezt az Azonosítót használja az alkalmazáshoz, és a egy webalkalmazás / API-t, a hitelesítési kulcs. Az értékek beszerzéséhez kövesse az alábbi lépéseket:
 
-1. A **alkalmazásregisztrációk** az Active Directoryban, válassza ki az alkalmazását.
+1. Válassza ki **Azure Active Directory** > **alkalmazásregisztrációk**. Válassza ki az alkalmazását.
 
 2. Másolja ki az **Alkalmazásazonosítót**, és tárolja az alkalmazás kódjában. A mintául szolgáló alkalmazások szakaszban az alkalmazások ügyfél-azonosítóként hivatkoznak ezt az értéket
 
-     ![Ügyfélazonosító](./media/azure-stack-create-service-principal/image12.png)
-3. Webes alkalmazás a hitelesítési kulcs létrehozásához / API-t, jelölje ki **beállítások** > **kulcsok**. 
+3. Webes alkalmazás a hitelesítési kulcs létrehozásához / API-t, jelölje ki **tanúsítványok és titkos kulcsok**. Válassza az **Új titkos ügyfélkód** lehetőséget.
 
-4. Adjon meg egy leírást és egy időtartamot a kulcshoz. Ha elkészült, kattintson a **Mentés** elemre.
+4. Adjon meg egy leírást és egy időtartamot a kulcshoz. Ha elkészült, válassza **Hozzáadás**.
 
 A kulcs mentése után megjelenik a kulcs értéke. Másolja a Jegyzettömbbe vagy egy másik ideiglenes helyre ezt az értéket, mivel később nem tudja lekérni a kulcsot. A kulcs értékét az alkalmazás aláírásához az alkalmazás azonosítójával adja meg. Store a kulcsértéket olyan helyen, ahol az alkalmazás le tudja kérni.
 
-![mentett kulcs](./media/azure-stack-create-service-principal/image15.png)
+![mentett kulcs](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 Ha elkészült, hozzárendelheti egy szerepkörhöz az alkalmazás.
 

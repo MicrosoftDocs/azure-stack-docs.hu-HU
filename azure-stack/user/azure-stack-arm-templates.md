@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 37e5ef80462f7e31d18972de007303b12b5a3108
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712253"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941130"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Az Azure Resource Manager-sablonok használata az Azure Stackben
 
@@ -32,6 +32,7 @@ Az Azure Resource Manager-sablonok segítségével telepítése és jogosultság
 Ezeket a sablonokat is üzembe helyezhetők a Microsoft Azure Stack portal, PowerShell, a parancssor és a Visual Studio.
 
 A következő gyorsindítási sablonok érhetők el a [GitHub](https://aka.ms/azurestackgithub):
+
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>A SharePoint Server (nem – magas rendelkezésre állású üzembe helyezés) üzembe helyezése
 
@@ -82,4 +83,6 @@ Mégse sablon üzemelő példányban, használja a [Stop-AzureRmResourceGroupDep
 ## <a name="next-steps"></a>További lépések
 
 * [Sablonok üzembe helyezése a portállal](azure-stack-deploy-template-portal.md)
+* [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
+* [Sablonok üzembe helyezése a Visual Studióval](azure-stack-deploy-template-visual-studio.md)
 * [Az Azure Resource Manager áttekintése](/azure/azure-resource-manager/resource-group-overview)

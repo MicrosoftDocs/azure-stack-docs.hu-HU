@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 78a42d458f77385114c476bd810cea89380423fa
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706306"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941186"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -113,6 +113,8 @@ Az Azure Stack 1904 frissítés buildszáma **1.1904.0.36**.
   - Egy "rögzített" kritikus riasztások jelennek meg a portálon, amely beolvassa az "a legújabb frissítés nem sikerült. A Microsoft javasolja, hogy minél hamarabb megnyitása egy szolgáltatási kérelmet. A frissítési folyamat részeként a Test-AzureStack végrehajtani, és alapú kimenetén azt a leginkább megfelelő riasztás létrehozása. Ebben az esetben Test-AzureStack is nem sikerült."
 
 - Frissített Azure Linux-ügynök verziója 2.2.38.0. Ez a támogatás lehetővé teszi az egységes Linux-rendszerképeket az Azure és az Azure Stack közötti fenntartásához.
+
+- A frissítés változtatásait naplózza az operátor portálon. Sikeres frissítés naplók beolvasására irányuló kérelmek már nem érhetők el. Nem sikerült frissíteni, mert azok diagnosztikai, gyakorlatban hasznosítható elérhetők naplók továbbra is letölthető.
 
 ### <a name="fixes"></a>Javítások
 
