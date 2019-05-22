@@ -1,15 +1,15 @@
-- name: Dokumentumok
+- name: Docs
   tocHref: /
   topicHref: /
   items:
     - name: Azure Stack
       tocHref: /azure-stack/
-      topicHref: /azure-stack/operator/index
+      topicHref: /azure-stack/
       items:
         - name: ASDK
           tocHref: /azure-stack/asdk/
           topicHref: /azure-stack/asdk/index
-        - name: Művelet
+        - name: Operátor
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
           items:
