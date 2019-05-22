@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 87c93f77011082d3e43b1c7d238999441f1b90c1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0167fd89e7bc9b17ff5b950a4ed5f12c368f1f8f
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298535"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991270"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>A Key Vault az Azure Stack bemutatása
 
@@ -50,9 +50,9 @@ Az Azure Stack-előfizetés birtokában bárki létrehozhat és használhat kulc
 
 Az üzemeltető majd rendelkező egységes erőforrás-azonosítók (URI) meghívhatnak fejlesztőknek biztosít. Operátorok is lehetővé teszi biztonsági rendszergazdák kulcshasználat naplózás adatokkal.
 
-A fejlesztők közvetlenül is kezelhetik a kulcsokat API-k használatával. További információ a Key Vault fejlesztői útmutatójában talál.
+A fejlesztők közvetlenül is kezelhetik a kulcsokat API-k használatával. További információkért lásd: a [Key Vault fejlesztői útmutató](/azure/key-vault/key-vault-developers-guide).
 
-## <a name="scenarios"></a>Forgatókönyvek
+## <a name="scenarios"></a>Alkalmazási helyzetek
 
 A következő forgatókönyveket ismertetik, hogyan segíti a Key Vault a fejlesztők és a biztonsági rendszergazdák igényeinek.
 
@@ -78,4 +78,3 @@ A következő forgatókönyveket ismertetik, hogyan segíti a Key Vault a fejles
 
 * [A portál által kezelése a Key Vault az Azure Stackben](azure-stack-key-vault-manage-portal.md)  
 * [A Key Vault az Azure Stackben kezelése a PowerShell használatával](azure-stack-key-vault-manage-powershell.md)
-

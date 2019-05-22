@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: e2bac108b47aeb1c4a1b6d777072fe4d6ff64f2d
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 9967da0434be577e3db8586f28e3078658623e9b
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298634"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991339"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Az Azure Resource Manager-sablon kapcsolatos szempontok
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Az alkalmazás fejlesztését, fontos annak biztosítása érdekében az Azure és az Azure Stack közötti sablon hordozhatóság. Ez a cikk ismerteti az Azure Resource Manager fejlesztési szempontok [sablonok](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), így az alkalmazás- és vizsgálati üzembe helyezés az Azure-ban az Azure Stack környezettel való hozzáférés nélkül is prototípusát.
+Az alkalmazás fejlesztését, fontos annak biztosítása érdekében az Azure és az Azure Stack közötti sablon hordozhatóság. Ez a cikk ismerteti a fejlesztési szempontok [Azure Resource Manager-sablonok](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), így az alkalmazás- és vizsgálati üzembe helyezés az Azure-ban az Azure Stack környezettel való hozzáférés nélkül is prototípusát.
 
 ## <a name="resource-provider-availability"></a>Az erőforrás-szolgáltató elérhetőség
 
@@ -35,7 +35,7 @@ A sablon, amely tervez üzembe helyezni, csak kell használnia a Microsoft Azure
 
 ## <a name="public-namespaces"></a>Nyilvános névterek
 
-Mivel a helyi adatközpontban Azure Stack, azt különböző szolgáltatási végpont névtérrel rendelkezik, mint az Azure nyilvános felhő. Ennek eredményeképpen változtatható nyilvános végpontokat az Azure Resource Manager-sablonokban sikertelen üzembe helyezheti őket az Azure Stack megkísérlésekor. Dinamikusan hozhat létre Szolgáltatásvégpontok használatával a `reference` és `concatenate` funkciók értékeket beolvasni az erőforrás-szolgáltató üzembe helyezése során. Például a fix kódolása helyett *blob.core.windows.net* lekérni a sablonban a [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) dinamikus beállításához az *osDisk.URI* végpont:
+Mivel a helyi adatközpontban Azure Stack, azt különböző szolgáltatási végpont névtérrel rendelkezik, mint az Azure nyilvános felhő. Ennek eredményeképpen változtatható nyilvános végpontokat az Azure Resource Manager-sablonokban sikertelen üzembe helyezheti őket az Azure Stack megkísérlésekor. Dinamikusan hozhat létre Szolgáltatásvégpontok használatával a `reference` és `concatenate` funkciók értékeket beolvasni az erőforrás-szolgáltató üzembe helyezése során. Például a fix kódolása helyett `blob.core.windows.net` lekérni a sablonban a [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) dinamikus beállításához az *osDisk.URI* végpont:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -49,11 +49,11 @@ Azure-szolgáltatás verziói között az Azure és az Azure Stack eltérhet. Az
 
 | Erőforrás-szolgáltató | apiVersion |
 | --- | --- |
-| Compute |`'2015-06-15'` |
-| Network (Hálózat) |`'2015-06-15'`, `'2015-05-01-preview'` |
-| Storage |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
-| KeyVault | `'2015-06-01'` |
-| App Service |`'2015-08-01'` |
+| Compute |**2015-06-15** |
+| Network (Hálózat) |**2015-06-15**, **2015-05-01-előzetes verzió** |
+| Storage |**2016-01-01**, **2015-06-15**, **2015-05-01-előzetes verzió** |
+| KeyVault | **2015-06-01** |
+| App Service |**2015-08-01** |
 
 ## <a name="template-functions"></a>Sablonfüggvények
 

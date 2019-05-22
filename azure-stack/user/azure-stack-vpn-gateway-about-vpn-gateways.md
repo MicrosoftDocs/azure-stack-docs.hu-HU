@@ -3,25 +3,24 @@ title: Tudnivalók a VPN gatewayről az Azure Stackhez |} A Microsoft Docs
 description: Ismerje meg, és konfigurálja a VPN-átjárók használhatja az Azure Stack használatával.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/15/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: sethm
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301417"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991297"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Tudnivalók az Azure Stackhez VPN-átjáró
 
@@ -41,8 +40,9 @@ Létrehozása, és az Azure Stackhez VPN-átjárók konfigurálása előtt tekin
 >Az Azure-ban a VPN Gateway SKU úgy dönt, a sávszélesség átviteli sebesség az átjáró csatlakoztatott összes kapcsolat szét lehetnek osztva. Az Azure Stackben azonban a sávszélesség a VPN Gateway Termékváltozat értéken egyes kapcsolati erőforrás, amely az átjáró csatlakozik.
 >
 > Példa:
+>
 > * Az Azure-ban az alapszintű VPN gateway SKU körülbelül 100 MB/s összesített átviteli sebességre képes kezelni. Létrehozhat két adott VPN-átjáró kapcsolatot, és a egy kapcsolat használ 50 MB/s sávszélesség, majd 50 MB/s-e a többi kapcsolat számára elérhető.
-> * Az Azure Stackben *egyes* az alapvető VPN-átjáró Termékváltozat a kapcsolat le egyet azon 100 MB/s átviteli sebesség.
+> * Az Azure Stackben **minden kapcsolat** alapszintű VPN-átjáróhoz Termékváltozat le egyet azon 100 MB/s átviteli sebesség.
 
 ## <a name="configuring-a-vpn-gateway"></a>VPN-átjáró konfigurálása
 
@@ -73,7 +73,7 @@ Az ábrák és leírások az alábbi szakaszok segítségével válassza ki az i
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Helyek közötti és többhelyes (IPsec/IKE VPN-alagút)
 
-### <a name="site-to-site"></a>Helyek közötti kapcsolat
+### <a name="site-to-site"></a>Helyek közötti
 
 A *site-to-site* (S2S) VPN gateway-kapcsolat nem kapcsolat (IKEv2) IPsec/IKE VPN-alagúton keresztül. Ez a kapcsolattípus egy VPN-eszköz, amely a helyszínen található, és van rendelve egy nyilvános IP-címet igényel. Ez az eszköz nem található a NAT mögötti. A helyek közötti kapcsolatok létesítmények közötti és hibrid konfigurációk esetében is alkalmazhatók.
 
@@ -108,11 +108,11 @@ A Termékváltozat kiválasztásakor, vegye figyelembe a következőket:
 
 A következő táblázatban az átjárótípusok és a becsült összesített átviteli átjárók Termékváltozata alapján:
 
-|   | VPN Gateway teljesítménye *(1)* | VPN Gateway maximális IPsec-alagútjainak *(2)* |
+|| VPN Gateway teljesítménye *(1)* | VPN Gateway maximális IPsec-alagútjainak *(2)* |
 |-------|-------|-------|
-|**Alapszintű Termékváltozat** ***(3)***    | 100 Mbps  | 20    |
-|**A standard Termékváltozat**       | 100 Mbps  | 20    |
-|**Nagy teljesítményű Termékváltozat** | 200 Mbps    | 10    |
+|**Alapszintű Termékváltozat** ***(3)*** | 100 Mbps | 20 |
+|**A standard Termékváltozat** | 100 Mbps | 20 |
+|**Nagy teljesítményű Termékváltozat** | 200 Mbps | 10 |
 
 **Tábla megjegyzések:**
 
@@ -125,4 +125,4 @@ A következő táblázatban az átjárótípusok és a becsült összesített á
 
 ## <a name="next-steps"></a>További lépések
 
-[VPN gateway konfigurációs beállításairól az Azure Stackhez](azure-stack-vpn-gateway-settings.md)
+* [VPN gateway konfigurációs beállításairól az Azure Stackhez](azure-stack-vpn-gateway-settings.md)

@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 2f0d311851abe1c0fb01ec08dc82626805b35eb1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 4273326001dc79abb7ea522c3bd4c01e46bceb2b
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298590"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991274"
 ---
 # <a name="develop-for-azure-stack"></a>Fejlesztés az Azure Stackhez
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Kezdheti alkalmazások fejlesztésével, még akkor is, ha nem rendelkezik az Azure Stack környezettel való hozzáférést. Azure Stack biztosít a Microsoft Azure-szolgáltatások, amelyek a helyi adatközpontban futnak, mert segítségével hasonló eszközökkel és folyamatokkal szemben az Azure Stack fejleszthet, mint az Azure-ral.
+Kezdheti alkalmazások fejlesztésével, még akkor is, ha nem rendelkezik az Azure Stack környezettel való hozzáférést. Azure Stack biztosít a Microsoft Azure-szolgáltatások, amelyek a helyi adatközpontban futnak, mert hasonló eszközökkel és folyamatokkal használhatja az Azure Stacken fejleszthet, mint az Azure-ral.
 
 ## <a name="development-considerations"></a>Fejlesztési szempontok
 

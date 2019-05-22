@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 48136220e2d784a61b3275ca9f79b82e0e8bfb69
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
+ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855351"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969842"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -38,13 +38,6 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 - Előfordulás: Közös
 
 ## <a name="portal"></a>Portál
-
-### <a name="add-on-plans"></a>Kiegészítő csomagok
-
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: Nem lehet törölni a felhasználói előfizetés, mint egy kiegészítő csomag hozzáadott tervek, akkor is, ha a csomag eltávolítása a felhasználói előfizetés. A terv marad mindaddig, amíg az előfizetéseket, hogy a kiegészítő csomagot is törlődik.
-- Szervizelési: Nincs megoldás.
-- Előfordulás: Közös
 
 ### <a name="administrative-subscriptions"></a>Felügyeleti előfizetés
 

@@ -3,24 +3,23 @@ title: Az Azure Stack store egyszerű szolgáltatás hitelesítő adatai a Key V
 description: Ismerje meg, hogyan Key Vault tárolja az egyszerű szolgáltatás hitelesítő adatai az Azure Stackben
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/21/2019
+ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d4bc560a1c607d4a12cfb3d08ffeacf9b5d2196a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299855"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991311"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>Egyszerű szolgáltatás hitelesítő adatai Store a Key Vaultban
 
@@ -43,7 +42,7 @@ Hozzon létre egy kulcstartót, kövesse az alábbi lépéseket:
 
 2. Az irányítópulton, válassza ki a **+ erőforrás létrehozása**, majd **biztonság + identitás**, majd **Key Vault.**
 
-   ![Kulcstároló létrehozása](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
+   ![Kulcstartó létrehozása](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
 3. Az a **kulcstartó létrehozása** panelen rendelje hozzá egy **neve** a tároló számára. Tároló neve csak alfanumerikus karaktereket és kötőjelet (-) karaktert tartalmazhat. Egy szám, nem kezdődhet.
 
