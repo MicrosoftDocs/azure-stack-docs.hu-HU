@@ -1,6 +1,6 @@
 ---
 title: Csatlakozhat az Azure Stack felhasználói PowerShell használatával |} A Microsoft Docs
-description: Lépések az Azure Stack PowerShell-lel való kapcsolódáshoz.
+description: Ismerje meg, hogyan csatlakozhat az Azure Stack PowerShell használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,26 +15,26 @@ ms.date: 04/26/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 855d7c03f4a18c4409d36b8ac5fd702c8549e413
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c9ef9c1e936c71a8b0a2a0eb636da1eac5bf69da
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986250"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197328"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Csatlakozás a PowerShell-lel az Azure Stack felhasználói
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Azure Stack PowerShell használatával csatlakozhat. Csatlakoznia kell a PowerShell-lel az Azure Stack-erőforrások kezeléséhez. Ha például a PowerShell használatával is előfizethetnek azokra, virtuális gépek létrehozása és üzembe helyezése Azure Resource Manager-sablonok.
+Azure Stack az Azure Stack-erőforrások kezelése PowerShell használatával csatlakozhat. Ha például a PowerShell használatával is előfizethetnek azokra, virtuális gépek (VM) létrehozása és üzembe helyezése Azure Resource Manager-sablonok.
 
-Beállításához:
+A telepítő lekérése:
   - Győződjön meg arról, hogy a követelmények.
   - Csatlakozás az Azure Active Directory (Azure AD) vagy az Active Directory összevonási szolgáltatások (AD FS). 
   - Erőforrás-szolgáltatók regisztrálásával.
   - Tesztelje a kapcsolatot.
 
-## <a name="prerequisites-to-connect-using-powershell"></a>Kapcsolódás a PowerShell-lel előfeltételei
+## <a name="prerequisites-to-connecting-with-powershell"></a>A PowerShell használatával kapcsolódik előfeltételei
 
 Ezek az Előfeltételek konfigurálása az [development Kitet](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), vagy egy Windows-alapú külső ügyfél Ha [VPN-kapcsolaton keresztül csatlakozó](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn):
 
@@ -44,11 +44,11 @@ Ezek az Előfeltételek konfigurálása az [development Kitet](../asdk/asdk-conn
 Győződjön meg arról, hogy a következő parancsfájl-változókat cserélje az Azure Stack-konfigurációból értékeket:
 
 - **Az Azure AD-bérlő neve**  
-  Az Azure Stack, például yourdirectory.onmicrosoft.com kezelésére szolgáló Azure AD-bérlő neve.
+  Az Azure Stack kezelésére szolgáló Azure AD-bérlő neve. Ha például yourdirectory.onmicrosoft.com.
 - **Az Azure Resource Manager-végpont**  
   Az Azure Stack development Kitet, az alapérték https://management.local.azurestack.external. Az Azure Stack integrált rendszerek Ez az érték beszerzéséhez forduljon a szolgáltatójához.
 
-## <a name="connect-with-azure-ad"></a>Az Azure AD Connect
+## <a name="connect-to-azure-stack-with-azure-ad"></a>Csatlakozás az Azure Stack az Azure ad-vel
 
 ```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
@@ -62,7 +62,7 @@ Győződjön meg arról, hogy a következő parancsfájl-változókat cserélje 
     Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
-## <a name="connect-with-ad-fs"></a>Csatlakozás az AD FS-sel
+## <a name="connect-to-azure-stack-with-ad-fs"></a>Csatlakozás az Azure Stack az AD FS-sel
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
@@ -86,7 +86,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 
 ## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
-Ha mindent beállítottunk, a kapcsolat tesztelése az Azure Stack-erőforrások létrehozása a PowerShell használatával. Egy tesztet hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális gépet. A következő paranccsal hozzon létre egy erőforráscsoportot "MyResourceGroup" nevű:
+Ha van minden, teszt kapcsolat beállítása az Azure Stack-erőforrások létrehozása a PowerShell használatával. Egy tesztet hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális Gépet. A következő paranccsal hozzon létre egy erőforráscsoportot "MyResourceGroup" nevű:
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

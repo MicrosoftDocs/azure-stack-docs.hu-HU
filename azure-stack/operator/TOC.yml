@@ -31,7 +31,7 @@
   items:
     - name: A felügyeleti portál
       href: azure-stack-manage-portals.md
-- name: Oktatóanyagok
+- name: Oktatóprogramok
   items:
     - name: Virtuális gépek biztosítása
       href: azure-stack-tutorial-tenant-vm.md
@@ -384,19 +384,23 @@
           href: azure-stack-backup-best-practices.md
         - name: Biztonsági mentési referencia
           href: azure-stack-backup-reference.md
-    - name: Hibaelhárítás
+    - name: Segítség kérése
       items:
-        - name: Ismert problémák
-          href: azure-stack-troubleshooting.md
-        - name: Diagnosztika az Azure Stackben
-          href: azure-stack-diagnostics.md
-        - name: Az Azure Stack érvényesítése
-          href: azure-stack-diagnostic-test.md
+        - name: "Súgó\_+ támogatás"
+          href: azure-stack-help-and-support.md
+        - name: Az eszköz nem tudta a várt módon befejezni a szinkronizálást. A probléma megoldásának módjáról erre az üzenetre kattintva tájékozódhat.
+          items:
+            - name: Ismert problémák
+              href: azure-stack-troubleshooting.md
+            - name: Diagnosztika az Azure Stackben
+              href: azure-stack-diagnostics.md
+            - name: Az Azure Stack érvényesítése
+              href: azure-stack-diagnostic-test.md
 - name: Leírások
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview
-- name: Kapcsolódó témakörök
+- name: Kapcsolódó
   items:
     - name: Az Azure Stack felhasználói dokumentációja
       href: /azure-stack/user/

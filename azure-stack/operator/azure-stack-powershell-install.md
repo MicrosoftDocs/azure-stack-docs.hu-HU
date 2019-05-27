@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 38a7398b157ad74f7f8849a3fa84b0cee82b80ad
-ms.sourcegitcommit: 95576d0cd780f3a200b2e98b6e9f031f5172f8c0
+ms.openlocfilehash: 9d05a218b9a93b19cdc694c49bde281dab1f91e9
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65814924"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66042959"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Az Azure Stack PowerShell telepítése
 
@@ -101,9 +101,8 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
-    
+
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Get-AzureRmProfile -Update
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
@@ -119,11 +118,11 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
 
     > [!Note]  
     > - Az Azure Stack modul 1.7.1 verziója egy használhatatlanná tévő változást tartalmazó kiadás. Migrálhat az Azure Stack 1.6.0-s tekintse meg a [áttelepítési útmutató](https://aka.ms/azspshmigration171).
-    > - A Remove-AzureRmStorageAccount parancsmag használhatatlanná tévő változást az AzureRm modul verziója 2.4.0 tartalmaz. Ennek a parancsmagnak - Force paraméterrel adható meg a tárfiók megerősítés nélküli eltávolítása.
-    > - Nem kell telepíteni **AzureRM.Bootstrapper** a az Azure stack 1901 vagy újabb verziói a modulok telepítéséhez.
+    > - A Remove-AzureRmStorageAccount parancsmag használhatatlanná tévő változást az AzureRM modul verziója 2.4.0 tartalmaz. Ennek a parancsmagnak - Force paraméterrel adható meg a tárfiók megerősítés nélküli eltávolítása.
+    > - Nem kell telepíteni **AzureRM.BootStrapper** a az Azure Stack 1901 vagy újabb verziói a modulok telepítéséhez.
     > - Ne telepítse a 2018-03-01-hibrid profil a fenti AzureRM-modulok használata az Azure Stack 1901 vagy újabb verziójára mellett.
 
-- Az Azure Stack verzió 1811, telepítse a profilt használó **AzureRM.Bootstrapper**, a verziók szerepelnek a parancsmagok mellett:
+- Az Azure Stack verzió 1811, telepítse a profilt használó **AzureRM.BootStrapper**, a verziók szerepelnek a parancsmagok mellett:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -143,7 +142,7 @@ Szeretné, hogy a további tárolási funkciók (csatlakoztatott szakaszban eml�
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
-# Install the AzureRm.Storage module version 5.0.4
+# Install the AzureRM.Storage module version 5.0.4
 Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
 
 # Remove incompatible storage module installed by AzureRM.Storage
@@ -240,7 +239,7 @@ Szeretné, hogy a további tárolási funkciók (csatlakoztatott szakaszban eml�
 ```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM.Storage -Path $Path -Force -RequiredVersion 5.0.4
 ```
 
 ### <a name="add-your-packages-to-your-workstation"></a>A csomagok hozzáadása a munkaállomáson

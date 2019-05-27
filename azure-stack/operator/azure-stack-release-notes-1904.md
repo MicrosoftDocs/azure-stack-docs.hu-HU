@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/22/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.lastreviewed: 05/22/2019
+ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
+ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941186"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174353"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -190,8 +190,7 @@ Az Azure Stack 1904 kiadását kell alkalmazni az a következő gyorsjavítások
 
 Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
 
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Nincs elérhető 1904 gyorsjavítások.
+- [Az Azure Stack gyorsjavítás 1.1904.4.45](https://support.microsoft.com/help/4505688)
 
 ## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
 

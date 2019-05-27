@@ -1,6 +1,6 @@
 ---
 title: Az Azure stack-beli szolgáltatásnév létrehozása |} A Microsoft Docs
-description: Ismerteti, hogyan lehet létrehozni egy szolgáltatásnevet, a szerepköralapú hozzáférés-vezérlés az Azure Resource Manager-erőforrásokhoz való hozzáférés kezelésére használható.
+description: Ismerje meg, hogyan hozhat létre egy egyszerű szolgáltatást az erőforrásokhoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérlés az Azure Resource Manager használata.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 1f2502a7b0b89bc8c1786e1fdf0392b245308ed0
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855376"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197299"
 ---
-# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Alkalmazások hozzáférést biztosíthat az Azure Stack-erőforrások egyszerű szolgáltatások létrehozásával
+# <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>Alkalmazások hozzáférés biztosítása az Azure Stack-erőforrások egyszerű szolgáltatások létrehozása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -50,7 +50,7 @@ Azure Stack konfigurált Active Directory módja határozza meg, hogyan hoz lét
 * Az egyszerű szolgáltatás létrehozása [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Az egyszerű szolgáltatás létrehozása [Active Directory összevonási szolgáltatások (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-A lépéseket a hozzárendelése egy egyszerű szolgáltatást a szerepkör ugyanazt az Azure AD és az AD FS. Miután létrehozta az egyszerű szolgáltatás, [engedélyeket delegálhatnak](azure-stack-create-service-principals.md) , ha hozzárendeli egy szerepkörhöz.
+Egyszerű szolgáltatás hozzárendelése szerepkörhöz szükséges lépések megegyeznek az Azure AD és az AD FS. Miután létrehozta a szolgáltatás egyszerű, hozzárendeli egy szerepkör delegálhatóak engedélyek.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Az Azure ad egyszerű szolgáltatás létrehozása
 
@@ -69,7 +69,7 @@ Az alkalmazás egyszerű szolgáltatás létrehozása:
 4. Válassza ki a **támogatott fióktípusok**.
 5.  Adjon hozzá egy URI-t az alkalmazáshoz. Válassza ki **webes** szeretne létrehozni az alkalmazás számára. Miután beállította az értékeket, válassza ki a **regisztrálása**.
 
-Létrehozott egy egyszerű szolgáltatást az alkalmazás.
+Egy egyszerű szolgáltatást az alkalmazás, amelyet létrehozott.
 
 ### <a name="get-credentials"></a>Hitelesítő adatok beolvasása
 

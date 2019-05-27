@@ -12,32 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: c7486cb56dee87b8a894d165fce4c3a0dfaae6d9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 653113e11a91fda0d3447e5627f6755e116ffbb1
+ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618125"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66186523"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>A Microsoft Azure Stack hibaelhárítása
 
-Ez a dokumentum az Azure Stackhez készült gyakori hibaelhárítási információt nyújt. 
-
-> [!NOTE]
-> Az Azure Stack technikai Development Kit (ASDK) egy kiértékelési környezete érhető el, mert rendszer nem hivatalos támogatja a Microsoft ügyfél-támogatási szolgálathoz. Ha problémát tapasztal, ellenőrizze, hogy ellenőrizze a [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) további segítséget és információt.  
-
-A problémák megoldásához, amelyek ebben a szakaszban ismertetett javaslatok több forrásból származnak, és előfordulhat, hogy, vagy sem oldja meg az adott problémát. Hitelesítésikód-példák találhatók, és nem lehet garantálni a várt eredményt. Ebben a szakaszban megegyezik a gyakori módosítások és a frissítések fejlesztéseket a termékhez vannak megvalósítva.
+Ez a dokumentum az Azure Stackhez készült gyakori hibaelhárítási információt nyújt. A javaslatok és Kódminták elsajátítania –, és előfordulhat, hogy nem minden esetben oldja meg a problémát. 
 
 ## <a name="deployment"></a>Környezet
 ### <a name="general-deployment-failure"></a>Általános üzembehelyezési hiba
 Ha hibát tapasztal a telepítés során, a központi telepítést a sikertelen lépés újraindíthatja használatával - Újrafuttatás lehetősége az üzembe helyezési parancsfájlt.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>ASDK üzembe helyezés végén a PowerShell-munkamenet még meg nyitva, és nem jelenik meg a kimenetet.
-Ez a viselkedés esetén valószínűleg csak egy PowerShell-parancsablakban alapértelmezett viselkedését eredményét lett kiválasztva. A development kit központi telepítés sikeres volt, de a parancsfájl az ablak kiválasztásakor szünetel. Ellenőrizheti a telepítés véget ért által keresett szót "Válassza" a parancsablakban címsorában.  Kijelölésének, az ESC billentyű lenyomásával, és azt követően a befejezési üzenetet jelenjenek meg.
+Ez a viselkedés esetén valószínűleg csak egy PowerShell-parancsablakban alapértelmezett viselkedését eredményét lett kiválasztva. A development kit központi telepítés sikeres volt, de a parancsfájl az ablak kiválasztásakor szünetel. Ellenőrizheti a telepítés véget ért által keresett szót "Válassza" a parancsablakban címsorában. Kijelölésének, az ESC billentyű lenyomásával, és azt követően a befejezési üzenetet jelenjenek meg.
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>Üzembe helyezés külső hozzáférés hiánya miatt meghiúsul.
 Telepítése sikertelen szakaszában, ahol a külső hozzáférésre szükség, ha az alábbi példához hasonlóan kivételt fogja visszaadni:
@@ -49,7 +44,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 ```
 Ha ez a hiba akkor fordul elő, ellenőrizze, hogy az összes minimális hálózati követelményeket áttekintésével a [üzembe helyezési hálózati forgalom dokumentáció](deployment-networking.md). Egy hálózat-ellenőrző eszköz érhető el a partnerek számára a Partner eszközkészlet részeként.
 
-A fenti kivétel miatt sikertelen jellemzően az interneten megtalálható erőforrásokhoz való kapcsolódás problémái miatt
+A fenti kivétel miatt sikertelen jellemzően az interneten megtalálható erőforrásokhoz való kapcsolódás problémái miatt.
 
 Ez az a probléma ellenőrzéséhez hajtsa végre az alábbi lépéseket:
 

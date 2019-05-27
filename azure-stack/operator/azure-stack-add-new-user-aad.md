@@ -3,7 +3,7 @@ title: Adjon hozzá egy új Azure Stack-bérlői fiókkal az Azure Active Direct
 description: A Microsoft Azure Stack fejlesztői készletének telepítése, után kell legalább egy bérlői felhasználói fiók létrehozása, így megismerheti a bérlői portál.
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/20/2019
 ms.author: patricka
-ms.reviewer: unknown
+ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 52fb4074a476cb907f02628933b83d82b6ee4984
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985753"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043113"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adjon hozzá egy új Azure Stack-bérlői fiókkal az Azure Active Directoryban
 
@@ -61,10 +61,17 @@ Az Azure portal használata az Azure-előfizetéssel kell rendelkeznie.
 Ha nem rendelkezik Azure-előfizetéssel, az Azure Portalon adjon hozzá egy bérlő felhasználót nem használhat. Ebben az esetben használhatja az Azure Active Directory modul a Windows PowerShell helyette.
 
 > [!NOTE]
-> Ha az Azure Stack fejlesztői készletének telepítése a Microsoft Account (Live ID) használ, a AAD PowerShell bérlői fiók létrehozása nem használhat. 
+> Ha Microsoft-Account üzembe helyezése az Azure Stack fejlesztői készletet használ, bérlői fiók létrehozása az Azure AD PowerShell nem használhat. 
 
-1. Telepítse a [Microsoft Online Services bejelentkezési segéd az informatikusok RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Telepítse a [Azure Active Directory modul a Windows PowerShell (64 bites verzió)](https://go.microsoft.com/fwlink/p/?linkid=236297) , és nyissa meg azt.
+1. Telepítse a **64 bites** verzióját a [informatikai szakemberek számára RTW Microsoft Online Services – bejelentkezési segéd](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+
+2. A Microsoft Azure Active Directory modul a Windows PowerShell telepítése az alábbi lépéseket:
+
+    - Nyisson meg egy rendszergazda jogú Windows PowerShell parancssort (a Windows PowerShell futtatása rendszergazdaként).
+    - Futtassa a **Install-Module MSOnline** parancsot.
+    - Ha a rendszer kéri, telepítse a NuGet-szolgáltató, válassza ki a **Y** és **Enter**.
+    - Ha a modul telepítése a PSGallery kéri, válassza ki a **Y** és **Enter**.
+
 3. A következő parancsmagok futtatásához:
 
     ```powershell

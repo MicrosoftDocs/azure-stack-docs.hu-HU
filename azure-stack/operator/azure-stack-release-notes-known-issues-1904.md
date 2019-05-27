@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
-ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
-ms.translationtype: MT
+ms.openlocfilehash: 207b784db9e916ff2cc04ebd884c05fa9a7b4aeb
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.translationtype: HT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969842"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043151"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -156,7 +156,17 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 ### <a name="compute-host-agent-alert"></a>Gazdagép-ügynök riasztás COMPUTE
 
 - Alkalmazható: Ez az új probléma 1904 kiadással.
-- OK: A **számítási gazdagép-ügynök** figyelmeztetés jelenik meg, a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja.
+- OK: A **számítási gazdagép-ügynök** figyelmeztetés jelenik meg, a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja. Ez a riasztás alábbi hasonlóan néz ki: NÉV  
+A számítási gazdagép-ügynök nem válaszol a hívásokat.
+SÚLYOSSÁG  
+Warning STATE  
+Aktív létrehozás ideje  
+5/16/2019, 10:08:23 ÓRA FRISSÍTVE  
+5/22-ES/2019, 12:27:27 PM-ÖSSZETEVŐ  
+M#####-NODE02 DESCRIPTION  
+Nem sikerült kommunikálni a csomóponton futó számítási Gazdagépügynök: M#####-NODE02 REMEDIATION  
+Gazdagép-ügynök számítási szolgáltatás érhető el, és gyűjthet naplókat további elemzés céljából.
+
 - Szervizelési:
   - Ez a riasztás figyelmen kívül hagyható. Az ügynök nem válaszol nincs hatással az operátor és felhasználói műveletek vagy felhasználói alkalmazás. A riasztás 24 óra múlva újra megjelenik, ha manuálisan le van zárva.
   - A Microsoft ügyfélszolgálatához a szolgáltatás indítási beállítás módosításával javítani tudja a problémát. Ehhez a támogatási jegy megnyitása. Ha a csomópont újraindítása után a rendszer újra egy új riasztás jelenik meg.

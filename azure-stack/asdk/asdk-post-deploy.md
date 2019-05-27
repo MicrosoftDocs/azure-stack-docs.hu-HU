@@ -16,16 +16,16 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 308edbc351b52d94842a1a96602371f6edb8ff5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
-ms.translationtype: MT
+ms.openlocfilehash: 2308d8f36e4269d53a39eb4877279f50296ee3e1
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.translationtype: HT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617527"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66042923"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK telepítés utáni konfigurációs feladatok
 
-Miután [telepítése az Azure Stack Development Kit (ASDK)](asdk-install.md), meg kell néhány ajánlott telepítés utáni konfigurációs módosítások közben a ASDK gazdagépen AzureStack\AzureStackAdmin néven jelentkezett be. 
+Miután [telepítése az Azure Stack Development Kit (ASDK)](asdk-install.md), meg kell néhány ajánlott telepítés utáni konfigurációs módosítások közben a ASDK gazdagépen AzureStack\AzureStackAdmin néven jelentkezett be.
 
 ## <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
 
@@ -37,7 +37,7 @@ Azure Stack PowerShell-parancsokat a PowerShell-galériából keresztül telepí
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-API-verzióprofilok segítségével adja meg az Azure Stack-kompatibilis AzureRM-modulok.  API-verzióprofilok kezelése az Azure és az Azure Stack közötti terveztek. Egy API-verzióprofil egy adott API-verziók az AzureRM PowerShell-modulok. A **AzureRM.Bootstrapper** modul, amely a PowerShell-galériából érhető el az API-verzióprofilok működéséhez szükséges PowerShell-parancsmagokat kínál.
+API-verzióprofilok segítségével adja meg az Azure Stack-kompatibilis AzureRM-modulok.  API-verzióprofilok kezelése az Azure és az Azure Stack közötti terveztek. Egy API-verzióprofil egy adott API-verziók az AzureRM PowerShell-modulok. A **AzureRM.BootStrapper** modul, amely a PowerShell-galériából érhető el az API-verzióprofilok működéséhez szükséges PowerShell-parancsmagokat kínál.
 
 Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek internetkapcsolat nélkül:
 
@@ -51,9 +51,8 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
     ```powershell  
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
       Install-Module -Name AzureRM.BootStrapper
-      
+
       # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Get-AzureRMProfile -Update
       Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
@@ -62,7 +61,7 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
@@ -72,8 +71,8 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
   - Az Azure Stack 1811:
 
     ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -119,12 +118,12 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
 
   # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  invoke-webrequest `
-    https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  Invoke-WebRequest `
+    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
     -OutFile master.zip
 
   # Expand the downloaded files.
-  expand-archive master.zip -DestinationPath . -Force
+  Expand-Archive -Path master.zip -DestinationPath . -Force
 
   # Change to the tools directory.
   cd AzureStack-Tools-master
@@ -145,7 +144,7 @@ A tesztek végrehajtásához néhány percet igénybe vehet. Ha a telepítés si
 
 Hiba lépett fel, ha a hibaelhárítási lépésekkel segítséget kaphat.
 
-## <a name="reset-the-password-expiration-policy"></a>Jelszó-elévülési szabályzatának alaphelyzetbe állítása 
+## <a name="reset-the-password-expiration-policy"></a>Jelszó-elévülési szabályzatának alaphelyzetbe állítása
 
 Ahhoz, hogy, hogy a jelszó a development kit gazdagép le nem jár, a kiértékelési időszak vége előtt, kövesse az alábbi lépéseket a ASDK üzembe helyezése után.
 
