@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 2308d8f36e4269d53a39eb4877279f50296ee3e1
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
-ms.translationtype: HT
+ms.openlocfilehash: dd16d08e2e262b9aa31a1d59cb8ed59868608fbb
+ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 05/23/2019
-ms.locfileid: "66042923"
+ms.locfileid: "66174345"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK telepítés utáni konfigurációs feladatok
 
@@ -46,7 +46,7 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
 
 - **Internetkapcsolattal rendelkező** ASDK állomásról. Futtassa a következő PowerShell-parancsfájlt a development kit telepítésen ezeket a modulokat telepíteni:
 
-- A buildek 1904-es vagy újabb:
+  - A buildek 1904-es vagy újabb:
 
     ```powershell  
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -57,7 +57,7 @@ Telepítheti a legújabb Azure Stack PowerShell-modul vagy a ASDK gazdagépnek i
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
 
-- Az Azure Stack 1903 vagy korábbi, csak az alábbi két modul telepítése:
+  - Az Azure Stack 1903 vagy korábbi, csak az alábbi két modul telepítése:
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.

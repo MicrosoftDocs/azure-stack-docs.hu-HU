@@ -16,20 +16,20 @@ ms.date: 05/21/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 5121170e50e75674777cee9560c5f28443fd262f
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
-ms.translationtype: HT
+ms.openlocfilehash: 816a7a54d90c9cdcc41052be5c56bce58a7cf68f
+ms.sourcegitcommit: a07baf606cec51b437ecfccdf871d5f00f173f63
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66193501"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66220972"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>A Microsoft Azure Stack-Súgó és támogatás
 
-Kiadásától kezdve 1905, az Azure Stack **súgó + támogatás** kapcsolatos fejlesztések könnyebben operátorok problémák kutatás, szakértői segítség kérése vagy tudjon meg többet az Azure Stack. 
+Kiadásától kezdve a 1905, az Azure Stack **súgó + támogatás** kapcsolatos fejlesztések könnyebben operátorok problémák kutatás, szakértői segítség kérése vagy tudjon meg többet az Azure Stack. 
 
 ## <a name="research-an-issue"></a>A kutatási egy problémát
 
-Felső részén **súgó + támogatás** önkiszolgáló hivatkozások további kapcsolatos problémát, számlázási információk, vagy tekintse meg, melyik támogatási lehetőségek érhetők el. 
+Felső részén **súgó + támogatás** további hivatkozások kapcsolatos problémát, számlázási információk, vagy tekintse meg, melyik támogatási lehetőségek érhetők el. 
 
 ![Önkiszolgáló támogatás](media/azure-stack-help-and-support/get-support-tiles.png)
 
@@ -41,15 +41,18 @@ Felső részén **súgó + támogatás** önkiszolgáló hivatkozások további 
 
 ## <a name="get-expert-help"></a>Szakértői segítség kérése 
 
-Is segítséget kérhet a Microsoft ügyfélszolgálata és az MSDN-fórumok szakértők vagy online képzési igénybe és javíthatja a saját ismereteit. 
+Futtatja az Azure Stack egy integrált rendszer, ha bármely Azure Stack kapcsolatos probléma speciális segítségért a Microsoft ügyfél-támogatási szolgálathoz a nyithat esetet.  
+
+![Szakértői segítség az integrált rendszerek](media/azure-stack-help-and-support/get-support-integrated.png)
+
+Ha futtatja az Azure Stack Development Kit (ASDK), akkor is kérjen segítséget a egy közösségi szakemberek a [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
+
+![Szakértői segítség kérése a ASDK](media/azure-stack-help-and-support/get-support-asdk.png)
+
+És elvégezhető keresse fel az MSDN-fórumok az összes kérdést, vagy a szükséges online képzési és javíthatja a saját ismereteit. 
 
 ![Szakértői segítség kérése](media/azure-stack-help-and-support/get-support-cards.png)
 
-- **Támogatási**. Nyisson meg egy esetet bármely Azure Stack kapcsolatos probléma speciális segítségért a Microsoft ügyfél-támogatási szolgálathoz.
-
-- **Közösségi**. A [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) egy Közösség kérdések megválaszolása és a problémák megoldásában segítő Azure Stack szakértői.
-
-- **Tanulási**. Online kurzusok, amelyekkel fejlesztheti szakértelmét, konfigurálásához és működtetése az Azure Stack. 
 
 ## <a name="get-up-to-speed-with-azure-stack"></a>Sajátítsa el gyorsan az Azure Stack használatával
 

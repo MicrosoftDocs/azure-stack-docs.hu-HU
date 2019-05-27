@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/22/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 207b784db9e916ff2cc04ebd884c05fa9a7b4aeb
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
-ms.translationtype: HT
+ms.lastreviewed: 05/22/2019
+ms.openlocfilehash: bd7262e5c298715f846e1d8372d76b6f44f22972
+ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043151"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66186530"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -70,15 +70,15 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 ### <a name="marketplace-management"></a>Marketplace-en kezelése
 
 - Alkalmazható: A probléma 1904 vonatkozik.
-- OK: Az eredmények szűrésekor a **hozzáadása az Azure-ból** panelen a felügyeleti portálon a Marketplace-en felügyeleti lap helytelen szűrt eredmények jelenhetnek meg. 
-- Szervizelési: A neve oszlop szerint rendezheti az eredményeket, és az eredmények ki kell javítani. 
+- OK: Az eredmények szűrésekor a **hozzáadása az Azure-ból** panelen a felügyeleti portálon a Marketplace-en felügyeleti lap helytelen szűrt eredmények jelenhetnek meg.
+- Szervizelési: A neve oszlop szerint rendezheti az eredményeket, és az eredmények ki kell javítani.
 - Előfordulás: Időszakos
 
 ### <a name="marketplace-management"></a>Marketplace-en kezelése
 
 - Alkalmazható: A probléma 1904 vonatkozik.
 - OK: Ha a felügyeleti portálon a Marketplace-en felügyeleti eredményez, látni fogja a duplikált kiadó nevek alapján a közzétevő legördülő. 
-- Szervizelési: Válassza ki az összes a Piactéri termékek publisher a rendelkezésre álló helyes lista az ismétlődéseket. 
+- Szervizelési: Válassza ki az összes a Piactéri termékek publisher a rendelkezésre álló helyes lista az ismétlődéseket.
 - Előfordulás: Időszakos
 
 ### <a name="upload-blob"></a>Blob feltöltése
@@ -156,21 +156,37 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 ### <a name="compute-host-agent-alert"></a>Gazdagép-ügynök riasztás COMPUTE
 
 - Alkalmazható: Ez az új probléma 1904 kiadással.
-- OK: A **számítási gazdagép-ügynök** figyelmeztetés jelenik meg, a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja. Ez a riasztás alábbi hasonlóan néz ki: NÉV  
-A számítási gazdagép-ügynök nem válaszol a hívásokat.
-SÚLYOSSÁG  
-Warning STATE  
-Aktív létrehozás ideje  
-5/16/2019, 10:08:23 ÓRA FRISSÍTVE  
-5/22-ES/2019, 12:27:27 PM-ÖSSZETEVŐ  
-M#####-NODE02 DESCRIPTION  
-Nem sikerült kommunikálni a csomóponton futó számítási Gazdagépügynök: M#####-NODE02 REMEDIATION  
-Gazdagép-ügynök számítási szolgáltatás érhető el, és gyűjthet naplókat további elemzés céljából.
+- OK: A **számítási gazdagép-ügynök** figyelmeztetés jelenik meg, a skálázási egységben egy csomópont újraindítása után. Az újraindítás az indítási alapértelmezés szerint a számítási ügynök szolgáltatás módosítja. Ez a riasztás a következő példához hasonlóan néz ki:
+
+   ```shell
+   NAME  
+   Compute Host Agent is not responding to calls.
+   SEVERITY  
+   Warning
+   STATE  
+   Active
+   CREATED TIME  
+   5/16/2019, 10:08:23 AM
+   UPDATED TIME  
+   5/22/2019, 12:27:27 PM
+   COMPONENT  
+   M#####-NODE02
+   DESCRIPTION  
+   Could not communicate with the Compute Host Agent running on node: M#####-NODE02
+   REMEDIATION  
+   Please disable Compute Host Agent feature flag and collect logs for further diagnosis.
+   ```
 
 - Szervizelési:
   - Ez a riasztás figyelmen kívül hagyható. Az ügynök nem válaszol nincs hatással az operátor és felhasználói műveletek vagy felhasználói alkalmazás. A riasztás 24 óra múlva újra megjelenik, ha manuálisan le van zárva.
   - A Microsoft ügyfélszolgálatához a szolgáltatás indítási beállítás módosításával javítani tudja a problémát. Ehhez a támogatási jegy megnyitása. Ha a csomópont újraindítása után a rendszer újra egy új riasztás jelenik meg.
 - Előfordulás: Közös
+
+## <a name="storage"></a>Storage
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) nem támogatott az Azure Stackben és a lemez létrehozása eredményez **$null** azonosítóját. Ez megakadályozza a virtuális Gépen, például az Indítás és leállítás műveleteket végez. A lemez nem jelenik meg a felhasználói felületen, és akkor jelenik meg az API-n keresztül. Ezen a ponton a virtuális gép nem állítható helyre, és törölni kell.
+- Szervizelési: A lemezek megfelelően átalakításához kövesse a [konvertálása a felügyelt lemezek útmutató](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks).
 
 ## <a name="app-service"></a>App Service
 

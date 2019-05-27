@@ -293,6 +293,8 @@
       items:
         - name: Az App Service-kapacitásának megtervezése
           href: azure-stack-app-service-capacity-planning.md
+        - name: Billing – gyakori kérdések az App Service
+          href: app-service-billing-faq.md
         - name: A kezdés előtt
           href: azure-stack-app-service-before-you-get-started.md
         - name: Az App Service üzembe helyezése
