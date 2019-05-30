@@ -16,12 +16,12 @@ ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
-ms.translationtype: HT
+ms.openlocfilehash: 615add67cb27f24831eb3fdfec0510f4ac2dc34e
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268333"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373026"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -43,7 +43,7 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A két felügyeleti előfizetés verziójú 1804-es verzióban bevezetett nem használható. Az előfizetés-típusok a következők **mérés** előfizetését, és **fogyasztás** előfizetés.
-- Szervizelési: Ezek az előfizetések 1905 a kezdő- és idővel a törölt felfüggesztjük. Ha ezen a két előfizetés futó erőforrások, létrehozhatja a felhasználói előfizetések 1905 előtt.
+- Szervizelési: Ezek az előfizetések 1906 a kezdő- és idővel a törölt felfüggesztjük. Ha ezen a két előfizetés futó erőforrások, létrehozhatja a felhasználói előfizetések 1906 előtt.
 - Előfordulás: Közös
 
 ### <a name="subscription-resources"></a>Előfizetési erőforrások
@@ -60,10 +60,10 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 - Szervizelési: Használat [engedélyek ellenőrzése érdekében PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: Közös
 
-
 ### <a name="docker-extension"></a>Docker-bővítmény
+
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A rendszergazda és a felhasználói portálon Ha a "Docker", az elem nem megfelelően adja vissza. Ez nem áll rendelkezésre, az Azure Stackben. Ha megpróbálja létrehozni, megjelenik egy panel, hibát jelezve.
+- OK: A rendszergazda és a felhasználói portálon, ha a **Docker**, az elem nem megfelelően adja vissza. Ez nem áll rendelkezésre, az Azure Stackben. Ha megpróbálja létrehozni, hibaüzenet jelenik meg.
 - Szervizelési: Nincs megoldás.
 - Előfordulás: Közös
 
@@ -205,7 +205,7 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 ## <a name="app-service"></a>App Service
 
 - Bérlők az előfizetésben az első Azure-függvény létrehozása előtt a storage erőforrás-szolgáltatót regisztrálnia kell.
-- Néhány bérlői portál felhasználói élményeket egy alkalmazással a portál keretrendszer való inkompatibilitás miatt megszakadt 1903; alapvetően felhasználói üzembehelyezési pontok, az éles és a helyrendszer-bővítmények tesztelése. A probléma megkerüléséhez használja a [Azure App Service PowerShell-modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) vagy a [Azure CLI-vel](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). A portál felülete az Azure App Service következő kiadásában lesz visszaállítva, amely az Azure Stack 1.6-os (6. frissítés) verziójában jelenik meg.
+- Néhány bérlői portál felhasználói élményeket egy alkalmazással a portál keretrendszer való inkompatibilitás miatt megszakadt 1903; alapvetően felhasználói üzembehelyezési pontok, az éles és a helyrendszer-bővítmények tesztelése. A probléma megkerüléséhez használja a [Azure App Service PowerShell-modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) vagy a [Azure CLI-vel](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). A portál felülete visszaállítja a frissítés telepítésének [Azure App Service az Azure Stackben 1.6-os (6. frissítés) a](azure-stack-app-service-release-notes-update-six.md).
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
