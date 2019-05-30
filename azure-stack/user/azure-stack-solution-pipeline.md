@@ -3,7 +3,7 @@ title: Alkalmazás üzembe helyezése az Azure és az Azure Stackben |} A Micros
 description: Ismerje meg, hogyan telepíthet alkalmazásokat az Azure és az Azure Stack egy hibrid CI/CD-folyamat.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: dfec5ff97b4c7aa3c3de6b4817689412cb41ea6a
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521241"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252099"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Oktatóanyag: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
 
@@ -179,7 +179,7 @@ Beállíthatja a hatókör szintjén is az előfizetés, erőforráscsoport vagy
 
     ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
-3. Válassza ki a Visual Studio Enterprise **hozzáférés-vezérlés (IAM)**.
+3. Válassza ki a Visual Studio Enterprise **hozzáférés-vezérlés (IAM)** .
 
 4. Válassza ki **szerepkör-hozzárendelés hozzáadása**.
 

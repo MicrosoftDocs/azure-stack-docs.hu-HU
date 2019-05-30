@@ -3,7 +3,7 @@ title: App Service üzembe helyezése az Azure Stack kapcsolat nélküli környe
 description: Részletes útmutatást AD FS által védett leválasztott környezet az Azure Stack App Service üzembe helyezése.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,31 +12,31 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1dfe1cba366d9b30c53a43724741c9a9e0f65819
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: c97598145b0d03f3b25876296cb070b0301a3742
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618528"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269236"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Az App Service erőforrás-szolgáltató hozzáadása az AD FS által védett kapcsolat nélküli Azure Stack-környezet
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 > [!IMPORTANT]
-> Az Azure Stackkel integrált rendszereknél 1901 frissítés alkalmazása, vagy a legújabb Azure Stack fejlesztői készletének telepítése az Azure App Service 1.5 telepítése előtt.
+> Az Azure Stackkel integrált rendszereknél 1904 frissítés alkalmazása, vagy a legújabb Azure Stack fejlesztői készletének telepítése az Azure App Service 1.6-os üzembe helyezése előtt.
 
 Ez a cikk utasításait követve telepítheti a [App Service erőforrás-szolgáltató](azure-stack-app-service-overview.md) , amely az Azure Stack-környezetben:
 
 - nem csatlakozik az internethez
 - az Active Directory összevonási szolgáltatások (AD FS) védi.
 
-> [!IMPORTANT]  
-> A resource provider telepítőjének futtatása, előtt győződjön meg arról, hogy követte az útmutató [használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md) és elolvasta a [kibocsátási megjegyzések](azure-stack-app-service-release-notes-update-five.md) amely kísérő az 1.5-ös kiadás további információ az új Funkciók, javításokat és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés.
+> [!IMPORTANT]
+> A resource provider telepítőjének futtatása, előtt győződjön meg arról, hogy követte az útmutató [használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md) elolvasta és a [kibocsátási megjegyzések](azure-stack-app-service-release-notes-update-six.md) amely kísérő 6 kiadás további információ az új Funkciók, javításokat és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés.
 
 Az App Service erőforrás-szolgáltató hozzáadása az Azure Stack kapcsolat nélküli üzembe helyezés, a legfelső szintű feladatot kell elvégeznie:
 
@@ -85,11 +85,11 @@ App Service-ben leválasztott környezet üzembe helyezéséhez, először létr
    1. Kattintson a **Connect** megjelenítő gombra a **Azure Stack-előfizetést** mezőbe.
       - Adja meg a rendszergazdai fiókjával. Például: cloudadmin@azurestack.local. Adja meg a jelszót, és kattintson a **bejelentkezés**.
    2. Az a **Azure Stack-előfizetést** jelölje ki a **szolgáltatói előfizetés alapértelmezett**.
-    
+
       > [!NOTE]
       > App Service-ben csak lesz üzembe helyezve a **szolgáltatói előfizetés alapértelmezett**.
       >
-    
+
    3. Az a **Azure Stack-helyek** válassza ki a helyet, amely megfelel a régió, helyezi üzembe. Válassza ki például **helyi** Ha az az Azure Stack fejlesztői készletének telepítése.
    4. Kattintson a **tovább**.
 
@@ -144,14 +144,14 @@ App Service-ben leválasztott környezet üzembe helyezéséhez, először létr
     > ```sql
     >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
     >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
+    >    sp_configure 'contained database authentication', 1;
+    >    GO
+    >    RECONFIGURE;
     >    GO
     >    ***********************************************************
     > ```
     > Tekintse meg a [kibocsátási megjegyzések az Azure App Service az Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) további részletekért.
-   
+
     ![Az App Service-telepítő][12]
 
 13. Tekintse át a szerepkörpéldányhoz, és a Termékváltozat-beállításokat. Az alapértelmezett beállításokat a rendszer kitölti a minimális számú példányok és a minimális Termékváltozat-ASDK telepítés minden egyes szerepkörhöz. VCPU-és memória összegzést érdekében az üzembe helyezésének megtervezése. Kattintson a kiválasztás után **tovább**.
@@ -174,7 +174,7 @@ App Service-ben leválasztott környezet üzembe helyezéséhez, először létr
     > [!NOTE]
     > **A Windows Server 2016 Core nem támogatott platform rendszerképe az Azure App Service az Azure Stacken használható.  Ne használjon értékelési rendszerképek éles környezetekben üzemelő példányok.  Az Azure App Service az Azure Stacken szükséges, hogy az 3.5.1 SP1 Microsoft.NET aktiválva van-e a központi telepítéshez használt lemezkép.   Hírcsatorna-piactéren a Windows Server 2016 lemezképek nem rendelkezik a szolgáltatás nincs engedélyezve, ezért kell létrehozni, és a Windows Server 2016-rendszerkép használata az előre engedélyezett.**
 
-14. Az a **Platformlemezkép kiválasztása** válassza ki a központi telepítés a Windows Server 2016 virtuális gép rendszerképének azoktól, akik az App Service-felhő számítási erőforrás-szolgáltató érhető el. Kattintson a **tovább**.
+14. Az a **Platformlemezkép kiválasztása** válassza ki a Windows Server 2016 telepítési virtuálisgép-lemezkép érhető el a számítási erőforrás-szolgáltató az App Service-felhő a lemezképek alapján. Kattintson a **Tovább** gombra.
 
 15. A következő oldalon:
      1. Adja meg a feldolgozói szerepkör virtuális gép rendszergazdai felhasználónevet és jelszót.
@@ -198,8 +198,20 @@ App Service-ben leválasztott környezet üzembe helyezéséhez, először létr
 
 ## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Ha az App Service RP példánnyal SQL mindig az adott kell [adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoport](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , így elkerülhető, hogy a szolgáltatás az adatbázis szinkronizálásához, és a egy adatbázis feladatátvételi esemény.
+
+Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése.  Nyissa meg a WorkersNsg, hálózati biztonsági csoportot, a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
+
+- Adatforrás: Bármely
+- Forrás porttartomány: *
+- Cél: IP-címek
+- Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
+- Cél porttartomány: 445
+- Protokoll: TCP
+- Művelet: Engedélyezés
+- Prioritás: 700
+- Név: Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Az App Service az Azure Stack-telepítés ellenőrzése
 
@@ -208,19 +220,6 @@ App Service-ben leválasztott környezet üzembe helyezéséhez, először létr
 2. Az áttekintésben, az állapot, ellenőrizze, hogy, amely a **állapot** megjeleníti **minden szerepkör készen áll**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
-
-> [!NOTE]
-> Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése.  Ehhez nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-> * Adatforrás: Bármely
-> * Forrás porttartomány: *
-> * Cél: IP-címek
-> * Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
-> * Cél porttartomány: 445
-> * Protokoll: TCP
-> * Művelet: Engedélyezés
-> * Prioritás: 700
-> * Név: Outbound_Allow_SMB445
->
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Az Azure Stack App Service kipróbálása
 

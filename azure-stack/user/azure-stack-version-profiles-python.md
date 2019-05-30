@@ -3,7 +3,7 @@ title: Az Azure Stackben Python API-verzióprofilok használata |} A Microsoft D
 description: Ismerje meg az Azure Stackben Python API-verzióprofilok használatával.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782587"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269495"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-verzióprofilok használata az Azure Stackben Pythonnal
 
@@ -32,8 +32,10 @@ A Python SDK API-verzióprofilok célozhat meg például az Azure Stack és a gl
 
 - **latest**  
     Ezt a profilt a legújabb API-verziók célozza meg benne az Azure platform minden szolgáltató számára.
-- **2018-03-01-hybrid**     
+- **2019-03-01-hybrid**  
     Ezt a profilt a legújabb API-verziók célozza meg benne az összes erőforrás-szolgáltató az Azure Stack-platformokon.
+- **2018-03-01-hybrid**  
+    Ezt a profilt a leginkább kompatibilis API-verziók célozza meg benne az összes erőforrás-szolgáltató az Azure Stack-platformokon.
 - **2017-03-09-profile**  
     Ez a profil célozza meg benne az Azure Stack által támogatott erőforrás-szolgáltatók a leginkább kompatibilis API-verziók.
 
@@ -51,7 +53,7 @@ A Python SDK API-verzióprofilok célozhat meg például az Azure Stack és a gl
 
 Az Azure Stack az Azure Python SDK használatához adja meg a következő értékeket, és adja meg az értékeket a környezeti változókat. Az utasításokat lásd a táblázat az operációs rendszerének a a környezeti változók beállítása után.
 
-| Value | Környezeti változók | Leírás |
+| Érték | Környezeti változók | Leírás |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Bérlőazonosító | AZURE_TENANT_ID | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md). |
 | Ügyfélazonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű Alkalmazásazonosító egyszerű szolgáltatás létrehozásakor ez a cikk az előző szakaszban mentett. |
@@ -117,7 +119,7 @@ Az Azure stack-Python SDK-val érhető el Kódminták a következők:
 
 - [Erőforrások és -erőforráscsoportok kezelése](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
 - [Storage-fiók kezelése](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
-- [Virtuális gépek kezelése](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+- [Virtuális gépek kezelése](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/). (A 2019-03-01-hibrid, amely az Azure Stack által támogatott legújabb API-verziókat célzó használó minta)
 
 ## <a name="python-manage-virtual-machine-sample"></a>Python virtuális gép minta kezelése
 

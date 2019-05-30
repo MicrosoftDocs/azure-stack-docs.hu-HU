@@ -3,7 +3,7 @@ title: API-verzióprofilok használatával nyissa meg az Azure Stackben |} A Mic
 description: Ismerje meg az API-verzióprofilok használatával nyissa meg az Azure Stackben.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 33fc05de4bf0107c8090badb77872082790aa087
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782555"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373014"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-verzióprofilok használata nyissa meg az Azure Stackben
 
@@ -32,10 +32,10 @@ A profil a különböző szolgáltatásokhoz különböző verziójú különbö
 - Az adott API-verziók zárolja az alkalmazás stabilitását.
 - Az alkalmazás az Azure Stack és a regionális Azure-adatközpontok való kompatibilitást.
 
-A Go SDK profilok érhetők el a profilok elérési úton, a verziójuk a **éééé-hh-nn** formátumban. Most, a legújabb Azure Stack API profil verzió **2017-03-09**. Az adott szolgáltatás importálására egy profilt, a megfelelő modul importálása a profil. Például az importálandó **számítási** a szolgáltatás **2017-03-09** profil, a következő kóddal:
+A Go SDK profilok érhetők el a profilok elérési úton, a verziójuk a **éééé-hh-nn** formátumban. Most, a legújabb Azure Stack API profil verzió **2019-03-01**. Az adott szolgáltatás importálására egy profilt, a megfelelő modul importálása a profil. Például az importálandó **számítási** a szolgáltatás **2019-03-01** profil, a következő kóddal:
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>A Góhoz készült Azure SDK telepítése
@@ -88,11 +88,11 @@ Go-kódokat a minta futtatásához az Azure Stacken, kövesse az alábbi lépés
 
 4. Az egyszerű szolgáltatás létrehozása **előfizetés** hatókör és **tulajdonosa** szerepkör. Mentse a szolgáltatásnév-Azonosítót és a titkos kulcsot. További információ az Azure stack-beli szolgáltatásnév létrehozása: [egyszerű szolgáltatás létrehozása](azure-stack-create-service-principals.md). Most már az Azure Stack-környezet van beállítva.
 
-5. A modul importálása a Go SDK-profillal a kódban. Az Azure Stack profil aktuális verziója: **2017-03-09**. Ha például a hálózati modul importálásához **2017-03-09** profil típusa, a következő kóddal:
+5. A modul importálása a Go SDK-profillal a kódban. Az Azure Stack profil aktuális verziója: **2019-03-01**. Ha például a hálózati modul importálásához **2019-03-01** profil típusa, a következő kóddal:
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
 6. A függvényben létrehozásához, és az ügyfél hitelesítéséhez egy **új** ügyfél függvény hívásához szükséges. Hozzon létre egy virtuális hálózati ügyfél, a következő kódot használhatja:  
@@ -100,7 +100,7 @@ Go-kódokat a minta futtatásához az Azure Stacken, kövesse az alábbi lépés
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ Go-kódokat a minta futtatásához az Azure Stacken, kövesse az alábbi lépés
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -193,7 +193,7 @@ Ez a példa létrehoz egy virtuális hálózatot az Azure Stacken Go-kódokat mi
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Ez a példa létrehoz egy virtuális hálózatot az Azure Stacken Go-kódokat mi
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"
@@ -292,14 +292,17 @@ Ez a példa létrehoz egy virtuális hálózatot az Azure Stacken Go-kódokat mi
                   },
               },
           })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      err := future.WaitForCompletionRef(context.Background(), vnetClient.Client)
       if err != nil {
           fmt.Printf(err.Error())
           return
       }
    }
    ```
-
+Elérhető az Azure Stack használatával a Go SDK Kódminták a következők:
+- [Virtuális gép létrehozása](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM).
+- [Tárolási Adatsík](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane).
+- [Felügyelt lemezek használata](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks), (mintát, használja a 2019-03-01-profilt, amely a legújabb API-verziókat célzó támogatja az Azure Stack)
 ## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése az Azure Stack szolgáltatáshoz](../operator/azure-stack-powershell-install.md)

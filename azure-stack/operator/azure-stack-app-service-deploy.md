@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6db643e1123a27fe1716aeeb5ec97d6497764632
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e89e8a9d2f773c289bc279a1b4aa9f47e65e8741
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618959"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269334"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Az App Service erőforrás-szolgáltató hozzáadása az Azure Stackhez
 
@@ -29,16 +29,16 @@ ms.locfileid: "65618959"
 
 Ez a cikk az útmutató segítségével üzembe helyezése az Azure Stack App Service-ben.
 
-> [!IMPORTANT]  
-> Az Azure Stackkel integrált rendszereknél 1901 frissítés alkalmazása, vagy a legújabb Azure Stack Development Kit (ASDK) üzembe helyezése, Azure App Service 1.5 telepítése előtt.
+> [!IMPORTANT]
+> Az Azure Stackkel integrált rendszereknél 1904 frissítés alkalmazása, vagy a legújabb Azure Stack Development Kit (ASDK) üzembe helyezése, Azure App Service 1.6-os üzembe helyezése előtt.
 
 A felhasználók számára biztosíthat web- és API-alkalmazások létrehozása. Ahhoz, hogy a felhasználók ezeket az alkalmazásokat hozzanak létre, meg kell:
 
- - Adja hozzá a [App Service erőforrás-szolgáltató](azure-stack-app-service-overview.md) az Azure Stack üzemelő példány ebben a cikkben ismertetett lépések.
- - Miután telepítette az App Service erőforrás-szolgáltató, megadhatja az ajánlatok és csomagok. Felhasználók majd előfizethetnek az szolgáltatásba és az alkalmazások létrehozásának első lépései.
+- Adja hozzá a [App Service erőforrás-szolgáltató](azure-stack-app-service-overview.md) az Azure Stack üzemelő példány ebben a cikkben ismertetett lépések.
+- Miután telepítette az App Service erőforrás-szolgáltató, megadhatja az ajánlatok és csomagok. Felhasználók majd előfizethetnek az szolgáltatásba és az alkalmazások létrehozásának első lépései.
 
-> [!IMPORTANT]  
-> A resource provider telepítőjének futtatása, előtt győződjön meg arról, hogy követte az útmutató [használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md) rendelkezik-e olvasási és a [kibocsátási megjegyzések](azure-stack-app-service-release-notes-update-five.md), amely az 1.5-ös kiadás kapcsolatos új kísérő Funkciók, javításokat, és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés.
+> [!IMPORTANT]
+> A resource provider telepítőjének futtatása, előtt győződjön meg arról, hogy követte az útmutató [használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md) elolvasta és a [kibocsátási megjegyzések](azure-stack-app-service-release-notes-update-six.md), amely az 1.6-os verzióra kiadott, további információ az új kísérő Funkciók, javításokat, és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Az App Service-ben resource provider telepítőjének futtatása
 
@@ -79,7 +79,7 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
 
    b. A **Azure Stack-előfizetést**, jelölje be a **szolgáltatói előfizetés alapértelmezett**.
 
-     > [!IMPORTANT]  
+     > [!IMPORTANT]
      > App Service-ben **kell** üzembe helyezhető a **szolgáltatói előfizetés alapértelmezett**.
 
    c. Az a **Azure Stack-helyek**, válassza ki a helyet, amely megfelel a régió, helyezi üzembe. Válassza ki például **helyi** Ha az az Azure Stack fejlesztői készletének telepítése.
@@ -186,8 +186,20 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
 
 ## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Ha az App Service RP példánnyal SQL mindig az adott kell [adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoport](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , így elkerülhető, hogy a szolgáltatás az adatbázis szinkronizálásához, és a egy adatbázis feladatátvételi esemény.
+
+Ha Ön üzembe helyezése meglévő virtuális hálózattal és belső IP-cím használatával szeretne csatlakozni a fájlkiszolgáló, hozzá kell adnia egy kimenő biztonsági szabályt. Ez a szabály lehetővé teszi a feldolgozó és a fájlkiszolgáló között SMB-forgalom.  Nyissa meg a WorkersNsg, hálózati biztonsági csoportot, a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
+
+- Adatforrás: Bármely
+- Forrás porttartomány: *
+- Cél: IP-címek
+- Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
+- Cél porttartomány: 445
+- Protokoll: TCP
+- Művelet: Engedélyezés
+- Prioritás: 700
+- Név: Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Az App Service az Azure Stack-telepítés ellenőrzése
 
@@ -196,18 +208,6 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
 2. Az áttekintésben, az állapot, ellenőrizze, hogy, amely a **állapot** megjeleníti **minden szerepkör készen áll**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
-
-    Ha Ön üzembe helyezése meglévő virtuális hálózattal és belső IP-cím használatával szeretne csatlakozni a fájlkiszolgáló, hozzá kell adnia egy kimenő biztonsági szabályt. Ez a szabály lehetővé teszi a feldolgozó és a fájlkiszolgáló között SMB-forgalom.  Ehhez nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-
-    - Adatforrás: Bármely
-    - Forrás porttartomány: *
-    - Cél: IP-címek
-    - Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
-    - Cél porttartomány: 445
-    - Protokoll: TCP
-    - Művelet: Engedélyezés
-    - Prioritás: 700
-    - Név: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Az Azure Stack App Service kipróbálása
 
@@ -251,8 +251,8 @@ Hozzon létre egy webes tesztalkalmazás, kövesse az alábbi lépéseket:
 
 Is kipróbálhatja más [platform platformszolgáltatási (PaaS) szolgáltatásokra](azure-stack-offer-services-overview.md).
 
- - [Az SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider-deploy.md)
- - [MySQL típusú erőforrás-szolgáltató](azure-stack-mysql-resource-provider-deploy.md)
+- [Az SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider-deploy.md)
+- [MySQL típusú erőforrás-szolgáltató](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531

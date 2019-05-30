@@ -3,7 +3,7 @@ title: A felhőbe irányuló méretezési megoldások létrehozása az Azure-ral
 description: Ismerje meg, hogyan hozhat létre a több felhőre kiterjedő méretezési megoldások az Azure-ral.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a82912b3acf18ce3be206e33da752bf8a03a4858
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: adbe1eba6c5d852466288ddf41c803072d4cd098
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303672"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252081"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Oktatóanyag: A felhőbe irányuló méretezési megoldások létrehozása az Azure-ral
 

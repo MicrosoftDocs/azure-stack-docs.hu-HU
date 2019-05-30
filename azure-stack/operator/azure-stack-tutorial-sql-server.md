@@ -3,7 +3,7 @@ title: SQL-adatbázisok az Azure Stack-felhasználók számára elérhetővé |}
 description: Az oktatóanyag az SQL Server erőforrás-szolgáltató telepítéséhez, és hozzon létre kínál, amelyek lehetővé teszik az SQL-adatbázisok létrehozása az Azure Stack felhasználóinak.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e65bebf5b6126455ef1294fabeb1450f91689d5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618383"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267996"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Oktatóanyag: SQL-adatbázisok számára elérhetővé az Azure Stack-felhasználók
 
@@ -68,7 +68,7 @@ Most, hogy üzembe helyezte az SQL Server erőforrás-szolgáltató, és létreh
 1. Válassza ki **+**  >  **adatok + tárolás** > **SQL-adatbázis**.
 2. Használja az alapértelmezett értékeket, vagy használjon ezekben a példákban a következő mezőket:
     - **Adatbázis neve**: SQLdb
-    - **Maximális méret (MB)**: 100
+    - **Maximális méret (MB)** : 100
     - **Előfizetés**: TestSQLOffer
     - **Erőforráscsoport**: SQL-RG
 3. Válassza ki **bejelentkezési beállítások**, adja meg az adatbázis hitelesítő adatait, és válassza **OK**.

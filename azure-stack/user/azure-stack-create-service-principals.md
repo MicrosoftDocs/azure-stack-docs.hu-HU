@@ -3,7 +3,7 @@ title: Az Azure stack-beli szolgáltatásnév létrehozása |} A Microsoft Docs
 description: Ismerje meg, hogyan hozhat létre egy egyszerű szolgáltatást az erőforrásokhoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérlés az Azure Resource Manager használata.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: PatAltimore
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 1f2502a7b0b89bc8c1786e1fdf0392b245308ed0
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197299"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269613"
 ---
 # <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>Alkalmazások hozzáférés biztosítása az Azure Stack-erőforrások egyszerű szolgáltatások létrehozása
 

@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack PowerShell használatával Linux rendszerű virtuális gép létrehozása |} A Microsoft Docs
-description: Hozzon létre egy Linux virtuális gép az Azure Stack PowerShell használatával.
+title: Hozzon létre egy Linux rendszerű virtuális gép PowerShell-lel az Azure Stackben |} A Microsoft Docs
+description: Hozzon létre egy Linux rendszerű virtuális gép az Azure Stack PowerShell használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 55f1395d66262b268b9107f196528270c1546bba
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 4e60b2f2df2aae9cf27bdec41c6492ad3ff04fb3
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712285"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269592"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-using-powershell-in-azure-stack"></a>Gyors útmutató: Az Azure Stack PowerShell használatával Linux rendszerű kiszolgáló virtuális gép létrehozása
+# <a name="quickstart-create-a-linux-server-vm-using-powershell-in-azure-stack"></a>Gyors útmutató: Linux-kiszolgáló virtuális gép létrehozása az Azure Stack PowerShell használatával
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Ubuntu Server 16.04 LTS virtuális gépként az Azure Stack PowerShell használatával hozhat létre. Kövesse a cikkben hozhat létre és használhat egy virtuális gépet.  Ez a cikk is biztosít a lépéseket:
+Létrehozhat egy Ubuntu Server 16.04 LTS virtuális gép (VM) az Azure Stack PowerShell használatával. Kövesse a cikkben hozhat létre és használhat egy virtuális Gépet.  Ez a cikk is biztosít a lépéseket:
 
 * Csatlakozzon a virtuális géphez a távoli ügyfélhez.
 * Az NGINX-webkiszolgálót, és az alapértelmezett kezdőlap megtekintéséhez.
@@ -113,7 +113,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Hálózati biztonsági csoport és hálózati biztonsági csoportszabály létrehozása
 
-A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális gépet. Hozzon létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezése és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
+A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális Gépet. Hozzon létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezése és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -137,9 +137,9 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Lo
 -Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Hálózati kártya létrehozása a virtuális géphez
+### <a name="create-a-network-card-for-the-vm"></a>Hozzon létre egy hálózati kártyát a virtuális gép
 
-A hálózati kártya csatlakoztatja a virtuális gépet egy alhálózathoz, egy hálózati biztonsági csoporthoz és egy nyilvános IP-címhez.
+A hálózati kártyát a virtuális gép csatlakozik egy alhálózat, a hálózati biztonsági csoport és a nyilvános IP-címet.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -152,9 +152,9 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
+## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuálisgép-konfigurációt. Ez a konfiguráció a virtuális gép üzembe helyezése során használt beállításait tartalmazza. Például: felhasználói hitelesítő adatokat, mérete és a virtuálisgép-lemezkép.
+Hozzon létre egy Virtuálisgép-konfigurációt. Ez a konfiguráció a virtuális gép üzembe helyezése során használt beállításokat tartalmaz. Például: felhasználói hitelesítő adatokat, mérete és a Virtuálisgép-lemezkép.
 
 ```powershell
 # Define a credential object.
@@ -162,7 +162,7 @@ $UserName='demouser'
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -182,7 +182,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "16.04-LTS" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -194,19 +194,19 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 
-# Adds the SSH Key to the virtual machine
+# Adds the SSH Key to the VM
 Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="quick-create-virtual-machine---full-script"></a>Gyors létrehozás virtuális gép – teljes szkript
+## <a name="quick-create-vm---full-script"></a>Gyors létrehozás VM - teljes szkript
 
 > [!NOTE]
 > Ez lényegében a fenti kódrészlettel egyesített együtt, de a jelszót az SSH-kulcsot a hitelesítéshez helyett.
@@ -233,7 +233,7 @@ $nsgName = "myNetworkSecurityGroup"
 $nsgRuleSSHName = "myNetworkSecurityGroupRuleSSH"
 $nsgRuleWebName = "myNetworkSecurityGroupRuleWeb"
 
-# Create variable for virtual machine password
+# Create variable for VM password
 $VMPassword = 'Password123!'
 
 # End of Variables - no need to edit anything past that point to deploy a single VM
@@ -258,7 +258,7 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
+# Create a storage container to store the VM image
 $containerName = 'osdisks'
 $container = New-AzureStorageContainer `
   -Name $containerName `
@@ -267,7 +267,7 @@ $container = New-AzureStorageContainer `
 
 ## Create networking resources
 
-# Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine.
+# Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the VM.
 
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -294,7 +294,7 @@ $pip = New-AzureRmPublicIpAddress `
 ### Create a network security group and a network security group rule
 
 <#
-The network security group secures the virtual machine by using inbound and outbound rules. Create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
+The network security group secures the VM by using inbound and outbound rules. Create an inbound rule for port 3389 to allow incoming Remote Desktop connections and an inbound rule for port 80 to allow incoming web traffic.
 #>
 
 # Create an inbound network security group rule for port 22
@@ -311,9 +311,9 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name $nsgRuleWebName -Protoc
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $location `
 -Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 
-### Create a network card for the virtual machine
+### Create a network card for the VM
 
-# The network card connects the virtual machine to a subnet, network security group, and public IP address.
+# The network card connects the VM to a subnet, network security group, and public IP address.
 
 # Create a virtual network card and associate it with public IP address and NSG
 $nic = New-AzureRmNetworkInterface `
@@ -324,9 +324,9 @@ $nic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id `
   -NetworkSecurityGroupId $nsg.Id
 
-## Create a virtual machine
+## Create a VM
 <#
-Create a virtual machine configuration. This configuration includes the settings used when deploying the virtual machine. For example: user credentials, size, and the virtual machine image.
+Create a VM configuration. This configuration includes the settings used when deploying the VM. For example: user credentials, size, and the VM image.
 #>
 
 # Define a credential object.
@@ -334,7 +334,7 @@ $UserName='demouser'
 $securePassword = ConvertTo-SecureString $VMPassword -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ($UserName, $securePassword)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -360,7 +360,7 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
@@ -368,22 +368,22 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Csatlakozás a virtuális géphez
+## <a name="connect-to-the-vm"></a>Kapcsolódás a virtuális géphez
 
-A virtuális gép üzembe helyezését követően konfigurálja a virtuális gép SSH-kapcsolatot. Használja a [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) parancsot a virtuális gép nyilvános IP-címének lekéréséhez.
+A virtuális gép telepítése után konfigurálja az SSH-kapcsolatot a virtuális gép számára. Használja a [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) parancsot a virtuális gép nyilvános IP-címének lekéréséhez.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Az ssh-val telepített ügyfél rendszer a következő parancs segítségével csatlakozhat a virtuális géphez. Ha Windows rendszeren dolgozik, akkor használhatja [Putty](https://www.putty.org/) a kapcsolat létrehozásához.
+Az ssh-val telepített ügyfél rendszerből használja a következő parancsot a virtuális Géphez való csatlakozáshoz. Ha Windows rendszeren dolgozik, akkor használhatja [Putty](https://www.putty.org/) a kapcsolat létrehozásához.
 
 ```
 ssh <Public IP Address>
@@ -407,7 +407,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Az NGINX telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. Nyisson meg egy webböngészőt, és váltson ```http://<public IP address>```.
+Az NGINX telepítve van, és nyissa meg a virtuális Gépen a 80-as porton a webkiszolgáló, a virtuális gép nyilvános IP-cím használatával is elérheti. Nyisson meg egy webböngészőt, és váltson ```http://<public IP address>```.
 
 ![Az NGINX web server kezdőlap](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
@@ -421,4 +421,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>További lépések
 
-Ez a rövid útmutatóban üzembe helyezett alapszintű Linux-kiszolgáló virtuális gép. További információ az Azure Stack virtuális gépekről, lépjen a [szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md).
+Ez a rövid útmutatóban üzembe helyezett egy egyszerű Linux-kiszolgáló virtuális gép. Azure Stack virtuális gépekkel kapcsolatos további információkért lépjen [Azure Stack-beli Virtuálisgép-funkciók](azure-stack-vm-considerations.md).

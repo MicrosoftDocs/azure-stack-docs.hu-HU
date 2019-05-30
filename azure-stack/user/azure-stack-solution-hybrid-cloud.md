@@ -3,7 +3,7 @@ title: Az Azure és az Azure Stack egy hibrid felhő üzembe helyezése |} A Mic
 description: Ismerje meg, hogyan helyezhet üzembe az Azure és az Azure Stack egy hibrid felhő.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4a77221ac9fcb365966435ed828ab743dd8e1034
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985825"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252062"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Az Azure és az Azure Stack egy hibrid felhőmegoldás üzembe helyezése
 
@@ -106,10 +106,10 @@ Ebben az oktatóanyagban a Kezdés előtt győződjön meg arról is megfeleljen
    - **Diagnosztikai tárfiók**. Hozzon létre egy új fiókot, ha szükség van egy.
    - Válassza ki **OK** kattintva mentse a konfigurációt.
 
-     ![Választható funkciók konfigurálása](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Opcionális funkciók konfigurálása](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. A **SQL Server-beállítások**, adja meg a következő beállításokat:
-   - A **SQL-kapcsolat**válassza ki a **nyilvános (Internet)**.
+   - A **SQL-kapcsolat**válassza ki a **nyilvános (Internet)** .
    - A **Port**, tartsa meg az alapértelmezett **1433-as**.
    - A **SQL-hitelesítés**válassza **engedélyezése**.
 
@@ -126,7 +126,7 @@ Ebben az oktatóanyagban a Kezdés előtt győződjön meg arról is megfeleljen
 
 10. Az új virtuális gép létrehozása hosszabb időt vesz igénybe. A virtuális gépek ÁLLAPOTÁT is megtekintheti **virtuális gépek**.
 
-    ![Virtual machines (Virtuális gépek)](media/azure-stack-solution-hybrid-cloud/image7.png)
+    ![Virtuális gépek](media/azure-stack-solution-hybrid-cloud/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack"></a>Webalkalmazások létrehozása az Azure és az Azure Stackben
 
@@ -301,7 +301,7 @@ App Service environment-környezetben a webes alkalmazás létrehozásakor elind
 
 ### <a name="enable-automatic-scale-out"></a>Engedélyezze az automatikus horizontális felskálázás
 
-1. Az Azure-ban keresse meg az App Service-csomag a horizontális felskálázás, és válassza ki a kívánt helyek **horizontális felskálázás (App Service-csomag)**.
+1. Az Azure-ban keresse meg az App Service-csomag a horizontális felskálázás, és válassza ki a kívánt helyek **horizontális felskálázás (App Service-csomag)** .
 
     ![Horizontális felskálázás](media/azure-stack-solution-hybrid-cloud/image16.png)
 
@@ -447,8 +447,8 @@ Ez a nézet egy horizontális felskálázási riasztás és a méretezési csopo
 
 ### <a name="create-the-scale-out-alert"></a>A horizontális felskálázási értesítés létrehozása
 
-1. A **KONFIGURÁLÁSA**válassza **riasztások (klasszikus)**.
-2. Válassza ki **metrikariasztás hozzáadása (klasszikus)**.
+1. A **KONFIGURÁLÁSA**válassza **riasztások (klasszikus)** .
+2. Válassza ki **metrikariasztás hozzáadása (klasszikus)** .
 3. A **szabály felvétele**, állítsa be a következőket:
 
    - A **neve**, adja meg **Azure-felhőbe Burst**.
@@ -462,14 +462,14 @@ Ez a nézet egy horizontális felskálázási riasztás és a méretezési csopo
 7. A **időszak**válassza **az utolsó 5 percben**.
 8. A **értesítés ezen keresztül**:
    - Jelölje be a jelölőnégyzetet a **E-mail-tulajdonosoknak, közreműködőknek és olvasóknak**.
-   - Adja meg az e-mail-címe **további rendszergazdai email(s)**.
+   - Adja meg az e-mail-címe **további rendszergazdai email(s)** .
 
 9. A menüsávban válassza **mentése**.
 
 ### <a name="create-the-scale-in-alert"></a>A riasztás a méretezési csoport létrehozása
 
-1. A **KONFIGURÁLÁSA**válassza **riasztások (klasszikus)**.
-2. Válassza ki **metrikariasztás hozzáadása (klasszikus)**.
+1. A **KONFIGURÁLÁSA**válassza **riasztások (klasszikus)** .
+2. Válassza ki **metrikariasztás hozzáadása (klasszikus)** .
 3. A **szabály felvétele**, állítsa be a következőket:
 
    - A **neve**, adja meg **vissza az Azure Stack méretezési**.
@@ -483,13 +483,13 @@ Ez a nézet egy horizontális felskálázási riasztás és a méretezési csopo
 7. A **időszak**válassza **az utolsó 5 percben**.
 8. A **értesítés ezen keresztül**:
    - Jelölje be a jelölőnégyzetet a **E-mail-tulajdonosoknak, közreműködőknek és olvasóknak**.
-   - Adja meg az e-mail-címe **további rendszergazdai email(s)**.
+   - Adja meg az e-mail-címe **további rendszergazdai email(s)** .
 
 9. A menüsávban válassza **mentése**.
 
 Az alábbi képernyőfelvétel-készítés horizontális felskálázást és horizontális leskálázás riasztásokat tartalmazza.
 
-   ![Riasztások (klasszikus)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![Értesítések (klasszikus)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>Az Azure és az Azure Stack közötti forgalom átirányítása
 

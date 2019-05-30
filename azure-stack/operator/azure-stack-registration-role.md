@@ -15,12 +15,12 @@ ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: f5ccc5fc7a280cd8d0832edfe1be6f4ff35dba1d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 09a75b7aad3d0a9a919883641d8dc901353a5048
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985348"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251910"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>Azure stack-regisztráció szerepkör létrehozása
 
@@ -33,7 +33,7 @@ Forgatókönyvek, ahol nem szeretnénk az Azure-előfizetés tulajdonosa engedé
 
 Regisztrálás az Azure Stack, a regisztrációs fiókhoz kell rendelkeznie a következő Azure Active Directory-engedélyek és az Azure-előfizetés engedélyeket:
 
-* **Az Azure Active Directory-bérlőben alkalmazás a regisztrációs engedélyeket:** Rendszergazdák rendelkeznek az alkalmazás regisztrációs engedélyeket. A felhasználóknak engedélyt egy globális beállítás, a bérlő összes felhasználója. Megtekintéséhez, vagy módosítsa a beállítást, lásd: [létrehozása az Azure AD alkalmazás és -szolgáltatásnév resources]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) eléréséhez.
+* **Az Azure Active Directory-bérlőben alkalmazás a regisztrációs engedélyeket:** Rendszergazdák rendelkeznek az alkalmazás regisztrációs engedélyeket. A felhasználóknak engedélyt egy globális beállítás, a bérlő összes felhasználója. Megtekintéséhez, vagy módosítsa a beállítást, lásd: [hozzon létre egy Azure AD alkalmazás és -szolgáltatásnév erőforrások eléréséhez](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
     A *felhasználók regisztrálhatnak alkalmazásokat* értékűre kell állítani **Igen** , hogy regisztrálja az Azure Stack felhasználói fiók engedélyezése. Ha az alkalmazásregisztrációk beállítás értéke **nem**, egy felhasználói fiók nem használható, és regisztrálja az Azure Stack egy globális rendszergazdai fiókot kell használnia.
 
@@ -41,7 +41,7 @@ Regisztrálás az Azure Stack, a regisztrációs fiókhoz kell rendelkeznie a k�
 
 ## <a name="create-a-custom-role-using-powershell"></a>Hozzon létre egy egyéni szerepkört, PowerShell-lel
 
-Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/roleDefinitions/write` engedély az összes `AssignableScopes`, például [Owner]((/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája] ((/azure/role-based-access-control/built-in-roles# felhasználói hozzáférés-rendszergazdai). A következő JSON-sablon használatával egyszerűsíthető a definiálása az egyéni szerepkör. A sablon létrehoz egy egyéni biztonsági szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférés az Azure Stack-regisztráció.
+Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/roleDefinitions/write` engedély az összes `AssignableScopes`, mint például [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator). A következő JSON-sablon használatával egyszerűsíthető a definiálása az egyéni szerepkör. A sablon létrehoz egy egyéni biztonsági szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférés az Azure Stack-regisztráció.
 
 1. Hozzon létre egy JSON-fájlt. Ha például  `C:\CustomRoles\registrationrole.json`
 2. Adja hozzá az alábbi JSON-kódot a fájlhoz. Cserélje le a `<SubscriptionID>` értékét a saját Azure-előfizetése azonosítójára.
@@ -70,7 +70,7 @@ Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/r
     }
     ```
 
-3. A PowerShell-lel csatlakozzon az Azure-bA az Azure Resource Manager használatára. Amikor a rendszer kéri, hitelesítéshez, például [Owner]((/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája] ((/azure/role-based-access-control/built-in-roles# megfelelő engedélyekkel rendelkező fiókkal felhasználói hozzáférés-rendszergazdai).
+3. A PowerShell-lel csatlakozzon az Azure-bA az Azure Resource Manager használatára. Amikor a rendszer kéri, hitelesítést egy olyan fiókkal megfelelő engedélyekkel rendelkező például [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
     ```azurepowershell
     Connect-AzureRmAccount
@@ -86,7 +86,7 @@ Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/r
 
 A regisztrációs egyéni szerepkör létrehozása után rendelje hozzá a szerepkörhöz felhasználók regisztrálása az Azure Stack.
 
-1. Jelentkezzen be az Azure-előfizetés elegendő engedéllyel rendelkező fiók rights – például delegálása [Owner]((/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája] ((/ azure/szerepkör-alapú-hozzáférés-vezérlési / beépített szerepkörök #user-access-rendszergazda).
+1. Jelentkezzen be az Azure-előfizetés elegendő engedéllyel rendelkező fiók rights – például delegálása [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
 2. A **előfizetések**válassza **hozzáférés-vezérlés (IAM) > szerepkör-hozzárendelés hozzáadása**.
 3. A **szerepkör**, válassza ki a létrehozott egyéni szerepkört *Azure Stack-regisztráció szerepkör*.
 4. Válassza ki a felhasználók, rendelje hozzá a szerepkörhöz kíván.
@@ -94,7 +94,7 @@ A regisztrációs egyéni szerepkör létrehozása után rendelje hozzá a szere
 
     ![Szerepkör hozzárendelése a kiválasztott felhasználók](media/azure-stack-registration-role/assign-role.png)
 
-Egyéni szerepkörök használatával kapcsolatos további információkért lásd: [az rbac-RÓL és az Azure portal]((/azure/role-based-access-control/role-assignments-portal)-hozzáférés kezelése.
+Egyéni szerepkörök használatával kapcsolatos további információkért lásd: [rbac-RÓL és az Azure portal-hozzáférés kezelése](/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="next-steps"></a>További lépések
 

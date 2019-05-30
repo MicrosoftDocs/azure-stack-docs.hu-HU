@@ -1,6 +1,6 @@
 ---
-title: A Windows Server virtuális gép létrehozása PowerShell használatával az Azure Stackben |} A Microsoft Docs
-description: A Windows Server virtuális gép létrehozása a PowerShell-lel az Azure Stackben.
+title: A Windows Server rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával |} A Microsoft Docs
+description: A Windows Server rendszerű virtuális gép létrehozása a PowerShell-lel az Azure Stackben.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 1b0f367540012b86da322329f0536b3c484c39b4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712440"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269564"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Gyors útmutató: A Windows Server virtuális gép létrehozása az Azure Stack PowerShell használatával
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: A Windows Server rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -112,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Hálózati biztonsági csoport és hálózati biztonsági csoportszabály létrehozása
 
-A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális gépet. Hozzunk létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezéséhez és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
+A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális Gépet. Hozzunk létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezéséhez és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -147,9 +147,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Hálózati kártya létrehozása a virtuális géphez
+### <a name="create-a-network-card-for-the-vm"></a>Hozzon létre egy hálózati kártyát a virtuális gép
 
-A hálózati kártya csatlakoztatja a virtuális gépet egy alhálózathoz, egy hálózati biztonsági csoporthoz és egy nyilvános IP-címhez.
+A hálózati kártyát a virtuális gép csatlakozik egy alhálózat, a hálózati biztonsági csoport és a nyilvános IP-címet.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -162,17 +162,17 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
+## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuálisgép-konfigurációt. Ez a konfiguráció a virtuális gép üzembe helyezése során használt beállításait tartalmazza. Például: hitelesítő adatok, mérete és a virtuálisgép-lemezkép.
+Hozzon létre egy Virtuálisgép-konfigurációt. Ez a konfiguráció a virtuális gép üzembe helyezése során használt beállításokat tartalmaz. Például: hitelesítő adatok, mérete és a Virtuálisgép-lemezkép.
 
 ```powershell
-# Define a credential object to store the username and password for the virtual machine
+# Define a credential object to store the username and password for the VM
 $UserName='demouser'
 $Password='Password@123'| ConvertTo-SecureString -Force -AsPlainText
 $Credential=New-Object PSCredential($UserName,$Password)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -192,7 +192,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -201,23 +201,23 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>Csatlakozás a virtuális géphez
+## <a name="connect-to-the-vm"></a>Kapcsolódás a virtuális géphez
 
-Hogy távolról jelentkezzen be a virtuális gépet az előző lépésben létrehozott nyilvános IP-címének kell. A következő parancsot a virtuális gép nyilvános IP-címének lekéréséhez:
+Az előző lépésben létrehozott virtuális gép távolról, a nyilvános IP-címének kell. A következő parancsot a virtuális gép nyilvános IP-címének lekéréséhez:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-A következő paranccsal hozzon létre egy távoli asztali munkamenetet a virtuális géppel. Cserélje le az IP-címet a virtuális gépe *publicIPAddress* címére. Amikor a rendszer kéri, adja meg a felhasználónevet és jelszót a virtuális gép létrehozásakor használt.
+A következő paranccsal hozzon létre egy távoli asztali munkamenetet a virtuális géppel. Cserélje le az IP-címet a virtuális gép *publicIPAddress* címére. Amikor a rendszer kéri, adja meg a felhasználónevet és jelszót a virtuális gép létrehozásakor használt.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -237,7 +237,7 @@ A telepített IIS-t, és nyissa meg a virtuális Gépen a 80-as porton bármely 
 
 ![Alapértelmezett IIS-webhely](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>Törölje a következő virtuális gépet:
+## <a name="delete-the-vm"></a>A virtuális gép törlése
 
 Ha már nincs rá szükség, a következő paranccsal eltávolítható az erőforráscsoport, amely tartalmazza a virtuális gép és a kapcsolódó erőforrásokkal:
 
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>További lépések
 
-Ez a rövid útmutatóban egy egyszerű Windows virtuális gépet helyezte. További információ a virtuális gépekről az Azure Stack, továbbra is [szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy egyszerű Windows virtuális Gépet helyezte. Azure Stack virtuális gépekkel kapcsolatos további információkért folytassa [Azure Stack-beli Virtuálisgép-funkciók](azure-stack-vm-considerations.md).

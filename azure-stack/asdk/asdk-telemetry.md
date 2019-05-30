@@ -3,7 +3,7 @@ title: Az Azure Stack-telemetria |} A Microsoft Docs
 description: Ismerteti a PowerShell-lel az Azure Stack telemetriai beállításainak konfigurálása.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 78ca05eb15570022e6eb25a7023d91c5ff8b817f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 24948fb53ed4c5bdbbe0490f581daff7c66c33bc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617347"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267435"
 ---
 # <a name="azure-stack-telemetry"></a>Az Azure Stack-telemetria
 
@@ -81,9 +81,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 A telemetriai adatok szintek a következők: összegző és kategóriákkal, négy szint (0 – 3):
 
-**0 (biztonság)**. Csak biztonsági adatok. Biztonságos annak érdekében, hogy az operációs rendszer szükséges információk, beleértve a kapcsolódó felhasználói élmény és a Telemetria-összetevő beállításait és a Windows Defender adatait. Ezen a szinten nem meghatározott Azure Stack-telemetria bocsásson ki.
+**0 (biztonság)** . Csak biztonsági adatok. Biztonságos annak érdekében, hogy az operációs rendszer szükséges információk, beleértve a kapcsolódó felhasználói élmény és a Telemetria-összetevő beállításait és a Windows Defender adatait. Ezen a szinten nem meghatározott Azure Stack-telemetria bocsásson ki.
 
-**1 (alapszintű)**. A biztonsági adatokat, és alapszintű állapot- és minőségi adatokat. Alapszintű eszközadatok, például: minőségi adat, alkalmazás kompatibilitási, Alkalmazáshasználati adatokat és a biztonsági szint származó adatok. A telemetriai szint beállítása alapszintű lehetővé teszi, hogy az Azure Stack telemetriai. Ezen a szinten gyűjtött adatokat tartalmazza:
+**1 (alapszintű)** . A biztonsági adatokat, és alapszintű állapot- és minőségi adatokat. Alapszintű eszközadatok, például: minőségi adat, alkalmazás kompatibilitási, Alkalmazáshasználati adatokat és a biztonsági szint származó adatok. A telemetriai szint beállítása alapszintű lehetővé teszi, hogy az Azure Stack telemetriai. Ezen a szinten gyűjtött adatokat tartalmazza:
 
 - **Alapszintű eszközadatokat** , típusok és az ökoszisztéma natív és virtuális Windows Server 2016-példányok konfigurációkkal kapcsolatos megismerése biztosít többek között:
   - Gépek attribútumait, például a gyártó, a modell,
@@ -94,9 +94,9 @@ A telemetriai adatok szintek a következők: összegző és kategóriákkal, né
 - **Minőségi szolgáltatással kapcsolatos információkat** , amelyik segíti a Microsoft Azure Stack hogyan teljesít alapvető ismeretekkel fejlesztése. Ilyen például, egy adott hardverkonfigurációja a kritikus riasztások száma.
 - **Kompatibilitási adatok**, amely segít biztosítanak arról, hogy mely erőforrás-szolgáltató telepítve vannak a rendszer és a virtuális gép, és azonosítja az esetleges kompatibilitási problémák megértéséhez.
 
-**2. (bővített)**. További elemzésekhez, többek között: hogyan használja az operációs rendszer és más Azure Stack-szolgáltatásokat, azok teljesítményét, speciális megbízhatósági adatok és az alapszintű és a biztonsági szintek adatait.
+**2. (bővített)** . További elemzésekhez, többek között: hogyan használja az operációs rendszer és más Azure Stack-szolgáltatásokat, azok teljesítményét, speciális megbízhatósági adatok és az alapszintű és a biztonsági szintek adatait.
 
-**3. (teljes)**. Az összes azonosításához, és segít a problémák elhárításához szükséges adatokat, valamint az adatok a **biztonsági**, **alapszintű**, és **bővített** szinteket.
+**3. (teljes)** . Az összes azonosításához, és segít a problémák elhárításához szükséges adatokat, valamint az adatok a **biztonsági**, **alapszintű**, és **bővített** szinteket.
 
 > [!NOTE]
 > Az alapértelmezett telemetriai szint értéke 2 (bővített).

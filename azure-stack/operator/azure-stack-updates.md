@@ -15,22 +15,22 @@ ms.date: 04/04/2019
 ms.author: mabrigg
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: c0727ef3f55cba86bbb8c9953007256906852ccb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 64ccb5ec0b24202aa847d5114ba35ae20af44cc8
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984612"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268032"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Kezelheti a frissítéseket az Azure Stack áttekintése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek*
 
-A Microsoft update csomagok az Azure Stack integrált rendszerek általában kiadás minden hónap negyedik keddjén körül. Kérdezze meg a számítógépgyártó (OEM) az adott értesítési folyamat frissítési értesítések eléréséhez a szervezet biztosításához. A jelen dokumentációs könyvtárban alapján is ellenőrizheti **áttekintése** > **kibocsátási megjegyzések** verziókról lévő aktív támogatási információkat. 
+A Microsoft Azure Stack integrált rendszerek általában minden hónap kiadás frissítési csomagokat. Kérdezze meg a számítógépgyártó (OEM) az adott értesítési folyamat frissítési értesítések eléréséhez a szervezet biztosításához. A jelen dokumentációs könyvtárban alapján is ellenőrizheti **áttekintése** > **kibocsátási megjegyzések** verziókról lévő aktív támogatási információkat. 
 
-A Microsoft különböző kiadásai egyetlen frissítési csomag részét képezi. Az Azure Stack operátorait szerint importálhatja, telepítése és a figyelő ezeket a telepítési folyamat frissítési csomagok a felügyeleti portálról. 
+A Microsoft különböző kiadásai egyetlen frissítési csomag részét képezi. Az Azure Stack operátorait importálhatja telepítse, és az Azure Stack felügyeleti portálról csomagok telepítési állapotának figyelése.
 
-Az OEM beszállítói is frissítéseket, például az illesztőprogram- és belsővezérlőprogram-frissítések. Ezeket a frissítéseket a szállító által lépnek különálló csomagként, amíg azok már importált, telepítve, és ugyanúgy, mint frissítési csomagokat a Microsoft által felügyelt.
+Az OEM beszállítói is frissítéseket, például az illesztőprogram- és belsővezérlőprogram-frissítések. Ezeket a frissítéseket a szállító által lépnek különálló csomagként, míg egyes importált, telepítve van, és ugyanúgy, mint frissítési csomagokat a Microsoft által felügyelt.
 
 Hogy a rendszer a támogatás keretében, Azure Stack egy adott verzió szintre frissíteni kell hagynia. Győződjön meg arról, hogy tekintse át a [karbantartási szabályzat az Azure Stack](azure-stack-servicing-policy.md).
 
@@ -46,6 +46,8 @@ Telepíti a frissítéseket, mert a frissítési folyamat célként az Azure Sta
 ## <a name="plan-for-updates"></a>Frissítések tervezése
 
 Javasoljuk, hogy a karbantartási műveleteket felhasználók értesítése, és hogy úgy ütemezze a normál karbantartási időszakok során munkaidőn kívüli Ha lehetséges. Karbantartási műveletek hatással lehetnek a bérlői terhelések és a webportálos műveletek.
+
+A karbantartási időszak megtervezésekor fontos tekintse át a frissítési csomag a Microsoft nyilvánosan, feltüntettük a saját kiadási Megjegyzés az adott típusú. Azokat az alkalmi gyorsjavítás, kivéve minden frissítési csomag kell egy megfelelő típus **teljes** vagy **Express**. Teljes csomagokat frissíteni fogja a fizikai gazdagép operációs rendszerek a skálázási egységben, és a egy nagyobb karbantartási időszak van szükség. A frissítési csomagok viszont olyan célcsoportok hatókörében vannak, és ne frissítse a mögöttes fizikai állomás operációs rendszerek Express.
 
 - A frissítés telepítésének megkezdése előtt futtassa [Test-AzureStack](azure-stack-diagnostic-test.md) az Azure Stack állapotának érvényesítéséhez, és hárítsa el a működési hibákat talált a következő paraméterekkel, többek között az összes figyelmeztetések és hibák esetén. Emellett tekintse át az aktív riasztások, és oldja meg az esetleges beavatkozást igénylő.  
 

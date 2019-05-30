@@ -3,7 +3,7 @@ title: Földrajzilag elosztott alkalmazás megoldás létrehozása az Azure és 
 description: Ismerje meg, hogyan hozhat létre egy földrajzilag elosztott alkalmazás megoldásokat az Azure és az Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 81dfc9c7571bc191582425962d1e7b37c2ed05cd
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: eee89c90113187b51418801a46720f49e07fa533
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64304926"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252122"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Földrajzilag elosztott alkalmazás megoldás létrehozása az Azure és az Azure Stackben
 
@@ -248,10 +248,10 @@ Az [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) eg
 ![Helyettesítő szöveg](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
-> - Meglévő egyéni DNS-név leképezése az Azure Web Appsra
+> - Meglévő egyéni DNS-név hozzárendelése az Azure Web Appshez
 > - Használja a ** CNAME recorder egy **rekord** egy egyéni DNS-név leképezése az App Service-ben.
 
-### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Meglévő egyéni DNS-név leképezése az Azure Web Appsra
+### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Meglévő egyéni DNS-név hozzárendelése az Azure Web Appshez
 
 > [!Note]  
 >  Minden egyéni DNS-neveit gyökértartomány kivételével (example,northwind.com) egy olyan CNAME REKORDOT használjon.
@@ -333,7 +333,7 @@ Miután hozzáadta a CNAME REKORDOT, a DNS-rekordok oldala a következő példá
 
 4. Befejezheti a feladatot a tartomány regisztráló lapon, és kísérelje meg újra amíg érvényesítését a **gazdagépnév hozzáadása** gomb aktívvá válik.
 
-5. Győződjön meg arról, hogy ** gazdagépnév rekordtípusa értékre van állítva **CNAME (www.example.com vagy bármely altartomány)**.
+5. Győződjön meg arról, hogy ** gazdagépnév rekordtípusa értékre van állítva **CNAME (www.example.com vagy bármely altartomány)** .
 
 6. Válassza a **Gazdagépnév hozzáadása** lehetőséget.
 
@@ -343,7 +343,7 @@ Miután hozzáadta a CNAME REKORDOT, a DNS-rekordok oldala a következő példá
 
 9. A **Hozzáadás** aktiválva van.
 
-10. Győződjön meg arról, hogy ** gazdagépnév rekordtípusa értékre van állítva **A rekord (example.com)**.
+10. Győződjön meg arról, hogy ** gazdagépnév rekordtípusa értékre van állítva **A rekord (example.com)** .
 
 11. **Gazdagépnév hozzáadása**.
 
@@ -409,7 +409,7 @@ Az egyéni SSL-tanúsítvány kötése egy webes alkalmazásban a [App Service-c
 
 #### <a name="check-the-pricing-tier"></a>A tarifacsomag ellenőrzése
 
-1.  A webalkalmazás lapjának bal oldali navigációs sávján görgessen a **beállítások** szakaszt, és válassza **vertikális felskálázás (App Service-csomag)**.
+1.  A webalkalmazás lapjának bal oldali navigációs sávján görgessen a **beállítások** szakaszt, és válassza **vertikális felskálázás (App Service-csomag)** .
 
     ![Vertikális felskálázás menü](media/azure-stack-solution-geo-distributed/image34.png)
 
@@ -507,7 +507,7 @@ Amikor az App Service befejezi a tanúsítvány feltöltését, megjelenik a **S
 
 1.  Az a **SSL-kötés hozzáadása** lapon, jelölje be a tartomány nevét a legördülő olyan plusz lehetőségeket, valamint a használni kívánt tanúsítványt.
 
-2.  A **SSL-típus**, válassza ki, hogy használható-e [ **kiszolgálónév jelzése (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)vagy IP-alapú SSL.
+2.  A **SSL-típus**, válassza ki, hogy használható-e [ **kiszolgálónév jelzése (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication)vagy IP-alapú SSL.
 
 -   **SNI-alapú SSL**– több SNI-alapú SSL-kötés adható hozzá. Ez a beállítás lehetővé teszi, hogy több SSL-tanúsítvány biztosítson védelmet több tartomány számára ugyanazon az IP-címen. A legtöbb modern böngésző (beleértve az Internet Explorert, a Chrome-ot, a Firefox-ot és az Operát) támogatja az SNI-t (átfogóbb böngészőtámogatási információkat a [Kiszolgálónév jelzése](https://wikipedia.org/wiki/Server_Name_Indication) című szakaszban talál).
 

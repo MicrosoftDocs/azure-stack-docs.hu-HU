@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712426"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269390"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Az Azure Stack a Kubernetes üzembe helyezés hibaelhárítása
 
@@ -45,7 +45,7 @@ Az alábbi ábrán látható, az általános folyamat a fürt üzembe helyezés�
 1. Bemeneti paraméterek gyűjteni a Piactéri elemet.
 
     Adja meg az értékeket, akkor be kell állítania a Kubernetes-fürtöt, többek között:
-    -  **Felhasználónév**: A felhasználónév, a Linux rendszerű virtuális gépek, amelyek a Kubernetes-fürt és a DVM részei.
+    -  **Felhasználónév**: A Linux rendszerű virtuális gépek (VM), a Kubernetes-fürt és a DVM tartozó felhasználónév.
     -  **Nyilvános SSH-kulcs**: A kulcs, amely az összes Linux-számítógép, a Kubernetes-fürt és a DVM részeként létrehozott engedély szolgál.
     -  **Egyszerű szolgáltatás**: A Kubernetes Azure felhőszolgáltató által használt azonosítója. Az ügyfél-azonosító az Alkalmazásazonosítót azonosította az eseményt, az egyszerű szolgáltatás létrehozásakor. 
     -  **Titkos Ügyfélkód**: A kulcsot hozott létre, az egyszerű szolgáltatás létrehozásakor.
@@ -121,7 +121,7 @@ Ha a Kubernetes-fürtöt telepít, a telepítés állapota minden olyan problém
 
 ## <a name="review-deployment-logs"></a>Tekintse át a telepítési naplók
 
-Ha az Azure Stack portal nem biztosít elég információt ahhoz, hogy az üzembe helyezési hibák leküzdeni vagy hibák elhárítása, a következő lépésre, és elemezhetik a fürt naplóit. A telepítési naplók manuális lekéréséhez általában kell egyet a fürt fő virtuális gépek csatlakozni. Egyszerűbb kereteit lenne, töltse le és futtassa a következő [Bash-szkript](https://aka.ms/AzsK8sLogCollectorScript) biztosított az Azure Stack fejlesztőcsapatának. Ez a szkript a DVM és a fürt virtuális gépek csatlakozik, megfelelő rendszer és a fürt naplóit gyűjti, és letölti azokat vissza a munkaállomáson.
+Ha az Azure Stack portal nem biztosít elég információt ahhoz, hogy az üzembe helyezési hibák leküzdeni vagy hibák elhárítása, a következő lépésre, és elemezhetik a fürt naplóit. A telepítési naplók manuális lekéréséhez általában kell egyet a fürt fő virtuális gépek csatlakozni. Egyszerűbb kereteit lenne, töltse le és futtassa a következő [Bash-szkript](https://aka.ms/AzsK8sLogCollectorScript) biztosított az Azure Stack fejlesztőcsapatának. Ez a szkript a DVM és a fürt virtuális gépek csatlakozik, releváns rendszer és a fürt naplóit gyűjti, és letölti azokat vissza a munkaállomáson.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
@@ -159,7 +159,7 @@ Kövesse az alábbi lépéseket gyűjtése és a fürt naplók letöltéséhez:
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Néhány perc múlva a parancsfájl kimenete nevű könyvtárat a gyűjtött naplók `KubernetesLogs_{{time-stamp}}`. Van egy könyvtár találhat a fürthöz tartozó egyes virtuális gépekhez.
+4. Néhány perc múlva a parancsfájl kimenete nevű könyvtárat a gyűjtött naplók `KubernetesLogs_{{time-stamp}}`. Ott találja egy könyvtárat, amely a fürthöz tartozó virtuális gépek.
 
     A naplózási gyűjtő parancsfájlt is keresse meg a naplófájlokban szereplő hibákat, és tartalmazza a hibaelhárítási lépések, ha úgy találja, hogy egy ismert probléma. Ellenőrizze, hogy a legújabb verzióra, szoftver-és ismert problémák keresése növelését parancsfájl futtatásakor.
 

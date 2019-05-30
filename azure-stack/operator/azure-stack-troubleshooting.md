@@ -3,7 +3,7 @@ title: A Microsoft Azure Stack hibaelhárítása |} A Microsoft Docs
 description: Az Azure Stack hibaelhárítása.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 653113e11a91fda0d3447e5627f6755e116ffbb1
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
+ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66186523"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268242"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>A Microsoft Azure Stack hibaelhárítása
 

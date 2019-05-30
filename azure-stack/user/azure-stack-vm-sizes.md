@@ -1,6 +1,6 @@
 ---
 title: Virtuálisgép-méretek támogatott az Azure Stackben |} A Microsoft Docs
-description: A támogatott virtuális gépek méretei az Azure Stackben referenciája.
+description: A támogatott Virtuálisgép-méretek az Azure Stack-hivatkozás.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,29 +14,29 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: a7ec54d88a259b883f72c2396ab572118ba96a23
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712278"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269439"
 ---
-# <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Az Azure Stackben támogatott virtuálisgép-méretek
+# <a name="vm-sizes-supported-in-azure-stack"></a>Az Azure Stackben támogatott Virtuálisgép-méretek
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Ez a cikk a virtuális gépek méretei az Azure Stackben elérhető sorolja fel.
+Ez a cikk a virtuális gép (VM) méretek az Azure Stackben elérhető sorolja fel.
 
-Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken helyett a lemez típusát a virtuális gép (VM) mérete függvénye. Ez azt jelenti, hogy Standard_Fs sorozat virtuális gép, függetlenül attól, hogy SSD vagy HDD a lemez típusát a további adatokat lemez IOPS-korlátját 2300 IOPS. Az IOPS-korlátok bevezetett (a lehető legnagyobb mértékű) zajos szomszédok elkerülése érdekében. Már nem az iops-érték, amely megjelenik az adott virtuális gép mérete által garantált.
+Lemez iops-t (bemeneti/kimeneti műveletek másodpercenként) az Azure Stacken helyett a lemez típusát a virtuális gép méretének a függvénye. Ez azt jelenti, hogy Standard_Fs sorozat virtuális gép, függetlenül attól, hogy SSD vagy HDD a lemez típusát a további adatokat lemez IOPS-korlátját 2300 IOPS. Az IOPS-korlátok bevezetett (a lehető legnagyobb mértékű) zajos szomszédok elkerülése érdekében. Egy frissítési garanciát biztosító iops meg, amely az adott virtuális gép mérete nem.
 
-## <a name="virtual-machine-general-purpose"></a>Általános célú virtuális gép
+## <a name="vm-general-purpose"></a>Általános célú virtuális gép
 
-Általános célú virtuális gépek méreteit adjon meg egy kiegyensúlyozott Processzor-memória arány. Ezek szolgálnak tesztelési-fejlesztési feladatokhoz, kis és közepes méretű adatbázisokhoz, és a kis és közepes adatforgalmú webkiszolgálókhoz. Az egyes adatlemezek 2300 IOPS, a prémium szintű Virtuálisgép-méretek, kivéve az alapszintű A sorozat. Alapszintű, és az adattároló lemez mérete 500 IOPS.
+Általános célú virtuális gépek méreteit adjon meg egy kiegyensúlyozott Processzor-memória arány. Használhatók a tesztelési-fejlesztési feladatokhoz, kis és közepes méretű adatbázisokhoz, és a kis és közepes adatforgalmú webkiszolgálókhoz. Az egyes adatlemezek 2300 IOPS, a prémium szintű Virtuálisgép-méretek, kivéve az alapszintű A sorozat. Alapszintű, és az adattároló lemez mérete 500 IOPS.
 
 ### <a name="basic-a"></a>Alapszintű A
 
 > [!NOTE]
-> *Alapszintű A* virtuálisgép-méretek esetében kivezettük [virtuálisgép-méretezési csoportok létrehozása](../operator/azure-stack-compute-add-scalesets.md) (VMSS) a portálon keresztül. Ez a méret a VMSS létrehozásához, használja a PowerShell vagy a sablont.
+> *Alapszintű A* Virtuálisgép-méretek esetében kivezettük [virtuálisgép-méretezési csoportok létrehozása](../operator/azure-stack-compute-add-scalesets.md) (VMSS) a portálon keresztül. Ez a méret a VMSS létrehozásához, használja a PowerShell vagy a sablont.
 
 |Méret – méret\név |vCPU     |Memória | Ideiglenes lemez max. mérete | Maximális operációsrendszer-lemez átviteli sebesség: (IOPS) | Ideiglenes tárterület maximális teljesítménye (IOPS) | Adatlemezek max. teljesítménye (IOPS) | Hálózati adapterek maximális száma |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
@@ -185,4 +185,4 @@ A memória optimalizált Virtuálisgép-méretek adja meg a magas memória – P
 
 ## <a name="next-steps"></a>További lépések
 
-[Szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md)
+[Az Azure Stack-beli Virtuálisgép-funkciókat](azure-stack-vm-considerations.md)

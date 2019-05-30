@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712334"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269539"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Kubernetes-tárolók használata az Azure Stack üzembe helyezése
 
@@ -33,7 +33,7 @@ Ebben a cikkben üzembe helyezéséhez és a Kubernetes esetében egyetlen, koor
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes és a tárolók
 
-A Kubernetes Azure Stack az AKS-motor által létrehozott Azure Resource Manager-sablonok használatával is telepítheti. [Kubernetes](https://kubernetes.io) üzembe helyezés automatizálásához egy nyílt forráskódú rendszer méretezés, és a tárolókban található alkalmazások felügyeletét. A [tároló](https://www.docker.com/what-container) van a képet. A tároló rendszerképét hasonló egy virtuális géphez, azonban egy virtuális gép eltérően, a tároló csak az alkalmazás, például a kódot, a kód, az adott könyvtárakat és a beállítások végrehajtásához futásidejű futtatásához szükséges erőforrásokat tartalmazza.
+A Kubernetes Azure Stack az AKS-motor által létrehozott Azure Resource Manager-sablonok használatával is telepítheti. [Kubernetes](https://kubernetes.io) üzembe helyezés automatizálásához egy nyílt forráskódú rendszer méretezés, és a tárolókban található alkalmazások felügyeletét. A [tároló](https://www.docker.com/what-container) van a képet. A tároló rendszerképét ellentétben a virtuális gép egy virtuális gépet (VM), azonban hasonlít, a tároló csak az alkalmazás, például a kódot, a kód, az adott könyvtárakat és a beállítások végrehajtásához futásidejű futtatásához szükséges erőforrásokat tartalmazza.
 
 A Kubernetes használhatja:
 

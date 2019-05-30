@@ -3,7 +3,7 @@ title: Az Azure Stack App Service üzembe helyezése előtt |} A Microsoft Docs
 description: Lépést végre kell hajtania, az Azure Stack App Service üzembe helyezése
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bb9d49c7feebc03f0f2f5bbaca084e9141f601e9
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618272"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269201"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Mielőtt elkezdené, az Azure Stack App Service-szel
 
@@ -30,7 +30,7 @@ ms.locfileid: "65618272"
 Azure App Service az Azure Stack üzembe helyezése, előtt elvégzése szükséges az ebben a cikkben előfeltételként felsorolt lépéseket.
 
 > [!IMPORTANT]
-> Az Azure Stackkel integrált rendszereknél 1901 frissítés alkalmazása, vagy a legújabb Azure Stack Development Kit (ASDK) üzembe helyezése, Azure App Service 1.5 telepítése előtt.
+> Az Azure Stackkel integrált rendszereknél 1904 frissítés alkalmazása, vagy a legújabb Azure Stack Development Kit (ASDK) üzembe helyezése, Azure App Service 1.6-os üzembe helyezése előtt.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>A telepítő és a segítő szkripteket letöltése
 
@@ -69,8 +69,8 @@ A következő PowerShell-parancs futtatásakor kell a AzureStack\CloudAdmin adja
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Szükséges | AzS-ERCS01 | Kiemelt végponthoz |
-| CloudAdminCredential | Szükséges | AzureStack\CloudAdmin | Tartományi fiók hitelesítő adatait az Azure Stack-felhő rendszergazdái |
+| PrivilegedEndpoint | Kötelező | AzS-ERCS01 | Kiemelt végponthoz |
+| CloudAdminCredential | Kötelező | AzureStack\CloudAdmin | Tartományi fiók hitelesítő adatait az Azure Stack-felhő rendszergazdái |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Az Azure App Service ASDK telepítéshez szükséges tanúsítványok
 
@@ -94,8 +94,8 @@ A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| pfxPassword | Szükséges | Null | Jelszó, amely segít megvédeni a tanúsítvány titkos kulcsa |
-| Tartománynév | Szükséges | local.azurestack.external | Az Azure Stack régió és a tartományi utótag |
+| pfxPassword | Kötelező | Null | Jelszó, amely segít megvédeni a tanúsítvány titkos kulcsa |
+| Tartománynév | Kötelező | local.azurestack.external | Az Azure Stack régió és a tartományi utótag |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Az Azure Stack éles környezetben az Azure App Service-ben a szükséges tanúsítványok
 
@@ -195,6 +195,9 @@ A [referencia architektúra gyorsindítási sablon](https://github.com/Azure/Azu
 
 >[!IMPORTANT]
 > Ha egy meglévő virtuális hálózatot az App Service üzembe helyezése, a fájlkiszolgáló az App Service-ből egy külön alhálózatot kell telepíteni.
+
+>[!NOTE]
+> Ha úgy döntött, a fájlkiszolgálók üzembe helyezése a fent említett gyorsindítási sablonok valamelyikét használja, kihagyhatja a ebben a szakaszban, a kiszolgálók úgy vannak konfigurálva, a sablon központi telepítésének részeként fájllal.
 
 #### <a name="provision-groups-and-accounts-in-active-directory"></a>Csoportok és az Active Directory fiókok kiépítése
 
@@ -296,6 +299,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server-instance"></a>Az SQL Server-példány előkészítése
 
+>[!NOTE]
+> Ha úgy döntött, a rövid útmutató sablon üzembe helyezéséhez a magas rendelkezésre állású fájl kiszolgáló és az SQL Server kihagyhatja ebben a szakaszban, a sablon üzembe helyez, és beállítja az SQL Server magas rendelkezésre ÁLLÁSÚ konfigurációban.
+
 Az Azure App Service az Azure Stack üzemeltetési és a mérési adatbázis, az SQL Server-példányt, amely tárolja az App Service-adatbázisokat elő kell készítenie.
 
 Az Azure Stack Development Kit központi telepítéséhez, használhatja az SQL Server Express 2014 SP2 vagy újabb.
@@ -306,7 +312,7 @@ Az SQL Server-példány az Azure App Service az Azure Stack App Service-ben az �
 
 > [!NOTE]
 > Egy szám, az SQL IaaS virtuális gépek lemezképeit a Marketplace-en felügyeleti szolgáltatáson keresztül érhetők el. Ellenőrizze, hogy Ön mindig Piactéri virtuális gép üzembe helyezése előtt töltse le a legújabb verzióját az SQL IaaS-bővítményt. Az SQL-rendszerképek ugyanazok, mint az SQL virtuális gépek az Azure-ban elérhető. Az SQL virtuális gépek-képekből létrehozott ezeket, az IaaS-bővítményt, és a megfelelő portál fejlesztések automatikus javítás és a biztonsági mentési funkcióit funkciókat biztosítanak.
-> 
+>
 > Az SQL Server-szerepkörök bármelyikéhez egy alapértelmezett vagy megnevezett példányt is használhatja. Ha egy megnevezett példányt használ, mindenképpen manuálisan indítsa el az SQL Server Browser szolgáltatást, és nyissa meg az 1434-es portot.
 
 Az App Service-telepítő ellenőrzi az SQL Server adatbázis tartalmazási engedélyezve legyen. Ahhoz, hogy az SQL Server, az App Service-adatbázisokat üzemeltető adatbázis tartalmazás, a következő SQL-parancsok futtatása:
@@ -359,12 +365,12 @@ Kövesse az alábbi lépéseket:
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Szükséges | Null | Az Azure AD-bérlő azonosítója. Adja meg a GUID Azonosítót vagy karakterlánc. Ez például akkor myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Szükséges | Null | Rendszergazdai Azure Resource Manager-végpontot. Ez például akkor adminmanagement.local.azurestack.external. |
-| TenantARMEndpoint | Szükséges | Null | A bérlői Azure Resource Manager-végpontot. Ez például akkor management.local.azurestack.external. |
-| AzureStackAdminCredential | Szükséges | Null | Az Azure AD szolgáltatás rendszergazdai hitelesítő adataihoz. |
-| CertificateFilePath | Szükséges | Null | **Teljes elérési útja** , az identitás alkalmazástanúsítvány-fájlja korábban létrehozott. |
-| CertificatePassword | Szükséges | Null | Olyan jelszót, amely segít megvédeni a tanúsítvány titkos kulcsa. |
+| DirectoryTenantName | Kötelező | Null | Az Azure AD-bérlő azonosítója. Adja meg a GUID Azonosítót vagy karakterlánc. Ez például akkor myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Kötelező | Null | Rendszergazdai Azure Resource Manager-végpontot. Ez például akkor adminmanagement.local.azurestack.external. |
+| TenantARMEndpoint | Kötelező | Null | A bérlői Azure Resource Manager-végpontot. Ez például akkor management.local.azurestack.external. |
+| AzureStackAdminCredential | Kötelező | Null | Az Azure AD szolgáltatás rendszergazdai hitelesítő adataihoz. |
+| CertificateFilePath | Kötelező | Null | **Teljes elérési útja** , az identitás alkalmazástanúsítvány-fájlja korábban létrehozott. |
+| CertificatePassword | Kötelező | Null | Olyan jelszót, amely segít megvédeni a tanúsítvány titkos kulcsa. |
 | Környezet | Választható | AzureCloud | A neve, a támogatott Felhőbeli környezet, amelyben a cél Azure Active Directory Graph szolgáltatás érhető el.  Megengedett értékek: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory összevonási szolgáltatások alkalmazás létrehozása
@@ -395,11 +401,11 @@ Kövesse az alábbi lépéseket:
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Szükséges | Null | Rendszergazdai Azure Resource Manager-végpontot. Ez például akkor adminmanagement.local.azurestack.external. |
-| PrivilegedEndpoint | Szükséges | Null | Kiemelt végponthoz. Ez például akkor AzS-ERCS01. |
-| CloudAdminCredential | Szükséges | Null | Tartományi fiók hitelesítő adatai Azure Stack-felhő rendszergazdái számára. Ez például akkor Azurestack\CloudAdmin. |
-| CertificateFilePath | Szükséges | Null | **Teljes elérési útja** az identitásalkalmazáshoz tanúsítvány PFX-fájlba. |
-| CertificatePassword | Szükséges | Null | Olyan jelszót, amely segít megvédeni a tanúsítvány titkos kulcsa. |
+| AdminArmEndpoint | Kötelező | Null | Rendszergazdai Azure Resource Manager-végpontot. Ez például akkor adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Kötelező | Null | Kiemelt végponthoz. Ez például akkor AzS-ERCS01. |
+| CloudAdminCredential | Kötelező | Null | Tartományi fiók hitelesítő adatai Azure Stack-felhő rendszergazdái számára. Ez például akkor Azurestack\CloudAdmin. |
+| CertificateFilePath | Kötelező | Null | **Teljes elérési útja** az identitásalkalmazáshoz tanúsítvány PFX-fájlba. |
+| CertificatePassword | Kötelező | Null | Olyan jelszót, amely segít megvédeni a tanúsítvány titkos kulcsa. |
 
 ## <a name="next-steps"></a>További lépések
 

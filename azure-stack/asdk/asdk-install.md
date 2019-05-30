@@ -3,7 +3,7 @@ title: Az Azure Stack Development Kit (ASDK) telepítése |} A Microsoft Docs
 description: Az Azure Stack Development Kit (ASDK) telepítését ismerteti.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c14b55379bfad08cbb604b8f27b45a125741a241
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 277b2e8c86cda65167a734d0e5775ec1748ef219
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617402"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267641"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Az Azure Stack Development Kit (ASDK) telepítése
 Miután [a ASDK számítógép előkészítése](asdk-prepare-host.md), a ASDK is üzembe helyezhetők az alábbi lépéseket követve ebben a cikkben a CloudBuilder.vhdx lemezképpel.
@@ -73,7 +73,7 @@ A jelen cikkben ismertetett lépések bemutatják, hogyan helyezhet üzembe a gr
 
 8. Az Azure AD központi telepítésének hajt végre, ha meg kéri, adja meg az Azure AD globális rendszergazdai fiók hitelesítő adatait, a telepítő indítása után néhány percet.
 
-9. Az üzembe helyezési folyamat eltarthat néhány óráig, amely idő alatt a számítógép automatikusan újraindul egyszer. Ha azt szeretné, a telepítési folyamat állapotának monitorozásához, jelentkezzen be felhasználóként azurestack\AzureStackAdmin a development kit gazdagép újraindítása után. Az üzembe helyezés sikeres, a PowerShell-konzolon jeleníti meg: **HAJTSA VÉGRE: A művelet "Telepítés"**. 
+9. Az üzembe helyezési folyamat eltarthat néhány óráig, amely idő alatt a számítógép automatikusan újraindul egyszer. Ha azt szeretné, a telepítési folyamat állapotának monitorozásához, jelentkezzen be felhasználóként azurestack\AzureStackAdmin a development kit gazdagép újraindítása után. Az üzembe helyezés sikeres, a PowerShell-konzolon jeleníti meg: **HAJTSA VÉGRE: A művelet "Telepítés"** . 
     > [!IMPORTANT]
     > Ha bejelentkezik egy helyi rendszergazdaként után a gép az azurestack tartományhoz csatlakozik, akkor nem jelenik meg az üzembehelyezési folyamatot. Futtassa újra a központi telepítés, ne inkább jelentkezhessen be azurestack\AzureStackAdmin ellenőrzése, hogy fut-e.
 

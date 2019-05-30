@@ -3,7 +3,7 @@ title: Hozzon létre egy előkészített adatelemzési megoldással az Azure és
 description: Ismerje meg, hogyan hozhat létre egy előkészített adatelemzési megoldással az Azure és az Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 2c2b06db3bb6144620b5fce1a7e3e76fdd06589a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303276"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252012"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Hozzon létre egy előkészített adatelemzési megoldással az Azure és az Azure Stackben 
 
@@ -134,7 +134,7 @@ Hozzon létre egy új Azure Stack-függvény tiszta adatok áthelyezése az Azur
 
     | Beállítás | Ajánlott érték | Leírás |
     | ---- | ---- | ---- |
-    | App neve | Globálisan egyedi név | Az új függvényalkalmazást azonosító név. Érvényes karakterek: `a` - `z`, `0``-9`, és `-`. |
+    | Alkalmazásnév | Globálisan egyedi név | Az új függvényalkalmazást azonosító név. Érvényes karakterek: `a` - `z`, `0``-9`, és `-`. |
     | Előfizetés | Az Ön előfizetése | Az előfizetés, amelyben létrehozta az új függvényalkalmazást. |
     | **Erőforráscsoport** |  |  |
     | myResourceGroup | Az új erőforráscsoport neve, amelyben létrehozza a függvényalkalmazást. |  |
@@ -186,7 +186,7 @@ Hozzon létre egy új Azure Stack-függvény tiszta adatok áthelyezése az Azur
    | Beállítás | Ajánlott érték | Leírás |
    | ------- | ------- | ------- |
    | Name (Név) | Egyedi a függvényalkalmazásban | A blob által aktivált függvény neve. |
-   | Útvonal | \<a fenti tárolási hely elérési útja > | A figyelt blobtárolóban található hely. A blob fájlneve a kötésben a name paraméter át. |
+   | `Path` | \<a fenti tárolási hely elérési útja > | A figyelt blobtárolóban található hely. A blob fájlneve a kötésben a name paraméter át. |
    | Tárfiók kapcsolata | Függvény alkalmazás kapcsolat | A tárfiók kapcsolata a függvényalkalmazás által már használt használja, vagy hozzon létre egy újat. |
 
    **Példa**
@@ -246,7 +246,7 @@ A lépéseket és a egy másik tárolási fiók és a blob tároló létrehozás
     | Beállítás | Ajánlott érték | Leírás |
     | ------- | ------- | ------- |
     | Name (Név) | Egyedi a függvényalkalmazásban | Az üzenetsor által aktivált függvény neve. |
-    | Útvonal | \<a fenti tárolási hely elérési útja > | A figyelt tárolási helye. Az üzenetsor neve, mint a name paraméter a kötés átadott. |
+    | `Path` | \<a fenti tárolási hely elérési útja > | A figyelt tárolási helye. Az üzenetsor neve, mint a name paraméter a kötés átadott. |
     | Tárfiók kapcsolata | Függvény alkalmazás kapcsolat | A tárfiók kapcsolata a függvényalkalmazás által már használt használja, vagy hozzon létre egy újat. |
 
 3.  Válassza ki **létrehozás** a függvény létrehozásához.

@@ -3,7 +3,7 @@ title: Csatlakozás az Azure Stack parancssori felülettel |} A Microsoft Docs
 description: Az Azure Stacken erőforrásokat üzembe helyezheti és kezelheti a többplatformos parancssori felület (CLI) használata
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473876"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269534"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-verzióprofilok használata az Azure CLI-vel az Azure Stackben
 
@@ -43,12 +43,21 @@ Ha egy integrált rendszer használ, nem kell a legfelső szintű hitelesítéss
 
 PEM-formátumú ASDK legfelső szintű tanúsítványának exportálásához:
 
-1. [Egy Windows virtuális gép létrehozása az Azure Stackben](azure-stack-quick-windows-portal.md).
+1. Kérje le az Azure Stack legfelső szintű tanúsítvány neve:
+    - Jelentkezzen be az Azure Stack-bérlő vagy a felügyeleti portálra.
+    - Kattintson a "Biztonságos" közel címet a böngésző címsorába.
+    - Az előugró ablakban kattintson az "Érvényes".
+    - A tanúsítvány ablakban kattintson a "Tanúsítványláncba" fülre. 
+    - Jegyezze fel az Azure Stack legfelső szintű tanúsítvány nevére.
 
-2. Jelentkezzen be a gépre, nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő szkriptet:
+    ![Az Azure Stack főtanúsítványának](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+
+2. [Egy Windows virtuális gép létrehozása az Azure Stackben](azure-stack-quick-windows-portal.md).
+
+3. Jelentkezzen be a gépre, nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő szkriptet:
 
     ```powershell  
-      $label = "AzureStackSelfSignedRootCert"
+      $label = "<the name of your azure stack root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -64,7 +73,7 @@ PEM-formátumú ASDK legfelső szintű tanúsítványának exportálásához:
     certutil -encode root.cer root.pem
     ```
 
-3. Másolja a tanúsítványt a helyi gépen.
+4. Másolja a tanúsítványt a helyi gépen.
 
 
 ### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>A virtuális gép aliasok végpontjának beállítása
@@ -104,9 +113,9 @@ Ez a szakasz végigvezeti beállítása CLI Ha használja az Azure AD, az identi
 
 A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató tanúsítványát a távoli gépen kell. Nem kell ehhez az integrált rendszerekkel.
 
-Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatóként hozzáfűzése a meglévő Python-tanúsítvány telepítése az Azure CLI-vel a Python-verzió. Előfordulhat, hogy a saját Python-példányt futtató. Az Azure parancssori felület Python saját verzióját tartalmazza.
+Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatóként hozzáfűzése a meglévő Python tanúsítványtárolójába a Python-verzió telepítve van az Azure CLI használatával. Előfordulhat, hogy a saját Python-példányt futtató. Az Azure parancssori felület Python saját verzióját tartalmazza.
 
-1. Keresse meg a tanúsítvány helye a gépen.  A hely találhatja meg a következő parancs futtatásával `az --version`.
+1. Keresse meg a gépén a tanúsítványtár helye.  A hely találhatja meg a következő parancs futtatásával `az --version`.
 
 2. Lépjen abba a mappába, amely tartalmazza azt a parancssori felület Python-alkalmazás használ. Érdemes a python verzióját futtatják. Ha a rendszer elérési ÚTJA állította be a Python, a Python futtatásának végrehajtja Python saját verzióját. Ehelyett érdemes a CLI által használt verziója fut, és adja hozzá a tanúsítvány azt a verziót. A parancssori felület Python lehet például: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
@@ -188,7 +197,7 @@ Az Azure Stack hitelesítésszolgáltató főtanúsítványát megbízhatóként
    ```
 
     >[!NOTE]  
-    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2018-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
+    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2019-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
  
 1. Jelentkezzen be az Azure Stack-környezet használatával a `az login` parancsot. Bejelentkezhet az Azure Stack-környezet vagy egy felhasználó vagy egy [szolgáltatásnév](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -304,11 +313,11 @@ A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató t
 1. Frissítés az Ön környezetének konfigurációját az Azure Stack meghatározott API verzió profil használatára. Frissítse a konfigurációt, futtassa a következő parancsot:
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2018-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
+    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2019-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
 
 1. Jelentkezzen be az Azure Stack-környezet használatával a `az login` parancsot. Bejelentkezhet az Azure Stack-környezet vagy egy felhasználó vagy egy [szolgáltatásnév](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -317,7 +326,7 @@ A ASDK használja, ha megbízik a legfelső szintű hitelesítésszolgáltató t
      Megadhatja a felhasználónevet és jelszót közvetlenül belül a `az login` parancsot, vagy hitelesíteni tudja a webböngésző használatával. Az utóbbi kell tennie, ha a fiók rendelkezik-e többtényezős hitelesítés engedélyezve:
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
@@ -420,11 +429,11 @@ A következő lépések segítségével csatlakozhat az Azure Stack:
 4. Frissítés az Ön környezetének konfigurációját az Azure Stack meghatározott API verzió profil használatára. Frissítse a konfigurációt, futtassa a következő parancsot:
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2018-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
+    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2019-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
 
 5. Jelentkezzen be az Azure Stack-környezet használatával a `az login` parancsot. Bejelentkezhet az Azure Stack-környezet vagy egy felhasználó vagy egy [szolgáltatásnév](/azure/active-directory/develop/app-objects-and-service-principals). 
 
@@ -531,11 +540,11 @@ A következő lépések segítségével csatlakozhat az Azure Stack:
 4. Frissítés az Ön környezetének konfigurációját az Azure Stack meghatározott API verzió profil használatára. Frissítse a konfigurációt, futtassa a következő parancsot:
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2018-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
+    >Ha egy Azure Stack verziója előtt a 1808 build futtat, az API-verzióprofil kell használnia **2017-03-09-profile** ahelyett, hogy az API-verzióprofil **2019-03-01-hibrid**. Szüksége lesz egy az Azure CLI legújabb verzióját használja.
 
 5. Jelentkezzen be az Azure Stack-környezet használatával a `az login` parancsot. Bejelentkezhet az Azure Stack-környezet vagy egy felhasználó vagy egy [szolgáltatásnév](/azure/active-directory/develop/app-objects-and-service-principals). 
 

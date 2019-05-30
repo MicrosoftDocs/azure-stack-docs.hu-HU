@@ -3,7 +3,7 @@ title: Speciális Azure Stack értékelési feladatok |} A Microsoft Docs
 description: Ez a cikk ismerteti az Azure Stack értékelési speciális feladatokat.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a0b42a600036cca90741cd64517a86e8ae3a7344
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fe78fa4b99ef7acad924165b98e20ca6156777bb
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65615820"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267114"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Az Azure Stack Development Kit értékelést speciális feladatok
 Után az Azure Stack Development Kit (ASDK) szolgáltatás alapszintű funkciók és képességek ismeretét, révén, akkor is mélyítheti a Tovább az Azure Stack által speciális forgatókönyvek tesztelését. Ezek összetettebb kiértékelése a feladatok teljes körűen vannak dokumentálva az Azure Stack operátori dokumentációja.

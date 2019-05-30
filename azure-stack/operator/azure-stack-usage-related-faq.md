@@ -3,7 +3,7 @@ title: Használati API kapcsolatos gyakori kérdések |} A Microsoft Docs
 description: Azure Stack-mérőszámok, összehasonlító Azure usage API-t, a használati idő és a jelzett idő, hibakódok listáját.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 847aa1723413b098219ea68ed541ed33b0c3103d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984074"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267938"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Gyakori kérdések az Azure Stack-használati API
 
@@ -125,7 +125,7 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Egység**: VM-órák  
 **Megjegyzések**: Rögzíti a kiinduló és a Windows virtuális gép. Nem módosíthatja a magok.  
   
-### <a name="managed-disks"></a>Felügyelt lemezek
+### <a name="managed-disks"></a>Managed Disks
 
 **Mérőszám azonosítója**: 380874f9-300c-48e0-95a0-d2d9a21ade8f   
 **Fogyasztásmérő neve**: S4   
@@ -366,14 +366,14 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Megjegyzések**: Determinisztikus mérőszám azonosítója Termékváltozat és egyéni feldolgozói réteg neve alapján jön létre. Ez a mérőszám azonosítója egy egyedülálló megoldás minden egyes egyéni feldolgozói réteg.  
   
 **Mérőszám azonosítója**: 264ACB47-AD38-47F8-ADD3-47F01DC4F473  
-**Fogyasztásmérő neve**: SNI SSL – SNI-célú SSL-tanúsítvány  
+**Fogyasztásmérő neve**: SNI-alapú SSL  
 **Egység**: SNI SSL-kötés kiszolgálónként  
-**Megjegyzések**: App Service kétféle SSL-kapcsolatot támogat: Server Name Indication (SNI) SSL Connections and IP Address SSL Connections. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
+**Megjegyzések**: App Service kétféle SSL-kapcsolatot támogat: Kiszolgálónév jelzése (SNI) SSL és az IP-cím alapú SSL. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
   
 **Mérőszám azonosítója**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
-**Fogyasztásmérő neve**: IP SSL – IP-célú SSL-tanúsítvány  
+**Fogyasztásmérő neve**: IP SSL  
 **Egység**: / IP-cím alapú SSL-kötés  
-**Megjegyzések**: App Service kétféle SSL-kapcsolatot támogat: Server Name Indication (SNI) SSL Connections and IP Address SSL Connections. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
+**Megjegyzések**: App Service kétféle SSL-kapcsolatot támogat: Kiszolgálónév jelzése (SNI) SSL és az IP-cím alapú SSL. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
   
 **Mérőszám azonosítója**: 73215A6C-FA54-4284-B9C1-7E8EC871CC5B  
 **Fogyasztásmérő neve**:  Web Process (Webes folyamat)  

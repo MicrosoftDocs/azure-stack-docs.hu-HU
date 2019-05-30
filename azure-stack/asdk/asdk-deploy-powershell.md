@@ -3,7 +3,7 @@ title: Üzembe helyezése az Azure Stack – PowerShell |} A Microsoft Docs
 description: Ez a cikk a ASDK a parancssorból, PowerShell használatával telepítse.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 05a3d0a88f4852395942d58ac798d2eb06a1d766
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 4a32631441760db715443b8979e2769b55258fcf
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617563"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267155"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>A parancssorból a ASDK üzembe helyezése
 A ASDK olyan kiértékeléséhez, és mutassa be az Azure Stack-szolgáltatások és szolgáltatások telepítését, tesztelési és fejlesztési környezet. Letöltés működik, és szüksége a környezet hardver előkészítése, és néhány (Ez több óráig fog tartani) parancsfájlok futtatása. Ezt követően bejelentkezhet a rendszergazdai és felhasználói portált az Azure Stack használatának megkezdéséhez.
@@ -106,7 +106,7 @@ A csomag telepítéséhez **az AD FS használata Identitásszolgáltatóként**,
 
 Az AD FS-telepítések az alapértelmezett stamp címtárszolgáltatás használja Identitásszolgáltatóként. Jelentkezzen be az alapértelmezett fiók azurestackadmin@azurestack.local, és a jelszót a PowerShell telepítő-parancsok részeként megadott értékre lesz beállítva.
 
-Az üzembe helyezési folyamat néhány órát, amely idő alatt a rendszer automatikusan újraindítás után is igénybe vehet. Az üzembe helyezés sikeres, a PowerShell-konzolon jeleníti meg: **HAJTSA VÉGRE: A művelet "Telepítés"**. Ha a központi telepítés sikertelen, próbálkozzon újra a szkript futtatása a - Újrafuttatás paramétert. Is [ismételt üzembe helyezése ASDK](asdk-redeploy.md) sablon nélkül.
+Az üzembe helyezési folyamat néhány órát, amely idő alatt a rendszer automatikusan újraindítás után is igénybe vehet. Az üzembe helyezés sikeres, a PowerShell-konzolon jeleníti meg: **HAJTSA VÉGRE: A művelet "Telepítés"** . Ha a központi telepítés sikertelen, próbálkozzon újra a szkript futtatása a - Újrafuttatás paramétert. Is [ismételt üzembe helyezése ASDK](asdk-redeploy.md) sablon nélkül.
 
 > [!IMPORTANT]
 > Ha azt szeretné, a telepítési folyamat állapotának monitorozásához a ASDK gazdagép újraindítása után, jelentkezzen be, AzureStack\AzureStackAdmin. Ha bejelentkezik egy helyi rendszergazdaként után a számítógép újraindítása (és a azurestack.local tartományhoz csatlakoztatott), meg nem jelenik meg az üzembehelyezési folyamatot. Futtassa újra a központi telepítés, ne inkább jelentkezzen be, AzureStack\AzureStackAdmin ugyanazt a jelszót a helyi rendszergazdaként, hogy fut-e a telepítés ellenőrzése.
@@ -141,9 +141,9 @@ Ha a környezet nem rendelkezik DHCP-kompatibilis, majd meg kell adnia a követk
 
 |Paraméter|Kötelező/választható|Leírás|
 |-----|-----|-----|
-|AdminPassword|Szükséges|A helyi rendszergazda fiók és minden egyéb felhasználói fiók beállítása development kit központi telepítésének részeként létrehozott összes virtuális gépet. Ezt a jelszót meg kell egyeznie a jelenlegi helyi rendszergazda jelszavát, a gazdagépen.|
-|InfraAzureDirectoryTenantName|Szükséges|Beállítja a bérlőcímtárat. Használja ezt a paramétert, egy adott címtár megadására, ahol az AAD-fiók jogosult több címtár kezelésére. Teljes név formátumban egy AAD Directory-bérlő. onmicrosoft.com vagy egy Azure AD ellenőrizte az egyéni tartomány nevét.|
-|TimeServer|Szükséges|Ez a paraméter használatával adja meg a megadott idő kiszolgálót. Ez a paraméter egy érvényes idő-kiszolgáló IP-címét meg kell adni. Kiszolgálók nevei nem támogatottak.|
+|AdminPassword|Kötelező|A helyi rendszergazda fiók és minden egyéb felhasználói fiók beállítása development kit központi telepítésének részeként létrehozott összes virtuális gépet. Ezt a jelszót meg kell egyeznie a jelenlegi helyi rendszergazda jelszavát, a gazdagépen.|
+|InfraAzureDirectoryTenantName|Kötelező|Beállítja a bérlőcímtárat. Használja ezt a paramétert, egy adott címtár megadására, ahol az AAD-fiók jogosult több címtár kezelésére. Teljes név formátumban egy AAD Directory-bérlő. onmicrosoft.com vagy egy Azure AD ellenőrizte az egyéni tartomány nevét.|
+|TimeServer|Kötelező|Ez a paraméter használatával adja meg a megadott idő kiszolgálót. Ez a paraméter egy érvényes idő-kiszolgáló IP-címét meg kell adni. Kiszolgálók nevei nem támogatottak.|
 |InfraAzureDirectoryTenantAdminCredential|Választható|Beállítja az Azure Active Directory felhasználónevet és jelszót. Ezeket az Azure a hitelesítő adatokat kell lennie a szervezeti azonosítóval.|
 |InfraAzureEnvironment|Választható|Válassza ki a Azure-környezet, amellyel az Azure Stack üzemelő példányához regisztrálni szeretne. Globális Azure, Azure - Kína, Azure - US Government a lehetőségek között.|
 |DNSForwarder|Választható|DNS-kiszolgáló létrehozása az Azure Stack üzembe helyezés részeként. Ahhoz, hogy a számítógépek belül a megoldás a stamp kívül nevek feloldása, adja meg a meglévő infrastruktúra DNS-kiszolgáló. A stamp a DNS-kiszolgáló ezen a kiszolgálón ismeretlen névfeloldási kérelmeket továbbítja.|

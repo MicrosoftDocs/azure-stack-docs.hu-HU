@@ -3,7 +3,7 @@ title: A Microsoft Azure Stack hibaelhárítása |} A Microsoft Docs
 description: Az Azure Stack Development Kit (ASDK) hibaelhárítási információkat.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 70985ce475ecfe956646941c6b61d70176639eac
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a84e85eacb033fc872241feea905b742eee0591b
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617489"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267247"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>A Microsoft Azure Stack Development Kit (ASDK) hibáinak elhárítása
 Ez a cikk a ASDK általános hibaelhárítási információkat nyújt. Ha nem ismertetett problémát tapasztal, ellenőrizze, hogy ellenőrizze a [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) további segítséget és információt.  

@@ -3,7 +3,7 @@ title: Web- és API-alkalmazások felhasználók számára elérhetővé az Azur
 description: Az oktatóanyag az App Service erőforrás-szolgáltató telepítéséhez, és hozzon létre kínál, amelyek lehetővé teszik az Azure Stack felhasználói web- és API-alkalmazások létrehozásához.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: anwestg
 ms.custom: mvc
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9954e351ecd584925d264d0c8c5e8fb8e2507192
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fbf6993447f22a354c61102b9e670c8f1188f48d
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618647"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268091"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Oktatóanyag: web- és API-alkalmazások elérhetővé tétele az Azure Stack-felhasználók számára
 
@@ -72,7 +72,7 @@ Ebben a példában létrehozunk egy DNN Platform tartalomkezelő rendszer. Elős
 2. Használja az alapértelmezett értékeket, kivéve a következő mezőket:
 
     - **Adatbázis neve**: DNNdb
-    - **Maximális méret (MB)**: 100
+    - **Maximális méret (MB)** : 100
     - **Előfizetés**: TestAppServiceOffer
     - **Erőforráscsoport**: DNN-RG
 

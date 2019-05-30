@@ -3,7 +3,7 @@ title: API-verzióprofilok használata a .NET SDK-t az Azure Stackben |} A Micro
 description: Ismerje meg az API-verzióprofilok használata a .NET-tel az Azure Stackben.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1b81836c6262a73611ebfb2cc771ab74fd9f03fc
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: da93d2683805c6e9769a3d27a9e9ab3a4b998db5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782729"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269376"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-verzióprofilok használata a .NET-tel az Azure Stackben
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-A .NET SDK-t az Azure Stack Resource Manager biztosít eszközöket és az infrastruktúra kezelését. Az SDK-t az erőforrás-szolgáltatók közé tartozik a számítási, hálózatkezelési, tárolási, alkalmazásszolgáltatások, és [KeyVault](/azure/key-vault/key-vault-whatis). A .NET SDK NuGet-csomagok 14 tartalmazza. Ezeket a csomagokat kell letölteni a projekt megoldás, amely magában foglalja a profiladatok minden alkalommal, amikor. Azonban kifejezetten letöltheti melyik erőforrás-szolgáltatót fogja használni a 2018-03-01-hibrid vagy 2017-03-09-profile annak érdekében, hogy az alkalmazás memóriájának optimalizálása. Minden csomag áll egy erőforrás-szolgáltató, a megfelelő API-verzió és az API-profilt, amelyhez tartozik. A .NET SDK API-profilok engedélyezése a hibrid felhőalapú fejlesztés segít a globális Azure-erőforrások és az Azure Stacken erőforrások közötti váltáshoz.
+A .NET SDK-t az Azure Stack Resource Manager biztosít eszközöket és az infrastruktúra kezelését. Az SDK-t az erőforrás-szolgáltatók közé tartozik a számítási, hálózatkezelési, tárolási, alkalmazásszolgáltatások, és [KeyVault](/azure/key-vault/key-vault-whatis). A .NET SDK NuGet-csomagok 14 tartalmazza. Ezeket a csomagokat kell letölteni a projekt megoldás, amely magában foglalja a profiladatok minden alkalommal, amikor. Azonban kifejezetten letöltheti melyik erőforrás-szolgáltatót fogja használni a 2019-03-01-hibrid vagy a 2018-03-01-hibrid annak érdekében, hogy az alkalmazás memóriájának optimalizálása. Minden csomag áll egy erőforrás-szolgáltató, a megfelelő API-verzió és az API-profilt, amelyhez tartozik. A .NET SDK API-profilok engedélyezése a hibrid felhőalapú fejlesztés segít a globális Azure-erőforrások és az Azure Stacken erőforrások közötti váltáshoz.
 
 ## <a name="net-and-api-version-profiles"></a>.NET- és API-verzióprofilok
 
@@ -35,11 +35,11 @@ Egy API-profil az erőforrás-szolgáltatók és API-verziók. Az API-profilok s
 
 -   Az összes szolgáltatás legújabb verzióját használni, hogy a **legújabb** profil olyan csomagot. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
 
--   Az Azure Stack kompatibilis szolgáltatások használatához a **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg** vagy **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg** csomagokat.
-
-    -   Nincsenek mindegyik erőforrás-szolgáltató az egyes profilok két csomagot.
-
-    -   Ügyeljen arra, hogy a **ResourceProvider** a fenti NuGet-csomag része a megfelelő szolgáltató értékűre változik.
+-   Az Azure Stack kompatibilis szolgáltatások használatához használja a következő csomagok egyikét:
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+    
+    Ügyeljen arra, hogy a **ResourceProvider** a fenti NuGet-csomag része a megfelelő szolgáltató értékűre változik.
 
 -   A szolgáltatás legújabb API-verzióját használja, használja a **legújabb** profiljának adott NuGet-csomag. Például, ha használni szeretné a **legújabb API-** a számítási szolgáltatás önálló, használja a **legújabb** profiljának a **számítási** csomagot. A **legújabb** profil része a **Microsoft.Azure.Management** NuGet-csomagot.
 
@@ -55,9 +55,9 @@ Kombinálhatja a lehetőségek a ugyanazt az alkalmazást.
 
 3.  A csomagokat, amelyeket telepíteni kell a használni kívánt profilt verziójától függ. A csomag nevét, a profil-verziók a következők:
 
-    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**
+    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**
+    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 4.  A megfelelő NuGet-csomagok telepítése a Visual Studio Code, tekintse meg a következő hivatkozásra kattintva töltse le a [NuGet-Csomagkezelő utasítások][].
 
@@ -127,9 +127,9 @@ JSON-mintafájlt:
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Az Azure Stackhez készült legújabb profil. Ez a profil Services kompatibilis az Azure Stack mindaddig, amíg a 1808 blokk vagy a további használhatják.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Az Azure Stackhez készült legújabb profil. Ez a profil Services kompatibilis az Azure Stack mindaddig, amíg a 1808 blokk vagy a további használhatják.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: Ha Ön egy alacsonyabb, mint a 1808 build stamp, használja ezt a profilt.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 3.  **Legújabb**: Az összes szolgáltatást a legújabb verziókat álló profilt. Az összes szolgáltatást a legújabb verziókat használhatja. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
 
@@ -186,6 +186,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
     return settings;
 }
 ```
+
 Ez lehetővé teszi, hogy az alkalmazás telepítése sikeresen megtörtént az Azure Stack az API-profil NuGet-csomagok segítségével.
 
 ## <a name="samples-using-api-profiles"></a>API-profilok használatával minták
@@ -193,7 +194,7 @@ Ez lehetővé teszi, hogy az alkalmazás telepítése sikeresen megtörtént az 
 A következő minták referenciaként használható megoldások létrehozásához a .NET-keretrendszer és az Azure Stack API profilokkal.
 - [Erőforráscsoportok kezelése](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Storage-fiókok kezelése](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
-- [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
+- [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (ebben a példában az Azure Stack által támogatott a 2019-03-01-hibrid profil)
 
 ## <a name="next-steps"></a>További lépések
 

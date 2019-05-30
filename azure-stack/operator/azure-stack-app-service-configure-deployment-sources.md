@@ -3,7 +3,7 @@ title: Központi telepítés forrásának konfigurálása az App Services az Azu
 description: Hogyan szolgáltatás-rendszergazda képes központi telepítés forrásának konfigurálása (a Git, GitHub, BitBucket, DropBox és onedrive vállalati verzió) az App Services az Azure Stackben
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d3e1faf53465e193faac8f4716868a9b1b10105c
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 8512568c709770f736d6740d83578dee7391adff
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618237"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269257"
 ---
 # <a name="configure-deployment-sources"></a>Központi telepítés forrásának konfigurálása
 
@@ -95,7 +95,7 @@ Egy Microsoft Account befejezheti a feladatot egy OneDrive-fiókjához társíto
 1. Keresse meg a https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm , és jelentkezzen be Microsoft-Account.
 2. A **alkalmazásaimat**, kattintson a **alkalmazás hozzáadása**.
 ![Onedrive vállalati alkalmazások][10]
-3. Adjon meg egy **neve** az új alkalmazás regisztrálása a: Adja meg **futó Azure Stack App Service-**, és kattintson a **alkalmazás létrehozása**
+3. Adjon meg egy **neve** az új alkalmazás regisztrálása a: Adja meg **futó Azure Stack App Service-** , és kattintson a **alkalmazás létrehozása**
 4. A következő képernyőn az új alkalmazás tulajdonságai szerepelnek. Mentse a **Alkalmazásazonosító** egy ideiglenes helyre.
 ![Onedrive vállalati verzió alkalmazás tulajdonságai][11]
 5. A **titkos Alkalmazáskulcsok**, kattintson a **új jelszó készítése**. Jegyezze fel a **új jelszó készült**. Ez az alkalmazás titkos kulcs és nem lekérdezhető kattintás után **OK**.

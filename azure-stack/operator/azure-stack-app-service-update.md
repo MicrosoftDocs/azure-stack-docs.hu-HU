@@ -3,7 +3,7 @@ title: Frissítse az Azure App Service az Azure Stackben |} A Microsoft Docs
 description: Részletes útmutatást az Azure Stack az Azure App Service frissítése
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: bc379bfa93983c2e1579ebf657ce86558abc7d20
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 95611e776d2517bffaa7a3693362f5d227943bd0
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618204"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269082"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Frissítse az Azure App Service az Azure Stackben
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-> [!IMPORTANT]  
-> Az Azure Stackkel integrált rendszereknél 1901 frissítés alkalmazása, vagy a legújabb Azure Stack fejlesztői készletének telepítése az Azure App Service 1.5 telepítése előtt.
+> [!IMPORTANT]
+> Az Azure Stackkel integrált rendszereknél 1904 frissítés alkalmazása, vagy a legújabb Azure Stack fejlesztői készletének telepítése az Azure App Service 1.6-os üzembe helyezése előtt.
 
 Ez a cikk utasításait követve frissíthet a [App Service erőforrás-szolgáltató](azure-stack-app-service-overview.md) üzembe helyezve az Azure Stack-környezet, amely csatlakozik az internethez.
 
-> [!IMPORTANT]  
-> A frissítés futtatása előtt győződjön meg arról, hogy már végrehajtotta a [központi telepítését az Azure App Service az Azure Stack Resource Provider](azure-stack-app-service-deploy.md) , és hogy rendelkezik olvasási a [kibocsátási megjegyzések](azure-stack-app-service-release-notes-update-five.md) amely kísérő az 1.5-ös kiadás útmutató új funkciókat, javításokat és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés.
+> [!IMPORTANT]
+> A frissítés futtatása előtt győződjön meg arról, hogy már végrehajtotta a [központi telepítését az Azure App Service az Azure Stack Resource Provider](azure-stack-app-service-deploy.md) , és hogy rendelkezik olvasási a [kibocsátási megjegyzések](azure-stack-app-service-release-notes-update-six.md) amely kísérő az 1.6-os verzióra kiadási ismerje meg új funkciókat, javításokat és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Az App Service-ben resource provider telepítőjének futtatása
 
@@ -52,7 +52,7 @@ Ez a folyamat során a frissítés tartalma:
 
 Az App Service üzemelő példánya az Azure Stackben a frissítéshez kövesse az alábbi lépéseket:
 
-1. Töltse le a [az App Service-telepítő](https://aka.ms/appsvcupdate5installer)
+1. Töltse le a [az App Service-telepítő](https://aka.ms/appsvcupdate6installer)
 
 2. Appservice.exe futtassa rendszergazdaként
 

@@ -3,7 +3,7 @@ title: Hibrid felhő-kapcsolat konfigurálása az Azure és az Azure Stack |} A 
 description: 'Útmutató: hibrid felhő-kapcsolat konfigurálása az Azure és az Azure Stack.'
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 845bc2a04fe3153d0385a75445b28b51264c6b6b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 00f7c3b990e9930571ace8adec9a33d0c9105be6
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301934"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252032"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Oktatóanyag: hibrid felhő-kapcsolat konfigurálása az Azure és az Azure Stackben
 
@@ -73,7 +73,7 @@ Ez az oktatóanyag feltételezi, hogy néhány alapvető ismeretek az Azure és 
  - [Csomag és ajánlat létrehozása](../operator/azure-stack-plan-offer-quota-overview.md) az Azure Stack-környezetben.
  - [Hozzon létre a bérlő előfizetés](../operator/azure-stack-subscribe-plan-provision-vm.md) belül az Azure Stack-környezet.
 
-### <a name="before-you-begin"></a>Előzetes teendők
+### <a name="before-you-begin"></a>Előkészületek
 
 Győződjön meg arról, hogy a hibrid felhőalapú kapcsolat beállítása előtt megfelelnek a következő feltételeknek:
 

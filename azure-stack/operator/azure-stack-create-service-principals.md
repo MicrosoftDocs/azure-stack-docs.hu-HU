@@ -3,7 +3,7 @@ title: Kezelheti egy egyszerű szolgáltatást az Azure Stackhez |} A Microsoft 
 description: Egy új egyszerű szolgáltatást, amely a szerepköralapú hozzáférés-vezérlés az Azure Resource Manager-erőforrásokhoz való hozzáférés kezelésére használható kezelését ismerteti.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: PatAltimore
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/17/2019
-ms.author: sethm
+ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 1bb07c1725d5c8ed81ec4b8ccc546a4d41dc64e0
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855333"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268799"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Hozzáférést biztosít az alkalmazásoknak az Azure Stackhez
 
@@ -372,7 +372,7 @@ Beállíthatja a hatókör szintjén is az előfizetés, erőforráscsoport vagy
 
      ![Válasszon hozzárendelés előfizetést](./media/azure-stack-create-service-principal/image16.png)
 
-3. Válassza ki **hozzáférés-vezérlés (IAM)**.
+3. Válassza ki **hozzáférés-vezérlés (IAM)** .
 
      ![Jelölje be a hozzáférés](./media/azure-stack-create-service-principal/image17.png)
 

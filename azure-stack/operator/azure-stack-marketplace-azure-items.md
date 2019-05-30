@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521310"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252133"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -57,8 +57,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Egyszerűen üzembe helyezhető, költséghatékony, alkalmazásorientáltak és a felhasználó-központú nagyvállalati szintű megoldások. Ezek a lemezképek rendszeresen frissülnek a legújabb javításokat. **Fontos információk: A képek előtt 2018. január 18 kell kell hagyni, a legújabb verziókat cseréli le.** | Microsoft |
 | ![A SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 próbaverziójának a Windows Server 2012 Datacenter és a 2019 Visual Studio community Edition kiadását. | Microsoft |
 | ![A SharePoint Server 2016 próbaverzióját](media/azure-stack-marketplace-azure-items/sharepoint.png) | [A SharePoint Server 2016 próbaverzióját](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | A Microsoft SharePoint Server 2016 próbaverzióját a Windows Server 2016 Datacenter. | Microsoft |
-| ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [Az SQL Server 2014 SP2, Windows Server 2012 R2 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
-) | SQL Server 2014 Service Pack 2. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |
+| ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [Az SQL Server 2014 SP2, Windows Server 2012 R2 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |
 | ![SQL Server 2016 SP2 Standard on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Az SQL Server 2016 SP2 Standard Windows Server 2016 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | Adatbázis-platformot, intelligens, alapvető fontosságú alkalmazásokhoz. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |
 | ![Ingyenes licenc: Az SQL Server 2016 SP2 fejlesztői a Windows Server 2016 rendszeren](media/azure-stack-marketplace-azure-items/sql.png) | [Ingyenes licenc: Az SQL Server 2016 SP2 fejlesztői a Windows Server 2016 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Ingyenes fejlesztői tranzakciós adatok kezeléséhez készült SQL Server 2016 SP2 verziója ad választ, üzleti intelligencia és adatelemzési feladatokhoz. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |
 | ![Ingyenes licenc: Az SQL Server 2016 SP2 Express Windows Server 2016 rendszeren](media/azure-stack-marketplace-azure-items/sql.png) | [Ingyenes licenc: Az SQL Server 2016 SP2 Express Windows Server 2016 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | Az SQL Server 2016 SP2 ingyenes express verzió. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |
