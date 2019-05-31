@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 13fb23a2f40d6a616d83921a4bd760ed0be0d240
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712326"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411611"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 frissítése
 
@@ -31,6 +31,10 @@ Ez a cikk ismerteti a 1903 csomag tartalmát. A frissítési fejlesztései, jav�
 
 > [!IMPORTANT]
 > Ez a csomag csak olyan Azure Stack integrált rendszerek. Ez a csomag nem vonatkoznak az Azure Stack Development Kit.
+
+## <a name="archived-release-notes"></a>Archivált kibocsátási megjegyzések
+
+Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNet-katalógusban](http://aka.ms/azsarchivedrelnotes). Ezek a kibocsátási megjegyzések kizárólag tájékoztatási célt szolgálnak, és jelenti ezen verziók támogatása archivált. További segítségért forduljon a Microsoft ügyfél-támogatási szolgálathoz.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
@@ -168,7 +172,7 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
 
    - Ha az előfizetés korábban jött létre a 1808 frissítése, a felügyelt lemezekkel rendelkező virtuális gép üzembe helyezése egy belső hiba miatt sikertelen lehet. A hiba elhárításához kövesse ezeket a lépéseket minden egyes előfizetés esetén:
       1. A bérlői portálon lépjen a **előfizetések** , és keresse meg az előfizetés. Válassza ki **erőforrás-szolgáltatók**, majd **Microsoft.Compute**, és kattintson a **újraregisztrálni**.
-      2. Lépjen az azonos előfizetéshez tartozó **hozzáférés-vezérlés (IAM)**, és ellenőrizze, hogy **Azure Stack – felügyelt lemez** szerepel a listán.
+      2. Lépjen az azonos előfizetéshez tartozó **hozzáférés-vezérlés (IAM)** , és ellenőrizze, hogy **Azure Stack – felügyelt lemez** szerepel a listán.
    - Egy több-bérlős környezet van beállítva, ha a virtuális gépek üzembe helyezéséhez egy adott előfizetéshez tartozó és a Vendég címtár egy belső hiba miatt meghiúsulhat. A hiba elhárításához kövesse az alábbi lépéseket a [Ez a cikk](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) újrakonfigurálása a Vendég címtárak mindegyike.
 
 - Egy Ubuntu 18.04 létrehozott virtuális gép SSH-engedélyezési engedélyezve van a nem teszi lehetővé, hogy az SSH-kulcsokkal való bejelentkezéshez használ. Áthidaló megoldásként használja a Linux-bővítményt a Virtuálisgép-hozzáférés SSH-kulcsok megvalósításához a kiépítés után, vagy jelszóalapú hitelesítés használatára.
@@ -217,7 +221,7 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
 
 <!-- 2352906 - IS ASDK -->
 - Bérlők az előfizetésben az első Azure-függvény létrehozása előtt a storage erőforrás-szolgáltatót regisztrálnia kell.
-- Néhány bérlői portál felhasználói élményeket egy alkalmazással a portál keretrendszer való inkompatibilitás miatt megszakadt 1903; alapvetően felhasználói üzembehelyezési pontok, az éles és a helyrendszer-bővítmények tesztelése. A probléma megkerüléséhez használja a [Azure App Service PowerShell-modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) vagy a [Azure CLI-vel](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). A portál felülete az Azure App Service az Azure Stack 1.6-os (6. frissítés) a soron következő kiadásban lesz visszaállítva.
+- Néhány bérlői portál felhasználói élményeket egy alkalmazással a portál keretrendszer való inkompatibilitás miatt megszakadt 1903; alapvetően felhasználói üzembehelyezési pontok, az éles és a helyrendszer-bővítmények tesztelése. A probléma megkerüléséhez használja a [Azure App Service PowerShell-modul](/azure/app-service/deploy-staging-slots#automate-with-powershell) vagy a [Azure CLI-vel](/cli/azure/webapp/deployment/slot?view=azure-cli-latest). A portál felülete az Azure App Service következő kiadásában lesz visszaállítva, amely az Azure Stack 1.6-os (6. frissítés) verziójában jelenik meg.
 
 <!-- ### Usage -->
 

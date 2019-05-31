@@ -31,7 +31,7 @@
   items:
     - name: A felügyeleti portál
       href: azure-stack-manage-portals.md
-- name: Oktatóprogramok
+- name: Oktatóanyagok
   items:
     - name: Virtuális gépek biztosítása
       href: azure-stack-tutorial-tenant-vm.md
@@ -47,13 +47,6 @@
   items:
     - name: Kapacitástervezés
       href: capacity-planning.md
-      items:
-        - name: Számítási kapacitásának megtervezése
-          href: capacity-planning-compute.md
-        - name: Tárolási kapacitásának megtervezése
-          href: capacity-planning-storage.md
-        - name: Az Azure Stack Capacity Planner
-          href: capacity-planning-spreadsheet.md
     - name: Adatközpont integrációja
       href: azure-stack-customer-journey.md
       items:
@@ -297,7 +290,7 @@
           href: app-service-billing-faq.md
         - name: A kezdés előtt
           href: azure-stack-app-service-before-you-get-started.md
-        - name: Az App Service üzembe helyezése
+        - name: App Service üzembe helyezése
           href: azure-stack-app-service-deploy.md
         - name: App Service üzembe helyezése magas rendelkezésre állás érdekében
           href: app-service-deploy-ha.md
@@ -388,11 +381,11 @@
           href: azure-stack-backup-best-practices.md
         - name: Biztonsági mentési referencia
           href: azure-stack-backup-reference.md
-    - name: Segítség kérése
+    - name: Segítségkérés
       items:
-        - name: "Súgó\_+ támogatás"
+        - name: Súgó és támogatás
           href: azure-stack-help-and-support.md
-        - name: Az eszköz nem tudta a várt módon befejezni a szinkronizálást. A probléma megoldásának módjáról erre az üzenetre kattintva tájékozódhat.
+        - name: Hibaelhárítás
           items:
             - name: Ismert problémák
               href: azure-stack-troubleshooting.md
@@ -404,7 +397,7 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview
-- name: Kapcsolódó
+- name: Kapcsolódó témakörök
   items:
     - name: Az Azure Stack felhasználói dokumentációja
       href: /azure-stack/user/

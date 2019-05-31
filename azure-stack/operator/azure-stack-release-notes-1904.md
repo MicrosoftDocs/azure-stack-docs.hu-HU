@@ -1,6 +1,6 @@
 ---
 title: Az Azure Stack 1904 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg Azure Stack integrált rendszerek, beleértve az újdonságokat, 1904 frissítésével kapcsolatos ismert problémák, valamint a helyét, a frissítés letöltése.
+description: Ismerje meg a 1904 frissítés az Azure Stack integrált rendszerek, beleértve az újdonságokat, az ismert problémák és a frissítés és az archivált Azure Stack kibocsátási megjegyzések letöltési helyét.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 770d3bc462750816e55f1c224496d9dde01f5a36
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174353"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411633"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -34,6 +34,10 @@ Ez a cikk ismerteti a 1904 csomag tartalmát. A frissítés magában foglalja az
 
 > [!IMPORTANT]  
 > Ez a csomag csak olyan Azure Stack integrált rendszerek. Ez a csomag nem vonatkoznak az Azure Stack Development Kit.
+
+## <a name="archived-release-notes"></a>Archivált kibocsátási megjegyzések
+
+Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNet-katalógusban](http://aka.ms/azsarchivedrelnotes). Ezek a kibocsátási megjegyzések kizárólag tájékoztatási célt szolgálnak, és jelenti ezen verziók támogatása archivált. További segítségért forduljon a Microsoft ügyfél-támogatási szolgálathoz.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
