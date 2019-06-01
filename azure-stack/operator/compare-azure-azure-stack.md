@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: eefe72aaf3e82c80d26a2963e0d8b4b921d9acf6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267530"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453431"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>Globális Azure, Azure Stack és az Azure Stack HCl közötti különbségek
 
@@ -76,9 +76,9 @@ Az erőforrás-szolgáltatók a fent leírt, kívül további PaaS-szolgáltatá
 
 További információ az Azure Stack, [az Azure Stack](azure-stack-overview.md).
 
-## <a name="azure-stack-hci"></a>Azure Stack HCI 
+## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-Az Azure Stack HCl-megoldások lehetővé teszik a helyszíni virtuális gépek futtatásához, és könnyedén csatlakozhat az Azure egy hiperkonvergens infrastruktúrával (HCL) megoldással. Egységes Azure-szolgáltatásokkal hozhat létre és futtathat felhőalapú alkalmazásokat a helyszínen a jogszabályi és műszaki előírásoknak való megfelelőség mellett. Mellett a virtualizált alkalmazások a helyszínen fut az Azure Stack HCl lehetővé teszi, hogy cserélje le, és konszolidálhatja az elévülés kiszolgálói infrastruktúrát, és csatlakozni az Azure cloud Services használatával a Windows Admin Center.
+[Az Azure Stack HCl](azure-stack-hci-overview.md) megoldások lehetővé teszik a helyszíni virtuális gépek futtatásához, és könnyedén csatlakozhat az Azure egy hiperkonvergens infrastruktúrával (HCL) megoldással. Egységes Azure-szolgáltatásokkal hozhat létre és futtathat felhőalapú alkalmazásokat a helyszínen a jogszabályi és műszaki előírásoknak való megfelelőség mellett. Mellett a virtualizált alkalmazások a helyszínen fut az Azure Stack HCl lehetővé teszi, hogy cserélje le, és konszolidálhatja az elévülés kiszolgálói infrastruktúrát, és csatlakozni az Azure cloud Services használatával a Windows Admin Center.
 
 Az Azure Stack HCl működteti, a Hyper-V és a közvetlen tárolóhelyek a Windows Server 2019 szoftveralapú adatközpont (SDDC) ellenőrzött HCl megoldásokat nyújt. A Windows Admin Center felügyeletére használható, és az Azure-szolgáltatásokhoz való hozzáférés például integrálva:
 

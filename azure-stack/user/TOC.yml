@@ -171,6 +171,8 @@
               maintainContext: true
             - name: Futtassa a Powershellt a Docker használatával
               href: azure-stack-powershell-user-docker.md
+            - name: Csatlakozás az Azure-fiók bővítmény használata
+              href: azure-stack-dev-start-vscode-azure.md
             - name: A Visual Studio telepítése
               href: azure-stack-install-visual-studio.md
             - name: Nyilvános SSH-kulcsot használ
@@ -186,7 +188,7 @@
                   href: azure-stack-version-profiles-java.md
                 - name: Azure CLI
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: Ugrás
+                - name: Indítás
                   href: azure-stack-version-profiles-go.md
                 - name: Ruby
                   href: azure-stack-version-profiles-ruby.md

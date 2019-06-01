@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca474c9addeec3b3b6fcaad8db55bc40a148bb8f
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: d6f77483730c9609ad9750da9b11f62de2874ff2
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506105"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453452"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Jelentéskészítési infrastruktúra felhőszolgáltatók használat
 
@@ -34,10 +34,10 @@ Nincsenek hogyan szolgáltatások díjszabása az Azure Stack és Azure között
 
 Akkor is megismerheti az Azure Stack az Azure-szolgáltatásokhoz hasonlóan azonos módon kereskedelmi és az árak a Partner Center, a használt mérőszámok:
 
-1. A Partner Center, lépjen a **Irányítópultos menüjében** > **díjszabás és ajánlatok**.
+1. Partnerközpont, nyissa meg a **Irányítópultos menüjében**, majd **értékesíteni**, majd válassza **díjszabás és ajánlatok**.
 2. A **használat alapú szolgáltatások**válassza **aktuális**.
 3. Nyissa meg a **Azure in CSP globális árlista** táblázatot.
-4. Szűrés **régióban az Azure Stack =**.
+4. Szűrés **régióban az Azure Stack =** .
 
 ## <a name="usage-and-billing-error-codes"></a>Használati és számlázási hibakódok
 
@@ -58,7 +58,7 @@ Az alábbi hibaüzenetek is kell észlelt, amikor egy regisztrációt a bérlők
 
 Az alábbi kifejezések és fogalmak használt használati és számlázási az Azure Stack:
 
-| Időszak | Meghatározás |
+| Kifejezés | Meghatározás |
 | --- | --- |
 | Közvetlen CSP-partner | Közvetlen Felhőszolgáltató (CSP) partner közvetlenül kap számlát közvetlenül a Microsoft Azure és az Azure Stack használatának, és a számlák vásárlóink számára. |
 | A közvetett CSP | Közvetett viszonteladók az közvetett szolgáltatóval (is terjesztő) működik. A viszonteladók toborzására végfelhasználókat; a közvetett szolgáltató tárolja a számlázást, a Microsoft, a számlázás a vásárlók kezeli, és további szolgáltatásokat, például a terméktámogatási szolgálathoz. |

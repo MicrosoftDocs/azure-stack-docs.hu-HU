@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/01/2019
-ms.openlocfilehash: 935f144ebbb40da66ac43fc8e9d5dfc7c3e3d0b6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983595"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428683"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -37,6 +37,15 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 - Ebben a kiadásban új szolgáltatások listáját lásd: [ebben a szakaszban](../operator/azure-stack-release-notes-1904.md#whats-in-this-update) kiadási megjegyzések az Azure Stack.
 
 ### <a name="fixed-and-known-issues"></a>Rögzített méretű és ismert problémák
+
+- Szolgáltatás egyszerű időtúllépése miatt annak érdekében, hogy a regisztrációs parancsfájl futtatásakor [regisztrálja a ASDK](asdk-register.md) sikeresen szerkesztenie kell a **RegisterWithAzure.psm1** PowerShell-parancsfájlt. Tegye a következőket:
+
+  1. A ASDK állomás számítógépen nyissa meg a fájlt **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** emelt jogosultsági szintű egy szövegszerkesztőben.
+  2. 1249. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, a szolgáltatás egyszerű időtúllépés miatt, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
 
 - A VPN-kapcsolat azonosított probléma kijavítva [itt kiadásának 1902](#known-issues).
 

@@ -2,24 +2,23 @@
 title: Virtual Machine Scale Sets elérhetővé az Azure Stackben |} A Microsoft Docs
 description: Ismerje meg, hogyan a felhő üzemeltetője adhat hozzá virtuálisgép-méretezési csoportok az Azure Stack piactéren
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/21/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/31/2019
+ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 7237437ca19ee6f5580661683ea82569d9d84b64
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 2cca789487803124e1a7b24efa199d7f68760fb6
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296170"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453408"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtual Machine Scale Sets elérhetővé az Azure Stackben
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>A Virtual machine scale sets elérhetővé az Azure Stackben
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
   
@@ -37,9 +36,9 @@ Az Azure Stacken a virtuálisgép-méretezési csoportok nem támogatják az aut
 ## <a name="prerequisites"></a>Előfeltételek
 
 * **A Marketplace-en:** Regisztrálja az Azure Stack a globális Azure-ral ahhoz, hogy a piactéren elemek rendelkezésre állását. Kövesse a [regisztrálása az Azure Stack az Azure-ral](azure-stack-registration.md).
-* **Operációs rendszer lemezképét:** Egy virtuálisgép-méretezési csoportot (VMSS) létrehozása előtt le kell töltenie a Virtuálisgép-rendszerképek a VMSS a használatra a [Azure Stack piactéren](azure-stack-download-azure-marketplace-item.md). A lemezképek már jelen lehetett, mielőtt egy felhasználó hozhat létre egy új VMSS kell lennie.
+* **Operációs rendszer lemezképét:** Egy virtuálisgép-méretezési készlet létrehozása előtt le kell töltenie a Virtuálisgép-rendszerképek a VMSS a használatra a [Azure Stack piactéren](azure-stack-download-azure-marketplace-item.md). A lemezképek már jelen lehetett, mielőtt egy felhasználó hozhat létre egy új VMSS kell lennie.
 
-## <a name="use-the-azure-stack-portal"></a>Az Azure Stack-portál használata
+## <a name="use-the-azure-stack-portal"></a>Az Azure Stack portal használata
 
 >[!IMPORTANT]  
 > Ebben a szakaszban található információk használata az Azure Stack 1808 vagy újabb verziójára vonatkozik. Ha a verzió 1807 vagy korábbi, lásd: [hozzáadása a Virtual Machine Scale Set (előtt 1808)](#add-the-virtual-machine-scale-set-prior-to-version-1808).
@@ -50,13 +49,13 @@ Az Azure Stacken a virtuálisgép-méretezési csoportok nem támogatják az aut
 2. Válassza ki a létrehozás ***a Virtual machine scale sets***.
    ![Virtuálisgép-méretezési csoport létrehozása](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. Az üres mezőket kitölteni, választhat a legördülő menük a **operációs rendszer lemezképét**, **előfizetés**, és **példány mérete**. Válassza ki **Igen** a **felügyelt lemezek használata**. Ezt követően kattintson a **Create** (Létrehozás) gombra.
+3. Az üres mezőket kitölteni, választhat a legördülő menük a **operációs rendszer lemezképét**, **előfizetés**, és **példány mérete**. Válassza ki **Igen** a **felügyelt lemezek használata**. Kattintson a **létrehozás**.
     ![Konfigurálása és létrehozása](media/azure-stack-compute-add-scalesets/create.png)
 
 4. Tekintse meg az új virtuális gép méretezési csoportot, nyissa meg a **összes erőforrás**, keresse meg a virtuális gép méretezési csoport nevét, és válassza ki a nevét a keresés.
    ![Megtekintheti a méretezési csoportban](media/azure-stack-compute-add-scalesets/search.png)
 
-## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>A Virtual Machine Scale Set (korábbi 1808) hozzáadása
+## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Adja hozzá a virtuális gép méretezési csoportot (előtt 1808 verzió)
 
 >[!IMPORTANT]  
 > Ebben a szakaszban található információk vonatkozik, ha az Azure Stack 1808 előtti verziót használja. Ha 1808 vagy újabb verzióját használja, lásd: [használata az Azure Stack portálon](#use-the-azure-stack-portal).
@@ -65,17 +64,17 @@ Az Azure Stacken a virtuálisgép-méretezési csoportok nem támogatják az aut
 
     ![Marketplace-en kezelése](media/azure-stack-compute-add-scalesets/image01.png)
 
-2. Adja hozzá, és töltse le a Virtual Machine Scale Set Piactéri elemet.
+2. Adja hozzá, és töltse le a virtuális gép méretezési készlet Piactéri elem.
 
-    ![Virtuálisgép-méretezési csoport](media/azure-stack-compute-add-scalesets/image02.png)
+    ![Virtuálisgép-méretezési csoportot](media/azure-stack-compute-add-scalesets/image02.png)
 
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Egy virtuálisgép-méretezési csoportban található rendszerképek frissítése
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>A virtuális gép méretezési lemezképek frissítéséhez
 
 Miután létrehozott egy virtuálisgép-méretezési csoportot, a felhasználók frissíthetik rendszerképeket a méretezési csoport anélkül, hogy a méretezési csoportot, hogy újra létre kell hozni. A lemezképek frissítésének folyamata attól függ, hogy a következő esetekben:
 
 1. Adja meg a virtuális gép méretezési csoport üzembe helyezési sablonjának **legújabb** a **verzió**:  
 
-   Ha a `version` értékre van állítva **legújabb** a a `imageReference` méretezési csoport sablonjának szakaszában állítsa be, vertikális felskálázás műveleteket a méretezési készlet használatát a rendszerkép elérhető legújabb verziója esetében a méretezési csoport példányaihoz. Vertikális felskálázás befejezése után törölheti a régebbi virtuális gép méretezési csoportok példányai. A tartozó értékeket `publisher`, `offer`, és `sku` változatlanok maradnak.
+   Ha a `version` értékre van állítva **legújabb** a a `imageReference` méretezési csoport sablonjának szakaszában állítsa be, a méretezési csoport példányaihoz használata a méretezési műveletek vertikális felskálázás a rendszerkép elérhető legújabb verzióját. Vertikális felskálázás befejezése után törölheti a régebbi virtuális gép méretezési csoportok példányai. A tartozó értékeket `publisher`, `offer`, és `sku` változatlanok maradnak.
 
    Az alábbi JSON-példa `latest`:  
 
@@ -90,11 +89,11 @@ Miután létrehozott egy virtuálisgép-méretezési csoportot, a felhasználók
 
    Vertikális felskálázás használni egy új rendszerképet, le kell töltenie, hogy új lemezképet:  
 
-   * Ha a lemezképet a Marketplace-en, mint a rendszerképet a méretezési csoportban lévő egy újabb verzióra, töltse le az új rendszerképet, amely felváltja a régi lemezképet. Miután váltja fel a képet, a felhasználó folytassa vertikális felskálázás.
+   * Ha a lemezképet a marketplace-en, mint a rendszerképet a méretezési csoportban lévő egy újabb verzióra, töltse le az új rendszerképet, amely felváltja a régi lemezképet. Miután váltja fel a képet, a felhasználó folytassa vertikális felskálázás.
 
-   * Ha a rendszerkép verziószámát a Marketplace-en ugyanaz, mint a rendszerképet a méretezési csoportban, törölnie kell a rendszerképet a méretezési csoportban lévő használatban lévő, és töltse le az új lemezképet. Az eredeti rendszerkép eltávolítása és az új kép letöltése közötti időszakban nem skálázhatja.
+   * Ha a rendszerkép verziószámát a marketplace-en ugyanaz, mint a rendszerképet a méretezési csoportban, törölnie kell a rendszerképet a méretezési csoportban lévő használatban lévő, és töltse le az új lemezképet. Az eredeti rendszerkép eltávolítása és az új kép letöltése közötti időszakban nem skálázhatja.
 
-     Ez a folyamat megadása kötelező újra szindikálása, amellyel használja a ritka fájlformátum, 1803-verzióval jelent meg.
+   Ez a folyamat megadása kötelező újra szindikálása, amellyel használja a ritka fájlformátum, 1803-verzióval jelent meg.
 
 2. Virtuálisgép-méretezési csoport üzembe helyezési sablon beállítása **legújabb nem határoz meg** a **verzió** , és adja meg helyette egy verziószámot:  
 
@@ -104,7 +103,7 @@ További információkért lásd: [operációsrendszer-lemezek és lemezképek](
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Egy virtuálisgép-méretezési készlet méretezése
 
-Méretét is méretezheti a *virtuálisgép-méretezési csoport* kisebb vagy nagyobb legyen.  
+Egy virtuálisgép-méretezési csoport, győződjön meg arról, hogy kisebb vagy nagyobb értékre mérete skálázhatja.
 
 1. A portálon, válassza ki a méretezési majd **méretezés**.
 
@@ -114,7 +113,7 @@ Méretét is méretezheti a *virtuálisgép-méretezési csoport* kisebb vagy na
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Távolítsa el a virtuálisgép-méretezési csoportot
 
-Egy virtuálisgép-méretezési gyűjteményelem eltávolításához futtassa a következő PowerShell-parancsot:
+Egy virtuális gép eltávolítása a gyűjteményelem készlet méretezése, futtassa a következő PowerShell-parancsot:
 
 ```powershell  
 Remove-AzsGalleryItem

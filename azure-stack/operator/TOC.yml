@@ -4,6 +4,8 @@
   items:
     - name: Mi az Azure Stack?
       href: azure-stack-overview.md
+    - name: Mi az Azure Stack HCl?
+      href: azure-stack-hci-overview.md
     - name: Az Azure-ökoszisztéma összehasonlítása
       href: compare-azure-azure-stack.md
     - name: Kibocsátási megjegyzések
@@ -381,18 +383,14 @@
           href: azure-stack-backup-best-practices.md
         - name: Biztonsági mentési referencia
           href: azure-stack-backup-reference.md
-    - name: Segítségkérés
+    - name: Hibaelhárítás
       items:
-        - name: Súgó és támogatás
-          href: azure-stack-help-and-support.md
-        - name: Hibaelhárítás
-          items:
-            - name: Ismert problémák
-              href: azure-stack-troubleshooting.md
-            - name: Diagnosztika az Azure Stackben
-              href: azure-stack-diagnostics.md
-            - name: Az Azure Stack érvényesítése
-              href: azure-stack-diagnostic-test.md
+        - name: Ismert problémák
+          href: azure-stack-troubleshooting.md
+        - name: Diagnosztika az Azure Stackben
+          href: azure-stack-diagnostics.md
+        - name: Az Azure Stack érvényesítése
+          href: azure-stack-diagnostic-test.md
 - name: Leírások
   items:
     - name: Azure Stack PowerShell
