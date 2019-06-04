@@ -11,22 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267938"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459041"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Gyakori kérdések az Azure Stack-használati API
 
 Ebben a cikkben megválaszolunk néhány – gyakori kérdések az Azure Stack-használati API.
 
 ## <a name="what-meter-ids-can-i-see"></a>Milyen mérőszám azonosítók felszámított díj?
+
 A következő erőforrás-szolgáltatók a jelentett használat:
 
 ### <a name="network"></a>Network (Hálózat)
@@ -76,7 +77,7 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Mérőszám azonosítója**: 1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **Fogyasztásmérő neve**: TableDataTransOut  
 **Egység**: Kimenő GB-ban  
-**Megjegyzések**: TABLE service régiós adatmozgás GB-ban  
+**Megjegyzések**: TABLE service kimenő adatforgalom GB-ban.
   
 **Mérőszám azonosítója**: 43DAF82B-4618-444A-B994-40C23F7CD438  
 **Fogyasztásmérő neve**: BlobTransactions  
@@ -108,7 +109,7 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Egység**: Kimenő GB-ban  
 **Megjegyzések**: Queue szolgáltatás régiós adatmozgás GB-ban  
 
-### <a name="compute"></a>Compute 
+### <a name="compute"></a>Compute
   
 **Mérőszám azonosítója**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Fogyasztásmérő neve**: Alap VM-méret órák  
@@ -123,9 +124,9 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Mérőszám azonosítója**: 6DAB500F-A4FD-49C4-956D-229BB9C8C793  
 **Fogyasztásmérő neve**: Virtuális gép mérete óra  
 **Egység**: VM-órák  
-**Megjegyzések**: Rögzíti a kiinduló és a Windows virtuális gép. Nem módosíthatja a magok.  
+**Megjegyzések**: Mindkét rögzíti kiinduló és a Windows virtuális Gépet. Nem módosíthatja a magok.  
   
-### <a name="managed-disks"></a>Managed Disks
+### <a name="managed-disks"></a>Felügyelt lemezek
 
 **Mérőszám azonosítója**: 380874f9-300c-48e0-95a0-d2d9a21ade8f   
 **Fogyasztásmérő neve**: S4   
@@ -316,7 +317,7 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Egység**:  10e tranzakció  
 **Megjegyzések**: 3-K vagy 4K, ECC RSA key tranzakciók. (előzetes verzió).  
   
-### <a name="app-service"></a>App Service   
+### <a name="app-service"></a>App Service-ben   
   
 **Mérőszám azonosítója**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Fogyasztásmérő neve**: App Service  
@@ -366,12 +367,12 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Megjegyzések**: Determinisztikus mérőszám azonosítója Termékváltozat és egyéni feldolgozói réteg neve alapján jön létre. Ez a mérőszám azonosítója egy egyedülálló megoldás minden egyes egyéni feldolgozói réteg.  
   
 **Mérőszám azonosítója**: 264ACB47-AD38-47F8-ADD3-47F01DC4F473  
-**Fogyasztásmérő neve**: SNI-alapú SSL  
+**Fogyasztásmérő neve**: SNI SSL – SNI-célú SSL-tanúsítvány  
 **Egység**: SNI SSL-kötés kiszolgálónként  
 **Megjegyzések**: App Service kétféle SSL-kapcsolatot támogat: Kiszolgálónév jelzése (SNI) SSL és az IP-cím alapú SSL. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
   
 **Mérőszám azonosítója**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
-**Fogyasztásmérő neve**: IP SSL  
+**Fogyasztásmérő neve**: IP SSL – IP-célú SSL-tanúsítvány  
 **Egység**: / IP-cím alapú SSL-kötés  
 **Megjegyzések**: App Service kétféle SSL-kapcsolatot támogat: Kiszolgálónév jelzése (SNI) SSL és az IP-cím alapú SSL. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
   
@@ -385,23 +386,25 @@ A következő erőforrás-szolgáltatók a jelentett használat:
 **Egység**: GB  
 **Megjegyzések**: Teljes bejövő kérelemre adott válasz bájtjai + kimenő kérelmek teljes bájt + a teljes bejövő FTP kérelem adott válasz bájtjai + teljes bejövő webes üzembe helyezése a kérelemre adott válasz bájtjai.  
   
-
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Az API-k hasonlítsa össze az Azure Stack használati módja a [Azure-használati API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (jelenleg nyilvános előzetes verzióban)?
-* A bérlői használati API-t az Azure API, egy kivétellel összhangban: a *showDetails* jelző jelenleg nem támogatott az Azure Stackben.
-* A szolgáltatói használati API-t csak azokra az Azure Stack.
-* Jelenleg a [RateCard API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) , amely elérhető az Azure-ban nem érhető el az Azure Stackben.
+
+* A bérlői használati API összhangban az Azure API, egy kivétellel: a *showDetails* jelző jelenleg nem támogatott az Azure Stackben.
+* A szolgáltatói használati API csak azokra az Azure Stack.
+* Jelenleg a [RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) , amely elérhető az Azure-ban nem érhető el az Azure Stackben.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Mi a különbség a használati és jelentett idő között?
+
 Használati jelentések két fő időértékek rendelkezik:
 
 * **Jelentett idő**. Ha a használati esemény a használati rendszer megadott idő
 * **Használati idő**. Az idő, amikor az Azure Stack erőforrás használatának
 
-Használati és jelentett idő értékek eltérést észlelt egy adott használati esemény jelenhet meg. A késleltetés, amíg minden környezetben több órára is lehet.
+Megjelenhet értékeket eltérést használat ideje, és jelentett idő egy adott használati esemény. A késleltetés mindaddig bármilyen környezetben több órát is lehet.
 
 Jelenleg, lekérdezheti, ha kizárólag a *jelentett idő*.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Mit jelentenek a használati API hibakódok?
+
 | **HTTP-állapotkód:** | **Hibakód:** | **Leírás** |
 | --- | --- | --- |
 | / 400 – Hibás kérelem |*NoApiVersion* |A *api-version* lekérdezési paraméter hiányzik. |
@@ -417,8 +420,7 @@ Jelenleg, lekérdezheti, ha kizárólag a *jelentett idő*.
 Futó vagy leállított virtuális gépeket hozhat létre a használati adatokat. Egységes Azure-ral, felszabadítási van szükség a használati adatok kibocsátási leállítása. A helyzet, amelyben a portálon nem érhető el, de a számítási erőforrás-szolgáltató továbbra is fut, a használati fog rendelkezésre.
 
 ## <a name="next-steps"></a>További lépések
-[A számlázás a vásárlók és a költséghelyi elszámolás az Azure Stackben](azure-stack-billing-and-chargeback.md)
 
-[Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)
-
-[Bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)
+* [A számlázás a vásárlók és a költséghelyi elszámolás az Azure Stackben](azure-stack-billing-and-chargeback.md)
+* [Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)
+* [Bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: bfe18e0aa59f81f614ae00057b2c1f287b1257da
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782411"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469292"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Az Azure Stack fizikai lemez cseréje
 
@@ -50,10 +50,37 @@ Utasítások a OEM hardver szállítójával FRU tényleges lemezt kell cseréln
 Letilthatja az egy nem támogatott lemez egy integrált rendszer, a rendszer blokkolja a lemezek, a szállító által nem támogatott. Meg nem támogatott lemez használata, ha egy új riasztás kiderül, hogy, hogy az egy lemezt egy nem támogatott modell vagy a belső vezérlőprogram miatt karanténba-e.
 
 A lemezt cserél ki, az Azure Stack automatikusan felderíti az új lemezt, és elindítja a Virtuálislemez-javítási folyamatot.
+
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Azure Stack PowerShell-lel Virtuálislemez-javítási állapotának ellenőrzése
+
+Követően a lemezt cserél ki, az Azure Stack PowerShell használatával figyelheti a virtuális lemez állapotának állapota és a javítási feladat előrehaladását.
+
+1. Ellenőrizze, hogy van-e az Azure Stack PowerShell telepítve van. További információkért lásd: [Azure Stack PowerShell telepítése](azure-stack-powershell-install.md).
+2. Csatlakozhat az Azure Stack PowerShell-kezelőként. További információkért lásd: [csatlakozhat az Azure Stack a PowerShell-lel kezelőként](azure-stack-powershell-configure-admin.md).
+3. A virtuális lemez állapotának ellenőrzése és javítása állapota a következő parancsmagok futtatásához:
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
+    ```
+
+    ![Az Azure Stack-kötetek health](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+4. Azure Stack rendszerállapotának ellenőrzése. Útmutatásért lásd: [rendszerállapotának ellenőrzése az Azure Stack](azure-stack-diagnostic-test.md).
+5. Igény szerint futtathatja meg a következő parancsot a lecserélt fizikai lemez állapotának ellenőrzéséhez.
+
+```powershell  
+$scaleunit=Get-AzsScaleUnit
+$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+
+Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+```
+
+![Az Azure Stack fizikai lemezek helyett](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Virtuális lemezek javítási használatával a privilegizált végpont állapotának ellenőrzése
  
-## <a name="check-the-status-of-virtual-disk-repair"></a>A Virtuálislemez-javítási állapot ellenőrzése
- 
- Követően a lemezt cserél ki, a virtuális lemez állapot figyelése, és javítsa ki a feladat állapotát a rendszerjogosultságú végpont használatával. Kövesse az alábbi lépéseket bármely olyan számítógépről, amelyen a kiemelt végponthoz való hálózati kapcsolatot.
+Követően a lemezt cserél ki, a virtuális lemez állapot figyelése, és javítsa ki a feladat állapotát a rendszerjogosultságú végpont használatával. Kövesse az alábbi lépéseket bármely olyan számítógépről, amelyen a kiemelt végponthoz való hálózati kapcsolatot.
 
 1. Nyisson meg egy Windows PowerShell-munkamenetet, és a kiemelt végponthoz kapcsolódjon.
     ```powershell
@@ -74,7 +101,10 @@ A lemezt cserél ki, az Azure Stack automatikusan felderíti az új lemezt, és 
     ```
       ![PowerShell Get-StorageJob parancs kimenete](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Virtuális lemezek javítási hibaelhárítása
+4. Az Azure Stack rendszer állapotának ellenőrzése. Útmutatásért lásd: [rendszerállapotának ellenőrzése az Azure Stack](azure-stack-diagnostic-test.md).
+
+
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Virtuális lemezek javítási használatával a privilegizált végpont hibaelhárítása
 
 Ha a virtuális lemezek javítása feladat jelenik meg elakadt, indítsa újra a feladatot, a következő parancsot:
   ```powershell

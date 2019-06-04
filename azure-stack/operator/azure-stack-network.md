@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: a839faa7ec5a93a506ad967f3449ee1788f1a21a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618495"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469176"
 ---
 # <a name="network-connectivity"></a>Hálózati kapcsolat
 Ez a cikk segít eldönteni, hogy a legjobb integrálása az Azure Stack a meglévő hálózati környezetbe az Azure Stack hálózati infrastruktúra információkat nyújt. 
@@ -30,7 +30,7 @@ Ez a cikk segít eldönteni, hogy a legjobb integrálása az Azure Stack a megl�
 > Az Azure Stack a külső DNS-neveket (például: www\.bing.com), meg kell adnia a DNS-kiszolgálók DNS-kérelmeket továbbítsa. Az Azure Stack DNS követelményeivel kapcsolatos további információkért lásd: [adatközpontban Azure Stack - integrációs DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fizikai hálózati terv
-Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizikai infrastruktúrára van szüksége működése és szolgáltatásai támogatásához. ToR böngészőből szegély kapcsolókhoz kimenő portok korlátozva, SFP + vagy SFP28 adathordozó és 1 GB-os, 10 GB-os vagy 25 GB megbízhatóbbak. Ellenőrizze a számítógépgyártó (OEM) hardver szállítójával a rendelkezésre állás érdekében. Az alábbi diagram bemutatja a javasolt tervezési:
+Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizikai infrastruktúrára van szüksége működése és szolgáltatásai támogatásához. ToR böngészőből szegély kapcsolókhoz kimenő portok korlátozva, SFP + vagy SFP28 adathordozó és 1 GB-os, 10 GB-os vagy 25 GB-os megbízhatóbbak. Ellenőrizze a számítógépgyártó (OEM) hardver szállítójával a rendelkezésre állás érdekében. Az alábbi diagram bemutatja a javasolt tervezési:
 
 ![Ajánlott az Azure Stack hálózati terv](media/azure-stack-network/recommended-design.png)
 
@@ -45,7 +45,7 @@ Az alábbi táblázat a logikai hálózatok és társított, meg kell tervezni a
 | Nyilvános virtuális IP-cím | Az Azure Stack használja ezt a hálózatot 31 címeket összesen. Az Azure Stack-szolgáltatások egy kis készletét nyolc nyilvános IP-címeket használja, és a többi bérlő virtuális gépek által használt. Ha azt tervezi, használja az App Service-ben és az SQL erőforrás-szolgáltatók, 7 további címeket használják. A fennmaradó 15 IP-címek későbbi Azure-szolgáltatások számára vannak fenntartva. | / 26 (62 gazdagépek) – /22 (1022 gazdagép)<br><br>Ajánlott = /24 (254 gazdagép) | 
 | Kapcsoló-infrastruktúra | Az Útválasztás megállapítása, dedikált IP-címek pont-pont típusú váltson a felügyeleti felületek és a kapcsoló visszacsatolási címeket. | /26 | 
 | Infrastruktúra | Azure Stack belső összetevőinek való kommunikációhoz használt. | /24 |
-| Privát | A tárolóhálózat és a privát virtuális IP-cím használható. | /24 | 
+| Magánjellegű | A tárolóhálózat és a privát virtuális IP-cím használható. | /24 | 
 | BMC | A bmc-k a fizikai gazdagépeken folytatott kommunikáció során használt. | /26 | 
 | | | |
 
@@ -78,12 +78,28 @@ Ez/26 hálózati az alhálózatot, amely tartalmazza a point-to-point irányíth
 Ez akár/29 méretű (6 gazdagép IP-címek) hálózati csatlakozás a felügyeleti portokat, a kapcsolók van kijelölve. Engedélyezi a sávon kívüli hozzáférést az üzembe helyezés, a felügyelet és hibaelhárítás. A fent említett hálózati kapcsoló infrastruktúra kiszámítása történik.
 
 ## <a name="publish-azure-stack-services"></a>Közzététel az Azure Stack-szolgáltatások
-A felhasználók számára elérhetővé tenni az Azure Stack-szolgáltatások, a külső Azure Stack kell. Az Azure Stack állít be az infrastruktúra-szerepkörök különböző végpontjait. Ezeket a végpontokat hozzárendelt virtuális IP-cím a nyilvános IP-címkészletből. Minden végpont az üzembe helyezéskor megadott külső DNS-zóna egy DNS-bejegyzés jön létre. Ha például a felhasználói portál hozzá van rendelve a DNS állomásbejegyzéssel portál.  *&lt;régió >.&lt; teljesen minősített tartományneve >*.
+A felhasználók számára elérhetővé tenni az Azure Stack-szolgáltatások, a külső Azure Stack kell. Az Azure Stack állít be az infrastruktúra-szerepkörök különböző végpontjait. Ezeket a végpontokat hozzárendelt virtuális IP-cím a nyilvános IP-címkészletből. Minden végpont az üzembe helyezéskor megadott külső DNS-zóna egy DNS-bejegyzés jön létre. Ha például a felhasználói portál hozzá van rendelve a DNS állomásbejegyzéssel portál.  *&lt;régió >.&lt; teljesen minősített tartományneve >* .
 
 ### <a name="ports-and-urls"></a>Portok és URL-címek
 Azure Stack-szolgáltatásokat (például a portálok, az Azure Resource Manager-, DNS, stb.) elérhető külső hálózatokhoz, engedélyeznie kell a bejövő forgalmat a fenti végpontokkal az adott URL-címeket, portokat és protokollokat.
  
 A központi telepítés, ha egy transzparens proxy kimenő portokhoz hagyományos proxykiszolgálónak engedélyeznie kell a adott portok és URL-címek is [bejövő](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) és [kimenő](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) kommunikációt. Ezek közé tartozik a portok és URL-címek identitás, a Marketplace-en, javítási és frissítési, regisztrációs és használati adatok.
+
+### <a name="mac-address-pool"></a>MAC-címkészlet
+
+Az Azure Stack egy statikus MAC-címkészlet automatikus létrehozásához, és a MAC-cím hozzárendelése a virtuális gépeket használ.
+A MAC-címkészlet üzembe helyezés során automatikusan létrejön, és használja a következő tartományba:
+
+- StartMacAddress: 00-1D-D8-B7-00-00
+- EndMacAddress : 00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> A MAC-címkészlet azonos el az egyes Azure Stack-rendszereket, és nem konfigurálható.
+
+Attól függően, hogyan a virtuális hálózatok csatlakoztatása a meglévő vállalati hálózatokkal előfordulhat, hogy ismétlődő MAC-címek a virtuális gépek várt.
+
+MAC-cím-készlet kihasználtsága a parancsmaggal kapcsolatban további információ található [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) az Azure Stack rendszergazdai PowerShell-modulok.
+
 
 ## <a name="next-steps"></a>További lépések
 [Szegély kapcsolat](azure-stack-border-connectivity.md)

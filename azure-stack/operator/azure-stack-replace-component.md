@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: ea316ebdba51ea80fcd02382023ccb46447a8cc0
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 0e1f379b651d022b2c698777a7d8708ff33bf76f
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984831"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469151"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Az Azure Stack skálázási egység csomóponton hardverkomponensek cseréje
 
@@ -70,7 +70,7 @@ Az alábbi lépéseket a összetevő cseréjét magas szintű áttekintését ad
 4. Cserélje le a sérült hardverösszetevő. E OEM hardvergyártójához végez összetevő váltja fel a támogatási szerződés alapján változhatnak.  
 5. A belső vezérlőprogramjának frissítéséhez. Kövesse a szállító-specifikus belső vezérlőprogram frissítésének folyamatáról, a hardver életciklus gazdagép segítségével ellenőrizze, hogy a felülírt hardverösszetevő rendelkezik a jóváhagyott belső vezérlőprogram szint a alkalmazni. E OEM hardvergyártójához végrehajtja ezt a lépést a támogatási szerződés alapján változhatnak.  
 6. Használja a [javítási](azure-stack-node-actions.md#scale-unit-node-actions) állapotba hozza a skálázási egység csomópont vissza a skálázási egység művelet.
-7. Használja a kiemelt végponthoz [Virtuálislemez-javítási állapotának ellenőrzéséhez](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Az új adatok meghajtókat egy teljes helyreállítási feladat rendszerterheléstől függően több órát is igénybe vehet, és a felhasznált lemezterület.
+7. Használja a kiemelt végponthoz [Virtuálislemez-javítási állapotának ellenőrzéséhez](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatok meghajtókat egy teljes helyreállítási feladat rendszerterheléstől függően több órát is igénybe vehet, és a felhasznált lemezterület.
 8. A javítási művelet befejezése után, ellenőrizze, hogy az összes aktív riasztás automatikusan lezárták.
 
 ## <a name="next-steps"></a>További lépések

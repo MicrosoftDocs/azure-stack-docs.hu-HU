@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 29f8a3a6a620f197ba79d75bc41738e03f8f2342
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 67e0981d5fbd1d6872c9115b8becd2d5ec8b5d8e
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453396"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469120"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 frissítése
 
@@ -224,7 +224,7 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
    A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika engedélyezése, de a rendszerindítás-diagnosztikai tárfiók törlése. A probléma megkerüléséhez hozza létre újból a tárfiókot, a korábban használt azonos néven.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- A virtual machine scale set (VMSS) létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. A rendszerképet az Azure Stacken nem érhető el, mert az üzembe helyezéshez használt egy másik operációs rendszert, vagy egy Azure Resource Manager-sablonnal, adjon meg egy másik CentOS rendszerképet, amely szerint a marketplace-ről üzembe helyezés előtt lett letöltve a operátor.  
+- A virtual machine scale set létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. A rendszerképet az Azure Stacken nem érhető el, mert az üzembe helyezéshez használt egy másik operációs rendszert, vagy egy Azure Resource Manager-sablonnal, adjon meg egy másik CentOS rendszerképet, amely szerint a marketplace-ről üzembe helyezés előtt lett letöltve a operátor.  
 
 <!-- TBD - IS ASDK --> 
 - Frissítse a 1902 alkalmazása után, a következő problémák léphetnek a felügyelt lemezekkel rendelkező virtuális gépek üzembe helyezésekor:
@@ -238,7 +238,7 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
 
 - A méretezési készlet nem távolítható el a **Virtual Machine Scale Sets** panelen. Áthidaló megoldásként válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
 
-- Virtuális gépek létrehozása egy rendelkezésre állási csoport 3 tartalék tartomány az a és a VMSS-példány létrehozása sikertelen, és egy **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt egy 4 csomópontos Azure Stack-környezet a frissítési folyamat során. Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban VMSS-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
+- A rendelkezésre állási csoport 3 tartalék tartomány a virtuális gépek létrehozása és a egy virtuálisgép-méretezési csoport létrehozása a példány sikertelen lesz, és állítsa be a **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt a frissítés során az egy 4 csomópontos az Azure Stackben környezet. Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
 
 ### <a name="networking"></a>Hálózat  
 

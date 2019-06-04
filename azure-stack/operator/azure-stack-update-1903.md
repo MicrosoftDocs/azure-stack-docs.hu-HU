@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: ea733bab465a8ca40be69ba26b8c6786b223993a
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: e2560fd1e6418c9669f94f23ea1f6867e9c907a3
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453460"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469079"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 frissítése
 
@@ -192,7 +192,7 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
 
 - A méretezési készlet nem távolítható el a **Virtual Machine Scale Sets** panelen. Áthidaló megoldásként válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
 
-- Virtuális gépek létrehozása egy rendelkezésre állási csoport 3 tartalék tartomány az a és a VMSS-példány létrehozása sikertelen, és egy **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt egy 4 csomópontos Azure Stack-környezet a frissítési folyamat során. Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban VMSS-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
+- A rendelkezésre állási csoport 3 tartalék tartomány a virtuális gépek létrehozása és a egy virtuálisgép-méretezési csoport létrehozása a példány sikertelen lesz, és állítsa be a **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt a frissítés során az egy 4 csomópontos az Azure Stackben környezet. Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
 
 ### <a name="networking"></a>Hálózat
 

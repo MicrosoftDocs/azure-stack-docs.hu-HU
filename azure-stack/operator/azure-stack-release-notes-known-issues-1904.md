@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 0bc2b209303cceda30d5997d080c4c6061f20da3
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453474"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469131"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -144,12 +144,12 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 - Szervizelési: Hozza létre újból a korábban használt azonos nevű tárfiók.
 - Előfordulás: Közös
 
-### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoportot
+### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
 
 #### <a name="centos"></a>CentOS
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A virtuális gép méretezési beállítása (VMSS) létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. CentOS 7.2 nem érhető el az Azure Stacken.
+- OK: A virtual machine scale set létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. CentOS 7.2 nem érhető el az Azure Stacken.
 - Szervizelési: Az üzembe helyezéshez használt egy másik operációs rendszert, vagy adjon meg egy másik CentOS lemezképet a marketplace-ről telepítené az üzemeltető által letöltött Azure Resource Manager sablonnal.
 - Előfordulás: Közös
 
@@ -160,11 +160,11 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 - Szervizelési: Válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
 - Előfordulás: Közös
 
-#### <a name="vmvmss-create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>VM/VMSS létrehozása sikertelen javítás és a 4 csomópontos Azure Stack-környezetek frissítése során
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása során a javítások és frissítések 4 csomópontos Azure Stack-környezetekben
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: Virtuális gépek létrehozása egy rendelkezésre állási csoport 3 tartalék tartomány az a és a VMSS-példány létrehozása sikertelen, és egy **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt egy 4 csomópontos Azure Stack-környezet a frissítési folyamat során.
-- Szervizelési: Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban VMSS-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
+- OK: A rendelkezésre állási csoport 3 tartalék tartomány a virtuális gépek létrehozása és a egy virtuálisgép-méretezési csoport létrehozása a példány sikertelen lesz, és állítsa be a **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt a frissítés során az egy 4 csomópontos az Azure Stackben környezet.
+- Szervizelési: Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 
@@ -202,11 +202,11 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
   - A probléma kijavítása a legújabb [Azure Stack-gyorsjavítás a 1904](https://support.microsoft.com/help/4505688).
 - Előfordulás: Közös
 
-### <a name="vmss-instance-view"></a>VMSS példányait tartalmazó nézet
+### <a name="virtual-machine-scale-set-instance-view"></a>Virtuális gép méretezési csoport példányait tartalmazó nézet
 
 - Alkalmazható: A probléma a 1904-es és 1905 kiadások vonatkozik.
-- OK: Az Azure Stack portálon található egy méretezési csoport példánya megtekintési paneljén **irányítópult** > **a Virtual machine scale sets**  >   **AnyScaleSet - példányok** > **AnyScaleSetInstance** nem sikerül betölteni.
-- Szervizelési: Jelenleg nem nincs szervizelés, és folyamatban van egy javítás. Addig használja a parancssori felület parancsmag `az vmss get-instance-view` beolvasni egy VMSS példányait tartalmazó nézetet.
+- OK: Az Azure Stack portálon található méretezési példányt megtekintési paneljén **irányítópult** > **a Virtual machine scale sets**  >   **AnyScaleSet - példányok** > **AnyScaleSetInstance** nem sikerül betölteni.
+- Szervizelési: Jelenleg nem nincs szervizelés, és folyamatban van egy javítás. Addig használja a parancssori felület parancsmag `az vmss get-instance-view` beolvasni a virtuális gép méretezési példányait tartalmazó nézetet.
 
 ## <a name="storage"></a>Storage
 

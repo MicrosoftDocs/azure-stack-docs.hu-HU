@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd58611e08bf0b0de6808c9719311f904ea682ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985256"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459053"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Az Azure stack-identitás – áttekintés
 
@@ -105,7 +105,7 @@ Amikor regisztrál egy alkalmazás, hozzon létre két objektum:
 
 Alkalmazás és egyszerű szolgáltatási objektumok kapcsolatos további információkért lásd: [alkalmazás és egyszerű szolgáltatási objektumok Azure Active Directoryban](/azure/active-directory/develop/active-directory-application-objects).
 
-### <a name="service-principals"></a>Szolgáltatásnevek
+### <a name="service-principals"></a>Az egyszerű szolgáltatások
 
 Egyszerű szolgáltatás olyan készlete, *hitelesítő adatok* adott alkalmazás vagy szolgáltatás, amely az Azure Stackben erőforrásokhoz való hozzáférést. Egyszerű szolgáltatás használata elkülöníti az alkalmazás a felhasználó alkalmazás engedélyeit.
 
@@ -147,7 +147,7 @@ Alkalmazások és felhasználók számára az Azure Stack-architektúra négy r�
 |---------|---------|
 |Eszközök és ügyfelek, például a felügyeleti portálon     | Eszközök eléréséhez, vagy módosítani az erőforrást az Azure Stackben, és az ügyfelek használják a [JSON Web Token](/azure/active-directory/develop/active-directory-token-and-claims) egy hívás az Azure Resource Manager. <br>Az Azure Resource Manager ellenőrzi a JSON Web Token, és betekintés a *jogcímek* engedélyezési szinten becslése érdekében a kiállított jogkivonat a felhasználó vagy szolgáltatás rendelkezik az Azure Stackben. |
 |Az Azure Resource Manager és az alapvető szolgáltatások     |Az Azure Resource Manager kommunikál a kommunikáció átviteléhez a felhasználók erőforrás-szolgáltatók. <br> Használat továbbítja *közvetlen imperatív* hívások vagy *deklaratív* keresztül meghívja [Azure Resource Manager-sablonok](/azure-stack/user/azure-stack-arm-templates).|
-|Erőforrás-szolgáltatók     |Erőforrás-szolgáltatók számára továbbított hívások tanúsítványalapú hitelesítéssel biztonságosak. <br>Az Azure Resource Manager és az erőforrás-szolgáltató egy API-n keresztüli kommunikáció majd maradjon. Minden hívás, amely az Azure Resource Manager érkezik az erőforrás-szolgáltató érvényesíti a hívást a tanúsítvánnyal.|
+|Erőforrás-szolgáltatók     |Erőforrás-szolgáltatók átadott hívások tanúsítványalapú hitelesítéssel biztonságosak. <br>Az Azure Resource Manager és az erőforrás-szolgáltató egy API-n keresztüli kommunikáció majd maradjon. Minden hívás, amely az Azure Resource Manager érkezik az erőforrás-szolgáltató érvényesíti a hívást a tanúsítvánnyal.|
 |Infrastruktúra és az üzleti logika     |Erőforrás-szolgáltatók tetszés szerinti hitelesítési mód használatával kommunikálnak az üzleti logikát és infrastruktúra. Az alapértelmezés szerinti erőforrás-szolgáltatók, amely az Azure Stack használatával, hogy a Windows-hitelesítés a kommunikáció védelméhez.|
 
 ![A hitelesítéshez szükséges információk](media/azure-stack-identity-overview/authentication.png)

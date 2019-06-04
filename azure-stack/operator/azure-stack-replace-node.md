@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 72449e25bf1787f686da786bc587b57a2a28254c
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 78fe71768b83082e152685f7fe4c7cc606ae5b3c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782373"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469204"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Cserélje le az Azure Stackkel integrált rendszerek a skálázási egység csomópont
 
@@ -69,7 +69,7 @@ A következő lépések szolgálnak, a skálázási egység csomópont cseréjé
 
 4. Cserélje le a fizikai számítógép. Általában ez történik a számítógép-Gyártói hardver gyártója által.
 5. Használja a [javítási](azure-stack-node-actions.md#repair) műveleteket kíván hozzáadni az új fizikai számítógépet a skálázási egység.
-6. Használja a kiemelt végponthoz [Virtuálislemez-javítási állapotának ellenőrzéséhez](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Az új adatok meghajtókat egy teljes helyreállítási feladat rendszerterheléstől függően több órát is igénybe vehet, és a felhasznált lemezterület.
+6. Használja a kiemelt végponthoz [Virtuálislemez-javítási állapotának ellenőrzéséhez](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatok meghajtókat egy teljes helyreállítási feladat rendszerterheléstől függően több órát is igénybe vehet, és a felhasznált lemezterület.
 7. A javítási művelet befejezése után, ellenőrizze, hogy az összes aktív riasztás automatikusan lezárták.
 
 ## <a name="next-steps"></a>További lépések

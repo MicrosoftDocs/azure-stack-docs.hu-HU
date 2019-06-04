@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 841e30367ded29e10c28573056f4a70361e28a9e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782591"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469190"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack hálózati szempontjai
 
@@ -28,10 +28,10 @@ Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontj
 
 ## <a name="cheat-sheet-networking-differences"></a>Hasznos tanácsok: Hálózatkezelés különbségek
 
-| Szolgáltatás | Szolgáltatás | Azure (globális) | Azure Stack |
+| Szolgáltatás | Funkció | Azure (globális) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | Multi-tenant DNS | Támogatott | Még nem támogatott |
-|  | DNS AAAA records | Támogatott | Érvénytelen érték |
+|  | DNS AAAA records | Támogatott | Nem támogatott |
 |  | DNS-zónák előfizetésenként | 100 (alapértelmezett)<br>Kérésre növelhető. | 100 |
 |  | DNS-rekord zónánként beállítása | 5000 (alapértelmezett)<br>Kérésre növelhető. | 5000 |
 |  | Name servers for zone delegation | Az Azure biztosít minden felhasználó (bérlő) zónában jön létre, a négy névkiszolgálói nevet. | Az Azure Stack két névkiszolgálókat biztosít minden egyes létrehozott felhasználó (bérlő) zóna. |
@@ -56,8 +56,8 @@ Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontj
 |  | Átjáró átméretezése | Az Azure támogatja az átjáró átméretezése az üzembe helyezés után. | Újra méretezése nem támogatott. |
 |  | Aktív-aktív konfiguráció | Támogatott | Még nem támogatott. |
 |  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a szabályzatalapú forgalomválasztóinak útvonalalapú átjárót kapcsolatokkal. | Még nem támogatott. |
-| Terheléselosztó | Termékváltozat | Alapszintű és Standard Load Balancer Terheléselosztók támogatottak. | Csak az alapszintű Load Balancer használata támogatott.  Az SKU tulajdonság nem támogatott. |
-|  | Zónák | Rendelkezésre állási zónák használata támogatott. | Még nem támogatott |
+| Terheléselosztó | SKU | Alapszintű és Standard Load Balancer Terheléselosztók támogatottak. | Csak az alapszintű Load Balancer használata támogatott.  Az SKU tulajdonság nem támogatott. |
+|  | Zóna | Rendelkezésre állási zónák használata támogatott. | Még nem támogatott |
 |  | A Szolgáltatásvégpontok bejövő NAT-szabályok támogatása | Az Azure támogatja a késleltetve Szolgáltatásvégpontok bejövő NAT-szabályok. | Az Azure Stack még nem támogatja a Szolgáltatásvégpontokat, így ezek nem adhatók meg. |
 |  | Protocol | Az Azure támogatja a GRE- vagy ESP megadására. | Protokoll osztály nem támogatott az Azure Stackben. |
 | Nyilvános IP-cím | Nyilvános IP-cím verziója | Az Azure támogatja az IPv6 és IPv4 | Kizárólag az IPv4 használata támogatott. |
@@ -68,8 +68,9 @@ Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontj
 |  | Alkalmazásbiztonsági csoportok | Támogatott | Még nem támogatott. |
 |  | Belső DNS-névcímke | Támogatott | Még nem támogatott. |
 |  | Magánhálózati IP-cím verziója | Az IPv6 és IPv4 használata támogatott. | Kizárólag az IPv4 használata támogatott. |
+|  | Statikus MAC-cím | Nem támogatott | Nem támogatott. Minden egyes Azure Stack rendszert használja az azonos MAC-címkészlet. |
 | Network Watcher | Network Watcher bérlői hálózathoz figyelési képességek | Támogatott | Még nem támogatott. |
-| CDN | Content Delivery Network-profilok | Támogatott | Még nem támogatott. |
+| Tartalomkézbesítési hálózat (CDN) | Content Delivery Network-profilok | Támogatott | Még nem támogatott. |
 | Alkalmazásátjáró | 7. rétegbeli terheléselosztási | Támogatott | Még nem támogatott. |
 | Traffic Manager | A bejövő forgalom irányítása az optimális alkalmazásteljesítmény és megbízhatóság. | Támogatott | Még nem támogatott. |
 | Express Route | Állítsa be egy gyors privát kapcsolat a helyszíni infrastruktúrát vagy közös elhelyezési létesítményből származó Microsoft-felhőszolgáltatásokhoz. | Támogatott | Támogatás az Azure Stack csatlakoztatása egy Expressroute-kapcsolatcsoportot. |

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 1fa0eda3e7967ac32621f3d152e16a4c3d27a540
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: 71984d89bf98b93af28c51aef6599f5df176f8da
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411652"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469093"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 frissítése
 
@@ -272,7 +272,7 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
    A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika engedélyezése, de a rendszerindítás-diagnosztikai tárfiók törlése. A probléma megkerüléséhez hozza létre újból a tárfiókot, a korábban használt azonos néven.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- A virtual machine scale set (VMSS) létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. A rendszerképet az Azure Stacken nem érhető el, mert az üzembe helyezéshez használt egy másik operációs rendszert, vagy egy Azure Resource Manager-sablonnal, adjon meg egy másik CentOS rendszerképet, amely szerint a marketplace-ről üzembe helyezés előtt lett letöltve a operátor.  
+- A virtual machine scale set létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. A rendszerképet az Azure Stacken nem érhető el, mert az üzembe helyezéshez használt egy másik operációs rendszert, vagy egy Azure Resource Manager-sablonnal, adjon meg egy másik CentOS rendszerképet, amely szerint a marketplace-ről üzembe helyezés előtt lett letöltve a operátor.  
 
 <!-- TBD - IS ASDK --> 
 - Frissítse a 1901 alkalmazása után, a következő problémák léphetnek a felügyelt lemezekkel rendelkező virtuális gépek üzembe helyezésekor:

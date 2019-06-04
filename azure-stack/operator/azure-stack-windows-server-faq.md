@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 3f177ea0c261771b67e6434215df67211452b767
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292012"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459069"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>A Windows Server az Azure Stack piactéren – gyakori kérdések
+# <a name="windows-server-in-azure-stack-marketplace-faq"></a>A Windows Server az Azure Stack-piactér – gyakori kérdések
 
 Ebben a cikkben megválaszolunk néhány – gyakori kérdések a Windows Server-rendszerképeket a [Azure Stack piactéren](azure-stack-marketplace.md).
 
@@ -32,7 +32,7 @@ Ebben a cikkben megválaszolunk néhány – gyakori kérdések a Windows Server
 
 Először határozza meg, ha minden olyan Azure Resource Manager-sablonok hivatkoznak verzióját. Ha igen, frissítse ezeket a sablonokat, vagy régebbi lemezkép-verzió megtartása. Érdemes használni **verzió: legfrissebb**.
 
-Ezután ha bármely Virtual Machine Scale Sets egy meghatározott verzióra vonatkoznak, gondolja hogy ezek később lesz skálázva, és döntse el, hogy a régebbi verziójú-e. Ezek a feltételek egyike sem a alkalmazni, ha újabb eszközök letöltése előtt törölje a régebbi rendszerképek a Marketplace-en. Ha ez hogyan lett letöltve az eredeti ehhez használja a Marketplace-en felügyeleti. Ezután töltse le az újabb verzióra.
+Ezután ha bármely virtuálisgép-méretezési csoportok hivatkozik egy adott verziót, gondolja hogy ezek később lesz skálázva, és döntse el, hogy a régebbi verziójú-e. Ezek a feltételek egyike sem a alkalmazni, ha újabb eszközök letöltése előtt törölje a régebbi rendszerképek a Marketplace-en. Marketplace-en felügyeleti használatával törölheti őket, ha ez hogyan lett letöltve az eredeti. Ezután töltse le az újabb verzióra.
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Mik azok a Windows Server Piactérről származó rendszerképek az Azure Stacken licencelési lehetőségeinek?
 
@@ -40,14 +40,14 @@ A Microsoft kínál a Windows Server-rendszerképeket az Azure Stack piactéren 
 
 - **Használja, a felhasznált**: Ezek a lemezképek futtassa a teljes díj Windows mérőszámok.
    Ki kell használnia: Nagyvállalati Szerződés (EA) használók a *Használatalapú számlázási modell*; CSP-k számára nem szeretne a SPLA-licenc.
-- **Hozott licences (BYOL)**: Ezek a lemezképek alapvető mérőszámok futtassa.
+- **Hozott licences (BYOL)** : Ezek a lemezképek alapvető mérőszámok futtassa.
    Ki kell használnia: Nagyvállalati szerződéssel rendelkező ügyfelek a Windows Server-licenc; CSP-k számára a SPLA-licenc.
 
 Az Azure hibrid használati Benefit (AHUB) nem támogatott az Azure Stacken. Ügyfelek, akik a "Kapacitás" modellel licenc a BYOL-lemezképet kell használnia. Ha teszteli az Azure Stack Development Kit (ASDK), ezek a beállítások bármelyikét használhatja.
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Mi történik, ha a helytelen verziók kínálni a bérlők és felhasználók letöltöttem?
 
-A nem megfelelő verziójú először törölje Marketplace Management szolgáltatáson keresztül. Várjon, amíg teljesen végrehajtásához (tekintse meg az értesítéseket befejezésére, nem a Marketplace-en felügyeleti panel). Ezután töltse le a megfelelő verziót.
+A nem megfelelő verziójú először törölje Marketplace Management szolgáltatáson keresztül. Várjon, amíg teljesen végrehajtásához (tekintse meg az értesítéseket befejezésére, nem a **Marketplace felügyeleti** panelen). Ezután töltse le a megfelelő verziót.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Mi történik, ha a felhasználó nem megfelelően be van jelölve a "Rendelkezem egy licenc" mezőben az előző Windows épít, és nem rendelkeznek licenccel?
 
@@ -70,7 +70,7 @@ Hozzáadhat **licenseType: Windows_Server** egy Azure Resource Manager-sablonban
 Egy Windows Server virtuális gépet az Azure Stacken aktiválásához a következő feltételeknek kell teljesülniük:
 
 - Az OEM be van állítva a megfelelő BIOS jelölő minden gazdagép rendszeren az Azure Stackben.
-- A Windows Server 2012 R2 és Windows Server 2016-ra kell használniuk [virtuális gépek automatikus aktiválása](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Kulcskezelő szolgáltatás (KMS) és egyéb aktiválási szolgáltatások nem támogatottak az Azure Stacken.
+- A Windows Server 2012 R2 és Windows Server 2016-ra kell használniuk [virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Kulcskezelő szolgáltatás (KMS) és egyéb aktiválási szolgáltatások nem támogatottak az Azure Stacken.
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hogyan ellenőrizhetem, hogy aktiválva van-e a virtuális gépem?
 
@@ -90,7 +90,7 @@ Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 slmgr /ipk <AVMA key>
 ```
 
-Tekintse meg a [virtuális gépek automatikus aktiválása](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) a kulcsokat a rendszerkép használata című cikket.
+Tekintse meg a [virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) a kulcsokat a rendszerkép használata című cikket.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Hozhatok létre saját Windows Server-rendszerképeket, hogyan biztosítható az AVMA használata?
 
@@ -106,7 +106,7 @@ Lépjen kapcsolatba a hardver ellenőrzése, hogy megtörtént-e a megfelelő BI
 
 ### <a name="what-about-earlier-versions-of-windows-server"></a>Mi a helyzet a Windows Server korábbi verzióiban?
 
-[Virtuális gépek automatikus aktiválása](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott a Windows Server korábbi verzióit. A virtuális gépeket manuálisan aktiválni kell.
+[Virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott a Windows Server korábbi verzióit. A virtuális gépeket manuálisan kell aktiválni.
 
 ## <a name="next-steps"></a>További lépések
 
