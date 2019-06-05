@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: e2560fd1e6418c9669f94f23ea1f6867e9c907a3
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469079"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506286"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 frissítése
 
@@ -39,6 +39,10 @@ Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNe
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
 Az Azure Stack 1903 frissítés buildszáma **1.1903.0.35**.
+
+### <a name="update-type"></a>Frissítés típusa
+
+Az Azure Stack 1903 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1903 frissítés befejezéséhez szükséges idő várt nagyjából 16 órán át, de a pontos idő változhat. A futtatókörnyezet előállításához a 1903 Update és más Azure Stack-frissítések nem hasonlíthatók.
 
 > [!IMPORTANT]
 > A 1903 hasznos adatai nem tartalmaz egy ASDK kiadást.
@@ -60,8 +64,6 @@ Az Azure Stack-gyorsjavítások csak alkalmazhatók az Azure Stackkel integrált
 - **1903**: [KB 4500638 – az Azure Stack gyorsjavítás 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>Fejlesztései
-
-- A frissítés 1903 hasznos Azure Stack az Azure Stack gazdagépek nem tartalmazza az alapul szolgáló operációs rendszer összetevői frissítését tartalmazza. Ez lehetővé teszi az egyes frissítések felvenni a hatókörbe. Ennek eredményeképpen a várt idő vesz igénybe a 1903 frissítés végrehajtásához kisebb (KB. 16 órán át, de a pontos idő változhat). Futásidejű ez csökkenése a 1903 frissítést és későbbi frissítések tartalmazhatnak az operációs rendszert, úgy a különböző modulok frissítései. Jövőbeli frissítések hasonló útmutatást nyújtanak a frissítés várható idejét az adattartalomban szereplő függően.
 
 - Kijavítva a hiba, a hálózat, amely ebben az esetben a módosítások a **üresjárat időkorlátja (perc)** értékét egy **nyilvános IP-cím** a lépnek érvénybe. Korábban a módosításokat erre az értékre figyelmen kívül hagyott, így a végrehajtott módosításokat, függetlenül az érték 4 perces alapértelmezett. Ez a beállítás határozza meg, hány percig, hogy a TCP-kapcsolat megnyitása nélkül az ügyfelek életben tartási üzenetek küldéséhez. Megjegyzés: Ez a hiba csak az érintett példány szintű nyilvános IP-címek, nem a nyilvános IP-címek hozzárendelve a terheléselosztóhoz.
 

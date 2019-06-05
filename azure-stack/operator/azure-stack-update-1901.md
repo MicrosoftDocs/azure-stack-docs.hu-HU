@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 71984d89bf98b93af28c51aef6599f5df176f8da
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: afa011ca40ea0ca7cbd899f8d3f15fb0512a6811
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469093"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506336"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 frissítése
 
@@ -46,6 +46,10 @@ Az Azure Stack 1901 frissítés buildszáma **1.1901.0.95** vagy **1.1901.0.99**
 > Csatlakoztatott ügyfelek, amelyek a 1811 automatikusan megjelenik az új 1901 (1.1901.0.99) csomagot a felügyeleti portálon, és telepítse, amikor készen áll. Leválasztott ügyfelek letöltése és importálása az új 1901 csomag ugyanilyen módon [az itt leírtak szerint](azure-stack-apply-updates.md).
 >
 > Mindkét verzióját 1901 rendelkező ügyfelek nem érinti, a következő teljes vagy a gyorsjavítás csomag telepítésekor.
+
+### <a name="update-type"></a>Frissítés típusa
+
+Az Azure Stack 1901 update build típusa **teljes**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk.
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 

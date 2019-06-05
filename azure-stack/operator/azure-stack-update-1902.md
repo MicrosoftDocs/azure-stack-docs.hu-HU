@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 67e0981d5fbd1d6872c9115b8becd2d5ec8b5d8e
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469120"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506291"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 frissítése
 
@@ -39,6 +39,10 @@ Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNe
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
 Az Azure Stack 1902 frissítés buildszáma **1.1902.0.69**.
+
+### <a name="update-type"></a>Frissítés típusa
+
+Az Azure Stack 1902 update build típusa **teljes**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk.
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
