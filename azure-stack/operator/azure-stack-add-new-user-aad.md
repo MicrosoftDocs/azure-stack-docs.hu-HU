@@ -16,12 +16,12 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: 70151d7793ef1f58b544517cecb7aa53bf5b3041
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043113"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691397"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adjon hozzá egy új Azure Stack-bérlői fiókkal az Azure Active Directoryban
 
@@ -43,8 +43,8 @@ Az Azure portal használata az Azure-előfizetéssel kell rendelkeznie.
 
    - **A név (kötelező).** Az első és utolsó az új felhasználó neve. Ha például Anna Parker.
    - **A felhasználónév (kötelező).** Az új felhasználó felhasználóneve. Például: mary@contoso.com.
-       A felhasználó nevét tartomány része kell használnia a vagy a kezdeti alapértelmezett tartománynévnek, <_saját_tartománynév_>. onmicrosoft.com, vagy egy egyéni tartománynevet, például contoso.com. Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [egy egyéni tartománynév hozzáadása az Azure Active Directory]((/azure/active-directory/fundamentals/add-custom-domain).
-   - **Profil.** További információ a felhasználó igény szerint adhat hozzá. Felhasználói adatok később is hozzáadhat. Felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [hozzáadása vagy módosítása a felhasználói profil information]((/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
+       A felhasználó nevét tartomány része kell használnia a vagy a kezdeti alapértelmezett tartománynévnek, <_saját_tartománynév_>. onmicrosoft.com, vagy egy egyéni tartománynevet, például contoso.com. Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [egyéni tartománynév hozzáadása az Azure Active Directoryhoz](/azure/active-directory/fundamentals/add-custom-domain).
+   - **Profil.** További információ a felhasználó igény szerint adhat hozzá. Felhasználói adatok később is hozzáadhat. Felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [hozzáadása vagy módosítása a felhasználói profil adatainak](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
    - **Címtárbeli szerepkör.**  Válasszon **felhasználói**.
 
 5. Ellenőrizze **jelszó megjelenítése** , és másolja a megadott automatikusan generált jelszót a **jelszó** mezőbe. A kezdeti bejelentkezési folyamathoz kell ezt a jelszót.

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506353"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691615"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -43,6 +43,10 @@ Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNe
 
 Az Azure Stack 1904 frissítés buildszáma **1.1904.0.36**.
 
+### <a name="update-type"></a>Frissítés típusa
+
+Az Azure Stack 1904 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1904 frissítés befejezéséhez szükséges idő várt nagyjából 16 órán át, de a pontos idő változhat. A futtatókörnyezet előállításához a 1904 Update és más Azure Stack-frissítések nem hasonlíthatók.
+
 ## <a name="whats-in-this-update"></a>Mi az a frissítés
 
 <!-- The current theme (if any) of this release. -->
@@ -52,8 +56,6 @@ Az Azure Stack 1904 frissítés buildszáma **1.1904.0.36**.
 ### <a name="improvements"></a>Fejlesztései
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-
-- A frissítés 1904 hasznos Azure Stack az Azure Stack gazdagépek nem tartalmazza az alapul szolgáló operációs rendszer összetevői frissítését tartalmazza. Ez lehetővé teszi az egyes frissítések felvenni a hatókörbe. Ennek eredményeképpen a várt idő vesz igénybe a 1904 frissítés végrehajtásához kevesebb (nagyjából 16 órán át, de a pontos idő változhat). Ez csökkenése futásidejű hasonlít a 1903 frissítést. Azonban ezt követő frissítésekben az operációs rendszert, úgy a különböző modulok frissítéseit is tartalmazhat. Jövőbeli frissítések hasonló útmutatást nyújtanak a frissítés várható idejét az adattartalomban szereplő függően.
 
 - 1904 jelentős fejlesztések történtek a szoftveralapú hálózatkezelés (SDN) stack. Ezek a fejlesztések általános karbantartási és az SDN-verem az Azure Stackben megbízhatóságának növelése érdekében.
 

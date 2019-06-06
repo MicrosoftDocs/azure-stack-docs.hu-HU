@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: a35b16d2c862547ffed340f3e06dc769e373eb85
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0932c1eb5f064d40841d9b056d869927e1144527
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296676"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691656"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Több-bérlős az Azure Stackben
 
@@ -110,7 +110,7 @@ Register-AzSWithMyDirectoryTenant `
 
 Most, hogy Ön és Mary végrehajtotta a előkészítése Mary könyvtárba, Mary irányíthatók a Fabrikam felhasználók jelentkezhetnek be.  Fabrikam felhasználók (vagyis a fabrikam.onmicrosoft.com utótagjával rendelkező felhasználók) jelentkezzen be funkcionáló https://portal.local.azurestack.external.  
 
-Mary átirányítja bármely [külső principals]((/azure/role-based-access-control/rbac-and-directory-admin-roles) a Fabrikam könyvtárban (azt jelenti, anélkül, hogy a fabrikam.onmicrosoft.com utótagja a Fabrikam címtárban felhasználó), jelentkezzen be a https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Ha az URL-cím nem használnak, a rendszer az alapértelmezett könyvtára (Fabrikam), és egy hibaüzenetet, amely szerint a rendszergazda nem egyezett bele.
+Mary átirányítja bármely [külső rendszerbiztonsági tag](/azure/role-based-access-control/rbac-and-directory-admin-roles) a Fabrikam könyvtárban (azt jelenti, anélkül, hogy a fabrikam.onmicrosoft.com utótagja a Fabrikam címtárban felhasználó), jelentkezzen be a https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Ha az URL-cím nem használnak, a rendszer az alapértelmezett könyvtára (Fabrikam), és egy hibaüzenetet, amely szerint a rendszergazda nem egyezett bele.
 
 ## <a name="disable-multi-tenancy"></a>Több-bérlős letiltása
 

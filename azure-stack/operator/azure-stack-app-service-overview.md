@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fcf2e977bbfebeab579d330c6228cc73f05d2307
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 4ae72e7f75147fc3891731da48ee210fc546bd97
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269152"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692048"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Az Azure Stack App Service szolgáltatásának áttekintése
 
@@ -42,8 +42,8 @@ Az App Service legfontosabb funkciói és képességei többek között az aláb
 
 Az App Service számos típusú, alkalmazások, amelyek célja, hogy egy adott számítási feladatot kínálja:
 
-- [Web Apps] ((/ azure/alkalmazás-szolgáltatás/áttekintése) webhelyek és webalkalmazások üzemeltetéséhez.
-- [Az API Apps] ((/ azure/alkalmazás-szolgáltatás/áttekintése) REST API-k üzemeltetéséhez.
+- [Web Apps](/azure/app-service/overview) webhelyek és webalkalmazások üzemeltetéséhez.
+- [Az API Apps](/azure/app-service/overview) REST API-k üzemeltetéséhez.
 - Az Azure Functions eseményvezérelt, kiszolgáló nélküli számítási feladatok futtatásához.
 
 A word *alkalmazás* számítási feladatok futtatására elkülönített üzemeltetési erőforrásokat jelenti. Véve *webalkalmazás* például fájlszerkesztés egy webalkalmazást, a számítási erőforrások és az alkalmazás a böngészőben együttesen funkció code szokták vagyunk. Az App Service-ben webalkalmazás az Azure Stack kínál az alkalmazás kódjában üzemeltető számítási erőforrásokat.
@@ -55,7 +55,7 @@ Az alkalmazás több, különböző típusú App Service-alkalmazások is állha
 
    [![App Service-ben – áttekintés a monitorozási adatok](media/azure-stack-app-service-overview/image01.png "figyelési adatok az App Service áttekintése")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
-## <a name="what-is-an-app-service-plan"></a>Mit nevezünk App Service-csomagnak?
+## <a name="what-is-an-app-service-plan"></a>Mi az App Service-csomag?
 
 Az App Service erőforrás-szolgáltató használja ugyanazt a kódot, hogy az Azure App Service használja, és így oszt meg néhány gyakori fogalmak. Az App Service-ben a díjszabási tároló alkalmazások neve a *App Service-csomag*. Azt jelöli, hogy a dedikált virtuális gépek halmazát jelenti az alkalmazások tárolására szolgál. Egy adott előfizetésen belül több App Service-csomagok is rendelkezhet.
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/06/2019
-ms.author: mabrigg
+ms.date: 06/05/2019
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/05/2019
+ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618833"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691692"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Külső figyelő megoldás integrálása az Azure Stack használatával
 
@@ -69,28 +69,138 @@ Az alábbi ábrán látható, az Azure Stack integrálása meglévő System Cent
 
 ## <a name="integrate-with-nagios"></a>Nagios integrálása
 
+Állítsa be, és konfigurálja a Nagios beépülő modul a Microsoft Azure Stackhez készült.
+
 A beépülő modul figyelési Nagios fejlesztette ki együtt a partnermegoldások Cloudbase érhető el a megengedő ingyenes szoftverlicenc - MIT (Massachusetts Institute of Technology) alatt.
 
 A beépülő modul Python nyelven van megírva, és az egészségügyi erőforrás-szolgáltató REST API-t használja. Alapszintű funkció lekéréséhez és a riasztások bezárása az Azure Stack kínál. Például a System Center felügyeleti csomag lehetővé teszi a több Azure Stack központi telepítéseket adhat hozzá és értesítések küldéséhez.
 
-A beépülő modul a Nagios vállalati és Nagios Core működik. Letöltheti a [Itt](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). A letöltési hely telepítési és konfigurációs részleteket is tartalmaz.
+Az 1.2-es verziója az Azure Stack – Nagios beépülő modult használja a Microsoft ADAL-könyvtár, és támogatja a hitelesítést egy titkos kulcsot vagy a tanúsítványt az egyszerű szolgáltatás használatával. Emellett a konfigurációs egyszerűsítettük egyetlen konfigurációs fájl használatával új paraméterekkel. Azure Stack üzemelő példányok AAD & AD FS használatával identitás rendszer mostantól támogatja.
 
-### <a name="plugin-parameters"></a>Beépülő modul paraméterei
+A beépülő modul együttműködik Nagios XI és a 4 x. Letöltheti a [Itt](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). A letöltési hely telepítési és konfigurációs részleteket is tartalmaz.
 
-A beépülőmodul-fájlt "Azurestack_plugin.py" adja meg a következő paraméterekkel:
+### <a name="requirements-for-nagios"></a>Nagios-követelményei
 
-| Paraméter | Leírás | Példa |
-|---------|---------|---------|
-| *arm_endpoint* | Az Azure Resource Manager (rendszergazda) végpontja | https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Az Azure Resource Manager (rendszergazda) végpontja  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | Felügyeleti előfizetés-azonosító | Az adminisztrátori portál vagy a Powershellen keresztül beolvasása |
-| *User_name* | Operátor előfizetés felhasználónév | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | Operátor előfizetés jelszava | SajátJelszó |
-| *Client_id* | Ügyfél | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Az Azure Stack régió neve | helyi |
-|  |  |
+1.  Minimális Nagios verziószáma 4.x
 
-* A PowerShell GUID, amely biztosítja az univerzális. Használhatja az egyes központi telepítések.
+2.  A Microsoft Azure Active Directory Python-kódtár. Ez is telepíthető, Python PIP használatával.
+
+```bash  
+sudo pip install adal pyyaml six
+```
+
+### <a name="install-plugin"></a>Beépülő modul telepítése
+
+Ez a szakasz ismerteti az alapértelmezett telepítés Nagios, feltéve, hogy az Azure Stack beépülő modul telepítése.
+
+A beépülő csomag tartalmazza a következő fájlokat:
+
+```
+  azurestack_plugin.py
+  azurestack_handler.sh
+  samples/etc/azurestack.cfg
+  samples/etc/azurestack_commands.cfg
+  samples/etc/azurestack_contacts.cfg
+  samples/etc/azurestack_hosts.cfg
+  samples/etc/azurestack_services.cfg
+```
+
+1.  Másolja a beépülő modul `azurestack_plugin.py` a következő könyvtárba `/usr/local/nagios/libexec`.
+
+2.  Másolja a kezelő `azurestack_handler.sh` a következő könyvtárba `/usr/local/nagios/libexec/eventhandlers`.
+
+3.  Győződjön meg arról, a beépülő modul fájlt is futtatható legyen van beállítva.
+
+    ```bash
+      sudo cp azurestack_plugin.py <PLUGINS_DIR>
+      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    ```
+
+### <a name="configure-plugin"></a>Beépülő modul konfigurálása
+
+Az alábbi paramétereket kell konfigurálni a azurestack.cfg fájlban érhetők el. A félkövérrel szedett paraméterek konfigurálni kell a választott hitelesítési modellből független.
+
+Részletes információkat, hogyan hozhat létre egy egyszerű Szolgáltatásnevet dokumentált [Itt](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+
+| Paraméter | Leírás | Hitelesítés |
+| --- | --- | --- |
+| **External_domain_fqdn ** | Külső tartomány teljes Tartományneve |    |
+| ** régió: ** | Régiónév |    |
+| **tenant_id: ** | Bérlő azonosítója\* |    |
+| client_id: | Ügyfél-azonosító | Titkos kulcs az egyszerű szolgáltatásnév |
+| client_secret: | Ügyfél-jelszó | Titkos kulcs az egyszerű szolgáltatásnév |
+| client_cert\*\*: | Tanúsítvány elérési útja | SPN-tanúsítvánnyal |
+| client_cert_thumbprint\*\*: | Tanúsítvány ujjlenyomata | SPN-tanúsítvánnyal |
+
+\*Bérlő azonosítója, nem szükséges az AD FS-Azure Stack-telepítésekhez.
+
+\*\* Ügyféltanúsítvány titkos ügyfélkulcsot és olyan kölcsönösen kizárják egymást.
+
+Az egyéb konfigurációs fájlokat választható konfigurációs beállításokat tartalmaznak, mivel azok konfigurálható Nagios is.
+
+> [!Note]  
+> Ellenőrizze a hely cél azurestack_hosts.cfg és azurestack_services.cfg.
+
+| Konfiguráció | Leírás |
+| --- | --- |
+| azurestack_commands.cfg | Kezelő konfigurációs módosítások követelmény |
+| azurestack_contacts.cfg | Értesítési beállítások |
+| azurestack_hosts.cfg | Az Azure Stack üzembe helyezési elnevezése |
+| azurestack_services.cfg | A szolgáltatás konfigurációját |
+
+### <a name="setup-steps"></a>A telepítő lépéseit
+
+1.  A konfigurációs fájl módosítása
+
+2.  Másolja a módosított konfigurációs fájlt a következő `/usr/local/nagios/etc/objects`.
+
+### <a name="update-nagios-configuration"></a>Nagios-konfiguráció frissítése
+
+Az Azure Stack biztosítása érdekében frissíteni kell a Nagios konfiguráció – Nagios beépülő modul be töltve.
+
+1.  A következő fájl megnyitása
+
+```bash  
+/usr/local/nagios/etc/nagios.cfg
+```
+
+1.  A következő bejegyzés hozzáadása
+
+```bash  
+  #load the Azure Stack Plugin Configuration
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+```
+
+1.  Töltse be újra a Nagios
+
+```bash  
+sudo service nagios reload
+```
+
+### <a name="manually-close-active-alerts"></a>Aktív riasztások lezárása manuálisan
+
+Aktív riasztások értesítő üzenet egyéni szövegében funkciójával Nagios belül bezárható. Az egyéni értesítést kell lennie:
+
+```
+  /close-alert <ALERT_GUID>
+```
+
+Riasztás is lehet lezárni a terminál segítségével a következő paranccsal:
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+```
+
+### <a name="troubleshooting"></a>Hibaelhárítás
+
+Hibaelhárítás a beépülő modul lehet hívása a beépülő modul manuális parancsot egy terminálban a kész. Használja a következő metódust:
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+```
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>A figyelő állapotát és a riasztások a PowerShell használatával
 
@@ -130,7 +240,7 @@ Ha nem használja az Operations Manager, Nagios, illetve a Nagios-alapú megold�
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
+## <a name="learn-more"></a>Részletek
 
 További információ a beépített állapot-ellenőrzés: [figyelni és riasztásokat az Azure Stackben](azure-stack-monitor-health.md).
 

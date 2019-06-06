@@ -3,30 +3,29 @@ title: Azure Stack-tanúsítványokkal kapcsolatos problémák javítása |} A M
 description: Az Azure Stack-készültségi ellenőrző használatával tekintse át és a tanúsítvány problémák elhárítására.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/21/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 06/04/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 009eb56621f7cd395c3d2eefb29b9fa624af888b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 24fdd5aa917d2454e56fc1843da25cda5db9c7db
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293673"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691535"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Az Azure Stack PKI-tanúsítványokkal kapcsolatos gyakori hibák javítása
 
-Ebben a cikkben található információk segítségével megismerheti és az Azure Stack PKI-tanúsítványokkal kapcsolatos gyakori hibák elhárításához. Problémák deríthet fel, az Azure Stack készültségi ellenőrző eszköz használatakor [ellenőrzése az Azure Stack PKI-tanúsítványokat](azure-stack-validate-pki-certs.md). Az eszköz ellenőrzi, hogy a tanúsítványok nyilvános kulcsokra épülő infrastruktúra egy Azure Stack üzemelő példányához és az Azure Stack titkos rotációja követelményeinek, és naplózza az eredményeket egy [report.json fájl](azure-stack-validation-report.md).  
+Ebben a cikkben található információk segítségével megismerheti és az Azure Stack PKI-tanúsítványokkal kapcsolatos gyakori hibák elhárításához. Problémák deríthet fel, amikor az Azure Stack készültségi ellenőrző eszközzel való [ellenőrzése az Azure Stack PKI-tanúsítványokat](azure-stack-validate-pki-certs.md). Az eszköz ellenőrzi, hogy a tanúsítványok nyilvános kulcsokra épülő infrastruktúra egy Azure Stack üzemelő példányához és az Azure Stack titkos Elforgatás követelményeinek, és naplózza az eredményeket egy [report.json fájl](azure-stack-validation-report.md).  
 
 ## <a name="pfx-encryption"></a>PFX Encryption
 
@@ -48,7 +47,7 @@ Ebben a cikkben található információk segítségével megismerheti és az Az
 
 **Hiba** -aláírási algoritmus SHA1.
 
-**Szervizelési** -aláírási kérelem generációs újragenerálja a tanúsítvány-aláírási kérelem (CSR) az SHA256 aláírási algoritmus az Azure Stack tanúsítványok kövesse a lépéseket. Ezután küldje el újra a CSR-fájl a hitelesítésszolgáltató adja ki újból a tanúsítványt.
+**Szervizelési** -aláírási kérelmet. generációs újragenerálja a tanúsítvány-aláírási kérelem (CSR) az Azure Stack-tanúsítványok szereplő lépések segítségével az SHA256-aláírási algoritmus. Ezután küldje el újra a CSR-fájl a hitelesítésszolgáltató adja ki újból a tanúsítványt.
 
 ## <a name="private-key"></a>Titkos kulcs
 
@@ -60,11 +59,11 @@ Ebben a cikkben található információk segítségével megismerheti és az Az
 
 **Hiba** -tanúsítványlánc még nem fejeződött be.  
 
-**Szervizelési** -tanúsítványokat kell tartalmaznia a teljes tanúsítványlánc. Újra exportálja a tanúsítványt, a lépések használatával [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) , és jelölje be **minden tanúsítvány belefoglalása a tanúsítványláncba, ha lehetséges.**
+**Szervizelési** -tanúsítványokat kell tartalmaznia a teljes tanúsítványlánc. Újra exportálja a tanúsítványt, a lépések használatával [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) , és jelölje be **minden tanúsítvány belefoglalása a tanúsítványláncba, ha lehetséges**.
 
 ## <a name="dns-names"></a>DNS-nevek
 
-**Hiba** – a DNSNameList a tanúsítvány nem tartalmaz az Azure Stack szolgáltatás végpont neve, vagy érvényes helyettesítő egyezést. Helyettesítő karakteres megegyezik a bal szélső névtér a DNS-név csak érvényesek. Ha például _*. region.domain.com_ je platná pouze Pro *portal.region.domain.com*, nem _*. table.region.domain.com_.
+**Hiba** – a **DNSNameList** a tanúsítvány nem tartalmaz az Azure Stack szolgáltatás végpont neve, vagy érvényes helyettesítő egyezést. Helyettesítő karakteres megegyezik a bal szélső névtér a DNS-név csak érvényesek. Ha például `*.region.domain.com` je platná pouze Pro `portal.region.domain.com`, nem `*.table.region.domain.com`.
 
 **Szervizelési** -aláírási kérelem generációs újragenerálja a CSR-fájl a megfelelő DNS-névvel rendelkező Azure Stack-tanúsítványok a lépéseket követve támogatja az Azure Stack-végpontok. Küldje el újra a CSR-fájl a hitelesítésszolgáltatótól, és kövesse a lépéseket a [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) exportálja a tanúsítványt a gépen, ami a CSR-fájl jön létre.  
 
@@ -84,22 +83,22 @@ Ebben a cikkben található információk segítségével megismerheti és az Az
 
 **Hiba** – a tanúsítványlánc sorrendje nem megfelelő.  
 
-**Szervizelési** -újra exportálja a tanúsítványt, a lépések használatával [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) , és jelölje be **minden tanúsítvány belefoglalása a tanúsítványláncba, ha lehetséges.** Győződjön meg arról, hogy csak a levéltanúsítvány exportálási van-e kiválasztva.
+**Szervizelési** -újra exportálja a tanúsítványt, a lépések használatával [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) , és jelölje be **minden tanúsítvány belefoglalása a tanúsítványláncba, ha lehetséges** . Győződjön meg arról, hogy csak a levéltanúsítvány exportálási van-e kiválasztva.
 
 ## <a name="other-certificates"></a>Más tanúsítványok
 
 **Hiba** – a PFX-csomag tartalmaz tanúsítványokat, amelyek nem a levéltanúsítvány vagy a tanúsítványlánc része.  
 
-**Szervizelési** -újra exportálja a tanúsítványt, a lépések használatával [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment), és válassza a **minden tanúsítvány belefoglalása a tanúsítványláncba, ha lehetséges.** Győződjön meg arról, hogy csak a levéltanúsítvány exportálási van-e kiválasztva.
+**Szervizelési** -újra exportálja a tanúsítványt, a lépések használatával [üzembe helyezés előkészítése az Azure Stack PKI-tanúsítványai](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment), és válassza a **minden tanúsítvány belefoglalása a tanúsítványláncba, ha lehetséges** . Győződjön meg arról, hogy csak a levéltanúsítvány exportálási van-e kiválasztva.
 
 ## <a name="fix-common-packaging-issues"></a>Csomagolási kapcsolatos gyakori problémák megoldása
 
-A **AzsReadinessChecker** nevű segítő parancsmag tartalmaz `Repair-AzsPfxCertificate`, amely importálhatja, és csomagolási gyakori problémák, beleértve a fájlt majd exportálása egy PFX:
+A **AzsReadinessChecker** eszközt tartalmaz nevű segítő parancsmag `Repair-AzsPfxCertificate`, amely importálhatja, és csomagolási gyakori problémák, beleértve a fájlt majd exportálása egy PFX:
 
-- *PFX-titkosítás* TripleDES-SHA1 nem.
-- *Titkos kulcs* helyi gép attribútum hiányzik.
-- *Tanúsítványlánc* hiányos vagy hibás. A helyi gép tartalmaznia kell a tanúsítványlánc, ha a PFX-csomag nem létezik.
-- *Más tanúsítványok*
+- **PFX-titkosítás** TripleDES-SHA1 nem.
+- **Titkos kulcs** helyi gép attribútum hiányzik.
+- **Tanúsítványlánc** hiányos vagy hibás. A helyi gép tartalmaznia kell a tanúsítványlánc, ha a PFX-csomag nem létezik.
+- **Más tanúsítványok**
 
 `Repair-AzsPfxCertificate` nem lehet segíthet, ha egy új CSR-fájl létrehozása, és adja ki újból a tanúsítvány szükséges.
 
@@ -108,18 +107,18 @@ A **AzsReadinessChecker** nevű segítő parancsmag tartalmaz `Repair-AzsPfxCert
 A következő előfeltételeknek kell teljesülnie a számítógépen, amelyen az eszköz fut:
 
 - Windows 10-es vagy Windows Server 2016, az internetkapcsolattal rendelkező.
-- A PowerShell 5.1-es vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, és tekintse át a *fő* és *kisebb* verziók:
+- A PowerShell 5.1-es vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, és tekintse át a *fő** és **kisebb** verziók:
 
    ```powershell
    $PSVersionTable.PSVersion
    ```
 
 - Konfigurálása [PowerShell az Azure Stack-](azure-stack-powershell-install.md).
-- Töltse le a legújabb verzióját a [a Microsoft Azure Stack készültségi ellenőrző](https://aka.ms/AzsReadinessChecker) eszközt.
+- Töltse le a legújabb verzióját a [Azure Stack készültségi ellenőrző](https://aka.ms/AzsReadinessChecker) eszközt.
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>Importálás és exportálás meglévő PFX-fájl
 
-1. A számítógépen, amely megfelel az előfeltételeknek nyisson meg egy rendszergazdai PowerShell-parancssort, és futtassa a következő parancsot a AzsReadinessChecker telepítéséhez:
+1. A számítógépen, amely megfelel az előfeltételeknek nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsot az Azure Stack-készültségi ellenőrző telepítéséhez:
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
@@ -142,7 +141,7 @@ A következő előfeltételeknek kell teljesülnie a számítógépen, amelyen a
 
 4. Az eszköz befejezése után tekintse át a kimenet sikeres végrehajtás esetén:
 
-   ```powershell
+   ```shell
    Repair-AzsPfxCertificate v1.1809.1005.1 started.
    Starting Azure Stack Certificate Import/Export
    Importing PFX .\certificates\ssl.pfx into Local Machine Store
@@ -155,4 +154,4 @@ A következő előfeltételeknek kell teljesülnie a számítógépen, amelyen a
 
 ## <a name="next-steps"></a>További lépések
 
-- [Itt tudhat meg többet az Azure Stack biztonsági](azure-stack-rotate-secrets.md).
+- [További tudnivalók az Azure Stack biztonságáról](azure-stack-rotate-secrets.md)

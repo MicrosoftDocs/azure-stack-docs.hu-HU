@@ -1,6 +1,6 @@
 ---
-title: Ebben az oktatóanyagban létrehozott egy Azure Stack Virtuálisgép-sablon használatával |} A Microsoft Docs
-description: Virtuális gép egy előre definiált sablon és a GitHub egyéni sablonok létrehozása a ASDK használatát ismerteti.
+title: Hozzon létre egy virtuális Gépet, közösségi sablon használatával |} A Microsoft Docs
+description: Ismerje meg, hogyan használható az Azure Stack Development Kit (ASDK) hozzon létre egy virtuális Gépet egy előre definiált sablon és a egy GitHub-egyéni sablon használatával.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,18 +13,18 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: a663a5c45c542ac4bfa19266c73066f8e41ba5d8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d82cdb1cccd52cc5e4c11571d85914be3f79a74e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303342"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691572"
 ---
-# <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: közösségi sablon segítségével virtuális gép létrehozása
+# <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: Hozzon létre egy virtuális Gépet, közösségi sablon használatával
 
 Azure Stack-operátorokról vagy felhasználóként, létrehozhat egy virtuális gép (VM) az [egyéni GitHub gyorsindítási sablonok](https://github.com/Azure/AzureStack-QuickStart-Templates) ahelyett, hogy az Azure Stack piactéren manuálisan a sablonok telepítésével.
 
@@ -37,23 +37,23 @@ Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 ## <a name="azure-stack-quickstart-templates"></a>Az Azure Stack-gyorssablonok
 
-Az Azure Stack-gyorsindítási sablonok GitHub tárolt [nyilvános Azure Stack-Gyorssablonok adattárában](https://github.com/Azure/AzureStack-QuickStart-Templates). Ez a tárház, amely az a Microsoft Azure Stack Development Kit (ASDK) teszteltük az Azure Resource Manager központi telepítési sablonok tartalmazza. Hogy egyszerűbb legyen, hogy az Azure Stack értékelje ki és használja a ASDK környezetet használhatja őket.
+Az Azure Stack-gyorsindítási sablonok GitHub tárolt [globális Azure Stack a rövid útmutató sablonok tárház](https://github.com/Azure/AzureStack-QuickStart-Templates). Ebben a tárházban (adattár), amely az a Microsoft Azure Stack Development Kit (ASDK) teszteltük az Azure Resource Manager központi telepítési sablonok tartalmazza. Hogy egyszerűbb legyen, hogy az Azure Stack értékelje ki és használja a ASDK környezetet használhatja őket.
 
-Az idő múlásával GitHub hány felhasználó van a tárházhoz, hozzájárult eredményez olyan gyűjteménye, több mint 400 központi telepítési sablonok. Ez a tárház kiváló kiindulási pontot annak jobban megismerheti, hogyan telepíthet különféle környezetek az Azure Stackhez.
+Az idő múlásával GitHub számos felhasználó által a tárház eredményez olyan gyűjteménye, több mint 400 központi telepítési sablonok. Ebben a tárházban kiváló kiindulási pontot annak jobb megértése, hogyan helyezhet a különféle környezetek az Azure Stackhez.
 
 >[!IMPORTANT]
 > Ezeket a sablonokat nem a Microsoft, hanem a Közösség tagjai által jön létre. A tulajdonosa, nem a Microsoft egyes sablonok licencelése licencszerződés keretében. A Microsoft nem felelős a sablonokért, és nem vállal biztonság, kompatibilitás és teljesítmény. Közösségi sablonok bármely Microsoft terméktámogatási programja vagy szolgáltatása nem támogatja, és elérhető "Adott állapotában", bármiféle garancia nélkül.
 
-Ha szeretne közreműködés GitHub Azure Resource Manager-sablonok, győződjön meg a hozzájárulást az [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) tárház. Ez a tárház, és hogyan működhet közre a azt kapcsolatos további információkért lásd: a [információs fájl](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md).
+Ha szeretne közreműködés GitHub Azure Resource Manager-sablonok, győződjön meg a hozzájárulást az [AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) adattárat. Ebben a tárházban, és hogyan működhet közre a azt kapcsolatos további információkért tekintse meg a [információs fájl](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md).
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Hozzon létre egy virtuális Gépet egy egyéni GitHub-sablon használatával
 
-Ebben a példában az oktatóanyagban a [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) helyezhet üzembe egy Ubuntu 16.04 virtuális gépet az Azure Stacken futó Minikube egy Kubernetes-fürt kezelése az Azure Stack gyorsindítási sablon szolgál.
+Ebben a példában az oktatóanyagban a [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) Azure Stack gyorsindítási sablon üzembe helyezése az Azure Stacken futó Kubernetes-fürtök kezeléséhez Minikube egy Ubuntu 16.04-virtuális gép szolgál.
 
 Minikube olyan eszköz, amely megkönnyíti a Kubernetes helyi futtatásához. Minikube fut egy egycsomópontos Kubernetes-fürt egy virtuális gépen, lehetővé téve a kipróbálhatja a Kubernetes vagy fejlesztheti napi. Egyszerű és a egy csomópontos Kubernetes-fürt egy Linux rendszerű virtuális gépen futó támogatja. Minikube a leggyorsabb és legegyszerűbb módja egy teljesen működőképes futtatott Kubernetes-fürt. Lehetővé teszi a fejlesztők számára, hogy a fejlesztés és tesztelés a Kubernetes-alapú telepítések a helyi számítógépeken. Tekintve a Minikube VM fő és ügynök csomópont-összetevőinek helyben fut:
 
-* API-kiszolgálóhoz, a Feladatütemező, például a fő csomópont összetevők és [etcd kiszolgáló](https://coreos.com/etcd/) nevű egyetlen Linux folyamat futtatása **LocalKube**.
-* Az ügynök csomópont-összetevőinek módon futtatja a docker-tárolókon belüli pontosan lenne egy normál ügynököt a csomóponton futnak. Alkalmazás központi telepítési szempontjából nincs között nincs különbség az alkalmazás egy Minikube, vagy egy reguláris Kubernetes-fürt üzembe helyezésekor.
+* Csomópont-összetevőinek API-kiszolgálóhoz, a Feladatütemező, például a fő és [etcd kiszolgáló](https://coreos.com/etcd/) nevű egyetlen Linux folyamat futtatása **LocalKube**.
+* Az ügynök csomópont-összetevőinek módon futtatja a docker-tárolókon belüli pontosan lenne egy normál ügynököt a csomóponton futnak. Alkalmazás központi telepítési szempontjából nem az alkalmazás egy Minikube vagy egy reguláris Kubernetes-fürt üzembe helyezése között nincs különbség.
 
 Ez a sablon a következő összetevőket telepíti:
 
@@ -81,17 +81,17 @@ Ez a sablon a következő összetevőket telepíti:
 
 4. Válassza ki **101-vm-linux-minikube** használatával a rendelkezésre álló sablonok közül a **válasszon ki egy sablont** legördülő listában, és kattintson a **OK**.
 
-    ![Sablonválasztás](media/azure-stack-create-vm-template/4.PNG)
+    ![Válasszon ki egy sablont](media/azure-stack-create-vm-template/4.PNG)
 
-5. Ha azt szeretné, a sablon JSON-JÁT módosításokat megteheti. Ha nem, vagy amikor végzett, válassza ki a **mentése** gombra kattintva zárja be a **szerkesztési sablon** párbeszédpanel.
+5. Ha azt szeretné, a sablon JSON-JÁT módosításokat, megteheti. Ha nem, vagy amikor végzett, válassza ki a **mentése** gombra kattintva zárja be a **szerkesztési sablon** párbeszédpanel.
 
     ![Sablon mentése](media/azure-stack-create-vm-template/5.PNG)
 
-6. Válassza ki **paraméterek**, adja meg, vagy a rendelkezésre álló mezőkben, szükség esetén módosítása, és kattintson **OK**. Válassza ki az előfizetést használja, hozzon létre vagy válasszon egy meglévő erőforráscsoport-nevet, és válassza a **létrehozás** kezdeményezése a sablon üzembe helyezéséhez.
+6. Válassza ki **paraméterek**, adja meg, vagy a rendelkezésre álló mezőkben, szükség esetén módosítása, és kattintson **OK**.
 
     ![Paraméterek](media/azure-stack-create-vm-template/6.PNG)
 
-7. Válassza ki az előfizetést használja, hozzon létre vagy válasszon egy meglévő erőforráscsoport-nevet, és válassza a **létrehozás** kezdeményezése a sablon üzembe helyezéséhez.
+7. Válassza ki az előfizetést, használata és hozzon létre vagy válasszon egy meglévő erőforráscsoport nevét. Ezután válassza ki **létrehozás** a sablon üzembe helyezésének megkezdéséhez.
 
     ![Válasszon előfizetést](media/azure-stack-create-vm-template/7.PNG)
 
@@ -112,7 +112,7 @@ Most, hogy a Linux rendszerű virtuális gép sikeresen létrejött, bejelentkez
 
 2. Egy rendszergazda jogú parancssorból futtassa **mstsc.exe** távoli asztali kapcsolat megnyitásához, és a Linux rendszerű virtuális gép nyilvános IP-címet az előző lépésben felderített való kapcsolódáshoz. Amikor a rendszer kéri, jelentkezzen be a xRDP, a virtuális gép létrehozásakor megadott hitelesítő adatokat használja.
 
-    ![Távoli](media/azure-stack-create-vm-template/10.PNG)
+    ![távoli](media/azure-stack-create-vm-template/10.PNG)
 
 3. Nyissa meg a terminált emulátor, és Minikube elindításához a következő parancsokat:
 
@@ -124,11 +124,11 @@ Most, hogy a Linux rendszerű virtuális gép sikeresen létrejött, bejelentkez
 
     ![Parancsok futtatása](media/azure-stack-create-vm-template/11.PNG)
 
-4. Nyissa meg a webböngészőjét, és látogasson el a Kubernetes-irányítópult címe. Gratulálunk, most már teljes körűen működik Minikube Kubernetes-telepítését!
+4. Nyisson meg egy böngészőt, és folytassa a Kubernetes-irányítópult címe. Gratulálunk, most már teljes körűen működik Minikube Kubernetes-telepítését!
 
     ![Irányítópult](media/azure-stack-create-vm-template/12.PNG)
 
-5. Üzembe helyezünk egy mintaalkalmazást, látogasson el a hivatalos Kubernetes dokumentációs oldalára, és ahogy már létrehozott egyet az előző lépésben, hagyja ki a "Minikube fürt létrehozása" szakaszban. Ugrás a szakasz "A Node.js-alkalmazás létrehozása" https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
+5. Üzembe helyezünk egy mintaalkalmazást, látogasson el a hivatalos Kubernetes dokumentációs oldalon, és ahogy már létrehozott egyet, hagyja ki a "Minikube fürt létrehozása" szakaszban. Ugrás a szakasz "A Node.js-alkalmazás létrehozása" https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
 
 ## <a name="next-steps"></a>További lépések
 

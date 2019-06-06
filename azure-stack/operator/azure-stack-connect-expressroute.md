@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: a039830e01b85ec5e8d9c66a0c815a38d9c694f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985731"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691641"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Csatlakozás Azure Stack az Azure ExpressRoute használatával
 
@@ -33,7 +33,7 @@ Ez a cikk egy oktatóanyag használja, és a példák segítségével ugyanazt a
 
 Az Azure ExpressRoute használatával kiterjesztheti helyszíni hálózatait a Microsoft cloud a kapcsolatszolgáltató által biztosított egy privát kapcsolaton keresztül. Az ExpressRoute nem egy VPN-kapcsolat a nyilvános interneten keresztül.
 
-Az Azure ExpressRoute kapcsolatos további információkért lásd: [ExpressRoute overview]((/azure/expressroute/expressroute-introduction).
+Az Azure ExpressRoute kapcsolatos további információkért lásd: a [ExpressRoute áttekintése](/azure/expressroute/expressroute-introduction).
 
 ### <a name="assumptions"></a>Előfeltételek
 
@@ -47,7 +47,7 @@ Ez a cikk feltételezi, hogy:
 
 Az Azure Stacket és az Azure ExpressRoute-tal tudjon csatlakozni a következő követelményeknek kell megfelelnie:
 
-* A kiépített [ExpressRoute circuit]((/azure/expressroute/expressroute-circuit-peerings) keresztül [kapcsolat provider]((/azure/expressroute/expressroute-locations).
+* A kiépített [ExpressRoute-kapcsolatcsoport](/azure/expressroute/expressroute-circuit-peerings) keresztül egy [kapcsolatszolgáltató](/azure/expressroute/expressroute-locations).
 * Azure-előfizetéssel, hozzon létre egy ExpressRoute-Kapcsolatcsoportok és virtuális hálózatok az Azure-ban.
 * Egy útválasztó, amely kell:
   * Támogatja a helyek közötti VPN-kapcsolatok a LAN-kapcsolat és az Azure Stack több-Bérlős átjáró között.
@@ -83,7 +83,7 @@ Az Azure Stack-környezet az első bérlő számára, használja a lépéseket a
 
 ![Az Azure Stack hálózati beállítása](media/azure-stack-connect-expressroute/image2.png)
 
-### <a name="before-you-begin"></a>Előzetes teendők
+### <a name="before-you-begin"></a>Előkészületek
 
 A kezdéshez konfigurálása az Azure Stack lesz szüksége:
 
@@ -324,22 +324,22 @@ Az Azure-beli virtuális hálózatok létrehozásával kapcsolatos további info
 
 ### <a name="configure-an-expressroute-circuit"></a>ExpressRoute-kapcsolatcsoport konfigurálása
 
-1. Tekintse át az ExpressRoute-Előfeltételek [ExpressRoute-Előfeltételek & checklist]((/azure/expressroute/expressroute-prerequisites).
+1. Tekintse át az ExpressRoute-Előfeltételek [ExpressRoute-Előfeltételek és ellenőrzőlista](/azure/expressroute/expressroute-prerequisites).
 
-1. Kövesse az [létrehozása és módosítása egy ExpressRoute circuit]((/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) egy ExpressRoute-kapcsolatcsoporttal az Azure-előfizetés létrehozásához.
+1. Kövesse a [létrehozása és módosítása egy ExpressRoute-kapcsolatcsoport](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) egy ExpressRoute-kapcsolatcsoporttal az Azure-előfizetés létrehozásához.
 
    >[!NOTE]
    >Adjon a kulcs a kapcsolatcsoport a szolgáltatáshoz, hogy azok állíthat be az ExpressRoute-kapcsolatcsoport a végén.
 
-1. Kövesse az [létrehozása és módosítása egy ExpressRoute circuit]((/azure/expressroute/expressroute-howto-routing-portal-resource-manager) konfigurálása a privát társviszony-létesítést az ExpressRoute-kapcsolatcsoport a társviszony-létesítést.
+1. Kövesse a [létrehozása és módosítása egy ExpressRoute-kapcsolatcsoport társviszony-létesítést](/azure/expressroute/expressroute-howto-routing-portal-resource-manager) konfigurálása a privát társviszony-létesítést az ExpressRoute-kapcsolatcsoportot.
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-Kövesse az [PowerShell]((/azure/expressroute/expressroute-howto-add-gateway-resource-manager) segítségével az agyi virtuális hálózat az ExpressRoute virtuális hálózati átjáró létrehozása az expressroute virtuális hálózati átjáró konfigurálása.
+Kövesse a [PowerShell-lel ExpressRoute virtuális hálózati átjáró konfigurálása](/azure/expressroute/expressroute-howto-add-gateway-resource-manager) virtuális hálózati átjáró létrehozása az expressroute-hoz az agyi virtuális hálózat.
 
 ### <a name="create-the-connection"></a>A kapcsolat létrehozása
 
-Az agyi virtuális hálózat az ExpressRoute-kapcsolatcsoport társítson, kövesse a [Csatlakozás az ExpressRoute circuit]((/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager) egy virtuális hálózatot.
+Az agyi virtuális hálózat az ExpressRoute-kapcsolatcsoport csatolásához kövesse [virtuális hálózat összekapcsolása egy ExpressRoute-kapcsolatcsoporthoz](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
 ### <a name="peer-the-vnets"></a>A virtuális hálózatok társítása
 

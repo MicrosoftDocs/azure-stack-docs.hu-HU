@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cff86ea851b2be030faf0c42a91fed60ac17634d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a375cc83410214f56eb38f676bf45cf529641972
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267028"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691094"
 ---
 # <a name="asdk-administration-basics"></a>ASDK Adminisztráció alapjai 
 Több szempontot, ha most ismerkedik az Azure Stack Development Kit (ASDK) felügyeleti ismernie kell. Ez az útmutató a szerepkör, a kiértékelési környezet az Azure Stack operátorait áttekintést nyújt, és hogyan biztosítson a tesztfelhasználók gyorsan hatékony válhat.
@@ -60,7 +60,9 @@ Amellett, hogy a szolgáltatások, el kell végeznie minden rendszeres feladatai
 - Sikertelen development kit gazdagép számítógép hardver cseréje 
 
 ## <a name="where-to-get-support"></a>Hol kérhet támogatást
-A fejlesztői csomag az egyetlen támogatási lehetősége a támogatási kapcsolatos kérdéseket tehet fel a [a Microsoft Azure Stack-fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Ha a felügyeleti portál jobb felső sarkában kattintson a Súgó és támogatás ikonra (kérdőjel), és kattintson a **új támogatási kérelem**, ekkor megnyílik a fórumok webhelyre közvetlenül. Ezek a fórumok rendszeresen figyeli a program. 
+Az az Azure Stack Development Kit (ASDK), a támogatási kapcsolatos kérdések a megkérheti a [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+
+Kattinthat **súgó** (kérdőjel) az adminisztrációs portálhoz, majd kattintson a jobb felső sarkában **súgó + támogatás** , nyissa meg a Súgó + támogatás **áttekintése**, amely rendelkezik egy a fórum mutató hivatkozás. MSDN fórumok rendszeresen figyeli a program.  
 
 > [!IMPORTANT]
 > Mivel a ASDK kiértékelési környezet, rendszer nem érhető el – a Microsoft támogatja a szolgáltatások (CSS) hivatalos támogatja.

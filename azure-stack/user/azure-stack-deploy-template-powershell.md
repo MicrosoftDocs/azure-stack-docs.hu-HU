@@ -1,10 +1,10 @@
 ---
-title: A sablonok PowerShell használatával az Azure Stack üzembe helyezése |} A Microsoft Docs
-description: A sablon üzembe helyezése az Azure Stack PowerShell használatával.
+title: PowerShell-lel az Azure Stack-sablon üzembe helyezése |} A Microsoft Docs
+description: PowerShell-lel az Azure Stack-sablon üzembe helyezése.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298601"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691444"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>A sablon üzembe helyezése az Azure Stack PowerShell-lel
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Powershell-lel az Azure Stack-sablon üzembe helyezése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -70,4 +69,4 @@ Ez a példa **AzureRM** a Githubon tárolt PowerShell-parancsmagok és a egy sab
 
 ## <a name="next-steps"></a>További lépések
 
-- [Sablonok üzembe helyezése a Visual Studióval](azure-stack-deploy-template-visual-studio.md)
+- [A Visual Studio-sablon üzembe helyezése](azure-stack-deploy-template-visual-studio.md)

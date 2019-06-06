@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2cca789487803124e1a7b24efa199d7f68760fb6
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 98aae8378e4bd516181cae95b153e6ee445ce4bf
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453408"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692004"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>A Virtual machine scale sets elérhetővé az Azure Stackben
 
@@ -29,14 +29,14 @@ Ez a cikk végigvezeti a méretezési csoportok az Azure Stack piactéren elérh
 Virtuális gép méretezési csoportok az Azure Stack Azure-beli virtuális gépek méretezési hasonlóak. További információkért tekintse meg a következő videót:
 
 * [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich ismerteti az Azure-alapú méretezési csoportokat)
-* [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman) (A virtuálisgép-méretezési csoportokról Guy Bowerman mesél)
+* [Virtuálisgép-méretezési csoportokat Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 Az Azure Stacken a virtuálisgép-méretezési csoportok nem támogatják az automatikus méretezés. További példányokat adhat hozzá egy méretezési csoportot a Resource Manager-sablonok, a parancssori felület vagy a PowerShell használatával.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
 * **A Marketplace-en:** Regisztrálja az Azure Stack a globális Azure-ral ahhoz, hogy a piactéren elemek rendelkezésre állását. Kövesse a [regisztrálása az Azure Stack az Azure-ral](azure-stack-registration.md).
-* **Operációs rendszer lemezképét:** Egy virtuálisgép-méretezési készlet létrehozása előtt le kell töltenie a Virtuálisgép-rendszerképek a VMSS a használatra a [Azure Stack piactéren](azure-stack-download-azure-marketplace-item.md). A lemezképek már jelen lehetett, mielőtt egy felhasználó hozhat létre egy új VMSS kell lennie.
+* **Operációs rendszer lemezképét:** Egy virtuálisgép-méretezési készlet létrehozása előtt le kell töltenie a Virtuálisgép-rendszerképek a méretezési készlet használható a [Azure Stack piactéren](azure-stack-download-azure-marketplace-item.md). A lemezképek már jelen lehetett, mielőtt egy felhasználó hozhat létre egy új méretezési csoportot kell lennie.
 
 ## <a name="use-the-azure-stack-portal"></a>Az Azure Stack portal használata
 

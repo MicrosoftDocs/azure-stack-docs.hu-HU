@@ -12,32 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: 576ca42d231aa12d88ed307df610a769a7907622
-ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.lastreviewed: 06/05/2019
+ms.openlocfilehash: 5dcbb331d27bdf07a268ba883c2dfbbfe821105a
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988109"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691583"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Az Azure Stack tevékenység ellenőrzőlista
 
-Ez a cikk az Azure Stack-operátorok ellenőrzőlistája, frissítéssel kapcsolatos tevékenységeket tartalmazza. Ha készen áll a alkalmazni a frissítés az Azure Stackhez, áttekintheti ezeket az információkat.
+Ez a cikk az Azure Stack-operátorok ellenőrzőlistája, frissítéssel kapcsolatos tevékenységeket tartalmazza. Ha tervezi az Azure Stackhez alkalmazná a frissítést, áttekintheti ezeket az információkat.
 
 ## <a name="prepare-for-azure-stack-update"></a>Azure Stack-frissítés előkészítése
 
 | Tevékenység              | Részletek                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| Tekintse át az ismert problémák   | [Ismert problémák listája](azure-stack-release-notes-known-issues-1904.md).                |
-| Tekintse át a biztonsági frissítések | [Biztonsági frissítések listája](azure-stack-release-notes-security-updates-1904.md).      |
+| Tekintse át az ismert problémák   | [Ismert problémák listája](azure-stack-release-notes-known-issues-1905.md).                |
+| Tekintse át a biztonsági frissítések | [Biztonsági frissítések listája](azure-stack-release-notes-security-updates-1905.md).      |
 | Run Test-AzureStack   | Futtatás `Test-AzureStack -Group UpdateReadiness` működési problémák azonosításához.      |
 | Problémák megoldása        | Oldja meg a működési problémákat által azonosított **Test-AzureStack**.                |
 | Alkalmazza a legújabb gyorsjavítások | A alkalmazni a legújabb gyorsjavításokat, amelyek érvényesek a jelenleg telepített kiadása.         |
 | Capacity planner eszközt futtatása | Ügyeljen arra, hogy a legújabb verzióját használja a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) végrehajtására a számítási feladatok tervezésekor és méretezése. A legújabb verzió hibajavításokat tartalmaz, és olyan megjelent új funkciókat biztosít minden egyes Azure Stack a frissítéssel. |
-| Frissítés jelent meg       | Csak csatlakoztatott forgatókönyvekben Azure Stack üzemelő példányok rendszeres időnként ellenőrzik egy biztonságos végpontot, és automatikusan értesíti, ha egy frissítés érhető el a felhőben. Kapcsolat nélküli ügyfelek letöltése, és az új 1904-es csomag használatával importálja a [folyamatot az itt leírtak szerint](azure-stack-apply-updates.md).               |
+| Frissítés érhető el       | Csak csatlakoztatott forgatókönyvekben Azure Stack üzemelő példányok rendszeres időnként ellenőrzik egy biztonságos végpontot, és automatikusan értesíti, ha egy frissítés érhető el a felhőben. Kapcsolat nélküli ügyfelek letöltése, és az új 1905 csomag használatával importálja a [folyamatot az itt leírtak szerint](azure-stack-apply-updates.md).               |
 
 ## <a name="during-azure-stack-update"></a>Azure Stack frissítése közben.
 
@@ -59,5 +59,5 @@ Ez a cikk az Azure Stack-operátorok ellenőrzőlistája, frissítéssel kapcsol
 
 ## <a name="next-steps"></a>További lépések
 
-- [Tekintse át a kapcsolatos ismert problémák listája](azure-stack-release-notes-known-issues-1904.md)
-- [Tekintse át a biztonsági frissítések listája](azure-stack-release-notes-security-updates-1904.md)
+- [Tekintse át a kapcsolatos ismert problémák listája](azure-stack-release-notes-known-issues-1905.md)
+- [Tekintse át a biztonsági frissítések listája](azure-stack-release-notes-security-updates-1905.md)

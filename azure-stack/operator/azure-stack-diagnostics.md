@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bc5710e0994480d7aa8b0496509ad2755bc9c9ac
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 98ad556bf1b0b5f0297cb7964cd9911a50145496
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268630"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691756"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack-diagnosztikai eszközök
 
@@ -85,21 +85,21 @@ Futtassa az alábbi lépések segítségével `Get-AzureStackLog` ASDK gazdaszá
 
 * Gyűjtse össze az összes napló összes szerepköre:
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
+  ```
 
 * Naplók gyűjtése a virtuális gép és BareMetal szerepkörök:
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
+  ```
 
 * Gyűjtsön naplókat azokról a virtuális gép és BareMetal szerepkörök, a dátum szerinti szűrést a naplófájlok az elmúlt 8 óra:
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
 * Gyűjtsön naplókat azokról a virtuális gép és BareMetal szerepkörök, a dátum szerinti szűrést a naplófájlokon 8 órával ezelőtt és 2 órával ezelőtt között az adott időszakban:
 
@@ -110,14 +110,17 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 * Naplók gyűjtése és a megadott Azure Storage blob-tárolóban tárolja őket. Ehhez a művelethez általános szintaxisa a következőképpen történik:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "<Blob service SAS Uri>"
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
   Példa:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS Token>"
+  Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
   ```
+
+  > [!NOTE]
+  > Ez az eljárás akkor hasznos, ha Support nyisson meg egy esetet, és a rendszer megkéri, hogy a naplók feltöltése. Még akkor is, ha nem rendelkezik elérhető virtuális gép ERCS SMB-megosztáson, és a ERCS virtuális gép nem rendelkezik internet-hozzáféréssel, blob storage-fiók létrehozása az Azure Stack vihetők át a naplókat, és ezután használja az ügyfél beolvasni ezeket a naplókat, és feltölteni őket a Microsoftnak.  
 
   A tárfiók SAS-token létrehozásához, a következő engedélyek szükségesek:
 
@@ -136,9 +139,6 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   8. Válassza ki a szükséges engedélyekkel, **olvasási**, **írási**, és **lista**.
   9. Kattintson a **Létrehozás** gombra.
   10. Egy közös hozzáférésű Jogosultságkód fog kapni. Másolja az URL-cím része, és adja meg, hogy a `-OutputSasUri` paraméter.
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>A paraméter szempontok ASDK és integrált rendszereket
 
@@ -170,7 +170,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
-  |ACSMonitoringService  |Tartomány                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
   |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |

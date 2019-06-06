@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 53b33c7eb0dc71a65113ef8807de1c5b3c3c4c80
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506291"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691386"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 frissítése
 
@@ -63,7 +63,7 @@ Az Azure Stack-gyorsjavítások csak alkalmazhatók az Azure Stackkel integrált
 ## <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> 1902 telepítheti közvetlenül a vagy a [1.1901.0.95 vagy 1.1901.0.99](azure-stack-update-1901.md#build-reference) kiadási, bármely 1901 a gyorsjavítás telepítése nélkül. Azonban ha már telepítette a korábbi **1901.2.103** gyorsjavítás, telepítenie kell az újabb [1901.3.105 gyorsjavítás](https://support.microsoft.com/help/4495662) 1902 előtt folytatja.
+> 1902 telepítheti közvetlenül a vagy a **1.1901.0.95** vagy **1.1901.0.99** kiadási, bármely 1901 a gyorsjavítás telepítése nélkül. Azonban ha már telepítette a korábbi **1901.2.103** gyorsjavítás, telepítenie kell az újabb [1901.3.105 gyorsjavítás](https://support.microsoft.com/help/4495662) 1902 előtt folytatja.
 
 - A frissítés telepítésének megkezdése előtt futtassa [Test-AzureStack](azure-stack-diagnostic-test.md) az Azure Stack állapotának érvényesítéséhez, és hárítsa el a működési hibákat talált a következő paraméterekkel, többek között az összes figyelmeztetések és hibák esetén. Emellett tekintse át az aktív riasztások, és oldja meg az esetleges beavatkozást igénylő:
 

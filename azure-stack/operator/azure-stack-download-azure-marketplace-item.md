@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b35e69a5308589223d9b5987dd3de2e8bb49cc7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985470"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691864"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Az Azure marketplace-elemek letöltése az Azure Stackhez
 
@@ -92,7 +92,7 @@ Ebben a forgatókönyvben két részből áll:
 
 - A piactér tartalomtípus-gyűjtési eszközt letölti az első eljárás során. 
 
-- Telepítése [AzCopy]((/azure/storage/common/storage-use-azcopy) a letöltési optimális teljesítményt, de ez nem kötelező.
+- Telepíthet [AzCopy](/azure/storage/common/storage-use-azcopy) letölthető optimális teljesítményt, de ez nem kötelező.
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>A piactér tartalomtípus-gyűjtési eszköz használatával töltse le a marketplace-elemek
 
@@ -198,7 +198,7 @@ Ebben a forgatókönyvben két részből áll:
    
    4. A blob feltöltése panelen keresse meg a csomag és a lemez fájlokat betölteni a storage-ba, és jelölje ki **feltöltése**: [![Töltse fel](media/azure-stack-download-azure-marketplace-item/uploadsm.png "feltöltése")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
-   5. Feltöltött fájlok a tároló panelen jelennek meg. Válasszon ki egy fájlt, és másolja az URL-címet a **Blob tulajdonságai** ablaktáblán. Amikor importálja a Piactéri elem az Azure Stack a következő lépésben fogja használni az URL-címet.  Az alábbi ábrán a tároló-e *test-blobtároló* , és a fájl *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  A fájl URL-cím *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
+   5. Feltöltött fájlok a tároló panelen jelennek meg. Válasszon ki egy fájlt, és másolja az URL-címet a **Blob tulajdonságai** ablaktáblán. Amikor importálja a Piactéri elem az Azure Stack a következő lépésben fogja használni az URL-címet.  Az alábbi ábrán a tároló-e *test-blobtároló* , és a fájl *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  A fájl URL-cím *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* .  
       [![BLOB tulajdonságai](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob tulajdonságai")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importálja a VHD-lemezképet az Azure Stack használatával a **Add-AzsPlatformimage** parancsmagot. Ha ezt a parancsmagot használja, cserélje le a *közzétevő*, *ajánlat*, és más paraméterértékek importált kép értékekkel. 
@@ -224,7 +224,7 @@ Ebben a forgatókönyvben két részből áll:
    Tekintse át a sablon leírása, és töltse le és importálja a további követelményeket, például VHD-k, amelyek szükségesek a megoldás sablonnal dolgozni.  
    
    **A bővítményekről:** Amikor a lemezképet virtuálisgép-bővítmények használata során használja a következő paramétereket:
-   - *Közzétevő*
+   - *Publisher*
    - *Típus*
    - *Verzió*  
 

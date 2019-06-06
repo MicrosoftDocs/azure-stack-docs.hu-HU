@@ -15,22 +15,22 @@ ms.date: 04/15/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: a10f034e05e97942a6c20d019d0d1930f49f8c81
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252012"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691460"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Hozzon létre egy előkészített adatelemzési megoldással az Azure és az Azure Stackben 
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Ismerje meg, hogyan használhatja a helyszíni és a nyilvános felhő környezeteiben a videólejátszást több létesítményben vállalatok. Az Azure Stack gyűjtése, feldolgozása, tárolására és helyi és távoli adatok terjesztése, különösen akkor, ha a biztonsági, bizalmas, a vállalati házirenddel és szabályozási követelmények eltérhetnek helyek közötti gyors, biztonságos és rugalmas megoldást kínál. és a felhasználók.
+Ismerje meg, hogyan használhatja a helyszíni és a nyilvános felhő környezeteiben a videólejátszást több létesítményben vállalatok. Az Azure Stack gyűjtése, feldolgozása, tárolására és terjesztésére a helyi és távoli adatok gyors, biztonságos és rugalmas megoldást kínál. Ez akkor fontos, ha a biztonsági, bizalmas, a vállalati házirenddel és szabályozási követelmények eltérhetnek helyek és a felhasználók között.
 
 Ebben a mintában az ügyfelek, hogy gyors döntéseket lehet tenni a gyűjtemény folyamatos elemzés igénylő adatait gyűjti. Általában adatgyűjteményben nincs Internet-hozzáféréssel rendelkező történik. Ha a kapcsolat létrejött, szükség lehet egy erőforrás-igényes elemzéseket végezhet az adatok további betekintést. Továbbra is elemezheti adatait, nyilvános felhő esetén túl késő vagy nem érhető el.
 
-Ebben az oktatóanyagban egy mintául szolgáló környezet létrehozása:
+Ebben az oktatóanyagban egy mintául szolgáló környezet építi fel:
 
 > [!div class="checklist"]
 > - A nyers adatok tárolási blob létrehozásához.
@@ -42,17 +42,17 @@ Ebben az oktatóanyagban egy mintául szolgáló környezet létrehozása:
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack hatékonyságával és innovációjával a felhőalapú számítástechnika a helyszíni környezetben, és a egyetlen olyan hibrid felhő, amely lehetővé teszi, hogy létrehozása és üzembe helyezése bárhol a hibrid alkalmazások engedélyezésével biztosítható.  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, és lehetővé teszi a egyetlen olyan hibrid felhő, amely lehetővé teszi, hogy létrehozása és üzembe helyezése bárhol hibrid alkalmazásokat.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) szoftverminőség alappillérei (elhelyezését, a méretezhetőség, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
 Ez a megoldás felépítéséhez szükséges néhány előkészítése:
 
--   Egy telepített és működő Azure Stack (további információt itt találhat: [Az Azure Stack áttekintése](azure-stack-storage-overview.md)
+-   Egy telepített és működő Azure Stack. További információkért lásd: a [Azure Stack áttekintése](azure-stack-storage-overview.md) cikk.
 
--   Azure-előfizetés. (Hozzon létre egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+-   Azure-előfizetés. Is [hozzon létre egy ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 -   A [Microsoft Azure Storage Explorer](https://storageexplorer.com/) letöltése és telepítése.
 
@@ -96,7 +96,7 @@ A storage-fiók és a blob-tárolót fog generálja a helyi tevékenységeket, b
 
     g.  Biztonságos átvitelre van szükség: **Letiltva**
 
-    h.  Előfizetés: Válasszon
+    h.  Előfizetés: Válasszon egyet
 
     i.  Erőforráscsoport: Adjon meg egy új erőforráscsoportot, vagy válasszon ki egy meglévő erőforráscsoportot
 
@@ -104,7 +104,7 @@ A storage-fiók és a blob-tárolót fog generálja a helyi tevékenységeket, b
 
 4.  Válassza ki **Create a storage-fiók létrehozása**.
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image1.png)
+    ![Storage-fiók létrehozása az Azure Stackben](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Létrehozása után válassza ki a tárfiók nevét.
 
@@ -112,7 +112,7 @@ A storage-fiók és a blob-tárolót fog generálja a helyi tevékenységeket, b
 
 7.  Válassza a panel tetején lévő **+ tároló.** Válassza ki **tároló**.
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image2.png)
+    ![Válassza ki a tárolót az Azure Stackben](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Név: **A választott**
 
@@ -130,11 +130,11 @@ Hozzon létre egy új Azure Stack-függvény tiszta adatok áthelyezése az Azur
 2. Válassza az **Összes szolgáltatás** elemet.
 3. Válassza ki **Függvényalkalmazások** a a **Web + mobil** csoport.
 
-4.  A beállításokkal, mint az ábra alatti táblázatban megadott függvényalkalmazás létrehozásához.
+4.  A beállításokkal, mint az alábbi táblázatban megadott függvényalkalmazás létrehozása:
 
     | Beállítás | Ajánlott érték | Leírás |
     | ---- | ---- | ---- |
-    | Alkalmazásnév | Globálisan egyedi név | Az új függvényalkalmazást azonosító név. Érvényes karakterek: `a` - `z`, `0``-9`, és `-`. |
+    | App neve | Globálisan egyedi név | Az új függvényalkalmazást azonosító név. Érvényes karakterek: `a` - `z`, `0``-9`, és `-`. |
     | Előfizetés | Az Ön előfizetése | Az előfizetés, amelyben létrehozta az új függvényalkalmazást. |
     | **Erőforráscsoport** |  |  |
     | myResourceGroup | Az új erőforráscsoport neve, amelyben létrehozza a függvényalkalmazást. |  |
@@ -153,25 +153,25 @@ Hozzon létre egy új Azure Stack-függvény tiszta adatok áthelyezése az Azur
 
 6.  Válassza a portál jobb felső sarkában található Értesítések ikont, és várja meg az **üzembe helyezés sikerességét** jelző üzenetet.
 
-    ![Új függvényalkalmazás-beállítások megadása](media/azure-stack-solution-staged-data-analytics/image7.png)
+    ![Üzembe helyezés sikerült – új függvény](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Válassza ki **erőforrás megnyitása** új függvényalkalmazás megtekintéséhez.
 
-![A függvényalkalmazás elkészült.](media/azure-stack-solution-staged-data-analytics/image8.png)
+![Új függvényalkalmazás megtekintése](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Az Azure Stack függvényalkalmazáshoz függvény hozzáadása
 
 1.  Hozzon létre egy új függvényt kattintva **funkciók**, akkor a **+ új funkció** gombra.
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image3.png)
+    ![Új függvény létrehozása](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Válassza ki **időzítő eseményindító**.
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image4.png)
+    ![Új függvény időzítő eseményindító](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  Válassza ki **C\#**  , a nyelv és a függvény neve: `upload-to-azure`  Az ütemezés beállítása, `0 0 * * * *`, amely a CRON jelöléssel egyszer egy óra.
+3.  Válassza ki **C\#**  , a nyelv és a függvény neve: `upload-to-azure`.  Az ütemezés beállítása, `0 0 * * * *`, amely a CRON jelöléssel egyszer egy óra.
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image5.png)
+    ![Új funkció beállításai](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>A blobtároló által aktivált függvény létrehozása
 
@@ -186,7 +186,7 @@ Hozzon létre egy új Azure Stack-függvény tiszta adatok áthelyezése az Azur
    | Beállítás | Ajánlott érték | Leírás |
    | ------- | ------- | ------- |
    | Name (Név) | Egyedi a függvényalkalmazásban | A blob által aktivált függvény neve. |
-   | `Path` | \<a fenti tárolási hely elérési útja > | A figyelt blobtárolóban található hely. A blob fájlneve a kötésben a name paraméter át. |
+   | Útvonal | \<a fenti tárolási hely elérési útja > | A figyelt blobtárolóban található hely. A blob fájlneve a kötésben a name paraméter át. |
    | Tárfiók kapcsolata | Függvény alkalmazás kapcsolat | A tárfiók kapcsolata a függvényalkalmazás által már használt használja, vagy hozzon létre egy újat. |
 
    **Példa**
@@ -219,7 +219,7 @@ Hozzon létre egy Azure Stack tárfiókok a blob és üzenetsor tartalmazó.
 
 ### <a name="storage-blob--data-archiving"></a>Tárolási Blob adatok archiválása
 
-Ez a tárfiók helyet biztosít két tárolót. Ezek a tárolók egy blob archív adatok tárolásához használja, és a egy üzenetsorba, a főiroda hozzárendelt adatok feldolgozásához használt.
+Ez a tárfiók helyet biztosít két tárolót. Ezek a tárolók egy blob archív adatok tárolására használt és a egy üzenetsorba, a főiroda hozzárendelt adatok feldolgozásához használt állnak.
 
 A lépéseket és a egy másik tárolási fiók és a blob tároló létrehozásához az archive storage, a fent vázolt beállításait használja.
 
@@ -233,9 +233,9 @@ A lépéseket és a egy másik tárolási fiók és a blob tároló létrehozás
 
 4.  Válassza ki **OK.**
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image14.png)
+    ![Tárolási üzenetsor](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Helyettesítő szöveg](media/azure-stack-solution-staged-data-analytics/image15.png)
+    ![Új tárolási üzenetsor név hozzáadása](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Üzenetsor által aktivált függvény létrehozása
 
@@ -246,7 +246,7 @@ A lépéseket és a egy másik tárolási fiók és a blob tároló létrehozás
     | Beállítás | Ajánlott érték | Leírás |
     | ------- | ------- | ------- |
     | Name (Név) | Egyedi a függvényalkalmazásban | Az üzenetsor által aktivált függvény neve. |
-    | `Path` | \<a fenti tárolási hely elérési útja > | A figyelt tárolási helye. Az üzenetsor neve, mint a name paraméter a kötés átadott. |
+    | Útvonal | \<a fenti tárolási hely elérési útja > | A figyelt tárolási helye. Az üzenetsor neve, mint a name paraméter a kötés átadott. |
     | Tárfiók kapcsolata | Függvény alkalmazás kapcsolat | A tárfiók kapcsolata a függvényalkalmazás által már használt használja, vagy hozzon létre egy újat. |
 
 3.  Válassza ki **létrehozás** a függvény létrehozásához.

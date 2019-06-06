@@ -15,33 +15,33 @@ ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 09a75b7aad3d0a9a919883641d8dc901353a5048
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 0c1da66104d37c97e3cf8176a859d0ca35243542
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251910"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691631"
 ---
-# <a name="create-a-registration-role-for-azure-stack"></a>Azure stack-regisztráció szerepkör létrehozása
+# <a name="create-a-custom-role-for-azure-stack-registration"></a>Azure Stack-regisztráció egyéni szerepkör létrehozása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
-
-Forgatókönyvek, ahol nem szeretnénk az Azure-előfizetés tulajdonosa engedélyt létrehozhat egy egyéni szerepkör engedélyek hozzárendelése egy felhasználói fiókot az Azure Stack regisztrálni.
 
 > [!WARNING]
 > Ez nem egy biztonsági rendszer kialakításához funkció. Használhatja a forgatókönyvek, amelyre megkötések az Azure-előfizetéshez véletlen módosításainak elkerülés érdekében. Ha egy felhasználó az egyéni szerepkör delegált jogosultságokkal, a felhasználó rendelkezik szerkesztési jogosultságot, és a jogosultságok. Az egyéni szerepkör megbízható felhasználók csak hozzárendelése.
 
-Regisztrálás az Azure Stack, a regisztrációs fiókhoz kell rendelkeznie a következő Azure Active Directory-engedélyek és az Azure-előfizetés engedélyeket:
+Azure Stack-regisztráció során az Azure Active Directory-fiókkal kell bejelentkeznie. A fiókot a következő Azure Active Directory-engedélyek és az Azure-előfizetés engedélyek szükségesek:
 
 * **Az Azure Active Directory-bérlőben alkalmazás a regisztrációs engedélyeket:** Rendszergazdák rendelkeznek az alkalmazás regisztrációs engedélyeket. A felhasználóknak engedélyt egy globális beállítás, a bérlő összes felhasználója. Megtekintéséhez, vagy módosítsa a beállítást, lásd: [hozzon létre egy Azure AD alkalmazás és -szolgáltatásnév erőforrások eléréséhez](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
     A *felhasználók regisztrálhatnak alkalmazásokat* értékűre kell állítani **Igen** , hogy regisztrálja az Azure Stack felhasználói fiók engedélyezése. Ha az alkalmazásregisztrációk beállítás értéke **nem**, egy felhasználói fiók nem használható, és regisztrálja az Azure Stack egy globális rendszergazdai fiókot kell használnia.
 
-* **Azure-előfizetés szükséges engedélyek egy készletét:** A tulajdonosok csoport rendelkezik megfelelő engedélyekkel. Egyéb fiókok esetében a következő szakaszokban ismertetett módon egy egyéni szerepkör hozzárendelésével arra az engedélycsoportra rendelhet.
+* **Azure-előfizetés szükséges engedélyek egy készletét:** A tulajdonosi szerepkörhöz tartozó felhasználók rendelkezik megfelelő engedélyekkel. Egyéb fiókok esetében a következő szakaszokban ismertetett módon egy egyéni szerepkör hozzárendelésével arra az engedélycsoportra rendelhet.
+
+Ahelyett, hogy az Azure-előfizetésben tulajdonosi engedélyekkel rendelkező fiókot használ, hozzon létre egy egyéni szerepkör engedélyek hozzárendelése egy kevésbé kiemelt jogosultságú felhasználói fiókhoz. Ezt a fiókot ezután regisztrálja az Azure Stack használható.
 
 ## <a name="create-a-custom-role-using-powershell"></a>Hozzon létre egy egyéni szerepkört, PowerShell-lel
 
-Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/roleDefinitions/write` engedély az összes `AssignableScopes`, mint például [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator). A következő JSON-sablon használatával egyszerűsíthető a definiálása az egyéni szerepkör. A sablon létrehoz egy egyéni biztonsági szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférés az Azure Stack-regisztráció.
+Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/roleDefinitions/write` engedély az összes `AssignableScopes`, mint például [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator). A következő JSON-sablon segítségével egyszerűsítheti az egyéni szerepkör létrehozása. A sablon létrehoz egy egyéni biztonsági szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférés az Azure Stack-regisztráció.
 
 1. Hozzon létre egy JSON-fájlt. Ha például  `C:\CustomRoles\registrationrole.json`
 2. Adja hozzá az alábbi JSON-kódot a fájlhoz. Cserélje le a `<SubscriptionID>` értékét a saját Azure-előfizetése azonosítójára.
@@ -76,7 +76,7 @@ Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/r
     Connect-AzureRmAccount
     ```
 
-4. Adja hozzá a szerepkört az előfizetés, használja a **New-AzureRmRoleDefinition** adja meg a sablon JSON-fájlt.
+4. Az egyéni szerepkör létrehozásához használja **New-AzureRmRoleDefinition** adja meg a sablon JSON-fájlt.
 
     ``` azurepowershell
     New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
@@ -84,7 +84,7 @@ Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/r
 
 ## <a name="assign-a-user-to-registration-role"></a>Felhasználó hozzárendelése regisztrációs szerepkör
 
-A regisztrációs egyéni szerepkör létrehozása után rendelje hozzá a szerepkörhöz felhasználók regisztrálása az Azure Stack.
+A regisztrációs egyéni szerepkör létrehozása után rendelje hozzá a szerepkört az Azure Stack regisztrálásához használt felhasználói fiók.
 
 1. Jelentkezzen be az Azure-előfizetés elegendő engedéllyel rendelkező fiók rights – például delegálása [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
 2. A **előfizetések**válassza **hozzáférés-vezérlés (IAM) > szerepkör-hozzárendelés hozzáadása**.

@@ -1,5 +1,5 @@
 ---
-title: Sablonok a parancssor az Azure Stack üzembe helyezése |} A Microsoft Docs
+title: A parancssorból az Azure Stack-sablon üzembe helyezése |} A Microsoft Docs
 description: Útmutató a sablonok az Azure Stack üzembe helyezése a többplatformos parancssori felület (CLI) használatával.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d225e113a19dc62ce66df49d89273d00e2e35683
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521116"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691367"
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Az Azure Stack a parancssor használatával sablonok üzembe helyezése
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>A parancssorból az Azure Stack-sablon üzembe helyezése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -35,7 +35,7 @@ Az Azure parancssori felület (CLI) használatával az Azure Resource Manager-sa
 
 ## <a name="deploy-template"></a>Sablon üzembe helyezése
 
-Lépjen abba a mappába, amelybe a rendszer letölti a fájlokat, és futtassa a következő parancsot a sablon üzembe helyezéséhez:
+Keresse meg a mappát, amelybe ezeket a fájlokat le és futtassa a következő parancsot a sablon üzembe helyezéséhez:
 
 ```azurecli
 az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json

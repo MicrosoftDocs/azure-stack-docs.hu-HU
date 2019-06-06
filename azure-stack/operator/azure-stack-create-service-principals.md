@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268799"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691300"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Hozzáférést biztosít az alkalmazásoknak az Azure Stackhez
 
@@ -45,9 +45,9 @@ Az egyszerű szolgáltatás létrehozása után az AD FS és az Azure Active Dir
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Az Azure ad egyszerű szolgáltatás kezelése
 
-Ha helyezte az Azure Stack az Azure Active Directoryval (Azure AD), az identity management-szolgáltatás, létrehozhat egyszerű szolgáltatásokat, mint az Azure-ban végezhet el. Ez a szakasz bemutatja, hogyan végezheti el a lépéseket a portálon keresztül. Ellenőrizze, hogy rendelkezik az [Azure ad-ben permissions]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) megkezdése előtt szükséges.
+Ha helyezte az Azure Stack az Azure Active Directoryval (Azure AD), az identity management-szolgáltatás, létrehozhat egyszerű szolgáltatásokat, mint az Azure-ban végezhet el. Ez a szakasz bemutatja, hogyan végezheti el a lépéseket a portálon keresztül. Ellenőrizze, hogy rendelkezik a [szükséges Azure AD-engedélyekről](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) megkezdése előtt.
 
-### <a name="create-service-principal"></a>Szolgáltatásnév létrehozása
+### <a name="create-service-principal"></a>Egyszerű szolgáltatás létrehozása
 
 Ebben a szakaszban az alkalmazást képviselő Azure AD-alkalmazásokhoz (egyszerű szolgáltatásnevének) létrehozása.
 
@@ -59,7 +59,7 @@ Ebben a szakaszban az alkalmazást képviselő Azure AD-alkalmazásokhoz (egysze
 
 Létrehozott egy egyszerű szolgáltatást az alkalmazás.
 
-### <a name="get-credentials"></a>Hitelesítő adatok beolvasása
+### <a name="get-credentials"></a>Hitelesítő adatainak lekérése
 
 Ha programozott módon jelentkezik be, ezt az Azonosítót használja az alkalmazáshoz, és a egy webalkalmazás / API-t, a hitelesítési kulcs. Az értékek beszerzéséhez kövesse az alábbi lépéseket:
 
@@ -119,7 +119,7 @@ Az alábbi adatokra szükség az automation-paraméterek bemenetként:
 |---------|---------|---------|
 |Name (Név)|Az SPN-fiók nevét|MyAPP|
 |ClientCertificates|Tanúsítvány-objektumok tömbje|X509 tanúsítvány|
-|ClientRedirectUris<br>(Választható lehetőség)|Alkalmazás átirányítási URI-ja|-|
+|ClientRedirectUris<br>(Nem kötelező)|Alkalmazás átirányítási URI-ja|-|
 
 #### <a name="use-powershell-to-create-a-service-principal"></a>Egyszerű szolgáltatás létrehozása a PowerShell használatával
 
@@ -362,7 +362,7 @@ Az alábbi adatokra szükség az automation-paraméterek bemenetként:
 
 ## <a name="assign-a-role"></a>Szerepkör hozzárendelése
 
-Az előfizetésben lévő erőforrások eléréséhez, hozzá kell rendelnie az alkalmazás egy szerepkörhöz. Döntse el, melyik szerepkör jelöli az alkalmazást a megfelelő engedélyekkel. Az elérhető szerepkörök kapcsolatos további információkért lásd: [RBAC: A beépített Roles]((/azure/role-based-access-control/built-in-roles).
+Az előfizetésben lévő erőforrások eléréséhez, hozzá kell rendelnie az alkalmazás egy szerepkörhöz. Döntse el, melyik szerepkör jelöli az alkalmazást a megfelelő engedélyekkel. Az elérhető szerepkörök kapcsolatos további információkért lásd: [RBAC: Beépített szerepkörök](/azure/role-based-access-control/built-in-roles).
 
 Beállíthatja a hatókör szintjén is az előfizetés, erőforráscsoport vagy erőforrás. Alacsonyabb szintű hatókör, az engedélyek öröklődnek. Például egy alkalmazás az Olvasó szerepkörhöz, egy erőforráscsoport hozzáadása azt jelenti, hogy azt az erőforráscsoportot és az összes benne található erőforrást olvashatja.
 

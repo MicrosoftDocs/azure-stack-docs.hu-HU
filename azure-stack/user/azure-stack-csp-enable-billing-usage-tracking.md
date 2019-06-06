@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack-előfizetés kezelése céljából Felhőszolgáltató engedélyezése |} A Microsoft Docs
-description: Engedélyezze a service provider, az Azure Stack-előfizetés eléréséhez.
+title: Lehetővé teszik a Felhőszolgáltató az Azure Stack-előfizetés kezelése |} A Microsoft Docs
+description: Ismerje meg, hogy a Felhőszolgáltató (CSP) kezelése az Azure Stack-előfizetést, hogyan.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 209a0da31d4bd5b519771f68f4bddcbb833284fa
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: 0dc162dd1d4021323f1bf80ad4f89fc721e575a9
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941212"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691975"
 ---
-# <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Az Azure Stack-előfizetés kezelése céljából Felhőszolgáltató engedélyezése
+# <a name="let-your-cloud-service-provider-manage-your-azure-stack-subscription"></a>Lehetővé teszik a Felhőszolgáltató az Azure Stack-előfizetés kezelése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek*
 
@@ -32,22 +32,24 @@ Ha az Azure Stack az a Felhőbeli szolgáltató (CSP) használ, választhatja er
 * Ellenőrizze, hogy a szolgáltató kezelheti a szolgáltatást.
 
 > [!NOTE]
-> A CSP a fiókot nem kezelő, és a következő lépés kihagyható, ha a kriptográfiai Szolgáltató az Azure Stack-előfizetést, nem tudja kezelni.
+> A kriptográfiai Szolgáltató nem a fiók kezelésében, és a következő lépés kihagyható, ha a kriptográfiai Szolgáltató az Azure Stack-előfizetést, nem tudja kezelni.
 
 ## <a name="manage-your-subscription-with-a-cloud-service-provider"></a>A Felhőszolgáltató az előfizetés kezelése
 
 Adja hozzá a CSP, **felhasználói** az előfizetéshez.
 
-1. A CSP a vendégfelhasználó hozzáadása a **felhasználói** szerepkört a bérlő címtárát. Felhasználó hozzáadása lépéseiért lásd: [új felhasználók hozzáadása az Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)
+1. A CSP a vendégfelhasználó hozzáadása a **felhasználói** szerepkört a bérlő címtárát. A felhasználó hozzáadása kapcsolatos útmutatásért lásd: [új felhasználók hozzáadása az Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
+
 2. A CSP hoz létre az Ön számára a helyi Azure Stack-előfizetéssel. Készen áll az Azure Stack használatának megkezdéséhez.
 3. A CSP hozzon létre egy erőforrást az előfizetésében, győződjön meg arról, hogy is kezelhetik az erőforrásokat. Ha például a következőkre [Windows virtuális gép létrehozása az Azure Stack portal](azure-stack-quick-windows-portal.md).
 
-## <a name="enable-the-cloud-service-provider-to-manage-your-subscription-using-rbac-rights"></a>A Felhőszolgáltató kezeléséhez az előfizetésben az RBAC-jogosultságok engedélyezése
+## <a name="let-the-cloud-service-provider-manage-your-subscription-using-rbac-rights"></a>Lehetővé teszik a Felhőszolgáltató az előfizetésben az RBAC-jogosultságok kezelése
 
 Adja hozzá a CSP, **tulajdonos** az előfizetéshez.
 
-1. A kriptográfiai Szolgáltató, a vendégfelhasználó hozzáadása a bérlő címtárát. Felhasználó hozzáadása lépéseiért lásd: [új felhasználók hozzáadása az Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
-2. Adja hozzá a **tulajdonos** a CSP Vendég felhasználói szerepkört. A CSP-felhasználó hozzáadása az előfizetéséhez lépéseiért lásd: [Use Role-Based hozzáférés-vezérlés az Azure-előfizetések erőforrásaihoz való hozzáférés kezelése](/azure/role-based-access-control/role-assignments-portal). A CSP hoz létre az Ön számára a helyi Azure Stack-előfizetéssel. Készen áll az Azure Stack használatának megkezdéséhez.
+1. A kriptográfiai Szolgáltató, a vendégfelhasználó hozzáadása a bérlő címtárát. A felhasználó hozzáadása kapcsolatos útmutatásért lásd: [új felhasználók hozzáadása az Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
+
+2. Adja hozzá a **tulajdonos** a CSP Vendég felhasználói szerepkört. Segítség a CSP-felhasználók hozzáadása az előfizetéséhez, tekintse meg a [Use Role-Based hozzáférés-vezérlés az Azure-előfizetések erőforrásaihoz való hozzáférés kezelése](/azure/role-based-access-control/role-assignments-portal). A CSP hoz létre az Ön számára a helyi Azure Stack-előfizetéssel. Készen áll az Azure Stack használatának megkezdéséhez.
 3. A CSP hozzon létre egy erőforrást az előfizetésében, győződjön meg arról, hogy képesek kezelni az erőforrásokat.
 
 ## <a name="next-steps"></a>További lépések
