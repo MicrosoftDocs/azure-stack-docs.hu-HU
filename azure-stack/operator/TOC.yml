@@ -419,6 +419,8 @@
       href: /azure-stack/asdk/
 - name: További források
   items:
+    - name: Képzés és tanúsítványok
+      href: azure-stack-train-and-cert.md
     - name: Azure Stack-ütemterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
     - name: Az Azure Stack MSDN-fórum
@@ -429,5 +431,3 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Képzés és tanúsítványok
-      href: azure-stack-train-and-cert.md

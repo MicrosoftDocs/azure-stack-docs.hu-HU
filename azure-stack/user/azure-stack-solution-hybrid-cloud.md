@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252062"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749027"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Az Azure és az Azure Stack egy hibrid felhőmegoldás üzembe helyezése
 
@@ -106,7 +106,7 @@ Ebben az oktatóanyagban a Kezdés előtt győződjön meg arról is megfeleljen
    - **Diagnosztikai tárfiók**. Hozzon létre egy új fiókot, ha szükség van egy.
    - Válassza ki **OK** kattintva mentse a konfigurációt.
 
-     ![Opcionális funkciók konfigurálása](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Választható funkciók konfigurálása](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. A **SQL Server-beállítások**, adja meg a következő beállításokat:
    - A **SQL-kapcsolat**válassza ki a **nyilvános (Internet)** .
@@ -126,7 +126,7 @@ Ebben az oktatóanyagban a Kezdés előtt győződjön meg arról is megfeleljen
 
 10. Az új virtuális gép létrehozása hosszabb időt vesz igénybe. A virtuális gépek ÁLLAPOTÁT is megtekintheti **virtuális gépek**.
 
-    ![Virtuális gépek](media/azure-stack-solution-hybrid-cloud/image7.png)
+    ![Virtual machines (Virtuális gépek)](media/azure-stack-solution-hybrid-cloud/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack"></a>Webalkalmazások létrehozása az Azure és az Azure Stackben
 
@@ -251,11 +251,11 @@ Azure Stack SSL hozzáadása:
 
 Az alkalmazás kódja a megfelelő Application Insights-példányhoz a jelentés telemetriai konfigurálása fog, és a webalkalmazások konfigurálása a megfelelő kapcsolati karakterláncok. Az Application Insights kapcsolatos további információkért lásd: [Mi az Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
-### <a name="add-application-insights"></a>Application Insights hozzáadása
+### <a name="add-application-insights"></a>Az Application Insights hozzáadása
 
 1. Nyissa meg a webes alkalmazások a Microsoft Visual Studio.
 
-2. [Az Application Insights hozzáadása](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core#add-application-insights-telemetry) továbbítására a telemetriát az Application Insights használó hozhat létre riasztásokat, amikor a webes forgalom növeli vagy csökkenti a projekthez.
+2. [Az Application Insights hozzáadása](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications) továbbítására a telemetriát az Application Insights használó hozhat létre riasztásokat, amikor a webes forgalom növeli vagy csökkenti a projekthez.
 
 ### <a name="configure-dynamic-connection-strings"></a>Dinamikus csatlakozási karakterláncok konfigurálása
 
@@ -489,7 +489,7 @@ Ez a nézet egy horizontális felskálázási riasztás és a méretezési csopo
 
 Az alábbi képernyőfelvétel-készítés horizontális felskálázást és horizontális leskálázás riasztásokat tartalmazza.
 
-   ![Értesítések (klasszikus)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![Riasztások (klasszikus)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>Az Azure és az Azure Stack közötti forgalom átirányítása
 

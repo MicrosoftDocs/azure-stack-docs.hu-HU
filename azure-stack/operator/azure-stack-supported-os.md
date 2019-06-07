@@ -16,12 +16,12 @@ ms.date: 02/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 69a0a9f84e0c4a5d0cb51eb8d48b3c9ca88b9cfc
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477345"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748969"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Vendég operációs rendszereket támogatják az Azure Stackben
 
@@ -34,6 +34,7 @@ Az Azure Stack támogatja az alábbi táblázatban felsorolt Windows vendég ope
 | Operációs rendszer | Leírás | A Marketplace-en elérhető |
 | --- | --- | --- |
 | A Windows Server 1709-es verzió | 64 bites | A tárolók Core |
+| A Windows Server 2019 | 64 bites |  Datacenter, Datacenter mag, Datacenter tárolókkal |
 | Windows Server 2016 | 64 bites |  Datacenter, Datacenter mag, Datacenter tárolókkal |
 | Windows Server 2012 R2 | 64 bites |  Adatközpont |
 | Windows Server 2012 | 64 bites |  Adatközpont |
@@ -57,15 +58,16 @@ Linux-disztribúciók elérhetőként szerepel a Marketplace-en tartalmazza a sz
 >
 > [a cloud-init](https://cloud-init.io/) jelenleg nem támogatott az Azure Stacken.
 
-| Disztribúció | Leírás | Közzétevő | Piactér |
+| Disztribúció | Leírás | Kiadó | Piactér |
 | --- | --- | --- | --- |
 | CentOS-alapú 6.9. | 64 bites | Rogue Wave | Igen |
-| CentOS-alapú 7.4 | 64 bites | Rogue Wave | Igen |
+| CentOS-alapú 7.5 | 64 bites | Rogue Wave | Igen |
+| CentOS-alapú 7.3 | 64 bites | Rogue Wave | Igen |
 | ClearLinux | 64 bites | ClearLinux.org | Igen |
 | Tároló Linux |  64 bites | CoreOS | Stable |
 | Debian 8 "Jessie" | 64 bites | credativ |  Igen |
 | Debian 9 "Stretch" | 64 bites | credativ | Igen |
-| Red Hat Enterprise Linux 7.1-es (és újabb verziók) | 64 bites | Red Hat |Saját kép használata |
+| Red Hat Enterprise Linux 7.1-es (és újabb verziók) | 64 bites | Red Hat | Saját kép használata |
 | SLES 11SP4 | 64 bites | SUSE | Igen |
 | SLES 12SP3 | 64 bites | SUSE | Igen |
 | Ubuntu 14.04-LTS | 64 bites | Canonical | Igen |

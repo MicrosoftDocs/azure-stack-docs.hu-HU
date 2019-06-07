@@ -15,12 +15,12 @@ ms.date: 03/26/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a56e1e8c3c5109c638432652adf9260f59f6a467
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 04ae974148d47bde1e3131aeca45e8bddc9e6109
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618449"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748991"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Az erőforrás-szolgáltató SQL üzemeltetési kiszolgáló hozzáadása
 
@@ -73,7 +73,7 @@ Az alábbi adatokat a további biztonsági útmutatást nyújt:
 
 * Az összes Azure Stack-tároló a BitLocker titkosítja, így tetszőleges SQL-példányra, az Azure Stacken titkosított blobot a tárhelyet fogja használni.
 * Az erőforrás-szolgáltató az SQL teljes mértékben támogatja a TLS 1.2. Győződjön meg arról, hogy bármely SQL Server, az SQL-RP-mel felügyelt konfigurálva van a TLS 1.2 _csak_ és a függő Entitás, amely alapértelmezés szerint. A TLS 1.2-es, az SQL Server támogatása az összes támogatott verzióit lásd: [a TLS 1.2 támogatása a Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* Használja az SQL Server Configuration Manager beállítása a **ForceEncryption** mindig lehetőséget annak biztosítása érdekében az SQL server felé minden kommunikáció titkosított. Lásd: [, konfigurálja a kiszolgálót, hogy a titkosított kapcsolatokat](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
+* Használja az SQL Server Configuration Manager beállítása a **ForceEncryption** mindig lehetőséget annak biztosítása érdekében az SQL server felé minden kommunikáció titkosított. Lásd: [, konfigurálja a kiszolgálót, hogy a titkosított kapcsolatokat](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Győződjön meg róla, minden ügyfélalkalmazás is titkosított kapcsolaton keresztül kommunikál.
 * Az SQL Server-példányok által használt tanúsítványok megbízhatósági kapcsolata konfigurálva van az RP-ből.
 

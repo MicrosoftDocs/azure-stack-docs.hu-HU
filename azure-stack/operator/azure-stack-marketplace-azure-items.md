@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 714ffd213ce88ca58cf4b04c649857239f6deacf
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252133"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749051"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -31,7 +31,7 @@ ms.locfileid: "66252133"
 
 Minden alkalommal, amikor frissítések érhetők el a virtuális gép (VM) bővítményeket használ, akkor le kell töltenie őket. A termék szállított bővítmények nem frissítik a normál javítási és frissítési folyamata; tehát keressen frissítéseket gyakran. Más bővítmények csak az Marketplace Management szolgáltatáson keresztül érhetők el.
 
-|  | Konfigurációelem neve | Leírás | Gyártó | Operációs rendszer típusa |
+|  | Konfigurációelem neve | Leírás | Kiadó | Operációs rendszer típusa |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS Extension](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Töltse le a bővítmény telepítéséhez bármely SQL Server, a Windows Piactéri elem – Ez a bővítmény megadása kötelező.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Egyéni szkriptbővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **A Custom Script bővítmény a Windows beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
@@ -52,7 +52,7 @@ Minden alkalommal, amikor frissítések érhetők el a virtuális gép (VM) bőv
 
 A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a megoldássablonok támogatja. Töltse le a függőségek külön-külön jelezve. Alkalmazások, például az SQL Server és a Machine Learning-kiszolgáló szükséges, megfelelő licencre, kivéve, ha a ingyenes vagy próbaverziója megjelölve.
 
-|  | Konfigurációelem neve | Leírás | Gyártó |
+|  | Konfigurációelem neve | Leírás | Kiadó |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Egyszerűen üzembe helyezhető, költséghatékony, alkalmazásorientáltak és a felhasználó-központú nagyvállalati szintű megoldások. Ezek a lemezképek rendszeresen frissülnek a legújabb javításokat. **Fontos információk: A képek előtt 2018. január 18 kell kell hagyni, a legújabb verziókat cseréli le.** | Microsoft |
 | ![A SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 próbaverziójának a Windows Server 2012 Datacenter és a 2019 Visual Studio community Edition kiadását. | Microsoft |
@@ -80,11 +80,11 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 
 ## <a name="linux-distributions"></a>Linux-disztribúciók
 
-|  | Konfigurációelem neve | Leírás | Gyártó |
+|  | Konfigurációelem neve | Leírás | Kiadó |
 | --- | --- | --- | --- |
 | ![Törölje a Linux operációs rendszer](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Törölje a Linux operációs rendszer](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Linux-disztribúció Intel architektúra optimalizált hivatkozást. | Linux-projekt törlése |
 | ![A CoreOS tároló Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [A CoreOS tároló Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Tároló Linux modern és minimális Linux-disztribúció, így könnyedén futtathat tárolókat, kezelheti a fürtöket, és a kiszolgálók zökkenőmentes frissítését – az összes összetevő, amely lehetővé számítási. | CoreOS |
-| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server rendszer a világ legnépszerűbb Linux felhőalapú környezetek. | Kanonikus |
+| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server rendszer a világ legnépszerűbb Linux felhőalapú környezetek. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux egyike a népszerű Linux-disztribúció. | credativ |
 | ![CentOS-alapú 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | Ehhez a terjesztéshez Linux CentOS alapul, és a Rogue Wave szoftver által biztosított. | Rogue Wave Software (korábbi nevén OpenLogic)  |
 | ![CentOS-alapú 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Ehhez a terjesztéshez Linux CentOS alapul, és a Rogue Wave szoftver által biztosított. | Rogue Wave Software (korábbi nevén OpenLogic)  |
@@ -97,7 +97,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Külső BYOL, ingyenes, próba képek és megoldássablonok
 
-|  | Konfigurációelem neve | Leírás | Gyártó |
+|  | Konfigurációelem neve | Leírás | Kiadó |
 | --- | --- | --- | --- |
 | ![A10-es vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10-es vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Az a10-es hálózatok vThunder Alkalmazáskézbesítési vezérlőt a Microsoft Azure kifejezetten robotfejlesztési célra készült nagy teljesítményű, a rugalmasságot, és egyszerűen telepíthető alkalmazáselérés és -kiszolgáló terheléselosztás optimalizáltuk, hogy fut natív módon az Azure-felhőben. | A10 Networks |
 | ![Útválasztó arista vEOS](media/azure-stack-marketplace-azure-items/arista.png) | [Útválasztó arista vEOS](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Az Arista vEOS útválasztó a funkciókban gazdag, többfelhős, és több hipervizorral rendelkező virtuális útválasztó, amellyel a nagyvállalatok és felhőszolgáltatók hozhat létre egységes, rendkívül biztonságos és skálázható hibrid hálózatok. | Arista hálózatok |
@@ -116,7 +116,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Cassandra-fürt](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Az Apache Cassandra egy nyílt forráskódú elosztott adatbázis-kezelő rendszer hagyományos kiszolgálókra, nagy mennyiségű adat kezelésére nem rendszerkritikus meghibásodási pontot magas rendelkezésre állást biztosít. **Ez a megoldássablon Debian 8 és egyéni parancsfájl is Linux 2.0-s verziója igényel.** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | Egyszerű, webalapú ügyfélkapcsolat-kezelő rendszer. | Bitnami |
 | ![Egyszerű CMS](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [Egyszerű CMS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | Gyors és egyszerű megoldást hozhat létre és kezelhet egy webhelyet. | Bitnami |
-| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.codiad) | Nyílt forráskódú Cloud IDE minimális tárhely. | Bitnami |
+| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps?search=codiad) | Nyílt forráskódú Cloud IDE minimális tárhely. | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Egyszerű üzembe helyezése, webalkalmazások, webhelyek, tárolók és fórumokat is talál. | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [A Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | Több célú, teljes körű webes gyűjteménye. | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | Könnyen használható nyílt forráskódú adatbázis rendszer. | Bitnami |
@@ -224,7 +224,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![PHP webes levelezésben Pro](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [WebMail Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | Webes levelezésben rendszer szolgáltatást vállalati szolgáltatásokkal. | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Alkalmazás-kiszolgáló, amely tartalmazza az Apache, WildFly, MySQL és a Java. | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | A legtöbb népszerű és ready-to-go CMS. | Bitnami |
-| ![Értékesítési CRM X2Engine](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [Értékesítési CRM X2Engine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Kompakt marketinges, értékesítési és ügyfél szolgáltatás alkalmazás. | Bitnami |
+| ![Értékesítési CRM X2Engine](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [Értékesítési CRM X2Engine](https://azuremarketplace.microsoft.com/marketplace/apps?search=x2engine%20sales%20crm) | Kompakt marketinges, értékesítési és ügyfél szolgáltatás alkalmazás. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | Tartalomkezelő rendszer és webes portál Program, amely létrehozza a dinamikus webhelyeket. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Nyílt forráskódú CRM rendszert: Mobil-, közösségi és Gamified. | Bitnami |
 | ![A Check Point vSEC biztonsági kezelése](media/azure-stack-marketplace-azure-items/checkpoint.png) | [A Check Point vSEC biztonsági kezelése](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | A Check Point vSEC tesz lehetővé a fejlett, többrétegű fenyegetések megelőzése vevő eszközök az Azure-ban védelme a kártevők és kifinomult fenyegetések. **Mindkét ellenőrzési pont a vSEC Piactéri termékek letöltése.** | Check Point |

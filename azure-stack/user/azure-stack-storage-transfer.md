@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 087b7b8a5b307c5be56774024c99369286ae321d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986183"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748979"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Adatok átvitele tools for Azure Stack-tároló használata
 
@@ -67,7 +67,7 @@ Nincsenek az AzCopy segédprogram két verziója: Az AzCopy Windows és Linux re
  - **AzCopy Linuxon**
 
     - Telepítse, és ugyanúgy, mint az Azure használata az AzCopy az Azure Stacken. További információkért lásd: [AzCopy linuxon](/azure/storage/common/storage-use-azcopy-linux).
-    - A korábbi verziók (1802 való 1809 frissítések), tekintse meg a [telepítési lépések AzCopy 7.1-es és korábbi verzióiban](/azure/storage/common/storage-use-azcopy-linux#installation-steps-for-azcopy-71-and-earlier-versions).
+    - A korábbi verziók (1802 való 1809 frissítések), tekintse meg a [telepítési lépések AzCopy 7.1-es és korábbi verzióiban](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Adatátvitel az AzCopy parancs példák
 

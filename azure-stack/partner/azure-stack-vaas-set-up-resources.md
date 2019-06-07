@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ed3dfda57bc544bd61efcc52ef7588a553ac634
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9ad15342a8c0116f928b416f26e64b08563a5c14
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297622"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748954"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: A szolgáltatás érvényesítése erőforrások beállítása
 
@@ -74,7 +74,7 @@ Ez a folyamat engedélyezi a bérlőben a **Azure Stack érvényesítési Servic
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Szervezet neve | A hivatalos szervezet nevét. |
     | Az Azure AD-bérlő könyvtár neve | Regisztrálja a címtár Azure AD-bérlő neve. |
-    | Az Azure AD címtár azonosítója | Az Azure AD-bérlő Directory, a címtárhoz társított GUID. Információk megkereséséhez az Azure AD-bérlő címtár-azonosító: [Bérlőazonosító beszerzése](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
+    | Az Azure AD címtár azonosítója | Az Azure AD-bérlő Directory, a címtárhoz társított GUID. Információk megkereséséhez az Azure AD-bérlő címtár-azonosító: [Bérlőazonosító beszerzése](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Várjon, amíg az Azure Stack érvényesítési csapat, ellenőrizze, hogy a bérlő használja az VaaS portal megerősítést.
 
@@ -110,7 +110,7 @@ Az Azure Storage-fiókot az Azure nyilvános felhő, nem pedig az Azure Stack-k�
 
     - A **üzemi modell** mező értéke **Resource Manager** alapértelmezés szerint.
     - A **Teljesítmény** mező alapértelmezett értéke **Standard**.
-    - Válassza ki **fióktípus** mezőt **a Blob storage-**.
+    - Válassza ki **fióktípus** mezőt **a Blob storage-** .
     - A **replikációs mező** értékre van állítva **helyileg redundáns tárolás (LRS)** alapértelmezés szerint.
     - A **Hozzáférési szint** alapértelmezett beállítása **Gyakori elérésű**.
 
