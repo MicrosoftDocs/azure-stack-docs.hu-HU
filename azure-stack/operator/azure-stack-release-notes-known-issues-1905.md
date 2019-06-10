@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: b79c40b26735184d7a0b0501a5ef6f4a1354a375
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: c8f132d67b701cf0aa2961158205bad470220c7b
+ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748918"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810241"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Az Azure Stack 1905 ismert problémák
 
@@ -32,6 +32,14 @@ Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista fr
 
 ## <a name="update-process"></a>Frissítési eljárás
 
+### <a name="host-node-update-prerequisite-failure"></a>Csomópont frissítés előfeltétel-ellenőrzési hiba
+-   Alkalmazható: A probléma 1905 frissítésére vonatkozik.
+-   OK: Telepítésekor a 1905 Azure Stack frissíteni, a frissítés állapotát a gazdagép csomópont frissítés előfeltétel miatt meghiúsulhat. Ez általában egy elegendő szabad lemezterülettel rendelkező gazdacsomópont okozzák. 
+-   Szervizelési: Lépjen kapcsolatba az Azure Stack-támogatás törlésével szabadítson fel lemezterületet a gazdacsomópont támogatásra.
+-   Előfordulás: Nem szokványos
+
+
+### <a name="preparation-failed"></a>Az előkészítés sikertelen
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: 1905 az Azure Stack frissítésének megkísérlésekor a frissítés állapota sikertelen lehet, hogy, és az állapotváltozáshoz **PreparationFailed**. A frissítés erőforrás-szolgáltató (URP) nem képes megfelelően viheti át a fájlokat a storage-tárolót egy belső infrastruktúrát megosztáshoz feldolgozási okozza. A 1905 csomag, nagyobb korábbi frissítési csomagokat, amelyek fordul elő.
 - Szervizelési: 1901 (1.1901.0.95) verziójával kezdődően is használhatja a probléma megoldásához kattintva **frissítés most** újra (nem **folytatása**). A URP ezután a fájlokat az előző próbálkozás megtisztítja, és letöltését újraindítja. Ha a probléma tartósan fennáll, javasoljuk, hogy manuálisan feltöltve az alábbi frissítési csomag a [importálása és telepítési frissítések szakasz](azure-stack-apply-updates.md#import-and-install-updates).

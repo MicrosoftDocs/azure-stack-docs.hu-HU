@@ -16,23 +16,25 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6005196fe98f83c11b9d87ff713e290bad9ef384
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
+ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692029"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810219"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-számítás
 
-A [Virtuálisgép-méretek](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) támogatott az Azure Stackben is támogatja az Azure-ban a részhalmazát képezik. Az Azure erőforrások (helyi és a szolgáltatásiszint-kiszolgáló) overconsumption elkerülése érdekében számos vektorok mentén erőforráskorlátok ír elő. Nélkül betartatásához bérlői használat bizonyos korlátozások, a bérlő élményt, amikor más bérlők overconsume erőforrások romlani fog. Hálózati kimenő forgalom a virtuális gépről a sávszélesség a caps teljesülnek az Azure Stacken, amelyek megfelelnek az Azure korlátai vannak. Storage access-bérlők a tárolási erőforrások, az Azure Stack-erőforrások egyszerű overconsumption elkerülése érdekében történtek tárolási IOPS-korlátok.
+A [Virtuálisgép-méretek](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) támogatott az Azure Stackben is támogatja az Azure-ban a részhalmazát képezik. Az Azure erőforrások (helyi és a szolgáltatásiszint-kiszolgáló) overconsumption elkerülése érdekében számos vektorok mentén erőforráskorlátok ír elő. Nélkül betartatásához bérlői használat bizonyos korlátozások, a bérlő élményt, amikor más bérlők overconsume erőforrások romlani fog. Hálózati kimenő forgalom a virtuális gépről a sávszélesség a caps teljesülnek az Azure Stacken, amelyek megfelelnek az Azure korlátai vannak. Tárolási erőforrások az Azure Stacken tárolási IOPS-korlátok ne alapszintű storage access-bérlők által erőforrások fogyasztásának keresztül.
 
 >[!IMPORTANT]
 >A [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) nem fontolja meg, és nem garantálja a IOPS teljesítményt.
 
 ## <a name="vm-placement"></a>Virtuális gépek elhelyezése
 
-Az Azure Stackben bérlői Virtuálisgép-Elhelyezés a végzi el automatikusan az elhelyezési motor rendelkezésre álló gazdagép között. A virtuális gépek elhelyezésekor csak két szempontok vannak, hogy nincs elég memória a gazdagépen a virtuális gép típusát, és ha a virtuális gépek egy részét képezik- [rendelkezésre állási csoport](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) vagy [a virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).  
+Az Azure Stack elhelyezési motor helyezi el a bérlői virtuális gépeknek a rendelkezésre álló gazdagép között.
+
+Az Azure Stack két szemponttól használja, amikor a virtuális gépek elhelyezése. Egy, az elegendő memória a gazdagépen a virtuális gép típusa. Két, a rendszer a virtuális gépek egy része egy [rendelkezésre állási csoport](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) vagy [a virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 Magas rendelkezésre állás az Azure Stackben több virtuális gépre kiterjedő gyártási rendszer, virtuális gépek kerülnek egy rendelkezésre állási csoportban, a azokat több tartalék tartomány között. Tartalék tartomány egy rendelkezésre állási csoportban van definiálva egy csomópontot a skálázási egységben. Az Azure Stack támogatja a rendelkezésre állási csoport, amely legfeljebb három tartalék tartományt az Azure-ral konzisztens kellene. Virtuális gépeket egy rendelkezésre állási csoportot helyezett osztja szét őket lehető legegyenletesebben több tartalék tartomány, azt jelenti, az Azure Stack-gazdagépeken keresztül lesz fizikailag különítve egymástól. Hardverhiba esetén a sikertelen tartalék tartomány virtuális gépeket fogja indítani a többi tartalék tartományban, de, külön tartalék tartományokban, ha lehetséges, a más virtuális gépek ugyanazon rendelkezésre állási csoportban tartani. Ha ismét online elérhető a gazdagép, virtuális gépek fog rebalanced magas rendelkezésre állás fenntartása érdekében.  
 
@@ -56,7 +58,7 @@ Használt memória több összetevőből épül fel. A következő összetevők 
  - Infrastruktúra-szolgáltatások – ezek azok az Azure Stack alkotó virtuális gépek infrastruktúra. Az Azure Stack 1904 kibocsátási verziókban, kezdődően ez maga után vonja körülbelül 31 virtuális gépeket is igénybe vehet 242 GB + (4 GB x csomópontok száma) memória. Az infrastruktúra-szolgáltatások összetevő memóriahasználata változhatnak, gondoskodik az infrastruktúra-szolgáltatások jobban méretezhető és rugalmas dolgozunk.
  - Rugalmasság tartalék – Azure Stack foglal le, hogy a virtuális gépek a sikeres működés közbeni áttelepítése közben egyetlen gazdagép hibája esetén, valamint javítási és a frissítés során a bérlő rendelkezésre állás érdekében engedélyezéséhez memóriájának egy részét.
  - Bérlő virtuális gépek – ezek azok a bérlői virtuális gépeket az Azure Stack-felhasználók által létrehozott. Virtuális gépek futtatása mellett memória olyan virtuális gépek, amelyek a hálón jut használja fel. Ez azt jelenti, hogy a "Létrehozás" vagy "Sikertelen" állapotú virtuális gépet, vagy állítsa le a belül a Vendég virtuális gépek memóriát fog felhasználni. Virtuális gépek, amelyek használatával a leállítási lehetőséget a portal/powershell/cli felszabadítása felszabadítása azonban nem használnak fel az Azure Stack memória.
- - Bővítmény RPs – virtuális gépet üzembe helyezni a kiegészítő RPs például SQL, MySQL, App Service és egyebek számára
+ - Bővítmény RPs – virtuális gépek üzembe a bővítmény RPs, például SQL, a MySQL-alkalmazás, szolgáltatás stb.
 
 
 A memóriát a portál megértésének legjobb módja az, hogy használja a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) megtekintéséhez a különböző számítási feladatok hatását. A következő számítási megegyezik egy, a planner által használt.
