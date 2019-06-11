@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
-ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
+ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307840"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828315"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service-ben az Azure Stack 6. összesített frissítéssel kibocsátási megjegyzései
 
@@ -89,7 +89,7 @@ Az Azure App Service az Azure Stack 6-os frissítés tartalmazza a következő f
 - Feldolgozók nem érhető el a fájlkiszolgálót, ha App Service-ben üzemel egy meglévő virtuális hálózatot és a fájlkiszolgáló csak érhető el a magánhálózaton, feltüntettük az Azure App Service az Azure Stack központi telepítési dokumentációjában az.
 
 Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
- * Adatforrás: Bármely
+ * Forrás: Bármely
  * Forrás porttartomány: *
  * Cél: IP-címek
  * Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
@@ -102,6 +102,16 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák működtetése az Azure App Service az Azure Stack felhő-rendszergazdák számára
 
 A dokumentáció a [Azure Stack 1904 kibocsátási megjegyzései](azure-stack-release-notes-1904.md)
+
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Ismert problémák a bérlők számára az Azure Stack az Azure App Service-alkalmazások üzembe helyezéséhez
+
+- Üzembe helyezési központ szürkén jelenik meg
+
+Bérlők még nem hozható létre, használja az üzembe helyezési központ, amely egy szolgáltatás, amely a nyilvános felhőben késői 2018-ban jelent.  Bérlők továbbra is használhatják a normál telepítési módszerek (FTP, a Web Deploy, Git, stb.) a portálon, CLI és PowerShell használatával.
+
+- Központi telepítési beállítások (klasszikus) felhasználói felület és a telepítési hitelesítő adatok portál beállítások nem érhető el
+
+A központi telepítési beállítások és az üzembe helyezési hitelesítő adatok felhasználói élmény az Azure Stack üzembe helyezés, a bérlők a elérése érdekében kell be a portálra ebben a formátumban URL-cím - https://portal.&lt; *régió*&gt;.&lt; *FQDN*&gt;/? websitesExtension_oldvsts = true –, amelyek esetében a ASDK lenne [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd keresse meg az alkalmazások általában.
 
 ## <a name="next-steps"></a>További lépések
 

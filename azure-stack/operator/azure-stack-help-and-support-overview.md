@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 2d6943cc88712c0706054103383c436419cecd85
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693898"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828387"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>A Microsoft Azure Stack-Súgó és támogatás
 
@@ -43,7 +43,7 @@ Felső részén **súgó + támogatás** dolog, próbáljon meg először, péld
 
 Egy integrált rendszer van egy koordinált eszkalációs és a Microsoft és a számítógépgyártó (OEM) hardvergyártó partnereinkkel névfeloldási folyamat.
 
-Ha probléma van a cloud services megfeleléssel, a támogatási keresztül a Microsoft támogatási szolgáltatásokat (CSS) érhető el. Kattinthat **súgó** (kérdőjel) az adminisztrációs portálhoz, majd kattintson a jobb felső sarkában **súgó + támogatás** megnyitásához **súgó + támogatás áttekintése** és a egy új beküldése támogatási kérelmet. A támogatási kérelem előre ki van töltve, amelyek segítik a Microsoft ügyfél-támogatási szolgálat (CSS) a probléma megoldása a stamp információkat. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a nyilvános Azure portal használatával. 
+Ha probléma van a cloud services megfeleléssel, a támogatási keresztül a Microsoft támogatási szolgáltatásokat (CSS) érhető el. Kattinthat **súgó** (kérdőjel) az adminisztrációs portálhoz, majd kattintson a jobb felső sarkában **súgó + támogatás** megnyitásához **súgó + támogatás áttekintése** és a egy új beküldése támogatási kérelmet. Hozzon létre egy támogatási kérést fog előre kiválasztja az értékhez az Azure Stack szolgáltatás. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a nyilvános Azure portal használatával. 
 
 Ha üzembe helyezés problémáját, javítási és frissítési hardver (beleértve a mező telepen cserélhető egység) és bármely hardver márkanevű szoftverek, például a hardver életciklus gazdagépen futó szoftver forduljon az OEM hardvergyártójához először. Bármi más forduljon a Microsoft CSS.
 

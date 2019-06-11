@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
-ms.author: PatAltimore
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: chengwei
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: e0b62c9f9519e1b77211327c4f9b48d4b53cf99a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985875"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828346"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Az Azure Stack napló- és felhasználói adatok kezelése 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*  
 
-A mértékben a Microsoft a processzor- és a személyes adatok a gyűjthetünk Azure Stack subprocessor, minden ügyfelünk számára, hatékony teszi a Microsoft 25 2018 május, a kötelezettségvállalás az (a) a személyes adatok; "feldolgozása Általános adatvédelmi rendelet"kiépítés"Adatvédelmi feltételeket"szakaszának a [Online szolgáltatások használati feltételeit](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0) és (b) a az Európai Unió általános adatvédelmi rendelet feltételeket melléklet 4 a [Online szolgáltatások használati feltételeit](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0). 
+A mértékben a Microsoft a processzor- és a személyes adatok a gyűjthetünk Azure Stack subprocessor, minden ügyfelünk számára, hatékony teszi a Microsoft 25 2018 május, a kötelezettségvállalás az (a) a személyes adatok; "feldolgozása Általános adatvédelmi rendelet"kiépítés"Adatvédelmi feltételeket"szakaszának a [Online szolgáltatások használati feltételeit](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) és (b) a az Európai Unió általános adatvédelmi rendelet feltételeket melléklet 4 a [Online szolgáltatások használati feltételeit](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). 
 
 Azure Stack vevő adatközpontokban található, mint a Microsoft a keresztül megosztott adatok, kizárólag az adatkezelő [diagnosztikai](azure-stack-diagnostics.md), [Telemetriai](azure-stack-telemetry.md), és [Számlázási](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Hozzáférés-vezérlést 
-Microsoft-alkalmazottak számára, aki hozzá van rendelve egy adott esetet vizsgálatára, a titkosított adatok csak olvasási hozzáféréssel fog kapni. Microsoft-alkalmazottak számára is rendelkezik hozzáféréssel az eszközökhöz, amelyek segítségével törölheti az adatokat, ha szükséges. Összes hozzáférést az ügyféladatokhoz naplózza, és bejelentkezett.  
+Microsoft-alkalmazottak számára, aki hozzá van rendelve egy adott esetet vizsgálatára, a titkosított adatok csak olvasási hozzáféréssel fog kapni. Microsoft-alkalmazottak számára is törli az adatokat, szükség esetén használt eszközök eléréséhez. Összes hozzáférést az ügyféladatokhoz naplózza, és bejelentkezett.  
 
 Adatok hozzáférés-vezérlés:
 1.  Csak őrizzük meg legfeljebb 90 nap elteltével eset zárja be az adatokat.
@@ -43,7 +43,7 @@ Adatok hozzáférés-vezérlés:
 Ahogy korábban említettük, a Microsoft támogatja az igény szerinti Adattörlés ügyfél kérelmenként. Ügyfelek kérheti, hogy a támogatási szakember egy adott esetben az összes naplók törlése bármikor, az ügyfél választja, mielőtt az adat véglegesen törlődik.  
 
 ### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>Nem Microsoft ügyfelek értesítése az adatok törlése?
-Az automatikus törlés művelet (90 nap után zárja be a eset) azt nem proaktív módon keresse fel az ügyfelek számára, és értesíteni őket a törlés. 
+Az automatikus törlés művelet (90 nap után zárja be a eset) azt nem proaktív módon ügyfelekkel és értesíteni őket a törlést. 
 
 Az igény szerinti adatok törlés művelet a Microsoft támogatási szakértő hozzáfér az eszközt, ahol kezdeményezhetnek, hogy az adatok törlése az igény szerinti és azok megadhatják megerősítést a telefonján az ügyfélnél Amikor kész van.
 

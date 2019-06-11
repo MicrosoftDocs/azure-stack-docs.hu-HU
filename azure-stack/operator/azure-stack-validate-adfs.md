@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 09aa51c329f7f4fd7004312092ff09c9ceb091d7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984085"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828418"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Az AD FS-integráció az Azure Stack ellenőrzése
 
@@ -117,7 +117,7 @@ Az alábbi példák gyakori ellenőrzési hibákat ad útmutatást.
 
 **Ok**: PowerShell Autoload nem sikerült megfelelően betölteni a készültségi ellenőrző modul.
 
-**Megoldás**: A készenléti ellenőrző modul importálása explicit módon. Másolja és illessze be a következő kódot a Powershellt, és a frissítés \<verzió\> a jelenleg telepített verzió számát.
+**Feloldási**: A készenléti ellenőrző modul importálása explicit módon. Másolja és illessze be a következő kódot a Powershellt, és a frissítés \<verzió\> a jelenleg telepített verzió számát.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

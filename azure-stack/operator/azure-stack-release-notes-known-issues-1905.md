@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: c8f132d67b701cf0aa2961158205bad470220c7b
-ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
+ms.openlocfilehash: f5ea9823f41624038416d91cef9efcb9e16dad63
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810241"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821770"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Az Azure Stack 1905 ismert problémák
 
@@ -67,6 +67,13 @@ Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista fr
 - OK: Engedélyek nem tekintheti meg az Azure Stack portálok használata az előfizetéshez.
 - Szervizelési: Használat [engedélyek ellenőrzése érdekében PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: Közös
+
+### <a name="marketplace-management"></a>Marketplace-en kezelése
+
+- Alkalmazható: A probléma 1904 és 1905 vonatkozik
+- OK: A piactér felügyeleti képernyő a látható esetén nem jelentkezik be a felügyeleti portálon.
+- Szervizelési: Frissítse a böngészőt, vagy keresse fel **beállítások** , és jelölje be **alapértelmezett beállításainak visszaállítása**.
+- Előfordulás: Időszakos
 
 ### <a name="docker-extension"></a>Docker-bővítmény
 

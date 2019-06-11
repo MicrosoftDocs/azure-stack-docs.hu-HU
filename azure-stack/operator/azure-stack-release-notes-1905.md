@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: d06c57ad73076f8b55099648aef8151574041261
-ms.sourcegitcommit: 31e93196aae5af5c46037b9169d119bb6d20c990
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 018c5e2a6e099fb0a0ed7bc164ef26728a9d8ed3
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66717915"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828236"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 frissítése
 
@@ -67,7 +67,7 @@ Ez a frissítés a Windows Server 2019 sikeresen aktiválhatók 2016 gazdagépen
 
   Töltse le a bővítmények ezen verziói azonnali, úgy, hogy a bővítmény új központi telepítéseknél sikertelen, ha a TLS 1.2 van érvényben egy későbbi kiadásban. Mindig **autoupdateminorversion = true** , hogy alverzió frissítések Extensions (például 1.8-as, 1.9) automatikusan megtörténik.
 
-- Egy új **Súgó és támogatási áttekintése** az Azure stack portal megkönnyíti a operátorok ellenőrizze a támogatási lehetőségek, szakértői támogatás és további információ az Azure Stackről. Integrált rendszerek, a támogatási kérések el előre kitöltött információkat, amelyek segítik a Microsoft ügyfél-támogatási szolgálat (CSS) a probléma megoldása a stamp. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a nyilvános Azure portal használatával. További információkért lásd: [Azure Stack-Súgó és támogatás](azure-stack-help-and-support-overview.md).
+- Egy új **Súgó és támogatási áttekintése** az Azure stack portal megkönnyíti a operátorok ellenőrizze a támogatási lehetőségek, szakértői támogatás és további információ az Azure Stackről. Integrált rendszerek hozzon létre egy támogatási kérést fog előre kiválasztja az értékhez az Azure Stack szolgáltatás. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a nyilvános Azure portal használatával. További információkért lásd: [Azure Stack-Súgó és támogatás](azure-stack-help-and-support-overview.md).
 - Ha több Azure Active-címtár-e előkészítve (keresztül [Ez a folyamat](azure-stack-enable-multitenancy.md)), lehetséges elmulasztják a parancsfájl megismétlése bizonyos frissítések esetén, vagy ha az AAD-szolgáltatásnév engedélyezési módosítása hatására a jogosultságokat kell Hiányzó. Ez különböző problémákat okozhat, letiltott hozzáférés az egyes funkciókat, további diszkrét hibákkal szemben, amelyek nehezen vissza az eredeti probléma a nyomkövetési. Ennek megelőzése érdekében 1905, amely ellenőrzi, hogy ezeket az engedélyeket, és létrehoz egy riasztást, ha bizonyos konfigurációs problémákat talált új szolgáltatást vezet be. Ellenőrzés óránként fut le, és a probléma megoldásához szükséges javítási műveleteket jeleníti meg. A riasztás bezárása után a bérlők számára a kifogástalan állapotban vannak.
 
 - Az infrastruktúra biztonsági mentési műveletek során a szolgáltatás feladatátvételének megbízhatósága. 

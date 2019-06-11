@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 714ffd213ce88ca58cf4b04c649857239f6deacf
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 2ea78ea572959dfa19eb10057ec2c67e815d300a
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749051"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828452"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -238,7 +238,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Hortonworks Data Platform (HDP) tesztkörnyezet](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) tesztkörnyezet](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Szolgáltató: HDP 2,5 100 %-os nyílt forráskódú platform a Hadoop, Spark, Storm, HBase, a Kafka, Hive, az Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Biztonság a Kaspersky hibrid felhőben](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | A Kaspersky Hybrid Cloud Security egy zökkenőmentesen előkészített és adaptív kiberbiztonsági ökoszisztéma lehetővé teszi. | Kaspersky tesztkörnyezet |
 | ![KEMP LoadMaster Load Balancer ADC Content Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 4 – 7. rétegbeli alkalmazás kézbesítési Vezérlőszolgáltatást (ADC) terheléselosztót, Content kapcsolóval, és a Traffic Manager. | KEMP Technologies Inc. |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Ez a megoldás helyez üzembe egy Kubernetes-fürtöt futtató önálló fürt, az ACS-Engine használatával létrehozott sablonok.<br>**Ez a megoldássablon szükséges Linux 2.0 Ubuntu Server 16.04 LTS és egyéni parancsfájl is.**| Microsoft |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Ez a megoldás helyez üzembe egy Kubernetes-fürtöt futtató önálló fürt, az AKS-motor használatával létrehozott sablonok.<br>**Ez a megoldássablon szükséges Linux 2.0 Ubuntu Server 16.04 LTS és egyéni parancsfájl is.**| Microsoft |
 | ![Service Fabric-fürt](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric-fürt](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Ez a megoldás egy virtuálisgép-méretezési csoportban, egy önálló fürtön futó Service Fabric üzembe helyezi. <br>**Ez a megoldássablon emellett letöltése szükséges a Windows Server 2016 Datacenter**| Microsoft |
 | ![NRI mPLAT Suite - Többfelhős Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Többfelhős Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Szeretne figyelni, a vészhelyzeti egyetlen panelen konfigurálása, üzembe helyezése, automatizálhatja és szabályozása bármilyen számítási feladat vagy a felhőben. | NRI |
 | ![NooBaa hibrid az AWS S3 kompatibilis – Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hibrid az AWS S3 kompatibilis – Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibilis tárolási szolgáltatás, amely átnyúlik a nyilvános és helyi kapacitás erőforrásokhoz. | NooBaa |

@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
-ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268453"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821747"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Gyors útmutató: az Azure Stack felügyeleti portál használata
 
@@ -86,7 +86,7 @@ Hozzáférhet az Azure Stack operátori dokumentációja, használja a Súgó é
 
 ### <a name="quick-access-to-help-and-support"></a>Súgó és támogatás gyors elérése
 
-Ha a felügyeleti portál jobb felső sarkában válassza ki a Súgó és támogatás ikonra (kérdőjel), és válassza **új támogatási kérelem**, egyet az alábbi eredményeket történik:
+Ha rákattint a Súgó ikonra (kérdőjel) a felügyeleti portál jobb felső sarokban, kattintson a **súgó + támogatás**, és kattintson a **új támogatási kérelem** alatt **támogatja**, egyet az alábbi eredményeket történik:
 
 - Integrált rendszer használja, ha ez a művelet megnyitja a hely, ahol közvetlenül megnyithatja egy támogatási jegyet a Microsoft ügyfél támogatási szolgálat (CSS). Tekintse meg [kérhet támogatást Where](azure-stack-manage-basics.md#where-to-get-support) megértéséhez, hogy mikor kell lépjen a Microsoft támogatási vagy a számítógépgyártó (OEM) hardver szállítójával támogatási keresztül.
 - Ha a ASDK használ, ez a művelet megnyitja a [Azure Stack-fórumok](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) közvetlenül. Ezek a fórumok rendszeresen figyeli a program. Mivel a ASDK kiértékelési környezet, rendszer nem hivatalos támogatja a Microsoft CSS keresztül érhető el.

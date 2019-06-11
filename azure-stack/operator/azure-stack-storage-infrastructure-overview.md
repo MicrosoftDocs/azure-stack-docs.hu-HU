@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: e93c33659a2c2dac93ab23d3cba60994fb171131
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c7ae7f0c8fa510b0f2b55e458266065544e1bd5e
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984758"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828213"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Azure stack-beli tároló-infrastruktúra kezelése
 
@@ -108,7 +108,7 @@ Az alábbi szakaszok az egészségügyi és működési állapotok listája.
 
 ### <a name="volume-health-state-healthy"></a>Kötet állapota: Kifogástalan
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | OK | A kötet állapota kifogástalan. |
 | Optimálisnál rosszabb | Adatok egyenletesen nem írt meghajtókon.<br> <br>**Művelet:** Forduljon a támogatási optimalizálja a tárolókészlet meghajtóinak használatát. Mielőtt elkezdené, a fájl naplógyűjtési folyamat a útmutatásának https://aka.ms/azurestacklogfiles. Előfordulhat, hogy biztonsági másolatból történő visszaállítását a sikertelen kapcsolódás visszaállítása után. |
@@ -118,7 +118,7 @@ Az alábbi szakaszok az egészségügyi és működési állapotok listája.
 
 Amikor kötet figyelmeztetési állapotban van, az azt jelenti, hogy az adatokat egy vagy több példányban nem érhető el, de az Azure Stack keresztül továbbra is olvashatók az adatok legalább egy példányát.
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | A szolgáltatásban | Az Azure Stack javítja a kötetet, például hozzáadása vagy eltávolítása a meghajtó után. A javítás befejeződése után térjen vissza a kötet állapota OK.<br> <br>**Művelet:** Várjon, amíg befejeződik a kötet javítása az Azure Stack, és ezt követően ellenőrizze az állapotát. |
 | Hiányos | Az ezzel járó rugalmasságot, a kötet csökken, mert egy vagy több meghajtó nem sikerült, vagy hiányzik. Azonban a hiányzó meghajtókat tartalmaz az adatok legfrissebb másolatát.<br> <br>**Művelet:** Csatlakoztassa újra a hiányzó meghajtóknak, cserélje le a sikertelen meghajtóknak és online állapotba helyezés egyetlen olyan kiszolgálót sem, amely a kapcsolat nélküli üzemmódban van. |
@@ -130,7 +130,7 @@ Amikor kötet figyelmeztetési állapotban van, az azt jelenti, hogy az adatokat
 
 Amikor egy kötet állapota nem kifogástalan állapotban van, vagy azok egy részét az adatokat a köteten jelenleg nem érhető el.
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Redundancia | A mennyiségi adatok megszakadt, mert túl sok meghajtók nem sikerült.<br> <br>**Művelet:** Forduljon a támogatási. Mielőtt elkezdené, a fájl naplógyűjtési folyamat a útmutatásának https://aka.ms/azurestacklogfiles. |
 
@@ -139,7 +139,7 @@ Amikor egy kötet állapota nem kifogástalan állapotban van, vagy azok egy ré
 
 Ha a virtuális lemez le lesznek választva a kötet is lehet állapota ismeretlen.
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Leválasztott | Egy tárolóeszköz meghibásodása történt vezethet a kötet nem lesz elérhető. Lehet, hogy néhány adat elveszett.<br> <br>**Művelet:** <br>1. Ellenőrizze a fizikai és a hálózati kapcsolat minden tárolóeszköz.<br>2. Ha minden eszköz megfelelően van csatlakoztatva, kérjük forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, a fájl naplógyűjtési folyamat a útmutatásának https://aka.ms/azurestacklogfiles. Előfordulhat, hogy biztonsági másolatból történő visszaállítását a sikertelen kapcsolódás visszaállítása után. |
 
@@ -152,8 +152,6 @@ $scaleunit_name = (Get-AzsScaleUnit)[0].name
 
 $subsystem_name = (Get-AzsStorageSubSystem -ScaleUnit $scaleunit_name)[0].name
 
-, SerialNumber
-
 Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Select-Object StorageNode, PhysicalLocation, HealthStatus, OperationalStatus, Description, Action, Usage, CanPool, CannotPoolReason, SerialNumber, Model, MediaType, CapacityGB
 ```
 
@@ -161,7 +159,7 @@ A következő szakaszok ismertetik az állapotokat egy meghajtót is lehet.
 
 ### <a name="drive-health-state-healthy"></a>Meghajtó állapota: Kifogástalan
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | OK | A kötet állapota kifogástalan. |
 | A szolgáltatásban | A meghajtó néhány belső karbantartás műveleteket hajt végre. A művelet befejeződése után térjen vissza a meghajtó állapota OK. |
@@ -170,7 +168,7 @@ A következő szakaszok ismertetik az állapotokat egy meghajtót is lehet.
 
 A figyelmeztetési állapot használatával meghajtót olvassa el, és sikeresen ír adatokat, de egy hibát tartalmaz.
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Megszakadt a kommunikáció | Kapcsolat megszakadt a meghajtóban.<br> <br>**Művelet:** Minden kiszolgáló ismét online állapotba. Ha ez nem oldja, csatlakoztassa újra a meghajtót. Ez tartja történik, cserélje le a teljes rugalmasságának biztosításához a meghajtó. |
 | Hiba várható | A meghajtó hiba várhatóan hamarosan fordulhat elő.<br> <br>**Művelet:** Cserélje le a meghajtó, amint lehetséges teljes rugalmasságának biztosításához. |
@@ -190,9 +188,9 @@ A figyelmeztetési állapot használatával meghajtót olvassa el, és sikeresen
 
 A meghajtó nem kifogástalan állapotú jelenleg nem írt vagy érhető el.
 
-| Műveleti állapot | Leírás |
+| működési állapot | Leírás |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Megosztott | A meghajtó kivált válnak a készletből.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. Ezt a lemezt kell használnia, ha a lemez eltávolítása a rendszerből, győződjön meg arról, hogy a lemez nem tartoznak a hasznos adatok, és a lemez törlése, majd távolítsa el a lemezt. |
+| Felosztás | A meghajtó kivált válnak a készletből.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. Ezt a lemezt kell használnia, ha a lemez eltávolítása a rendszerből, győződjön meg arról, hogy a lemez nem tartoznak a hasznos adatok, és a lemez törlése, majd távolítsa el a lemezt. |
 | Nem használható | A fizikai lemez karanténba van helyezve, mert a megoldás gyártója által nem támogatott. Csak olyan lemezeket, amelyek a megoldás jóváhagyással, és rendelkezik a megfelelő lemezfirmware támogatja.<br> <br>**Művelet:** Cserélje le a meghajtó egy lemezt, amely rendelkezik egy jóváhagyott gyártó és modellszám a megoldáshoz. |
 | Elavult metaadatok | A cserelemezt korábban használt, és a egy ismeretlen tárolórendszer származó adatokat is tartalmaznak. A lemez karanténba van helyezve.        <br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. Ezt a lemezt kell használnia, ha a lemez eltávolítása a rendszerből, győződjön meg arról, hogy a lemez nem tartoznak a hasznos adatok, és a lemez törlése, majd távolítsa el a lemezt. |
 | Ismeretlen metaadatok | Ismeretlen metaadatok a meghajtón, amely általában azt jelenti, hogy rendelkezik-e a meghajtó metaadatok, különböző készletből található.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. Ezt a lemezt kell használnia, ha a lemez eltávolítása a rendszerből, győződjön meg arról, hogy a lemez nem tartoznak a hasznos adatok, és a lemez törlése, majd távolítsa el a lemezt. |
@@ -206,16 +204,16 @@ A meghajtó nem kifogástalan állapotú jelenleg nem írt vagy érhető el.
 
 Bizonyos meghajtókat csak nem áll készen az Azure Stack-tárolókészletben lehet. Talál egy meghajtó nem alkalmas a készletezésre megnézzük a CannotPoolReason tulajdonsága egy meghajtó. Az alábbi táblázat áttekintést nyújt a részletesebben egyes az okokat.
 
-| Ok | Leírás |
+| Reason | Leírás |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nem megfelelő hardver | A meghajtó nem szerepel a listán, a jóváhagyott tárolási modellek az állapotfigyelő szolgáltatás használatával.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. |
 | Belső vezérlőprogram nem megfelelő | A fizikai meghajtó belső vezérlőprogramját a listában nem szereplő jóváhagyott belső vezérlőprogramok, az állapotfigyelő szolgáltatás használatával.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. |
 | Fürt által használt | A feladatátvevő fürtök jelenleg használja a meghajtót.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. |
 | Cserélhető adathordozó | A meghajtó cserélhető meghajtóként van besorolva. <br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. |
-| Nem kifogástalan | A meghajtó nem kifogástalan állapotú, és előfordulhat, hogy kell helyettesíteni.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. |
+| Nem kifogástalan állapotú | A meghajtó nem kifogástalan állapotú, és előfordulhat, hogy kell helyettesíteni.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. |
 | Nincs elegendő kapacitás | Nincsenek fel a szabad lemezterület a meghajtón a partíciók.<br> <br>**Művelet:** Cserélje le a meghajtó egy új lemezt. Ezt a lemezt kell használnia, ha a lemez eltávolítása a rendszerből, győződjön meg arról, hogy a lemez nem tartoznak a hasznos adatok, és a lemez törlése, majd távolítsa el a lemezt. |
 | Ellenőrzés folyamatban | Az állapotfigyelő szolgáltatás ellenőrzi, ha a meghajtó vagy a meghajtó belső vezérlőprogramját használatra jóváhagyott megtekintéséhez.<br> <br>**Művelet:** Várjon, amíg a folyamat befejezéséhez az Azure Stack, és ezt követően ellenőrizze az állapotát. |
-| Az ellenőrzés nem sikerült | Az állapotfigyelő szolgáltatás nem tudta ellenőrizze, hogy ha a meghajtó vagy a meghajtó belső vezérlőprogramját használatra jóvá.<br> <br>**Művelet:** Forduljon a támogatási. Mielőtt elkezdené, a fájl naplógyűjtési folyamat a útmutatásának https://aka.ms/azurestacklogfiles. |
+| Sikertelen ellenőrzés | Az állapotfigyelő szolgáltatás nem tudta ellenőrizze, hogy ha a meghajtó vagy a meghajtó belső vezérlőprogramját használatra jóvá.<br> <br>**Művelet:** Forduljon a támogatási. Mielőtt elkezdené, a fájl naplógyűjtési folyamat a útmutatásának https://aka.ms/azurestacklogfiles. |
 | Offline | A meghajtó nem lesz elérhető. <br> <br>**Művelet:** Forduljon a támogatási. Mielőtt elkezdené, a fájl naplógyűjtési folyamat a útmutatásának https://aka.ms/azurestacklogfiles. |
 
 ## <a name="next-step"></a>Következő lépés

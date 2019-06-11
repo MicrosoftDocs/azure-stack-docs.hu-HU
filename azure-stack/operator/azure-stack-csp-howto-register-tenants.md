@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212297"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828338"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adja hozzá a bérlői használat és számlázás az Azure Stackhez
 
@@ -51,7 +51,7 @@ Miután létrehozta az ügyfél egy rekordot a Partner Center, értékesítés �
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>A teljes ügyfél címtárban Vendég felhasználó létrehozása
 
-Ha a végfelhasználó ügyfél kezeli a saját fiókot, hozzon létre egy Vendég felhasználót a címtárban, és küldje el azokat a. A végfelhasználó majd hozzáadja a Vendég, és a Vendég számára emelt **tulajdonos** az Azure Stack CSP-fiók.
+Alapértelmezés szerint, mint a CSP nem rendelkezik a végfelhasználó ügyfél az Azure Stack-előfizetéshez való hozzáférés. Azonban ha az ügyfél azt szeretné, hogy az erőforrások kezelését, azok Ezután hozzáadhatja a fiók tulajdonosa vagy közreműködője, az Azure Stack-előfizetéshez. Annak érdekében, hogy ehhez szükségük hozzáadjuk a fiókját, a vendégfelhasználó saját AAD-bérlő. Ezért javasoljuk, hogy az ügyfél Azure Stack-előfizetés annak érdekében, hogy ne veszítse el a hozzáférést az ügyfél Azure-előfizetések kezelése az Azure CSP-fiókból másik fiók használata.
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>Frissítse a regisztrációt a teljes ügyfél-előfizetés
 
@@ -77,7 +77,7 @@ Az alábbi szakasz ismerteti a paramétereket a **New-AzureRmResource** parancsm
 | --- | --- |
 |registrationSubscriptionID | Az Azure-előfizetés, amely a kezdeti regisztráció az Azure Stack-lett megadva.|
 | customerSubscriptionID | Az Azure-előfizetést (nem az Azure Stack) regisztrálni kell az ügyfélhez tartozó. Meg kell létrehozni a CSP-ajánlat; a gyakorlatban ez azt jelenti, hogy Partner Centeren keresztül. Ha egy ügyfél több Azure Active Directory-bérlővel rendelkezik, a bérlő Azure Stack-ba való bejelentkezéshez használt ebben az előfizetésben kell létrehozni. Az ügyfél-előfizetési azonosító kisbetűket kell használnia. |
-| resourceGroup | Az erőforráscsoport az Azure-ban, amely tárolja a regisztrációt. |
+| Erőforráscsoport | Az erőforráscsoport az Azure-ban, amely tárolja a regisztrációt. |
 | registrationName | Az Azure Stack-regisztrációk neve. Az Azure-ban tárolt objektum. |
 | Tulajdonságok | Az erőforrás tulajdonságainak megadása Ez a paraméter használatával adja meg az adott erőforrástípus tulajdonságának értékét.
 
