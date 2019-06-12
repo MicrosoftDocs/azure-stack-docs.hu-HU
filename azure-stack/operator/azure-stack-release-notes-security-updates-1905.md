@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 1b15dac6649e49463b128de75015a8f39bd52020
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 49d56793f7ce104582abd807b8b894ec11933268
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693821"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836680"
 ---
 # <a name="azure-stack-security-updates"></a>Az Azure Stack biztonsági frissítések
 
@@ -31,6 +31,7 @@ Ez a cikk felsorolja az utolsó négy frissítéseket az Azure Stack a biztonsá
 
 A 1905 frissítés telepítésekor a következő biztonsági frissítések:
 
+- [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)
 - [CVE-2019-0707](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0707)
 - [CVE-2019-0725](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0725)
 - [CVE-2019-0727](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0727)

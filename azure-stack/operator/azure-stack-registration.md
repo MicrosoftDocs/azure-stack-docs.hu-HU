@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mabrigg
-ms.reviewer: brbartle
+ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: b70cd30653b8b324ae4d11a4a3e8aafe47d9a179
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618017"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836709"
 ---
 # <a name="register-azure-stack-with-azure"></a>Regisztráljon az Azure Stack az Azure-ral
 
@@ -38,7 +38,7 @@ Mielőtt regisztrálnia kell a következő helyen:
 
  - A hitelesítő adatok ellenőrzéséhez
  - A PowerShell nyelvmód beállítása
- - Az Azure Stack PowerShell telepítése
+ - A PowerShell telepítése az Azure Stackhez
  - Az Azure Stack-eszközök letöltése
  - A regisztrációs forgatókönyv meghatározása
 
@@ -76,7 +76,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Győződjön meg arról, a kimenetet visszaadja **FullLanguageMode**. Ha bármilyen más nyelvmód adja vissza, regisztrációs szükség van egy másik gépen futtatására, vagy a nyelvmód kell beállítani **FullLanguageMode** a folytatás előtt.
 
-### <a name="install-powershell-for-azure-stack"></a>Az Azure Stack PowerShell telepítése
+### <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
 A PowerShell legújabb verzióját az Azure Stack segítségével regisztrálja az Azure-ral.
 
@@ -255,7 +255,17 @@ Ha regisztrál az Azure Stack kapcsolat nélküli környezetben (nincs internetk
 
 ### <a name="connect-to-azure-and-register"></a>Csatlakozás az Azure és a regisztráció
 
-Azon a számítógépen, amely az internethez csatlakozik hajtsa végre a RegisterWithAzure.psm1 modul importálása, és jelentkezzen be a megfelelő Azure Powershell környezetben ugyanazokat a lépéseket. Majd hívja a Register-AzsEnvironment. Adja meg a regisztrációs jogkivonatot, regisztrálni az Azure-ral. Ha regisztrál az Azure Stack segítségével az ugyanazon Azure-előfizetési azonosító egynél több példányát, adjon meg egy egyedi regisztrációs nevet. Futtassa a következő parancsmagot:
+Azon a számítógépen, amely az internethez csatlakozik hajtsa végre a RegisterWithAzure.psm1 modul importálása, és jelentkezzen be a megfelelő Azure Powershell környezetben ugyanazokat a lépéseket. Majd hívja a Register-AzsEnvironment. Adja meg a regisztrációs jogkivonatot, regisztrálni az Azure-ral. Ha regisztrál az Azure Stack segítségével az ugyanazon Azure-előfizetési azonosító egynél több példányát, adjon meg egy egyedi regisztrációs nevet.
+
+A regisztrációs jogkivonatot, és a token egyedi névvel kell.
+
+1. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** modul:  
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+2. Ezután futtassa a következő PowerShell-parancsmagokat:  
 
   ```powershell  
   $RegistrationToken = "<Your Registration Token>"
@@ -263,7 +273,17 @@ Azon a számítógépen, amely az internethez csatlakozik hajtsa végre a Regist
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-A Get-tartalom parancsmag segítségével igény szerint, a regisztrációs jogkivonatot tartalmazó fájlra mutat:
+A Get-tartalom parancsmag segítségével igény szerint, a regisztrációs jogkivonatot tartalmazó fájlra mutat.
+
+A regisztrációs jogkivonatot, és a token egyedi névvel kell.
+
+1. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** modul:  
+
+  ```powershell  
+  Import-Module .\RegisterWithAzure.psm1
+  ```
+
+2. Ezután futtassa a következő PowerShell-parancsmagokat:  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -487,7 +507,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ## <a name="registration-failures"></a>Regisztrációs hibák
 
 Az alábbi hibák egyike az Azure Stack-regisztráció közben jelenhetnek meg:
-1. Nem sikerült beolvasni $hostName kötelező hardver adatait. Ellenőrizze a fizikai gazdagép és a kapcsolatot, majd próbálja meg újra futtatni a regisztrációs.
+1. Nem sikerült beolvasni $hostName kötelező hardver adatait. Ellenőrizze a fizikai gazdagép és a kapcsolatot, majd próbálja meg újra futtatni a regisztráció.
 
 2. Nem lehet csatlakozni a hardver adatainak beolvasása –. Ellenőrizze a fizikai gazdagép és a kapcsolatot, majd próbálja meg újra futtatni a regisztrációs $hostName.
 

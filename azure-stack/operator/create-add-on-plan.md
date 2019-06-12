@@ -3,27 +3,26 @@ title: Ebből a cikkből elsajátíthatja, hogyan frissítse az Azure Stack ajá
 description: Ez a cikk ismerteti, hogyan lehet megtekinteni és módosítani a meglévő Azure Stack ajánlatokat és csomagokat.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
-origin.date: 03/07/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 00bb17eadfee32e9b0d006ac76bb8e1cd614f13e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301736"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836809"
 ---
 # <a name="azure-stack-add-on-plans"></a>Az Azure Stack kiegészítő csomagok
 
@@ -48,7 +47,7 @@ Létező ajánlat módosításával kiegészítő csomagok jönnek létre.
 
    ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on1.png)
 
-4. Az ajánlat tulajdonságok alján görgessen és válassza ki **kiegészítő csomagok**. Kattintson a **Hozzáadás** parancsra.
+4. Az ajánlat tulajdonságok alján válassza **kiegészítő csomagok**. Kattintson a **Hozzáadás**lehetőségre.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on2.png)
 
@@ -68,7 +67,7 @@ Létező ajánlat módosításával kiegészítő csomagok jönnek létre.
 
    ![Kiegészítő csomag létrehozása](media/create-add-on-plan/1.PNG)
 
-4. Az ajánlat tulajdonságok alján görgessen és válassza ki **kiegészítő csomagok**. Kattintson a **Hozzáadás** parancsra.
+4. Az ajánlat tulajdonságok alján görgessen és válassza ki **kiegészítő csomagok**. Kattintson a **Hozzáadás**lehetőségre.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/2.PNG)
 

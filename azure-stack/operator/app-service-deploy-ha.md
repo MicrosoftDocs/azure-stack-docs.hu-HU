@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2d2aab654f2283cf019e609e9de14790ed44a76a
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269512"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837040"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Magas rendelkezésre állású konfigurációban App Service üzembe helyezése
 
@@ -171,7 +171,7 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
     ![Várt hiba-párbeszédpanelen.](media/app-service-deploy-ha/08.png)
 
     Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-    - Adatforrás: Bármely
+    - Forrás: Bármely
     - Forrás porttartomány: *
     - Cél: IP-címek
     - Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
@@ -207,10 +207,10 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
     |Szerepkör|Alapértelmezett|Magas rendelkezésre állású javaslat|
     |-----|-----|-----|
     |Vezérlői szerepkör|2|2|
-    |Felügyeleti szerepkör|1.|3|
-    |Közzétevői szerepkör|1.|3|
-    |Előtér-kiszolgálói szerepkör|1.|3|
-    |Megosztott feldolgozói szerepkör|1.|10|
+    |Felügyeleti szerepkör|1|3|
+    |Közzétevői szerepkör|1|3|
+    |Előtér-kiszolgálói szerepkör|1|3|
+    |Megosztott feldolgozói szerepkör|1|10|
     |     |     |     |
 
     ![Infrastruktúra-szerepkör példány értékek](media/app-service-deploy-ha/12.png)
@@ -234,8 +234,9 @@ Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alá
 
     ![A telepítés befejeződött.](media/app-service-deploy-ha/16.png)
 
-
 ## <a name="next-steps"></a>További lépések
+
+[Adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoport](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) Ha meg van adva az App Service erőforrás-szolgáltató egy SQL mindig a példányt. Az adatbázis-szolgáltatás adatbázis-feladatátvétel esetén elvesztésének elkerülése érdekében szinkronizálásához.
 
 [Horizontális felskálázás az App Service](azure-stack-app-service-add-worker-roles.md). Szükség lehet további App Service-ben infrastruktúra szerepkör feldolgozók várt alkalmazás igény szerint a környezetében történő hozzáadásához. Alapértelmezés szerint az Azure Stack App Service támogatja az ingyenes és a megosztott feldolgozói rétegek. Adja hozzá a többi feldolgozói rétegek, további feldolgozói szerepkörök hozzáadása kell.
 

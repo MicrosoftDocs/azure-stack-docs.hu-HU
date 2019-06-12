@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268647"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836695"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
@@ -48,13 +48,9 @@ Ahogy korábban is hangsúlyoztuk, a fürtérvényesítési eszköz futtatása a
 
    Tekintse meg a [paraméter szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [megkülönbözteti a kis példákat](azure-stack-diagnostic-test.md#use-case-examples) szakaszokban további információkat.
 
-3. Ha bármelyik teszteli, hogy a jelentés **sikertelen**futtassa:
+3. Ha bármelyik teszteli, hogy a jelentés **sikertelen**futtassa `Get-AzureStackLog`. Az integrált rendszereken útmutatásért lásd: [Get-AzureStackLog futtathatók az Azure Stack integrált rendszerek](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems), vagy nézze meg a ASDK [Get-AzureStackLog futtatása az Azure Stack Development Kit (ASDK) rendszeren](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   A parancsmag a Test-AzureStack által létrehozott naplók gyűjt. Diagnosztikai naplók kapcsolatos további információkért lásd: [Azure Stack-diagnosztikai eszközök](azure-stack-diagnostics.md). Nem kell gyűjtését, vagy forduljon a CSS, ha a jelentés tesztek **WARN**.
+   A parancsmag a Test-AzureStack által létrehozott naplók gyűjt. Nem kell gyűjtését, vagy forduljon a CSS, ha a jelentés tesztek **WARN**.
 
 4. Ha erre a fürtérvényesítési eszköz futtatása a CSS által, a CSS képviselő kérni fogja a naplókat a probléma elhárításához összegyűjtött.
 

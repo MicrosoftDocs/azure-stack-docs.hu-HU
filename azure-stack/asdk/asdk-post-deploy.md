@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411480"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835004"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK telepítés utáni konfigurációs feladatok
 
@@ -146,28 +146,6 @@ A tesztek végrehajtásához néhány percet igénybe vehet. Ha a telepítés si
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 Hiba lépett fel, ha a hibaelhárítási lépésekkel segítséget kaphat.
-
-## <a name="reset-the-password-expiration-policy"></a>Jelszó-elévülési szabályzatának alaphelyzetbe állítása
-
-Ahhoz, hogy, hogy a jelszó a development kit gazdagép le nem jár, a kiértékelési időszak vége előtt, kövesse az alábbi lépéseket a ASDK üzembe helyezése után.
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Jelszó-elévülési szabályzatának módosítása a Powershell
-
-Futtassa a parancsot egy rendszergazda jogú Powershell-konzolt:
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>A manuális jelszó-elévülési szabályzatának módosítása
-
-1. Nyissa meg a fejlesztői csomag gazdagép **Csoportházirend kezelése** (GPMC. Az MMC), és keresse meg **Csoportházirend kezelése** - **erdő: azurestack.local** - **tartományok**  -  **azurestack.local**.
-2. Kattintson a jobb gombbal **alapértelmezett tartományi házirend** kattintson **szerkesztése**.
-3. Lépjen a a Csoportházirendkezelés-szerkesztő, **számítógép konfigurációja** - **házirendek** - **Windows beállítások**  -  **Biztonsági beállítások** - **Fiókházirend** - **jelszóházirend**.
-4. A jobb oldali ablaktáblában kattintson duplán a **jelszó maximális kora**.
-5. Az a **jelszó maximális kora tulajdonságok** párbeszédpanelen módosítsa a **a jelszó lejár** értéket a következőre **180**, és kattintson a **OK**.
-
-![Csoportházirend kezelése konzol](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>A több-bérlős üzemmód engedélyezése
 

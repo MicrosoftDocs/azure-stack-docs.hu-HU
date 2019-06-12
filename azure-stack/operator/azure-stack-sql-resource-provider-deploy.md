@@ -15,12 +15,12 @@ ms.date: 03/29/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 7cc05316222f7652e8c5eecbad6a02eee901e697
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1e4b8bddaa5bfa164e413ee7a20071fe6a0cc831
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617955"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835068"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Az SQL Server erőforrás-szolgáltató az Azure Stack üzembe helyezése
 
@@ -41,8 +41,8 @@ Nincsenek számos előfeltételt kell lennie a helyen, az Azure Stack SQL erőfo
   |Azure Stack minimális verziója|SQL-RP-verzió|
   |-----|-----|
   |Verzió 1808 (1.1808.0.97)|[SQL-RP 1.1.33.0 verzió](https://aka.ms/azurestacksqlrp11330)|  
-  |Verzió 1808 (1.1808.0.97)|[SQL-RP 1.1.30.0 verzió](https://aka.ms/azurestacksqlrp11300)|
-  |Verzió 1804 (1.0.180513.1)|[SQL-RP 1.1.24.0 verzió](https://aka.ms/azurestacksqlrp11240)
+  |Verzió 1808 (1.1808.0.97)|[SQL-RP 1.1.30.0 verzió](https://aka.ms/azurestacksqlrp11300)|  
+  |Verzió 1804 (1.0.180513.1)|[SQL-RP 1.1.24.0 verzió](https://aka.ms/azurestacksqlrp11240)  
   |     |     |
 
 - Ellenőrizze, hogy adatközpont integrációja Előfeltételek teljesülését:
@@ -50,8 +50,8 @@ Nincsenek számos előfeltételt kell lennie a helyen, az Azure Stack SQL erőfo
     |Előfeltétel|Leírások|
     |-----|-----|
     |Feltételes DNS-továbbítás megfelelően van beállítva.|[Az Azure Stack adatközpont integrációja - DNS](azure-stack-integrate-dns.md)|
-    |Erőforrás-szolgáltatók bejövő portok nyitva.|[Az Azure Stack adatközpont integrációja – végpontok közzététele](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI-tanúsítvány tulajdonosának és SAN helyesen van beállítva.|[Az Azure Stack üzembehelyezési kötelező nyilvános kulcsokra épülő infrastruktúra Előfeltételek](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack üzembehelyezési PaaS tanúsítvány Előfeltételek](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Erőforrás-szolgáltatók bejövő portok nyitva.|[Az Azure Stack adatközpont integrációja - portok és protokollok bejövő](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI-tanúsítvány tulajdonosának és SAN helyesen van beállítva.|[Az Azure Stack üzembehelyezési kötelező nyilvános kulcsokra épülő infrastruktúra Előfeltételek](azure-stack-pki-certs.md#mandatory-certificates)<br>[Az Azure Stack üzembe helyezés PaaS tanúsítvány előfeltételei](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Tanúsítványok
@@ -83,7 +83,7 @@ Futtassa a DeploySqlProvider.ps1 parancsfájlt, amely a következő feladatokat 
 
 A parancssorból a következő paramétereket is megadhat. Ha nem, vagy ha minden paraméter ellenőrzése sikertelen, kéri, hogy adja meg a szükséges paramétereket.
 
-| Paraméternév | Leírás | Megjegyzés vagy az alapértelmezett érték |
+| Paraméter neve | Leírás | Megjegyzés vagy az alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A felhő rendszergazdájához, a kiemelt végponthoz eléréséhez szükséges hitelesítő adatait. | _Kötelező_ |
 | **AzCredential** | Az Azure Stack szolgáltatás-rendszergazdai fiók hitelesítő adatait. Használja az Azure Stack üzembe helyezéséhez használt hitelesítő adatokkal. | _Kötelező_ |

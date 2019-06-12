@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 087c3b95f96600f6ff0cf14ab0fb8618046b86d7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64302528"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836929"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Ajánlat létrehozása az Azure Stackben
 
@@ -34,11 +34,11 @@ ms.locfileid: "64302528"
 
 2. Lapokra osztott felhasználói felület jelenik meg, amely lehetővé teszi, hogy határozza meg az ajánlat nevét, és adja hozzá a meglévő, vagy hozzon létre új alapcsomagok és kiegészítő csomagok. Ennél is fontosabb áttekintheti a hoz létre, mielőtt hozna létre, az ajánlat részleteit.
 
-   Az a **alapjai** lap **új ajánlat**, adjon meg egy **megjelenített neve** és a egy **erőforrásnév**, majd a **erőforrás Csoport**válassza **új létrehozása** vagy **meglévő**. A megjelenítendő név az ajánlat rövid nevét. Erre a rövid névre az ajánlat, amely megjelenik a felhasználók számára, amikor előfizetnek az ajánlatra, a felhasználói portálon csak információt. Használható, amely segít a felhasználóknak megérteni, hogy mit tartalmaz az ajánlat az intuitív név. Csak a rendszergazda láthatja az erőforrás neve. Ezt a nevet használják a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással végzett műveletekhez. Ezen a lapon választhatja győződjön meg arról, ez az ajánlat nyilvános, vagy legyen privát, amely az alapértelmezett érték. Is [módosítsa az ajánlat nyilvános vagy privát állapotát](#change-the-state-of-an-offer) újabb, illetve.
+   Az a **alapjai** lapra, adja meg egy **megjelenített név** és a egy **erőforrásnév**, majd a **erőforráscsoport**, jelölje be **létrehozása új** vagy **meglévő**. A megjelenítendő név az ajánlat rövid nevét. Erre a rövid névre az ajánlat, amely megjelenik a felhasználók számára, amikor előfizetnek az ajánlatra, a felhasználói portálon csak információt. Használható, amely segít a felhasználóknak megérteni, hogy mit tartalmaz az ajánlat az intuitív név. Csak a rendszergazda láthatja az erőforrás neve. Ezt a nevet használják a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással végzett műveletekhez. Ezen a lapon választhatja győződjön meg arról, ez az ajánlat nyilvános, vagy legyen privát, amely az alapértelmezett érték. Is [módosítsa az ajánlat nyilvános vagy privát állapotát](#change-the-state-of-an-offer) újabb, illetve.
 
    ![Új ajánlat](media/azure-stack-create-offer/new-offer.png)
   
-3. Válassza ki a **Alapcsomagok** fülre. Válassza ki a kívánt foglalni az ajánlatba csomagokkal.
+3. Válassza ki a **Alapcsomagok** lapon vagy kattintson a **tovább: Alapcsomagok >** gombra. Válassza ki a kívánt foglalni az ajánlatba csomagokkal.
 
    ![Adatforgalmi díjcsomag kiválasztása](media/azure-stack-create-offer/select-plan.png)
 
@@ -67,7 +67,7 @@ Az ajánlat állapotának két módja van:
 
    ![Válassza ki az állapot](media/azure-stack-create-offer/change-state.png)
 
-2. A **összes erőforrás**, válassza ki az ajánlat nevét. Válassza ki **ajánlat beállításai**. Válassza ki a használni kívánt állapot (például **nyilvános**), majd **mentése**.
+2. Válassza ki **ajánlat beállításai**. Válassza ki a használni kívánt állapot (például **nyilvános**), majd **mentése**.
 
    ![Válassza ki a kisegítő lehetőségek állapota](media/azure-stack-create-offer/offer-settings.png)
 

@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 885568035070bc4f74b94cddff200302fccfbb72
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618102"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835086"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Az Azure Stack adatközpont integrációja – végpontok közzététele
 
@@ -35,32 +35,35 @@ Virtuális IP-címek nem jelennek meg, mert azok még nem szükséges a közzét
 > [!Note]  
 > Felhasználói virtuális IP-címek dinamikusak, maguk a felhasználók számára nem az Azure Stack operátorait szerint határozza meg.
 
-> [!Note]
+> [!Note]  
+> IKEv2 VPN. Az IKEv2 VPN egy szabványalapú IPsec VPN-megoldás, amely az 500-as és 4500-as UDP-portokat, valamint a következő IP-protokollt használja: 50. A tűzfalak ezeket a portokat nem mindig nyitják meg, ezért elképzelhető, hogy az IKEv2 VPN nem képes átjutni egyes proxykon és tűzfalakon.
+
+> [!Note]  
 > Kezdődően a 1811 frissítés 12495-30015 tartományán portok már nem szükséges miatt is nyitva a [bővítmény gazdagép](azure-stack-extension-host-prepare.md).
 
 |Endpoint (VIP)|DNS host A record|Protocol|Portok|
 |---------|---------|---------|---------|
-|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portál (rendszergazda)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portál (rendszergazda)|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Az Azure Resource Manager (rendszergazda)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portál (felhasználó)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Az Azure Resource Manager (felhasználó)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Visszavont tanúsítványok listája|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;.*&lt;region>.&lt;fqdn>*|A TCP ÉS UDP|53|
-|Üzemeltetés | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|A Key Vault (felhasználó)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|A Key Vault (rendszergazda)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Tárolási üzenetsor|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Storage-táblából|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|SQL-erőforrásszolgáltató|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL-erőforrásszolgáltató|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172-es (MSDeploy)|
-|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (az azure Resource Manager)|
-|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
+|Az Azure Resource Manager (rendszergazda)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portál (felhasználó)|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Az Azure Resource Manager (felhasználó)|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Visszavont tanúsítványok listája|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|A TCP ÉS UDP|53|
+|Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
+|A Key Vault (felhasználó)|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|A Key Vault (rendszergazda)|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Tárolási üzenetsor|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage-táblából|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL-erőforrásszolgáltató|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL-erőforrásszolgáltató|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172-es (MSDeploy)|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (az azure Resource Manager)|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
 |VPN-átjárók|     |     |[Tekintse meg a VPN gateway – gyakori kérdések](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
 
@@ -73,7 +76,7 @@ Az Azure Stack csak transzparens proxy kiszolgálók támogatja. A központi tel
 
 |Cél|Destination URL|Protocol|Portok|Forráshálózat|
 |---------|---------|---------|---------|---------|
-|Azonosító|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|
+|Identitás|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|
 |Marketplace-en szindikálás|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
 |Javítás & frissítése|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
 |Regisztráció|https:\//management.azure.com|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
@@ -89,8 +92,9 @@ Az Azure Stack csak transzparens proxy kiszolgálók támogatja. A központi tel
 |AD FS|Az AD FS metaadatok végpontja biztosított az AD FS-integráció|TCP|443|Nyilvános virtuális IP - / 27-eset|
 |     |     |     |     |     |
 
-> [!Note]  
-> Kimenő URL-címek az Azure traffic Managerrel a földrajzi hely alapján a legjobb lehetséges csatlakozási elosztott terhelésű rendszer. Az elosztott terhelésű URL-címek betöltése, a Microsoft update, és a háttéralkalmazás végpontjainak módosítása ügyfelek befolyásolása nélkül. A Microsoft nem oszt meg IP-címek listája az elosztott terhelésű URL-címek számára. Használjon olyan eszköz, amely támogatja a szűrést, URL-cím helyett IP-cím alapján.
+Kimenő URL-címek az Azure traffic Managerrel a földrajzi hely alapján a legjobb lehetséges csatlakozási elosztott terhelésű rendszer. Az elosztott terhelésű URL-címek betöltése, a Microsoft update, és a háttéralkalmazás végpontjainak módosítása ügyfelek befolyásolása nélkül. A Microsoft nem oszt meg IP-címek listája az elosztott terhelésű URL-címek számára. Használjon olyan eszköz, amely támogatja a szűrést, URL-cím helyett IP-cím alapján.
+
+Kimenő DNS szükség, minden alkalommal változik, mi az a külső DNS-ben, és milyen típusú identitásintegráció választotta lekérdezéséhez forrása. Ha ez egy csatlakoztatott forgatókönyv, üzembe helyezés során a DVM helyezkedik el, a BMC-hálózathoz, amely a kimenő hozzá kell férnie, de üzembe helyezés után a DNS-szolgáltatás áthelyezi egy belső összetevő, amely egy nyilvános virtuális IP-CÍMEK keresztül küld. Ekkor az BMC a hálózaton keresztül a kimenő DNS hozzáférés távolíthatja el, de a DNS-kiszolgálónak a nyilvános virtuális IP-cím hozzáférést kell maradnia, különben hitelesítés sikertelen lesz.
 
 ## <a name="next-steps"></a>További lépések
 

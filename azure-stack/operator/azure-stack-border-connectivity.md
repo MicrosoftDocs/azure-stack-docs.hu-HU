@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 291329d4e681aaeba416e0873e9f6ddf599526de
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bd83c8fc29697107a17eeedabfd0280ff684457f
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618706"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836727"
 ---
 # <a name="border-connectivity"></a>Szegély kapcsolat 
 Hálózati integráció megtervezése egy fontos előfeltétel sikeres Azure Stackkel integrált rendszerek üzembe helyezés, a művelet és felügyeletéhez. Szegély kapcsolat tervezési kezdődik-e a border gateway protocol (BGP) dinamikus útválasztást használnak a kiválasztásával. A 16 bites BGP autonóm rendszer száma, (nyilvános vagy magán) hozzárendelése ehhez, vagy használja a statikus útválasztást, ahol az alapértelmezett statikus útvonal hozzá van rendelve a border eszközökhöz.
@@ -45,7 +45,7 @@ Statikus útválasztás, a peremátjáró eszközök további konfigurálására
 
 A statikus útválasztás használatával hálózati környezetébe integrálhatja az Azure Stacket, szegélye és a tor-alapú eszközök közötti összes négy fizikai hivatkozás csatlakoztatva kell lennie, és magas rendelkezésre állás nem garantálható, hogyan statikus útválasztási működése miatt.
 
-A szegély eszköz kell konfigurálni a tor-alapú eszközök P2P mutató, a felé irányuló statikus útvonalak a *külső* hálózati vagy a nyilvános virtuális IP-címek és a *infrastruktúra* hálózati. Ehhez szükség lesz a statikus útvonalakat a *BMC* és a *külső* hálózatok központi telepítésére vonatkozóan. Operátorok lehet váltani, hagyja a statikus útvonalakat a szegély, amelyek megtalálhatók a felügyeleti erőforrások eléréséhez a *BMC* hálózati. A statikus útvonalak hozzáadása *kapcsoló-infrastruktúra* és *felügyeleti kapcsoló* hálózatok nem kötelező.
+A szegély eszköz kell konfigurálni a tor-alapú eszközök P2Ps mutató, a felé irányuló statikus útvonalak a *külső* hálózati vagy a nyilvános virtuális IP-címek és a *infrastruktúra* hálózati. Ehhez szükség lesz a statikus útvonalakat a *BMC* és a *külső* hálózatok központi telepítésére vonatkozóan. Operátorok lehet váltani, hagyja a statikus útvonalakat a szegély, amelyek megtalálhatók a felügyeleti erőforrások eléréséhez a *BMC* hálózati. A statikus útvonalak hozzáadása *kapcsoló-infrastruktúra* és *felügyeleti kapcsoló* hálózatok nem kötelező.
 
 A tor-alapú eszközök az összes adatforgalmat küldő szegély eszközök alapértelmezett statikus útvonal konfigurált származnak. Az alapértelmezett szabályhoz forgalom kivételt jelent a privát területet, amely le van tiltva, egy hozzáférés-vezérlési lista, a TOR szegély kapcsolat a alkalmazni a.
 

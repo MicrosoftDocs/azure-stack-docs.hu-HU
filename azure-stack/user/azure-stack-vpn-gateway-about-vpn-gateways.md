@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991297"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836825"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Tudnivalók az Azure Stackhez VPN-átjáró
 
@@ -73,13 +73,13 @@ Az ábrák és leírások az alábbi szakaszok segítségével válassza ki az i
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Helyek közötti és többhelyes (IPsec/IKE VPN-alagút)
 
-### <a name="site-to-site"></a>Helyek közötti
+### <a name="site-to-site"></a>Helyek közötti kapcsolat
 
 A *site-to-site* (S2S) VPN gateway-kapcsolat nem kapcsolat (IKEv2) IPsec/IKE VPN-alagúton keresztül. Ez a kapcsolattípus egy VPN-eszköz, amely a helyszínen található, és van rendelve egy nyilvános IP-címet igényel. Ez az eszköz nem található a NAT mögötti. A helyek közötti kapcsolatok létesítmények közötti és hibrid konfigurációk esetében is alkalmazhatók.
 
 ![Site-to-site VPN kapcsolat konfigurációja – példa](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Többhelyes
+### <a name="multi-site"></a>Többhelyes kapcsolat
 
 A *többhelyes* kapcsolat a helyek közötti kapcsolat egy változata. A virtuális hálózati átjáróról több VPN-kapcsolatot hoz létre, amelyek általában több helyszíni helyhez csatlakoznak. Ha több kapcsolattal dolgozik, egy útvonalalapú VPN-típust (más néven dinamikus átjáró klasszikus virtuális hálózatok használatakor) kell használnia. Mivel minden virtuális hálózat csak egy VPN-átjáróval rendelkezhet, az átjárón keresztüli összes kapcsolat osztozik a rendelkezésre álló sávszélességen.
 
@@ -102,7 +102,6 @@ A Termékváltozat kiválasztásakor, vegye figyelembe a következőket:
 * Az Azure Stack nem támogatja a házirendalapú átjárók.
 * Az alapszintű termékváltozat nem támogatott a Border Gateway Protocol (BGP).
 * Az ExpressRoute-VPN-átjáró egyidejű konfigurációk nem támogatottak az Azure Stackben.
-* Aktív-aktív S2S VPN gateway-kapcsolatok konfigurálhatók a nagy teljesítményű termékváltozat esetében csak a.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>A termékváltozat becsült összesített átviteli sebessége
 

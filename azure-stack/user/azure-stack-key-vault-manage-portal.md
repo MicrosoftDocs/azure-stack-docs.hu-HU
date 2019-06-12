@@ -3,8 +3,8 @@ title: A portál használatával kezelheti a Key Vault az Azure Stackben |} A Mi
 description: Ismerje meg, hogyan kezelheti a Key Vault az Azure Stack a portál használatával
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
@@ -12,18 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/04/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: bc73e80acddaac8676b4cb47c0b9ced2467cdc44
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301010"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836851"
 ---
-# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>A portál használatával kezelheti a Key Vault az Azure Stackben
+# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Kezelése a Key Vault az Azure Stack a portál használatával
 
 Key Vault az Azure Stack az Azure Stack portal használata kezelheti. Ez a cikk bemutatja, hogyan hozhat létre és kezelhet a key vault az Azure Stackben.
 
@@ -55,7 +54,7 @@ Meg kell előfizetés egy ajánlatra, amely magában foglalja az Azure Key Vault
 
 ## <a name="manage-keys-and-secrets"></a>Kulcsok és titkos kulcsok kezelése
 
-Miután létrehozott egy tárolót, a következő eljárással hozhat létre és kezelheti a kulcsokat és titkos kulcsok a tárolóban.
+Miután létrehozott egy kulcstartót, a következő eljárással hozhat létre és kezelheti a kulcsokat és titkos kulcsok a tárolóban.
 
 ### <a name="create-a-key"></a>Kulcs létrehozása
 
@@ -85,7 +84,7 @@ A kulcs sikeres létrehozása után kiválaszthatja azt a **kulcsok** és megtek
 
 3. A **titkos kódok**válassza **Hozzáadás**.
 
-4. A **titkos kulcs létrehozása**, listájából **feltöltési beállítások**, válasszon egy lehetőséget, amellyel a titkos kulcs létrehozása szeretné. Létrehozhat egy titkos kulcsot **manuálisan** Ha megad egy értéket a titkos kulcsot vagy a feltöltési egy **tanúsítvány** a helyi gépen.
+4. A **titkos kulcs létrehozása**, listájából **feltöltési beállítások**, válasszon egy lehetőséget, amellyel a titkos kulcs létrehozása szeretné. Létrehozhat egy titkos kulcsot **manuálisan** Ha adjon meg egy értéket a titkos kulcsot, vagy töltse fel a **tanúsítvány** a helyi gépen.
 
 5. Adjon meg egy **neve** számára a titkos kulcsot. A titkos kód neve csak alfanumerikus karaktereket és kötőjelet (-) karaktert tartalmazhat.
 
