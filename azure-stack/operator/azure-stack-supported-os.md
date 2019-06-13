@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 06/11/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.reviewer: kivenkat
+ms.lastreviewed: 06/06/2018
+ms.openlocfilehash: 53acfa3a2d85e73b5d8136c7a1f42ee00d8ed1be
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748969"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028263"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Vendég operációs rendszereket támogatják az Azure Stackben
 
@@ -43,9 +43,9 @@ Az Azure Stack támogatja az alábbi táblázatban felsorolt Windows vendég ope
 | Windows 10-es *(lásd az 1. megjegyzést)* | 64 bites, Pro és Enterprise | Saját kép használata |
 
 > [!NOTE]
-> Windows 10-es ügyfél operációs rendszereken az Azure Stack üzembe helyezéséhez rendelkeznie kell [Windows felhasználói licencelés](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) , vagy vásároljon egy minősített több-Bérlős szolgáltató keresztül ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
+> Windows 10-es ügyfél operációs rendszereken az Azure Stack üzembe helyezéséhez rendelkeznie kell [Windows felhasználói licencelés](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) , vagy vásároljon egy minősített több-Bérlős szolgáltató keresztül ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
 
-Marketplace-rendszerképek Használatalapú mint-akkor-használható vagy BYOL (nagyvállalati szerződés/SPLA) licencelési érhetők el. Az Azure Stack egypéldányos használata nem támogatott. Üzembe helyezés során az Azure Stack kódtárba a vendégügynök megfelelő verzióját a lemezképpel.
+Marketplace-rendszerképek használatalapú mint-akkor-használható vagy BYOL (nagyvállalati szerződés/SPLA) licencelési érhetők el. Mindkét egyetlen Azure Stack-példány használata nem támogatott. Üzembe helyezés során az Azure Stack kódtárba a vendégügynök megfelelő verzióját a lemezképpel.
 
 Datacenter kiadások érhetők el le; a piactéren ügyfelek kihasználhatják a saját kiszolgáló-lemezképekhez, beleértve a többi kiadás voltát. Windows ügyfél képek nem érhetők el a piactéren.
 
@@ -54,7 +54,7 @@ Datacenter kiadások érhetők el le; a piactéren ügyfelek kihasználhatják a
 Linux-disztribúciók elérhetőként szerepel a Marketplace-en tartalmazza a szükséges Windows Azure Linux ügynök (WALA). Ha saját rendszerképet az Azure Stackhez, irányelvekhez [hozzáadása típusú Linux-rendszerképeket az Azure Stackhez](azure-stack-linux.md).
 
 > [!NOTE]
-> Egyéni rendszerképek legújabb nyilvános WALA verziójával (1903 az azure stack-build és a fenti vagy 1901/1902 gyorsjavítás) kell építeni vagy 2.2.20 verziójával. Előfordulhat, hogy előtt 2.2.20 és 2.2.20 és 2.2.35 (exkluzív) közötti verziókat nem működik megfelelően az Azure Stacken. 
+> Egyéni rendszerképek a legújabb nyilvános WALA verzióját (az Azure Stack 1903 build és a fenti vagy 1901/1902 gyorsjavítással), vagy 2.2.20 verzióval kell építeni. Előfordulhat, hogy előtt 2.2.20 és 2.2.20 és 2.2.35 (exkluzív) közötti verziókat nem működik megfelelően az Azure Stacken.
 >
 > [a cloud-init](https://cloud-init.io/) jelenleg nem támogatott az Azure Stacken.
 
@@ -78,7 +78,7 @@ Red Hat Enterprise Linux-támogatás információkért lásd: [Red Hat és az Az
 
 ## <a name="next-steps"></a>További lépések
 
-Az Azure Stack piactéren kapcsolatos további információkért lásd a következő cikkeket:
+Az Azure Stack piactéren kapcsolatos további információkért tekintse meg a következő cikkeket:
 
 - [Piactéri termékek letöltése](azure-stack-download-azure-marketplace-item.md)  
 - [Hozzon létre, és a Piactéri elem közzététele](azure-stack-create-and-publish-marketplace-item.md)
