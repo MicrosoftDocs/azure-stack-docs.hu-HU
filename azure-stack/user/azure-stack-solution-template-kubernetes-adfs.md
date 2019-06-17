@@ -15,43 +15,43 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 85297db679683be0e89d11e7847b2d88319efddf
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
-ms.translationtype: HT
+ms.openlocfilehash: c5d1643dbeb3c4c2805ebc1411cdce451889a288
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131599"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138857"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Az Active Directory összevont szolgáltatásokat az Azure Stack üzembe helyezése Kubernetes
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 > [!Note]  
-> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió.
+> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem támogatja az előzetes verzióra.
 
-A regisztrálással kapcsolatban, telepítse és állítsa be az erőforrásokat a Kubernetes esetében ez a cikk. Az Active Directory összevonási szolgáltatásokban (AD FS) az identity management-szolgáltatás az alábbi lépéseket követve.
+Telepítse és állítsa be az erőforrásokat a Kubernetes esetében az identitáskezelési szolgáltatása esetén az Active Directory összevonási szolgáltatásokban (AD FS) cikkben leírt lépésekkel.
 
 ## <a name="prerequisites"></a>Előfeltételek 
 
 Első lépésként ellenőrizze, hogy a megfelelő engedélyekkel rendelkezik, és, hogy készen áll-e az Azure Stack.
 
-1. Hozzon létre nyilvános és titkos ssh-kulcs, jelentkezzen be a Linux rendszerű virtuális gép az Azure Stacken. A fürt létrehozásakor kell a nyilvános kulcsot.
+1. Hozzon létre nyilvános és titkos ssh-kulcs, jelentkezzen be a Linux rendszerű virtuális gép (VM) az Azure Stacken. A fürt létrehozásakor kell a nyilvános kulcsot.
 
     -Kulcs létrehozásával kapcsolatos utasításokért lásd: [SSH kulcs generálása](https://github.com/msazurestackworkloads/acs-engine/blob/master/docs/ssh.md#ssh-key-generation).
 
 1. Ellenőrizze, hogy az Azure Stack-bérlői portálon érvényes előfizetéssel rendelkezik, és, hogy rendelkezik-e elegendő nyilvános IP-címek adhatók hozzá az új alkalmazások.
 
-    A fürt nem telepíthető az Azure Stackkel **rendszergazda** előfizetés. Szüksége lesz egy **felhasználói** előfizetés. 
+    A fürt nem telepíthető az Azure Stackkel **rendszergazdai** előfizetés. Szüksége lesz egy **felhasználói** előfizetés. 
 
-1. Szüksége lesz a Key Vault szolgáltatásban az Azure Stack-előfizetés.
+1. A Key Vault szolgáltatásban az Azure Stack-előfizetésében lesz szüksége.
 
-1. Szüksége lesz a Kubernetes-fürt a Marketplace-en. 
+1. A Kubernetes-fürt lesz szüksége a Marketplace-en. 
 
-Ha a Key Vault szolgáltatásban és a Kubernetes-fürt marketplace-elem hiányzik, forduljon az Azure Stack rendszergazdai.
+Ha Ön a Key Vault szolgáltatásban és a Kubernetes-fürt Piactéri elem hiányzik, forduljon az Azure Stack-rendszergazdának.
 
 ## <a name="create-a-service-principal"></a>Egyszerű szolgáltatás létrehozása
 
-Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgáltatás beállítása az Azure Stack rendszergazdával együttműködve kell. Egyszerű szolgáltatás Azure Stack-erőforrások az alkalmazás-hozzáférést biztosít.
+Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgáltatás beállítása az Azure Stack adminisztrátorral együttműködve. Egyszerű szolgáltatás biztosít az alkalmazás hozzáférjen az Azure Stack-erőforrások.
 
 1. Az Azure Stack rendszergazdai biztosít egy tanúsítványt, és a szolgáltatásnév adatait.
 
@@ -70,7 +70,7 @@ Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgál
 
 2. Közreműködője szerepkör az új egyszerű szolgáltatás hozzárendelése az előfizetéshez. Útmutatásért lásd: [szerepkör hozzárendelése](../operator/azure-stack-create-service-principals.md).
 
-3. Központi telepítés a tanúsítvány tárolásához használandó key vault létrehozása. A portál helyett a következő PowerShell-parancsfájlokat használja.
+3. Központi telepítés a tanúsítvány tárolásához használandó key vault létrehozása. A portál helyett az alábbi PowerShell-parancsfájlok használata:
 
    - Az alábbi adatokra lesz szüksége:
 
@@ -81,7 +81,7 @@ Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgál
        | A felhasználónév | Használja a felhasználónév helyett a tartománynév és a felhasználó nevét, például `username` helyett `azurestack\username`. |
        | Az erőforráscsoport neve  | Egy új erőforráscsoportot, vagy válasszon egy meglévő erőforráscsoport neve. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket. |
        | Key Vault neve | A tároló nevére.<br> Reguláriskifejezés-minta: `^[a-zA-Z0-9-]{3,24}$` |
-       | Erőforráscsoport helye | Az erőforráscsoport helyét. Ez az a régió úgy dönt, az Azure Stack-telepítés. |
+       | Erőforráscsoport helye | Az erőforráscsoport és a régiót választja, az Azure Stack-telepítés helye. |
 
    - Nyisson meg egy rendszergazda jogú parancssort, PowerShell és [csatlakozás az Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs). Futtassa a következő szkriptet a paraméterekkel az értékek a frissített:
 
@@ -161,31 +161,31 @@ Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgál
 
 1. Válassza ki **+ erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**. Kattintson a **Create** (Létrehozás) gombra.
 
-    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Kubernetes-fürt létrehozása](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. Alapvető beállítások
 
 1. Válassza ki **alapjai** a Kubernetes-fürt létrehozása.
 
-    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Alapvető tudnivalók a Kubernetes-fürt létrehozása](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Válassza ki a **előfizetés** azonosítóját.
 
 1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket.
 
-1. Válassza ki a **hely** az erőforráscsoport. Ez az a régió úgy dönt, az Azure Stack-telepítés.
+1. Válassza ki a **hely** az erőforráscsoport. Ez a hely úgy dönt, az Azure Stack-telepítés a régióban.
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes-fürt beállításai
 
 1. Válassza ki **Kubernetes-fürt beállítások** a Kubernetes-fürt létrehozása.
 
-    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![Kubernetes-fürt megadása](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
-1. Adja meg a **Linux rendszerű virtuális gép rendszergazdai felhasználónevét**. A Linux rendszerű virtuális gépek, a Kubernetes-fürt részét képező és a DVM felhasználóneve.
+1. Adja meg a **Linux rendszerű virtuális gép rendszergazdai felhasználónevét** a Linux virtuális gépek esetén, amelyek a Kubernetes-fürt és a DVM részei.
 
 1. Adja meg a **SSH Public Key** használt a hitelesítéshez a Kubernetes-fürt és a DVM részeként létrehozott összes Linux rendszerű gépen.
 
-1. Adja meg a **fő profil DNS-előtagja** , amely egyedi a régióban. Ez egy régió egyedi nevet, például kell lennie `k8s-12345`. Próbálja meg úgy döntött, hogy ugyanaz, mint az erőforráscsoport neve ajánlott eljárás.
+1. Adja meg a **fő profil DNS-előtag**. A névnek egyedinek kell lennie egy régió-, mint például `k8s-12345`. Próbálja meg, hogy a megfelelő ajánlott eljárásként az erőforráscsoport neve.
 
     > [!Note]  
     > Ha mindegyik fürthöz egy új és egyedi fő profil DNS-előtagot használja.
@@ -196,25 +196,25 @@ Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgál
 
 1. Válassza ki a **Kubernetes csomópontok készlet profil száma**. A száma a fürtben található ügynökök számát tartalmazza. 
 
-1. Válassza ki a **Tárolóprofil**. Választhat **Blob lemez** vagy **Managed Disk**. Azt határozza meg a virtuális gép méretét a Kubernetes csomópont azon virtuális gépeit. 
+1. Válassza ki a **Tárolóprofil**. Választhat **Blob lemez** vagy **Managed Disk**. Ez a beállítás adja meg a virtuális gép méretét a Kubernetes csomópont azon virtuális gépeit. 
 
 1. Válassza ki **ADFS** számára a **Azure Stack identitásrendszer** az Azure Stack-telepítés.
 
-1. Adja meg a **szolgáltatásnév ClientId** ezt használja a Kubernetes Azure felhőszolgáltató. Az Alkalmazásazonosítót azonosította az eseményt az egyszerű szolgáltatás létrehozásakor az Azure Stack rendszergazdai ügyfél-azonosító.
+1. Adja meg a **szolgáltatásnév ClientId**. Ezt az azonosítót használja a Kubernetes Azure felhőszolgáltató. Az ügyfél-azonosító nevezzük az Alkalmazásazonosítót, amikor az Azure Stack rendszergazdai hoz létre a szolgáltatás egyszerű.
 
 1. Adja meg a **Key Vault-erőforráscsoport** , amely adatforrásokat a kulcstartóhoz, amely tartalmazza a tanúsítványt.
 
-1. Adja meg a **Key Vault-névre** a tanúsítványt a titkos kulcsot tartalmazó kulcstartó neve. 
+1. Adja meg a **Key Vault-névre**. Ez az a tanúsítványt a titkos kulcsot tartalmazó kulcstartó neve. 
 
-1. Adja meg a **Key Vault titkos kulcsából**. Název tajného kódu hivatkozik a tanúsítványt.
+1. Adja meg a **Key Vault titkos kulcsából**. A titkos kód neve hivatkozik a tanúsítványt.
 
-1. Adja meg a **Kubernetes az Azure Cloud szolgáltató verziója**. Ez az a verzió a Kubernetes Azure-szolgáltatóhoz. Az Azure Stack kiad egy egyéni Kubernetes-build minden egyes Azure Stack-verzió.
+1. Adja meg a **Kubernetes az Azure Cloud szolgáltató verziója**. Ez az a Kubernetes Azure provider verziószáma. Az Azure Stack kiad egy egyéni Kubernetes-build minden egyes Azure Stack-verzió.
 
 ### <a name="3-summary"></a>3. Összefoglalás
 
 1. Válassza ki a összegzése. A panel a Kubernetes-fürt konfigurációk beállítások érvényesítése üzenetet jelenít meg.
 
-    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
+    ![Kubernetes-fürtkonfiguráció összegzése](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
 2. Tekintse át a beállításokat.
 
