@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.openlocfilehash: 448af01e935165ea974c22c23bd73c7a02ac3935
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835110"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145280"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -249,4 +249,5 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Gyors helyreállítás beszúrása](media/azure-stack-marketplace-azure-items/quest.png) | [Tanúsítványmegújítási gyors helyreállítási Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Az adatvédelem speciális gyors helyreállítási egyesíti a biztonsági mentését, a replikációs és a egy könnyen használható szoftveres megoldás helyreállítását. | Tanúsítványmegújítási szoftver |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (saját)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Legjobb minőségű nyílt forráskódú infrastruktúra-felügyelettel. | SUSE |
 | ![CipherTrust Felhőkezelő kulcs](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Felhőkezelő kulcs](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Kihasználva a Microsoft Azure és az egyéb felhőszolgáltatók Bring Your Own Key (BYOK) API-k, CipherTrust felhőalapú kulcskezelő csökkenti a kulcskezelés összetettségét, és működési költségeket, mivel a titkosítási kulcsokat az multicloud életciklusát kézben központosított felügyeleti és láthatóságát. | A Thales Entrust |
+| ![Veeam biztonsági mentés és replikáció](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam biztonsági mentés és replikáció](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® biztonsági mentés és Replication™ segítségével a vállalatok elérése érdekében minden számítási feladatokhoz teljes körű adatvédelem – virtuális, a fizikai és a felhő alapú. Az egyetlen konzolon érheti el a gyors, rugalmas és megbízható biztonsági mentési, helyreállítási és alkalmazások és adatok replikálását. | Veeam szoftver |
 | ![ZeroDown szoftver BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Üzletmenet-folytonossági ZeroDown szoftverfrissítési szolgáltatásként](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® szoftver technológia biztosítja az üzletmenet-folytonossági keresztül a vállalati adatok folyamatos hozzáférést rendelkező cégek (BCaaS) szolgáltatást™ architektúra, védelmet nyújtó alkalmazások és a tranzakció, ha hálózati kimaradásokat történik, amely a szokásos a vállalati cripple. | ZeroDown szoftver |

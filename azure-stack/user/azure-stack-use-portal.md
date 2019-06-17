@@ -3,26 +3,25 @@ title: Az Azure Stack portal használatával |} A Microsoft Docs
 description: Ismerje meg, hogyan elérése és a felhasználói portál használata az Azure Stackben.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/25/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/13/2019
+ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131552"
 ---
-# <a name="use-the-azure-stack-portal"></a>Az Azure Stack-portál használata
+# <a name="use-the-azure-stack-portal"></a>Az Azure Stack portal használata
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -80,5 +79,3 @@ Az Azure Stack fejlesztői készletének használata a [Azure Stack-fórum](http
 ## <a name="next-steps"></a>További lépések
 
 [Fontos szempontok: Szolgáltatások használatával, vagy alkalmazások készítéséhez az Azure Stackhez](azure-stack-considerations.md)
-
-<!-- Update_Description: wording update -->

@@ -4,18 +4,18 @@ description: Útmutató az Azure Stack tárolásfejlesztési eszközök használ
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/27/2019
+ms.date: 06/13/2019
 ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: beb43a013f66d6de5cc781fbbbdfae9e9e67c2da
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 10bf2bcc13ceab3b28e44759bbacae57d63b9b97
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131663"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Ismerkedés az Azure Stack tárolásfejlesztési eszközök
 
@@ -34,7 +34,7 @@ A tároló ügyfélkódtárai vegye figyelembe a REST API-val kompatibilis verzi
 
 ### <a name="1811-update-or-newer-versions"></a>1811 frissítés vagy újabb verzió
 
-| Ügyfélkódtár | Az Azure Stack támogatott verziója | Összekapcsolás | Végpont-specifikáció |
+| Ügyfélkódtár | Az Azure Stack támogatott verziója | Hivatkozás | Végpont-specifikáció |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 9.2.0 | Nuget-csomagot:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub-verzió:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app.config file |
 | Java | 7.0.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>GitHub-verzió:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | Kapcsolati karakterlánc beállítása |
@@ -63,7 +63,7 @@ Composer keresztül történő: (például a blob igénybe).
 
 ### <a name="previous-versions-1802-to-1809-update"></a>Korábbi verziók (a 1809 1802-es frissítés)
 
-| Ügyfélkódtár | Az Azure Stack támogatott verziója | Összekapcsolás | Végpont-specifikáció |
+| Ügyfélkódtár | Az Azure Stack támogatott verziója | Hivatkozás | Végpont-specifikáció |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Nuget-csomagot:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub-verzió:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app.config file |
 | Java | 6.1.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>GitHub-verzió:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | Kapcsolati karakterlánc beállítása |
@@ -197,7 +197,7 @@ Az Azure Queue storage alábbi oktatóanyagok az Azure Stackhez vonatkoznak. Veg
 * [How to use Queue storage from Python (A Queue Storage használata Pythonnal)](/azure/storage/queues/storage-python-how-to-use-queue-storage)
 * [How to use Queue storage from Ruby (A Queue Storage használata Rubyval)](/azure/storage/queues/storage-ruby-how-to-use-queue-storage)
 
-## <a name="table-storage"></a>Táblatároló
+## <a name="table-storage"></a>Table Storage
 
 Az Azure Table storage alábbi oktatóanyagok az Azure Stackhez vonatkoznak. Vegye figyelembe az adott végponti utótag követelmény az előző ismertetett Azure Stackhez készült [példák](#examples) szakaszban.
 

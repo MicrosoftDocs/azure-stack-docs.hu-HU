@@ -1,5 +1,5 @@
 ---
-title: Az Azure Stack store egyszerű szolgáltatás hitelesítő adatai a Key Vault |} A Microsoft Docs
+title: Egyszerű szolgáltatás hitelesítő adatai Store az Azure Stack Key Vault |} A Microsoft Docs
 description: Ismerje meg, hogyan Key Vault tárolja az egyszerű szolgáltatás hitelesítő adatai az Azure Stackben
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: efa8dda8061ce81d751e9cce47c5e81a3917f2bf
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991311"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138840"
 ---
-# <a name="store-service-principal-credentials-in-key-vault"></a>Egyszerű szolgáltatás hitelesítő adatai Store a Key Vaultban
+# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Egyszerű szolgáltatás hitelesítő adatai Store az Azure Stack Key Vaultban
 
-Általában az Azure Stack-alkalmazások fejlesztéséhez használható kell létrehozni egy szolgáltatásnevet, és ezeket a hitelesítő adatokat az üzembe helyezés előtt hitelesítést. Azonban gyakran szolgáltatásnév számára a tárolt hitelesítő adatok vannak elveszett. Ez a cikk ismerteti a szolgáltatásnév létrehozásához, és tárolja az értékeket az Azure Key Vaultban a későbbi beolvasásához.
+Alkalmazásfejlesztésbe az Azure Stacken általában kell létrehozni egy szolgáltatásnevet, és ezeket a hitelesítő adatokat az üzembe helyezés előtt hitelesítést. Azonban néha elveszíti a tárolt hitelesítő adatokat a szolgáltatásnévhez. Ez a cikk ismerteti a szolgáltatásnév létrehozásához, és tárolja az értékeket az Azure Key Vaultban a későbbi beolvasásához.
 
 A Key Vaulttal kapcsolatos további információkért lásd: [Ez a cikk](azure-stack-key-vault-intro.md).
 
@@ -34,7 +34,7 @@ A Key Vaulttal kapcsolatos további információkért lásd: [Ez a cikk](azure-s
 
 ## <a name="key-vault-in-azure-stack"></a>A Key Vault az Azure Stackben
 
-A Key Vault az Azure Stack segítségével biztosítja a titkosítási kulcsok védelmét, és a titkos kulcsok, amelyek felhőalapú alkalmazásokat és szolgáltatásokat használja. A Key Vault használatával a kulcsok és titkos kulcsok használatával titkosítsa.
+A Key Vault az Azure Stack segítségével biztosítja a titkosítási kulcsok védelmét, és a titkos kódok, amelyek felhőalapú alkalmazásokat és szolgáltatásokat használja. A Key Vault használatával a kulcsok és titkos kulcsok használatával titkosítsa.
 
 Hozzon létre egy kulcstartót, kövesse az alábbi lépéseket:
 
@@ -42,9 +42,9 @@ Hozzon létre egy kulcstartót, kövesse az alábbi lépéseket:
 
 2. Az irányítópulton, válassza ki a **+ erőforrás létrehozása**, majd **biztonság + identitás**, majd **Key Vault.**
 
-   ![Kulcstartó létrehozása](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
+   ![Kulcstároló létrehozása](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
-3. Az a **kulcstartó létrehozása** panelen rendelje hozzá egy **neve** a tároló számára. Tároló neve csak alfanumerikus karaktereket és kötőjelet (-) karaktert tartalmazhat. Egy szám, nem kezdődhet.
+3. Az a **kulcstartó létrehozása** panelen rendelje hozzá egy **neve** a tároló számára. Tároló neve csak alfanumerikus karaktereket és kötőjelet (-) karaktert tartalmazhat. Ezek nem kezdődhet számmal.
 
 4. Válasszon egy előfizetést az elérhető előfizetések listájáról.
 
@@ -64,15 +64,15 @@ Hozzon létre egy kulcstartót, kövesse az alábbi lépéseket:
 
 2. Válassza ki **Azure Active Directory**, majd **alkalmazásregisztrációk**, majd **Hozzáadás**.
 
-3. Adja meg az alkalmazás nevét és URL-címét. Válassza ki vagy **webalkalmazás / API** vagy **natív** szeretne létrehozni az alkalmazás számára. Miután beállította az értékeket, válassza ki a **létrehozás**.
+3. Adja meg az alkalmazás nevét és URL-CÍMÉT. Ezek közül bármelyikre **webalkalmazás / API** vagy **natív** a létrehozni kívánt alkalmazás típusát. Miután beállította az értékeket, válassza ki a **létrehozás**.
 
 4. Válassza ki **Active Directory**, majd **Alkalmazásregisztrációk**, és válassza ki az alkalmazását.
 
-5. Másolja ki az **Alkalmazásazonosítót**, és tárolja az alkalmazás kódjában. Az alkalmazások a mintaalkalmazások használatához **ügyfél-azonosító** kontextusban való megnevezésekor a **Alkalmazásazonosító**.
+5. Másolás a **Alkalmazásazonosító** , és tárolja a kód. A mintául szolgáló alkalmazások használatát **ügyfél-azonosító** kontextusban való megnevezésekor a **Alkalmazásazonosító**.
 
 6. A hitelesítési kulcs létrehozásához válassza a **Kulcsok** elemet.
 
-7. Adjon meg egy leírást a kulcs és a egy időtartamot.
+7. Adjon meg egy leírást és egy időtartamot a kulcshoz.
 
 8. Kattintson a **Mentés** gombra.
 
@@ -84,7 +84,7 @@ Hozzon létre egy kulcstartót, kövesse az alábbi lépéseket:
 
 2. Az a **titkos** ablaktáblán válassza előbb **létrehozás/importálás**.
 
-3. Az a **titkos kulcs létrehozása** panelen válassza a beállítások listájában **manuális**. Ha a szolgáltatás egyszerű létrehozott tanúsítványokkal, válassza ki a tanúsítványokat a legördülő listából, és majd feltöltjük a fájlt.
+3. Az a **titkos kulcs létrehozása** ablaktáblán válassza előbb **manuális** lehetőségek listájából. Ha a szolgáltatás egyszerű létrehozott tanúsítványokkal, válassza ki a tanúsítványokat a legördülő listából, és majd feltöltjük a fájlt.
 
 4. Adja meg **az Alkalmazásazonosítót** a kulcs neveként az egyszerű szolgáltatás átmásolva. A kulcs neve csak alfanumerikus karaktereket és kötőjelet (-) karaktert tartalmazhat.
 
@@ -96,7 +96,7 @@ Hozzon létre egy kulcstartót, kövesse az alábbi lépéseket:
 
 8. Válassza ki **létrehozás** a üzembe helyezésének megkezdéséhez.
 
-A titkos kód sikeres létrehozása után a szolgáltatásnév adatait ott tárolhatók. Kiválaszthatja azt bármikor alatt **titkok**, és megtekintheti vagy a hozzá tartozó tulajdonságok módosításával. A Tulajdonságok szakaszának tartalma a titkos kulcs azonosítóját, amely egy egységes erőforrás-azonosító (URI), amellyel külső alkalmazások hozzáférhetnek a titkos kód.
+A titkos kód sikeres létrehozása után a szolgáltatásnév adatait ott tárolódik. Kiválaszthatja azt bármikor alatt **titkok** és megtekintéséhez vagy a hozzá tartozó tulajdonságok módosításával. A Tulajdonságok szakaszának tartalma a titkos kulcs azonosítóját, amely egy egységes erőforrás-azonosító (URI), amely a külső alkalmazások használatát a titkos kód eléréséhez.
 
 ## <a name="next-steps"></a>További lépések
 

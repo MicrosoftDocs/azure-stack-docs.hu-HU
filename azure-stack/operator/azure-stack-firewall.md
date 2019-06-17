@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: abca6560e8644b201483001258542121fefb6b08
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131522"
 ---
 # <a name="azure-stack-firewall-integration"></a>Az Azure Stack tűzfal integrációja
 Javasoljuk, hogy egy tűzfal eszköz segítségével biztonságos Azure Stack segítségével. Tűzfalak segítségével többek között elosztott--szolgáltatásmegtagadásos (DDOS) támadások, behatolásérzékelési és a tartalomvizsgálat szemben. Azonban akkor is válhat az Azure storage-szolgáltatásokhoz hasonlóan a blobok, táblák és üzenetsorok átviteli szűk keresztmetszetté.
@@ -61,7 +61,7 @@ Vállalati intranetes vagy szegélyhálózat-alapú üzembe helyezés Azure Stac
 
 ![Azure Stack szegélyhálózat-alapú hálózat – példa](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
-## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
+## <a name="learn-more"></a>Részletek
 Tudjon meg többet [Azure Stack-végpontok által használt portokról és protokollokról](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>További lépések

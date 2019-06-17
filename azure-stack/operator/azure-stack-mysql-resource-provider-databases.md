@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4cf406461c7a231617d40c50d2b5491bb4427b63
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fa8bd58d856f7a502e28beddb3d1c32f13dc18b7
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131480"
 ---
 # <a name="create-mysql-databases"></a>MySQL-adatbázisok létrehozása
 Az Azure Stack felhasználói, az előfizetett egy ajánlatra, amely tartalmazza a MySQL-adatbázisszolgáltatás, létrehozhat és kezelheti a MySQL-adatbázisok önkiszolgáló a felhasználói portálon.

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: c512e7a9ac4cb5a7d864a315dc55d01a39a029ea
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428709"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145209"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-regisztráció
 
@@ -51,15 +51,7 @@ Kövesse az alábbi lépéseket a ASDK regisztrálni az Azure-ral.
 
 1. Nyisson meg egy PowerShell-konzolt rendszergazdaként.  
 
-2. A ASDK állomás számítógépen nyissa meg a fájlt **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** emelt jogosultsági szintű egy szövegszerkesztőben.
-
-3. 1249. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, egy egyszerű szolgáltatás időkorlátja megelőzése, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
-
-   ```powershell
-   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-   ```
-
-4. Futtassa a következő PowerShell-parancsokat a ASDK telepítési regisztrálni az Azure-ral. Jelentkezzen be az Azure számlázási előfizetés-Azonosítóját és a helyi ASDK telepítési is kell. Ha nem rendelkezik Azure-beli előfizetés-azonosító még számlázási, [ingyenes Azure-fiók létrehozása itt](https://azure.microsoft.com/free/?b=17.06). Az Azure-előfizetése ingyenes regisztrálása az Azure Stack tekintetében.<br><br>Állítsa be egy egyedi nevet a regisztráció futtatásakor a **Set-AzsRegistration** parancsmagot. A **RegistrationName** paraméterének alapértelmezett értéke **AzureStackRegistration**. Azonban, ha ugyanazzal a névvel egynél több Azure Stack-példányt használ, a parancsfájl futtatása sikertelen lesz.
+2. Futtassa a következő PowerShell-parancsokat a ASDK telepítési regisztrálni az Azure-ral. Jelentkezzen be az Azure számlázási előfizetés-Azonosítóját és a helyi ASDK telepítési is kell. Ha nem rendelkezik Azure-beli előfizetés-azonosító még számlázási, [ingyenes Azure-fiók létrehozása itt](https://azure.microsoft.com/free/?b=17.06). Az Azure-előfizetése ingyenes regisztrálása az Azure Stack tekintetében.<br><br>Állítsa be egy egyedi nevet a regisztráció futtatásakor a **Set-AzsRegistration** parancsmagot. A **RegistrationName** paraméterének alapértelmezett értéke **AzureStackRegistration**. Azonban, ha ugyanazzal a névvel egynél több Azure Stack-példányt használ, a parancsfájl futtatása sikertelen lesz.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -87,7 +79,7 @@ Kövesse az alábbi lépéseket a ASDK regisztrálni az Azure-ral.
     -UsageReportingEnabled:$true
     ```
 
-5. Miután a parancsfájl futása befejeződött, az üzenetnek kell megjelennie: **A környezet már regisztrálva van, és aktiválta a megadott paraméterekkel.**
+3. Miután a parancsfájl futása befejeződött, az üzenetnek kell megjelennie: **A környezet már regisztrálva van, és aktiválta a megadott paraméterekkel.**
 
     ![A környezet már regisztrálva van](media/asdk-register/1.PNG)
 

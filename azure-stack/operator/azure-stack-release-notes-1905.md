@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: f46fde5b0c978b315d73d86a5cee3fa1f977295e
-ms.sourcegitcommit: e90db57ffe509162aff5c879f061a1f8371179e8
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 7669ee310e4262a72d90c478500d7e06919b43bc
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034245"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145184"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 frissítése
 
@@ -41,7 +41,7 @@ Az Azure Stack 1905 frissítés buildszáma **1.1905.0.40**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az Azure Stack 1905 update build típusa **teljes**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk.
+Az Azure Stack 1905 update build típusa **teljes**. Ennek eredményeképpen a 1905 frissítés rendelkezik, mint például a 1903 és 1904 expressz frissítések egy hosszabb futásidejű. Teljes frissítések pontos modulok általában függenek a csomópontok számát, hogy az Azure Stack-példány tartalmaz, használja a rendszer a bérlői terhelések, a rendszer hálózati kapcsolatot (ha csatlakozik az internethez), a kapacitás és a rendszer hardver konfiguráció. A 1905 frissítés volt-e a következő várt futtatókörnyezetek közül a belső tesztelés: 4 csomóponttal – 35 üzemóra, 8 csomópont - óra 45, 12 csomópontok - 55, 16 csomóponttal - 70 óra. a várt értékek hosszabb ideig tart 1905 modulok nem ritka, és nem igényelnek Azure Stack operátorai művelet, kivéve, ha a frissítés sikertelen. További információt a frissítés build típusú, lásd: [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md).
 
 ## <a name="whats-in-this-update"></a>Mi az a frissítés
 
@@ -71,7 +71,7 @@ Ez a frissítés a Windows Server 2019 sikeresen aktiválhatók 2016 gazdagépen
 
 - Ha több Azure Active-címtár-e előkészítve (keresztül [Ez a folyamat](azure-stack-enable-multitenancy.md)), lehetséges elmulasztják a parancsfájl megismétlése bizonyos frissítések esetén, vagy ha az AAD-szolgáltatásnév engedélyezési módosítása hatására a jogosultságokat kell Hiányzó. Ez különböző problémákat okozhat, letiltott hozzáférés az egyes funkciókat, további diszkrét hibákkal szemben, amelyek nehezen vissza az eredeti probléma a nyomkövetési. Ennek megelőzése érdekében 1905, amely ellenőrzi, hogy ezeket az engedélyeket, és létrehoz egy riasztást, ha bizonyos konfigurációs problémákat talált új szolgáltatást vezet be. Ellenőrzés óránként fut le, és a probléma megoldásához szükséges javítási műveleteket jeleníti meg. A riasztás bezárása után a bérlők számára a kifogástalan állapotban vannak.
 
-- Az infrastruktúra biztonsági mentési műveletek során a szolgáltatás feladatátvételének megbízhatósága. 
+- Az infrastruktúra biztonsági mentési műveletek során a szolgáltatás feladatátvételének megbízhatósága.
 
 - Egy új verziója a [Azure Stack Nagios beépülő modul](azure-stack-integrate-monitor.md#integrate-with-nagios) van elérhető használó a [Azure Active Directory hitelesítési kódtárai](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) a hitelesítéshez. A beépülő modul mostantól is támogatja az Azure Stack az Azure Active Directory (AAD) és az Active Directory összevonási szolgáltatások (ADFS) központi telepítései. További információkért lásd: a [Nagios beépülő modul exchange](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details) hely.
 
@@ -79,6 +79,22 @@ Ez a frissítés a Windows Server 2019 sikeresen aktiválhatók 2016 gazdagépen
 
 - A [Node.js SDK](https://www.npmjs.com/search?q=2019-03-01-hybrid) mostantól támogatja az API-profilok. A támogatási csomagok a **2019-03-01-hibrid** profil vannak közzétéve.
 
+- Az Azure Stack 1905 frissítés ad hozzá a két új infrastruktúra-szerepkörök platform megbízhatóság és támogathatóság javítása érdekében:
+
+  - **Infrastruktúrával ring**: A jövőben az infrastruktúrával ring meglévő infrastruktúra-szerepkörök – például xrp – saját kijelölt infrastruktúra virtuális gépek jelenleg igénylő tárolóalapú verzióját fogja futtatni. Ezzel továbbfejlesztjük a platform megbízhatóságát, és csökkentse infrastruktúra Azure Stack igénylő virtuális gépek számát. Ez csökkenti a teljes erőforrás-használat az Azure Stack-infrastruktúra-szerepkörök a jövőben ezt követően.
+  - **Támogatási kör**: A jövőben a támogatási kör használható ügyfelek számára továbbfejlesztett támogatást forgatókönyvek kezeléséhez.  
+
+  Emellett a tartományvezérlő virtuális Gépnek a jobb rendelkezésre állás érdekében a szerepkör egy külön példányát hozzáadtunk.
+
+  Ezek a változások növeli az erőforrás-használat az Azure Stack-infrastruktúra a következő módokon:
+  
+    | Az Azure Stack Termékváltozat | Növelheti a számítási fogyasztás | Növeli a memóriahasználat |
+    | -- | -- | -- |
+    |4 csomópont|22 vCPU|28 GB|
+    |8 csomópont|38 vCPU|44 GB|
+    |12 csomópontok|54 vCPU|60 GB|
+    |16 csomóponttal|70 vCPU|76 GB|
+  
 - Most már rendelkezésre áll egy Azure Stack-bővítmény, amely a Visual Studio Code működik. Használatával a **Azure-fiók** bővítmény, a fejlesztők is a célzott Azure Stack jelentkezik be, és az előfizetések, valamint számos egyéb szolgáltatás megtekintésével. Az Azure-fiókkiterjesztés AAD-környezetek és is AD FS-környezetben működik, és módosítsa a Visual Studio Code az Azure Stack metaadatértékeket bemeneti felhasználói beállításait csak szükséges. További információ [lásd itt található dokumentáció](../user/azure-stack-dev-start-vscode-azure.md).
 
 ### <a name="changes"></a>Módosítások

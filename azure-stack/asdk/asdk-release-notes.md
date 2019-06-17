@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 0de27634ac6167637dcdc487474f16d3ef2b2c95
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691198"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145179"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -28,7 +28,7 @@ Ez a cikk a módosításokat, javításokat és ismert problémák az Azure Stac
 
 What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-hírcsatorna](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11905040"></a>1.1905.0.40 összeállítása
+## <a name="build-11905040"></a>1\.1905.0.40 összeállítása
 
 <!-- ### Changes -->
 
@@ -38,20 +38,12 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 
 ### <a name="fixed-and-known-issues"></a>Rögzített méretű és ismert problémák
 
-- Szolgáltatás egyszerű időtúllépése miatt annak érdekében, hogy a regisztrációs parancsfájl futtatásakor [regisztrálja a ASDK](asdk-register.md) sikeresen szerkesztenie kell a **RegisterWithAzure.psm1** PowerShell-parancsfájlt. Tegye a következőket:
-
-  1. A ASDK állomás számítógépen nyissa meg a fájlt **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** emelt jogosultsági szintű egy szövegszerkesztőben.
-  2. 1249. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, a szolgáltatás egyszerű időtúllépés miatt, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
-
-     ```powershell
-      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-      ```
-
+- Kijavítva, amelyben szerkesztheti kellett a **RegisterWithAzure.psm1** annak érdekében, hogy a PowerShell-parancsprogram [regisztrálja a ASDK](asdk-register.md) sikeresen megtörtént.
 - Más Azure Stack kapcsolatos problémák listáját, javítva a kiadásban, lásd: [ebben a szakaszban](../operator/azure-stack-release-notes-1905.md#fixes) kiadási megjegyzések az Azure Stack.
 - Ismert problémák listáját lásd: [Ez a cikk](../operator/azure-stack-release-notes-known-issues-1905.md).
 - Vegye figyelembe, hogy [elérhető az Azure Stack-gyorsjavítások](../operator/azure-stack-release-notes-1905.md#hotfixes) nem használhatók az Azure Stack ASDK.
 
-## <a name="build-11904036"></a>1.1904.0.36 összeállítása
+## <a name="build-11904036"></a>1\.1904.0.36 összeállítása
 
 <!-- ### Changes -->
 
@@ -64,7 +56,7 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 - Szolgáltatás egyszerű időtúllépése miatt annak érdekében, hogy a regisztrációs parancsfájl futtatásakor [regisztrálja a ASDK](asdk-register.md) sikeresen szerkesztenie kell a **RegisterWithAzure.psm1** PowerShell-parancsfájlt. Tegye a következőket:
 
   1. A ASDK állomás számítógépen nyissa meg a fájlt **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** emelt jogosultsági szintű egy szövegszerkesztőben.
-  2. 1249. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, a szolgáltatás egyszerű időtúllépés miatt, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
+  2. 1249\. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, a szolgáltatás egyszerű időtúllépés miatt, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
 
      ```powershell
       $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
@@ -80,7 +72,7 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 
 A 1903 hasznos adatai nem tartalmaz egy ASDK kiadást.
 
-## <a name="build-11902069"></a>1.1902.0.69 összeállítása
+## <a name="build-11902069"></a>1\.1902.0.69 összeállítása
 
 ### <a name="new-features"></a>Új funkciók
 

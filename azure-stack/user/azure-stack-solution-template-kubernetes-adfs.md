@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 367053882e9e44ba983d5df552929c65222fcafc
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
-ms.translationtype: MT
+ms.openlocfilehash: 85297db679683be0e89d11e7847b2d88319efddf
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.translationtype: HT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131599"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Az Active Directory összevont szolgáltatásokat az Azure Stack üzembe helyezése Kubernetes
 
@@ -118,7 +118,7 @@ Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgál
        | Érték | Leírás |
        | ---   | ---         |
        | Tanúsítvány elérési útja | A teljes tartománynév vagy a fájl elérési útja a tanúsítványt. |
-       | Tanúsítványjelszó | A tanúsítvány jelszavát. |
+       | Tanúsítvány jelszava | A tanúsítvány jelszavát. |
        | Název tajného kódu | A mutató hivatkozás a tanúsítvány a tárolóban tárolt titkos neve. |
        | A Key vault neve | A key vault az előző lépésben létrehozott neve. |
        | Az Azure Resource Manager-végpont | A végpont az Azure Stack Development Kit (ASDK) a következő: `https://management.local.azurestack.external/`<br>A végpont az integrált rendszerekről van: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
@@ -210,7 +210,7 @@ Az AD FS-identitáskezelési megoldásként használatakor az egyszerű szolgál
 
 1. Adja meg a **Kubernetes az Azure Cloud szolgáltató verziója**. Ez az a verzió a Kubernetes Azure-szolgáltatóhoz. Az Azure Stack kiad egy egyéni Kubernetes-build minden egyes Azure Stack-verzió.
 
-### <a name="3-summary"></a>3. Összegzés
+### <a name="3-summary"></a>3. Összefoglalás
 
 1. Válassza ki a összegzése. A panel a Kubernetes-fürt konfigurációk beállítások érvényesítése üzenetet jelenít meg.
 

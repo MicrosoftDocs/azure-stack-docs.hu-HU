@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 61ad09591bce8c01f6f4a5c2dfa43a74d8a44bc2
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691615"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145230"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
 
@@ -75,8 +75,6 @@ Az Azure Stack 1904 update build típusa **Express**. További információt a f
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
 - Javult a syslog-üzenetek mennyisége szűri ki a szükségtelen eseményeket, és válassza ki a kívánt súlyossági szinttel továbbított üzenetek egy konfigurációs paraméter megadásával. A súlyossági szintet konfigurálásával kapcsolatos további információkért lásd: [adatközpont integrációja az Azure Stack - syslog-továbbítás](azure-stack-integrate-security.md).
-
-- Az Azure Stack-infrastruktúra használ fel további 12 GB + (4 GB-os * állomások számát az Azure Stack) a 1904 frissítés és újabb verziók esetében. Ez azt jelenti, hogy a 4 csomópont bélyeggel lesz egy további kapacitás felhasználását, 28 GB-os (12 GB + 4 GB-os * 4) az Azure Stack rendszergazdai portálon kapacitás képernyőjén megjelennek. A frissítés 1904 kiadására sikeres legyen, akkor is, ha további csökkenhet az Azure Stack-blokk helyezi a kapacitás fölé. Ha az Azure Stack-blokk feletti memóriahasználat a frissítés befejezése után, ebben az állapotban szervizelési teendőkről megszüntetéséhez lefoglalni az egyes virtuális gépek tükröző riasztás megjelenik.
 
 <!--this applied to Bug 1473487 -->
 - Az egyik új funkciója a **Get-AzureStackLog** parancsmag egy további paraméter beágyazza `-OutputSASUri`. Most az Azure Stack gyűjteni a környezetben, és tárolja őket a megadott Azure Storage blob-tárolóban. További információkért lásd: [Azure Stack-diagnosztika](azure-stack-diagnostics.md#examples).

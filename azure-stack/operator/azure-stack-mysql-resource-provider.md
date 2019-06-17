@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 480af6cc4cdfb8e2da7b7d324d3f1c657f292424
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 092d35b70373f95c74c510d8452fd43c0e7cd5c2
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131166"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-adatbázisok használata a Microsoft Azure Stackhez
 
@@ -35,7 +35,7 @@ Az erőforrás-szolgáltató üzembe helyezése, után teszi lehetővé:
 
 Az erőforrás-szolgáltató a következő összetevőket tartalmazza:
 
-* **A MySQL erőforrás szolgáltató adapter a virtuális gép (VM)**, azaz a szolgáltató-szolgáltatásokat futtató Windows Server virtuális gép.
+* **A MySQL erőforrás szolgáltató adapter a virtuális gép (VM)** , azaz a szolgáltató-szolgáltatásokat futtató Windows Server virtuális gép.
 * **Az erőforrás-szolgáltató**, amely feldolgozza a kérelmeket, és azt adatbázis-erőforrás.
 * **MySQL-kiszolgálót üzemeltető kiszolgálók**, amely az adatbázisok, az úgynevezett üzemeltető kiszolgálók-kapacitást biztosítanak. MySQL-példányok létrehozásához, saját maga, vagy külső MySQL-példányok eléréséhez. A [Azure Stack gyorsindítási galéria](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) rendelkezik egy példa a sablon, amely segítségével:
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/13/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
-ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
+ms.lastreviewed: 06/13/2019
+ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810219"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131630"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-számítás
 
@@ -85,19 +85,21 @@ Az érték V, a skálázási egységben legnagyobb virtuális gép dinamikusan a
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
-K: A bérlőhöz egy új virtuális Gépet üzembe helyezett, mennyi ideig tart a funkció a felügyeleti portálon diagram megjelenítése a fennmaradó kapacitás?
-V: A kapacitás panel frissül 15 percenként, ezért kérjük figyelembe kell venni, amelyek.
+**Q**: A bérlőhöz egy új virtuális Gépet üzembe helyezett, mennyi ideig tart a funkció a felügyeleti portálon diagram megjelenítése a fennmaradó kapacitás?
 
-K: A saját Azure Stack üzembe helyezett virtuális gépek száma nem változott, de saját kapacitása van ingadozik. Hogy miért?
-V: A rendelkezésre álló memóriát a virtuális gép elhelyezéséhez több függőségeket, amelyek egyike a gazda operációs rendszer tartalék rendelkezik. Ez az érték szolgáltatás fut a gazdagépen, amely nem egy konstans érték különböző Hyper-V folyamat által használt memória függ.
+**A**: A kapacitás panel frissül 15 percenként, ezért kérjük figyelembe kell venni, amelyek.
 
-K: Milyen állapotban rendelkeznek bérlői virtuális gépeket a memóriát kell?
-V: Virtuális gépek futtatása mellett memória olyan virtuális gépek, amelyek a hálón jut használja fel. Ez azt jelenti, hogy a "Létrehozás", "Sikertelen" vagy a virtuális gépek állítsa le a belül a Vendég virtuális gépek leállítása a felszabadítása sikeresen megtörtént a portal/powershell vagy parancssori felület adatkötetekkel fog memóriát igényelnek.
+**Q**: A saját Azure Stack üzembe helyezett virtuális gépek száma nem változott, de saját kapacitása van ingadozik. Hogy miért?
 
+**A**: A rendelkezésre álló memóriát a virtuális gép elhelyezéséhez több függőségeket, amelyek egyike a gazda operációs rendszer tartalék rendelkezik. Ez az érték szolgáltatás fut a gazdagépen, amely nem egy konstans érték különböző Hyper-V folyamat által használt memória függ.
 
-K: Azure Stack 4 gazdagépre van. A bérlőhöz 3 által felhasználható 56 GB RAM (D5_v2) mindegyik virtuális gépet tartalmaz. A virtuális gépek egyik átméretezett 112 GB RAM (D14_v2), és a rendelkezésre álló memória-jelentések irányítópult a kapacitás panelen 168 GB használati ugrásszerű eredményezett. Csak 56GB RAM-MAL növekedést eredményezett a két D5_v2 VMs D14_v2, az ezt követő átméretezése. Ez miért van így?
+**Q**: Milyen állapotban rendelkeznek bérlői virtuális gépeket a memóriát kell?
 
-V: A rendelkezésre álló memória, akkor a függvény a rugalmasság tartalék Azure Stack tartja karban. A rugalmasság tartalék feladata a legnagyobb Virtuálisgép-méretet az Azure Stack stamp. Először a legnagyobb virtuális Gépet a blokkban volt 56 GB memóriával. Ha a virtuális gép át lett méretezve, a legnagyobb virtuális Gépet a blokkban vált, 112 GB memória, amely nem csak a bérlő virtuális gép által felhasznált memória növekedett, de a rugalmasság tartalék is növekedett. Ennek következtében 56 GB (56 GB, 112 GB bérlői virtuális gép memóriájának növelése) növelésének + 112 GB rugalmasság számára fenntartott memória növelése. Amikor további virtuális gépeket is méretezhető, a legnagyobb Virtuálisgép-méret maradt, mint a 112 GB-os virtuális gép, és ezért növelése nélkül eredő rugalmasság foglalás nem sikerült. Memóriahasználat növekedése csak a bérlői virtuális gép memóriájának növelése (56 GB) volt. 
+v: Virtuális gépek futtatása mellett memória olyan virtuális gépek, amelyek a hálón jut használja fel. Ez azt jelenti, hogy virtuális gépeket, amelyek a rendszer a "Létrehozás", "Sikertelen" vagy a virtuális gépek a belül leállítani a g
+
+**Q**: Azure Stack 4 gazdagépre van. A bérlőhöz 3 által felhasználható 56 GB RAM (D5_v2) mindegyik virtuális gépet tartalmaz. A virtuális gépek egyik átméretezett 112 GB RAM (D14_v2), és a rendelkezésre álló memória-jelentések irányítópult a kapacitás panelen 168 GB használati ugrásszerű eredményezett. Csak 56GB RAM-MAL növekedést eredményezett a két D5_v2 VMs D14_v2, az ezt követő átméretezése. Ez miért van így?
+
+**A**: A rendelkezésre álló memória, akkor a függvény a rugalmasság tartalék Azure Stack tartja karban. A rugalmasság tartalék feladata a legnagyobb Virtuálisgép-méretet az Azure Stack stamp. Először a legnagyobb virtuális Gépet a blokkban volt 56 GB memóriával. Ha a virtuális gép át lett méretezve, a legnagyobb virtuális Gépet a blokkban vált, 112 GB memória, amely nem csak a bérlő virtuális gép által felhasznált memória növekedett, de a rugalmasság tartalék is növekedett. Ennek következtében 56 GB (56 GB, 112 GB bérlői virtuális gép memóriájának növelése) növelésének + 112 GB rugalmasság számára fenntartott memória növelése. Amikor további virtuális gépeket is méretezhető, a legnagyobb Virtuálisgép-méret maradt, mint a 112 GB-os virtuális gép, és ezért növelése nélkül eredő rugalmasság foglalás nem sikerült. Memóriahasználat növekedése csak a bérlői virtuális gép memóriájának növelése (56 GB) volt. 
 
 
 > [!NOTE]

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2b177f14fc787c05c0a7c1f654e8bcfaf8638b93
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1036f5b418af330e0acfd940137f7ae2effecc25
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131223"
 ---
 # <a name="create-sql-databases"></a>SQL-adatbázisok létrehozása
 
@@ -30,7 +30,7 @@ Hozzon létre, és az adatbázisok önkiszolgáló a felhasználói portálon. A
 
 2. Válassza ki **+ új** &gt; **adatok + tárolás** &gt; **SQL Server-adatbázis** &gt; **hozzáadása**.
 
-3. A **Create Database**, adja meg a szükséges információkat, például **adatbázisnév** és **maximális mérete (MB)**.
+3. A **Create Database**, adja meg a szükséges információkat, például **adatbázisnév** és **maximális mérete (MB)** .
 
    >[!NOTE]
    >Az adatbázis méretének legalább 64 MB, amely lehet növelni kell lennie az adatbázis üzembe helyezése után.
@@ -69,7 +69,7 @@ Az alábbi képernyőfelvételen látható, hogyan használhatja az SQL Server M
 
 ![AlwaysOn adatbázis állapota](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-AlwaysOn adatbázisok kell szinkronizálva, és az SQL Server-példányok rendelkezésre megjelenítése és a rendelkezésre állási csoportok jelennek meg. Az adatbázis-példa az előző képernyő-rögzítési newdb1 az állapota pedig **newdb1 (szinkronizálva)**.
+AlwaysOn adatbázisok kell szinkronizálva, és az SQL Server-példányok rendelkezésre megjelenítése és a rendelkezésre állási csoportok jelennek meg. Az adatbázis-példa az előző képernyő-rögzítési newdb1 az állapota pedig **newdb1 (szinkronizálva)** .
 
 ### <a name="delete-an-alwayson-database"></a>Az AlwaysOn adatbázis törlése
 

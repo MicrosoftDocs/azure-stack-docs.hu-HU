@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: bd83c8fc29697107a17eeedabfd0280ff684457f
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 85da256828d69db600bd8e5847a110ee3519568b
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131404"
 ---
 # <a name="border-connectivity"></a>Szegély kapcsolat 
 Hálózati integráció megtervezése egy fontos előfeltétel sikeres Azure Stackkel integrált rendszerek üzembe helyezés, a művelet és felügyeletéhez. Szegély kapcsolat tervezési kezdődik-e a border gateway protocol (BGP) dinamikus útválasztást használnak a kiválasztásával. A 16 bites BGP autonóm rendszer száma, (nyilvános vagy magán) hozzárendelése ehhez, vagy használja a statikus útválasztást, ahol az alapértelmezett statikus útvonal hozzá van rendelve a border eszközökhöz.
 
 > [!IMPORTANT]
-> Felső részén rack (TOR) kapcsoló szükséges a pont-pont típusú IP-címek a 3. rétegbeli kimenő kapcsolatok (/ 30 hálózatok) a fizikai adapteren konfigurált. 2. rétegbeli kimenő portok használata az Azure Stack műveleteket TOR-kapcsolók nem támogatott. 
+> Felső részén rack (TOR) kapcsoló szükséges a pont-pont típusú IP-címek a 3. rétegbeli kimenő kapcsolatok (/ 30 hálózatok) a fizikai adapteren konfigurált. 2\. rétegbeli kimenő portok használata az Azure Stack műveleteket TOR-kapcsolók nem támogatott. 
 
 ## <a name="bgp-routing"></a>A BGP-Útválasztás
 Egy dinamikus útválasztási protokoll, mint a BGP használata garantálja, hogy a rendszer mindig ismeri a hálózati változásokat, és megkönnyíti a felügyeletet. A fokozott biztonság érdekében jelszó alapján lehet beállítani a BGP-t a TOR és szegélye közötti társviszony-létesítés. 

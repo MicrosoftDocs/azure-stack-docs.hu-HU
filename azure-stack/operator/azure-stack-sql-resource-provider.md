@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 12815bff535e45f42481d17029467227650e8aea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2ac09cede3efe356a6534ae4d5986a87d5619ff2
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618424"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131137"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Az SQL Database használata a Microsoft Azure Stackhez
 
@@ -36,7 +36,7 @@ Az erőforrás-szolgáltató nem biztosít a összes adatbázis-kezelési képes
 
 Az erőforrás-szolgáltató a következő összetevőkből áll:
 
-- **Az SQL resource provider adapter virtuális gép (VM)**, azaz a szolgáltató-szolgáltatásokat futtató Windows Server virtuális gép.
+- **Az SQL resource provider adapter virtuális gép (VM)** , azaz a szolgáltató-szolgáltatásokat futtató Windows Server virtuális gép.
 - **Az erőforrás-szolgáltató**, amely feldolgozza a kérelmeket, és azt adatbázis-erőforrás.
 - **SQL Servert futtató kiszolgálók**, üzemeltetési kiszolgáló adatbázis-kapacitást biztosítanak, amelyek neve.
 

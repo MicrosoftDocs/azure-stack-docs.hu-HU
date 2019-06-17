@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: df0989886d34581950eca04ebe63104d477d003f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131509"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Az Azure leválasztott telepítés tervezési megfontolások az Azure Stack integrált rendszerek
 Miután döntött [hogyan fogja integrálja az Azure Stack a hibridfelhő-környezet](azure-stack-connection-models.md), az Azure Stack telepítési döntések is véglegesítése.
@@ -41,7 +41,7 @@ Egy kapcsolat nélküli üzembe helyezés nem korlátozza az Ön később kapcso
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Az funkciók, amelyek korlátozott vagy nem érhető el a leválasztott környezetekhez 
 Az Azure Stack való csatlakozáskor az Azure-ba, ezért fontos megjegyezni, hogy egyes szolgáltatások és funkciók, amelyek korlátozott, vagy teljesen nem érhető el, a kapcsolat nélküli üzemmódban működnek a legjobban úgy lett kialakítva. 
 
-|Szolgáltatás|Kapcsolat nélküli módban gyakorolt hatás|
+|Funkció|Kapcsolat nélküli módban gyakorolt hatás|
 |-----|-----|
 |A DSC-bővítmény használatával konfigurálja a virtuális gép üzembe helyezés után a virtuális gép üzembe helyezése|Sérült - DSC bővítmény keres az internethez a WMF legújabb Verziójára.|
 |Virtuális gép üzembe helyezése a Docker-parancsok futtatásához Docker-bővítmény|Sérült – Docker keresi a legújabb verziót az internethez, és ez az ellenőrzés sikertelen lesz.|
@@ -57,7 +57,7 @@ Telemetria|Nem érhető el - Telemetriai adatokat az Azure Stack, és minden kü
 |Tanúsítványok|Nem érhető el – az internetkapcsolat szükség a visszavont tanúsítványok listája (CRL), és Online tanúsítvány állapotának protokoll (OSCP) szolgáltatások HTTPS kontextusában.|
 |Key-Vault|Sérült – Key vault gyakori használati eset az, hogy egy alkalmazás futásidőben titkos kódok olvasását. Ennek az alkalmazásnak kell egy egyszerű szolgáltatást a címtárban. Az Azure Active Directoryban hozzáadható a szolgáltatásnevek alapértelmezés szerint, normál felhasználók (nem rendszergazda jogosultságú). Az Active Directory (AD FS használatával) nincsenek. Ez egy küszöbértéket a helyezi a teljes körű felhasználói élményt, mert az egyik mindig haladjon végig a directory-rendszergazda bármely alkalmazás hozzáadása.| 
 
-## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
+## <a name="learn-more"></a>Részletek
 - További információ a használati esetek, vásárlás, partnerek és OEM hardverszállítók: a [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) termékoldalán.
 - Az ütemterv és a rendelkezésre állás földrajzi információ az Azure Stack integrált rendszerek, tekintse meg a: [Azure Stack: Azure-bővítmény](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - A Microsoft Azure Stack csomagolás és a díjszabással kapcsolatos további [töltse le a .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 

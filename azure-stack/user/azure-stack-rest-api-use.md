@@ -1,5 +1,5 @@
 ---
-title: Az Azure Stack API használata |} A Microsoft Docs
+title: Győződjön meg arról, API-kérelmek, az Azure Stackhez |} A Microsoft Docs
 description: Ismerje meg, hogyan kérheti le a hitelesítést, hogy API-kéréseket az Azure Stack Azure-ból.
 services: azure-stack
 documentationcenter: ''
@@ -14,34 +14,34 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 22aeab6c6f33462ebea50bafa795630a648e2dd5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 83578f7644f7a4bfc47f854fe9974809c22bba02
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269402"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138917"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Az Azure Stack API használata
+# <a name="make-api-requests-to-azure-stack"></a>Győződjön meg arról, API-kérelmek, az Azure Stackhez
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Az alkalmazásprogramozási felület (API) segítségével automatizálja a műveleteket, mint egy virtuális gép hozzáadása az Azure Stack-felhőben.
+Az alkalmazásprogramozási felület (API) segítségével automatizálja a műveleteket, mint egy virtuális gép (VM) hozzáadása Azure Stack-felhőben.
 
 Az API megköveteli az ügyfél a Microsoft Azure bejelentkezési végpont hitelesítéséhez. A végpont használata minden egyes az Azure Stack API-nak küldött kérés fejlécében jogkivonatot ad vissza. A Microsoft Azure az Oauth 2.0 használja.
 
-Ez a cikk példákat, amelyek használják a **cURL** segédprogram az Azure Stack-kérelmek létrehozására. A kérelmet a cURL, egy olyan parancssori eszköz tartozik egy kódtár, az adatok átviteléhez. Ezekben a példákban végig egy tokent az Azure Stack API eléréséhez lekérését jelenti. Szinte bármelyik programozási nyelvével adja meg az Oauth 2.0-könyvtárak, amelyeknek robusztus token felügyeleti és leíró feladatok ilyen a jogkivonat frissítését.
+Ez a cikk példákat, amelyek használják a **cURL** segédprogram az Azure Stack-kérelmek létrehozására. a cURL egy olyan parancssori eszköz tartozik egy kódtár, az adatok átviteléhez. Ezekben a példákban végig egy tokent az Azure Stack API eléréséhez lekérését jelenti. Szinte bármelyik programozási nyelvével adja meg az Oauth 2.0 tárak, amelyek robusztus token leíró és a felügyeleti feladatokat, köztük a jogkivonat frissítését.
 
-Tekintse át az Azure Stack – REST API használatával olyan általános REST ügyfelekkel, mint például a teljes folyamatán **cURL**, segítenek megérteni a mögöttes kéréseket, és bemutatja, hogy mire számíthat egy válasz hasznos adatok fogadására.
+Tekintse át az Azure Stack – REST API használatával olyan általános REST ügyfelekkel, mint például a teljes folyamatán **cURL**, segítenek megérteni a mögöttes kérelmeket, és hogy mire számíthat a válasz-adattartalomra.
 
 Ez a cikk nem érhető el a jogkivonatokat, például az interaktív bejelentkezéshez beolvasása, vagy dedikált Alkalmazásazonosítók létrehozásának minden lehetőségek közül válogathat. Ezek a témakörök kapcsolatos információk lekéréséhez lásd: [Azure REST API-referencia](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Az Azure-ból egy token beszerzése
 
-Hozzon létre egy kérelem törzse formázva a tartalomtípus x-www-form-urlencoded hozzáférési jogkivonat beszerzése. Az Azure REST hitelesítési és bejelentkezési végpont kérelem KÜLDÉSE.
+Hozzon létre egy kérelem törzse formázva a tartalomtípus x-www-form-urlencoded hozzáférési jogkivonat beszerzése. Az Azure REST-hitelesítési és bejelentkezési végpont kérelem KÜLDÉSE.
 
-### <a name="uri"></a>URI
+### <a name="uri"></a>URI-T
 
 ```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
@@ -66,19 +66,19 @@ grant_type=password
 
 Minden egyes érték:
 
-- **grant_type**  
-   A hitelesítési séma használatával fogja típusát. Ebben a példában a értéke `password`
+- **megadástípus (grant_type)** :  
+   Hitelesítési séma fogja használni a típusát. Ebben a példában a értéke `password`.
 
-- **resource**  
-   Az erőforráshoz fér hozzá a jogkivonat. Az erőforrás megtalálhatja az Azure Stack felügyeleti metaadatok végpontja lekérdezésével. Tekintse meg a **célközönséggel** szakasz
+- **Erőforrás**:  
+   Az erőforráshoz fér hozzá a jogkivonat. Az erőforrás megtalálhatja az Azure Stack felügyeleti metaadatok végpontja lekérdezésével. Tekintse meg a **célközönséggel** szakaszban.
 
-- **Az Azure Stack-felügyeleti végpont**  
+- **Az Azure Stack-felügyeleti végpont**:  
    ```
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Ha Ön rendszergazda megpróbál hozzáférni a bérlői API-hoz majd ellenőrizze, a bérlő a végpontot, például használja: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Ha Ön rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlő a végpontot használja. Például:`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Ha például az az Azure Stack Development Kit végpontként:
 
@@ -168,7 +168,7 @@ Válasz:
 
 ## <a name="api-queries"></a>API-lekérdezések
 
-A hozzáférési jogkivonatot kap, miután hozzá kell azt fejlécnek egyes az API-kérelmek. Ehhez hozzon létre egy fejlécet kell **engedélyezési** értékkel: `Bearer <access token>`. Példa:
+A hozzáférési jogkivonatot kap, miután hozzá fejlécnek egyes az API-kérelmek. Adja hozzá a fejléc, hozzon létre egy fejléc **engedélyezési** a következő értékkel: `Bearer <access token>`. Példa:
 
 Kérés:
 
@@ -190,7 +190,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL-cím szerkezete és lekérdezési szintaxis
 
-Általános kérés URI-t, áll: {URI-scheme} :// {URI-gazdagép} / {erőforrás-elérési út}? {lekérdezés-karakterlánc}
+Általános kérés URI-t, a következőkből áll: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **Schéma identifikátoru URI**:  
 Az URI-t a kérelem elküldéséhez használt protokollt jelzi. Ha például `http` vagy `https`.

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7a2ba164c5d35bc1f5b52d3ff68c18b7b3e47dcd
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131203"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Kiegészítő skálázási egység csomópontok hozzáadása az Azure Stackben
 
@@ -106,7 +106,7 @@ A skálázási egység és a skálázási egység csomópontok állapota lehet b
 
 |Állapot               |Leírás  |
 |---------------------|---------|
-|Futtatás              |A skálázási egység aktívan résztvevő összes csomópontot.|
+|Fut              |A skálázási egység aktívan résztvevő összes csomópontot.|
 |Leállítva              |A skálázási egység csomópont, lefelé vagy nem érhető el.|
 |Kibontás            |Egy vagy több skálázási egység csomópont jelenleg jelennek meg a számítási kapacitást.|
 |Tároló konfigurálása  |A számítási kapacitás ki lett terjesztve, és a tárolási konfiguráció fut-e.|
@@ -117,10 +117,10 @@ A skálázási egység és a skálázási egység csomópontok állapota lehet b
 
 |Állapot                |Leírás  |
 |----------------------|---------|
-|Futtatás               |A csomópont tevékenyen részt vesz a skálázási egység.|
+|Fut               |A csomópont tevékenyen részt vesz a skálázási egység.|
 |Leállítva               |A csomópont nem érhető el.|
-|Hozzáadás                |A csomópont aktívan ad hozzá a skálázási egység.|
-|Javítás             |A csomópont aktívan javítása folyamatban van.|
+|Hozzáadása                |A csomópont aktívan ad hozzá a skálázási egység.|
+|Javítása             |A csomópont aktívan javítása folyamatban van.|
 |Karbantartás           |A csomópont fel van függesztve, és nincsenek aktív felhasználói munkaterhelés fut-e. |
 |Szervizelés szükséges  |Hibát észlelt, amely megköveteli, hogy a csomópont nem működik helyesen.|
 
