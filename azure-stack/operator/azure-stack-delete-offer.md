@@ -5,7 +5,6 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
@@ -14,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 5a15d55a053fbacd3a947bd61d7186d93be77dbf
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2e0e4ef7abd1885d843832ed7cc9e845003d0ed7
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987716"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152533"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Kvóták, csomagok, ajánlatok és előfizetések törlése
 
@@ -33,7 +32,7 @@ Előfizetések a kivételt az általános szabály: törölheti; erőforrást ta
 
 Ezért, ha törölni szeretné a kvótát, kell dolgozik a csomagok és ajánlatok, amelyek adott kvóta keresztül visszairányító: kezdve az ajánlatok, győződjön meg arról, akkor nem rendelkezik előfizetéssel, törölje az egyes ajánlatok, majd törölje a terveket, a kvóta növeléséhez használja, és így tovább.
 
-## <a name="delete-a-subscription"></a>Előfizetés törlése
+## <a name="delete-a-subscription"></a>Töröl egy előfizetést
 
 Töröl egy előfizetést, válasszon **minden szolgáltatás**, majd **felhasználói előfizetések**, hogy a rendszer az összes előfizetések listájának megjelenítéséhez. Ha éppen dolgozik egy ajánlatot, Ön is megadhat **előfizetések** onnan.
 
@@ -72,7 +71,7 @@ Azt is megteheti néhány kvóták REST API-k használatával törölheti:
 
 - [Számítás](/rest/api/azurestack/quotas%20(compute)/delete)
 - [Hálózat](/rest/api/azurestack/quotas%20(network)/delete)
-- [Tárolás](/rest/api/azurestack/storagequotas/delete)
+- [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > Kvóta nem törölhető, ha azokat a jelenlegi csomagokat, amelyek használják azt. Először törölnie kell a sémát, amely hivatkozik a kvótát.

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: ef9406c8332eb983e20decb64ead723234aa8faa
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691864"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152572"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Az Azure marketplace-elemek letöltése az Azure Stackhez
 
@@ -48,7 +48,7 @@ Az Azure Stack üzemelő példányához kell internetkapcsolattal rendelkezik, �
   
 1. Jelentkezzen be az Azure Stack rendszergazdai portálon.
 
-2.  Marketplace-elemek letöltése előtt tekintse át a rendelkezésre álló lemezterület. Később Ha letölthető elemet választja, összehasonlíthatja a letöltési méret a rendelkezésre álló tárolókapacitását. Ha kapacitása korlátozott, érdemes lehet lehetőségei [kezeléséhez rendelkezésre álló területet](azure-stack-manage-storage-shares.md#manage-available-space). 
+2. Marketplace-elemek letöltése előtt tekintse át a rendelkezésre álló lemezterület. Később Ha letölthető elemet választja, összehasonlíthatja a letöltési méret a rendelkezésre álló tárolókapacitását. Ha kapacitása korlátozott, érdemes lehet lehetőségei [kezeléséhez rendelkezésre álló területet](azure-stack-manage-storage-shares.md#manage-available-space). 
 
     Rendelkezésre álló területet, áttekintheti a **régiók kezelése** válassza ki a régiót, ismerje meg, és folytassa a kívánt **erőforrás-szolgáltatók** > **tárolási**:
 

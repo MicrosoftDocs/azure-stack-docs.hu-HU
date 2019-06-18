@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: e21819fc6475161e63fcdb99a723847c5d7fbbad
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: c78a1e1be525d67576665e7e8099489ae4eb05d8
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268398"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152458"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Oktatóanyag: Magas rendelkezésre állású SQL-adatbázisok biztosítása
 
@@ -43,7 +43,7 @@ Ebben az oktatóanyagban a lépések előtt ellenőrizze, hogy a [erőforrás-sz
 > [!IMPORTANT]
 > Az alábbi szükségesek az Azure Stack gyorsindítási sablon használható.
 
-- [A Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) Piactéri lemezképhez.
+- [A Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) Piactéri lemezképhez.
 - SQL Server 2016 SP1 vagy SP2 (Enterprise, Standard vagy fejlesztői) a Windows Server 2016 server-lemezképet. Ebben az oktatóanyagban a [SQL Server 2016 SP2 Enterprise Windows Server 2016 rendszeren](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) Piactéri lemezképhez.
 - [Az SQL Server IaaS-bővítményt](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.2.30 verzió vagy újabb verziója. Az SQL IaaS-bővítményt, amelyek szükségesek az összes Windows-verzió esetén a Marketplace-en az SQL Server elemeket szükséges összetevők telepítése. Lehetővé teszi az SQL-specifikus beállításokat kell konfigurálni az SQL virtuális gépek. Ha a bővítmény nincs telepítve a helyi piactéren, az SQL üzembe helyezés sikertelen lesz.
 - [A Windows egyéni szkriptek futtatására szolgáló bővítmény](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 verzió vagy újabb verziója. Egyéni szkriptek futtatására szolgáló bővítmény olyan eszköz, amely automatikusan elindítja az üzembe helyezés utáni virtuális gépek testreszabási feladatainak használható.

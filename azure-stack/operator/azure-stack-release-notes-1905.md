@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 7669ee310e4262a72d90c478500d7e06919b43bc
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: 4c7e48804b4336c658376b1c3f611dbe75cf8c1f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145184"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152468"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 frissítése
 
@@ -67,7 +67,7 @@ Ez a frissítés a Windows Server 2019 sikeresen aktiválhatók 2016 gazdagépen
 
   Töltse le a bővítmények ezen verziói azonnali, úgy, hogy a bővítmény új központi telepítéseknél sikertelen, ha a TLS 1.2 van érvényben egy későbbi kiadásban. Mindig **autoupdateminorversion = true** , hogy alverzió frissítések Extensions (például 1.8-as, 1.9) automatikusan megtörténik.
 
-- Egy új **Súgó és támogatási áttekintése** az Azure stack portal megkönnyíti a operátorok ellenőrizze a támogatási lehetőségek, szakértői támogatás és további információ az Azure Stackről. Integrált rendszerek hozzon létre egy támogatási kérést fog előre kiválasztja az értékhez az Azure Stack szolgáltatás. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a nyilvános Azure portal használatával. További információkért lásd: [Azure Stack-Súgó és támogatás](azure-stack-help-and-support-overview.md).
+- Egy új **Súgó és támogatási áttekintése** az Azure stack portal megkönnyíti a operátorok ellenőrizze a támogatási lehetőségek, szakértői támogatás és további információ az Azure Stackről. Integrált rendszerek hozzon létre egy támogatási kérést fog előre kiválasztja az értékhez az Azure Stack szolgáltatás. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a globális Azure portal használatával. További információkért lásd: [Azure Stack-Súgó és támogatás](azure-stack-help-and-support-overview.md).
 
 - Ha több Azure Active-címtár-e előkészítve (keresztül [Ez a folyamat](azure-stack-enable-multitenancy.md)), lehetséges elmulasztják a parancsfájl megismétlése bizonyos frissítések esetén, vagy ha az AAD-szolgáltatásnév engedélyezési módosítása hatására a jogosultságokat kell Hiányzó. Ez különböző problémákat okozhat, letiltott hozzáférés az egyes funkciókat, további diszkrét hibákkal szemben, amelyek nehezen vissza az eredeti probléma a nyomkövetési. Ennek megelőzése érdekében 1905, amely ellenőrzi, hogy ezeket az engedélyeket, és létrehoz egy riasztást, ha bizonyos konfigurációs problémákat talált új szolgáltatást vezet be. Ellenőrzés óránként fut le, és a probléma megoldásához szükséges javítási műveleteket jeleníti meg. A riasztás bezárása után a bérlők számára a kifogástalan állapotban vannak.
 
@@ -135,7 +135,7 @@ A frissítés alkalmazásához, mindenképpen tekintse át a következő inform�
 
 ## <a name="download-the-update"></a>A frissítés letöltése
 
-Letöltheti az Azure Stack 1905 frissítési csomagot [az Azure Stack letöltés oldal](https://aka.ms/azurestackupdatedownload).
+Letöltheti az Azure Stack 1905 frissítési csomagot [az Azure Stack letöltés oldal](https://aka.ms/azurestackupdatedownload). A letöltési segédprogramja eszköz használata esetén mindenképp a legújabb verzióra, és nem a letöltések címtárból gyorsítótárban található példányát használja.
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 

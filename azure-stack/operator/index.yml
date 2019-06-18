@@ -12,22 +12,22 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/16/2018
+  ms.date: 06/17/2019
   ms.author: mabrigg
 abstract:
   description: 'A Microsoft Azure Stack egy hibrid felhőplatform, amellyel Azure-szolgáltatásokat biztosíthat az adatközpontjából. Megismerheti az Azure Stack integrált rendszerek infrastruktúra kezelése és szolgáltatásajánlatokhoz útmutatóink és oktatóanyagaink segítségével.<br/><br/>Ha Ön egy Azure Stack-felhasználó, aki szolgáltatásokat használ, vagy hoz létre az alkalmazások az Azure Stack, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentáció</a>.<br/><br/>Ha érdeklik az az Azure Stack Development Kit (ASDK), egy egy csomópontos üzembe helyezhető Azure Stacket ingyenesen, és töltse le az Azure Stack operátorait tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentáció</a>.'
 sections:
-  - title: Gyors üzembe helyezés
+  - title: Első lépések
     items:
       - type: paragraph
-        text: A hardver beállítása és üzembe helyezése az Azure Stack Development Kit.
+        text: 'Megtudhatja, hogyan használható a felügyeleti portál kritériumokként.'
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Az Azure Stack fejlesztőkészlet telepítése
-            href: ../asdk/asdk-download.md
+            text: Az Azure Stack a felügyeleti portálon
+            href: azure-stack-manage-portals.md
   - title: Részletes útmutatók
     items:
       - type: paragraph

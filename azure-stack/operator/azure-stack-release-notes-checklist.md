@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 5dcbb331d27bdf07a268ba883c2dfbbfe821105a
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: e079121fda268e9892648fca99da34de04f08101
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691583"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152487"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Az Azure Stack tevékenység ellenőrzőlista
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 448af01e935165ea974c22c23bd73c7a02ac3935
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.reviewer: ihcherie
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145280"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152591"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -54,7 +54,7 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 
 |  | Konfigurációelem neve | Leírás | Kiadó |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Egyszerűen üzembe helyezhető, költséghatékony, alkalmazásorientáltak és a felhasználó-központú nagyvállalati szintű megoldások. Ezek a lemezképek rendszeresen frissülnek a legújabb javításokat. **Fontos információk: A képek előtt 2018. január 18 kell kell hagyni, a legújabb verziókat cseréli le.** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | Egyszerűen üzembe helyezhető, költséghatékony, alkalmazásorientáltak és a felhasználó-központú nagyvállalati szintű megoldások. Ezek a lemezképek rendszeresen frissülnek a legújabb javításokat. **Fontos információk: A képek előtt 2018. január 18 kell kell hagyni, a legújabb verziókat cseréli le.** | Microsoft |
 | ![A SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 Trial](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 próbaverziójának a Windows Server 2012 Datacenter és a 2019 Visual Studio community Edition kiadását. | Microsoft |
 | ![A SharePoint Server 2016 próbaverzióját](media/azure-stack-marketplace-azure-items/sharepoint.png) | [A SharePoint Server 2016 próbaverzióját](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | A Microsoft SharePoint Server 2016 próbaverzióját a Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 on Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [Az SQL Server 2014 SP2, Windows Server 2012 R2 rendszeren](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2. **A letöltés szükséges:** SQL IaaS Extension. | Microsoft |

@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: db2ceabfdd49ed113a467923a3772423ab1ca65a
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749027"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152544"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Az Azure és az Azure Stack egy hibrid felhőmegoldás üzembe helyezése
 
@@ -175,7 +175,7 @@ A virtuális hálózati átjáró a hibrid hálózat Azure oldalán engedélyezn
 
 ### <a name="integrate-the-azure-app-service-application-with-the-hybrid-network"></a>Az Azure App Service-alkalmazás és a hibrid hálózat integrációja
 
-1. Az alkalmazás az Azure virtuális hálózathoz csatlakozni, kövesse a [VNet-integráció engedélyezése](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration).
+1. Az alkalmazás az Azure virtuális hálózathoz csatlakozni, kövesse a [átjáró szükséges a VNet-integráció](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration).
 
 2. Navigáljon a **beállítások** az App Service-csomag a webalkalmazás üzemeltetéséhez. A **beállítások**válassza **hálózatkezelés**.
 
