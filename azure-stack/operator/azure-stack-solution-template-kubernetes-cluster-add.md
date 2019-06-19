@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 983f3821bc618101937d08e6304c768d04e12cfb
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: 746d939d433dd5333e2d8ec84f7f52149577ec5b
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131390"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198522"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adja hozzá a Kubernetes az Azure Stack piactéren
 
@@ -63,129 +63,7 @@ Hozzon létre egy csomag, ajánlat és a Kubernetes Piactéri elem előfizetést
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Hozzon létre egy egyszerű szolgáltatást, és a hitelesítő adatokat az AD FS-ben
 
-Ha az Active Directory összevonási szolgáltatásokban (AD FS) az identity management szolgáltatás használja, szüksége lesz a létre szolgáltatásnevet a Kubernetes-fürt üzembe helyezése felhasználók számára.
-
-1. Hozzon létre, és a szolgáltatásnév létrehozásához használt önaláírt tanúsítvány exportálása. 
-
-    - Az alábbi adatokra lesz szüksége:
-
-       | Érték | Leírás |
-       | ---   | ---         |
-       | Jelszó | Adja meg egy új jelszót a tanúsítványhoz. |
-       | Helyi tanúsítvány elérési útja | Adja meg a tanúsítvány elérési útja és fájlneve. Például:`c:\certfilename.pfx` |
-       | Tanúsítvány neve | Adja meg a tanúsítvány nevét jelöli. |
-       | Tanúsítványtár helye |  Például: `Cert:\LocalMachine\My` |
-
-    - Nyisson meg egy rendszergazda jogú parancssorba PowerShell. Futtassa a következő szkriptet a paraméterekkel az értékek a frissített:
-
-        ```powershell  
-        # Creates a new self signed certificate 
-        $passwordString = "<password>"
-        $certlocation = "<local certificate path>.pfx"
-        $certificateName = "CN=<certificate name>"
-        $certStoreLocation="<certificate store location>"
-        
-        $params = @{
-        CertStoreLocation = $certStoreLocation
-        DnsName = $certificateName
-        FriendlyName = $certificateName
-        KeyLength = 2048
-        KeyUsageProperty = 'All'
-        KeyExportPolicy = 'Exportable'
-        Provider = 'Microsoft Enhanced Cryptographic Provider v1.0'
-        HashAlgorithm = 'SHA256'
-        }
-        
-        $cert = New-SelfSignedCertificate @params -ErrorAction Stop
-        Write-Verbose "Generated new certificate '$($cert.Subject)' ($($cert.Thumbprint))." -Verbose
-        
-        #Exports certificate with password in a .pfx format
-        $pwd = ConvertTo-SecureString -String $passwordString -Force -AsPlainText
-        Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
-        ```
-
-2.  Jegyezze fel az új tanúsítvány azonosító jelenik meg a PowerShell-munkamenetet a `1C2ED76081405F14747DC3B5F76BB1D83227D824`. Az azonosító használható az egyszerű szolgáltatás létrehozásakor.
-
-    ```powershell  
-    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
-    ```
-
-3. Szolgáltatásnév létrehozása a tanúsítvány használatával.
-
-    - Az alábbi adatokra lesz szüksége:
-
-       | Érték | Leírás                     |
-       | ---   | ---                             |
-       | ERCS IP | A ASDK a kiemelt végponthoz van általában `AzS-ERCS01`. |
-       | Alkalmazásnév | Adja meg az egyszerű szolgáltatás egyszerű nevét. |
-       | Tanúsítványtár helye | A számítógépen, a tanúsítványt tároló elérési útja. Ez jelzi a tárolási helynek, és a tanúsítvány Azonosítóját az első lépésben létrehozott. Például:`Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
-
-       Amikor a rendszer kéri, használja a következő hitelesítő adatok a jogosultság végponthoz csatlakozik. 
-        - Felhasználónév: Adja meg a CloudAdmin fiók formátumban `<Azure Stack domain>\cloudadmin`. (ASDK, a felhasználói név azurestack\cloudadmin.)
-        - Jelszó: Adja meg ugyanazt a jelszót a Azurestack tartományi rendszergazdai fiók a telepítés során megadott.
-
-    - Futtassa a következő szkriptet a paraméterekkel az értékek a frissített:
-
-        ```powershell  
-        #Create service principal using the certificate
-        $privilegedendpoint="<ERCS IP>"
-        $applicationName="<application name>"
-        $certStoreLocation="<certificate location>"
-        
-        # Get certificate information
-        $cert = Get-Item $certStoreLocation
-        
-        # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-        $creds = Get-Credential
-
-        # Creating a PSSession to the ERCS PrivilegedEndpoint
-        $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
-
-        # Get Service principal Information
-        $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
-
-        # Get Stamp information
-        $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-
-        # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
-        $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-
-        # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
-        $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-
-        # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
-        $TenantID = $AzureStackInfo.AADTenantID
-
-        # Register an AzureRM environment that targets your Azure Stack instance
-        Add-AzureRMEnvironment `
-        -Name "AzureStackUser" `
-        -ArmEndpoint $ArmEndpoint
-
-        # Set the GraphEndpointResourceId value
-        Set-AzureRmEnvironment `
-        -Name "AzureStackUser" `
-        -GraphAudience $GraphAudience `
-        -EnableAdfsAuthentication:$true
-        Add-AzureRmAccount -EnvironmentName "azurestackuser" `
-        -ServicePrincipal `
-        -CertificateThumbprint $ServicePrincipal.Thumbprint `
-        -ApplicationId $ServicePrincipal.ClientId `
-        -TenantId $TenantID
-
-        # Output the SPN details
-        $ServicePrincipal
-        ```
-
-    - A szolgáltatás egyszerű részleteket tekintse meg az alábbi kódrészlethez hasonló
-
-        ```Text  
-        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-        PSComputerName        : azs-ercs01
-        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-        ```
+Ha az Active Directory összevonási szolgáltatásokban (AD FS) az identity management szolgáltatás használja, szüksége lesz a létre szolgáltatásnevet a Kubernetes-fürt üzembe helyezése felhasználók számára. Ügyfél titkos kulcs használatával egyszerű szolgáltatás létrehozása. Útmutatásért lásd: [ügyfélkódot használatával egyszerű szolgáltatás létrehozása](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret).
 
 ## <a name="add-an-ubuntu-server-image"></a>Egy Ubuntu server-rendszerkép hozzáadása
 

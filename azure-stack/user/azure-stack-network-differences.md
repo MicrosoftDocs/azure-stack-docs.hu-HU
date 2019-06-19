@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 742869344c89609ca9eb07c4a84186ee8302a02a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166477"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198821"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack hálózati szempontjai
 
@@ -55,7 +55,7 @@ Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontj
 |  | BGP-beállítások | Az Azure támogatja a BGP-társviszony-létesítés címét és a Társviszony súlyozása konfigurációját. | BGP-társviszony-létesítés címét és a Társviszony súlyozása is, automatikusan konfigurált az Azure Stackben. Nincs lehetőség a saját értékekkel a beállítások konfigurálása a felhasználó számára. |
 |  | Alapértelmezett átjáró hely | Az Azure támogatja az alapértelmezett hely konfigurációs a kényszerített bújtatás. | Még nem támogatott. |
 |  | Átjáró átméretezése | Az Azure támogatja az átjáró átméretezése az üzembe helyezés után. | Újra méretezése nem támogatott. |
-|  | Aktív-aktív konfiguráció | Támogatott | Még nem támogatott. |
+|  | Rendelkezésre állás konfigurálása | Active/Active | Aktív/passzív |
 |  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a szabályzatalapú forgalomválasztóinak útvonalalapú átjárót kapcsolatokkal. | Még nem támogatott. |
 | Terheléselosztó | SKU | Alapszintű és Standard Load Balancer Terheléselosztók támogatottak. | Csak az alapszintű Load Balancer használata támogatott.  Az SKU tulajdonság nem támogatott. |
 |  | Zóna | Rendelkezésre állási zónák használata támogatott. | Még nem támogatott |

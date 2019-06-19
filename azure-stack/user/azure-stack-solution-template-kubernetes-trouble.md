@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/02/2019
+ms.date: 06/18/2019
 ms.reviewer: waltero
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: dbc3f495a8f3a2912e2b8a4a0de1058a2eaa4df0
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269390"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198794"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Az Azure Stack a Kubernetes üzembe helyezés hibaelhárítása
 
@@ -114,7 +114,7 @@ Ha a Kubernetes-fürtöt telepít, a telepítés állapota minden olyan problém
     | Resource | Az erőforrás neve. |
     | Típus | Az erőforrás-szolgáltató és az erőforrás típusát. |
     | Állapot | Az elem állapota. |
-    | Időbélyeg | Az az idő, UTC-időbélyeg. |
+    | TimeStamp | Az az idő, UTC-időbélyeg. |
     | Művelet részletei | A művelet részleteit, például az erőforrás-szolgáltató, amely során a műveletet az erőforrás-végpont és az erőforrás nevét. |
 
     Minden elem, zöld vagy a piros állapot ikonja van.
@@ -146,10 +146,10 @@ Kövesse az alábbi lépéseket gyűjtése és a fürt naplók letöltéséhez:
 
     | Paraméter           | Leírás                                                                                                      | Példa                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | A nyilvános IP-cím vagy a DVM teljesen minősített tartománynevét (FQDN). A virtuális gép neve kezdődik `vmd-`. | IP-cím: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | A nyilvános IP-cím vagy a teljes tartománynevét (FQDN) a DVM. A virtuális gép neve kezdődik `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Nyomtatási parancs használata. | |
-    | -i – identitás-fájlja | A Kubernetes-fürt létrehozásakor a Piactéri elem átadása az RSA titkos kulcs fájlját. Szükséges a távoli, a Kubernetes-csomópontokon. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m, --master-host   | A nyilvános IP-cím vagy a fő Kubernetes csomópont teljesen minősített tartománynevét (FQDN). A virtuális gép neve kezdődik `k8s-master-`. | IP-cím: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -i – identitás-fájlja | A Kubernetes-fürt létrehozásakor a Piactéri elem átadása az RSA titkos kulcsfájl elérési útja. Szükséges a távoli, a Kubernetes-csomópontokon. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m, --master-host   | A nyilvános IP-cím vagy a fő Kubernetes csomópont teljesen minősített tartománynevét (FQDN). A virtuális gép neve kezdődik `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u: – a felhasználó          | A Kubernetes-fürt létrehozásakor a Piactéri elem átadása a felhasználó nevét. Szükséges a távoli, a Kubernetes-csomópontokon. | azureuser (alapértelmezett érték) |
 
 

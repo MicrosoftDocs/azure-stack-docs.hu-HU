@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da93d2683805c6e9769a3d27a9e9ab3a4b998db5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 0d0c4af4d3016989440dc6b9760bda0a3fc8d947
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269376"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198622"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-verzióprofilok használata a .NET-tel az Azure Stackben
 
@@ -127,9 +127,9 @@ JSON-mintafájlt:
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Az Azure Stackhez készült legújabb profil. Ez a profil Services kompatibilis az Azure Stack mindaddig, amíg a 1808 blokk vagy a további használhatják.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Az Azure Stackhez készült legújabb profil. Ezt a profilt a szolgáltatások használatával a leginkább kompatibilis az Azure Stack mindaddig, amíg a 1904 blokk vagy újabb.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: Ez a profil szolgáltatások használatával kompatibilis az Azure Stack blokk-verziók 1808 vagy újabb.
 
 3.  **Legújabb**: Az összes szolgáltatást a legújabb verziókat álló profilt. Az összes szolgáltatást a legújabb verziókat használhatja. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
 

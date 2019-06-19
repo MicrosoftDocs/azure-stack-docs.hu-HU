@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3c897300dc2130b2c75449829304d4bd58b21898
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269327"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198667"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>API-verzióprofilok használata az Azure Stackben Ruby használatával
 
@@ -88,12 +88,12 @@ Azure Ruby SDK használatához az Azure Stack használatával, adja meg a követ
 | Érték | Környezeti változók | Leírás |
 | --- | --- | --- |
 | Bérlőazonosító | AZURE_TENANT_ID | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md). |
-| Ügyfélazonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű alkalmazást azonosító mentése az előző szakaszban Ez a dokumentum az egyszerű szolgáltatás létrehozásakor.  |
+| Ügyfél-azonosító | AZURE_CLIENT_ID | A szolgáltatás egyszerű alkalmazást azonosító mentése az előző szakaszban Ez a dokumentum az egyszerű szolgáltatás létrehozásakor.  |
 | Előfizetés azonosítója | AZURE_SUBSCRIPTION_ID | A [előfizetés-azonosító](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben. |
 | Titkos ügyfélkulcs | AZURE_CLIENT_SECRET | A szolgáltatás egyszerű alkalmazás titkos kulcs mentése egyszerű szolgáltatás létrehozásakor. |
-| Resource Manager-végpont | ARM_ENDPOINT | Lásd: [az Azure Stack resource manager-végpont](#the-azure-stack-resource-manager-endpoint).  |
+| Resource Manager-végpont | ARM_ENDPOINT | Lásd: [az Azure Stack Resource Manager-végpontot](#the-azure-stack-resource-manager-endpoint).  |
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Az Azure Stack resource manager-végpont
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Az Azure Stack Resource Manager-végpont
 
 A Microsoft Azure Resource Manager-keretrendszert, amely lehetővé teszi a rendszergazdák üzembe helyezése, kezelése és monitorozása az Azure-erőforrások számára. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
 
@@ -130,10 +130,10 @@ A környezeti változók beállítása egy Windows parancssorban, használja a k
 
 A Azure_sdk összesítő gem a következő három profil van:
 
-1. **V2019_03_01_Hybrid** az Azure Stackhez készült profil. Használja ezt a profilt használó szolgáltatások az Azure Stackben elérhető legfrissebb verzióit.
-2. **V2017_03_09**  
-  Az Azure Stackhez készült profil. Ez a profil szolgáltatások használatával lehet a leginkább kompatibilis az Azure Stack.
-3. **legfrissebb**  
+1. **V2019_03_01_Hybrid** az Azure Stackhez készült profil. Használja ezt a profilt használó szolgáltatások az Azure Stack 1904 stamp verziójában érhető el vagy újabb legújabb verzióit.
+1. **V2017_03_09**  
+  Az Azure Stackhez készült profil. Ez a profil-szolgáltatásokhoz az Azure Stack stamp 1808 verzióval kompatibilis vagy a korábbi használhatják.
+1. **legfrissebb**  
   Profil áll az összes szolgáltatás legújabb verzióit. Az összes szolgáltatást a legújabb verziókat használhatja.
 
 Az Azure Stacket és API-profilokkal kapcsolatos további információkért lásd: a [összegzése az API-profilok](azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -240,11 +240,11 @@ A minta futtatásához, győződjön meg arról, hogy telepítette a Rubyt. Ha a
 
    Állítsa be az alábbi környezeti változókat a Szolgáltatásnévből létrehozott lekért információk segítségével.
 
-   - Exportálás AZURE_TENANT_ID = {a bérlő azonosítóját}
+   - Exportálás AZURE_TENANT_ID = {a bérlő Azonosítóját}
    - Exportálás AZURE_CLIENT_ID = {az ügyfél-azonosító}
    - Exportálás AZURE_CLIENT_SECRET = {az Ügyfélkód}
-   - Exportálás AZURE_SUBSCRIPTION_ID = {az előfizetés azonosítója}
-   - Exportálás ARM_ENDPOINT = {az AzureStack Resource manager URL-cím}
+   - export AZURE_SUBSCRIPTION_ID={your subscription ID}
+   - Exportálás ARM_ENDPOINT = {az Azure Stack Resource Manager URL-cím}
 
    > [!NOTE]  
    > A Windows használja a set exportálása helyett.

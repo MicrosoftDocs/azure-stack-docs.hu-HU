@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: c512e7a9ac4cb5a7d864a315dc55d01a39a029ea
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145209"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197201"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-regisztráció
 
@@ -32,13 +32,13 @@ Ha nem regisztrál az ASDK, megjelenhet egy **aktiválás szükséges** figyelme
 
 Mielőtt ezeket az utasításokat a ASDK regisztrálni az Azure-ral, győződjön meg arról, hogy az Azure Stack PowerShell telepítése és az Azure Stack eszközök letöltött leírtak szerint a [üzembe helyezés utáni konfigurációs](asdk-post-deploy.md) cikk.
 
-Emellett a PowerShell nyelvmód értékre kell állítani **FullLanguageMode** azon a számítógépen, az Azure-ral a ASDK regisztrálhatók. Annak ellenőrzéséhez, hogy a jelenlegi nyelvmód beállítása teljes nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsokat:
+Emellett a PowerShell nyelvmód értékre kell állítani **FullLanguage** azon a számítógépen, az Azure-ral a ASDK regisztrálhatók. Annak ellenőrzéséhez, hogy a jelenlegi nyelvmód beállítása teljes nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsokat:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Győződjön meg arról, a kimenetet visszaadja **FullLanguageMode**. Ha bármilyen más nyelvmód adja vissza, egy másik számítógépen kell futtatnia kell a regisztrációs vagy a nyelvmód kell beállítani **FullLanguageMode** a folytatás előtt.
+Győződjön meg arról, a kimenetet visszaadja **FullLanguage**. Ha bármilyen más nyelvmód adja vissza, egy másik számítógépen kell futtatnia kell a regisztrációs vagy a nyelvmód kell beállítani **FullLanguage** a folytatás előtt.
 
 Az Azure AD-szolgáltatásfiók rendelkezik hozzáféréssel az Azure-előfizetést, és a címtárban, az adott előfizetéshez tartozó identitást használó alkalmazások és az egyszerű szolgáltatások létrehozásához szükséges engedélyek regisztrációt használt. Azt javasoljuk, hogy regisztrálja az Azure Stack az Azure által a minimális jogosultságon alapuló felügyeleti [regisztrációs használandó szolgáltatásfiók létrehozására](../operator/azure-stack-registration-role.md) globális rendszergazdai hitelesítő adatok használata helyett.
 

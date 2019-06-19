@@ -16,18 +16,18 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 44ebb631ca916ed1c5b933517d40a756c987fee0
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fdab3fd9296388f19687e2d7ce1d4af3584640ef
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269469"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198550"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-verzióprofilok használata az Azure Stackben Javával
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-A Java SDK az Azure Stack Resource Manager biztosít eszközöket és az infrastruktúra kezelését. Az SDK-t az erőforrás-szolgáltatók közé tartozik a számítási, hálózatkezelési, tárolási, alkalmazásszolgáltatások, és [KeyVault](/azure/key-vault/key-vault-whatis). A Java SDK API-profilok szerint, beleértve a függőségeket a Pom.xml fájlt, amely betölti a .java fájl a megfelelő modulokat magában foglalja. Azonban hozzáadhat több profilt függőségei, mint például a **2018-03-01-hibrid**, vagy **legújabb**, mint az Azure-profilra. A függőségek használatával tölti be a helyes modulját, hogy az erőforrás-típus létrehozásakor kijelölheti a API-verziót a használni kívánt egyes profilokhoz. Ez lehetővé teszi, hogy a legújabb verziókat használhatja az Azure-ban, a legújabb API-verzióit ellen az Azure Stack fejlesztése során. Egy igazi hibrid felhőalapú fejlesztői felületet biztosít a Java SDK használata lehetővé teszi. A Java SDK API-profilok engedélyezése a hibrid felhőalapú fejlesztés segít a globális Azure-erőforrások és az Azure Stackben erőforrások közötti váltáshoz.
+A Java SDK az Azure Stack Resource Manager biztosít eszközöket és az infrastruktúra kezelését. Az SDK-t az erőforrás-szolgáltatók közé tartozik a számítási, hálózatkezelési, tárolási, alkalmazásszolgáltatások, és [KeyVault](/azure/key-vault/key-vault-whatis). A Java SDK API-profilok szerint, beleértve a függőségeket a Pom.xml fájlt, amely betölti a .java fájl a megfelelő modulokat magában foglalja. Azonban hozzáadhat több profilt függőségei, mint például a **2019-03-01-hibrid**, vagy **legújabb**, mint az Azure-profilra. A függőségek használatával tölti be a helyes modulját, hogy az erőforrás-típus létrehozásakor kijelölheti a API-verziót a használni kívánt egyes profilokhoz. Ez lehetővé teszi, hogy a legújabb verziókat használhatja az Azure-ban, a legújabb API-verzióit ellen az Azure Stack fejlesztése során. Egy igazi hibrid felhőalapú fejlesztői felületet biztosít a Java SDK használata lehetővé teszi. A Java SDK API-profilok engedélyezése a hibrid felhőalapú fejlesztés segít a globális Azure-erőforrások és az Azure Stackben erőforrások közötti váltáshoz.
 
 ## <a name="java-and-api-version-profiles"></a>Java- és API-verzióprofilok
 
@@ -37,17 +37,15 @@ Egy API-profil az erőforrás-szolgáltatók és API-verziók. Az API-profilok s
 
   - A legújabb profil használatára, a függőség van **következőt: com.microsoft.azure**.
 
-  - Az Azure Stack kompatibilis szolgáltatások használatához a **com.microsoft.azure.profile\_2018\_03\_01\_hibrid** profilt.
+  - Az Azure Stackben elérhető legújabb támogatott szolgáltatásokat használja a **com.microsoft.azure.profile\_2019\_03\_01\_hibrid** profilt.
 
     - Ez a adható meg a Pom.xml fájlt egy függőséget alkot, ami automatikusan betölti a modulokat, ha a megfelelő osztályt a legördülő listából válassza el, mint a .NET használatával.
-
-    - Minden modul tetején a következőképpen jelenik meg:      `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - Függőségek a következőképpen jelenik meg:
 
      ```xml
      <dependency>
-     <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+     <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
      <version>1.0.0-beta</version>
      </dependency>
@@ -69,7 +67,7 @@ Az alábbi lépések segítségével a Java SDK telepítése:
 
    ```xml  
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <version>1.0.0-beta</version>
    </dependency>
@@ -77,7 +75,7 @@ Az alábbi lépések segítségével a Java SDK telepítése:
 
 4. A készlet, amelyet telepíteni kell a csomagok használni kívánt profilt verziójától függ. A csomag nevét, a profil-verziók a következők:
 
-   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **latest**
 
@@ -94,7 +92,7 @@ Az Azure Java SDK használata az Azure Stack használatával, adja meg a követk
 | Érték                     | Környezeti változók | Leírás                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bérlőazonosító                 | AZURE_TENANT_ID            | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md).                                                          |
-| Ügyfélazonosító                 | AZURE_CLIENT_ID             | A szolgáltatás egyszerű Alkalmazásazonosítót az egyszerű szolgáltatás létrehozása az előző szakaszban mentett.                                                                                              |
+| Ügyfél-azonosító                 | AZURE_CLIENT_ID             | A szolgáltatás egyszerű Alkalmazásazonosítót az egyszerű szolgáltatás létrehozása az előző szakaszban mentett.                                                                                              |
 | Előfizetés azonosítója           | AZURE_SUBSCRIPTION_ID      | A [előfizetés-azonosító](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben.                |
 | Titkos ügyfélkulcs             | AZURE_CLIENT_SECRET        | A szolgáltatás egyszerű alkalmazás titkos kulcs mentése az egyszerű szolgáltatás létrehozásakor.                                                                                                                                   |
 | Resource Manager-végpont | ARM_ENDPOINT              | Lásd: [az Azure Stack Resource Manager-végpontot](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
@@ -165,7 +163,9 @@ JSON-mintafájlt:
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Az Azure Stackhez készült legújabb profil. Ez a profil Services kompatibilis az Azure Stack mindaddig, amíg a 1808 blokk vagy a további használhatják.
+- **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**: Az Azure Stackhez készült legújabb profil. Ez a profil Services kompatibilis az Azure Stack mindaddig, amíg a 1904 blokk vagy a további használhatják.
+
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Az Azure Stackhez készült profil. Ez a profil szolgáltatások használatával kompatibilis az Azure Stack a stamp verziójával 1808 vagy újabb.
 
 - **com.microsoft.azure**: Az összes szolgáltatást a legújabb verziókat álló profilt. Az összes szolgáltatást a legújabb verziókat használhatja.
 
@@ -190,6 +190,9 @@ Ez lehetővé teszi, hogy az API-profiltól függ az alkalmazás telepítése si
 Az Azure Stack-felhő a megfelelő végpontokkal rendelkező regisztrálásához használja a következő kódot:
 
 ```java
+// Get Azure Stack cloud endpoints
+final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+
 AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>() {
                 {
                     put("managementEndpointUrl", settings.get("audience"));
@@ -204,29 +207,50 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
             });
 ```
 
-A `getActiveDirectorySettings` hívást az alábbi kódot a végpontok lekéri a metaadatokat végpontok. Meghatározza a végrehajtott hívás környezeti változókat:
+A `getActiveDirectorySettings` hívás a fenti kód lekéri a végpontok a metaadatok végpontokból. Meghatározza a végrehajtott hívás környezeti változókat:
 
 ```java
-public static HashMap<String, String>
-getActiveDirectorySettings(String armEndpoint) {
+public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
 
-HashMap<String, String> adSettings = new HashMap<String, String>();
+    HashMap<String, String> adSettings = new HashMap<String, String>();
+    try {
 
-try {
+        // create HTTP Client
+        HttpClient httpClient = HttpClientBuilder.create().build();
 
-// create HTTP Client
-HttpClient httpClient = HttpClientBuilder.create().build();
+        // Create new getRequest with below mentioned URL
+        HttpGet getRequest = new HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
+                             armEndpoint));
 
-// Create new getRequest with below mentioned URL
-HttpGet getRequest = new
-HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
-armEndpoint));
+        // Add additional header to getRequest which accepts application/xml data
+        getRequest.addHeader("accept", "application/xml");
 
-// Add additional header to getRequest which accepts application/xml data
-getRequest.addHeader("accept", "application/xml");
+        // Execute request and catch response
+        HttpResponse response = httpClient.execute(getRequest);
+        
+        // Check for HTTP response code: 200 = success
+        if (response.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+        }
+        
+        String responseStr = EntityUtils.toString(response.getEntity());
+        JSONObject responseJson = new JSONObject(responseStr);
+        adSettings.put("galleryEndpoint", responseJson.getString("galleryEndpoint"));
+        JSONObject authentication = (JSONObject) responseJson.get("authentication");
+        String audience = authentication.get("audiences").toString().split("\"")[1];
+        adSettings.put("login_endpoint", authentication.getString("loginEndpoint"));
+        adSettings.put("audience", audience);
+        adSettings.put("graphEndpoint", responseJson.getString("graphEndpoint"));
 
-// Execute request and catch response
-HttpResponse response = httpClient.execute(getRequest);
+    } catch (ClientProtocolException cpe) {
+        cpe.printStackTrace();
+        throw new RuntimeException(cpe);
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+        throw new RuntimeException(ioe);
+    }
+    return adSettings;
+}
 ```
 
 ## <a name="samples-using-api-profiles"></a>API-profilok használatával minták
@@ -237,7 +261,7 @@ Az alábbi GitHub-minták hivatkozásként használható megoldások létrehozá
 
 - [Storage-fiókok kezelése](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-- [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm) (a 2019-03-01-hibrid profillal frissítve).
 
 ### <a name="sample-unit-test-project"></a>Minta egység tesztelő projektet
 
@@ -267,33 +291,18 @@ Az alábbi GitHub-minták hivatkozásként használható megoldások létrehozá
 
    A Windows, használja **beállítása** helyett **exportálása**.
 
-5. Használja a `getactivedirectorysettings` kód lekérése az arm-metaadatok végpontja, és a HTTP-ügyfelének használatával állítsa be a végpont adatait.
+5. Használja a `getActiveDirectorySettings` funkció lekéréséhez az Azure Resource Manager-metaadatok végpontok.
 
-   ```java
-   public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
-   HashMap<String, String> adSettings = new HashMap<String,> String>();
+    ```java
+    // Get Azure Stack cloud endpoints
+    final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+    ```
 
-   try {
-
-   // create HTTP Client
-   HttpClient httpClient = HttpClientBuilder.create().build();
-
-   // Create new getRequest with below mentioned URL
-   HttpGet getRequest = new
-   HttpGet(String.format("%s/metadata/endpoints?api-version=1.0", armEndpoint));
-
-   // Add additional header to getRequest which accepts application/xml data
-   getRequest.addHeader("accept", "application/xml");
-
-   // Execute request and catch response
-   HttpResponse response = httpClient.execute(getRequest);
-   ```
-
-6. Adja hozzá a Pom.xml fájlt használja a következő függőséget a **2018-03-01-hibrid** Azure Stack-profilt. Ezt a függőséget telepíti a modulokat a profilhoz tartozó számítási, hálózatkezelési, tárolási, KeyVault és App Services erőforrás-szolgáltatókat:
+6. A Pom.xml fájlt adja hozzá a következő függőséget használja a **2019-03-01-hibrid** Azure Stack-profilt. Ezt a függőséget telepíti a modulokat a profilhoz tartozó számítási, hálózatkezelési, tárolási, KeyVault és App Services erőforrás-szolgáltatókat:
 
    ```xml
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <vers1s.0.0-beta</version>
    </dependency>

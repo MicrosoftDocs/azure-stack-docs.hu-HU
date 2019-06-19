@@ -50,8 +50,6 @@
       href: azure-stack-use-portal.md
     - name: Kapcsolódás a PowerShell-lel
       href: azure-stack-powershell-configure-user.md
-    - name: Az Azure Stack API használata
-      href: azure-stack-rest-api-use.md
     - name: Biztonság és megfelelőség
       items:
         - name: Szerepköralapú hozzáférés-vezérlés alkalmazása
@@ -152,36 +150,36 @@
                   href: azure-stack-solution-template-kubernetes-trouble.md
             - name: A Cognitive Services üzembe helyezése
               href: azure-stack-solution-template-cognitive-services.md
-    - name: Alkalmazások készítése
+    - name: Azure Stack Resource Manager használata
       items:
-        - name: Fejlesztés az Azure Stackhez
-          href: azure-stack-developer.md
-        - name: Fejlesztési környezet beállítása
-          href: azure-stack-dev-start.md
+        - name: Az ügyfél konfigurálása
           items:
-            - name: Az Azure Stack PowerShell áttekintése
-              href: azure-stack-powershell-overview.md
-            - name: Az Azure Stack PowerShell telepítése
-              href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Kapcsolódás a PowerShell-lel
-              href: azure-stack-powershell-configure-user.md
-            - name: Azure Stack-eszközök letöltése
-              href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Futtassa a Powershellt a Docker használatával
-              href: azure-stack-powershell-user-docker.md
-            - name: Csatlakozás az Azure-fiók bővítmény használata
-              href: azure-stack-dev-start-vscode-azure.md
-            - name: A Visual Studio telepítése
-              href: azure-stack-install-visual-studio.md
-            - name: Nyilvános SSH-kulcsot használ
-              href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: Linux rendszerű virtuális gép egy webalkalmazás üzembe helyezése
-              href: azure-stack-dev-start-howto-deploy-linux.md
-            - name: API-verzióprofilok használatával
-              href: azure-stack-version-profiles.md
+            - name: Az Azure SDK-ügyfelekhez
+              href: azure-stack-dev-start.md
+            - name: Azure Stack PowerShell-ügyfél
               items:
+                - name: Az Azure Stack PowerShell áttekintése
+                  href: azure-stack-powershell-overview.md
+                - name: Az Azure Stack PowerShell telepítése
+                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Kapcsolódás a PowerShell-lel
+                  href: azure-stack-powershell-configure-user.md
+                - name: Azure Stack-eszközök letöltése
+                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Futtassa a Powershellt a Docker használatával
+                  href: azure-stack-powershell-user-docker.md
+            - name: A Visual Studio Code-ügyfél
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: A Visual Studio-ügyfél
+              href: azure-stack-install-visual-studio.md
+            - name: Secure Shell-ügyfél
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: API-verzióprofilok használata
+              items:
+                - name: Áttekintés
+                  href: azure-stack-version-profiles.md
                 - name: .NET
                   href: azure-stack-version-profiles-net.md
                 - name: Java
@@ -196,21 +194,24 @@
                   href: azure-stack-version-profiles-python.md
                 - name: Erőforrás-szolgáltató profil által támogatott API-k
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Az Azure Stack közös központi telepítések
-          href: azure-stack-dev-start-deploy-app.md
+        - name: Virtuális gép és a webes alkalmazás üzembe helyezése
           items:
-            - name: 'A .net Core telepítése (C#) egy virtuális géphez'
+            - name: 'Üzembe helyezése egy C# egy Windows VM-webalkalmazás'
               href: azure-stack-dev-start-howto-vm-dotnet.md
-            - name: A Java virtuális gép üzembe helyezése
-              href: azure-stack-dev-start-howto-vm-java.md
-            - name: Nyissa meg egy virtuális gép üzembe helyezése
-              href: azure-stack-dev-start-howto-vm-go.md
-            - name: A Ruby egy virtuális gép üzembe helyezése
-              href: azure-stack-dev-start-howto-vm-ruby.md
-            - name: Python virtuális gép üzembe helyezése
-              href: azure-stack-dev-start-howto-vm-python.md
-            - name: NodeJS a virtuális gép üzembe helyezése
-              href: azure-stack-dev-start-howto-vm-nodejs.md
+            - name: Webalkalmazás üzembe helyezése Linux rendszerű virtuális géphez
+              items:
+                - name: Linux rendszerű virtuális gép egy webalkalmazás üzembe helyezése
+                  href: azure-stack-dev-start-howto-deploy-linux.md
+                - name: Egy Java webes alkalmazás üzembe helyezése
+                  href: azure-stack-dev-start-howto-vm-java.md
+                - name: Egy Go-webalkalmazás üzembe helyezése
+                  href: azure-stack-dev-start-howto-vm-go.md
+                - name: Ruby-webalkalmazás üzembe helyezése
+                  href: azure-stack-dev-start-howto-vm-ruby.md
+                - name: Python-alapú webalkalmazás üzembe helyezése
+                  href: azure-stack-dev-start-howto-vm-python.md
+                - name: NodeJS-webalkalmazás üzembe helyezése
+                  href: azure-stack-dev-start-howto-vm-nodejs.md
         - name: Az Azure Stack házirendmodul használata
           href: azure-stack-policy-module.md
         - name: Sablonok használata
@@ -219,6 +220,8 @@
               href: azure-stack-arm-templates.md
             - name: Sablon kapcsolatos szempontok
               href: azure-stack-develop-templates.md
+            - name: Az Azure-ban sablonok fejlesztése
+              href: azure-stack-developer.md
             - name: Sablonok ellenőrzése
               href: azure-stack-validate-templates.md
             - name: Üzembe helyezés a portállal
@@ -229,6 +232,8 @@
               href: azure-stack-deploy-template-command-line.md
             - name: Üzembe helyezés a Visual Studióval
               href: azure-stack-deploy-template-visual-studio.md
+        - name: Erőforrások eléréséhez a REST használata
+          href: azure-stack-rest-api-use.md
     - name: Felhőszolgáltató engedélyezése
       href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Leírások

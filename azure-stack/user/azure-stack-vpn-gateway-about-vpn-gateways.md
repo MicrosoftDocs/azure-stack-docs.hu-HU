@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836825"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198648"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Tudnivalók az Azure Stackhez VPN-átjáró
 
@@ -102,6 +102,14 @@ A Termékváltozat kiválasztásakor, vegye figyelembe a következőket:
 * Az Azure Stack nem támogatja a házirendalapú átjárók.
 * Az alapszintű termékváltozat nem támogatott a Border Gateway Protocol (BGP).
 * Az ExpressRoute-VPN-átjáró egyidejű konfigurációk nem támogatottak az Azure Stackben.
+
+## <a name="gateway-availability"></a>Átjáró rendelkezésre állása
+
+Magas rendelkezésre állási forgatókönyvek esetén csak akkor konfigurálható, az a **nagy teljesítményű átjáróhoz** kapcsolat Termékváltozat. Ellentétben az Azure-ban, mind az aktív/aktív, mind az aktív/passzív konfigurációt keresztül a rendelkezésre állást biztosít, amely az Azure Stack csak az aktív/passzív konfigurációt támogatja. 
+
+### <a name="failover"></a>Feladatátvétel
+
+Nincsenek 3 több-bérlős átjáró infrastruktúra virtuális gépein az Azure Stackben. Ezek a virtuális gépek két aktív módban van, és a harmadik redundáns módban van. Aktív virtuális gépek engedélyezze azokat a VPN-kapcsolatok létrehozása, és a redundáns virtuális gépek csak feladatátvétel esetén a VPN-kapcsolatok fogad el. Ha egy aktív átjáróként működő virtuális gép elérhetetlenné válik, a VPN-kapcsolat átadja a feladatokat a redundáns virtuális Gépet rövid időn (néhány másodperces) kapcsolat veszteség.
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>A termékváltozat becsült összesített átviteli sebessége
 

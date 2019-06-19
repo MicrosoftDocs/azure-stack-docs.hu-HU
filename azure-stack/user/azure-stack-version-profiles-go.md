@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
-ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.openlocfilehash: 9b5273da44db26f9a98eab4147350c35214b128c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66373014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198683"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-verzióprofilok használata nyissa meg az Azure Stackben
 
@@ -32,7 +32,7 @@ A profil a különböző szolgáltatásokhoz különböző verziójú különbö
 - Az adott API-verziók zárolja az alkalmazás stabilitását.
 - Az alkalmazás az Azure Stack és a regionális Azure-adatközpontok való kompatibilitást.
 
-A Go SDK profilok érhetők el a profilok elérési úton, a verziójuk a **éééé-hh-nn** formátumban. Most, a legújabb Azure Stack API profil verzió **2019-03-01**. Az adott szolgáltatás importálására egy profilt, a megfelelő modul importálása a profil. Például az importálandó **számítási** a szolgáltatás **2019-03-01** profil, a következő kóddal:
+A Go SDK profilok érhetők el a profilok elérési úton, a verziójuk a **éééé-hh-nn** formátumban. Most, a legújabb Azure Stack API profil verzió **2019-03-01** blokk-verziók 1904-es vagy újabb. Az adott szolgáltatás importálására egy profilt, a megfelelő modul importálása a profil. Például az importálandó **számítási** a szolgáltatás **2019-03-01** profil, a következő kóddal:
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
