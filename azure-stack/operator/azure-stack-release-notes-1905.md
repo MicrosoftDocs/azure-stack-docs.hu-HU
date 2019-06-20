@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 4c7e48804b4336c658376b1c3f611dbe75cf8c1f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: e44dd6880de77ff063cbe6593a448020a154d1e8
+ms.sourcegitcommit: 507d2fdb0c1322a0bd07741f92c05a6322a80a44
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152468"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67237417"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 frissítése
 
@@ -65,7 +65,7 @@ Ez a frissítés a Windows Server 2019 sikeresen aktiválhatók 2016 gazdagépen
   - microsoft.dsc-arm-2.77.0.0
   - microsoft.vmaccessforlinux-1.5.2
 
-  Töltse le a bővítmények ezen verziói azonnali, úgy, hogy a bővítmény új központi telepítéseknél sikertelen, ha a TLS 1.2 van érvényben egy későbbi kiadásban. Mindig **autoupdateminorversion = true** , hogy alverzió frissítések Extensions (például 1.8-as, 1.9) automatikusan megtörténik.
+  Töltse le a bővítmények ezen verziói azonnali, úgy, hogy a bővítmény új központi telepítéseknél sikertelen, ha a TLS 1.2 van érvényben egy későbbi kiadásban. Mindig **autoUpgradeMinorVersion = true** , hogy alverzió frissítések Extensions (például 1.8-as, 1.9) automatikusan megtörténik.
 
 - Egy új **Súgó és támogatási áttekintése** az Azure stack portal megkönnyíti a operátorok ellenőrizze a támogatási lehetőségek, szakértői támogatás és további információ az Azure Stackről. Integrált rendszerek hozzon létre egy támogatási kérést fog előre kiválasztja az értékhez az Azure Stack szolgáltatás. Javasoljuk, hogy használják, ez a tapasztalat elküldeni a jegyek helyett a globális Azure portal használatával. További információkért lásd: [Azure Stack-Súgó és támogatás](azure-stack-help-and-support-overview.md).
 
