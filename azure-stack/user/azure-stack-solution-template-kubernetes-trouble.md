@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: dbc3f495a8f3a2912e2b8a4a0de1058a2eaa4df0
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 4c875f46762d6dac5608869b0bb36606f01f9747
+ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198794"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67298054"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Az Azure Stack a Kubernetes üzembe helyezés hibaelhárítása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 > [!Note]  
-> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió.
+> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez. A [AKS motor](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) éles környezetben is használható.
 
 Ez a cikk áttekinti a Kubernetes-fürt hibaelhárítása. Hibaelhárítás megkezdéséhez tekintse át az elemek, a telepítéshez szükséges. Szüksége lehet a telepítési naplók gyűjtése az Azure Stack vagy a Linux rendszerű virtuális gépek, amelyeken Kubernetes. Naplók lekérése egy felügyeleti végpont, lépjen kapcsolatba az Azure Stack-rendszergazdához.
 

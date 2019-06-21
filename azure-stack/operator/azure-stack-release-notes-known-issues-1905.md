@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 48a97beac6b43e95b52d8b23f20369318e53ebee
+ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836661"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67297988"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Az Azure Stack 1905 ismert problémák
 
@@ -155,10 +155,10 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 - Szervizelési: Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
 
 #### <a name="vmss-instance-view-blade-doesnt-load"></a>Nem tölt be a VMSS-példány megtekintési paneljén
- 
+
 - Alkalmazható: A probléma 1904-es és 1905 kiadásra vonatkozik.
-- OK: Egy méretezési csoport Azure Stack portálon található példány megtekintési paneljén -> irányítópult -> virtuálisgép-méretezési csoportok -> AnyScaleSet – példányok > AnyScaleSetInstance sikertelen a Betöltés a felhő Síró.
-- Szervizelési: Jelenleg nem nincs szervizelés, és folyamatban van egy javítás. Addig használja CLI parancsmag az vmss get-instance-view-VMSS példányait tartalmazó nézetet beolvasása
+- OK: Egy méretezési csoport Azure Stack portálon található példány megtekintési paneljén -> irányítópult -> virtuálisgép-méretezési csoportok -> AnyScaleSet – példányok > AnyScaleSetInstance sikertelen a betöltés, és a egy crying felhőalapú képet jeleníti meg.
+- Szervizelési: Jelenleg nem nincs szervizelés, és folyamatban van egy javítás. Addig használja a CLI-paranccsal `az vmss get-instance-view` beolvasni egy méretezési csoport példányait tartalmazó nézetet.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 
