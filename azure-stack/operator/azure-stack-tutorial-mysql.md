@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: justinha
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 61d839e0f34de9387023b272aff32cf69ad9ae13
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: e62e78705d6ca1ec8fa7d839b70eda3f147f82ab
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268485"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316289"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Oktatóanyag: Magas rendelkezésre állású MySQL-adatbázisok ajánlat
 
@@ -110,11 +110,11 @@ Alapértelmezés szerint nincs nyilvános hozzáférés van konfigurálva MySQL-
 
 1. A felügyeleti portálon keresse meg a MySQL-fürt üzembe helyezésekor létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoport (**alapértelmezett-alhálózat-sg**):
 
-   ![megnyitás](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![nyitás](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Válassza ki **bejövő biztonsági szabályok** majd **Hozzáadás**.<br><br>Adja meg **3306-os** a a **Célporttartomány** , és megadhat egy leírást a a **neve** és **leírás** mezőket. Kattintson a Hozzáadás gombra kattintva zárja be a bejövő biztonsági szabály párbeszédpanel.
 
-   ![megnyitás](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![nyitás](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>A MySQL-fürt külső hozzáférés konfigurálása
 A MySQL-fürt hozzáadása az Azure Stack MySQL-kiszolgáló gazdagépként, előtt külső hozzáférés engedélyezve kell lennie.

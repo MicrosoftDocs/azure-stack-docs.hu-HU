@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: ef9406c8332eb983e20decb64ead723234aa8faa
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 7cc55659df1da1c51d92f0fc2926cee7255c422e
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152572"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67315966"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Az Azure marketplace-elemek letöltése az Azure Stackhez
 
@@ -177,7 +177,7 @@ Ebben a forgatókönyvben két részből áll:
    A `-AzsCredential` paramétert nem kötelező megadni. Ha már lejárt szolgál a hozzáférési jogkivonat megújításához. Ha a `-AzsCredential` paraméter nincs megadva, és a jogkivonat lejár, megjelenik egy kérdés a operátor hitelesítő adatok beírását.
 
     > [!Note]  
-    > Az AD FS csak támogatja az interaktív hitelesítéshez a felhasználói identitásokat. Ha egy hitelesítőadat-objektumnak szükség, egy szolgáltatásnév (SPN) kell használnia. Egy egyszerű szolgáltatást az Azure Stack és az AD FS, az identity management-szolgáltatás beállításának további információkért lásd: [kezelés egyszerű szolgáltatást az AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+    > Az AD FS csak támogatja az interaktív hitelesítéshez a felhasználói identitásokat. Ha egy hitelesítőadat-objektumnak szükség, egy szolgáltatásnév (SPN) kell használnia. Egy egyszerű szolgáltatást az Azure Stack és az AD FS, az identity management-szolgáltatás beállításának további információkért lásd: [kezelése az AD FS szolgáltatás egyszerű](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 4. Miután a parancsprogram sikeresen lefutott, az elem elérhetőnek kell lennie az Azure Stack piactéren.
 

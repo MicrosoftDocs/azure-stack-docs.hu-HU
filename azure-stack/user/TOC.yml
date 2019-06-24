@@ -27,7 +27,7 @@
           href: azure-stack-subscribe-services.md
         - name: Virtuális gép létrehozása sablonból
           href: azure-stack-create-vm-template.md
-    - name: Hibrid felhőalkalmazások
+    - name: Hibrid felhőbeli alkalmazások – áttekintés
       href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
@@ -36,14 +36,18 @@
           href: azure-stack-solution-hybrid-identity.md
         - name: Hibrid felhő-kapcsolat konfigurálása
           href: azure-stack-solution-hybrid-connectivity.md
-        - name: Hozzon létre egy előkészített adatelemzési megoldással
-          href: azure-stack-solution-staged-data-analytics.md
         - name: A felhőbe irányuló méretezési megoldások létrehozása az Azure-ral
           href: azure-stack-solution-cloud-burst.md
         - name: Földrajzilag elosztott alkalmazás megoldás létrehozása
           href: azure-stack-solution-geo-distributed.md
         - name: Hibrid felhőalapú megoldás üzembe helyezése
           href: azure-stack-solution-hybrid-cloud.md
+        - name: A kétlépcsős data analytics üzembe helyezése
+          href: azure-stack-solution-staged-data.md
+        - name: Magas rendelkezésre állás a MongoDB üzembe helyezése
+          href: azure-stack-solution-mongodb-ha.md
+        - name: Magas rendelkezésre állású SQL Server 2016 üzembe helyezése
+          href: azure-stack-solution-sql-ha.md
 - name: Útmutatók
   items:
     - name: Az Azure Stack Portal használata

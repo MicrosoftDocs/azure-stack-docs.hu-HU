@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a777fc1d9052eb58bbebd319fe6cc7f42a09cb9a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292188"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316176"
 ---
 # <a name="validate-azure-registration"></a>Azure-regisztráció ellenőrzése
 
@@ -40,7 +40,7 @@ Töltse le a legújabb verzióját **AzsReadinessChecker** származó a [PowerSh
 
 A következő előfeltételek teljesülésére szükség:
 
-**A számítógép, amelyen az eszköz fut:**
+### <a name="the-computer-on-which-the-tool-runs"></a>A számítógép, amelyen az eszköz fut.
 
 - Windows 10-es vagy Windows Server 2016, az internetkapcsolattal rendelkező.
 - A PowerShell 5.1-es vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, és tekintse át a **fő** és **kisebb** verziók:  
@@ -52,7 +52,7 @@ A következő előfeltételek teljesülésére szükség:
 - [Konfigurált az Azure Stack PowerShell](azure-stack-powershell-install.md).
 - A legújabb [a Microsoft Azure Stack készültségi ellenőrző](https://aka.ms/AzsReadinessChecker).  
 
-**Az Azure Active Directory-környezetet:**
+### <a name="azure-active-directory-environment"></a>Az Azure Active Directory-környezetet
 
 - Azonosítsa a felhasználónevet és jelszót, amely használhatja az Azure Stack Azure-előfizetés tulajdonosa.  
 - Azonosítsa az előfizetés-azonosító az Azure-előfizetés fogja használni.
@@ -73,7 +73,7 @@ A következő előfeltételek teljesülésére szükség:
    ```
 
    > [!NOTE]
-   > Egy CSP-hez, a megosztott szolgáltatások vagy IUR előfizetés használata esetén, mint meg kell adnia egy felhasználó hitelesítő adatait, hogy saját AAD-ból. Ez általában a lesz hasonló `subscriptionowner@iurcontoso.onmicrosoft.com`. A felhasználó a megfelelő hitelesítő adatokkal, rendelkeznie kell az előző lépésben leírtak szerint.
+   > Egy CSP-hez, ha egy megosztott, szolgáltatások vagy IUR előfizetés esetén meg kell adnia egy felhasználó hitelesítő adatait, hogy saját AAD-ból. Ez általában a lesz hasonló `subscriptionowner@iurcontoso.onmicrosoft.com`. A felhasználó a megfelelő hitelesítő adatokkal, rendelkeznie kell az előző lépésben leírtak szerint.
 
 3. A PowerShell parancssorában futtassa a következőt beállítása `$subscriptionID` mint az Azure-előfizetés használatára. Cserélje le `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` a saját előfizetés-Azonosítójára:
 
@@ -106,7 +106,7 @@ Minden egyes alkalommal érvényesítési fut, az eredmények naplózza **AzsRea
 
 Ezek a fájlok segítségével megoszthatja érvényesítési állapot érvényesítési problémák vizsgálatához vagy az Azure Stack üzembe helyezése előtt. Mindkét fájlt megmarad, egyes további ellenőrzés eredményeit. A jelentés tartalmazza a telepítési csapat megerősítés az identitás-konfiguráció. A naplófájl segíthet a telepítés vagy a támogatási csapat érvényesítési problémák kivizsgálásában.
 
-Alapértelmezés szerint mindkét fájlt írt **C:\Users\<username > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Alapértelmezés szerint mindkét fájlt írt **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
 
 - Használja a **- OutputPath** ***&lt;elérési&gt;*** végén található egy másik jelentés helyét adja meg a futtatási parancssori paraméter.
 - Használja a **- CleanReport** parancs futtatásával törölje az eszköz az előző futtatásokat információ végén paraméter **AzsReadinessCheckerReport.json**.

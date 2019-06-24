@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 06/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: f49c6f87ba3f33ae8d9c22068fa9ac4893ab7f0a
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: a0e1312beac5f0591658295ac3e48f122aceec4b
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197405"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316287"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack csatlakozni az Azure VPN használatával
 
@@ -51,8 +51,8 @@ A hálózati konfiguráció példák táblázatban példák ebben a cikkben hasz
 |Virtuális hálózat neve     |Azs-VNet|AzureVNet |
 |Virtuális hálózat címtere |10.1.0.0/16|10.100.0.0/16|
 |Alhálózat neve     |Előtér|Előtér|
-|Alhálózat címtartománya|10.1.0.0/24 |10.100.0.0/24 |
-|Átjáróalhálózat     |10.1.1.0/24|10.100.1.0/24|
+|Alhálózati címtartomány|10.1.0.0/24 |10.100.0.0/24 |
+|Átjáró alhálózata     |10.1.1.0/24|10.100.1.0/24|
 
 ## <a name="create-the-network-resources-in-azure"></a>A hálózati erőforrások létrehozása az Azure-ban
 
@@ -242,7 +242,7 @@ A VPN-kapcsolat ellenőrzéséhez hozzon létre két virtuális gépet: az Azure
 
 9. Az a **összefoglalás** szakaszt, tekintse át a beállításokat, és válassza ki **OK**.
 
-## <a name="test-the-connection"></a>Kapcsolat tesztelése
+## <a name="test-the-connection"></a>A kapcsolat tesztelése
 
 A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irányban áramló adatok kérheti. A kapcsolat tesztelése a legegyszerűbb módja,-ping teszt elvégzésével:
 

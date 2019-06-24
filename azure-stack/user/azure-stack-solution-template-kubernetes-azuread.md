@@ -15,19 +15,19 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: aa196c5dfb56e6b3bbad5e4f6f112e855298dc02
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: c6d96a24866f4371dcca8aa953137288f94ac7ff
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298093"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308486"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Üzembe helyezése Kubernetes az Azure Stackhez az Azure Active Directoryval
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 > [!Note]  
-> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez. A [AKS motor](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) éles környezetben is használható.
+> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez.
 
 Ebben a cikkben üzembe helyezéséhez és az erőforrások beállítása a Kubernetes esetében az Azure Active Directory (Azure AD) használatakor, mivel az identity management szolgáltatás egyetlen, koordinált művelet a lépésekkel.
 

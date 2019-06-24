@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: a1e13b471c9eaed9dcac79c4002ceca6b3b8e7d2
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: 442e12d435102c06a334a8a93271d3d4a27aa578
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212684"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308772"
 ---
 # <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>A hibrid felhőbeli alkalmazások létrehozása az Azure és az Azure Stackben
 
@@ -30,22 +30,19 @@ A Microsoft Azure-ban a konzisztens hibrid felhő. Az Azure lehetővé teszi, ho
 
 A hibrid forgatókönyvek érhetők el fejlesztési erőforrások, például földrajzi hely, a biztonság, az Internet-hozzáféréssel kapcsolatos szempontok és egyéb szempontok nagy mértékben függenek. Bár ezek a forgatókönyvek nem oldja meg az adott igények szerint, azok néhány kulcsfontosságú útmutatást és példák segítségével megismerheti a végrehajtási hibrid megoldásokat biztosíthat.
 
-A hibrid felhő segítségével kezelni:
-- Minta rétegzett adatok.
-- Az SQL Server az Azure és az Azure Stack.
-- Mongo-adatbázis teljes körű központi telepítések, az Azure és az Azure Stackben.
-- A Microsoft Edge mesterséges intelligencia következtetésekhez érvényteleníteni az észlelést.
-
 ## <a name="step-by-step-tutorials"></a>Részletes útmutatók
 
 - [Alkalmazások üzembe helyezése az Azure és az Azure Stackben](azure-stack-solution-pipeline.md)
 - [Alkalmazások üzembe helyezése az Azure Stacken és az Azure-ban](azure-stack-solution-hybrid-identity.md)
 - [A hibrid felhőbeli identitás konfigurálása az Azure és az Azure Stack-alkalmazásokkal](azure-stack-solution-hybrid-connectivity.md)
 - [Hibrid felhő-kapcsolat konfigurálása az Azure és az Azure Stack](azure-stack-solution-staged-data-analytics.md)
-- [Hozzon létre egy előkészített adatelemzési megoldással az Azure és az Azure Stackben](azure-stack-solution-cloud-burst.md)
+- [Hozzon létre egy előkészített adatelemzési megoldással az Azure és az Azure Stackben](azure-stack-solution-staged-data.md)
 - [A felhőbe irányuló méretezési megoldások létrehozása az Azure-ral](azure-stack-solution-cloud-burst.md)
 - [Földrajzilag elosztott alkalmazás megoldás létrehozása az Azure és az Azure Stackben](azure-stack-solution-geo-distributed.md)
 - [Az Azure és az Azure Stack egy hibrid felhőmegoldás üzembe helyezése](azure-stack-solution-hybrid-cloud.md)
+- [Üzembe helyezése a mongodb-adatbázist az Azure és az Azure Stackben](azure-stack-solution-mongodb-ha.md)
+- [Üzembe helyezése az SQL Server 2016 az Azure és az Azure Stackben](azure-stack-solution-sql-ha.md)
+
 
 ## <a name="next-steps"></a>További lépések
 

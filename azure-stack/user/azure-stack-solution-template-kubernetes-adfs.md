@@ -15,19 +15,19 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 738a8ab4c43eac9cc68deb63f44577df0f512f0b
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: 1a2dbe009a6953990ce59e930490cc48cc0dd458
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298064"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308734"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Az Active Directory összevont szolgáltatásokat az Azure Stack üzembe helyezése Kubernetes
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 > [!Note]  
-> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez. A [AKS motor](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) éles környezetben is használható.
+> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez.
 
 A regisztrálással kapcsolatban, telepítse és állítsa be az erőforrásokat a Kubernetes esetében ez a cikk. Az Active Directory összevonási szolgáltatásokban (AD FS) az identity management-szolgáltatás az alábbi lépéseket követve.
 

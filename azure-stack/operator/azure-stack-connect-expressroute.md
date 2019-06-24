@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 04c793ceebf167220b74dfc40a7e4fc775723e93
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691641"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316261"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Csatlakozás Azure Stack az Azure ExpressRoute használatával
 
@@ -50,33 +50,29 @@ Az Azure Stacket és az Azure ExpressRoute-tal tudjon csatlakozni a következő 
 * A kiépített [ExpressRoute-kapcsolatcsoport](/azure/expressroute/expressroute-circuit-peerings) keresztül egy [kapcsolatszolgáltató](/azure/expressroute/expressroute-locations).
 * Azure-előfizetéssel, hozzon létre egy ExpressRoute-Kapcsolatcsoportok és virtuális hálózatok az Azure-ban.
 * Egy útválasztó, amely kell:
-  * Támogatja a helyek közötti VPN-kapcsolatok a LAN-kapcsolat és az Azure Stack több-Bérlős átjáró között.
+  * Támogatja a helyek közötti VPN-kapcsolatok a LAN-kapcsolat és az Azure Stack több-bérlős átjáró között.
   * Támogatja a több VRFs (virtuális útválasztást és a továbbítás) létrehozása, ha egynél több bérlőhöz van az Azure Stack üzemelő példányban.
 * Útválasztó, amely rendelkezik:
   * Egy WAN port az ExpressRoute-kapcsolatcsoporthoz csatlakozik.
-  * LAN-porthoz csatlakozik az Azure Stack több-Bérlős átjáró.
+  * LAN-porthoz csatlakozik az Azure Stack több-bérlős átjáró.
 
 ### <a name="expressroute-network-architecture"></a>Az ExpressRoute hálózati architektúra
 
-Az alábbi ábrán látható az Azure Stack és az Azure-környezetek ExpressRoute beállításának befejezése után ebben a cikkben a példák segítségével:
-
-*1. ábra Az ExpressRoute hálózati*
+A következő ábrán látható az Azure Stack és az Azure-környezetek ExpressRoute beállításának befejezése után ebben a cikkben a példák segítségével:
 
 ![Az ExpressRoute hálózati](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Az alábbi ábrán látható, hogyan több bérlő elérését az Azure Stack-infrastruktúra az ExpressRoute-útválasztón keresztül az Azure-ba, a Microsoft Edge-ben:
-
-*2. ábra Több-bérlős kapcsolatok*
+Az alábbi ábra bemutatja, hogyan több bérlő elérését az Azure Stack-infrastruktúra az ExpressRoute-útválasztón keresztül az Azure-ba, a Microsoft Edge-ben:
 
 ![Az expressroute-tal több-bérlős kapcsolatok](media/azure-stack-connect-expressroute/Architecture.png)
 
-Ebben a cikkben a példában a 2. ábrán látható ugyanazon több-bérlős architektúra használatával csatlakozzon az Azure Stack az Azure-ban, ExpressRoute privát társviszony-létesítés. A kapcsolat történik az Azure Stack használatával a site-to-site VPN-kapcsolatot a virtuális hálózati átjáró egy ExpressRoute-útválasztó.
+Ebben a cikkben a példa az ezen az ábrán látható ugyanazon több-bérlős architektúra használatával csatlakozzon az Azure Stack az Azure-ban, ExpressRoute privát társviszony-létesítés. A kapcsolat történik az Azure Stack használatával a site-to-site VPN-kapcsolatot a virtuális hálózati átjáró egy ExpressRoute-útválasztó.
 
 A jelen cikkben ismertetett lépések bemutatják, hogyan hozzon létre megfelelő virtuális hálózatokhoz az Azure-ban két különböző bérlőn, az Azure Stack két virtuális hálózat között teljes körű kapcsolatot. Két bérlőjéhez beállítása nem kötelező megadni. egyetlen bérlő számára is használhatja ezeket a lépéseket.
 
 ## <a name="configure-azure-stack"></a>Az Azure Stack konfigurálása
 
-Az Azure Stack-környezet az első bérlő számára, használja a lépéseket az alábbi ábrán alapján. Ha egynél több bérlőhöz beállítása, ismételje meg ezeket a lépéseket:
+Az Azure Stack-környezet az első bérlő, használja a következő lépések alapján. Ha egynél több bérlőhöz beállítása, ismételje meg ezeket a lépéseket:
 
 >[!NOTE]
 >Ezek a lépések bemutatják, hogyan hozhat létre erőforrásokat az Azure Stack portálon használja, de a PowerShell is használható.
@@ -96,7 +92,7 @@ Az alábbi eljárásokkal a szükséges hálózati erőforrások létrehozása a
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>A virtuális hálózat és a virtuálisgép-alhálózat létrehozása
 
-1. Jelentkezzen be a felhasználói portál (bérlő) felhasználói fiókkal.
+1. Jelentkezzen be az Azure Stack felhasználói portálon.
 
 2. Válassza a portál **+ erőforrás létrehozása**.
 
@@ -144,20 +140,20 @@ Az alábbi eljárásokkal a szükséges hálózati erőforrások létrehozása a
 
 #### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
-A helyi hálózati átjáró erőforrás azonosítja a VPN-kapcsolat másik végén lévő távoli átjárót. Ebben a példában a kapcsolat a távoli vég a LAN-al kapcsolat az ExpressRoute-útválasztó. A távoli cím 10.60.3.255 bérlői 1, 2. ábrán látható.
+A helyi hálózati átjáró erőforrás azonosítja a VPN-kapcsolat másik végén lévő távoli átjárót. Ebben a példában a kapcsolat a távoli vég a LAN-al kapcsolat az ExpressRoute-útválasztó. Az előző ábrán 1 bérlő a távoli cím 10.60.3.255.
 
 1. Jelentkezzen be az Azure Stack felhasználói portálon, a felhasználói fiókjával, és válassza ki **+ erőforrás létrehozása**.
 1. A **Azure Marketplace-en**válassza **hálózatkezelés**.
 1. Az erőforrások listájában válassza a **Helyi hálózati átjáró** elemet.
 1. Az a **neve** mezőbe írja be a **ER-útválasztó-GW**.
-1. Az a **IP-cím** mezőben lásd a 2. ábra. Az ExpressRoute útválasztó helyi hálózati alárendelt kezelőfelület bérlői 1 IP-címe 10.60.3.255. Adja meg a megfelelő az útválasztó-illesztő IP-címét a saját környezetben.
-1. Az a **címtér** mezőben adja meg a virtuális hálózatokkal, amelyhez csatlakozni kíván az Azure-ban, a címtér. A bérlő az 1 alhálózatok *2. ábra* az alábbiak szerint:
+1. Az a **IP-cím** mezőben lásd az előző ábrán. Az ExpressRoute útválasztó helyi hálózati alárendelt kezelőfelület bérlői 1 IP-címe 10.60.3.255. Adja meg a megfelelő az útválasztó-illesztő IP-címét a saját környezetben.
+1. Az a **címtér** mezőben adja meg a virtuális hálózatokkal, amelyhez csatlakozni kíván az Azure-ban, a címtér. Az 1. bérlői alhálózatok a következők:
 
    * 192.168.2.0/24 az agyi virtuális hálózat az Azure-ban.
    * 10.100.0.0/16 a küllő virtuális hálózat az Azure-ban.
 
    > [!IMPORTANT]
-   > Ez a példa feltételezi, hogy statikus útvonalakat használ a Site-to-Site VPN-kapcsolat az Azure Stack-átjáró és az ExpressRoute-útválasztó között.
+   > Ez a példa feltételezi, hogy statikus útvonalakat használ a site-to-site VPN-kapcsolat az Azure Stack-átjáró és az ExpressRoute-útválasztó között.
 
 1. Ellenőrizze, hogy a **előfizetés**, **erőforráscsoport**, és **hely** helyes-e. Ezután kattintson a **Létrehozás** elemre.
 
@@ -295,8 +291,6 @@ Az útválasztó az Útválasztás és távelérés szolgáltatást (RRAS) szere
 
 Azure Stack konfigurálása után telepítheti az Azure-erőforrások. Az alábbi ábrán egy példa egy bérlői virtuális hálózathoz az Azure-ban. Bármilyen nevet és a címzési séma használhatja a virtuális hálózat az Azure-ban. Az Azure és az Azure Stack a virtuális hálózat címtartománya azonban egyedinek kell lennie, és nem lehetnek egymással átfedésben:
 
-*3. ábra Azure virtuális hálózatok*
-
 ![Azure virtuális hálózatok](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 Az erőforrások központi telepítése az Azure-ban hasonlóak az Azure Stackben helyezett erőforrásokat. A következő összetevőket telepít:
@@ -356,9 +350,7 @@ Ismételje meg ezeket a lépéseket minden olyan további bérlői virtuális h�
 
 ## <a name="configure-the-router"></a>Az útválasztó konfigurálása
 
-A következő ExpressRoute-útválasztó konfigurációs diagram segítségképp használható az ExpressRoute-útválasztó konfigurálása. Az ábrán két bérlő (1 bérlői és bérlői 2) a megfelelő ExpressRoute-Kapcsolatcsoportok az. Mindegyik bérlő saját VRF (virtuális útválasztást és a továbbítás) az ExpressRoute-útválasztó LAN és WAN oldalán van csatolva. Ez a konfiguráció biztosítja, hogy a két bérlőjéhez végpontok közötti elkülönítését. Jegyezze fel a példakonfigurációt végrehajtásával lehetősége van az útválasztó felületei használt IP-címeket.
-
-*4. ábra Az ExpressRoute-útválasztó konfigurációját*
+A következő ExpressRoute-útválasztó konfigurációs diagram segítségképp használható az ExpressRoute-útválasztó konfigurálása. Ezen az ábrán a megfelelő ExpressRoute-Kapcsolatcsoportok két bérlők (1 bérlői és bérlői 2). Mindegyik bérlő saját VRF (virtuális útválasztást és a továbbítás) az ExpressRoute-útválasztó LAN és WAN oldalán van csatolva. Ez a konfiguráció biztosítja, hogy a két bérlőjéhez végpontok közötti elkülönítését. Jegyezze fel a példakonfigurációt végrehajtásával lehetősége van az útválasztó felületei használt IP-címeket.
 
 ![Az ExpressRoute-útválasztó konfigurációját](media/azure-stack-connect-expressroute/EndToEnd.png)
 
@@ -624,7 +616,7 @@ New-NetFirewallRule `
 
 Ha szeretné tudni, hogy mekkora forgalom, ha a kapcsolaton keresztül továbbítja, megtalálhatja ezeket az adatokat az Azure Stack felhasználói portálon. Ez az is jó módszer talál-e a ping teszt adatai végighaladt-e a VPN és ExpressRoute-kapcsolatok:
 
-1. Jelentkezzen be az Azure Stack felhasználói portálon, a bérlő fiókjával, és válassza ki **összes erőforrás**.
+1. Jelentkezzen be a Portalon, és válassza az Azure Stack felhasználói **összes erőforrás**.
 1. A VPN-átjáró esetében keresse meg az erőforráscsoportot, és válassza ki a **kapcsolat** objektumtípus.
 1. Válassza ki a **ConnectToAzure** kapcsolat a listából.
 1. A **kapcsolatok** > **áttekintése**, megtekintheti a statisztikákat **adatok** és **adatforgalom**. Néhány nem nulla értéket kell megjelennie.

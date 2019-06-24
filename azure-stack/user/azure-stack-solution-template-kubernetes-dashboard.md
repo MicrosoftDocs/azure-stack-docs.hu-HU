@@ -15,18 +15,18 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e3105e8c7129f4eef6a5b6fd601f955a8f44f337
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: ecd0d3c79edc2359cf82aa9c52fb9021d7fc7a6f
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298013"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308678"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Hozzáférés a Kubernetes-irányítópultot az Azure Stackben 
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete* 
 > [!Note]   
-> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez. A [AKS motor](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) éles környezetben is használható.
+> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez.
 
 Kubernetes webes irányítópultot is használhatja az alapvető felügyeleti műveletet tartalmaz. Ez az irányítópult lehetővé teszi az alapszintű állapot-állapot és az alkalmazások metrikáinak megtekintése, létrehozása és -szolgáltatások telepítését és szerkesztheti a meglévő alkalmazásokat. Ez a cikk bemutatja, hogyan állítható be a Kubernetes-irányítópultot az Azure Stacken.
 

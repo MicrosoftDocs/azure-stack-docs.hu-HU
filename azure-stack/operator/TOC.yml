@@ -213,7 +213,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: Felhasználók hozzáadása az AD FS-hez
               href: azure-stack-add-users-adfs.md
-            - name: Szolgáltatásnevek létrehozása
+            - name: Egy alkalmazás-erőforrások eléréséhez identitás használata
               href: Azure-stack-create-service-principals.md
             - name: A több-bérlős üzemmód engedélyezése
               href: azure-stack-enable-multitenancy.md

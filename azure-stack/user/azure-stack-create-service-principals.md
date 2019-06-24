@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 543e4befb23fe714cfe472f180647a976f6f3af4
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269613"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316234"
 ---
 # <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>Alkalmazások hozzáférés biztosítása az Azure Stack-erőforrások egyszerű szolgáltatások létrehozása
 
@@ -59,7 +59,7 @@ Ha az Azure Stack az Azure AD használja, mint az ügyfélidentitás-tárolóval
 > [!NOTE]
 > Ellenőrizze, hogy rendelkezik a [szükséges Azure AD-engedélyekről](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) egyszerű szolgáltatás létrehozása előtt.
 
-### <a name="create-service-principal"></a>Szolgáltatásnév létrehozása
+### <a name="create-service-principal"></a>Egyszerű szolgáltatás létrehozása
 
 Az alkalmazás egyszerű szolgáltatás létrehozása:
 
@@ -71,7 +71,7 @@ Az alkalmazás egyszerű szolgáltatás létrehozása:
 
 Egy egyszerű szolgáltatást az alkalmazás, amelyet létrehozott.
 
-### <a name="get-credentials"></a>Hitelesítő adatok beolvasása
+### <a name="get-credentials"></a>Hitelesítő adatainak lekérése
 
 Ha programozott módon jelentkezik be, az azonosító használata az alkalmazás és a egy hitelesítési kulcsra. Ezek az értékek lekéréséhez:
 
@@ -88,7 +88,7 @@ Ha programozott módon jelentkezik be, az azonosító használata az alkalmazás
 
 6. Ha elkészült, a titkos kód jelenik meg. Jegyezze fel ezt az értéket, mivel később nem tudja lekérni a kulcsot. A kulcsértéket olyan helyen tárolja, ahonnan az alkalmazás le tudja kérni.
 
-![Mentett kulcs figyelmeztetés kulcs értékét.](./media/azure-stack-create-service-principals/image15.png)
+     ![Mentett kulcs figyelmeztetés kulcs értékét.](./media/azure-stack-create-service-principals/image15.png)
 
 Az utolsó lépés [az alkalmazás-szerepkör hozzárendelése](azure-stack-create-service-principals.md).
 
@@ -100,7 +100,7 @@ Ha telepítette az Azure Stack az ügyfélidentitás-tárolóval, mint az AD FS 
 * Egyszerű szolgáltatás hozzárendelése szerepkörhöz.
 * Jelentkezzen be az egyszerű szolgáltatás identitás használatával.
 
-Az egyszerű szolgáltatás létrehozása a részletekért lásd: [az AD FS egyszerű szolgáltatás létrehozása](../operator/azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+Az egyszerű szolgáltatás létrehozása a részletekért lásd: [kezelése az AD FS szolgáltatás egyszerű](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Az egyszerű szolgáltatás hozzárendelése szerepkörhöz
 
