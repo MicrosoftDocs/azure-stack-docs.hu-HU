@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
+ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459069"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67334432"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>A Windows Server az Azure Stack-piactér – gyakori kérdések
 
@@ -36,7 +36,7 @@ Ezután ha bármely virtuálisgép-méretezési csoportok hivatkozik egy adott v
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Mik azok a Windows Server Piactérről származó rendszerképek az Azure Stacken licencelési lehetőségeinek?
 
-A Microsoft kínál a Windows Server-rendszerképeket az Azure Stack piactéren két verziója:
+A Microsoft Windows Server-rendszerképeket az Azure Stack piactéren két változata kínál. Ez a rendszerkép csak egy verziója is használható az Azure Stack-környezet.  
 
 - **Használja, a felhasznált**: Ezek a lemezképek futtassa a teljes díj Windows mérőszámok.
    Ki kell használnia: Nagyvállalati Szerződés (EA) használók a *Használatalapú számlázási modell*; CSP-k számára nem szeretne a SPLA-licenc.
@@ -47,7 +47,9 @@ Az Azure hibrid használati Benefit (AHUB) nem támogatott az Azure Stacken. Üg
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Mi történik, ha a helytelen verziók kínálni a bérlők és felhasználók letöltöttem?
 
-A nem megfelelő verziójú először törölje Marketplace Management szolgáltatáson keresztül. Várjon, amíg teljesen végrehajtásához (tekintse meg az értesítéseket befejezésére, nem a **Marketplace felügyeleti** panelen). Ezután töltse le a megfelelő verziót.
+A nem megfelelő verziójú először törölje marketplace management szolgáltatáson keresztül. Várjon, amíg annak végrehajtása befejeződik (tekintse meg az értesítéseket befejezésére, nem a **Marketplace felügyeleti** panelen). Ezután töltse le a megfelelő verziót.
+
+Ha letölti a lemezképet mindkét verziója, csak a legújabb verzióra a végfelhasználók számára a Marketplace-en katalógusban látható.
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Mi történik, ha a felhasználó nem megfelelően be van jelölve a "Rendelkezem egy licenc" mezőben az előző Windows épít, és nem rendelkeznek licenccel?
 
