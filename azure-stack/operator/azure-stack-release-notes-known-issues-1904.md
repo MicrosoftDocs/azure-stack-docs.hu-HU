@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 70d6cfae2eb6e9508e2141aa59c6986ec8817d11
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469131"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387720"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -38,13 +38,6 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 - Előfordulás: Közös
 
 ## <a name="portal"></a>Portál
-
-### <a name="administrative-subscriptions"></a>Felügyeleti előfizetés
-
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A két felügyeleti előfizetés verziójú 1804-es verzióban bevezetett nem használható. Az előfizetés-típusok a következők **mérés** előfizetését, és **fogyasztás** előfizetés.
-- Szervizelési: Ezek az előfizetések 1906 a kezdő- és idővel a törölt felfüggesztjük. Ha ezen a két előfizetés futó erőforrások, létrehozhatja a felhasználói előfizetések 1906 előtt.
-- Előfordulás: Közös
 
 ### <a name="subscription-resources"></a>Előfizetési erőforrások
 

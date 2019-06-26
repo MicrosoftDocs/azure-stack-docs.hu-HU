@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 27e70df453678bf2f6d3a9427a5a692b3cc62d8d
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748979"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387787"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Adatok átvitele tools for Azure Stack-tároló használata
 
@@ -57,85 +57,57 @@ Az AzCopy parancssori segédprogram az adatmásolás egyszerű parancs használa
 
 ### <a name="download-and-install-azcopy"></a>Töltse le és telepítse az Azcopyval
 
-Nincsenek az AzCopy segédprogram két verziója: Az AzCopy Windows és Linux rendszeren az AzCopy.
+* A 1811 frissítés és újabb verziók [töltse le az AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+* A korábbi verziók (a 1809 1802-es frissítés) [töltse le az AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
- - **AzCopy Windowson**
-    - Töltse le az AzCopy támogatott verzióját az Azure Stackhez. Telepítse, és ugyanúgy, mint az Azure használata az AzCopy az Azure Stacken. További információkért lásd: [az AzCopy Windows](/azure/storage/common/storage-use-azcopy).
-        - A 1811 frissítés és újabb verziók [töltse le az AzCopy 7.3.0](https://aka.ms/azcopyforazurestack20171109).
-        - A korábbi verziók (a 1809 1802-es frissítés) [töltse le az AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+### <a name="accopy-101-configuration-and-limits"></a>AcCopy 10.1 konfigurációs és korlátozások
 
- - **AzCopy Linuxon**
+Az AzCopy 10.1 már régebbi API-verziók használatára kell konfigurálni. Ez lehetővé teszi az Azure Stack (korlátozott) támogatása.
+API-verzió támogatja az Azure Stack AzCopy konfigurálásához állítsa a `AZCOPY_DEFAULT_SERVICE_API_VERSION` környezeti változót, `2017-11-09`.
 
-    - Telepítse, és ugyanúgy, mint az Azure használata az AzCopy az Azure Stacken. További információkért lásd: [AzCopy linuxon](/azure/storage/common/storage-use-azcopy-linux).
-    - A korábbi verziók (1802 való 1809 frissítések), tekintse meg a [telepítési lépések AzCopy 7.1-es és korábbi verzióiban](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy).
+| Operációs rendszer | Parancs  |
+|--------|-----------|
+| **Windows** | A parancssort használja: `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> A PowerShell használata: `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
+| **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
+
+Az AzCopy 10.1 a következő funkciók az Azure Stack támogatottak:
+
+| Funkció | Támogatott műveletek |
+| --- | --- |
+|Tárolók kezelése|Tároló létrehozása<br>Tárolók listázása
+|Feladat kezelése|Megjeleníti a feladatokat<br>Egy feladat folytatása
+|Blob törlése|Egy blob törlése<br>Teljes vagy részleges virtuális könyvtár eltávolítása
+|Fájl feltöltése|Fájl feltöltése<br>Egy könyvtárat feltöltése<br>Töltse fel a tartalmát a címtár
+|Fájl letöltése|Fájl letöltése<br>Letöltési könyvtár<br>Egy könyvtár tartalmának letöltése
+|Fájl szinkronizálása|Egy tárolót a helyi fájlrendszerben szinkronizálása<br>Szinkronizálja a helyi fájlrendszer egy tárolóba
+
+   > [!NOTE]
+   > * Az Azure Stack azcopyhoz engedélyezési hitelesítő adatok nem támogatja az Azure Active Directory (AD) használatával. Tárolási objektumok az Azure Stacken egy közös hozzáférésű Jogosultságkód (SAS) token használatával kell elérni.
+   > * Az Azure Stack nem támogatja az aszinkron adatátvitel két Azure Stack blob helye, valamint az Azure storage és az Azure Stack között. Nem használható "azcopy cp" adatok áthelyezése az Azure Stack az Azure storage (vagy egy ellentétes módon) közvetlenül az AzCopy 10.1.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Adatátvitel az AzCopy parancs példák
 
-Az alábbi példák hajtsa végre az adatok másolása, és az Azure Stack-blobokból jellemző forgatókönyvei. További tudnivalókért lásd: [az AzCopy Windows](/azure/storage/common/storage-use-azcopy) és [AzCopy linuxon](/azure/storage/common/storage-use-azcopy-linux).
+Az alábbi példák hajtsa végre az adatok másolása, és az Azure Stack-blobokból jellemző forgatókönyvei. További tudnivalókért lásd: [Bevezetés az AzCopy használatába](/azure/storage/common/storage-use-azcopy-v10).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Az összes blobokat a helyi lemez
 
-**Windows**
-
-```shell
-AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
-
-**Linux**
-
-```bash
-azcopy \
-    --source https://myaccount.blob.local.azurestack.external/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --recursive
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
 ```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Virtuális könyvtár egyetlen fájl feltöltése
 
-**Windows**
-
-```shell
-AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-
-**Linux**
-
-```bash
-azcopy \
-    --source /mnt/myfiles/abc.txt \
-    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
-    --dest-key <key>
-```
-
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Adatok áthelyezése Azure és az Azure Stack-tárolás között
-
-Az Azure storage és az Azure Stack közötti aszinkron adatátvitel nem támogatott. Meg kell adnia az átvitelt, az a **/SyncCopy** vagy **--szinkronizálási másolási** lehetőséget.
-
-**Windows**
-
-```shell
-Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-
-**Linux**
-
-```bash
-azcopy \
-    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
-    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
-    --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt" \
-    --sync-copy
+azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 ### <a name="azcopy-known-issues"></a>Az Azcopy ismert problémák
 
  - Bármely fájl áruházbeli AzCopy művelet nem érhető el, mert a file storage még nem áll rendelkezésre az Azure Stackben.
- - Az Azure storage és az Azure Stack közötti aszinkron adatátvitel nem támogatott. Megadhatja, hogy az átvitel és a **/SyncCopy** lehetőség az adatok másolásához.
+ - Ha azt szeretné, az adatok átviteléhez az Azure Stack blob végre két hely között, vagy az Azure Stacket és az Azure storage között az AzCopy 10.1, először töltse le az adatokat egy helyi helyre, és ezután töltse fel újra az Azure Stackben vagy az Azure storage céloldali könyvtár szüksége. AzCopy 7.1 használhat, és adja meg a-azonosítójú átvitel vagy a **/SyncCopy** lehetőség az adatok másolásához.  
  - A Linux az Azcopy verzióval csak 1802 frissítés vagy újabb verzió. És nem támogatja a Table Storage-szolgáltatás.
-
+ 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 Az Azure PowerShell modul parancsmagokat biztosít az Azure és az Azure Stack-szolgáltatások kezeléséhez az. Ez nem egy feladatalapú, parancssori rendszerhéj és parancsnyelv, amely kifejezetten.

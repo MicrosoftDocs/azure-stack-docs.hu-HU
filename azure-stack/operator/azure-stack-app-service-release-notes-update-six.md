@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
+ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828315"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348722"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service-ben az Azure Stack 6. összesített frissítéssel kibocsátási megjegyzései
 
@@ -111,7 +111,11 @@ Bérlők még nem hozható létre, használja az üzembe helyezési központ, am
 
 - Központi telepítési beállítások (klasszikus) felhasználói felület és a telepítési hitelesítő adatok portál beállítások nem érhető el
 
-A központi telepítési beállítások és az üzembe helyezési hitelesítő adatok felhasználói élmény az Azure Stack üzembe helyezés, a bérlők a elérése érdekében kell be a portálra ebben a formátumban URL-cím - https://portal.&lt; *régió*&gt;.&lt; *FQDN*&gt;/? websitesExtension_oldvsts = true –, amelyek esetében a ASDK lenne [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd keresse meg az alkalmazások általában.
+A központi telepítési beállítások és az üzembe helyezési hitelesítő adatok felhasználói élmény az Azure Stack üzembe helyezés, a bérlők a elérése érdekében kell be a portálra ebben a formátumban URL-cím - https://portal.&lt ; *régió*&gt;.&lt; *FQDN*&gt; /? websitesExtension_oldvsts = true –, amelyek esetében a ASDK lenne [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd keresse meg az alkalmazások általában.
+
+- "Betöltés" folyamatosan Azure Monitoring függvény látható a portálon
+
+Ha megkísérli az egyes funkciók, a bérlői portálon figyelése nem Hívásnapló, a sikeres műveletek száma, vagy a hibák száma jelenik meg.  Ez a funkció engedélyezéséhez nyissa meg a **Függvényalkalmazás**, lépjen a **Platformfunkciók**, és nyissa meg **Alkalmazásbeállítások**.  Adjon hozzá egy új alkalmazás beállítás - nevet **AzureWebJobsDashboard** és állítsa az értékét AzureWebJobsStorage meg ugyanazt az értéket.  Keresse meg a figyelő nézetben a függvényt, és látni fogja a monitorozási információkhoz.
 
 ## <a name="next-steps"></a>További lépések
 

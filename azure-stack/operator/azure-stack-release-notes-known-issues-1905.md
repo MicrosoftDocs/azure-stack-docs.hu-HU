@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 48a97beac6b43e95b52d8b23f20369318e53ebee
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: e90c829edc8c1c5c82068c2eb380123e537994a9
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67297988"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387773"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Az Azure Stack 1905 ismert problémák
 
@@ -154,10 +154,10 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 - OK: A rendelkezésre állási csoport 3 tartalék tartomány a virtuális gépek létrehozása és a egy virtuálisgép-méretezési csoport létrehozása a példány sikertelen lesz, és állítsa be a **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt a frissítés során az egy 4 csomópontos az Azure Stackben környezet.
 - Szervizelési: Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
 
-#### <a name="vmss-instance-view-blade-doesnt-load"></a>Nem tölt be a VMSS-példány megtekintési paneljén
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Nem tölt be a méretezési csoport példány megtekintési paneljén
 
 - Alkalmazható: A probléma 1904-es és 1905 kiadásra vonatkozik.
-- OK: Egy méretezési csoport Azure Stack portálon található példány megtekintési paneljén -> irányítópult -> virtuálisgép-méretezési csoportok -> AnyScaleSet – példányok > AnyScaleSetInstance sikertelen a betöltés, és a egy crying felhőalapú képet jeleníti meg.
+- OK: Azure Stack portálon található beállítása egy virtuálisgép-méretezési csoport példánya megtekintési paneljén -> irányítópult -> virtuálisgép-méretezési csoportok -> AnyScaleSet – példányok > AnyScaleSetInstance sikertelen a betöltés, és a egy crying felhőalapú képet jeleníti meg.
 - Szervizelési: Jelenleg nem nincs szervizelés, és folyamatban van egy javítás. Addig használja a CLI-paranccsal `az vmss get-instance-view` beolvasni egy méretezési csoport példányait tartalmazó nézetet.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés

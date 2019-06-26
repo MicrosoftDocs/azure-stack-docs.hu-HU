@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2019
+ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: b115bacc0c05eeede7a3ba8e424c8a6ed70774ee
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 2e7737033b0f94473f4b794e452c9239f275c8f8
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315893"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387730"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Az Azure Stack felügyelt lemezek: különbségek és szempontok
 
@@ -67,6 +67,9 @@ Az Azure Stack felügyelt lemezeket támogatja a következő API-verziók:
 - 2017-12-01
 
 ## <a name="convert-to-managed-disks"></a>Konvertálás felügyelt lemezekké
+
+> [!NOTE]  
+> Az Azure PowerShell-parancsmagot **ConvertTo-AzureRmVMManagedDisk** nem felügyelt lemez átalakítása az Azure Stack felügyelt lemez nem használható. Az Azure Stack még nem támogatja ezt a parancsmagot.
 
 A következő parancsfájl segítségével a jelenleg üzembe helyezett virtuális gép konvertálás nem felügyeltről felügyelt lemezekre. Cserélje le a helyőrzőket a saját értékeit:
 
