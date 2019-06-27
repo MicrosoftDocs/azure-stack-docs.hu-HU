@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 9b5273da44db26f9a98eab4147350c35214b128c
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 6759264afaf3f44dd612662d9778d7de65a15924
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198683"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406944"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-verzióprofilok használata nyissa meg az Azure Stackben
 
@@ -86,7 +86,7 @@ Go-kódokat a minta futtatásához az Azure Stacken, kövesse az alábbi lépés
 
 3. Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Előfizetés létrehozásával kapcsolatos információkért lásd: [ajánlatok, előfizetések létrehozása az Azure Stackben](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
-4. Az egyszerű szolgáltatás létrehozása **előfizetés** hatókör és **tulajdonosa** szerepkör. Mentse a szolgáltatásnév-Azonosítót és a titkos kulcsot. További információ az Azure stack-beli szolgáltatásnév létrehozása: [egyszerű szolgáltatás létrehozása](azure-stack-create-service-principals.md). Most már az Azure Stack-környezet van beállítva.
+4. Titkos kód, az ügyfél használó egyszerű szolgáltatás létrehozása **előfizetés** hatókör és **tulajdonosa** szerepkör. Mentse a szolgáltatásnév-Azonosítót és a titkos kulcsot. További információ az Azure stack-beli szolgáltatásnév létrehozása: [egy alkalmazás-identitást erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md). Most már az Azure Stack-környezet van beállítva.
 
 5. A modul importálása a Go SDK-profillal a kódban. Az Azure Stack profil aktuális verziója: **2019-03-01**. Ha például a hálózati modul importálásához **2019-03-01** profil típusa, a következő kóddal:
 
@@ -132,7 +132,7 @@ Az első a **hitelesítő** tulajdonság az Azure Active Directoryból, a Go SDK
 
 A hitelesítő kell beállítani a hitelesítő az erőforrás-ügyfél. Többféleképpen tokenekhez hitelesítő az Azure Stacken ügyfél-hitelesítő adatok használatával:
 
-1. Ha egy egyszerű szolgáltatást az előfizetésben tulajdonosi szerepkörrel rendelkező érhető el, hagyja ki ezt a lépést. Máskülönben hozzon létre egy [szolgáltatásnév](azure-stack-create-service-principals.md) , és rendelje hozzá egy "owner" szerepkör [hatóköre úgy, hogy az előfizetés](azure-stack-create-service-principals.md#assign-the-service-principal-to-a-role). Mentse a szolgáltatás egyszerű Alkalmazásazonosítót és titkos kulcsot.
+1. Ha egy egyszerű szolgáltatást az előfizetésben tulajdonosi szerepkörrel rendelkező érhető el, hagyja ki ezt a lépést. Ellenkező esetben tekintse [egy alkalmazás-identitást erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md) vonatkozó utasításokat egy ügyfélkulcsot használó egyszerű szolgáltatás létrehozása és hozzárendelése egy "owner" szerepkör hatóköre az előfizetéshez. Győződjön meg arról, rögzítheti a szolgáltatás egyszerű Alkalmazásazonosítót és titkos kulcs.
 
 2. Importálás a **adal** Go-AutoRest csomagot a kódban.
 

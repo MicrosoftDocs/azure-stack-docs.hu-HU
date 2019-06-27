@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ed85055c04e068ad614a406caf113555601bd620
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.lastreviewed: 06/26/2019
+ms.openlocfilehash: 712aa506cf9209b123d3fafcfd6324d58575ae54
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252048"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406971"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Oktatóanyag: A hibrid felhőbeli identitás az Azure és az Azure Stack-alkalmazások konfigurálása
 
@@ -52,11 +52,11 @@ Ez az oktatóanyag lépéseit az Azure Stack operátori kell rendelkeznie.
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>A portálon az Azure ad egyszerű szolgáltatás létrehozása
 
-Ha már telepítette az Azure AD az ügyfélidentitás-tárolóval, mint az Azure Stack, létrehozhat egyszerű szolgáltatásokat, mint az Azure-ban végezhet el. A [szolgáltatásnevek létrehozása](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) a cikk bemutatja, hogyan végezheti el a lépéseket a portálon keresztül. Ellenőrizze, hogy rendelkezik a [szükséges Azure AD-engedélyekről](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) megkezdése előtt.
+Ha üzembe helyezte az Azure AD az ügyfélidentitás-tárolóval, mint az Azure Stack, létrehozhat egyszerű szolgáltatásokat, mint az Azure-ban végezhet el. [Egy alkalmazás-identitást erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) bemutatja, hogyan hajtsa végre a lépéseket a portálon keresztül. Ellenőrizze, hogy rendelkezik a [szükséges Azure AD-engedélyekről](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) megkezdése előtt.
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Hozzon létre egy egyszerű szolgáltatást az AD FS Szolgáltatásokhoz a PowerShell használatával
 
-Ha telepítette az AD FS az Azure Stack, PowerShell segítségével hozzon létre egy egyszerű szolgáltatást, hozzáférés szerepkör hozzárendelése és jelentkezzen be a PowerShell használatával az identitásukat. [Az AD FS egyszerű szolgáltatás létrehozása](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) bemutatja, hogyan végezheti el a PowerShell-lel szükséges lépéseket.
+Ha telepítette az AD FS az Azure Stack, PowerShell segítségével hozzon létre egy egyszerű szolgáltatást, hozzáférés szerepkör hozzárendelése és jelentkezzen be a PowerShell használatával az identitásukat. [Egy alkalmazás-identitást erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) bemutatja, hogyan végezheti el a PowerShell-lel szükséges lépéseket.
 
 ## <a name="using-the-azure-stack-api"></a>Az API-t az Azure Stack használatával
 

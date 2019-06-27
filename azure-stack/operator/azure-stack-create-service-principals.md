@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2019
+ms.date: 06/25/2019
 ms.author: bryanla
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 0fb7f605ff392e0d3fbbe57024eb27f5e5eaab04
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 8c27948185df5f98926a3500db0981a1ccddc321
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315924"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397315"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>Egy alkalmazás-erőforrások eléréséhez identitás használata
 
@@ -336,7 +336,7 @@ Felhasználók és az alkalmazások Azure-erőforrásokhoz való hozzáférés e
 1. Jelentkezzen be a megfelelő portálra, az Azure Stack könyvtárat alapján (az Azure portal Azure AD-hez vagy az AD FS Szolgáltatásokhoz, például az Azure Stack felhasználói portál) telepítése. Ebben a példában bemutatjuk, a felhasználó bejelentkezett az Azure Stack felhasználói portálon.
 
    > [!NOTE]
-   > Szerepkör-hozzárendelését egy adott erőforrás hozzáadása, a felhasználói fiók egy deklaráló szerepkörhöz kell tartoznia a `Microsoft.Authorization/roleAssignments/write` engedéllyel. Például, vagy a [tulajdonosa](/azure/role-based-access-control/built-in-roles.md#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles.md#user-access-administrator) beépített szerepkörök.  
+   > Szerepkör-hozzárendelését egy adott erőforrás hozzáadása, a felhasználói fiók egy deklaráló szerepkörhöz kell tartoznia a `Microsoft.Authorization/roleAssignments/write` engedéllyel. Például, vagy a [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörök.  
 2. Keresse meg az erőforrást szeretné, hogy a szolgáltatás egyszerű hozzáférés. Ebben a példában rendelje hozzá az egyszerű szolgáltatás egy szerepkörhöz az előfizetések szintjén kiválasztásával **előfizetések**, majd egy adott előfizetésben. Ehelyett kiválaszthatja egy erőforráscsoportot, vagy egy adott erőforrással, például egy virtuális gépet. 
 
      ![Válasszon hozzárendelés előfizetést](./media/azure-stack-create-service-principal/select-subscription.png)

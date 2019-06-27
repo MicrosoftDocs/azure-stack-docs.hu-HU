@@ -386,9 +386,9 @@
         - name: Készítsen biztonsági másolatot az Azure Stackben
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Fájlok és alkalmazások biztonsági mentése az Azure Stackben
-          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Az Azure Stack-alapú virtuális gépek replikálása az Azure-bA
-          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Végzetes adatvesztés utáni helyreállítás
           href: azure-stack-backup-recover-data.md
         - name: Ajánlott biztonsági eljárások

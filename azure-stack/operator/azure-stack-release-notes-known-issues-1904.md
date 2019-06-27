@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 70d6cfae2eb6e9508e2141aa59c6986ec8817d11
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: 68a0d80f02e84affa551b296548a09768eba7e1a
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387720"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406804"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -142,7 +142,7 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 #### <a name="centos"></a>CentOS
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A virtual machine scale set létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. CentOS 7.2 nem érhető el az Azure Stacken.
+- OK: A virtual machine scale set létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. CentOS 7.2 nem érhető el az Azure Stack piactéren, amely hatására a hibával kapcsolatos üzembehelyezési problémák hívott, hogy a kép nem található.
 - Szervizelési: Az üzembe helyezéshez használt egy másik operációs rendszert, vagy adjon meg egy másik CentOS lemezképet a marketplace-ről telepítené az üzemeltető által letöltött Azure Resource Manager sablonnal.
 - Előfordulás: Közös
 

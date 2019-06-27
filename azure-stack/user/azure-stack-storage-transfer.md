@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 27e70df453678bf2f6d3a9427a5a692b3cc62d8d
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: a76676c5f4fd1e23a20df04622dafb450e162448
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387787"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406898"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Adatok átvitele tools for Azure Stack-tároló használata
 
@@ -57,7 +57,7 @@ Az AzCopy parancssori segédprogram az adatmásolás egyszerű parancs használa
 
 ### <a name="download-and-install-azcopy"></a>Töltse le és telepítse az Azcopyval
 
-* A 1811 frissítés és újabb verziók [töltse le az AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
+* A 1811 frissítés és újabb verziók [töltse le az AzCopy V10 +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy).
 * A korábbi verziók (a 1809 1802-es frissítés) [töltse le az AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
 ### <a name="accopy-101-configuration-and-limits"></a>AcCopy 10.1 konfigurációs és korlátozások
@@ -75,7 +75,7 @@ Az AzCopy 10.1 a következő funkciók az Azure Stack támogatottak:
 
 | Funkció | Támogatott műveletek |
 | --- | --- |
-|Tárolók kezelése|Tároló létrehozása<br>Tárolók listázása
+|Tárolók kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladat kezelése|Megjeleníti a feladatokat<br>Egy feladat folytatása
 |Blob törlése|Egy blob törlése<br>Teljes vagy részleges virtuális könyvtár eltávolítása
 |Fájl feltöltése|Fájl feltöltése<br>Egy könyvtárat feltöltése<br>Töltse fel a tartalmát a címtár
@@ -84,7 +84,7 @@ Az AzCopy 10.1 a következő funkciók az Azure Stack támogatottak:
 
    > [!NOTE]
    > * Az Azure Stack azcopyhoz engedélyezési hitelesítő adatok nem támogatja az Azure Active Directory (AD) használatával. Tárolási objektumok az Azure Stacken egy közös hozzáférésű Jogosultságkód (SAS) token használatával kell elérni.
-   > * Az Azure Stack nem támogatja az aszinkron adatátvitel két Azure Stack blob helye, valamint az Azure storage és az Azure Stack között. Nem használható "azcopy cp" adatok áthelyezése az Azure Stack az Azure storage (vagy egy ellentétes módon) közvetlenül az AzCopy 10.1.
+   > * Az Azure Stack nem támogatja az Azure Stack blob végre két hely között, és az Azure storage és az Azure Stack közötti szinkron az adatátvitelt. Nem használható "azcopy cp" adatok áthelyezése az Azure Stack az Azure storage (vagy egy ellentétes módon) közvetlenül az AzCopy 10.1.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Adatátvitel az AzCopy parancs példák
 

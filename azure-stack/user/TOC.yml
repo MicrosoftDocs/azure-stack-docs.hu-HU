@@ -54,12 +54,12 @@
       href: azure-stack-use-portal.md
     - name: Kapcsolódás a PowerShell-lel
       href: azure-stack-powershell-configure-user.md
-    - name: Biztonság és megfelelőség
+    - name: 'Biztonság, megfelelőség és identitás'
       items:
         - name: Szerepköralapú hozzáférés-vezérlés alkalmazása
           href: azure-stack-manage-permissions.md
-        - name: Szolgáltatásnevek használata
-          href: Azure-stack-create-service-principals.md
+        - name: Egy alkalmazás-erőforrások eléréséhez identitás használata
+          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Szolgáltatások használata
       items:
         - name: Compute
