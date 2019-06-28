@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 68a0d80f02e84affa551b296548a09768eba7e1a
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406804"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419594"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Az Azure Stack 1904 ismert problémák
 
@@ -38,6 +38,13 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 - Előfordulás: Közös
 
 ## <a name="portal"></a>Portál
+
+### <a name="administrative-subscriptions"></a>Felügyeleti előfizetés
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: A két felügyeleti előfizetés verziójú 1804-es verzióban bevezetett nem használható. Az előfizetés-típusok a következők **mérés** előfizetését, és **fogyasztás** előfizetés.
+- Szervizelési: Ha ezen a két előfizetés futó erőforrások, létrehozhatja a felhasználói előfizetések.
+- Előfordulás: Közös
 
 ### <a name="subscription-resources"></a>Előfizetési erőforrások
 
@@ -93,6 +100,13 @@ Ez a cikk az Azure Stack 1904 kiadás ismert problémákat ismerteti. A lista fr
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon, ha feltölt egy blobot a OAuth(preview) beállítás használatával próbál a feladat sikertelen, egy hibaüzenet.
 - Szervizelési: Töltse fel a blob SAS lehetőséggel.
+- Előfordulás: Közös
+
+### <a name="template"></a>Sablon
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: A felhasználói portálra a sablon üzembe helyezéséhez felhasználói felület nem adja meg a sablon nevét, "_" (aláhúzásjelet) kezdődő paramétereit.
+- Szervizelési: Távolítsa el a sablon nevét a "_" (aláhúzás karakterrel).
 - Előfordulás: Közös
 
 ## <a name="networking"></a>Hálózat

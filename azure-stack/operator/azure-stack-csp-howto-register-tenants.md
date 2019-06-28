@@ -15,12 +15,12 @@ ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: e69000eb862411dd0c8b415ab1f0ad7c8573f046
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828338"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419541"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adja hozzá a bérlői használat és számlázás az Azure Stackhez
 
@@ -77,7 +77,7 @@ Az alábbi szakasz ismerteti a paramétereket a **New-AzureRmResource** parancsm
 | --- | --- |
 |registrationSubscriptionID | Az Azure-előfizetés, amely a kezdeti regisztráció az Azure Stack-lett megadva.|
 | customerSubscriptionID | Az Azure-előfizetést (nem az Azure Stack) regisztrálni kell az ügyfélhez tartozó. Meg kell létrehozni a CSP-ajánlat; a gyakorlatban ez azt jelenti, hogy Partner Centeren keresztül. Ha egy ügyfél több Azure Active Directory-bérlővel rendelkezik, a bérlő Azure Stack-ba való bejelentkezéshez használt ebben az előfizetésben kell létrehozni. Az ügyfél-előfizetési azonosító kisbetűket kell használnia. |
-| Erőforráscsoport | Az erőforráscsoport az Azure-ban, amely tárolja a regisztrációt. |
+| resourceGroup | Az erőforráscsoport az Azure-ban, amely tárolja a regisztrációt. |
 | registrationName | Az Azure Stack-regisztrációk neve. Az Azure-ban tárolt objektum. |
 | Tulajdonságok | Az erőforrás tulajdonságainak megadása Ez a paraméter használatával adja meg az adott erőforrástípus tulajdonságának értékét.
 
@@ -94,6 +94,6 @@ Miután hozzáadta az új ügyfél az Azure Stackhez, vagy az end ügyfélbérl�
 
 ## <a name="next-steps"></a>További lépések
 
-- Tekintse át a hibaüzeneteket, ha a regisztrációs folyamat során el, lásd: [bérlő regisztrációs hibaüzenetek](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
+- Tekintse át a hibaüzeneteket, ha a regisztrációs folyamat során el, lásd: [bérlő regisztrációs hibaüzenetek](azure-stack-registration-errors.md).
 - Erőforrás-használati adatok lekérése az Azure Stack kapcsolatos további tudnivalókért lásd: [használat és számlázás az Azure Stackben](azure-stack-billing-and-chargeback.md).
 - Tekintse át, hogy egy végfelhasználói előfordulhat, hogy vegye fel, a kriptográfiai Szolgáltató, mint az Azure Stack-bérlő, a kezelő lásd [engedélyezése az Azure Stack-előfizetés kezelése céljából Felhőszolgáltató](../user/azure-stack-csp-enable-billing-usage-tracking.md).

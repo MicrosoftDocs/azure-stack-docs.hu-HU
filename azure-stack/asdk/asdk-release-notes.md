@@ -11,22 +11,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 0de27634ac6167637dcdc487474f16d3ef2b2c95
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: 1fc07dfd86767f39627e97e42a8dc6de3b7f59b4
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145179"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419419"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
 Ez a cikk a módosításokat, javításokat és ismert problémák az Azure Stack Development Kit (ASDK) kapcsolatos információkat. Ha nem biztos abban, hogy melyik verziót futtatja, akkor az [ellenőrizhető a portál használatával](../operator/azure-stack-updates.md#determine-the-current-version).
 
 What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-hírcsatorna](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11906030"></a>1\.1906.0.30 összeállítása
+
+### <a name="new-features"></a>Új funkciók
+
+- Ebben a kiadásban új szolgáltatások listáját lásd: [ebben a szakaszban](../operator/azure-stack-release-notes-1906.md#whats-in-this-update) kiadási megjegyzések az Azure Stack.
+
+### <a name="fixed-and-known-issues"></a>Rögzített méretű és ismert problémák
+
+- Azure Stack hibáinak javításai ebben a kiadásban listáját lásd: [ebben a szakaszban](../operator/azure-stack-release-notes-1906.md#fixes) kiadási megjegyzések az Azure Stack.
+- Ismert problémák listáját lásd: [Ez a cikk](../operator/azure-stack-release-notes-known-issues-1906.md).
+- Vegye figyelembe, hogy [elérhető az Azure Stack-gyorsjavítások](../operator/azure-stack-release-notes-1906.md#hotfixes) nem használhatók az Azure Stack ASDK.
 
 ## <a name="build-11905040"></a>1\.1905.0.40 összeállítása
 
@@ -56,7 +68,7 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 - Szolgáltatás egyszerű időtúllépése miatt annak érdekében, hogy a regisztrációs parancsfájl futtatásakor [regisztrálja a ASDK](asdk-register.md) sikeresen szerkesztenie kell a **RegisterWithAzure.psm1** PowerShell-parancsfájlt. Tegye a következőket:
 
   1. A ASDK állomás számítógépen nyissa meg a fájlt **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** emelt jogosultsági szintű egy szövegszerkesztőben.
-  2. 1249\. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, a szolgáltatás egyszerű időtúllépés miatt, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
+  2. 1249. sorban, adjon hozzá egy `-TimeoutInSeconds 1800` paraméter a végén. Ez azért szükséges, a szolgáltatás egyszerű időtúllépés miatt, a regisztráció parancsfájl futtatásakor. Sor 1249 meg kell jelennie a következő:
 
      ```powershell
       $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
@@ -71,23 +83,6 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 ## <a name="build-1903"></a>1903 összeállítása
 
 A 1903 hasznos adatai nem tartalmaz egy ASDK kiadást.
-
-## <a name="build-11902069"></a>1\.1902.0.69 összeállítása
-
-### <a name="new-features"></a>Új funkciók
-
-- A 1902 build vezet be az Azure Stack rendszergazdai portál csomagok, ajánlatok, kvóták és kiegészítő csomagok létrehozására szolgáló új felhasználói felületet. További információk, többek között a képernyőképek: [csomagok, ajánlatok és kvóták létrehozása](../operator/azure-stack-create-plan.md).
-
-- Az egyéb módosítások és fejlesztések azzal kapcsolatban, ebben a kiadásban, lásd: [ebben a szakaszban](../operator/azure-stack-update-1902.md#improvements) az Azure Stack a kibocsátási megjegyzéseket.
-
-<!-- ### New features
-
-- For a list of new features in this release, see [this section](../operator/azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
-
-### Fixed and known issues
-
-- For a list of issues fixed in this release, see [this section](../operator/azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../operator/azure-stack-update-1902.md#known-issues-post-installation).
-- Note that [available Azure Stack hotfixes](../operator/azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
 
 ### <a name="known-issues"></a>Ismert problémák
 

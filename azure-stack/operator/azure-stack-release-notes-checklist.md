@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e079121fda268e9892648fca99da34de04f08101
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 06/27/2019
+ms.openlocfilehash: c5108dc8b24fec7569d54964217f146a5cefa5e6
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152487"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419567"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Az Azure Stack tevékenység ellenőrzőlista
 
@@ -31,13 +31,13 @@ Ez a cikk az Azure Stack-operátorok ellenőrzőlistája, frissítéssel kapcsol
 
 | Tevékenység              | Részletek                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| Tekintse át az ismert problémák   | [Ismert problémák listája](azure-stack-release-notes-known-issues-1905.md).                |
-| Tekintse át a biztonsági frissítések | [Biztonsági frissítések listája](azure-stack-release-notes-security-updates-1905.md).      |
+| Tekintse át az ismert problémák   | [Ismert problémák listája](azure-stack-release-notes-known-issues-1906.md).                |
+| Tekintse át a biztonsági frissítések | [Biztonsági frissítések listája](azure-stack-release-notes-security-updates-1906.md).      |
 | Run Test-AzureStack   | Futtatás `Test-AzureStack -Group UpdateReadiness` működési problémák azonosításához.      |
 | Problémák megoldása        | Oldja meg a működési problémákat által azonosított **Test-AzureStack**.                |
 | Alkalmazza a legújabb gyorsjavítások | A alkalmazni a legújabb gyorsjavításokat, amelyek érvényesek a jelenleg telepített kiadása.         |
 | Capacity planner eszközt futtatása | Ügyeljen arra, hogy a legújabb verzióját használja a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) végrehajtására a számítási feladatok tervezésekor és méretezése. A legújabb verzió hibajavításokat tartalmaz, és olyan megjelent új funkciókat biztosít minden egyes Azure Stack a frissítéssel. |
-| Frissítés érhető el       | Csak csatlakoztatott forgatókönyvekben Azure Stack üzemelő példányok rendszeres időnként ellenőrzik egy biztonságos végpontot, és automatikusan értesíti, ha egy frissítés érhető el a felhőben. Kapcsolat nélküli ügyfelek letöltése, és az új 1905 csomag használatával importálja a [folyamatot az itt leírtak szerint](azure-stack-apply-updates.md).               |
+| Frissítés érhető el       | Csak csatlakoztatott forgatókönyvekben Azure Stack üzemelő példányok rendszeres időnként ellenőrzik egy biztonságos végpontot, és automatikusan értesíti, ha egy frissítés érhető el a felhőben. Kapcsolat nélküli ügyfelek letöltése, és az új 1906 csomag használatával importálja a [folyamatot az itt leírtak szerint](azure-stack-apply-updates.md).               |
 
 ## <a name="during-azure-stack-update"></a>Azure Stack frissítése közben.
 
@@ -59,5 +59,5 @@ Ez a cikk az Azure Stack-operátorok ellenőrzőlistája, frissítéssel kapcsol
 
 ## <a name="next-steps"></a>További lépések
 
-- [Tekintse át a kapcsolatos ismert problémák listája](azure-stack-release-notes-known-issues-1905.md)
-- [Tekintse át a biztonsági frissítések listája](azure-stack-release-notes-security-updates-1905.md)
+- [Tekintse át a kapcsolatos ismert problémák listája](azure-stack-release-notes-known-issues-1906.md)
+- [Tekintse át a biztonsági frissítések listája](azure-stack-release-notes-security-updates-1906.md)

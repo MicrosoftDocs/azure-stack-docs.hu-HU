@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e90c829edc8c1c5c82068c2eb380123e537994a9
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387773"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419562"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Az Azure Stack 1905 ismert problémák
 
@@ -47,13 +47,6 @@ Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista fr
 - Előfordulás: Közös
 
 ## <a name="portal"></a>Portál
-
-### <a name="administrative-subscriptions"></a>Felügyeleti előfizetés
-
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A két felügyeleti előfizetés verziójú 1804-es verzióban bevezetett nem használható. Az előfizetés-típusok a következők **mérés** előfizetését, és **fogyasztás** előfizetés.
-- Szervizelési: Ezek az előfizetések 1906 a kezdő- és idővel a törölt felfüggesztjük. Ha ezen a két előfizetés futó erőforrások, létrehozhatja a felhasználói előfizetések 1906 előtt.
-- Előfordulás: Közös
 
 ### <a name="subscription-resources"></a>Előfizetési erőforrások
 
@@ -88,6 +81,13 @@ Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista fr
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon, amikor megpróbálja feltölteni egy blob használatával a **OAuth(preview)** beállítást, a feladat egy hibaüzenettel meghiúsul.
 - Szervizelési: Töltse fel a blob SAS lehetőséggel.
+- Előfordulás: Közös
+
+### <a name="template"></a>Sablon
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: A felhasználói portálra a sablon üzembe helyezéséhez felhasználói felület nem adja meg a sablon nevét, "_" (aláhúzásjelet) kezdődő paramétereit.
+- Szervizelési: Távolítsa el a sablon nevét a "_" (aláhúzás karakterrel).
 - Előfordulás: Közös
 
 ## <a name="networking"></a>Hálózat
@@ -130,6 +130,13 @@ Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista fr
 - OK: Amikor egy új Windows virtuális gép (VM) hoz létre, a következő hiba jelenhet meg: **Nem sikerült elindítani a virtuális gép (vm-name). Hiba: Nem sikerült frissíteni a virtuális gép (vm-name) soros kimeneti beállításait**.
 A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika engedélyezése, de a rendszerindítás-diagnosztikai tárfiók törlése.
 - Szervizelési: Hozza létre újból a korábban használt azonos nevű tárfiók.
+- Előfordulás: Közös
+
+### <a name="vm-resize"></a>Virtuális gép átméretezése
+
+- Alkalmazható: A probléma a 1905 kiadásra vonatkozik.
+- OK: Nem sikerült átméretezni egy felügyelt lemezes virtuális gép. A "code" hibaüzenetet próbál, méretezze át a virtuális Gépet hoz létre: "InternalOperationError", "message": "Belső hiba történt a művelet."
+- Szervizelési: Folyamatban van kijavítani ezt a következő kiadásban. Jelenleg újra létre kell hoznia a virtuális gép és az új Virtuálisgép-méretet.
 - Előfordulás: Közös
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
