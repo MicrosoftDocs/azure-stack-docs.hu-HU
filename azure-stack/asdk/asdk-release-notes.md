@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 1fc07dfd86767f39627e97e42a8dc6de3b7f59b4
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: 4b9162eb662336b3a1acae69660ff86f5f3a0995
+ms.sourcegitcommit: 87da3ab028f39a3fdc90f58f0258c266198a94bc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419419"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67470956"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -33,6 +33,10 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 ### <a name="new-features"></a>Új funkciók
 
 - Ebben a kiadásban új szolgáltatások listáját lásd: [ebben a szakaszban](../operator/azure-stack-release-notes-1906.md#whats-in-this-update) kiadási megjegyzések az Azure Stack.
+
+### <a name="changes"></a>Módosítások
+
+- Hozzáadott egy **AzS-SRNG01** kör a naplózási szolgáltatást az Azure Stack üzemeltető virtuális gépek támogatják. További információkért lásd: [virtuálisgép-szerepkörök](asdk-architecture.md).
 
 ### <a name="fixed-and-known-issues"></a>Rögzített méretű és ismert problémák
 

@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: db1611557d07ec31ec53edbb5e8356b520256be5
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 233ae3329ad382942c48b0a658ce019ccd214233
+ms.sourcegitcommit: f5d7b3ff34cfc1c7092087a4fa6efd4cf2b4b981
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419867"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465271"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítése
 
@@ -83,6 +83,8 @@ Az Azure Stack 1906 update build típusa **Express**. További információt a f
 ### <a name="changes"></a>Módosítások
 
 - Most már Azure összhangban egy storage-fiók megoldást vezet be.
+
+- A belső titkos kulcsok lejárati riasztás eseményindítók módosult:
   - Figyelmeztetési szintű riasztások most aktiválódnak a titkos kulcsok a lejárat előtt 90 nappal.
   - Kritikus riasztások most előállított titkos kódok lejárta előtt 30 nap.
 
