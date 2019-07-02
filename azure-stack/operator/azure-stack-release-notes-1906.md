@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 233ae3329ad382942c48b0a658ce019ccd214233
-ms.sourcegitcommit: f5d7b3ff34cfc1c7092087a4fa6efd4cf2b4b981
+ms.lastreviewed: 07/01/2019
+ms.openlocfilehash: 0ed50a370fd3a47c6721777b07faa9146cea16b1
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465271"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492364"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítése
 
@@ -38,7 +38,7 @@ Az Azure Stack 1906 frissítés buildszáma **1.1906.0.30**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az Azure Stack 1906 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk.
+Az Azure Stack 1906 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1906 frissítés befejezéséhez szükséges várt idő körülbelül 10 óra. Pontos frissítés modulok általában függ a kapacitást a bérlői terhelések, a rendszer hálózati kapcsolatot, (ha csatlakozik az internethez), a rendszer használja, és a rendszer hardverkonfigurációja. A várt érték hosszabb ideig tart a modulok nem ritka, és nem igényelnek Azure Stack operátorai művelet, kivéve, ha a frissítés sikertelen. A futtatókörnyezet előállításához a 1906 Update és más Azure Stack-frissítések nem hasonlíthatók.
 
 ## <a name="whats-in-this-update"></a>Mi az a frissítés
 
@@ -72,6 +72,8 @@ Az Azure Stack 1906 update build típusa **Express**. További információt a f
 
 - Új paraméter érhető el a **Register-CustomAdfs** parancsmag, amely lehetővé teszi, hogy a rendszer kihagyja a visszavont tanúsítványok listájának ellenőrzése az AD FS összevonási megbízhatósági konfigurálásakor rendszerjogosultságú végpontját.
 
+- A 1906 kiadás vezet jobb áttekinthetősége frissítés van folyamatban, így biztos lehet abban is, hogy a frissítések nem szünetel. Az eredmény látható az operátorok számára a frissítési lépéseket teljes számának növelését a **frissítése** panelen. Azt is megfigyelheti több frissítése történik a párhuzamos, mint a korábbi frissítés lépéseit.
+
 #### <a name="networking-updates"></a>Hálózatkezelés frissítések
 
 - Frissített bérleti idő beállítása a DHCP-válaszadó konzisztens Azure-ral.
@@ -102,7 +104,7 @@ Az Azure Stack 1906 update build típusa **Express**. További információt a f
 
 - Kijavítva, amelyben a frissítés időtartama a frissítési előzmények lapon lenne trim az első számjegy, ha a frissítés több mint 99 óráig futott.
 
-- Kijavítva a a **frissítés** panel: most már tartalmaz egy **folytatása** sikertelen frissítések lehetőséget.
+- A **frissítés** panelen többek között egy **folytatása** sikertelen frissítések lehetőséget.
 
 - A rendszergazdai és felhasználói portálok, javítva a Marketplace-en, amelyet a Docker-bővítmény nem megfelelően visszaadásához a keresés, de további művelet sikerült kell venni, nem érhető el az Azure Stackben.
 
@@ -142,7 +144,7 @@ Az Azure Stack 1906 kiadását kell alkalmazni az a következő gyorsjavítások
 Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Nincs elérhető 1906 gyorsjavítást.
+- [Az Azure Stack gyorsjavítás 1.1906.1.35](https://support.microsoft.com/help/4511259)
 
 ## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
 

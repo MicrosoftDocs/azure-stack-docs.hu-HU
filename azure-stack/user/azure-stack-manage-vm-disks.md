@@ -1,5 +1,5 @@
 ---
-title: Az Azure Stackben Virtuálisgép-lemezek kezelése |} A Microsoft Docs
+title: Lemezes tárolás virtuális gép létrehozása az Azure Stackben |} A Microsoft Docs
 description: Virtuális gépek lemezeinek létrehozása az Azure Stackben.
 services: azure-stack
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 10900095a79da2639212b5fa58becbafb7bee0eb
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: 8b4d48b55cfe21cf7de09119b9069ae4056d3efd
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941197"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492432"
 ---
-# <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Lemezes tárolás virtuális gép létrehozása az Azure Stackben
+# <a name="create-vm-disk-storage-in-azure-stack"></a>Lemezes tárolás virtuális gép létrehozása az Azure Stackben
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Ez a cikk ismerteti, hogyan hozhat létre a virtuális gép lemezes tárolás az Azure Stack-portál használatával, vagy a PowerShell használatával.
+Ez a cikk azt ismerteti, hogyan hozhat létre virtuális gépet (VM) lemezes tárolás az Azure Stack-portál használatával, vagy a PowerShell használatával.
 
 ## <a name="overview"></a>Áttekintés
 
-Azure Stack verziójától kezdve 1808, virtual machines szolgáltatásban, az operációs rendszer (OS) és a egy adatlemezt is támogatja a felügyelt lemezek és a nem felügyelt lemezek használata. A következőnél régebbi verziók 1808 csak a nem felügyelt lemezek támogatottak.
+Verziójától kezdve 1808, Azure Stack is támogatja a felügyelt lemezek és a nem felügyelt lemezek használata virtuális gépeken, az operációs rendszer (OS) és a egy adatlemezt is. A következőnél régebbi verziók 1808 csak a nem felügyelt lemezek támogatottak.
 
 [A Managed disks](/azure/virtual-machines/windows/managed-disks-overview) az Azure IaaS virtuális gépek lemezfelügyelet egyszerűsítése a virtuális gépek lemezeihez társított storage-fiókok kezelésével. Csak meg kell adnia a kívánt lemez méretét, és az Azure létrehozza és felügyeli a lemezt Ön helyett.
 
@@ -85,35 +85,35 @@ Minden nem felügyelt lemez hozzáadása egy külön tárolóban kell elhelyezni
 
 5. Az a **létrehozása felügyelt lemez** panelen:
    * Adja meg a **neve** a lemezen.
-   * Válasszon egy meglévő, vagy hozzon létre egy új **erőforráscsoport**.
+   * Válasszon egy meglévő **erőforráscsoport** , vagy hozzon létre egy újat.
    * Válassza ki a **hely**. Alapértelmezés szerint a hely ugyanazt a tárolót, amely tárolja az operációsrendszer-lemez értéke.
    * Válassza ki a **fiók típusa**.
       ![Példa: Új lemez csatolása a virtuális géphez](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
       **Prémium szintű SSD**  
-      Felügyelt lemezek prémium szintű (SSD) élvezik SSD-meghajtókat, és egységes, közel valós idejű teljesítményt. A legjobb ára és teljesítménye közötti egyensúlyt biztosítanak, és ideálisak a nagy I/O-igényes alkalmazások és a termelési számítási feladatokhoz.
+      Felügyelt lemezek prémium szintű (SSD) élvezik SSD-meghajtókat, és egységes, közel valós idejű teljesítményt. A legjobb ára és teljesítménye közötti egyensúlyt biztosítanak, és ideálisak a nagy I/O-igényes alkalmazásokhoz és a termelési számítási feladatokhoz.
 
       **Standard HDD**  
-      A standard szintű lemezek (HDD) mágneses meghajtók élvezik és alkalmazások általában hol adatokhoz ritkán. Zónaredundáns lemezeket élvezik a zónaredundáns tárolás (ZRS), amely az adatokat több zónában replikálja, és elérhetők, még akkor is, ha egy zóna nem működik.
+      A standard szintű lemezek (HDD) mágneses meghajtók élvezik és alkalmazások általában hol adatokhoz ritkán. A zónaredundáns lemezeket a zónaredundáns tárolás (ZRS), amely replikálja az adatokat több zónában, még akkor is, ha le egy bizonyos zóna nem érhető el az adatok biztosítása élvezik.
 
    * Válassza ki a **adatforrástípust**.
 
-     Lemez létrehozása egy másik lemez pillanatképéből vagy egy tárfiókbeli blobból, vagy üres lemez létrehozása.
+     Lemez létrehozása pillanatképből egy másik lemez, egy blob storage-fiókban lévő, vagy hozzon létre egy üres lemez.
 
       **Snapshot**: Válassza ki a pillanatképet, ha rendelkezésre áll. A pillanatkép kell lennie a virtuális gép előfizetésben és helyen érhető el.
 
       **A tárolási blob**:
-     * Adja hozzá az URI-ját a Storage-blobból, amely tartalmazza a lemezképet.  
-     * Válassza ki **Tallózás** a Storage-fiókok panel megnyitásához. Útmutatásért lásd: [adatlemez hozzáadása egy tárfiókból](#add-a-data-disk-from-a-storage-account).
-     * Válassza ki az operációs rendszer típusa, a lemezkép vagy **Windows**, **Linux**, vagy **nincs (adatlemez)**.
+     * Adja hozzá az URI-ját a storage-blobból, amely tartalmazza a lemezképet.  
+     * Válassza ki **Tallózás** a storage-fiókok panel megnyitásához. Útmutatásért lásd: [adatlemez hozzáadása egy tárfiókból](#add-a-data-disk-from-a-storage-account).
+     * Válassza ki a lemezkép az operációs rendszer típusa: **Windows**, **Linux**, vagy **nincs (adatlemez)** .
 
-   * Válassza ki a **mérete (GiB)**.
+   * Válassza ki a **mérete (GiB)** .
 
      Standard szintű lemez díjai a lemezmérettel arányosan a lemez mérete. Prémium szintű lemez díjai és teljesítménye növelje a lemez mérete alapján. További információkért lásd: [Managed Disks díjszabását ismertető](https://go.microsoft.com/fwlink/?linkid=843142).
 
    * Kattintson a **Létrehozás** gombra. Az Azure Stack hoz létre, és érvényesíti a felügyelt lemez.
 
-6. Után az Azure Stack a lemezt hoz létre, és csatlakoztatja a virtuális gép, az új lemez szerepel-e a virtuálisgép-lemez beállítások alatt **ADATLEMEZEK**.
+6. Miután az Azure Stack a lemezt hoz létre, és csatlakoztatja a virtuális gép, az új lemez szerepel-e a virtuális gép lemez beállítások **ADATLEMEZEK**.
 
    ![Példa: Lemez megtekintése](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
@@ -122,10 +122,10 @@ Minden nem felügyelt lemez hozzáadása egy külön tárolóban kell elhelyezni
 Tárfiókok az Azure Stack használatával kapcsolatos további információkért lásd: [storage Azure Stack bemutatása](azure-stack-storage-overview.md).
 
 1. Válassza ki a **tárfiók** használatára.
-2. Válassza ki a **tároló** kívánja helyezze az adatokat. Az a **tárolók** panelen létrehozhat egy új tárolót, ha azt szeretné. A saját tároló majd módosítsa a helyet az új lemez. Az egyes lemezek használatakor egy külön tárolót, terjesztése, javíthatja a teljesítményt az adatlemez elhelyezését.
+2. Válassza ki a **tároló** kívánja helyezze az adatokat. Az a **tárolók** panelen létrehozhat egy új tárolót, ha azt szeretné. A saját tároló majd módosítsa a helyet az új lemez. Az egyes lemezek használatakor egy külön tárolót terjesztése az adatlemezt, amely javítja a teljesítményt elhelyezését.
 3. Válasszon **kiválasztása** a mentéshez.
 
-    ![Példa: Tároló kiválasztása](media/azure-stack-manage-vm-disks/select-container.png)
+    ![Példa: Egy tároló kiválasztása](media/azure-stack-manage-vm-disks/select-container.png)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Egy már meglévő adatlemez csatolása a virtuális géphez
 
@@ -137,7 +137,7 @@ Tárfiókok az Azure Stack használatával kapcsolatos további információkér
 2. Miután feltöltötte a .vhd fájlt, készen áll a virtuális merevlemez csatlakoztatása egy virtuális Gépet. A bal oldali menüben válassza **virtuális gépek**.  
  ![Példa: Válasszon egy virtuális Gépet az irányítópulton](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3. Válassza ki a virtuális gépet a listából.
+3. Válassza ki a virtuális Gépet a listából.
 
     ![Példa: Válasszon egy virtuális Gépet az irányítópulton](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
@@ -151,13 +151,13 @@ Tárfiókok az Azure Stack használatával kapcsolatos további információkér
 
 6. A **tárfiókok**, válassza ki a használni kívánt fiók, és válassza a korábban feltöltött .vhd fájlt tartalmazó tároló. Válassza ki a .vhd fájlt, és válassza **kiválasztása** a mentéshez.
 
-    ![Példa: Tároló kiválasztása](media/azure-stack-manage-vm-disks/select-container2.png)
+    ![Példa: Egy tároló kiválasztása](media/azure-stack-manage-vm-disks/select-container2.png)
 
 7. A **meglévő lemez csatolása**, a kiválasztott fájl részen **VHD-fájl**. Frissítés a **gazdagép gyorsítótárazási** beállítást a lemezen, és válassza ki **OK** az új lemez konfigurációját a virtuális gép mentéséhez.
 
     ![Példa: A VHD-fájl csatolása](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
-8. Után az Azure Stack a lemezt hoz létre, és csatlakoztatja a virtuális gép, az új lemez szerepel-e a virtuális gép lemezbeállításokat alatt **adatlemezek**.
+8. Miután az Azure Stack a lemezt hoz létre, és csatlakoztatja a virtuális gép, az új lemez szerepel-e a Virtuálisgép-lemez beállításait **adatlemezek**.
 
     ![Példa: Befejeződött a lemez csatolása](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
@@ -165,13 +165,13 @@ Tárfiókok az Azure Stack használatával kapcsolatos további információkér
 
 Virtuális gép létrehozása és a egy új adatlemez hozzáadása PowerShell használatával, vagy egy előzetesen meglévő lemez csatolása **.vhd** fájl adatlemezként.
 
-A **Add-AzureRmVMDataDisk** parancsmag hozzáadja egy adatlemezt egy virtuális géphez. Hozzáadhat egy adatlemezt hoz létre virtuális gépet, vagy egy adatlemezt is hozzáadhat egy meglévő virtuális gépet. Adja meg a **VhdUri** elosztása a különböző tárolók lemezeket paramétert.
+A **Add-AzureRmVMDataDisk** parancsmag hozzáadja egy adatlemezt egy virtuális géphez. Hozzáadhat egy adatlemezt egy virtuális Gépet hoz létre, vagy egy adatlemezt is hozzáadhat egy meglévő virtuális gép. Adja meg a **VhdUri** elosztása a különböző tárolók lemezeket paramétert.
 
-### <a name="add-data-disks-to-a-new-virtual-machine"></a>Adatlemez hozzáadása egy új virtuális gép
+### <a name="add-data-disks-to-a-new-vm"></a>Adatlemezek hozzáadása egy új virtuális Géphez
 
 Az alábbi példák három adatlemezekkel rendelkező virtuális gép létrehozása PowerShell-parancsok használatával, egy másik tárolóba helyezett minden egyes.
 
-Az első parancs létrehoz egy virtuálisgép-objektumot, és tárolják a a `$VirtualMachine` változó. A parancs a virtuális gép nevét és méretét rendeli hozzá:
+Az első parancs létrehoz egy Virtuálisgép-objektumot, és tárolják a a `$VirtualMachine` változó. A parancs a virtuális gép nevét és méretét rendeli hozzá:
 
 ```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
@@ -260,9 +260,9 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -Com
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 ```
 
-### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Adatlemez hozzáadása egy meglévő virtuális gép
+### <a name="add-data-disks-to-an-existing-vm"></a>Adatlemez hozzáadása egy meglévő virtuális gép
 
-Az alábbi példák a PowerShell-parancsok használatával három adatlemezek hozzáadása egy meglévő virtuális Gépet. Az első parancs lekéri a virtuális gép nevű **VirtualMachine** használatával a **Get-AzureRmVM** parancsmagot. A parancs tárolja a virtuális gépet a `$VirtualMachine` változó:
+Az alábbi példák a PowerShell-parancsok használatával három adatlemezek hozzáadása egy meglévő virtuális Gépet. Az első parancs lekéri a virtuális gép nevű **VirtualMachine** használatával a **Get-AzureRmVM** parancsmagot. A parancs tárolja a virtuális Géphez a `$VirtualMachine` változó:
 
 ```powershell
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
@@ -303,7 +303,7 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
 
-Az utolsó parancs frissíti a tárolt virtuális gép `$VirtualMachine` a `-ResourceGroupName`:
+Az utolsó parancs frissíti a tárolt virtuális gép állapotát `$VirtualMachine` a `-ResourceGroupName`:
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
@@ -311,4 +311,4 @@ Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 ## <a name="next-steps"></a>További lépések
 
-Virtuális gépek az Azure Stack kapcsolatos további információkért lásd: [szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md).
+Azure Stack virtuális gépekkel kapcsolatos további információkért lásd: [szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md).
