@@ -15,12 +15,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4b9162eb662336b3a1acae69660ff86f5f3a0995
-ms.sourcegitcommit: 87da3ab028f39a3fdc90f58f0258c266198a94bc
+ms.openlocfilehash: ba3ad4bf5e5d7f76d5d29e7967944be72e989c27
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67470956"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511292"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -40,6 +40,7 @@ What's new in a ASDK való feliratkozással vétele a [ ![RSS](./media/asdk-rele
 
 ### <a name="fixed-and-known-issues"></a>Rögzített méretű és ismert problémák
 
+- Néhány Piactérről származó rendszerképek használatával virtuálisgép-erőforrások létrehozásakor nem feltétlenül tudja elvégezni az üzembe helyezés. Áthidaló megoldásként kattinthat a **sablon és paraméterek letöltése** hivatkozásra a **összefoglalás** lapon, majd kattintson a a **telepítés** gombra a **sablon**  panelen. 
 - Azure Stack hibáinak javításai ebben a kiadásban listáját lásd: [ebben a szakaszban](../operator/azure-stack-release-notes-1906.md#fixes) kiadási megjegyzések az Azure Stack.
 - Ismert problémák listáját lásd: [Ez a cikk](../operator/azure-stack-release-notes-known-issues-1906.md).
 - Vegye figyelembe, hogy [elérhető az Azure Stack-gyorsjavítások](../operator/azure-stack-release-notes-1906.md#hotfixes) nem használhatók az Azure Stack ASDK.

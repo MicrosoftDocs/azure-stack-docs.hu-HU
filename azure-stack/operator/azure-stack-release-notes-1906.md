@@ -16,12 +16,12 @@ ms.date: 07/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/01/2019
-ms.openlocfilehash: 0ed50a370fd3a47c6721777b07faa9146cea16b1
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: cc348bba064ddb003bbe6a2a06d2694714ad7894
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492364"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511281"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítése
 
@@ -38,7 +38,7 @@ Az Azure Stack 1906 frissítés buildszáma **1.1906.0.30**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az Azure Stack 1906 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1906 frissítés befejezéséhez szükséges várt idő körülbelül 10 óra. Pontos frissítés modulok általában függ a kapacitást a bérlői terhelések, a rendszer hálózati kapcsolatot, (ha csatlakozik az internethez), a rendszer használja, és a rendszer hardverkonfigurációja. A várt érték hosszabb ideig tart a modulok nem ritka, és nem igényelnek Azure Stack operátorai művelet, kivéve, ha a frissítés sikertelen. A futtatókörnyezet előállításához a 1906 Update és más Azure Stack-frissítések nem hasonlíthatók.
+Az Azure Stack 1906 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1906 frissítés befejezéséhez szükséges várt idő körülbelül 10 órát, az Azure Stack környezettel a fizikai csomópontok számától függetlenül. Pontos frissítés modulok általában függ a kapacitást a bérlői terhelések, a rendszer hálózati kapcsolatot, (ha csatlakozik az internethez), a rendszer használja, és a rendszer hardverkövetelményeket. A várt érték hosszabb ideig tart a modulok nem ritka, és nem igényelnek Azure Stack operátorai művelet, kivéve, ha a frissítés sikertelen. A futtatókörnyezet előállításához a 1906 Update és más Azure Stack-frissítések nem hasonlíthatók.
 
 ## <a name="whats-in-this-update"></a>Mi az a frissítés
 
@@ -144,7 +144,7 @@ Az Azure Stack 1906 kiadását kell alkalmazni az a következő gyorsjavítások
 Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Az Azure Stack gyorsjavítás 1.1906.1.35](https://support.microsoft.com/help/4511259)
+- [Az Azure Stack gyorsjavítás 1.1906.2.37](https://support.microsoft.com/help/4511282)
 
 ## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
 
