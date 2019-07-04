@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: c82ba5ca0de27ece5d3bf0ef260efa8d182ad9bf
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419768"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557850"
 ---
 # <a name="configure-azure-stack-security-controls"></a>Azure Stack biztonsági vezérlő konfigurálása
 
@@ -31,7 +31,7 @@ A Transport Layer Security (TLS) protokoll egy olyan széles körben elfogadott 
 Mivel a TLS 1.0 és 1.1 növekményes elavulttá válnak, vagy a szervezetek és megfelelőségi szabványoknak tiltja, a 1906 frissítéstől kezdődően most konfigurálhatja a TLS-szabályzat az Azure Stackben. A TLS 1.2 egyetlen házirend ahol bármilyen kísérlet egy TLS-munkamenet az alacsonyabb, mint az 1.2-es verzióval megadása nem engedélyezett, elutasított kényszeríthető.
 
 > [!IMPORTANT]
-> A TLS 1.2 használatával csak a házirend célja az éles környezetekhez.
+> A Microsoft javasolja, hogy a TLS 1.2 csak csoportházirend használatával az Azure Stack éles környezetekhez.
 
 ## <a name="get-tls-policy"></a>A TLS-szabályzat lekérése
 
@@ -55,7 +55,7 @@ Set-TLSPolicy -Version <String>
 
 A paraméterek *Set-TLSPolicy* parancsmagot:
 
-| Paraméter | Leírás | Típus | Szükséges |
+| Paraméter | Leírás | Típus | Kötelező |
 |---------|---------|---------|---------|
 | *Verzió* | A TLS verzióinak engedélyezett az Azure Stackben | String | igen|
 

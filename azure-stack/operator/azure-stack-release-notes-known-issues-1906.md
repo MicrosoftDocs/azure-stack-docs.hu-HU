@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 56b0ce3d905f64d6ef1678a5c59cfe4985e24764
-ms.sourcegitcommit: 06b06a719d42012f7be82b4e8623041211c51a86
+ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67499601"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557879"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Az Azure Stack 1906 ismert problémák
 
@@ -33,7 +33,7 @@ Ez a cikk az Azure Stack 1906 kiadás ismert problémákat ismerteti. A lista fr
 ## <a name="update-process"></a>Frissítési eljárás
 
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: 1906 az Azure Stack frissítésének megkísérlésekor a frissítés állapota sikertelen lehet, hogy, és az állapotváltozáshoz **PreparationFailed**. A frissítés erőforrás-szolgáltató (URP) nem képes megfelelően viheti át a fájlokat a storage-tárolót egy belső infrastruktúrát megosztáshoz feldolgozási okozza. A 1906 csomag, nagyobb korábbi frissítési csomagokat, amelyek fordul elő.
+- OK: 1906 az Azure Stack frissítésének megkísérlésekor a frissítés állapota sikertelen lehet, hogy, és az állapotváltozáshoz **PreparationFailed**. A frissítés erőforrás-szolgáltató (URP) nem képes megfelelően viheti át a fájlokat a storage-tárolót egy belső infrastruktúrát megosztáshoz feldolgozási okozza. 
 - Szervizelési: 1901 (1.1901.0.95) verziójával kezdődően is használhatja a probléma megoldásához kattintva **frissítés most** újra (nem **folytatása**). A URP ezután a fájlokat az előző próbálkozás megtisztítja, és letöltését újraindítja. Ha a probléma tartósan fennáll, javasoljuk, hogy manuálisan feltöltve az alábbi frissítési csomag a [importálása és telepítési frissítések szakasz](azure-stack-apply-updates.md#import-and-install-updates).
 - Előfordulás: Közös
 

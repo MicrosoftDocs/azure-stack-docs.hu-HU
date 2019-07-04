@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b66354baa30bb6bf9ec4b8cb39cab0b9def763f6
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782417"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557892"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>A kiemelt jogosultságú végpont használata az Azure Stackben
 
@@ -84,7 +84,7 @@ Mielőtt elkezdené integrált rendszer ezt az eljárást, győződjön meg arr�
      > [!NOTE]
      > Ha Ön nem lehet kapcsolódni a ERCS végpont, próbálja meg első és második szintén egy ERCS virtuális Gépet, amelyhez Ön még nem már csatlakozni próbált, IP-címét a lépést.
 
-3. A csatlakozás után a rendszer kéri változik **[*IP-cím vagy ERCS virtuális gép neve*]: PS >** vagy **[azs-ercs01]: PS >**, attól függően, a környezetben. Futtatás innen `Get-Command` elérhető parancsmagjainak listájának megtekintéséhez.
+3. A csatlakozás után a rendszer kéri változik **[*IP-cím vagy ERCS virtuális gép neve*]: PS >** vagy **[azs-ercs01]: PS >** , attól függően, a környezetben. Futtatás innen `Get-Command` elérhető parancsmagjainak listájának megtekintéséhez.
 
    Ezek a parancsmagok számos szánt csak integrált rendszer környezetekben (például az Adatközpont-integrációval kapcsolatos parancsmagok). Az a ASDK ellenőrzése a következő parancsmagokat:
 
@@ -167,10 +167,16 @@ Importálja a EGP-munkamenetet a helyi gépén, tegye a következőket:
 A végpont munkamenet lezárásához:
 
 1. Hozzon létre egy külső fájlmegosztás által az EGP elérhető. Fejlesztői csomag környezetben egyszerűen létrehozhatja egy fájlmegosztást a development kit gazdagépen.
-2. Futtassa a `Close-PrivilegedEndpoint` parancsmagot. 
-3. Egy elérési utat, amelyen a szöveges napló tárolásához kér. Adja meg a fájlmegosztás, amely a következő formátumban korábban létrehozott &#92; &#92; *servername*&#92;*megosztásnév*. Ha nem ad meg elérési utat, a parancsmag futtatása sikertelen, és a munkamenet nyitva marad. 
+2. A parancsmag futtatása 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+ahol
+| Paraméter | Leírás | Típus | Kötelező |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | a "fileshareIP\sharefoldername" definiálva külső fájlmegosztás elérési útja | String | igen|
+| *Hitelesítő adatok* | a fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |  igen |
 
-    ![Zárja be – PrivilegedEndpoint parancsmag kimenete, amely mutatja, amelyben meghatározhatja azokat a szöveges célhely elérési útja](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
 A fájlmegosztás sikeresen átkerülnek a szöveges naplófájlok, miután azok még automatikusan törli a az EGP. 
 
