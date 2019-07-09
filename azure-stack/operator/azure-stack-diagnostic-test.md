@@ -14,22 +14,22 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 25280d1f5465776aedf2e3e0dfd84118e866a944
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: f1c846b6d429fa323e1081d96cbca8bd10f877b5
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397277"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648069"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Az Azure Stack operátorait szerint képes arra, hogy meghatározza az egészségügyi és állapotát, a rendszer igény szerinti elengedhetetlen. Az Azure Stack érvényesítési eszköz (**Test-AzureStack**), amely lehetővé teszi egy PowerShell-parancsmag futtatása tesztek egy sorozatát hibák azonosítására, ha jelen van a rendszeren. Általában meg kell adnia az eszköz futtatásához a [kiemelt végpontját (EGP)](azure-stack-privileged-endpoint.md) amikor, forduljon a Microsoft támogatási (CSS) egy problémához. Rendszerszintű állapotát és állapotadatokat csak olyan mélységben CSS is gyűjthet és a részletes naplók elemzése, és összpontosítson a terület, ahol a hiba történt, és együttműködnek Önnel a probléma megoldásához.
+Azure Stack-operátorként a rendszer állapotának igény szerinti meghatározása elengedhetetlen. Az Azure Stack érvényesítési eszköz (**Test-AzureStack**), amely lehetővé teszi egy PowerShell-parancsmag futtatása tesztek egy sorozatát hibák azonosítására, ha jelen van a rendszeren. Jellemzően arra fogják kérni, hogy ezt az eszközt a [kiemelt végponton (PEP)](azure-stack-privileged-endpoint.md) futtassa, amikor egy hiba miatt kapcsolatba lép a Microsoft ügyfélszolgálattal és támogatási csapatával (CSS). Az egész rendszerre kiterjedő állapotinformációk segítségével a CSS képes begyűjteni és elemezni a részletes naplókat, a hiba előfordulási helyére összpontosíthat, és Önnel együttműködve megoldhatja a problémát.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>A fürtérvényesítési eszköz futtatása és az eredmények elérése
 
-Ahogy korábban is hangsúlyoztuk, a fürtérvényesítési eszköz futtatása az EGP-n keresztül. Minden teszt adja vissza egy **PASS/sikertelen** állapota a PowerShell-ablakban. Ezenkívül létrejön a HTML részletes jelentés ami később elérhetők során [naplót](azure-stack-diagnostics.md). Itt látható a teljes körű érvényesítési folyamat tesztelési röviden ismerteti: 
+Ahogy korábban is hangsúlyoztuk, a fürtérvényesítési eszköz futtatása az EGP-n keresztül. Minden teszt adja vissza egy **PASS/sikertelen** állapota a PowerShell-ablakban. Itt látható a teljes körű érvényesítési folyamat tesztelési röviden ismerteti: 
 
 1. Hozzáférés a kiemelt végponthoz (EGP). A következő parancsokat egy EGP-munkamenetet létrehozni:
 

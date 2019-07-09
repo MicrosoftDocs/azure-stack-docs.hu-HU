@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557879"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648049"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Az Azure Stack 1906 ismert problémák
 
@@ -71,6 +71,13 @@ Ez a cikk az Azure Stack 1906 kiadás ismert problémákat ismerteti. A lista fr
 - Alkalmazható: A probléma minden támogatott verziója vonatkozik.
 - OK: A felhasználói portálon, amikor megpróbálja feltölteni egy blob használatával a **OAuth(preview)** beállítást, a feladat egy hibaüzenettel meghiúsul.
 - Szervizelési: Töltse fel a blob SAS lehetőséggel.
+- Előfordulás: Közös
+
+### <a name="template"></a>Sablon
+
+- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
+- OK: A felhasználói portálon a sablon központi telepítés felhasználói felület nem tölti fel a "_" (aláhúzás karakterrel) kezdődő sablonnevek paramétereit.
+- Szervizelési: Távolítsa el a sablon nevét a "_" (aláhúzás karakterrel).
 - Előfordulás: Közös
 
 ## <a name="networking"></a>Hálózat
