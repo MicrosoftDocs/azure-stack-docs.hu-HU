@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 07/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
+ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152591"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67678988"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -36,9 +36,9 @@ Minden alkalommal, amikor frissítések érhetők el a virtuális gép (VM) bőv
 |![SQL IaaS Extension](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Töltse le a bővítmény telepítéséhez bármely SQL Server, a Windows Piactéri elem – Ez a bővítmény megadása kötelező.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Egyéni szkriptbővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **A Custom Script bővítmény a Windows beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
 |![PowerShell DSC bővítmény](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC bővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **A frissítés letöltése a PowerShell DSC bővítmény beépített verziójára. A frissített támogatja a TLS 1.2-es verzió.** | Microsoft | Windows |
-| ![A Microsoft kártevőirtó bővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [A Microsoft kártevőirtó bővítmény](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware az Azure az alkalmazások és a bérlői környezetekhez, a háttérben, emberi beavatkozás nélkül futtatható egyetlen-ügynök megoldás is. **A kártevőirtó bővítmény beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
+| ![A Microsoft kártevőirtó bővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [A Microsoft kártevőirtó bővítmény](https://docs.microsoft.com/azure/security/azure-security-antimalware)| A Microsoft Antimalware az Azure az alkalmazások és a bérlői környezetekhez, a háttérben, emberi beavatkozás nélkül futtatható egyetlen-ügynök megoldás is. **A kártevőirtó bővítmény beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
 | ![A Microsoft Azure diagnosztikai bővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [A Microsoft Azure diagnosztikai bővítmény](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| A Microsoft Azure Diagnostics a funkció, amely lehetővé teszi az üzembe helyezett alkalmazás diagnosztikai adatgyűjtés Azure-on belül. **A diagnosztikai bővítményt a Windows beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
-| ![A Microsoft Monitoring bővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [A Microsoft Monitoring Agent bővítményt](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| A Microsoft Monitoring Agent bővítményt szolgál az OMS-SZEL adja meg a virtuális gép ellenőrzési képesség. **A Monitoring Agent bővítmény a Windows beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
+| ![Az Azure Monitor, az Update és a Configuration Management bővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Az Azure Monitor, az Update és a Configuration Management bővítmény](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Az Azure Monitor, az Update és a Configuration Management bővítmény szolgál a Log Analytics, az Azure Security Center és Azure Sentinel-adja meg a virtuális gép ellenőrzési képesség. **A Monitoring Agent bővítmény a Windows beépített verzióját töltse le ezt a frissítést.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | - [Egyéni szkriptek futtatására szolgáló bővítmény (1-es, elavult)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linuxostc) </b>  -  [egyéni szkriptek futtatására szolgáló bővítmény (2. verzió)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux) |**Ez a frissítés letöltése az egyéni Szkriptbővítmény beépített verziójára Linux. Ez a bővítmény több verzióját, és le kell töltenie 1.5.2.1 és 2.0.x programból is.** | Microsoft | Linux |
 | ![Linuxos Virtuálisgép-hozzáférés](media/azure-stack-marketplace-azure-items/cse.png) | [Linuxos Virtuálisgép-hozzáférés](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **A frissítés letöltéséhez a vmaccess bővítmény a beépített verziójú Linux-bővítmény. A frissítés azért fontos, ha azt tervezi, a Debian Linux rendszerű virtuális gépek használata.** | Microsoft | Linux |
 | ![Acronis Backup bővítmény linuxhoz](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup bővítmény linuxhoz](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | A Microsoft Azure-Acronis Backup bővítmény a data protection termékek Acronis biztonsági mentés operációsrendszer-család része. | Nemzetközi GmbH Acronis. | Linux |

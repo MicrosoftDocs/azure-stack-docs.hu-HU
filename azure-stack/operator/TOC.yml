@@ -10,7 +10,7 @@
       href: compare-azure-azure-stack.md
     - name: Kibocsátási megjegyzések
       items:
-        - name: Legutóbbi frissítések
+        - name: Frissítések és karbantartási szabályzat
           href: azure-stack-servicing-policy.md
         - name: Ellenőrzőlista a frissítések alkalmazása
           href: azure-stack-release-notes-checklist.md
