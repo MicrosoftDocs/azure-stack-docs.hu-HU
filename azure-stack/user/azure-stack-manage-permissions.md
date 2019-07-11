@@ -1,6 +1,6 @@
 ---
 title: Felhasználónként az Azure Stack-erőforrások kezelése |} A Microsoft Docs
-description: Szolgáltatás-rendszergazda vagy bérlői megtudhatja, hogyan kezelheti az RBAC-engedélyek.
+description: Szolgáltatás-rendszergazda vagy bérlői ismerje meg, hogyan kezelheti a szerepköralapú hozzáférés-vezérlés (RBAC) engedélyekkel.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0f6cae1604c6635f7eb401ed4db16a9a967e1ab9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
+ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985685"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67791356"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>A hozzáférés-vezérléssel Azure Stack Role-Based erőforrásaihoz való hozzáférés kezelése
 
@@ -70,7 +70,7 @@ A következő lépések bemutatják, hogyan engedélyek konfigurálása a felhas
 1. A felügyelni kívánt erőforrás tulajdonosi engedélyekkel rendelkező fiókkal jelentkezzen be.
 2. A bal oldali navigációs panelen válassza az **Erőforráscsoportok** lehetőséget.
 3. Válassza ki a használni kívánt engedélyeket állíthat be az erőforráscsoport nevét.
-4. Az erőforrás csoport navigációs ablaktábláján válassza **hozzáférés-vezérlés (IAM)**. A **szerepkör-hozzárendelések** megtekintése az erőforráscsoport számára elérhető elemeket sorolja fel. Szűrheti és az eredmények csoportosítása.
+4. Az erőforrás csoport navigációs ablaktábláján válassza **hozzáférés-vezérlés (IAM)** . A **szerepkör-hozzárendelések** megtekintése az erőforráscsoport számára elérhető elemeket sorolja fel. Szűrheti és az eredmények csoportosítása.
 5. Az a **hozzáférés-vezérlés** menü sávot, válassza a **Hozzáadás**.
 6. A **engedélyek hozzáadása** panelen:
 
@@ -82,4 +82,4 @@ A következő lépések bemutatják, hogyan engedélyek konfigurálása a felhas
 
 ## <a name="next-steps"></a>További lépések
 
-[Egyszerű szolgáltatások létrehozása](azure-stack-create-service-principals.md)
+[Egyszerű szolgáltatások létrehozása](../operator/azure-stack-create-service-principals.md)

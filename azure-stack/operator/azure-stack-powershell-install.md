@@ -11,22 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c0f680aec95c23db2567100b47a341a5d3fb9dad
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197169"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725766"
 ---
 # <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Dolgozunk a felhőben, telepítenie kell az Azure Stack-kompatibilis PowerShell-modulok. Keresztül szolgáltatás engedélyezve van a kompatibilitási *API profilok*.
+Az Azure PowerShell-parancsmagokat, amely az Azure Resource Manager modellt használja az Azure Stack-erőforrások kezeléséhez biztosít.
+
+Dolgozunk a felhőben, telepítenie kell az Azure Stack-kompatibilis PowerShell-modulok. Az Azure Stack használja a **AzureRM** modul helyett inkább az újabb **AzureAZ** globális Azure-ban használt modul. Emellett meg kell használnia *API profilok* adja meg a kompatibilis végpontok az Azure Stack erőforrás-szolgáltatók.
 
 API-profilok kezeléséhez az Azure és az Azure Stack közötti tartalmaznak. Egy API-verzióprofil egy Azure Resource Manager PowerShell-modulok az adott API-verziókat. Minden felhőalapú platform a támogatott API-verzióprofilok készletével rendelkezik. Például az Azure Stack egy adott profil verziót támogatja például **2019-03-01-hibrid**. Amikor telepít egy profilt, az Azure Resource Manager PowerShell-modulok, amelyek megfelelnek a megadott profil vannak telepítve.
 
@@ -138,6 +140,7 @@ Telepítés négy lépésből áll:
 1. Csatlakoztatott gépek az Azure Stack PowerShell telepítése
 2. További tárolási szolgáltatások engedélyezése
 3. A PowerShell-csomagok a kapcsolat nélküli munkaállomáson átviteli
+4. Manuálisan elindíthat a NuGet-szolgáltató a kapcsolat nélküli munkaállomáson.
 4. A PowerShell telepítésének megerősítése
 
 ### <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
@@ -179,7 +182,9 @@ Telepítés négy lépésből áll:
 
 2. Jelentkezzen be a kapcsolat nélküli munkaállomáson, és másolja a csomagokat az USB-eszközt egy olyan helyre a munkaállomáson.
 
-3. Most már ezen a helyen az alapértelmezett tárház regisztrálja, és a tárházból az AzureRM- és az AzureStack modulok telepítéséhez:
+3. Manuálisan elindíthat a NuGet-szolgáltató a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [manuálisan rendszerindítása a NuGet-szolgáltató olyan gépen, amely nem csatlakozik az internethez](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+
+4. Most már ezen a helyen az alapértelmezett tárház regisztrálja, és a tárházból az AzureRM- és az AzureStack modulok telepítéséhez:
 
    ```powershell
    # requires -Version 5
