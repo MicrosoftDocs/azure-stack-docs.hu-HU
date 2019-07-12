@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 1ae0c24fe5f3a130c7878c8623facada222a0e49
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299668"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816156"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Az Azure policy az Azure Stack irányelvmodul használata kezelheti
 
@@ -33,7 +33,7 @@ Az Azure Stack irányelvmodul lehetővé teszi az ugyanazon verziókezelés és 
 1. Az AzureRM PowerShell-modult a szükséges verzió telepítéséhez, az 1. lépésben leírtak szerint [Azure Stack PowerShell telepítése](../operator/azure-stack-powershell-install.md).
 2. [Az Azure Stack-eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md).
 3. [A PowerShell konfigurálása az Azure Stackkel való használathoz](azure-stack-powershell-configure-user.md).
-4. A AzureStack.Policy.psm1 modul importálása:
+4. Importálás a *AzureStack.Policy.psm1* modul:
 
 
    ```powershell

@@ -10,21 +10,21 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7eb57c38de01c3ad7de34b96b4c6baf7a4c14ad8
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e5e76c3edcaa93e412d2715d7dc732731ac3d2ce
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782617"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816131"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Az Azure Stack-hálózat bemutatása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Az Azure Stack használható együtt vagy külön-külön hálózati képességek széles skáláját kínálja:
+Az Azure Stack biztosít különböző típusú hálózati funkciók, amelyek együtt vagy külön-külön is használhatók:
 
 - **Azure Stack-erőforrások közötti kapcsolat**  
-    Csatlakozás Azure-erőforrások együtt, a felhőben egy biztonságos, privát virtuális hálózatot.
+    Azure-erőforrások összekapcsolása egy biztonságos és személyes virtuális hálózatban, a felhőben.
 - **Internetkapcsolat**  
     Az Azure Stack-erőforrások az interneten keresztül kommunikálnak.
 - **Helyszíni kapcsolatok**  
@@ -32,7 +32,7 @@ Az Azure Stack használható együtt vagy külön-külön hálózati képessége
 - **Terheléselosztás és az adatforgalom irányának betöltése**  
     Bejövő forgalmának terheléselosztása kiszolgálók a ugyanarra a helyre és a forgalom különböző helyeken lévő kiszolgálókra.
 - **Biztonság**  
-    Hálózati alhálózatokhoz vagy az egyes virtuális gépek (VM) közötti hálózati forgalom szűrése.
+    Alhálózatok vagy különálló virtuális gépek közötti hálózati forgalom szűrése.
 - **Útválasztás**  
     Használja az alapértelmezett útválasztását, vagy a teljes körűen szabályozhatja az Azure Stack és a helyszíni erőforrások között.
 - **Kezelhetőségi**  
