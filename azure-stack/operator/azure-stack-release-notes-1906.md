@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 07/11/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/01/2019
-ms.openlocfilehash: cc348bba064ddb003bbe6a2a06d2694714ad7894
-ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
+ms.lastreviewed: 07/11/2019
+ms.openlocfilehash: bd116e2e04f93b96655a32eb50f0057f0d5784ec
+ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67511281"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863180"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítése
 
@@ -128,7 +128,7 @@ Letöltheti az Azure Stack 1906 frissítési csomagot [az Azure Stack letöltés
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Az Azure Stack rendszeresen gyorsjavításait. Mindenképpen a legújabb Azure Stack gyorsjavítás telepítése 1905 az Azure Stack 1906 frissítése előtt.
+Az Azure Stack rendszeresen gyorsjavításait. Mindenképpen a legújabb Azure Stack gyorsjavítás telepítése 1905 az Azure Stack 1906 frissítése előtt. Miután frissítette, telepítse a [1906 elérhető gyorsjavítások](#after-successfully-applying-the-1906-update).
 
 Az Azure Stack-gyorsjavítások csak alkalmazhatók az Azure Stackkel integrált rendszerek. Ne kísérelje meg a ASDK gyorsjavítások telepítése.
 
@@ -144,7 +144,7 @@ Az Azure Stack 1906 kiadását kell alkalmazni az a következő gyorsjavítások
 Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Az Azure Stack gyorsjavítás 1.1906.2.37](https://support.microsoft.com/help/4511282)
+- [Az Azure Stack gyorsjavítás 1.1906.9.49](https://support.microsoft.com/help/4512794)
 
 ## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
 

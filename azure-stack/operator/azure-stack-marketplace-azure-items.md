@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d18775deb6d73117091a3822c5a60a32d94d4d38
-ms.sourcegitcommit: cb77ffe0d5da14696ad0fe7c09ee6b340c7f66e7
+ms.lastreviewed: 07/12/2019
+ms.openlocfilehash: 38427f55f07c4982b909c153a500340b6e61efde
+ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67678988"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67851848"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elérhető az Azure Stackhez az Azure piactéren elemek
 
@@ -116,7 +116,6 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Cassandra-fürt](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Az Apache Cassandra egy nyílt forráskódú elosztott adatbázis-kezelő rendszer hagyományos kiszolgálókra, nagy mennyiségű adat kezelésére nem rendszerkritikus meghibásodási pontot magas rendelkezésre állást biztosít. **Ez a megoldássablon Debian 8 és egyéni parancsfájl is Linux 2.0-s verziója igényel.** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | Egyszerű, webalapú ügyfélkapcsolat-kezelő rendszer. | Bitnami |
 | ![Egyszerű CMS](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [Egyszerű CMS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | Gyors és egyszerű megoldást hozhat létre és kezelhet egy webhelyet. | Bitnami |
-| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps?search=codiad) | Nyílt forráskódú Cloud IDE minimális tárhely. | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Egyszerű üzembe helyezése, webalkalmazások, webhelyek, tárolók és fórumokat is talál. | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [A Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | Több célú, teljes körű webes gyűjteménye. | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | Könnyen használható nyílt forráskódú adatbázis rendszer. | Bitnami |
@@ -170,7 +169,6 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | Teljes körű PHP, a MySQL és az Nginx fejlesztési környezetet. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | Hatékony dupla bejegyzés könyvelési rendszer. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Nyílt forráskódú környezet javascriptben írt egyszerű létrehozásához. | Bitnami |
-| ![NODE.js magas rendelkezésre állású fürt](media/azure-stack-marketplace-azure-items/nodejs.png) | [NODE.js magas rendelkezésre állású fürt](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | NODE.js-futtatókörnyezet V8 JavaScript motorjára épülő. Az eseményvezérelt, nem blokkoló i/o-modell lehetővé teszi a gyors, méretezhető és adatigényes kiszolgálói alkalmazások fejlesztését. Ez a megoldás több virtuális gép használatával hozzon létre egy Node.js-fürthöz egy megosztott fájlrendszert és terheléselosztási lehetőséget.  **Ez a megoldássablon emellett a Debian 8, a Custom Script for Linux 2.0-s verziója és a egy adatbázis szükséges.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | Üzleti folyamatok hatékonyan csatlakozó ERP és CRM rendszert. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | Rugalmas, sokoldalú intranetes platform. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | Online kereskedők ingyenes e-kereskedelmi platform. | Bitnami |
@@ -212,7 +210,6 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![Egyszerű gépek fórum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Egyszerű gépek fórum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Egyszerű fórum szoftverek használatával hozhatja létre a saját online Közösség. | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Könnyen használható e-kereskedelmi platformját. | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Subversion](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Nyílt forráskódú verziókezelő rendszer. | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [Cégeknek](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Rugalmas ügyfél ügyfélkapcsolat-kezelési megoldás. | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Népszerű nagyvállalati CRM-alkalmazás. | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Tesztelje a felügyeleti szoftver minőségbiztosítás megkönnyítése. | Bitnami |
 | ![A tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [A tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Teljes körű wiki platform. | Bitnami |
@@ -224,7 +221,6 @@ A Microsoft Azure Stackhez az Azure piactér következő virtuális gépek és a
 | ![PHP webes levelezésben Pro](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [WebMail Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | Webes levelezésben rendszer szolgáltatást vállalati szolgáltatásokkal. | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Alkalmazás-kiszolgáló, amely tartalmazza az Apache, WildFly, MySQL és a Java. | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | A legtöbb népszerű és ready-to-go CMS. | Bitnami |
-| ![Értékesítési CRM X2Engine](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [Értékesítési CRM X2Engine](https://azuremarketplace.microsoft.com/marketplace/apps?search=x2engine%20sales%20crm) | Kompakt marketinges, értékesítési és ügyfél szolgáltatás alkalmazás. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | Tartalomkezelő rendszer és webes portál Program, amely létrehozza a dinamikus webhelyeket. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Nyílt forráskódú CRM rendszert: Mobil-, közösségi és Gamified. | Bitnami |
 | ![A Check Point vSEC biztonsági kezelése](media/azure-stack-marketplace-azure-items/checkpoint.png) | [A Check Point vSEC biztonsági kezelése](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | A Check Point vSEC tesz lehetővé a fejlett, többrétegű fenyegetések megelőzése vevő eszközök az Azure-ban védelme a kártevők és kifinomult fenyegetések. **Mindkét ellenőrzési pont a vSEC Piactéri termékek letöltése.** | Check Point |

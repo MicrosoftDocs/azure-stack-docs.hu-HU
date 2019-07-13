@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 7c46d2b576f8927ff0da438091a6c1094ae15ddf
+ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131630"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67851783"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-számítás
 
@@ -41,6 +41,13 @@ Magas rendelkezésre állás az Azure Stackben több virtuális gépre kiterjed�
 Virtuális gépek méretezési vissza a feladatokat a rendelkezésre állási készletek használata befejezése, és győződjön meg arról, hogy minden virtuális gép méretezési csoport példánya kerül egy különböző tartalék tartományban. Ez azt jelenti, hogy külön Azure Stack-infrastruktúra csomópontokat használnak. Például az Azure Stack system, 4 csomópont lehet egy olyan helyzetet, ahol egy virtuálisgép-méretezési 3-példányok létrehozáskor 3 virtuális gép méretezési csoport példányaihoz helyezi 3 külön Azure Stack-csomópont 4 – csomópont-kapacitás hiánya miatt meghiúsul. Emellett az Azure Stack-csomópontok tölthető különböző szintű elhelyezési kísérlet előtt. 
 
 Az Azure Stack túlterhelt nem véglegesíthető a memória. Azonban a fizikai Processzormagok számát egy túlzott véglegesítés engedélyezett. Elhelyezési algoritmus nem tekintse meg a meglévő virtuális és fizikai mag fölösleges üzembe helyezési arány tényezőként, mivel minden állomás egy eltérő arány rendelkezhet. Microsoft nem nyújtunk útmutatást az fizikai-virtuális mag arány a számítási feladatok és a szolgáltatás követelményeinek változása miatt. 
+
+## <a name="consideration-for-total-number-of-vms"></a>Szempontok a virtuális gépek teljes száma 
+
+Nincs új veszi figyelembe a pontos megtervezése az Azure Stack kapacitását. A 1901 frissítés (és a jövőben minden frissítés), most már rendelkezésre áll egy korlát a létrehozható virtuális gépek teljes száma. Ez a korlátozás készült ideiglenes megoldás instabil elkerülése érdekében. A forrás a stabilitás probléma, a virtuális gépek esetén nagyobb számú javítása folyamatban van, de a szervizelési egy meghatározott ütemterv még nem határozták meg. Most már rendelkezésre áll egy kiszolgáló legfeljebb 60 virtuális gépek és a egy teljes megoldás korlátja 700 száma. Például egy 8 Azure Stack virtuális gépek maximális lenne 480-as (8 * 60). 12 – 16-kiszolgáló Azure Stack megoldás esetén a korlát 700 lehet. Ez a korlátozás szem összes számítási kapacitás kihasználását, például a rugalmasság tartalék és a virtuális és fizikai arányt, az operátornak szeretne a blokkban karbantartása CPU létrejött. További információkért tekintse meg a capacity planner új kiadása. 
+
+Abban az esetben, ha a rendszer elérte a Virtuálisgép-méretezési csoport megadott korlátot, ezért az alábbi hibakódok kellene visszaadnia: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
+
 
 ## <a name="azure-stack-memory"></a>Az Azure Stack memória 
 
