@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/11/2019
-ms.openlocfilehash: bd116e2e04f93b96655a32eb50f0057f0d5784ec
-ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
+ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863180"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67885358"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítése
 
@@ -144,7 +144,7 @@ Az Azure Stack 1906 kiadását kell alkalmazni az a következő gyorsjavítások
 Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Az Azure Stack gyorsjavítás 1.1906.9.49](https://support.microsoft.com/help/4512794)
+- [Az Azure Stack gyorsjavítás 1.1906.11.52](https://support.microsoft.com/help/4513119)
 
 ## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
 
