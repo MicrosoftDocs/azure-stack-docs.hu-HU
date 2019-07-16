@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
-ms.reviewer: scottnap
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 06b61bf80b2c123413425fc3abdcda12961d096c
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.reviewer: wamota
+ms.lastreviewed: 07/10/2019
+ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816218"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229442"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Különbségek és szempontok az Azure Stack-hálózatkezelés
 
@@ -30,11 +30,11 @@ Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontj
 
 | Szolgáltatás | Funkció | Azure (globális) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DNS | Multi-tenant DNS | Támogatott | Még nem támogatott |
+| DNS | Több-bérlős DNS | Támogatott | Még nem támogatott |
 |  | DNS AAAA records | Támogatott | Nem támogatott |
 |  | DNS-zónák előfizetésenként | 100 (alapértelmezett)<br>Kérésre növelhető. | 100 |
 |  | DNS-rekord zónánként beállítása | 5000 (alapértelmezett)<br>Kérésre növelhető. | 5000 |
-|  | Name servers for zone delegation | Az Azure biztosít minden felhasználó (bérlő) zónában jön létre, a négy névkiszolgálói nevet. | Az Azure Stack két névkiszolgálókat biztosít minden egyes létrehozott felhasználó (bérlő) zóna. |
+|  | A névkiszolgálóktól a zónadelegálás | Az Azure biztosít minden felhasználó (bérlő) zónában jön létre, a négy névkiszolgálói nevet. | Az Azure Stack két névkiszolgálókat biztosít minden egyes létrehozott felhasználó (bérlő) zóna. |
 | Azure Firewall | Hálózati biztonsági szolgáltatás | Az Azure Firewall egy felügyelt, felhőalapú hálózatbiztonsági szolgáltatás, amely Azure Virtual Network-erőforrásait védi. | Még nem támogatott. |
 | Virtuális hálózat | Társviszony létesítése virtuális hálózatok között | Az azonos régióban található két virtuális hálózat csatlakoztatása az Azure gerinchálózatán keresztül. | Még nem támogatott |
 |  | IPv6-címek | IPv6-címet rendelhet részeként a [hálózatiadapter-konfigurációjában](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Kizárólag az IPv4 használata támogatott. |
@@ -55,9 +55,9 @@ Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontj
 |  | BGP-beállítások | Az Azure támogatja a BGP-társviszony-létesítés címét és a Társviszony súlyozása konfigurációját. | BGP-társviszony-létesítés címét és a Társviszony súlyozása is, automatikusan konfigurált az Azure Stackben. Nincs lehetőség a saját értékekkel a beállítások konfigurálása a felhasználó számára. |
 |  | Alapértelmezett átjáró hely | Az Azure támogatja az alapértelmezett hely konfigurációs a kényszerített bújtatás. | Még nem támogatott. |
 |  | Átjáró átméretezése | Az Azure támogatja az átjáró átméretezése az üzembe helyezés után. | A méretezés nem támogatott. |
-|  | Rendelkezésre állás konfigurálása | Active/Active | Aktív/passzív |
+|  | Rendelkezésre állás konfigurálása | Aktív/aktív | Aktív/passzív |
 |  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a szabályzatalapú forgalomválasztóinak útvonalalapú átjárót kapcsolatokkal. | Még nem támogatott. |
-| Terheléselosztó | SKU | Alapszintű és Standard Load Balancer Terheléselosztók támogatottak. | Csak az alapszintű Load Balancer használata támogatott.  Az SKU tulajdonság nem támogatott. |
+| Terheléselosztó | SKU | Alapszintű és Standard Load Balancer Terheléselosztók támogatottak. | Csak az alapszintű Load Balancer használata támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű Termékváltozat load balancer /path/ nem rendelkezhet 5-nél több előtér-IP-konfigurációk.  |
 |  | Zóna | Rendelkezésre állási zónák használata támogatott. | Még nem támogatott |
 |  | A Szolgáltatásvégpontok bejövő NAT-szabályok támogatása | Az Azure támogatja a késleltetve Szolgáltatásvégpontok bejövő NAT-szabályok. | Az Azure Stack még Szolgáltatásvégponthoz nem támogatja, így ezek nem adhatók meg. |
 |  | Protocol | Az Azure támogatja a GRE- vagy ESP megadására. | Az Azure Stackben protokoll osztály nem támogatott. |

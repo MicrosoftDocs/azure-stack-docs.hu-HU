@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706327"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229460"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack titkos kulcsainak rotálása
 
@@ -40,9 +40,9 @@ Infrastruktúra-szolgáltatás tanúsítványok kívülre irányuló szolgáltat
 - Nyilvános portálra
 - Rendszergazda az Azure Resource Manager
 - Globális Azure Resource Manager
-- Administrator KeyVault
+- Rendszergazdai KeyVault
 - KeyVault
-- Admin Extension Host
+- Rendszergazdai kiterjesztés gazdagép
 - Az ACS-(beleértve a blob, table és queue storage)
 - ADFS *
 - Graph *
@@ -81,7 +81,7 @@ Ha a titkos kulcsok érvényessége 30 napon belül, a következő riasztások j
 
 - Függőben levő fiók jelszólejárat
 - Függőben lévő belső tanúsítvány lejárata
-- Függőben lévő külső tanúsítvány lejárata
+- Külső tanúsítvány lejárata miatt függőben
 
 Az alábbi utasításokat követve titkos Elforgatás futó fog kijavítani ezeket a riasztásokat.
 
@@ -192,7 +192,7 @@ Külső titkos kódok rotálása:
     > [!IMPORTANT]  
     > Adja meg a munkamenet, ne tárolja a munkamenet változóként.
 
-3. Futtatás  **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)**. Adja át, a kiemelt végponthoz PowerShell munkamenet-változó a **munkamenet** paraméter.
+3. Futtatás  **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Adja át, a kiemelt végponthoz PowerShell munkamenet-változó a **munkamenet** paraméter.
 
 4. Futtatás **Start-SecretRotation** a következő paraméterekkel:
     - **PfxFilesPath**  
@@ -298,13 +298,13 @@ A **Start-SecretRotation** parancsmag a infrastruktúra titkos kulcsok az Azure 
 
 ### <a name="parameters"></a>Paraméterek
 
-| Paraméter | Típus | Szükséges | Pozíció | Alapértelmezett | Leírás |
+| Paraméter | Type | Szükséges | Beosztás | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | Hamis  | nevű  | Egyik sem  | A fájlmegosztás elérési útját a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása. Záró könyvtárnak kell lennie **\Certificates**. |
-| `CertificatePassword` | SecureString | Hamis  | nevű  | Egyik sem  | A jelszó - PfXFilesPath megadott összes tanúsítvány esetében. Kötelező érték, ha PfxFilesPath biztosított külső titkos kódok vannak-e forgatni. |
-| `Internal` | String | Hamis | nevű | Egyik sem | Belső jelző bármikor belső infrastruktúra titkos kulcsok rotálására felhasználja az Azure Stack operátorait kell használni. |
-| `PathAccessCredential` | PSCredential | Hamis  | nevű  | Egyik sem  | A fájlmegosztáson az PowerShell hitelesítő adatait a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása.  |
-| `ReRun` | SwitchParameter | Hamis  | nevű  | Egyik sem  | Bármikor titkos Elforgatás van reattempted sikertelen próbálkozások után futtassa újra kell használni. |
+| `PfxFilesPath` | Sztring  | False (Hamis)  | nevű  | Nincsenek  | A fájlmegosztás elérési útját a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása. Záró könyvtárnak kell lennie **\Certificates**. |
+| `CertificatePassword` | SecureString | False (Hamis)  | nevű  | Nincsenek  | A jelszó - PfXFilesPath megadott összes tanúsítvány esetében. Kötelező érték, ha PfxFilesPath biztosított külső titkos kódok vannak-e forgatni. |
+| `Internal` | Sztring | False (Hamis) | nevű | Nincsenek | Belső jelző bármikor belső infrastruktúra titkos kulcsok rotálására felhasználja az Azure Stack operátorait kell használni. |
+| `PathAccessCredential` | PSCredential | False (Hamis)  | nevű  | Nincsenek  | A fájlmegosztáson az PowerShell hitelesítő adatait a **\Certificates** könyvtárra, amelyben minden külső hálózati végpont tanúsítványokat. Csak akkor szükséges, ha külső titkos kódok elforgatása.  |
+| `ReRun` | SwitchParameter | False (Hamis)  | nevű  | Nincsenek  | Bármikor titkos Elforgatás van reattempted sikertelen próbálkozások után futtassa újra kell használni. |
 
 ### <a name="examples"></a>Példák
 
@@ -369,9 +369,13 @@ Ezzel a paranccsal az összes Azure Stack belső hálózaton vannak kitéve, az 
 
 Az alaplapi felügyeleti vezérlőnek (BMC) figyeli a fizikai kiszolgálókhoz. Az előírások és a felhasználói fiók nevét és jelszavát a BMC frissítésével kapcsolatos utasításokat a számítógépgyártó (OEM) hardver szállítójával megoldástól. Frissítenie kell az Azure Stack-összetevők rendszeresen jelszavakat.
 
-1. Frissítés az Azure Stack fizikai kiszolgálókon található bmc-k az OEM utasításai szerint. A felhasználónév és jelszó a környezetben minden egyes bmc azonos kell lennie. Vegye figyelembe, hogy BMC felhasználónevek nem lehet hosszabb 16 karakternél.
+1. Frissítés az Azure Stack fizikai kiszolgálókon található bmc-k az OEM utasításai szerint. A felhasználónév és jelszó a környezetben minden egyes bmc azonos kell lennie. A BMC-felhasználónevek nem lehet hosszabb 16 karakternél.
+
+    > [!Note]  
+    > Először frissítse a alaplap felügyeleti vezérlőn a fizikai kiszolgáló; BMC hitelesítő adatok Ellenkező esetben az Azure Stack-parancs meghiúsul érvényesítése során.
+
 2. Nyisson meg egy emelt szintű végpontot az Azure Stack-munkamenetekben. Útmutatásért lásd: [a rendszerjogosultságú végpont használata az Azure Stackben](azure-stack-privileged-endpoint.md).
-3. Után a PowerShell parancssort változott **[IP-cím vagy ERCS virtuális gép neve]: PS >** vagy **[azs-ercs01]: PS >**, attól függően, a környezet futtatása `Set-BmcCredential` futtatásával `Invoke-Command`. Paraméterként adja át a kiemelt végponthoz munkamenet-változó. Példa:
+3. Után a PowerShell parancssort változott **[IP-cím vagy ERCS virtuális gép neve]: PS >** vagy **[azs-ercs01]: PS >** , attól függően, a környezet futtatása `Set-BmcCredential` futtatásával `Invoke-Command`. Paraméterként adja át a kiemelt végponthoz munkamenet-változó. Példa:
 
     ```powershell
     # Interactive Version
