@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a348e4e7eada9537defa292f667cfd3eb1e27438
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492462"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286943"
 ---
-# <a name="tutorial-create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Oktatóanyag: Földrajzilag elosztott alkalmazás számára a forgalom az Azure és az Azure Stack megoldás létrehozása
+# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Földrajzilag elosztott alkalmazás számára a forgalom az Azure és az Azure Stack megoldás létrehozása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Útmutató a forgalmat a földrajzilag elosztott alkalmazások minta használatával különböző metrikák alapján meghatározott végpontokhoz. Egy Traffic Manager létrehozása a földrajzi alapú útválasztást és a végpont konfigurációs profil biztosítja, információk alapján a regionális követelmények, a vállalati és a nemzetközi szabályozás és az adattárolási igényeinek végpontok van irányítva.
 
-Ebben az oktatóanyagban egy mintául szolgáló környezet építi fel:
+Ebben a megoldásban Ön létre fog hozni egy minta környezetet:
 
 > [!div class="checklist"]
 > - Földrajzilag elosztott alkalmazás létrehozása.
@@ -42,7 +42,7 @@ A földrajzilag elosztott mintával az alkalmazás kiterjedő régióban. Is ala
 
 #### <a name="scalability-considerations"></a>Méretezési szempontok
 
-Ön ebben az oktatóanyagban létre fog hozni a megoldás nem méretezhetőség befogadásához. Azonban más Azure-ban és a helyszíni megoldásokkal együtt használni, ha úgy tud megfelelni méretezhetőségi követelményeinek. A hibrid megoldás létrehozása az automatikus skálázást keresztül traffic manager további információkért lásd: [több felhőre kiterjedő méretezési megoldások létrehozása az Azure-ral](azure-stack-solution-cloud-burst.md).
+Ez a cikk a épít ki a megoldás nem méretezhetőség befogadásához. Azonban más Azure-ban és a helyszíni megoldásokkal együtt használni, ha úgy tud megfelelni méretezhetőségi követelményeinek. A hibrid megoldás létrehozása az automatikus skálázást keresztül traffic manager további információkért lásd: [több felhőre kiterjedő méretezési megoldások létrehozása az Azure-ral](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Rendelkezésre állási szempontok
 
@@ -74,7 +74,7 @@ Mielőtt egy elosztott alkalmazás üzembe helyezésének előkészítése kiala
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>1\. rész: Földrajzilag elosztott alkalmazás létrehozása
 
@@ -260,9 +260,9 @@ Az [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) eg
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Az oktatóanyag elvégzéséhez:
+Ez a megoldás végrehajtásához:
 
--   [Hozzon létre egy App Service-alkalmazás](https://docs.microsoft.com/azure/app-service/), vagy használjon egy másik oktatóanyaghoz létrehozott alkalmazást.
+-   [Hozzon létre egy App Service-alkalmazás](https://docs.microsoft.com/azure/app-service/), vagy használjon egy másik megoldás számára létrehozott alkalmazás.
 
 -   Vásároljon egy tartománynevet és a DNS-jegyzékéhez való hozzáférés biztosítása a tartomány-szolgáltatóhoz.
 
@@ -274,7 +274,7 @@ Frissítse a tartomány DNS-zónafájljában. Az Azure AD ellenőrzi, hogy az eg
 
 -   A tartomány DNS-zónafájljában frissítése az Azure AD által biztosított DNS-bejegyzés hozzáadásával.
 
-For example, to add DNS entries for northwindcloud.com and www.northwindcloud.com, configure DNS settings for the northwindcloud.com root domain.
+Ha például northwindcloud.com és www.northwindcloud.com DNS-bejegyzéseinek hozzáadásához northwindcloud.com gyökértartományhoz DNS-beállítások konfigurálása.
 
 > [!Note]  
 >  A tartománynév alapján vásárolhatók a [az Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain). Egy egyéni DNS-név webalkalmazásra való leképezéséhez a webalkalmazás [App Service-csomagjának](https://azure.microsoft.com/pricing/details/app-service/) fizetős rétegben kell lennie (**megosztott**, **alapvető**, **szabványos** vagy **prémium szintű**).
@@ -371,7 +371,7 @@ Ez a rész a következő történik:
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Az oktatóanyag elvégzéséhez:
+Ez a megoldás végrehajtásához:
 
 -   [Hozzon létre egy App Service-alkalmazást.](https://docs.microsoft.com/azure/app-service/)
 -   [Képezhet le egyedi DNS-nevet a webalkalmazáshoz.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)

@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 77d0b7c856e594e7e97ad30085419bfac13bd4f7
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: aa48e3b40afc841a26f15ce06870d002261c5932
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308921"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286837"
 ---
-# <a name="tutorial-deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Oktatóanyag: Az Azure és az Azure Stack egy magas rendelkezésre állású MongoDB-megoldás üzembe helyezése
+# <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Az Azure és az Azure Stack egy magas rendelkezésre állású MongoDB-megoldás üzembe helyezése
 
 Ez a cikk fog végigvezeti egy vész-helyreállítási webhelyként alapszintű magas rendelkezésre állású (HA) MongoDB fürtök automatikus telepítése két Azure Stack-környezet között. Mongodb-hez és a magas rendelkezésre állás kapcsolatos további információkért lásd: [beállítása Replikatagok](https://docs.mongodb.com/manual/core/replica-set-members/).
 
-Ebben az oktatóanyagban egy mintául szolgáló környezetet hozunk létre:
+Ez a megoldás egy minta környezetet hozunk létre:
 
 > [!div class="checklist"]
 > - Központi telepítés előkészítését két Azure-t
@@ -36,9 +36,9 @@ Ebben az oktatóanyagban egy mintául szolgáló környezetet hozunk létre:
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, és lehetővé teszi a egyetlen olyan hibrid felhő, amely lehetővé teszi, hogy létrehozása és üzembe helyezése bárhol hibrid alkalmazásokat.  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 
 

@@ -14,18 +14,18 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 7148e93977f50a7c64d79c422c43c6825b22b4a3
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: ca4c2480fff511ab3bad43ea82fc81522d9afba0
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308870"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286746"
 ---
-# <a name="tutorial-deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Oktatóanyag: Átmeneti adatok analytics megoldás üzembe helyezése az Azure Stackhez
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Átmeneti adatok analytics megoldás üzembe helyezése az Azure Stackhez
 
 Ebből a cikkből megtudhatja, hogyan helyezhet üzembe egy megoldást, hogy gyors döntéseket lehet tenni a gyűjtemény folyamatos elemzés igénylő adatokat gyűjt. Általában adatgyűjteményben nincs Internet-hozzáféréssel rendelkező történik. Ha a kapcsolat létrejött, szükség lehet egy erőforrás-igényes elemzéseket végezhet az adatok további betekintést.
 
-Ebben az oktatóanyagban egy mintául szolgáló környezetet hozunk létre:
+Ez a megoldás egy minta környezetet hozunk létre:
 
 > [!div class="checklist"]
 > - A nyers adatok tárolási blob létrehozásához.
@@ -37,9 +37,9 @@ Ebben az oktatóanyagban egy mintául szolgáló környezetet hozunk létre:
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, és lehetővé teszi a egyetlen olyan hibrid felhő, amely lehetővé teszi, hogy létrehozása és üzembe helyezése bárhol hibrid alkalmazásokat.  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 ## <a name="architecture-for-staged-data-analytics"></a>A kétlépcsős data Analytics architektúrája
 
@@ -108,7 +108,7 @@ Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel kül
  
 ![a kétlépcsős adatelemzési megoldással](media/azure-stack-solution-staged-data/image2.png)
  
-### <a name="azure-stack-web-app"></a>Azure Stack Web App
+### <a name="azure-stack-web-app"></a>Az Azure Stack-webalkalmazás
  
 ![az Azure Stack előkészített adatelemzési megoldással](media/azure-stack-solution-staged-data/image3.png)
 

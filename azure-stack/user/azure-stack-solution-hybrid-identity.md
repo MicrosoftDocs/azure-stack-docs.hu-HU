@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492326"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286833"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Oktatóanyag: A hibrid felhőbeli identitás az Azure és az Azure Stack-alkalmazások konfigurálása
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>A hibrid felhőbeli identitás az Azure és az Azure Stack-alkalmazások konfigurálása
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -35,19 +35,19 @@ Az alkalmazások globális Azure-beli és az Azure Stack való hozzáférést k�
 
 A szolgáltatásnevek használatával az Azure Stack-alkalmazások üzembe helyezési vagy az Azure Resource Manager használatával az Azure Stack-konfigurációhoz való hozzáférést biztosít.
 
-Ebben az oktatóanyagban egy mintául szolgáló környezet építi fel:
+Ebben a megoldásban Ön létre fog hozni egy minta környezetet:
 
 > [!div class="checklist"]
 > - A globális Azure és az Azure Stack egy hibrid identitás létrehozása
 > - Az Azure Stack API eléréséhez jogkivonat beszerzésére.
 
-Ez az oktatóanyag lépéseit az Azure Stack operátori kell rendelkeznie.
+Ebben a megoldásban a lépéseket az Azure Stack operátori kell rendelkeznie.
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack biztosítható a hatékonyságával és innovációjával emeli felhő-számítástechnika a helyszíni környezetben, amely lehetővé teszi, hogy a hibrid alkalmazások bárhol üzembe helyezése az egyetlen olyan hibrid felhős engedélyezése.  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>A portálon az Azure ad egyszerű szolgáltatás létrehozása
@@ -60,7 +60,7 @@ Ha telepítette az AD FS az Azure Stack, PowerShell segítségével hozzon létr
 
 ## <a name="using-the-azure-stack-api"></a>Az API-t az Azure Stack használatával
 
-A [Azure Stack API](azure-stack-rest-api-use.md) az oktatóanyag végigvezeti egy tokent az Azure Stack API eléréséhez lekérését jelenti.
+A [Azure Stack API](azure-stack-rest-api-use.md) megoldás lépésről lépésre egy tokent az Azure Stack API eléréséhez lekérését jelenti.
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>Csatlakozhat az Azure Stack Powershell-lel
 

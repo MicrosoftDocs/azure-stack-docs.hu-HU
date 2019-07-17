@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 39b0078345c16b7931f41cd2394476f8258d92dd
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 4565615caf4e4c13bda84e6596e23d523225d888
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308848"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286899"
 ---
-# <a name="tutorial-deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>Oktatóanyag: Egy SQL Server 2016-os rendelkezésre állási csoportot az Azure és az Azure Stack üzembe helyezése
+# <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>Egy SQL Server 2016-os rendelkezésre állási csoportot az Azure és az Azure Stack üzembe helyezése
 
 Ez a cikk fog végigvezeti egy automatikus központi telepítési a alapszintű magas rendelkezésre állású (HA) SQL Server 2016 Enterprise fürtök egy aszinkron vész-helyreállítási webhelyként két Azure Stack-környezet között. Az SQL Server 2016 és a magas rendelkezésre állás kapcsolatos további információkért lásd: [Always On rendelkezésre állási csoportok: a magas rendelkezésre állású és vész-helyreállítási megoldás](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
 
-Ebben az oktatóanyagban egy mintául szolgáló környezet fog létrehozni:
+Ebben a megoldásban a egy minta környezetet hozhat létre:
 
 > [!div class="checklist"]
 > - Központi telepítés előkészítését két Azure-t
@@ -35,9 +35,9 @@ Ebben az oktatóanyagban egy mintául szolgáló környezet fog létrehozni:
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, és lehetővé teszi a egyetlen olyan hibrid felhő, amely lehetővé teszi, hogy létrehozása és üzembe helyezése bárhol hibrid alkalmazásokat.  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segítséget nyújt a hibrid alkalmazások kialakítását, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 ## <a name="architecture-for-sql-server-2016"></a>Az SQL Server 2016 architektúra
 
@@ -109,7 +109,7 @@ Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel kül
 
 7.  Vizsgálja meg a központi telepítés minden egyes Azure Stack portálon az erőforrások megtekintésével. Csatlakozhat egy SQL-példánya a magas rendelkezésre ÁLLÁSÚ környezetben, és a rendelkezésre állási csoportot az SQL Server Management Studio (SSMS) keresztül vizsgálatával.
 
-![SQL Server 2016 SQL HA](media/azure-stack-solution-sql-ha/image2.png)
+![Az SQL Server 2016-ban az SQL magas rendelkezésre ÁLLÁS](media/azure-stack-solution-sql-ha/image2.png)
 
 ## <a name="next-steps"></a>További lépések
 

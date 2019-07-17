@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eb5815a55e5e2c60ce61f9c4af96ee58a1aa684b
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 1bbe22bdc78f28aa172c90770cd5d2857878d2c3
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138953"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286917"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Oktatóanyag: A felhőbe irányuló méretezési alkalmazás megoldásokat hozhat létre az Azure és az Azure Stackben
+# <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>A felhőbe irányuló méretezési alkalmazás megoldásokat hozhat létre az Azure és az Azure Stackben
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
@@ -30,7 +30,7 @@ Ismerje meg, hogyan hozhat létre a több felhőre kiterjedő megoldásokat manu
 
 Ezzel a mintával a bérlő nem lehet az alkalmazás futtatható a nyilvános felhőben. Azonban nem lehet az alkalmazás iránti kereslet kiugrások kezelésére a helyszíni környezetben szükséges kapacitást fenntartásához a vállalati gazdaságosan megvalósítható. A bérlő győződjön meg arról is, használja a saját helyszíni megoldás a nyilvános felhő rugalmasságát.
 
-Ebben az oktatóanyagban egy mintául szolgáló környezet építi fel:
+Ebben a megoldásban Ön létre fog hozni egy minta környezetet:
 
 > [!div class="checklist"]
 > - Több csomópontos webes alkalmazás létrehozása.
@@ -43,7 +43,7 @@ Ebben az oktatóanyagban egy mintául szolgáló környezet építi fel:
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 ## <a name="prerequisites"></a>Előfeltételek
 

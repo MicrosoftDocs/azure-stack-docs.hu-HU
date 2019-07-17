@@ -1,5 +1,5 @@
 ---
-title: Az oktatóanyag&#58; alkalmazások üzembe helyezése az Azure és az Azure Stackben |} A Microsoft Docs
+title: Alkalmazások üzembe helyezése az Azure és az Azure Stackben |} A Microsoft Docs
 description: Ismerje meg, hogyan telepíthet alkalmazásokat az Azure és az Azure Stack egy hibrid CI/CD-folyamat.
 services: azure-stack
 documentationcenter: ''
@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692083"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286967"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Oktatóanyag: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Ismerje meg, hogyan telepíthet alkalmazásokat az Azure és az Azure Stack egy hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) folyamat használatával.
 
-Ebben az oktatóanyagban egy mintául szolgáló környezetet hozunk létre:
+Ez a megoldás egy minta környezetet hozunk létre:
 
 > [!div class="checklist"]
 > * Kód véglegesítése a az Azure DevOps-szolgáltatásokkal adattár alapján új build kezdeményezni.
@@ -51,9 +51,9 @@ További információ a CI és CD-ről további információt:
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetet biztosít. Az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy bárhol a hibrid alkalmazások telepítése legyen.  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
 > 
-> A tanulmány [hibrid alkalmazások kapcsolatos kialakítási szempontok](https://aka.ms/hybrid-cloud-applications-pillars) áttekinti a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) a kialakítása, üzembe helyezése és működtetése hibrid alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása optimalizálása amely minimálisra csökkenti az éles környezetben kihívásokat.
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -63,9 +63,9 @@ Hozhat létre egy hibrid CI/CD-folyamat összetevőit rendelkezniük kell. A kö
 * Az Azure Stack-operátorokról kell végeznie a következő elemek: az App Service üzembe helyezése, hozhat létre csomagokat és ajánlatokat, hozzon létre egy bérlői előfizetéshez, és a Windows Server 2016 rendszerképet.
 
 >[!NOTE]
->Már van ezek az összetevők telepített némelyikét, hogy azok megfelelnek az összes oktatóanyag elkezdése előtt.
+>Már van ezek az összetevők telepített némelyikét, hogy azok megfelelnek az összes Ez a megoldás indítása előtt.
 
-Ez az oktatóanyag feltételezi, hogy néhány alapvető ismeretek az Azure és az Azure Stack. Az oktatóanyag megkezdése előtt további tudnivalókért olvassa el a következő cikkeket:
+Ez a megoldás feltételezi, hogy néhány alapvető ismeretek az Azure és az Azure Stack. A megoldás megkezdése előtt további tudnivalókért olvassa el a következő cikkeket:
 
 * [Bevezetés az Azure-bA](https://azure.microsoft.com/overview/what-is-azure/)
 * [Az Azure Stack főbb fogalmak](../operator/azure-stack-overview.md)
@@ -73,12 +73,12 @@ Ez az oktatóanyag feltételezi, hogy néhány alapvető ismeretek az Azure és 
 ### <a name="azure-requirements"></a>Azure-követelmények
 
 * Ha nem rendelkezik Azure-előfizetéssel, mindössze néhány perc alatt létrehozhat egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a virtuális gép létrehozásának megkezdése előtt.
-* Hozzon létre egy [Web App](https://docs.microsoft.com/azure/app-service/overview) az Azure-ban. Győződjön meg, vegye figyelembe a Web App URL-címének kell, hogy az oktatóanyag részében használni.
+* Hozzon létre egy [Web App](https://docs.microsoft.com/azure/app-service/overview) az Azure-ban. Győződjön meg, vegye figyelembe a Web App URL-címének kell, hogy használhatja a megoldás.
 
 ### <a name="azure-stack-requirements"></a>Azure Stack-követelmények
 
 * Használja az Azure Stackkel integrált rendszer, vagy üzembe helyezése az Azure Stack Development Kit (ASDK). A ASDK telepítéséhez:
-  * A [oktatóanyag: A telepítő a ASDK üzembe](../asdk/asdk-install.md) cikk nyújt részletes telepítési utasításokat.
+  * A [ megoldást: A telepítő a ASDK üzembe](../asdk/asdk-install.md) cikk nyújt részletes telepítési utasításokat.
   * Használja a [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-parancsprogram ASDK üzembe helyezés utáni lépések automatizálásához.
 
     > [!Note]
@@ -177,7 +177,7 @@ Beállíthatja a hatókör szintjén is az előfizetés, erőforráscsoport vagy
 
 2. A **előfizetés**, válassza ki a Visual Studio Enterprise.
 
-    ![Visual Studio Enterprise - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_11.png)
+    ![A Visual Studio Enterprise – Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. Válassza ki a Visual Studio Enterprise **hozzáférés-vezérlés (IAM)** .
 
@@ -265,7 +265,7 @@ Végpontok létrehozása a Visual Studio online-hoz (VSTO) build helyezzen üzem
 6. Válassza ki **módosítások mentése**.
 7. Az a **Azure fejlesztési és üzemeltetési szolgáltatások csoportok** listáról válassza ki **végpont rendszergazdák**.
 
-    ![NorthwindCloud Endpoint Administrators](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
+    ![A rendszergazdák NorthwindCloud végpont](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Az a **tagok** lapon jelölje be **Hozzáadás**.
 9. Az a **felhasználók és csoportok hozzáadása** lapon írjon be egy felhasználónevet, és válassza ki, hogy a felhasználó a felhasználók listájából.
@@ -284,11 +284,11 @@ Az utasítások a [kapcsolatot hozhat létre egy Azure Resource Manager szolgál
 | Kapcsolat neve | Az Azure Stack Azure ad-ben | A kapcsolat neve. |
 | Környezet | AzureStack | A környezet neve. |
 | Környezet URL-címe | `https://management.local.azurestack.external` | A felügyeleti végpontra. |
-| Hatókör szintjén | Előfizetés | A kapcsolat hatókörének. |
+| Hatókör szintjén | Subscription | A kapcsolat hatókörének. |
 | Előfizetés azonosítója | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Az Azure Stack felhasználói előfizetés azonosítója |
 | Előfizetés neve | name@contoso.com | Az Azure Stack felhasználói előfizetés neve |
 | Egyszerű szolgáltatás ügyfél-azonosító | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | A résztvevő-Azonosítóval [ez](azure-stack-solution-pipeline.md#create-a-service-principal) szakasz ebben a cikkben. |
-| Egyszerű szolgáltatásnév kulcsa | THESCRETGOESHERE= | A kulcs az ugyanebben a cikkben (vagy a jelszót, ha a szkriptet használta). |
+| Egyszerű szolgáltatásnév kulcsa | THESCRETGOESHERE = | A kulcs az ugyanebben a cikkben (vagy a jelszót, ha a szkriptet használta). |
 | Bérlőazonosító | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A Bérlőazonosító kérheti le az utasítás a következő [a Bérlőazonosító beszerzése](azure-stack-solution-pipeline.md#get-the-tenant-id).  |
 | Kapcsolat: | Nincs ellenőrizve | Ellenőrizze az egyszerű szolgáltatás kapcsolati beállításokat. |
 
@@ -309,7 +309,7 @@ Használatával a következő hozzárendelést szolgáltatás kapcsolatot hozhat
 | Kapcsolat neve | Az Azure Stack ADFS | A kapcsolat neve. |
 | Környezet | AzureStack | A környezet neve. |
 | Környezet URL-címe | `https://management.local.azurestack.external` | A felügyeleti végpontra. |
-| Hatókör szintjén | Előfizetés | A kapcsolat hatókörének. |
+| Hatókör szintjén | Subscription | A kapcsolat hatókörének. |
 | Előfizetés azonosítója | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Az Azure Stack felhasználói előfizetés azonosítója |
 | Előfizetés neve | name@contoso.com | Az Azure Stack felhasználói előfizetés neve |
 | Egyszerű szolgáltatás ügyfél-azonosító | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Az egyszerű szolgáltatás ügyfél-Azonosítót hozott létre az AD FS-hez. |
@@ -324,7 +324,7 @@ Most, hogy a végpont a létrehozás, az Azure DevOps-kapcsolat Azure Stackhez k
 
 ## <a name="develop-your-application-build"></a>Fejlesztés a sestavení aplikace
 
-Az oktatóanyag ezen részében jelennek meg:
+A megoldás ezen részében jelennek meg:
 
 * Az Azure DevOps-szolgáltatásokkal projekthez adja hozzá a kódot.
 * Hozzon létre önálló webes alkalmazás üzembe helyezése.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 7c46d2b576f8927ff0da438091a6c1094ae15ddf
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: 224f5832af5d7fdc57f6b5fcb91d6308d479448b
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67851783"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286710"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack-számítás
 
@@ -38,9 +38,11 @@ Az Azure Stack két szemponttól használja, amikor a virtuális gépek elhelyez
 
 Magas rendelkezésre állás az Azure Stackben több virtuális gépre kiterjedő gyártási rendszer, virtuális gépek kerülnek egy rendelkezésre állási csoportban, a azokat több tartalék tartomány között. Tartalék tartomány egy rendelkezésre állási csoportban van definiálva egy csomópontot a skálázási egységben. Az Azure Stack támogatja a rendelkezésre állási csoport, amely legfeljebb három tartalék tartományt az Azure-ral konzisztens kellene. Virtuális gépeket egy rendelkezésre állási csoportot helyezett osztja szét őket lehető legegyenletesebben több tartalék tartomány, azt jelenti, az Azure Stack-gazdagépeken keresztül lesz fizikailag különítve egymástól. Hardverhiba esetén a sikertelen tartalék tartomány virtuális gépeket fogja indítani a többi tartalék tartományban, de, külön tartalék tartományokban, ha lehetséges, a más virtuális gépek ugyanazon rendelkezésre állási csoportban tartani. Ha ismét online elérhető a gazdagép, virtuális gépek fog rebalanced magas rendelkezésre állás fenntartása érdekében.  
 
-Virtuális gépek méretezési vissza a feladatokat a rendelkezésre állási készletek használata befejezése, és győződjön meg arról, hogy minden virtuális gép méretezési csoport példánya kerül egy különböző tartalék tartományban. Ez azt jelenti, hogy külön Azure Stack-infrastruktúra csomópontokat használnak. Például az Azure Stack system, 4 csomópont lehet egy olyan helyzetet, ahol egy virtuálisgép-méretezési 3-példányok létrehozáskor 3 virtuális gép méretezési csoport példányaihoz helyezi 3 külön Azure Stack-csomópont 4 – csomópont-kapacitás hiánya miatt meghiúsul. Emellett az Azure Stack-csomópontok tölthető különböző szintű elhelyezési kísérlet előtt. 
+Virtuális gépek méretezési vissza a feladatokat a rendelkezésre állási készletek használata befejezése, és győződjön meg arról, hogy minden virtuális gép méretezési csoport példánya kerül egy különböző tartalék tartományban. Ez azt jelenti, hogy külön Azure Stack-infrastruktúra csomópontokat használnak. Például az Azure Stack system, négy csomópont lehet egy olyan helyzetet, ahol a példányok három virtuális gép méretezési létrehozásakor három különálló Azure Stack csomóponton helyezi el a három virtuális gép méretezési csoport példányaihoz 4 – csomópont-kapacitás hiánya miatt meghiúsul . Emellett az Azure Stack-csomópontok tölthető különböző szintű elhelyezési kísérlet előtt. 
 
-Az Azure Stack túlterhelt nem véglegesíthető a memória. Azonban a fizikai Processzormagok számát egy túlzott véglegesítés engedélyezett. Elhelyezési algoritmus nem tekintse meg a meglévő virtuális és fizikai mag fölösleges üzembe helyezési arány tényezőként, mivel minden állomás egy eltérő arány rendelkezhet. Microsoft nem nyújtunk útmutatást az fizikai-virtuális mag arány a számítási feladatok és a szolgáltatás követelményeinek változása miatt. 
+Az Azure Stack túlterhelt nem véglegesíthető a memória. Azonban a fizikai Processzormagok számát egy túlzott véglegesítés engedélyezett. 
+
+Elhelyezési algoritmus nem tekintse meg a meglévő virtuális és fizikai mag fölösleges üzembe helyezési arány tényezőként, mivel minden állomás egy eltérő arány rendelkezhet. Microsoft nem nyújtunk útmutatást az fizikai-virtuális mag arány a számítási feladatok és a szolgáltatás követelményeinek változása miatt. 
 
 ## <a name="consideration-for-total-number-of-vms"></a>Szempontok a virtuális gépek teljes száma 
 
@@ -48,6 +50,13 @@ Nincs új veszi figyelembe a pontos megtervezése az Azure Stack kapacitását. 
 
 Abban az esetben, ha a rendszer elérte a Virtuálisgép-méretezési csoport megadott korlátot, ezért az alábbi hibakódok kellene visszaadnia: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
 
+## <a name="considerations-for-deallocation"></a>Szempontok a felszabadítás
+
+Ha egy virtuális gép van a _felszabadítása_ állapotba, memória-erőforrások nincsenek használatban. Ez lehetővé teszi, hogy mások a rendszer elhelyezni kívánt virtuális gépeket. 
+
+Ha a felszabadított virtuális Gépet ezután indította újra, a memóriahasználat vagy foglalási kell kezelni, egy új virtuális Gépet helyez el a rendszer, és a rendelkezésre álló memória használja fel. 
+
+Ha nincs elérhető memóriával, majd a virtuális gép nem indul el.
 
 ## <a name="azure-stack-memory"></a>Az Azure Stack memória 
 
@@ -98,13 +107,13 @@ Az érték V, a skálázási egységben legnagyobb virtuális gép dinamikusan a
 
 **Q**: A saját Azure Stack üzembe helyezett virtuális gépek száma nem változott, de saját kapacitása van ingadozik. Hogy miért?
 
-**A**: A rendelkezésre álló memóriát a virtuális gép elhelyezéséhez több függőségeket, amelyek egyike a gazda operációs rendszer tartalék rendelkezik. Ez az érték szolgáltatás fut a gazdagépen, amely nem egy konstans érték különböző Hyper-V folyamat által használt memória függ.
+**A**: A rendelkezésre álló memóriát a virtuális gép elhelyezéséhez több függőségeket, amelyek egyike a gazda operációs rendszer tartalék rendelkezik. Ez az érték a Hyper-V a gazdagépen, amely állandó érték nem futó másik folyamat által használt memória függ.
 
 **Q**: Milyen állapotban rendelkeznek bérlői virtuális gépeket a memóriát kell?
 
 v: Virtuális gépek futtatása mellett memória olyan virtuális gépek, amelyek a hálón jut használja fel. Ez azt jelenti, hogy virtuális gépeket, amelyek a rendszer a "Létrehozás", "Sikertelen" vagy a virtuális gépek a belül leállítani a g
 
-**Q**: Azure Stack 4 gazdagépre van. A bérlőhöz 3 által felhasználható 56 GB RAM (D5_v2) mindegyik virtuális gépet tartalmaz. A virtuális gépek egyik átméretezett 112 GB RAM (D14_v2), és a rendelkezésre álló memória-jelentések irányítópult a kapacitás panelen 168 GB használati ugrásszerű eredményezett. Csak 56GB RAM-MAL növekedést eredményezett a két D5_v2 VMs D14_v2, az ezt követő átméretezése. Ez miért van így?
+**Q**: Azure Stack négy állomás van. A bérlőhöz 3 által felhasználható 56 GB RAM (D5_v2) mindegyik virtuális gépet tartalmaz. A virtuális gépek egyik átméretezett 112 GB RAM (D14_v2), és a rendelkezésre álló memória-jelentések irányítópult a kapacitás panelen 168 GB használati ugrásszerű eredményezett. Csak 56GB RAM-MAL növekedést eredményezett a két D5_v2 VMs D14_v2, az ezt követő átméretezése. Ez miért van így?
 
 **A**: A rendelkezésre álló memória, akkor a függvény a rugalmasság tartalék Azure Stack tartja karban. A rugalmasság tartalék feladata a legnagyobb Virtuálisgép-méretet az Azure Stack stamp. Először a legnagyobb virtuális Gépet a blokkban volt 56 GB memóriával. Ha a virtuális gép át lett méretezve, a legnagyobb virtuális Gépet a blokkban vált, 112 GB memória, amely nem csak a bérlő virtuális gép által felhasznált memória növekedett, de a rugalmasság tartalék is növekedett. Ennek következtében 56 GB (56 GB, 112 GB bérlői virtuális gép memóriájának növelése) növelésének + 112 GB rugalmasság számára fenntartott memória növelése. Amikor további virtuális gépeket is méretezhető, a legnagyobb Virtuálisgép-méret maradt, mint a 112 GB-os virtuális gép, és ezért növelése nélkül eredő rugalmasság foglalás nem sikerült. Memóriahasználat növekedése csak a bérlői virtuális gép memóriájának növelése (56 GB) volt. 
 

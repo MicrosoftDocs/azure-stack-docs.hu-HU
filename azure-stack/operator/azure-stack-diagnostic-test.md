@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f1c846b6d429fa323e1081d96cbca8bd10f877b5
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648069"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239446"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
@@ -64,15 +64,15 @@ Kis hatású tesztekhez a infrastruktúra szintjén működik, és különféle 
 
 | Vizsgált kategória                                        | -Argumentumot belefoglalása és - figyelmen kívül hagyása |
 | :--------------------------------------------------- | :-------------------------------- |
-| Azure Stack ACS Summary                              | AzsAcsSummary                     |
+| Az Azure Stack ACS összegzése                              | AzsAcsSummary                     |
 | Az Azure Stack az Active Directory összegzése                 | AzsAdSummary                      |
 | Az Azure Stack riasztási összegzése                            | AzsAlertSummary                   |
-| Azure Stack Application Crash Summary                | AzsApplicationCrashSummary        |
+| Az Azure Stack alkalmazás összeomlása összegzése                | AzsApplicationCrashSummary        |
 | Az Azure Stack biztonsági másolatok megosztásáról kisegítő összegzése       | AzsBackupShareAccessibility       |
 | Az Azure Stack BMC összegzése                              | AzsStampBMCSummary                |
-| Azure Stack Cloud Hosting Infrastructure Summary     | AzsHostingInfraSummary            |
-| Azure Stack Cloud Hosting Infrastructure Utilization | AzsHostingInfraUtilization        |
-| Azure Stack Control Plane Summary                    | AzsControlPlane                   |
+| Az Azure Stack-felhőben futtató infrastruktúra összegzése     | AzsHostingInfraSummary            |
+| Üzemeltetési infrastruktúrájának kihasználtságát az Azure Stack-felhőben | AzsHostingInfraUtilization        |
+| Az Azure Stack vezérlési sík összegzése                    | AzsControlPlane                   |
 | Az Azure Stack Defender összegzése                         | AzsDefenderSummary                |
 | Az Azure Stack futtató infrastruktúra belső vezérlőprogram összegzése  | AzsHostingInfraFWSummary          |
 | Az Azure Stack-infrastruktúra-kapacitás                  | AzsInfraCapacity                  |
@@ -81,12 +81,12 @@ Kis hatású tesztekhez a infrastruktúra szintjén működik, és különféle 
 | Az Azure Stack-portál és API-összefoglalót                   | AzsPortalAPISummary               |
 | Az Azure Stack skálázási egység Virtuálisgép-eseményeket                     | AzsScaleUnitEvents                |
 | Az Azure Stack skálázási egység Virtuálisgép-erőforrások                  | AzsScaleUnitResources             |
-| Azure Stack Scenarios                                | AzsScenarios                      |
+| Az Azure Stack-forgatókönyvek                                | AzsScenarios                      |
 | Az Azure Stack SDN-alapú érvényesítés összegzése                   | AzsSDNValidation                  |
-| Azure Stack Service Fabric Role Summary              | AzsSFRoleSummary                  |
+| Az Azure Stack Service Fabric szerepkör összefoglalása              | AzsSFRoleSummary                  |
 | Az Azure Stack tárolási Adatsík                       | AzsStorageDataPlane               |
 | Az Azure Stack tárolási szolgáltatások – összefoglalás                 | AzsStorageSvcsSummary             |
-| Azure Stack SQL Store Summary                        | AzsStoreSummary                   |
+| Az Azure Stack SQL Store összegzése                        | AzsStoreSummary                   |
 | Az Azure Stack frissítés összegzése                           | AzsInfraUpdateSummary             |
 | Az Azure Stack virtuális gép elhelyezése összegzése                     | AzsVmPlacement                    |
 
@@ -209,8 +209,8 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 *Mielőtt* konfigurálja az infrastruktúra biztonsági mentését, tesztelje a biztonsági mentési megosztás elérési útja és a hitelesítő adatok használatával a **AzsBackupShareAccessibility** teszteléséhez: 
 
   ```powershell
-  New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
-  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+  Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential $using:backupcred
   ```
 
 *Miután* biztonsági mentés konfigurálása, futtatása **AzsBackupShareAccessibility** ellenőrzése a megosztás érhető el a ERCS:

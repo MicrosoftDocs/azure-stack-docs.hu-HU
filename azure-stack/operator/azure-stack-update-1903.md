@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: fa8c8b43b354b3f63dfed87cc45baf39fa18652b
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748894"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239477"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 frissítése
 
@@ -195,6 +195,8 @@ Az alábbiakban a telepítés utáni ismert hibáit a build-verziószáma.
 - A méretezési készlet nem távolítható el a **Virtual Machine Scale Sets** panelen. Áthidaló megoldásként válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
 
 - A rendelkezésre állási csoport 3 tartalék tartomány a virtuális gépek létrehozása és a egy virtuálisgép-méretezési csoport létrehozása a példány sikertelen lesz, és állítsa be a **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt a frissítés során az egy 4 csomópontos az Azure Stackben környezet. Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
+
+- Sikertelen felhasználói lemezkép létrehozása a felhasználói lemezkép szolgáltatás helyezzen rossz állapotban. Sikertelen felhasználói lemezkép létrehozását és törlését műveletek indul el. Felhasználói lemezkép törlése hibaüzenettel meghiúsulhat: "Hiba: Belső lemez felügyeleti hiba történt."
 
 ### <a name="networking"></a>Hálózat
 

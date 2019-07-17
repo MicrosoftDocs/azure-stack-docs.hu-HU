@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 73fc9559e639973b07c576f8590c756032db0c3e
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492447"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286927"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Oktatóanyag: Az Azure és az Azure Stack egy hibrid felhőmegoldás üzembe helyezése
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Az Azure és az Azure Stack egy hibrid felhőmegoldás üzembe helyezése
 
 *Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Ez az oktatóanyag bemutatja, hogyan helyezhet üzembe egy hibrid felhőmegoldás, amely az Azure nyilvános felhő és az Azure Stack magánfelhő használ.
+Ez a forgatókönyv bemutatja, hogyan helyezhet üzembe egy hibrid felhőmegoldás, amely az Azure nyilvános felhő és az Azure Stack magánfelhő használ.
 
 Felhőalapú hibrid megoldás használatával egyesíthetők a magánfelhő megfelelőségi előnyeit a nyilvános felhő skálázhatóságát. Emellett a fejlesztők is kihasználhatja a Microsoft fejlesztői ökoszisztéma, és képességeik alkalmazni a felhőbeli és helyi környezetekben.
 
@@ -46,6 +46,12 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 > - Figyelési és riasztási megnövekedett forgalmának az Application Insights beállítása.
 > - Konfigurálja a globális Azure és az Azure Stack közötti váltáskor automatikus forgalmat.
 
+> [!Tip]  
+> ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
+> 
+> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+
 ### <a name="assumptions"></a>Előfeltételek
 
 Ez az oktatóanyag feltételezi, hogy a globális Azure és az Azure Stack alapszintű ismerete. Ha azt szeretné, további az oktatóanyag elindítása előtt tekintse át ezeket a cikkeket:
@@ -57,7 +63,7 @@ Ez az oktatóanyag azt is feltételezi, hogy egy Azure-előfizetést. Ha nem ren
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Ebben az oktatóanyagban a Kezdés előtt győződjön meg arról, hogy az alábbi követelményeknek:
+Ez a megoldás a Kezdés előtt ellenőrizze az alábbi követelményeknek:
 
 - Az Azure Stack Development Kit (ASDK) vagy az Azure Stack integrált rendszerek az előfizetést. Az Azure Stack fejlesztői készletének üzembe helyezéséhez kövesse a [üzembe helyezése a telepítő a ASDK](../asdk/asdk-install.md).
 - Az Azure Stack telepítése a következőkkel kell rendelkeznie:
@@ -65,7 +71,7 @@ Ebben az oktatóanyagban a Kezdés előtt győződjön meg arról, hogy az aláb
   - A Windows Server 2016 rendszerképet.
   - A Windows Server 2016 és a egy Microsoft SQL Server-lemezképet.
   - A szükséges csomagokat és ajánlatokat.
-  - A domain name for your web app. Ha nem rendelkezik egy tartománynevet, vásároljon egyet egy tartományszolgáltatótól, például a GoDaddy, Bluehost és InMotion.
+  - A webalkalmazás tartomány nevét. Ha nem rendelkezik egy tartománynevet, vásároljon egyet egy tartományszolgáltatótól, például a GoDaddy, Bluehost és InMotion.
 - A tartomány egy megbízható hitelesítésszolgáltatótól LetsEncrypt például SSL-tanúsítvány.
 - SQL Server-adatbázis kommunikál, amely támogatja az Application Insights webalkalmazás. Letöltheti a [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) mintaalkalmazást a Githubról.
 - Hibrid hálózat egy Azure virtuális hálózat és az Azure Stack virtuális hálózat között. Részletes útmutatásért lásd: [hibrid felhő-kapcsolat konfigurálása az Azure és az Azure Stack](azure-stack-solution-hybrid-connectivity.md).
@@ -239,7 +245,7 @@ Konfigurálja az Azure és az Azure Stack web apps SSL-tanúsítványokat haszn�
 
 Az SSL hozzáadása az Azure-bA:
 
-1. Make sure that the SSL certificate you obtain is valid for the subdomain you created. (Nem probléma, a helyettesítő tanúsítvány használatára.)
+1. Győződjön meg arról, hogy az SSL-tanúsítványt, szerezze be a létrehozott altartomány érvényes. (Nem probléma, a helyettesítő tanúsítvány használatára.)
 
 2. Az Azure-ban, kövesse az utasításokat a **a webalkalmazás előkészítése** és **az SSL-tanúsítvány kötése** szakaszai a [meglévő egyéni SSL-tanúsítvány kötése az Azure Web Appshez](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl) a cikk. Válassza ki **SNI-alapú SSL** , a **SSL-típus**.
 
