@@ -1,101 +1,102 @@
 ---
-title: Az Azure Stack adatközpont integrációja – végpontok közzététele |} A Microsoft Docs
-description: A helyi adatközpontban Azure Stack-végpontok közzététele
+title: Azure Stack Datacenter-integráció – végpontok közzététele | Microsoft Docs
+description: Ismerje meg, hogyan tehet közzé Azure Stack-végpontokat az adatközpontban
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 81115a0bb82792a246d191c1cf68a99f44030e12
+ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835086"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68328750"
 ---
-# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Az Azure Stack adatközpont integrációja – végpontok közzététele
+# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack Datacenter-integráció – végpontok közzététele
 
-Az Azure Stack állít be az infrastruktúra-szerepkör virtuális IP-címek (VIP). A virtuális IP-címek vannak lefoglalva a nyilvános IP-címkészletből. Minden egyes virtuális IP-CÍMEK hozzáférés-vezérlési lista (ACL) a szoftveresen definiált hálózati rétegben védi. Hozzáférés-vezérlési listák is használhatók a fizikai kapcsolón (szűrése és BMC) tovább erősíti a megoldást. DNS-bejegyzés jön létre a külső DNS-zónában, hogy az üzembe helyezéskor meghatározott végpontot.
+Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés időpontjában meg van adva.
 
 
-A következő architekturális diagram látható a különböző hálózati rétegek és ACL-ek:
+A következő építészeti ábrán a különböző hálózati rétegek és ACL-ek láthatók:
 
 ![Szerkezeti kép](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Portok és protokollok (bejövő)
 
-Infrastruktúra készlete virtuális IP-cím megadása kötelező közzététele az Azure Stack-végpontok külső hálózatokhoz. A *végpontot (VIP)* táblázat minden egyes végpontot, a szükséges port és protokoll. Tekintse meg az adott erőforrás szolgáltató telepítési dokumentációban további erőforrás-szolgáltatók, például az SQL erőforrás-szolgáltató igénylő végpontok.
+Azure Stack-végpontok külső hálózatokra való közzétételéhez infrastruktúra-VIP-készlet szükséges. A *végpont (VIP)* tábla megjeleníti az egyes végpontokat, a szükséges portot és a protokollt. A további erőforrás-szolgáltatókat, például az SQL-erőforrás-szolgáltatót igénylő végpontok esetében tekintse meg a konkrét erőforrás-szolgáltató telepítési dokumentációját.
 
-Virtuális IP-címek nem jelennek meg, mert azok még nem szükséges a közzététel az Azure Stack belső infrastruktúra.
+A belső infrastruktúra-VIP-címek nincsenek felsorolva, mert nem szükségesek a közzétételi Azure Stack.
 
 > [!Note]  
-> Felhasználói virtuális IP-címek dinamikusak, maguk a felhasználók számára nem az Azure Stack operátorait szerint határozza meg.
+> A felhasználó virtuális IP-címei dinamikusan vannak meghatározva, és a felhasználók maguk határozzák meg, hogy a Azure Stack operátor nem rendelkezik hozzáféréssel.
 
 > [!Note]  
 > IKEv2 VPN. Az IKEv2 VPN egy szabványalapú IPsec VPN-megoldás, amely az 500-as és 4500-as UDP-portokat, valamint a következő IP-protokollt használja: 50. A tűzfalak ezeket a portokat nem mindig nyitják meg, ezért elképzelhető, hogy az IKEv2 VPN nem képes átjutni egyes proxykon és tűzfalakon.
 
 > [!Note]  
-> Kezdődően a 1811 frissítés 12495-30015 tartományán portok már nem szükséges miatt is nyitva a [bővítmény gazdagép](azure-stack-extension-host-prepare.md).
+> Az 1811-es frissítéstől kezdve a 12495-30015-es tartományba tartozó portok többé nem szükségesek a [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadása miatt.
 
-|Endpoint (VIP)|DNS host A record|Protocol|Portok|
+|Végpont (VIP)|DNS host A record|Protocol|Portok|
 |---------|---------|---------|---------|
 |AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portál (rendszergazda)|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Az Azure Resource Manager (rendszergazda)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (rendszergazda)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portál (felhasználó)|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Az Azure Resource Manager (felhasználó)|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (felhasználó)|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Visszavont tanúsítványok listája|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;. *&lt;region>.&lt;fqdn>*|A TCP ÉS UDP|53|
+|Tanúsítvány-visszavonási lista|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP & UDP|53|
 |Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|A Key Vault (felhasználó)|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|A Key Vault (rendszergazda)|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (felhasználó)|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (rendszergazda)|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Tárolási üzenetsor|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Storage-táblából|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage-tábla|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL-erőforrásszolgáltató|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |MySQL-erőforrásszolgáltató|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|App Service|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172-es (MSDeploy)|
+|App Service|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (az azure Resource Manager)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
 |  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
-|VPN-átjárók|     |     |[Tekintse meg a VPN gateway – gyakori kérdések](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
+|VPN-átjárók|     |     |[Lásd: VPN Gateway – gyakori kérdések](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
 
 ## <a name="ports-and-urls-outbound"></a>Portok és URL-címek (kimenő)
 
-Az Azure Stack csak transzparens proxy kiszolgálók támogatja. A központi telepítés, ha egy transzparens proxy kimenő portokhoz hagyományos proxykiszolgálónak engedélyeznie kell a következő portokat és URL-címek a kimenő kommunikáció:
+A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy olyan üzemelő példányban, ahol egy transzparens proxy egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a következő portokat és URL-címeket a kimenő kommunikációhoz:
 
 > [!Note]  
-> Az Azure Stack nem támogatja az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez ExpressRoute-tal.
+> A Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez.
 
-|Cél|Destination URL|Protocol|Portok|Forráshálózat|
+|Cél|Destination URL|Protocol|Portok|Forrásoldali hálózat|
 |---------|---------|---------|---------|---------|
-|Identitás|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|
-|Marketplace-en szindikálás|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
-|Javítás & frissítése|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
-|Regisztráció|https:\//management.azure.com|HTTPS|443|Nyilvános virtuális IP - / 27-eset|
-|Használat|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|Nyilvános virtuális IP - / 27-eset|
-|Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*. jövőben a Microsoft<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános virtuális IP - / 27-eset<br>Nyilvános infrastruktúra hálózati|
-|NTP|(IP az NTP-kiszolgáló a megadott központi telepítés)|UDP|123|Nyilvános virtuális IP - / 27-eset|
-|DNS|(IP-megadott DNS-kiszolgáló üzembe helyezéshez)|TCP<br>UDP|53|Nyilvános virtuális IP - / 27-eset|
-|CRL|(A tanúsítvány CRL terjesztési pontok alapján URL)|HTTP|80|Nyilvános virtuális IP - / 27-eset|
-|LDAP|Graph-integráció a megadott Active Directory-erdő|TCP<br>UDP|389|Nyilvános virtuális IP - / 27-eset|
-|LDAP SSL|Graph-integráció a megadott Active Directory-erdő|TCP|636|Nyilvános virtuális IP - / 27-eset|
-|LDAP GC|Graph-integráció a megadott Active Directory-erdő|TCP|3268|Nyilvános virtuális IP - / 27-eset|
-|LDAP GC SSL|Graph-integráció a megadott Active Directory-erdő|TCP|3269|Nyilvános virtuális IP - / 27-eset|
-|AD FS|Az AD FS metaadatok végpontja biztosított az AD FS-integráció|TCP|443|Nyilvános virtuális IP - / 27-eset|
+|Identitás|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
+|Piactéri hírszolgáltatás|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Nyilvános VIP-/27|
+|Javítás & frissítés|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
+|Regisztráció|https:\//management.azure.com|HTTPS|443|Nyilvános VIP-/27|
+|Használat|https://*.trafficmanager.net |HTTPS|443|Nyilvános VIP-/27|
+|Windows Defender|\*. wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*. update.microsoft.com<br>\*. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/CRL<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//CRL.microsoft.com/PKI/CRL/Products<br>https:\//www.microsoft.com/PKI/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
+|NTP|(Az üzemelő példányhoz megadott NTP-kiszolgáló IP-címe)|UDP|123|Nyilvános VIP-/27|
+|DNS|(Az üzembe helyezéshez megadott DNS-kiszolgáló IP-címe)|TCP<br>UDP|53|Nyilvános VIP-/27|
+|CRL|(URL-cím a CRL terjesztési pontok alatt a tanúsítványon)|HTTP|80|Nyilvános VIP-/27|
+|LDAP|A Graph-integrációhoz megadott Active Directory erdő|TCP<br>UDP|389|Nyilvános VIP-/27|
+|LDAP SSL|A Graph-integrációhoz megadott Active Directory erdő|TCP|636|Nyilvános VIP-/27|
+|LDAP GC|A Graph-integrációhoz megadott Active Directory erdő|TCP|3268|Nyilvános VIP-/27|
+|LDAP GC SSL|A Graph-integrációhoz megadott Active Directory erdő|TCP|3269|Nyilvános VIP-/27|
+|AD FS|AD FS-integrációhoz megadott AD FS metaadat-végpont|TCP|443|Nyilvános VIP-/27|
+|Diagnosztikai naplók gyűjtési szolgáltatása|Azure Storage által biztosított blob SAS URL-cím|HTTPS|443|Nyilvános VIP-/27|
 |     |     |     |     |     |
 
-Kimenő URL-címek az Azure traffic Managerrel a földrajzi hely alapján a legjobb lehetséges csatlakozási elosztott terhelésű rendszer. Az elosztott terhelésű URL-címek betöltése, a Microsoft update, és a háttéralkalmazás végpontjainak módosítása ügyfelek befolyásolása nélkül. A Microsoft nem oszt meg IP-címek listája az elosztott terhelésű URL-címek számára. Használjon olyan eszköz, amely támogatja a szűrést, URL-cím helyett IP-cím alapján.
+A kimenő URL-címek terheléselosztása az Azure Traffic Manager használatával történik a lehető legjobb kapcsolat biztosításához a földrajzi hely alapján. Elosztott terhelésű URL-címek esetén a Microsoft a háttérbeli végpontokat az ügyfelek befolyásolása nélkül tudja frissíteni és módosítani. A Microsoft nem osztja meg a terheléselosztási URL-címek IP-címeinek listáját. Olyan eszközt kell használnia, amely támogatja az URL-címeken alapuló szűrést, nem pedig az IP-címet.
 
-Kimenő DNS szükség, minden alkalommal változik, mi az a külső DNS-ben, és milyen típusú identitásintegráció választotta lekérdezéséhez forrása. Ha ez egy csatlakoztatott forgatókönyv, üzembe helyezés során a DVM helyezkedik el, a BMC-hálózathoz, amely a kimenő hozzá kell férnie, de üzembe helyezés után a DNS-szolgáltatás áthelyezi egy belső összetevő, amely egy nyilvános virtuális IP-CÍMEK keresztül küld. Ekkor az BMC a hálózaton keresztül a kimenő DNS hozzáférés távolíthatja el, de a DNS-kiszolgálónak a nyilvános virtuális IP-cím hozzáférést kell maradnia, különben hitelesítés sikertelen lesz.
+A kimenő DNS-t mindig kötelező megadni, ami változó a külső DNS lekérdezésének forrását, valamint azt, hogy milyen típusú identitás-integráció lett kiválasztva. Ha ez egy csatlakoztatott forgatókönyv, az üzembe helyezés során a BMC-hálózaton található DVM-nek szüksége van a kimenő hozzáférésre, de az üzembe helyezés után a DNS-szolgáltatás egy belső összetevőbe kerül, amely nyilvános VIP-en keresztül küld lekérdezéseket. Ekkor a rendszer eltávolítja a kimenő DNS-hozzáférést a BMC-hálózaton keresztül, de a DNS-kiszolgálóhoz való nyilvános VIP-hozzáférésnek továbbra is meg kell maradnia, vagy más hitelesítés sikertelen lesz.
 
 ## <a name="next-steps"></a>További lépések
 
-[Az Azure Stack nyilvános kulcsokra épülő infrastruktúra követelményei](azure-stack-pki-certs.md)
+[PKI-követelmények Azure Stack](azure-stack-pki-certs.md)
