@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack portal használatával |} A Microsoft Docs
-description: Ismerje meg, hogyan elérése és a felhasználói portál használata az Azure Stackben.
+title: A Azure Stack portál használata | Microsoft Docs
+description: Megtudhatja, hogyan érheti el és használhatja a Azure Stack a felhasználói portált.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,68 +14,68 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131552"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376897"
 ---
-# <a name="use-the-azure-stack-portal"></a>Az Azure Stack portal használata
+# <a name="use-the-azure-stack-portal"></a>Az Azure Stack-portál használata
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack-portál használatával előfizethetnek azokra nyilvános, és használhatja a szolgáltatásokat, amelyek ezeket az ajánlatokat nyújtanak. Ha korábban már használta a globális Azure-portálon, akkor már ismeri az a hely működését.
+A Azure Stack portálon fizethet elő nyilvános ajánlatokra, és használhatja azokat a szolgáltatásokat, amelyeket az ajánlatok biztosítanak. Ha a globális Azure Portal használta, már ismeri a hely működését.
 
-## <a name="access-the-portal"></a>A portál elérése
+## <a name="access-the-portal"></a>Hozzáférés a portálhoz
 
-Az Azure Stack-operátorokról (a szolgáltató vagy a rendszergazda a szervezet), lehetővé teszi, hogy a helyes URL-portál eléréséhez.
+A Azure Stack operátor (vagy egy szolgáltató, vagy a szervezet rendszergazdája) lehetővé teszi, hogy megismerje a portál eléréséhez szükséges helyes URL-címet.
 
-- Egy integrált rendszer, az URL-címet az operátor régió és külső tartománynév függően változik, és a következő formátumban lesz https://portal.&lt; *régió*&gt;.&lt; *FQDN*&gt;.
-- Ha az Azure Stack fejlesztői készletet használ, a portál címe https://portal.local.azurestack.external.
-- Az alapértelmezett időzóna az összes Azure Stack üzemelő példányhoz van beállítva az egyezményes világidő (UTC). Választhat egy időzóna telepítésekor az Azure Stack, azonban automatikusan visszaáll az UTC Időzóna alapértelmezés szerint a telepítés során.
+- Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, és a formátuma https://portal.&lt *a következő: régió.* &gt;&lt; *Teljes tartománynév* &gt;.
+- Ha a Azure Stack Development Kit (ASDK) használja, a portál címe https://portal.local.azurestack.external a következő:.
+- Az összes Azure Stack üzemelő példány alapértelmezett időzónája az egyezményes világidő (UTC) szerint van beállítva. Azure Stack telepítésekor kiválaszthatja az időzónát, de a telepítés során a rendszer automatikusan visszavált az UTC értékre.
 
-## <a name="customize-the-dashboard"></a>Az irányítópult testreszabásával
+## <a name="customize-the-dashboard"></a>Az irányítópult testreszabása
 
-Az irányítópult csempéi alapértelmezett készletét tartalmazza. Választhat **irányítópult szerkesztése** módosítsa az alapértelmezett irányítópult, vagy válasszon **új irányítópult** egyéni irányítópult létrehozása. Könnyen testre szabhat egy irányítópultot hozzáadásával vagy eltávolításával a csempéket. Jelölje be például a számítási csempe hozzáadása **+ erőforrás létrehozása**. Kattintson a jobb gombbal **számítási**, majd válassza ki **rögzítés az irányítópulton**.
+Az irányítópult a csempék alapértelmezett készletét tartalmazza. Válassza az **irányítópult szerkesztése** lehetőséget az alapértelmezett irányítópult módosításához, vagy válassza az **új irányítópult** lehetőséget az egyéni irányítópult létrehozásához. Az irányítópultok egyszerűen testreszabhatók csempék hozzáadásával vagy eltávolításával. Például egy számítási csempe hozzáadásához válassza az **+ erőforrás létrehozása**lehetőséget. kattintson a jobb gombbal a **számítás**elemre, majd válassza **a rögzítés az irányítópulton**lehetőséget.
 
-![Képernyőfelvétel az Azure Stack felhasználói portál](media/azure-stack-use-portal/userportal.png)
+![A Azure Stack felhasználói portál képernyőfelvétele](media/azure-stack-use-portal/userportal.png)
 
-Az irányítópult visszaállítása az eredeti beállításokat:
-1.  Válassza ki **irányítópult szerkesztése**. 
-2.  Kattintson a jobb gombbal, és válassza ki **visszaállítja az alapértelmezett állapotba**.
+Az irányítópult visszaállítása az eredeti beállításokra:
+1.  Válassza az **irányítópult szerkesztése**lehetőséget. 
+2.  Kattintson a jobb gombbal, és válassza **a visszaállítás az alapértelmezett állapotba**lehetőséget.
 
-## <a name="create-subscription-and-browse-available-resources"></a>Előfizetés létrehozása, és keresse meg a rendelkezésre álló erőforrások
+## <a name="create-subscription-and-browse-available-resources"></a>Előfizetés létrehozása és elérhető erőforrások tallózása
 
-Ha még nincs előfizetése, először is szüksége, előfizetés egy ajánlatra. Ezt követően keresse meg az elérhető erőforráskorlátokat. Keresse meg és -erőforrások létrehozása, az alábbi módszerek bármelyikét használhatja:
+Ha még nem rendelkezik előfizetéssel, elő kell fizetnie egy ajánlatra. Ezután böngészheti a rendelkezésre álló erőforrásokat. Az erőforrások tallózásához és létrehozásához használja az alábbi módszerek bármelyikét:
 
-- Válassza ki a **Marketplace** csempét az irányítópulton.
-- Az a **összes erőforrás** csempéről válassza **létre erőforrásokat**.
-- A bal oldali navigációs ablaktáblán válassza ki a **+ erőforrás létrehozása**.
+- Válassza ki a **piactér** csempét az irányítópulton.
+- A **minden erőforrás** csempén válassza az **erőforrások létrehozása**lehetőséget.
+- A bal oldali navigációs panelen válassza az **+ erőforrás létrehozása**lehetőséget.
 
-## <a name="learn-how-to-use-available-services"></a>Ismerje meg, hogyan használhatja az elérhető szolgáltatások
+## <a name="learn-how-to-use-available-services"></a>Ismerje meg, hogyan használhatja az elérhető szolgáltatásokat
 
-Ha az elérhető szolgáltatások használatára vonatkozó útmutatást, is előfordulhatnak más lehetőségek elérhető.
+Ha útmutatásra van szüksége az elérhető szolgáltatások használatához, lehetséges, hogy az Ön számára különböző lehetőségek állnak rendelkezésre.
 
-- A szervezet vagy a szolgáltató rendelkezhetnek a saját dokumentációját, amely általában a helyzet akkor, ha testre szabott szolgáltatások vagy alkalmazások kínálnak.
-- Harmadik féltől származó alkalmazások rendelkeznek a saját dokumentációjában.
-- Egységes Azure-szolgáltatásokhoz Határozottan javasoljuk, hogy először tekintse át az Azure Stack-dokumentáció. Az Azure Stack felhasználói dokumentáció eléréséhez, válassza ki a Súgó ikonra, és válassza **súgó + támogatás**.
+- A szervezet vagy szolgáltató a saját dokumentációját is megadhatja, ami általában akkor fordul elő, ha testreszabott szolgáltatásokat vagy alkalmazásokat biztosítanak.
+- A harmadik féltől származó alkalmazások saját dokumentációval rendelkeznek.
+- Az Azure-konzisztens szolgáltatások esetében javasoljuk, hogy először tekintse át a Azure Stack dokumentációját. A Azure Stack felhasználói dokumentációjának eléréséhez válassza a Súgó ikont ( **?** ), majd kattintson a **Súgó és támogatás**lehetőségre.
 
-    ![Súgó és támogatás a beállítás a felhasználói felületen](media/azure-stack-use-portal/HelpAndSupport.png)
+    ![Súgó és támogatás lehetőség a felhasználói felületen](media/azure-stack-use-portal/HelpAndSupport.png)
 
-    Különösen javasoljuk, hogy tekintse át a kezdéshez a következő cikkeket:
+    Javasoljuk, hogy az első lépésekhez tekintse át a következő cikkeket:
 
-    - [Fontos szempontok: Szolgáltatások használatával, vagy alkalmazások készítéséhez az Azure Stackhez](azure-stack-considerations.md)
-    - Az a **szolgáltatások** szakasz dokumentáció, van egy szempontok a cikk az egyes szolgáltatások. A szempontok lapra a szolgáltatás az Azure-ban érhető el, és ugyanazt a szolgáltatást az Azure Stackben kínált közötti különbségeket ismerteti. Egy vonatkozó példáért lásd: [virtuális gépekkel kapcsolatos szempontok](azure-stack-vm-considerations.md). Előfordulhat, hogy az egyéb információkat a **szolgáltatások** szakaszt, amely egyedi az Azure Stackhez.
+    - [Legfontosabb szempontok: Szolgáltatások használata vagy alkalmazások kiépítése a](azure-stack-considerations.md)Azure Stackhoz.
+    - A dokumentáció **use Services (szolgáltatások használata** ) szakaszában az egyes szolgáltatásokra vonatkozó megfontolások szerepelnek. A szempontok oldal ismerteti az Azure-ban kínált szolgáltatás és a Azure Stackban kínált szolgáltatások közötti különbségeket. Példaként lásd a virtuális gépekkel [kapcsolatos szempontokat](azure-stack-vm-considerations.md). Előfordulhat, hogy a **szolgáltatások használata** részben Azure stack egyedi információk találhatók.
 
-      A szolgáltatás általános referenciaként az Azure-dokumentáció is használhatja, de ezek a különbségek tisztában kell lennie. Megismerheti, hogy a dokumentáció a hivatkozásokat tartalmaz a **gyorsútmutatók** Azure-dokumentáció, mutasson a csempére.
+      Az Azure dokumentációját általános referenciáként használhatja egy szolgáltatáshoz, de tisztában kell lennie ezekkel a különbségekkel. Ismerje meg, hogy a dokumentáció a gyors **útmutató oktatóanyagokat** tartalmazó csempén az Azure-dokumentációra mutat.
 
 ## <a name="get-support"></a>Támogatás kérése
 
-Ha támogatásra van szüksége, forduljon segítségért a szervezet vagy szolgáltatás-szolgáltatónál.
+Ha támogatásra van szüksége, segítségért forduljon a szervezethez vagy a szolgáltatóhoz.
 
-Az Azure Stack fejlesztői készletének használata a [Azure Stack-fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) támogatási csak forrása.
+Ha a Azure Stack Development Kit (ASDK) használja, a [Azure stack fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) az egyetlen támogatási forrás.
 
 ## <a name="next-steps"></a>További lépések
 
-[Fontos szempontok: Szolgáltatások használatával, vagy alkalmazások készítéséhez az Azure Stackhez](azure-stack-considerations.md)
+[Legfontosabb szempontok: Szolgáltatások használata vagy alkalmazások kiépítése Azure Stack](azure-stack-considerations.md)

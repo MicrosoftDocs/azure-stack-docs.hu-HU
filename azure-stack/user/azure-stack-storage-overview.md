@@ -1,6 +1,6 @@
 ---
-title: A Microsoft Azure Stack storage bemutatása
-description: Azure Stack-tárolás
+title: A Azure Stack Storage bemutatása | Microsoft Docs
+description: Ismerkedjen meg Azure Stack Storage-szolgáltatásokkal.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,86 +14,86 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9abfeecfba0e159a5e402bb5d49a58e0cd2945e2
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: c8828076c74e5f12c742206e3c38c8ee44f90b4c
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041985"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376855"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>A Microsoft Azure Stack storage bemutatása
+# <a name="introduction-to-azure-stack-storage"></a>A Azure Stack Storage bemutatása
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="overview"></a>Áttekintés
 
-Az Azure Stack Storage egy felhőalapú tárolási szolgáltatásokról, amely tartalmazza a Blobok, táblák és üzenetsorok, amelyek az Azure Storage-szolgáltatások.
+Azure Stack Storage az Azure Storage által biztosított szolgáltatásokkal konzisztens felhőalapú tárolási szolgáltatások készlete. Ezek a szolgáltatások blobokat, táblákat és várólistákat tartalmaznak.
 
-## <a name="azure-stack-storage-services"></a>Az Azure Stack-tárolási szolgáltatások
+## <a name="azure-stack-storage-services"></a>Azure Stack Storage-szolgáltatások
 
-Az Azure Stack storage a következő három szolgáltatást biztosítja:
+Azure Stack Storage a következő három szolgáltatást biztosítja:
 
 - **Blob Storage**
 
-    A BLOB storage a strukturálatlan objektumadatokat tárolja. Egy blob állhat bármilyen szövegből vagy bináris adatból, lehet például egy dokumentum, egy médiafájl vagy egy alkalmazástelepítő.
+    A blob Storage strukturálatlan objektumokat tárol. A Blobok bármilyen típusú szöveg-vagy bináris adattípust tartalmazhatnak, például dokumentumot, médiafájlt vagy az alkalmazás telepítőjét.
 
 - **Table Storage**
 
-    A TABLE storage strukturált adatkészleteket tárolja. A Table Storage a NoSQL-kulcsattribútumok adattára, amely gyors fejlesztési lehetőségeket és nagy adatmennyiségek gyors elérését biztosítja.
+    A Table Storage a strukturált adatkészleteket tárolja. A Table Storage egy NoSQL-attribútum, amely lehetővé teszi a gyors fejlesztést és a nagy mennyiségű adattal való gyors hozzáférést.
 
 - **Queue Storage**
 
-    A Queue storage megbízható üzenetküldést, a munkafolyamat-feldolgozáshoz és a felhőszolgáltatás összetevői közötti kommunikációhoz biztosít.
+    A üzenetsor-tárolás megbízható üzenetküldést biztosít a munkafolyamat-feldolgozáshoz és a Cloud Services összetevői közötti kommunikációhoz.
 
-Az Azure Stack tárfiókok olyan biztonságos fiók, amely lehetővé teszi az Azure Stack Storage szolgáltatásaihoz való hozzáférést. A tárfiók biztosítja az egyedi névteret a tárterület erőforrásainak. Az alábbi ábrán látható, a storage-fiókban, az Azure Stack storage erőforrásainak kapcsolatai:
+Az Azure Stack Storage-fiók egy biztonságos fiók, amely hozzáférést biztosít a Azure Stack-tárolóban található szolgáltatásokhoz. A tárfiók biztosítja az egyedi névteret a tárterület erőforrásainak. A következő ábrán a Storage-fiók Azure Stack tárolási erőforrásai közötti kapcsolatok láthatók:
 
-![Az Azure Stack Storage áttekintése](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Azure Stack Storage – áttekintés](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 ### <a name="blob-storage"></a>Blob Storage
 
-Felhasználók, a nagy mennyiségű strukturálatlan Objektumadat tárolása a felhőben a blob storage-bA egy hatékony és méretezhető megoldást kínál. Tartalom tárolásához például használhatja a blob storage-bA:
+Az olyan felhasználók számára, akik nagy mennyiségű strukturálatlan objektumot tárolnak a felhőben, a blob Storage hatékony és méretezhető megoldást kínál. A blob Storage a következő tartalmak tárolására használható:
 
 - Dokumentumok
 - Közösségi adatok (fényképek, videók, zene és blogok)
 - Fájlok, számítógépek, adatbázisok és eszközök biztonsági másolatai
-- Webalkalmazásokhoz tartozó képek és szövegek
-- Konfigurációs adatok a felhőalapú alkalmazásokhoz
+- Képek és szöveg webes alkalmazásokhoz
+- A felhőalapú alkalmazások konfigurációs adatkészletei
 - Big data (naplók és egyéb nagy adatkészletek)
 
-Minden blob egy tárolóba van rendezve. A tárolók nagy előnye, hogy az objektumok csoportjaihoz biztonsági házirendeket lehet rendelni. Egy tárfiók tetszőleges számú tárolót tartalmazhat, és a egy tároló korlátlan számú blobot a korlátig tárfiók is tartalmazhat.
+Minden blob egy tárolóba van rendezve. A tárolók nagy előnye, hogy az objektumok csoportjaihoz biztonsági házirendeket lehet rendelni. A Storage-fiókok tetszőleges számú tárolót tartalmazhatnak, és a tárolók tetszőleges számú blobot tartalmazhatnak (legfeljebb a Storage-fiókra korlátozva).
 
-A BLOB storage háromféle blobot biztosít:
+A blob Storage háromféle blobot kínál:
 
-- **Blokkblobok**
+- **Blobok letiltása**
 
-    A blokkblobok streamelési és a felhő típusú objektumok tárolására vannak optimalizálva, és alkalmasak tárolására, dokumentumok, médiafájlok, biztonsági mentések és stb.
+    A blokkos Blobok a Felhőbeli objektumok folyamatos átvitelére és tárolására vannak optimalizálva. A dokumentumok, médiafájlok, biztonsági másolatok és más hasonló fájlok tárolására jó választás.
 
-- **Hozzáfűző blobok**
+- **Blobok hozzáfűzése**
 
     A hozzáfűző blobok a blokkblobokhoz hasonló, de a műveletek hozzáfűzésére optimalizált blobok. A naplóíró blobok csak a végükhöz hozzáadott új blokkal frissíthetők. A naplóíró blobok olyan forgatókönyvekhez felelnek meg leginkább, mint például a naplózás, ahol az új adatokat csak a blob végéhez kell hozzáírni.
 
-- **Lapblobok**
+- **Oldal Blobok**
 
-    Lapblobok infrastruktúra-szolgáltatási lemezek megjelenítésére vannak optimalizálva, és ez akár 1 TB méretű támogató véletlenszerű írások. Az Azure Stack-virtuális gép IaaS lemez egy lapblobként tárolt VHD csatolva.
+    Az oldal Blobok a IaaS-lemezek ábrázolására vannak optimalizálva, és a véletlenszerű írásokat legfeljebb 1 TB méretűre támogatják. Az Azure Stack virtuális gép csatolt IaaS lemeze egy lapozófájlként tárolt VHD.
 
-### <a name="table-storage"></a>Table Storage
+### <a name="table-storage"></a>Táblatároló
 
-A modern alkalmazásokhoz gyakran az előző generációs szoftvereknél jobban méretezhető és rugalmasabb adattárolók szükségesek. A Table Storage magas rendelkezésre állású, nagymértékben méretezhető tárolót kínál, így alkalmazása a felhasználói igények függvényében automatikusan átméretezheti magát. A TABLE storage a Microsoft NoSQL kulcs-/ attribútumtár – rendelkezik egy séma nélküli Tervező, kivitelezésében különbözik a hagyományos relációs adatbázisoktól. A séma nélküli adattárral az adatok könnyedén alkalmazkodnak az alkalmazás igényeinek fejlődéséhez. A Table Storage könnyen használható, így a fejlesztők gyorsan létrehozhatják benne alkalmazásaikat.
+A modern alkalmazások gyakran olyan adattárakat igényelnek, amelyek nagyobb skálázhatóságot és rugalmasságot igényelnek, mint a szoftver korábbi generációja. A Table Storage a nagy rendelkezésre állású, nagy mértékben méretezhető tárolást biztosít, így az alkalmazás automatikusan méretezhető a felhasználói igények kielégítése érdekében. A Table Storage a Microsoft NoSQL kulcs-és attribútum-tárolója, amely séma nélküli kialakítással rendelkezik, így eltér a hagyományos és a hagyományos kapcsolatok adatbázisaitól. A séma nélküli adattárral egyszerűen alkalmazkodhat az adataihoz az alkalmazás igényeinek megfelelően. A Table Storage egyszerűen használható, így a fejlesztők gyorsan hozhatnak létre alkalmazásokat.
 
-A TABLE storage egy kulcs-/ attribútumtár, ami azt jelenti, hogy egy típusos tulajdonságnévvel tárolja egy tábla minden egyes értékhez. A tulajdonságnév felhasználható szűréshez vagy a kiválasztási feltételek megadásához is. A tulajdonságok és értékeik gyűjteménye egy entitást alkot. Mivel a table storage séma nélküli, ugyanaz a tábla két entitása a Tulajdonságok különböző gyűjteményeit is tartalmazhat, és azokat a tulajdonságokat, különböző típusú is lehet.
+A Table Storage egy kulcs-attribútum tároló, ami azt jelenti, hogy egy tábla minden értékét egy begépelt tulajdonságnév tárolja. A tulajdonság neve a szűréshez és a kiválasztási feltételek megadásához használatos. A tulajdonságok és értékeik gyűjteménye egy entitást alkot. Mivel a Table Storage séma nélküli, az ugyanabban a táblában lévő két entitás különböző tulajdonságokat tartalmazhat, és ezek a tulajdonságok különböző típusúak lehetnek.
 
-A table storage segítségével rugalmas adatkészleteket tárolhat, például webalkalmazások, címjegyzékek, eszközadatokat és bármilyen más típusú metaadatokat, amelyek a szolgáltatásnak szüksége van a felhasználói adatok. A mai internetalapú alkalmazások például a table storage NoSQL-adatbázisok a hagyományos relációs adatbázisok népszerű alternatíváját kínálják.
+A Table Storage használatával rugalmas adatkészleteket tárolhat, például a webalkalmazások felhasználói adatait, a címjegyzékeket, az eszköz adatait, valamint a szolgáltatás által igényelt más típusú metaadatokat. A mai internetalapú alkalmazások esetében a NoSQL-adatbázisok (például a Table Storage) népszerű alternatívát kínálnak a hagyományos, összehasonlítható adatbázisok számára.
 
-Egy tárfiók korlátlan számú táblát tartalmazhat, és a egy táblát tartalmazhat korlátlan számú entitást, a tárfiók kapacitásán belül.
+A Storage-fiók tetszőleges számú táblát tartalmazhat, és egy tábla tetszőleges számú entitást tartalmazhat, a Storage-fiók kapacitási korlátján felül.
 
 ### <a name="queue-storage"></a>Queue Storage
 
-A méretezhető alkalmazások tervezésekor az alkalmazás összetevői gyakran le vannak választva, hogy egymástól függetlenül lehessen őket méretezni. Queue storage megbízható üzenetkezelési megoldást biztosít a alkalmazás-összetevők közötti aszinkron kommunikációhoz a felhőben, az asztalon, egy helyszíni kiszolgálón vagy egy mobileszközön futnak-e. A Queue Storage támogatja az aszinkron feladatok kezelését és a feldolgozási munkafolyamatok kialakítását is.
+A méretezhető alkalmazások tervezésekor az alkalmazás-összetevők gyakran le vannak választva, így egymástól függetlenül méretezhetők. A várólista-tároló megbízható üzenetkezelési megoldást biztosít az alkalmazás-összetevők közötti aszinkron kommunikációhoz, függetlenül attól, hogy a felhőben, az asztalon, egy helyszíni kiszolgálón vagy egy mobileszközön futnak. A Queue Storage támogatja az aszinkron feladatok kezelését és a feldolgozási munkafolyamatok kialakítását is.
 
-Egy tárfiók tetszőleges számú üzenetsort tartalmazhat, és a egy üzenetsor korlátlan számú üzenetet, a tárfiók kapacitásán belül is tartalmazhat. Az egyes üzenetek akár a 64 KB-os méretet is elérhetik.
+A Storage-fiókok tetszőleges számú várólistát tartalmazhatnak, és a várólista tetszőleges számú üzenetet tartalmazhat (a Storage-fiók kapacitási korlátja alapján). Az egyes üzenetek akár a 64 KB-os méretet is elérhetik.
 
 ## <a name="next-steps"></a>További lépések
 
-- [Azure-konzisztens tároló: különbségek és szempontok](azure-stack-acs-differences.md)
+- [Azure-konzisztens tárolás: különbségek és megfontolások](azure-stack-acs-differences.md)
 
-- Az Azure Storage szolgáltatással kapcsolatos további tudnivalókért lásd: [a Microsoft Azure Storage bemutatása](/azure/storage/common/storage-introduction)
+- További információ az Azure Storage-ról: [Bevezetés a Microsoft Azure Storageba](/azure/storage/common/storage-introduction)

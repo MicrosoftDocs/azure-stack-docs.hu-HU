@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: fd76e862ec98de1a22caca96295173e494d8faff
-ms.sourcegitcommit: c1e10ea5a9fdf1ffc62f84c30aad4d7518050bac
+ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68352910"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380403"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack frissítési tevékenység ellenőrzőlistája
 
@@ -29,16 +29,17 @@ Ez a cikk a Azure Stack operátorok frissítéssel kapcsolatos tevékenységeine
 
 ## <a name="prepare-for-azure-stack-update"></a>Felkészülés Azure Stack frissítésre
 
-| Tevékenység              | Részletek                                                                          |
-|-----------------------|----------------------------------------------------------------------------------|
-| Ismert problémák áttekintése   | [Ismert problémák listája](azure-stack-release-notes-known-issues-1906.md).                |
+| Tevékenység                     | Részletek                                                   |
+|------------------------------|-----------------------------------------------------------|
+| Ismert problémák áttekintése     | [Ismert problémák listája](azure-stack-release-notes-known-issues-1906.md).                |
 | Biztonsági frissítések áttekintése | [A biztonsági frissítések listája](azure-stack-release-notes-security-updates-1906.md).      |
 | A legújabb OEM-csomag alkalmazása | Lépjen kapcsolatba az OEM-vel, és győződjön meg arról, hogy a rendszer megfelel a rendszer frissítésének Azure Stack verziójának minimális OEM-csomagra vonatkozó követelményeinek. |
-| Run Test-AzureStack   | Futtassa `Test-AzureStack -Group UpdateReadiness` a parancsot a működési problémák azonosításához.      |
-| Problémák megoldása        | Oldja meg a **test-AzureStack**által azonosított működési problémákat.                |
-| Legújabb gyorsjavítások alkalmazása | Alkalmazza a jelenleg telepített kiadásra érvényes legújabb gyorsjavításokat.         |
-| A Capacity Planner eszköz futtatása | Ügyeljen arra, hogy az [Azure stack Capacity Planner](https://aka.ms/azstackcapacityplanner) eszköz legújabb verzióját használja a számítási feladatok tervezéséhez és méretezéséhez. A legújabb verzió hibajavításokat tartalmaz, és új funkciókat biztosít az egyes Azure Stack frissítésekhez. |
-| Frissítés érhető el       | Csak a csatlakoztatott forgatókönyvek esetében Azure Stack üzemelő példányok rendszeresen ellenőrzi a biztonságos végpontot, és automatikusan értesíti Önt, ha elérhető egy frissítés a felhőhöz. A leválasztott ügyfelek az [itt ismertetett eljárással](azure-stack-apply-updates.md)tölthetik le és importálhatók az új 1906-csomagot.               |
+| Run Test-AzureStack     | Futtassa `Test-AzureStack -Group UpdateReadiness` a parancsot a működési problémák azonosításához.      |
+| Problémák megoldása          | Oldja meg a **test-AzureStack**által azonosított működési problémákat.                |
+| Legújabb gyorsjavítások alkalmazása   | Alkalmazza a jelenleg telepített kiadásra érvényes legújabb gyorsjavításokat.         |
+| A Capacity Planner eszköz futtatása   | Ügyeljen arra, hogy az [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) eszköz legújabb verzióját használja a számítási feladatok tervezéséhez és méretezéséhez. A legújabb verzió hibajavításokat tartalmaz, és új funkciókat biztosít az egyes Azure Stack frissítésekhez. |
+| Frissítés jelent meg        | Csak a csatlakoztatott forgatókönyvek esetében Azure Stack üzemelő példányok rendszeresen ellenőrzi a biztonságos végpontot, és automatikusan értesíti Önt, ha elérhető egy frissítés a felhőhöz. A leválasztott ügyfelek az [itt ismertetett eljárással](azure-stack-apply-updates.md)tölthetik le és importálhatók az új 1906-csomagot. |
+
 
 ## <a name="during-azure-stack-update"></a>Azure Stack frissítés során
 

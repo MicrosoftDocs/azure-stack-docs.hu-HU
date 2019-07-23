@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 81115a0bb82792a246d191c1cf68a99f44030e12
-ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
+ms.lastreviewed: 07/22/2019
+ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68328750"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380460"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack Datacenter-integráció – végpontok közzététele
 
@@ -74,10 +74,10 @@ A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy
 > [!Note]  
 > A Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez.
 
-|Cél|Destination URL|Protocol|Portok|Forrásoldali hálózat|
+|Cél|Destination URL|Protocol|Portok|Forráshálózat|
 |---------|---------|---------|---------|---------|
 |Identitás|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
-|Piactéri hírszolgáltatás|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|Nyilvános VIP-/27|
+|Piactéri hírszolgáltatás|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|Nyilvános VIP-/27|
 |Javítás & frissítés|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
 |Regisztráció|https:\//management.azure.com|HTTPS|443|Nyilvános VIP-/27|
 |Használat|https://*.trafficmanager.net |HTTPS|443|Nyilvános VIP-/27|
