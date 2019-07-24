@@ -1,6 +1,6 @@
 ---
 title: Diagnosztika az Azure Stackben
-description: Hogyan gyűjtheti az Azure stack diagnosztikai naplófájlok
+description: Diagnosztikai naplófájlok gyűjtése a Azure Stack
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,103 +11,102 @@ ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 58d06d20da6890474969318b3a7450975848c84a
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: b37c9599028cef0cc8d85bcd8004c5290604c1a3
+ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138870"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303123"
 ---
-# <a name="azure-stack-diagnostics-tools"></a>Azure Stack-diagnosztikai eszközök
+# <a name="azure-stack-diagnostics-tools"></a>Diagnosztikai eszközök Azure Stack
 
-Az Azure Stack együttműködése meg és kezelhetők az egyes összetevők nagy gyűjteménye. Ezeket az összetevőket a saját egyedi naplófájlokat hoznak létre. Ez megnehezítheti diagnosztizálás problémák egy feladat, különösen a több, az Azure Stack-összetevők használatához érkező hibákat.
+Azure Stack az összetevők nagy gyűjteménye, amely együttműködik egymással, és interakciót végez. Ezek az összetevők saját egyedi naplókat hoznak. Ez egy kihívást jelentő feladat kijavítását teszi elérhetővé, különösen a több, interakcióban lévő Azure Stack-összetevőtől érkező hibák esetén.
 
-A diagnosztikai eszközök segítségével, győződjön meg, hogy a napló gyűjtése mechanizmus egyszerű és hatékony. Az alábbi ábrán látható gyűjtemény eszközök hogyan jelentkezzen be az Azure Stack során:
+A diagnosztikai eszközök segítségével könnyen és hatékonyan biztosítható a naplók gyűjtési mechanizmusa. Az alábbi ábra azt mutatja be, hogyan működik a Azure Stack a log Collection eszközei:
 
-![Az Azure Stack-diagnosztikai eszközök](media/azure-stack-diagnostics/get-azslogs.png)
+![Diagnosztikai eszközök Azure Stack](media/azure-stack-diagnostics/get-azslogs.png)
 
-## <a name="trace-collector"></a>Nyomkövetési gyűjtő
+## <a name="trace-collector"></a>Trace Collector
 
-A nyomkövetési gyűjtő alapértelmezés szerint engedélyezve van, és folyamatosan fut a háttérben, az összes esemény-nyomkövetése Windows (ETW) gyűjteni az Azure Stack Komponensszolgáltatások. ETW-naplók és a egy öt nap kora korlátja egy közös helyi megosztás vannak tárolva. Ha eléri ezt a korlátot, a legrégebbi fájlok törlődnek, amikor újakat hoz létre. Alapértelmezett maximális engedélyezett az egyes fájlok mérete 200 MB. Egy mérete ellenőrzés 2 percenként történik, és ha az aktuális fájl > 200 MB = a rendszer menti és a egy új fájl jön létre. Esemény-munkamenet által létrehozott fájlok összesített mérete is van egy 8 GB-os korlátot.
+A Trace Collector alapértelmezés szerint engedélyezve van, és folyamatosan fut a háttérben, hogy összegyűjtse az összes Windows esemény-nyomkövetés (ETW) naplót a Azure Stack Component servicesből. A ETW-naplókat egy közös helyi megosztás tárolja, amely egy öt napos korhatárt eredményez. Ha elérte ezt a korlátot, a rendszer törli a legrégebbi fájlokat, mert újak jönnek létre. Az egyes fájlokhoz engedélyezett alapértelmezett maximális méret 200 MB. A méret-ellenőrzési művelet 2 percenként történik, és ha az aktuális fájl > = 200 MB, a rendszer menti, és létrehoz egy új fájlt. Az esemény-munkamenetek által generált teljes fájlméret 8 GB-os korláttal is rendelkezik.
 
-## <a name="log-collection-tool"></a>Napló gyűjtése eszköz
+## <a name="log-collection-tool"></a>Log Collection eszköz
 
-A PowerShell-parancsmag **Get-AzureStackLog** használható gyűjteni az Azure Stack-környezet lévő valamennyi összetevőnél. Ez menti őket a zip-fájlokat egy felhasználó által megadott helyen. Az Azure Stack technikai támogatási csapatával a probléma elhárításához naplók van szüksége, ha azok megkérheti, hogy az eszköz futtatásához.
+A **Get-AzureStackLog PowerShell-** parancsmag használatával gyűjthet naplókat az összes összetevőből egy Azure stack környezetben. Egy felhasználó által megadott helyen tárolja őket zip-fájlokban. Ha a Azure Stack technikai támogatási csapatnak szüksége van a naplókra a probléma megoldásához, kérheti, hogy futtassa ezt az eszközt.
 
 > [!CAUTION]
-> Ezek a naplófájlok személyes azonosításra alkalmas adatokat (PII) tartalmazhat. Vegye figyelembe ennek előtt nyilvánosan közzé minden naplófájl.
+> Ezek a naplófájlok személyes azonosításra alkalmas adatokat is tartalmazhatnak. Ezt vegye figyelembe, mielőtt nyilvánosan közzéteszi a naplófájlokat.
 
-Az alábbiakban néhány példa log típusok gyűjtött:
+Az alábbiakban néhány példa a begyűjtött naplózási típusokra:
 
-* **Az Azure Stack-telepítési naplók**
+* **Központi telepítési naplók Azure Stack**
 * **Windows-eseménynaplók**
-* **Panther naplók**
-* **Fürt naplóit**
-* **Diagnosztikai naplók tárolása**
+* **Párduc-naplók**
+* **Fürtök naplói**
+* **Tárolási diagnosztikai naplók**
 * **ETW-naplók**
 
-Ezek a fájlok vannak, és nyomkövetési gyűjtő által olyan megosztáson található, menti. A **Get-AzureStackLog** PowerShell-parancsmag felhasználható gyűjtéséhez őket, amikor erre szükség van.
+Ezeket a fájlokat a rendszer összegyűjti és menti egy megosztásban Trace Collector. A **Get-AzureStackLog PowerShell-** parancsmag segítségével szükség esetén összegyűjtheti őket.
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Get-AzureStackLog futtathatók az Azure Stack integrált rendszerek
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>A Get-AzureStackLog futtatása Azure Stack integrált rendszereken
 
-A napló gyűjtése eszköz futtatásához egy integrált rendszer, hozzáféréssel kell rendelkeznie az emelt szintű végpontját (EGP). Íme egy példa parancsfájl segítségével futtathat az EGP naplók összegyűjtése az integrált rendszereken:
+Ha egy integrált rendszeren szeretné futtatni a log Collection eszközt, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy olyan parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat egy integrált rendszeren:
 
 ```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+$ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+$password = ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $password)
 
 $shareCred = Get-Credential
 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+$session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedEndpoint -Credential $cred
 
 $fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+$toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
-if($s)
-{
-    Remove-PSSession $s
+if ($session) {
+    Remove-PSSession -Session $session
 }
 ```
 
-### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Az Azure Stack Development Kit (ASDK) rendszeren futtassa a Get-AzureStackLog
+### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog futtatása Azure Stack Development Kit (ASDK) rendszeren
 
-Futtassa az alábbi lépések segítségével `Get-AzureStackLog` ASDK gazdaszámítógépen.
+Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
 
-1. Jelentkezzen be, **AzureStack\CloudAdmin** ASDK a gazdagépen.
+1. Jelentkezzen be **AzureStack\CloudAdmin** -ként a ASDK-gazdaszámítógépen.
 2. Nyisson meg egy új PowerShell-ablakot rendszergazdaként.
 3. Futtassa a **Get-AzureStackLog** PowerShell-parancsmagot.
 
 #### <a name="examples"></a>Példák
 
-* Gyűjtse össze az összes napló összes szerepköre:
+* Összes napló összegyűjtése az összes szerepkörhöz:
 
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
   ```
 
-* Naplók gyűjtése a virtuális gép és BareMetal szerepkörök:
+* Naplók gyűjtése a VirtualMachines és a BareMetal szerepkörökből:
 
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
-* Gyűjtsön naplókat azokról a virtuális gép és BareMetal szerepkörök, a dátum szerinti szűrést a naplófájlok az elmúlt 8 óra:
+* VirtualMachines-és BareMetal-szerepkörökből származó naplók gyűjtése az elmúlt 8 órában a naplófájlok szűrésével:
 
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
-* Gyűjtsön naplókat azokról a virtuális gép és BareMetal szerepkörök, a dátum szerinti szűrést a naplófájlokon 8 órával ezelőtt és 2 órával ezelőtt között az adott időszakban:
+* VirtualMachines-és BareMetal-szerepkörökből származó naplók gyűjtése, a naplófájlok dátum szerinti szűrésével a 8 órája és 2 óra között eltelt időszakra:
 
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Naplók gyűjtése és a megadott Azure Storage blob-tárolóban tárolja őket. Ehhez a művelethez általános szintaxisa a következőképpen történik:
+* Gyűjtsön naplókat, és tárolja őket a megadott Azure Storage blob-tárolóban. A művelet általános szintaxisa a következő:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
@@ -120,47 +119,47 @@ Futtassa az alábbi lépések segítségével `Get-AzureStackLog` ASDK gazdaszá
   ```
 
   > [!NOTE]
-  > Ez az eljárás akkor hasznos, ha Support nyisson meg egy esetet, és a rendszer megkéri, hogy a naplók feltöltése. Még akkor is, ha nem rendelkezik elérhető virtuális gép ERCS SMB-megosztáson, és a ERCS virtuális gép nem rendelkezik internet-hozzáféréssel, blob storage-fiók létrehozása az Azure Stack vihetők át a naplókat, és ezután használja az ügyfél beolvasni ezeket a naplókat, és feltölteni őket a Microsoftnak.  
+  > Ez az eljárás akkor lehet hasznos, ha Microsoft ügyfélszolgálatakal nyit meg egy esetet, és a rendszer kéri a naplók feltöltésére. Még ha nincs elérhető SMB-megosztás a ERCS virtuális gépről, és a ERCS virtuális gépe nem rendelkezik internet-hozzáféréssel, létrehozhat egy blob Storage-fiókot a Azure Stack a naplók átviteléhez, majd az ügyfél használatával letöltheti ezeket a naplókat, és feltöltheti azokat a Microsoftnak.  
 
-  A tárfiók SAS-token létrehozásához, a következő engedélyek szükségesek:
+  Az SAS-jogkivonat létrehozásához a Storage-fiókhoz a következő engedélyek szükségesek:
 
-  * A Blob Storage szolgáltatáshoz való hozzáférést
-  * A hozzáférést a tároló-erőforrás típusa
+  * Hozzáférés a Blob Storage szolgáltatáshoz
+  * Hozzáférés a tároló erőforrástípus
 
-  Hozzon létre egy SAS Uri értéket kell használni, a `-OutputSasUri` paramétert, hajtsa végre az alábbi lépéseket:
+  A `-OutputSasUri` paraméterhez használandó sas URI-érték létrehozásához hajtsa végre a következő lépéseket:
 
-  1. Hozzon létre egy tárfiókot, a lépések [ebben a cikkben](/azure/storage/common/storage-quickstart-create-account).
-  2. Nyissa meg az Azure Storage Explorer egy példánya.
-  3. Csatlakozás az 1. lépésben létrehozott tárfiókot.
-  4. Navigáljon a **Blobtárolók** a **tárolószolgáltatások**.
-  5. Válassza ki **hozzon létre egy új tárolót**.
-  6. Kattintson a jobb gombbal az új tárolót, majd kattintson a **közös hozzáférési jogosultságkód igénylése**.
-  7. Válasszon ki egy érvényes **kezdő időpont** és **befejezésének**, attól függően, a követelmények.
-  8. Válassza ki a szükséges engedélyekkel, **olvasási**, **írási**, és **lista**.
+  1. Hozzon létre egy Storage-fiókot a [cikk](/azure/storage/common/storage-quickstart-create-account)lépéseit követve.
+  2. Nyissa meg a Azure Storage Explorer egy példányát.
+  3. Kapcsolódjon az 1. lépésben létrehozott Storage-fiókhoz.
+  4. Navigáljon a **Storage Services** **blob** -tárolói között.
+  5. Válassza **az új tároló létrehozása**lehetőséget.
+  6. Kattintson a jobb gombbal az új tárolóra, majd kattintson a **megosztott hozzáférés aláírásának**beolvasása elemre.
+  7. A követelményektől  függően adjon meg egy érvényes kezdési és **befejezési**időpontot.
+  8. A szükséges engedélyek esetében válassza az **olvasás**, **írás**és **lista**lehetőséget.
   9. Kattintson a **Létrehozás** gombra.
-  10. Egy közös hozzáférésű Jogosultságkód fog kapni. Másolja az URL-cím része, és adja meg, hogy a `-OutputSasUri` paraméter.
+  10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg a `-OutputSasUri` paraméternek.
 
-### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>A paraméter szempontok ASDK és integrált rendszereket
+### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>A ASDK és az integrált rendszerek paramétereinek szempontjai
 
-* A paraméterek **OutputSharePath** és **OutputShareCredential** egy felhasználó által megadott a naplók tárolására szolgáló helyre.
+* A **OutputSharePath** és a **OutputShareCredential** paraméterek a naplók a felhasználó által megadott helyen történő tárolására szolgálnak.
 
-* A **FromDate** és **ToDate** paraméterek használhatók naplók összegyűjtése egy adott időszakban. Ezek a paraméterek nincsenek megadva, ha vannak összegyűjtött naplók az elmúlt 4 óra alapértelmezés szerint.
+* A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, alapértelmezés szerint a rendszer a naplókat az elmúlt négy órára gyűjti.
 
-* Használja a **FilterByNode** paraméter naplók szűrése a számítógép neve szerint. Példa:
+* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Példa:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* Használja a **FilterByLogType** paraméter típusa szerint naplók szűrése. Ha szeretné, fájl, fájlmegosztás vagy WindowsEvent alapján. Példa:
+* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Példa:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
     ```
 
-* Használhatja a **TimeOutInMinutes** paraméter segítségével állítsa be a naplógyűjtés időkorlátja. Időintervallumként 150 (2,5 óra) alapértelmezés szerint.
-* Memóriakép-fájl naplógyűjtés alapértelmezés szerint le van tiltva. Annak engedélyezéséhez használja a **IncludeDumpFile** paraméter váltani.
-* Jelenleg is használhatja a **FilterByRole** szűrőt szeretne gyűjteni a következő szerepkörök paramétert:
+* A **TimeOutInMinutes** paraméterrel állíthatja be a naplók időtúllépését. Alapértelmezés szerint 150 (2,5 óra) értékre van állítva.
+* Alapértelmezés szerint le van tiltva a fájl naplófájljainak gyűjteménye. Az engedélyezéshez használja a **IncludeDumpFile** switch paramétert.
+* Jelenleg a **FilterByRole** paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
 
   |   |   |   |    |
   | - | - | - | -  |
@@ -187,56 +186,53 @@ Futtassa az alábbi lépések segítségével `Get-AzureStackLog` ASDK gazdaszá
 
 ### <a name="additional-considerations"></a>Néhány fontos megjegyzés
 
-* A parancsnak némi időre melyik szerepkör(ök) gyűjti a naplók alapján futtathatók. Hozzájáruló tényezők is a naplógyűjtés és az Azure Stack-környezet a csomópontok számát a megadott időtartam.
-* Gyűjtemény futtatások naplózásához ellenőrizze a létrehozott új mappa a **OutputSharePath** a parancsban megadott paraméter.
-* Minden egyes szerepkörhöz naplók belül az egyes zip-fájlokat. Az összegyűjtött naplók méretétől függően egy szerepkör előfordulhat, hogy a naplókat ossza fel több zip-fájlt. Egy szerepkör egyetlen mappába a kicsomagolt naplófájlok szeretne használni, ha egy eszköz, amely képes csomagolja ki, egyszerre több (például 7zip) használja. Válassza ki a tömörített fájlokat a szerepkörhöz, és válassza ki **itt kinyerése**. Ez unzips a szerepkör egyetlen egyesített mappában található naplófájlokat.
-* Fájl neve **Get-AzureStackLog_Output.log** szintén létrejön a ZIP naplófájlokat tartalmazó mappát. Ez a fájl a parancs kimenete, amely során az Erőforrásnapló-gyűjtés problémák elhárításához használható naplóját. Egyes esetekben a naplófájl tartalmazza `PS>TerminatingError` bejegyzéseket, amelyek biztonságosan figyelmen kívül hagyható, kivéve, ha a várt naplófájlok hiányoznak a gyűjtemény futtatások naplózása.
-* Egy adott hibák vizsgálatához több összetevőtől naplók lehet szükség.
+* A parancs eltarthat egy ideig, hogy a naplók milyen szerepkör (ek) gyűjtését végzik. A közreműködő tényezők közé tartozik a naplókhoz megadott időtartam és a Azure Stack környezet csomópontjainak száma is.
+* A napló-gyűjtemény futtatásakor ellenőrizze a parancsban megadott **OutputSharePath** paraméterben létrehozott új mappát.
+* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen (például 7zip). Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, majd válassza a Kibontás lehetőséget. Ezzel kibontja az adott szerepkörhöz tartozó összes naplófájlt egyetlen egyesített mappában.
+* A **Get-AzureStackLog_Output. log** nevű fájl a tömörített naplófájlokat tartalmazó mappában is létrejön. Ez a fájl a parancs kimenetének naplója, amely a naplózási problémák elhárításához használható. Előfordulhat, hogy a naplófájl `PS>TerminatingError` olyan bejegyzéseket tartalmaz, amelyek nyugodtan figyelmen kívül hagyhatók, kivéve, ha a napló-gyűjtemény futtatása után hiányoznak a várt naplófájlok.
+* Egy adott hiba kivizsgálásához több összetevőre is szükség lehet a naplókra.
 
-  * Rendszer- és az összes infrastruktúra-beli virtuális gépek eseménynaplóinak az gyűjtött a **virtuális gép** szerepkör.
-  * Rendszer- és minden gazdagép eseménynaplóit a gyűjtött a **BareMetal** szerepkör.
-  * Feladatátvevő fürt és a Hyper-V-eseménynaplók az gyűjti a **tárolási** szerepkör.
-  * A gyűjtött naplók az ACS a **tárolási** és **ACS** szerepköröket.
+  * Az összes infrastruktúra-virtuális gép rendszer-és eseménynaplói a **VirtualMachines** szerepkörben lesznek összegyűjtve.
+  * Az összes gazdagép rendszer-és eseménynaplói a **BareMetal** szerepkörben lesznek összegyűjtve.
+  * A rendszer a feladatátvevő fürtöt és a Hyper-V eseménynaplókat gyűjti a **tárolási** szerepkörben.
+  * Az ACS-naplókat a **tároló** és az **ACS** szerepkör gyűjti.
 
 > [!NOTE]
-> Méret és a korszűrő vannak korlátozva a naplókban gyűjtött, fontos, hogy annak érdekében, nem áramlanak a naplókkal a tárterület hatékony felhasználása érdekében. Azonban a probléma diagnosztizálásakor néha szüksége naplóival, amelyeket már nem létezik ezek a korlátok miatt. Így **erősen ajánlott** , hogy a külső tárhelyen (tárfiókok az Azure-ban, egy további helyi tárolóeszköz, stb.) a naplók kiürítési 8 – 12 óránként és láthatóan tartja őket van 1 – 3 hónapos, attól függően, a követelmények. Gondoskodjon arról is, a tárolási hely titkosítása.
+> A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplók esetében, mivel ez elengedhetetlen a tárolóhelyek hatékony kihasználtságának biztosításához, így biztosítva, hogy nem lesz elárasztva a naplókkal. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek esetleg nem léteznek többé ezen korlátok miatt. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
-Használhatja a **Invoke-AzureStackOnDemandLog** parancsmag segítségével hozzon létre igény szerinti naplózza az egyes szerepkörök (lásd a listában, ez a szakasz végén található). Ez a parancsmag által létrehozott naplók nem találhatók alapértelmezés szerint a napló kötegben végre, amikor a **Get-AzureStackLog** parancsmagot. Emellett ajánlott, hogy gyűjtse össze ezek a naplók csak akkor, ha a Microsoft támogatási csapata által kért.
+A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók nem találhatók meg alapértelmezés szerint a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
 
-Jelenleg is használhatja a `-FilterByRole` szűrőt szeretne gyűjteni a következő szerepkörök paramétert:
+Jelenleg a `-FilterByRole` (z) paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
 
 * OEM
 * NC
 * SLB
 * Átjáró
 
-#### <a name="example-of-collecting-on-demand-logs"></a>Igény szerinti naplók gyűjtésére – példa
+#### <a name="example-of-collecting-on-demand-logs"></a>Példa az igény szerinti naplók gyűjtésére
 
 ```powershell
-$ip = "<IP address of the PEP VM>" # You can also use the machine name instead of IP here.
+$ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
 
-$pwd= ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<domain name>\CloudAdmin", $pwd)
+$password = ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $password)
 
 $shareCred = Get-Credential
 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+$session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedEndpoint -Credential $cred
 
 $fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+$toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $s
-{
-   Invoke-AzureStackOnDemandLog -Generate -FilterByRole "<on-demand role name>" #Provide the supported on-demand role name : OEM, NC, SLB , Gateway
-   Get-AzureStackLog -OutputSharePath "<external share address>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate
-
+Invoke-Command -Session $session {
+   Invoke-AzureStackOnDemandLog -Generate -FilterByRole "<on-demand role name>" # Provide the supported on-demand role name e.g. OEM, NC, SLB, Gateway
+   Get-AzureStackLog -OutputSharePath "<external share address>" -OutputShareCredential $using:shareCred -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate
 }
 
-if($s)
-{
-   Remove-PSSession $s
+if ($session) {
+   Remove-PSSession -Session $session
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: Ebben az oktatóanyagban megismerheti, hogyan fizethet elő az Azure Stack-ajánlat |} A Microsoft Docs
-description: Ez az oktatóanyag bemutatja, hogyan hozzon létre egy új előfizetést az Azure Stack-szolgáltatások és a egy tesztcélú virtuális gép létrehozása az ajánlat teszteléséhez.
+title: Előfizetés létrehozása a Azure Stack ajánlatával | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre új előfizetést Azure Stack ajánlatával, majd tesztelje az ajánlatot egy teszt virtuális géppel.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,23 +17,23 @@ ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3f577ebd5a57b271a449b5db262ea70779ebdb3d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 5b72ccee255aadd5d8f42aefea9e397ba310812c
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506373"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376806"
 ---
-# <a name="tutorial-create-and-test-a-subscription"></a>Oktatóanyag: létrehozása és tesztelése egy előfizetést
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Oktatóanyag: Előfizetés létrehozása és tesztelése Azure Stack
 
-Ez az oktatóanyag bemutatja, hogyan hozzon létre egy ajánlatot tartalmazó előfizetést, és tesztelje azt. A teszthez jelentkezzen be az Azure Stack felhasználói portál a felhő-rendszergazdák előfizetnek az ajánlatra, és hozzon létre egy virtuális gépet.
+Ez az oktatóanyag bemutatja, hogyan hozhat létre egy ajánlatot tartalmazó előfizetést, majd hogyan tesztelheti azt. A teszthez jelentkezzen be a Azure Stack felhasználói portálra felhőalapú rendszergazdaként, iratkozzon fel az ajánlatra, majd hozzon létre egy virtuális gépet (VM).
 
 > [!TIP]
-> További speciális értékelési élményt, is [hozzon létre egy előfizetést, egy adott felhasználó](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) majd jelentkezzen be a felhasználó a felhasználói portálon.
+> A fejlettebb értékelési élmény érdekében [létrehozhat egy adott felhasználóhoz tartozó](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) előfizetést, majd a felhasználói portálon is bejelentkezhet.
 
-Ez az oktatóanyag bemutatja, hogyan fizethet elő az Azure Stack-ajánlat.
+Ez az oktatóanyag bemutatja, hogyan fizethet elő Azure Stack ajánlatra.
 
-Amiről tanulni fog:
+Ismertetett témák:
 
 > [!div class="checklist"]
 > * Előfizetés egy ajánlatra 
@@ -41,56 +41,50 @@ Amiről tanulni fog:
 
 ## <a name="subscribe-to-an-offer"></a>Előfizetés egy ajánlatra
 
-Az előfizetés egy ajánlatra felhasználóként, bejelentkezik az Azure Stack felhasználói portálra a szolgáltatásokat, amelyek az Azure Stack operátorait szerint felajánlották felderítéséhez.
+Ha felhasználóként szeretne előfizetni az ajánlatra, jelentkezzen be a Azure Stack felhasználói portálra, és tekintse meg az Azure Stack operátor által kínált elérhető szolgáltatásokat.
 
-1. Jelentkezzen be a Portalon, és válassza a felhasználó **előfizetés beszerzése**.
+1. Jelentkezzen be a felhasználói portálra, és válassza az **előfizetés**beszerzése lehetőséget.
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. A **Megjelenítendő név** mezőben adja meg az előfizetés nevét. Válassza ki **ajánlat** az elérhető ajánlatok a közül a **válasszon ajánlatot** szakaszban. Ezután kattintson a **Létrehozás** elemre.
+2. A **Megjelenítendő név** mezőben adja meg az előfizetés nevét. Ezután válassza az **ajánlat** lehetőséget, hogy az **ajánlat választása** szakaszban válassza ki az elérhető ajánlatok egyikét. Ezután kattintson a **Létrehozás** elemre.
 
    ![Ajánlat létrehozása](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
-   > Most frissítenie kell a felhasználói portálra, az előfizetés használatának megkezdéséhez.
+   > Frissítse a felhasználói portált az előfizetés használatának megkezdéséhez.
 
-3. A létrehozott előfizetés megtekintéséhez jelölje ki **minden szolgáltatás**. Ezt követően a **általános** kategória kiválasztása **előfizetések**, majd válassza ki az új előfizetés. Miután előfizetett egy ajánlatra, frissítse a portált tekintse meg, ha új lett az új előfizetés része. Ebben a példában **virtuális gépek** hozzá lett adva.
+3. A létrehozott előfizetés megtekintéséhez válassza a **minden szolgáltatás**lehetőséget. Ezután az **általános** kategóriában válassza az előfizetések lehetőséget, majd válassza ki az új előfizetést. Az ajánlatra való előfizetést követően frissítse a portált, és ellenőrizze, hogy az új szolgáltatások részét képezték-e az új előfizetés részeként. Ebben a példában a **virtuális gépek** lettek hozzáadva.
 
-   ![Előfizetési nézet](media/azure-stack-subscribe-services/view-subscription.png)
+   ![Előfizetés megtekintése](media/azure-stack-subscribe-services/view-subscription.png)
 
 ## <a name="test-the-offer"></a>Az ajánlat tesztelése
 
-Miközben be van jelentkezve a felhasználói portálra, az ajánlat letesztelheti az új előfizetési lehetőségek használatával virtuális gép üzembe helyezésének.
+Ha bejelentkezett a felhasználói portálra, tesztelje az ajánlatot az új előfizetési lehetőségekkel (VM) való kiépítés használatával.
 
 > [!NOTE]
-> Ez a vizsgálat szükséges, hogy egy Windows Server 2016 Datacenter virtuális Gépet az Azure Stack piactéren először bővült.
+> Ehhez a teszthez először hozzá kell adni egy Windows Server 2016 Datacenter rendszerű virtuális gépet a Azure Stack Marketplace-hez.
 
 1. Jelentkezzen be a felhasználói portálra.
 
-2. Válassza ki a felhasználói portálon **virtuális gépek**, majd **Hozzáadás**, majd **Windows Server 2016 Datacenter**, és kattintson a **létrehozás**.
+2. A felhasználói portálon válassza a **Virtual Machines**, majd a **Hozzáadás**, majd a **Windows Server 2016 Datacenter**elemet, majd válassza a **Létrehozás**lehetőséget.
 
-3. Az a **alapjai** területén írja be egy **neve**, **felhasználónév**, és **jelszó**, válassza ki egy **előfizetés**, Hozzon létre egy **erőforráscsoport** (vagy válasszon ki egy meglévőt), majd válassza ki **OK**.
+3. Az **alapismeretek** szakaszban adja meg a **nevet**, a **felhasználónevet**és a **jelszót**, válasszon ki egy előfizetést, hozzon létre egy **erőforráscsoportot** (vagy válasszon ki egy meglévőt), majd kattintson **az OK gombra**.
 
-4. Az a **méret kiválasztása** szakaszban jelölje be **A1 Standard**, és kattintson a **kiválasztása**.  
+4. A **méret választása** szakaszban válassza az **a1 standard**lehetőséget, majd kattintson a **kiválasztás**elemre.  
 
-5. Az a **beállítások** panelen elfogadhatja az alapértelmezett beállításokat, majd válassza ki **OK**.
+5. A **Beállítások** panelen fogadja el az alapértelmezett értékeket, majd kattintson az **OK gombra**.
 
-6. Az a **összefoglalás** területén kattintson **OK** a virtuális gép létrehozásához.  
+6. Az **Összefoglalás** szakaszban kattintson az **OK** gombra a virtuális gép létrehozásához.  
 
-7. Az új virtuális gépet, jelölje ki a **virtuális gépek**, majd keresse meg az új virtuális gép, és kattintson a nevére.
+7. Az új virtuális gép megtekintéséhez válassza a **virtuális gépek**lehetőséget, majd keresse meg az új virtuális gépet, és válassza ki a nevét.
 
     ![Minden erőforrás](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
-> A virtuális gépek üzembe helyezése néhány percet vesz igénybe.
+> A virtuális gép üzembe helyezése néhány percet vesz igénybe.
 
 ## <a name="next-steps"></a>További lépések
 
-Ismerte meg ebben az oktatóanyagban:
-
-> [!div class="checklist"]
-> * Előfizetés egy ajánlatra 
-> * Az ajánlat tesztelése
-
 > [!div class="nextstepaction"]
-> [Virtuális gép létrehozása egy közösségi sablon](azure-stack-create-vm-template.md)
+> [Virtuális gép létrehozása közösségi sablonból](azure-stack-create-vm-template.md)
