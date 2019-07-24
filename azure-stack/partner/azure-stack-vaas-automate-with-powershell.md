@@ -1,6 +1,6 @@
 ---
-title: A PowerShell-lel az Azure Stack Kódérvényesítés automatizálása |} A Microsoft Docs
-description: Az Azure Stack érvényesítési a PowerShell használatával automatizálható.
+title: Azure Stack érvényesítésének automatizálása a PowerShell használatával | Microsoft Docs
+description: Automatizálhatja Azure Stack érvényesítését a PowerShell használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,38 +10,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39ed9ee9dab7f2ec97d2fb6a0148db333648b227
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 5a49685da010fd7188fd04514a17b91dff7404f7
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297479"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418447"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>A PowerShell-lel az Azure Stack Kódérvényesítés automatizálása
+# <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack érvényesítésének automatizálása a PowerShell használatával
 
-Ellenőrzés (VaaS) szolgáltatás lehetővé teszi a indítása tesztek segítségével automatizálhatja a **LaunchVaaSTests.ps1** parancsfájlt.
+A szolgáltatásként történő érvényesítés lehetővé teszi a tesztek automatizálását a **LaunchVaaSTests. ps1** parancsfájl használatával.
 
 > [!NOTE]  
-> Automation csak a Tesztmenetek munkafolyamat érhető el. A csomag és a megoldás értékelési munkafolyamatokat csak támogatottak a VaaS portálon keresztül.
+> Az Automation csak a test pass munkafolyamat esetében érhető el. A csomag-ellenőrzési és megoldás-ellenőrzési munkafolyamatok csak az alaprendszer-portálon keresztül támogatottak.
 
-Ez a szkript segítségével:
+Ez a szkript a következőket tudja használni:
 
 > [!div class="checklist"]
-> * Az előfeltételek telepítése
-> * Telepítse és indítsa el a helyi ügynök
-> * Indítsa el például egy kategóriájú tesztek, *integrációs*, *működési*, *megbízhatóság*
-> * A jelentés teszt eredményei
+> * Előfeltételek telepítése
+> * A helyi ügynök telepítése és elindítása
+> * Elindíthat egy teszt kategóriát , például az integrációt, a *működést*, a *megbízhatóságot*
+> * Vizsgálati eredmények jelentése
 
-## <a name="launch-the-test-pass-workflow"></a>Indítsa el a Tesztmenetek munkafolyamat
+## <a name="launch-the-test-pass-workflow"></a>A test pass munkafolyamat elindítása
 
-1. Nyisson meg egy rendszergazda jogú PowerShell-parancssorban.
+1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 
-2. Futtassa a következő szkriptet az automation-szkript letöltése:
+2. Az Automation-szkript letöltéséhez futtassa a következő szkriptet:
 
     ```powershell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
@@ -50,7 +50,7 @@ Ez a szkript segítségével:
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
     ```
 
-3. Futtassa a következő parancsfájlt a megfelelő paraméter értékét:
+3. Futtassa a következő parancsfájlt a megfelelő paraméterek értékeivel:
 
     ```powershell
     $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
@@ -72,24 +72,24 @@ Ez a szkript segítségével:
 
     | Paraméter | Leírás |
     | --- | --- |
-    | VaaSUserId | VaaS felhasználói azonosítóját. |
-    | VaaSUserPassword | A VaaS jelszavát. |
-    | VaaSAccountTenantId | A VaaS bérlő GUID azonosítója. |
-    | VaaSSolutionName | Neve a VaaS megoldás, amely alatt a teszt át fog futni. |
-    | VaaSTestPassName | A VaaS teszt neve munkafolyamat létrehozásához adja át. |
-    | VaaSTestCategories | `Integration`, `Functional`, vagy a. `Reliability`. Ha több értéket használja, külön az egyes értékek vesszővel elválasztva.  |
-    | ServiceAdminUserName | Az Azure Stack szolgáltatás-rendszergazdai fiókot.  |
-    | ServiceAdminPassword | Az Azure Stack szolgáltatás jelszava.  |
-    | TenantAdminUserName | A rendszergazda az elsődleges bérlő számára.  |
+    | VaaSUserId | Az alaprendszer-azonosító. |
+    | VaaSUserPassword | Az Ön által használt Varga-jelszó. |
+    | VaaSAccountTenantId | Az Ön által használt Varga-bérlő GUID-azonosítója. |
+    | VaaSSolutionName | Annak az adatbázis-megoldásnak a neve, amely alatt a tesztelési fázis futni fog. |
+    | VaaSTestPassName | A létrehozandó, az Varga test pass munkafolyamat neve. |
+    | VaaSTestCategories | `Integration`, `Functional`, vagy. `Reliability`. Ha több értéket használ, az egyes értékeket vesszővel válassza el egymástól.  |
+    | ServiceAdminUserName | A Azure Stack szolgáltatás-rendszergazdai fiókja.  |
+    | ServiceAdminPassword | A Azure Stack szolgáltatás jelszava.  |
+    | TenantAdminUserName | Az elsődleges bérlő rendszergazdája.  |
     | TenantAdminPassword | Az elsődleges bérlő jelszava.  |
-    | CloudAdminUserName | A felhő-rendszergazda felhasználóneve  |
+    | CloudAdminUserName | A Felhőbeli rendszergazda felhasználóneve.  |
     | CloudAdminPassword | A felhő rendszergazdájának jelszava.  |
 
-4. Tekintse át a vizsgálat eredményeit. További beállításokért lásd: [figyelése és kezelése a VaaS portálon tesztek](azure-stack-vaas-monitor-test.md).
+4. Tekintse át a teszt eredményét. További lehetőségekért lásd: [tesztek figyelése és kezelése az](azure-stack-vaas-monitor-test.md)alapvizsgálati portálon.
 
 ## <a name="next-steps"></a>További lépések
 
-Az Azure Stack PowerShell kapcsolatos további információkért tekintse át a legújabb modulok.
+Ha többet szeretne megtudni a Azure Stack PowerShell-ről, tekintse át a legújabb modulokat.
 
 > [!div class="nextstepaction"]
-> [Az Azure Stack-modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+> [Azure Stack modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

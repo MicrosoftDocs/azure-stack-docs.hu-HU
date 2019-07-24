@@ -1,6 +1,6 @@
 ---
-title: Linux rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával |} A Microsoft Docs
-description: Linux rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával.
+title: Linux rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stackban | Microsoft Docs
+description: Hozzon létre egy Linux virtuális gépet a PowerShell használatával Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,43 +11,43 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 5302ef65ab7132c29361f1a2a489282ce9f216d8
-ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
+ms.openlocfilehash: 7cb5d7b90359b73292d9e8209d4237e9d8914302
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394393"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418527"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Egy Linux-kiszolgáló virtuális gép létrehozása az Azure Stack PowerShell használatával
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
 
-Létrehozhat egy Ubuntu Server 16.04 LTS virtuális gép (VM) az Azure Stack PowerShell használatával. Ebben a cikkben hozzon létre és használhat egy virtuális gépet. Ez a cikk emellett bemutatja, hogyan való:
+A Azure Stack PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
-* Csatlakozzon a virtuális géphez a távoli ügyfélhez.
-* Egy NGINX-webkiszolgáló telepítéséhez, és az alapértelmezett kezdőlap megtekintéséhez.
-* A fel nem használt erőforrások törlése.
+* Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
+* Telepítsen egy NGINX-webkiszolgálót, és tekintse meg az alapértelmezett kezdőlapot.
+* Törölje a használaton kívüli erőforrásokat.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Az Azure Stack piactéren elérhető Linux-rendszerképen. Az Azure Stack piactéren alapértelmezés szerint nem rendelkezik egy Linuxos rendszerképet. Az Azure Stack-operátorokról, adja meg az Ubuntu Server 16.04 LTS rendszerképet kell rendelkeznie. Az operátor kövesse az utasításokat a [letöltése Marketplace-elemek az Azure-ból az Azure Stackhez](../operator/azure-stack-download-azure-marketplace-item.md).
+* Linux-rendszerkép a Azure Stack piactéren. A Azure Stack piactér alapértelmezés szerint nem rendelkezik Linux-rendszerképpel. A Azure Stack operátorral adja meg a szükséges Ubuntu Server 16,04 LTS-rendszerképet. Az operátor a [Marketplace-elemek Azure-ból Azure stack történő letöltésére](../operator/azure-stack-download-azure-marketplace-item.md)vonatkozó utasításokat is használhatja.
 
-* Az Azure Stack egy adott verzióját az Azure CLI használatával az erőforrások létrehozásához és kezeléséhez szükséges. 
-  * Ha nincs konfigurálva az Azure Stack PowerShell, [Azure Stack PowerShell telepítése](../operator/azure-stack-powershell-install.md). 
-  * Az Azure Stack PowerShell telepítése után, az Azure Stack környezettel fog csatlakozni. Útmutatásért lásd: [csatlakozhat az Azure Stack PowerShell felhasználói](azure-stack-powershell-configure-user.md).
+* Azure Stack az Azure CLI egy adott verzióját igényli az erőforrások létrehozásához és kezeléséhez. 
+  * Ha nincs konfigurálva a PowerShell a Azure Stackhoz, tekintse meg [a PowerShell telepítése Azure Stackhoz](../operator/azure-stack-powershell-install.md)című témakört. 
+  * Azure Stack PowerShell beállítása után csatlakozni fog a Azure Stack-környezethez. Útmutatásért lásd: [Kapcsolódás a Azure Stackhoz a PowerShell felhasználóként](azure-stack-powershell-configure-user.md).
 
-* Egy nyilvános Secure Shell (SSH) kulcs nevét *id_rsa.pub* menti a *.ssh* a Windows felhasználói profiljának. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [nyilvános SSH-kulcsot használ](azure-stack-dev-start-howto-ssh-public-key.md).
+* A *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
-Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezelése az Azure Stack-erőforrások. Egy erőforráscsoport létrehozása az Azure Stack Development Kit (ASDK) vagy az Azure Stackkel integrált rendszer, és futtassa a következő kódrészletet: 
+Az erőforráscsoportok olyan logikai tárolók, amelyekben Azure Stack erőforrásokat lehet üzembe helyezni és felügyelni. Erőforráscsoport létrehozásához a Azure Stack Development Kit (ASDK) vagy a Azure Stack integrált rendszerből futtassa a következő kódrészletet: 
 
 > [!NOTE]
-> A következő kódot a példákban az összes változók értékeit hozzárendelte azt. Azonban rendelhet hozzá a saját értékeire.
+> A következő példákban az összes változóhoz rendeltünk értékeket. Azonban a saját értékeit is hozzárendelheti.
 
 ```powershell  
 # Create variables to store the location and resource group names.
@@ -59,9 +59,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Tároló-erőforrások létrehozása
+## <a name="create-storage-resources"></a>Tárolási erőforrások létrehozása
 
-Hozzon létre egy tárfiókot, és hozzon létre egy storage-tárolót az Ubuntu Server 16.04 LTS-rendszerképhez.
+Hozzon létre egy Storage-fiókot, majd hozzon létre egy Storage-tárolót az Ubuntu Server 16,04 LTS-rendszerképhez.
 
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information
@@ -83,7 +83,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>Hálózati erőforrások létrehozása
 
-Hozzon létre egy virtuális hálózat, alhálózat és nyilvános IP-címet. Ezeket az erőforrásokat a virtuális gép hálózati csatlakoztatásának biztosítására szolgálnak.
+Hozzon létre egy virtuális hálózatot, egy alhálózatot és egy nyilvános IP-címet. Ezek az erőforrások a virtuális géphez való hálózati kapcsolat biztosítására szolgálnak.
 
 ```powershell
 # Create a subnet configuration
@@ -111,7 +111,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Hálózati biztonsági csoport és hálózati biztonsági csoportszabály létrehozása
 
-A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális Gépet. Hozzon létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezése és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
+A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális gépet. Hozzon létre egy bejövő szabályt az 3389-as porthoz a bejövő Távoli asztal kapcsolatok engedélyezéséhez, valamint egy bejövő szabályt a 80-es porthoz a bejövő webes forgalom engedélyezéséhez.
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -135,9 +135,9 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Lo
 -Name $nsgName -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-vm"></a>Hozzon létre egy hálózati kártyát a virtuális gép
+### <a name="create-a-network-card-for-the-vm"></a>Hálózati kártya létrehozása a virtuális géphez
 
-A hálózati kártyát a virtuális gép csatlakozik egy alhálózat, a hálózati biztonsági csoport és a nyilvános IP-címet.
+A hálózati kártya csatlakoztatja a virtuális gépet egy alhálózathoz, egy hálózati biztonsági csoporthoz és egy nyilvános IP-címhez.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -152,7 +152,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-Hozzon létre egy Virtuálisgép-konfigurációt. Ez a konfiguráció a virtuális gép (például felhasználói hitelesítő adatokat, mérete és a Virtuálisgép-lemezkép) központi telepítésekor használni kívánt beállításokat tartalmazza.
+Hozzon létre egy virtuális gép konfigurációját. Ez a konfiguráció tartalmazza a virtuális gép telepítésekor használandó beállításokat (például a felhasználói hitelesítő adatokat, a méretet és a virtuálisgép-lemezképet).
 
 ```powershell
 # Define a credential object
@@ -206,7 +206,7 @@ New-AzureRmVM `
 ## <a name="vm-quick-create-full-script"></a>Virtuális gép gyors létrehozása: Teljes szkript
 
 > [!NOTE]
-> Ez a lépés akkor lényegében a fenti kód egyesített együtt, de a jelszó, hanem egy SSH-kulcsot a hitelesítéshez.
+> Ez a lépés lényegében az előző kód összeolvadt, de a jelszóval nem rendelkező SSH-kulcs helyett a hitelesítéshez.
 
 ```powershell
 ## Create a resource group
@@ -374,23 +374,23 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>Kapcsolódás a virtuális géphez
 
-Miután telepítette a virtuális gép, konfigurálja azt az SSH-kapcsolatot. A virtuális gép nyilvános IP-cím lekéréséhez használja a [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) parancsot:
+Miután telepítette a virtuális gépet, konfigurálja az SSH-kapcsolatokat. A virtuális gép nyilvános IP-címének lekéréséhez használja a [Get-azurermpublicipaddress paranccsal](/powershell/module/azurerm.network/get-azurermpublicipaddress) parancsot:
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Az ssh-val telepített ügyfél rendszerből használja a következő parancsot a virtuális Géphez való csatlakozáshoz. Ha Windows rendszeren dolgozik, akkor használhatja [PuTTY](https://www.putty.org/) a kapcsolat létrehozásához.
+Az SSH-val telepített SSH-val a következő parancs használatával csatlakozhat a virtuális géphez. Ha Windows rendszeren dolgozik, a [Putty](https://www.putty.org/) segítségével hozhatja létre a kapcsolódást.
 
 ```
 ssh <Public IP Address>
 ```
 
-Amikor a rendszer kéri, jelentkezzen be, **azureuser**. Ha egy hozzáférési kódot az SSH-kulcsok létrehozásakor használt, kell meg a jelszót.
+Amikor a rendszer kéri, jelentkezzen be **azureuser**-ként. Ha az SSH-kulcsok létrehozásakor jelszót használt, meg kell adnia a jelszót.
 
 ## <a name="install-the-nginx-web-server"></a>Az NGINX-webkiszolgáló telepítése
 
-Csomag erőforrásokat, és telepítse a legújabb NGINX-csomagot, futtassa a következő szkriptet:
+A csomag erőforrásainak frissítéséhez és a legújabb NGINX-csomag telepítéséhez futtassa a következő parancsfájlt:
 
 ```bash
 #!/bin/bash
@@ -404,13 +404,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Az NGINX webkiszolgáló is telepítve van, és nyissa meg a virtuális Gépen a 80-as porton a webkiszolgáló elérheti, ha a virtuális gép nyilvános IP-cím használatával. Nyisson meg egy webböngészőt, és váltson ```http://<public IP address>```.
+Ha telepítette az NGINX-webkiszolgálót, és a 80-es port meg van nyitva a virtuális gépen, a virtuális gép nyilvános IP-címe segítségével érheti el a webkiszolgálót. Nyisson meg egy webböngészőt, és ```http://<public IP address>```nyissa meg a következőt:.
 
-![Az NGINX web server kezdőlapjának](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
+![Az NGINX webkiszolgáló kezdőlapja](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
-Távolíthatja el az erőforrásokat, amelyek többé nem kell használatával a [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) parancsot. Az erőforráscsoport és az ahhoz tartozó összes erőforrás törléséhez futtassa a következő parancsot:
+A [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) parancs használatával törölheti azokat az erőforrásokat, amelyekre nincs szüksége többé. Az erőforráscsoport és az összes erőforrás törléséhez futtassa a következő parancsot:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -418,4 +418,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>További lépések
 
-Ez a rövid útmutatóban üzembe helyezett egy egyszerű Linux-kiszolgáló virtuális gép. Azure Stack virtuális gépekkel kapcsolatos további információkért lépjen [szempontok az Azure Stack-beli virtuális gépek](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített. Azure Stack virtuális gépekkel kapcsolatos további tudnivalókért tekintse meg a [Azure stack virtuális gépek szempontjait](azure-stack-vm-considerations.md).

@@ -11,33 +11,33 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 03/15/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: fa4013c00cd9d496b6c8bb479d9fe6cbfe113575
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: f0195ecf033454763b757f6b8edb03ee4e8e9e49
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316220"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418198"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Csatlakozás Azure Stack PowerShell-kezelőként
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure Stack, például az ajánlatok, tervek, kvóták és riasztások létrehozása-erőforrások kezelése a PowerShell segítségével konfigurálhatja. Ez a témakör segít az üzemeltető környezet konfigurálásához.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Futtassa a következő előfeltételek vonatkoznak, az a [development Kitet](../asdk/asdk-connect.md#connect-with-rdp) vagy -ügyfélről Windows-alapú külső Ha Ön [csatlakozik a VPN-kapcsolaton keresztül ASDK](../asdk/asdk-connect.md#connect-with-vpn). 
+Futtassa a következő előfeltételeket a [fejlesztői készletből](../asdk/asdk-connect.md#connect-with-rdp) vagy egy Windows-alapú külső ügyfélről, ha [VPN-kapcsolaton keresztül csatlakozik a ASDK](../asdk/asdk-connect.md#connect-with-vpn). 
 
  - Telepítés [Azure Stack-kompatibilis Azure PowerShell-modulok](azure-stack-powershell-install.md).  
  - Töltse le a [az Azure Stack működéséhez szükséges eszközök](azure-stack-powershell-download.md).  
 
 ## <a name="connect-with-azure-ad"></a>Az Azure AD Connect
 
-Az Azure Stack-üzemeltető környezet konfigurálása a PowerShell használatával. Futtassa az alábbi parancsfájlok egyikét: Az Azure Active Directory (Azure AD) tenantName és Azure Resource Manager-végpont értékeket cserélje le a saját környezetének konfigurációját. 
+Az Azure Stack-üzemeltető környezet konfigurálása a PowerShell használatával. Futtassa a következő parancsfájlok egyikét: Cserélje le a Azure Active Directory (Azure AD) tenantName, és Azure Resource Manager a végpontok értékeit a saját környezeti konfigurációjával. 
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -71,7 +71,7 @@ Csatlakozás az Azure Stack-üzemeltető környezet, a PowerShell-lel az Azure A
   ```
 
 > [!Note]  
-> Az AD FS csak támogatja az interaktív hitelesítéshez a felhasználói identitásokat. Ha egy hitelesítőadat-objektumnak szükség, egy szolgáltatásnév (SPN) kell használnia. Egy egyszerű szolgáltatást az Azure Stack és az AD FS, az identity management-szolgáltatás beállításának további információkért lásd: [kezelése az AD FS szolgáltatás egyszerű](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
+> AD FS csak a felhasználói identitásokkal való interaktív hitelesítést támogatja. Ha egy hitelesítőadat-objektumra van szükség, egyszerű szolgáltatásnevet (SPN) kell használnia. Az Azure Stack és a AD FS identitás-kezelési szolgáltatásként való létrehozásával kapcsolatos további információkért lásd: [AD FS egyszerű szolgáltatás kezelése](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
 ## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
@@ -85,4 +85,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Sablonok fejlesztése az Azure Stackhez](../user/azure-stack-develop-templates.md)
 - [Sablonok üzembe helyezése a PowerShell-lel](../user/azure-stack-deploy-template-powershell.md)
-  - [Az Azure Stack-modulokra vonatkozó referenciák](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  
+  - [Azure Stack modul leírása](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  

@@ -1,6 +1,6 @@
 ---
-title: Interaktív szolgáltatás ellenőrző tesztelése az Azure Stack érvényesítési szolgáltatásként |} A Microsoft Docs
-description: Ismerje meg, interaktív funkció ellenőrző tesztek létrehozása az Azure Stack-érvényesítéssel szolgáltatásként.
+title: Interaktív funkció-ellenőrzési teszt a Azure Stack érvényesítés szolgáltatásban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stackhoz szolgáltatásként történő érvényesítéssel.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,67 +10,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: af36943ebaa78ad1838506d6614a7fd6671afe4f
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303254"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418471"
 ---
-# <a name="interactive-feature-verification-testing"></a>Interaktív funkció ellenőrzési tesztelés  
+# <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Az interaktív funkció ellenőrzési tesztelés keretrendszer használatával tesztek kérése a rendszerhez. Amikor egy vizsgálatot igényel, a Microsoft a keretrendszer készíti elő az interaktív manuális lépéseket igénylő tesztek használja. A Microsoft a keretrendszer használatával lánc együttesen több különálló automatizált teszteket.
+Az interaktív funkció-ellenőrzési tesztelési keretrendszer használatával teszteket kérhet a rendszer számára. Ha tesztet kér, a Microsoft a keretrendszer használatával készít elő manuális interaktív lépéseket igénylő teszteket. A Microsoft a keretrendszer használatával több önálló automatizált tesztet is felhasználhat.
 
-Ez a cikk ismerteti egy egyszerű manuális forgatókönyvet. A teszt ellenőrzi, hogy az Azure Stackben lemez cseréje. A keretrendszer összegyűjti az egyes lépéseknél a diagnosztikai naplók. Kapcsolatos problémák megoldásában is, ahogy látja őket. A keretrendszer is lehetővé teszi, hogy a más eszközök vagy a folyamatok által előállított naplók megosztása, és lehetővé teszi a forgatókönyvet a visszajelzést.
+Ez a cikk egy egyszerű manuális forgatókönyvet ismertet. A teszt ellenőrzi a Azure Stack lemez cseréjét. A keretrendszer minden egyes lépésnél összegyűjti a diagnosztikai naplókat. A problémák hibakeresése a keresés során. A keretrendszer lehetővé teszi a más eszközök vagy folyamatok által létrehozott naplók megosztását is, és lehetővé teszi, hogy visszajelzést nyújtson a forgatókönyvről.
 
 > [!Important]  
-> Ez a cikk hivatkozik a lemez azonosítása végrehajtásához szükséges lépéseket. Ez a bemutató egyszerűen a Tesztmenetek munkafolyamat összeállításunkat eredményt nem lehet használni az új megoldás-ellenőrzéshez.
+> Ez a cikk a lemez-azonosítás végrehajtásának lépéseit ismerteti. Ez egyszerűen egy bemutató, mivel a test pass-munkafolyamatból összegyűjtött összes eredmény nem használható új megoldás-ellenőrzéshez.
 
-## <a name="overview-of-interactive-testing"></a>Interaktív vizsgálati áttekintése
+## <a name="overview-of-interactive-testing"></a>Az interaktív tesztelés áttekintése
 
-Egy teszt lemezcsere egy gyakori forgatókönyvet. Ebben a példában a teszt öt lépésből áll:
+A lemezek cseréjének tesztelése gyakori forgatókönyv. Ebben a példában a teszt öt lépésből áll:
 
-1. Hozzon létre egy új **Tesztmenetek** munkafolyamat.
-2. Válassza ki a **lemez azonosítása teszt**.
-3. Végezze el a manuális lépés, amikor a rendszer kéri.
-4. Ellenőrizze a forgatókönyv eredményét.
-5. A teszt eredménye küldeni a Microsoftnak.
+1. Hozzon létre egy új **tesztelési menet** -munkafolyamatot.
+2. Válassza ki a **lemez azonosítására szolgáló tesztet**.
+3. Ha a rendszer kéri, hajtsa végre a manuális lépést.
+4. A forgatókönyv eredményének ellenőrzéséhez.
+5. A teszt eredményének elküldése a Microsoftnak.
 
-## <a name="create-a-new-test-pass"></a>Hozzon létre egy új tesztelési fázis
+## <a name="create-a-new-test-pass"></a>Új tesztelési menet létrehozása
 
-Ha nem rendelkezik egy meglévő tesztcélú adja át a rendelkezésre álló, kövesse a lépéseket a [ütemezés egy teszt](azure-stack-vaas-schedule-test-pass.md).
+Ha nem érhető el meglévő tesztelési fázis, kövesse a [tesztek ütemezésének](azure-stack-vaas-schedule-test-pass.md)utasításait.
 
-## <a name="schedule-the-test"></a>A vizsgálat ütemezése
+## <a name="schedule-the-test"></a>A teszt beosztása
 
-1. Válassza ki **lemez azonosítása teszt**.
+1. Válassza a **lemez azonosítása teszt**lehetőséget.
 
     > [!Note]  
-    > A teszt verzióját, a teszt biztosítékot való fejlesztést növeli. A legújabb verziót mindig kell használni, kivéve, ha a Microsoft egyéb jelzi.
+    > A teszt verziója növeli a tesztelési biztosítékok fejlesztését. A legmagasabb verziót mindig csak akkor kell használni, ha a Microsoft másként nem jelez.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-1. Adja meg a tartomány rendszergazdai felhasználónév és jelszó kiválasztásával **szerkesztése**.
+1. A **Szerkesztés**lehetőség kiválasztásával adja meg a tartományi rendszergazda felhasználónevét és jelszavát.
 
-1. Válassza ki a megfelelő vizsgálati végrehajtási ügynök/DVM meg a teszt elindításához.
+1. Válassza ki a megfelelő tesztelési végrehajtási ügynököt/DVM a teszt elindításához.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-1. Válassza ki **küldés** a teszt elindításához.
+1. A teszt elindításához válassza a **Submit (Küldés** ) lehetőséget.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
-1. Az interaktív vizsgálati felhasználói felülete elérhető az ügynök az előző lépésben kiválasztott.
+1. Az interaktív teszt felhasználói felületének elérése az előző lépésben kiválasztott ügynöktől.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-1. Kövesse a **dokumentáció** és **érvényesítési** hivatkozásokra kattintva útmutatást nyújt a Microsoft a forgatókönyv végrehajtásához.
+1. Ennek a  forgatókönyvnek a végrehajtásához kövesse a dokumentációt és az **érvényesítési** hivatkozásokat, és tekintse át a Microsoft utasításait.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
@@ -78,40 +78,40 @@ Ha nem rendelkezik egy meglévő tesztcélú adja át a rendelkezésre álló, k
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
-1. Kövesse az utasításokat a precheck parancsfájl futtatásához.
+1. Az elővizsgálati parancsfájl futtatásához kövesse az utasításokat.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-1. A precheck szkript sikeres befejezése után futtassa a manuális forgatókönyv (lemezcsere) megfelelően a **dokumentáció** és **érvényesítési** származó hivatkozások a **információk**fülre.
+1. Ha az előzetes ellenőrzési parancsfájl sikeresen befejeződött, futtassa a manuális forgatókönyv (lemez cseréje) elemet a **dokumentáció** és az **érvényesítési** hivatkozások alapján az **információ** lapról.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
     > [!Important]  
-    > A manuális forgatókönyv működés során ne zárja be a párbeszédpanelt.
+    > Ne zárjuk be a párbeszédpanelt a manuális forgatókönyv végrehajtása közben.
 
-1. Amikor végzett, a manuális forgatókönyv végrehajtása, kövesse az utasításokat a jelölőnégyzet utólagos parancsfájl futtatásához.
+1. Ha végzett a manuális forgatókönyv végrehajtásával, kövesse az utasításokat az utólagos ellenőrzési szkript futtatásához.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-1. A sikeres végrehajtása manuális forgatókönyv (lemezcsere), jelölje be **tovább**.
+1. A kézi forgatókönyv (lemez cseréje) sikeres befejezésekor válassza a **tovább**lehetőséget.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
     > [!Important]  
-    > Ha bezárja az ablakot, a teszt leáll, mielőtt befejeződött.
+    > Ha bezárta az ablakot, a teszt leáll, mielőtt elkészült.
 
-1. Visszajelzés küldése a vizsgálati élmény érdekében. Ezeket a kérdéseket a segítségével a Microsoft értékeli a forgatókönyv sikerességi arányát és a kiadási minőségét.
+1. Visszajelzés küldése a tesztelési élményről. Ezek a kérdések segítik a Microsoftot a forgatókönyv sikerességi arányának és kiadási minőségének felmérésében.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
-1. Csatlakoztassa a Microsoftnak elküldeni kívánt naplófájlokat.
+1. Csatolja a Microsoftnak elküldeni kívánt naplófájlokat.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
-1. A visszajelzés elküldése végfelhasználói licencszerződés elfogadásához.
+1. Fogadja el a visszajelzés küldésével kapcsolatos LICENCSZERZŐDÉSt.
 
-1. Válassza ki **küldés** az eredményeket küldeni a Microsoftnak.
+1. Válassza a **Submit (Küldés** ) lehetőséget az eredmények Microsoftnak való elküldéséhez.
 
 ## <a name="next-steps"></a>További lépések
 
-- [Figyelheti és kezelheti a VaaS portálon tesztek](azure-stack-vaas-monitor-test.md)
+- [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

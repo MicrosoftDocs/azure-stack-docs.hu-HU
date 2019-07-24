@@ -1,6 +1,6 @@
 ---
-title: Kezelheti a frissítéseket az Azure Stack – áttekintés |} A Microsoft Docs
-description: Ismerje meg az update management Azure Stack integrált rendszerek.
+title: Frissítések kezelése Azure Stack – áttekintés | Microsoft Docs
+description: További információ az Azure Stack integrált rendszerek frissítési felügyeletéről.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,43 +11,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: 5fa84271c02ebc749871116badb3c767812a48ec
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: a5fb41e63a8cd9e5f57e4476b1b7c23738f116bb
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691548"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418022"
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Kezelheti a frissítéseket az Azure Stack áttekintése
+# <a name="manage-updates-in-azure-stack-overview"></a>Frissítések kezelése Azure Stack – áttekintés
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Integrált rendszerek Azure Stack*
 
-A Microsoft Azure Stack integrált rendszerek általában minden hónap kiadás frissítési csomagokat. Kérdezze meg a számítógépgyártó (OEM) az adott értesítési folyamat frissítési értesítések eléréséhez a szervezet biztosításához. A jelen dokumentációs könyvtárban alapján is ellenőrizheti **áttekintése** > **kibocsátási megjegyzések** verziókról lévő aktív támogatási információkat.
+A Azure Stack integrált rendszerek Microsoft Update csomagjai általában minden hónapban kiadásra kerülnek. Kérje meg az eredeti berendezésgyártó (OEM) adatait az adott értesítési folyamatról, hogy biztosítsa a frissítési értesítések elérését a szervezet számára. Az aktív támogatásban lévő kiadásokkal kapcsolatos információkért tekintse meg ezt a dokumentációs könyvtárat is az **Áttekintés** > **kibocsátási megjegyzései** alatt.
 
-A Microsoft különböző kiadásai egyetlen frissítési csomag részét képezi. Az Azure Stack operátorait importálhatja telepítse, és az Azure Stack felügyeleti portálról csomagok telepítési állapotának figyelése.
+A Microsoft-szoftverfrissítések minden kiadása egyetlen frissítési csomagként van csomagolva. Azure Stack kezelőként importálhatja, telepítheti és figyelheti a frissítési csomagok telepítési folyamatát a Azure Stack felügyeleti portálról.
 
-Az OEM beszállítói is frissítéseket, például az illesztőprogram- és belsővezérlőprogram-frissítések. Ezeket a frissítéseket a szállító által lépnek különálló csomagként, míg egyes importált, telepítve van, és ugyanúgy, mint frissítési csomagokat a Microsoft által felügyelt.
+Az OEM-gyártó a frissítéseket is kiadhatja, például az illesztőprogram-és a belső vezérlőprogram-frissítéseket. Habár ezeket a frissítéseket a szállító külön csomagként továbbítja, néhányat importálnak, telepítenek és felügyelnek, ugyanúgy, mint a Microsoft frissítési csomagjai.
 
-Hogy a rendszer a támogatás keretében, Azure Stack egy adott verzió szintre frissíteni kell hagynia. Győződjön meg arról, hogy tekintse át a [karbantartási szabályzat az Azure Stack](azure-stack-servicing-policy.md).
+Annak érdekében, hogy a rendszer a támogatás alatt maradjon, Azure Stack frissítenie kell egy adott verzió szintjén. Győződjön meg arról, hogy áttekinti a [Azure stack karbantartási házirendet](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> Az Azure Stack Development Kit (ASDK), az Azure Stack frissítési csomagokat nem lehet alkalmazni. A frissítési csomagok integrált rendszerek lettek kialakítva. További információ: [ismételt üzembe helyezése a ASDK](../asdk/asdk-redeploy.md).
+> Azure Stack frissítési csomagokat nem lehet alkalmazni a Azure Stack Development Kitra (ASDK). A frissítési csomagok integrált rendszerekhez készültek. További információ: [a ASDK újratelepítése](../asdk/asdk-redeploy.md).
 
 ## <a name="the-update-resource-provider"></a>Az erőforrás-szolgáltató frissítése
 
-Az Azure Stack tartalmaz egy frissítési erőforrás-szolgáltató, amely kezeli a Microsoft szoftverfrissítések alkalmazására. Ez a szolgáltató ellenőrzi, hogy a frissítések alkalmazása minden fizikai gazdagép, Service Fabric-alkalmazásokat és futásidejének tekintetében, és az összes virtuális gépeket és a társított szolgáltatások között.
+Azure Stack tartalmaz egy frissítési erőforrás-szolgáltatót, amely a Microsoft-szoftverfrissítések alkalmazását kezeli. Ez a szolgáltató ellenőrzi, hogy a frissítések az összes fizikai gazdagépen, Service Fabric alkalmazásokon és futtatókörnyezeteken, valamint az összes infrastruktúra-virtuális gépen és a hozzájuk társított szolgáltatáson vannak-e alkalmazva.
 
-Telepíti a frissítéseket, mert a frissítési folyamat célként az Azure Stackben (például fizikai gazdagépeket és virtuális gépeket) a különböző alrendszereket megtekintheti általános állapotát.
+A frissítések telepítésekor megtekintheti a magas szintű állapotot, mivel a frissítési folyamat a Azure Stack különböző alrendszereit (például a fizikai gazdagépeket és az infrastruktúra virtuális gépeket) célozza meg.
 
-## <a name="plan-for-updates"></a>Frissítések tervezése
+## <a name="plan-for-updates"></a>A frissítések megtervezése
 
-Javasoljuk, hogy a karbantartási műveleteket felhasználók értesítése, és hogy úgy ütemezze a normál karbantartási időszakok során munkaidőn kívüli Ha lehetséges. Karbantartási műveletek hatással lehetnek a bérlői terhelések és a webportálos műveletek.
+Javasoljuk, hogy minden karbantartási műveletről értesítse a felhasználókat, és ha lehetséges, a szokásos karbantartási időszakokat a munkaidőn kívüli időpontokban ütemezze. A karbantartási műveletek befolyásolhatják a bérlői munkaterheléseket és a portál műveleteit is.
 
-A karbantartási időszak megtervezésekor fontos tekintse át a frissítési csomag a Microsoft nyilvánosan, feltüntettük a saját kiadási Megjegyzés az adott típusú. Azokat az alkalmi gyorsjavítás, kivéve minden frissítési csomag kell egy megfelelő típus **teljes** vagy **Express**. Teljes frissítési csomagokat frissíteni a fizikai gazdagép operációs rendszerek a skálázási egységben, és nagyobb karbantartási időszak igényelnek. Expressz csomagok olyan célcsoportok hatókörében vannak, és ne frissítse a mögöttes fizikai állomás operációs rendszerek.
+A karbantartási időszak megtervezésekor fontos áttekinteni a Microsoft által kiadott frissítési csomag adott típusát a vonatkozó kibocsátási megjegyzésben leírtak szerint. Az esetenkénti Gyorsjavítástól eltekintve minden frissítési csomag megfelelő típusú, teljes vagy expressz **értékű** lesz . A teljes frissítési csomagok frissítik a fizikai gazdagép operációs rendszereit a méretezési egységben, és nagyobb karbantartási időszakot igényelnek. Az expressz frissítési csomagok hatóköre, és nem frissíti a mögöttes fizikai gazdagép operációs rendszereit.
 
 A frissítés telepítésének megkezdése előtt futtassa [Test-AzureStack](azure-stack-diagnostic-test.md) az Azure Stack állapotának érvényesítéséhez, és hárítsa el a működési hibákat talált a következő paraméterekkel, többek között az összes figyelmeztetések és hibák esetén. Emellett tekintse át az aktív riasztások, és oldja meg az esetleges beavatkozást igénylő.  
 
@@ -55,47 +55,47 @@ A frissítés telepítésének megkezdése előtt futtassa [Test-AzureStack](azu
 Test-AzureStack -Group UpdateReadiness
 ```
 
-## <a name="using-the-update-tile-to-manage-updates"></a>A frissítés csempe használata kezelheti a frissítéseket
+## <a name="using-the-update-tile-to-manage-updates"></a>A frissítés csempe használata a frissítések kezeléséhez
 
-A felügyeleti portálon kezelheti a frissítéseket. Az Azure Stack operátorait szerint használhatja a **frissítés** csempére az irányítópulton:
+A frissítéseket a felügyeleti portálról kezelheti. Azure Stack operátorként használhatja az irányítópulton található **Update** csempét a következőre:
 
-- Fontos információkat, például a jelenlegi verzió megtekintéséhez.
-- Telepítse a frissítéseket, és a folyamat állapotának monitorozásához.
-- Tekintse át a korábban telepített frissítések frissítési előzményeket.
-- Megtekintheti a felhő aktuális OEM csomag verziója.
+- Tekintse meg a fontos információkat, például az aktuális verziót.
+- Frissítések telepítése és a figyelési folyamat.
+- Tekintse át a korábban telepített frissítések korábbi frissítéseit.
+- Tekintse meg a felhő jelenlegi OEM-csomagjának verzióját.
 
-## <a name="determine-the-current-version"></a>Határozza meg az aktuális verzió
+## <a name="determine-the-current-version"></a>Az aktuális verzió meghatározása
 
-Az Azure Stack jelenlegi verziója is megtekintheti a **frissítés** csempére. A csempe megnyitása:
+A Azure Stack aktuális verzióját az **Update (frissítés** ) csempén tekintheti meg. A csempe megnyitása:
 
-1. Nyissa meg az Azure Stack rendszergazdai portálon.
-2. Válassza ki **irányítópult**. Az a **frissítés** csempét, a jelenlegi verzió szerepel.
+1. Nyissa meg a Azure Stack felügyeleti portált.
+2. Válassza az **irányítópult**lehetőséget. A **frissítés** csempén az aktuális verzió szerepel a felsorolásban.
 
-    ![Frissítéseket alapértelmezett irányítópult csempéjén.](./media/azure-stack-updates/image1.png)
+    ![Az alapértelmezett irányítópulton lévő frissítések csempe](./media/azure-stack-updates/image1.png)
 
-    Ezen a képen például a verzió 1.1903.0.35.
+    Ebben a képen például a verzió a 1.1903.0.35.
 
-## <a name="install-updates-and-monitor-progress"></a>Telepítse a frissítéseket és az előrehaladásának figyeléséhez
+## <a name="install-updates-and-monitor-progress"></a>Frissítések telepítése és a figyelési folyamat
 
-1. Nyissa meg az Azure Stack rendszergazdai portálon.
-2. Válassza ki **irányítópult**. Válassza ki a **frissítés** csempére.
-3. Válassza ki **frissítés most**.
+1. Nyissa meg a Azure Stack felügyeleti portált.
+2. Válassza az **irányítópult**lehetőséget. Válassza a **frissítés** csempét.
+3. Válassza a **Frissítés most**lehetőséget.
 
-    ![Az Azure Stack a frissítési menetet részletei](media/azure-stack-updates/azure-stack-update-button.png)
+    ![Azure Stack frissítés futtatásának részletei](media/azure-stack-updates/azure-stack-update-button.png)
 
-4. Megtekintheti az általános állapotát, a frissítési folyamat végighalad a különböző alrendszereket, az Azure Stackben. Példa alrendszerek közé tartoznak a fizikai gazdagépeket, a Service Fabric segítségével a virtuális gépeket és szolgáltatásokat, amelyek adja meg a rendszergazda és a felhasználói portálon. A frissítési folyamat során a frissítés erőforrás-szolgáltató, például a számát, hogy sikeres volt, valamint a folyamatban lévők száma a frissítéssel kapcsolatos további részletek jelentések.
+4. Megtekintheti a magas szintű állapotot, mivel a frissítési folyamat megismétli a Azure Stack különböző alrendszerein keresztül. Az alrendszerek például olyan fizikai gazdagépek, Service Fabric, infrastruktúra-virtuális gépek és szolgáltatások, amelyek mind a rendszergazda, mind a felhasználói portált biztosítják. A frissítési folyamat során az erőforrás-szolgáltató további részleteket jelent a frissítésről, például a sikeres lépések számáról, valamint a folyamatban lévő számról.
 
-5. Válassza ki a **teljes naplók letöltéséhez** részleteit tartalmazó panel teljes naplók letöltéséhez futtassa a frissítést.
+5. A teljes naplók letöltéséhez válassza a **teljes naplók letöltése** lehetőséget a frissítés futtatása részletek panelen.
 
-    ![Az Azure Stack a frissítési menetet részletei](media/azure-stack-updates/update-run-details.png)
+    ![Azure Stack frissítés futtatásának részletei](media/azure-stack-updates/update-run-details.png)
 
-6. Ha befejeződött, a frissítés erőforrás-szolgáltató biztosít egy **sikeres** megerősítés jelzi, hogy a frissítési folyamat befejeződik, és hogy mennyi ideig tartott. Itt megtekintheti az összes frissítések, az elérhető frissítések vagy a szűrő használatával telepített frissítések kapcsolatos információkat.
+6. Ha elkészült, a frissítési erőforrás-szolgáltató **sikeres** megerősítést biztosít annak jelzésére, hogy a frissítési folyamat befejeződött, és mennyi ideig tartott. A szűrő használatával megtekintheti az összes frissítéssel, elérhető frissítéssel vagy telepített frissítéssel kapcsolatos információt.
 
-    ![Az Azure Stack a frissítési menetet részletek sikeres](media/azure-stack-updates/update-success.png)
+    ![Azure Stack frissítés futtatásának részletei sikeresek](media/azure-stack-updates/update-success.png)
 
-   Ha a frissítés sikertelen, a **frissítése** jelentések csempe **figyelmet**. Használja a **teljes naplók letöltéséhez** egy általános állapotát, amennyiben a frissítés nem sikerült beolvasni a beállítást. Az Azure Stack naplógyűjtés segít a diagnosztika és hibaelhárítás megkönnyítése.
+   Ha a frissítés sikertelen, a **frissítési** csempe jelentései **figyelmet igényelnek**. A **teljes naplók letöltése** lehetőséggel olyan magas szintű állapotot érhet el, ahol a frissítés nem sikerült. A Azure Stack log gyűjtemény segít a diagnosztika és a hibaelhárítás megkönnyítésében.
 
 ## <a name="next-steps"></a>További lépések
 
 - [Azure Stack-karbantartási szabályzat](azure-stack-servicing-policy.md) 
-- [Régiók kezelése az Azure Stackben](azure-stack-region-management.md)
+- [Területi felügyelet Azure Stack](azure-stack-region-management.md)

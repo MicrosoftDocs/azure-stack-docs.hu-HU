@@ -1,6 +1,6 @@
 ---
-title: A Microsoft Azure Stack érvényesítési szolgáltatásként szoftverfrissítések ellenőrzése |} A Microsoft Docs
-description: Ismerje meg, hogyan érvényesítheti a szoftverfrissítéseket a Microsoft-szolgáltatás érvényesítéssel.
+title: A Microsoft frissítéseinek érvényesítése Azure Stack érvényesítés szolgáltatásként | Microsoft Docs
+description: Ismerje meg, hogy miként érvényesítheti a Microsoft-szoftverfrissítéseket szolgáltatásként történő érvényesítéssel.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,54 +10,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67d17ffc7c2b8fcdb766ccf8a8248da8665a42d8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297567"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418283"
 ---
-# <a name="validate-software-updates-from-microsoft"></a>A Microsoft szoftverfrissítések ellenőrzése
+# <a name="validate-software-updates-from-microsoft"></a>Szoftverfrissítések érvényesítése a Microsofttól
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-A Microsoft rendszeresen frissítéseket az Azure Stack szoftver. Ezek a frissítések állnak rendelkezésre az Azure Stack coengineering partnerek. A nyilvánosan elérhető előzetes frissítésekkel. A frissítések keresése a megoldás szemben, és visszajelzést a Microsoftnak.
+A Microsoft rendszeres időközönként frissítéseket küld a Azure Stack szoftverhez. Ezek a frissítések a Azure Stack Engineering-partnerek számára érhetők el. A frissítések nyilvánosan elérhetők. A frissítéseket megtekintheti a megoldáson, és visszajelzést küldhet a Microsoftnak.
 
-Szoftverfrissítéseket a Microsoft Azure Stack használatával a elnevezési jelölik, például 1803 jelzi a frissítést a 2018 március. Az Azure Stack-frissítési szabályzat kapcsolatban-váltás gyakoriságáról és a kibocsátási megjegyzések érhető el, lásd: [karbantartási szabályzat az Azure Stack](../operator/azure-stack-servicing-policy.md).
+A Azure Stackra vonatkozó Microsoft-szoftverfrissítések elnevezési konvencióval vannak megjelölve, például az 1803-es frissítés a következőre mutat: március 2018. További információ a Azure Stack frissítési szabályzatáról: a lépésszám és a kibocsátási megjegyzések elérhetők [Azure stack karbantartási házirendben](../operator/azure-stack-servicing-policy.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Gyakorolja a havi frissítési folyamat az VaaS, mielőtt, ismerkedjen meg a következő elemek:
+Mielőtt elvégezte a havi frissítési folyamatot az Varga-ban, ismernie kell a következő elemeket:
 
-- [Mint szolgáltatásra kulcs érvényesítése](azure-stack-vaas-key-concepts.md)
-- [Interaktív funkció ellenőrzési tesztelés](azure-stack-vaas-interactive-feature-verification.md)
+- [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)
+- [Interaktív funkció-ellenőrzési teszt](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>Szükséges tesztek
 
-A következő ellenőrzés havi szoftver ellenőrzés céljából a következő sorrendben kell végrehajtani:
+A következő teszteket kell végrehajtani a havi szoftveres ellenőrzéshez a következő sorrendben:
 
-1. Az Azure Stack havi frissítés-ellenőrzés
-2. Felhőbeli szimuláció motor
+1. Havi Azure Stack frissítés ellenőrzése
+2. Felhőalapú szimulációs motor
 
-## <a name="validating-software-updates"></a>A szoftverfrissítések érvényesítésekor
+## <a name="validating-software-updates"></a>Szoftverfrissítések ellenőrzése
 
-1. Hozzon létre egy új **csomag** munkafolyamat.
-1. A fenti szükséges teszteket, kövesse az utasításokat a [futtatása csomag Érvényesítési tesztek](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Az alábbi szakaszban további útmutatást a **havi Azure Stack frissítés ellenőrzés** teszteléséhez.
+1. Hozzon létre egy új **csomag-ellenőrzési** munkafolyamatot.
+1. A fenti tesztek végrehajtásához kövesse a [csomag-ellenőrzési tesztek futtatásának](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)utasításait. A **havi Azure stack Update ellenőrzési** teszttel kapcsolatos további információkért tekintse meg az alábbi szakaszt.
 
 ### <a name="apply-the-monthly-update"></a>A havi frissítés alkalmazása
 
-1. Válasszon ki egy ügynököt elleni tesztek végrehajtásához.
-1. Ütemezés **havi az Azure Stack-frissítés ellenőrzés**.
-1. Adja meg a helyét, az OEM-kiterjesztés csomagjának a stamp jelenleg telepített, és a helyét, az OEM-kiterjesztési csomag, amely a frissítés során lépnek érvénybe. Ezek a csomagok URL-beállítása: [érvényesítéshez-csomagok kezelése](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
-1. A kiválasztott ügynök kövesse a lépéseket, a felhasználói felületen.
+1. Válasszon ki egy ügynököt a tesztek végrehajtásához.
+1. A **havi Azure stack frissítés ellenőrzésének**ütemezett időpontja.
+1. Adja meg a bélyegzőn jelenleg üzembe helyezett OEM kiterjesztési csomag helyét, valamint a frissítés során alkalmazni kívánt OEM-kiterjesztési csomag helyét. A csomagok URL-címeinek konfigurálásával kapcsolatban lásd: [csomagok kezelése ellenőrzés céljából](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
+1. Kövesse a kiválasztott ügynök felhasználói felületének lépéseit.
 
-Ha kérdése vagy aggodalma van, lépjen kapcsolatba [VaaS súgó](mailto:vaashelp@microsoft.com).
+Ha kérdése vagy problémája van, lépjen kapcsolatba az "az [Varga súgóval](mailto:vaashelp@microsoft.com)".
 
 ## <a name="next-steps"></a>További lépések
 
-- [Figyelheti és kezelheti a VaaS portálon tesztek](azure-stack-vaas-monitor-test.md)
+- [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

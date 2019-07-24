@@ -1,6 +1,6 @@
 ---
-title: Egy szolgáltatás fő fogalmait, az Azure Stack érvényesítési |} A Microsoft Docs
-description: Azokat a fogalmakat, az Azure Stack érvényesítési szolgáltatásként.
+title: Az érvényesítés Azure Stack szolgáltatás kulcsának fogalmai | Microsoft Docs
+description: A Azure Stack érvényesítésének főbb fogalmait ismerteti szolgáltatásként.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,78 +10,78 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1ffb66bb1abe9f2ffb64162f834c682df2aaa609
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298502"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418402"
 ---
-# <a name="validation-as-a-service-key-concepts"></a>Mint szolgáltatásra kulcs érvényesítése
+# <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
 
-Ez a cikk azokat a fogalmakat érvényesítési szolgáltatásként (VaaS).
+Ez a cikk az érvényesítési szolgáltatásként ("az"
 
 ## <a name="solutions"></a>Megoldások
 
-Egy VaaS megoldás az Azure Stack megoldás egy adott hardver anyagjegyzék (AJ) jelöli. A VaaS megoldás a munkafolyamatok futtatásához az Azure Stack megoldás tárolójaként szolgál.
+Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure Stack megoldást jelöl. Az adatbázis-alapú megoldás tárolóként működik a Azure Stack megoldáson futó munkafolyamatok számára.
 
-### <a name="create-a-solution-in-the-vaas-portal"></a>Megoldás létrehozása a VaaS portálon
+### <a name="create-a-solution-in-the-vaas-portal"></a>Megoldás létrehozása az Varga-portálon
 
-1. Jelentkezzen be a [VaaS portál](https://azurestackvalidation.com).
-2. A megoldás irányítópultján válassza ki a **új megoldás**.
-3. Adja meg a megoldás nevét. Javaslatok és elnevezéséről, lásd: [elnevezési szabályainak VaaS megoldások](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
-4. Válassza ki **mentése** a megoldás létrehozásához.
+1. Jelentkezzen be az [Varga portálra](https://azurestackvalidation.com).
+2. A megoldások irányítópulton válassza az **új megoldás**lehetőséget.
+3. Adja meg a megoldás nevét. A névadási javaslatokért lásd: [az](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions)alaprendszerek elnevezési konvenciója.
+4. A megoldás létrehozásához válassza a **Mentés** lehetőséget.
 
-## <a name="workflows"></a>Munkafolyamatok
+## <a name="workflows"></a>Workflows
 
-VaaS munkafolyamat VaaS megoldás kontextusában működik. Azt jelöli, hogy több teszt a funkció az Azure Stack központi telepítése, amelyek egy készlet. A munkafolyamat minden üzembe helyezés vagy a szoftver frissítése az Azure Stack megoldás kell létrehozni.
+Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack üzemelő példány funkcióit gyakorolják. Létre kell hozni egy munkafolyamatot egy Azure Stack-megoldás minden központi telepítéséhez vagy szoftverfrissítési frissítéséhez.
 
-A munkafolyamatok kategorizálta a forgatókönyv típusát a teszteléshez. A munkaköröket külsős informatikusok tesztelése a **Tesztmenetek** munkafolyamat lehetővé teszi, hogy tesztek összes rendelkezésre álló VaaS biztosíték közül választhat. A hivatalos vizsgálata a **érvényesítési** munkafolyamatok célként meghatározott, a Microsoft által kiválasztott Tesztelési forgatókönyvek.
+A munkafolyamatok tesztelési forgatókönyv típusa szerint vannak kategorizálva. A nem hivatalos tesztelés során a **test pass** munkafolyamat lehetővé teszi, hogy kiválassza a teszteket az összes elérhető. A hivatalos tesztelés során az **ellenőrzési** munkafolyamatok a Microsoft által kiválasztott, konkrét tesztelési forgatókönyveket céloznak meg.
 
-![VaaS munkafolyamat csempék](media/tile_all-workflows.png)
+![Az Varga munkafolyamatok csempéi](media/tile_all-workflows.png)
 
 > [!NOTE]
-> A **csomag** munkafolyamat jelenleg két forgatókönyvet támogatja: [OEM-csomagok érvényesítése](azure-stack-vaas-validate-oem-package.md) és [ellenőrzése a Microsoft szoftverfrissítések](azure-stack-vaas-validate-microsoft-updates.md).
+> A **csomag-ellenőrzési** munkafolyamat jelenleg két forgatókönyvet támogat: [OEM-csomagok érvényesítése](azure-stack-vaas-validate-oem-package.md) és [a szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md).
 
-További információ a munkafolyamat-típusok: [szolgáltatását az Azure Stack érvényesítési mi?](azure-stack-vaas-overview.md).
+A munkafolyamat-típusokkal kapcsolatos további információkért tekintse meg a [Mi az érvényesítési szolgáltatás a Azure stack?](azure-stack-vaas-overview.md)című témakört.
 
-### <a name="getting-started-with-vaas-workflows"></a>VaaS munkafolyamatok első lépései
+### <a name="getting-started-with-vaas-workflows"></a>Első lépések az Varga-munkafolyamatokkal
 
-1. A megoldás irányítópultján egy új megoldás létrehozása, vagy válasszon ki egy meglévőt. Ez frissíti, és aktiválja a munkafolyamat csempék.
-2. Új munkafolyamat létrehozásához válassza a **Start** bármely csempén. Minden egyes munkafolyamat vonatkozó információkért lásd: a következő cikkeket:
-    - Tesztmenetek: [Rövid útmutató: Az érvényesítés használja egy portált, az első vizsgálat ütemezése](azure-stack-vaas-schedule-test-pass.md)
-    - Megoldás-érvényesítés: [Új Azure Stack-megoldás ellenőrzése](azure-stack-vaas-validate-solution-new.md)
-    - Csomag érvényességének ellenőrzése (havi frissítésében): [A Microsoft szoftverfrissítések ellenőrzése](azure-stack-vaas-validate-microsoft-updates.md)
-    - Csomag érvényesítése (a csomag aláírása): [OEM-csomagok érvényesítése](azure-stack-vaas-validate-oem-package.md)
+1. A megoldások irányítópulton hozzon létre egy új megoldást, vagy válasszon ki egy meglévőt. Ez frissíti és aktiválja a munkafolyamat-csempéket.
+2. Ha új munkafolyamatot szeretne létrehozni, válassza az **Indítás** bármely csempén lehetőséget. Az egyes munkafolyamatokkal kapcsolatos információkért tekintse meg a következő cikkeket:
+    - Teszt menete: [Rövid útmutató: Az érvényesítés a szolgáltatás-portálon az első teszt beütemezhetés céljából](azure-stack-vaas-schedule-test-pass.md)
+    - Megoldás ellenőrzése: [Új Azure Stack-megoldás ellenőrzése](azure-stack-vaas-validate-solution-new.md)
+    - Csomag ellenőrzése (havi frissítés): [Szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md)
+    - Csomag ellenőrzése (csomag aláírása): [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md)
 
-3. Felügyelheti és figyelheti a meglévő munkafolyamatok, válassza ki a **kezelés** a munkafolyamat csempére. Válassza ki a nevét, a munkafolyamat és a **szerkesztése** tulajdonságainak megtekintése és módosítása a közös tesztparaméterekre gombra.
+3. Meglévő munkafolyamat kezeléséhez vagy figyeléséhez válassza a **kezelés** lehetőséget a munkafolyamat csempén. Válassza ki a munkafolyamat nevét, és a **Szerkesztés** gombbal tekintse meg a tulajdonságokat, vagy módosítsa a gyakori tesztelési paramétereket.
 
-Munkafolyamatok tulajdonságait és a paraméterekkel kapcsolatos további információkért lásd: [munkafolyamat általános paramétereit az Azure Stack érvényesítési szolgáltatásként](azure-stack-vaas-parameters.md).
+További információ a munkafolyamat-tulajdonságokról és-paraméterekről: [Azure stack érvényesítése szolgáltatásként az általános munkafolyamat](azure-stack-vaas-parameters.md)-paraméterekkel.
 
 ## <a name="tests"></a>Tesztek
 
-Egy teszt VaaS a számos műveleti, amely egy Azure Stack-megoldás futtatásához áll. Tesztek rendelkezik különböző célokra használható, kategória által azonosított, például működési vagy megbízhatóságára, és egy vagy több Azure Stack-szolgáltatások. Minden teszt paramétereket, amelyek némelyike határozza meg a tartalmazó munkafolyamat általános paramétereket saját csoportját határozza meg.
+Az adatbázis-tesztelési Teszt olyan műveletekből áll, amelyek egy Azure Stack megoldáson futnak. A tesztek különböző felhasználási célokra vannak meghatározva, mint például a funkcionális vagy a megbízhatóság, valamint a Azure Stack egy vagy több szolgáltatásának megcélzása. Az egyes tesztek saját paramétereket határoznak meg, amelyek némelyikét a tartalmazó munkafolyamathoz tartozó általános paraméterek határozzák meg.
 
-Kezelésével és figyelési teszteket kapcsolatos további információkért lásd: [figyelése és kezelése a VaaS portálon tesztek](azure-stack-vaas-monitor-test.md).
+A tesztek kezelésével és figyelésével kapcsolatos további információkért lásd: [tesztek figyelése és kezelése az Varga-portálon](azure-stack-vaas-monitor-test.md).
 
-Teszt paraméterekkel kapcsolatos további információkért lásd: [munkafolyamat általános paramétereit az Azure Stack érvényesítési szolgáltatásként](azure-stack-vaas-parameters.md).
+A teszt paraméterekkel kapcsolatos további információkért tekintse [meg a gyakori munkafolyamat-paraméterek Azure stack érvényesítéshez szolgáltatásként](azure-stack-vaas-parameters.md)című témakört.
 
 ## <a name="agents"></a>Ügynökök
 
-Egy VaaS ügynök meghajtók szoftvertesztek végrehajtása. Ügynökök VaaS vizsgálat futtatása két típusa:
+Az alaprendszer-ügynök teszteli A teszt végrehajtását. Az ügynökök két típusa futtatja az alapszintű teszteket:
 
-- A **felhőalapú ügynök**. Ez az az alapértelmezett ügynök VaaS érhető el. Semmilyen beállítást nem szükséges, de ehhez a környezethez kötött a kapcsolat, és Azure Stack-végpontokat internetes feloldhatónak kell lennie. Néhány teszt nem kompatibilisek a felhő-ügynök.
-- A **helyi ügynök**. Ez lehetővé teszi az érvényesítési futtatásához forgatókönyvekben, ahol a környezethez kötött a kapcsolat nem található. Néhány teszt végrehajtása a helyi ügynökön keresztül van szükség.
+- A **felhőalapú ügynök**. Ez az alapértelmezett ügynök, amely az alapszolgáltatásban érhető el. Nincs szükség beállításra, de ehhez kötött kapcsolatra van szükség a környezethez, és Azure Stack végpontokat fel kell oldani az internetről. Bizonyos tesztek nem kompatibilisek a felhőalapú ügynökkel.
+- **Helyi ügynök**. Ez lehetővé teszi az érvényesítés futtatását olyan helyzetekben, amikor a környezethez kötött kapcsolat nem valósítható meg. Egyes tesztek végrehajtásához a helyi ügynöknek kell elvégeznie.
 
-A helyi ügynökök nem adott Azure Stack vagy VaaS megoldással vannak társítva. Az ajánlott eljárás, futtassa az Azure Stack-környezeten kívül.
+A helyi ügynökök nem kötődnek egy adott Azure Stack-vagy az Az ajánlott eljárás az, hogy egy Azure Stack környezeten kívül kell futniuk.
 
-Egy helyi ügynök hozzáadására vonatkozó utasításokért lásd: [üzembe helyezése a helyi ügynök](azure-stack-vaas-local-agent.md).
+Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
 ## <a name="next-steps"></a>További lépések
 
-- [Ajánlott eljárások a szolgáltatás érvényesítése](azure-stack-vaas-best-practice.md)
+- [Ajánlott eljárások szolgáltatásként történő érvényesítéshez](azure-stack-vaas-best-practice.md)

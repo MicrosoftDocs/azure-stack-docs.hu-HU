@@ -1,6 +1,6 @@
 ---
-title: Szolgáltatását az Azure Stack érvényesítési áttekintése |} A Microsoft Docs
-description: Áttekintés az Azure Stack érvényesítési szolgáltatásként.
+title: A Azure Stack szolgáltatás érvényesítésének áttekintése | Microsoft Docs
+description: A szolgáltatás Azure Stack érvényesítésének áttekintése.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,64 +10,64 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d1cfc5c9c378ccfc48811c5896337ef91fdca2e8
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297919"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418562"
 ---
-# <a name="what-is-validation-as-a-service-for-azure-stack"></a>Mit jelent a szolgáltatását az Azure Stack érvényesítési?
+# <a name="what-is-validation-as-a-service-for-azure-stack"></a>Mi az érvényesítés a Azure Stack szolgáltatásként?
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Érvényesítés szolgáltatásként (VaaS) egy natív Azure-szolgáltatás, amelynek megoldás azon partnereinknek, akik a Microsoft Azure Stack-ajánlatok közös vannak mérnöki. Megoldáspartnerek a szolgáltatás használatával ellenőrizze, hogy megoldásaikat a Microsoft követelményeinek, és működnek megfelelően, az Azure Stack használatával.
+Az érvényesítési szolgáltatásként (az Azure-ban) egy natív Azure-szolgáltatás, amely olyan megoldási partnereink számára készült, akik közös mérnöki Azure Stack ajánlatokat biztosítanak a Microsoft számára. A megoldás partnerei használhatják a szolgáltatást annak ellenőrzését, hogy a megoldásaiik megfelelnek-e a Microsoft követelményeinek, és a várt módon működnek Azure Stack.
 
-VaaS elsődleges felhasználási módja van:
+Az "az" alapszolgáltatások elsődleges használata a következő:
 
-- Új Azure Stack-megoldások ellenőrzése
-- Azure Stack szoftver módosítását ellenőrzése
-- Üzembe helyezés során használt partner megoldáscsomagok digitális aláírása
-- Előnézeti VaaS biztosíték tesztelése
+- Új Azure Stack megoldások ellenőrzése
+- A Azure Stack szoftver változásainak ellenőrzése
+- Az üzemelő példányok digitális aláírására szolgáló megoldás partneri csomagjai
+- Az Varga tesztelési biztosítékok előzetes megtekintése
 
-## <a name="validate-a-new-azure-stack-solution"></a>Egy új Azure Stack megoldás ellenőrzése
+## <a name="validate-a-new-azure-stack-solution"></a>Új Azure Stack megoldás érvényesítése
 
-Partnerek használata a **megoldás érvényesítési** munkafolyamat érvényesítése új Azure Stack megoldásokat. A megoldás sikeresen teljesítenie kell a szükséges hardver Lab Kit (HLK) az Azure Stack összetevő tesztjét. Hardverkonfigurációk számos tanúsításához a munkafolyamat kétszer esetében minden egyes új megoldást kell futtatni: egyszer egyenként a minimális és maximális konfigurációkat.
+A partnerek a **megoldás-ellenőrzési** munkafolyamattal érvényesítik az új Azure stack megoldásokat. A megoldásnak át kell adnia a szükséges Hardware Lab Kit (HLK) Azure Stack összetevő-teszteket. A hardverkonfiguráció tartományának hitelesítéséhez a munkafolyamatot kétszer kell futtatni minden új megoldás esetében: egyszer a minimális és a maximális konfigurációkhoz.
 
-További információkért lásd: [érvényesíteni egy új Azure Stack megoldás](azure-stack-vaas-validate-solution-new.md).
+További tudnivalókért tekintse meg az [új Azure stack megoldás érvényesítését](azure-stack-vaas-validate-solution-new.md)ismertető témakört.
 
-## <a name="validate-changes-to-the-azure-stack-software"></a>Az Azure Stack szoftver ellenőrzése
+## <a name="validate-changes-to-the-azure-stack-software"></a>A Azure Stack szoftver változásainak ellenőrzése
 
-Partnerek használata a **csomag** ellenőrizze, hogy a megoldás az Azure Stack legújabb szoftverfrissítésekkel működik-e a munkafolyamatot. A csomag érvényesítése munkafolyamat kell futtatni a Microsoft által ajánlott Hardverkörnyezet, javítási és frissítési (P & U) lett megadva a frissítés alkalmazásához. A munkafolyamat is futtathatók a referenciakonfiguráció build ajánlott.
+A partnerek a **csomag-ellenőrzési** munkafolyamattal ellenőrzi, hogy a megoldás működik-e a legújabb Azure stack szoftverfrissítések használatával. A csomag-ellenőrzési munkafolyamatot olyan Microsoft által ajánlott hardveres környezetben kell futtatni, ahol a frissítés alkalmazására a patch és a Update (P & U) használatos. Azt javasoljuk, hogy a munkafolyamatot az alapkonfiguráció összeállításán is futtassa.
 
-További információkért lásd: [ellenőrzése a Microsoft szoftverfrissítések](azure-stack-vaas-validate-microsoft-updates.md).
+További információ: [szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md).
 
-## <a name="get-digitally-signed-solution-partner-packages"></a>A digitálisan aláírt megoldás partner csomagok beszerzése
+## <a name="get-digitally-signed-solution-partner-packages"></a>Digitálisan aláírt megoldási partner csomagjainak beolvasása
 
-Mellett az Azure Stack-frissítések ellenőrzése, a partnerek használata a **csomag** munkafolyamat számítógép-Gyártói testreszabási csomagokhoz, többek között az Azure Stack-partner-specifikus illesztőprogramokat, a belső vezérlőprogram és az egyéb szoftvereket frissítések ellenőrzése az Azure Stack szoftver központi telepítése során használt. Telepítse a csomagot, a jelenlegi verziója legalább a minimális méretű megoldást használni, amely támogatni fogja az Azure Stack szoftver vannak ellenőrzése. A csomag elküldve a VaaS tesztek végrehajtása előtt. Ha a vizsgálatok sikeresek, [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) , hogy a csomag vizsgálat befejeződött, és a digitális aláírással kell lennie az Azure Stack digitális aláírásával. A Microsoft aláírja a csomagot, és értesíti az Azure Stack-partner, hogy a csomag letölthető a VaaS portálon.
+A Azure Stack frissítéseinek érvényesítése mellett a partnerek a **csomag-ellenőrzési** munkafolyamattal ellenőrizhetik az OEM-testreszabási csomagok frissítéseit, beleértve a Azure stack Partner-specifikus illesztőprogramjait, a belső vezérlőprogramot és a telepítése során használt egyéb szoftvereket is. a Azure Stack szoftver. Telepítse az érvényesíteni kívánt csomagot a Azure Stack szoftver aktuális verziójára legalább a támogatott minimális méretű megoldás használatával. A rendszer a tesztek végrehajtása előtt elküldi a csomagot az Varga számára. Ha a tesztek sikeresek, [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) értesítse, hogy a csomag befejezte a tesztelést, és digitálisan alá kell írnia a Azure stack digitális aláírással. A Microsoft aláírja a csomagot, és értesíti a Azure Stack partnert arról, hogy a csomag letölthető az alaprendszer-portálon.
 
-További információkért lásd: [ellenőrzése OEM csomagok](azure-stack-vaas-validate-oem-package.md).
+További információ: OEM- [csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md).
 
-## <a name="preview-vaas-test-collateral"></a>Előzetes verzió VaaS biztosíték tesztelése
+## <a name="preview-vaas-test-collateral"></a>Az előzetes verziójú,
 
-A Microsoft rendszeresen elérhetővé új funkciókat az Azure Stackben. Ezek a funkciók kidolgozását piacra a fejlesztési folyamat részeként a új teszt biztosíték szeretné elérhetővé tenni az a **Tesztmenetek** munkafolyamat. A tesztelési fázis munkafolyamat a munkafolyamatok lehetővé teszik a munkaköröket külsős informatikusok szoftvertesztek végrehajtása a teszt biztosíték tartalmaz. Ne használja a Tesztmenetek munkafolyamat elküldése jóváhagyásra eredményeket. A megoldás érvényesítési és a csomag munkafolyamatok segítségével a megoldás hivatalos jóváhagyást kérhet.
+A Microsoft rendszeresen teszi elérhetővé Azure Stack új funkcióit. A szolgáltatások piacra való szállításának fejlesztési folyamata részeként új teszt-biztosítékot is elérhetővé tesznek a **test pass** munkafolyamatban. A test pass munkafolyamat a más munkafolyamatokból származó tesztelési biztosítékokat is tartalmaz, amelyek lehetővé teszik a nem hivatalos tesztek végrehajtását. Ne használja a test pass munkafolyamatot az eredmények jóváhagyásra való küldéséhez. A megoldás érvényesítése és a csomag ellenőrzése munkafolyamatok segítségével hivatalos jóváhagyást kaphat a megoldásához.
 
-További információkért lásd: [a rövid útmutató: Az első vizsgálat ütemezése a portálon az érvényesítés használja](azure-stack-vaas-schedule-test-pass.md).
+További információ: gyors útmutató [: Az érvényesítést szolgáltatásként szolgáló portálként használhatja az első teszt](azure-stack-vaas-schedule-test-pass.md)elvégzéséhez.
 
-## <a name="validation-workflow-tests-summary"></a>Szűrőérvényesítési munkafolyamat tesztek összefoglalása
+## <a name="validation-workflow-tests-summary"></a>Ellenőrzési munkafolyamat-tesztek összegzése
 
-| Szűrőérvényesítési munkafolyamat | Szükséges tesztek |
+| Érvényesítési munkafolyamat | Szükséges tesztek |
 |----|------------|
-| [Új megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md) | Felhőbeli szimuláció motor<br>COMPUTE SDK üzemeltetési csomag<br>Lemez azonosítása teszt<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Hálózati SDK üzemeltetési csomag<br>Tárolási fiók SDK üzemeltetési csomag<br> |
-| [OEM csomag érvényességének ellenőrzése](azure-stack-vaas-validate-oem-package.md) | OEM-bővítmény csomag ellenőrzése<br>Felhőbeli szimuláció motor |
-| [Havi update-ellenőrzés](azure-stack-vaas-validate-microsoft-updates.md) | Az Azure Stack havi frissítés-ellenőrzés<br>Felhőbeli szimuláció motor<br> |
+| [Új megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md) | Felhőalapú szimulációs motor<br>Számítási SDK operatív csomagja<br>Lemez-azonosítási teszt<br>Kulcstartó bővítmény SDK operatív csomagja<br>Kulcstartó SDK operatív csomag<br>Hálózati SDK operatív csomag<br>Storage-fiók SDK operatív csomagja<br> |
+| [OEM-csomag ellenőrzése](azure-stack-vaas-validate-oem-package.md) | OEM kiterjesztési csomag ellenőrzése<br>Felhőalapú szimulációs motor |
+| [Havi frissítés ellenőrzése](azure-stack-vaas-validate-microsoft-updates.md) | Havi Azure Stack frissítés ellenőrzése<br>Felhőalapú szimulációs motor<br> |
 
 ## <a name="next-steps"></a>További lépések
 
-- [A szolgáltatási erőforrások, az ellenőrzés beállítása](azure-stack-vaas-set-up-resources.md)
-- Ismerje meg [mint szolgáltatásra kulcs érvényesítése](azure-stack-vaas-key-concepts.md)
+- [Az érvényesítés beállítása szolgáltatási erőforrásként](azure-stack-vaas-set-up-resources.md)
+- Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

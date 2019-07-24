@@ -1,6 +1,6 @@
 ---
-title: Figyelési a tárolt adatokat használják az Azure Stackben |} A Microsoft Docs
-description: Az Azure Stack monitorozási adatok felhasználásához lehetőségek ismertetése.
+title: Megfigyelési adatok felhasználása Azure Stackból | Microsoft Docs
+description: További információ a Azure Stack figyelési adatainak felhasználására vonatkozó beállításokról.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,32 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 0b04a7834218d07706e6314a9c41e0370ff6f6fd
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: 64935022f8ace33bd4350ab4ef5421636ff3991e
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816190"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418505"
 ---
-# <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Hogyan lehet az Azure Stack származó megfigyelési adatokat
+# <a name="how-to-consume-monitoring-data-from-azure-stack"></a>A monitorozási adatok felhasználása Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Integrált rendszerek Azure Stack*
 
-Figyelési adatok az Azure Monitor folyamattal, csakúgy, mint az Azure Monitor globális Azure-ban egyetlen helyen található meg. De nem az összes globális Azure-ban található a monitorozási adatok nem érhető el az Azure Stackben. Ez a cikk a különböző módon fogyasztanak monitorozási adatok az Azure Stackben összegzését biztosítunk.
+A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamattal, akárcsak Azure Monitor a globális Azure-ban. A globális Azure-ban található összes figyelési érték azonban nem érhető el Azure Stackban. Ebben a cikkben összefoglaljuk, hogyan használhatók a monitorozási információk a Azure Stackban.
  
-## <a name="options-for-data-consumption"></a>Adathasználat lehetőségei
+## <a name="options-for-data-consumption"></a>Adatfelhasználási beállítások
 
-| Adattípus | Category | Támogatott szolgáltatások | Hozzáférési módok |
+| Adattípus | Category | Támogatott szolgáltatások | Hozzáférési módszerek |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Az Azure platform-szintű metrikák figyelése | Mérőszámok | [A támogatott mérőszámok az Azure monitorral, az Azure Stackben](azure-stack-metrics-supported.md) | REST API |
-| Vendég operációs rendszer metrikákat (például teljesítményszám) számítási | Mérőszámok | Windows és Linux rendszerű virtuális gépek | \- Vagy blob Storage-táblába:<br>Windows vagy Linux rendszerű Azure-diagnosztika <br>Event Hub:<br>Windows Azure Diagnostics |
-| Storage-mérőszámok | Mérőszámok | Azure Storage | Storage-táblához:<br>Storage Analytics |
-| Tevékenységnapló | Events | Minden Azure-szolgáltatás | REST API:<br>Az Azure Monitor Event API |
-| Vendég operációs rendszer naplóit (például az IIS, az ETW, rendszerbejegyzéseket) számítási | Events | Windows és Linux rendszerű virtuális gépek | \- Vagy blob Storage-táblába:<br>Windows vagy Linux rendszerű Azure-diagnosztika <br>Event Hub:<br>Windows Azure Diagnostics |
-| Storage-naplók | Events | Azure Storage | Storage-táblához:<br>Storage Analytics |
+| Azure Monitor platform szintű mérőszámok | Mérőszámok | [Támogatott metrikák a Azure Monitor on Azure Stack](azure-stack-metrics-supported.md) | REST API |
+| A vendég operációsrendszer-metrikák (például a Perfek száma) kiszámítása | Mérőszámok | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
+| Tárolási metrikák | Mérőszámok | Azure Storage | Storage-tábla:<br>Storage Analytics |
+| Tevékenységnapló | Events | Minden Azure-szolgáltatás | REST API:<br>Azure Monitor Event API |
+| Vendég operációs rendszer naplóinak számítása (például IIS, ETW, syslogs) | Events | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
+| Tárolási naplók | Events | Azure Storage | Storage-tábla:<br>Storage Analytics |
 
 ## <a name="next-steps"></a>További lépések
 

@@ -1,6 +1,6 @@
 ---
-title: Frissítések az Azure Stack használatával a privilegizált végpont monitorozása |} A Microsoft Docs
-description: Ismerje meg, hogyan használható a kiemelt végponthoz Azure Stack integrált rendszerek esetében a frissítés állapotának figyelése.
+title: Frissítések figyelése Azure Stack a privilegizált végpont használatával | Microsoft Docs
+description: Megtudhatja, hogyan használhatja a Kiemelt végpontot a Azure Stack integrált rendszerek frissítési állapotának figyelésére.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,51 +10,51 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 3ee71fe48b73c6edd2b0fcb8b0dc83cdf5d77910
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: fd9564e25690c2119bfa3d576802858514ef0475
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985077"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417721"
 ---
-# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Frissítések az Azure Stack használatával a privilegizált végpont monitorozása
+# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack a privilegizált végpont használatával
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Integrált rendszerek Azure Stack*
 
-Használhatja a [kiemelt végponthoz](azure-stack-privileged-endpoint.md) előrehaladtát, az Azure Stackkel való frissítés futtassa, és az utolsó sikeres lépésből futtassa sikertelen frissítés folytatásához kell az Azure Stack portálon elérhetetlenné válik.  Az Azure Stack portal használata az ajánlott módszer az Azure Stack frissítéseinek kezelésére.
+Az emelt [szintű végpont](azure-stack-privileged-endpoint.md) segítségével figyelheti egy Azure stack frissítési futtatásának állapotát, és folytathatja a sikertelen frissítés futtatását az utolsó sikeres lépéssel, ha a Azure stack-portál elérhetetlenné válik.  A Azure Stack portál használata ajánlott módszer a frissítések Azure Stack-ben való kezeléséhez.
 
-A következő új PowerShell-parancsmagok az update management megtalálhatók az Azure Stack integrált rendszerek 1710-es frissítés.
+Az Update Management következő új PowerShell-parancsmagjai a 1710-es frissítés részét képezik Azure Stack integrált rendszerek esetében.
 
-| Parancsmag  | Leírás  |
+| A parancsmag  | Leírás  |
 |---------|---------|
-| `Get-AzureStackUpdateStatus` | A jelenleg futó, befejezett, vagy a sikertelen frissítés állapotát adja vissza. A magas szintű állapotának a frissítési művelet, és a egy XML-dokumentum, amely leírja az aktuális lépés és a megfelelő állapotot is tartalmazza. |
-| `Resume-AzureStackUpdate` | Folytatja a sikertelen frissítés esetén a pontnál, amelyen nem sikerült. Bizonyos esetekben előfordulhat, a frissítés folytatása előtt kárenyhítési lépések végrehajtásához.         |
+| `Get-AzureStackUpdateStatus` | A jelenleg futó, befejezett vagy sikertelen frissítés állapotát adja vissza. Megadja a frissítési művelet magas szintű állapotát, valamint egy XML-dokumentumot, amely az aktuális lépést és a megfelelő állapotot is leírja. |
+| `Resume-AzureStackUpdate` | Egy sikertelen frissítés folytatása azon a ponton, ahol a művelet sikertelen volt. Bizonyos esetekben előfordulhat, hogy a frissítés folytatása előtt el kell végeznie a kockázatcsökkentő lépéseket.         |
 | | |
 
-## <a name="verify-the-cmdlets-are-available"></a>Ellenőrizze, hogy a parancsmagok érhetők el
-A parancsmagok nem ismeri az Azure Stack az 1710-es frissítési csomag, mert az 1710-es frissítési folyamat van szüksége egy bizonyos ponton elérése előtt a figyelési funkció érhető el. A parancsmagok jellemzően érhető el, ha a felügyeleti portálon az állapot azt jelzi, hogy az 1710-es frissítés a **indítsa újra a Storage-gazdagépek** . lépés. Pontosabban, a parancsmag frissítése során történik **. lépés: 2.6 – a frissítés PrivilegedEndpoint engedélyezési lista lépés futtatása**.
+## <a name="verify-the-cmdlets-are-available"></a>Ellenőrizze, hogy elérhetők-e a parancsmagok
+Mivel a parancsmagok a Azure Stack 1710 frissítési csomagja újdonságai, a 1710 frissítési folyamatnak egy bizonyos ponthoz kell jutnia ahhoz, hogy elérhető legyen a figyelési funkció. A parancsmagok jellemzően akkor érhetők el, ha a felügyeleti portálon lévő állapot azt jelzi, hogy az 1710-es frissítés a **Storage** -gazdagépek újraindítása lépéssel történik. Pontosabban a parancsmag frissítése a lépés **során következik be: Az 2,6-es lépés futtatása –** PrivilegedEndpoint-engedélyezési lista frissítése.
 
-Azt is meghatározhatja, hogy a parancsmagok elérhetők-e programozott módon a parancslistából, a kiemelt jogosultságú végpontról lekérdezésével. Ehhez futtassa az alábbi parancsokat a hardver életciklus gazdagépen vagy egy emelt szintű hozzáférési szintű munkaállomásokat. Ügyeljen arra, hogy a kiemelt jogosultságú végpont nem megbízható gazdagép. További információkért lásd: 1. lépés a [az emelt szintű végpontot](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
+Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a parancsok a Kiemelt végpontról történő lekérdezésével. Ehhez futtassa a következő parancsokat a hardver életciklus-gazdagépén vagy egy emelt szintű hozzáférési munkaállomáson. Győződjön meg arról is, hogy a Kiemelt végpont megbízható gazdagép. További információ: [a privilegizált végpont elérésének](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)1. lépése. 
 
-1. Hozzon létre egy PowerShell-munkamenetet a ERCS virtuális gépek az Azure Stack-környezet valamelyik (*előtag*-ERCS01, *előtag*-ERCS02, vagy *előtag*-ERCS03). Cserélje le *előtag* az a virtuális gép címelőtag-karakterlánca, amely adott környezetre jellemző.
+1. Hozzon létre egy PowerShell-munkamenetet a Azure Stack-környezetben található egyik ERCS virtuális gépen (*előtag*: ERCS01, *prefix*-ERCS02 vagy *előtag*-ERCS03). Cserélje  le az előtagot a környezetre jellemző virtuálisgép-előtagi karakterlánccal.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Amikor a rendszer kéri a hitelesítő adatokat, használja a &lt; *Azure Stack-tartományhoz*&gt;\cloudadmin fiókot vagy egy fiókot, amely a CloudAdmins csoport tagja. A CloudAdmin fiókot adja meg ugyanazt a jelszót a Azurestack tartományi rendszergazdai fiók a telepítés során megadott.
+   Ha a rendszer hitelesítő adatokat kér, &lt;használja a *Azure stack tartományi*&gt;\cloudadmin fiókot, vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
-2. A kiemelt jogosultságú végpont elérhető parancsok teljes listájának beolvasása. 
+2. A privilegizált végponton elérhető parancsok teljes listájának beolvasása. 
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
    ```
-3. Határozza meg, ha a kiemelt jogosultságú végpont frissítve lett.
+3. Annak megállapítása, hogy a Kiemelt végpont frissítve lett-e.
 
    ```powershell
    $updateManagementModuleName = "Microsoft.Azurestack.UpdateManagement"
@@ -65,7 +65,7 @@ Azt is meghatározhatja, hogy a parancsmagok elérhetők-e programozott módon a
     } 
    ```
 
-4. A Microsoft.AzureStack.UpdateManagement modulhoz parancsok listáját.
+4. A Microsoft. AzureStack. UpdateManagement modulhoz tartozó parancsok listázása.
 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
@@ -80,25 +80,25 @@ Azt is meghatározhatja, hogy a parancsmagok elérhetők-e programozott módon a
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
-## <a name="use-the-update-management-cmdlets"></a>Az update management-parancsmagok használata
+## <a name="use-the-update-management-cmdlets"></a>Az Update Management-parancsmagok használata
 
 > [!NOTE]
-> A hardver életciklus gazdagépen vagy egy Privileged Access Workstation, futtassa a következő parancsokat. Ügyeljen arra, hogy a kiemelt jogosultságú végpont nem megbízható gazdagép. További információkért lásd: 1. lépés a [az emelt szintű végpontot](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
+> Futtassa az alábbi parancsokat a hardver életciklus-gazdagépről vagy egy emelt szintű hozzáférési munkaállomásról. Győződjön meg arról is, hogy a Kiemelt végpont megbízható gazdagép. További információ: [a privilegizált végpont elérésének](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)1. lépése.
 
-### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>A kiemelt végponthoz csatlakozik, és rendelje hozzá a munkamenet-változó
+### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Kapcsolódás a privilegizált végponthoz és a munkamenet-változó társítása
 
-Futtassa az alábbi parancsokat a PowerShell-munkamenetet létrehozni bármely ERCS virtuális gépe az Azure Stack környezettel (*előtag*-ERCS01, *előtag*-ERCS02, vagy *előtag*-ERCS03), és a egy munkamenet-változó hozzárendelni.
+Futtassa a következő parancsokat egy PowerShell-munkamenet létrehozásához a Azure Stack-környezetben található egyik ERCS virtuális gépen (*előtag*: ERCS01, *előtag*-ERCS02 vagy *előtag*-ERCS03), és rendeljen hozzá egy munkamenet-változót.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Amikor a rendszer kéri a hitelesítő adatokat, használja a &lt; *Azure Stack-tartományhoz*&gt;\cloudadmin fiókot vagy egy fiókot, amely a CloudAdmins csoport tagja. A CloudAdmin fiókot adja meg ugyanazt a jelszót a Azurestack tartományi rendszergazdai fiók a telepítés során megadott.
+ Ha a rendszer hitelesítő adatokat kér, &lt;használja a *Azure stack tartományi*&gt;\cloudadmin fiókot, vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>A jelenlegi frissítés Futtatás magas szintű állapotának beolvasása 
+### <a name="get-high-level-status-of-the-current-update-run"></a>Az aktuális frissítési Futtatás magas szintű állapotának beolvasása 
 
-A jelenlegi frissítés Futtatás magas szintű állapotának lekéréséhez futtassa a következő parancsokat: 
+Az aktuális frissítési kísérlet magas szintű állapotának lekéréséhez futtassa a következő parancsokat: 
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -109,15 +109,15 @@ $statusString.Value
 A lehetséges értékek:
 
 - Fut
-- Befejezve
+- Befejeződött
 - Meghiúsult 
 - Megszakítva
 
-Ezeket a parancsokat ismételten a legfrissebb állapotának megtekintéséhez futtathatja. Ne kelljen újra kapcsolatot létesíteni.
+Ezeket a parancsokat többször is futtathatja a legfrissebb állapot megjelenítéséhez. Nem kell újból létrehoznia egy kapcsolatot az ismételt vizsgálathoz.
 
-### <a name="get-the-full-update-run-status-with-details"></a>A teljes frissítés futtatási állapota a részletek beolvasása 
+### <a name="get-the-full-update-run-status-with-details"></a>A teljes frissítés futtatási állapotának beolvasása részletekkel 
 
-A teljes frissítési menetet összefoglaló XML-karakterláncként kérheti le. Vizsgálatához, fájlba írása a karakterlánc vagy átalakíthatja egy XML-dokumentum, és elemezni, a PowerShell használatával. A következő parancs elemzi az XML-fájl aktuálisan futó lépéseket hierarchikus listáját.
+A teljes frissítés futtatásának összegzése XML-karakterláncként szerezhető be. Megírhatja a karakterláncot egy fájlba a vizsgálathoz, vagy átalakíthatja egy XML-dokumentumba, és a PowerShell használatával elemezheti azt. A következő parancs elemzi az XML-t, hogy beolvassa a jelenleg futó lépések hierarchikus listáját.
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -125,7 +125,7 @@ A teljes frissítési menetet összefoglaló XML-karakterláncként kérheti le.
 $updateStatus.SelectNodes("//Step[@Status='InProgress']")
 ```
 
-A következő példában a legfelső szintű lépés (felhő frissítése) tartalmaz, egy gyermek terv frissítéséhez, és indítsa újra a storage-gazdagépeket. Ez azt mutatja, hogy a tárolási gazdagépek indítsa újra a tervet a gazdagépet a Blob Storage szolgáltatás frissítése folyamatban van.
+A következő példában a legfelső szintű lépés (a felhő frissítése) egy gyermek tervet tartalmaz a tároló-gazdagépek frissítéséhez és újraindításához. Azt mutatja, hogy az újraindítási tárolók terve frissíti a Blob Storage szolgáltatást az egyik gazdagépen.
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -158,9 +158,9 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Task          : Task
 ```
 
-### <a name="resume-a-failed-update-operation"></a>A sikertelen frissítés esetén a művelet folytatása
+### <a name="resume-a-failed-update-operation"></a>Sikertelen frissítési művelet folytatása
 
-Ha a frissítés sikertelen, folytathatja a frissítés futtatása, ahol abbahagyta.
+Ha a frissítés sikertelen, akkor folytathatja a frissítés futtatását, ahol a szolgáltatás abbahagyta.
 
 ```powershell
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
@@ -168,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Hibaelhárítás
 
-A kiemelt végponthoz ERCS virtuális gépekre az Azure Stack környezetben érhető el. Mivel a kapcsolat nem jön létre egy magas rendelkezésre állású végpontra, alkalmi megszakítások, figyelmeztető vagy hibaüzeneteket tapasztalhat. Ezek az üzenetek azt jelezheti, hogy a munkamenet meg lett szakítva, illetve, hogy hiba történt a Dokumentumokat szolgáltatással való kommunikáció. Ez várt működés. Próbálja megismételni a műveletet néhány perc múlva, vagy a kiemelt végponthoz új munkamenetet létrehozni egy másik ERCS virtuális gépet. 
+A Kiemelt végpont a Azure Stack környezetben található összes ERCS virtuális gépen elérhető. Mivel a kapcsolatok nem egy magasan elérhető végpontra mutatnak, időnként megszakítások, figyelmeztetés vagy hibaüzenetek merülhetnek fel. Ezek az üzenetek azt jelezhetik, hogy a munkamenet le lett választva, vagy hiba történt az ECE szolgáltatással való kommunikáció során. Ez várt működés. Próbálja megismételni a műveletet néhány perc múlva, vagy hozzon létre egy új emelt szintű végponti munkamenetet az egyik másik ERCS virtuális gépen. 
 
 ## <a name="next-steps"></a>További lépések
 
-- [Az Azure Stack frissítéseinek felügyelete](azure-stack-updates.md) 
+- [Frissítések kezelése Azure Stack](azure-stack-updates.md) 
 
 

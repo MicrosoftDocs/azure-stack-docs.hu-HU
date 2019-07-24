@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack érvényesítési szolgáltatás általános munkafolyamat-paraméterek |} A Microsoft Docs
-description: Az Azure Stack érvényesítési szolgáltatás általános munkafolyamat-paraméterek
+title: Általános munkafolyamat-paraméterek Azure Stack érvényesítés szolgáltatásként | Microsoft Docs
+description: Általános munkafolyamat-paraméterek Azure Stack érvényesítéshez szolgáltatásként
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,37 +10,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0979588e358d1e163a29ab46bdbe99c27fc37649
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299833"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418342"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Az Azure Stack érvényesítési szolgáltatás általános munkafolyamat-paraméterek
+# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack érvényesítéshez szolgáltatásként
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Az általános paraméterek értékeit, például a környezeti változókat és a felhasználói is az összes teszt érvényesítési (VaaS) szolgáltatás szükséges hitelesítő adatokat. Ezeket az értékeket a munkafolyamat szintjén vannak meghatározva létrehozása vagy módosítása egy munkafolyamatot. Tesztek ütemezése, ezeket az értékeket paraméterként alatt a munkafolyamat minden egyes teszteléséhez.
+Az általános paraméterek közé tartoznak például a környezeti változók és a felhasználói hitelesítő adatok, amelyeket az érvényesítési szolgáltatásként szolgáló összes teszt igényel. A munkafolyamatok létrehozásakor vagy módosításakor ezek az értékek a munkafolyamat szintjén vannak meghatározva. Az ütemezési tesztek során ezeket az értékeket paraméterként adja át a rendszer az egyes tesztekhez a munkafolyamatban.
 
 > [!NOTE]
-> Minden teszt a saját paraméterek készletét definiálja. Adja meg az időt a teszt előfordulhat, hogy adjon meg egy értéket, függetlenül a következő általános paramétereket, vagy a közös paraméter értéke a felülírását is lehetővé teheti.
+> Az egyes tesztek saját paramétereket határoznak meg. A tesztelés időpontjában előfordulhat, hogy egy tesztnek a közös paraméterektől függetlenül kell megadnia egy értéket, vagy felülbírálhatja a közös paraméter értékét.
 
-## <a name="environment-parameters"></a>Környezet paraméterek
+## <a name="environment-parameters"></a>Környezeti paraméterek
 
-Környezet paramétereket ismertetik a teszt alatt álló Azure Stack-környezet. Ezek az értékek kódjának létrehozásával és a egy Azure Stack-blokk információkat teszteli példány fájl feltöltése kell adni.
+A környezeti paraméterek a Azure Stack környezetet írják le a test alatt. Ezeket az értékeket úgy kell megadni, hogy egy Azure Stack Stamp információs fájlt hoz létre és tölt fel a tesztelni kívánt példányhoz.
 
 > [!NOTE]
-> A munkafolyamatokban hivatalos érvényesítési környezet paraméterek munkafolyamat létrehozása után nem módosítható.
+> A hivatalos ellenőrzési munkafolyamatokban a környezeti paraméterek nem módosíthatók a munkafolyamat létrehozása után.
 
-### <a name="generate-the-stamp-information-file"></a>A blokk-információs fájl létrehozása
+### <a name="generate-the-stamp-information-file"></a>A Stamp információs fájljának előállítása
 
-1. Jelentkezzen be a DVM vagy minden olyan gép, amely hozzáfér az Azure Stack-környezet.
+1. Jelentkezzen be a DVM vagy bármely olyan gépre, amely hozzáfér a Azure Stack-környezethez.
 2. Futtassa a következő parancsokat egy emelt szintű PowerShell-ablakban:
 
     ```powershell  
@@ -51,44 +51,44 @@ Környezet paramétereket ismertetik a teszt alatt álló Azure Stack-környezet
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 
-### <a name="locate-values-in-the-ece-configuration-file"></a>Keresse meg az értékeket a Dokumentumokat konfigurációs fájlban
+### <a name="locate-values-in-the-ece-configuration-file"></a>Értékek megkeresése az ECE konfigurációs fájlban
 
-Környezeti paraméter értékeit is manuálisan található a **Dokumentumokat konfigurációs fájl** található `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` a DVM a.
+A környezeti paraméterek értékei manuálisan is megtalálhatók a DVM található `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` **ECE konfigurációs fájlban** .
 
-## <a name="test-parameters"></a>Vizsgálati paraméter
+## <a name="test-parameters"></a>Paraméterek tesztelése
 
-Általános tesztelési paraméterek közé tartozik a bizalmas adatokat, amelyeket nem lehet tárolni a konfigurációs fájlok. Ezek manuális megadása kötelező.
+A gyakori tesztelési paraméterek olyan bizalmas információkat tartalmaznak, amelyek nem tárolhatók a konfigurációs fájlokban. Ezeket manuálisan kell megadni.
 
 Paraméter    | Leírás
 -------------|-----------------
-A bérlői rendszergazda felhasználó                            | Az Azure Active Directory Bérlői rendszergazda az AAD-címtárában található a szolgáltatás-rendszergazda által üzembe helyezett. Ez a felhasználó hajt végre a bérlői szintű műveletekhez, például üzembe helyezése sablonokkal az erőforrásokat (virtuális gépek, tárfiókok, stb.) és számítási feladatok végrehajtása. A bérlői fiók kiépítése a részletekért lásd: [adjon hozzá egy új Azure Stack-bérlő](../operator/azure-stack-add-new-user-aad.md).
-Szolgáltatás-rendszergazda felhasználó             | Az Azure Active Directory-rendszergazda az Azure Stack üzembe helyezése során megadott AAD Directory-bérlő. Keresse meg `AADTenant` a Dokumentumokat a konfigurációban fájlt, és válassza ki az értéket a `UniqueName` elemet.
-Felhőalapú rendszergazdai felhasználó               | Az Azure Stack tartományi rendszergazdai fiókot (például `contoso\cloudadmin`). Keresse meg `User Role="CloudAdmin"` a Dokumentumokat a konfigurációban fájlt, és válassza ki az értéket a `UserName` elemet.
-Diagnosztikai kapcsolati karakterlánc          | A SAS URL-címe egy Azure Storage-fiókot, mely a diagnosztikai naplók lesznek másolva a teszt végrehajtása során. Az SAS URL-cím létrehozása az utasításokért lásd: [a diagnosztikai kapcsolati karakterlánc létrehozása](#generate-the-diagnostics-connection-string). |
+Bérlői rendszergazda felhasználó                            | Azure Active Directory a szolgáltatás-rendszergazda által kiépített Bérlői rendszergazda a HRE könyvtárban. Ez a felhasználó bérlői szintű műveleteket hajt végre, például sablonokat helyez üzembe az erőforrások (virtuális gépek, Storage-fiókok stb.) beállításához és a számítási feladatok végrehajtásához. A bérlői fiók üzembe helyezésével kapcsolatos részletekért lásd: [új Azure stack bérlő hozzáadása](../operator/azure-stack-add-new-user-aad.md).
+Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory a HRE-címtár bérlője Azure Stack telepítés során megadott rendszergazdája. Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UniqueName` a elemben. `AADTenant`
+Felhőbeli rendszergazda felhasználó               | Azure Stack tartományi rendszergazdai fiókot (például: `contoso\cloudadmin`). Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UserName` a elemben. `User Role="CloudAdmin"`
+Diagnosztikai kapcsolatok karakterlánca          | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]
-> A **diagnosztikai kapcsolati karakterlánc** a folytatás előtt érvényesnek kell lennie.
+> A folytatás előtt a **diagnosztikai kapcsolatok karakterláncának** érvényesnek kell lennie.
 
-### <a name="generate-the-diagnostics-connection-string"></a>A diagnosztika kapcsolati karakterlánc létrehozása
+### <a name="generate-the-diagnostics-connection-string"></a>A diagnosztikai kapcsolatok karakterláncának létrehozása
 
-A diagnosztika kapcsolati karakterlánc megadása kötelező a diagnosztikai naplók tárolásához teszt végrehajtása során. A telepítés során létrehozott Azure Storage-fiókot használja (lásd: [állítsa be a szolgáltatási erőforrások, az érvényesítési](azure-stack-vaas-set-up-resources.md)) egy közös hozzáférésű jogosultságkód (SAS) URL-cím VaaS hozzáférést naplókat tölthet fel a tárfiók létrehozásához.
+Diagnosztikai naplók tárolásához a diagnosztika-kapcsolatok karakterlánca szükséges a tesztelés végrehajtása során. A telepítés során létrehozott Azure Storage-fiókkal (lásd: [az érvényesítés szolgáltatás-erőforrások beállításával](azure-stack-vaas-set-up-resources.md)) hozzon létre egy közös hozzáférési aláírási (SAS-) URL-címet, amely lehetővé tenné, hogy a rendszer a naplókat a Storage-fiókba töltse fel.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Válassza ki **Blob** a **engedélyezett szolgáltatások beállítások**. Kapcsolja ki a fennmaradó beállításokat.
+1. Válassza a **blob** lehetőséget az **engedélyezett szolgáltatások beállításai**közül. Törölje a többi beállítást.
 
-1. Válassza ki **szolgáltatás**, **tároló**, és **objektum** a **engedélyezett erőforrástípusok**.
+1. Válassza ki a **szolgáltatást**, a **tárolót**és az **objektumot** az **engedélyezett erőforrástípusok**közül.
 
-1. Válassza ki **olvasási**, **írási**, **lista**, **hozzáadása**, **létrehozása** a **engedélyezett engedélyek**. Kapcsolja ki a fennmaradó beállításokat.
+1. Válassza az **olvasás**, **írás**, **lista**, **Hozzáadás**, **Létrehozás** az **engedélyezett engedélyekkel**lehetőséget. Törölje a többi beállítást.
 
-1. Állítsa be **kezdési idő** az aktuális idő és **befejezési idő** három hónappal az aktuális időponthoz képest.
+1. Állítsa be a **kezdési időt** az aktuális időpontra, és **fejezze** be az aktuális időpontot három hónapig.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> Az SAS URL-címet megadni, ha az URL-cím jött létre a Befejezés időpontjában lejár.  
-Tesztek ütemezése, győződjön meg arról, hogy az URL-címet a érvényes legalább 30 nappal, valamint (három hónapig ajánlott) teszt végrehajtásához szükséges időt.
+> Az SAS URL-cím az URL-cím létrehozásakor megadott befejezési időpontban lejár.  
+Az ütemezési tesztek során győződjön meg arról, hogy az URL-cím legalább 30 napig érvényes, valamint a tesztelés végrehajtásához szükséges idő (három hónap javasolt).
 
 ## <a name="next-steps"></a>További lépések
 
-- Ismerje meg [mint szolgáltatásra kulcs érvényesítése](azure-stack-vaas-key-concepts.md)
+- Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

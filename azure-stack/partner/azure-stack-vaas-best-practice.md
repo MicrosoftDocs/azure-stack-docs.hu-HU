@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack érvényesítési ajánlott eljárások. | Microsoft Docs
-description: Ez a cikk ismerteti a gyakorlati tanácsok szolgáltatásként ellenőrzés céljából.
+title: Azure Stack az érvényesítéssel kapcsolatos ajánlott eljárásokat. | Microsoft Docs
+description: Ez a cikk a szolgáltatásként történő érvényesítés ajánlott eljárásait ismerteti.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,48 +10,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 30b7a5327a709fb35c3c3360f4bb0246e9a5f75f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6b4e74cce10522fc241c7662ed381793bd264093
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297677"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418578"
 ---
-# <a name="best-practices-for-validation-as-a-service"></a>Ajánlott eljárások a szolgáltatás érvényesítése
+# <a name="best-practices-for-validation-as-a-service"></a>Ajánlott eljárások szolgáltatásként történő érvényesítéshez
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Ez a cikk ismerteti az ajánlott eljárások az érvényesítési (VaaS) szolgáltatás-erőforrások kezelése. VaaS erőforrások áttekintéséhez lásd: [mint szolgáltatásra kulcs érvényesítése](azure-stack-vaas-key-concepts.md).
+Ez a cikk az erőforrások szolgáltatásként történő érvényesítésének ajánlott eljárásait ismerteti. Az alaprendszer-erőforrások áttekintéséhez tekintse meg az [Érvényesítés a szolgáltatás alapvető fogalmai](azure-stack-vaas-key-concepts.md)című témakört.
 
 ## <a name="solution-management"></a>Megoldások kezelése
 
-### <a name="naming-convention-for-vaas-solutions"></a>Elnevezési VaaS megoldások
+### <a name="naming-convention-for-vaas-solutions"></a>Az Varga-megoldások elnevezési konvenciója
 
-Egy egységes kulcselnevezési konvenció használata VaaS regisztrált összes megoldás. Ha például a megoldás nevét is összetevődni az alábbi tulajdonságait:
+Egységes elnevezési konvenciót használhat az összes, az alapszolgáltatásban regisztrált megoldáshoz. A megoldás neve például a következő hardver tulajdonságaiból állítható össze:
 
-|Terméknév | 1 elem egyedi hardver | Egyedi hardver elem 2 | Megoldás neve
+|Terméknév | Egyedi hardver elem 1 | Egyedi hardver elem 2 | Megoldás neve
 |---|---|---|---|
-A megoldás XYZ |  Az összes Flash | A kapcsoló X01 | MySolutionXYZ_AllFlash_MySwitchX01
+Saját megoldás XYZ |  Minden Flash | Saját kapcsoló X01 | MySolutionXYZ_AllFlash_MySwitchX01
 
-### <a name="when-to-create-a-new-vaas-solution"></a>Mikor hozzon létre egy új VaaS megoldás
+### <a name="when-to-create-a-new-vaas-solution"></a>Mikor hozzon létre egy új
 
-Az azonos VaaS megoldást használni, ha ugyanazt a hardvert Termékváltozat munkafolyamatokat futtat. Csak akkor, ha a hardver SKU módosítják egy új VaaS megoldást kell létrehozni.
+Ugyanazt az adatbázis-megoldást használja, ha ugyanazon hardveres SKU-ra futtat munkafolyamatokat. A rendszer csak akkor hoz létre új alapszolgáltatási megoldást, ha a hardveres SKU módosul.
 
-## <a name="workflow-management"></a>Munkafolyamatok kezelése
+## <a name="workflow-management"></a>Munkafolyamat-kezelés
 
-### <a name="naming-convention-for-vaas-workflows"></a>A munkafolyamatok VaaS elnevezési konvenciót
+### <a name="naming-convention-for-vaas-workflows"></a>Az Varga munkafolyamatok elnevezési konvenciója
 
-Egy egységes kulcselnevezési konvenció használata minden VaaS munkafolyamat-Futtatás. Például hozza létre a következő a munkafolyamat nevét az alábbi build tulajdonságait:
+Egységes elnevezési konvenció használata az összes, az Hozzon létre például egy munkafolyamat nevét az alábbi Build-tulajdonságok közül a következők szerint:
 
-|Buildszám (nagy) | Dátum | Megoldás mérete | A munkafolyamat neve
+|Build száma (Major) | Date | Megoldás mérete | Munkafolyamat neve
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 
 ## <a name="next-steps"></a>További lépések
 
-- Ismerje meg [mint szolgáltatásra kulcs érvényesítése](azure-stack-vaas-key-concepts.md)
+- Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

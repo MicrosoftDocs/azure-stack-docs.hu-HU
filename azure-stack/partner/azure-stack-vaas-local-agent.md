@@ -1,6 +1,6 @@
 ---
-title: A helyi ügynök telepítése |} A Microsoft Docs
-description: Szolgáltatásként az Azure Stack érvényesítési a helyi ügynök telepítése.
+title: A helyi ügynök üzembe helyezése | Microsoft Docs
+description: Telepítse a helyi ügynököt Azure Stack érvényesítéshez szolgáltatásként.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,51 +10,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e194583b583bfc442a3c7b99a842ee788fc423c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b1a658b428d13cdd12c16b767430f87a80e89fdc
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298942"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418371"
 ---
-# <a name="deploy-the-local-agent"></a>A helyi ügynök telepítése
+# <a name="deploy-the-local-agent"></a>A helyi ügynök üzembe helyezése
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Ismerje meg, az érvényesítési használata a Service (VaaS) helyi ügynök Érvényesítési tesztek futtatásához. A helyi ügynök ellenőrző tesztek futtatása előtt kell telepíteni.
+Megtudhatja, hogyan használhatók az érvényesítési szolgáltatásként szolgáló helyi ügynök az érvényesítési tesztek futtatásához. Az ellenőrzési tesztek futtatása előtt telepíteni kell a helyi ügynököt.
 
 > [!Note]  
-> Győződjön meg arról, hogy a gép, amelyen fut a helyi ügynök nem veszíti el kimenő hozzáférést az internethez. Lehet, hogy a gép csak a nevében a bérlő VaaS használatára jogosult felhasználók számára elérhető.
+> Győződjön meg arról, hogy a helyi ügynököt futtató számítógép nem veszíti el a kimenő hozzáférést az internethez. Ez a gép csak olyan felhasználók számára érhető el, akik jogosultak az Varga használatára a bérlő nevében.
 
-A helyi ügynök telepítéséhez:
+A helyi ügynök üzembe helyezése:
 
-1. A helyi ügynök telepítése.
-2. Hajtsa végre a megerősítések.
-3. A helyi ügynök futtatásával.
+1. Telepítse a helyi ügynököt.
+2. Józan ész-ellenőrzések végrehajtása.
+3. Futtassa a helyi ügynököt.
 
-## <a name="download-and-start-the-local-agent"></a>Töltse le és indítsa el a helyi ügynök
+## <a name="download-and-start-the-local-agent"></a>A helyi ügynök letöltése és elindítása
 
-Töltse le az ügynök olyan gépre, amely megfelel az előfeltételeknek, a helyi adatközpontban, és az Azure Stack-végpontokra irányuló hozzáféréssel rendelkezik. Ezt a gépet nem lehet az Azure Stack rendszer része, vagy az Azure Stack-felhő üzemeltet.
+Töltse le az ügynököt egy olyan gépre, amely megfelel az adatközpont előfeltételeinek, és hozzáfér az összes Azure Stack-végponthoz. Ez a gép nem lehet a Azure Stack rendszer részét képező vagy a Azure Stack-felhőben üzemeltetett számítógép.
 
-### <a name="machine-prerequisites"></a>Gép előfeltételei
+### <a name="machine-prerequisites"></a>A gép előfeltételei
 
-Ellenőrizze, hogy a gép megfelel-e a következő feltételeknek:
+Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
 
-- Az összes Azure Stack-végpontra való hozzáférés
-- .NET 4.6 és a PowerShell 5.0-s telepítése
+- Hozzáférés az összes Azure Stack végponthoz
+- .NET 4,6 és PowerShell 5,0 telepítve
 - Legalább 8 GB RAM
-- Legalább 8 processzormagokkal
-- 200 GB-os minimális szabad lemezterület
-- Állandó hálózati kapcsolat az internethez
+- Legalább 8 magos processzor
+- Minimális 200 – GB szabad lemezterület
+- Állandó hálózati kapcsolat az internettel
 
 ### <a name="download-and-install-the-agent"></a>Az ügynök letöltése és telepítése
 
-1. Nyisson meg egy rendszergazda jogú parancssort a gépen a tesztek futtatásához használhat Windows PowerShell.
+1. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorban azon a gépen, amelyet a tesztek futtatásához fog használni.
 2. Futtassa a következő parancsot a helyi ügynök letöltéséhez:
 
     ```powershell
@@ -63,7 +63,7 @@ Ellenőrizze, hogy a gép megfelel-e a következő feltételeknek:
     Set-Location VaaSOnPremAgent\lib\net46
     ```
 
-3. Futtassa a következő parancsot a helyi ügynök függőségek telepítéséhez:
+3. Futtassa a következő parancsot a helyi ügynök függőségeinek telepítéséhez:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -78,40 +78,40 @@ Ellenőrizze, hogy a gép megfelel-e a következő feltételeknek:
 
     | Paraméter | Leírás |
     | --- | --- |
-    | aadServiceAdminUser | A globális rendszergazda az Azure AD-bérlője számára. Elképzelhető például vaasadmin@contoso.onmicrosoft.com. |
-    | aadServiceAdminPassword | A globális rendszergazda jelszava. |
-    | AadTenantId | Az Azure AD-bérlő azonosítója az Azure-fiók regisztrálva van szolgáltatásként érvényesítése. |
-    | ExternalFqdn | A konfigurációs fájlban szereplő kaphat a teljes tartománynevét. További útmutatást lásd: [szolgáltatásként az Azure Stack érvényesítési általános munkafolyamat-paraméterek](azure-stack-vaas-parameters.md). |
+    | aadServiceAdminUser | Az Azure AD-bérlő globális rendszergazdai felhasználója. Ilyen lehet például vaasadmin@contoso.onmicrosoft.coma következő:. |
+    | aadServiceAdminPassword | A globális rendszergazda felhasználó jelszava. |
+    | AadTenantId | Azure AD-bérlő azonosítója az érvényesítés szolgáltatásként regisztrált Azure-fiókhoz. |
+    | ExternalFqdn | A teljes tartománynevet a konfigurációs fájlból kérheti le. Útmutatásért tekintse [meg a gyakori munkafolyamat-paraméterek Azure stack érvényesítése szolgáltatásként](azure-stack-vaas-parameters.md)című témakört. |
     | Régió | Az Azure AD-bérlő régiója. |
 
-A parancs letölti egy nyilvános rendszerkép tárház (PIR) rendszerkép (operációs rendszer VHD), és másolja egy Azure blob storage-ból az Azure Stack storage.
+A parancs letölti a nyilvános rendszerkép-tárház (PIR) rendszerképét (az operációs rendszer VHD-jét), és egy Azure Blob Storage-ból másolja a Azure Stack tárolóba.
 
 ![Előfeltételek letöltése](media/installingprereqs.png)
 
 > [!Note]
-> Ha a hálózat lassúsága tapasztal, ezek a lemezképek letöltésekor, külön-külön letölteni azokat egy helyi megosztással, és adja meg a paramétert **- LocalPackagePath** *FileShareOrLocalPath*. Annak további útmutatást a PIR letöltési szakaszában [leírók lassú hálózati kapcsolat](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) , [szolgáltatás hibaelhárítása érvényesítési](azure-stack-vaas-troubleshoot.md).
+> Ha lassú hálózati sebességet tapasztal a lemezképek letöltésekor, töltse le őket külön egy helyi megosztásra, és adja meg a **-LocalPackagePath** *FileShareOrLocalPath*paramétert. A PIR letöltésével kapcsolatos további útmutatást a következő témakörben talál: az [Érvényesítés](azure-stack-vaas-troubleshoot.md) [lassú hálózati kapcsolatának kezelése](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) szolgáltatásként.
 
-## <a name="checks-before-starting-the-tests"></a>A vizsgálatok elindítása előtt ellenőrzi
+## <a name="checks-before-starting-the-tests"></a>Ellenőrzések a tesztek megkezdése előtt
 
-A tesztek futtatása távoli műveletek. A gép, amely futtatja a teszteket az Azure Stack-végpontok hozzáféréssel kell rendelkeznie, különben a tesztek nem fog működni. Ha a VaaS helyi ügynök használ, használja a gép ahol az ügynök futni fog. Ellenőrizheti, hogy a gép az Azure Stack-végpontok hozzáféréssel rendelkezik a következő ellenőrzések futtatásával:
+A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá kell férnie az Azure Stack-végpontokhoz, ellenkező esetben a tesztek nem fognak működni. Ha az az Varga helyi ügynököt használja, akkor használja az ügynököt futtató gépet. A következő ellenőrzések futtatásával ellenőrizheti, hogy a számítógépe rendelkezik-e hozzáféréssel a Azure Stack végpontokhoz:
 
-1. Ellenőrizze, hogy az alap URI-t érhető el. Nyisson meg egy parancssort vagy a bash rendszerhéjat, és futtassa a következő parancsot, és cserélje le `<EXTERNALFQDN>` az a környezet külső teljes Tartománynevét:
+1. Győződjön meg arról, hogy az alapszintű URI elérhető. Nyisson meg egy parancssort vagy bash-rendszerhéjat, és futtassa a `<EXTERNALFQDN>` következő parancsot, és cserélje le a-környezet külső teljes tartománynevére:
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Nyisson meg egy webböngészőt, majd `https://adminportal.<EXTERNALFQDN>` annak érdekében, hogy ellenőrizze, hogy a MAS-portálon érhető el.
+2. Nyisson meg egy webböngészőt, `https://adminportal.<EXTERNALFQDN>` és lépjen a lehetőségre, és győződjön meg arról, hogy a Mas portál elérhető.
 
-3. Jelentkezzen be az Azure ad szolgáltatás a tesztelési fázisban létrehozásakor megadott rendszergazdai és a jelszó értékét.
+3. Jelentkezzen be az Azure AD szolgáltatás-rendszergazda nevével és jelszavával, amely a tesztelési fázis létrehozásakor van megadva.
 
-4. A rendszer állapotának ellenőrzéséhez futtassa a **Test-AzureStack** leírtak szerint PowerShell-parancsmag [egy ellenőrző teszt futtatása az Azure Stack](../operator/azure-stack-diagnostic-test.md). Javítsa ki a figyelmeztetések és hibák bármilyen vizsgálatok elindítása előtt.
+4. Ellenőrizze a rendszer állapotát a **test-AzureStack** PowerShell-parancsmag futtatásával a [Azure stack ellenőrzési teszt futtatása](../operator/azure-stack-diagnostic-test.md)című témakörben leírtak szerint. A tesztek elindítása előtt javítsa ki a figyelmeztetéseket és a hibákat.
 
 ## <a name="run-the-agent"></a>Az ügynök futtatása
 
-1. Nyissa meg a Windows Powershellt rendszergazda jogú parancssorban.
+1. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorban.
 
-2. Futtassa az alábbi parancsot:
+2. Futtassa a következő parancsot:
 
     ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
@@ -121,22 +121,22 @@ A tesztek futtatása távoli műveletek. A gép, amely futtatja a teszteket az A
 
     | Paraméter | Leírás |
     | --- | --- |
-    | VaaSUserId | Felhasználói azonosító segítségével jelentkezzen be a VaaS portálra (például felhasználónév\@Contoso.com) |
-    | VaaSTenantId | Az Azure AD-bérlő azonosítója az Azure-fiók regisztrálva van szolgáltatásként érvényesítése. |
+    | VaaSUserId | Az contoso.com-portálra való bejelentkezéshez használt felhasználói azonosító (például username:\@Felhasználónév) |
+    | VaaSTenantId | Azure AD-bérlő azonosítója az érvényesítés szolgáltatásként regisztrált Azure-fiókhoz. |
 
     > [!Note]  
-    > Az ügynök futtatásakor az aktuális munkakönyvtárban kell lennie a végrehajtható fájl, tevékenység motor gazdagép helyét **Microsoft.VaaSOnPrem.TaskEngineHost.exe.**
+    > Az ügynök futtatásakor az aktuális munkakönyvtárnak a Task Engine Host végrehajtható fájljának, a **Microsoft. VaaSOnPrem. TaskEngineHost. exe** helynek kell lennie.
 
-Ha nem látja a jelentett hibákat, majd a helyi ügynök sikeres volt. A konzolablakban megjelenik az alábbi példa szöveget.
+Ha nem jelenik meg a jelentett hibák, akkor a helyi ügynök sikeres volt. A konzol ablakban a következő példában szereplő szöveg jelenik meg.
 
 `Heartbeat Callback at 11/8/2016 4:45:38 PM`
 
-![Az ügynök elindítva](media/startedagent.png)
+![Ügynök elindítva](media/startedagent.png)
 
-Az ügynök egyedileg azonosítja a neve. Alapértelmezés szerint a teljesen minősített neve (FQDN) nevét, ahol lett elindítva a gép használja. Kell minimálisra csökkenthető az ablakban bármely véletlen kiválasztja az ablakot, a elkerülése érdekében minden egyéb művelet módosítja a fókuszt szünetelteti.
+Az ügynököket a neve egyedileg azonosítja. Alapértelmezés szerint a a gép teljes tartománynevét (FQDN) használja, ahonnan az elindult. Kis méretűre kell állítani az ablakot, hogy elkerülje a véletlen kijelölést az ablakon, mivel a fókusz megváltoztatásával szünetelteti az összes többi műveletet.
 
 ## <a name="next-steps"></a>További lépések
 
-- [Érvényesítési szolgáltatás hibaelhárítása](azure-stack-vaas-troubleshoot.md)
-- [Mint szolgáltatásra kulcs érvényesítése](azure-stack-vaas-key-concepts.md)
-- [Rövid útmutató: Az érvényesítés használja egy portált, az első vizsgálat ütemezése](azure-stack-vaas-schedule-test-pass.md)
+- [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)
+- [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)
+- [Rövid útmutató: Az érvényesítés a szolgáltatás-portálon az első teszt beütemezhetés céljából](azure-stack-vaas-schedule-test-pass.md)

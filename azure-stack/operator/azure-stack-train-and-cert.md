@@ -1,48 +1,47 @@
 ---
-title: Az Azure Stack-képzési és minősítési lehetőségek
-description: További tudnivalók az Azure Stack képzési minősítési lehetőségek
+title: Azure Stack képzés és minősítés
+description: További információ a Azure Stack képzési lehetőségeiről
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 07/23/2019
+ms.author: mabrigg
 ms.lastreviewed: 03/20/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: fc00a1e40e4bd78da7d9ee9ee0b9288aa311483a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: dc4942df6a5a461b6b40ef402ea5a282cf1d01ee
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296852"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417863"
 ---
-# <a name="azure-stack-training-and-certification"></a>Az Azure Stack-képzési és minősítési lehetőségek
+# <a name="azure-stack-training-and-certification"></a>Azure Stack képzés és minősítés
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Integrált rendszerek Azure Stack*
 
-Segít az Azure stackről megismerése és bemutatása az Azure Stack jártasságot szerezni az alábbi képzési és minősítési lehetőségek érhetők el.
+A következő képzések és minősítési lehetőségek segítik a Azure Stack megismerését és a Azure Stack szakértelmének bemutatását.
 
 ## <a name="training"></a>Képzés
 
-- A Microsoft hivatalos tanfolyam igény szerinti
-   - [ODX20537: (180 napos) a Microsoft Azure Stack egy hibrid felhő működtetése és konfigurálása](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
-   - [OD20537: (90 nap) a Microsoft Azure Stack egy hibrid felhő működtetése és konfigurálása](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+- Microsoft hivatalos tanfolyamok igény szerint
+   - [ODX20537: Hibrid felhő konfigurálása és működtetése Microsoft Azure Stack (180 nap)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
+   - [OD20537: Hibrid felhő konfigurálása és működtetése Microsoft Azure Stack (90 nap)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
 
-- A Microsoft IT tanfolyam
-   - [A tanfolyam 20537A: A Microsoft Azure Stack egy hibrid felhő működtetése és konfigurálása](https://aka.ms/azsmoc)
+- Microsoft IT-tanfolyam
+   - [Tanfolyam 20537A: Hibrid felhő konfigurálása és működtetése Microsoft Azure Stack](https://aka.ms/azsmoc)
 
-- Nyissa meg edx
-   - [edX: Online kurzus a Microsoft Azure Stack működő és konfigurálása](https://aka.ms/AzureStackMOOC)
+- EDX megnyitása
+   - [edX: Microsoft Azure Stack online tanfolyam konfigurálása és működtetése](https://aka.ms/AzureStackMOOC)
    
-- A Microsoft képzési tervek
-   - [Feladat szerepkörök és a képzési tervek](https://azure.microsoft.com/training/learning-paths/)
+- Microsoft képzési útvonalak
+   - [Feladatok szerepkörei és képzési útvonalak](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Tanúsítvány
 
-*Konfigurálása és a egy Microsoft Azure Stack-minősítési hibrid felhő működtetése*, [70-537 vizsgára](https://www.microsoft.com/learning/exam-70-537.aspx)
+*Hibrid felhő konfigurálása és működtetése Microsoft Azure stack minősítéssel*, [vizsga 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## <a name="next-steps"></a>További lépések
 
-[Azure Stack – dokumentáció](/azure-stack/operator)
+[Azure Stack dokumentáció](/azure-stack/operator)

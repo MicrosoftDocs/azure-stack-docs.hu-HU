@@ -1,6 +1,6 @@
 ---
-title: A MySQL üzemeltető kiszolgálók az Azure Stackben |} A Microsoft Docs
-description: MySQL-példányok az üzembe helyezés a MySQL Adapter erőforrás-szolgáltató hozzáadása
+title: MySQL üzemeltetési kiszolgálók Azure Stackon | Microsoft Docs
+description: MySQL-példányok hozzáadása a MySQL-adapter erőforrás-szolgáltatóján keresztüli üzembe helyezéshez
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,98 +11,98 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 9469904ddcb27d5526e35a33091e0ea3e54600f8
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 4af1f2b163d2ae8eec952b451f21ea88b63e15d1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308614"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417647"
 ---
-# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Üzemeltetési kiszolgáló hozzáadása a MySQL erőforrás-szolgáltató
+# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adja hozzá a MySQL erőforrás-szolgáltatóhoz tartozó üzemeltetési kiszolgálókat
 
-A MySQL server-példány egy virtuális gépen (VM) futtató üzemeltethet a [Azure Stack](azure-stack-overview.md), vagy egy virtuális Gépen az Azure Stack környezettel, amennyiben a MySQL erőforrás-szolgáltató csatlakozhat a példány kívül.
+A virtuális gépen (VM) üzemeltetheti a MySQL üzemeltetési kiszolgáló példányát [Azure stack](azure-stack-overview.md)vagy a Azure stack-környezeten kívüli virtuális gépen, ha a MySQL erőforrás-szolgáltató csatlakozni tud a példányhoz.
 
 > [!NOTE]
-> A MySQL erőforrás-szolgáltató MySQL üzemeltetési kiszolgáló számlázható, felhasználói előfizetések hozza létre az alapértelmezett szolgáltatója előfizetésben kell létrehozni. Az erőforrás-szolgáltató kiszolgáló nem használandó felhasználói adatbázisok üzemeltetéséhez.
+> A MySQL erőforrás-szolgáltatót az alapértelmezett szolgáltatói előfizetésben kell létrehozni, míg a MySQL üzemeltetési kiszolgálókat számlázva, felhasználói előfizetésekben kell létrehozni. Az erőforrás-szolgáltatói kiszolgálót nem szabad használni a felhasználói adatbázisok üzemeltetéséhez.
 
-Az üzemeltetési kiszolgáló 5.6-os, 5.7-es és 8.0 MySQL verziók használhatók. A MySQL-RP nepodporuje caching_sha2_password hitelesítés; amely a következő kiadásban fog bővülni. MySQL 8.0 kiszolgálók mysql_native_password használatára kell konfigurálni. A MariaDB használata is támogatott.
+Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is használhatók. A MySQL RP nem támogatja a caching_sha2_password hitelesítést; a következő kiadásban lesz hozzáadva. A MySQL 8,0-kiszolgálókat a mysql_native_password használatára kell konfigurálni. A MariaDB is támogatott.
 
-## <a name="connect-to-a-mysql-hosting-server"></a>Csatlakozhat a MySQL-üzemeltetési kiszolgáló
+## <a name="connect-to-a-mysql-hosting-server"></a>Kapcsolódás MySQL üzemeltetési kiszolgálóhoz
 
-Győződjön meg arról, hogy rendszergazdai jogosultságokkal rendelkező fiók hitelesítő adatait. Üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
+Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező fiók hitelesítő adataival. Üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
 
-1. A szolgáltatás-rendszergazdaként jelentkezzen be az Azure Stack operátori portálon
+1. Jelentkezzen be az Azure Stack Operator portálra szolgáltatás-rendszergazdaként.
 2. Válassza az **Összes szolgáltatás** elemet.
-3. Alatt a **felügyeleti erőforrások** kategória kiválasztása **MySQL üzemeltető kiszolgálók** >  **+ Hozzáadás**. Ekkor megnyílik a **üzemeltető MySQL-kiszolgáló hozzáadása** párbeszédpanelen, az alábbi képernyőfelvételen is látható.
+3. A **felügyeleti erőforrások** kategóriában válassza a **MySQL üzemeltetési kiszolgálók** >  **+ Hozzáadás**lehetőséget. Ekkor megnyílik a **MySQL üzemeltetési kiszolgáló hozzáadása** párbeszédpanel, amely az alábbi képernyőfelvételen látható.
 
    ![Üzemeltetési kiszolgáló konfigurálása](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-4. Adja meg a MySQL-kiszolgáló példány kapcsolati adatait.
+4. Adja meg a MySQL-kiszolgáló példányának kapcsolati adatait.
 
-   * A **MySQL-kiszolgáló neve üzemeltető**, adja meg a teljesen minősített tartománynevét (FQDN) vagy egy érvényes IPv4-címet. Ne használja a virtuális gép rövid nevét.
-   * Az alapértelmezett rendszergazdai **felhasználónév** tartozó a Bitnami MySQL lemezképeket az Azure Stack piactéren *legfelső szintű*. 
-   * Ha nem ismeri a legfelső szintű **jelszó**, tekintse meg a [Bitnami dokumentáció](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) megtudhatja, hogyan tehet szert. 
-   * A MySQL alapértelmezett példány nincs megadva, ezért meg kell adnia a **mérete az üzemeltető kiszolgáló GB-ban**. Adja meg, hogy az adatbázis-kiszolgáló kapacitása megközelíti a méretét.
-   * Tartsa meg az alapértelmezett beállítás a **előfizetés**.
-   * A **erőforráscsoport**, hozzon létre egy új vagy egy meglévő csoportot.
+   * A **MySQL üzemeltetési kiszolgáló neve mezőben**adja meg a teljes tartománynevet (FQDN) vagy egy érvényes IPv4-címeket. Ne használja a rövid virtuális gép nevét.
+   * A Azure Stack piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*. 
+   * Ha nem ismeri a legfelső szintű **jelszót**, tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le. 
+   * Nincs megadva alapértelmezett MySQL-példány, ezért az **üzemeltetési kiszolgáló méretét GB-ban**kell megadnia. Adjon meg egy olyan méretet, amely az adatbázis-kiszolgáló kapacitásához közeledik.
+   * Az **előfizetés**alapértelmezett beállításának megtartása.
+   * **Erőforráscsoport**esetén hozzon létre egy újat, vagy használjon egy meglévő csoportot.
 
    > [!NOTE]
-   > A MySQL-példányt a bérlői és az Azure Resource Manager-rendszergazda is hozzáférhet, ha az erőforrás-szolgáltató ellenőrzése alá helyezheti azt. De a MySQL-példányt **kell** kizárólag az erőforrás-szolgáltató kiosztását.
+   > Ha a MySQL-példányt a bérlő és a felügyeleti Azure Resource Manager is elérheti, azt az erőforrás-szolgáltató felügyelete alá helyezheti. A MySQL-példányt azonban  kizárólag az erőforrás-szolgáltatóhoz kell lefoglalni.
 
-5. Válassza ki **termékváltozatok** megnyitásához a **Termékváltozat létrehozása** párbeszédpanel.
+5. Válassza az **SKU** -t az **SKU létrehozása** párbeszédpanel megnyitásához.
 
-   ![Hozzon létre egy MySQL-Termékváltozat](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+   ![MySQL SKU létrehozása](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
-   A Termékváltozat **neve** Termékváltozat tulajdonságainak tükröznie kell, így a felhasználók adatbázisaikat telepítheti a megfelelő Termékváltozatot.
+   Az SKU **nevének** tükröznie kell az SKU tulajdonságait, hogy a felhasználók a megfelelő SKU-ban tudják telepíteni az adatbázisaikat.
 
-6. Válassza ki **OK** a Termékváltozat létrehozása.
+6. Az SKU létrehozásához kattintson **az OK gombra** .
    > [!NOTE]
-   > SKU-k órát is igénybe vehet egy lesznek láthatók a portálon. Egy adatbázis nem hozható létre, amíg a Termékváltozat nem telepítésének és futásának.
+   > A SKU akár egy órát is igénybe vehet, hogy megjelenjenek a portálon. Nem hozható létre adatbázis az SKU üzembe helyezése és futtatása előtt.
 
-7. A **üzemeltető MySQL-kiszolgáló hozzáadása**válassza **létrehozás**.
+7. **A MySQL üzemeltetési kiszolgáló hozzáadása**területen válassza a **Létrehozás**lehetőséget.
 
-Kiszolgálók hozzáadása, hozzárendelheti azokat egy új vagy meglévő Termékváltozat szolgáltatásajánlatok megkülönböztetéséhez. Például rendelkezhet egy MySQL-vállalati példányt, amely nagyobb mértékű adatbázis és az automatikus biztonsági mentést biztosít. A szervezet különböző részlegeinek a nagy teljesítményű kiszolgáló tartható fenn.
+A kiszolgálók hozzáadásakor rendeljen hozzá egy új vagy egy meglévő SKU-t a szolgáltatási ajánlatok megkülönböztetéséhez. Létrehozhat például egy MySQL nagyvállalati példányt, amely fokozott adatbázist és automatikus biztonsági mentést biztosít. Ezt a nagy teljesítményű kiszolgálót a szervezet különböző osztályai számára is fenntarthatja.
 
-## <a name="security-considerations-for-mysql"></a>MySQL-hez készült biztonsági szempontok
+## <a name="security-considerations-for-mysql"></a>Biztonsági megfontolások a MySQL-hez
 
-A következő információkat az RP és a MySQL-kiszolgálót üzemeltető vonatkozik:
+Az alábbi információk az RP-és MySQL-üzemeltetési kiszolgálókra vonatkoznak:
 
-* Győződjön meg arról, hogy minden üzemeltetési kiszolgáló kommunikációhoz a TLS 1.2 használatával vannak konfigurálva. Lásd: [konfigurálása a MySQL használatára a titkosított kapcsolatokat](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
-* Szoftverbiztonsági [transzparens adattitkosítás](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
-* A MySQL-RP nem támogatja a caching_sha2_password hitelesítést.
+* Győződjön meg arról, hogy az összes üzemeltetési kiszolgáló konfigurálva van a TLS 1,2 használatával történő kommunikációra. Lásd: [a MySQL beállítása titkosított kapcsolatok használatára](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* [Transzparens adattitkosítás](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)alkalmaz.
+* A MySQL RP nem támogatja a caching_sha2_password-hitelesítést.
 
-## <a name="increase-backend-database-capacity"></a>Növeli a háttér adatbázis-kapacitást
+## <a name="increase-backend-database-capacity"></a>Háttérbeli adatbázis kapacitásának bővítése
 
-Az Azure Stack portálon további MySQL-kiszolgálók üzembe helyezésével növelheti a háttérbeli adatbázis-kapacitást. Ezek a kiszolgálók hozzáadása egy új vagy meglévő Termékváltozat. Ha egy kiszolgálót ad hozzá egy meglévő Termékváltozat, ügyeljen arra, hogy a kiszolgáló jellemzőkkel ugyanazok, mint a többi kiszolgáló, a termékváltozat.
+A háttérbeli adatbázis kapacitása a Azure Stack portálon további MySQL-kiszolgálók üzembe helyezésével növelhető. Adja hozzá ezeket a kiszolgálókat egy új vagy egy meglévő SKU-hoz. Ha hozzáad egy kiszolgálót egy meglévő SKU-hoz, győződjön meg arról, hogy a kiszolgáló jellemzői ugyanazok, mint az SKU többi kiszolgálója.
 
-## <a name="sku-notes"></a>Termékváltozat-megjegyzések
-Használja a Termékváltozat a kiszolgálók, a termékváltozat, például a kapacitás és teljesítmény funkcióit írja le. A név, amely a felhasználókat a megfelelő termékváltozatra adatbázisaikat üzembe ábrázolt funkcionál. Használhatja például a Termékváltozat neve megkülönböztetéséhez szolgáltatásajánlatok szerint a következő jellemzőkkel:
+## <a name="sku-notes"></a>SKU-megjegyzések
+Használjon olyan SKU-nevet, amely leírja az SKU-ban található kiszolgálók képességeit, például a kapacitást és a teljesítményt. A név segítséget nyújt arra, hogy a felhasználók a megfelelő SKU-ban telepíthessék az adatbázisaikat. Az alábbi jellemzőkkel rendelkezhet például az SKU-nevek használatával a szolgáltatási ajánlatok megkülönböztetéséhez:
   
-* nagy kapacitású
+* nagy kapacitás
 * nagy teljesítményű
-* magas rendelkezésre állás
+* Magas rendelkezésre állás
 
-Ajánlott eljárásként a üzemeltetési kiszolgáló, a Termékváltozat az azonos erőforrás és teljesítménybeli jellemzőit kell rendelkeznie.
+Az ajánlott eljárás szerint az SKU-ban lévő összes üzemeltetési kiszolgálónak ugyanazzal az erőforrással és teljesítménnyel kapcsolatos tulajdonságokkal kell rendelkeznie.
 
-SKU-k az adott felhasználók vagy csoportok nem lehet hozzárendelni.
+A SKU-t nem lehet hozzárendelni meghatározott felhasználókhoz vagy csoportokhoz.
 
-A Termékváltozat szerkesztéséhez lépjen a **minden szolgáltatás** > **MySQL Adapter** > **termékváltozatok**. Válassza ki a Termékváltozat módosítása, végezze el a szükséges módosításokat, majd kattintson a **mentése** módosítások mentéséhez. 
+Az SKU szerkesztéséhez lépjen a **minden szolgáltatás** > **MySQL-adapter** > **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
 
-A Termékváltozat, amely már nem szükséges törléséhez lépjen a **minden szolgáltatás** > **MySQL Adapter** > **termékváltozatok**. Kattintson a jobb gombbal a Termékváltozat nevét, és válassza ki **törlése** törli-e.
-
-> [!IMPORTANT]
-> Elérhető lesz a felhasználói portál az új termékváltozatokra egy órát is igénybe vehet.
-
-## <a name="make-mysql-database-servers-available-to-your-users"></a>MySQL-adatbázis-kiszolgálók elérhetővé tétele a felhasználók számára
-
-Hozzon létre a csomagok és ajánlatok típusa a MySQL-adatbázis-kiszolgálók elérhetővé tétele a felhasználók számára. Vegye fel a Microsoft.MySqlAdapter a terv és a egy új kvóta létrehozása. MySQL nem engedélyezi az adatbázisok méretét korlátozó.
+A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás** > **MySQL-adapter** > **SKU**-t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
 
 > [!IMPORTANT]
-> Új kvóták csak akkor érhető el, a felhasználói portálon, vagy előtt módosított kvóták érvényesítése akár két órát is igénybe vehet.
+> Akár egy óráig is eltarthat, amíg az új SKU elérhetővé válik a felhasználói portálon.
+
+## <a name="make-mysql-database-servers-available-to-your-users"></a>A MySQL adatbázis-kiszolgálók elérhetővé tétele a felhasználók számára
+
+Terveket és ajánlatokat hozhat létre a MySQL adatbázis-kiszolgálók felhasználók számára történő elérhetővé tételéhez. Adja hozzá a Microsoft. MySqlAdapter szolgáltatást a csomaghoz, és hozzon létre egy új kvótát. A MySQL nem teszi lehetővé az adatbázisok méretének korlátozását.
+
+> [!IMPORTANT]
+> Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
 
 ## <a name="next-steps"></a>További lépések
 

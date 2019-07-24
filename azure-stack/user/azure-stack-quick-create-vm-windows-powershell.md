@@ -1,6 +1,6 @@
 ---
-title: A Windows Server rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával |} A Microsoft Docs
-description: A Windows Server rendszerű virtuális gép létrehozása a PowerShell-lel az Azure Stackben.
+title: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stackban | Microsoft Docs
+description: Hozzon létre egy Windows Server rendszerű virtuális gépet a PowerShell használatával Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,45 +11,45 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/09/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 1b0f367540012b86da322329f0536b3c484c39b4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 21dacbd9fc0bd7b646eb937e5460f6e7a89e3465
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269564"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417401"
 ---
-# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: A Windows Server rendszerű virtuális gép létrehozása az Azure Stack PowerShell használatával
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Létrehozhat egy Windows Server 2016 virtuális gép (VM) az Azure Stack PowerShell használatával. Kövesse a cikkben hozhat létre és használhat egy virtuális Gépet. Ez a cikk is biztosít a lépéseket:
+Azure Stack PowerShell használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet (VM). A virtuális gép létrehozásához és használatához kövesse a cikk lépéseit. A cikk a következőket is ismerteti:
 
-* Csatlakozzon a virtuális géphez a távoli ügyfélhez.
-* Az IIS-webkiszolgáló telepítéséhez, és az alapértelmezett kezdőlap megtekintéséhez.
-* Az erőforrások törlése.
+* Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
+* Telepítse az IIS-webkiszolgálót, és tekintse meg az alapértelmezett kezdőlapot.
+* Távolítsa el az erőforrásokat.
 
 > [!NOTE]
->  Ha egy VPN-kapcsolaton keresztül kapcsolódik, ez a cikk az Azure Stack fejlesztői készletet, vagy a külső ügyfél Windows-alapú leírt lépések futtatásával.
+>  A jelen cikkben ismertetett lépéseket a Azure Stack Development Kit vagy egy Windows-alapú külső ügyfélről futtathatja, ha VPN-kapcsolaton keresztül csatlakozik.
 
-## <a name="prerequisites-for-windows-server-vm"></a>Windows Server virtuális gép előfeltételei
+## <a name="prerequisites-for-windows-server-vm"></a>A Windows Server rendszerű virtuális gép előfeltételei
 
-* Győződjön meg arról, hogy az Azure Stack-operátorokról e hozzáadni a **Windows Server 2016** lemezképet az Azure Stack piactéren.
+* Győződjön meg arról, hogy a Azure Stack-kezelő felvette a **Windows Server 2016** rendszerképet a Azure stack Marketplace-re.
 
-* Az Azure Stack egy adott verzióját az Azure PowerShell-lel az erőforrások létrehozásához és kezeléséhez szükséges. Ha nincs konfigurálva az Azure Stack PowerShell, kövesse a lépéseket [telepítése](../operator/azure-stack-powershell-install.md) PowerShell.
+* Azure Stack az erőforrások létrehozásához és kezeléséhez a Azure PowerShell adott verzióját kell megadnia. Ha nincs konfigurálva a PowerShell a Azure Stackhoz, kövesse a PowerShell [telepítésének](../operator/azure-stack-powershell-install.md) lépéseit.
 
-* Az Azure Stack PowerShell használatával állítsa be szüksége lesz az Azure Stack környezettel való kapcsolódáshoz. További útmutatást lásd: [csatlakozhat az Azure Stack PowerShell felhasználói](azure-stack-powershell-configure-user.md).
+* A Azure Stack PowerShell beállítása után csatlakoznia kell a Azure Stack-környezethez. Útmutatásért lásd: [Kapcsolódás a Azure Stackhoz a PowerShell felhasználóként](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
-Egy erőforráscsoport olyan logikai tároló, amely az Azure Stack erőforrások üzembe helyezése és felügyelt. A fejlesztői készlet vagy az Azure Stackkel integrált rendszereknél futtassa a következő kódblokk egy erőforráscsoport létrehozásához. 
+Az erőforráscsoport olyan logikai tároló, amelybe Azure Stack erőforrások üzembe helyezése és kezelése történik. A fejlesztői készletből vagy a Azure Stack integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
 
 > [!NOTE]
-> A Kódminták minden változóját értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
+> Az értékek a kódban szereplő összes változóhoz vannak rendelve. Szükség esetén azonban új értékeket is hozzárendelhet.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -61,9 +61,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Tároló-erőforrások létrehozása
+## <a name="create-storage-resources"></a>Tárolási erőforrások létrehozása
 
-Hozzon létre egy tárfiókot és a egy storage-tároló, a Windows Server 2016-ban tárolja.
+Hozzon létre egy Storage-fiókot és egy Storage-tárolót a Windows Server 2016-rendszerkép tárolásához.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -85,7 +85,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>Hálózati erőforrások létrehozása
 
-Hozzon létre egy virtuális hálózatot, egy alhálózatot és egy nyilvános IP-címet. Ezeket az erőforrásokat a virtuális gép hálózati csatlakoztatásának biztosítására szolgálnak.
+Hozzon létre egy virtuális hálózatot, egy alhálózatot és egy nyilvános IP-címet. Ezek az erőforrások a virtuális géphez való hálózati kapcsolat biztosítására szolgálnak.
 
 ```powershell
 # Create a subnet configuration
@@ -112,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Hálózati biztonsági csoport és hálózati biztonsági csoportszabály létrehozása
 
-A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális Gépet. Hozzunk létre egy bejövő szabályt a 3389-es bejövő távoli asztali kapcsolatok engedélyezéséhez és a egy bejövő szabály a bejövő webes forgalom engedélyezéséhez a 80-as porton.
+A hálózati biztonsági csoport bejövő és kimenő szabályok használatával teszi biztonságossá a virtuális gépet. Hozzon létre egy bejövő szabályt az 3389-as porthoz a bejövő Távoli asztal kapcsolatok engedélyezéséhez, valamint egy bejövő szabályt a 80-es porthoz a bejövő webes forgalom engedélyezéséhez.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -147,9 +147,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-vm"></a>Hozzon létre egy hálózati kártyát a virtuális gép
+### <a name="create-a-network-card-for-the-vm"></a>Hálózati kártya létrehozása a virtuális géphez
 
-A hálózati kártyát a virtuális gép csatlakozik egy alhálózat, a hálózati biztonsági csoport és a nyilvános IP-címet.
+A hálózati kártya csatlakoztatja a virtuális gépet egy alhálózathoz, egy hálózati biztonsági csoporthoz és egy nyilvános IP-címhez.
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -164,7 +164,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-Hozzon létre egy Virtuálisgép-konfigurációt. Ez a konfiguráció a virtuális gép üzembe helyezése során használt beállításokat tartalmaz. Például: hitelesítő adatok, mérete és a Virtuálisgép-lemezkép.
+Hozzon létre egy virtuális gép konfigurációját. Ez a konfiguráció tartalmazza a virtuális gép telepítésekor használt beállításokat. Például: hitelesítő adatok, méret és a VM-rendszerkép.
 
 ```powershell
 # Define a credential object to store the username and password for the VM
@@ -210,14 +210,14 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>Kapcsolódás a virtuális géphez
 
-Az előző lépésben létrehozott virtuális gép távolról, a nyilvános IP-címének kell. A következő parancsot a virtuális gép nyilvános IP-címének lekéréséhez:
+Ahhoz, hogy az előző lépésben létrehozott virtuális gépre távolról is el lehessen végezni a távoli elérést, szüksége lesz a nyilvános IP-címére. Futtassa a következő parancsot a virtuális gép nyilvános IP-címének lekéréséhez:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-A következő paranccsal hozzon létre egy távoli asztali munkamenetet a virtuális géppel. Cserélje le az IP-címet a virtuális gép *publicIPAddress* címére. Amikor a rendszer kéri, adja meg a felhasználónevet és jelszót a virtuális gép létrehozásakor használt.
+A következő parancs használatával hozzon létre egy Távoli asztal-munkamenetet a virtuális géppel. Cserélje le az IP-címet a virtuális gép *publicIPAddress* címére. Ha a rendszer kéri, adja meg a virtuális gép létrehozásakor használt felhasználónevet és jelszót.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -225,7 +225,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>IIS telepítése a PowerShell használatával
 
-Most, hogy már bejelentkezett az Azure virtuális géphez, egyetlen sor PowerShell segítségével az IIS telepítése és engedélyezése a helyi tűzfalszabály átengedje a webforgalmat. Nyisson meg egy PowerShell-parancssort, és futtassa a következő parancsot:
+Most, hogy bejelentkezett az Azure-beli virtuális gépre, egyetlen PowerShell-sor használatával telepítheti az IIS-t, és engedélyezheti a helyi tűzfalszabály számára a webes forgalmat. Nyisson meg egy PowerShell-parancssort, és futtassa a következő parancsot:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -233,13 +233,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Az IIS kezdőlapjának megtekintése
 
-A telepített IIS-t, és nyissa meg a virtuális Gépen a 80-as porton bármely böngészőben használhatja az alapértelmezett IIS kezdőlapjának megtekintése. Használja a *publicIpAddress* az előző szakaszban, és látogasson el az alapértelmezett oldalt a dokumentált.
+Ha telepítette az IIS-t és a 80-as portot a virtuális gépen, akkor bármely böngésző használatával megtekintheti az alapértelmezett IIS-kezdőlapot. Használja az előző szakaszban leírt *publicIpAddress* az alapértelmezett lap megkereséséhez.
 
 ![Alapértelmezett IIS-webhely](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-vm"></a>A virtuális gép törlése
 
-Ha már nincs rá szükség, a következő paranccsal eltávolítható az erőforráscsoport, amely tartalmazza a virtuális gép és a kapcsolódó erőforrásokkal:
+Ha már nincs rá szükség, használja a következő parancsot a virtuális gépet és a kapcsolódó erőforrásokat tartalmazó erőforráscsoport eltávolításához:
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>További lépések
 
-Ebben a rövid útmutatóban egy egyszerű Windows virtuális Gépet helyezte. Azure Stack virtuális gépekkel kapcsolatos további információkért folytassa [Azure Stack-beli Virtuálisgép-funkciók](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy egyszerű Windowsos virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa [Azure stack](azure-stack-vm-considerations.md)virtuálisgép-funkciókkal.

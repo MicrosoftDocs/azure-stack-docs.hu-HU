@@ -1,6 +1,6 @@
 ---
-title: Azure Stack tárfiókok kezelése |} A Microsoft Docs
-description: Ismerje meg, hogyan keresése, kezelése, helyreállítása és az Azure Stack tárfiókok VISSZAIGÉNYLÉSE
+title: Azure Stack Storage-fiókok kezelése | Microsoft Docs
+description: Megtudhatja, hogyan keresheti meg, kezelheti, helyreállíthatja és visszaigényelheti Azure Stack Storage-fiókokat
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,140 +11,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 5d5fe68d9641b6ba7099268f631c1bfe89fb0674
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 4f9e9c4f79a06e0f1f74db8152047beb3af07b75
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985153"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417543"
 ---
-# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack tárfiókok kezelése
+# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack Storage-fiókok kezelése
 
-Útmutató: Azure Stack tárfiókok kezelését. Keresse meg, helyreállítás és üzleti igényeinek megfelelően tárolási kapacitás visszaigényléséhez.
+Ismerje meg, hogyan kezelheti Azure Stack Storage-fiókokat. Az üzleti igények alapján megkeresheti, helyreállíthatja és visszaigényelheti a tárolási kapacitást.
 
-## <a name="find-a-storage-account"></a>Tárfiók keresése
+## <a name="find-a-storage-account"></a>Storage-fiók keresése
 
-A tárfiókok listája, a régióban az Azure Stackben által tekinthet meg:
+A régióban lévő Storage-fiókok listáját a Azure Stack a következőket tekintheti meg:
 
-1. Jelentkezzen be a [felügyeleti portál](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
 
-2. Válassza ki **minden szolgáltatás** > **tárolási** > **tárfiókok**.
+2. Válassza **a minden szolgáltatás** > **tároló** > **Storage-fiókok**lehetőséget.
 
-   ![Az Azure Stack tárfiókok](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
 
-Alapértelmezés szerint az első 10 fiókok jelennek meg. Ha szeretné beolvasni a több kattintva a **Továbbiak betöltése** hivatkozásra a lista alján.
+Alapértelmezés szerint az első 10 fiók jelenik meg. A lista alján található **további terhelés** hivatkozásra kattintva további részleteket is megadhat.
 
 VAGY
 
-Ha egy adott tárfiók – érdekli **szűrése, és a megfelelő fiókok beolvasásához** csak.
+Ha érdekli egy adott Storage-fiók, akkor csak **a megfelelő fiókokat szűrheti és** kérheti le.
 
 
-**Fiókok szűrése:**
+**A fiókok szűrése:**
 
-1. Válassza ki **szűrő** a panel tetején.
-2. A szűrő panelen lehetővé teszi, hogy adja meg **fióknév**, **előfizetés-azonosító**, vagy **állapot** a tárfiókok listája, megjelenítendő finomhangolásához. Használja őket.
-3. Írja be, mivel a lista automatikusan alkalmazza a szűrőt.  .
+1. Válassza a **szűrő** elemet a panel tetején.
+2. A szűrő panelen megadhatja a **fiók nevét**, az **előfizetés azonosítóját**vagy az **állapotot** a megjelenítendő Storage-fiókok listájának finomhangolásához. Szükség szerint használja őket.
+3. A gépelés során a lista automatikusan alkalmazza a szűrőt.  .
    
-    ![Azure Stack tárfiókok szűréséhez](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Azure Stack Storage-fiókok szűrése](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. A szűrő alaphelyzetbe: válasszon **szűrő**, tisztítsa meg a beállításokat és frissíthet.
+4. A szűrő alaphelyzetbe állításához: válassza a **szűrő**lehetőséget, törölje a beállításokat és a frissítést.
 
-A keresőmezőbe (felső részén a lista ablaktáblájában storage fiókok) lehetővé teszi a kijelölt szöveg fiókok listájában jelölje ki. Ezzel amikor teljes neve vagy azonosítója nem érhető el egyszerűen.
+A keresési szövegmező (a Storage-fiókok listája ablaktábla tetején) lehetővé teszi a kijelölt szöveg kijelölését a fiókok listájában. Ezt akkor használhatja, ha a teljes név vagy az azonosító nem könnyen elérhető.
 
-Itt a szabad szöveges segítségével megkeresheti az Önt érdeklő fiók.
+Az itt található ingyenes szöveg segítségével megtalálhatja az Önt érdeklő fiókot.
 
-![Azure Stack tárfiókok keresése](media/azure-stack-manage-storage-accounts/image6.png)
+![Azure Stack Storage-fiókok keresése](media/azure-stack-manage-storage-accounts/image6.png)
 
-## <a name="look-at-account-details"></a>Tekintse meg fiók adatai
-Ha megtalálta a számlák megtekintése érdekli, kiválaszthatja az adott fiók bizonyos részleteinek megtekintéséhez. Egy új panel nyílik meg a fiók adatainak például: a típus a fiók létrehozásának időpontja, helye, stb.
+## <a name="look-at-account-details"></a>Tekintse meg a fiók részleteit
+Miután megtalálta a megtekinteni kívánt fiókokat, kiválaszthatja az adott fiókot az egyes adatok megtekintéséhez. Megnyílik egy új ablaktábla a fiók részleteivel, például: a fiók típusa, létrehozási idő, hely stb.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
-## <a name="recover-a-deleted-account"></a>Egy törölt fiók helyreállítása
-Olyan helyzetekben, ahol meg kell helyreállítani egy törölt fiók is.
+## <a name="recover-a-deleted-account"></a>Törölt fiók helyreállítása
+Előfordulhat, hogy olyan helyzetben van, ahol egy törölt fiókot kell helyreállítani.
 
-Az Azure Stack egy egyszerű módja van:
+Azure Stack egy egyszerű módja van ennek:
 
-1. Keresse meg a storage-fiókok listáján. Tekintse meg a Keresés ebben a cikkben további információkat a storage-fiók.
-2. Keresse meg az adott fiók a listában. Szükség lehet szűrni.
-3. Ellenőrizze a *állapot* fiók. Üzenetnek kell megjelennie **törölt**.
-4. Válassza ki a fiókot, amely a fiók részletei ablaktábla megnyitása.
-5. Felett ezen az ablaktáblán keresse meg a **helyreállítása** gombra, és válassza ki azt.
+1. Tallózással keresse meg a Storage-fiókok listáját. További információ: Storage-fiók keresése ebben a cikkben.
+2. Keresse meg az adott fiókot a listában. Előfordulhat, hogy szűrnie kell.
+3. A fiók *állapotának* bejelölése. A törlést is **el**kell mondani.
+4. Válassza ki a fiókot, amely megnyitja a fiók adatai ablaktáblát.
+5. A panel tetején keresse meg a **helyreállítás** gombot, és jelölje ki.
 6. Válassza az **Igen** lehetőséget a megerősítéshez.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
-7. A helyreállítási már az *folyamat... Várjon* az azt jelzi, hogy sikeres volt-e azt.
-   Választhatja a folyamat jelzések megtekintéséhez a portál tetején a "harang" ikonra.
+7. A helyreállítás most folyamatban van *... Várjon, amíg* sikeres volt a jelzés.
+   A "harang" ikont a portál tetején is kiválasztva megtekintheti a folyamatjelzőket.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
-   Ha a helyreállított fiók sikeresen szinkronizálta, használható újra.
+   Ha a helyreállított fiók szinkronizálása sikeresen megtörtént, újra felhasználható.
 
-### <a name="some-gotchas"></a>Néhány buktatóinak elkerülése
-* A törölt fiók állapota látható **megőrzési kívül**.
+### <a name="some-gotchas"></a>Néhány megkerülő
+* A Törölt fiók állapota az adatmegőrzési állapotnak megfelelően jelenik **meg**.
   
-  Adatmegőrzési azt jelenti, hogy ki, hogy a törölt fiók túllépte az adatmegőrzési időszak, és nem használható helyreállításhoz.
-* A törölt fiók nem szerepelnek a fiókok listájában.
+  Az adatmegőrzés nem jelenti azt, hogy a Törölt fiók túllépte a megőrzési időtartamot, és előfordulhat, hogy nem lehet helyreállítani.
+* A Törölt fiók nem jelenik meg a fiókok listájában.
   
-  Ha a törölt fiók már megtörtént a szemétgyűjtő fiók nem jelenik a fióklista. Ebben az esetben nem állíthatók vissza. Lásd: [kapacitás visszaigényléséhez](#reclaim) ebben a cikkben.
+  Előfordulhat, hogy a fiók nem jelenik meg a fiók listájában, ha a Törölt fiók már be van gyűjtve. Ebben az esetben nem lehet helyreállítani. Lásd a [kapacitás](#reclaim) visszaigénylése című cikket.
 
-## <a name="set-the-retention-period"></a>A megőrzési időtartam
-A megőrzési időszak beállítása lehetővé teszi, hogy a felhő üzemeltetője megadásához egy adott időszakban (0 és 9999 nap) közötti nap során, ami minden törölt fiók potenciálisan állíthatók helyre. Az alapértelmezett megőrzési időszak 0 nap van beállítva. Az érték "0" azt jelenti, hogy minden törölt fiók megőrzési azonnal esik, és rendszeres szemétgyűjtési megjelölve.
+## <a name="set-the-retention-period"></a>A megőrzési időtartam beállítása
+A megőrzési időtartam beállítás lehetővé teszi, hogy a felhő operátora napokban határozzon meg egy időszakot (0 és 9999 nap között), amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett megőrzési időtartam 0 napra van állítva. Ha az értéket "0" értékre állítja, az azt jelenti, hogy a törölt fiókok azonnal nem maradnak meg, és meg vannak jelölve az időszakos szemetet tartalmazó gyűjtemény számára.
 
-**A megőrzési idő módosítása:**
+**A megőrzési időtartam módosítása:**
 
-1. Jelentkezzen be a [felügyeleti portál](https://adminportal.local.azurestack.external).
-2. Válassza ki **minden szolgáltatás** > **régiók kezelése** alatt **felügyeleti**.
-3. Válassza ki **erőforrás-szolgáltatók** > **tárolási** > **beállítások**. Az elérési út Kezdőlap > *régió* – erőforrás-szolgáltatók > tároló.
-4. Válassza ki **konfigurációs** majd szerkessze a megőrzési időtartam értéket.
+1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
+2. Válassza az **összes szolgáltatás** > **régió** felügyelete lehetőséget az **Adminisztráció**alatt.
+3. Válassza **az erőforrás-szolgáltatók** > **tárolási** > **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
+4. Válassza a **konfiguráció** lehetőséget, majd szerkessze a megőrzési időszak értékét.
 
-   A napok számának megadása, és mentse azt.
+   Állítsa be a napok számát, majd mentse.
    
-   Ez az érték azonnal hatályba lép, és a teljes régió van beállítva.
+   Ez az érték azonnal érvényes, és a teljes régióra van beállítva.
 
    ![](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Kapacitás visszaigényléséhez
-Az, hogy olyan megőrzési időszakot hatásai egyik célja, hogy egy törölt fiók továbbra is kapacitás felhasználását, mindaddig, amíg a megőrzési időtartam azt éles. Felhőalapú felelősként szükség lehet olyan módon, a törölt fiók jusson, annak ellenére, hogy a megőrzési időszak még nem járt le.
+## <a name="reclaim"></a>Kapacitás visszaigénylése
+A megőrzési idő egyik mellékhatása, hogy a törölt fiókok továbbra is felhasználják a kapacitást, amíg nem kerül sor a megőrzési időszakra. A Felhőbeli operátornak szüksége lehet arra, hogy visszaigényelje a Törölt fiók területét annak ellenére, hogy a megőrzési időszak még nem járt le.
 
-A kapacitás a portál vagy a PowerShell használatával is visszaigényelhetők.
+A kapacitást a portál vagy a PowerShell segítségével állíthatja vissza.
 
-**A portál használatával kapacitás visszaigényléséhez:**
-1. Keresse meg a storage-fiókok panelen. Tekintse meg a storage-fiók található.
-2. Válassza ki **jusson** a panel tetején.
-3. Olvassa el az üzenetet, majd **OK**.
+**Kapacitás visszaigénylése a portál használatával:**
+1. Navigáljon a Storage-fiókok ablaktáblára. Lásd: Storage-fiók keresése.
+2. Válassza ki a panel felső részén található visszaigénylési **terület** lehetőséget.
+3. Olvassa el az üzenetet, majd kattintson **az OK gombra**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
-4. Várjon, amíg a sikeres címtármódosítást jelző értesítés tekintse meg a portálon a harang ikonra.
+4. Várjon a sikeres értesítésre, és tekintse meg a harang ikont a portálon.
 
     ![](media/azure-stack-manage-storage-accounts/image12.png)
-5. A Storage-fiókok lap frissítése. A törölt fiókok már nem jelennek meg a listában, mert azok kiürítése megtörtént.
+5. Frissítse a Storage-fiókok lapot. A törölt fiókok már nem jelennek meg a listában, mert törölve lettek.
 
-Explicit módon a megőrzési időszak felülbírálására PowerShell is használható, és azonnal a kapacitás visszaigényléséhez.
+A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és azonnal visszaigényelheti a kapacitást.
 
-**Kapacitás visszaigényléséhez PowerShell-lel:**   
+**Kapacitás visszaigénylése a PowerShell használatával:**   
 
-1. Győződjön meg arról, hogy az Azure PowerShell telepítését és konfigurálását. Ha nem, kövesse az alábbi utasításokat: 
-   * Telepítse a legújabb Azure PowerShell-verziót, és társíthatja azt az Azure-előfizetéséhez, tekintse meg a [telepítése és konfigurálása az Azure PowerShell-lel](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Azure Resource Manager-parancsmagokkal kapcsolatos további információkért lásd: [az Azure PowerShell az Azure Resource Managerrel](https://go.microsoft.com/fwlink/?LinkId=394767)
-2. A következő parancsmagok futtatásához:
+1. Győződjön meg arról, hogy van Azure PowerShell telepítve és konfigurálva. Ha nem, kövesse az alábbi utasításokat: 
+   * A legújabb Azure PowerShell verziójának telepítéséhez és az Azure-előfizetéshez való hozzárendeléséhez tekintse meg a [Azure PowerShell telepítése és konfigurálása](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)című témakört.
+   Azure Resource Manager parancsmagokkal kapcsolatos további információkért lásd: [Azure PowerShell használata a Azure Resource Manager használatával](https://go.microsoft.com/fwlink/?LinkId=394767)
+2. Futtassa a következő parancsmagokat:
 
 > [!NOTE]  
-> Ha ezen parancsmagok futtatásához véglegesen törli a fiókot, és annak tartalmát. Esetén nem állítható helyre. Ez körültekintően szabad használni.
+> Ha ezeket a parancsmagokat futtatja, véglegesen törli a fiókot és annak tartalmát. Nem helyreállítható. Ezt körültekintően használhatja.
 
 ```powershell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-További információkért lásd: [Azure Stack PowerShell-dokumentáció](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+További információ: [Azure stack PowerShell-dokumentáció](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>További lépések
 
- - Engedélyek kezelése információ: [Manage Role-Based hozzáférés-vezérlés](azure-stack-manage-permissions.md).
- - Az Azure stack-kezelés tárolási kapacitás további információkért lásd: [kezelése az Azure Stack a tárolókapacitás](azure-stack-manage-storage-shares.md).
+ - Az engedélyek kezelésével kapcsolatos információkért lásd: [szerepköralapú Access Control kezelése](azure-stack-manage-permissions.md).
+ - További információ a Azure Stack tárolási kapacitásának kezeléséről: a [Azure stack tárolási kapacitásának kezelése](azure-stack-manage-storage-shares.md).
