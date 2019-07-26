@@ -1,6 +1,6 @@
 ---
-title: A kiemelt jogosultságú végpont használata az Azure Stackben |} A Microsoft Docs
-description: Bemutatja, hogyan használhatja a kiemelt végponthoz (EGP) az Azure Stackben (az Azure Stack-operátorokról).
+title: A rendszerjogosultságú végpont használata a Azure Stackban | Microsoft Docs
+description: Azt mutatja be, hogyan használható a Kiemelt végpont (PEP) a Azure Stack (Azure Stack operátor esetében).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,59 +15,59 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
-ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
+ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596083"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494062"
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>A kiemelt jogosultságú végpont használata az Azure Stackben
+# <a name="using-the-privileged-endpoint-in-azure-stack"></a>A rendszerjogosultságú végpont használata Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack-operátorként a legtöbb napi rendszerességű felügyeleti feladat ellátásához a felügyeleti portált, a PowerShellt vagy az Azure Resource Manager API-kat használhatja. Azonban az egyes kevésbé gyakori műveleteket kell használnia a *kiemelt végponthoz* (EGP). Az EGP egy előre konfigurált távoli PowerShell-konzolt, és éppen elegendő lehetőségekkel segíti elő a szükséges feladat elvégzését. A végpontok [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) elérhetővé a parancsmag csak korlátozott készletével. Az EGP eléréséhez, és meghívja a parancsmagok korlátozott készletét, egy alacsony jogosultsági szintű fiókot használja. Nem rendszergazdai fiókok szükség. A fokozott biztonság érdekében parancsfájlok nem engedélyezett.
+Azure Stack-operátorként a legtöbb napi rendszerességű felügyeleti feladat ellátásához a felügyeleti portált, a PowerShellt vagy az Azure Resource Manager API-kat használhatja. Néhány kevésbé gyakori művelet esetében azonban a *Kiemelt jogosultságú végpontot* (PEP) kell használnia. A PEP egy előre konfigurált távoli PowerShell-konzol, amely elegendő képességet biztosít a szükséges feladatok elvégzéséhez. A végpont [PowerShell-JEA (elég felügyelet)](https://docs.microsoft.com/powershell/jea/overview) használ, hogy csak korlátozott számú parancsmagot tegyen elérhetővé. A PEP eléréséhez és a parancsmagok korlátozott készletének meghívásához egy alacsony jogosultsági szintű fiókot kell használni. Nincs szükség rendszergazdai fiókra. A további biztonság érdekében a parancsfájlok futtatása nem engedélyezett.
 
-Az EGP használhatja például a következő feladatok elvégzéséhez:
+A PEP használatával olyan feladatokat hajthat végre, mint például a következők:
 
-- Az alsó szintű feladatok végrehajtásához, például [diagnosztikai naplók gyűjtésére](azure-stack-diagnostics.md#log-collection-tool).
-- Integrált rendszerek, például a tartománynévrendszer (DNS) a továbbítók beállítása a Microsoft Graph-integráció, az Active Directory összevonási szolgáltatások (AD FS) integrációt, üzembe helyezés után több adatközpont üzembe helyezés utáni integrációs feladatok végrehajtásához tanúsítvány rotációja, és így tovább.
-- A részletes hibakeresés integrált rendszer ideiglenes, magas szintű hozzáférést szerezni a támogatási dolgozhat.
+- Alacsony szintű feladatok végrehajtásához, például a [diagnosztikai naplók](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)összegyűjtéséhez.
+- Számos üzembe helyezés utáni adatközpont-integrációs feladat elvégzéséhez az integrált rendszerekhez, például a tartománynévrendszer (DNS) továbbítóinak az üzembe helyezést követően történő hozzáadásával, Microsoft Graph integráció, a Active Directory összevonási szolgáltatások (AD FS) (AD FS) integrációjának beállításával tanúsítvány elforgatása stb.
+- Az integrált rendszer részletes hibaelhárításához az ideiglenes, magas szintű hozzáférés támogatásával dolgozhat.
 
-Az EGP naplózza minden művelet (és a megfelelő kimeneti), amelyeket elvégezhet a PowerShell-munkamenetben. Ez biztosítja, teljes átláthatóságot és a teljes naplózási műveletek. Ezek a naplófájlok a jövőbeni ellenőrzésekhez őrizheti meg.
-
-> [!NOTE]
-> Az az Azure Stack Development Kit (ASDK), futtathatja az EGP elérhető parancsai közül néhányat, közvetlenül a PowerShell-munkamenetet a development kit gazdagépen. Azonban érdemes néhány művelet használatával az EGP, például a naplógyűjtés, teszteléséhez, mivel ez az egyetlen módszer érhető el, hogy bizonyos műveletek elvégzéséhez integrált rendszerek környezetben.
-
-## <a name="access-the-privileged-endpoint"></a>Hozzáférés a kiemelt végponthoz
-
-Az EGP keresztül egy távoli PowerShell-munkamenetet a virtuális gépen, amelyen az EGP érhetők el. A ASDK, a virtuális gép neve **AzS-ERCS01**. Integrált rendszer használja, hogy vannak-e három példányban EGP, minden futó virtuális gépen belüli (*előtag*-ERCS01, *előtag*-ERCS02, vagy *előtag*- ERCS03) rugalmasság a különböző gazdagépeken. 
-
-Mielőtt elkezdené integrált rendszer ezt az eljárást, győződjön meg arról, elérheti az EGP IP-címe vagy DNS-en keresztül. Után a kezdeti üzembe helyezhető Azure Stacket érheti el az EGP csak az IP-cím, mert a DNS-integráció van még nem állította be. OEM hardvergyártójához biztosít Önnek egy JSON-fájlt **AzureStackStampDeploymentInfo** , amely tartalmazza a EGP IP-címeket.
-
+A PEP a PowerShell-munkamenetben végrehajtott összes műveletet (és a hozzá tartozó kimenetet) naplózza. Ez teljes átláthatóságot és teljes körű naplózást biztosít a műveletekhez. Ezeket a naplófájlokat megtarthatja a jövőbeli naplózáshoz.
 
 > [!NOTE]
-> Biztonsági okokból szükséges, hogy csatlakozni az EGP csak egy megerősített virtuális gép futó, a hardver életciklus gazdagép felett, vagy egy dedikált, biztonságos számítógépre, mint például egy [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Az EGP való kapcsolódáshoz használandó és nem kell az eredeti konfigurációt a hardver életciklus-gazdagép nem lehet módosítani az eredeti konfigurációnak, beleértve az új szoftverek telepítése.
+> A Azure Stack Development Kit (ASDK) alkalmazásban a PEP-ben elérhető parancsokat futtathatja közvetlenül a fejlesztői készlet gazdagépén található PowerShell-munkamenetből. Előfordulhat azonban, hogy tesztelni szeretné a PEP-t használó bizonyos műveleteket, például a naplózási gyűjteményt, mivel ez az egyetlen olyan módszer, amely bizonyos műveletek végrehajtásához használható egy integrált rendszer-környezetben.
 
-1. A megbízhatósági kapcsolatot hoz létre.
+## <a name="access-the-privileged-endpoint"></a>Hozzáférés a Kiemelt végponthoz
 
-    - Az integrált rendszereken, futtassa a következő parancsot egy rendszergazda jogú Windows PowerShell-munkamenetben az EGP a megerősített virtuális gépen, a hardver életciklus gazdagép-vagy a Privileged Access Workstation megbízható gazdagépként hozzáadni.
+A PEP-t egy távoli PowerShell-munkameneten keresztül érheti el a virtuális gépen, amelyen a PEP fut. A ASDK a virtuális gép neve **AzS-ERCS01**. Ha integrált rendszert használ, a PEP három példánya van, amelyek mindegyike egy virtuális gépen (*előtag*: ERCS01, *előtag*-ERCS02 vagy *előtag*-ERCS03) fut a különböző gazdagépeken a rugalmasság érdekében. 
+
+Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön meg arról, hogy az IP-cím vagy a DNS használatával fér hozzá a PEP-hez. A Azure Stack kezdeti telepítése után a PEP-t csak IP-címmel érheti el, mivel a DNS-integráció még nincs beállítva. Az OEM hardvergyártó a **AzureStackStampDeploymentInfo** nevű JSON-fájlt fogja biztosítani, amely a PEP IP-címeket tartalmazza.
+
+
+> [!NOTE]
+> Biztonsági okokból szükség van arra, hogy csak olyan megerősített virtuális gépről kapcsolódjon a PEP-hez, amely a hardver életciklus-állomásán fut, vagy egy dedikált, biztonságos számítógépről, például egy emelt [szintű hozzáférésű](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)munkaállomásról. A hardveres életciklus-állomás eredeti konfigurációja nem módosítható az eredeti konfigurációjától, beleértve az új szoftverek telepítését, és nem használható a PEP-hez való kapcsolódásra.
+
+1. Hozza létre a bizalmi kapcsolatot.
+
+    - Egy integrált rendszeren futtassa a következő parancsot egy emelt szintű Windows PowerShell-munkamenetből, hogy hozzáadja a PEP-t megbízható gazdagépként a hardver életciklus-gazdagépén vagy a privilegizált elérésű munkaállomáson futó megerősített virtuális gépen.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Ha a ASDK futtatja, jelentkezzen be a development kit gazdagépre.
+    - Ha a ASDK futtatja, jelentkezzen be a fejlesztői csomag gazdagépére.
 
-2. A megerősített futó virtuális géphez a hardver életciklus-gazdagép vagy a Privileged Access Workstation nyisson meg egy Windows PowerShell-munkamenetet. Futtassa a következő parancsok futtatásával hozzon létre egy távoli munkamenetet a virtuális gépen, amelyen az EGP:
+2. Nyisson meg egy Windows PowerShell-munkamenetet a hardveres életciklus-gazdagépen vagy az emelt szintű hozzáférési munkaállomáson futó megerősített virtuális gépen. Futtassa a következő parancsokat egy távoli munkamenet létrehozásához a PEP-t futtató virtuális gépen:
  
-   - Az integrált rendszereken:
+   - Integrált rendszeren:
      ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     A `ComputerName` paraméter lehet, az IP-cím vagy egy virtuális gépet, amelyen az EGP DNS-nevét. 
+     A `ComputerName` paraméter lehet a PEP-t futtató virtuális gépek egyikének IP-címe vagy DNS-neve. 
    - Ha a ASDK futtatja:
      
      ```powershell
@@ -76,30 +76,30 @@ Mielőtt elkezdené integrált rendszer ezt az eljárást, győződjön meg arr�
        Enter-PSSession -ComputerName azs-ercs01 `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ``` 
-     Amikor a rendszer kéri, használja a következő hitelesítő adatok:
+     Ha a rendszer kéri, használja a következő hitelesítő adatokat:
 
-     - **Felhasználónév**: Adja meg a CloudAdmin fiók formátumban  **&lt; *Azure Stack-tartományhoz*&gt;\cloudadmin**. (ASDK, az a felhasználónév az **azurestack\cloudadmin**.)
-     - **Jelszó**: Adja meg ugyanazt a jelszót a Azurestack tartományi rendszergazdai fiók a telepítés során megadott.
+     - **Felhasználónév**: A CloudAdmin fiókjának  **&lt; *Azure stack tartományi*&gt;\cloudadmin**formátumban kell megadnia. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
+     - **Jelszó**: Adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
      > [!NOTE]
-     > Ha Ön nem lehet kapcsolódni a ERCS végpont, próbálja meg első és második szintén egy ERCS virtuális Gépet, amelyhez Ön még nem már csatlakozni próbált, IP-címét a lépést.
+     > Ha nem tud csatlakozni az ERCS-végponthoz, próbálkozzon újra egy olyan ERCS virtuális gép IP-címével, amelyhez még nem próbált csatlakozni.
 
-3. A csatlakozás után a rendszer kéri változik **[*IP-cím vagy ERCS virtuális gép neve*]: PS >** vagy **[azs-ercs01]: PS >** , attól függően, a környezetben. Futtatás innen `Get-Command` elérhető parancsmagjainak listájának megtekintéséhez.
+3. A kapcsolódás után a rendszer az [ ***IP-cím vagy a ERCS virtuális gép neve*] értékre vált. PS >** **vagy [AZS-ercs01]: PS >** , a környezettől függően. Innen a Futtatás `Get-Command` gombra kattintva megtekintheti az elérhető parancsmagok listáját.
 
-   Ezek a parancsmagok számos szánt csak integrált rendszer környezetekben (például az Adatközpont-integrációval kapcsolatos parancsmagok). Az a ASDK ellenőrzése a következő parancsmagokat:
+   Ezen parancsmagok nagy része kizárólag az integrált rendszerkörnyezetekhez (például az adatközpont-integrációhoz kapcsolódó parancsmagokhoz) készült. A ASDK a következő parancsmagok lettek érvényesítve:
 
    - Clear-Host
    - Close-PrivilegedEndpoint
-   - Kilépés-PSSession
+   - Kilépés – PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
    - Get-Command
    - Get-FormatData
    - Get-Help
    - Get-ThirdPartyNotices
-   - Mérték-Object
+   - Mérték – objektum
    - New-CloudAdminUser
-   - Out-Default
+   - Alapértelmezett
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
@@ -107,39 +107,39 @@ Mielőtt elkezdené integrált rendszer ezt az eljárást, győződjön meg arr�
    - Stop-AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>Tippek a kiemelt végponthoz 
+## <a name="tips-for-using-the-privileged-endpoint"></a>Tippek a Kiemelt végpont használatához 
 
-Ahogy említettük, az EGP van egy [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) végpont. Egy erős biztonsági réteget biztosít, miközben a JEA-végpont csökkenti az alapszintű PowerShell funkciói, például parancsfájlok vagy lap befejezését. Ha bármilyen típusú parancsprogram-művelet, a művelet sikertelen, és a **ScriptsNotAllowed**. Ez az elvárt működés.
+A fent említettek szerint a PEP egy [PowerShell-JEA](https://docs.microsoft.com/powershell/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a várt viselkedés.
 
-Így például a paraméterek listája egy adott parancsmag, futtassa a következő parancsot:
+Így például egy adott parancsmag paramétereinek listájának lekéréséhez futtassa a következő parancsot:
 
 ```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Másik lehetőségként használhatja a [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) parancsmag a EGP-parancsmagok importálásához az aktuális munkamenet a helyi gépen. Ezzel a módszerrel minden parancsmag és funkció az EGP, mostantól elérhetők a helyi gépén, kiegészítés és, más együtt általában scripting. 
+Azt is megteheti, hogy az [import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) parancsmag használatával importálja az összes PEP-parancsmagot a helyi számítógép aktuális munkamenetére. Ezzel a PEP-parancsmagok és-függvények mostantól elérhetők a helyi gépen, a TAB befejezésével együtt, és általánosságban a parancsfájlok. 
 
-Importálja a EGP-munkamenetet a helyi gépén, tegye a következőket:
+Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a következő lépéseket:
 
-1. A megbízhatósági kapcsolatot hoz létre.
+1. Hozza létre a bizalmi kapcsolatot.
 
-    -A egy integrált rendszer, a következő parancsot egy rendszergazda jogú Windows PowerShell-munkamenetben az EGP a megerősített virtuális gépen, a hardver életciklus gazdagép-vagy a Privileged Access Workstation megbízható gazdagépként hozzáadni a.
+    – Egy integrált rendszeren futtassa a következő parancsot egy emelt szintű Windows PowerShell-munkamenetből, hogy a PEP-t megbízható gazdagépként adja hozzá a hardver életciklus-gazdagépén vagy a privilegizált elérésű munkaállomáson futó megerősített virtuális gépen.
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - Ha a ASDK futtatja, jelentkezzen be a development kit gazdagépre.
+    - Ha a ASDK futtatja, jelentkezzen be a fejlesztői csomag gazdagépére.
 
-2. A megerősített futó virtuális géphez a hardver életciklus-gazdagép vagy a Privileged Access Workstation nyisson meg egy Windows PowerShell-munkamenetet. Futtassa a következő parancsok futtatásával hozzon létre egy távoli munkamenetet a virtuális gépen, amelyen az EGP:
+2. Nyisson meg egy Windows PowerShell-munkamenetet a hardveres életciklus-gazdagépen vagy az emelt szintű hozzáférési munkaállomáson futó megerősített virtuális gépen. Futtassa a következő parancsokat egy távoli munkamenet létrehozásához a PEP-t futtató virtuális gépen:
  
-   - Az integrált rendszereken:
+   - Integrált rendszeren:
      ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     A `ComputerName` paraméter lehet, az IP-cím vagy egy virtuális gépet, amelyen az EGP DNS-nevét. 
+     A `ComputerName` paraméter lehet a PEP-t futtató virtuális gépek egyikének IP-címe vagy DNS-neve. 
    - Ha a ASDK futtatja:
      
      ```powershell
@@ -148,43 +148,43 @@ Importálja a EGP-munkamenetet a helyi gépén, tegye a következőket:
       $session = New-PSSession -ComputerName azs-ercs01 `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ``` 
-     Amikor a rendszer kéri, használja a következő hitelesítő adatok:
+     Ha a rendszer kéri, használja a következő hitelesítő adatokat:
 
-     - **Felhasználónév**: Adja meg a CloudAdmin fiók formátumban  **&lt; *Azure Stack-tartományhoz*&gt;\cloudadmin**. (ASDK, az a felhasználónév az **azurestack\cloudadmin**.)
-     - **Jelszó**: Adja meg ugyanazt a jelszót a Azurestack tartományi rendszergazdai fiók a telepítés során megadott.
+     - **Felhasználónév**: A CloudAdmin fiókjának  **&lt; *Azure stack tartományi*&gt;\cloudadmin**formátumban kell megadnia. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
+     - **Jelszó**: Adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
-3. A EGP munkamenet importálja a helyi gépen
-    ```powershell 
+3. A PEP-munkamenet importálása a helyi gépre
+     ```powershell 
         Import-PSSession $session
-    ```
-4. Most-kiegészítés használata, és hajtsa végre a parancsfájl-kezelési a szokásos módon a helyi PowerShell-munkamenetet a functions és az EGP-parancsmagok a nélkül csökkentése az Azure Stack biztonsági állapotát. Jó munkát!
+   ```
+4. Most már használhatja a TAB-Complete és a parancsfájlokat a szokásos módon a helyi PowerShell-munkamenetben a PEP összes funkciójának és parancsmagjának használatával anélkül, hogy a Azure Stack biztonsági állapotát kellene csökkentenie. Jó munkát!
 
 
-## <a name="close-the-privileged-endpoint-session"></a>A kiemelt végponthoz munkamenet bezárása
+## <a name="close-the-privileged-endpoint-session"></a>Az emelt szintű végpont munkamenetének lezárása
 
- Ahogy korábban említettük, az EGP naplózza minden művelet (és a megfelelő kimeneti), amelyeket elvégezhet a PowerShell-munkamenetben. Zárja be a munkamenet használatával a `Close-PrivilegedEndpoint` parancsmagot. Ez a parancsmag megfelelően bezárja a végpontot, és egy külső fájlmegosztás megőrzésének adja át a rendszernapló fájljaiban.
+ Ahogy azt korábban említettük, a PEP a PowerShell-munkamenetben végrehajtott összes műveletet (és a hozzá tartozó kimenetet) naplózza. A-munkamenetet a `Close-PrivilegedEndpoint` parancsmag használatával kell lezárva. Ez a parancsmag helyesen zárja le a végpontot, és átviszi a naplófájlokat egy külső fájlmegosztást a megőrzéshez.
 
-A végpont munkamenet lezárásához:
+A végpont-munkamenet lezárása:
 
-1. Hozzon létre egy külső fájlmegosztás által az EGP elérhető. Fejlesztői csomag környezetben egyszerűen létrehozhatja egy fájlmegosztást a development kit gazdagépen.
-2. A parancsmag futtatása 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-ahol
+1. Hozzon létre egy külső fájlmegosztást, amelyet a PEP is elérhet. A fejlesztői csomag környezetében egyszerűen létrehozhat egy fájlmegosztást a fejlesztői készlet gazdagépén.
+2. Futtassa a következő parancsmagot: 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   amely a következő táblázatban szereplő paramétereket használja.
 
-| Paraméter | Leírás | Típus | Kötelező |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | a "fileshareIP\sharefoldername" definiálva külső fájlmegosztás elérési útja | String | igen|
-| *Hitelesítő adatok* | a fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |  igen |
+   | Paraméter | Leírás | Type | Kötelező |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | a külső fájlmegosztás elérési útja "fileshareIP\sharefoldername"-ként definiálva | Sztring | igen|
+   | *Hitelesítő adatok* | a fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |   igen |
 
 
-A fájlmegosztás sikeresen átkerülnek a szöveges naplófájlok, miután azok még automatikusan törli a az EGP. 
+Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztásba, automatikusan törlődnek a PEP-ből. 
 
 > [!NOTE]
-> Ha a parancsmagok használatával zárja be a EGP munkamenet `Exit-PSSession` vagy `Exit`, vagy bezárhatja a PowerShell-konzolt, a szöveges naplók átadása nem történik meg azt a fájlmegosztást. Az EGP maradnak. A következő futtatásakor `Close-PrivilegedEndpoint` egy fájlmegosztást, és a szöveges naplók az előző munkamenet is fogja átvinni. Ne használjon `Exit-PSSession` vagy `Exit` gombra kattintva zárja be a EGP munkamenethez használni `Close-PrivilegedEndpoint` helyette.
+> Ha a-parancsmagok `Exit-PSSession` `Exit`használatával, vagy csak a PowerShell-konzol bezárásával zárta be a PEP-munkamenetet, a rendszer nem továbbítja a fájlokat a fájlmegosztás számára. A PEP-ben maradnak. Amikor legközelebb futtatja `Close-PrivilegedEndpoint` és belefoglal egy fájlmegosztást, az előző munkamenet (ek) ből származó átiratok is át lesznek továbbítva. Ne használja `Exit-PSSession` a- `Exit` t vagy a-t a PEP `Close-PrivilegedEndpoint` -munkamenet bezárásához; használja helyette.
 
 
 ## <a name="next-steps"></a>További lépések
 
-[Az Azure Stack-diagnosztikai eszközök](azure-stack-diagnostics.md)
+[Diagnosztikai eszközök Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack 1904 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg a 1904 frissítés az Azure Stack integrált rendszerek, beleértve az újdonságokat, az ismert problémák és a frissítés és az archivált Azure Stack kibocsátási megjegyzések letöltési helyét.
+title: Azure Stack 1904 kibocsátási megjegyzések | Microsoft Docs
+description: Ismerkedjen meg a 1904-es frissítéssel Azure Stack integrált rendszerek esetében, beleértve az újdonságokat, az ismert problémákat, valamint a frissítés és az archivált Azure Stack kibocsátási megjegyzések letöltésének helyét.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,38 +16,38 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 71ad5812472534ae4a7e3dc34feabf7a1a02faa0
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152526"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494055"
 ---
-# <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítése
+# <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítés
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Integrált rendszerek Azure Stack*
 
-Ez a cikk ismerteti a 1904 csomag tartalmát. A frissítés magában foglalja az új fejlesztések és javítások ebben a kiadásban az Azure Stack. Ez a cikk a következő információkat tartalmazza:
+Ez a cikk az 1904-es frissítési csomag tartalmát ismerteti. A frissítés a Azure Stack ezen kiadásának újdonságait és javításait tartalmazza. Ez a cikk a következő információkat tartalmazza:
 
-- [What's new leírása fejlesztései, a javításokat és a biztonsági frissítések](azure-stack-release-notes-1904.md#whats-in-this-update)
-- [Tervezés módosítása](azure-stack-release-notes-1904.md#update-planning)
+- [Az Újdonságok, a javítások, a javítások és a biztonsági frissítések leírása](azure-stack-release-notes-1904.md#whats-in-this-update)
+- [Frissítés tervezése](azure-stack-release-notes-1904.md#update-planning)
 
 > [!IMPORTANT]  
 > Ez a csomag csak olyan Azure Stack integrált rendszerek. Ez a csomag nem vonatkoznak az Azure Stack Development Kit.
 
 ## <a name="archived-release-notes"></a>Archivált kibocsátási megjegyzések
 
-Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNet-katalógusban](http://aka.ms/azsarchivedrelnotes). Ezek a kibocsátási megjegyzések kizárólag tájékoztatási célt szolgálnak, és jelenti ezen verziók támogatása archivált. További segítségért forduljon a Microsoft ügyfél-támogatási szolgálathoz.
+[A Azure stack kibocsátási megjegyzések régebbi verzióit a TechNet Gallery webhelyen](http://aka.ms/azsarchivedrelnotes)tekintheti meg. Ezek az archivált kibocsátási megjegyzések kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
-Az Azure Stack 1904 frissítés buildszáma **1.1904.0.36**.
+A Azure Stack 1904 frissítési Build száma **1.1904.0.36**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az Azure Stack 1904 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1904 frissítés befejezéséhez szükséges idő várt nagyjából 16 órán át, de a pontos idő változhat. A futtatókörnyezet előállításához a 1904 Update és más Azure Stack-frissítések nem hasonlíthatók.
+A Azure Stack 1904 frissítési Build típusa **expressz**. További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack](azure-stack-updates.md) cikkben. Az 1904-es frissítés befejezéséhez szükséges idő körülbelül 16 óra, de a pontos idők eltérőek lehetnek. Ez a futásidejű közelítés az 1904-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack frissítésekkel.
 
-## <a name="whats-in-this-update"></a>Mi az a frissítés
+## <a name="whats-in-this-update"></a>A frissítés ismertetése
 
 <!-- The current theme (if any) of this release. -->
 
@@ -57,154 +57,154 @@ Az Azure Stack 1904 update build típusa **Express**. További információt a f
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- 1904 jelentős fejlesztések történtek a szoftveralapú hálózatkezelés (SDN) stack. Ezek a fejlesztések általános karbantartási és az SDN-verem az Azure Stackben megbízhatóságának növelése érdekében.
+- Jelentős előrelépés történt a szoftveresen definiált hálózatkezelési (SDN) veremben, 1904-ben. Ezek a frissítések javítják az SDN-verem általános kiszolgálását és megbízhatóságát Azure Stackban.
 
-- Hozzá a felügyeleti portálon, egy értesítés, amikor a bejelentkezett felhasználó nem rendelkezik a szükséges engedélyekkel, amely lehetővé teszi az irányítópult megfelelően betölteni. A dokumentáció, amely azt ismerteti, hogy mely fiókok rendelkezik a megfelelő engedélyekkel, attól függően, a telepítés során használt identitásszolgáltató mutató hivatkozást is tartalmaz.
+- Értesítés a felügyeleti portálon, ha az aktuálisan bejelentkezett felhasználó nem rendelkezik a szükséges engedélyekkel, ami lehetővé teszi az irányítópult megfelelő betöltését. Emellett a dokumentációra mutató hivatkozást is tartalmaz, amely ismerteti, hogy mely fiókok rendelkeznek a megfelelő engedélyekkel az üzembe helyezés során használt identitás-szolgáltatótól függően.
 
-- A hozzáadott fejlesztései a virtuális gép rugalmasságát és hasznos üzemidőt garantál, amely kiküszöböli a forgatókönyvet, amelyben minden virtuális gép go offline állapotban van, ha a virtuális gép konfigurációs fájljait tartalmazó tároló kötet offline állapotba kerül.
-
-<!-- 1901,2,3 related hotfix -->
-- A virtuális gépek száma a hozzáadott optimalizálás evakuálni egyidejűleg, és elhelyezett egy korlát, cím VM túlterhelődések vagy blackouts, ha a hálózat nagy terhelés alatt felhasznált sávszélesség. Ez a változás növeli a virtuális gép hasznos, a rendszer frissítésekor.
+- Javítottuk a virtuális gépek rugalmasságát és a rendelkezésre állást, ami megoldja azt a forgatókönyvet, amelyben az összes virtuális gép offline állapotba kerül, ha a virtuális gép konfigurációs fájljait tartalmazó tárolási kötet offline állapotba kerül.
 
 <!-- 1901,2,3 related hotfix -->
-- Továbbfejlesztett erőforrás-szabályozás egyszerre több platform erőforrásokat, a portálon a sikertelen műveleteket eredményez kimerítsék belső folyamatok elleni védelem érdekében a rendszer futtatásakor.
+- A virtuális gépek számának optimalizálása párhuzamosan, és a felhasznált sávszélességre vonatkozó korlátot is felvette, ha a hálózat nagy terhelés alatt van. Ez a változás növeli a virtuális gép üzemidőt a rendszer frissítésekor.
 
-- Továbbfejlesztett szűrési képességek lehetővé teszi a kezelők egyszerre több szűrőket alkalmaz. A csak rendezheti a **neve** az új felhasználói felület az oszlopban.
+<!-- 1901,2,3 related hotfix -->
+- Továbbfejlesztett erőforrás-szabályozás, ha a rendszer nagy léptékben fut, hogy védelmet nyújtson a belső folyamatoknak a platform erőforrásaihoz képest, ami a portálon meghiúsult műveleteket eredményez.
 
-- Fejlesztések a folyamatot, az ajánlatok, tervek, kvóták és előfizetések törlése. Most már sikeresen törölheti ajánlatok, kvóták, tervek és előfizetések a felügyeleti portálról, ha a törölni kívánt objektum egy csoporttól sem. További információkért tekintse meg [ezt a cikket](azure-stack-delete-offer.md).  
+- A továbbfejlesztett szűrési funkciók lehetővé teszik, hogy a kezelők egyszerre több szűrőt alkalmazzanak. Csak az új felhasználói felület **Name (név** ) oszlopában lehet rendezni.
+
+- Az ajánlatok, csomagok, kvóták és előfizetések törlési folyamatának fejlesztése. Mostantól sikeresen törölheti az ajánlatokat, kvótákat, csomagokat és előfizetéseket a felügyeleti portálról, ha a törölni kívánt objektum nem rendelkezik függőségekkel. További információkért tekintse meg [ezt a cikket](azure-stack-delete-offer.md).  
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
-- Javult a syslog-üzenetek mennyisége szűri ki a szükségtelen eseményeket, és válassza ki a kívánt súlyossági szinttel továbbított üzenetek egy konfigurációs paraméter megadásával. A súlyossági szintet konfigurálásával kapcsolatos további információkért lásd: [adatközpont integrációja az Azure Stack - syslog-továbbítás](azure-stack-integrate-security.md).
+- Javított syslog-üzenetek mennyisége a szükségtelen események kiszűrésével és egy konfigurációs paraméter megadásával a továbbított üzenetek kívánt súlyossági szintjének kiválasztásához. További információ a súlyossági szint konfigurálásáról: [Azure stack Datacenter Integration – syslog forwarding](azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Az egyik új funkciója a **Get-AzureStackLog** parancsmag egy további paraméter beágyazza `-OutputSASUri`. Most az Azure Stack gyűjteni a környezetben, és tárolja őket a megadott Azure Storage blob-tárolóban. További információkért lásd: [Azure Stack-diagnosztika](azure-stack-diagnostics.md#examples).
+- Új képességet adott hozzá a **Get-AzureStackLog** parancsmaghoz egy további paraméter `-OutputSASUri`beépítésével. Mostantól összegyűjtheti Azure Stack naplókat a környezetből, és tárolhatja azokat a megadott Azure Storage blob-tárolóban. További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
 
-- Egy új, a memória-ellenőrzés hozzáadva a **Test-AzureStack** `UpdateReadiness` csoport, amely ellenőrzi, hogy van-e elég szabad memória a veremben a frissítés sikeresen befejeződik.
+- Új memória-ellenőrzés hozzáadva a **test-AzureStack** `UpdateReadiness` csoportban, amely ellenőrzi, hogy van-e elegendő memória a veremben a frissítés sikeres befejezéséhez.
 
 <!-- Bug/Task 4311058 -->
-- Továbbfejlesztett **Test-AzureStack** a Service Fabric állapotának értékeléséhez.
+- A **tesztelési AzureStack** fejlesztései Service Fabric állapotának kiértékeléséhez.
 
 <!-- feature: 2976966 -->
-- 2 – 4 óra frissítési fejlesztései hardverfrissítések, ami csökkenti a meghajtó belső vezérlőprogramjának végrehajtásához szükséges időt. A frissítési motorral dinamikusan határozza meg, mely részeit a frissítést végre kell hajtani, a csomag tartalmához alapján.
+- A hardveres frissítések fejlesztése, ami csökkenti a belső vezérlőprogram frissítésének 2-4 órán át történő elvégzéséhez szükséges időt. A frissítési motor dinamikusan meghatározza, hogy a frissítés mely részeit kell végrehajtani, a csomag tartalma alapján.
 
 <!-- Feature 3906611 -->
-- A hozzáadott robusztus művelet Eszközfrissítések zavart okozó infrastruktúra szerepkör példány műveletek rendelkezésre állást befolyásoló elkerülése érdekében.
+- A robusztus működés elővizsgálatai meggátolják a rendelkezésre állást befolyásoló zavaró infrastruktúra-szerepkör-példányok működését.
 
 <!-- Feature 3780326 -->
-- Tervezze meg az infrastruktúra biztonsági mentési művelet idempotens fejlesztései.
+- Az infrastruktúra biztonsági mentési műveleti tervének idempotencia fejlesztései.
 
 <!--Bug/Task 3139609 -->
-- Naplók gyűjtése az Azure Stack fejlesztései. Ezek a fejlesztések a set-naplók lekéréséhez szükséges idő csökkentése. Emellett a [Get-AzureStackLog](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) parancsmag már nem állít elő, az OEM szerepkör alapértelmezett naplókat. Végre kell hajtani a [Invoke-AzureStackOnDemandLog](azure-stack-diagnostics.md#invoke-azurestackondemandlog) parancsmagot, adja meg a szerepkört a OEM naplók begyűjtéséről. További információkért lásd: [Azure Stack-diagnosztika](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- A Azure Stack naplózási gyűjteményének fejlesztése. Ezek a tökéletesítések csökkentik a naplók készletének lekéréséhez szükséges időt. Emellett a [Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) parancsmag már nem hozza létre az alapértelmezett naplókat az OEM szerepkörhöz. Végre kell hajtania a Meghívási [-AzureStackOnDemandLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) parancsmagot, és meg kell adnia a szerepkört az OEM-naplók lekéréséhez. További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-- Az Azure Stack most figyeli az összevonási adatok megadott URL-cím az AD FS-adatközpont integrációja. Ez növeli a megbízhatóságot az ügyfél AD FS-példányt, vagy a farm titkos rotációját során.
+- Azure Stack most az ADFS-vel való adatközpont-integrációhoz megadott összevonási adaturl-címet figyeli. Ez növeli a megbízhatóságot az ügyfél ADFS-példányának vagy-farmjának titkos forgása során.
 
 ### <a name="changes"></a>Módosítások
 
 <!-- Feature 3906611 -->
-- Eltávolítja a beállítást, állítsa le a felügyeleti portálon infrastruktúra-szerepkör példányai az Azure Stack-operátorok számára. Az újraindítás funkciókat biztosítja, hogy egy tiszta Leállítás utáni állapotba kísérlet az infrastruktúra szerepkörpéldány újraindítása előtt. Speciális forgatókönyvek esetén az API és PowerShell funkciót elérhető marad.
+- A felügyeleti portál infrastruktúra-szerepköri példányainak leállításához a Azure Stack operátorok beállítását eltávolították. Az újraindítási funkció biztosítja az infrastruktúra-szerepkör-példány újraindítása előtt a tiszta leállítási kísérletet. A speciális forgatókönyvek esetében az API és a PowerShell funkció továbbra is elérhető marad.
 
 <!-- Feature ## 4199257 -->
-- Egy új piactér megoldást, a Marketplace-rendszerképek és erőforrás-szolgáltatókat külön képernyők van. Most a **erőforrás-szolgáltatók** ablak üres, de a jövőbeli kiadásokban új PaaS szolgáltatásajánlatok fognak megjelenni, és kezelni a **erőforrás-szolgáltatók** ablak.
+- Új piactér-felügyeleti felülettel rendelkezik, amely külön képernyőket biztosít a Piactéri lemezképek és az erőforrás-szolgáltatók számára. Egyelőre az **erőforrás-szolgáltatók** ablak üres, de a későbbi kiadásokban az új Pásti szolgáltatási ajánlatok jelennek meg, és az **erőforrás-szolgáltatók** ablakban lesznek kezelve.
 
 <!-- Feature ## 4199257 -->
-- A frissítési élmény az operátor Portalon módosításait. Van egy új grid erőforrás-szolgáltató frissítésekhez. Erőforrás-szolgáltatók frissíthetik még nem érhető el.
+- A frissítési élmény változásai a kezelő portálon. Az erőforrás-szolgáltató frissítéseinek új rácsa van. Az erőforrás-szolgáltatók frissítésének lehetősége még nem érhető el.
 
 <!-- Task ## 3748423  -->
-- A frissítés telepítési élmény, a kezelő portálon módosításait. Azure Stack segítségével operátorok megfelelő választ egy frissítési probléma a portál most nyújt több konkrét javaslatokért állapotát, a skálázási egység alapján automatikusan származtatott futtatásával **Test-AzureStack** és -elemzés az eredményeket. Az eredmény alapján, tájékoztatja az operátor két műveletek egyikét:
+- A frissítés telepítési felületének változásai a kezelő portálon. Ahhoz, hogy Azure Stack operátorok megfelelően válaszoljanak a frissítési problémákra, a portál a méretezési egység állapotán alapuló, a **AzureStack** és az eredmények elemzésével automatikusan meghatározott javaslatokat is biztosít. Az eredmény alapján a kezelő értesíti az operátort, hogy elvégezze a következő két művelet valamelyikét:
 
-  - A "soft" figyelmeztetés jelenik meg a portálon, amely beolvassa az "a legutóbbi frissítés igények figyelmet. A Microsoft javasolja, hogy egy szolgáltatási kérelem megnyitása a szokásos munkaidejében. A frissítési folyamat részeként a Test-AzureStack végrehajtani, és alapú kimenetén azt a leginkább megfelelő riasztás létrehozása. Ebben az esetben Test-AzureStack átadott."
+  - A "Soft" figyelmeztető riasztás jelenik meg a portálon, amely beolvassa a következőt: "a legutóbbi frissítés figyelmet igényel. A Microsoft azt javasolja, hogy a szokásos munkaidő alatt nyisson meg egy szolgáltatási kérelmet. A frissítési folyamat részeként a test-AzureStack hajtja végre, és a kimenet alapján a legmegfelelőbb riasztást hozza ki. Ebben az esetben a test-AzureStack átadott. "
 
-  - Egy "rögzített" kritikus riasztások jelennek meg a portálon, amely beolvassa az "a legújabb frissítés nem sikerült. A Microsoft javasolja, hogy minél hamarabb megnyitása egy szolgáltatási kérelmet. A frissítési folyamat részeként a Test-AzureStack végrehajtani, és alapú kimenetén azt a leginkább megfelelő riasztás létrehozása. Ebben az esetben Test-AzureStack is nem sikerült."
+  - A "Hard" kritikus riasztás jelenik meg a portálon, amely a következőt olvasta: "a legutóbbi frissítés sikertelen volt. A Microsoft a lehető leghamarabb javasolja a szolgáltatási kérelem megnyitását. A frissítési folyamat részeként a test-AzureStack hajtja végre, és a kimenet alapján a legmegfelelőbb riasztást hozza ki. Ebben az esetben a test-AzureStack is meghiúsult. "
 
-- Frissített Azure Linux-ügynök verziója 2.2.38.0. Ez a támogatás lehetővé teszi az egységes Linux-rendszerképeket az Azure és az Azure Stack közötti fenntartásához.
+- Frissítettük az Azure Linux Agent 2.2.38.0 verzióját. Ez a támogatás lehetővé teszi, hogy az ügyfelek konzisztens Linux-rendszerképeket tartsanak az Azure és a Azure Stack között.
 
-- A frissítés változtatásait naplózza az operátor portálon. Sikeres frissítés naplók beolvasására irányuló kérelmek már nem érhetők el. Nem sikerült frissíteni, mert azok diagnosztikai, gyakorlatban hasznosítható elérhetők naplók továbbra is letölthető.
+- A frissítési naplók változásai a kezelő portálon. A sikeres frissítési naplók beolvasására irányuló kérések már nem érhetők el. Nem sikerült frissíteni a naplókat, mert ezek a diagnosztika számára elérhetők, továbbra is letölthetők.
 
 ### <a name="fixes"></a>Javítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
-- Rögzített, amelyben a syslog-konfiguráció nem fájladatot folyamata alatt tartózkodnak egy frissítést, a syslog-ügyfél elveszíti a konfigurációját, és leállítja a továbbított syslog-üzeneteket okoz problémát. Syslog konfigurálása most megőrződik.
+- Kijavítva egy olyan problémát, amely során a syslog-konfigurációt nem tartották meg egy frissítési cikluson keresztül, így a syslog-ügyfél elveszíti a konfigurációját, és a syslog-üzenetek továbbítása nem történik meg. A syslog konfigurációjának megőrzése megtörtént.
 
-- Javítva lett egy probléma, amely blokkolja a virtuális gépek felszabadítási CRP. Korábban Ha egy virtuális gép több nagy méretű felügyelt lemezek, a virtuális gép felszabadítása előfordulhat, hogy sikertelen volt az időtúllépési hiba.
+- Kijavított egy olyan problémát a CRP-ban, amely letiltotta a virtuális gépek felszabadítását. Korábban, ha egy virtuális gép több nagyméretű felügyelt lemezt tartalmaz, előfordulhat, hogy a virtuális gép felszabadítása időtúllépési hiba miatt meghiúsult.
 
-- Kijavítva a hiba a Windows Defender motor érintő bővítőegysége tárak elérésére.
+- Kijavítottuk a Windows Defender motorral kapcsolatos problémát, amely hatással van a méretezési egységhez való hozzáférésre.
 
-- Kijavítottuk a felhasználói portál, amelyben a hozzáférési házirend ablakot a blob storage-fiókok betöltése nem sikerült.
+- Kijavított egy felhasználói portált érintő problémát, amelyben a blob Storage-fiókok hozzáférési szabályzatának ablaka nem tölthető be.
 
-- Javítva lett egy probléma rendszergazdai és felhasználói portálok, amelyben a globális Azure portállal kapcsolatos téves értesítések megjelentek.
+- Kijavított egy problémát a rendszergazda és a felhasználói portálon is, amelyben a globális Azure Portalokkal kapcsolatos téves értesítések jelentek meg.
 
-- A felhasználói portál javítva melyik kiválasztásakor a **visszajelzés** csempe okozott az üres böngésző elemére kattintva nyissa meg.
+- Kijavított egy felhasználói portált érintő problémát, amelyben a **visszajelzés** csempére kattintva megnyithatja az üres böngésző fület.
 
-- Kijavítottuk a portál melyik módosításával a statikus IP-címet az IP-konfiguráció lett kötve egy hálózati adapter egy Virtuálisgép-példányhoz csatolt okozott megjelenítendő hibaüzenetet.
+- Kijavított egy olyan portált, amely egy virtuálisgép-példányhoz csatlakoztatott hálózati adapterhez kötött IP-konfiguráció statikus IP-címének módosítását eredményezte. a rendszer hibaüzenetet jelenít meg.
 
-- Kijavítva a felhasználói portál melyik tett kísérlet során **hálózati adapter csatolása** keresztül meglévő virtuális géphez a **hálózatkezelés** ablak az okozza, a művelet egy hibaüzenettel meghiúsul.
+- Rögzített egy felhasználói portált érintő probléma, amelyben a **hálózati adapter csatlakoztatása** egy meglévő virtuális géphez a **hálózati** ablakon keresztül megtörtént, hogy a művelet hibaüzenettel meghiúsult.
 
-- Kijavítva, amelyben az Azure Stack nem támogat több mint 4 hálózati adapter (NIC) csatolása a VM-példányra.
+- Kijavítva egy probléma, amelyben a Azure Stack nem támogatja több mint 4 hálózati adapter (NIC) csatolását egy virtuálisgép-példányhoz.
 
-- Melyik hozzáadása egy bejövő biztonsági szabályt, majd válassza a portál javítva **Szolgáltatáscímke** a forrásaként jelenik meg, amelyek nem érhetők el az Azure Stack több lehetőség.
+- Kijavított egy olyan portált, amelyben egy bejövő biztonsági szabály hozzáadása és a **szolgáltatás címkéjének** kiválasztása a forrásként történik, és több olyan lehetőség jelenik meg, amelyek nem érhetők el a Azure stack.
 
-- A probléma, amelyben a hálózati biztonsági csoportok (NSG-k) nem működött az Azure Stackben ugyanúgy, mint az Azure globális a rögzített.
+- Kijavítva azt a problémát, amelyben a hálózati biztonsági csoportok (NSG-EK) nem Azure Stack ugyanúgy működnek, mint a globális Azure.
 
-- Kijavítva a Marketplace-kezelés minden letöltött termékek eltűnik, ha a regisztráció jár, vagy a rendszer eltávolítja.
+- Kijavított egy problémát a piactér-kezelésben, amely elrejti az összes letöltött terméket, ha a regisztráció lejár vagy el lett távolítva.
 
-- Kijavítva a melyik kiadása egy **Set-AzureRmVirtualNetworkGatewayConnection** egy meglévő virtuális hálózati átjáró kapcsolatának parancsot a PowerShellben a hiba miatt nem sikerült **érvénytelen megosztott kulcs van konfigurálva ...** .
+- Kijavítva egy probléma, amelyben a **set-AzureRmVirtualNetworkGatewayConnection** parancs a PowerShellben meglévő virtuális hálózati átjáróhoz való csatlakoztatása sikertelen volt, mert a hibaüzenet **érvénytelen megosztott kulccsal van konfigurálva...**
 
-- A hibát, amely miatt a hálózati erőforrás szolgáltató (NRP) nincs szinkronban a hálózati vezérlő, ismétlődő erőforrások a kért eredményez kell rögzíteni. Bizonyos esetekben ez eredményezett és a szülő erőforrás hiba állapotban.
+- Kijavítva egy olyan problémát, amely miatt a hálózati erőforrás-szolgáltató (NRP) nem szinkronizálható a hálózati vezérlővel, így a rendszer duplikált erőforrásokat kér. Bizonyos esetekben ez a szülő erőforrás hibás állapotba való elhagyását eredményezte.
 
-- Javítva lett egy probléma, amelyben Ha egy előfizetésre, a közreműködő szerepkört rendeltek, de nem kifejezetten adott felhasználó olvasási engedéllyel, hiba jött létre, amely **... Az ügyfél "somelogonaccount@domain.com" objektum azonosítója {GUID} nem rendelkezik a művelet végrehajtására...**  megkísérlésekor. a módosítás mentéséhez egy erőforráshoz.
+- Kijavítva egy probléma, amelyben egy olyan felhasználó, aki közreműködői szerepkört rendelt egy előfizetéshez, de explicit módon nem adta meg az olvasási engedélyeket, a rendszer hibát generált a következő üzenet olvasásakor:.. **. A (zsomelogonaccount@domain.com) {GUID} azonosítójú ügyfél nem rendelkezik a művelet végrehajtásához szükséges engedéllyel...** amikor egy erőforrás módosítását kísérli meg menteni.
 
-- Kijavítva, amelyben a Marketplace-en felügyeleti képernyő üres volt a kapcsolat nélküli szindikálási eszköz használt tölthet fel képeket, és ezek közül bármelyik hiányzik a URI(s) ikonra.
+- Kijavított egy olyan problémát, amelyben a piactér-felügyeleti képernyő üres volt, ha az offline szindikált eszköz lemezképek feltöltésére lett használva, és ezek közül bármelyikből hiányzik az ikon URI-ja.
 
-- Kijavítva egy probléma, amely ebben az esetben a termékek, amelyek nem sikerült letölteni a marketplace-kezelés törölhető.
+- Kijavítva egy olyan hibát, amely megakadályozta, hogy a rendszer nem tudta letölteni a piactér-felügyeletet.
 
 ### <a name="security-updates"></a>Biztonsági frissítések
 
-Ez a frissítés az Azure Stack nem tartalmazza az alapul szolgáló operációs rendszer, amely az Azure Stack biztonsági frissítéseket. További információ: [Azure Stack biztonsági frissítések.](azure-stack-release-notes-security-updates-1904.md)
+Azure Stack ezen frissítése nem tartalmazza a Azure Stack futtató operációs rendszer biztonsági frissítéseit. További információ: [Azure stack biztonsági frissítések.](azure-stack-release-notes-security-updates-1904.md)
 
-## <a name="update-planning"></a>Tervezés módosítása
+## <a name="update-planning"></a>Frissítés tervezése
 
-A frissítés alkalmazásához, mindenképpen tekintse át a következő információkat:
+A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
 
 - [Ismert problémák](azure-stack-release-notes-known-issues-1904.md)
 - [Biztonsági frissítések](azure-stack-release-notes-security-updates-1904.md)
-- [Alkalmazása a frissítés előtti és utáni tevékenységek ellenőrzőlista](azure-stack-release-notes-checklist.md)
+- [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](azure-stack-release-notes-checklist.md)
 
 > [!NOTE]
-> Ügyeljen arra, hogy a legújabb verzióját használja a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) végrehajtására a számítási feladatok tervezésekor és méretezése. A legújabb verzió hibajavításokat tartalmaz, és olyan megjelent új funkciókat biztosít minden egyes Azure Stack a frissítéssel.
+> Ügyeljen arra, hogy az [Azure stack Capacity Planner](https://aka.ms/azstackcapacityplanner) eszköz legújabb verzióját használja a számítási feladatok tervezéséhez és méretezéséhez. A legújabb verzió hibajavításokat tartalmaz, és új funkciókat biztosít az egyes Azure Stack frissítésekhez.
 
 ## <a name="download-the-update"></a>A frissítés letöltése
 
-Letöltheti az Azure Stack 1904 frissítési csomagot [az Azure Stack letöltés oldal](https://aka.ms/azurestackupdatedownload).
+A Azure Stack 1904 frissítési csomagot [a Azure stack letöltési oldaláról](https://aka.ms/azurestackupdatedownload)töltheti le.
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Az Azure Stack rendszeresen gyorsjavításait. Mindenképpen a legújabb Azure Stack gyorsjavítás telepítése 1903 az Azure Stack 1904 frissítése előtt.
+Azure Stack a gyorsjavításokat rendszeresen kiadják. Győződjön meg arról, hogy a 1903-es Azure Stack legújabb gyorsjavítást telepíti a 1904-es Azure Stack frissítése előtt.
 
-Az Azure Stack-gyorsjavítások csak alkalmazhatók az Azure Stackkel integrált rendszerek. Ne kísérelje meg a ASDK gyorsjavítások telepítése.
+Azure Stack gyorsjavítások csak Azure Stack integrált rendszerekre alkalmazhatók. Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
-### <a name="before-applying-the-1904-update"></a>A 1904 alkalmazása előtt frissítése
+### <a name="before-applying-the-1904-update"></a>Az 1904-es frissítés alkalmazása előtt
 
-Az Azure Stack 1904 kiadását kell alkalmazni az a következő gyorsjavításokat 1903 kiadására:
+A Azure Stack 1904-es kiadását a 1903-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Az Azure Stack gyorsjavítás 1.1903.2.39](https://support.microsoft.com/help/4500638)
+- [Azure Stack gyorsjavítás 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
-### <a name="after-successfully-applying-the-1904-update"></a>Frissítse a 1904 sikeres alkalmazása után
+### <a name="after-successfully-applying-the-1904-update"></a>Az 1904-es frissítés sikeres alkalmazása után
 
-Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
+A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
-- [Az Azure Stack gyorsjavítás 1.1904.4.45](https://support.microsoft.com/help/4505688)
+- [Azure Stack gyorsjavítás 1.1904.4.45](https://support.microsoft.com/help/4505688)
 
-## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
+## <a name="automatic-update-notifications"></a>Automatikus frissítési értesítések
 
-Ügyfelek, a rendszerek, amelyek hozzáférnek az internethez, az infrastruktúra-hálózaton fogják látni a **frissítés érhető el** az operátor Portal webhelyen megjelenő. Internet-hozzáférés nélküli rendszerekhez letöltheti, és importálja a megfelelő .xml a .zip fájlt.
+Az infrastruktúra-hálózatról az internetre elérő rendszerekkel rendelkező ügyfelek az **elérhető frissítés** üzenet jelenik meg az operátori portálon. Az internet-hozzáféréssel nem rendelkező rendszerek a megfelelő. xml fájllal tölthetik le és importálhatók a. zip fájlt.
 
 > [!TIP]  
-> Fizessen elő a következő *RSS* vagy *Atom* tartani az Azure Stack gyorsjavítások-hírcsatornák:
+> Feliratkozás a következő *RSS* -vagy *Atom* -hírcsatornára Azure stack gyorsjavítások megtartásához:
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [Az Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="next-steps"></a>További lépések
 

@@ -1,6 +1,6 @@
 ---
-title: Használati kapcsolódási problémák és hibák az Azure Stackben |} A Microsoft Docs
-description: Hibaelhárítás az Azure Stack használati problémákat és hibákat.
+title: Kapcsolódási problémák és hibák a Azure Stackban | Microsoft Docs
+description: Hibaelhárítás Azure Stack használati problémák és hibák elhárítása.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,50 +15,50 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 57c546ec3583c9e04594e4da542a3c2ce3f72c62
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 68bf47ab2a0842b0aeeae07030272e7106a63220
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419757"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494117"
 ---
-# <a name="usage-connectivity-errors"></a>Használati kapcsolódási hibák
+# <a name="usage-connectivity-errors"></a>Használati csatlakozási hibák
 
-Az Azure Stack használati adatokat küld a az Azure által a [ *Azure híd* összetevő](azure-stack-usage-reporting.md) az Azure Stackben. Ha az Azure Stack belül híd nem lehet csatlakozni az Azure-használat szolgáltatás, a következő hiba jelenik meg:
+Azure Stack a használati adatokat az Azure-ba küldi a rendszer a Azure Stack [ *Azure Bridge* összetevője](azure-stack-usage-reporting.md) . Ha a Azure Stackon belüli híd nem tud csatlakozni az Azure-beli használati szolgáltatáshoz, a következő hibaüzenet jelenik meg:
 
-![használati híd hiba](media/azure-stack-usage-issues/usageerror2.png)
+![használati híd hibája](media/azure-stack-usage-issues/usageerror2.png)
 
-Az ablak előfordulhat, hogy adja meg a hiba és a megoldással kapcsolatos további információt:
+Az ablakban további információk is megadhatók a hibáról és a megoldásról:
 
 ![hiba feloldása](media/azure-stack-usage-issues/usageerror3.png)
 
-## <a name="resolve-connectivity-issues"></a>Kapcsolati problémák elhárításához
+## <a name="resolve-connectivity-issues"></a>Kapcsolódási problémák megoldása
 
-A probléma megoldásához próbálja meg a következőket:
+A probléma megoldásához próbálkozzon a következő lépésekkel:
 
-- Győződjön meg arról, hogy a hálózati konfiguráció lehetővé teszi, hogy az Azure híd a távoli szolgáltatáshoz való csatlakozáshoz.
+- Ellenőrizze, hogy a hálózati konfiguráció lehetővé teszi-e a Azure Bridge számára a távoli szolgáltatáshoz való kapcsolódást.
 
-- Nyissa meg a [ **régiók kezelése** > **tulajdonságok** ](azure-stack-registration.md#verify-azure-stack-registration) panelen található az Azure-előfizetési Azonosítóját, a regisztráció, erőforráscsoport és nevét, a regisztráció az erőforrás. Győződjön meg arról, hogy a regisztrációs erőforrás létezik-e az Azure Portalon a megfelelő Azure-előfizetés azonosítója alapján. Ehhez nyissa meg **összes erőforrás** létrehozott Azure-előfizetési Azonosítóját, és ellenőrizze a **rejtett típusok megjelenítése** mezőbe. Ha a regisztráció erőforrás nem található, kövesse a [megújítása vagy módosítás regisztrációs](azure-stack-registration.md#renew-or-change-registration) újra regisztrálni az Azure Stack.
+- A régió- [ **felügyeleti** > **Tulajdonságok** ](azure-stack-registration.md#verify-azure-stack-registration) panelen megkeresheti a regisztrációhoz, az erőforráscsoporthoz és a regisztrációs erőforrás nevéhez használt Azure-előfizetés azonosítóját. Győződjön meg arról, hogy a regisztrációs erőforrás létezik a megfelelő Azure-előfizetési AZONOSÍTÓban Azure Portalban. Ehhez nyissa meg az Azure-előfizetés azonosítója alatt létrehozott **összes erőforrást** , és jelölje be a **rejtett típusok megjelenítése** jelölőnégyzetet. Ha nem találja a regisztrációs erőforrást, kövesse a megújítása [vagy a regisztráció módosítása](azure-stack-registration.md#renew-or-change-registration) a Azure stack újbóli regisztrálásához című témakör lépéseit.
 
   ![Portál](media/azure-stack-usage-issues/stackres.png)
 
 ## <a name="error-codes"></a>Hibakódok
 
-Ez a szakasz ismerteti a használati hibakódok.
+Ez a szakasz a használati hibakódokat ismerteti.
 
 | Hibakód                 | Probléma                                                                                                                                             | Szervizelés                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NetworkError               | Az Azure Stack-híd nem tudja kérés küldése a szolgáltatásvégpont használat az Azure-ban.                                                            | Ha a proxy blokkolja-e vagy elfogja a használati szolgáltatásvégpont való hozzáférés ellenőrzése.                                                                                                                                                                                                             |
-| RequestTimedOut            | Kérelem el lett küldve, az Azure hídról, de a használatmérő szolgáltatást az Azure-ban nem válaszol az időkorláton belül.                             | Ha a proxy blokkolja-e vagy elfogja a használati szolgáltatásvégpont való hozzáférés ellenőrzése.                                                                                                                                                                                                                        |
-| LoginError                 | Nem lehet hitelesíteni a Microsoft Azure Active Directoryval.                                                                                                             | Győződjön meg arról, az Azure AD bejelentkezési végpont érhető el minden XRP virtuális gép az Azure Stackben.                                                                                                                                                                                                                     |
-| CertificateValidationError | Az Azure híd nem sikerül, a kérelem elküldéséhez, mert nem tudja hitelesíteni az Azure-szolgáltatások.                                    | Ellenőrizze, hogy van-e a proxy elfogja a HTTPS-forgalmat az Azure Stack XRP számítógép és a használati felhőátjárók végpontjaival.                                                                                                                                                                                      |
-| Nem engedélyezett               | Az Azure híd nem sikerül adatok leküldése az Azure-ban, a használatmérő szolgáltatást, mert az Azure-szolgáltatás nem képes hitelesíteni az Azure Stack híd. | Ellenőrizze, hogy a regisztrációs erőforrás módosult, és ha igen, az Azure Stack regisztrálja újra. <br><br> Egyes esetekben egy Azure Stack és az Azure AD sync problémát okozhat, ez a hiba ideje. Ebben az esetben ügyeljen arra, az időpontokat, az Azure Stacken XRP virtuális gépeken az Azure ad-vel szinkronizált. |
+| NetworkError               | Azure Stack híd nem tud elküldeni egy kérést a használati szolgáltatás végpontjának az Azure-ban.                                                            | Ellenőrizze, hogy a proxy blokkolja-e vagy elfogja-e a használati szolgáltatás végpontjának elérését.                                                                                                                                                                                                             |
+| RequestTimedOut            | A rendszer elküldte a kérelmet a Azure Bridge, de az Azure-beli használati szolgáltatás nem válaszolt az időtúllépési időszakon belül.                             | Ellenőrizze, hogy a proxy blokkolja-e vagy elfogja-e a használati szolgáltatás végpontjának elérését.                                                                                                                                                                                                                        |
+| LoginError                 | Nem sikerült hitelesíteni a Microsoft Azure Active Directory.                                                                                                             | Győződjön meg arról, hogy az Azure AD bejelentkezési végpontja elérhető a Azure Stack összes XRP virtuális gépről.                                                                                                                                                                                                                     |
+| CertificateValidationError | Az Azure-híd nem tudja elküldeni a kérést, mert nem tud hitelesíteni az Azure szolgáltatással.                                    | Ellenőrizze, hogy van-e proxy a Azure Stack XRP-gép és a használati átjáró végpontja között a HTTPS-forgalom elfogásával.                                                                                                                                                                                      |
+| Nem engedélyezett               | Az Azure-híd nem tud adatokat leküldeni a használati szolgáltatásnak az Azure-ban, mert az Azure-szolgáltatás nem tudja hitelesíteni a Azure Stack hidat. | Ellenőrizze, hogy a regisztrációs erőforrás módosult-e, és ha igen, regisztrálja újra Azure Stack. <br><br> Időnként a Azure Stack és az Azure AD közötti szinkronizálási probléma okozhatja ezt a hibát. Ebben az esetben ügyeljen arra, hogy az Azure Stack XRP virtuális gépeken lévő idő szinkronban legyen az Azure AD-vel. |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-Ezenkívül, szükség lehet a adja meg a naplófájlokat az Azure-hidat, WAS és WASPublic összetevők a következő [ezeket a lépéseket](azure-stack-diagnostics.md#log-collection-tool).
+Emellett előfordulhat, hogy az alábbi [lépéseket](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)követve meg kell adnia a naplófájlokat a Azure Bridge, a és a WASPublic összetevőkhöz.
 
 ## <a name="next-steps"></a>További lépések
 
-- Tudjon meg többet [Azure Stack használati adatokról szóló jelentéseket küldeni az Azure-bA](azure-stack-usage-reporting.md).
-- Tekintse át a hibaüzeneteket, ha a regisztrációs folyamat során el, lásd: [bérlő regisztrációs hibaüzenetek](azure-stack-registration-errors.md).
-- Tudjon meg többet a [használati jelentéskészítési infrastruktúra felhőszolgáltatók](azure-stack-csp-ref-infrastructure.md).
+- További információ a [Azure stack használati adatok Azure-ba történő jelentéskészítéséről](azure-stack-usage-reporting.md).
+- Ha a regisztrációs folyamat során aktiválják a hibaüzeneteket, tekintse át a [bérlői regisztrációs hibaüzeneteket](azure-stack-registration-errors.md).
+- További információ a [felhőalapú szolgáltatók használati jelentési infrastruktúrájának használatáról](azure-stack-csp-ref-infrastructure.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-naplók és adatkezelés |} A Microsoft Docs
-description: Ismerje meg az Azure Stack hogyan adatokat gyűjt.
+title: A naplók és az adatkezelés Azure Stacka | Microsoft Docs
+description: További információ a Azure Stack információk gyűjtéséről.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,51 +16,51 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 495b75359cb8c859e532885a1c9fa284691bd90f
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828346"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493814"
 ---
-# <a name="azure-stack-log-and-customer-data-handling"></a>Az Azure Stack napló- és felhasználói adatok kezelése 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*  
+# <a name="azure-stack-log-and-customer-data-handling"></a>A naplók és az ügyfelek adatkezelésének Azure Stack 
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
 
-A mértékben a Microsoft a processzor- és a személyes adatok a gyűjthetünk Azure Stack subprocessor, minden ügyfelünk számára, hatékony teszi a Microsoft 25 2018 május, a kötelezettségvállalás az (a) a személyes adatok; "feldolgozása Általános adatvédelmi rendelet"kiépítés"Adatvédelmi feltételeket"szakaszának a [Online szolgáltatások használati feltételeit](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) és (b) a az Európai Unió általános adatvédelmi rendelet feltételeket melléklet 4 a [Online szolgáltatások használati feltételeit](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). 
+Ahhoz, hogy a Microsoft a Azure Stack-mel kapcsolatos személyes adatfeldolgozót vagy alfeldolgozót is feldolgozza, a Microsoft minden ügyfelének, a személyes adat feldolgozásának (a) a (a) részében foglalt kötelezettségeknek megfelelően 2018. GDPR "az [online](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) szolgáltatások feltételeinek és (b) az európai Unió általános adatvédelmi rendelet az [online szolgáltatások használati feltételeinek](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)4. mellékletében foglalt" adatvédelmi feltételek "című szakaszának kiépítése. 
 
-Azure Stack vevő adatközpontokban található, mint a Microsoft a keresztül megosztott adatok, kizárólag az adatkezelő [diagnosztikai](azure-stack-diagnostics.md), [Telemetriai](azure-stack-telemetry.md), és [Számlázási](azure-stack-usage-reporting.md).  
+Ahogy Azure Stack az ügyfél-adatközpontokban található, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
 
-## <a name="data-access-controls"></a>Hozzáférés-vezérlést 
-Microsoft-alkalmazottak számára, aki hozzá van rendelve egy adott esetet vizsgálatára, a titkosított adatok csak olvasási hozzáféréssel fog kapni. Microsoft-alkalmazottak számára is törli az adatokat, szükség esetén használt eszközök eléréséhez. Összes hozzáférést az ügyféladatokhoz naplózza, és bejelentkezett.  
+## <a name="data-access-controls"></a>Adathozzáférési vezérlők 
+Az adott támogatási eset kivizsgálásához hozzárendelt Microsoft-alkalmazottak csak olvasási hozzáférést kapnak a titkosított adathoz. A Microsoft alkalmazottai is hozzáférhetnek az adattörléshez használt eszközökhöz, ha szükségesek. A rendszer naplózza és naplózza az ügyféladatok összes hozzáférését.  
 
-Adatok hozzáférés-vezérlés:
-1.  Csak őrizzük meg legfeljebb 90 nap elteltével eset zárja be az adatokat.
-2.  Az ügyfél mindig a legfrissebb adatokat eltávolítja az adott 90 napos időszakban bármikor lehetősége van.
-3.  Microsoft-alkalmazottak számára az adatok-eseti alapon kapjanak hozzáférést, és segítségével igény szerint csak a hiba elhárításához támogatási. 
-4.  Az esemény, a Microsoft kell az ügyféladatokat osztja a OEM-partnerekkel való ügyfél beleegyezése megadása kötelező.  
+Adathozzáférési vezérlők:
+- Az adat csak a kis-és nagybetűk zárása után 90 napig tartható meg.
+- Az ügyfélnek mindig lehetősége van arra, hogy a 90 napos időszakban bármikor eltávolítsa az adatvesztést.
+- A Microsoft alkalmazottai eseti alapon, és csak a támogatási probléma megoldásához szükséges módon férhetnek hozzá az adathoz. 
+- Abban az esetben, ha a Microsoftnak meg kell osztania az ügyféladatokat az OEM-partnerekkel, az ügyfél beleegyezik a kötelező.  
 
-### <a name="what-data-subject-requests-dsr-controls-do-customers-have"></a>Adatok tulajdonos kérelmek (DSR) vezérlők do ügyfeleink van?
-Ahogy korábban említettük, a Microsoft támogatja az igény szerinti Adattörlés ügyfél kérelmenként. Ügyfelek kérheti, hogy a támogatási szakember egy adott esetben az összes naplók törlése bármikor, az ügyfél választja, mielőtt az adat véglegesen törlődik.  
+### <a name="what-data-subject-requests-dsr-controls-do-customers-have"></a>Milyen adattulajdonosi kérelmek (DSR) típusú vezérlőkkel rendelkeznek az ügyfelek?
+Ahogy azt korábban említettük, a Microsoft az igény szerinti adattörlést is támogatja az ügyfelek kérésére. Az ügyfelek kérhetik, hogy a támogatási szakemberük az adott esethez tartozó naplókat az ügyfél választása szerint bármikor törölje az adat végleges törlése előtt.  
 
-### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>Nem Microsoft ügyfelek értesítése az adatok törlése?
-Az automatikus törlés művelet (90 nap után zárja be a eset) azt nem proaktív módon ügyfelekkel és értesíteni őket a törlést. 
+### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>A Microsoft értesíti az ügyfeleket az adattörlésről?
+Az automatikus adattörlési művelethez (90 nappal az eset lezárása után) nem proaktív módon kell felvenni a kapcsolatot az ügyfelekkel, és értesíteni őket a törlésről. 
 
-Az igény szerinti adatok törlés művelet a Microsoft támogatási szakértő hozzáfér az eszközt, ahol kezdeményezhetnek, hogy az adatok törlése az igény szerinti és azok megadhatják megerősítést a telefonján az ügyfélnél Amikor kész van.
+Az igény szerinti adattörlési művelethez a Microsoft támogatási szakembere hozzáfér az eszközhöz, ahol igény szerint elindíthatják az adattörlést, és megerősítik a telefont az ügyféllel, ha elkészült.
 
-## <a name="diagnostic-data"></a>Diagnosztikai adatok
-A támogatási folyamat részeként az Azure Stack-operátorok is [diagnosztikai naplók megosztása](azure-stack-diagnostics.md) Azure Stack támogatása és mérnöki csapataival a hibaelhárítás megkönnyítése érdekében.
+## <a name="diagnostic-data"></a>Diagnosztikai adatszolgáltatások
+A támogatási folyamat részeként Azure Stack operátorok megoszthatják a [diagnosztikai naplókat](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) Azure stack támogatási és mérnöki csapatokkal a hibaelhárítás érdekében.
 
-A Microsoft biztosít olyan eszköz, és parancsfájl gyűjtése, és töltse fel az ügyfelek számára a kért diagnosztikai naplófájlok. Követően a naplófájlok továbbítja a HTTPS védett a Microsoftnak titkosított kapcsolaton. HTTPS a titkosítást biztosít a hálózaton keresztül, mert nincs jelszavát nem szükséges a titkosítás az átvitel során. Miután érkeznek, naplók titkosítva, és tárolja, amíg azok a lezárt támogatási kérés után 90 nappal automatikusan törlődnek.
+A Microsoft egy eszközt és parancsfájlt biztosít az ügyfeleknek a kért diagnosztikai naplófájlok gyűjtéséhez és feltöltéséhez. Az adatgyűjtés után a rendszer a naplófájlokat HTTPS-védelemmel ellátott, titkosított kapcsolaton keresztül továbbítja a Microsoftnak. Mivel a HTTPS biztosítja a titkosítást a hálózaton keresztül, nincs szükség jelszóra az átvitelhez szükséges titkosításhoz. A fogadást követően a rendszer titkosítja és tárolja a naplókat, amíg a támogatási eset bezárása után 90 nappal automatikusan törlődnek.
 
-## <a name="telemetry-data"></a>Telemetriai adatok
-[Az Azure Stack-telemetria](azure-stack-telemetry.md) automatikusan feltölti a rendszer adatokat a Microsoft csapatához, a kapcsolódó felhasználói élményt. Az Azure Stack-operátorok bármikor telemetriafunkciók és adatvédelmi beállítások testreszabása vezérlők rendelkezik.
+## <a name="telemetry-data"></a>Telemetria-adathalmazok
+[Azure stack a telemetria](azure-stack-telemetry.md) automatikusan feltölti a rendszeradatokat a Microsoftnak a csatlakoztatott felhasználói felületen keresztül. Azure Stack operátorok rendelkeznek a telemetria szolgáltatásainak és adatvédelmi beállításainak bármikori testreszabásához szükséges vezérlőkkel.
 
-A Microsoft nem kíván a bizalmas adatokat, például hitelkártyaszámokat tartalmazó, felhasználónevek és jelszavak, e-mail-címeket vagy hasonló bizalmas adatokat gyűjteni. Ha azt állapítja meg, hogy bizalmas adatok véletlenül érkezett, hogy törölje azt. 
+A Microsoft nem szeretne bizalmas adatokat gyűjteni, például hitelkártyaszám, felhasználónevek és jelszavak, e-mail-címek vagy hasonló bizalmas információk gyűjtésére. Ha azt állapítjuk meg, hogy a bizalmas adatokat véletlenül fogadták, töröljük. 
 
-## <a name="billing-data"></a>A számlázás
-[Az Azure Stack számlázási](azure-stack-usage-reporting.md) globális Azure-számlázás és felhasználás folyamat, és ezért a Microsoft megfelelőségi irányelveinek ciklustól használja.
+## <a name="billing-data"></a>Számlázási információk
+[Azure stack számlázás](azure-stack-usage-reporting.md) a globális Azure számlázási és használati folyamatát használja, ezért a Microsoft megfelelőségi irányelveinek megfelelően van összhangban.
 
-Az Azure Stack-operátorok konfigurálhatja az Azure Stack használatával továbbítja a használati adatokat az Azure-bA a számlázás. Ez azért szükséges, a több csomópontos Azure Stack ajánljuk, akik használatalapú mint-akkor-használható számlázási modellt. Használati jelentések szabályozott egymástól függetlenül telemetriai adatokból, és, nem szükséges, több csomópontos ajánljuk, akik a kapacitás modellt vagy az Azure Stack Development Kit felhasználókhoz. Ebben az esetben használati jelentések is ki legyen kapcsolva használatával [a regisztrációs parancsfájl](azure-stack-usage-reporting.md).
+Azure Stack operátorok a használati információk Azure-ba történő továbbításához konfigurálhatják Azure Stack a számlázáshoz. Ez olyan többcsomópontos Azure Stack ügyfelek esetében szükséges, akik az Ön által használt fizetési számlázási modellt választják. A használati jelentéseket a telemetria-től függetlenül kell vezérelni, és nem szükséges a több csomópontot használó ügyfelek számára, akik kiválasztják a kapacitás modellt vagy Azure Stack Development Kit felhasználók számára. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl](azure-stack-usage-reporting.md)használatával.
 
 
 ## <a name="next-steps"></a>További lépések 

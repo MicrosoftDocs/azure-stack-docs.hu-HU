@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e8a1e40ec5b333862eaca59d7269a46a91460237
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 6dda8562e47f17c97da5e0597a2ed88865bc6425
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376801"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497856"
 ---
 # <a name="use-idns-in-azure-stack"></a>IDNS használata Azure Stack 
 
@@ -34,7 +34,7 @@ A Azure Stackban a iDNS a következő képességeket kapja, anélkül, hogy egy�
 
 - Megosztott DNS-névfeloldási szolgáltatások bérlői számítási feladatokhoz.
 - Mérvadó DNS-szolgáltatás a névfeloldáshoz és a DNS-regisztrációhoz a bérlői virtuális hálózaton belül.
-- Rekurzív DNS szolgáltatás a bérlői virtuális gépek internetes neveinek feloldásához. A bérlőknek többé nem kell egyéni DNS-bejegyzéseket megadniuk az internetes nevek feloldásához (például www.bing.com).
+- Rekurzív DNS szolgáltatás a bérlői virtuális gépek internetes neveinek feloldásához. A bérlőknek többé nem kell egyéni DNS-bejegyzéseket megadniuk az internetes nevek feloldásához (\.például www-Bing.com).
 
 Továbbra is használhatja a saját DNS-t, és használhat egyéni DNS-kiszolgálókat. A iDNS használatával azonban megoldhatók az internetes DNS-nevek, és az azonos virtuális hálózatban lévő más virtuális gépekhez is csatlakozhatnak anélkül, hogy egyéni DNS-bejegyzéseket kellene létrehoznia.
 

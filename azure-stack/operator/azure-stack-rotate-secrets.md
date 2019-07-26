@@ -15,12 +15,12 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380412"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497835"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>A titkok elforgatása Azure Stack
 
@@ -252,9 +252,9 @@ Remove-PSSession -Session $PEPSession
 
 3. Várjon, amíg a titkok elforgatása megtörtént.
 
-Ha a titkos kód elforgatása sikeresen befejeződött, a **konzolon a művelet általános állapota jelenik meg: Sikeres**művelet.
+   Ha a titkos kód elforgatása sikeresen befejeződött, a **konzolon a művelet általános állapota jelenik meg: Sikeres**művelet.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, és futtassa újra a **Start-SecretRotation** parancsot a **-Internal** és a **-** újrafuttatási paraméterekkel.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -300,9 +300,9 @@ A **Start-SecretRotation** parancsmag egy Azure stack rendszer infrastruktúra-t
 
 | Paraméter | Type | Kötelező | Pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Sztring  | False (Hamis)  | Elemzi  | None  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
+| `PfxFilesPath` | Sztring  | False (Hamis)  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
 | `CertificatePassword` | SecureString | False (Hamis)  | Elemzi  | None  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
-| `Internal` | Karakterlánc | False (Hamis) | Elemzi | None | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `Internal` | Sztring | False (Hamis) | Elemzi | None | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
 | `PathAccessCredential` | PSCredential | False (Hamis)  | Elemzi  | None  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
 | `ReRun` | SwitchParameter | False (Hamis)  | Elemzi  | Nincsenek  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
 

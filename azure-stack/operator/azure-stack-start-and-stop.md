@@ -1,6 +1,6 @@
 ---
-title: Elindítása és leállítása az Azure Stackben |} A Microsoft Docs
-description: Megtudhatja, hogyan indítása és leállítása az Azure Stack.
+title: Azure Stack elindítása és leállítása | Microsoft Docs
+description: Útmutató Azure Stack elindításához és leállításához.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,62 +16,62 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ee2c0e5551d6ee942d0459017412368f7e115dc7
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 993c0c668a8894c82eddbf79e93b1722d3a3d8f4
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131379"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494020"
 ---
 # <a name="start-and-stop-azure-stack"></a>Elindítása és leállítása az Azure Stackben
-Ez a cikk megfelelően állítsa le és indítsa újra az Azure Stack-szolgáltatásokat az eljárást kell követnie. Leállítás fizikailag a teljes Azure Stack-környezet lesz kikapcsolásához. Bekapcsolja az összes infrastruktúra-szerepkörök a indítsa el, és adja vissza a bérlői erőforrásokat az áramellátási állapot, leállítás előtt voltak.
+A jelen cikkben ismertetett eljárásokkal Azure Stack szolgáltatások megfelelő leállítására és újraindítására van lehetőség. A Leállítás fizikailag kikapcsolja a teljes Azure Stack környezetet. A rendszer elindítja az összes infrastruktúra-szerepkörre vonatkozó hatásköröket, és visszaadja a bérlői erőforrásokat a leállításuk előtti állapotba.
 
-## <a name="stop-azure-stack"></a>Állítsa le az Azure Stack 
+## <a name="stop-azure-stack"></a>Azure Stack leállítása 
 
-Állítsa le az Azure Stack az alábbi lépéseket követve:
+Azure Stack leállítása a következő lépésekkel:
 
-1. Az Azure Stack-környezet bérlői erőforrások a közelgő leállítás futó összes számítási feladatainak előkészítése. 
+1. Készítse elő az Azure Stack-környezet bérlői erőforrásain futó összes munkaterhelést a közelgő leállításhoz. 
 
-2. Nyissa meg egy emelt szintű végpont munkamenet (EGP) hálózati hozzáféréssel rendelkező számítógépen az Azure Stack ERCS virtuális gépekre. Útmutatásért lásd: [a rendszerjogosultságú végpont használata az Azure Stackben](azure-stack-privileged-endpoint.md).
+2. Nyisson meg egy kiemelt jogosultságú végponti munkamenetet (PEP) egy olyan gépről, amely hálózati hozzáféréssel rendelkezik a Azure Stack ERCS virtuális gépekhez. Útmutatásért lásd: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
-3. Futtassa az EGP:
+3. A PEP-ből futtassa a következőt:
 
     ```powershell
       Stop-AzureStack
     ```
 
-4. Várjon, amíg az összes fizikai az Azure Stack csomópontok, a power ki.
+4. Várjon, amíg az összes fizikai Azure Stack csomópont ki nem kapcsol.
 
 > [!Note]  
-> Ellenőrizheti a fizikai csomópont power állapotát, a számítógépgyártó (OEM) ki az Azure Stack hardverét megadott utasítások szerint. 
+> A fizikai csomópontok energiaellátási állapotát az eredeti berendezésgyártó (OEM) azon utasításait követve ellenőrizheti, akik a Azure Stack hardvert szolgáltatták. 
 
-## <a name="start-azure-stack"></a>Indítsa el az Azure Stack 
+## <a name="start-azure-stack"></a>Kezdés Azure Stack 
 
-Indítsa el az Azure Stack az alábbi lépéseket követve. Kövesse az alábbi lépéseket, függetlenül attól, milyen az Azure Stack leállt.
+Indítsa el Azure Stack a következő lépésekkel. Kövesse az alábbi lépéseket a Azure Stack leállításának módjától függetlenül.
 
-1. Az egyes fizikai csomópontjainak az Azure Stack környezettel Power. Győződjön meg arról a fizikai csomópontok utasításokat bekapcsolási a a számítógépgyártó (OEM) ki az Azure Stackhez készült hardver megadott utasítások szerint.
+1. Kapcsolja be a Azure Stack-környezet egyes fizikai csomópontjait. Ellenőrizze a fizikai csomópontok bekapcsolási utasításait az eredeti berendezésgyártó (OEM) utasításait követve, akik a Azure Stack hardverét adták meg.
 
-2. Várjon, amíg elindítja az Azure Stack infrastruktúra-szolgáltatásokat. Az Azure Stack infrastruktúra-szolgáltatások, az indítási folyamat befejezése két óra lehet szükség. Az Azure Stack kezdő állapotának ellenőrzéséhez a [ **Get-ActionStatus** parancsmag](#get-the-startup-status-for-azure-stack).
+2. Várjon, amíg a Azure Stack infrastruktúra szolgáltatás elindul. Azure Stack infrastrukturális szolgáltatások két órát igényelhetnek a kezdési folyamat befejezéséhez. A [ **Get-ActionStatus** parancsmaggal](#get-the-startup-status-for-azure-stack)ellenőrizheti Azure stack indítási állapotát.
 
-3. Győződjön meg arról, hogy az összes bérlői erőforrás vissza az állapot, leállítás előtt voltak. Bérlői erőforrások futó számítási feladatokat kell előfordulhat, hogy a munkaterhelés-kezelő indítás után konfigurálni.
+3. Győződjön meg arról, hogy az összes bérlői erőforrás vissza lett állítva a leállítás előtti állapotba. Előfordulhat, hogy a munkaterhelés-kezelő indítása után újra kell konfigurálni a bérlői erőforrásokon futó munkaterheléseket.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Az Azure stack-beli indítási állapotának beolvasása
+## <a name="get-the-startup-status-for-azure-stack"></a>Azure Stack indítási állapotának beolvasása
 
-Az indítási lekérése az Azure Stack indítási rutin a következő lépésekkel:
+Szerezze be a Azure Stack indítási rutin indítását a következő lépésekkel:
 
-1. Munkamenetet nyit meg egy emelt szintű végpont hálózati hozzáféréssel rendelkező számítógépen az Azure Stack ERCS virtuális gépekre.
+1. Nyisson meg egy kiemelt jogosultságú végponti munkamenetet egy olyan gépről, amely hálózati hozzáféréssel rendelkezik a Azure Stack ERCS virtuális gépekhez.
 
-2. Futtassa az EGP:
+2. A PEP-ből futtassa a következőt:
 
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Indítási és leállítási az Azure Stack hibaelhárítása
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Azure Stack indításának és leállításának hibakeresése
 
-Az alábbi lépések végrehajtásával, ha az infrastrukturális és bérlői szolgáltatások nem sikerült elindítani a 2 órával később, a power az Azure Stack környezettel a. 
+Hajtsa végre az alábbi lépéseket, ha az infrastruktúra és a bérlői szolgáltatások nem indulnak el sikeresen 2 órával a Azure Stack környezetének bekapcsolása után. 
 
-1. Munkamenetet nyit meg egy emelt szintű végpont hálózati hozzáféréssel rendelkező számítógépen az Azure Stack ERCS virtuális gépekre.
+1. Nyisson meg egy kiemelt jogosultságú végponti munkamenetet egy olyan gépről, amely hálózati hozzáféréssel rendelkezik a Azure Stack ERCS virtuális gépekhez.
 
 2. Futtassa a következőt: 
 
@@ -79,7 +79,7 @@ Az alábbi lépések végrehajtásával, ha az infrastrukturális és bérlői s
       Test-AzureStack
       ```
 
-3. Tekintse át a kimenetet, és bármely állapotával kapcsolatos hibák elhárításához. További információkért lásd: [futtatása az Azure Stack teszt](azure-stack-diagnostic-test.md).
+3. Tekintse át a kimenetet, és javítsa ki az esetleges állapottal kapcsolatos hibákat. További információ: [Azure stack érvényesítési tesztének futtatása](azure-stack-diagnostic-test.md).
 
 4. Futtassa a következőt:
 
@@ -87,8 +87,8 @@ Az alábbi lépések végrehajtásával, ha az infrastrukturális és bérlői s
       Start-AzureStack
     ```
 
-5. Ha fut **Start-AzureStack** eredményez a hiba, kérjen segítséget a Microsoft Services. 
+5. Ha a **Start-AzureStack** futtatása hibát eredményez, forduljon a Microsoft ügyfélszolgálatához. 
 
 ## <a name="next-steps"></a>További lépések 
 
-Tudjon meg többet [Azure Stack diagnosztikai eszközök](azure-stack-diagnostics.md)
+További információ a [Azure stack diagnosztikai eszközökről](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
