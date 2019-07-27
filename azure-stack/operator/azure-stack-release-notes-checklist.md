@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 01bbd8b9de5c3d5446b34483125e2dcdcb4a5c20
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494033"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544069"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack frissítési tevékenység ellenőrzőlistája
 
@@ -58,6 +58,7 @@ Ez a cikk a Azure Stack operátorok frissítéssel kapcsolatos tevékenységeine
 |-----------------------|----------------------------------------------------------------------------------|
 | Legújabb gyorsjavítások alkalmazása | Alkalmazza a frissített verzióra vonatkozó legújabb gyorsjavításokat.                          |
 | Titkosítási kulcsok beolvasása | Az adatok lekérése a REST titkosítási kulcsokban, és biztonságosan tárolható a Azure Stack központi telepítésén kívül. Kövesse a [kulcsok](azure-stack-security-bitlocker.md)lekérésének utasításait. |
+| Több-bérlő ismételt engedélyezése | Több-bérlős Azure Stack esetén [Győződjön meg arról, hogy sikeres frissítés után konfigurálja az összes vendég címtár](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory) -bérlőt. |
 
 ## <a name="next-steps"></a>További lépések
 
