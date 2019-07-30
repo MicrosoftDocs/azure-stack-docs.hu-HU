@@ -1,6 +1,6 @@
 ---
-title: A forgalmat egy földrajzilag elosztott alkalmazás megoldással az Azure és az Azure Stackben |} A Microsoft Docs
-description: Ismerje meg, hogyan hozhat létre egy földrajzilag elosztott alkalmazás megoldásokat az Azure és az Azure Stacken, amely arra utasítja a megadott végpontokra érkező forgalom.
+title: Közvetlen forgalom egy földrajzilag elosztott alkalmazás-megoldással az Azure-ban és a Azure Stack | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre földrajzilag elosztott alkalmazás-megoldást az Azure-ban, és Azure Stack a forgalmat egy adott végpontra irányítja.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,429 +10,429 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: scenario
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 7f50c1f5cf565040425e0c655585c3d65b837eb3
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286943"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603143"
 ---
-# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Földrajzilag elosztott alkalmazás számára a forgalom az Azure és az Azure Stack megoldás létrehozása
+# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Földrajzilag elosztott alkalmazás-megoldás létrehozása az Azure-ban és a Azure Stack való közvetlen forgalomhoz
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Útmutató a forgalmat a földrajzilag elosztott alkalmazások minta használatával különböző metrikák alapján meghatározott végpontokhoz. Egy Traffic Manager létrehozása a földrajzi alapú útválasztást és a végpont konfigurációs profil biztosítja, információk alapján a regionális követelmények, a vállalati és a nemzetközi szabályozás és az adattárolási igényeinek végpontok van irányítva.
+Megtudhatja, hogyan irányíthatja át a forgalmat adott végpontokra különböző mérőszámok alapján a földrajzilag elosztott alkalmazások mintájának használatával. A Traffic Manager-profilok földrajzi alapú útválasztási és végponti konfigurációval való létrehozása biztosítja az információk átirányítását a végpontok számára a regionális követelmények, a vállalati és a nemzetközi szabályozás, valamint az adatok igényei alapján.
 
-Ebben a megoldásban Ön létre fog hozni egy minta környezetet:
+Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a következőkre:
 
 > [!div class="checklist"]
-> - Földrajzilag elosztott alkalmazás létrehozása.
-> - A Traffic Manager segítségével az alkalmazást.
+> - Hozzon létre egy földrajzilag elosztott alkalmazást.
+> - Az alkalmazás célzásához használja a Traffic Manager.
 
-## <a name="use-the-geo-distributed-apps-pattern"></a>A földrajzilag elosztott alkalmazások minta használata
+## <a name="use-the-geo-distributed-apps-pattern"></a>A földrajzilag elosztott alkalmazások mintájának használata
 
-A földrajzilag elosztott mintával az alkalmazás kiterjedő régióban. Is alapértelmezés szerint a nyilvános felhő, de a felhasználói egy része lehet szükség, hogy adataikat az adott régióban maradjanak. Felhasználók számára a leginkább megfelelő felhő igényeik alapján irányíthatók.
+A földrajzilag elosztott mintázattal az alkalmazás a régiókat öleli fel. Alapértelmezés szerint a nyilvános felhőbe kerül, de előfordulhat, hogy egyes felhasználók az adataikat a saját régiójába kell megtartaniuk. A felhasználókat a legmegfelelőbb felhőre irányíthatja a követelmények alapján.
 
 ### <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
 #### <a name="scalability-considerations"></a>Méretezési szempontok
 
-Ez a cikk a épít ki a megoldás nem méretezhetőség befogadásához. Azonban más Azure-ban és a helyszíni megoldásokkal együtt használni, ha úgy tud megfelelni méretezhetőségi követelményeinek. A hibrid megoldás létrehozása az automatikus skálázást keresztül traffic manager további információkért lásd: [több felhőre kiterjedő méretezési megoldások létrehozása az Azure-ral](azure-stack-solution-cloud-burst.md).
+Az ezzel a cikkel felépített megoldás nem alkalmas a méretezhetőségre. Ha azonban más Azure-és helyszíni megoldásokkal együtt használja, a méretezhetőségre vonatkozó követelményeket is igénybe vehet. További információ a Traffic Manager használatával történő automatikus skálázással rendelkező hibrid megoldások létrehozásáról: [felhőalapú méretezési megoldások létrehozása az Azure-](azure-stack-solution-cloud-burst.md)ban.
 
 #### <a name="availability-considerations"></a>Rendelkezésre állási szempontok
 
-Ebben az esetben a méretezési szempontok szerint ez a megoldás közvetlenül nem cím rendelkezésre állási. Az Azure és helyszíni megoldások azonban ez a megoldás magas rendelkezésre állásának részt vevő összetevők belül is kell végrehajtani.
+A méretezhetőséggel kapcsolatos szempontoknak megfelelően ez a megoldás nem foglalkozik közvetlenül a rendelkezésre állással. Az Azure és a helyszíni megoldások azonban a megoldáson belül valósíthatók meg, így biztosítva az összes érintett összetevő magas rendelkezésre állását.
 
 ### <a name="when-to-use-this-pattern"></a>Mikor érdemes ezt a mintát használni?
 
-- A szervezete egyéni regionális biztonsági és terjesztési házirendeket igénylő nemzetközi ágak.
+- A szervezet olyan nemzetközi ágakat tartalmaz, amelyek egyéni regionális biztonsági és terjesztési házirendeket igényelnek.
 
-- A szervezet irodával mindegyikének lekéri a dolgozók, üzleti és létesítmény, tevékenység / helyi szabályozásokról és az időzónák reporting igénylő adatok.
+- A szervezet minden irodája lekéri az alkalmazottak, az üzleti és a létesítmény adatait, amelyeken helyi szabályozások és időzónák szerint jelentéskészítési tevékenységre van szükség.
 
-- Nagy méretű követelmények több alkalmazást üzembe helyezés egy adott régión belül és több régió nagy terhelés követelmények kezelésére az alkalmazások horizontális felskálázásával teljesül.
+- A nagy léptékű követelmények teljesítése az alkalmazások horizontális felskálázásával történik, amely egyetlen régión belül több alkalmazás-telepítéssel rendelkezik, és a szélsőséges terhelési követelmények kezelése érdekében a régiók között.
 
-### <a name="planning-the-topology"></a>A topológia tervezése
+### <a name="planning-the-topology"></a>A topológia megtervezése
 
-Mielőtt egy elosztott alkalmazás üzembe helyezésének előkészítése kialakítására, megismeréséről az alábbiakat:
+Az elosztott alkalmazás-lábnyom kiépítése előtt a következő dolgokat ismerheti meg:
 
--   **Az alkalmazás egyéni tartomány:** Mi az az egyéni tartománynév használó ügyfelek számára a hozzáférést az alkalmazáshoz? A mintaalkalmazás az egyéni tartománynév van *www.scalableasedemo.com.*
+-   **Egyéni tartomány az alkalmazáshoz:** Mi az az Egyéni tartománynév, amelyet az ügyfelek az alkalmazás eléréséhez használni fognak? A minta alkalmazás esetében az Egyéni tartománynév a *\.www scalableasedemo.com.*
 
--   **Traffic Manager-tartományt:** Tartománynév akkor kell kiválasztani, amikor hoz létre egy [Azure Traffic Manager-profil](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Ezzel a névvel együtt a *trafficmanager.net* utótag regisztrálni egy Traffic Manager által felügyelt tartomány-bejegyzést. A mintaalkalmazás a név kiválasztott van *méretezhető ase bemutató*. Ennek eredményeképpen a teljes tartománynévnek a Traffic Manager által felügyelt rendszer *méretezhető ase demo.trafficmanager.net*.
+-   **Traffic Manager tartomány:** Az [Azure Traffic Manager-profil](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)létrehozásakor egy tartománynév van kiválasztva. Ezt a nevet a *trafficmanager.net* utótaggal kombinálva regisztrálja Traffic Manager által felügyelt tartományi bejegyzést. A minta alkalmazás esetében a választott név a *skálázható – a bemutató*. Ennek eredményeképpen a Traffic Manager által felügyelt teljes tartománynév *Scalable-ASE-demo.trafficmanager.net*.
 
--   **Az alkalmazás üzembe helyezésének előkészítése méretezési stratégia:** Döntse el, hogy az alkalmazás üzembe helyezésének előkészítése elosztva több App Service-környezetek egyetlen régióban, több régióban vagy mindkét módszerénél vegyesen. A döntést kell alapulnia elvárásainak, ahol a felhasználói forgalmat fog származnak, és arról, hogy a többi egy alkalmazást támogató háttér-infrastruktúra is méretezhető. Például 100 %-os állapot nélküli alkalmazások, egy alkalmazást rugalmasan méretezhetők több App Service Environment-környezetek kombinációját használó Azure-régiónként, szorozva az App Service-környezetek üzembe helyezett Azure-területekre. A 15 + globális Azure-régiókban érhető el, amelyek közül választhatnak, ügyfelei valóban hozhat létre egy világméretű kapacitású alkalmazás üzembe helyezésének előkészítése. Az itt használt mintaalkalmazás három App Service Environment-környezetek létrehozott egy Azure-régióban (USA déli középső Régiója).
+-   **Az alkalmazás helyigényének méretezésére szolgáló stratégia:** Döntse el, hogy az alkalmazás adatlábnyoma több App Service-környezetben legyen elosztva egyetlen régióban, több régióban vagy mindkét megközelítés kombinációjában. Ennek a döntésnek az alapján kell megjelennie, hogy az ügyfelek forgalmának hol kell származnia, és milyen mértékben méretezhető az alkalmazás további támogatása. Például egy 100%-os állapot nélküli alkalmazás esetében az alkalmazások nagy mértékben méretezhetők az Azure-régiók több App Service környezetének kombinációjával, és a több Azure-régióban üzembe helyezett App Service környezetek szorzatával. A 15 és a globális Azure-régiók közül választhatnak, így az ügyfelek az egész világra kiterjedő, Hyper-Scale szintű alkalmazás-lábnyomot hozhatnak létre. Az itt használt minta alkalmazáshoz három App Service környezet lett létrehozva egyetlen Azure-régióban (USA déli középső régiója).
 
--   **Az App Service Environment-környezetek elnevezési:** Minden App Service Environment-környezet megköveteli egy egyedi nevet. Egy vagy két App Service Environment-környezetek, túl hasznos van egy elnevezési konvenciója segítségével azonosíthatja az egyes App Service Environment-környezet. Az itt használt mintaalkalmazás egy egyszerű elnevezési egyezmény lett megadva. A neve, a három App Service Environment-környezetek *fe1ase*, *fe2ase*, és *fe3ase*.
+-   **A App Service környezetek elnevezési konvenciója:** Minden App Service Environment egyedi nevet igényel. Egy vagy két App Service környezeten kívül hasznos lehet elnevezési konvenciója az egyes App Service Environment azonosításához. Az itt használt minta alkalmazáshoz egyszerű elnevezési konvenciót használunk. A három App Service környezet neve *fe1ase*, *fe2ase*és *fe3ase*.
 
--   **Az alkalmazások elnevezési:** Mivel az alkalmazás több példányát telepíti, egy nevet az üzembe helyezett alkalmazás minden egyes példányánál van szükség. Az App Service-környezetek az alkalmazás névvel több környezetben is használható. Mivel minden App Service Environment-környezet rendelkezik egy egyedi tartományutótagot, a fejlesztők választhat újra pontos ugyanazon alkalmazás minden környezetben. Egy fejlesztő például rendelkezhet elnevezése a következő alkalmazásokat: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, és így tovább. Az itt használt alkalmazás minden példányt egyedi névvel rendelkezik. A használt alkalmazás-példány neve *webfrontend1*, *webfrontend2*, és *webfrontend3*.
+-   **Az alkalmazások elnevezési konvenciója:** Mivel az alkalmazás több példánya is telepítve lesz, a központilag telepített alkalmazás minden példányához nevet kell megadni. App Service környezetek esetében ugyanaz az alkalmazásnév több környezet között is használható. Mivel minden App Service Environment egyedi tartományi utótaggal rendelkezik, a fejlesztők úgy dönthetnek, hogy ugyanazt az alkalmazást használják az egyes környezetekben. Előfordulhat például, hogy egy fejlesztőnek a következőképpen kell megneveznie az alkalmazásokat: *MyApp.Foo1.p.azurewebsites.net*, *MyApp.Foo2.p.azurewebsites.net*, *MyApp.Foo3.p.azurewebsites.net*stb. Az itt használt alkalmazás esetében minden alkalmazás-példány egyedi névvel rendelkezik. Az *webfrontend1*, a *webfrontend2*és a *webfrontend3*használt alkalmazás-példányok nevei.
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
+> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
-> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>1\. rész: Földrajzilag elosztott alkalmazás létrehozása
 
-Ez a kijelző egy webalkalmazást fog létrehozni.
+Ebben a részben egy webalkalmazást fog létrehozni.
 
 > [!div class="checklist"]
-> - Webalkalmazások létrehozása és közzététele.
-> - Adja hozzá az Azure-Adattárakkal kódot.
-> - Az alkalmazás buildszáma több felhő cél mutat.
-> - Kezelheti, és konfigurálhatja a CD-folyamat.
+> - Webes alkalmazások létrehozása és közzététele.
+> - Kód hozzáadása az Azure Reposhez.
+> - Az alkalmazás kiépítése több Felhőbeli célpontra.
+> - A CD-folyamat kezelése és konfigurálása.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Egy Azure-előfizetés és az Azure Stack-telepítés is szükséges.
+Azure-előfizetésre és Azure Stack telepítésre van szükség.
 
-### <a name="geo-distributed-app-steps"></a>Földrajzilag elosztott alkalmazás lépések
+### <a name="geo-distributed-app-steps"></a>Földrajzilag elosztott alkalmazás lépései
 
-### <a name="obtain-a-custom-domain-and-configure-dns"></a>Szerezze be az egyéni tartomány és a DNS konfigurálása
+### <a name="obtain-a-custom-domain-and-configure-dns"></a>Egyéni tartomány beszerzése és a DNS konfigurálása
 
-Frissítse a tartomány DNS-zónafájljában. Az Azure AD majd ellenőrizheti az egyéni tartománynév tulajdonjogát. Használja [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) az Azure vagy Office 365 és a külső DNS-rekordok Azure-ban, vagy adja hozzá a DNS-bejegyzést, [egy másik DNS-regisztráló webhelyén](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Frissítse a tartományhoz tartozó DNS-zónafájl fájlját. Az Azure AD ekkor ellenőrizheti az Egyéni tartománynév tulajdonjogát. Az Azure-ban az Azure/Office 365/External DNS-rekordok [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) használhatók, vagy a DNS-bejegyzést [egy másik DNS-regisztrálónál](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)adja hozzá.
 
-1. Egyéni tartomány regisztrálása egy nyilvános regisztrálójánál.
+1. Egyéni tartomány regisztrálása nyilvános regisztrálóval.
 
-2. Jelentkezzen be a tartomány tartománynév-regisztrálójába. Jóváhagyott rendszergazda fiókdíjat, hogy a DNS-frissítések.
+2. Jelentkezzen be a tartomány tartománynév-regisztrálójába. A DNS-frissítések elvégzéséhez szükség lehet egy jóváhagyott rendszergazdára.
 
-3. A tartomány DNS-zónafájljában frissítése az Azure AD által biztosított DNS-bejegyzés hozzáadásával. A DNS-bejegyzés nem módosítja a viselkedése például a levélkezelési útválasztást vagy a webes üzemeltetés.
+3. Frissítse a tartományhoz tartozó DNS-zónát az Azure AD által biztosított DNS-bejegyzés hozzáadásával. A DNS-bejegyzés nem változtatja meg a viselkedést, például a posta vagy a webes üzemeltetést.
 
-### <a name="create-web-apps-and-publish"></a>Web Apps alkalmazások létrehozása és közzététele
+### <a name="create-web-apps-and-publish"></a>Webalkalmazások létrehozása és közzététel
 
-Webes alkalmazás üzembe helyezése az Azure és az Azure Stack, hibrid folyamatos integráció/folyamatos Készregyártás (CI/CD) beállítása és automatikus ügyfélleküldéses mindkét felhőben változtatásait.
+Hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) beállítása a webalkalmazások Azure-ba való üzembe helyezéséhez és a Azure Stackához, valamint az automatikus leküldéses módosítások mindkét felhőben.
 
 > [!Note]  
-> Az Azure Stack megfelelő képekkel hírcsatorna-futtassa (Windows Server és SQL) és az App Service-környezet szükség. További információkért lásd: [az App Service-ben az Azure Stack használatának megkezdése előtt](../operator/azure-stack-app-service-before-you-get-started.md) az Azure Stack-operátorokról dokumentációjában.
+> Azure Stack a megfelelő rendszerképek futtatásával (Windows Server és SQL), és App Service üzembe helyezés szükséges. További információ: mielőtt megkezdi a [Azure Stack app Serviceának első lépéseit](../operator/azure-stack-app-service-before-you-get-started.md) a Azure stack operátor dokumentációjában.
 
-#### <a name="add-code-to-azure-repos"></a>Adja hozzá a kódot az Azure-Adattárakkal
+#### <a name="add-code-to-azure-repos"></a>Kód hozzáadása az Azure Reposhez
 
-1. Jelentkezzen be a Visual Studio- **project-létrehozási jogokkal rendelkező fiók** az Azure-Adattárakkal.
+1. Jelentkezzen be a Visual studióba egy olyan **fiókkal, amely projekt-létrehozási jogokkal rendelkezik** az Azure reposban.
 
-    CI/CD kódját és az infrastruktúra kódjának alkalmazhatja. Használat [Azure Resource Manager-sablonok](https://azure.microsoft.com/resources/templates/) mindkét magán- és üzemeltetett felhőalapú fejlesztéshez.
+    A CI/CD az alkalmazás kódjára és az infrastruktúra kódjára is alkalmazható. A saját és a szolgáltatott felhő fejlesztéséhez [Azure Resource Manager sablonokat](https://azure.microsoft.com/resources/templates/) is használhat.
 
-    ![Csatlakozás egy projektet a Visual Studióban](media/azure-stack-solution-geo-distributed/image1.JPG)
+    ![Kapcsolódás egy projekthez a Visual Studióban](media/azure-stack-solution-geo-distributed/image1.JPG)
 
-2. **A tárház klónozása** létrehozásával és az alapértelmezett webes alkalmazás megnyitásával.
+2. **A tárház klónozása** az alapértelmezett webalkalmazás létrehozásával és megnyitásával.
 
-    ![Klónozott tárház a Visual Studióban](media/azure-stack-solution-geo-distributed/image2.png)
+    ![A klónozott adattár a Visual Studióban](media/azure-stack-solution-geo-distributed/image2.png)
 
-### <a name="create-web-app-deployment-in-both-clouds"></a>Webes alkalmazás üzembe helyezése mindkét felhőben létrehozása
+### <a name="create-web-app-deployment-in-both-clouds"></a>Webalkalmazás-telepítés létrehozása mindkét felhőben
 
-1.  Szerkessze a **WebApplication.csproj** fájlt: Válassza ki `Runtimeidentifier` , és adja hozzá `win10-x64`. (Lásd: [Self-contained telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációja.)
+1.  A **webalkalmazás. csproj** fájljának szerkesztése: Válassza `Runtimeidentifier` ki és `win10-x64`adja hozzá a elemet. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.)
 
-    ![Webes alkalmazás projektfájlt a Visual Studióban szerkesztése](media/azure-stack-solution-geo-distributed/image3.png)
+    ![Webalkalmazás-projekt fájljának szerkesztése a Visual Studióban](media/azure-stack-solution-geo-distributed/image3.png)
 
-1.  **Az Azure-kódtárak a forráskód verziókezelőbe** Team Explorer használatával.
+1.  **Az Team Explorer használatával keresse meg a kódot az Azure reposban** .
 
-2.  Ellenőrizze, hogy a **alkalmazáskód** be Azure-kódtárak ellenőrzése megtörtént.
+2.  Győződjön meg róla, hogy az **alkalmazás kódja** be lett jelölve az Azure reposban.
 
-### <a name="create-the-build-definition"></a>A build definíció létrehozása
+### <a name="create-the-build-definition"></a>A Build definíciójának létrehozása
 
-1. **Jelentkezzen be Azure-folyamatok** buildelési definíciókat létrehozására megerősítéséhez.
+1. Jelentkezzen be az **Azure-folyamatokba** , és erősítse meg a létrehozási definíciók létrehozásának képességét.
 
-2. Adjon hozzá `-r win10-x64` kódot. A Hozzáadás szükség egy önálló telepítés a .NET Core használatával aktiválásához.
+2. Kód `-r win10-x64` hozzáadása. Ez a Hozzáadás szükséges a .NET Core-hoz készült önálló telepítés elindításához.
 
-    ![Adja hozzá a builddefiníció kódot](media/azure-stack-solution-geo-distributed/image4.png)
+    ![Kód hozzáadása a Build definícióhoz](media/azure-stack-solution-geo-distributed/image4.png)
 
-3. **Futtassa a build**. A [önálló telepítés build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) folyamat közzéteszi az összetevők, amelyek futhatnak az Azure és az Azure Stackben.
+3. **Futtassa a buildet**. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) folyamat olyan összetevőket tesz közzé, amelyek az Azure-on és a Azure stackon is futtathatók.
 
-**Az Azure szolgáltatott ügynök használatával**
+**Azure-beli üzemeltetett ügynök használata**
 
-Az Azure-folyamatokban üzemeltetett ügynök használatával beállítás kényelmes készíthet és helyezhet üzembe webalkalmazásokat. A Microsoft Azure, amely lehetővé teszi a folyamatos fejlesztési, tesztelési és üzembe helyezési automatikusan történik a karbantartása és frissítései.
+Az üzemeltetett ügynök használata az Azure-folyamatokban kényelmes megoldás webalkalmazások létrehozására és üzembe helyezésére. A karbantartást és a frissítéseket a Microsoft Azure automatikusan hajtja végre, ami lehetővé teszi a folyamatos fejlesztést, tesztelést és üzembe helyezést.
 
-### <a name="manage-and-configure-the-cd-process"></a>Kezelheti és konfigurálhatja a CD-folyamat
+### <a name="manage-and-configure-the-cd-process"></a>A CD-folyamat kezelése és konfigurálása
 
-Az Azure DevOps és az Azure DevOps-kiszolgáló adja meg hatékonyan konfigurálható és kezelhető folyamat számára több környezetekben, például fejlesztési, előkészítési, QA és éles környezetek; amely jóváhagyások adott szintjén is.
+Az Azure DevOps és Azure DevOps Server kiválóan konfigurálható és kezelhető folyamatokat biztosít több környezet, például fejlesztési, átmeneti, MINŐSÉGBIZTOSÍTÁSi és éles környezetek kiadásához; többek között a jóváhagyások megkövetelése adott fázisokban.
 
-## <a name="create-release-definition"></a>Kiadási definíció létrehozása
+## <a name="create-release-definition"></a>Kiadás definíciójának létrehozása
 
-1.  Válassza ki a **plusz** gombra kattintva adhat hozzá egy új kiadása alatt a **kiadásokban** lapján a **készítése és kiadása** VSO szakaszában.
+1.  Kattintson a **plusz** gombra, és adjon hozzá egy új kiadást az VSO **Build és Release** szakaszának **kiadások** lapján.
 
     ![Kiadási definíció létrehozása](media/azure-stack-solution-geo-distributed/image5.png)
 
-2. A alkalmazni az Azure App Service központi telepítési sablont.
+2. Alkalmazza a Azure App Service központi telepítési sablont.
 
-   ![Az Azure App Service üzembe helyezési sablon alkalmazása](meDia/azure-stack-solution-geo-distributed/image6.png)
+   ![Azure App Service központi telepítési sablon alkalmazása](meDia/azure-stack-solution-geo-distributed/image6.png)
 
-3. A **Hozzáadás összetevő**, adja hozzá az Azure Cloud build alkalmazás összetevő.
+3. Az összetevő **hozzáadása**területen adja hozzá az Azure Cloud Build alkalmazáshoz tartozó összetevőt.
 
-   ![Az Azure Cloud buildre összetevő hozzáadása](media/azure-stack-solution-geo-distributed/image7.png)
+   ![Összetevő hozzáadása az Azure Cloud buildhez](media/azure-stack-solution-geo-distributed/image7.png)
 
-4. A folyamat fülre, válassza a **fázisba, a feladat** a környezet hivatkozásra, és állítsa be az Azure-felhő környezet értékeket.
+4. A folyamat lapon válassza ki a **fázist, a feladat** hivatkozását, és állítsa be az Azure Cloud Environment értékeit.
 
-   ![Azure-felhő környezeti értékeinek beállítása](media/azure-stack-solution-geo-distributed/image8.png)
+   ![Az Azure Cloud Environment értékeinek beállítása](media/azure-stack-solution-geo-distributed/image8.png)
 
-5. Állítsa be a **környezet neve** , és válassza ki a **Azure-előfizetés** az Azure Felhőbeli végpont számára.
+5. Adja meg a **környezet nevét** , és válassza ki az Azure-beli Felhőbeli végponthoz tartozó **Azure** -előfizetést.
 
-      ![Válassza ki az Azure-előfizetéshez tartozó Azure-Felhőbeli végpont](media/azure-stack-solution-geo-distributed/image9.png)
+      ![Azure-előfizetés kiválasztása Azure Felhőbeli végponthoz](media/azure-stack-solution-geo-distributed/image9.png)
 
-6. A **App service neve**, állítsa be a szükséges az Azure app service neve.
+6. Az **app Service neve**alatt állítsa be a szükséges Azure app Service-nevet.
 
-      ![Beállítása az Azure app service neve](media/azure-stack-solution-geo-distributed/image10.png)
+      ![Az Azure app Service nevének beállítása](media/azure-stack-solution-geo-distributed/image10.png)
 
-7. Adja meg a "Hosted VS2017" alatt **fronta Agenta** Azure-felhőben üzemeltetett környezetben.
+7. Adja meg a "üzemeltetett VS2017" kifejezést az Azure Cloud üzemeltetett környezet **ügynök** -várólistájában.
 
-      ![Fronta Agenta Azure-felhőben üzemeltetett környezet beállítása](media/azure-stack-solution-geo-distributed/image11.png)
+      ![Az Azure Cloud üzemeltetett környezet ügynök-várólistájának beállítása](media/azure-stack-solution-geo-distributed/image11.png)
 
-8. Az Azure App Service üzembe helyezése menüben válassza a érvényes **csomag vagy a mappa** a környezethez. Válassza ki **OK** való **mappába**.
+8. A telepítés Azure App Service menüben válassza ki a környezet érvényes **csomagját vagy mappáját** . Kattintson **az OK** gombra a **mappa helyének**megadásához.
   
-      ![Válassza ki a csomag vagy a mappa az Azure App Service Environment környezetben](media/azure-stack-solution-geo-distributed/image12.png)
+      ![Azure App Service-környezethez tartozó csomag vagy mappa kiválasztása](media/azure-stack-solution-geo-distributed/image12.png)
 
-      ![Válassza ki a csomag vagy a mappa az Azure App Service Environment környezetben](media/azure-stack-solution-geo-distributed/image13.png)
+      ![Azure App Service-környezethez tartozó csomag vagy mappa kiválasztása](media/azure-stack-solution-geo-distributed/image13.png)
 
-9. Mentse az összes módosítást, és térjen vissza a **kibocsátási folyamatok**.
+9. Mentse az összes módosítást, és térjen vissza a kiadási folyamathoz.
 
-    ![Mentse a módosításokat a kibocsátási folyamat](media/azure-stack-solution-geo-distributed/image14.png)
+    ![A kiadási folyamat módosításainak mentése](media/azure-stack-solution-geo-distributed/image14.png)
 
-10. Adjon hozzá egy új összetevő, a build, az Azure Stack-alkalmazás kiválasztása.
+10. Vegyen fel egy új összetevőt, és válassza ki a Azure Stack alkalmazás buildjét.
     
-    ![Az Azure Stack app új összetevő hozzáadása](media/azure-stack-solution-geo-distributed/image15.png)
+    ![Új összetevő hozzáadása Azure Stack alkalmazáshoz](media/azure-stack-solution-geo-distributed/image15.png)
 
 
-11. Adjon hozzá egy további környezet az Azure App Service üzembe helyezési alkalmazásával.
+11. Vegyen fel még egy környezetet a Azure App Service központi telepítés alkalmazásával.
     
-    ![Az Azure App Service üzembe helyezési környezet hozzáadása](media/azure-stack-solution-geo-distributed/image16.png)
+    ![Környezet hozzáadása Azure App Service központi telepítéshez](media/azure-stack-solution-geo-distributed/image16.png)
 
-12. Az Azure Stack új környezet nevét.
+12. Nevezze el az új környezetet Azure Stack.
     
-    ![Az Azure App Service üzembe helyezési környezet neve](media/azure-stack-solution-geo-distributed/image17.png)
+    ![Név környezet Azure App Service üzemelő példányban](media/azure-stack-solution-geo-distributed/image17.png)
 
-13. Keresse meg az Azure Stack-környezet alapján **feladat** fülre.
+13. Keresse meg a Azure Stack környezetet a **feladat** lapon.
     
-    ![Az Azure Stack-környezet](media/azure-stack-solution-geo-distributed/image18.png)
+    ![Azure Stack környezet](media/azure-stack-solution-geo-distributed/image18.png)
 
-14. Válassza ki az előfizetést az Azure Stack-végpont.
+14. Válassza ki az Azure Stack-végpont előfizetését.
     
-    ![Válassza ki az előfizetést az Azure Stack-végpont](media/azure-stack-solution-geo-distributed/image19.png)
+    ![Válassza ki az Azure Stack-végpont előfizetését](media/azure-stack-solution-geo-distributed/image19.png)
 
-15. Az Azure Stack webalkalmazás nevét állítja be az App service nevét.
+15. Adja meg a Azure Stack webalkalmazás nevét az App Service neveként.
 
-    ![Állítsa be az Azure Stack webalkalmazás neve](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Azure Stack webalkalmazás nevének beállítása](media/azure-stack-solution-geo-distributed/image20.png)
 
-16. Válassza ki az Azure Stack-ügynök.
+16. Válassza ki a Azure Stack ügynököt.
     
-    ![Válassza ki az Azure Stack-ügynök](media/azure-stack-solution-geo-distributed/image21.png)
+    ![Azure Stack ügynök kiválasztása](media/azure-stack-solution-geo-distributed/image21.png)
 
-17. Az Azure App Service üzembe helyezése területen válassza ki a érvényes **csomag vagy a mappa** a környezethez. Válassza ki **OK** mappába.
+17. A Azure App Service telepítése szakaszban válassza ki a környezet érvényes **csomagját vagy mappáját** . Kattintson **az OK** gombra a mappa helyének megadásához.
 
-    ![Válassza ki a mappát az Azure App Service üzembe helyezéséhez](media/azure-stack-solution-geo-distributed/image22.png)
+    ![Mappa kiválasztása Azure App Service központi telepítéshez](media/azure-stack-solution-geo-distributed/image22.png)
 
-    ![Válassza ki a mappát az Azure App Service üzembe helyezéséhez](media/azure-stack-solution-geo-distributed/image23.png)
+    ![Mappa kiválasztása Azure App Service központi telepítéshez](media/azure-stack-solution-geo-distributed/image23.png)
 
-18. Változó lapján nevű változó hozzáadása `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, mint az értékét állítsa **igaz**, és az Azure Stackhez.
+18. A változó lapon adjon hozzá egy nevű `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`változót, állítsa az értékét **igaz**értékre, a hatókört pedig Azure Stackra.
     
-    ![A változó hozzáadása az Azure-alkalmazás üzembe helyezése](media/azure-stack-solution-geo-distributed/image24.png)
+    ![Változó hozzáadása az Azure-alkalmazások üzembe helyezéséhez](media/azure-stack-solution-geo-distributed/image24.png)
 
-19. Válassza ki a **folyamatos** üzembe helyezési eseményindító ikonra az összetevők és a engedélyezése a **folytatja** készregyártás eseményindítója.
+19. Válassza ki a **folyamatos** üzembe helyezési trigger ikont mindkét összetevőben, és **engedélyezze a folytatás** üzembe helyezési triggert.
     
-    ![Válassza ki a folyamatos készregyártás eseményindítója](media/azure-stack-solution-geo-distributed/image25.png)
+    ![Folyamatos üzembe helyezési trigger kiválasztása](media/azure-stack-solution-geo-distributed/image25.png)
 
-20. Válassza ki a **központi telepítés előtti** feltételek ikonra az Azure Stack-környezetben, és állítsa az eseményindító **kiadás után.**
+20. Válassza ki az **üzembe helyezés előtti** feltételek ikont a Azure stack környezetben, és állítsa be a triggert a **kiadás után.**
     
     ![Központi telepítés előtti feltételek kiválasztása](media/azure-stack-solution-geo-distributed/image26.png)
 
 21. Mentse az összes módosítást.
 
 > [!Note]  
-> A feladatok egyes beállítások előfordulhat, hogy automatikusan meghatározott [környezeti változók](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) kiadási definíció a sablon létrehozásakor. Ezek a beállítások nem módosíthatók a tevékenység beállításait; Ehelyett a szülő környezet típusú elem ki kell választani a beállítások szerkesztéséhez.
+> Előfordulhat, hogy a feladatok egyes beállításai automatikusan [környezeti változókként](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) vannak definiálva, amikor kiadási definíciót hoz létre egy sablonból. Ezek a beállítások nem módosíthatók a feladat beállításaiban. Ehelyett a szülő környezeti elemet kell kiválasztani a beállítások szerkesztéséhez.
 
-## <a name="part-2-update-web-app-options"></a>2\. rész: Webes alkalmazás beállítások frissítése
+## <a name="part-2-update-web-app-options"></a>2\. rész: Webalkalmazás-beállítások frissítése
 
 Az [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) egy hatékonyan méretezhető, önjavító webes üzemeltetési szolgáltatás. 
 
 ![Azure App Service](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
-> - Meglévő egyéni DNS-név leképezése az Azure Web Appshez.
-> - Használja a **CNAME-rekordot** és a egy **rekord** egy egyéni DNS-név leképezése az App Service-ben.
+> - Meglévő egyéni DNS-név leképezése az Azure Web Appsra.
+> - CNAME- **rekord** és egy **rekord** használatával rendelje hozzá az egyéni DNS-nevet a app Servicehoz.
 
-### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Meglévő egyéni DNS-név leképezése az Azure Web Appsra
+### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Meglévő egyéni DNS-név hozzárendelése az Azure Web Appshez
 
 > [!Note]  
->  Használjon egy olyan CNAME REKORDOT egy legfelső szintű tartomány (például northwind.com) kivételével az összes egyéni DNS-neveket.
+>  Használjon CNAME-t az összes egyéni DNS-névhez, kivéve a legfelső szintű tartományt (például northwind.com).
 
 Élő webhely és hozzá tartozó DNS-tartománynév migrálása az App Service-be: [Aktív DNS-név migrálása az Azure App Service-be](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Ez a megoldás végrehajtásához:
+A megoldás elvégzéséhez:
 
--   [Hozzon létre egy App Service-alkalmazás](https://docs.microsoft.com/azure/app-service/), vagy használjon egy másik megoldás számára létrehozott alkalmazás.
+-   [Hozzon létre egy app Service alkalmazást](https://docs.microsoft.com/azure/app-service/), vagy használjon egy másik megoldáshoz létrehozott alkalmazást.
 
--   Vásároljon egy tartománynevet és a DNS-jegyzékéhez való hozzáférés biztosítása a tartomány-szolgáltatóhoz.
+-   Adjon meg egy tartománynevet, és győződjön meg arról, hogy a tartományi szolgáltató DNS-beállításjegyzéke elérhető.
 
-Frissítse a tartomány DNS-zónafájljában. Az Azure AD ellenőrzi, hogy az egyéni tartománynév tulajdonjogát. Használja [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) az Azure vagy Office 365 és a külső DNS-rekordok Azure-ban, vagy adja hozzá a DNS-bejegyzést, [egy másik DNS-regisztráló webhelyén](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Frissítse a tartományhoz tartozó DNS-zónafájl fájlját. Az Azure AD ellenőrzi az Egyéni tartománynév tulajdonjogát. Az Azure-ban az Azure/Office 365/External DNS-rekordok [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) használhatók, vagy a DNS-bejegyzést [egy másik DNS-regisztrálónál](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)adja hozzá.
 
--   Egyéni tartomány regisztrálása egy nyilvános regisztrálójánál.
+-   Egyéni tartomány regisztrálása nyilvános regisztrálóval.
 
--   Jelentkezzen be a tartomány tartománynév-regisztrálójába. (A jóváhagyott rendszergazda előfordulhat, hogy megkövetelhető, hogy a DNS-frissítések.)
+-   Jelentkezzen be a tartomány tartománynév-regisztrálójába. (A DNS-frissítések elvégzéséhez egy jóváhagyott rendszergazdára lehet szükség.)
 
--   A tartomány DNS-zónafájljában frissítése az Azure AD által biztosított DNS-bejegyzés hozzáadásával.
+-   Frissítse a tartományhoz tartozó DNS-zónát az Azure AD által biztosított DNS-bejegyzés hozzáadásával.
 
-Ha például northwindcloud.com és www.northwindcloud.com DNS-bejegyzéseinek hozzáadásához northwindcloud.com gyökértartományhoz DNS-beállítások konfigurálása.
+Például a northwindcloud.com és a www\.northwindcloud.com DNS-bejegyzéseinek hozzáadásához konfigurálja a northwindcloud.com DNS-beállításait.
 
 > [!Note]  
->  A tartománynév alapján vásárolhatók a [az Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain). Egy egyéni DNS-név webalkalmazásra való leképezéséhez a webalkalmazás [App Service-csomagjának](https://azure.microsoft.com/pricing/details/app-service/) fizetős rétegben kell lennie (**megosztott**, **alapvető**, **szabványos** vagy **prémium szintű**).
+>  A [Azure Portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)használatával megvásárolható egy tartománynév. Egy egyéni DNS-név webalkalmazásra való leképezéséhez a webalkalmazás [App Service-csomagjának](https://azure.microsoft.com/pricing/details/app-service/) fizetős rétegben kell lennie (**megosztott**, **alapvető**, **szabványos** vagy **prémium szintű**).
 
 
 
-### <a name="create-and-map-cname-and-a-records"></a>CNAME és A rekordok létrehozását és
+### <a name="create-and-map-cname-and-a-records"></a>CNAME és rekordok létrehozása és leképezése
 
 #### <a name="access-dns-records-with-domain-provider"></a>DNS-rekordok elérése tartományszolgáltató esetén
 
 > [!Note]  
->  Az Azure DNS konfigurálása az Azure-webalkalmazások egyéni DNS-nevet. További információt az [egyéni tartománybeállítások egy Azure-szolgáltatáshoz az Azure DNS használatával történő megadását](https://docs.microsoft.com/azure/dns/dns-custom-domain) ismertető cikkben talál.
+>  A Azure DNS használatával konfigurálhatja az Azure Web Apps egyéni DNS-nevét. További információt az [egyéni tartománybeállítások egy Azure-szolgáltatáshoz az Azure DNS használatával történő megadását](https://docs.microsoft.com/azure/dns/dns-custom-domain) ismertető cikkben talál.
 
-1.  Jelentkezzen be a webhely a fő szolgáltató.
+1.  Jelentkezzen be a fő szolgáltató webhelyére.
 
-2.  Keresse meg a DNS-rekordok kezelésére szolgáló oldalt. Minden tartományszolgáltatójának saját DNS-rekordok felülettel rendelkezik. A webhely **Tartománynév**, **DNS** vagy **Névkiszolgáló kezelése** címkével ellátott területeit keresse.
+2.  Keresse meg a DNS-rekordok kezelésére szolgáló oldalt. Minden tartományi szolgáltató saját DNS-rekordok felülettel rendelkezik. A webhely **Tartománynév**, **DNS** vagy **Névkiszolgáló kezelése** címkével ellátott területeit keresse.
 
-DNS-rekordok oldala tekinthető **saját tartományok**. Keresse meg a hivatkozás nevű **zónafájl**, **DNS-rekordok**, vagy **speciális konfiguráció**.
+A DNS-rekordok oldala megtekinthető a **saját tartományokban**. Keresse meg a **zónafájl**, **DNS-rekordok**vagy **Speciális konfiguráció**nevű hivatkozást.
 
 A következő képernyőkép egy DNS-rekordokat tartalmazó oldalra mutat példát:
 
 ![DNS-rekordokat tartalmazó oldal példája](media/azure-stack-solution-geo-distributed/image28.png)
 
-1. A tartománynév Regisztrálójánál, válassza ki **hozzáadása vagy a létrehozás** rekord létrehozásához. Egyes szolgáltatók eltérő hivatkozásokat használnak a különböző rekordtípusok hozzáadásához. A szolgáltató dokumentációjában talál.
+1. A tartománynév-Regisztrálóban válassza a **Hozzáadás vagy a létrehozás** elemet a rekord létrehozásához. Egyes szolgáltatók eltérő hivatkozásokat használnak a különböző rekordtípusok hozzáadásához. A szolgáltató dokumentációjában tájékozódhat.
 
-2. Adjon hozzá egy CNAME-rekordot le egy altartományt az alkalmazás alapértelmezett gazdagépnevére.
+2. Adjon hozzá egy CNAME rekordot, amely altartományt rendel az alkalmazás alapértelmezett állomásnevét.
 
-   A www.northwindcloud.com tartomány például vegyen fel egy CNAME-rekordot, amely leképezi a neve < alkalmazás\_neve >. azurewebsites.NET webhelyet.
+   A www.northwindcloud.com tartományhoz adjon hozzá egy CNAME rekordot, amely leképezi a nevet <\_>. azurewebsites. net nevű alkalmazáshoz.
 
-Miután hozzáadta a CNAME REKORDOT, a DNS-rekordok oldala a következő példához hasonlóan néz ki:
+A CNAME hozzáadása után a DNS-rekordok oldal a következő példához hasonlóan néz ki:
 
 ![Navigálás a portálon egy Azure-alkalmazáshoz](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>A CNAME rekord hozzárendelésének engedélyezése az Azure-ban
 
-1. Egy új lap jelentkezzen be az Azure Portalon
+1. Egy új lapon jelentkezzen be a Azure Portalba.
 
-2. Keresse meg az App Servicesbe való.
+2. Navigáljon App Services.
 
-3. Válassza ki a webalkalmazást.
+3. Válassza a webalkalmazás lehetőséget.
 
 4. Az Azure Portal bal oldali navigációs sávján válassza ki az **Egyéni tartományok** elemet.
 
 5. Válassza ki a **Gazdagépnév hozzáadása** elem melletti **+** ikont.
 
-6. Írja be például a teljesen minősített tartománynevét `www.northwindcloud.com`.
+6. Írja be a teljes tartománynevet, például `www.northwindcloud.com`:.
 
 7. Válassza az **Érvényesítés** lehetőséget.
 
-8. Jelzi, ha más típusú további rekordok hozzáadása (`A` vagy `TXT`) a tartomány nevét regisztráló szervezetek DNS-rekordok. Az Azure biztosít az értékeket, és ezeket a rekordokat típusát:
+8. Ha meg van jelölve, további rekordokat adhat hozzá`A` más `TXT`típusokhoz (vagy) a tartománynév-regisztráló DNS-rekordjaihoz. Az Azure megadja a rekordok értékeit és típusát:
 
    a.  egy **A** rekordra, amelyet leképezhet az alkalmazás IP-címére.
 
-   b.  A **TXT** rekordra, amelyet leképezhet az alkalmazás alapértelmezett gazdagépnevére < alkalmazás_neve >. azurewebsites.NET webhelyet. App Service-ben ezt a rekordot csak a konfiguráláskor használja egyéni tartomány tulajdonjogának ellenőrzéséhez. Ellenőrzés után a TXT-rekord törlése.
+   b.  Egy **txt** -rekord, amely az alkalmazás alapértelmezett állomásneve < APP_NAME >. azurewebsites. net. App Service ezt a rekordot csak a konfiguráció idejére használja az egyéni tartomány tulajdonjogának ellenőrzéséhez. Az ellenőrzés után törölje a TXT-rekordot.
 
-9. Befejezheti a feladatot a tartomány regisztráló lapon, és kísérelje meg újra amíg érvényesítését a **gazdagépnév hozzáadása** gomb aktívvá válik.
+9. Hajtsa végre ezt a feladatot a tartományregisztráló lapon, majd az **állomásnév hozzáadása** gomb aktiválása után ellenőrizze újra a műveletet.
 
-10. Győződjön meg arról, hogy **gazdagépnév rekordtípusa** értékre van állítva **CNAME** (www.example.com vagy bármely altartomány).
+10. Győződjön meg arról, hogy az **állomásnév** bejegyzéstípusa **CNAME** (www.example.com vagy bármely altartomány) értékre van beállítva.
 
 11. Válassza a **Gazdagépnév hozzáadása** lehetőséget.
 
-12. Írja be például a teljesen minősített tartománynevét `northwindcloud.com`.
+12. Írja be a teljes tartománynevet, például `northwindcloud.com`:.
 
 13. Válassza az **Érvényesítés** lehetőséget. A **Hozzáadás** aktiválva van.
 
-14. Győződjön meg arról, hogy **gazdagépnév rekordtípusa** értékre van állítva **rekord** (example.com).
+14. Győződjön meg arról, hogy az **állomásnév bejegyzéstípus** **egy rekordra** (example.com) van beállítva.
 
-15. **Gazdagépnév hozzáadása**.
+15. **Adja hozzá**a gazdagépet.
 
-    Az új gazdanév megjelenik az alkalmazás egy kis ideig eltarthat **egyéni tartományok** lapot. Próbálja meg frissíteni a böngészőt az adatok frissítéséhez.
+    Eltarthat egy ideig, amíg az új állomásnevek megjelennek az alkalmazás **Egyéni tartományok** lapján. Próbálja meg frissíteni a böngészőt az adatok frissítéséhez.
   
     ![Egyéni tartományok](media/azure-stack-solution-geo-distributed/image31.png) 
   
-    Ha hiba történik, egy ellenőrzési hiba értesítés jelenik meg a lap alján. ![Ellenőrzési hiba](media/azure-stack-solution-geo-distributed/image32.png)
+    Ha hiba történik, a lap alján egy ellenőrző hibaüzenet jelenik meg. ![Ellenőrzési hiba](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
->  A fenti lépéseket is meg lehet ismételni a helyettesítő karaktert tartalmazó tartomány hozzárendelése (\*. northwindcloud.com). Ez lehetővé teszi az app Service-ben további altartományok hozzáadását, mindegyikhez külön CNAME rekord létrehozása nélkül. A regisztráló utasítások szerint a beállítás megadásához.
+>  A fenti lépések megismétlődnek a helyettesítő karakteres tartomány (\*. northwindcloud.com) leképezéséhez. Ez lehetővé teszi további altartományok hozzáadását az App Service-hez anélkül, hogy mindegyikhez külön CNAME rekordot kellene létrehoznia. A beállítás konfigurálásához kövesse a regisztrátor utasításait.
 
-#### <a name="test-in-a-browser"></a>Tesztelés a böngészőben
+#### <a name="test-in-a-browser"></a>Tesztelés böngészőben
 
-Tallózással keresse meg a korábban konfigurált DNS-nevét (például `northwindcloud.com` vagy www.northwindcloud.com).
+Tallózással keresse meg a korábban konfigurált DNS-név (oka) t `northwindcloud.com` (például vagy www.northwindcloud.com).
 
 ## <a name="part-3-bind-a-custom-ssl-cert"></a>3\. rész: Egyéni SSL-tanúsítvány kötése
 
-Ez a rész a következő történik:
+Ebben a részben a következőket tesszük:
 
 > [!div class="checklist"]
-> - Az egyéni SSL-tanúsítvány kötése az App Service-ben.
-> - HTTPS kényszerítése az alkalmazáshoz.
-> - Parancsfájlok SSL-tanúsítványok kötésének automatizálása.
+> - Az egyéni SSL-tanúsítvány kötése App Servicehoz.
+> - HTTPS kényszerített alkalmazása az alkalmazáshoz.
+> - SSL-tanúsítvány kötésének automatizálása parancsfájlok használatával.
 
 > [!Note]  
-> Ha szükséges, szerezzen be egy ügyfél SSL-tanúsítvány az Azure Portalon, és a webalkalmazáshoz kötheti azt. További információkért lásd: a [App Service-tanúsítványok oktatóanyag](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
+> Ha szükséges, szerezze be a Azure Portal ügyfél SSL-tanúsítványát, és kösse azt a webalkalmazáshoz. További információkért tekintse meg a [app Service Certificates oktatóanyagot](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site).
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Ez a megoldás végrehajtásához:
+A megoldás elvégzéséhez:
 
--   [Hozzon létre egy App Service-alkalmazást.](https://docs.microsoft.com/azure/app-service/)
--   [Képezhet le egyedi DNS-nevet a webalkalmazáshoz.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
--   Egy SSL-tanúsítványt egy megbízható hitelesítésszolgáltatótól beszerezni, és a kulcs használatával a kérés aláírásához.
+-   [Hozzon létre egy App Service alkalmazást.](https://docs.microsoft.com/azure/app-service/)
+-   [Rendelje hozzá az egyéni DNS-nevet a webalkalmazáshoz.](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+-   Szerezzen be egy SSL-tanúsítványt egy megbízható hitelesítésszolgáltatótól, és a kulcs használatával írja alá a kérelmet.
 
 ### <a name="requirements-for-your-ssl-certificate"></a>Az SSL-tanúsítvány követelményei
 
 A tanúsítvány App Service-ben történő használatához a tanúsítványnak meg kell felelnie az alábbi követelmények mindegyikének:
 
--   Megbízható hitelesítésszolgáltató által aláírt.
+-   Egy megbízható hitelesítésszolgáltató írta alá.
 
--   Jelszóval védett PFX-fájlba exportált.
+-   Jelszóval védett PFX-fájlként lett exportálva.
 
--   Mennyi ideig tartalmazza a titkos kulcs legalább 2048 bit.
+-   Legalább 2048 bit hosszúságú titkos kulcsot tartalmaz.
 
--   A tanúsítványláncban lévő összes köztes tanúsítványt tartalmaz.
+-   A tanúsítványlánc összes köztes tanúsítványát tartalmazza.
 
 > [!Note]  
->  **Elliptikus görbéjű titkosítási (ECC) tanúsítványok** használata App Service-ben, de ez az útmutató nem tartalmazza. Egy hitelesítésszolgáltató kérjen segítséget az ECC-tanúsítványok létrehozása. 
+>  Az **elliptikus görbe titkosítási (ECC-) tanúsítványok** app Service, de nem szerepelnek ebben az útmutatóban. Az ECC-tanúsítványok létrehozásával kapcsolatos segítségért forduljon a hitelesítésszolgáltatóhoz. 
 
 #### <a name="prepare-the-web-app"></a>A webalkalmazás előkészítése
 
-Az egyéni SSL-tanúsítvány kötése egy webes alkalmazásban a [App Service-csomag](https://azure.microsoft.com/pricing/details/app-service/) kell lennie a **alapszintű**, **Standard**, vagy **prémium szintű** szint.
+Ha egyéni SSL-tanúsítványt szeretne kötni a webalkalmazáshoz, a [app Service tervnek](https://azure.microsoft.com/pricing/details/app-service/) alapszintű, **standard**vagy **prémium** szintűnek kell lennie.
 
 #### <a name="sign-in-to-azure"></a>Bejelentkezés az Azure-ba
 
-1.  Nyissa meg a [az Azure portal](https://portal.azure.com/) , és keresse meg a webalkalmazáshoz.
+1.  Nyissa [](https://portal.azure.com/) meg a Azure Portalt, és navigáljon a webalkalmazáshoz.
 
-2.  A bal oldali menüben válassza ki a **App Services**, majd válassza ki a webalkalmazás nevét.
+2.  A bal oldali menüben válassza a **app Services**lehetőséget, majd válassza ki a webalkalmazás nevét.
 
 ![Webalkalmazás kiválasztása](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>A tarifacsomag ellenőrzése
 
-1.  A webalkalmazás lapjának bal oldali navigációs sávján görgessen a **beállítások** szakaszt, és válassza **vertikális felskálázás (App Service-csomag)** .
+1.  A webalkalmazás bal oldali navigációs sávján görgessen a **Beállítások** szakaszra, és válassza a vertikális **felskálázás (App Service terv)** lehetőséget.
 
     ![Vertikális felskálázás menü](media/azure-stack-solution-geo-distributed/image34.png)
 
-1.  Győződjön meg arról, a webalkalmazás nem szerepel a **ingyenes** vagy **megosztott** szint. A webalkalmazás aktuális szint egy kékkel kiemelt tanúsítványé.
+1.  Győződjön meg arról, hogy a webalkalmazás nem az **ingyenes** vagy a **közös** szinten van. A webalkalmazás jelenlegi szintje sötét kék mezőben van kiemelve.
 
     ![A tarifacsomag ellenőrzése](media/azure-stack-solution-geo-distributed/image35.png)
 
-Egyéni SSL nem támogatott a **ingyenes** vagy **megosztott** szint. Upscale, kövesse a következő szakaszban, vagy a **válassza ki a tarifacsomagot** lapon, és ugorjon [feltölteni és hozzákötni az SSL-tanúsítvány](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
+Az egyéni SSL nem támogatott az **ingyenes** vagy a **közös** szinten. A felskálázáshoz kövesse a következő szakaszban leírt lépéseket, vagy a **válassza ki a díjszabási szintet** lapot, és ugorjon az [SSL-tanúsítvány feltöltése és kötése](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)lehetőségre.
 
 #### <a name="scale-up-your-app-service-plan"></a>Az App Service-csomag vertikális felskálázása
 
 1.  Válassza az **Alapszintű**, a **Standard** vagy a **Prémium** szintet.
 
-2.  Válassza ki **kiválasztása**.
+2.  Válassza a **kiválasztás**lehetőséget.
 
 ![Tarifacsomag kiválasztása](media/azure-stack-solution-geo-distributed/image36.png)
 
-A skálázási művelet befejeződött, amikor értesítés jelenik meg.
+A skálázási művelet akkor fejeződik be, ha az értesítés megjelenik.
 
 ![Vertikális felskálázási értesítés](media/azure-stack-solution-geo-distributed/image37.png)
 
-#### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>Az SSL-tanúsítvány kötése és köztes tanúsítványok egyesítése
+#### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>Az SSL-tanúsítvány kötése és a köztes tanúsítványok egyesítése
 
-Egyesítse a lánc több tanúsítványt.
+Több tanúsítvány egyesítése a láncban.
 
-1. **Nyissa meg az egyes tanúsítványok** kapott egy szövegszerkesztőben.
+1. **Nyisson meg minden olyan tanúsítványt** , amelyet egy szövegszerkesztőben kapott.
 
 2. Hozzon létre egy *mergedcertificate.crt* nevű fájlt az egyesített tanúsítvány számára. Egy szövegszerkesztőben másolja ebbe a fájlba az egyes tanúsítványok tartalmát. A tanúsítványok sorrendjének egyeznie kell a tanúsítványláncban lévő sorrenddel, a saját tanúsítvánnyal kezdve és a főtanúsítvánnyal végződve. Az alábbi példához hasonlóan néz ki:
 
@@ -465,87 +465,87 @@ Egyesítse a lánc több tanúsítványt.
 
 #### <a name="export-certificate-to-pfx"></a>Tanúsítvány exportálása PFX-fájlba
 
-Az egyesített SSL-tanúsítvány exportálása a titkos kulccsal, a tanúsítvány által generált.
+Exportálja az egyesített SSL-tanúsítványt a tanúsítvány által generált titkos kulccsal.
 
-Egy titkos kulcsfájlt OpenSSL lett létrehozva. A tanúsítvány exportálása PFX-FÁJLBA, futtassa a következő parancsot, és cserélje le a zárójelben  *\<private-key-file >* és  *\<egyesített-certificate-file >* -a titkos kulcs elérési útja, és az egyesített tanúsítványfájl:
+A titkos kulcsfájl az OpenSSL-n keresztül jön létre. A tanúsítvány PFX-fájlba való exportálásához futtassa a következő parancsot, és cserélje le a  *\<titkos kulcs-fájl >* és  *\<az egyesített-Certificate-file >* a titkos kulcs elérési útjára és az egyesített tanúsítványfájl fájlra:
 
 ```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 
-Amikor a rendszer kéri, adja meg egy exportálási jelszót később az App Service-ben az SSL-tanúsítvány feltöltése.
+Ha a rendszer kéri, adjon meg egy exportálási jelszót az SSL-tanúsítvány feltöltéséhez App Service később.
 
-Amikor az IIS vagy **Certreq.exe** szolgálnak a tanúsítványkérelem létrehozása, telepítse a tanúsítványt a helyi számítógépre, majd [exportálja a tanúsítványt PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+Ha az IIS vagy a **CertReq. exe** a tanúsítványkérelem előállítására szolgál, telepítse a tanúsítványt egy helyi gépre, majd [exportálja a tanúsítványt a pfx-be](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 #### <a name="upload-the-ssl-certificate"></a>Az SSL-tanúsítvány feltöltése
 
-1. Válassza ki **SSL-beállítások** a webalkalmazás bal oldali navigációs.
+1. Válassza az **SSL-beállítások** elemet a webalkalmazás bal oldali navigációs sávján.
 
-2. Válassza ki **-tanúsítvány feltöltése**.
+2. Válassza a **tanúsítvány feltöltése**lehetőséget.
 
-3. A **PFX tanúsítványfájl**válassza PFX-fájlt.
+3. A **pfx-tanúsítványfájl**területen válassza a pfx-fájl lehetőséget.
 
-4. A **tanúsítvány jelszava**, írja be a PFX-fájl exportálásakor létrehozott jelszót.
+4. A **tanúsítvány jelszava**mezőben adja meg a pfx-fájl exportálásakor létrehozott jelszót.
 
 5. Válassza a **Feltöltés** lehetőséget.
 
 ![Tanúsítvány feltöltése](media/azure-stack-solution-geo-distributed/image38.png)
 
-Amikor az App Service befejezi a tanúsítvány feltöltését, megjelenik a **SSL-beállítások** lapot.
+Amikor App Service befejezi a tanúsítvány feltöltését, az SSL- **Beállítások** lapon jelenik meg.
 
-![Az SSL-beállítások](media/azure-stack-solution-geo-distributed/image39.png)
+![SSL-beállítások](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Az SSL-tanúsítvány kötése
 
-1.  Az a **SSL-kötések** szakaszban jelölje be **kötés hozzáadása**.
+1.  Az **SSL** -kötések szakaszban válassza a **kötés hozzáadása**elemet.
 
     > [!Note]  
-    >  Ha a tanúsítvány fel lett töltve, de nem jelenik meg a tartományneveket a **állomásnév** legördülő listában, próbálkozzon a böngészőoldal.
+    >  Ha a tanúsítvány fel lett töltve, de nem jelenik meg az **állomásnév** legördülő listájában, akkor próbálja meg frissíteni a böngésző oldalát.
 
-1.  Az a **SSL-kötés hozzáadása** lapon, jelölje be a tartomány nevét a legördülő olyan plusz lehetőségeket, valamint a használni kívánt tanúsítványt.
+1.  Az **SSL-kötés hozzáadása** lapon a legördülő listából válassza ki a védeni kívánt tartománynevet, és a használni kívánt tanúsítványt.
 
 1.  Az **SSL Type** (SSL típusa) területen válassza ki, hogy a [**kiszolgálónév jelzésén (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) alapuló vagy IP-alapú SSL-t kíván-e használni.
 
-    - **SNI-alapú SSL**: Több SNI-alapú SSL-kötés adható hozzá. Ez a beállítás lehetővé teszi, hogy több SSL-tanúsítvány biztosítson védelmet több tartomány számára ugyanazon az IP-címen. A legtöbb modern böngésző (beleértve az Internet Explorert, a Chrome-ot, a Firefox-ot és az Operát) támogatja az SNI-t (átfogóbb böngészőtámogatási információkat a [Kiszolgálónév jelzése](https://wikipedia.org/wiki/Server_Name_Indication) című szakaszban talál).
+    - **SNI-alapú SSL**: Több SNI-alapú SSL-kötés is hozzáadható. Ez a beállítás lehetővé teszi, hogy több SSL-tanúsítvány biztosítson védelmet több tartomány számára ugyanazon az IP-címen. A legtöbb modern böngésző (beleértve az Internet Explorert, a Chrome-ot, a Firefox-ot és az Operát) támogatja az SNI-t (átfogóbb böngészőtámogatási információkat a [Kiszolgálónév jelzése](https://wikipedia.org/wiki/Server_Name_Indication) című szakaszban talál).
 
-    - **IP-alapú SSL**: Csak egy IP-alapú SSL-kötés adható hozzá. Ez a beállítás csak egy SSL-tanúsítványnak engedélyezi egy dedikált nyilvános IP-cím védelmét. Több tartomány védelméhez, védheti meg az összes SSL-tanúsítvány használatával. IP-alapú SSL, a hagyományos lehetőség SSL-kötés létrehozásához.
+    - **IP-alapú SSL**: Csak egy IP-alapú SSL-kötés adható hozzá. Ez a beállítás csak egy SSL-tanúsítványnak engedélyezi egy dedikált nyilvános IP-cím védelmét. Több tartomány biztonságossá tételéhez gondoskodjon arról, hogy mindegyik ugyanazt az SSL-tanúsítványt használja. Az IP-alapú SSL az SSL-kötés hagyományos beállítása.
 
-1. Válassza ki **kötés hozzáadása**.
+1. Válassza a **kötés hozzáadása**elemet.
 
     ![SSL-kötés hozzáadása](media/azure-stack-solution-geo-distributed/image40.png)
 
-Amikor az App Service befejezi a tanúsítvány feltöltését, megjelenik a **SSL-kötések** szakaszokat.
+Amikor App Service befejezi a tanúsítvány feltöltését, az az **SSL** -kötések szakaszában jelenik meg.
 
 ![SSL-kötések](media/azure-stack-solution-geo-distributed/image41.png)
 
-#### <a name="remap-the-a-record-for-ip-ssl"></a>Az A rekord újramegfeleltetése IP SSL-hez
+#### <a name="remap-the-a-record-for-ip-ssl"></a>Az A rekord újratársítása IP SSL
 
-Ha IP-alapú SSL nincs használatban a web app, ugorjon a [az egyéni tartomány HTTPS teszt](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
+Ha az IP-alapú SSL nincs használatban a webalkalmazásban, ugorjon a [https tesztelése az egyéni tartományhoz](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)elemre.
 
-Alapértelmezés szerint a a webalkalmazás megosztott nyilvános IP-címet használ. Ha a tanúsítványt az IP-alapú SSL van kötve, App Service-ben létrehoz egy új, dedikált IP-címet a webalkalmazás.
+Alapértelmezés szerint a webalkalmazás megosztott nyilvános IP-címet használ. Ha a tanúsítvány IP-alapú SSL-sel van kötve, App Service létrehoz egy új és dedikált IP-címet a webalkalmazáshoz.
 
-Amikor a webalkalmazás le van képezve egy A rekordot, a tartomány-beállításjegyzékbeli frissíteni kell a dedikált IP-címet.
+Ha egy rekord a webalkalmazásra van leképezve, a tartomány beállításjegyzékét frissíteni kell a dedikált IP-címmel.
 
-A **egyéni tartomány** lap frissül az új, dedikált IP-címet. Ezt [IP-cím](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain), majd újból a [rekord](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain) az új IP-címre.
+Az **egyéni tartomány** lapot az új, dedikált IP-címmel frissíti a rendszer. Másolja ezt az [IP-címet](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain), majd a [rekordot](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain) az új IP-címhez.
 
 #### <a name="test-https"></a>HTTPS tesztelése
 
-Különböző böngészőkben tallózással keresse meg a https://<your.custom.domain>to győződjön meg arról, a web app biztosítja.
+Különböző böngészőkben keresse meg a következőt: https://< a. Custom. domain > a webalkalmazás kiszolgálásának biztosítása érdekében.
 
-![webalkalmazás kikeresése](media/azure-stack-solution-geo-distributed/image42.png)
+![webalkalmazás tallózása](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
-> Tanúsítvány-ellenőrzési hibák fordulnak elő, ha önaláírt tanúsítványt okok válthatják ki, vagy a köztes tanúsítványok előfordulhat, hogy maradtak a PFX-fájlból történő exportálás során.
+> Ha a tanúsítvány-érvényesítési hibák merülnek fel, az önaláírt tanúsítvány lehet az OK, vagy előfordulhat, hogy a köztes tanúsítványok a PFX-fájlba való exportáláskor megmaradtak.
 
 #### <a name="enforce-https"></a>HTTPS kényszerítése
 
-Alapértelmezés szerint bárki elérheti a webalkalmazást HTTP-n keresztül. Előfordulhat, hogy a rendszer átirányítja a HTTPS-port a HTTP-kéréseket.
+Alapértelmezés szerint bárki elérheti a webalkalmazást HTTP-n keresztül. Lehet, hogy a HTTPS-portra irányuló összes HTTP-kérelem át lesz irányítva.
 
-Válassza ki a webalkalmazás lapjának **SL beállítások**. Ezután a **HTTPS Only** (Csak HTTPS) területen válassza az **On** (Be) elemet.
+A Web App (webalkalmazás) lapon válassza az **SL-beállítások**elemet. Ezután a **HTTPS Only** (Csak HTTPS) területen válassza az **On** (Be) elemet.
 
 ![HTTPS kényszerítése](media/azure-stack-solution-geo-distributed/image43.png)
 
-A művelet befejeződése után nyissa meg a HTTP URL-címek, amelyek az alkalmazás valamelyik. Példa:
+Ha a művelet befejeződött, navigáljon az alkalmazásra mutató HTTP URL-címek bármelyikéhez. Példa:
 
 -   https://<app_name>.azurewebsites.net
 -   https://northwindcloud.com
@@ -553,55 +553,55 @@ A művelet befejeződése után nyissa meg a HTTP URL-címek, amelyek az alkalma
 
 #### <a name="enforce-tls-1112"></a>A TLS 1.1/1.2 kényszerítése
 
-Az alkalmazás lehetővé teszi, hogy [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) , alapértelmezés szerint a továbbiakban nem tekinthető biztonságos szerint iparági szabványok, például az 1.0-s [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). A TLS újabb verziójának kényszerítéséhez kövesse az alábbi lépéseket:
+Az alkalmazás alapértelmezés szerint engedélyezi a [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1,0-et, amely már nem tekinthető biztonságosnak az iparági szabványok, például a [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)számára. A TLS újabb verziójának kényszerítéséhez kövesse az alábbi lépéseket:
 
-1.  A webalkalmazás lapjának bal oldali navigációs sávján válassza **SSL-beállítások**.
+1.  A webalkalmazás lap bal oldali navigációs sávján válassza az **SSL-beállítások**elemet.
 
-2.  A **TLS-verzió**, válassza ki a TLS minimális verzióját.
+2.  A **TLS verziónál**válassza ki a TLS minimális verzióját.
 
 ![A TLS 1.1 vagy 1.2 kényszerítése](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Traffic Manager-profil létrehozása
 
-1.  Válassza ki **erőforrás létrehozása** > **hálózatkezelés** > **Traffic Manager-profil** > **létrehozás**.
+1.  Válassza **az erőforrás** > létrehozása**hálózatkezelés** > **Traffic Manager profil** > **létrehozása**lehetőséget.
 
 2.  A **Traffic Manager-profil létrehozása** területen adja meg a következőket:
 
-    1.  A **neve**, adja meg a profil nevét. Ez a név egyedinek kell lennie a forgalom manager.net zóna és a forgalom manager.net, amely a Traffic Manager-profil eléréséhez használt DNS-nevet eredményezi.
+    1.  A **név mezőben**adja meg a profil nevét. Ennek a névnek egyedinek kell lennie a forgalmi manager.net zónán belül, és a Traffic Manager-profil eléréséhez használt DNS-nevet, forgalmi manager.net kell használnia.
 
-    2.  A **útválasztási módszer**, jelölje be a **Geographicrouting metódus**.
+    2.  Az **útválasztási módszer**területen válassza ki a **Geographicrouting metódust**.
 
-    3.  A **előfizetés**, válassza ki az előfizetést, amelyben ez a profil létrehozásához.
+    3.  Az **előfizetés**területen válassza ki azt az előfizetést, amelyben létre szeretné hozni a profilt.
 
     4.  Az **Erőforráscsoport** mezőben hozzon létre egy új erőforráscsoportot, amely alá ezt a profilt helyezi.
 
-    5.  Az **Erőforráscsoport helye** területen válassza ki az erőforráscsoport helyét. Ez a beállítás az erőforráscsoport helyére vonatkozik, és nincs hatással a Traffic Manager-profilt telepített globálisan.
+    5.  Az **Erőforráscsoport helye** területen válassza ki az erőforráscsoport helyét. Ez a beállítás az erőforráscsoport helyére vonatkozik, és nincs hatással a globálisan telepített Traffic Manager-profilra.
 
     6.  Kattintson a **Létrehozás** gombra.
 
-    7.  Ha a Traffic Manager-profil globális üzembe helyezése befejeződött, akkor szerepel a megfelelő erőforráscsoportban egy erőforrást.
+    7.  Ha a Traffic Manager-profil globális telepítése befejeződött, az a megfelelő erőforráscsoporthoz kerül, mint az egyik erőforrás.
 
-    ![Az erőforráscsoportok Traffic Manager-profil létrehozása](media/azure-stack-solution-geo-distributed/image45.png)
+    ![Erőforráscsoportok a Create Traffic Manager Profile](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager-végpontok hozzáadása
 
-1. A portálok keresősávban keressen a **Traffic Manager-profil** az előző szakaszban, és válasszon a traffic manager-profilt a megjelenített eredmények létrehozott nevét.
+1. A portálok keresési sávjában keresse meg az előző szakaszban létrehozott **Traffic Manager profil** nevét, és válassza ki a Traffic Manager-profilt a megjelenített eredmények között.
 
-2. A **Traffic Manager-profil**, a a **beállítások** szakaszban jelölje be **végpontok**.
+2. **Traffic Manager profilban**a **Beállítások** szakaszban válassza a végpontok lehetőséget.
 
 3. Válassza a **Hozzáadás** lehetőséget.
 
-4. Az Azure Stack-végpont hozzáadása.
+4. Az Azure Stack végpont hozzáadása.
 
-5. A **típus**válassza **külső végpont**.
+5. A **Típus mezőben**válassza a **külső végpont**lehetőséget.
 
-6. Adjon meg egy **neve** ezen a végponton, ideális esetben az Azure Stack nevét.
+6. Adja meg a végpont **nevét** , ideális esetben a Azure stack nevét.
 
-7. A teljes tartománynév (**FQDN**), a külső URL-cím használata az Azure Stack Web App for.
+7. Teljes tartománynév (**FQDN**) esetén használja a Azure stack webalkalmazás külső URL-címét.
 
-8. A földrajzi hozzárendelés válassza az a régió/kontinens, ahol az erőforrás megtalálható. Ha például **Európa.**
+8. A földrajzi leképezés területen válassza ki azt a régiót/kontinenst, ahol az erőforrás található. Például: **Európa.**
 
-9. Az ország/régió listából, amely akkor jelenik meg válassza az ország, amely ezt a végpontot vonatkozik. Ha például **Németország**.
+9. A megjelenő ország/régió legördülő listából válassza ki azt az országot, amely erre a végpontra vonatkozik. Például: **Németország**.
 
 10. A **Beállítás letiltottként** jelölőnégyzetet ne jelölje ki.
 
@@ -609,32 +609,32 @@ Az alkalmazás lehetővé teszi, hogy [TLS](https://wikipedia.org/wiki/Transport
 
 12. Az Azure-végpont hozzáadása:
 
-    1.  A **típus**válassza **Azure-végpont**.
+    1.  A **Típus mezőben**válassza az **Azure-végpont**lehetőséget.
 
-    2.  Adjon meg egy **neve** a végponthoz.
+    2.  Adja meg a végpont **nevét** .
 
-    3.  A **célerőforrás típusánál**válassza **App Service-ben**.
+    3.  A **cél erőforrástípus mezőben**válassza a **app Service**lehetőséget.
 
-    4.  A **Célerőforrásnál**válassza **alkalmazásszolgáltatás kiválasztása** megjelenítéséhez a listában, a Web Apps egy előfizetésen belül. A **erőforrás**, válassza ki az App service, az első végpontként használt.
+    4.  A **cél erőforrásnál**válassza az **app Service kiválasztása** lehetőséget az azonos előfizetéshez tartozó Web Apps listájának megjelenítéséhez. Az **erőforrás**területen válassza ki az első végpontként használt app Service-t.
 
-13. A földrajzi hozzárendelés válassza az a régió/kontinens, ahol az erőforrás megtalálható. Ha például **Észak-Amerika/Közép-Amerika/Karib-szigetek.**
+13. A földrajzi leképezés területen válassza ki azt a régiót/kontinenst, ahol az erőforrás található. Például: **Észak-Amerika/Közép-Amerika/Karib-térség.**
 
-14. Alatt az ország/régió listából, amely akkor jelenik meg hagyja üresen a helyszíni üres, válassza ki az összes a fenti regionális csoportosítást.
+14. A megjelenő ország/régió legördülő menüben hagyja üresen ezt a helyet, hogy kiválassza az összes fenti regionális csoportosítást.
 
 15. A **Beállítás letiltottként** jelölőnégyzetet ne jelölje ki.
 
 16. Kattintson az **OK** gombra.
 
     > [!Note]  
-    >  Hozzon létre legalább egy végpontot az összes (globális) az alapértelmezett végpont az erőforrás egyikükön földrajzi területét.
+    >  Hozzon létre legalább egy olyan végpontot, amelynek földrajzi hatóköre az összes (világ), hogy az erőforrás alapértelmezett végpontja legyen.
 
-1. Mindkét végpont hozzáadása befejeződése után jelennek meg a **Traffic Manager-profil** azok figyelési állapotát, valamint **Online**.
+1. Mindkét végpont hozzáadásakor a rendszer a **Traffic Manager profilban** jeleníti meg a figyelési állapotukat **online**állapottal együtt.
 
-    ![A TRAFFIC Manager-profil végpont állapota](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Traffic Manager profil végpontjának állapota](media/azure-stack-solution-geo-distributed/image46.png)
 
-**Globális vállalati Azure Geo-eloszlás képességeket támaszkodik.**
+**A globális vállalat az Azure geo-eloszlási képességeire támaszkodik**
 
-Adatok forgalmat az Azure Traffic Manager és a geography-specifikus végpontok keresztül lehetővé teszi a regionális előírások betartását és az adatok megfelelő és nem biztonságos, amely elengedhetetlen a sikeres, a helyi és távoli vállalati helyek a cégek számára.
+Az adatforgalom Azure-Traffic Manager és földrajzilag specifikus végpontokon keresztüli átirányítása lehetővé teszi a globális vállalatok számára a regionális szabályozások betartását, valamint a helyi és a távoli üzleti telephelyek sikeréhez elengedhetetlen adatok megfelelő és biztonságos megőrzését.
 
 ## <a name="next-steps"></a>További lépések
 
