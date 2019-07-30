@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 9d0597d4e2687c6563c365470be57c1603bbe616
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: 2d57c0ff71cd0aa4280e6a21df4727ee4bbe7fb6
+ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376747"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616496"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>API-verziók profiljainak kezelése Azure Stack
 
@@ -91,6 +91,8 @@ A go SDK-ban a profilok különböző típusú, különböző szolgáltatásokb�
 A Azure Stack Resource Managerhez készült Ruby SDK eszközöket biztosít az infrastruktúra kiépítéséhez és kezeléséhez. Az SDK erőforrás-szolgáltatói közé tartozik a kiszámítások, a virtuális hálózatok és a Ruby nyelvű tárterület. További információ: [API-verziók profiljainak használata a Ruby használatával](azure-stack-version-profiles-ruby.md).
 - **Python**  
 A Python SDK támogatja az API-verziók profiljait különböző felhőalapú platformok, például a Azure Stack és a globális Azure megcélzásához. Az API-profilok használatával megoldásokat hozhat létre hibrid felhőhöz. További információ: [API-verziók profiljainak használata a Python használatával](azure-stack-version-profiles-python.md).
+- **Node.js**  
+A Azure Stack Resource Managerhez készült Node. js SDK olyan eszközöket biztosít, amelyek segítenek az infrastruktúra kiépítésében és kezelésében. További információ: API- [verziók profiljainak használata a Node. js használatával](azure-stack-version-profile-nodejs.md).
 
 ## <a name="next-steps"></a>További lépések
 

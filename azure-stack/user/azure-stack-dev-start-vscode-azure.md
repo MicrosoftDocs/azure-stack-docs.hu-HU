@@ -1,82 +1,82 @@
 ---
-title: Csatlakozás Azure-fiók bővítmény használata a Visual Studio Code az Azure Stack |} A Microsoft Docs
-description: A fejlesztők az Azure Stack Azure-fiók bővítmény használata a Visual Studio Code csatlakozni
+title: Kapcsolódás Azure Stack Azure-fiók bővítmény használatával a Visual Studio Code-ban | Microsoft Docs
+description: Fejlesztőként kapcsolódjon Azure Stack Azure-fiók bővítmény használatával a Visual Studio Code-ban
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
-ms.topic: Howto
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/25/2019
-ms.openlocfilehash: 4e7dd18267060f632e2d059b0a7b0d9158b2e260
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: 9f45e94f26e577f1a47f60b7df24758d7bc88767
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387752"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603057"
 ---
-# <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Csatlakozhat az Azure Stack Azure-fiók bővítmény használata a Visual Studio Code
+# <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Kapcsolódás Azure Stack Azure-fiók bővítmény használatával a Visual Studio Code-ban
 
-Ebben a cikkben végigvezetjük, hogyan csatlakozhat az Azure Stack használatával az Azure-fiókkiterjesztés. A Visual Studio Code-ot (a VS Code) beállításait frissíteni kell.
+Ebből a cikkből megtudhatja, hogyan csatlakozhat a Azure Stackhoz az Azure-fiók bővítmény használatával. Frissítenie kell a Visual Studio Code (VS Code) beállításait.
 
-A VS Code-e egy egyszerűsített szerkesztője épület és hibakeresési webes és felhőalapú alkalmazásokat. ASP.NET Core, Python, a NodeJS, Go és más fejlesztők által szolgál. Az Azure-fiók bővítményt is használhat egy egyetlen Azure bejelentkezési szűrést további Azure-bővítményeket az előfizetéshez. A bővítmény elérhetővé teszi az Azure Cloud Shell a VS Code integrált terminálon. A bővítmény használata csatlakozhat az Azure Stack-előfizetés használata az Azure AD (Azure AD) és az Active Directory összevont szolgáltatások (AD FS) az identity Manager. Ez lehetővé teszi, hogy jelentkezzen be az Azure Stack, válassza ki az előfizetését és a egy új parancssor megnyitása a cloud shellben. 
+A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létrehozásához és hibakereséséhez. Ezt a ASP.NET Core, a Python, a NodeJS, a Go és más fejlesztők használják. Az Azure-fiók bővítmény használatával egyetlen Azure-bejelentkezést is használhat előfizetés-szűréssel további Azure-bővítményekhez. A bővítmény a VS Code-integrált terminálon elérhetővé teszi a Azure Cloud Shell. A bővítmény használatával az Azure AD (Azure AD) és az Identity Manager Active Directory összevont szolgáltatások (AD FS) használatával csatlakozhat a Azure Stack-előfizetéshez. Ez lehetővé teszi, hogy bejelentkezzen a Azure Stackba, válassza ki az előfizetését, és nyisson meg egy új parancssort a Cloud shellben. 
 
 > [!Note]  
-> Ebben a cikkben egy olyan környezetben, az Active Directory összevonási szolgáltatásokban (AD FS) használhatja a lépéseket. Az AD FS hitelesítő adatok és a végpontok használata.
+> A cikkben szereplő lépéseket egy Active Directory összevont szolgáltatások (AD FS) környezetéhez is használhatja. Használja a AD FS hitelesítő adatait és a végpontokat.
 
-## <a name="pre-requisites-for-the-azure-account-extension"></a>Az Azure-fiók bővítmény előfeltételei
+## <a name="pre-requisites-for-the-azure-account-extension"></a>Az Azure-fiók bővítményre vonatkozó előfeltételek
 
-1. Az Azure Stack-környezet 1904 build vagy újabb
+1. Azure Stack környezet 1904 Build vagy újabb
 2. [Visual Studio Code](https://code.visualstudio.com/)
-3. [Azure Account Extension](https://github.com/Microsoft/vscode-azure-account)
-4. [Azure Stack-előfizetéshez](https://azure.microsoft.com/overview/azure-stack/)
+3. [Azure-fiók bővítmény](https://github.com/Microsoft/vscode-azure-account)
+4. [Azure Stack előfizetés](https://azure.microsoft.com/overview/azure-stack/)
 
-## <a name="steps-to-connect-to-azure-stack"></a>Csatlakozás az Azure Stack lépései
+## <a name="steps-to-connect-to-azure-stack"></a>A Azure Stackhoz való kapcsolódás lépései
 
-1. Futtassa a **identitás** szkriptet az Azure Stack elől a Githubon.
+1. Futtassa az **azonosító** parancsfájlt Azure stack eszközökről a githubon.
 
-    - A parancsfájl futtatása előtt kell rendelkeznie a PowerShell telepítése és konfigurálása a környezetnek. Útmutatásért lásd: [Azure Stack PowerShell telepítése](../operator/azure-stack-powershell-install.md).
+    - A szkript futtatása előtt telepítenie kell a PowerShellt, és konfigurálnia kell a környezetét. Útmutatásért lásd: a [PowerShell telepítése Azure Stackhoz](../operator/azure-stack-powershell-install.md).
 
-    - Az a **identitás** parancsfájl utasításokat és parancsfájlokat, lásd: [AzureStack-eszközök/Identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
+    - Az **Identity** script utasításait és parancsfájlját lásd: [AzureStack-Tools/Identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity).
 
-2. Nyissa meg a VS Code.
+2. Nyissa meg a VS Code-ot.
 
-3. Válassza ki **bővítmények** a bal oldali sarokban.
+3. A  bal oldali sarokban válassza a bővítmények lehetőséget.
 
 3. A keresőmezőbe írja be a `Azure Account` kifejezést.
 
-4. Válassza ki **Azure-fiók** válassza **telepítése**.
+4. Válassza az **Azure-fiók** lehetőséget, és válassza a **telepítés**lehetőséget.
 
-      ![Az Azure Stack a Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
+      ![A Visual Studio Code Azure Stack](media/azure-stack-dev-start-vscode-azure/image1.png)
 
-5. Indítsa újra a VS Code betölteni a bővítményt.
+5. A bővítmény betöltéséhez indítsa újra a VS Code-ot.
 
-6. Csatlakozás az Azure Resource Manager az Azure stack a metaadatok lekérése. 
+6. A metaadatok beolvasása a Azure Stack Azure Resource Manager való kapcsolódáshoz. 
     
-    A Microsoft Azure Resource Manager-keretrendszert, amely lehetővé teszi, hogy üzembe helyezése, kezelése és monitorozása az Azure-erőforrások.
-    - A Resource Manager URL-cím az Azure Stack Development Kit (ASDK) a következő: `https://management.local.azurestack.external/` 
-    - Integrált rendszer Resource Manager URL-je: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
-    - Adja hozzá a következő szöveget a metaadatok elérésére az URL-címre: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+    A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi az Azure-erőforrások üzembe helyezését, kezelését és figyelését.
+    - A Azure Stack Development Kit (ASDK) Resource Manager URL-címe a következő:`https://management.local.azurestack.external/` 
+    - Az integrált rendszer Resource Manager URL-címe a következő:`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+    - Adja hozzá a következő szöveget az URL-címhez a metaadatok eléréséhez:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
-    Ha például az URL-cím az Azure Resource Manager-végpont a metaadatok lekérése céljából, előfordulhat, hogy következőhöz hasonló: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
+    Például az Azure Resource Manager-végpont metaadatainak beolvasására szolgáló URL-cím az alábbihoz hasonló lehet:`https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
 
-    Jegyezze fel a visszaküldött JSON. Szüksége lesz a tartozó értékeket a `loginEndpoint` és `audiences` tulajdonság.
+    Jegyezze fel a Return JSON-t. Szüksége lesz a `loginEndpoint` és `audiences` tulajdonság értékeire.
 
-7. Nyomja meg **Ctrl + Shift + P** válassza **beállítások: Nyissa meg a felhasználói beállítások (JSON)** .
+7. Nyomja le **a CTRL + SHIFT + P** billentyűkombinációt, és válassza a beállítások lehetőséget **: Nyissa meg a felhasználói beállításokat**(JSON).
 
-8. A kódszerkesztőben frissítse a következő JSON-kódrészletben értékekkel a környezetnek, és majd kódrészlet illessze be a beállítások letiltása.
+8. A Kódszerkesztő alkalmazásban frissítse a következő JSON-kódrészletet a környezetéhez tartozó értékekkel, majd illessze be a kódrészletet a Settings (beállítások) blokkba.
 
-    - Értékek:
+    - Értékek
 
         | Paraméter | Leírás |
         | --- | --- |
-        | `tenant-ID` | Az Azure Stack értékét [bérlőazonosító](../operator/azure-stack-identity-overview.md). |
-        | `activeDirectoryEndpointUrl` | Ez az az URL-cím loginEndpoint tulajdonságból. |
-        | `activeDirectoryResourceId` | Ez az az URL-címet a célközönség tulajdonság.
-        | `resourceManagerEndpointUrl` | Ez az Azure stack az Azure Resource Manager gyökér URL-címe. | 
+        | `tenant-ID` | A Azure Stack [bérlő azonosítójának](../operator/azure-stack-identity-overview.md)értéke. |
+        | `activeDirectoryEndpointUrl` | Ez a loginEndpoint tulajdonság URL-címe. |
+        | `activeDirectoryResourceId` | Ez a célközönségek tulajdonság URL-címe.
+        | `resourceManagerEndpointUrl` | Ez a Azure Stack Azure Resource Manager gyökerének URL-címe. | 
 
-    - JSON-kódrészletre:
+    - JSON-kódrészlet:
 
       ```JSON  
       "azure.tenant": "tenant-ID",
@@ -88,25 +88,25 @@ A VS Code-e egy egyszerűsített szerkesztője épület és hibakeresési webes 
       "azure.cloud": "AzurePPE"
       ```
 
-9. A felhasználói beállítások mentése és használata **Ctrl + Shift + P** még egyszer. Válassza ki **Azure: Jelentkezzen be Azure-felhő**. Az új lehetőség **AzurePPE**, tárolók listája megjelenik.
+9. Mentse a felhasználói beállításokat, és használja a **CTRL + SHIFT + P billentyűkombinációt** . Válassza **ki az Azure-t: Jelentkezzen be az Azure**-felhőbe. Az új lehetőség, a **AzurePPE**, megjelenik a célok listájában.
 
-10. Válassza ki **AzurePPE**. A hitelesítési oldalt a böngészőben tölti be. Jelentkezzen be a végponthoz.
+10. Válassza a **AzurePPE**lehetőséget. A hitelesítés lap betöltődik a böngészőben. Jelentkezzen be a végpontba.
 
-11. Ha tesztelni szeretné, hogy sikeresen bejelentkezett az Azure Stack-előfizetéssel, használja a **Ctrl + Shift + P** válassza **Azure: Válassza ki előfizetését** és az előfizetés van-e rendelkezésre.
+11. Annak ellenőrzéséhez, hogy sikeresen bejelentkezett-e a Azure stack-előfizetésbe, használja a **CTRL + SHIFT + P billentyűkombinációt** , és válassza az Azure lehetőséget **: Válassza az** előfizetés lehetőséget, és ellenőrizze, hogy elérhető-e az előfizetés.
 
 ## <a name="commands"></a>Parancsok
 
-| Azure: Bejelentkezés | Jelentkezzen be az Azure-előfizetésébe |
+| Azure: Bejelentkezés | Bejelentkezés az Azure-előfizetésbe |
 | --- | --- |
-| Azure: Jelentkezzen be az eszköz kód | Jelentkezzen be az Azure-előfizetéshez egy eszköz kóddal. Ezzel a beállításokat, a bejelentkezés parancs nem működik. |
-| Azure: Jelentkezzen be Azure-felhőben | Jelentkezzen be az Azure-előfizetéshez a független felhőkben egyikében. |
-| Azure: Kijelentkezés | Jelentkezzen ki az Azure-előfizetésében. |
-| Azure: Előfizetések kiválasztása | Válassza ki a használni kívánt előfizetések készletét. A bővítmény csak a szűrt előfizetések belüli erőforrások jeleníti meg. |
-| Azure: Fiók létrehozása | Ha nem rendelkezik Azure-fiók, akkor [regisztráció](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) egy mai részesül \$200 ingyenes kredittel jutalmazzuk. |
-| Azure: Nyissa meg a Bash Cloud shellben | Nyisson meg egy új terminálablakban a Cloud Shell Bash futtatása. |
-| Azure: Nyissa meg a Cloud Shellbeli PowerShell | Nyisson meg egy új terminálablakban a Cloud Shellben futtatja a Powershellt. |
-| Azure: Cloud Shell feltöltendő | Töltse fel egy fájlt a Cloud Shell tárfiókját. |
+| Azure: Bejelentkezés az eszköz kódjával | Jelentkezzen be az Azure-előfizetésbe egy eszköz kódjával. Ezt olyan beállításokban használhatja, amelyekben a bejelentkezési parancs nem működik. |
+| Azure: Bejelentkezés az Azure-felhőbe | Jelentkezzen be az Azure-előfizetésbe az egyik szuverén felhőben. |
+| Azure: Kijelentkezés | Jelentkezzen ki az Azure-előfizetésből. |
+| Azure: Előfizetések kiválasztása | Válassza ki a használni kívánt előfizetések készletét. A bővítmény csak a szűrt előfizetésekben lévő erőforrásokat jeleníti meg. |
+| Azure: Fiók létrehozása | Ha még nem rendelkezik Azure-fiókkal, [regisztrálhat](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) egy mai napra, és 200 ingyenes \$kreditet kaphat. |
+| Azure: Bash megnyitása Cloud Shell | Nyisson meg egy új, bash-t futtató terminált Cloud Shell. |
+| Azure: A PowerShell megnyitása Cloud Shell | Nyisson meg egy új, a PowerShellt futtató terminált Cloud Shellban. |
+| Azure: Feltöltés Cloud Shell | Töltsön fel egy fájlt a Cloud Shell Storage-fiókjába. |
 
 ## <a name="next-steps"></a>További lépések
 
-[Az Azure Stack fejlesztői környezet beállítása ](azure-stack-dev-start.md)
+[Fejlesztési környezet beállítása Azure Stack](azure-stack-dev-start.md)
