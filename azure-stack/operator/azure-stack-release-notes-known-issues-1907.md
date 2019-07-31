@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 93ac5da096642870e41a36f13611056ee51539f4
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: fb5c02eae73dcc2191e8b65bacea32efc0068b2e
+ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497188"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665115"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 ismert probléma
 
@@ -47,11 +47,11 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 - Előfordulása Közös
 
 ### <a name="subscriptions-properties-blade"></a>Előfizetések tulajdonságai panel
-- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: A felügyeleti portálon az előfizetések tulajdonságai panel nem töltődik be megfelelően
-- Szervizkiszolgáló Ezek az előfizetések tulajdonságai az előfizetések áttekintése panel Essentials (alapvető erőforrások) paneljén tekinthetők meg.
-- Előfordulása Közös
 
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A felügyeleti portálon az előfizetések **tulajdonságai panel** nem töltődik be megfelelően
+- Szervizkiszolgáló Ezeket az előfizetéseket az előfizetések **áttekintése** panel **Essentials (alapvető** erőforrások) paneljén tekintheti meg.
+- Előfordulása Közös
 
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
 
@@ -93,8 +93,8 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 #### <a name="local-network-gateway-deletion"></a>Helyi hálózati átjáró törlése
 
 - Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
-- Ok: A felhasználói portálon a helyi hálózati átjáró törlése a következő hibaüzenetet jeleníti meg: "Nem lehet törölni egy aktív kapcsolatban álló helyi hálózati átjárót, még akkor is, ha nincs aktív internetkapcsolat. 
-- Kockázatcsökkentő A probléma megoldása a 1907-es kiadásban jelenik meg. A probléma megkerülő megoldásként új helyi hálózati átjárót hoz létre ugyanazzal az IP-címmel, a címtartomány és a konfigurációs adatokkal egy másik névvel. A régi LNG törölhető, ha a környezet frissítve lett a 1907-es verziójára. 
+- Ok: A felhasználói portálon a **helyi hálózati átjáró** törlése a következő hibaüzenetet jeleníti meg: **Aktív kapcsolatban álló helyi hálózati átjáró nem törölhető**, még akkor is, ha nincs aktív internetkapcsolat.
+- Kockázatcsökkentő A probléma megoldása a 1907-es kiadásban jelenik meg. A probléma megkerülő megoldásként új helyi hálózati átjárót hoz létre ugyanazzal az IP-címmel, a címtartomány és a konfigurációs adatokkal egy másik névvel. A régi LNG törölhető, ha a környezet frissítve lett a 1907-es verziójára.
 - Előfordulása Közös
 
 #### <a name="alerts"></a>Riasztások
@@ -152,21 +152,21 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
 
-- Alkalmazható Ez a probléma a 1906-os, 1907-es kiadásra vonatkozik.
+- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
 - Ok: A méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de Azure Stack a méretezési csoportokban még nem támogatja a jelszó visszaállítását.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
 
-- Alkalmazható Ez a probléma a 1906, 1907 kiadásra vonatkozik.
+- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
 - Ok: A virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, amely nem támogatott a jelenlegi Azure Stack buildben.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
-- Alkalmazható Ez a probléma a 1906-os, 1907-es kiadásra vonatkozik.
+- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
 - Ok: A virtuális gép diagnosztikai beállításainak paneljén egy **fogadó lap van** , amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
