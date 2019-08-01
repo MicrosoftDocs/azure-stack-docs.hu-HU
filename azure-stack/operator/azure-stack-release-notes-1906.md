@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack 1906 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg Azure Stack integrált rendszerek, beleértve az újdonságokat, 1906 frissítésével kapcsolatos ismert problémák, valamint a helyét, a frissítés letöltése.
+title: Azure Stack 1906 kibocsátási megjegyzések | Microsoft Docs
+description: Ismerkedjen meg a 1906-es frissítéssel Azure Stack integrált rendszerek esetében, beleértve az újdonságokat, az ismert problémákat, valamint a frissítés letöltésének helyét.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,149 +16,153 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
-ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
+ms.openlocfilehash: ffd6436b9e7bf27ef069ecdc44ff2d6efadfc795
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67885358"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685564"
 ---
-# <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítése
+# <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítés
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Integrált rendszerek Azure Stack*
 
-Ez a cikk ismerteti a 1906 csomag tartalmát. A frissítés magában foglalja az új fejlesztések és javítások ebben a kiadásban az Azure Stack.
+Ez a cikk az 1906-es frissítési csomag tartalmát ismerteti. A frissítés a Azure Stack ezen kiadásának újdonságait és javításait tartalmazza.
 
 > [!IMPORTANT]  
 > Ez a csomag csak olyan Azure Stack integrált rendszerek. Ez a csomag nem vonatkoznak az Azure Stack Development Kit.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
-Az Azure Stack 1906 frissítés buildszáma **1.1906.0.30**.
+A Azure Stack 1906 frissítési Build száma **1.1906.0.30**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az Azure Stack 1906 update build típusa **Express**. További információt a frissítés build típusú, tekintse meg a [kezelheti a frissítéseket az Azure Stackben](azure-stack-updates.md) cikk. A 1906 frissítés befejezéséhez szükséges várt idő körülbelül 10 órát, az Azure Stack környezettel a fizikai csomópontok számától függetlenül. Pontos frissítés modulok általában függ a kapacitást a bérlői terhelések, a rendszer hálózati kapcsolatot, (ha csatlakozik az internethez), a rendszer használja, és a rendszer hardverkövetelményeket. A várt érték hosszabb ideig tart a modulok nem ritka, és nem igényelnek Azure Stack operátorai művelet, kivéve, ha a frissítés sikertelen. A futtatókörnyezet előállításához a 1906 Update és más Azure Stack-frissítések nem hasonlíthatók.
+A Azure Stack 1906 frissítési Build típusa **expressz**. További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack](azure-stack-updates.md) cikkben. Az 1906-es frissítés befejezéséhez szükséges idő körülbelül 10 óra, a Azure Stack-környezetben található fizikai csomópontok számától függetlenül. A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszerhardver-specifikációk alapján használt kapacitástól függenek. A várt értéknél hosszabb ideig tartó futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek beavatkozást Azure Stack operátorok, kivéve, ha a frissítés meghiúsul. Ez a futásidejű közelítés az 1906-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack frissítésekkel.
 
-## <a name="whats-in-this-update"></a>Mi az a frissítés
+## <a name="whats-in-this-update"></a>A frissítés ismertetése
 
 <!-- The current theme (if any) of this release. -->
 
 <!-- What's new, also net new experiences and features. -->
 
-- Hozzáadott egy **Set-TLSPolicy** parancsmagot emelt szintű végpontját (EGP) a TLS 1.2 kényszerítése minden végponton. További információkért lásd: [Azure Stack biztonsági vezérlők](azure-stack-security-configuration.md).
+- Egy **set-TLSPolicy** parancsmagot adott hozzá a privilegizált végponthoz (PEP) a TLS 1,2 kényszerítéséhez az összes végponton. További információ: [Azure stack biztonsági vezérlők](azure-stack-security-configuration.md).
 
-- Hozzáadott egy **Get-TLSPolicy** parancsmagot emelt szintű végpontját (EGP) a TLS szabályzat lekéréséhez. További információkért lásd: [Azure Stack biztonsági vezérlők](azure-stack-security-configuration.md).
+- Hozzáadott egy **Get-TLSPolicy** parancsmagot a Privileged ENDPOINT (PEP) alkalmazásban az alkalmazott TLS-szabályzat lekéréséhez. További információ: [Azure stack biztonsági vezérlők](azure-stack-security-configuration.md).
 
-- Hozzáadott egy belső titkos Elforgatás eljárás rotálása belső TLS-tanúsítványokat a rendszer frissítés közben.
+- Belső titkos elforgatási eljárás hozzáadva a belső TLS-tanúsítványok rendszerfrissítés során történő elforgatásához.
 
-- Hozzáadott egy biztonságos, hogy a belső titkos kulcsok lejárat belső titkos kódok rotációja segítségként, abban az esetben a lejáró titkos kódok kritikus riasztást a rendszer figyelmen kívül hagyja. Ez kell nem lehet hivatkozni egy normál működési eljárás szerint. Titkos kódok rotációja meg kell tervezni a karbantartási időszak alatt. További információkért lásd: [Azure Stack titkos Elforgatás](azure-stack-rotate-secrets.md).
+- A belső titkokat a belső titkok kiváltásának megakadályozása érdekében hozzáadott egy olyan védelmet, amely miatt a rendszer figyelmen kívül hagyja a kritikus riasztást a lejáró titkos kulcsok esetében. Ez nem használható rendszeres működési eljárásként. A titkok rotációját a karbantartási időszakban kell tervezni. További információ: [Azure stack Secret rotációs](azure-stack-rotate-secrets.md).
 
-- A Visual Studio Code mostantól támogatott az Azure Stack telepítése az AD FS használatával.
+- A Visual Studio Code mostantól támogatja a Azure Stack a AD FS használatával történő üzembe helyezést.
 
 ### <a name="improvements"></a>Fejlesztései
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- A **Get-GraphApplication** kiemelt végpontját a parancsmag mostantól megjeleníti a jelenleg használt tanúsítvány ujjlenyomatát. A tanúsítványkezelés, az egyszerű szolgáltatások Ez növeli a az AD FS az Azure Stack üzembe helyezésekor.
+- A privilegizált végpont **Get-GraphApplication** parancsmagja mostantól megjeleníti az aktuálisan használt tanúsítvány ujjlenyomatát. Ez javítja az egyszerű szolgáltatásnév felügyeletét, ha a Azure Stack AD FStal van üzembe helyezve.
 
-- Új figyelési állapotszabályok AD Graph és az Active Directory összevonási szolgáltatások, többek között legyen riasztás rendelkezésre állásának ellenőrzése lettek hozzáadva.
+- Új állapot-figyelési szabályok lettek hozzáadva az AD Graph és a AD FS rendelkezésre állásának ellenőrzéséhez, beleértve a riasztások megadásának lehetőségét is.
 
-- A biztonsági mentési erőforrás-szolgáltatót, ha egy másik példánya kerül a biztonsági mentési infrastruktúra-szolgáltatás, a megbízhatóság fejlesztései.
+- A biztonsági mentési erőforrás-szolgáltató megbízhatóságának fejlesztése, ha az infrastruktúra-mentési szolgáltatás egy másik példányra kerül át.
 
-- Külső titkos Elforgatás eljárás biztosít olyan egységes végrehajtási idő megkönnyítése érdekében a karbantartási időszak ütemezése a teljesítmény optimalizálása.
+- A külső titkos rotációs eljárás teljesítményének optimalizálása egy egységes végrehajtási idő biztosításához a karbantartási időszak ütemezésének megkönnyítése érdekében.
 
-- A **Test-AzureStack** parancsmag mostantól hamarosan lejár (kritikus riasztások) belső titkokat kapcsolatos jelentések.
+- A **test-AzureStack** parancsmag mostantól jelentést készít a hamarosan lejáró belső titkokról (kritikus riasztások).
 
-- Új paraméter érhető el a **Register-CustomAdfs** parancsmag, amely lehetővé teszi, hogy a rendszer kihagyja a visszavont tanúsítványok listájának ellenőrzése az AD FS összevonási megbízhatósági konfigurálásakor rendszerjogosultságú végpontját.
+- Új paraméter érhető el a (z) **CustomAdfs** parancsmaghoz a privilegizált végponton, amely lehetővé teszi a visszavont tanúsítványok listájának ellenőrzését a AD FS összevonási megbízhatóságának konfigurálásakor.
 
-- A 1906 kiadás vezet jobb áttekinthetősége frissítés van folyamatban, így biztos lehet abban is, hogy a frissítések nem szünetel. Az eredmény látható az operátorok számára a frissítési lépéseket teljes számának növelését a **frissítése** panelen. Azt is megfigyelheti több frissítése történik a párhuzamos, mint a korábbi frissítés lépéseit.
+- Az 1906-es kiadás nagyobb láthatóságot mutat be a frissítés folyamatában, így biztos lehet benne, hogy a frissítések nem szünetelnek. Ez a **frissítés** panelen megjelenő frissítési lépések teljes számának növekedését eredményezi. Előfordulhat, hogy a korábbi frissítéseknél párhuzamosan további frissítési lépések is előfordulhatnak.
 
-#### <a name="networking-updates"></a>Hálózatkezelés frissítések
+#### <a name="networking-updates"></a>Hálózatkezelési frissítések
 
-- Frissített bérleti idő beállítása a DHCP-válaszadó konzisztens Azure-ral.
+- A DHCP-válaszadóban beállított címbérleti idő konzisztens az Azure-ban.
 
-- Továbbfejlesztett újrapróbálkozási díjait a forgatókönyvben az erőforrások telepítése sikertelen volt. az erőforrás-szolgáltatónál.
+- Továbbfejlesztett újrapróbálkozási díjak az erőforrás-szolgáltatónak az erőforrások sikertelen üzembe helyezése esetén.
 
-- Eltávolítja a **Standard** Termékváltozat, amely jelenleg nem támogatott mind a terheléselosztóról, mind a nyilvános IP-cím, a beállítást.
+- A **standard** SKU lehetőség el lett távolítva a terheléselosztó és a nyilvános IP-cím közül, mivel ez jelenleg nem támogatott.
 
 ### <a name="changes"></a>Módosítások
 
-- Most már Azure összhangban egy storage-fiók megoldást vezet be.
+- A Storage-fiókokkal kapcsolatos felhasználói élmény mostantól konzisztens az Azure-ban.
 
-- A belső titkos kulcsok lejárati riasztás eseményindítók módosult:
-  - Figyelmeztetési szintű riasztások most aktiválódnak a titkos kulcsok a lejárat előtt 90 nappal.
-  - Kritikus riasztások most előállított titkos kódok lejárta előtt 30 nap.
+- Módosított riasztási eseményindítók a belső titkok lejáratához:
+  - A figyelmeztetési riasztások mostantól 90 nappal a titkok lejárta előtt jelennek meg.
+  - A kritikus riasztások mostantól 30 nappal a titkok lejárta előtt jelennek meg.
 
-- Biztonsági mentési erőforrás-szolgáltató infrastruktúra egységes terminológia frissített karakterláncokat.
+- Frissített karakterláncok az infrastruktúra biztonsági mentési erőforrás-szolgáltatójában konzisztens terminológiához.
 
 ### <a name="fixes"></a>Javítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
-- Javítva lett egy probléma, ahol a felügyelt lemezes virtuális gép átméretezése sikertelen volt egy **belső működési hiba**.
+- Kijavított egy problémát, amelyben a felügyelt lemezes virtuális gép átméretezése egy **belső működési hiba**miatt meghiúsult.
 
-- Javítva, ahol egy sikertelen felhasználói lemezkép létrehozása helyez a szolgáltatás, amely kezeli a lemezképek; rossz állapotban van Ez a beállítás megakadályozza a sikertelen lemezkép törlése és új-lemezképek létrehozása. Ez a 1905 gyorsjavítás is rögzíteni.
+- Kijavítva a hiba, amikor egy sikertelen felhasználói lemezkép létrehozásakor a lemezképet kezelő szolgáltatás helytelen állapotban van. Ez blokkolja a sikertelen lemezkép törlését és az új rendszerképek létrehozását. Ezt a 1905-es gyorsjavítás is rögzíti.
 
-- Aktív riasztások a belső lejáró titkos most már automatikusan belső titkos elforgatásának szögét sikeres végrehajtása után bezárul.
+- A belső titkos kulcsok sikeres végrehajtása után a rendszer mostantól automatikusan bezárja az aktív riasztásokat a lejáró belső titkokon.
 
-- Kijavítva, amelyben a frissítés időtartama a frissítési előzmények lapon lenne trim az első számjegy, ha a frissítés több mint 99 óráig futott.
+- Kijavítva egy probléma, amelyben a frissítés időtartama a frissítési Előzmények lapon az első számjegyet fogja kimetszeni, ha a frissítés több mint 99 órán keresztül futott.
 
-- A **frissítés** panelen többek között egy **folytatása** sikertelen frissítések lehetőséget.
+- A **frissítés** panel tartalmaz egy **folytatási** lehetőséget a sikertelen frissítésekhez.
 
-- A rendszergazdai és felhasználói portálok, javítva a Marketplace-en, amelyet a Docker-bővítmény nem megfelelően visszaadásához a keresés, de további művelet sikerült kell venni, nem érhető el az Azure Stackben.
+- A rendszergazda és a felhasználói portálon kijavíthatja a problémát a piactéren, amelyben a Docker-bővítmény helytelenül tért vissza a keresésből, de nem végezhető el további művelet, mivel Azure Stack nem érhető el.
 
-- Javítva lett egy probléma sablontelepítés felhasználói felület, amely nem tölti fel a paramétereket, ha a sablon neve kezdődik aláhúzásjellel (_).
+- Kijavított egy problémát a sablon telepítési felhasználói felületén, amely nem adja meg a paramétereket, ha a sablon neve _ aláhúzással kezdődik.
+
+- Kijavítva a probléma, hogy a virtuálisgép-méretezési csoport létrehozása során a CentOS-alapú 7,2-es verzió üzembe helyezési lehetőséget biztosít. A CentOS 7,2 Azure Stackon nem érhető el. Mostantól a CentOS 7,5-es verzióval biztosítjuk az üzembe helyezési lehetőséget
+
+- Mostantól eltávolíthat egy méretezési csoportot a **virtuálisgép** -méretezési csoportok paneljéről.
 
 ## <a name="security-updates"></a>Biztonsági frissítések
 
-Azure Stack ebben a frissítésben biztonsági frissítésekkel kapcsolatos információk: [Azure Stack biztonsági frissítések](azure-stack-release-notes-security-updates-1906.md).
+További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates-1906.md).
 
-## <a name="update-planning"></a>Tervezés módosítása
+## <a name="update-planning"></a>Frissítés tervezése
 
-A frissítés alkalmazásához, mindenképpen tekintse át a következő információkat:
+A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
 
 - [Ismert problémák](azure-stack-release-notes-known-issues-1906.md)
 - [Biztonsági frissítések](azure-stack-release-notes-security-updates-1906.md)
-- [Alkalmazása a frissítés előtti és utáni tevékenységek ellenőrzőlista](azure-stack-release-notes-checklist.md)
+- [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>A frissítés letöltése
 
-Letöltheti az Azure Stack 1906 frissítési csomagot [az Azure Stack letöltés oldal](https://aka.ms/azurestackupdatedownload).
+A Azure Stack 1906 frissítési csomagot [a Azure stack letöltési oldaláról](https://aka.ms/azurestackupdatedownload)töltheti le.
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Az Azure Stack rendszeresen gyorsjavításait. Mindenképpen a legújabb Azure Stack gyorsjavítás telepítése 1905 az Azure Stack 1906 frissítése előtt. Miután frissítette, telepítse a [1906 elérhető gyorsjavítások](#after-successfully-applying-the-1906-update).
+Azure Stack a gyorsjavításokat rendszeresen kiadják. Győződjön meg arról, hogy a 1905-es Azure Stack legújabb gyorsjavítást telepíti a 1906-es Azure Stack frissítése előtt. A frissítés után telepítse a [1906 összes elérhető gyorsjavítását](#after-successfully-applying-the-1906-update).
 
-Az Azure Stack-gyorsjavítások csak alkalmazhatók az Azure Stackkel integrált rendszerek. Ne kísérelje meg a ASDK gyorsjavítások telepítése.
+Azure Stack gyorsjavítások csak Azure Stack integrált rendszerekre alkalmazhatók. Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
-### <a name="before-applying-the-1906-update"></a>A 1906 alkalmazása előtt frissítése
+### <a name="before-applying-the-1906-update"></a>Az 1906-es frissítés alkalmazása előtt
 
-Az Azure Stack 1906 kiadását kell alkalmazni az a következő gyorsjavításokat 1905 kiadására:
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Az Azure Stack gyorsjavítás 1.1905.3.48](https://support.microsoft.com/help/4510078)
-
-### <a name="after-successfully-applying-the-1906-update"></a>Frissítse a 1906 sikeres alkalmazása után
-
-Ez a frissítés telepítése után bármely alkalmazandó gyorsjavítások telepítéséről. További információkért lásd: a [karbantartási szabályzat](azure-stack-servicing-policy.md).
+A Azure Stack 1906-es kiadását a 1905-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Az Azure Stack gyorsjavítás 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack gyorsjavítás 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
-## <a name="automatic-update-notifications"></a>Az automatikus frissítési értesítések
+### <a name="after-successfully-applying-the-1906-update"></a>Az 1906-es frissítés sikeres alkalmazása után
 
-Ügyfelek, a rendszerek, amelyek hozzáférnek az internethez, az infrastruktúra-hálózaton fogják látni a **frissítés érhető el** az operátor Portal webhelyen megjelenő. Internet-hozzáférés nélküli rendszerekhez letöltheti, és importálja a megfelelő .xml a .zip fájlt.
+A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
+
+<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
+- [Azure Stack gyorsjavítás 1.1906.11.52](https://support.microsoft.com/help/4513119)
+
+## <a name="automatic-update-notifications"></a>Automatikus frissítési értesítések
+
+Az infrastruktúra-hálózatról az internetre elérő rendszerekkel rendelkező ügyfelek az **elérhető frissítés** üzenet jelenik meg az operátori portálon. Az internet-hozzáféréssel nem rendelkező rendszerek a megfelelő. xml fájllal tölthetik le és importálhatók a. zip fájlt.
 
 > [!TIP]  
-> Fizessen elő a következő *RSS* vagy *Atom* tartani az Azure Stack gyorsjavítások-hírcsatornák:
+> Feliratkozás a következő *RSS* -vagy *Atom* -hírcsatornára Azure stack gyorsjavítások megtartásához:
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [Az Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archived-release-notes"></a>Archivált kibocsátási megjegyzések
 
-Látható [Azure Stack régebbi verzióinak kibocsátási megjegyzések a TechNet-katalógusban](https://aka.ms/azsarchivedrelnotes). Ezek a kibocsátási megjegyzések kizárólag tájékoztatási célt szolgálnak, és jelenti ezen verziók támogatása archivált. Azure Stack-támogatással kapcsolatos információkért lásd: [karbantartási szabályzat az Azure Stack](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálathoz.
+[A Azure stack kibocsátási megjegyzések régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)tekintheti meg. Ezek az archivált kibocsátási megjegyzések kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ a Azure Stack támogatásáról: [Azure stack karbantartási szabályzat](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 
 ## <a name="next-steps"></a>További lépések
 

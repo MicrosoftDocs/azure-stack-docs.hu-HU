@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 43179dfaed48385c901fcf4ad7684d225e36b3df
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493794"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685524"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
@@ -78,6 +78,7 @@ Ezek az alacsony hatású tesztek infrastrukturális szinten működnek, és inf
 | Azure Stack infrastruktúra kapacitása                  | AzsInfraCapacity                  |
 | Infrastruktúra-teljesítmény Azure Stack               | AzsInfraPerformance               |
 | Infrastruktúra-szerepkör összefoglalása Azure Stack              | AzsInfraRoleSummary               |
+| Azure Stack Network infra                            | AzsNetworkInfra                   |
 | Azure Stack portál és API-összefoglalás                   | AzsPortalAPISummary               |
 | Azure Stack méretezési egység VM-eseményei                     | AzsScaleUnitEvents                |
 | Azure Stack méretezési egység virtuálisgép-erőforrásai                  | AzsScaleUnitResources             |
@@ -226,6 +227,16 @@ Ha új hitelesítő adatokat szeretne tesztelni a beállított biztonsági ment�
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
+
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>Ellenőrző eszköz futtatása a hálózati infrastruktúra teszteléséhez 
+
+Ez a teszt ellenőrzi a hálózati infrastruktúra azon kapcsolatát, amely megkerüli a Azure Stack szoftver által meghatározott hálózatot (SDN). Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és a hitelesítési végpontokkal. Ez magában foglalja az Azure-hoz való kapcsolódást, ha az Azure AD-t identitás-szolgáltatóként vagy az összevont kiszolgálóként használja, amikor az ADFS-t 
+
+Adja meg a Debug paramétert a parancs részletes kimenetének lekéréséhez:
+
+```powershell 
+Test-AzureStack -Include AzsNetworkInfra -Debug
+```
 
 
 

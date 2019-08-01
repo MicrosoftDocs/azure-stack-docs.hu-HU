@@ -16,12 +16,12 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: bcdcb43cb58535a4ab4a8a543c1fbf31824dacbc
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494133"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685541"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 ismert probléma
 
@@ -137,7 +137,7 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 #### <a name="add-backend-pool"></a>Háttérkészlet hozzáadása
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Ha a felhasználói portálon egy **háttér** -készletet próbál hozzáadni egy Load Balancerhoz , a művelet meghiúsul, és a hibaüzenet **nem tudta frissíteni a Load Balancer.** ...
+- Ok: Ha a felhasználói portálon egy **háttér** -készletet próbál hozzáadni egy Load Balancerhoz, a művelet meghiúsul, és a hibaüzenet **nem tudta frissíteni a Load Balancer.** ...
 - Szervizkiszolgáló A PowerShell, a CLI vagy a Resource Manager-sablon használatával társítsa a háttér-készletet egy terheléselosztó-erőforráshoz.
 - Előfordulása Közös
 
@@ -159,31 +159,12 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 
 ### <a name="virtual-machine-scale-set"></a>Virtuális gép méretkészlete
 
-#### <a name="centos"></a>CentOS
-
-- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: A virtuálisgép-méretezési csoport létrehozási felülete a CentOS-alapú 7,2-es lehetőséget kínálja az üzembe helyezéshez. A CentOS 7,2 Azure Stackon nem érhető el.
-- Szervizkiszolgáló Válasszon másik operációs rendszert a központi telepítéshez, vagy használjon egy Azure Resource Manager sablont, amely egy másik, a piactéren az operátor általi üzembe helyezés előtt letöltött CentOS-rendszerképet ad meg.
-- Előfordulása Közös
-
-#### <a name="remove-scale-set"></a>Méretezési csoport eltávolítása
-
-- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: A méretezési csoportokat nem lehet eltávolítani a **virtuálisgép** -méretezési csoportok paneljéről.
-- Szervizkiszolgáló Válassza ki az eltávolítani kívánt méretezési készletet, majd kattintson a **Törlés** gombra az **Áttekintés** ablaktáblán.
-- Előfordulása Közös
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack környezetekben
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: A virtuális gépeket 3 tartalék tartományba tartozó rendelkezésre állási csoportba kell létrehozni, és a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack környezet frissítési folyamata során.
 - Szervizkiszolgáló Egy rendelkezésre állási csoportba egyetlen virtuális gépet hozhat létre, amelynek 2 tartalék tartománya sikeresen megtörtént. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack frissítési folyamata során.
-
-#### <a name="scale-set-instance-view-blade-does-not-load"></a>A méretezési csoport példányainak nézete nem töltődik be
-
-- Alkalmazható Ez a probléma a 1904, 1905 és 1906 kiadásokra vonatkozik.
-- Ok: A Azure Stack-portálon található virtuálisgép-méretezési csoport példány nézetének panelje az **irányítópulton > virtuálisgép-méretezési csoportok > AnyScaleSet > példányok > a AnyScaleSetInstance** nem töltődik be, és egy "esős felhő" rendszerképet jelenít meg.
-- Szervizkiszolgáló Jelenleg nincs szervizelés, és a javításon dolgozunk. Addig is használja a CLI-parancsot `az vmss get-instance-view` egy méretezési csoport példány nézetének lekéréséhez.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: b5ed44dfaaf8f34279126d3007f4879e2af1b192
-ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: de6d45aa18dab4f6a5e4c7c772732242e296aa3a
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665092"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692066"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 frissítés
 
@@ -52,7 +52,9 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 
 <!-- What's new, also net new experiences and features. -->
 
-- A Azure Stack diagnosztikai napló gyűjtési szolgáltatásának általánosan elérhető kiadása a diagnosztikai naplók gyűjtésének megkönnyítéséhez és fejlesztéséhez. A Azure Stack diagnosztikai napló gyűjtése szolgáltatás lehetővé teszi a diagnosztikai naplók összegyűjtését és megosztását a Microsoft ügyfél-támogatási szolgálatával (CSS). A Azure Stack diagnosztikai napló-gyűjtési szolgáltatás új felhasználói élményt nyújt a Azure Stack felügyeleti portálon, amely lehetővé teszi, hogy a kezelők automatikusan feltöltsék a diagnosztikai naplókat egy tárolási blobba, amikor bizonyos kritikus riasztások bekövetkeznek, vagy végrehajtják Ugyanez a művelet igény szerint. További információkért lásd a [diagnosztikai napló gyűjtését](azure-stack-diagnostic-log-collection-overview.md) ismertető cikket.
+- A Azure Stack diagnosztikai napló gyűjtési szolgáltatásának általánosan elérhető kiadása a diagnosztikai naplók gyűjtésének megkönnyítéséhez és fejlesztéséhez. A Azure Stack diagnosztikai napló gyűjtése szolgáltatás lehetővé teszi a diagnosztikai naplók összegyűjtését és megosztását a Microsoft ügyfél-támogatási szolgálatával (CSS). Ez a diagnosztikai napló-gyűjtési szolgáltatás új felhasználói élményt nyújt a Azure Stack felügyeleti portálon, amely lehetővé teszi, hogy a kezelők automatikusan feltöltsék a diagnosztikai naplókat egy tárolási blobba, amikor bizonyos kritikus riasztások bekövetkeznek, vagy ugyanezt a műveletet hajtják végre. igény szerinti művelet. További információkért lásd a [diagnosztikai napló gyűjtését](azure-stack-diagnostic-log-collection-overview.md) ismertető cikket.
+
+- A Azure Stack hálózati infrastruktúra ellenőrzésének általánosan elérhető kiadása az Azure Stack Validation Tool **test-AzureStack**részeként. Azure Stack hálózati infrastruktúra a **test-AzureStack**részét képezi, annak megállapításához, hogy hiba történik-e a Azure stack hálózati infrastruktúráján. A teszt ellenőrzi a hálózati infrastruktúra kapcsolatát, ha megkerüli a Azure Stack szoftver által meghatározott hálózatot. Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és az identitás-végpontokkal. Emellett ellenőrzi az Azure-hoz való csatlakozást, ha az Azure AD-t az identitás-szolgáltatóként vagy az összevont kiszolgálóként használja az ADFS használatakor. További információkért tekintse meg a [Azure stack ellenőrzési eszközét](azure-stack-diagnostic-test.md) ismertető cikket.
 
 - Egy belső titkos elforgatási eljárás lett hozzáadva a belső SQL TLS-tanúsítványok szükség szerinti elforgatásához a rendszer frissítése során.
 
