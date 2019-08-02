@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: b789b7ba1f4c55f0ee44c214d4e214b73678b1fc
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544069"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68719966"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack frissítési tevékenység ellenőrzőlistája
 
@@ -31,8 +31,8 @@ Ez a cikk a Azure Stack operátorok frissítéssel kapcsolatos tevékenységeine
 
 | Tevékenység                     | Részletek                                                   |
 |------------------------------|-----------------------------------------------------------|
-| Ismert problémák áttekintése     | [Ismert problémák listája](azure-stack-release-notes-known-issues-1906.md).                |
-| Biztonsági frissítések áttekintése | [A biztonsági frissítések listája](azure-stack-release-notes-security-updates-1906.md).      |
+| Ismert problémák áttekintése     | [Ismert problémák listája](azure-stack-release-notes-known-issues-1907.md).                |
+| Biztonsági frissítések áttekintése | [A biztonsági frissítések listája](azure-stack-release-notes-security-updates-1907.md).      |
 | A legújabb OEM-csomag alkalmazása | Lépjen kapcsolatba az OEM-vel, és győződjön meg arról, hogy a rendszer megfelel a rendszer frissítésének Azure Stack verziójának minimális OEM-csomagra vonatkozó követelményeinek. |
 | Run Test-AzureStack     | Futtassa `Test-AzureStack -Group UpdateReadiness` a parancsot a működési problémák azonosításához.      |
 | Problémák megoldása          | Oldja meg a **test-AzureStack**által azonosított működési problémákat.                |
