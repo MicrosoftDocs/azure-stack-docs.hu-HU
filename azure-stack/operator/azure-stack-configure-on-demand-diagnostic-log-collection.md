@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 25b72df875dd78e7ddea42c4505345f4225cc948
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 988c24f004222d80b866024c2c392473cdf73bab
+ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497111"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68712944"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>Azure Stack diagnosztikai naplók begyűjtése most (igény szerint)
 
@@ -159,7 +159,7 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
   4. Navigáljon a **Storage Services** **blob** -tárolói között.
   5. Válassza **az új tároló létrehozása**lehetőséget.
   6. Kattintson a jobb gombbal az új tárolóra, majd kattintson a **megosztott hozzáférés aláírásának**beolvasása elemre.
-  7. A követelményektől  függően adjon meg egy érvényes kezdési és **befejezési**időpontot.
+  7. A követelményektől függően adjon meg egy érvényes kezdési és **befejezési**időpontot.
   8. A szükséges engedélyek esetében válassza az **olvasás**, **írás**és **lista**lehetőséget.
   9. Kattintson a **Létrehozás** gombra.
   10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg a `-OutputSasUri` paraméternek.
@@ -186,34 +186,34 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
 * Alapértelmezés szerint le van tiltva a fájl naplófájljainak gyűjteménye. Az engedélyezéshez használja a **IncludeDumpFile** switch paramétert.
 * Jelenleg a **FilterByRole** paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
 
-  |   |   |   |    |
-  | - | - | - | -  |
-  |ACS                   |CA                             |HRP                            |OboService|
-  |ACSBlob               |CacheService                   |IBC                            |OEM|
-  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
-  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
-  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
-  |AzureMonitor          |Átjáró                        |NC                             |WAS|
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
-  |BRP                   |HintingServiceV2               |NRP                            |   |
-  |   |   |   |    |
+  |   |   |   |    |     |
+  | - | - | - | -  |  -  |
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
+  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
+  |AzureMonitor          |Átjáró                        |NC                             |SupportRingServices       |         |
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
+  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
+  |   |   |   |    |     | 
 
 ### <a name="additional-considerations"></a>Néhány fontos megjegyzés
 
 * A parancs eltarthat egy ideig, hogy a naplók milyen szerepkör (ek) gyűjtését végzik. A közreműködő tényezők közé tartozik a naplókhoz megadott időtartam és a Azure Stack környezet csomópontjainak száma is.
 * A napló-gyűjtemény futtatásakor ellenőrizze a parancsban megadott **OutputSharePath** paraméterben létrehozott új mappát.
-* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, majd válassza a Kibontás lehetőséget. Ezzel kibontja az adott szerepkörhöz tartozó összes naplófájlt egyetlen egyesített mappában.
+* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, majdválassza a Kibontás lehetőséget. Ezzel kibontja az adott szerepkörhöz tartozó összes naplófájlt egyetlen egyesített mappában.
 * A **Get-AzureStackLog_Output. log** nevű fájl a tömörített naplófájlokat tartalmazó mappában is létrejön. Ez a fájl a parancs kimenetének naplója, amely a naplózási problémák elhárításához használható. Előfordulhat, hogy a naplófájl `PS>TerminatingError` olyan bejegyzéseket tartalmaz, amelyek nyugodtan figyelmen kívül hagyhatók, kivéve, ha a napló-gyűjtemény futtatása után hiányoznak a várt naplófájlok.
 * Egy adott hiba kivizsgálásához több összetevőre is szükség lehet a naplókra.
 

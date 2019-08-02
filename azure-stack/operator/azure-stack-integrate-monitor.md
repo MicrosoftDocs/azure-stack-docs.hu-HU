@@ -1,6 +1,6 @@
 ---
-title: Külső figyelő megoldás integrálása az Azure Stackkel való használathoz |} A Microsoft Docs
-description: Ismerje meg, hogyan integrálhatja az Azure Stacket külső figyelési megoldással az adatközpontban.
+title: Külső figyelési megoldás integrálása a Azure Stackrel | Microsoft Docs
+description: Ismerje meg, hogyan integrálhatja a Azure Stackt egy külső figyelési megoldással az adatközpontjában.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,235 +15,235 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
+ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691692"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68712919"
 ---
-# <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Külső figyelő megoldás integrálása az Azure Stack használatával
+# <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Külső figyelési megoldás integrálása a Azure Stack
 
-Külső figyelés az Azure Stack-infrastruktúra figyelése az Azure Stack szoftver, a fizikai számítógépek és a fizikai hálózati kapcsolók kell. Állapot és riasztási adatokat beolvasni metódus következő területeken nyújt:
+A Azure Stack infrastruktúra külső figyeléséhez figyelnie kell a Azure Stack szoftvereket, a fizikai számítógépeket és a fizikai hálózati kapcsolókat. Ezen területek mindegyike az állapot-és riasztási adatok lekérésére szolgáló módszert kínál:
 
-- Az Azure Stack szoftver kínál egy REST-alapú API-t állapot és riasztások beolvasása. Szoftver-meghatározott technológiák, például a közvetlen tárolóhelyek, tárolási állapot és riasztások használata szoftver figyelési részét képezik.
-- Fizikai számítógépek is elérhetővé állapot és riasztási adatokat az alaplapi felügyeleti vezérlővel (bmc) keresztül.
-- Fizikai hálózati eszközöket is elérhetővé állapot és riasztási adatokat az SNMP protokollon keresztül.
+- Azure Stack szoftver egy REST-alapú API-t kínál az állapot és a riasztások lekéréséhez. A szoftveresen definiált technológiák, például a Közvetlen tárolóhelyek, a tárolási állapot és a riasztások használata a szoftverek figyelésének részét képezik.
+- A fizikai számítógépek az alaplapi felügyeleti vezérlők (bmc-EK) segítségével elérhetővé tehetik az állapot-és riasztási információkat.
+- A fizikai hálózati eszközök az SNMP protokollon keresztül elérhetővé tehetik az állapot-és riasztási információkat.
 
-Minden egyes Azure Stack megoldás hardver életciklus állomással letöltésként érhető el. Ezen a gazdagépen fut, a számítógépgyártó (OEM) hardver gyártója által biztosított felügyeleti szoftver a fizikai kiszolgálók és a hálózati eszközök. Ha azok figyelési megoldásokkal integrálható a meglévő figyelési megoldások az adatközpontban található Ellenőrizze a OEM-szolgáltatónál.
+Minden Azure Stack megoldás egy hardveres életciklus-állomással rendelkezik. Ez a gazdagép futtatja az eredeti berendezésgyártó (OEM) hardvergyártó által felügyelt szoftvert a fizikai kiszolgálók és a hálózati eszközök számára. Ha a figyelési megoldásai integrálva vannak az adatközpontban meglévő figyelési megoldásokkal, ellenőrizze az OEM-szolgáltatót.
 
 > [!IMPORTANT]
-> A külső figyelési megoldást használ az ügynök nélküli kivételfigyelés kell lennie. Külső ügynökök belül az Azure Stack-összetevők nem telepíthető.
+> A használt külső figyelési megoldásnak ügynök nélkül kell lennie. Azure Stack-összetevőkön belül nem telepíthet harmadik féltől származó ügynököket.
 
-Az alábbi ábrán látható, az Azure Stackkel integrált rendszerek, a hardver életciklus-gazdagép, egy külső figyelési megoldás és egy külső jegykiadás/adatgyűjtési rendszer közötti adatforgalmat.
+Az alábbi ábrán egy Azure Stack integrált rendszer, a hardver életciklus-állomása, egy külső figyelési megoldás és egy külső Ticketing/adatgyűjtő rendszer közötti adatforgalom látható.
 
-![Azure Stack, figyelés, és hibajegy-kezelési megoldás közötti forgalom bemutató diagram.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![A Azure Stack, a figyelés és a jegyeladási megoldás közötti forgalmat bemutató ábra.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> Külső figyelési integráció közvetlenül a fizikai kiszolgálók nem engedélyezett, aktívan blokkolja a hozzáférés-vezérlési listák (ACL).  Külső figyelési integrációs közvetlenül a fizikai hálózati eszközöket támogatott, ellenőrizze a Ez a funkció engedélyezése az OEM-szolgáltatónál.
+> A külső figyelési integrációt közvetlenül a fizikai kiszolgálókkal együtt Access Control listák (ACL-ek) nem engedélyezik és aktívan letiltják.  A külső monitorozási integráció közvetlenül a fizikai hálózati eszközökkel támogatott, és a szolgáltatás engedélyezésével kapcsolatban érdeklődjön az OEM-szolgáltatónál.
 
-Ez a cikk bemutatja, hogyan integrálható az Azure Stack külső figyelési megoldásokkal, például a System Center Operations Manager és a Nagios. Hogyan használható a riasztásokat programozott módon PowerShell vagy REST API-hívások is tartalmaz.
+Ez a cikk azt ismerteti, hogyan integrálható a Azure Stack külső figyelési megoldásokkal, például a System Center Operations Manager és a Nagios használatával. Azt is ismerteti, hogyan használhatók a riasztások programozott módon a PowerShell vagy a REST API-hívások segítségével.
 
-## <a name="integrate-with-operations-manager"></a>Az Operations Manager integrálása
+## <a name="integrate-with-operations-manager"></a>Integrálás Operations Manager
 
-Az Operations Manager Azure Stack külső figyelésére használható. A System Center Management Pack for Microsoft Azure Stack segítségével több Azure Stack üzemelő példányokat, az Operations Manager egyetlen példánnyal. A felügyeleti csomag az erőforrás-szolgáltató állapota és a frissítés erőforrás-szolgáltató REST API-k segítségével kommunikál az Azure Stack. Ha azt tervezi, a hardver életciklus gazdagépen futó szoftverek monitorozását az OEM megkerülése, gyártói felügyeleti csomagok fizikai kiszolgálók figyelése is telepítheti. Az Operations Manager hálózati eszközök felderítési használatával figyelheti a hálózati kapcsolókat.
+A Azure Stack külső figyeléséhez Operations Manager is használhatja. A Microsoft Azure Stack System Center felügyeleti csomagja lehetővé teszi több Azure Stack központi telepítés figyelését egyetlen Operations Manager-példánnyal. A felügyeleti csomag az állapot-erőforrás-szolgáltatót használja, és az erőforrás-szolgáltató REST API-k használatával kommunikál a Azure Stackokkal. Ha azt tervezi, hogy megkerüli a hardver életciklus-gazdagépén futó OEM-figyelési szoftvert, akkor a fizikai kiszolgálók figyeléséhez telepítheti a szállítói felügyeleti csomagokat. A hálózati kapcsolók figyeléséhez Operations Manager hálózati eszközök felderítését is használhatja.
 
-A felügyeleti csomag az Azure Stackhez az alábbi képességeket biztosítja:
+A Azure Stack felügyeleti csomagja a következő képességeket biztosítja:
 
-- Kezelheti a több Azure Stack-telepítés
-- A program támogatja az Azure Active Directory (Azure AD) és az Active Directory összevonási szolgáltatások (AD FS)
-- Beolvashatja és riasztások bezárása
-- Van egy állapotát és a egy kapacitás-irányítópult
-- Ha javítás- és (P & U) frissítése folyamatban van az automatikus karbantartás mód észlelési tartalmaz
-- Kényszerített frissítési feladatok üzembe helyezéséhez és a régiót tartalmaz
-- Egyéni adatokat adhat hozzá egy régió
-- Támogatja az értesítések és jelentések
+- Több Azure Stack-telepítést is kezelhet
+- A Azure Active Directory (Azure AD) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) támogatása
+- Riasztásokat kérhet le és zárhatja le
+- Van egy állapot és egy kapacitás irányítópult
+- Automatikus karbantartási mód észlelése, ha a javítás és frissítés (P & U) folyamatban van
+- A telepítés és a régió kényszerített frissítési feladatait tartalmazza
+- Egyéni adatokat adhat hozzá egy régióhoz
+- Értesítés és jelentéskészítés támogatása
 
-A System Center felügyeleti csomag letöltheti a Microsoft Azure Stack és a társított [felhasználói útmutató](https://www.microsoft.com/en-us/download/details.aspx?id=55184), vagy közvetlenül az Operations Managerből.
+A System Center felügyeleti csomagot letöltheti Microsoft Azure Stack és a hozzá tartozó [felhasználói útmutatóhoz](https://www.microsoft.com/en-us/download/details.aspx?id=55184), vagy közvetlenül a Operations Managerból is.
 
-Hibajegykezelő megoldások integrálható az Operations Manager-System Center Service Manager. A beépített termék-összekötő lehetővé teszi, hogy a kétirányú kommunikációt, amely lehetővé teszi, hogy az Azure Stack és az Operations Manager riasztás bezárása egy szolgáltatási kérelmet a Service Manager megoldása után.
+A Ticketing megoldáshoz a Operations Managert integrálhatja System Center Service Manager használatával. Az integrált termék-összekötő olyan kétirányú kommunikációt tesz lehetővé, amely lehetővé teszi a riasztások bezárását Azure Stack és Operations Manager, miután feloldotta egy szolgáltatási kérelmet a Service Manager.
 
-Az alábbi ábrán látható, az Azure Stack integrálása meglévő System Center-környezet. A Service Manager további a System Center Orchestrator vagy a Service Management Automation (SMA) műveletek futtatásához az Azure Stackben automatizálható.
+A következő ábra a Azure Stack integrációját mutatja be egy meglévő System Center-telepítéssel. A System Center Orchestrator vagy a Service Management Automation (SMA) Service Manager további műveleteket is automatizálhat a Azure Stack-műveletek futtatásához.
 
-![Integráció az OM, a Service Manager és az SMA bemutató diagram.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![Az OM, a Service Manager és az SMA integrációját bemutató ábra.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
 
-## <a name="integrate-with-nagios"></a>Nagios integrálása
+## <a name="integrate-with-nagios"></a>Integrálás a Nagios-nal
 
-Állítsa be, és konfigurálja a Nagios beépülő modul a Microsoft Azure Stackhez készült.
+Beállíthatja és konfigurálhatja a Microsoft Azure Stackhez készült Nagios beépülő modult.
 
-A beépülő modul figyelési Nagios fejlesztette ki együtt a partnermegoldások Cloudbase érhető el a megengedő ingyenes szoftverlicenc - MIT (Massachusetts Institute of Technology) alatt.
+A Nagios-figyelési beépülő modul a partneri Cloudbase-megoldásokkal együtt lett kifejlesztve, amely a megengedő ingyenes szoftverlicenc-MIT (Massachusetts Institute of Technology) keretében érhető el.
 
-A beépülő modul Python nyelven van megírva, és az egészségügyi erőforrás-szolgáltató REST API-t használja. Alapszintű funkció lekéréséhez és a riasztások bezárása az Azure Stack kínál. Például a System Center felügyeleti csomag lehetővé teszi a több Azure Stack központi telepítéseket adhat hozzá és értesítések küldéséhez.
+A beépülő modul Pythonban van megírva, és kihasználja az állapot erőforrás-szolgáltató REST API. Alapszintű funkciókat biztosít a riasztások lekéréséhez és bezárásához Azure Stackban. A System Center felügyeleti csomaghoz hasonlóan több Azure Stack üzemelő példány hozzáadására és értesítések küldésére is lehetőséget nyújt.
 
-Az 1.2-es verziója az Azure Stack – Nagios beépülő modult használja a Microsoft ADAL-könyvtár, és támogatja a hitelesítést egy titkos kulcsot vagy a tanúsítványt az egyszerű szolgáltatás használatával. Emellett a konfigurációs egyszerűsítettük egyetlen konfigurációs fájl használatával új paraméterekkel. Azure Stack üzemelő példányok AAD & AD FS használatával identitás rendszer mostantól támogatja.
+Az 1,2-es verzióban az Azure Stack – Nagios beépülő modul a Microsoft ADAL-függvénytárat használja, és támogatja a hitelesítést egy titkos vagy tanúsítvánnyal rendelkező egyszerű szolgáltatásnév használatával. Emellett a konfigurációt egy új paraméterekkel rendelkező, egyetlen konfigurációs fájllal egyszerűsítettük. Mostantól támogatja az HRE & ADFS-t használó Azure Stack üzemelő példányokat Identity rendszerként.
 
-A beépülő modul együttműködik Nagios XI és a 4 x. Letöltheti a [Itt](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). A letöltési hely telepítési és konfigurációs részleteket is tartalmaz.
+A beépülő modul az 4x-es és a XI-as verzióval működik. [Innen](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)töltheti le. A letöltési hely tartalmazza a telepítési és konfigurációs adatokat is.
 
-### <a name="requirements-for-nagios"></a>Nagios-követelményei
+### <a name="requirements-for-nagios"></a>A Nagios követelményei
 
-1.  Minimális Nagios verziószáma 4.x
+1.  A Nagios minimális verziója 4. x
 
-2.  A Microsoft Azure Active Directory Python-kódtár. Ez is telepíthető, Python PIP használatával.
+2.  Microsoft Azure Active Directory Python-függvénytárat. Ezt a Python PIP használatával lehet telepíteni.
 
-```bash  
-sudo pip install adal pyyaml six
-```
+    ```bash  
+    sudo pip install adal pyyaml six
+    ```
 
 ### <a name="install-plugin"></a>Beépülő modul telepítése
 
-Ez a szakasz ismerteti az alapértelmezett telepítés Nagios, feltéve, hogy az Azure Stack beépülő modul telepítése.
+Ez a szakasz azt ismerteti, hogyan telepítheti a Azure Stack beépülő modult, amely a Nagios alapértelmezett telepítését feltételezi.
 
-A beépülő csomag tartalmazza a következő fájlokat:
+A beépülő modul a következő fájlokat tartalmazza:
 
 ```
-  azurestack_plugin.py
-  azurestack_handler.sh
-  samples/etc/azurestack.cfg
-  samples/etc/azurestack_commands.cfg
-  samples/etc/azurestack_contacts.cfg
-  samples/etc/azurestack_hosts.cfg
-  samples/etc/azurestack_services.cfg
+azurestack_plugin.py
+azurestack_handler.sh
+samples/etc/azurestack.cfg
+samples/etc/azurestack_commands.cfg
+samples/etc/azurestack_contacts.cfg
+samples/etc/azurestack_hosts.cfg
+samples/etc/azurestack_services.cfg
 ```
 
-1.  Másolja a beépülő modul `azurestack_plugin.py` a következő könyvtárba `/usr/local/nagios/libexec`.
+1.  Másolja a beépülő `azurestack_plugin.py` modult a következő `/usr/local/nagios/libexec`könyvtárba.
 
-2.  Másolja a kezelő `azurestack_handler.sh` a következő könyvtárba `/usr/local/nagios/libexec/eventhandlers`.
+2.  Másolja a kezelőt `azurestack_handler.sh` a következő könyvtárba `/usr/local/nagios/libexec/eventhandlers`.
 
-3.  Győződjön meg arról, a beépülő modul fájlt is futtatható legyen van beállítva.
+3.  A beépülő modul fájljának beállítása végrehajthatóként
 
     ```bash
-      sudo cp azurestack_plugin.py <PLUGINS_DIR>
-      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    sudo cp azurestack_plugin.py <PLUGINS_DIR>
+    sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
     ```
 
 ### <a name="configure-plugin"></a>Beépülő modul konfigurálása
 
-Az alábbi paramétereket kell konfigurálni a azurestack.cfg fájlban érhetők el. A félkövérrel szedett paraméterek konfigurálni kell a választott hitelesítési modellből független.
+A következő paraméterek konfigurálhatók a azurestack. cfg fájlban. A félkövérrel szedett paramétereket a kiválasztott hitelesítési modelltől függetlenül kell konfigurálni.
 
-Részletes információkat, hogyan hozhat létre egy egyszerű Szolgáltatásnevet dokumentált [Itt](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+Az egyszerű szolgáltatásnév létrehozásának részletes leírását [itt](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)találja.
 
-| Paraméter | Leírás | Hitelesítés |
+| Paraméter | Leírás | Authentication |
 | --- | --- | --- |
-| **External_domain_fqdn ** | Külső tartomány teljes Tartományneve |    |
-| ** régió: ** | Régiónév |    |
+| **External_domain_fqdn ** | Külső tartomány teljes tartományneve |    |
+| \* * régió: * * | Régiónév |    |
 | **tenant_id: ** | Bérlő azonosítója\* |    |
-| client_id: | Ügyfél-azonosító | Titkos kulcs az egyszerű szolgáltatásnév |
-| client_secret: | Ügyfél-jelszó | Titkos kulcs az egyszerű szolgáltatásnév |
-| client_cert\*\*: | Tanúsítvány elérési útja | SPN-tanúsítvánnyal |
-| client_cert_thumbprint\*\*: | Tanúsítvány ujjlenyomata | SPN-tanúsítvánnyal |
+| client_id: | Ügyfél-azonosító | SPN titkos kulccsal |
+| client_secret: | Ügyfél jelszava | SPN titkos kulccsal |
+| client_cert\*:\* | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
+| client_cert_thumbprint\*:\* | Tanúsítvány ujjlenyomata | SPN tanúsítvánnyal |
 
-\*Bérlő azonosítója, nem szükséges az AD FS-Azure Stack-telepítésekhez.
+\*Az ADFS-vel Azure Stack üzemelő példányokhoz nem szükséges a bérlő azonosítója.
 
-\*\* Ügyféltanúsítvány titkos ügyfélkulcsot és olyan kölcsönösen kizárják egymást.
+\*\*Az ügyfél titkos kulcsa és az ügyfél tanúsítványa kölcsönösen kizárják egymást.
 
-Az egyéb konfigurációs fájlokat választható konfigurációs beállításokat tartalmaznak, mivel azok konfigurálható Nagios is.
+A többi konfigurációs fájl opcionális konfigurációs beállításokat tartalmaz, mivel azok a Nagios-ben is konfigurálhatók.
 
 > [!Note]  
-> Ellenőrizze a hely cél azurestack_hosts.cfg és azurestack_services.cfg.
+> Keresse meg a azurestack_hosts. cfg és a azurestack_services. cfg helyen található célhelyet.
 
 | Konfiguráció | Leírás |
 | --- | --- |
-| azurestack_commands.cfg | Kezelő konfigurációs módosítások követelmény |
+| azurestack_commands.cfg | A kezelő konfigurációjában nincs szükség módosításra |
 | azurestack_contacts.cfg | Értesítési beállítások |
-| azurestack_hosts.cfg | Az Azure Stack üzembe helyezési elnevezése |
-| azurestack_services.cfg | A szolgáltatás konfigurációját |
+| azurestack_hosts.cfg | Azure Stack központi telepítés elnevezése |
+| azurestack_services.cfg | A szolgáltatás konfigurációja |
 
-### <a name="setup-steps"></a>A telepítő lépéseit
+### <a name="setup-steps"></a>Telepítési lépések
 
 1.  A konfigurációs fájl módosítása
 
-2.  Másolja a módosított konfigurációs fájlt a következő `/usr/local/nagios/etc/objects`.
+2.  Másolja a módosított konfigurációs fájlokat a következő mappába `/usr/local/nagios/etc/objects`.
 
-### <a name="update-nagios-configuration"></a>Nagios-konfiguráció frissítése
+### <a name="update-nagios-configuration"></a>A Nagios konfigurációjának frissítése
 
-Az Azure Stack biztosítása érdekében frissíteni kell a Nagios konfiguráció – Nagios beépülő modul be töltve.
+A Nagios konfigurációját frissíteni kell annak érdekében, hogy az Azure Stack – Nagios beépülő modul betöltődik.
 
-1.  A következő fájl megnyitása
+1.  Nyissa meg a következő fájlt
 
 ```bash  
 /usr/local/nagios/etc/nagios.cfg
 ```
 
-1.  A következő bejegyzés hozzáadása
+2.  Adja hozzá a következő bejegyzést
 
 ```bash  
-  #load the Azure Stack Plugin Configuration
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+# Load the Azure Stack Plugin Configuration
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
 ```
 
-1.  Töltse be újra a Nagios
+3.  Nagios újratöltése
 
 ```bash  
 sudo service nagios reload
 ```
 
-### <a name="manually-close-active-alerts"></a>Aktív riasztások lezárása manuálisan
+### <a name="manually-close-active-alerts"></a>Aktív riasztások manuális lezárása
 
-Aktív riasztások értesítő üzenet egyéni szövegében funkciójával Nagios belül bezárható. Az egyéni értesítést kell lennie:
+Az aktív riasztások az egyéni értesítési funkciók használatával zárhatók be a Nagios-n belül. Az egyéni értesítésnek a következőket kell tennie:
 
 ```
-  /close-alert <ALERT_GUID>
+/close-alert <ALERT_GUID>
 ```
 
-Riasztás is lehet lezárni a terminál segítségével a következő paranccsal:
+A riasztások a következő paranccsal is lezárhatók egy terminál használatával:
 
 ```bash
-  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+/usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
 ### <a name="troubleshooting"></a>Hibaelhárítás
 
-Hibaelhárítás a beépülő modul lehet hívása a beépülő modul manuális parancsot egy terminálban a kész. Használja a következő metódust:
+A beépülő modul hibaelhárítása a beépülő modul manuális meghívásával végezhető el egy terminálon. Használja a következő módszert:
 
 ```bash
-  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+/usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
 ```
 
-## <a name="use-powershell-to-monitor-health-and-alerts"></a>A figyelő állapotát és a riasztások a PowerShell használatával
+## <a name="use-powershell-to-monitor-health-and-alerts"></a>Az állapot és a riasztások figyelése a PowerShell használatával
 
 Ha nem használja az Operations Manager, Nagios, illetve a Nagios-alapú megoldás, a PowerShell használatával széles skálájával figyelési megoldásoknak integrálása az Azure-verem engedélyezése.
 
-1. A PowerShell segítségével, győződjön meg arról, hogy rendelkezik-e [PowerShell telepített és konfigurált](azure-stack-powershell-install.md) számára az Azure Stack-üzemeltető környezet. Telepítse a PowerShell helyi számítógépre, amely képes elérni az erőforrás-kezelő (rendszergazda) végpont (https://adminmanagement. [régió]. [External_FQDN]).
+1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack operátori környezethez. Telepítse a PowerShell helyi számítógépre, amely képes elérni az erőforrás-kezelő (rendszergazda) végpont (https://adminmanagement. [régió]. [External_FQDN]).
 
-2. Futtassa a következő parancsok futtatásával csatlakozhat az Azure Stack-környezet az Azure Stack operátorait szerint:
+2. Futtassa a következő parancsokat a Azure Stack-környezethez Azure Stack operátorként való kapcsolódáshoz:
 
    ```powershell
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN] `
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
-3. Riasztások például az alábbi példák parancsokat használja:
+3. Használjon olyan parancsokat, mint például az alábbi példák a riasztásokkal való együttműködésre:
    ```powershell
-    #Retrieve all alerts
+    # Retrieve all alerts
     $Alerts = Get-AzsAlert
     $Alerts
 
-    #Filter for active alerts
+    # Filter for active alerts
     $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
-    #Close alert
+    # Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
     $RPHealth = Get-AzsRPHealth
     $RPHealth
 
-    #Retrieve infrastructure role instance health
+    # Retrieve infrastructure role instance health
     $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
 
-További információ a beépített állapot-ellenőrzés: [figyelni és riasztásokat az Azure Stackben](azure-stack-monitor-health.md).
+További információ a beépített állapot-figyelésről: [az állapot és a riasztások figyelése Azure Stackban](azure-stack-monitor-health.md).
 
 ## <a name="next-steps"></a>További lépések
 
-[Biztonsági integrálása](azure-stack-integrate-security.md)
+[Biztonsági integráció](azure-stack-integrate-security.md)
