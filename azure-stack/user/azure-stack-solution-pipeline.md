@@ -1,6 +1,6 @@
 ---
-title: Alkalmazások üzembe helyezése az Azure és az Azure Stackben |} A Microsoft Docs
-description: Ismerje meg, hogyan telepíthet alkalmazásokat az Azure és az Azure Stack egy hibrid CI/CD-folyamat.
+title: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
+description: Megtudhatja, hogyan helyezhet üzembe alkalmazásokat az Azure-ban, és hogyan Azure Stack egy hibrid CI/CD-folyamattal.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,503 +10,471 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: solution
-ms.date: 03/11/2019
+ms.date: 07/23/2019
+ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 5357fcf548971e0962bec41ad9238bf88290531c
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286967"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603106"
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Ismerje meg, hogyan telepíthet alkalmazásokat az Azure és az Azure Stack egy hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) folyamat használatával.
+Ez a megoldás bemutatja, hogyan helyezhetők üzembe alkalmazások az Azure-ban, és hogyan Azure Stack az Azure-folyamatok hibrid folyamatos integráció és folyamatos teljesítés (CI/CD) használatával.
 
-Ez a megoldás egy minta környezetet hozunk létre:
+Miután beállította a Azure Stack, az Azure DevOps és a Web Apps alkalmazást az [Előfeltételek](#prerequisites)alapján, a következőket teheti:
 
 > [!div class="checklist"]
-> * Kód véglegesítése a az Azure DevOps-szolgáltatásokkal adattár alapján új build kezdeményezni.
-> * A felhasználói tesztelés az Azure globális üzembe helyezhetők az alkalmazást.
-> * A kód továbbítja, tesztelés, üzembe helyezhetők az alkalmazás az Azure Stackhez.
+> - Regisztrálja webalkalmazását, és állítsa be az Azure-folyamatok elérését Azure Active Directory (Azure AD) szolgáltatásban. 
+> - Azure-adatcsatornák végpontjának létrehozása az Azure AD-hez és a Active Directory összevonási szolgáltatások (AD FS)hoz (AD FS). 
+> - Telepítse az Azure-folyamatokat a Azure Stack Build-kiszolgálóra. 
+> - Önálló alkalmazások telepítése az Azure-ba és a Azure Stack.
+> - Hozzon létre egy olyan Build-folyamatot, amely kód alapján véglegesíti a projektet az automatikus buildek futtatásával.
+> - Hozzon létre egy kiadási folyamatot, amely automatikusan üzembe helyezi a buildeket az Azure AD-ben és a Azure Stackon. 
+> - Kiadások manuális létrehozása és üzembe helyezése, valamint a kiadási összegzések és naplók megtekintése. 
 
-## <a name="benefits-of-the-hybrid-delivery-build-pipeline"></a>A hibrid kézbesítési előnyei folyamat létrehozása
-
-Folytonosságát, biztonságot és megbízhatóságot az alkalmazás üzembe helyezése a legfontosabb elemei. Ezek az elemek a következők: alapvető, a szervezet számára és a fejlesztői csapat számára kritikus. Egy hibrid CI/CD-folyamat lehetővé teszi a build csövek összevonni a helyszíni környezet és a nyilvános felhőben. A hibrid kézbesítési modell is lehetővé teszi a központi telepítés módosítása az alkalmazás módosítása nélkül.
-
-A hibrid megközelítés egyéb előnyei a következők:
-
-* A konzisztens fejlesztési eszközök akkor is fenntartható a helyszíni Azure Stack-környezet és az Azure nyilvános felhő között.  Eszköz tulajdonságkészlettel megkönnyíti a CI/CD patterns and practices nevű megvalósításához.
-* Alkalmazások és szolgáltatások Azure-ban üzembe helyezett felcserélhető, és ugyanazt a kódot futtathatja az egyik helyen. A helyszíni és a nyilvánosfelhő-funkciók és képességek előnyeit is igénybe vehet.
-
-További információ a CI és CD-ről további információt:
+A CI/CD-vel kapcsolatos további tudnivalókért tekintse meg a következő cikkeket:
 
 * [Mi a folyamatos integráció?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
-* [Mi a folyamatos teljesítés?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+* [Mi a folyamatos kézbesítés?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
-> [!Tip]  
-> ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
-> 
-> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+## <a name="azure-stack-and-hybrid-cicd"></a>Azure Stack és hibrid CI/CD
+
+Microsoft Azure Stack az Azure kiterjesztése, amely a felhő-számítástechnika rugalmasságát és innovációját teszi lehetővé a helyszíni környezetben. Ez az egyetlen hibrid felhő, amely lehetővé teszi hibrid alkalmazások kialakítását és üzembe helyezését a helyszínen, valamint a nyilvános Felhőbeli környezetekben. Létrehozhat egy alkalmazást Azure Stack, majd üzembe helyezheti Azure Stackba, az Azure-ba vagy az Azure hibrid felhőbe. 
+
+Az alkalmazások üzembe helyezésének folytonossága, biztonsága és megbízhatósága kritikus fontosságú elemek a szervezet és a fejlesztői csapat számára. Az Azure-folyamatok hibrid CI/CD-kézbesítési modellje lehetővé teszi, hogy összevonja a felépítési folyamatokat a helyszíni környezetben és a nyilvános felhőben, és az alkalmazás módosítása nélkül módosítsa a telepítési helyeit. A hibrid megközelítés használatának egyéb előnyei a következők:
+
+- A helyszíni Azure Stack környezetében és az Azure nyilvános felhőben is megőrizheti a fejlesztői eszközök egységes készletét.  Egy közös eszközkészlet megkönnyíti a CI/CD-minták és-gyakorlatok megvalósítását.
+- Az Azure-ban vagy Azure Stackban üzembe helyezett alkalmazások és szolgáltatások felcserélhetők, és ugyanazon kód mindkét helyen futtatható. Igénybe veheti a helyszíni és a nyilvános Felhőbeli funkciókat és képességeket.
+
+> [!TIP]
+> ![hibrid-pillars.png](./media/azure-stack-solution-pipeline/hybrid-pillars.png)  
+> A hibrid [felhőalapú tervezési minták a Azure stack](azure-stack-edge-pattern-overview.md) a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez szükséges szoftverek minőségi pilléreit ismertetik. A minőségi feltételek közé tartozik az elhelyezés, a méretezhetőség, a rendelkezésre állás, a rugalmasság, a kezelhetőség és a biztonság. Ezek a kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Hozhat létre egy hibrid CI/CD-folyamat összetevőit rendelkezniük kell. A következő összetevők előkészítése időt vesz igénybe:
-
-* Egy Azure-beli OEM vagy hardveres partner üzembe helyezhet egy éles környezetben az Azure Stack. Összes felhasználó telepítheti az Azure Stack Development Kit (ASDK).
-* Az Azure Stack-operátorokról kell végeznie a következő elemek: az App Service üzembe helyezése, hozhat létre csomagokat és ajánlatokat, hozzon létre egy bérlői előfizetéshez, és a Windows Server 2016 rendszerképet.
-
->[!NOTE]
->Már van ezek az összetevők telepített némelyikét, hogy azok megfelelnek az összes Ez a megoldás indítása előtt.
-
-Ez a megoldás feltételezi, hogy néhány alapvető ismeretek az Azure és az Azure Stack. A megoldás megkezdése előtt további tudnivalókért olvassa el a következő cikkeket:
-
-* [Bevezetés az Azure-bA](https://azure.microsoft.com/overview/what-is-azure/)
-* [Az Azure Stack főbb fogalmak](../operator/azure-stack-overview.md)
-
-### <a name="azure-requirements"></a>Azure-követelmények
-
-* Ha nem rendelkezik Azure-előfizetéssel, mindössze néhány perc alatt létrehozhat egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a virtuális gép létrehozásának megkezdése előtt.
-* Hozzon létre egy [Web App](https://docs.microsoft.com/azure/app-service/overview) az Azure-ban. Győződjön meg, vegye figyelembe a Web App URL-címének kell, hogy használhatja a megoldás.
-
-### <a name="azure-stack-requirements"></a>Azure Stack-követelmények
-
-* Használja az Azure Stackkel integrált rendszer, vagy üzembe helyezése az Azure Stack Development Kit (ASDK). A ASDK telepítéséhez:
-  * A [ megoldást: A telepítő a ASDK üzembe](../asdk/asdk-install.md) cikk nyújt részletes telepítési utasításokat.
-  * Használja a [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-parancsprogram ASDK üzembe helyezés utáni lépések automatizálásához.
-
-    > [!Note]
-    > ASDK telepítése befejeződik, így ennek megfelelően tervezze körülbelül hét órát vesz igénybe.
-
-  * Üzembe helyezése [App Service-ben](../operator/azure-stack-app-service-deploy.md) PaaS-szolgáltatások az Azure Stackhez.
-  * Hozzon létre [csomag/ajánlatok](../operator/azure-stack-plan-offer-quota-overview.md) az Azure Stackben.
-  * Hozzon létre egy [bérlői előfizetéshez](../operator/azure-stack-subscribe-plan-provision-vm.md) az Azure Stackben.
-  * Webalkalmazás létrehozása a bérlői előfizetéshez. Jegyezze fel az új webes alkalmazás URL-CÍMÉT a későbbi használatra.
-  * Telepítse a Windows Server 2012 virtuális gépet a bérlő az előfizetésben. Ez a kiszolgáló a lemezképfájl-kiszolgálóján, és futtassa az Azure fejlesztési és üzemeltetési szolgáltatásokat fogja használni.
-* Adja meg a .NET 3.5 a Windows Server 2016 rendszerképet a virtuális gép (VM). Ez a virtuális gép, egy privát fordító-ügynökhöz az Azure Stack lesz felépítve.
-
-### <a name="developer-tool-requirements"></a>Fejlesztői eszköz követelményei
-
-* Hozzon létre egy [Azure fejlesztési és üzemeltetési szolgáltatások munkaterület](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). A regisztrációs folyamat hoz létre a projekt neve **MyFirstProject**.
-* [Telepítse a Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) és [jelentkezzen be az Azure DevOps-szolgáltatásokkal](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
-* Csatlakozás a projekthez, és [helyben klónozhatja](https://www.visualstudio.com/docs/git/gitquickstart).
-
+- Az Azure és a Azure Stack alapszintű ismerete. Ha többet szeretne megtudni a megoldás üzembe helyezése előtt, olvassa el a következő cikkeket:
+  
+  - [Bevezetés az Azure-bA](https://azure.microsoft.com/overview/what-is-azure/)
+  - [Azure Stack áttekintése](../operator/azure-stack-overview.md)
+  
+- Azure-előfizetés. Ha még nincs előfizetése, [hozzon létre egy ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), mielőtt hozzákezd.
+  
+- Az Azure-ban létrehozott webalkalmazás. [Azure Resource Manager sablonnal](https://azure.microsoft.com/resources/templates/) létrehozhat egy webalkalmazást, amely a helyszínen és a nyilvános felhőben is üzembe helyezhető. Jegyezze fel az alkalmazás URI azonosítóját, hogy később használhassa. 
+  
+- A Visual Studio 2019 [telepítve van](/visualstudio/install/install-visual-studio).
+  
+- Rendszergazdai hozzáférés egy olyan [Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) -szervezethez, amely folyamatokat hozhat létre, valamint egy DevOps- [projektet](/azure/devops/organizations/projects/create-project) vagy-munkaterületet. [](/azure/devops/repos/tfvc/create-work-workspaces) 
+  
+- Egy Windows Server 2016-es rendszerkép a .NET 3,5-es verzióval a privát Build Agent virtuális gép (VM) Azure-folyamatai a Azure Stackra épülnek.
+  
+- Egy Azure Stack integrált rendszer vagy a Azure Stack Development Kit (ASDK), amelyet az alábbi utasítások szerint helyeztek üzembe és konfiguráltak. 
+  
+  
+  A Azure Stack Development Kit (ASDK) a Azure Stack egyetlen csomópontos telepítése, amelyet ingyenesen letöltheti és használhatja. A ASDK lehetővé teszi az Azure API-k és az eszközök nem éles környezetben való használatának kiértékelését Azure Stack és használatát.
+  
+  Az Azure AD vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) rendszergazdai hitelesítő adatokkal rendelkező felhasználók telepíthetik a ASDK. Egy Azure OEM/Hardware partner üzembe helyezhet egy éles Azure Stack. A következő Azure Stack konfigurációs feladatok elvégzéséhez Azure Stack operátornak kell lennie: 
+  
+  - Azure App Service üzembe helyezése
+  - Csomagok és ajánlatok létrehozása
+  - Bérlői előfizetés létrehozása
+  - Windows Server 2016-rendszerkép alkalmazása
+  
   > [!Note]
-  > Az Azure Stack környezettel kell a megfelelő rendszerképek hírcsatorna-a Windows Server és SQL Server futtatásához. App Service-ben üzembe helyezett is kell rendelkeznie.
+  > A ASDK telepítése körülbelül hét órát vesz igénybe, ezért tervezze meg ennek megfelelően.
+    
+  A ASDK telepítése és konfigurálása:
+  
+  1. Kövesse a központi telepítési utasításokat a [ASDK telepítése a telepítő használatával](../asdk/asdk-install.md)című témakörben.
+     
+  1. A [ConfigASDK. ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) PowerShell-parancsfájl segítségével automatizálhatja a ASDK utáni lépéseket.
+     
+  1. [Azure app Service](../operator/azure-stack-app-service-deploy.md) Péter-szolgáltatások üzembe helyezése Azure stack.
+     
+  1. Hozzon létre egy [csomagot és egy ajánlatot](../operator/azure-stack-plan-offer-quota-overview.md) a Azure stack.
+     
+  1. Hozzon [](../operator/azure-stack-subscribe-plan-provision-vm.md) létre egy bérlői előfizetést az ajánlathoz Azure Stackban. 
+     
+  1. Hozzon létre egy webalkalmazást a bérlői előfizetésben. Jegyezze fel az új webalkalmazás URL-címét későbbi használatra.
+     
+  1. Telepítsen egy Windows Server 2016 virtuális gépet a .NET 3,5-tel a bérlői előfizetésben, hogy az Azure-folyamatokat futtató Build kiszolgáló legyen.
+  
+  > [!Note]
+  > A Azure Stack-környezetnek megfelelő rendszerképekre van szüksége a Windows Server és a SQL Server futtatásához. Emellett App Service központilag telepítve kell lennie.
 
-## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>A privát Azure folyamatok ügynök előkészítése az Azure DevOps Services integrációja
+## <a name="register-your-web-app-and-give-it-access-to-resources"></a>Webalkalmazás regisztrálása és hozzáférés biztosítása az erőforrásokhoz 
 
-### <a name="prerequisites"></a>Előfeltételek
+Azure Active Directory (Azure AD) esetében az Azure-folyamatok egy *egyszerű szolgáltatásnév*használatával végzik el a hitelesítést Azure Resource Manager. Ahhoz, hogy erőforrásokat lehessen kiépíteni az Azure-folyamatokhoz, az egyszerű szolgáltatásnak rendelkeznie kell a **közreműködő** szerepkörrel az Azure-előfizetésben. 
 
-Az Azure DevOps-szolgáltatásokkal szemben az Azure Resource Manager egy egyszerű szolgáltatás használatával hitelesíti magát. Rendelkeznie kell az Azure DevOps-szolgáltatásokkal a **közreműködői** szerepkör erőforrások kiépítése az Azure Stack-előfizetéshez.
+A Azure Portal az alkalmazás hitelesítésének konfigurálására is használható. 
 
-Az alábbi lépések bemutatják, hogy mi szükséges hitelesítés konfigurálása:
+1. Az alkalmazás regisztrálása egyszerű szolgáltatásnév létrehozásához.
+1. *Szerepköralapú hozzáférés-vezérlés (RBAC)* használatával adja meg az egyszerű szolgáltatásnév (SPN) a **közreműködő** szerepkört.
+1. Másolja ki és mentse el az alkalmazás-azonosító és a bérlői azonosító értékeit, amelyekhez végpontokat kell létrehoznia az Azure-folyamatok számára. 
+1. Hozzon létre és mentsen egy alkalmazás titkos kulcsának értékét.
 
-1. Hozzon létre egy egyszerű szolgáltatást, vagy használjon egy meglévő egyszerű szolgáltatást.
-2. Hitelesítési kulcsok számára az egyszerű szolgáltatás létrehozása.
-3. Ellenőrizze az Azure Stack-előfizetéshez szerepköralapú hozzáférés-vezérlést, hogy a egyszerű szolgáltatásnév (SPN), a közreműködő szerepkör részét.
-4. Az Azure DevOps-szolgáltatásokkal az Azure Stack-végpontok és egyszerű szolgáltatásnév segítségével, hozzon létre egy új szolgáltatás definíciójában.
-
-### <a name="create-a-service-principal"></a>Egyszerű szolgáltatás létrehozása
-
-Tekintse meg a [egyszerű szolgáltatás létrehozása](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) utasításokat az egyszerű szolgáltatás létrehozásához. Válasszon **Web App és az API** az alkalmazás típusához vagy [a PowerShell-szkripttel](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) a cikkben leírtak szerint [hozzon létre egy meglévő szolgáltatás Azure Resource Manager-szolgáltatás kapcsolatot egyszerű ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+[Egy PowerShell-parancsfájllal](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) is létrehozhat egy egyszerű szolgáltatásnevet és végpontokat. A [Azure Resource Manager-szolgáltatási kapcsolatok létrehozása egy meglévő egyszerű szolgáltatással](/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) című cikk ismerteti ezt a folyamatot.
 
  > [!Note]  
- > Ha a parancsfájl használatával hozzon létre egy Azure Stack az Azure Resource Manager-végpontot, teljesítenie kell a a **- azureStackManagementURL** paraméter és **- environmentName** paraméter. Példa:  
-> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
-
-### <a name="create-an-access-key"></a>Hozzáférési kulcs létrehozása
-
-Egy egyszerű szolgáltatást a hitelesítési kulcs szükséges. Az alábbi lépések segítségével hozzon létre egy kulcsot:
-
-1. A **alkalmazásregisztrációk** az Azure Active Directoryban, válassza ki az alkalmazást.
-
-    ![Válassza ki az alkalmazást – az Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_01.png)
-
-2. Jegyezze fel az értékét **Alkalmazásazonosító**. Ezt az értéket fogja használni, az Azure DevOps-szolgáltatásokkal a szolgáltatásvégpont konfigurálásakor.
-
-    ![Alkalmazás azonosítója – az Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_02.png)
-
-3. A hitelesítési kulcs létrehozásához válassza a **Beállítások** elemet.
-
-    ![Alkalmazásbeállítások – Azure Active Directory szerkesztése](media/azure-stack-solution-hybrid-pipeline/000_03.png)
-
-4. A hitelesítési kulcs létrehozásához válassza a **Kulcsok** elemet.
-
-    ![Kulcs-beállítások – Azure Active Directory konfigurálása](media/azure-stack-solution-hybrid-pipeline/000_04.png)
-
-5. Adjon meg egy leírást a kulcshoz, és a kulcs időtartam beállítása. Ha elkészült, kattintson a **Mentés** elemre.
-
-    ![Kulcs leírása és időtartama – az Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_05.png)
-
-    A kulcs, a kulcs mentése után **érték** jelenik meg. Másolja ezt az értéket, mert ezt az értéket később nem kapott. Azt adja meg a **kulcs értékét** az a **Alkalmazásazonosító** jelentkezzen be az alkalmazást, hogy. A kulcs értékét, ahol az alkalmazás le tudja kérni Store.
-
-    ![Kulcs értéke – az Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_06.png)
-
-### <a name="get-the-tenant-id"></a>A Bérlőazonosító beszerzése
-
-A Szolgáltatásvégpontok konfigurálásának részeként az Azure DevOps-szolgáltatásokkal igényel a **bérlőazonosító** , amely megfelel az AAD-címtárában, amelyet az Azure Stack stamp. A következő lépések segítségével a bérlői azonosító beszerzése
-
-1. Válassza az **Azure Active Directory** elemet.
-
-    ![Az Azure Active Directory-bérlő](media/azure-stack-solution-hybrid-pipeline/000_07.png)
-
-2. A bérlőazonosító lekéréséhez válassza ki az Azure AD-bérlőjéhez tartozó **Tulajdonságok** elemet.
-
-    ![Bérlő tulajdonságai – Azure Active Directory megtekintése](media/azure-stack-solution-hybrid-pipeline/000_08.png)
-
-3. Másolja ki a **Címtár-azonosítót**. Ez az érték a bérlőazonosítója.
-
-    ![Címtár-azonosító – az Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_09.png)
-
-### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>A szolgáltatás egyszerű engedélyeket az Azure Stack-előfizetéshez erőforrásokat helyezhet üzembe
-
-Szeretné elérni az erőforrást az előfizetésében, egy olyan szerepkörhöz kell rendelni az alkalmazást. Döntse el, melyik szerepkör jelenti a legjobb az alkalmazás engedélyeit. Az elérhető szerepkörök kapcsolatos további információkért lásd: [RBAC: Beépített szerepkörök](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-
-Beállíthatja a hatókör szintjén is az előfizetés, erőforráscsoport vagy erőforrás. Alacsonyabb szintű hatókör, az engedélyek öröklődnek. Például egy alkalmazást ad hozzá egy erőforráscsoportot az Olvasó szerepkör azt jelenti, hogy azt az erőforráscsoportot és a hozzá tartozó erőforrások olvashatja.
-
-1. Keresse meg a hatókör az alkalmazást hozzárendelni kívánt szintjét. Válassza ki például az előfizetések szintjén szerepkör hozzárendelése **előfizetések**.
-
-    ![Válassza ki azt az előfizetést -, az Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_10.png)
-
-2. A **előfizetés**, válassza ki a Visual Studio Enterprise.
-
-    ![A Visual Studio Enterprise – Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_11.png)
-
-3. Válassza ki a Visual Studio Enterprise **hozzáférés-vezérlés (IAM)** .
-
-4. Válassza ki **szerepkör-hozzárendelés hozzáadása**.
-
-    ![Szerepkör-hozzárendelés – Azure Stack hozzáadása](media/azure-stack-solution-hybrid-pipeline/000_13.png)
-
-5. A **engedélyek hozzáadása**, válassza ki a szerepkört, hogy az alkalmazáshoz hozzárendelni kívánt. Ebben a példában ez a **tulajdonosa** szerepkör.
-
-    ![Tulajdonosi szerepkör engedélyekkel – Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_14.png)
-
-6. Alapértelmezés szerint az Azure Active Directory-alkalmazások nem megjelenik az elérhető lehetőségek közül. Keresse meg az alkalmazást, meg kell adnia annak nevét a a **kiválasztása** mezőt a keresési funkciót. Válassza ki az alkalmazást.
-
-    ![Alkalmazás keresési eredmény – Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_16.png)
-
-7. Válassza ki **mentése** befejeződik, a szerepkör hozzárendelése. Láthatja, hogy az alkalmazás az adott hatókörnél szerepkörhöz tartozó felhasználók listájában.
-
-### <a name="role-based-access-control"></a>Szerepköralapú hozzáférés-vezérlés
-
-Az Azure szerepköralapú hozzáférés-vezérlés (RBAC) részletes hozzáférés-vezérlést az Azure biztosít. Az RBAC használatával szabályozhatja, amelyek a feladataik elvégzéséhez szükséges felhasználói hozzáférési szintjét. Szerepköralapú hozzáférés-vezérléssel kapcsolatos további információkért lásd: [Azure-előfizetések erőforrásaihoz való hozzáférés kezelése](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
-
-### <a name="azure-devops-services-agent-pools"></a>Az Azure DevOps Services Ügynökkészletek
-
-Ahelyett, hogy minden ügynök külön-külön, ügynökök is szervezheti ügynökkészletek. Az ügynökkészlet a megosztási határt a készlet az összes ügynöknek határozza meg. Az Azure DevOps-szolgáltatásokkal ügynökkészletek hatóköre a szervezet az Azure DevOps-szolgáltatásokkal, ami azt jelenti, hogy az ügynökkészlet megoszthatja projektek között. Ügynökkészletek kapcsolatos további információkért lásd: [Ügynökkészletek létrehozása és az üzenetsorok](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
-
-### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Adjon hozzá egy személyes hozzáférési jogkivonat (PAT) az Azure Stackhez
-
-Hozzon létre egy személyes hozzáférési tokent az Azure DevOps-szolgáltatásokhoz való hozzáférést.
-
-1. Jelentkezzen be a szervezet az Azure DevOps-szolgáltatásokkal, és válassza ki a szervezet profil neve.
-
-2. Válassza ki **biztonság kezeléséhez** hozzáférési token létrehozása oldalra. 
-
-    ![Biztonság – az Azure Stack kezelése](media/azure-stack-solution-hybrid-pipeline/000_18.png)
-
-3. Kattintson a **Hozzáadás** hozhat létre egy új személyes hozzáférési tokent.
-
-    ![Adja hozzá az Azure Stack - használt személyes hozzáférési tokent](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
-
-    ![Azure Stack--token létrehozásához](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
-
-4. Másolja a jogkivonatot.
-
-    > [!Note]
-    > Mentse a token információkat. Ezt az információt nem tárolja, és nem jelennek meg újra amikor hagyja meg a weblapot.
-
-    ![Azure Stack - használt személyes hozzáférési tokent](media/azure-stack-solution-hybrid-pipeline/000_19.png)
-
-### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Telepítse az Azure DevOps-szolgáltatásokkal fordító-ügynökhöz az üzemeltetett Azure Stack buildelési kiszolgáló
-
-1. Csatlakozzon az Azure Stack gazdagépen telepített a lemezképfájl-kiszolgálóján.
-2. Töltse le és a build-ügynök telepítése a személyes hozzáférési jogkivonat (PAT) használatával szolgáltatásként, és futtassa azt a virtuális gép rendszergazdaként
-
-    ![A build-ügynök letöltése](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
-
-3. Keresse meg azt a mappát a kibontott fordító-ügynökhöz. Futtassa a **config.cmd** fájl egy rendszergazda jogú parancssorból.
-
-    ![Kivont fordító-ügynökhöz](media/azure-stack-solution-hybrid-pipeline/000_20.png)
-
-    ![Regisztrálja a fordító-ügynökhöz](media/azure-stack-solution-hybrid-pipeline/000_21.png)
-
-4. Amikor befejezi a config.cmd, további fájlok frissül a build-ügynök mappájába. A mappát a kibontott tartalma az alábbihoz hasonlóan kell kinéznie:
-
-    ![Az ügynök mappa frissítés létrehozása](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
-
-    Az ügynök az Azure DevOps-szolgáltatásokkal mappában tekintheti meg.
-
-## <a name="endpoint-creation-permissions"></a>Végpont létrehozása engedélyek
-
-Végpontok létrehozása a Visual Studio online-hoz (VSTO) build helyezzen üzembe Azure Service-alkalmazások az Azure Stackhez. Az Azure DevOps-szolgáltatásokkal a fordító-ügynökhöz, amely csatlakoztatja az Azure Stackhez csatlakozik.
-
-![A VSTO NorthwindCloud mintaalkalmazás](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
-
-1. Jelentkezzen be a VSTO, és nyissa meg az alkalmazás beállítások oldalát.
-2. A **beállítások**válassza **biztonsági**.
-3. A **Azure fejlesztési és üzemeltetési szolgáltatások csoportok**válassza **végpont alkotói**.
-
-    ![NorthwindCloud Endpoint Creators](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
-
-4. Az a **tagok** lapon jelölje be **Hozzáadás**.
-
-    ![Egy tag hozzáadása](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
-
-5. Az a **felhasználók és csoportok hozzáadása** lapon írjon be egy felhasználónevet, és válassza ki, hogy a felhasználó a felhasználók listájából.
-6. Válassza ki **módosítások mentése**.
-7. Az a **Azure fejlesztési és üzemeltetési szolgáltatások csoportok** listáról válassza ki **végpont rendszergazdák**.
-
-    ![A rendszergazdák NorthwindCloud végpont](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
-
-8. Az a **tagok** lapon jelölje be **Hozzáadás**.
-9. Az a **felhasználók és csoportok hozzáadása** lapon írjon be egy felhasználónevet, és válassza ki, hogy a felhasználó a felhasználók listájából.
-10. Válassza ki **módosítások mentése**.
-
-Most, hogy létezik a végpont adatait, az Azure DevOps-szolgáltatásokkal az Azure Stack kapcsolat készen áll a használatra. A fordító-ügynökhöz az Azure Stackben utasításokat olvas be az Azure DevOps-szolgáltatásokkal, majd az ügynök közvetíti a kommunikációt az Azure Stack-végpontjának információit.
-
-## <a name="create-an-azure-stack-endpoint"></a>Az Azure Stack-végpont létrehozása
-
-### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Az Azure AD központi telepítésekhez végpont létrehozása
-
-Az utasítások a [kapcsolatot hozhat létre egy Azure Resource Manager szolgáltatás egy meglévő szolgáltatás egyszerű ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) hozzon létre egy szolgáltatás-kapcsolatot egy meglévő szolgáltatás egyszerű, és használja a következő társítás a cikk:
-
-| Name (Név) | Példa | Leírás |
-| --- | --- | --- |
-| Kapcsolat neve | Az Azure Stack Azure ad-ben | A kapcsolat neve. |
-| Környezet | AzureStack | A környezet neve. |
-| Környezet URL-címe | `https://management.local.azurestack.external` | A felügyeleti végpontra. |
-| Hatókör szintjén | Subscription | A kapcsolat hatókörének. |
-| Előfizetés azonosítója | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Az Azure Stack felhasználói előfizetés azonosítója |
-| Előfizetés neve | name@contoso.com | Az Azure Stack felhasználói előfizetés neve |
-| Egyszerű szolgáltatás ügyfél-azonosító | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | A résztvevő-Azonosítóval [ez](azure-stack-solution-pipeline.md#create-a-service-principal) szakasz ebben a cikkben. |
-| Egyszerű szolgáltatásnév kulcsa | THESCRETGOESHERE = | A kulcs az ugyanebben a cikkben (vagy a jelszót, ha a szkriptet használta). |
-| Bérlőazonosító | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A Bérlőazonosító kérheti le az utasítás a következő [a Bérlőazonosító beszerzése](azure-stack-solution-pipeline.md#get-the-tenant-id).  |
-| Kapcsolat: | Nincs ellenőrizve | Ellenőrizze az egyszerű szolgáltatás kapcsolati beállításokat. |
-
-Most, hogy a végpont a létrehozás, a DevOps-kapcsolat Azure Stackhez készen áll a használatra. A fordító-ügynökhöz az Azure Stackben utasításokat olvas be a DevOps, majd az ügynök közvetíti a kommunikációt az Azure Stack-végpontjának információit.
-
-![Az Azure AD ügynök létrehozása](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
-
-### <a name="create-an-endpoint-for-ad-fs"></a>Hozzon létre egy végpontot az AD FS-hez
-
-A legújabb frissítést az Azure fejlesztési és üzemeltetési kapcsolatot hozza létre a szolgáltatás egyszerű szolgáltatás tanúsítvánnyal hitelesítési teszi lehetővé. Ez a kapcsolat nem szükséges, az Azure Stack telepítésekor és az AD FS Identitásszolgáltatóként. 
-
-![Ügynök Active Directory összevonási szolgáltatások létrehozása](media/azure-stack-solution-hybrid-pipeline/image06.png)
-
-Használatával a következő hozzárendelést szolgáltatás kapcsolatot hozhat létre:
-
-| Name (Név) | Példa | Leírás |
-| --- | --- | --- |
-| Kapcsolat neve | Az Azure Stack ADFS | A kapcsolat neve. |
-| Környezet | AzureStack | A környezet neve. |
-| Környezet URL-címe | `https://management.local.azurestack.external` | A felügyeleti végpontra. |
-| Hatókör szintjén | Subscription | A kapcsolat hatókörének. |
-| Előfizetés azonosítója | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Az Azure Stack felhasználói előfizetés azonosítója |
-| Előfizetés neve | name@contoso.com | Az Azure Stack felhasználói előfizetés neve |
-| Egyszerű szolgáltatás ügyfél-azonosító | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Az egyszerű szolgáltatás ügyfél-Azonosítót hozott létre az AD FS-hez. |
-| Tanúsítvány | `<certificate>` |  A tanúsítványfájl konvertálása PFX PEM. Tanúsítvány PEM-fájl tartalmának illessze be ezt a mezőt. <br> PEM konvertálása PFX:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| Bérlőazonosító | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | A Bérlőazonosító kérheti le az utasítás a következő [a Bérlőazonosító beszerzése](azure-stack-solution-pipeline.md#get-the-tenant-id). |
-| Kapcsolat: | Nincs ellenőrizve | Ellenőrizze az egyszerű szolgáltatás kapcsolati beállításokat. |
-
-Most, hogy a végpont a létrehozás, az Azure DevOps-kapcsolat Azure Stackhez készen áll a használatra. A fordító-ügynökhöz az Azure Stackben utasításokat olvas be az Azure DevOps, majd az ügynök közvetíti a kommunikációt az Azure Stack-végpontjának információit.
+ > Ha a PowerShell-parancsfájllal Azure Stack Azure Resource Manager végpontot hoz létre, át kell adnia a **-azureStackManagementURL** paramétert és a **-environmentName** paramétert. Példa:  
+ > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
+
+### <a name="register-your-app-in-azure-ad"></a>Az alkalmazás regisztrálása az Azure AD-ben 
+
+1. A [Azure Portal](https://portal.azure.com)válassza a **Azure Active Directory**lehetőséget, majd a bal oldali navigációs menüben válassza a **Alkalmazásregisztrációk** lehetőséget.
+   
+1. Válassza az **új regisztráció**lehetőséget.
+   
+1. Az **alkalmazás regisztrálása** lapon
+   1. Adja meg a webalkalmazás nevét.
+   1. Válasszon egy támogatott számlatípust. 
+   1. Az **átirányítási URI**területen válassza a **web** lehetőséget a létrehozni kívánt alkalmazás típusához, és adja meg a webalkalmazás URI-ját. 
+   1. Kattintson a **Register** (Regisztrálás) elemre.
+      
+      ![Alkalmazás regisztrálása](./media/azure-stack-solution-pipeline/create-app.png) 
+
+### <a name="assign-the-app-to-a-role"></a>Az alkalmazás társítása szerepkörhöz
+
+Az alkalmazásnak hozzá kell rendelnie egy szerepkörhöz ahhoz, hogy hozzáférjen az előfizetéséhez tartozó erőforrásokhoz. Az Azure RBAC lehetővé teszi a felhasználóknak a feladatok végrehajtásához szükséges hozzáférési szint szabályozását. További információ a RBAC: az Azure-előfizetések [erőforrásaihoz való hozzáférés kezelése](/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json). Az elérhető szerepkörökről további információt a következő [témakörben talál: RBAC: Beépített szerepkörök](/azure/role-based-access-control/built-in-roles).
+
+Az Azure-folyamatoknak a **közreműködő** szerepkörrel kell rendelkezniük ahhoz, hogy erőforrásokat lehessen kiépíteni egy Azure stack-előfizetésben. 
+
+Megadhatja a szerepkör hatókörét az előfizetés, az erőforráscsoport vagy az erőforrás szintjén. Alacsonyabb szintű hatókör, az engedélyek öröklődnek. Ha például hozzáad egy alkalmazást az **olvasó** szerepkörhöz egy erőforráscsoport számára, azt jelenti, hogy az alkalmazás elolvashatja az erőforráscsoportot és annak bármely erőforrását.
+
+Az alkalmazás társítása a **közreműködő** szerepkörhöz:
+
+1. A Azure Portal navigáljon a kívánt hatókör szintjéhez. Ha például egy szerepkört szeretne hozzárendelni az előfizetés hatókörében, válassza a **minden szolgáltatás** és **előfizetés**lehetőséget.
+   
+   ![Szerepkör társítása az előfizetés hatókörében](./media/azure-stack-solution-pipeline/select-subscription.png)
+   
+1. Válassza ki azt az előfizetést, amelyhez hozzá kívánja rendelni az alkalmazást.
+   
+1. A bal oldali navigációs sávon válassza a **hozzáférés-vezérlés (iam)** lehetőséget.
+   
+1. Válassza **a szerepkör-hozzárendelés hozzáadása**lehetőséget.
+   
+1. A **szerepkör-hozzárendelés hozzáadása** párbeszédpanelen válassza ki a **közreműködői** szerepkört. Alapértelmezés szerint az Azure AD-alkalmazások nem jelennek meg az elérhető beállítások között. Az alkalmazás megkereséséhez keresse meg a nevet, és jelölje ki.
+   
+   ![Válassza ki a szerepkört és az alkalmazást](./media/azure-stack-solution-pipeline/select-role.png)
+   
+1. Válassza ki **mentése** befejeződik, a szerepkör hozzárendelése. Az alkalmazást az adott hatókörhöz tartozó szerepkörhöz rendelt felhasználók listájában tekintheti meg.
+
+Az egyszerű szolgáltatásnév be van állítva. A következő szakasz bemutatja, hogyan kérheti le az Azure-folyamatok programozott módon történő bejelentkezéséhez szükséges értékeket.
+
+### <a name="get-values-for-signing-in"></a>Bejelentkezések értékeinek beolvasása
+
+Az Azure-folyamatok végpontjának létrehozásakor meg kell adnia a bérlő AZONOSÍTÓját és az alkalmazás AZONOSÍTÓját. A következő értékek beolvasása:
+
+1. Az Azure Portalon válassza az **Azure Active Directory** lehetőséget.
+   
+1. A bal oldali navigációs sávon válassza a **Alkalmazásregisztrációk**lehetőséget, majd válassza ki az alkalmazást.
+   
+1. Másolja és mentse a **könyvtár (bérlő) azonosítóját** és a végpontok létrehozásához használandó **alkalmazás-(ügyfél-) azonosítót** .
+   
+   ![A címtár (bérlői azonosító) és az alkalmazás (ügyfél) AZONOSÍTÓjának másolása](./media/azure-stack-solution-pipeline/copy-app-id.png)
+
+### <a name="create-a-new-application-secret"></a>Új alkalmazás-titok létrehozása
+
+Az Azure-folyamatok végpontjának létrehozásakor az alkalmazásnak hitelesítenie kell magát. [Használhatja a tanúsítványt](/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets) vagy az alkalmazás titkos kulcsát. Ha a Azure Stackt AD FS identitás-szolgáltatóként telepítette, akkor tanúsítványt kell használnia.
+
+Új tanúsítvány létrehozásához és feltöltéséhez kövesse a [tanúsítványok és a titkok](/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets) című témakör lépéseit. 
+
+Vagy új alkalmazás-titkos kód létrehozásához:
+
+1. Az Azure Portalon válassza az **Azure Active Directory** lehetőséget.
+   
+1. A bal oldali navigációs sávon válassza a **Alkalmazásregisztrációk**lehetőséget, majd válassza ki az alkalmazást.
+   
+1. A bal oldali navigációs sávon válassza a **tanúsítványok & Secrets**elemet.
+   
+1. Az **ügyfél**titkos kulcsa területen válassza az **új ügyfél titka**lehetőséget.
+   
+1. Az **ügyfél titkos kulcsának hozzáadása**lapon írja be a leírást, válasszon ki egy lejáratot, és válassza a **Hozzáadás**lehetőséget.
+   
+1. Másolja az új titok **értékét** . Meg kell adnia az alkalmazásként való bejelentkezéshez szükséges értéket. Fontos, hogy most mentse ezt az értéket, mert nem jelenik meg többé az oldal elhagyását követően.
+   
+   ![Másolja a titkos értéket, mert később nem tudja lekérni](./media/azure-stack-solution-pipeline/copy-secret.png)
+
+## <a name="create-endpoints"></a>Végpontok létrehozása
+
+A végpontok létrehozásával az Azure-folyamatok buildek üzembe helyezhetik az Azure AD-alkalmazásokat a Azure Stack. Az Azure-folyamatok összekapcsolják a Build ügynököt, amely a Azure Stackhoz csatlakozik.
+
+A végpont-létrehozási engedélyek beállítása után létrehozhat végpontokat az Azure AD-hez vagy a AD FShoz. 
+
+- Ha a Azure Stack az Azure AD-ben az identitás-szolgáltatóként telepítette, akkor a tanúsítvány vagy az alkalmazás titkát használhatja az Azure-beli üzemelő példányokhoz tartozó Azure Resource Manager-szolgáltatási kapcsolatok létrehozásához. 
+  
+- Ha Active Directory összevonási szolgáltatások (AD FS) (AD FS) azonosítót használt a Azure stack identitás-szolgáltatója, akkor a hitelesítéshez a-ügyfél helyett tanúsítvány használatával kell létrehoznia a szolgáltatási kapcsolatokat. 
+
+### <a name="set-endpoint-creation-permissions"></a>Végpont-létrehozási engedélyek beállítása
+
+1. Az Azure DevOps-szervezetben és-projektben válassza a **projekt beállításai**lehetőséget. 
+   
+1. Válassza a **Biztonság**lehetőséget, majd az **Azure DevOps csoportok**területen válassza ki a **végponti rendszergazdák**elemet.
+   
+1. A **tagok** lapon válassza a **Hozzáadás**lehetőséget.
+   
+1. A **felhasználók és csoportok hozzáadása**lapon válassza a felhasználónevek lehetőséget a listából, és válassza a saját maga is lehetőséget, majd kattintson a **módosítások mentése**gombra.
+   
+   ![Tag hozzáadása](./media/azure-stack-solution-pipeline/endpoint-permissions.png)
+   
+1. Az **Azure DevOps-csoportok** listában válassza ki a **végpont**-létrehozók lehetőséget, és ismételje meg az előző lépéseket, hogy felhasználókat vegyen fel a **Endpoint Creators** csoportba. 
+
+### <a name="create-an-endpoint-for-azure-ad-or-ad-fs-deployments"></a>Végpont létrehozása az Azure AD-hez vagy AD FS üzemelő példányokhoz
+
+A szolgáltatás kapcsolódási végpontjának létrehozásához kövesse az [Azure Resource Manager-szolgáltatási kapcsolatok létrehozása meglévő egyszerű szolgáltatással](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) című témakör utasításait.  
+
+Az űrlap kitöltéséhez használja a következő értékeket: 
+
+- **Kapcsolatok neve**: Adjon meg egy felhasználóbarát nevet, amelyet a rendszer a szolgáltatási kapcsolatban való hivatkozáshoz használ.
+  
+- **Környezet**: Válassza ki a környezet nevét, például **AzureCloud** vagy **AzureStack**. Ha nem látja a AzureStack a legördülő menüben, tekintse meg a [kapcsolódás Azure Stackhoz](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#connect-to-azure-stack)című témakört.
+  
+- **Környezet URL-címe**: Ha nem választotta ki a **AzureCloud**, adja meg a környezet URL-címét (például *\/https:/Management.local.azurestack.external*).
+  
+- **Hatókör szintje**: Válassza ki a szükséges hatóköri szintet, például az előfizetést. 
+  
+- **Előfizetés azonosítója**: Adja meg az előfizetés-AZONOSÍTÓját.
+  
+- **Előfizetés neve**: Adja meg a felhasználónevét Azure Stack.
+  
+- **Egyszerű szolgáltatásnév ügyfél-azonosítója**: Adja meg a korábban mentett **alkalmazás (ügyfél) azonosítóját** . 
+  
+- **Egyszerű szolgáltatás kulcsa** vagy **tanúsítványa**: Válasszon ki egy vagy másik lehetőséget. 
+  
+  > [!NOTE]
+  > AD FS végpont létrehozásához tanúsítványt kell használnia a hitelesítéshez. 
+  
+  - Az **egyszerű szolgáltatásnév kulcsa**mezőben adja meg a korábban mentett ügyfél titkos kulcs értékét.
+  - Ha a **tanúsítvány**lehetőséget választja, adja meg a *. PEM* tanúsítványfájl tanúsítvány és titkos kulcs részének tartalmát. 
+    
+    > [!NOTE]
+    > Ha. *pfx* fájlt szeretne átalakítani egy *. PEM* tanúsítványfájl-fájlba, `openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>`futtassa a parancsot.
+  
+- **Bérlő azonosítója**: Adja meg a korábban mentett **címtár-(bérlői) azonosítót** .
+  
+- **Kapcsolat Nincs ellenőrizve**: Válassza a **Kapcsolódás ellenőrzése** lehetőséget a kapcsolódási beállítások érvényesítéséhez az egyszerű szolgáltatáshoz.
+  
+  > [!NOTE]
+  > Ha az Azure Resource Manager-végpont nem érhető el az internethez, a kapcsolódás ellenőrzése sikertelen lesz. Ez várható, és egy egyszerű feladattal rendelkező kiadási folyamat létrehozásával ellenőrizheti a kapcsolatokat.
+
+## <a name="install-and-configure-the-build-agent"></a>A Build-ügynök telepítése és konfigurálása 
+
+Az üzemeltetett Build-ügynök használata az Azure-folyamatokban kényelmes megoldás a webalkalmazások létrehozásához és üzembe helyezéséhez. Az Azure automatikusan végrehajtja az ügynökök karbantartását és frissítéseit, amelyek lehetővé teszik a folyamatos és zavartalan fejlesztési ciklust.
+
+Az Azure DevOps hozzon létre egy személyes hozzáférési jogkivonatot (PAT) a Azure Stackhez való használatra. Ezután a PAT használatával telepítse és konfigurálja a Build ügynököt a Azure Stack Build Server virtuális gépen. 
+   
+### <a name="create-a-personal-access-token"></a>Személyes hozzáférési jogkivonat létrehozása
+
+1. Jelentkezzen be az Azure DevOps, és válassza a **saját profil** lehetőséget a jobb felső sarokban. 
+   
+1. A profil lapon bontsa ki a Azure Stack szervezet neve melletti legördülő menüt, és válassza a **biztonság kezelése**lehetőséget. 
+   
+   ![Biztonság kezelése](media/azure-stack-solution-pipeline/managesecurity.png)
+   
+1. A **személyes hozzáférési tokenek** lapon válassza az **új jogkivonat**lehetőséget.
+   
+   ![Személyes hozzáférési jogkivonatok](media/azure-stack-solution-pipeline/pats.png)
+   
+1. Az **új személyes hozzáférési jogkivonat létrehozása** lapon töltse ki a jogkivonat adatait, és válassza a **Létrehozás**lehetőséget. 
+   
+   ![PAT létrehozása](media/azure-stack-solution-pipeline/createpat.png)
+   
+1. Másolja ki és mentse a jogkivonatot. A weblap elhagyása után nem jelenik meg többé.
+   
+   ![PAT-figyelmeztetés](media/azure-stack-solution-pipeline/patwarning.png)
+   
+### <a name="install-and-configure-the-agent-on-the-build-server"></a>Az ügynök telepítése és konfigurálása a Build-kiszolgálón
+
+1. Kapcsolódjon a Azure Stack gazdagépen üzembe helyezett Build Server-alapú virtuális géphez.
+   
+1. Töltse le a Build Agent rendszerképét. 
+   
+1. A rendszergazda parancssorában telepítse az ügynököt szolgáltatásként a PAT használatával, majd futtassa.
+   
+1. Navigáljon a kibontott Build-ügynök mappájához, és futtassa a *config. cmd* fájlt. A *config. cmd* a Build Agent mappát további fájlokkal frissíti.
+   
+   ![A Build-ügynök telepítése és konfigurálása](media/azure-stack-solution-pipeline/buildagent.png)
+
+Most, hogy létrehozta a végpontot, és telepítette az Azure-folyamatokat a Build-kiszolgálón, az Azure-folyamatok Azure Stack a kapcsolódás készen áll a használatra. A Azure Stack Build ügynöke beolvassa az Azure-folyamatok utasításait, majd az ügynök a Azure Stacksal folytatott kommunikációhoz végponti információkat továbbít.
+
+Ahelyett, hogy az egyes ügynököket külön-külön kezelhesse, az ügynököket *ügynök*-készletekbe rendezheti. Az ügynökkészlet a megosztási határt a készlet az összes ügynöknek határozza meg. Az ügynök-készletek az Azure DevOps-szervezetre vannak korlátozva, ami azt jelenti, hogy a projektek között megosztható egy ügynök készlete. Az ügynökökkel kapcsolatos további tudnivalókért tekintse meg az [ügynök-készletek és-várólisták létrehozása](/azure/devops/pipelines/agents/pools-queues)című témakört.
+
+## <a name="create-build-and-release-pipelines"></a>Build és kiadási folyamatok létrehozása 
+
+Az Azure-folyamatok kiválóan konfigurálható és kezelhető folyamatokat biztosítanak több környezet, például fejlesztés, előkészítés, minőségbiztosítás (QA) és éles környezetben történő kiadásokhoz. A kiadási folyamat tartalmazhat jóváhagyásokat az alkalmazás életciklusának adott szakaszaiban.
+
+A megoldás ezen részében a következőket látja el:
+
+- Kód klónozása, összekötése és hozzáadása az Azure DevOps-projekthez a Visual Studióban.
+- Hozzon létre egy önálló, webalkalmazás-telepítést.
+- Konfigurálja a CI/CD Build és a kiadási folyamatokat.
+
+A hibrid CI/CD az alkalmazás kódjára és az infrastruktúra kódjára is alkalmazható. [Azure Resource Manager hibrid sablonok](https://azure.microsoft.com/resources/templates/) használatával üzembe helyezheti Azure-webalkalmazási kódját a helyszíni és a nyilvános felhőkben.
+
+### <a name="clone-your-project"></a>A projekt klónozása
+
+1. A Visual Studio **Team Explorer**válassza a **Kapcsolódás** ikont, és jelentkezzen be az Azure DevOps-szervezetbe. 
+   
+1. Válassza a **kapcsolatok** > kezelése**Csatlakozás egy projekthez**lehetőséget. 
+   
+   ![Kapcsolódás projekthez Team Explorer](media/azure-stack-solution-pipeline/connecttoprojectteamexp.png)
+
+1. A **Kapcsolódás projekthez** párbeszédpanelen válassza ki a webalkalmazás-projektet, állítsa be a helyi elérési utat, majd válassza a **klónozás** lehetőséget a tárház helyi klónozásához.
+   
+   ![Adattárház klónozása projekthez való kapcsolódással](media/azure-stack-solution-pipeline/cloneproject.png)
+
+### <a name="create-a-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazás-telepítés létrehozása a App Services mindkét felhőben
+
+1. A Visual Studio **megoldáskezelő**nyissa meg a webalkalmazás *. csproj* fájlt, `<RuntimeIdentifier>win10-x64</RuntimeIdentifier>`és adja hozzá. További információ erről a lépésről: önmagába [foglalt központi telepítés](/dotnet/core/deploying/#self-contained-deployments-scd).
+   
+   ![RuntimeIdentifier konfigurálása](media/azure-stack-solution-pipeline/runtimeidentifier.png)
+   
+1. Mentse a munkáját, és **Team Explorer** használatával keresse meg a kódot a projektben.
+
+### <a name="create-a-build-pipeline-and-run-a-build"></a>Build folyamat létrehozása és Build futtatása
+
+1. A böngészőben nyissa meg az Azure DevOps-szervezetét és-projektjét.
+   
+1. Válassza ki a **folyamatokat** > a bal oldali navigációs sávon, majd válassza az **új folyamat**elemet. 
+   
+1. A **sablon kiválasztása**területen válassza ki a **ASP.net Core** sablont, majd válassza az **alkalmaz**lehetőséget. 
+   
+1. A konfiguráció lapon válassza a **Közzététel** lehetőséget a bal oldali ablaktáblán.
+   
+1. A jobb oldali ablaktábla argumentumok területén adja hozzá `-r win10-x64` a beállításokat a konfigurációhoz. 
+   
+   ![Build folyamati argumentum hozzáadása](media/azure-stack-solution-pipeline/buildargument.png)
+   
+1. Válassza az oldal tetején található **&-várólista mentése** lehetőséget.
+   
+1. A **folyamat futtatása** párbeszédpanelen válassza a **Mentés és Futtatás**lehetőséget. 
+   
+A [saját üzemeltetésű üzembe helyezési Build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) közzéteszi az Azure-ban és a Azure stackon futtatható összetevőket is.
+
+### <a name="create-a-release-pipeline"></a>Kiadási folyamat létrehozása
+
+A kiadási folyamat létrehozása a hibrid CI/CD-konfiguráció utolsó lépése. A kiadási folyamat használatával kiadást hozhat létre, és üzembe helyezheti a buildet.
+
+1. Az Azure DevOps-projektben válassza a **folyamatok** > **kiadások** elemet a bal oldali navigációs sávon, majd válassza az **új folyamat**elemet. 
+   
+1. A **sablon kiválasztása** lapon válassza a **Azure app Service központi telepítés**lehetőséget, majd kattintson az **alkalmaz**gombra.
+   
+   ![A kiadási sablon kiválasztása](media/azure-stack-solution-pipeline/releasetemplate.png)
+   
+1. A **folyamat** lapon válassza az **összetevő hozzáadása** elemet a bal oldali ablaktáblán. A jobb oldali ablaktáblában válassza ki az imént létrehozott webalkalmazás-összeállítást a **forrás (folyamat létrehozása)** legördülő menüből, és válassza a **Hozzáadás**lehetőséget.
+   
+   ![Adja hozzá a buildösszetevőt](media/azure-stack-solution-pipeline/addartifact.png)
+   
+1. A **folyamat** lap **szakaszok**területén válassza ki az **1** . fázisban található hiperhivatkozást a **szakasz feladatainak megtekintéséhez**.
+   
+   ![Szakasz feladatainak megtekintése](media/azure-stack-solution-pipeline/viewstagetasks.png)
+   
+1. A **feladatok** lapon adja meg az *Azure* -t a **fázis neveként**. 
+   
+1. A **Paraméterek**területen válassza ki az előfizetését az **Azure-előfizetés** legördülő listából, és írja be az **app Service-nevet**.
+   
+   ![Válassza ki az előfizetést, és adja meg App Service nevét](media/azure-stack-solution-pipeline/stage1.png)
+   
+1. A bal oldali ablaktáblán válassza a **Futtatás az ügynökön**lehetőséget. Ha még nincs kiválasztva, a jobb oldali ablaktáblában válassza a **tárolt VS2017** elemet az **ügynök készlet** legördülő listából.
+   
+   ![Üzemeltetett ügynök kiválasztása](media/azure-stack-solution-pipeline/agentjob.png)
+   
+1. A bal oldali ablaktáblán válassza a **központi telepítés Azure app Service**lehetőséget, majd a jobb oldali ablaktáblában keresse meg az Azure-webalkalmazás-Build **csomagját vagy mappáját** .
+   
+   ![Csomag vagy mappa kiválasztása](media/azure-stack-solution-pipeline/packageorfolder.png)
+   
+1. A **fájl vagy mappa kiválasztása** párbeszédpanelen kattintson **az OK gombra**.
+   
+1. Válassza a **Mentés** lehetőséget a jobb felső sarokban az **új kiadási folyamat** oldalon.
+   
+   ![Változtatások mentése](media/azure-stack-solution-pipeline/save-devops-icon.png)
+   
+1. A **folyamat** lapon válassza az **összetevő hozzáadása**elemet. Válassza ki a projektet, és válassza ki a Azure Stack épít a **forrás (folyamat létrehozása)** legördülő menüből. Válassza a **Hozzáadás** lehetőséget. 
+   
+1. A **folyamat** lap **szakaszok**területén válassza a **Hozzáadás**lehetőséget.
+   
+1. Az új szakaszban válassza ki a hivatkozást a **szakasz feladatainak megtekintéséhez**. Adja  meg a Azure stackt a szakasz neveként. 
+   
+   ![Új szakasz megtekintése](media/azure-stack-solution-pipeline/newstage.png)
+   
+1. A **Paraméterek**területen válassza ki a Azure stack végpontot, és adja meg a Azure stack webalkalmazás nevét az **app Service neveként**.
+   
+1. A **Futtatás ügynök**alapján területen válassza ki a Azure stack Build kiszolgáló ügynököt az **ügynök készlet** legördülő listából.
+   
+1. **Azure app Service üzembe helyezéséhez**válassza ki a Azure stack Build **csomagját vagy mappáját** , majd kattintson az **OK gombra** a **fájl vagy mappa kiválasztása** párbeszédpanelen.
+   
+1. A **változók** lapon keresse meg a **VSTS_ARM_REST_IGNORE_SSL_ERRORS**nevű változót. Állítsa a változó értékét **igaz**értékre, és állítsa a hatókörét **Azure Stackra**.
+   
+   ![Változó konfigurálása](media/azure-stack-solution-pipeline/setvariable.png)
+   
+1. A **folyamat** lapon válassza ki a **folyamatos üzembe helyezési trigger** ikont az egyes összetevőknél, és állítsa be az **engedélyezett**értékre.  
+   
+   ![Folyamatos üzembe helyezési trigger beállítása](media/azure-stack-solution-pipeline/contindeploymentenabled.png)
+   
+1. Válassza ki az **üzembe helyezés előtti feltételek** ikont a Azure stack fázisban, és állítsa be a triggert a **kiadás után**.
+   
+   ![Üzembe helyezés előtti feltételek beállítása trigger](media/azure-stack-solution-pipeline/predeployafterrelease.png)
+   
+1. Válassza a **Mentés** lehetőséget a jobb felső sarokban az **új kiadási folyamat** lapon a kiadási folyamat mentéséhez.
 
 > [!Note]
-> Az Azure Resource Manager-végpont nem lesz közzétéve az interneten, ha a kapcsolat érvényesítése sikertelen lesz. Ez várható, és a egy egyszerű feladatlista-kiadási folyamatok létrehozásával ellenőrizheti a kapcsolatot. 
-
-## <a name="develop-your-application-build"></a>Fejlesztés a sestavení aplikace
-
-A megoldás ezen részében jelennek meg:
-
-* Az Azure DevOps-szolgáltatásokkal projekthez adja hozzá a kódot.
-* Hozzon létre önálló webes alkalmazás üzembe helyezése.
-* A folyamatos üzembe helyezési folyamat beállítása
-
-> [!Note]
- > Az Azure Stack környezettel kell a megfelelő rendszerképek hírcsatorna-a Windows Server és SQL Server futtatásához. App Service-ben üzembe helyezett is kell rendelkeznie. Tekintse meg az App Service-ben dokumentációt "Előfeltételek" szakaszban az Azure Stack-kezelők követelményeinek.
-
-CI/CD hibrid alkalmazás kódja és az infrastruktúra kódjának alkalmazhatja. Használat [Azure Resource Manager-sablonokat, mint webes](https://azure.microsoft.com/resources/templates/) mindkét felhőben való üzembe helyezéséhez az Azure DevOps-szolgáltatásokkal kódját.
-
-### <a name="add-code-to-an-azure-devops-services-project"></a>Adja hozzá a kódot az Azure DevOps-szolgáltatásokkal projekthez
-
-1. Jelentkezzen be egy szervezet rendelkező projekt létrehozása az Azure Stack az Azure DevOps-szolgáltatásokkal. A következő képernyőfelvétel bemutatja, hogyan kapcsolódjon a HybridCICD.
-
-    ![Csatlakozás egy projekthez – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
-
-2. **A tárház klónozása** létrehozásával és az alapértelmezett webes alkalmazás megnyitásával.
-
-    ![Klónozza a tárházat – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
-
-### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Önálló webes alkalmazás üzembe helyezése az App Services létrehozása az mindkét felhőben
-
-1. Szerkessze a **WebApplication.csproj** fájlt: Válassza ki `Runtimeidentifier` majd `win10-x64.` további információkért lásd: [önálló telepítés](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációját.
-
-    ![Runtimeidentifier konfigurálása](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
-
-2. Team Explorer segítségével ellenőrizze a kódot az Azure DevOps-szolgáltatásokkal.
-
-3. Győződjön meg arról, hogy az alkalmazáskódban az Azure DevOps-szolgáltatásokkal lett érvényesítve.
-
-### <a name="create-the-build-pipeline"></a>A létrehozási folyamat létrehozása
-
-1. Jelentkezzen be a szervezet, amely egy build folyamatot hozhat létre az Azure DevOps-szolgáltatásokkal.
-
-2. Keresse meg a **webes alkalmazás készítése** a projekt lapját.
-
-3. A **argumentumok**, adjon hozzá **- r win10-x64** kódot. Ez a lépés egy önálló telepítés a .NET Core használatával aktiválásához szükséges.
-
-    ![Argument buildelési folyamat hozzáadása](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
-
-4. Futtassa a build. A [önálló telepítés build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) folyamat közzéteszi az összetevők, amelyek futhatnak az Azure és az Azure Stackben.
-
-### <a name="use-an-azure-hosted-build-agent"></a>Egy Azure-ban üzemeltetett fordító-ügynökhöz használata
-
-Használatával egy üzemeltetett fordító-ügynökhöz az Azure DevOps-szolgáltatásokkal a lehetőség egy kényelmes és webes alkalmazások üzembe. Ügynök karbantartása és frissítései automatikusan végzi a Microsoft Azure, amely lehetővé teszi a folyamatos és zavartalan fejlesztési ciklus.
-
-### <a name="configure-the-continuous-deployment-cd-process"></a>Konfigurálja a folyamatos készregyártás (CD) folyamatot
-
-Az Azure DevOps-szolgáltatásokkal és a Team Foundation Server (TFS) adja meg egy hatékonyan konfigurálható és kezelhető folyamat több, például fejlesztési, átmeneti, minőségbiztosítási (Tesztelés) és éles környezetek számára. Ez a folyamat tartalmazhat jóváhagyásokat igénylő az alkalmazás életciklusát az adott szakaszában.
-
-### <a name="create-release-pipeline"></a>Kibocsátási folyamatok létrehozása
-
-Kiadási folyamatok létrehozásába az utolsó lépés az alkalmazás létrehozása folyamatban. A kibocsátási folyamat kiadás létrehozása és üzembe helyezése a build szolgál.
-
-1. Jelentkezzen be az Azure DevOps-szolgáltatásokkal, és navigáljon a **Azure folyamatok** a projekthez.
-2. Az a **kiadásokban** lapon jelölje be  **\[ +]** majd válasszon **kiadási definíció létrehozása**.
-
-   ![Hozzon létre a kibocsátási folyamat – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
-
-3. Az a **válasszon ki egy sablont** lapon a **Azure App Service üzembe helyezési**, majd válassza ki **alkalmaz**.
-
-    ![A alkalmazni sablon – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/102.png)
-
-4. A a **Hozzáadás összetevő** lapon, a **forrás (builddefiníció)** legördülő menüből, válassza ki az Azure Cloud hozhat létre alkalmazást.
-
-    ![Összetevő - Azure-fejlesztési és üzemeltetési szolgáltatások hozzáadása](media/azure-stack-solution-hybrid-pipeline/103.png)
-
-5. Az a **folyamat** lapon jelölje be a **1. fázis**, **1 feladat** mutató hivatkozás **környezettel kapcsolatos feladatok megtekintéséhez**.
-
-    ![Folyamat-feladatok megtekintése – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/104.png)
-
-6. Az a **feladatok** lapra, adja meg az Azure-t a **környezet neve** , és válassza ki az AzureCloud Traders-webalkalmazás EP a **Azure-előfizetés** legördülő listából válassza ki.
-
-    ![Állítsa be a környezeti változókat – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/105.png)
-
-7. Adja meg a **az Azure app service neve**, azaz a következő képernyőfelvétel-készítés "northwindtraders".
-
-    ![App service neve – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/106.png)
-
-8. Válassza ki az ügynök fázis **Hosted VS2017** származó a **fronta Agenta** legördülő listából válassza ki.
-
-    ![Üzemeltetett ügynök – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/107.png)
-
-9. A **üzembe helyezése az Azure App Service**, válassza ki a érvényes **csomag vagy a mappa** a környezethez.
-
-    ![Válassza ki a csomag vagy a mappa – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/108.png)
-
-10. Az a **válassza ki a fájl vagy mappa** lapra, jelölje be **OK** mappa helyét.
-
-    ![Válassza ki a fájl vagy mappa – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/109.png)
-
-11. Mentse az összes módosítást, és térjen vissza a **folyamat**.
-
-    ![Mentse a módosításokat – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/110.png)
-
-12. A a **folyamat** lapon jelölje be **Hozzáadás összetevő**, és válassza a **NorthwindCloud Traders-hajó** a a **Source (Build definíció)** legördülő listából.
-
-    ![Adja hozzá az új összetevők – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/111.png)
-
-13. Az a **válasszon ki egy sablont** lapon, adjon hozzá egy másik környezetre. Válasszon **Azure App Service üzembe helyezési** majd **alkalmaz**.
-
-    ![Válassza ki a sablon – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/112.png)
-
-14. Adja meg az "Azure Stack" a **környezetnevet**.
-
-    ![Környezet neve – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/113.png)
-
-15. Az a **feladatok** lapon keresse meg és válassza ki az Azure Stack.
-
-    ![Az Azure Stack-környezet – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/114.png)
-
-16. Az a **Azure-előfizetés** legördülő listára, válassza ki a "AzureStack Traders-hajó EP" az Azure Stack-végpont.
-
-    ![Azure-előfizetés legördülő – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/115.png)
-
-17. Adja meg az Azure Stack webes alkalmazás nevét, a **App service neve**.
-
-    ![App service neve – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/116.png)
-
-18. A **kijelölése**, "AzureStack - bDouglas részéhez" választhatok a **fronta Agenta** legördülő listából.
-
-    ![Válassza ki az ügynök – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/117.png)
-
-19. A **üzembe helyezése az Azure App Service**, válassza ki a érvényes **csomag vagy a mappa** a környezethez. A **fájl vagy mappa kiválasztása**válassza **OK** mappa **hely**.
-
-    ![Válasszon csomagot vagy a mappa – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/118.png)
-
-    ![Hagyja jóvá a hely – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/119.png)
-
-20. Az a **változók** lapra, keresse meg a következő változót **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. A változó értékét állítsa **igaz**, és állítsa annak hatókörét **Azure Stack**.
-
-    ![Változó - Azure-fejlesztési és üzemeltetési szolgáltatások konfigurálása](media/azure-stack-solution-hybrid-pipeline/120.png)
-
-21. Az a **folyamat** lapon jelölje be a **a folyamatos készregyártás eseményindítója** ikonjára a NorthwindCloud Traders-webalkalmazás-összetevő és a készlet a **a folyamatos készregyártás eseményindítója** , **Engedélyezve**.  Járjon el ugyanígy "NorthwindCloud Traders-hajó" összetevőre.
-
-    ![Állítsa be a folyamatos készregyártás eseményindítója – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/121.png)
-
-22. Az Azure Stack-környezet, válassza a **központi telepítés előtti feltételek** ikon beállítani az eseményindítót **kiadás után**.
-
-    ![Állítsa be a központi telepítés előtti feltételek eseményindító – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/122.png)
-
-23. Mentse az összes módosítást.
-
-> [!Note]
-> Néhány beállítás, a feladatkiadási tevékenységeket előfordulhat, hogy automatikusan meghatározott [környezeti változók](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) létrehozásakor egy kiadási folyamatot sablonból. Ezek a beállítások nem módosíthatók az a tevékenység beállításait. Azonban ezeket a beállításokat a környezetben a szülőelemektől szerkesztheti.
-
-## <a name="create-a-release"></a>Hozzon létre egy kiadás
-
-Most, hogy végrehajtotta a módosításokat a kiadási folyamathoz, azt az idő a üzembe helyezésének megkezdéséhez. Üzembe helyezés megkezdéséhez hozzon létre egy a kiadásra a kiadási folyamathoz. A kiadás automatikusan; előfordulhat, hogy hozható létre például, ha a folyamatos készregyártás eseményindítója van megadva a kiadási folyamathoz. A beállítás a trigger azt jelenti, hogy a Forráskód módosítása elindul egy új létrehozást, majd az új kiadás. Azonban ebben a szakaszban létre fog hozni egy új kiadási manuálisan.
-
-1. Az a **folyamat** lap meg van nyitva a **kiadási** legördülő listából válassza ki, és válassza ki **kiadás létrehozása**.
-
-    ![Hozzon létre egy kiadás – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/200.png)
-
-2. Adjon meg egy leírást a kiadás, ellenőrizze, hogy, hogy a helyes összetevők vannak-e jelölve, és válassza **létrehozás**. Néhány pillanat múlva egy szalagcím jelenik meg, amely azt jelzi, hogy az új kiadásban lett létrehozva, és a kiadási név hivatkozásként jelenik meg. Válassza ki a hivatkozásra kattintva megtekintheti a kiadási összegző lapja.
-
-    ![Kiadás létrehozása szalagcím – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/201.png)
-
-3. A kiadási összefoglaló lapja a kiadással kapcsolatos részleteket jeleníti meg. "Release-2", az alábbi képernyőfelvételen a **környezetek** szakasz látható a **központi telepítési állapot** az Azure-t a "Folyamatban", és az Azure Stack állapota "sikeres". Ha az Azure-környezetre vonatkozó üzembe helyezési állapotra vált, "SUCCEEDED", egy szalagcím jelenik meg arról, hogy a kiadás nem áll készen a jóváhagyásra. Amikor a központi telepítés függőben, vagy sikertelen volt, a kék **(i)** információs ikon jelenik meg. A kurzort a az ikonra kattintva megtekintheti a egy előugró ablak, amely tartalmazza a késleltetés vagy a hiba okát.
-
-    ![Kiadási összegző lap – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/202.png)
-
-Más nézetekhez, például a listát a kiadások, is látható ikon jelzi, a jóváhagyási folyamatban. Erre az ikonra az előugró a környezet nevét, és üzembe helyezésével kapcsolatos további részleteket jeleníti meg. Könnyebbé vált a rendszergazda, lásd: a kiadások és hogy mely kiadásai jóváhagyásra várnak összesített állapotát.
-
-### <a name="monitor-and-track-deployments"></a>A figyelő és nyomon követésére központi telepítések
-
-Ez a szakasz bemutatja, hogyan figyelheti és nyomon követheti a központi telepítések. A kiadás a két Azure App Services-webhelyek üzembe jó példa biztosít.
-
-1. A "Release-2" összesítő lapon válassza ki a **naplók**. A telepítés során ezen a lapon látható az élő napló az ügynöktől. A bal oldali panelen az egyes környezetekhez a központi telepítésben lévő egyes műveletek állapotát jeleníti meg.
-
-    A személy ikonra a **művelet** oszlop ki a központi telepítés jóváhagyása (vagy elutasítása), és azokat a megadott üzenet központi telepítés előtti vagy utáni jóváhagyásra.
-
-2. Az üzembe helyezés befejezését követően a teljes log fájl a jobb oldali ablaktáblán jelenik meg. Válassza ki bármelyik **lépés** a naplófájl az egyetlen lépésben, például a "Feladat inicializálása" megtekintéséhez a bal oldali panelen. Egyéni naplók megtekinthetik megkönnyíti a követése és hibakeresése az általános üzembe helyezési részeit. Emellett **mentése** egy lépést, a naplófájl vagy **az összes napló letöltése zip-fájlként**.
-
-    ![Kiadási naplók – Azure DevOps-szolgáltatásokkal](media/azure-stack-solution-hybrid-pipeline/203.png)
-
-3. Nyissa meg a **összefoglalás** lapján megtekintheti a kiadással kapcsolatos általános információkat. Ez a nézet a build, a környezetekben, telepítve van, üzembe helyezési állapota és egyéb adatainak a kiadása kapcsolatos részleteket jeleníti meg.
-
-4. Jelöljön ki egy környezetet hivatkozást (**Azure** vagy **Azure Stack**) és a egy adott környezetben való központi telepítés meglévő kapcsolatos információk megtekintéséhez. Ezek a nézetek, győződjön meg arról, hogy az azonos buildjét mindkét környezetben telepített egyszerűen használhatja.
-
-5. Nyissa meg a **éles-WebApp üzembe helyezését** a böngészőben. Ha például az Azure App Services-webhely URL-címre `https://[your-app-name].azurewebsites.net`.
+> Előfordulhat, hogy a kiadási feladatok egyes beállításai automatikusan [Egyéni változókként](/azure/devops/pipelines/release/variables?view=vsts#custom-variables) vannak definiálva, amikor létrehozta a kiadási folyamatot a sablonból. Ezek a beállítások nem módosíthatók a feladat beállításaiban, de a fölérendelt szakasz elemeiben szerkesztheti őket.
+
+## <a name="release-the-app"></a>Az alkalmazás kiadása
+
+Most, hogy már rendelkezik egy kiadási folyamattal, felhasználhatja egy kiadás létrehozásához és az alkalmazás üzembe helyezéséhez. 
+
+Mivel a folyamatos üzembe helyezési trigger be van állítva a kiadási folyamatba, a forráskód módosítása új buildet indít el, és automatikusan létrehoz egy új kiadást. Az új kiadást azonban manuálisan kell létrehoznia és futtatnia.
+
+Kiadás létrehozása és üzembe helyezése:
+
+1. Az új kiadási folyamat lapon válassza a **kiadás létrehozása** a jobb felső sarokban lehetőséget. 
+   
+   ![Kiadás létrehozása ](media/azure-stack-solution-pipeline/createreleaseicon.png)
+   
+1. Az **új kiadás létrehozása** oldalon:
+   1. A **folyamat**alatt válassza ki az **Azure** -szakaszt az trigger automatikusról manuálisra változtatásához. 
+   1. Az összetevők területen győződjön meg **arról, hogy**a megfelelő összetevők vannak kiválasztva.
+   1. Adja meg a **kiadás leírását**, majd válassza a **Létrehozás**lehetőséget. 
+   
+   A szalagcím azt jelzi, hogy az új kiadás létrejött. A kiadás neve hivatkozásra kattintva megtekintheti a kiadási összefoglalás oldalt, amely a kiadás részleteit mutatja be, például a telepítési állapotot.
+   
+1. A manuális kiadás üzembe helyezéséhez válassza ki az **Azure** -szakaszt, válassza a **telepítés**lehetőséget, majd a szakasz párbeszédpanelen válassza a **telepítés** lehetőséget. 
+   
+1. Amikor az üzembe helyezés sikeresen befejeződik, nyissa meg a telepített alkalmazást a böngészőben. Az Azure App Services webhelyén például nyissa meg az URL-címet `https://<your-app-name>.azurewebsites.net`.
+
+### <a name="monitor-and-track-releases"></a>Kiadások monitorozása és nyomon követése
+
+Kiválaszthatja a hiperhivatkozásos állapotot a kiadási fázisban, így további információkat tekinthet meg a központi telepítésről. 
+
+![Kiadás összegzése lap](media/azure-stack-solution-pipeline/releasesummary.png)
+
+A rendszergazdák egyszerűen nyomon követhetik a kiadások általános előrehaladását, és megtekinthetik, hogy mely kiadások várnak jóváhagyásra.
+
+![A függőben lévő jóváhagyást mutató kiadás összegzése lap](media/azure-stack-solution-pipeline/releasepending.png)
+
+A kiadási naplókat az összes üzemelő példányról megtekintheti: 
+
+1. Az Azure DevOps-projektben válassza a bal oldali **folyamatok** > kiadása lehetőséget, majd válasszon ki egy kiadást. 
+   
+1. A kiadás összegzése lapon vigye a kurzort egy szakaszra, vagy válasszon ki egy szakaszt, majd válassza a **naplók**lehetőséget. 
+   
+   A kiadási naplóban a bal oldali ablaktábla az egyes műveletek állapotát jeleníti meg az egyes fázisokban. A központi telepítés során a jobb oldali ablaktábla az ügynökből származó élő naplót jeleníti meg. Az üzembe helyezés befejeződése után a teljes naplófájl megjelenik a jobb oldali ablaktáblán. 
+   
+1. A bal oldali ablaktábla bármelyik lépését kiválasztva megtekintheti az adott lépéshez tartozó naplófájlt, például az **üzembe helyezés előtti jóváhagyásokat**. 
+   
+1. A jóváhagyások megtekintéséhez válassza a jobb oldali ablaktáblán a **jóváhagyás megtekintése** lehetőséget, hogy megtekintse, ki hagyta jóvá vagy utasította el a kiadást, valamint egyéb részleteket. 
+   
+Az egyes lépések naplóinak megtekintésével könnyebben lehet nyomon követni és hibakeresést végezni a teljes telepítés részeit. Az **összes naplót** *. zip* -fájlként is letöltheti.
+   
+![Kiadási napló](media/azure-stack-solution-pipeline/releaselog.png)
 
 ## <a name="next-steps"></a>További lépések
 
-* Az Azure-minták Felhőkhöz kapcsolatos további információkért lásd: [tervezési minták Felhőkhöz](https://docs.microsoft.com/azure/architecture/patterns).
+Az Azure-minták Felhőkhöz kapcsolatos további információkért lásd: [tervezési minták Felhőkhöz](/azure/architecture/patterns).

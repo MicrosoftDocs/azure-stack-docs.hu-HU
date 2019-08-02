@@ -1,11 +1,12 @@
 ---
-title: Átmeneti adatok analytics megoldás üzembe helyezése az Azure Stackhez |} A Microsoft Docs
-description: Ismerje meg, hogyan helyezhet üzembe egy előkészített adatelemzési megoldással az Azure Stackhez
+title: Szakaszos adatelemzési megoldás üzembe helyezése Azure Stack | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe egy előkészített adatelemzési megoldást Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
+ms.topic: conceptual
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,50 +15,50 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: ca4c2480fff511ab3bad43ea82fc81522d9afba0
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286746"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602931"
 ---
-# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Átmeneti adatok analytics megoldás üzembe helyezése az Azure Stackhez
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Szakaszos adatelemzési megoldás üzembe helyezése Azure Stack
 
-Ebből a cikkből megtudhatja, hogyan helyezhet üzembe egy megoldást, hogy gyors döntéseket lehet tenni a gyűjtemény folyamatos elemzés igénylő adatokat gyűjt. Általában adatgyűjteményben nincs Internet-hozzáféréssel rendelkező történik. Ha a kapcsolat létrejött, szükség lehet egy erőforrás-igényes elemzéseket végezhet az adatok további betekintést.
+Ez a cikk bemutatja, hogyan helyezhet üzembe olyan megoldást, amely az elemzést igénylő adatok gyűjtéséhez szükséges a gyors döntések elvégzéséhez. Az adatgyűjtés gyakran az Internet-hozzáférés nélkül történik. Ha a kapcsolat létrejött, előfordulhat, hogy az adatelemzést erőforrás-igényesen kell elemezni, hogy további információkhoz jussanak.
 
-Ez a megoldás egy minta környezetet hozunk létre:
+Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezetet:
 
 > [!div class="checklist"]
-> - A nyers adatok tárolási blob létrehozásához.
-> - Hozzon létre egy új Azure Stack-függvény tiszta adatok áthelyezése az Azure Stack az Azure-bA.
-> - Blobtároló által aktivált függvény létrehozása.
-> - Hozzon létre egy Azure Stack tárfiókok a blob és üzenetsor tartalmazó.
+> - Hozza létre a nyers adattárolási blobot.
+> - Hozzon létre egy új Azure Stack függvényt, amellyel a tiszta adatok áthelyezhetők a Azure Stack az Azure-ba.
+> - Hozzon létre egy blob Storage által aktivált függvényt.
+> - Hozzon létre egy Azure Stack Storage-fiókot, amely egy blobot és egy várólistát tartalmaz.
 > - Üzenetsor által aktivált függvény létrehozása.
-> - Teszt az üzenetsor által aktivált függvény.
+> - Tesztelje az üzenetsor által aktivált függvényt.
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
+> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
-> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
-## <a name="architecture-for-staged-data-analytics"></a>A kétlépcsős data Analytics architektúrája
+## <a name="architecture-for-staged-data-analytics"></a>Az előkészített adatelemzés architektúrája
 
-![a kétlépcsős adatelemzés](media/azure-stack-solution-staged-data/image1.png)
+![előkészített adatelemzés](media/azure-stack-solution-staged-data/image1.png)
 
-## <a name="prerequisites-for-staged-data-analytics"></a>A kétlépcsős data analytics előfeltételei
+## <a name="prerequisites-for-staged-data-analytics"></a>Az előkészített adatelemzés előfeltételei
 
   - Azure-előfizetés.
-  - Az Azure Active Directory (AAD) szolgáltatásnév, amely jogosult az Azure és az Azure Stack-bérlői előfizetéshez. Szükség lehet két szolgáltatásnevek létrehozása, ha az Azure Stack, mint az Azure-előfizetés egy másik AAD-bérlőt használja. További információk az Azure stack-beli szolgáltatásnév létrehozása [alkalmazások hozzáférés biztosítása az Azure Stack-erőforrások egyszerű szolgáltatások létrehozása](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
-      - **Jegyezze fel a minden szolgáltatásnév Alkalmazásazonosítót, titkos Ügyfélkód, az Azure AD-bérlő azonosítója és bérlő neve (xxxxx.onmicrosoft.com).**
-  - Adatok gyűjteménye, adja meg a data-elemzéshez kell. Mintaadatok van megadva.
-  - [A Windows docker](https://docs.docker.com/docker-for-windows/) telepítve a helyi gépen.
+  - Egy Azure Active Directory (HRE) egyszerű szolgáltatásnév, amely engedéllyel rendelkezik a bérlői előfizetéshez az Azure-ban és Azure Stack. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha a Azure Stack eltérő HRE-bérlőt használ, mint az Azure-előfizetése. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet a Azure Stackhoz, nyissa meg az [egyszerű szolgáltatás létrehozása lehetőséget, hogy az alkalmazások hozzáférjenek Azure stack erőforrásokhoz](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+      - **Jegyezze fel az egyes szolgáltatásnév alkalmazás-AZONOSÍTÓját, az ügyfél titkos kulcsát, az Azure AD-bérlő AZONOSÍTÓját és a bérlő nevét (xxxxx.onmicrosoft.com).**
+  - Az adatelemzéshez meg kell adnia egy adatgyűjtési adatkészletet. A mintaadatok megadására szolgálnak.
+  - A helyi gépre telepített [Windows Docker](https://docs.docker.com/docker-for-windows/) .
 
-## <a name="get-the-docker-image"></a>A Docker-lemezkép beolvasása
+## <a name="get-the-docker-image"></a>A Docker-rendszerkép beszerzése
 
-Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel különböző verziói között függőségi hibák kiküszöbölése.
-1.  Ügyeljen arra, hogy a Docker a Windows a Windows-tárolók használja-e.
-2.  A Docker-tároló üzembe helyezési parancsfájlok beolvasásához rendszergazda jogú parancssorból futtassa a következő.
+Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik a Azure PowerShell különböző verziói közötti függőségi problémákat.
+1.  Győződjön meg arról, hogy a Windows rendszerhez készült Docker Windows-tárolókat használ.
+2.  Futtassa az alábbi parancsot egy rendszergazda jogú parancssorban a Docker-tároló üzembe helyezési parancsfájlokkal való lekéréséhez.
 
 ```
  docker pull intelligentedge/stageddatasolution:1.0.0
@@ -65,19 +66,19 @@ Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel kül
 
 ## <a name="deploy-the-solution"></a>A megoldás üzembe helyezése
 
-1.  Miután a tároló rendszerképét sikeresen kéri le, indítsa el a lemezképet.
+1.  A tároló rendszerképének leállítása után indítsa el a rendszerképet.
 
       ```powershell  
       docker run -it intelligentedge/stageddatasolution:1.0.0 powershell
       ```
 
-2.  Miután a tároló elindult, egyúttal egy emelt szintű PowerShell-terminált a tárolóban. Módosítsa a könyvtárakat az üzembe helyezési parancsfájl beolvasásához.
+2.  A tároló elindítása után a tárolóban egy emelt szintű PowerShell-terminál lesz megadva. Módosítsa a címtárakat az üzembe helyezési parancsfájl eléréséhez.
 
       ```powershell  
       cd .\SDDemo\
       ```
 
-3.  A központi telepítéshez. Adja meg a hitelesítő adatok és erőforrások neveit, ahol szükséges. Magas rendelkezésre ÁLLÁS az Azure Stack, ahol a magas rendelkezésre ÁLLÁSÚ fürtben üzembe helyezett és Vészhelyreállítás az Azure stack, ahol a DR-fürtben üzembe helyezett hivatkozik.
+3.  Futtassa az üzemelő példányt. Adja meg a hitelesítő adatokat és az erőforrások nevét, ahol szükséges. HA arra a Azure Stackre hivatkozik, ahol a HA-fürtöt telepíti, és DR-t arra a Azure Stackra, ahová a DR-fürtöt telepíteni fogja.
 
       ```powershell
       .\DeploySolution-Azure-AzureStack.ps1 `
@@ -92,28 +93,28 @@ Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel kül
       -ResourcePrefix "aPrefixForResources"
       ```
 
-1.  Ha a rendszer kéri; Adja meg az Azure-beli és az Application Insights egy régiót.
+1.  Ha a rendszer kéri, Adjon meg egy régiót az Azure üzembe helyezéséhez, és Application Insights.
 
-2.  Írja be az "Y", hogy a NuGet-szolgáltató telepíthető, amely elindít az API-profil "2018-03-01-hibrid" modulokat telepíteni kell az Azure és az Azure Stack való központi telepítésének engedélyezése.
+2.  Írja be az "Y" értéket a NuGet-szolgáltató telepítésének engedélyezéséhez, amely elindítja az "2018-03-01-Hybrid" modulok telepítését, amelyek lehetővé teszik az Azure-ba és a Azure Stack-re való üzembe helyezést.
 
-3.  Az erőforrások telepítése után tesztelje, hogy az adatok Azure Stackben és az Azure jön.
+3.  Miután telepítette az erőforrásokat, tesztelje, hogy a rendszer létrehozza-e az Azure Stack és az Azure-hoz tartozó adatforrásokat.
 
     ```powershell  
       .\TDAGenerator.exe
     ```
 
-4.  Tekintse meg az Azure-ban üzembe helyezett webalkalmazások a feldolgozott adatok.
+4.  Az Azure-ba vagy Azure Stack-ra telepített webalkalmazásokra kattintva tekintheti meg a feldolgozott adatfeldolgozást.
 
 ### <a name="azure-web-app"></a>Azure Web App
  
-![a kétlépcsős adatelemzési megoldással](media/azure-stack-solution-staged-data/image2.png)
+![előkészített adatelemzési megoldás](media/azure-stack-solution-staged-data/image2.png)
  
-### <a name="azure-stack-web-app"></a>Az Azure Stack-webalkalmazás
+### <a name="azure-stack-web-app"></a>Azure Stack webalkalmazás
  
-![az Azure Stack előkészített adatelemzési megoldással](media/azure-stack-solution-staged-data/image3.png)
+![előkészített adatelemzési megoldás Azure Stack](media/azure-stack-solution-staged-data/image3.png)
 
 ## <a name="next-steps"></a>További lépések
 
-  - További tudnivalók a hibrid felhőbeli alkalmazások, lásd: [hibrid felhőalapú megoldásokkal.](https://aka.ms/azsdevtutorials)
+  - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)
 
-  - A saját adatok használatával, vagy módosítsa a kódot, és ez a példa a [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+  - Használja saját adatait, vagy módosítsa a kódot erre a mintára [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)a githubon.

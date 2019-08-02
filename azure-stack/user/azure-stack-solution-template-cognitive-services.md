@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack üzembe helyezése az Azure Cognitive Services |} A Microsoft Docs
-description: Ismerje meg, hogyan helyezhet üzembe az Azure Cognitive Services az Azure Stackhez.
+title: Azure-Cognitive Services üzembe helyezése Azure Stack | Microsoft Docs
+description: Ismerje meg, hogyan helyezheti üzembe az Azure Cognitive Servicest Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,72 +11,72 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: c642a3eeb07ef2ce94ca8dc338a781256c5b9f37
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9098be09e8b5bd20660f12789159a41d5a330408
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691234"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417321"
 ---
-# <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Az Azure Stack üzembe helyezése az Azure Cognitive Services
+# <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
-> Az Azure Stack az Azure Cognitive Services előzetes verzióban van.
+> Az Azure Cognitive Services on Azure Stack előzetes verzióban érhető el.
 
-Használhatja az Azure Cognitive Services-tároló támogatása az Azure Stacken. Tároló támogatása az Azure Cognitive Services lehetővé teszi, hogy az azonos API-k gazdag elérhető az Azure-ban. A tárolók használatát lehetővé teszi, hogy a rugalmasság a verziókban elérhető szolgáltatásokat üzembe helyezése és hol [Docker-tárolók](https://www.docker.com/what-container). Tárolótámogatás jelenleg érhető el az Azure Cognitive Services, beleértve egy részhalmazát előzetes verziójában [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), és [Szövegelemzés](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), és [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+Az Azure Cognitive Services a tárolók támogatásával Azure Stackon is használható. Az Azure Cognitive Services tárolók támogatása lehetővé teszi, hogy ugyanazokat a gazdag API-kat használja, amelyek elérhetők az Azure-ban. A tárolók használata rugalmasságot biztosít a Docker-tárolókban tárolt szolgáltatások üzembe [](https://www.docker.com/what-container)helyezéséhez és üzemeltetéséhez. A tárolók támogatása jelenleg előzetes verzióban érhető el az Azure Cognitive Services egy részhalmaza számára, beleértve a [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), a [text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)és a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) részeit.
 
-Bontás megközelítés a szoftverek terjesztéséhez, amelyben egy alkalmazás vagy szolgáltatás, beleértve a függőségeket és a konfigurációt egy tárolórendszerképet vannak csomagolva. Kis vagy semmilyen módosítással telepíthet egy képet tároló gazdagéphez. A tárolók el különítve más tárolók pedig az alapul szolgáló operációs rendszerektől. Maga a rendszer csak a a a lemezkép futtatásához szükséges összetevőket tartalmazza. Egy tároló-gazdagép rendelkezik egy kisebb, mint a virtuális gép üzembe helyezésének előkészítése. Rövid távú feladatok rendszerképekből is létrehozhat tárolókat, és eltávolíthatók, ha már nincs szükség.
+A tárolókra bontás olyan szoftverterjesztési módszer, amelyben egy alkalmazás vagy szolgáltatás, beleértve a függőségeit és a konfigurációját, tároló képként van csomagolva. Kevés vagy nem módosítható, ha lemezképet telepít egy tároló gazdagépre. Minden tároló el van különítve a többi tárolótól és a mögöttes operációs rendszertől. Maga a rendszer csak a rendszerkép futtatásához szükséges összetevőket tartalmaz. A tároló gazdagépek kisebb helyigénysel rendelkeznek, mint a virtuális gépek. A rövid távú feladatok képeiből is létrehozhat tárolókat, amelyek már nem szükségesek, de eltávolíthatók.
 
-## <a name="use-containers-with-cognitive-services-on-azure-stack"></a>Az Azure Stacken Cognitive Services-tárolók használata
+## <a name="use-containers-with-cognitive-services-on-azure-stack"></a>Tárolók használata Cognitive Services Azure Stack
 
-- **Adatok felett ellenőrzést**  
-  Lehetővé teszi a felhasználók számára a szabályozhatják a Cognitive Services használata során az adatokat. Cognitive Services közvetíti azt felhasználói számára, akik nem lehet elküldeni az adatokat globális Azure-ban vagy a nyilvános felhőben.
+- **Az adatvezérlés**  
+  Lehetővé teheti, hogy az alkalmazás a Cognitive Services használata közben szabályozni tudják az adataikat. Cognitive Services biztosíthat olyan alkalmazás-felhasználók számára, akik nem tudnak a globális Azure-ba vagy a nyilvános felhőbe elküldeni az adatküldést.
 
-- **Modell frissítése**  
-  Adja meg. alkalmazás felhasználóinak a modellek üzembe helyezett megoldás verzió frissítései.
+- **A modell frissítéseinek vezérlése**  
+  Adja meg az alkalmazások felhasználói számára a megoldásban üzembe helyezett modellek frissítéseit.
 
 - **Hordozható architektúra**  
-  Egy hordozható alkalmazásarchitektúra létrehozásának engedélyezése, hogy a megoldás a nyilvános felhőben, magánfelhőben telepítheti a felhő helyszíni vagy a peremhálózaton. Telepítheti a tároló az Azure Kubernetes Service, Azure Container Instances- vagy Kubernetes-fürthöz az Azure Stackben. További információkért lásd: [Kubernetes üzembe helyezése az Azure Stackhez](azure-stack-solution-template-kubernetes-deploy.md).
+  Lehetővé teheti a hordozható alkalmazások architektúrájának létrehozását, hogy a megoldást a nyilvános felhőbe, a helyszíni saját felhőbe vagy a szegélybe telepítse. A tárolót üzembe helyezheti az Azure Kubernetes szolgáltatásban, Azure Container Instances vagy egy Azure Stack Kubernetes-fürtön. További információkért lásd: [Kubernetes üzembe helyezése az Azure Stackhez](azure-stack-solution-template-kubernetes-deploy.md).
 
-- **Nagy átviteli sebességű és kis késése**  
-   Adja meg az alkalmazás felhasználói adatforgalmának nagy átviteli sebességet és közel valós idejű a méretezhető. Engedélyezze a Cognitive Services futtatásához az Azure Kubernetes Service fizikailag közel az alkalmazás és az adatokat.
+- **Magas átviteli sebesség és kis késleltetés**  
+   Adja meg az alkalmazás felhasználóinak, hogy a nagy átviteli sebesség és az alacsony késés érdekében a forgalomban lévő tüskékkel méretezhetők legyenek. A Cognitive Services az Azure Kubernetes szolgáltatásban való futtatásának engedélyezése fizikailag az alkalmazás logikája és az adatkezelés érdekében.
 
-Az Azure Stack üzembe helyezése a Cognitive Services-tárolók egy Kubernetes-fürt az alkalmazástárolókat magas rendelkezésre állás és rugalmas méretezés mellett. Az alkalmazás az App Services, Functions, a Blob storage, SQL vagy mySQL-adatbázisok-összetevői és a Cognitive services együttes fejleszthet.
+A Azure Stack a magas rendelkezésre állás és a rugalmas skálázás érdekében helyezzen üzembe Cognitive Services tárolókat egy Kubernetes-fürtön, valamint az alkalmazás tárolóit. A kognitív szolgáltatásokat a App Services, a functions, a blob Storage, az SQL vagy a mySQL-adatbázisokra épülő összetevőkkel kombinálva fejlesztheti alkalmazásait.
 
-A Cognitive Services-tárolókra vonatkozóan további részleteket keresse [tároló támogatása az Azure Cognitive Servicesben](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+A Cognitive Services tárolókkal kapcsolatos további információkért nyissa meg a [tárolók támogatása az Azure-ban Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Az Azure Face API üzembe helyezése
 
-Ez a cikk ismerteti, hogyan helyezhet üzembe az Azure Face API, a Kubernetes-fürtön az Azure Stacken. Ugyanezzel a módszerrel használhatja más Azure Stack-beli Kubernetes-fürtökön a cognitive services-tárolók üzembe helyezése.
+Ez a cikk azt ismerteti, hogyan helyezhető üzembe az Azure Face API egy Kubernetes-fürtön Azure Stackon. Ugyanezt a megközelítést használhatja más kognitív szolgáltatások tárolóinak üzembe helyezéséhez Azure Stack Kubernetes-fürtökön.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Mielőtt elkezdené, kell:
+A Kezdés előtt a következőket kell tennie:
 
-1.  Kérjen hozzáférést a Face tárolórendszerképek lekéréshez Azure Cognitive Services Container Registry tárolóregisztrációs adatbázisba. További információkért lásd: [kérjen hozzáférést a privát tárolóregisztrációs adatbázisba](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
+1.  Kérje a tároló beállításjegyzékének elérését, hogy az Azure Cognitive Services Container Registryról olvassa el a Face Container-lemezképeket. Részletekért lásd: [hozzáférés kérése a Private Container registryhez](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
-2.  Készítsen elő egy Kubernetes-fürtöt az Azure Stacken. Kövesse a cikk [Kubernetes üzembe helyezése az Azure Stackhez](azure-stack-solution-template-kubernetes-deploy.md).
+2.  Kubernetes-fürt előkészítése Azure Stackon. A [Kubernetes telepítése Azure Stackra című](azure-stack-solution-template-kubernetes-deploy.md)cikkben olvashat.
 
 ## <a name="create-azure-resources"></a>Azure-erőforrások létrehozása
 
-A Cognitive Services erőforrás létrehozása az Azure-ban az előzetes verzióra az Arcfelismerés, LUIS vagy szöveg felismerése tárolókat. Az előfizetési kulcs és a végpont URL-címet az erőforrás használatával hozza létre a cognitive Services-tárolók kell.
+Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, LUIS vagy szövegfelismerés tárolók előzetes verziójának megtekintéséhez. Az erőforrásból az előfizetési kulcs és a végpont URL-címét kell használnia a kognitív szolgáltatás tárolóinak létrehozásához.
 
-1. Hozzon létre egy Azure-erőforrást az Azure Portalon. Ha szeretné megtekinteni a Face tárolók, akkor először létre kell hoznia egy megfelelő Face erőforrást az Azure Portalon. További információkért lásd: [a rövid útmutató: Cognitive Services-fiók létrehozása az Azure Portalon](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Hozzon létre egy Azure-erőforrást az Azure Portalon. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Hozzon létre egy Cognitive Services fiókot a](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)Azure Portal.
 
    > [!Note]
-   >  A Face vagy a Computer Vision erőforrás tarifacsomagja F0 kell használnia.
+   >  Az arc vagy Computer Vision erőforrásnak a F0 díjszabási szintjét kell használnia.
 
-2. A végpont URL-cím és egy előfizetési kulcsra az Azure-beli erőforráshoz kaphat. Miután létrehozott egy Azure-erőforrásokra, az előfizetés kulcsának és végpontjának URL-cím ennek az erőforrásnak a használatával hozza létre a megfelelő Face, LUIS vagy szöveg felismerése tároló az előzetes verzióra.
+2. A végpont URL-cím és egy előfizetési kulcsra az Azure-beli erőforráshoz kaphat. Miután létrehozta az Azure-erőforrást, az adott erőforrás előfizetési kulcs és végpont URL-címe alapján hozza létre a megfelelő Face, LUIS vagy szövegfelismerés tárolót az előzetes verzióhoz.
 
-## <a name="create-a-kubernetes-secret"></a>A Kubernetes titkos kódjának létrehozása 
+## <a name="create-a-kubernetes-secret"></a>Kubernetes titkos kód létrehozása 
 
-Győződjön meg arról, használja a kubectl create titkos parancs a privát tárolóregisztrációs adatbázis eléréséhez. Cserélje le `<username>` felhasználónévvel és `<password>` az Azure Cognitive Services csapatától kapott hitelesítő adatokat a megadott jelszóval.
+Használja a Kubectl Create Secret parancsot a Private Container Registry eléréséhez. Cserélje `<username>` le a elemet a felhasználónévre, és `<password>` a jelszót az Azure Cognitive Services csapattól kapott hitelesítő adatokban megadott jelszóval együtt.
 
 ```bash  
     kubectl create secret docker-registry <secretName> \
@@ -85,11 +85,11 @@ Győződjön meg arról, használja a kubectl create titkos parancs a privát t�
         --docker-password='<password>' 
 ```
 
-## <a name="prepare-a-yaml-configure-file"></a>Készítse elő egy YAML-fájl konfigurálása
+## <a name="prepare-a-yaml-configure-file"></a>YAML-konfiguráló fájl előkészítése
 
-Használja a YAML-fájl a kognitív szolgáltatás a Kubernetes-fürtön az üzembe helyezés egyszerűsítéséhez konfigurálása.
+A YAML-konfiguráló fájl használatával egyszerűsítheti a kognitív szolgáltatás központi telepítését a Kubernetes-fürtön.
 
-Íme egy minta YAML-fájl Face szolgáltatás üzembe helyezése az Azure Stackhez való konfigurálása:
+Az alábbi példa egy YAML-fájlt konfigurál a Face szolgáltatás üzembe helyezéséhez Azure Stack:
 
 ```Yaml  
 apiVersion: apps/v1beta1
@@ -134,53 +134,53 @@ spec:
     app: <appName>
 ```
 
-A YAML-fájl konfigurálása, az Azure Container Registry a cognitive Services-szolgáltatás tárolórendszerképeket beszerzéséhez használt titkos kulcsot használja. A titkos kód fájlját egy adott replika, a tároló üzembe helyezéséhez használatos. Egy terheléselosztót, hogy a felhasználók ezt a szolgáltatást kívülről is létrehozhat.
+Ebben a YAML konfigurálja a fájlt, és használja azt a titkot, amellyel beolvasta a kognitív szolgáltatás tárolójának rendszerképeit Azure Container Registryból. A titkos fájl a tároló egy adott replikájának központi telepítéséhez használatos. Létrehozhat egy Load balancert is, amely biztosítja, hogy a felhasználók külsőleg is hozzáférhessenek ehhez a szolgáltatáshoz.
 
-Kulcsmezők részleteit:
+A legfontosabb mezők részletei:
 
 | Mező | Megjegyzések |
 | --- | --- |
-| replicaNumber | Meghatározza a kezdeti replika-példányok létrehozásához. Később az üzembe helyezés után át lehet méretezni. |
-| ImageLocation | Azt jelzi, hogy a cognitive Services-szolgáltatás adott tárolórendszerképet az ACR helyét. Ha például az arcok szolgáltatás: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
-| BillingURL |A végpont URL-címe. a lépés [Azure-erőforrás létrehozása](#create-azure-resources) |
-| ApiKey | Az előfizetési kulcsot, a lépésben feljegyzett [Azure-erőforrás létrehozása](#create-azure-resources) |
-| SecretName | A [Create a Kubernetes secret(#create-a-kubernetes-secret) lépésben létrehozott titkos neve |
+| replicaNumber | Meghatározza a létrehozandó példányok kezdeti replikáit. A telepítést később is méretezheti. |
+| ImageLocation | Azt jelzi, hogy az adott kognitív szolgáltatás tárolójának képe hol található az ACR-ben. Például a Face szolgáltatás:`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| BillingURL |Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett végpont URL-címe |
+| ApiKey | Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett előfizetési kulcs |
+| SecretName | A [Kubernetes titkos kulcs létrehozása](#create-a-kubernetes-secret) című lépésben létrehozott titkos név |
 
-## <a name="deploy-the-cognitive-service"></a>A cognitive Services-szolgáltatás üzembe helyezése
+## <a name="deploy-the-cognitive-service"></a>A kognitív szolgáltatás üzembe helyezése
 
-A cognitive Services-tárolók üzembe helyezése a következő parancs használható:
+A következő parancs használata a kognitív szolgáltatás tárolóinak üzembe helyezéséhez:
 
 ```bash  
     Kubectl apply -f <yamlFineName>
 ```
-Figyelheti, hogyan helyezi üzembe a következő parancsot a használata: 
+A következő parancs használata az üzembe helyezésének figyelésére: 
 ```bash  
     Kubectl get pod - watch
 ```
 
-## <a name="test-the-cognitive-service"></a>A cognitive Services-szolgáltatás tesztelése
+## <a name="test-the-cognitive-service"></a>A kognitív szolgáltatás tesztelése
 
-Hozzáférés a [OpenAPI-specifikáció](https://swagger.io/docs/specification/about/) származó a **/swagger** tárolóban tartozó relatív URI. Ez az meghatározás, korábbi nevén Swagger-specifikációra, egy példányosított tároló által támogatott műveleteket ismerteti. Például a következő URI Azonosítót tartalmaz Hangulatelemzés tárolót, amelyet az előző példában volt példányosítani az OpenAPI-specifikáció való hozzáférést:
+A [OpenAPI-specifikáció](https://swagger.io/docs/specification/about/) elérése az adott tárolóhoz tartozó **/Swagger** relatív URI-n keresztül. Ez a specifikáció, korábbi nevén a hencegés specifikáció, leírja a példányos tároló által támogatott műveleteket. Például a következő URI Azonosítót tartalmaz Hangulatelemzés tárolót, amelyet az előző példában volt példányosítani az OpenAPI-specifikáció való hozzáférést:
 
 ```HTTP  
 http:<External IP>:5000/swagger
 ```
 
-A külső IP-cím is kérhet a következő parancsot: 
+A külső IP-címet a következő paranccsal kérheti le: 
 
 ```bash  
     Kubectl get svc <LoadBalancerName>
 ```
 
-## <a name="try-the-services-with-python"></a>Próbálja ki a szolgáltatásokat a Pythonnal
+## <a name="try-the-services-with-python"></a>A szolgáltatások kipróbálása a Pythonral
 
-Próbálkozzon a Cognitive services az Azure Stack ellenőrzése néhány egyszerű Python-szkriptek futtatásával. A hivatalos Python rövid minták [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), [Szövegelemzés](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), és [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) () A LUIS) referenciaként.
+Néhány egyszerű Python-szkript futtatásával megpróbálhatja érvényesíteni a Azure Stack kognitív szolgáltatásait. Az Ön referenciájának [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), [text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)és [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) hivatalos Python gyors példákat tartalmaz.
 
-Két szempontot szem előtt tartani a tárolók rajta futó szolgáltatások ellenőrzése a Python-alkalmazások használatakor: 
-1. A cognitive services-tárolókban alkulcsok nem szükséges a hitelesítéshez, de attól még igényelik bármilyen karakterlánc az SDK-val való helyettesíti. 
-2. A base_URL cserélje le tényleges szolgáltatási végpont IP-címét.
+Két dolgot kell szem előtt tartani, amikor Python-alkalmazásokat használ a tárolókban futó szolgáltatások ellenőrzésére: 
+1. A tárolókban a kognitív szolgáltatásoknak nincs szükségük alárendelt kulcsokra a hitelesítéshez, de az SDK-nak megfelelő karakterláncot kell megadnia helyőrzőként. 
+2. Cserélje le a base_URL a tényleges szolgáltatási végpont IP-címére.
 
-Íme egy példa Python-szkriptet Face services Python SDK használatával, és alkalmas keretet biztosítanak az arcok a képen:
+Itt látható egy példa Python-szkript a Face Services Python SDK használatával az arcok észleléséhez és a képek keretének megjelenítéséhez:
 
 ```Python  
 import cognitive_face as CF
@@ -203,10 +203,10 @@ print(faces)
 
 ## <a name="next-steps"></a>További lépések
 
-[Hogyan kell telepíteni, és a Computer Vision API-tárolók futtatásához.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+[Computer Vision API tárolók telepítése és futtatása.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[Hogyan telepítheti és futtathatja a Face API-tárolók](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
+[Face API tárolók telepítése és futtatása](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
 
-[Hogyan telepítheti és futtathatja a Text Analytics API-tárolók](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
+[Text Analytics API tárolók telepítése és futtatása](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
-[Telepítése és Language Understanding (LIUS) tárolók futtatása](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)
+[Language Understanding-(LIUS-) tárolók telepítése és futtatása](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)

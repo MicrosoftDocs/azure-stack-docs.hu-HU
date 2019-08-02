@@ -1,6 +1,6 @@
 ---
-title: Azure-regisztráció az Azure Stack integrált rendszerek |} A Microsoft Docs
-description: A több csomópontos, az Azure Stack Azure-kapcsolattal rendelkező üzemelő példányok az Azure-regisztráció folyamatát ismerteti.
+title: Azure-regisztráció Azure Stack integrált rendszerekhez | Microsoft Docs
+description: A többcsomópontos Azure Stack Azure-beli üzemelő példányok Azure-beli regisztrációs folyamatát ismerteti.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,120 +12,121 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836709"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720031"
 ---
-# <a name="register-azure-stack-with-azure"></a>Regisztráljon az Azure Stack az Azure-ral
+# <a name="register-azure-stack-with-azure"></a>Azure Stack regisztrálása az Azure-ban
 
-Az Azure Stack az Azure-ral való regisztrálásával letölthet Azure Marketplace-termékeket az Azure-ból, valamint beállíthatja a Commerce-adatok a Microsoftnak való visszaküldését. Miután regisztrálta Azure Stack, az Azure kereskedelmi jelentett használati, és láthatja az Azure számlázási használt előfizetés-Azonosítót a regisztráció alatt.
+Az Azure Stack az Azure-ral való regisztrálásával letölthet Azure Marketplace-termékeket az Azure-ból, valamint beállíthatja a Commerce-adatok a Microsoftnak való visszaküldését. Azure Stack regisztrálása után a rendszer a használatot az Azure Commerce szolgáltatásnak jelenti, és a regisztrációhoz használt Azure számlázási előfizetés azonosítója alatt látja.
 
-Ez a cikk ismerteti az Azure-ban való regisztrálásáról Azure Stack integrált rendszerek. A ASDK regisztrálása az Azure-ral kapcsolatos információkért lásd: [Azure Stack-regisztráció](../asdk/asdk-register.md) ASDK dokumentációjában.
+A cikkben található információk Azure Stack integrált rendszerek regisztrálását ismertetik az Azure-ban. További információ a ASDK az Azure-ban való regisztrálásáról: [Azure stack regisztráció](../asdk/asdk-register.md) a ASDK dokumentációjában.
 
 > [!IMPORTANT]  
-> Regisztráció szükséges teljes körű Azure Stack funkciót, beleértve az ajánlatot a piactéren elemek. Emellett fogja szabályzatsértéséről, a licencelési feltételeket, ha nem regisztrálja a használatalapú mint-akkor-használható számlázási modell használata esetén az Azure Stack. Azure Stack-licencelési modell kapcsolatos további információkért lásd: a [lap megvásárlása](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
+> A teljes Azure Stack funkció támogatásához regisztrációra van szükség, beleértve a piactéren található elemeket is. Emellett Azure Stack licencelési feltételeket is megsérti, ha nem regisztrálja az utólagos használatú számlázási modell használata esetén. Ha többet szeretne megtudni a Azure Stack licencelési modellekről, tekintse meg a [Hogyan vásárolhat lapot](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Mielőtt regisztrálnia kell a következő helyen:
+A regisztráció előtt a következő előfeltételek szükségesek:
 
- - A hitelesítő adatok ellenőrzéséhez
- - A PowerShell nyelvmód beállítása
- - A PowerShell telepítése az Azure Stackhez
- - Az Azure Stack-eszközök letöltése
- - A regisztrációs forgatókönyv meghatározása
+- Hitelesítő adatok ellenőrzése
+- A PowerShell nyelvi módjának beállítása
+- A PowerShell telepítése az Azure Stackhez
+- A Azure Stack-eszközök letöltése
+- A regisztrációs forgatókönyv meghatározása
 
-### <a name="verify-your-credentials"></a>A hitelesítő adatok ellenőrzéséhez
+### <a name="verify-your-credentials"></a>Hitelesítő adatok ellenőrzése
 
-Mielőtt regisztrálná az Azure Stack az Azure-ral, a következőkkel kell rendelkeznie:
+A Azure Stack az Azure-ban való regisztrálása előtt a következőket kell tennie:
 
-- Azure-előfizetés előfizetés-azonosítója. Csak az EA, CSP vagy a CSP megosztott szolgáltatások előfizetéseket támogatja a regisztrációhoz. CSP-k kell eldöntenie, hogy e [használja egy CSP vagy APSS előfizetését](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Az azonosító lekéréséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás**. Ezt követően a **általános** kategória, válassza **előfizetések**, kattintson arra az előfizetésre szeretné használni, majd a **Essentials** is megtalálhatja, hogy az előfizetés-azonosító.
+- Az Azure-előfizetéshez tartozó előfizetés-azonosító. A regisztráció csak az EA, a CSP vagy a CSP közös szolgáltatások előfizetéseit támogatja. A CSP-nek el kell döntenie, hogy [CSP-t vagy APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)-előfizetést használ-e.<br><br>Az azonosító beszerzéséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás**elemre. Ezt követően az **általános** kategóriában válassza az előfizetések elemet, kattintson a használni kívánt előfizetésre, és az **Essentials** területen találja az előfizetés-azonosítót.
 
   > [!Note]  
-  > A Németországi felhőalapú előfizetések jelenleg nem támogatottak.
+  > A németországi felhőalapú előfizetések jelenleg nem támogatottak.
 
-- A felhasználónév és jelszó, amely az előfizetés tulajdonosa.
+- Egy olyan fiók felhasználóneve és jelszava, amely az előfizetés tulajdonosa.
 
-- A felhasználói fiók rendelkezik hozzáféréssel az Azure-előfizetés, és rendelkezik a címtárban, az adott előfizetéshez tartozó identitást használó alkalmazások és az egyszerű szolgáltatások létrehozásához szükséges engedélyek kell. Azt javasoljuk, hogy regisztrálja az Azure Stack az Azure-ral jogosultságon alapuló felügyeleti. Egy egyéni szerepkör-definíció, amely korlátozza a hozzáférést az előfizetés regisztrációs létrehozásáról további információkért lásd: [regisztrációs szerepkör létrehozása az Azure Stack](azure-stack-registration-role.md).
+- A felhasználói fióknak hozzáféréssel kell rendelkeznie az Azure-előfizetéshez, és engedéllyel kell rendelkeznie az identitás-alkalmazások és az egyszerű szolgáltatások létrehozásához az előfizetéshez társított könyvtárban. Javasoljuk, hogy a minimális jogosultságú felügyelettel regisztrálja Azure Stack az Azure-ban. A regisztrációhoz való hozzáférést korlátozó egyéni szerepkör-definíciók létrehozásával kapcsolatos további információkért lásd: [regisztrációs szerepkör létrehozása a Azure Stackhoz](azure-stack-registration-role.md).
 
-- Az Azure Stack erőforrás-szolgáltató regisztrálva (lásd a következő regisztrálása az Azure Stack erőforrás-szolgáltató részletekért).
+- Regisztrálja a Azure Stack erőforrás-szolgáltatót (a részletekért tekintse meg a következő Azure Stack erőforrás-szolgáltató regisztrálása című szakaszt).
 
-A regisztrációt követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen érvényességének visszaállítása a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.
+Regisztráció után Azure Active Directory globális rendszergazdai engedély nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Például egy erőforrás-szolgáltatói telepítő parancsfájl vagy egy új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
 
-A felhasználó, aki regisztrál az Azure Stack az Azure Active Directory egyszerű szolgáltatás tulajdonosa. Csak a felhasználó, aki regisztrált az Azure Stack az Azure Stack-regisztráció módosíthatja. Ha egy nem rendszergazdai felhasználó, aki nem tulajdonosa, a regisztrációs szolgáltatás egyszerű próbál meg regisztrálni, illetve regisztrálja újra az Azure Stack, azok tapasztalhat a 403-as választ. A 403-as válasz azt jelzi, hogy a felhasználó nem rendelkezik megfelelő engedélyekkel a művelet végrehajtásához.
+A Azure Stackt regisztráló felhasználó az egyszerű szolgáltatásnév tulajdonosa Azure Active Directoryban. Csak a Azure Stack regisztrált felhasználó módosíthatja a Azure Stack regisztrációját. Ha egy nem rendszergazda felhasználó, aki nem tulajdonosa a regisztrációs szolgáltatásnak a Azure Stack regisztrációját vagy újbóli regisztrálását, akkor az 403-es választ kaphat. A 403-válasz azt jelzi, hogy a felhasználó nem rendelkezik megfelelő engedélyekkel a művelet végrehajtásához.
 
-Ha nem rendelkezik Azure-előfizetéssel, amely megfelel ezeknek a követelményeknek, [ingyenes Azure-fiók létrehozása itt](https://azure.microsoft.com/free/?b=17.06). Az Azure-előfizetése ingyenes regisztrálása az Azure Stack tekintetében.
+Ha nem rendelkezik Azure-előfizetéssel, amely megfelel ezeknek a követelményeknek, [létrehozhat egy ingyenes Azure-fiókot itt](https://azure.microsoft.com/free/?b=17.06). Az Azure-előfizetéshez tartozó Azure Stack regisztrációját nem kell fizetnie.
 
 > [!NOTE]
-> Ha egynél több Azure Stack, ajánlott eljárás az egyes Azure Stack saját előfizetését regisztrálja. Ez megkönnyíti, hogy a használat nyomon követése.
+> Ha egynél több Azure Stack van, az ajánlott eljárás az egyes Azure Stackek regisztrálása a saját előfizetésében. Ezzel egyszerűbbé válik a használat nyomon követése.
 
-### <a name="powershell-language-mode"></a>PowerShell nyelvmód
+### <a name="powershell-language-mode"></a>PowerShell nyelvi mód
 
-Sikerült regisztrálni az Azure Stack, a PowerShell nyelv módba kell állítani **FullLanguageMode**.  Annak ellenőrzéséhez, hogy a jelenlegi nyelvmód beállítása teljes nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsmagokat:
+Azure Stack sikeres regisztrálásához a PowerShell nyelvi módját **FullLanguageMode**értékre kell állítani.  Annak ellenőrzéséhez, hogy az aktuális nyelvi mód a teljes értékre van-e állítva, nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsmagokat:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Győződjön meg arról, a kimenetet visszaadja **FullLanguageMode**. Ha bármilyen más nyelvmód adja vissza, regisztrációs szükség van egy másik gépen futtatására, vagy a nyelvmód kell beállítani **FullLanguageMode** a folytatás előtt.
+Győződjön meg arról, hogy a kimenet **FullLanguageMode**ad vissza. Ha a rendszer bármilyen más nyelvi módot ad vissza, a regisztrációt egy másik gépen kell futtatni, vagy a nyelvi módot a folytatás előtt be kell állítani a **FullLanguageMode** értékre.
 
 ### <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
-A PowerShell legújabb verzióját az Azure Stack segítségével regisztrálja az Azure-ral.
+Az Azure-ban való regisztráláshoz használja a Azure Stack legújabb PowerShell-eszközét.
 
-Ha még nincs telepítve a legújabb verziót, tekintse meg [PowerShell telepítése az Azure Stack](azure-stack-powershell-install.md).
+Ha a legújabb verzió még nincs telepítve, olvassa el a [PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md)című témakört.
 
-### <a name="download-the-azure-stack-tools"></a>Az Azure Stack-eszközök letöltése
+### <a name="download-the-azure-stack-tools"></a>A Azure Stack-eszközök letöltése
 
-Az Azure Stack eszközök GitHub-adattár tartalmaz, amelyek támogatják az Azure Stack funkció; PowerShell-modulok beleértve a regisztrációs funkciót. A regisztráció során kell importálni és használni a **RegisterWithAzure.psm1** PowerShell-modul az Azure Stack eszközök regisztrálása az Azure Stack-példány az Azure-ral adattárában található.
+A Azure Stack Tools GitHub-adattár olyan PowerShell-modulokat tartalmaz, amelyek támogatják a Azure Stack funkciókat; beleértve a regisztrációs funkciókat is. A regisztrációs folyamat során importálnia és használnia kell a **RegisterWithAzure. psm1** PowerShell-modult, amely a Azure stack Tools adattárban található, hogy regisztrálja Azure stack példányát az Azure-ban.
 
-Annak érdekében, hogy a legújabb verzióját használja, törölnie kell minden meglévő verziói az Azure Stack-eszközök és [legújabb verziójának letöltése a Githubról](azure-stack-powershell-download.md) mielőtt regisztrálná az Azure-ral.
+Annak érdekében, hogy a legújabb verziót használja, törölje a Azure Stack eszközök meglévő verzióit, és [töltse le a legújabb verziót](azure-stack-powershell-download.md) a githubról az Azure-ban való regisztrálás előtt.
 
 ### <a name="determine-your-registration-scenario"></a>A regisztrációs forgatókönyv meghatározása
 
-Lehet, hogy az Azure Stack üzemelő példányához *csatlakoztatott* vagy *leválasztott*.
+Előfordulhat, hogy a Azure Stack üzemelő példánya *csatlakoztatva* van vagy *le van választva*.
 
- - **Csatlakoztatva**  
- A kapcsolat azt jelenti, hogy telepítette az Azure Stack, hogy képes csatlakozni az internethez, és az Azure-bA. Az Azure Active Directory (Azure AD) vagy az Active Directory összevonási szolgáltatások (AD FS) számára az ügyfélidentitás-tárolóval, vagy rendelkezik. Egy csatlakoztatott üzembe helyezéssel két számlázási modellek közül választhat: használatalapú mint-akkor-használható, vagy kapacitás-alapú.
-    - [A csatlakoztatott Azure Stack regisztrálása az Azure-ban a **használatalapú mint-akkor-használható** számlázási modell](#register-connected-with-pay-as-you-go-billing)
-    - [A csatlakoztatott Azure Stack regisztrálása az Azure-ban a **kapacitás** számlázási modell](#register-connected-with-capacity-billing)
+- **Csatlakoztatott**  
+ A csatlakoztatott eszköz a Azure Stack üzembe helyezését jelenti, hogy az internethez és az Azure-hoz is kapcsolódjon. Azure Active Directory (Azure AD) vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) van az identitás-tárolóhoz. A csatlakoztatott üzemelő példányok esetében két számlázási modell közül választhat: utólagos használat vagy kapacitás alapján.
+  - [Csatlakoztatott Azure Stack regisztrálása az Azure-ban az **Ön által használt fizetési** számlázási modell használatával](#register-connected-with-pay-as-you-go-billing)
+  - [Csatlakoztatott Azure Stack regisztrálása az Azure-ban a **kapacitás** számlázási modell használatával](#register-connected-with-capacity-billing)
 
- - **Leválasztva**  
- A leválasztott az Azure üzembe helyezési lehetőséget, üzembe helyezése és használata az Azure Stack az internethez való csatlakozás nélkül. Azonban egy kapcsolat nélküli telepítés pedig csak az AD FS ügyfélidentitás-tárolóval, és a kapacitás-alapú számlázási modell.
-    - [A leválasztott Azure Stack használatával regisztrálja a **kapacitás** számlázási modell ](#register-disconnected-with-capacity-billing)
+- **Leválasztott**  
+ Az Azure-beli üzembe helyezési lehetőség leválasztásával az internettel való kapcsolat nélkül telepítheti és használhatja Azure Stack. A leválasztott központi telepítés azonban csak egy AD FS Identity Store-ra és a Capacity-alapú számlázási modellre korlátozódik.
+  - [Leválasztott Azure Stack regisztrálása a **Capacity** számlázási modell használatával](#register-disconnected-with-capacity-billing)
 
-### <a name="determine-a-unique-registration-name-to-use"></a>Határozza meg egy egyedi regisztrációs neve 
-Ha az Azure Stack regisztrálja az Azure-ral, meg kell adnia egy egyedi regisztrációs nevét. Az Azure Stack-előfizetés társítása egy Azure-regisztráció egyszerűen az, hogy az Azure Stack használata **Felhőazonosító**. 
+### <a name="determine-a-unique-registration-name-to-use"></a>A használni kívánt egyedi regisztrációs név meghatározása 
+
+Azure Stack az Azure-ban való regisztrálásakor egyedi regisztrációs nevet kell megadnia. A Azure Stack-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha aAzure stack FELHŐbeli azonosítóját használja. 
 
 > [!NOTE]
-> A kapacitás-alapú számlázási modell segítségével az Azure Stack-regisztrációk kell módosítani az egyedi nevet, ha a regisztrálása után e éves előfizetés lejár, kivéve, ha Ön [törli a lejárt regisztrációs](azure-stack-registration.md#change-the-subscription-you-use) , és regisztrálja újra Azure-t.
+> A Capacity-alapú számlázási modell használatával Azure Stack regisztrációkat módosítani kell az egyedi nevet, ha az éves előfizetések lejárta után újra regisztrálni kell, hacsak nem [törli a lejárt regisztrációt](azure-stack-registration.md#change-the-subscription-you-use) , és újra regisztrálja magát az Azure-ban.
 
-Annak megállapításához, a felhő-azonosító az Azure Stack üzembe helyezéshez, nyissa meg a Powershellt olyan számítógépre, amelyen a kiemelt végponthoz hozzáférhetnek, futtassa a következő parancsokat rendszergazdaként, és jegyezze fel a **CloudID** érték: 
+A Azure Stack üzemelő példány Felhőbeli AZONOSÍTÓjának meghatározásához nyissa meg a PowerShellt rendszergazdaként egy olyan számítógépen, amely hozzáfér a Kiemelt végponthoz, futtassa a következő parancsokat, és jegyezze fel a **CloudID** értéket: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
 Run: Get-AzureStackStampInformation 
 ```
 
-## <a name="register-connected-with-pay-as-you-go-billing"></a>Regisztráció a használatalapú számlázás csatlakoztatva
+## <a name="register-connected-with-pay-as-you-go-billing"></a>Az utólagos elszámolású számlázással kapcsolatos regisztráció
 
-Ezeket a lépéseket segítségével regisztrálja az Azure Stack az Azure-ral a használatalapú mint-akkor-használható számlázási modell használatával.
+Ezekkel a lépésekkel regisztrálhat Azure Stack az Azure-ban az utólagos használatú számlázási modell használatával.
 
 > [!Note]  
-> Ezek a lépések egy számítógépről, amely hozzáfér a kiemelt végponthoz (EGP) kell futnia. További információk az EGP: [a rendszerjogosultságú végpont használata az Azure Stackben](azure-stack-privileged-endpoint.md).
+> Ezeket a lépéseket olyan számítógépről kell futtatni, amely hozzáfér a privilegizált végponthoz (PEP). A PEP-vel kapcsolatos további információkért lásd: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
-Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen környezetben kell az Azure Stack erőforrás-szolgáltató regisztrálása az Azure-ral, és állítsa be a számlázási modellt.
+A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz. Ezekben a környezetekben regisztrálnia kell a Azure Stack erőforrás-szolgáltatót az Azure-ban, majd konfigurálnia kell a számlázási modellt.
 
-1. Az Azure-ral az Azure Stack erőforrás-szolgáltató regisztrálásához indítsa el a PowerShell ISE-t rendszergazdaként, és a következő PowerShell-parancsmag használatával a **EnvironmentName** (lásd a megfelelő Azure előfizetés-típus paraméter beállítása Paraméterek).
+1. Ha regisztrálni szeretné a Azure Stack erőforrás-szolgáltatót az Azure-ban, indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd az alábbi paramétereket).
 
-2. Adja hozzá az Azure-fiók, amely az Azure Stack regisztrálhat. A fiók hozzáadásához futtassa a **Add-AzureRmAccount** parancsmagot. Az Azure-fiók hitelesítő adatainak megadását kéri, és előfordulhat, hogy a fiók konfigurációja alapján 2 többtényezős hitelesítés használatára.
+2. Adja hozzá a Azure Stack regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzureRmAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően 2 faktoros hitelesítést kell használnia.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -133,27 +134,27 @@ Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen kö
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure-felhő előfizetés környezet neve. Támogatott környezeti nevek **AzureCloud**, **AzureUSGovernment**, vagy a China Azure-előfizetéssel, használatakor **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
-3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt válassza ki a:  
+3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Futtassa a következő parancsot az Azure Stack erőforrás-szolgáltató regisztrálása az Azure-előfizetésben:
+4. A következő parancs futtatásával regisztrálja az Azure Stack erőforrás-szolgáltatót az Azure-előfizetésében:
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** a modul PowerShell-lel:
+5. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult a PowerShell használatával:
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Ezután ugyanazon PowerShell-munkamenetben, győződjön meg arról, a megfelelő Azure PowerShell-környezet van bejelentkezve. Ez az Azure-fiók, amellyel korábban az Azure Stack erőforrás-szolgáltató regisztrálásához. PowerShell futtatásához:
+6. Ezután ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez az Azure-fiók, amelyet korábban a Azure Stack erőforrás-szolgáltató regisztrálásához használt. Futtatandó PowerShell:
 
    ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
@@ -161,9 +162,9 @@ Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen kö
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure-felhő előfizetés környezet neve. Támogatott környezeti nevek **AzureCloud**, **AzureUSGovernment**, vagy a China Azure-előfizetéssel, használatakor **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
-7. Az ugyanazon PowerShell-munkamenetben futtassa a **Set-AzsRegistration** parancsmagot. PowerShell futtatásához:  
+7. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot. Futtatandó PowerShell:  
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -174,22 +175,22 @@ Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen kö
       -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
-   A Set-AzsRegistration parancsmagról további információkért lásd: [Alkalmazásregisztráció-referencia](#registration-reference).
+   A set-AzsRegistration parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
 
-   A folyamat között 10 – 15 percet vesz igénybe. Az üzenet jelenik meg a parancs befejeződésekor **"a környezet már regisztrálva van, és aktiválta a megadott paraméterek használatával."**
+   A folyamat 10 – 15 percet vesz igénybe. Ha a parancs befejeződik, megjelenik a **"saját környezet regisztrálása és aktiválása a megadott paraméterek használatával** " üzenet.
 
-## <a name="register-connected-with-capacity-billing"></a>A kapacitás számlázással csatlakoztatott regisztrálása
+## <a name="register-connected-with-capacity-billing"></a>Kapcsolat regisztrálása a kapacitás számlázásával
 
-Ezeket a lépéseket segítségével regisztrálja az Azure Stack az Azure-ral a használatalapú mint-akkor-használható számlázási modell használatával.
+Ezekkel a lépésekkel regisztrálhat Azure Stack az Azure-ban az utólagos használatú számlázási modell használatával.
 
 > [!Note]  
-> Ezek a lépések egy számítógépről, amely hozzáfér a kiemelt végponthoz (EGP) kell futnia. További információk az EGP: [a rendszerjogosultságú végpont használata az Azure Stackben](azure-stack-privileged-endpoint.md).
+> Ezeket a lépéseket olyan számítógépről kell futtatni, amely hozzáfér a privilegizált végponthoz (PEP). A PEP-vel kapcsolatos további információkért lásd: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
-Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen környezetben kell az Azure Stack erőforrás-szolgáltató regisztrálása az Azure-ral, és állítsa be a számlázási modellt.
+A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz. Ezekben a környezetekben regisztrálnia kell a Azure Stack erőforrás-szolgáltatót az Azure-ban, majd konfigurálnia kell a számlázási modellt.
 
-1. Az Azure-ral az Azure Stack erőforrás-szolgáltató regisztrálásához indítsa el a PowerShell ISE-t rendszergazdaként, és a következő PowerShell-parancsmag használatával a **EnvironmentName** (lásd a megfelelő Azure előfizetés-típus paraméter beállítása Paraméterek).
+1. Ha regisztrálni szeretné a Azure Stack erőforrás-szolgáltatót az Azure-ban, indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd az alábbi paramétereket).
 
-2. Adja hozzá az Azure-fiók, amely az Azure Stack regisztrálhat. A fiók hozzáadásához futtassa a **Add-AzureRmAccount** parancsmagot. Az Azure-fiók hitelesítő adatainak megadását kéri, és előfordulhat, hogy a fiók konfigurációja alapján 2 többtényezős hitelesítés használatára.
+2. Adja hozzá a Azure Stack regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzureRmAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően 2 faktoros hitelesítést kell használnia.
 
    ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
@@ -197,21 +198,21 @@ Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen kö
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure-felhő előfizetés környezet neve. Támogatott környezeti nevek **AzureCloud**, **AzureUSGovernment**, vagy a China Azure-előfizetéssel, használatakor **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
-3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt válassza ki a:  
+3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Futtassa a következő parancsot az Azure Stack erőforrás-szolgáltató regisztrálása az Azure-előfizetésben:
+4. A következő parancs futtatásával regisztrálja az Azure Stack erőforrás-szolgáltatót az Azure-előfizetésében:
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** a modul PowerShell-lel:
+5. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult a PowerShell használatával:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -224,42 +225,42 @@ Csatlakoztatott környezetek hozzáférhet az interneten és az Azure. Ilyen kö
       -RegistrationName $RegistrationName
    ```
    > [!Note]  
-   > Használatra vonatkozó jelentések készítéséhez a UsageReportingEnabled paraméterrel letilthatja a **Set-AzsRegistration** parancsmag a paraméter false értékre állításával. 
+   > A **set-AzsRegistration** parancsmag UsageReportingEnabled paraméterével letilthatja a használati jelentéskészítést úgy, hogy a paraméter hamis értékre van állítva. 
    
-   A Set-AzsRegistration parancsmagról további információkért lásd: [Alkalmazásregisztráció-referencia](#registration-reference).
+   A set-AzsRegistration parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
 
-## <a name="register-disconnected-with-capacity-billing"></a>A kapacitás számlázással leválasztott regisztrálása
+## <a name="register-disconnected-with-capacity-billing"></a>Regisztráció leválasztva a kapacitás számlázásával
 
-Ha regisztrál az Azure Stack kapcsolat nélküli környezetben (nincs internetkapcsolat), szeretné-e szerezze be egy regisztrációs tokent az Azure Stack-környezet, majd ezt a jogkivonatot egy számítógépen, amely képes csatlakozni az Azure és az Azure Stack PowerShell rendelkezik telepítve van.  
+Ha Azure Stackt regisztrál egy leválasztott környezetben (internetkapcsolat nélkül), akkor a Azure Stack-környezetből kell beszereznie egy regisztrációs jogkivonatot, majd ezt a tokent olyan számítógépen kell használnia, amely képes csatlakozni az Azure-hoz, és a PowerShell-lel rendelkezik a Azure Stack telepítve.  
 
-### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Szerezze be egy regisztrációs tokent az Azure Stack-környezet
+### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Regisztrációs jogkivonat beszerzése a Azure Stack-környezetből
 
-1. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** modul:  
+1. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult:  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. A regisztrációs jogkivonatot, futtassa a következő PowerShell-parancsmagokat:  
+2. A regisztrációs jogkivonat beszerzéséhez futtassa a következő PowerShell-parancsmagokat:  
 
    ```Powershell
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-   A Get-AzsRegistrationToken parancsmagról további információkért lásd: [Alkalmazásregisztráció-referencia](#registration-reference).
+   A Get-AzsRegistrationToken parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
 
    > [!Tip]  
-   > A regisztrációs jogkivonatot a rendszer menti a fájlt a megadott *$FilePathForRegistrationToken*. A fájl elérési útja vagy fájlnév szabadon módosíthatja.
+   > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken*számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
-3. A regisztrációs jogkivonatot az Azure-beli használatra mentse géphez csatlakoztatva. $FilePathForRegistrationToken átmásolhatja a fájlt vagy a szöveget.
+3. Mentse ezt a regisztrációs jogkivonatot az Azure-beli csatlakoztatott gépen való használatra. A fájlt vagy a szöveget $FilePathForRegistrationTokenból másolhatja.
 
-### <a name="connect-to-azure-and-register"></a>Csatlakozás az Azure és a regisztráció
+### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
-Azon a számítógépen, amely az internethez csatlakozik hajtsa végre a RegisterWithAzure.psm1 modul importálása, és jelentkezzen be a megfelelő Azure Powershell környezetben ugyanazokat a lépéseket. Majd hívja a Register-AzsEnvironment. Adja meg a regisztrációs jogkivonatot, regisztrálni az Azure-ral. Ha regisztrál az Azure Stack segítségével az ugyanazon Azure-előfizetési azonosító egynél több példányát, adjon meg egy egyedi regisztrációs nevet.
+Az internethez csatlakozó számítógépen hajtsa végre ugyanezen lépéseket a RegisterWithAzure. psm1 modul importálásához, majd jelentkezzen be a megfelelő Azure PowerShell-környezetbe. Ezután hívja meg a Register-AzsEnvironment. Az Azure-ban regisztrálni kívánt regisztrációs jogkivonat meghatározása. Ha egynél több példányt regisztrál Azure Stack ugyanazzal az Azure-előfizetési AZONOSÍTÓval, adjon meg egy egyedi regisztrációs nevet.
 
-A regisztrációs jogkivonatot, és a token egyedi névvel kell.
+Szüksége lesz a regisztrációs jogkivonatra és egy egyedi jogkivonat-névre.
 
-1. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** modul:  
+1. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult:  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -273,11 +274,11 @@ A regisztrációs jogkivonatot, és a token egyedi névvel kell.
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-A Get-tartalom parancsmag segítségével igény szerint, a regisztrációs jogkivonatot tartalmazó fájlra mutat.
+Igény szerint a Get-Content parancsmaggal egy olyan fájlra is rámutathat, amely tartalmazza a regisztrációs tokent.
 
-A regisztrációs jogkivonatot, és a token egyedi névvel kell.
+Szüksége lesz a regisztrációs jogkivonatra és egy egyedi jogkivonat-névre.
 
-1. Indítsa el a PowerShell ISE-t rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. Importálás a **RegisterWithAzure.psm1** modul:  
+1. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult:  
 
   ```powershell  
   Import-Module .\RegisterWithAzure.psm1
@@ -291,11 +292,11 @@ A regisztrációs jogkivonatot, és a token egyedi névvel kell.
   ```
 
   > [!Note]  
-  > A regisztrációs erőforrás neve és a regisztrációs jogkivonatot, a későbbiekben takaríthat meg.
+  > Mentse a regisztrációs erőforrás nevét és a regisztrációs jogkivonatot későbbi használatra.
 
-### <a name="retrieve-an-activation-key-from-azure-registration-resource"></a>Azure-regisztráció erőforrás egy aktiválási kulcs lekérése
+### <a name="retrieve-an-activation-key-from-azure-registration-resource"></a>Aktiválási kulcs beolvasása az Azure regisztrációs erőforrásból
 
-Ezt követően kell az aktiválási kulcs lekérése a Register-AzsEnvironment során az Azure-ban létrehozott regisztrációs erőforrás.
+Ezután be kell szereznie egy aktiválási kulcsot az Azure-ban a Register-AzsEnvironment-ben létrehozott regisztrációs erőforrásból.
 
 Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsmagokat:  
 
@@ -306,66 +307,62 @@ Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsma
   ```
 
   > [!Tip]  
-  > Az aktiválási kulcsot a rendszer menti a megadott fájl *$KeyOutputFilePath*. A fájl elérési útja vagy fájlnév szabadon módosíthatja.
+  > Az aktiválási kulcsot a rendszer a *$KeyOutputFilePath*számára megadott fájlban menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
-### <a name="create-an-activation-resource-in-azure-stack"></a>Hozzon létre egy aktiválási erőforrást az Azure Stackben
+### <a name="create-an-activation-resource-in-azure-stack"></a>Aktiválási erőforrás létrehozása Azure Stack
 
-Térjen vissza az Azure Stack-környezet a fájl vagy a szöveget a Get-AzsActivationKey alapján létrehozott aktiválási kulcs. Ezután hozzon létre egy aktiválási erőforrás aktiválási kulcsot használ az Azure Stack. Hozzon létre egy aktiválási erőforrást, futtassa a következő PowerShell-parancsmagokat: 
+Térjen vissza a Azure Stack-környezetbe a Get-AzsActivationKey által létrehozott aktiválási kulcsból származó fájllal vagy szöveggel. Ezután egy aktiválási erőforrást hoz létre Azure Stack az adott aktiválási kulccsal. Az aktiválási erőforrás létrehozásához futtassa a következő PowerShell-parancsmagokat: 
 
   ```Powershell
   $ActivationKey = "<activation key>"
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
 
-A Get-tartalom parancsmag segítségével igény szerint, a regisztrációs jogkivonatot tartalmazó fájlra mutat:
+Igény szerint a Get-Content parancsmaggal egy olyan fájlra is rámutathat, amely tartalmazza a regisztrációs jogkivonatot:
 
   ```Powershell
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
 
-## <a name="verify-azure-stack-registration"></a>Azure Stack-regisztráció ellenőrzése
+## <a name="verify-azure-stack-registration"></a>Azure Stack regisztrációjának ellenőrzése
 
-Használhatja a **régiók kezelése** csempére kattintva ellenőrizze, hogy az Azure Stack-regisztráció sikeres volt-e. Ez a csempe nem érhető el az alapértelmezett irányítópult, a felügyeleti portálon. Az állapot regisztrálva, vagy nincs regisztrálva. Ha regisztrált, azt is bemutatja az Azure előfizetés-Azonosítót regisztrálni az Azure Stack neve mellett a regisztrációs erőforráscsoport használt.
+A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrációja sikeres volt-e. Ez a csempe az adminisztrációs portál alapértelmezett irányítópultján érhető el. Az állapot regisztrálható vagy nem regisztrálható. Ha regisztrálva van, akkor a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját is megjeleníti a regisztrációs erőforráscsoport és a név használatával.
 
-1. Jelentkezzen be a [Azure Stack felügyeleti portálon](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a [Azure stack felügyeleti portálra](https://adminportal.local.azurestack.external).
 
-2. Az irányítópulton, válassza ki a **régiók kezelése**.
+2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
 
-3. Válassza ki **tulajdonságok**. Ezen a panelen látható, az állapot és a környezet sajátosságait. Az állapot lehet **regisztrált**, **nincs regisztrálva**, vagy **lejárt**.
+3. Válassza ki **tulajdonságok**. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot regisztrálható, **nem regisztrálható**vagy nem **járt le**.
 
-    [![Régió felügyeleti csempe](media/azure-stack-registration/admin1sm.png "régió felügyeleti csempe")](media/azure-stack-registration/admin1.png#lightbox)
+    [![Régió-felügyeleti csempe](media/azure-stack-registration/admin1sm.png "Régió-felügyeleti csempe")](media/azure-stack-registration/admin1.png#lightbox)
 
-    Ha regisztrált, a tulajdonságok a következők:
+    Ha regisztrálva van, a tulajdonságok a következők:
     
-    - **Előfizetés-azonosító regisztrációs**: A regisztrált és az Azure Stackhez kapcsolódó Azure-előfizetés azonosítója
-    - **Regisztrációs erőforráscsoport**: Az Azure-erőforráscsoportot az Azure Stack erőforrásokat tartalmazó tartozó előfizetésben.
+    - **Regisztrációs előfizetés azonosítója**: Az Azure-előfizetés regisztrálása és Azure Stackhoz való társítása
+    - **Regisztrációs erőforráscsoport**: Az Azure Stack erőforrásokat tartalmazó társított előfizetésben található Azure-erőforráscsoport.
 
-4. Az Azure portal segítségével megtekintheti az Azure Stack alkalmazásregisztrációk. Jelentkezzen be az Azure Portalra egy fiók az előfizetéshez tartozó regisztráció az Azure Stack használatával. Váltson Azure Stack társított tenant.
-5. Navigáljon a **Azure Active Directory > alkalmazásregisztrációk > minden alkalmazás megtekintése**.
+4. A Azure Portal használatával megtekintheti Azure Stack regisztrációs erőforrásait, majd ellenőrizheti, hogy a regisztráció sikeres volt-e. Jelentkezzen be a [Azure Portal](https://portal.azure.com) a Azure stack regisztrálásához használt előfizetéshez társított fiókkal. Válassza a **minden erőforrás**lehetőséget, engedélyezze a **rejtett típusok megjelenítése** jelölőnégyzetet, és válassza ki a regisztrációs nevet.
+5. Ha a regisztráció sikertelen volt, a probléma megoldásához kövesse az [itt ismertetett lépéseket](#change-the-subscription-you-use) .  
 
-    ![Alkalmazásregisztrációk](media/azure-stack-registration/app-registrations.png)
-
-    Az Azure Stack alkalmazásregisztrációk van fűzve előtagként **Azure Stack**.
-
-Azt is megteheti ellenőrizheti, ha a regisztráció sikeres volt a Marketplace-en a felügyeleti szolgáltatás. Ha a Marketplace-en felügyeleti panelen a marketplace-elemek listáját látja, a regisztráció sikeres volt. Azonban a leválasztott környezetben lévő nem láthatja a marketplace-elemek a Marketplace-kezelés.
+Másik lehetőségként ellenőrizheti, hogy a regisztráció sikeres volt-e a piactér-felügyeleti szolgáltatás használatával. Ha a piactér-kezelés panelen megjelenik a piactér-elemek listája, a regisztráció sikeres volt. A leválasztott környezetekben azonban nem fogja tudni megtekinteni a piactéren a piactér-elemeket.
 
 > [!NOTE]
-> Regisztráció befejezése után az aktív figyelmeztetés nem regisztrálásához már nem jelenik meg. A kapcsolat nélküli esetekben használható akkor megjelenik egy üzenet, a Marketplace-kezelés kéri, hogy regisztráljon, és aktiválja az Azure Stack, még akkor is, ha sikeresen regisztrálta.
+> A regisztráció befejezése után a nem regisztrált aktív figyelmeztetés többé nem jelenik meg. Azure Stack az 1904-nál korábbi kiadásokban a leválasztott forgatókönyvekben egy üzenet jelenik meg a piactér-kezelésben, amely arra kéri, hogy regisztrálja és aktiválja a Azure Stack, még akkor is, ha a regisztráció sikeres volt. Ez az üzenet nem jelenik meg a 1904-es és újabb verziókban.
 
-## <a name="renew-or-change-registration"></a>Újítsa meg vagy módosítsa a regisztráció
+## <a name="renew-or-change-registration"></a>Regisztráció megújítása vagy módosítása
 
-### <a name="renew-or-change-registration-in-connected-environments"></a>Újítsa meg vagy módosítsa a csatlakoztatott környezetekben regisztrációs
+### <a name="renew-or-change-registration-in-connected-environments"></a>A regisztráció megújítása vagy módosítása csatlakoztatott környezetekben
 
-Frissítés vagy újítania regisztrációját a következő körülmények között szüksége:
+A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 
-- Miután kapacitásalapú éves előfizetés megújítása.
-- Ha módosítja a számlázási modellt.
-- Módosítások (csomópont hozzáadása/eltávolítása) Ha a kapacitás-alapú számlázáshoz méretezése.
+- A kapacitás-alapú éves előfizetés megújítása után.
+- A számlázási modell módosításakor.
+- A változások méretezése (csomópontok hozzáadása/eltávolítása) a kapacitás alapú számlázáshoz.
 
-#### <a name="change-the-subscription-you-use"></a>Az előfizetést használ
+#### <a name="change-the-subscription-you-use"></a>A használt előfizetés módosítása
 
-Ha szeretné az előfizetést használ, előbb futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd győződjön meg arról, a megfelelő Azure PowerShell-környezet van bejelentkezve, és végül futtassa **Set-AzsRegistration**  minden módosított paraméterekkel, többek között `<billing model>`:
+Ha módosítani szeretné a használt előfizetést, először futtatnia kell a Remove **-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe, és végül a **set-AzsRegistration** minden módosított paraméterrel fut-e. többek között `<billing model>`:
 
   ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
@@ -373,57 +370,57 @@ Ha szeretné az előfizetést használ, előbb futtatnia kell a **Remove-AzsRegi
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-#### <a name="change-the-billing-model-or-how-to-offer-features"></a>Módosítsa a számlázási modellt vagy a szolgáltatásokkal
+#### <a name="change-the-billing-model-or-how-to-offer-features"></a>A számlázási modell vagy a szolgáltatások ajánlatának módosítása
 
-Ha szeretné módosítani a számlázási modellt vagy a megfelelő telepítési szolgáltatásokkal, meghívhatja a regisztrációs függvény, amely az új értékeinek megadására. Nem kell először távolítsa el a jelenlegi regisztrációs:
+Ha módosítani szeretné a számlázási modellt vagy a telepítés funkcióit, meghívhatja a regisztrációs függvényt az új értékek megadásához. Nem kell először eltávolítania az aktuális regisztrációt:
 
   ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-### <a name="renew-or-change-registration-in-disconnected-environments"></a>Újítsa meg vagy módosítsa a kapcsolat nélküli környezetekben regisztrációs
+### <a name="renew-or-change-registration-in-disconnected-environments"></a>Leválasztott környezetekben való regisztráció megújítása vagy módosítása
 
-Frissítés vagy újítania regisztrációját a következő körülmények között szüksége:
+A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 
-- Miután kapacitásalapú éves előfizetés megújítása.
-- Ha módosítja a számlázási modellt.
-- Módosítások (csomópont hozzáadása/eltávolítása) Ha a kapacitás-alapú számlázáshoz méretezése.
+- A kapacitás-alapú éves előfizetés megújítása után.
+- A számlázási modell módosításakor.
+- A változások méretezése (csomópontok hozzáadása/eltávolítása) a kapacitás alapú számlázáshoz.
 
-#### <a name="remove-the-activation-resource-from-azure-stack"></a>Az aktiválási erőforrás eltávolítása az Azure Stackben
+#### <a name="remove-the-activation-resource-from-azure-stack"></a>Az aktiválási erőforrás eltávolítása Azure Stack
 
-Először távolítsa el az aktiválási erőforrást az Azure Stack, és a regisztrációs erőforrás az Azure-ban.  
+Először el kell távolítania az aktiválási erőforrást Azure Stack, majd a regisztrációs erőforrást az Azure-ban.  
 
-Az Azure Stack az aktiválási erőforrás eltávolításához futtassa a következő PowerShell-parancsmagok az Azure Stack környezettel:  
+Az aktiválási erőforrás Azure Stackban való eltávolításához futtassa a következő PowerShell-parancsmagokat a Azure Stack környezetben:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Ezután távolítsa el a regisztrációs erőforrást az Azure-ban, hogy ellenőrizze, hogy a csatlakoztatott Azure-beli számítógép, jelentkezzen be a megfelelő Azure PowerShell-környezetben, és a megfelelő PowerShell-parancsmagok futtatásához az alább ismertetett.
+Ha a regisztrációs erőforrást el szeretné távolítani az Azure-ban, győződjön meg róla, hogy egy Azure-beli csatlakoztatott számítógépen van, jelentkezzen be a megfelelő Azure PowerShell környezetbe, és futtassa a megfelelő PowerShell-parancsmagokat az alább leírtak szerint.
 
-A regisztrációs jogkivonatot, használja az erőforrás létrehozásához is használhatja:  
+Használhatja az erőforrás létrehozásához használt regisztrációs jogkivonatot:  
 
   ```Powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-Vagy használhatja a regisztrációs név:
+Vagy használhatja a regisztrációs nevet is:
 
   ```Powershell
   $RegistrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
-### <a name="re-register-using-disconnected-steps"></a>Regisztrálja újra a leválasztott lépésekkel
+### <a name="re-register-using-disconnected-steps"></a>Újbóli regisztrálás a leválasztott lépések használatával
 
-A leválasztott forgatókönyvek esetében már rendelkezik teljesen regisztrációját, és meg kell ismételnie a lépéseket az Azure Stack-környezet regisztrálásához a leválasztott forgatókönyvek esetében.
+Most teljesen megszüntette a regisztrációt egy leválasztott forgatókönyvben, és meg kell ismételnie a Azure Stack-környezet leválasztott forgatókönyvben való regisztrálásának lépéseit.
 
-### <a name="disable-or-enable-usage-reporting"></a>Használati jelentések engedélyezése vagy letiltása
+### <a name="disable-or-enable-usage-reporting"></a>Használati jelentéskészítés letiltása vagy engedélyezése
 
-Azure Stack-környezetekben, amelyek egy kapacitás-számlázási modell, kapcsolja ki a jelentéskészítés a használati a **UsageReportingEnabled** paraméter használatával a **Set-AzsRegistration** vagy a  **Get-AzsRegistrationToken** parancsmagok. Az Azure Stack használati metrikai jelentések alapértelmezés szerint. Kapacitás használt vagy leválasztott környezetben támogató kezelők kell kikapcsolni a használati jelentések készítése.
+A kapacitás-számlázási modellt használó Azure Stack környezetekben a **set-AzsRegistration** vagy a **Get-AzsRegistrationToken** parancsmagok használatával kapcsolja ki a használati jelentéskészítést a **UsageReportingEnabled** paraméterrel. Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést.
 
-#### <a name="with-a-connected-azure-stack"></a>A csatlakoztatott Azure Stack segítségével
+#### <a name="with-a-connected-azure-stack"></a>Csatlakoztatott Azure Stack
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -435,9 +432,9 @@ Azure Stack-környezetekben, amelyek egy kapacitás-számlázási modell, kapcso
       -RegistrationName $RegistrationName
    ```
 
-#### <a name="with-a-disconnected-azure-stack"></a>Egy kapcsolat nélküli Azure Stack segítségével
+#### <a name="with-a-disconnected-azure-stack"></a>Leválasztott Azure Stack
 
-1. Ha módosítani szeretné a regisztrációs jogkivonatot, futtassa a következő PowerShell-parancsmagokat:  
+1. A regisztrációs jogkivonat módosításához futtassa a következő PowerShell-parancsmagokat:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -446,22 +443,27 @@ Azure Stack-környezetekben, amelyek egy kapacitás-számlázási modell, kapcso
    ```
 
    > [!Tip]  
-   > A regisztrációs jogkivonatot a rendszer menti a fájlt a megadott *$FilePathForRegistrationToken*. A fájl elérési útja vagy fájlnév szabadon módosíthatja.
+   > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken*számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
-2. A regisztrációs jogkivonatot az Azure-beli használatra mentse géphez csatlakoztatva. $FilePathForRegistrationToken átmásolhatja a fájlt vagy a szöveget.
+2. Mentse ezt a regisztrációs jogkivonatot az Azure-beli csatlakoztatott gépen való használatra. A fájlt vagy a szöveget $FilePathForRegistrationTokenból másolhatja.
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
-Regisztrációs erőforrás ugyanahhoz az előfizetéshez tartozó erőforráscsoportok közötti áthelyezése **van** minden környezet esetében támogatott. Azonban regisztrációs erőforrások áthelyezése előfizetések között csak a támogatott CSP-k amikor mindkét előfizetés oldja fel a ugyanezzel az azonosítóval Partner. Erőforrások áthelyezése új erőforráscsoport kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoportba vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
-## <a name="registration-reference"></a>Alkalmazásregisztráció-referencia
+Ha egy regisztrációs erőforrást ugyanahhoz az előfizetéshez tartozó erőforráscsoportok között helyez át **,** az összes környezet esetében támogatott. Azonban az előfizetések közötti regisztrációs erőforrás áthelyezése csak akkor támogatott, ha a két előfizetés ugyanahhoz a partner-AZONOSÍTÓhoz van feloldva. További információ az erőforrások új erőforráscsoporthoz való áthelyezéséről: [erőforrások áthelyezése új erőforráscsoporthoz vagy](/azure/azure-resource-manager/resource-group-move-resources)előfizetésbe.
+
+> [!IMPORTANT]
+> Ha meg szeretné akadályozni a regisztrációs erőforrások véletlen törlését a portálon, a regisztrációs parancsfájl automatikusan zárolást helyez el az erőforráshoz. Az áthelyezés vagy a törlés előtt el kell távolítania ezt a zárolást. Javasoljuk, hogy a véletlen törlés megakadályozása érdekében adjon hozzá egy zárolást a regisztrációs erőforráshoz.
+
+## <a name="registration-reference"></a>Regisztrációs hivatkozás
 
 ### <a name="set-azsregistration"></a>Set-AzsRegistration
 
-Set-AzsRegistration segítségével regisztrálja az Azure Stack az Azure-ral és engedélyezése vagy letiltása az ajánlatot a piactéren, és használati jelentések készítése elemek.
+A **set-AzsRegistration** használatával regisztrálhat Azure stack az Azure-ban, és engedélyezheti vagy letilthatja az elemek ajánlatát a piactéren és a használati jelentésekben.
 
-A parancsmag futtatásához szüksége:
-- Globális Azure-előfizetés bármilyen típusú.
-- Akkor is kell bejelentkeznie az Azure PowerShell egy olyan fiókkal, amely tulajdonosi vagy közreműködői előfizetéshez.
+A parancsmag futtatásához a következők szükségesek:
+
+- Bármilyen típusú globális Azure-előfizetés.
+- A Azure PowerShell egy olyan fiókkal kell bejelentkeznie, amely az adott előfizetés tulajdonosa vagy közreműködője.
 
 ```powershell
 Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
@@ -470,55 +472,55 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Paraméter | Típus | Leírás |
+| Paraméter | Type | Leírás |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| PrivilegedEndpointCredential | PSCredential | A használt hitelesítő adatok [az emelt szintű végpontot](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). A felhasználónevet a következő formátumban kell **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | String | Egy előre konfigurált távoli PowerShell-konzolt, amely biztosít, mint például a naplógyűjtés és egyéb post telepítési feladatokat. További tudnivalókért tekintse meg a [használatával a privilegizált végpont](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) cikk. |
+| PrivilegedEndpointCredential | PSCredential | A rendszerjogosultságú [végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | Sztring | Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | String |  |
-| ResourceGroupLocation | String |  |
-| BillingModel | String | A számlázási modell, amely az előfizetés használja. Ez a paraméter megengedett értékei a következők: Kapacitás, PayAsYouUse és fejlesztésére. |
-| MarketplaceSyndicationEnabled | Igaz/hamis | Meghatározza, hogy-e a Marketplace-en felügyeleti funkció érhető el a portálon. Állítsa az igaz értékre, ha az internetkapcsolattal rendelkező regisztrálása. "False" értékűre, ha regisztrálja az kapcsolat nélküli környezetekben is. Kapcsolat nélküli regisztrációkhoz a [offline szindikálási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) letöltése a marketplace-elemek is használható. |
-| UsageReportingEnabled | Igaz/hamis | Az Azure Stack használati metrikai jelentések alapértelmezés szerint. Kapacitás használt vagy leválasztott környezetben támogató kezelők kell kikapcsolni a használati jelentések készítése. Ez a paraméter megengedett értékei a következők: IGAZ, hamis. |
-| AgreementNumber | String |  |
-| RegistrationName | String | Állítsa be egy egyedi nevet a regisztráció, ha futtatja a regisztrációs szkriptet az Azure Stack több példányának használatával az ugyanabban az Azure előfizetés-azonosító. A paraméter alapértelmezett értéke van **AzureStackRegistration**. Azonban ha ugyanazzal a névvel egynél több Azure Stack-példányt használ, a parancsfájl futtatása sikertelen. |
+| ResourceGroupName | Karakterlánc |  |
+| ResourceGroupLocation | Sztring |  |
+| BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: Kapacitás, PayAsYouUse és fejlesztés. |
+| MarketplaceSyndicationEnabled | Igaz/hamis | Meghatározza, hogy a piactér-felügyeleti szolgáltatás elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) használható a Piactéri elemek letöltésére. |
+| UsageReportingEnabled | Igaz/hamis | Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: Igaz, hamis. |
+| AgreementNumber | Karakterlánc |  |
+| RegistrationName | Sztring | Adja meg a regisztráció egyedi nevét, ha a regisztrációs parancsfájlt több példányon futtatja Azure Stack ugyanazzal az Azure-előfizetési AZONOSÍTÓval. A paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja a Azure Stack több példányán, a parancsfájl meghiúsul. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken egy regisztrációs jogkivonatot hoz létre a bemeneti paraméterek.
+A Get-AzsRegistrationToken regisztrációs jogkivonatot hoz létre a bemeneti paraméterekből.
 
 ```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Paraméter | Típus | Leírás |
+| Paraméter | Type | Leírás |
 |-------------------------------|--------------|-------------|
-| PrivilegedEndpointCredential | PSCredential | A használt hitelesítő adatok [az emelt szintű végpontot](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). A felhasználónevet a következő formátumban kell **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | String |  Egy előre konfigurált távoli PowerShell-konzolt, amely biztosít, mint például a naplógyűjtés és egyéb post telepítési feladatokat. További tudnivalókért tekintse meg a [használatával a privilegizált végpont](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) cikk. |
+| PrivilegedEndpointCredential | PSCredential | A rendszerjogosultságú [végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | Karakterlánc |  Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | String |  |
-| ResourceGroupLocation | String |  |
-| BillingModel | String | A számlázási modell, amely az előfizetés használja. Ez a paraméter megengedett értékei a következők: Kapacitás, PayAsYouUse és fejlesztésére. |
+| ResourceGroupName | Sztring |  |
+| ResourceGroupLocation | Karakterlánc |  |
+| BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: Kapacitás, PayAsYouUse és fejlesztés. |
 | MarketplaceSyndicationEnabled | Igaz/hamis |  |
-| UsageReportingEnabled | Igaz/hamis | Az Azure Stack használati metrikai jelentések alapértelmezés szerint. Kapacitás használt vagy leválasztott környezetben támogató kezelők kell kikapcsolni a használati jelentések készítése. Ez a paraméter megengedett értékei a következők: IGAZ, hamis. |
-| AgreementNumber | String |  |
+| UsageReportingEnabled | Igaz/hamis | Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: Igaz, hamis. |
+| AgreementNumber | Sztring |  |
 
 ## <a name="registration-failures"></a>Regisztrációs hibák
 
-Az alábbi hibák egyike az Azure Stack-regisztráció közben jelenhetnek meg:
-1. Nem sikerült beolvasni $hostName kötelező hardver adatait. Ellenőrizze a fizikai gazdagép és a kapcsolatot, majd próbálja meg újra futtatni a regisztráció.
+Előfordulhat, hogy az alábbi hibák egyike jelenik meg a Azure Stack regisztrációjának megkísérlése során:
+1. Nem sikerült beolvasni a $hostName kötelező hardver-információit. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újra a regisztrációt.
 
-2. Nem lehet csatlakozni a hardver adatainak beolvasása –. Ellenőrizze a fizikai gazdagép és a kapcsolatot, majd próbálja meg újra futtatni a regisztrációs $hostName.
+2. Nem lehet csatlakozni a $hostNamehoz a hardver adatainak beszerzéséhez – ellenőrizze a fizikai gazdagépet és a kapcsolatot, majd próbálkozzon újra a regisztrációval.
 
-> OK: Ennek oka általában azt próbálja meg beszerezni a hardveradatokat, például UUID azonosító, a BIOS-ban és a Processzor próbálják végrehajtani az aktiválást a gazdagépekről, és nem sikerült a nem lehet kapcsolódni a a fizikai gazdagép miatt.
+> Ok: ez általában azért van, mert a gazdagépekről próbáljuk ki a hardver részleteit, például az UUID-t, a BIOS-t és a CPU-t, hogy megkísérelje az aktiválást, és nem tudta elérni a fizikai gazdagéphez való kapcsolódás lehetőségét.
 
-Amikor megpróbál hozzáférni a Marketplace-en felügyeleti, hiba történik a termékek szindikálása tett kísérlet során. 
-> OK: Ez általában akkor fordul elő, ha az Azure Stack nem tudja a regisztrációs erőforrás elérésére. Ez az egyik gyakori oka az, hogy ha egy Azure-előfizetés címtárbérlő alaphelyzetbe állítja a regisztráció. Az Azure Stack piactéren vagy a jelentés használati nem érhető el, ha az előfizetéshez tartozó címtárbérlő módosította. A probléma megoldásához újra regisztrálnia kell.
+Amikor megpróbál hozzáférni a piactér-felügyelethez, hiba történik a termékek szindikátusba való kipróbálásakor. 
+> Ok: ez általában akkor fordul elő, ha Azure Stack nem fér hozzá a regisztrációs erőforráshoz. Ennek egyik gyakori oka, hogy amikor egy Azure-előfizetés címtár-bérlője megváltozik, visszaállítja a regisztrációt. Ha módosította az előfizetés címtár-bérlőjét, nem férhet hozzá a Azure Stack Marketplace-hez vagy a jelentésekhez. A probléma megoldásához újra kell regisztrálnia a problémát.
 
-Marketplace-en felügyeleti továbbra is kéri, hogy regisztrálja, és aktiválja az Azure Stack, akkor is, ha már regisztrálta a blokk-a leválasztott folyamat segítségével. 
-> OK: Ez a leválasztott környezetekhez egy ismert probléma. A következő ellenőrizheti a regisztrációs állapot [ezeket a lépéseket](azure-stack-registration.md#verify-azure-stack-registration). Marketplace-en felügyeleti használatához meg kell használandó [a kapcsolat nélküli eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
+A piactér-felügyelet továbbra is kéri a Azure Stack regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával. 
+> Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a következő lépésekkel ellenőrizheti [](azure-stack-registration.md#verify-azure-stack-registration). A piactér-kezelés használatához [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)kell használnia. 
 
 ## <a name="next-steps"></a>További lépések
 
-[Az Azure marketplace-elemek letöltése](azure-stack-download-azure-marketplace-item.md)
+[Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

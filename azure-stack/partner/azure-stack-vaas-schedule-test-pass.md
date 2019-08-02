@@ -1,6 +1,6 @@
 ---
-title: Használja az érvényesítés szolgáltatását az Azure Stack portálon az első vizsgálat ütemezése |} A Microsoft Docs
-description: Az Azure Stack portal szolgáltatásként az érvényesítés használatával az első vizsgálat ütemezése.
+title: Az érvényesítési szolgáltatásként Azure Stack portálon az első teszt ütemtervének megadásához | Microsoft Docs
+description: Az érvényesítési szolgáltatásként Azure Stack portálon az első teszt beütemezhet.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,81 +10,81 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: bf377234b71683e6c56bef030cd5de5b4a06a743
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300504"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418389"
 ---
-# <a name="scheduling-a-test"></a>A vizsgálat ütemezése
+# <a name="scheduling-a-test"></a>Teszt ütemezése
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Az Azure Stack megoldás egy (VaaS) portált, az érvényesítési egy teszt ütemezése. Egy VaaS megoldás az Azure Stack megoldás egy adott hardver anyagjegyzék (AJ) jelöli. Ellenőrizze, hogy a hardver futtathatja az Azure Stack egy tesztet is ütemezhető.
+Egy tesztet ütemezhet a Azure Stack-megoldáshoz tartozó érvényesítési szolgáltatásként (). Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure Stack megoldást jelöl. Beütemezhet egy tesztet annak ellenőrzéséhez, hogy a hardver futtatható-e Azure Stack.
 
-A megoldás ellenőrzéséhez hozzon létre tesztelni a munkafolyamat. VaaS munkafolyamat VaaS megoldás kontextusában működik. Azt jelöli, hogy több tesztelése az Azure Stack üzembe helyezését, a hardver funkcióit, amelyek egy készlet. Adja hozzá a megoldás környezeti paramétereket, és válassza ki egy vagy több tesztek futtatásához a megoldásra.
+A megoldás ellenőrzéséhez hozzon létre egy teszt munkafolyamatot. Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack központi telepítés funkcióit gyakorolják a hardveren. Adja hozzá a megoldás környezeti paramétereit, és válasszon ki egy vagy több, a megoldáson futtatandó tesztet.
 
-Míg a tesztelési fázisban munkafolyamat segítségével VaaS, beleértve a teszteket az érvényesítési munkafolyamataiból által biztosított összes teszt futtatása a Tesztmenetek munkafolyamat származó eredmények nem lesznek figyelembe véve *hivatalos*. Hivatalos érvényesítési munkafolyamatokkal kapcsolatos további információkért lásd: [munkafolyamatok](azure-stack-vaas-key-concepts.md#workflows).
+Míg a test pass munkafolyamat használható az összes olyan teszt futtatására, amelyet az adatbázis-ellenőrzés is tartalmaz, beleértve az ellenőrzési munkafolyamatokból származó teszteket, a test pass-munkafolyamat eredményei nem tekintendők hivatalosnak. További információ a hivatalos ellenőrzési munkafolyamatokról: [](azure-stack-vaas-key-concepts.md#workflows)munkafolyamatok.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Mielőtt Ez a rövid útmutató követéséhez befejeződik a következő elemek:
+A rövid útmutató elvégzése előtt végezze el a következő elemeket:
 
-- [A szolgáltatási erőforrások, az ellenőrzés beállítása](azure-stack-vaas-set-up-resources.md)
-- [A helyi ügynök telepítésének](azure-stack-vaas-local-agent.md) (kötelező)
-- [Egy szolgáltatás fő fogalmait, érvényesítési](azure-stack-vaas-key-concepts.md) (kötelező)
+- [Az érvényesítés beállítása szolgáltatási erőforrásként](azure-stack-vaas-set-up-resources.md)
+- [A helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md) Szükséges
+- [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md) Szükséges
 
-## <a name="start-a-workflow"></a>A munkafolyamat indításához
+## <a name="start-a-workflow"></a>Munkafolyamat elindítása
 
-![Jelentkezzen be a VaaS portálra](media/vaas_portalsignin.png)
+![Bejelentkezés az Varga portálra](media/vaas_portalsignin.png)
 
-Jelentkezzen be a portálra, válassza ki vagy megoldás létrehozása, és válassza ki a megoldást.
+Jelentkezzen be a portálra, válasszon ki vagy hozza létre a megoldást, majd válassza ki a megoldást.
 
-1. Jelentkezzen be a [VaaS portál](https://azurestackvalidation.com).
-2. Írja be egy meglévő megoldás nevét, vagy válasszon **új megoldás** egy új megoldás létrehozásához. Útmutatásért lásd: [megoldás létrehozása a VaaS portálon](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
-3. Válassza ki **Start** a a **teszt pass** csempére.
+1. Jelentkezzen be az [Varga portálra](https://azurestackvalidation.com).
+2. Írja be egy meglévő megoldás nevét, vagy válassza az **új** megoldás lehetőséget új megoldás létrehozásához. Útmutatásért lásd: [megoldás létrehozása az](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)alaprendszer-portálon.
+3. Válassza a **Start** lehetőséget a **teszt** átadása csempén.
 
-## <a name="specify-parameters"></a>Adja meg a paramétereket
+## <a name="specify-parameters"></a>Paraméterek megadása
 
 ![Helyettesítő szöveg](media/vaas_test_pass_parameters.png)
 
-Adja meg a paramétereket, amelyek az összes teszt a munkafolyamaton belül érvényesek.
+Adja meg azokat a paramétereket, amelyek a munkafolyamaton belüli összes tesztre érvényesek.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 3. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 4. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-5. Válassza ki **tovább** tesztek ütemezése kiválasztásához.
+5. Válassza a **tovább** lehetőséget az ütemezni kívánt tesztek kiválasztásához.
 
-## <a name="select-tests-to-run"></a>Válassza ki a tesztek futtatása
+## <a name="select-tests-to-run"></a>Válassza ki a futtatandó teszteket
 
-A teszteket, válassza ki a munkafolyamat létrehozása után lesz ütemezve.
+A kiválasztott tesztek a munkafolyamat létrehozása után lesznek ütemezve.
 
-1. Válassza ki a teszt szeretné futtatni a munkafolyamatban.
+1. Válassza ki a munkafolyamatban futtatni kívánt teszt (eke) t.
 
-    Ha szeretné felülbírálni a következő általános paramétereket (azaz a az előző szakaszban megadott paraméterek) minden olyan tesztelési, válassza ki a a **szerkesztése** meg új értéket a következő hivatkozást.
+    Ha szeretné felülbírálni az egyes tesztek általános paramétereit (azaz az előző szakaszban megadott paramétereket), válassza az új értékek megadása melletti **Szerkesztés** hivatkozást.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 
-1. Válassza ki **tovább** , tekintse át a munkafolyamatot.
+1. A munkafolyamat áttekintéséhez kattintson a **tovább** gombra.
 
-## <a name="review-and-submit"></a>Felülvizsgálat és elküldés
+## <a name="review-and-submit"></a>Áttekintés és küldés
 
-Munkafolyamat létrehozásának befejezéséhez.
+Munkafolyamat-létrehozás befejezése
 
 1. Tekintse át a megjelenített információkat.
 
-    A szolgáltatás a munkafolyamatot hoz létre a megadott információkat, és a kijelölt tesztek lesz ütemezve.
+    A szolgáltatás létrehozza a munkafolyamatot a megadott adatokkal, és a kiválasztott tesztek ütemezése megtörténik.
 
-    Ha semmit nem megfelelő, akkor a **előző** gombokra kattintva nyissa meg az előző szakaszban.
+    Ha valami helytelennek tűnik, az **előző** gombokkal lépjen egy korábbi szakaszhoz.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 
 ## <a name="next-steps"></a>További lépések
 
-- [Figyelheti és kezelheti a VaaS portálon tesztek](azure-stack-vaas-monitor-test.md)
+- [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

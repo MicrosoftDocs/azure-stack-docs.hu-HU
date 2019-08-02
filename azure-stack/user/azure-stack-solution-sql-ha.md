@@ -1,6 +1,6 @@
 ---
-title: Egy SQL Server 2016-os rendelkezésre állási csoport üzembe helyezése az Azure és az Azure Stackben |} A Microsoft Docs
-description: Ismerje meg, hogyan helyezhet üzembe egy SQL Server 2016-os rendelkezésre állási csoport Azure és az Azure Stackben
+title: SQL Server 2016 rendelkezésre állási csoport üzembe helyezése az Azure-ban és Azure Stack | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe egy SQL Server 2016 rendelkezésre állási csoportot az Azure-ban és Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,76 +10,76 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: solution
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 4565615caf4e4c13bda84e6596e23d523225d888
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 841b2b3d525380d927b9d4b121b7e832c99b7147
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286899"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602937"
 ---
-# <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>Egy SQL Server 2016-os rendelkezésre állási csoportot az Azure és az Azure Stack üzembe helyezése
+# <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>SQL Server 2016 rendelkezésre állási csoport üzembe helyezése az Azure-ban és Azure Stack
 
-Ez a cikk fog végigvezeti egy automatikus központi telepítési a alapszintű magas rendelkezésre állású (HA) SQL Server 2016 Enterprise fürtök egy aszinkron vész-helyreállítási webhelyként két Azure Stack-környezet között. Az SQL Server 2016 és a magas rendelkezésre állás kapcsolatos további információkért lásd: [Always On rendelkezésre állási csoportok: a magas rendelkezésre állású és vész-helyreállítási megoldás](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
+Ez a cikk végigvezeti egy olyan alapszintű magas rendelkezésre állású (HA) SQL Server 2016 Enterprise-fürt automatikus üzembe helyezésén, amely egy aszinkron vész-helyreállítási (DR) hellyel rendelkezik két Azure Stack környezetben. Ha többet szeretne megtudni a SQL Server 2016 és a magas rendelkezésre állásról, tekintse meg az [Always On rendelkezésre állási csoportok: magas rendelkezésre állású és vész-helyreállítási megoldást](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016).
 
-Ebben a megoldásban a egy minta környezetet hozhat létre:
+Ebben a megoldásban egy példaként szolgáló környezetet fog létrehozni a következőhöz:
 
 > [!div class="checklist"]
-> - Központi telepítés előkészítését két Azure-t
-> - Az Azure API-profillal rendelkező függőségi problémák minimalizálása érdekében a Docker használatával
-> - A vész-helyreállítási webhelyként alapszintű magas rendelkezésre állású SQL Server 2016 Enterprise-fürt üzembe helyezése
+> - Üzembe helyezés összehangolása két Azure-veremben
+> - Az Azure API-profilok függőségi problémáinak csökkentése a Docker használatával
+> - Alapszintű, magasan elérhető SQL Server 2016 Enterprise-fürt üzembe helyezése vész-helyreállítási hellyel
 
 > [!Tip]  
 > ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Az Azure Stack számos lehetőséget kínál a hatékonyságával és innovációjával emeli a felhő-számítástechnika a helyszíni környezetben, az egyetlen olyan hibrid felhős, amely lehetővé teszi, hogy létrehozása és üzembe helyezése hibrid alkalmazások bárhol engedélyezése.  
+> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
-> A cikk [hibrid alkalmazások kapcsolatos kialakítási szempontok](azure-stack-edge-pattern-overview.md) kialakítása, üzembe helyezése és működtetése hibrid a szoftverminőség alappillérei (elhelyezési, méretezhetőség, rendelkezésre állás, rugalmasság, kezelhetőségi és biztonsági) felülvizsgálatai az alkalmazások. A kialakítási szempontokat segít az alkalmazás kialakítása, minimálisra csökkentik az éles környezetben kihívások optimalizálása.
+> A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
-## <a name="architecture-for-sql-server-2016"></a>Az SQL Server 2016 architektúra
+## <a name="architecture-for-sql-server-2016"></a>SQL Server 2016 architektúrája
 
-![Az SQL Server 2016 SQL magas rendelkezésre ÁLLÁS az Azure Stack](media/azure-stack-solution-sql-ha/image1.png)
+![SQL Server 2016 SQL HA Azure Stack](media/azure-stack-solution-sql-ha/image1.png)
 
 ## <a name="prerequisites-for-sql-server-2016"></a>Az SQL Server 2016 előfeltételei
 
-  - Két csatlakoztatott Azure Stack integrált rendszerek (az Azure Stack), a központi telepítés nem működik az Azure Stack Development Kit (ASDKs). Azure Stack kapcsolatos további információkért lásd: [az Azure Stack?](https://azure.microsoft.com/overview/azure-stack/).
-  - Az egyes Azure Stack bérlő előfizetés.    
-      - **Jegyezze fel a minden egyes előfizetés-azonosító és az Azure Resource Manager-végpont esetében minden egyes Azure Stack.**
-  - Egy Azure Active Directory (Azure AD) egyszerű szolgáltatást, amely minden egyes Azure Stack a bérlői előfizetéshez engedélyekkel rendelkezik. Szükség lehet két szolgáltatásnevek létrehozása, ha a Azure-t is települ a másik Azure AD-n bérlők számára. Ismerje meg, hogyan hozhat létre egy egyszerű szolgáltatást az Azure Stack, lásd: [alkalmazások hozzáférés biztosítása az Azure Stack-erőforrások egyszerű szolgáltatások létrehozása](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
-      - **Jegyezze fel minden szolgáltatásnév Alkalmazásazonosítót, a titkos Ügyfélkód és a bérlő neve (xxxxx.onmicrosoft.com).**
-  - SQL Server 2016 Enterprise hírcsatorna-minden egyes Azure Stack piactéren. Marketplace-en tartalomtípus-gyűjtési kapcsolatos további információkért lásd: [Piactéri termékek letöltése az Azure-ból az Azure Stackhez](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
-    **Győződjön meg arról, hogy a szervezet rendelkezik-e a megfelelő SQL-licenceket.**
-  - [A Windows docker](https://docs.docker.com/docker-for-windows/) telepítve a helyi gépen.
+  - Két csatlakoztatott Azure Stack integrált rendszer (Azure Stack), ez a telepítés nem működik Azure Stack fejlesztői csomagokon (ASDKs). Ha többet szeretne megtudni a Azure Stackről, tekintse meg a [Mi az a Azure stack?](https://azure.microsoft.com/overview/azure-stack/)című témakört.
+  - Bérlői előfizetés az egyes Azure Stackeken.    
+      - **Jegyezze fel mindegyik előfizetés-azonosítót és a Azure Resource Manager végpontot az egyes Azure Stackokhoz.**
+  - Egy Azure Active Directory (Azure AD) egyszerű szolgáltatásnév, amely minden egyes Azure Stack a bérlői előfizetéshez rendelkezik engedéllyel. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha az Azure stackek különböző Azure AD-bérlők között vannak telepítve. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet a Azure Stackhoz, tekintse meg az [egyszerű szolgáltatások létrehozása az alkalmazások Azure stack erőforrásokhoz való hozzáférésének biztosítása érdekében](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)című témakört.
+      - **Jegyezze fel az egyes egyszerű szolgáltatások alkalmazás-AZONOSÍTÓját, az ügyfél titkos kulcsát és a bérlő nevét (xxxxx.onmicrosoft.com).**
+  - SQL Server 2016 Enterprise konzorciális az egyes Azure Stack a piactéren. További információ a Marketplace Syndication szolgáltatásról: [Marketplace-elemek letöltése az Azure-ból Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
+    **Győződjön meg arról, hogy a szervezet rendelkezik a megfelelő SQL-licenccel.**
+  - A helyi gépre telepített [Windows Docker](https://docs.docker.com/docker-for-windows/) .
 
-## <a name="get-the-docker-image"></a>A Docker-lemezkép beolvasása
+## <a name="get-the-docker-image"></a>A Docker-rendszerkép beszerzése
 
-Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel különböző verziói között függőségi hibák kiküszöbölése.
+Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik a Azure PowerShell különböző verziói közötti függőségi problémákat.
 
-1.  Ügyeljen arra, hogy a Docker a Windows a Windows-tárolók használja-e.
-2.  A Docker-tároló üzembe helyezési parancsfájlok beolvasásához rendszergazda jogú parancssorból futtassa a következő.
+1.  Győződjön meg arról, hogy a Windows rendszerhez készült Docker Windows-tárolókat használ.
+2.  Futtassa az alábbi parancsot egy rendszergazda jogú parancssorban a Docker-tároló üzembe helyezési parancsfájlokkal való lekéréséhez.
 
 ```powershell  
  docker pull intelligentedge/sqlserver2016-hadr:1.0.0
 ```
 
-## <a name="deploy-the-availability-group"></a>A rendelkezésre állási csoport központi telepítése
+## <a name="deploy-the-availability-group"></a>A rendelkezésre állási csoport üzembe helyezése
 
-1.  Miután a tároló rendszerképét sikeresen kéri le, indítsa el a lemezképet.
+1.  A tároló rendszerképének leállítása után indítsa el a rendszerképet.
 
       ```powershell  
       docker run -it intelligentedge/sqlserver2016-hadr:1.0.0 powershell
       ```
 
-2.  Miután a tároló elindult, egyúttal egy emelt szintű PowerShell-terminált a tárolóban. Módosítsa a könyvtárakat az üzembe helyezési parancsfájl beolvasásához.
+2.  A tároló elindítása után a tárolóban egy emelt szintű PowerShell-terminál lesz megadva. Módosítsa a címtárakat az üzembe helyezési parancsfájl eléréséhez.
 
       ```powershell  
       cd .\SQLHADRDemo\
       ```
 
-3.  A központi telepítéshez. Adja meg a hitelesítő adatok és erőforrások neveit, ahol szükséges. Magas rendelkezésre ÁLLÁS az Azure Stack, ahol a magas rendelkezésre ÁLLÁSÚ fürtben üzembe helyezett és Vészhelyreállítás az Azure stack, ahol a DR-fürtben üzembe helyezett hivatkozik.
+3.  Futtassa az üzemelő példányt. Adja meg a hitelesítő adatokat és az erőforrások nevét, ahol szükséges. HA arra a Azure Stackre hivatkozik, ahol a HA-fürtöt telepíti, és DR-t arra a Azure Stackra, ahová a DR-fürtöt telepíteni fogja.
 
       ```powershell
       > .\Deploy-AzureResourceGroup.ps1 `
@@ -97,22 +97,22 @@ Az egyes központi telepítések docker-rendszerképek Azure PowerShell-lel kül
       -AzureStackSubscriptionId_DR "drSubscriptionId"
       ```
 
-4.  Típus `Y` , hogy a NuGet-szolgáltató telepíthető, amely a telepítendő API profil "2018-03-01-hibrid" modulok elindít.
+4.  Írja `Y` be a NuGet-szolgáltató telepítésének engedélyezését, amely a telepítendő "2018-03-01-Hybrid" modulok indítását fogja elindítani.
 
-5.  Várjon, amíg az erőforrás üzembe helyezés befejeződik.
+5.  Várjon, amíg az erőforrás üzembe helyezése befejeződik.
 
-6.  DR-erőforrások üzembe helyezésének befejezése után lépjen ki a tárolót.
+6.  Miután a DR erőforrás üzembe helyezése befejeződött, lépjen ki a tárolóból.
 
       ```powershell
       exit
       ```
 
-7.  Vizsgálja meg a központi telepítés minden egyes Azure Stack portálon az erőforrások megtekintésével. Csatlakozhat egy SQL-példánya a magas rendelkezésre ÁLLÁSÚ környezetben, és a rendelkezésre állási csoportot az SQL Server Management Studio (SSMS) keresztül vizsgálatával.
+7.  Vizsgálja meg a telepítést az egyes Azure Stack-portálon található erőforrások megtekintésével. Kapcsolódjon az egyik SQL-példányhoz a HA-környezetben, és vizsgálja meg a rendelkezésre állási csoportot SQL Server Management Studio (SSMS) használatával.
 
-![Az SQL Server 2016-ban az SQL magas rendelkezésre ÁLLÁS](media/azure-stack-solution-sql-ha/image2.png)
+![SQL Server 2016 SQL HA](media/azure-stack-solution-sql-ha/image2.png)
 
 ## <a name="next-steps"></a>További lépések
 
-  - SQL Server Management Studio segítségével manuálisan átadja a feladatokat a fürt, lásd: [egy egy Always On rendelkezésre állási csoport (SQL Server) kényszerített manuális feladatátvétel elvégzése](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
-  - További tudnivalók a hibrid felhőbeli alkalmazások, lásd: [hibrid felhőalapú megoldásokkal.](https://aka.ms/azsdevtutorials)
-  - A saját adatok használatával, vagy módosítsa a kódot, és ez a példa a [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+  - A SQL Server Management Studio használatával manuálisan hajthatja végre a feladatátvételt a fürtön, lásd: az AlwaysOn [rendelkezésre állási csoport kényszerített manuális feladatátvételének végrehajtása (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
+  - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)
+  - Használja saját adatait, vagy módosítsa a kódot erre a mintára [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)a githubon.
