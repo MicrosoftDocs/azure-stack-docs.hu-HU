@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
+ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685573"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68738326"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 ismert probléma
 
@@ -89,13 +89,6 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 - Előfordulása Közös
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
-
-#### <a name="local-network-gateway-deletion"></a>Helyi hálózati átjáró törlése
-
-- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
-- Ok: A felhasználói portálon a **helyi hálózati átjáró** törlése a következő hibaüzenetet jeleníti meg: **Aktív kapcsolatban álló helyi hálózati átjáró nem törölhető**, még akkor is, ha nincs aktív internetkapcsolat.
-- Kockázatcsökkentő A probléma megoldása a 1907-es kiadásban jelenik meg. A probléma megkerülő megoldásként új helyi hálózati átjárót hoz létre ugyanazzal az IP-címmel, a címtartomány és a konfigurációs adatokkal egy másik névvel. A régi LNG törölhető, ha a környezet frissítve lett a 1907-es verziójára.
-- Előfordulása Közös
 
 #### <a name="alerts"></a>Riasztások
 
@@ -167,7 +160,7 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.    
-- Ok: A virtuális gép diagnosztikai beállításainak paneljén egy **fogadó lap van** , amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
+- Ok: A virtuális gép diagnosztikai beállításainak paneljén egy fogadó lap van, amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
