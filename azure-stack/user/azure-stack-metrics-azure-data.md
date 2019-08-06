@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418542"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806937"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Azure Monitor használata Azure Stack
 
@@ -44,7 +44,7 @@ Regisztrálja a **Microsoft.** reinsights erőforrás-szolgáltatót az előfize
 2. Válasszon **ajánlatokat**.
 3. Válassza ki az előfizetéshez társított ajánlatot.
 4. Válassza az **erőforrás-szolgáltatók** lehetőséget a beállítások területen **.** 
-5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy az állapot regisztrálva van-e.
+5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy azállapot regisztrálva van-e.
 
 ## <a name="overview-of-azure-monitor-on-azure-stack"></a>A Azure Stack Azure Monitor áttekintése
 
@@ -121,13 +121,16 @@ Néhány vizualizációs módszer:
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Az Azure monitor Azure Stackhoz való hozzáférésének módszerei
 
-Általában az adatokat azok követéséhez, átirányításához és lekéréséhez a következő módszerekkel kezelheti. Nem mindegyik módszer érhető el mindegyik művelet és adattípus esetében.
+Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztással és a lekéréssel. Nem mindegyik módszer érhető el mindegyik művelet és adattípus esetében. 
 
  - [Azure Stack portál](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Platformfüggetlen parancssori felület (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+
+> [!Important]  
+> Ha egy virtuális gép teljesítményének megtekintésekor **nem talál** hibát, akkor ellenőrizze, hogy regisztrálta-e a Microsoft. bepillantást a virtuális géphez társított előfizetésre.
 
 ## <a name="next-steps"></a>További lépések
 

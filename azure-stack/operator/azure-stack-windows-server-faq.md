@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack a Windows Server kapcsolatos gyakori kérdések |} A Microsoft Docs
-description: A Windows Server az Azure Stack-piactér – gyakori kérdések listája
+title: Azure Stack Windows Serverrel kapcsolatos gyakori kérdések | Microsoft Docs
+description: A Windows Serverhez készült Azure Stack Marketplace – gyakori kérdések listája
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,66 +15,66 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334432"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806908"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>A Windows Server az Azure Stack-piactér – gyakori kérdések
+# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server Azure Stack piactéren – gyakori kérdések
 
-Ebben a cikkben megválaszolunk néhány – gyakori kérdések a Windows Server-rendszerképeket a [Azure Stack piactéren](azure-stack-marketplace.md).
+Ez a cikk a [Azure stack piactéren](azure-stack-marketplace.md)elérhető Windows Server-rendszerképekkel kapcsolatos gyakori kérdésekre ad választ.
 
 ## <a name="marketplace-items"></a>Marketplace-elemek
 
-### <a name="how-do-i-update-to-a-newer-windows-image"></a>Hogyan frissíthetek egy újabb Windows-lemezképet?
+### <a name="how-do-i-update-to-a-newer-windows-image"></a>Hogyan frissíteni egy újabb Windows-rendszerképre?
 
-Először határozza meg, ha minden olyan Azure Resource Manager-sablonok hivatkoznak verzióját. Ha igen, frissítse ezeket a sablonokat, vagy régebbi lemezkép-verzió megtartása. Érdemes használni **verzió: legfrissebb**.
+Először határozza meg, hogy a Azure Resource Manager-sablonok adott verzióra vonatkoznak-e. Ha igen, frissítse ezeket a sablonokat, vagy tartsa meg a régebbi rendszerkép-verziókat. A legjobb a következő **verzió használata: legújabb**.
 
-Ezután ha bármely virtuálisgép-méretezési csoportok hivatkozik egy adott verziót, gondolja hogy ezek később lesz skálázva, és döntse el, hogy a régebbi verziójú-e. Ezek a feltételek egyike sem a alkalmazni, ha újabb eszközök letöltése előtt törölje a régebbi rendszerképek a Marketplace-en. Marketplace-en felügyeleti használatával törölheti őket, ha ez hogyan lett letöltve az eredeti. Ezután töltse le az újabb verzióra.
+Ezután, ha bármelyik virtuálisgép-méretezési csoport egy adott verzióra hivatkozik, gondolja át, hogy a méretezés később történik-e, és döntse el, hogy megtartja-e a régebbi verziókat. Ha egyik feltétel sem érvényes, törölje a régebbi lemezképeket a piactéren az újabb verziók letöltése előtt. A piactér-kezelés használatával törölje azokat, ha az eredeti Letöltés módja. Ezután töltse le az újabb verziót.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Mik azok a Windows Server Piactérről származó rendszerképek az Azure Stacken licencelési lehetőségeinek?
+### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Mik a Windows Server Marketplace rendszerképeinek licencelési lehetőségei a Azure Stack-on?
 
-A Microsoft Windows Server-rendszerképeket az Azure Stack piactéren két változata kínál. Ez a rendszerkép csak egy verziója is használható az Azure Stack-környezet.  
+A Microsoft a Windows Server rendszerképeinek két verzióját kínálja a Azure Stack piactéren. A rendszerképnek csak egy verziója használható Azure Stack környezetben.  
 
-- **Használja, a felhasznált**: Ezek a lemezképek futtassa a teljes díj Windows mérőszámok.
-   Ki kell használnia: Nagyvállalati Szerződés (EA) használók a *Használatalapú számlázási modell*; CSP-k számára nem szeretne a SPLA-licenc.
-- **Hozott licences (BYOL)** : Ezek a lemezképek alapvető mérőszámok futtassa.
-   Ki kell használnia: Nagyvállalati szerződéssel rendelkező ügyfelek a Windows Server-licenc; CSP-k számára a SPLA-licenc.
+- **Fizetés a használat**során: Ezek a lemezképek a Windows teljes díjszabását futtatják.
+   Kinek kell használnia: Nagyvállalati Szerződés (EA) ügyfelek, akik a használati *Számlázási modellt*használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
+- **Saját licenc használata (BYOL)** : Ezek a képek alapszintű mérőórákat futtatnak.
+   Kinek kell használnia: Nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
 
-Az Azure hibrid használati Benefit (AHUB) nem támogatott az Azure Stacken. Ügyfelek, akik a "Kapacitás" modellel licenc a BYOL-lemezképet kell használnia. Ha teszteli az Azure Stack Development Kit (ASDK), ezek a beállítások bármelyikét használhatja.
+A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stackon. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
 
-### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Mi történik, ha a helytelen verziók kínálni a bérlők és felhasználók letöltöttem?
+### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Mi a teendő, ha nem megfelelő verziót Letöltöttem a bérlők/felhasználók számára?
 
-A nem megfelelő verziójú először törölje marketplace management szolgáltatáson keresztül. Várjon, amíg annak végrehajtása befejeződik (tekintse meg az értesítéseket befejezésére, nem a **Marketplace felügyeleti** panelen). Ezután töltse le a megfelelő verziót.
+Először törölje a helytelen verziót a piactér kezelése szolgáltatásban. Várjon, amíg befejeződik (tekintse meg az értesítéseket, és ne a **piactér-kezelő** panelt). Ezután töltse le a megfelelő verziót.
 
-Ha letölti a lemezképet mindkét verziója, csak a legújabb verzióra a végfelhasználók számára a Marketplace-en katalógusban látható.
+Ha a lemezkép mindkét verzióját letölti, a piactér-katalógusban csak a legújabb verzió látható a végfelhasználók számára.
 
-### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Mi történik, ha a felhasználó nem megfelelően be van jelölve a "Rendelkezem egy licenc" mezőben az előző Windows épít, és nem rendelkeznek licenccel?
+### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Mi a teendő, ha a felhasználó helytelenül ellenőrizte a korábbi Windows-buildek "licencem" mezőjét, és nem rendelkezik licenccel?
 
-Lásd: [konvertálás Windows Serveres virtuális gépek vissza a használatalapú fizetés benefittel](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).
+Lásd: [a Windows Server BYOL virtuális gépek átalakítása](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)utólagos elszámolású.
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Mi történik, ha van egy régebbi képet, és a felhasználó elfelejtette ellenőrizze "Rendelkezem egy licenc" mezőbe, vagy hogy használhat saját lemezképeket és a nagyvállalati szerződés jogosultság van?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Mi a helyzet akkor, ha egy régebbi rendszerképem van, és a felhasználó elfelejtettem a "licenccel rendelkezem" jelölőnégyzetet, vagy saját rendszerképeket használunk, és rendelkezünk Nagyvállalati Szerződés jogosultsággal?
 
-Lásd: [Azure Hybrid Benefit a Windows Server egy meglévő virtuális gép konvertálása](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Vegye figyelembe, hogy az Azure Hybrid Benefit nem vonatkozik az Azure Stackhez, de ez a beállítás hatását a alkalmazni.
+Lásd: [meglévő Windows Server rendszerű virtuális gép átalakítása BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Vegye figyelembe, hogy a Azure Hybrid Benefit nem vonatkozik a Azure Stackra, de a beállítás hatása nem érvényes.
 
-### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Mi a helyzet a más virtuális gépeket, amelyek használják a Windows Server, mint az SQL vagy a Machine Learning-kiszolgáló?
+### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Mi a helyzet a Windows Servert használó más virtuális gépekkel, például az SQL vagy a Machine Learning Server?
 
-Ezek a lemezképek a alkalmazni a **licenseType** paramétert, így azok használatalapú használata. Beállíthatja, hogy ezt a paramétert (az előző gyakori kérdések között talál választ). Ez csak a Windows Server szoftverre, például az SQL, szintekre osztott termékekre, amelyek megkövetelik a saját licenc használata nem érvényes. Használatalapú licencelési használata nem vonatkozik a réteges szoftvertermékeire vonatkozik.
+Ezek a lemezképek a **licenseType** paramétert használják, így a használat során kell fizetniük. Ezt a paramétert beállíthatja (lásd az előző GYIK-választ). Ez csak a Windows Server szoftverre vonatkozik, nem pedig a rétegzett termékekre, például az SQL-re, amelyekhez saját licenc szükséges. A licenccel való fizetés nem vonatkozik a rétegzett szoftvertermékek használatára.
 
-### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Rendelkezem egy nagyvállalati szerződés (EA), és használja majd a nagyvállalati szerződéssel rendelkező Windows Server-licenc; Hogyan ellenőrizhetem, hogy képeket megfelelően számlázása?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Van egy Nagyvállalati Szerződés (EA), és a saját EA Windows Server-licencem lesz; Hogyan gondoskodom arról, hogy a lemezképek számlázása helyesen történjen?
 
-Hozzáadhat **licenseType: Windows_Server** egy Azure Resource Manager-sablonban. Ez a beállítás minden virtuális gép erőforrás-címblokkra hozzá kell adni.
+LicenseType adhat hozzá **: Windows_Server** egy Azure Resource Manager sablonban. Ezt a beállítást minden egyes virtuálisgép-erőforrás blokkhoz hozzá kell adni.
 
 ## <a name="activation"></a>Aktiválás
 
-Egy Windows Server virtuális gépet az Azure Stacken aktiválásához a következő feltételeknek kell teljesülniük:
+A Windows Server rendszerű virtuális gépek Azure Stackon való aktiválásához a következő feltételeknek kell teljesülnie:
 
-- Az OEM be van állítva a megfelelő BIOS jelölő minden gazdagép rendszeren az Azure Stackben.
-- A Windows Server 2012 R2 és Windows Server 2016-ra kell használniuk [virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Kulcskezelő szolgáltatás (KMS) és egyéb aktiválási szolgáltatások nem támogatottak az Azure Stacken.
+- Az OEM a Azure Stack összes gazdagépén beállítja a megfelelő BIOS-jelölőt.
+- A Windows Server 2012 R2 és a Windows Server 2016 rendszernek a [virtuális gépek automatikus aktiválását](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))kell használnia. A kulcskezelő szolgáltatás (KMS) és más aktiválási szolgáltatások nem támogatottak Azure Stackon.
 
-### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hogyan ellenőrizhetem, hogy aktiválva van-e a virtuális gépem?
+### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hogyan lehet ellenőrizni, hogy a virtuális gép aktiválva van-e?
 
 Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 
@@ -82,9 +82,9 @@ Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 slmgr /dlv
 ```
 
-Ha megfelelően aktiválva van, ezt fogja látni a világosan jelezni, és a gazdagép neve megjelenik a `slmgr` kimeneti. Nem függ a Megjelenítés a vízjelek nem naprakész, vagy egy másik virtuális gépéről mögött Öné láthatók.
+Ha helyesen van aktiválva, a rendszer világosan jelezte, hogy az állomásnév megjelenik `slmgr` a kimenetben. Nem függnek a kijelzőn látható vízjelektől, mivel előfordulhat, hogy nem naprakészek, vagy egy másik, a tiéd mögötti virtuális gépről mutatnak.
 
-### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>Virtuális gép nincs beállítva az AVMA, hogyan javíthatom azt használni?
+### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>A virtuális gép nincs beállítva a AVMA használatára, Hogyan javíthatom?
 
 Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 
@@ -92,27 +92,27 @@ Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 slmgr /ipk <AVMA key>
 ```
 
-Tekintse meg a [virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) a kulcsokat a rendszerkép használata című cikket.
+A rendszerképhez használandó kulcsok [automatikus virtuálisgép](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) -aktiválásáról szóló cikkben talál.
 
-### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Hozhatok létre saját Windows Server-rendszerképeket, hogyan biztosítható az AVMA használata?
+### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Létrehozom a saját Windows Server-lemezképeket, Hogyan biztosíthatom, hogy a AVMA használják?
 
-Javasoljuk, hogy végrehajtása az `slmgr /ipk` parancssor futtatása előtt a megfelelő kulccsal a `sysprep` parancsot. Vagy a felvenni az AVMA kulcsot bármely Unattend.exe telepítőfájlt.
+Javasoljuk, hogy `slmgr /ipk` a parancs `sysprep` futtatása előtt futtassa a parancssort a megfelelő kulccsal. Vagy adja meg a AVMA kulcsot az Unattend. exe telepítési fájljában.
 
-### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-it-is-not-activating-or-using-kms-activation"></a>A tapasztalataimat szeretném használni a Windows Server 2016 rendszerképet az Azure-ban létrehozott, és nem aktiválás vagy KMS-aktiválást használ.
+### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-it-is-not-activating-or-using-kms-activation"></a>Megpróbálom használni az Azure-ban létrehozott Windows Server 2016-es rendszerképet, és nem aktiválja vagy nem használ KMS-aktiválást.
 
-Futtassa a következő parancsot: `slmgr /ipk`. Azure-rendszerképek előfordulhat, hogy nem megfelelően visszatér az AVMA, de elérnék az Azure KMS rendszer, ha azok aktiválásához. Ezek a virtuális gépek úgy vannak beállítva, az AVMA használata érdekében ajánlott.
+Futtassa a következő parancsot: `slmgr /ipk`. Előfordulhat, hogy az Azure-lemezképek nem fognak megfelelően visszaesni a AVMA, de ha elérik az Azure KMS-rendszerét, aktiválva lesznek. Javasoljuk, hogy a virtuális gépek AVMA használatára legyenek beállítva.
 
-### <a name="i-have-performed-all-of-these-steps-but-my-virtual-machines-are-still-not-activating"></a>I végzett összes ezeket a lépéseket, de saját virtuális gépek továbbra is okait.
+### <a name="i-have-performed-all-of-these-steps-but-my-virtual-machines-are-still-not-activating"></a>Elvégeztem ezeket a lépéseket, de a virtuális gépek még nem aktiválva vannak.
 
-Lépjen kapcsolatba a hardver ellenőrzése, hogy megtörtént-e a megfelelő BIOS jelölők.
+Lépjen kapcsolatba a hardver szállítójával, és ellenőrizze, hogy telepítve vannak-e a megfelelő BIOS-jelölők.
 
-### <a name="what-about-earlier-versions-of-windows-server"></a>Mi a helyzet a Windows Server korábbi verzióiban?
+### <a name="what-about-earlier-versions-of-windows-server"></a>Mi a helyzet a Windows Server korábbi verzióival?
 
-[Virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott a Windows Server korábbi verzióit. A virtuális gépeket manuálisan kell aktiválni.
+A Windows Server korábbi verzióiban a [virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott. A virtuális gépeket manuálisan kell aktiválni.
 
 ## <a name="next-steps"></a>További lépések
 
 További információkért tekintse át a következő cikkeket:
 
-- [Az Azure Stack piactéren – áttekintés](azure-stack-marketplace.md)
+- [A Azure Stack Marketplace áttekintése](azure-stack-marketplace.md)
 - [Azure Marketplace-elemek letöltése az Azure-ból az Azure Stackbe](azure-stack-download-azure-marketplace-item.md)

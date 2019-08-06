@@ -11,28 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 3d0aad849395a93b1086daf5cf2c17e198d69ed5
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692137"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806919"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace-változások
 
-Ez a cikk a [Azure stack Marketplace-elemek](azure-stack-marketplace-azure-items.md)közelmúltbeli hozzáadásait, frissítéseit, módosításait és eltávolítását ismerteti. Az ebben a szakaszban található információk gyakran frissülnek, ezért a változásokhoz gyakran térjen vissza.
+Ez a cikk a [Azure stack Marketplace-elemek](azure-stack-marketplace-azure-items.md) legutóbbi hozzáadásait, frissítéseit, módosításait és eltávolítását ismerteti körülbelül az elmúlt 3 hónapban. Az ebben a szakaszban található információk gyakran frissülnek, ezért a változásokhoz gyakran térjen vissza.
 
-Ez a cikk az elmúlt 3 hónap során bekövetkezett Piactéri változásokat ismerteti körülbelül. A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk mindig tartalmazza az elérhető Azure stack Marketplace-elemek legfrissebb listáját.
+A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk mindig tartalmazza az elérhető Azure stack Marketplace-elemek legfrissebb listáját.
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
-- Veeam® biztonsági mentési & replikációs™: A segítségével a vállalatok átfogó adatvédelmet érhetnek el az összes munkaterheléshez – virtuális, fizikai és felhőalapú számítási feladatokhoz. Egyetlen konzollal gyors, rugalmas és megbízható biztonsági mentést, helyreállítást és replikálást érhet el az összes alkalmazás és szolgáltatás számára. 6/14/2019 hozzáadva.
+- 1/25/2019: A10-es vThunder: L4 – L7 Application Delivery Controller, globális kiszolgálói terheléselosztás (GSLB), SSL-betekintés
 
-- A10-es vThunder: L4 – L7 Application Delivery Controller, globális kiszolgálói terheléselosztás (GSLB), SSL-betekintés. 1/25/2019 hozzáadva.
+- 6/14/2019: Veeam® biztonsági mentési & replikálási™
+
+- 08/05/2019: Drupal
+
+- 08/05/2019: etcd
+
+- 08/05/2019: Grafana
+
+- 08/05/2019: Neo4j
+
+- 08/05/2019: Kiszolgáló elemzése
+
+- 08/05/2019: WordPress többhelyes
+
+- 08/05/2019: ZooKeeper
+
+- 08/05/2019: TensorFlow-kiszolgáló
+
+- 08/05/2019: MINDEGYIKE NAT
+
+- 08/05/2019: Review Board
+
+- 08/05/2019: Alkotó
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
