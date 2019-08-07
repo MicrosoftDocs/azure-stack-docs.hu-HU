@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack Ethereum blockchain megoldássablon
-description: Az oktatóanyag egy egyéni megoldás-sablonok használatával telepítheti és konfigurálhatja a consortium Ethereum hálózati blockchain az Azure Stackben
+title: Ethereum blockchain-hálózat üzembe helyezése Azure Stackon | Microsoft Docs
+description: Oktatóanyag egyéni megoldási sablonok használatával a konzorcium Ethereum blockchain-hálózatának üzembe helyezéséhez és konfigurálásához Azure Stackon.
 services: azure-stack
 keywords: ''
 author: PatAltimore
@@ -12,197 +12,203 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 8f173ad486ed7fc1a4dae3c9a1c57f77ca623f0d
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: b68a6df35b5345d3e1f00be126cdae24e87d3d0b
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459093"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842988"
 ---
-# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Az Azure Stack Ethereum blockchain hálózatok üzembe helyezése
+# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Ethereum blockchain-hálózat üzembe helyezése Azure Stack
 
-Az Ethereum-megoldássablon célja, hogy egyszerűbb és gyorsabb üzembe helyezése és konfigurálása egy többtagú consortium Ethereum blockchain hálózati minimális Azure-ban és az Ethereum ismeretekkel.
+A Ethereum-megoldás sablonja úgy lett kialakítva, hogy megkönnyítse és meggyorsítsa a több tagú konzorcium Ethereum blockchain-hálózat üzembe helyezését és konfigurálását minimális Azure-és Ethereum-ismeretekkel.
 
-Felhasználói adatok és a egy kattintással üzembe helyezést, az Azure Stack-bérlői portál néhány minden tagja a hálózati erőforrás-igényű helyezhet üzembe. Minden tag hálózati erőforrás-igényű tranzakciós kiegyenlített terhelésű csomópontok egy készletét áll rendelkező, amelyeket egy alkalmazás vagy felhasználó használhatja elküldeni a tranzakciók, a tranzakciókat. adatbányászati csomópontok egy készletét és a egy hálózati virtuális készüléket (NVA). A későbbi csatlakozási lépés kapcsolódik az nva-k teljes konfigurációjú többtagú blockchain-hálózat létrehozása.
+Egy kis felhasználói bemenettel és egy kattintással történő üzembe helyezéssel a Azure Stack bérlői portálon keresztül minden tag kiépítheti hálózati lábnyomát. Az egyes tagok hálózati lábnyoma három dolgot tartalmaz:
 
-Beállítása:
+1. Elosztott terhelésű tranzakciós csomópontok készlete, amelyekkel az alkalmazás vagy a felhasználó műveleteket végezhet a tranzakciók elküldéséhez.
+2. A tranzakciókat rögzítő adatbányászati csomópontok halmaza.
+3. Egy hálózati virtuális berendezés (NVA).
 
-- Válasszon egy üzembe helyezési architektúrája
-- Egy önálló, consortium vezető vagy consortium tag hálózati üzembe helyezése
+Egy újabb kapcsolódási lépés összekapcsolja a NVA egy teljesen konfigurált többtagú blockchain-hálózat létrehozásához.
+
+A beállításhoz:
+
+- Válasszon egy telepítési architektúrát.
+- Önálló, konzorciumi vezető vagy konzorciumi tagkiszolgáló üzembe helyezése.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Töltse le a legújabb elemeket [a Marketplace-ről](../operator/azure-stack-download-azure-marketplace-item.md):
+Töltse le a legújabb elemeket [a piactérről](../operator/azure-stack-download-azure-marketplace-item.md):
 
-- Ubuntu Server 16.04 LTS
+- Ubuntu Server 16,04 LTS
 - Windows Server 2016
-- Egyéni parancsfájl 2.0 linuxhoz
-- A Windows egyéni szkriptek futtatására szolgáló bővítmény
+- Egyéni parancsfájl a Linux 2,0-hez
+- Egyéni parancsfájl-bővítmény a Windowshoz
 
-Blockchain-forgatókönyvekkel kapcsolatos további információkért lásd: [Ethereum koncepció jogosultság consortium megoldássablon](/azure/blockchain/templates/ethereum-poa-deployment).
+A blockchain forgatókönyvekkel kapcsolatos további információkért lásd: [Ethereum-szolgáltatói konzorcium megoldási sablonja](/azure/blockchain/templates/ethereum-poa-deployment).
 
-## <a name="deployment-architecture"></a>Üzembe helyezési architektúrája
+## <a name="deployment-architecture"></a>Üzembe helyezési architektúra
 
-Ez a megoldássablon telepíthet egy vagy több rétegből tag Ethereum consortium network. A virtuális hálózathoz van csatlakoztatva, egy hálózati virtuális készüléket és a kapcsolati erőforrás lánc topológiában. 
+Ez a megoldási sablon telepíthet egyetlen vagy több tagú Ethereum Consortium-hálózatot. A virtuális hálózat egy hálózati virtuális berendezést és kapcsolati erőforrásokat használó láncbeli topológiában van csatlakoztatva.
 
-## <a name="deployment-use-cases"></a>Üzembe helyezés alkalmazási helyzetek
+## <a name="deployment-use-cases"></a>Üzembe helyezési használati esetek
 
-A sablon Ethereum consortium vezető és tag illesztés, számos módon telepítheti, Íme az általunk tesztelt azokat:
+A sablon számos módon képes üzembe helyezni a Ethereum consortiumt a vezető és a tag számára. Itt láthatók a teszteltek:
 
-- A több csomópontos Azure Stack az Azure AD vagy az AD FS-ben és üzembe helyezése érdeklődő tag gyermekeihez ugyanabba az előfizetésbe, vagy eltérő előfizetésekben.
-- Egy egycsomópontos Azure Stack (az Azure AD), az érdeklődő és a tag gyermekeihez ugyanabban az előfizetésben üzembe helyezése.
+- Többcsomópontos Azure Stack esetén az Azure AD-vel vagy AD FS-mel telepítse az érdeklődőket és a tagokat ugyanazzal az előfizetéssel vagy különböző előfizetésekkel.
+- Egy csomópontos Azure Stack (az Azure AD-vel) telepítse az érdeklődőt és a tagot ugyanazzal az előfizetéssel.
 
-### <a name="standalone-and-consortium-leader-deployment"></a>Önálló és consortium vezető üzembe helyezés
+### <a name="standalone-and-consortium-leader-deployment"></a>Önálló és konzorciumi vezető üzembe helyezés
 
-A consortium vezető sablon az első tagtól erőforrás-igényű konfigurálja a hálózatban. 
+A Consortium Leader-sablon konfigurálja az első tag hálózati lábnyomát. 
 
-1. Töltse le a [vezető sablont a Githubból](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. Válassza ki az Azure Stack-bérlői portálon **+ erőforrás létrehozása > sablonalapú telepítés** egy egyéni sablon üzembe helyezéséhez.
-3. Válassza ki **szerkesztési sablon** szerkesztése az új egyéni sablont.
-4. A szerkesztési ablaktáblán a jobb oldali másolja és illessze be a vezető sablon korábban letöltött JSON.
+1. Töltse le a [Leader-sablont](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)a githubról.
+2. A Azure Stack bérlői portálon válassza az **+ erőforrás létrehozása > template Deployment** egyéni sablonból való üzembe helyezéshez lehetőséget.
+3. Válassza a **Sablon szerkesztése** lehetőséget az új egyéni sablon szerkesztéséhez.
+4. A jobb oldali szerkesztési ablaktáblán másolja és illessze be a korábban letöltött vezető sablon JSON-fájlját.
     
     ![Vezető sablon szerkesztése](./media/azure-stack-ethereum/edit-leader-template.png)
 
 5. Kattintson a **Mentés** gombra.
-6. Válassza ki **paraméterek szerkesztése** fejezze be a sablon paramétereit az üzembe helyezéshez.
+6. Válassza a **Paraméterek szerkesztése** lehetőséget, és fejezze be az üzemelő példányhoz tartozó sablon paramétereit.
     
-    ![Vezető sablon paraméterek szerkesztése](./media/azure-stack-ethereum/edit-leader-parameters.png)
+    ![A Leader-sablon paramétereinek szerkesztése](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    NAMEPREFIX | A telepített erőforrások elnevezési alapként használt karakterlánc. | Alfanumerikus karakterek és a hossza 1 – 6 | ETH
-    AUTHTYPE | A módszert a virtuális géphez. | Jelszó vagy SSH nyilvános kulcs | Jelszó
-    ADMINUSERNAME | Minden üzembe helyezett virtuális gép rendszergazdai felhasználóneve | 1 – 64 karakter | gethadmin
-    ADMINPASSWORD (hitelesítési típus = jelszó)| Az egyes üzembe helyezett virtuális gépek a rendszergazdai fiók jelszava. A jelszónak tartalmaznia kell a 3 az alábbi követelményeket: 1 nagybetűt, 1 kisbetűt, 1 szám és 1 különleges karakter. <br />Minden virtuális gép kezdetben van ugyanazt a jelszót, üzembe helyezés után módosíthatja a jelszót.|12 – 72 karakter|
-    ADMINSSHKEY (hitelesítési típus = sshPublicKey) | A secure shell-kulcsot a távoli bejelentkezéshez használt. | |
-    GENESISBLOCK | Egyéni képződés blokk jelölő JSON-karakterlánc.  Ez a paraméter értékének megadása nem kötelező. | |
-    ETHEREUMACCOUNTPSSWD | A rendszergazdai jelszót, Ethereum-fiókhoz használt. | |
-    ETHEREUMACCOUNTPASSPHRASE | Az Ethereum-fiókjához társított titkos kulcs létrehozásához használt jelszót. | |
-    ETHEREUMNETWORKID | A consortium network azonosítója. | 5 és 999,999,999 között bármilyen érték | 72
-    CONSORTIUMMEMBERID | Minden egyes tagja a consortium network társított azonosítója.   | Ezt az Azonosítót a hálózatban egyedinek kell lennie. | 0
-    NUMMININGNODES | Adatbányászati csomópontok száma. | 2. és 15 között. | 2
-    MNNODEVMSIZE | Az adatbányászati csomópontok Virtuálisgép-méretet. | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | Tárolási teljesítmény adatbányászati csomópont. | | Standard_LRS
-    NUMTXNODES | Tranzakció-csomópontok száma. | 1 – 5. | 1
-    TXNODEVMSIZE | A tranzakció csomópontok Virtuálisgép-méretet. | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | A tranzakció csomópontok Storage teljesítményét. | | Standard_LRS
-    BASEURL | Alap URL-cím a függően sablon beszerzését. | Használja az alapértelmezett értéket, kivéve, ha testre szeretné szabni a központi telepítési sablonok. | 
+    NAMEPREFIX | A telepített erőforrások elnevezésének alapjául szolgáló sztring. | Alfanumerikus karakterek, 1 és 6 közötti hosszúságú. | ETH
+    AUTHTYPE | A virtuális géphez való hitelesítés módszere. | Jelszó vagy nyilvános SSH-kulcs. | Windows 10
+    ADMINUSERNAME | Az egyes telepített virtuális gépek rendszergazdai felhasználóneve. | 1-64 karakter. | gethadmin
+    ADMINPASSWORD (hitelesítés típusa = jelszó)| Az egyes üzembe helyezett virtuális gépek rendszergazdai fiókjának jelszava. A jelszónak az alábbi követelmények közül hármat kell tartalmaznia: 1 nagybetűs karakter, 1 kisbetűs karakter, 1 szám és 1 speciális karakter. <br />Habár a virtuális gépek kezdetben ugyanazzal a jelszóval rendelkeznek, a kiépítés után megváltoztathatja a jelszót.|12-72 karakter. |
+    ADMINSSHKEY (hitelesítés típusa = sshPublicKey) | A távoli bejelentkezéshez használt Secure Shell-kulcs. | |
+    GENESISBLOCK | Egyéni Genesis-blokkot jelölő JSON-karakterlánc.  A paraméter értékének megadása nem kötelező. | |
+    ETHEREUMACCOUNTPSSWD | A Ethereum-fiók biztonságossá tételéhez használt rendszergazdai jelszó. | |
+    ETHEREUMACCOUNTPASSPHRASE | A Ethereum-fiókhoz társított titkos kulcs létrehozásához használt jelszó. | |
+    ETHEREUMNETWORKID | A konzorcium hálózati azonosítója. | Tetszőleges értéket használhat 5 és 999 999 999 között. | 72
+    CONSORTIUMMEMBERID | A konzorcium-hálózat egyes tagjaihoz tartozó azonosító.   | Ennek az AZONOSÍTÓnak egyedinek kell lennie a hálózaton. | 0
+    NUMMININGNODES | A bányászati csomópontok száma. | 2 és 15 között. | 2
+    MNNODEVMSIZE | A bányászati csomópontok virtuálisgép-mérete. | | Standard_A1
+    MNSTORAGEACCOUNTTYPE | A bányászati csomópontok tárolási teljesítménye. | | Standard szintű LRS
+    NUMTXNODES | A tranzakciós csomópontok száma. | 1 és 5 között. | 1
+    TXNODEVMSIZE | A tranzakciós csomópontok virtuálisgép-mérete. | | Standard_A1
+    TXSTORAGEACCOUNTTYPE | A tranzakciós csomópontok tárolási teljesítménye. | | Standard szintű LRS
+    BASEURL | Az alap URL-cím, amelyből beolvashatók a központi telepítési sablonok. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
 7. Kattintson az **OK** gombra.
-8. A **egyéni üzembe helyezés**, adja meg **előfizetés**, **erőforráscsoport**, és **erőforráscsoport helye**.
+8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az **erőforráscsoport helyét**.
     
-    ![Vezető üzembe helyezéshez megadott paraméterek](./media/azure-stack-ethereum/leader-deployment-parameters.png)
+    ![Vezető telepítési paraméterek](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetés | Az előfizetés, melyben szeretné üzembe helyezni a consortium network | | Használatalapú előfizetés
-    Erőforráscsoport | Az erőforráscsoport, melyben szeretné üzembe helyezni a consortium network. | | EthereumResources
-    Location egység | Az Azure-régió erőforráscsoport. | | helyi
+    Subscription | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
+    Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | EthereumResources
+    Location | Az erőforráscsoport Azure-régiója. | | helyi
 
 8. Kattintson a **Létrehozás** gombra.
 
-Üzembe helyezés 20 percet is igénybe vehet, vagy hosszabb.
+Az üzembe helyezés akár 20 percet vagy hosszabb időt is igénybe vehet.
 
-Üzembe helyezés befejezése után megtekintheti a központi telepítés összegzése **Microsoft. Sablon** az erőforráscsoport üzembe helyezési szakaszában. Az összefoglalás kimeneti értékeket tartalmaz, amelyek segítségével csatlakozzon consortium tagok.
+Az üzembe helyezés befejezése után tekintse át a **Microsoft. template** központi telepítési összegzését az erőforráscsoport telepítési szakaszában. Az összefoglalás a konzorcium tagjaihoz való csatlakozáshoz használt kimeneti értékeket tartalmazza.
 
-Vezető üzembe helyezés ellenőrzéséhez keresse meg a vezető felügyeleti webhely. Felügyeleti webhely címe találhatja meg a kimeneti szakaszában **Microsoft.Template** központi telepítés.  
+A Leader üzembe helyezésének ellenőrzéséhez lépjen a vezető rendszergazdai webhelyére. A felügyeleti hely címe a **Microsoft. template** telepítésének output (kimenet) szakaszában található.  
 
-![Vezető a központi telepítés összegzése](./media/azure-stack-ethereum/ethereum-node-status.png)
+![A Leader üzembe helyezésének összefoglalása](./media/azure-stack-ethereum/ethereum-node-status.png)
 
-### <a name="joining-consortium-member-deployment"></a>Csatlakozás consortium tag központi telepítés
+### <a name="joining-consortium-member-deployment"></a>A konzorciumi tagok központi telepítésének csatlakoztatása
 
-1. Töltse le a [consortium tag sablont a Githubból](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. Válassza ki az Azure Stack-bérlői portálon **+ erőforrás létrehozása > sablonalapú telepítés** egy egyéni sablon üzembe helyezéséhez.
-3. Válassza ki **szerkesztési sablon** szerkesztése az új egyéni sablont.
-4. A szerkesztési ablaktáblán a jobb oldali másolja és illessze be a vezető sablon korábban letöltött JSON.
+1. Töltse le a [konzorciumi tag sablonját a githubról](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json).
+2. A Azure Stack bérlői portálon válassza az **+ erőforrás létrehozása > template Deployment** egyéni sablonból való üzembe helyezéshez lehetőséget.
+3. Válassza a **Sablon szerkesztése** lehetőséget az új egyéni sablon szerkesztéséhez.
+4. A jobb oldali szerkesztési ablaktáblán másolja és illessze be a korábban letöltött vezető sablon JSON-fájlját.
 5. Kattintson a **Mentés** gombra.
-6. Válassza ki **paraméterek szerkesztése** fejezze be a sablon paramétereit az üzembe helyezéshez.
+6. Válassza a **Paraméterek szerkesztése** lehetőséget, és fejezze be az üzemelő példányhoz tartozó sablon paramétereit.
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    NAMEPREFIX | A telepített erőforrások elnevezési alapként használt karakterlánc. | Alfanumerikus karakterek és a hossza 1 – 6 | ETH
-    AUTHTYPE | A módszert a virtuális géphez. | Jelszó vagy SSH nyilvános kulcs | Jelszó
-    ADMINUSERNAME | Minden üzembe helyezett virtuális gép rendszergazdai felhasználóneve | 1 – 64 karakter | gethadmin
-    ADMINPASSWORD (hitelesítési típus = jelszó)| Az egyes üzembe helyezett virtuális gépek a rendszergazdai fiók jelszava. A jelszónak tartalmaznia kell a 3 az alábbi követelményeket: 1 nagybetűt, 1 kisbetűt, 1 szám és 1 különleges karakter. <br />Minden virtuális gép kezdetben van ugyanazt a jelszót, üzembe helyezés után módosíthatja a jelszót.|12 – 72 karakter|
-    ADMINSSHKEY (hitelesítési típus = sshPublicKey) | A secure shell-kulcsot a távoli bejelentkezéshez használt. | |
-    CONSORTIUMMEMBERID | Minden egyes tagja a consortium network társított azonosítója.   | Ezt az Azonosítót a hálózatban egyedinek kell lennie. | 0
-    NUMMININGNODES | Adatbányászati csomópontok száma. | 2. és 15 között. | 2
-    MNNODEVMSIZE | Az adatbányászati csomópontok Virtuálisgép-méretet. | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | Tárolási teljesítmény adatbányászati csomópont. | | Standard_LRS
-    NUMTXNODES | Tranzakció-csomópontok száma. | 1 – 5. | 1
-    TXNODEVMSIZE | A tranzakció csomópontok Virtuálisgép-méretet. | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | A tranzakció csomópontok Storage teljesítményét. | | Standard_LRS
-    CONSORTIUMDATA | A tag egy másik telepítés által biztosított megfelelő consortium adatok mutató URL-címe. Ez az érték található a vezető telepítési kimenetet. | |
-    REMOTEMEMBERVNETADDRESSSPACE | A vezető NVA IP-címét. Ez az érték található a vezető telepítési kimenetet. | | 
-    REMOTEMEMBERNVAPUBLICIP | A vezető NVA IP-címét. Ez az érték található a vezető telepítési kimenetet. | | 
-    CONNECTIONSHAREDKEY | Egy előre meghatározott titkos kulcsot, amely kapcsolatot létesít a consortium network tagjai között. | |
-    BASEURL | Alap URL-címe a sablont. | Használja az alapértelmezett értéket, kivéve, ha testre szeretné szabni a központi telepítési sablonok. | 
+    NAMEPREFIX | A telepített erőforrások elnevezésének alapjául szolgáló sztring. | Alfanumerikus karakterek, 1 és 6 közötti hosszúságú. | ETH
+    AUTHTYPE | A virtuális géphez való hitelesítés módszere | Jelszó vagy nyilvános SSH-kulcs. | Windows 10
+    ADMINUSERNAME | Az egyes telepített virtuális gépek rendszergazdai felhasználóneve | 1-64 karakter. | gethadmin
+    ADMINPASSWORD (hitelesítés típusa = jelszó)| Az egyes üzembe helyezett virtuális gépek rendszergazdai fiókjának jelszava. A jelszónak az alábbi követelmények közül hármat kell tartalmaznia: 1 nagybetűs karakter, 1 kisbetűs karakter, 1 szám és 1 speciális karakter. <br />Habár a virtuális gépek kezdetben ugyanazzal a jelszóval rendelkeznek, a kiépítés után megváltoztathatja a jelszót.|12-72 karakter. |
+    ADMINSSHKEY (hitelesítés típusa = sshPublicKey) | A távoli bejelentkezéshez használt Secure Shell-kulcs. | |
+    CONSORTIUMMEMBERID | A konzorcium-hálózat egyes tagjaihoz tartozó azonosító.   | Ennek az AZONOSÍTÓnak egyedinek kell lennie a hálózaton. | 0
+    NUMMININGNODES | A bányászati csomópontok száma. | 2 és 15 között. | 2
+    MNNODEVMSIZE | A bányászati csomópontok virtuálisgép-mérete. | | Standard_A1
+    MNSTORAGEACCOUNTTYPE | A bányászati csomópontok tárolási teljesítménye. | | Standard szintű LRS
+    NUMTXNODES | A tranzakciós csomópontok száma. | 1 és 5 között. | 1
+    TXNODEVMSIZE | A tranzakciós csomópontok virtuálisgép-mérete. | | Standard_A1
+    TXSTORAGEACCOUNTTYPE | A tranzakciós csomópontok tárolási teljesítménye. | | Standard szintű LRS
+    CONSORTIUMDATA | Az URL-cím, amely a másik tag üzemelő példánya által biztosított vonatkozó konzorcium-konfigurációs adatokat mutat. Ez az érték a vezető telepítési kimenetén található. | |
+    REMOTEMEMBERVNETADDRESSSPACE | A vezető NVA IP-címe. Ez az érték a vezető telepítési kimenetén található. | | 
+    REMOTEMEMBERNVAPUBLICIP | A vezető NVA IP-címe. Ez az érték a vezető telepítési kimenetén található. | | 
+    CONNECTIONSHAREDKEY | A konzorciumi hálózat azon tagjai között, amelyek kapcsolatot hoznak létre, előre elkészített titok. | |
+    BASEURL | A sablon alap URL-címe. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
 7. Kattintson az **OK** gombra.
-8. A **egyéni üzembe helyezés**, adja meg **előfizetés**, **erőforráscsoport**, és **erőforráscsoport helye**.
+8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az **erőforráscsoport helyét**.
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetés | Az előfizetés, melyben szeretné üzembe helyezni a consortium network | | Használatalapú előfizetés
-    Erőforráscsoport | Az erőforráscsoport, melyben szeretné üzembe helyezni a consortium network. | | MemberResources
-    Location egység | Az Azure-régió erőforráscsoport. | | helyi
+    Subscription | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
+    Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | MemberResources
+    Location | Az erőforráscsoport Azure-régiója. | | helyi
 
 8. Kattintson a **Létrehozás** gombra.
 
-Üzembe helyezés 20 percet is igénybe vehet, vagy hosszabb.
+Az üzembe helyezés akár 20 percet vagy hosszabb időt is igénybe vehet.
 
-Üzembe helyezés befejezése után megtekintheti a központi telepítés összegzése **Microsoft.Template** az erőforráscsoport üzembe helyezési szakaszában. Az összefoglalás consortium tagok connect segítségével kimeneti értékeket tartalmaz.
+Az üzembe helyezés befejezése után tekintse át a **Microsoft. template** központi telepítési összegzését az erőforráscsoport telepítési szakaszában. Az összefoglalás a konzorcium tagjaihoz való kapcsolódáshoz használt kimeneti értékeket tartalmazza.
 
-Tag üzembe helyezés ellenőrzéséhez keresse meg a tag felügyeleti webhely. Felügyeleti webhely címe Microsoft.Template üzembe helyezés a kimeneti szakaszban találhatja.
+A tag üzembe helyezésének ellenőrzéséhez tallózzon a tag felügyeleti webhelyén. A felügyeleti hely címe a **Microsoft. template** telepítésének kimenet szakaszában található.
 
-![Tag központi telepítés összegzése](./media/azure-stack-ethereum/ethereum-node-status-2.png)
+![Tag központi telepítésének összegzése](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Amint a képen is látható, tagok csomópontok állapota **nem fut**. Ez az állapot azért, hogy a tag és vezető közötti kapcsolat nem jön létre. Tag és vezető közötti kapcsolat egy kétirányú kapcsolat. Tag központi telepítésekor a sablon automatikusan létrehozza a vezető tag a kapcsolatot. A kapcsolat létrehozására vezető és tag, nyissa meg a következő lépéssel.
+Ahogy a képen is látható, a tag csomópontjainak állapota **nem fut**. Ez az állapot azért van, mert a tag és a vezető közötti kapcsolat nincs létrehozva. A tag és a vezető közötti kapcsolat kétirányú kapcsolat. A tag központi telepítésekor a sablon automatikusan létrehozza a csatlakozást a tag és a vezető között. A vezető és a tag közötti kapcsolatok létrehozásához lépjen a következő lépésre.
 
-### <a name="connect-member-and-leader"></a>Csatlakozás a tag és vezető
+### <a name="connect-member-and-leader"></a>A tag és a vezető összekötése
 
-Ez a sablon létrehoz egy kapcsolatot a vezető távoli tagja. 
+Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat. 
 
-1. Töltse le a [tag és vezető sablon csatlakozzon a Githubról](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. Válassza ki az Azure Stack-bérlői portálon **+ erőforrás létrehozása > sablonalapú telepítés** egy egyéni sablon üzembe helyezéséhez.
-3. Válassza ki **szerkesztési sablon** szerkesztése az új egyéni sablont.
-4. A szerkesztési ablaktáblán a jobb oldali másolja és illessze be a vezető sablon korábban letöltött JSON.
+1. Töltse le a [csatlakozási tag és a Leader-sablonját](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)a githubról.
+2. A Azure Stack bérlői portálon válassza az **+ erőforrás létrehozása > template Deployment** egyéni sablonból való üzembe helyezéshez lehetőséget.
+3. Válassza a **Sablon szerkesztése** lehetőséget az új egyéni sablon szerkesztéséhez.
+4. A jobb oldali szerkesztési ablaktáblán másolja és illessze be a korábban letöltött vezető sablon JSON-fájlját.
     
-    ![Szerkesztés sablon csatlakoztatása](./media/azure-stack-ethereum/edit-connect-template.png)
+    ![Csatlakozási sablon szerkesztése](./media/azure-stack-ethereum/edit-connect-template.png)
 
 5. Kattintson a **Mentés** gombra.
-6. Válassza ki **paraméterek szerkesztése** fejezze be a sablon paramétereit az üzembe helyezéshez.
+6. Válassza a **Paraméterek szerkesztése** lehetőséget, és fejezze be az üzemelő példányhoz tartozó sablon paramétereit.
     
-    ![Szerkesztés csatlakozás sablon paraméterei](./media/azure-stack-ethereum/edit-connect-parameters.png)
+    ![Csatlakozási sablon paramétereinek szerkesztése](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    MEMBERNAMEPREFIX | Vezető előtagja. Ez az érték található a vezető telepítési kimenetet.  | Alfanumerikus karakterek és a hossza 1 – 6 | |
-    MEMBERROUTETABLENAME | A vezető útvonal tábla neve. Ez az érték található a vezető telepítési kimenetet. |  | 
-    REMOTEMEMBERVNETADDRESSSPACE | A tag címtér. Ezt az értéket a tag központi telepítési kimenetet található. | |
-    CONNECTIONSHAREDKEY | Egy előre meghatározott titkos kulcsot, amely kapcsolatot létesít a consortium network tagjai között.  | |
-    REMOTEMEMBERNVAPUBLICIP | A tag NVA IP-címe. Ezt az értéket a tag központi telepítési kimenetet található. | |
-    MEMBERNVAPRIVATEIP | Vezető titkos NVA IP-cím. Ez az érték található a vezető telepítési kimenetet. | |
-    HELY | Az Azure Stack környezettel helye. | | helyi
-    BASEURL | Alap URL-címe a sablont. | Használja az alapértelmezett értéket, kivéve, ha testre szeretné szabni a központi telepítési sablonok. | 
+    MEMBERNAMEPREFIX | A vezető nevének előtagja. Ez az érték a vezető telepítési kimenetén található.  | Alfanumerikus karakterek, 1 és 6 közötti hosszúságú. | |
+    MEMBERROUTETABLENAME | A vezető útválasztási táblázatának neve. Ez az érték a vezető telepítési kimenetén található. |  | 
+    REMOTEMEMBERVNETADDRESSSPACE | A tag címterület. Ez az érték a tag telepítési kimenetén található. | |
+    CONNECTIONSHAREDKEY | A konzorciumi hálózat azon tagjai között, amelyek kapcsolatot hoznak létre, előre elkészített titok.  | |
+    REMOTEMEMBERNVAPUBLICIP | A tag NVA IP-címe. Ez az érték a tag telepítési kimenetén található. | |
+    MEMBERNVAPRIVATEIP | A vezető magánhálózati NVA IP-címe. Ez az érték a vezető telepítési kimenetén található. | |
+    HELY | A Azure Stack-környezet helye. | | helyi
+    BASEURL | A sablon alap URL-címe. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
 7. Kattintson az **OK** gombra.
-8. A **egyéni üzembe helyezés**, adja meg **előfizetés**, **erőforráscsoport**, és **erőforráscsoport helye**.
+8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az **erőforráscsoport helyét**.
     
-    ![Csatlakozás az üzembe helyezéshez megadott paraméterek](./media/azure-stack-ethereum/connect-deployment-parameters.png)
+    ![Központi telepítési paraméterek összekötése](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetés | A vezető előfizetés. | | Használatalapú előfizetés
+    Subscription | A vezető előfizetése. | | Fogyasztási előfizetés
     Erőforráscsoport | A vezető erőforráscsoport. | | EthereumResources
-    Location egység | Az Azure-régió erőforráscsoport. | | helyi
+    Location | Az erőforráscsoport Azure-régiója. | | helyi
 
 8. Kattintson a **Létrehozás** gombra.
 
-Üzembe helyezés befejezése után indítsa el a kommunikációt a vezető, a tag néhány percet vesz igénybe. Az üzembe helyezés ellenőrzéséhez frissítse a tag felügyeleti webhely. A tag csomópontok állapotát kell futtatnia. 
+Az üzembe helyezés befejezése után néhány percet vesz igénybe, hogy a vezető és a tag is megkezdje a kommunikációt. A központi telepítés ellenőrzéséhez frissítse a tag felügyeleti webhelyét. A tag csomópontjainak állapotának futnia kell.
 
 ![Az üzemelő példány ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
 ## <a name="next-steps"></a>További lépések
 
-Ethereum- és Azure kapcsolatos további tudnivalókért lásd: [Blockchain-technológia és az alkalmazások](https://azure.microsoft.com/solutions/blockchain/).
+További információ a Ethereum és az Azure-ról: [Blockchain Technology and Applications](https://azure.microsoft.com/solutions/blockchain/).

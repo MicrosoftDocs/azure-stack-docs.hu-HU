@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cae4c6c5b96dd7bdbd6fcec7859309e0dd995a44
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658676"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842689"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>VIRTUÁLIS gépek frissítése és kezelése automatizálás Azure Stack
 A következő Azure Automation megoldási funkciókkal kezelheti a Azure Stack használatával üzembe helyezett Windows-és Linux-alapú virtuális gépeket (VM-EK):
@@ -131,6 +131,7 @@ A [Azure monitor for VMS Map használata az App Components megismeréséhez](htt
 
    ![Azure Monitor virtuális gépek térképének lapja](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
+Ha a [Azure monitor for VMS](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) nem jelenít meg teljesítményadatokat, a [LogAnalytics-munkaterület](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters) speciális beállításainál engedélyeznie kell a Windows és a Linux teljesítményadatok gyűjtését.
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Update Management engedélyezése Resource Manager-sablon használatával
 Ha nagyszámú Azure Stack virtuális gépet használ, [ezzel a Azure Resource Manager sablonnal](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) könnyebben telepítheti a megoldást a virtuális gépeken. A sablon telepíti a Microsoft monitoring Agent bővítményt egy meglévő Azure Stack virtuális gépre, és hozzáadja azt egy meglévő Azure LogAnalytics-munkaterülethez.

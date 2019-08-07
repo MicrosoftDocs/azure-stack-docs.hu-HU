@@ -1,6 +1,6 @@
 ---
-title: Virtuális gép létrehozása az Azure Stacken biztonságosan tárolt jelszó |} A Microsoft Docs
-description: Ismerje meg, hogyan helyezhet üzembe egy virtuális Gépet az Azure Stack Key Vaultban tárolt jelszó használatával
+title: Azure Stack virtuális gép üzembe helyezése Key Vault tárolt jelszó használatával | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet egy Azure Stack Key vaultban tárolt jelszó használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,44 +15,44 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e4163921662b88cbd62f77eedc92d3a7db4bf491
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: 480740b12796fe90e2acd6fd1eb164b4c89d5ded
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041970"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842835"
 ---
-# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Az Azure Stack Key Vaultban tárolt biztonságos jelszó használata virtuális gép létrehozása
+# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Azure Stack virtuális gép üzembe helyezése Key Vault tárolt jelszó használatával
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk végigvezeti az Azure Stack Key Vaultban tárolt jelszó használatával Windows Server virtuális gép üzembe helyezése. A key vault a jelszó használata biztonságosabb, mint egy egyszerű szöveges jelszó átadásával.
+Ez a cikk a Windows Server rendszerű virtuális gépek (VM) központi telepítésének lépéseit ismerteti Azure Stack Key Vaultban tárolt jelszó használatával. A Key Vault-jelszó használata biztonságosabb, mint az egyszerű szöveges jelszó átadása.
 
 ## <a name="overview"></a>Áttekintés
 
-Például a jelszó értékeit egy Azure Stack key vault-titokként is tárolhatja. Miután létrehozott egy titkos kulcsot, az Azure Resource Manager-sablonokban hivatkozhasson rá. Titkos kódok és a Resource Manager használatával a következő előnyökkel jár:
+A Azure Stack Key vaultban az értékeket, például a jelszót titkos kulcsként is tárolhatja. Miután létrehozta a titkos kulcsot, hivatkozhat rá Azure Resource Manager-sablonokban. A Titkok a Resource Managerrel való használata a következő előnyöket biztosítja:
 
-* Nem kell manuálisan adja meg titkos kulcsot minden alkalommal, amikor telepít egy erőforrást.
-* Megadhatja, hogy mely felhasználók vagy egyszerű szolgáltatások hozzáférhet a titkos kulcs.
+* Nem kell manuálisan megadnia a titkot minden egyes erőforrás telepítésekor.
+* Megadhatja, hogy mely felhasználók vagy egyszerű szolgáltatások férhetnek hozzá a titkos kulcshoz.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Az ajánlat, amely tartalmazza a Key Vault szolgáltatás elő kell fizetnie.
-* [Az Azure Stack PowerShell telepítése.](../operator/azure-stack-powershell-install.md)
-* [A PowerShell-környezet konfigurálása.](azure-stack-powershell-configure-user.md)
+* Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Key Vault szolgáltatást.
+* [Telepítse a PowerShellt Azure Stackhoz.](../operator/azure-stack-powershell-install.md)
+* [Konfigurálja a PowerShell-környezetet.](azure-stack-powershell-configure-user.md)
 
-A virtuális gép létrehozásához a Key Vaultban tárolt jelszó lekérésével szükséges folyamat a következő lépésekből áll:
+A következő lépések ismertetik a virtuális gép létrehozásához szükséges folyamatot a Key Vault tárolt jelszó beolvasásával:
 
-1. Hozzon létre egy Key Vault titkos.
-2. Frissítse az azuredeploy.parameters.json fájlra.
-3. A sablon üzembe helyezéséhez.
+1. Hozzon létre egy Key Vault titkot.
+2. Frissítse a `azuredeploy.parameters.json` fájlt.
+3. A sablon üzembe helyezése.
 
 > [!NOTE]  
-> Ezeket a lépéseket az Azure Stack fejlesztői készletet, vagy egy külső ügyfél is használhatja, ha VPN-kapcsolaton keresztül kapcsolódik.
+> Ezeket a lépéseket a Azure Stack Development Kit (ASDK) vagy egy külső ügyfélről is használhatja, ha VPN-kapcsolaton keresztül csatlakozik.
 
-## <a name="create-a-key-vault-secret"></a>A Key Vault titkos kód létrehozása
+## <a name="create-a-key-vault-secret"></a>Key Vault titkos kód létrehozása
 
-A következő parancsfájl egy kulcstartót hoz létre, és tárolja a jelszót, egy titkos kulcsot a key vaultban. Használja a `-EnabledForDeployment` paraméter a kulcstartó létrehozásakor. Ez a paraméter gondoskodik arról, hogy a key vault az Azure Resource Manager-sablonok lehet hivatkozni.
+A következő szkript egy kulcstartót hoz létre, és a Key vaultban tárolja a jelszót. A Key `-EnabledForDeployment` Vault létrehozásakor használja a paramétert. Ez a paraméter gondoskodik arról, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
 
 ```powershell
 
@@ -80,13 +80,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-Amikor az előző parancsfájlt futtat, akkor a kimenete a titkos URI tartalmazza. Jegyezze fel ezt az URI. Arra mutató hivatkozás a rendelkezik a [felhasználónévvel és jelszóval a key vault-sablon üzembe helyezése Windows virtuális gép](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv). Töltse le a [101-es virtuális gép – biztonságos – jelszó-](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) mappát a fejlesztői számítógépre. Ebben a mappában találhatók a `azuredeploy.json` és `azuredeploy.parameters.json` fájlokat, amelyek a következő lépésben szüksége lesz.
+Az előző parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t (Uniform Resource Identifier). Jegyezze fel ezt az URI-t. Hivatkoznia kell rá a [Windows rendszerű virtuális gép üzembe helyezése jelszóval a Key Vault-](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) sablonban. Töltse le a [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) mappát a fejlesztői számítógépére. Ez a mappa tartalmazza `azuredeploy.json` a `azuredeploy.parameters.json` és a fájlokat, amelyekre a következő lépésekben szüksége lesz.
 
-Módosítsa a `azuredeploy.parameters.json` fájl a környezet értékeknek megfelelően. Érdeklik paraméterei a következők: a tároló nevére, a tár erőforráscsoportja és a titkos kulcs URI-t (mivel az előző parancsfájl által létrehozott). A következő fájl egy példát:
+Módosítsa a `azuredeploy.parameters.json` fájlt a környezeti értékek alapján. A különleges érdekű paraméterek a tár neve, a tár erőforráscsoport és a titkos URI (az előző szkript által generált). Az alábbi fájl egy példa egy paraméter fájlra.
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Frissítés a azuredeploy.parameters.json fájlhoz
+## <a name="update-the-azuredeployparametersjson-file"></a>A azuredeploy. Parameters. JSON fájl frissítése
 
-A KeyVault URI secretName, a virtuális gép értékek alapján a környezet adminUsername frissítse az azuredeploy.parameters.json fájlra. A következő JSON-fájlt a sablon paraméterfájljának egy példát mutat be:
+Frissítse a `azuredeploy.parameters.json` fájlt a kulcstároló URI-ja, a secretName, a virtuálisgép-értékek adminUsername alapján a környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
 
 ```json
 {
@@ -117,7 +117,7 @@ A KeyVault URI secretName, a virtuális gép értékek alapján a környezet adm
 
 ## <a name="template-deployment"></a>Sablonalapú telepítés
 
-Most helyezze üzembe a sablont a következő PowerShell-parancsfájl használatával:
+Most telepítse a sablont a következő PowerShell-parancsfájl használatával:
 
 ```powershell  
 New-AzureRmResourceGroupDeployment `
@@ -127,11 +127,11 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Ha a sablon üzembe helyezése sikeresen befejeződött, a következő kimenetet eredményezi:
+A sablon sikeres központi telepítésekor a következő kimenetet eredményezi:
 
-![Üzembe helyezés kimenet](media/azure-stack-key-vault-deploy-vm-with-secret/deployment-output.png)
+![Központi telepítés kimenete](media/azure-stack-key-vault-deploy-vm-with-secret/deployment-output.png)
 
 ## <a name="next-steps"></a>További lépések
 
-* [A Key Vault-mintaalkalmazás üzembe helyezése](azure-stack-key-vault-sample-app.md)
-* [Virtuális gép létrehozása Key Vault-tanúsítvánnyal](azure-stack-key-vault-push-secret-into-vm.md)
+* [Minta alkalmazás üzembe helyezése Key Vault](azure-stack-key-vault-sample-app.md)
+* [Key Vault tanúsítvánnyal rendelkező virtuális gép üzembe helyezése](azure-stack-key-vault-push-secret-into-vm.md)
