@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7f50c1f5cf565040425e0c655585c3d65b837eb3
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: bac13382c1fe579a04b96274d8f310d5a1737be2
+ms.sourcegitcommit: a0dcb61890ad0f7b8e1f738f7186198681adcc2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603143"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820773"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Földrajzilag elosztott alkalmazás-megoldás létrehozása az Azure-ban és a Azure Stack való közvetlen forgalomhoz
 
@@ -185,7 +185,7 @@ Az Azure DevOps és Azure DevOps Server kiválóan konfigurálható és kezelhet
 
       ![Azure App Service-környezethez tartozó csomag vagy mappa kiválasztása](media/azure-stack-solution-geo-distributed/image13.png)
 
-9. Mentse az összes módosítást, és térjen vissza a kiadási folyamathoz.
+9. Mentse az összes módosítást, éstérjen vissza a kiadási folyamathoz.
 
     ![A kiadási folyamat módosításainak mentése](media/azure-stack-solution-geo-distributed/image14.png)
 
@@ -228,7 +228,7 @@ Az Azure DevOps és Azure DevOps Server kiválóan konfigurálható és kezelhet
     
     ![Változó hozzáadása az Azure-alkalmazások üzembe helyezéséhez](media/azure-stack-solution-geo-distributed/image24.png)
 
-19. Válassza ki a **folyamatos** üzembe helyezési trigger ikont mindkét összetevőben, és **engedélyezze a folytatás** üzembe helyezési triggert.
+19. Válassza ki a **folyamatos** üzembe helyezési trigger ikont mindkét összetevőben , és engedélyezze a folytatás üzembe helyezési triggert.
     
     ![Folyamatos üzembe helyezési trigger kiválasztása](media/azure-stack-solution-geo-distributed/image25.png)
 
@@ -302,7 +302,7 @@ A következő képernyőkép egy DNS-rekordokat tartalmazó oldalra mutat péld�
 
 2. Adjon hozzá egy CNAME rekordot, amely altartományt rendel az alkalmazás alapértelmezett állomásnevét.
 
-   A www.northwindcloud.com tartományhoz adjon hozzá egy CNAME rekordot, amely leképezi a nevet <\_>. azurewebsites. net nevű alkalmazáshoz.
+   A www\.northwindcloud.com-tartományhoz példaként adjon hozzá egy CNAME-rekordot, amely leképezi a nevet < alkalmazás\_neve >. azurewebsites. net.
 
 A CNAME hozzáadása után a DNS-rekordok oldal a következő példához hasonlóan néz ki:
 
@@ -587,7 +587,7 @@ Az alkalmazás alapértelmezés szerint engedélyezi a [TLS](https://wikipedia.o
 
 1. A portálok keresési sávjában keresse meg az előző szakaszban létrehozott **Traffic Manager profil** nevét, és válassza ki a Traffic Manager-profilt a megjelenített eredmények között.
 
-2. **Traffic Manager profilban**a **Beállítások** szakaszban válassza a végpontok lehetőséget.
+2. **Traffic Manager profilban**a **Beállítások** szakaszban válassza a végpontoklehetőséget.
 
 3. Válassza a **Hozzáadás** lehetőséget.
 

@@ -1,6 +1,6 @@
 ---
-title: A Visual Studio telepítése és csatlakozás az Azure Stack |} A Microsoft Docs
-description: Ismerje meg, a Visual Studio telepítése és csatlakozás az Azure Stack szükséges lépések
+title: Telepítse a Visual studiót, és kapcsolódjon a Azure Stackhoz | Microsoft Docs
+description: Ismerje meg, hogyan telepítheti a Visual studiót, és hogyan csatlakozhat Azure Stackhoz.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,78 +16,78 @@ ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 11d389b96ed730d6395231ecf24eced6a65fbae8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 12f0b8d13ebaa7a31153dd89f65f27fd97294700
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64302594"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842938"
 ---
-# <a name="install-visual-studio-and-connect-to-azure-stack"></a>A Visual Studio telepítése és csatlakozás az Azure Stack
+# <a name="install-visual-studio-and-connect-to-azure-stack"></a>Telepítse a Visual studiót, és kapcsolódjon Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A Visual Studio használatával és üzembe helyezését az Azure Resource Manager [sablonok](azure-stack-arm-templates.md) az Azure Stackhez. A jelen cikkben ismertetett lépések azt ismertetik, hogyan telepíthető a Visual Studio [Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp), vagy egy külső számítógépen, ha azt tervezi, használja az Azure Stack segítségével [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn).
+A Visual Studióval Azure Resource Manager [sablonokat](azure-stack-arm-templates.md) írhat és helyezhet üzembe Azure stack. A cikkben ismertetett lépések azt ismertetik, hogyan telepítheti a Visual studiót [Azure stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) vagy külső számítógépre, ha Azure stack [VPN-en](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)keresztül szeretné használni.
 
 ## <a name="install-visual-studio"></a>A Visual Studio telepítése
 
-1. Töltse le és futtassa a [Webplatform-telepítő](https://www.microsoft.com/web/downloads/platform.aspx).  
+1. Töltse le és futtassa [](https://www.microsoft.com/web/downloads/platform.aspx)a webplatform-telepítőt.  
 
-2. Nyissa meg a **Microsoft Webplatform-telepítő**.
+2. Nyissa meg a **Microsoft webplatform**-telepítőt.
 
-3. Keresse meg **a Visual Studio Community 2015 Microsoft Azure SDK - 2.9.6**. Kattintson a **hozzáadása**, és **telepítése**.
+3. Keressen rá a **Visual Studio Community 2015-re Microsoft Azure SDK-2.9.6**. Kattintson a **Hozzáadás**, majd a **telepítés**gombra.
 
-4. Távolítsa el a **a Microsoft Azure PowerShell** részeként az Azure SDK telepítve van.
+4. Távolítsa el az Azure SDK részeként telepített **Microsoft Azure PowerShell** .
 
-    ![Képernyőkép a WebPI-telepítés lépések](./media/azure-stack-install-visual-studio/image1.png)
+    ![Képernyőkép a WebPI telepítési lépéseiről](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [A PowerShell telepítése az Azure Stack szolgáltatáshoz](../operator/azure-stack-powershell-install.md)
+5. [Telepítse a powershellt Azure Stackhoz](../operator/azure-stack-powershell-install.md).
 
-6. Indítsa újra az operációs rendszer, a telepítés befejezése után.
+6. A telepítés befejezése után indítsa újra az operációs rendszert.
 
-## <a name="connect-to-azure-stack-with-azure-ad"></a>Csatlakozás az Azure Stack az Azure ad-vel
+## <a name="connect-to-azure-stack-with-azure-ad"></a>Kapcsolódás Azure Stack az Azure AD-vel
 
-1. Indítsa el a Visual Studiót.
+1. Indítsa el a Visual studiót.
 
-2. Az a **nézet** menüjében válassza **Cloud Explorer**.
+2. A **nézet** menüben válassza a **Cloud Explorer**lehetőséget.
 
-3. Jelölje ki az új ablaktáblán **fiók hozzáadása** , és jelentkezzen be az Azure Active Directory (Azure AD) hitelesítő adataival.  
+3. Az új panelen válassza a **fiók hozzáadása** lehetőséget, és jelentkezzen be a Azure Active Directory (Azure ad) hitelesítő adataival.  
 
-    ![Képernyőfelvétel a Cloud Explorer egyszer bejelentkezett, és csatlakozik az Azure Stackben](./media/azure-stack-install-visual-studio/image2.png)
+    ![A Cloud Explorer képernyőképe a bejelentkezés után és a Azure Stackhoz való csatlakozáskor](./media/azure-stack-install-visual-studio/image2.png)
 
-Miután bejelentkezett, is [sablonok üzembe helyezése](azure-stack-deploy-template-visual-studio.md) vagy tallózással keresse meg az elérhető erőforrástípusok és -erőforráscsoportok saját sablonok létrehozásához.  
+A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deploy-template-visual-studio.md) vagy az elérhető erőforrástípusok és erőforráscsoportok tallózásával hozhatja létre saját sablonjait.  
 
-## <a name="connect-to-azure-stack-with-ad-fs"></a>Csatlakozás az Azure Stack az AD FS-sel
+## <a name="connect-to-azure-stack-with-ad-fs"></a>Kapcsolódás Azure Stackhoz AD FS
 
-1. Indítsa el a Visual Studiót.
+1. Indítsa el a Visual studiót.
 
-2. A **eszközök**válassza **beállítások**.
+2. Az **eszközök**területen válassza a **Beállítások lehetőséget**.
 
-3. Bontsa ki a **környezet** a a **navigációs** válassza **fiókok**.
+3. Bontsa ki a **környezet** elemet a **navigációs ablaktáblán** , és válassza a **fiókok**lehetőséget.
 
-4. Válassza ki **Hozzáadás**, és adja meg a felhasználó Azure Resource Manager-végpontot. Az Azure Stack Development Kit URL-je: `https://management.local.azurestack/external`.  Az Azure Stack integrált rendszerek, az URL-je: `https://management.[Region}.[External FQDN]`.
+4. Válassza a **Hozzáadás**lehetőséget, majd adja meg a felhasználói Azure Resource Manger-végpontot. A Azure Stack Development Kit (ASDK) esetében az URL-cím a `https://management.local.azurestack/external`következő:.  Azure Stack integrált rendszerek esetében az URL-cím a `https://management.[Region}.[External FQDN]`következő:.
 
-    ![X](./media/azure-stack-install-visual-studio/image5.png)
+    ![Új Azure Cloud Discovery-végpont hozzáadása](./media/azure-stack-install-visual-studio/image5.png)
 
 5. Válassza a **Hozzáadás** lehetőséget.  
 
-    A Visual Studio Azure Resource Manager-hívások, és felderíti a végpont, a hitelesítési végpont, beleértve az Azure Directory összevont szolgáltatások (AD FS).
+    A Visual Studio meghívja az Azure Resource Mangert, és felfedi a végpontokat, beleértve a hitelesítési végpontot az Azure Directory összevont szolgáltatások (AD FS) számára.
 
-    ![Képernyőfelvétel a Cloud Explorer egyszer bejelentkezett, és csatlakozik az Azure Stackben](./media/azure-stack-install-visual-studio/image6.png)
+    ![A Cloud Explorer képernyőképe a bejelentkezés után és a Azure Stackhoz való csatlakozáskor](./media/azure-stack-install-visual-studio/image6.png)
 
-6. Válassza ki **Cloud Explorer** származó a **nézet** menü.
+6. A **nézet** menüben válassza a **Cloud Explorer** lehetőséget.
 
-7. Válassza ki **fiók hozzáadása** , és jelentkezzen be az AD FS hitelesítő adataival.  
+7. Válassza a **fiók hozzáadása** lehetőséget, és jelentkezzen be a AD FS hitelesítő adataival.  
 
-    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
+    ![Bejelentkezés a Visual studióba a Cloud Explorerben](./media/azure-stack-install-visual-studio/image7.png)
 
-    Cloud Explorer lekérdezi az elérhető előfizetésekkel. Kiválaszthat egy érhető el előfizetés kezelésére.
+    A Cloud Explorer lekérdezi az elérhető előfizetéseket. Kiválaszthatja a felügyelni kívánt elérhető előfizetést.
 
-    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
+    ![A Cloud Explorerben kezelendő előfizetések kiválasztása](./media/azure-stack-install-visual-studio/image8.png)
 
-8. Keresse meg a meglévő erőforrások, erőforráscsoportok vagy sablonok üzembe helyezése.
+8. Tallózással keresse meg a meglévő erőforrásokat, erőforráscsoportokat vagy telepítse a sablonokat.
 
 ## <a name="next-steps"></a>További lépések
 
-- További információk a Visual Studio [egymás mellett](/visualstudio/install/install-visual-studio-versions-side-by-side) egyéb Visual Studio-verziókkal.
-- [Sablonok fejlesztése az Azure Stack](azure-stack-develop-templates.md).
+- További információ a Visual Studio [oldaláról](/visualstudio/install/install-visual-studio-versions-side-by-side) más Visual Studio-verziókkal.
+- [Sablonok fejlesztése a Azure Stackhoz](azure-stack-develop-templates.md).
