@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: a64f4682f3fa46bc6213dd12128c61944b7d6dab
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544124"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865916"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-elemek letöltése az Azure-ból Azure Stack
 
@@ -77,7 +77,7 @@ Ha Azure Stack leválasztott módban van, és nincs internetkapcsolata, a PowerS
 A Marketplace Syndication eszköz egy csatlakoztatott forgatókönyvben is használható. 
 
 A forgatókönyv két részből áll:
-- **1. rész:** Letöltés az Azure Marketplace-ről. Az internet-hozzáféréssel rendelkező számítógépen konfigurálja a PowerShellt, töltse le a szindikált eszközt, majd töltse le az elemeket az Azure Marketplace-en.  
+- **1. rész:** Letöltés az Azure Marketplace-ről. Az internet-hozzáféréssel rendelkező számítógépen konfigurálja a PowerShellt, töltse le a szindikált eszközt, majd töltse le az elemeket az Azure Marketplace-ről.  
 - **2. rész:** Töltse fel és tegye közzé a Azure Stack piactéren. Áthelyezi a letöltött fájlokat a Azure Stack-környezetbe, importálja őket a Azure Stackba, majd közzéteheti őket a Azure Stack piactéren.  
 
 
@@ -139,7 +139,7 @@ A forgatókönyv két részből áll:
 
    [![Azure Marketplace-elemek előugró ablak](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace-elemek")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Válassza ki a letölteni kívánt elemet, és jegyezze fel a *verziót*. A *CTRL* billentyűt lenyomva több lemezképet is kijelölhet. A verzióra  hivatkozik, amikor a következő eljárásban importálja az elemet. 
+7. Válassza ki a letölteni kívánt elemet, és jegyezze fel a *verziót*. A *CTRL* billentyűt lenyomva több lemezképet is kijelölhet. A verzióra hivatkozik, amikor a következő eljárásban importálja az elemet. 
    
    A képek listáját a **feltételek hozzáadása** lehetőség használatával is szűrheti.
 
@@ -201,9 +201,9 @@ A forgatókönyv két részből áll:
    5. A feltöltött fájlok a tároló ablaktáblán jelennek meg. Válasszon ki egy fájlt, majd másolja az URL-címet a **blob tulajdonságai** ablaktáblából. Ezt az URL-címet a következő lépésben fogja használni, amikor a Marketplace-elemet Azure Stackba importálja.  A következő képen a tároló *blob-test-Storage* , a fájl pedig a *Microsoft. WindowsServer2016DatacenterServerCore-ARM. 1.0.801. azpkg*.  A fájl URL- *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* címe:.  
       [![Blob tulajdonságai](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob tulajdonságai")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
-3. Importálja a VHD-rendszerképet Azure Stackre az **Add-AzsPlatformimage** parancsmag használatával. Ha ezt a parancsmagot használja, cserélje le a közzétevőt, az *ajánlatot*és az egyéb paramétereket az importálandó rendszerkép értékeire. 
+3. Importálja a VHD-rendszerképet Azure Stackre az **Add-AzsPlatformimage** parancsmag használatával. Ha ezt a parancsmagot használja, cseréljele a közzétevőt, az *ajánlatot*és az egyéb paramétereket az importálandó rendszerkép értékeire. 
 
-   A rendszerkép közzétevőjét , *ajánlatát*és *SKU* -értékét a AZPKG fájlból letöltött szövegfájlból kérheti le. A szövegfájl a célhelyen tárolódik. A *verzió* értéke az előző eljárás során az Azure-ban az elem letöltésekor feljegyzett verzió. 
+   A rendszerkép közzétevőjét, *ajánlatát*és *SKU* -értékét a AZPKG fájlból letöltött szövegfájlból kérheti le. A szövegfájl a célhelyen tárolódik. A *verzió* értéke az előző eljárás során az Azure-ban az elem letöltésekor feljegyzett verzió. 
  
    A következő példa parancsfájlban a Windows Server 2016 Datacenter-Server Core virtuális gép értékeit használja a rendszer. A *-Osuri* érték az adott blob Storage-helyének elérési útja.
 

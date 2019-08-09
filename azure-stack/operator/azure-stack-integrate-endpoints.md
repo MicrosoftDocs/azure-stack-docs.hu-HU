@@ -9,22 +9,26 @@ ms.topic: article
 ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: b97d542c5a885078fa80108cdb0c16e6ccb79b98
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/05/2019
+ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806951"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865893"
 ---
-# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack Datacenter-integráció – végpontok közzététele
+# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack Datacenter-integráció – Azure Stack szolgáltatások közzététele
 
-Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés időpontjában meg van adva.
-
+Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés időpontjában meg van adva. A felhasználói portál például a portál DNS-gazdagépének bejegyzéséhez van rendelve. *régió >.&lt; &lt; FQDN >* .
 
 A következő építészeti ábrán a különböző hálózati rétegek és ACL-ek láthatók:
 
 ![Szerkezeti kép](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+
+### <a name="ports-and-urls"></a>Portok és URL-címek
+Ahhoz, hogy Azure Stack szolgáltatásokat (például a portálokat, a Azure Resource Managereket, a DNS-t stb.) elérhetővé tegye a külső hálózatok számára, engedélyeznie kell a bejövő forgalmat a végpontok számára adott URL-címek, portok és protokollok esetén.
+ 
+Egy olyan üzemelő példányban, ahol egy transzparens proxy egy hagyományos proxykiszolgálóhoz vagy egy tűzfallal védi a megoldást, engedélyeznie kell a [bejövő](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) és a [kimenő](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) kommunikációhoz megadott portokat és URL-címeket. Ezek közé tartoznak az identitáshoz tartozó portok és URL-címek, a piactér, a javítások és a frissítés, a regisztrálás és a használati adatok.
 
 ## <a name="ports-and-protocols-inbound"></a>Portok és protokollok (bejövő)
 

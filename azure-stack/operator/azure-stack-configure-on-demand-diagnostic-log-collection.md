@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 988c24f004222d80b866024c2c392473cdf73bab
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 007703facf882eccd594dfb6f78941570c9cfb02
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712944"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865905"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>Azure Stack diagnosztikai naplók begyűjtése most (igény szerint)
 
@@ -41,7 +41,7 @@ A probléma elhárításához a CSS kérheti Azure Stack operátort, hogy az el�
    ![Képernyőkép az igény szerinti naplók gyűjtéséről](media/azure-stack-automatic-log-collection/collect-logs-now.png)
 
 >[!NOTE]
->Ha az automatikus diagnosztikai napló gyűjteménye engedélyezve van, a **Súgó és támogatás** megjeleníti a naplózási gyűjtemény folyamatát. Ha a **naplók gyűjtése** gombra kattint a naplók terjesztésipont megcélzó való összegyűjtéséhez, miközben az automatikus naplózási gyűjtemény folyamatban van, az igény szerinti gyűjtemény az automatikus naplózási gyűjtemény befejeződése után kezdődik. 
+>Ha az automatikus diagnosztikai napló gyűjteménye engedélyezve van, a **Súgó és támogatás** megjeleníti a naplózási gyűjtemény folyamatát. Ha a **naplók gyűjtése** gombra kattint a naplók egy adott időpontból való összegyűjtéséhez, miközben az automatikus naplózási gyűjtemény folyamatban van, az igény szerinti gyűjtemény az automatikus naplózási gyűjtemény befejeződése után kezdődik. 
 
 ## <a name="using-pep"></a>A PEP használata
 
