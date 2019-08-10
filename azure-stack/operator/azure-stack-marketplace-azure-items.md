@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 76ce6d491969913ad48486fd9004f7686af8e6f3
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/09/2019
+ms.openlocfilehash: b1085c22533530402d322702ca26c078c9cc7e4a
+ms.sourcegitcommit: 6239b35370d21852529978777c0e39cfba5a4552
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807069"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68917607"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack elérhető Azure Marketplace-elemek
 
@@ -88,6 +88,7 @@ Microsoft Azure Stack a következő Azure Marketplace-alapú virtuális gépeket
 | ![Tároló linuxos CoreOS szerint](media/azure-stack-marketplace-azure-items/coreos.png) | [Tároló linuxos CoreOS szerint](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | A Container Linux egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevő, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Az Ubuntu Server a világ legnépszerűbb Linux-környezete. | Canonical |
 | ![Debian 8 "Megbéklyóz"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Megbéklyóz"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | A Debian GNU/Linux az egyik legnépszerűbb Linux-disztribúció. | credativ |
+| ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | A Oracle Linux operációs rendszer a nyílt felhőalapú infrastruktúra kialakítására szolgál. A nagyvállalati SaaS-és a Pásti-munkaterhelések, valamint a hagyományos vállalati alkalmazások vezető teljesítményének, méretezhetőségének és megbízhatóságának köszönhetően. | Oracle |
 | ![CentOS-alapú 6,8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 6,8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic)  |
 | ![CentOS-alapú 6,10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 6,10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic)  |
 | ![CentOS-alapú 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 7,3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic) |
