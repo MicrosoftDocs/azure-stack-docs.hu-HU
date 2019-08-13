@@ -1,6 +1,6 @@
 ---
-title: Az Azure-bA az Azure Stack-használati adatok jelentése |} A Microsoft Docs
-description: Ismerje meg, hogyan állítható be az Azure Stackben jelentéskészítés a használati adatokról.
+title: Jelentés Azure Stack használati adatok az Azure-ba | Microsoft Docs
+description: Megtudhatja, hogyan állíthatja be a használati adatok jelentéseit a Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,100 +11,100 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: c744a686be2a00418f48b769a5971997a603693f
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172655"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959441"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Az Azure-bA az Azure Stack-használati adatok jelentése
+# <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack használati adatok jelentése az Azure-ban
 
-Használati adatok, más néven a használati adatokat, a használt erőforrások mennyisége jelöli.
+A használati adatok, más néven felhasználási adatok, a felhasznált erőforrások mennyiségét jelölik.
 
-Használja a fogyasztás alapú számlázási modellt az Azure Stack több csomópontos rendszerek jelentse használati adatokat az Azure számlázási célból. Az Azure Stack-operátorok konfigurálnia kell az Azure Stack-példány jelentés használati adatokat az Azure-bA.
+Azure Stack a használaton alapuló számlázási modellt használó többcsomópontos rendszereknek számlázási célokra kell jelenteniük a használati adatokat az Azure-ban. Azure Stack operátoroknak konfigurálniuk kell a Azure Stack-példányt a használati adatok Azure-ba való jelentéséhez.
 
 > [!IMPORTANT]
-> Minden számítási [kell rendelni a bérlő előfizetéseknél](#are-users-charged-for-the-infrastructure-vms) az Azure Stack licencelési feltételeit.
+> Az összes munkaterhelést a bérlői előfizetések [alatt kell telepíteni](#are-users-charged-for-the-infrastructure-vms) , hogy megfeleljenek a Azure stack licencelési feltételeinek.
 
-Használati adatok jelentése szükség a több csomópontos Azure Stack-felhasználókat, akik a használatalapú mint-akkor-használható modellben licenc. Nem kötelező ügyfelek esetében, akik a kapacitás modellben licenc (lásd a [megvásárlása](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) lap). Az Azure Stack Development Kit a felhasználóknak az Azure Stack-operátorok használati adatokat, és tesztelheti a szolgáltatást. Azonban felhasználók nem kell fizetni keletkeznek használatot.
+A használati adatok jelentéskészítése szükséges az Azure Stack több csomópontot használó felhasználók számára, akik licencet igényelnek az utólagos használatú modellben. A kapacitási modellben licencet nem igénylő ügyfelek számára nem kötelező ( [](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) lásd a vásárlást ismertető oldalt). Azure Stack Development Kit (ASDK) felhasználók esetében Azure Stack operátorok jelentést készíthetnek a használati adatokról, és ellenőrizhetik a szolgáltatást. A felhasználók azonban nem számítanak fel díjat a felmerülő használatért.
 
 ![számlázási folyamat](media/azure-stack-usage-reporting/billing-flow.png)
 
-Használati adatok az Azure Stack az Azure-bA az Azure hídon keresztül zajlik. Az Azure-ban a kereskedelmi rendszer dolgozza fel a használati adatok, és állít elő, a számlán. Miután a számla jön létre, az Azure-előfizetés tulajdonosa megtekintheti és töltse le a [Azure Account Center](https://account.windowsazure.com/subscriptions). Hogyan licencelve van-e az Azure Stack kapcsolatos további információkért tekintse meg a [csomagolása és a díjszabás a dokumentum az Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842847).
+A használati adatokat a rendszer a Azure Stack az Azure-ba küldi el a Azure Bridge keresztül. Az Azure-ban a kereskedelmi rendszerek feldolgozzák a használati adatokat, és létrehozzák a számlát. A számla létrehozása után az Azure-előfizetés tulajdonosa megtekintheti és letöltheti a [Azure Fiókközpont](https://account.windowsazure.com/subscriptions). A Azure Stack licencének megismeréséhez tekintse meg a [Azure stack csomagolási és díjszabási dokumentumát](https://go.microsoft.com/fwlink/?LinkId=842847).
 
-## <a name="set-up-usage-data-reporting"></a>Állítsa be a használati adatok jelentése
+## <a name="set-up-usage-data-reporting"></a>Használati adatok jelentésének beállítása
 
-Használati adatok jelentése beállításához kell [regisztrálása az Azure Stack-példány az Azure-ral](azure-stack-registration.md). A regisztrációs folyamat részeként az Azure Stack, amely kapcsolódik az Azure Stack az Azure-ba, és a használati adatokat küld, Azure híd összetevője van konfigurálva. A következő használati adatok Azure Stackben is küld az Azure-bA:
+A használati adatok jelentéskészítésének beállításához regisztrálnia kell [az Azure stack-példányt az Azure](azure-stack-registration.md)-ban. A regisztrációs folyamat részeként a Azure Stack Azure Bridge összetevője, amely összeköti a Azure Stack az Azure-hoz, és elküldi a használati adatokat, konfigurálva van. A rendszer a következő használati adatokat küldi el a Azure Stackról az Azure-ba:
 
-- **Mérőszám azonosítója** – az a felhasznált erőforrás egyedi azonosítója.
-- **Mennyiség** – erőforrás-használat mennyisége.
-- **Hely** -helyet, ahol a jelenlegi Azure Stack-erőforrás üzembe van helyezve.
-- **Erőforrás-URI** – teljes URI-t az erőforrás, amelynek használati jelentett.
-- **Előfizetés-azonosító** -előfizetés az Azure Stack felhasználónak, amely a helyi (az Azure Stack) előfizetés-azonosítója.
-- **Idő** -kezdési és befejezési idő, a használati adatok. Bizonyos időbeli késedelem van az időpont közötti amikor ezeket az erőforrásokat az Azure Stackben felhasználják, és a használati adatok kereskedelmi jelentésekor. Az Azure Stack a 24 óránként összesíti az használati adatait, és a kereskedelmi folyamat az Azure-beli használati adatokról szóló jelentéseket egy másik néhány óráig tart. Ezért hamarosan éjfél előtt következik be használati is megjelenhetnek az Azure-ban a következő napon.
+- **Mérési azonosító** – a felhasznált erőforrás egyedi azonosítója.
+- **Mennyiség** – az erőforrás-használat mennyisége.
+- **Hely** – a jelenlegi Azure stack erőforrás központi telepítésének helye.
+- **Erőforrás URI-ja** – annak az erőforrásnak a teljes URI azonosítója, amelynek a használatát jelenteni kell.
+- **Előfizetés-azonosító** – a Azure stack felhasználó előfizetés-azonosítója, amely a helyi (Azure stack) előfizetés.
+- A használati adatok kezdő és befejező időpontja. A Azure Stack és a használati adatok kereskedelembe való bejelentésének ideje között némi késés áll fenn. A Azure Stack 24 óránként összesíti a használati adatokat, és az Azure-ban a kereskedelmi folyamatra vonatkozó jelentési használati adatokat igénybe vesz néhány óra. Ezért az éjfél előtt rövid idő alatt megjelenő használat a következő napon jelenhet meg az Azure-ban.
 
-## <a name="generate-usage-data-reporting"></a>Használati adatok jelentések készítése
+## <a name="generate-usage-data-reporting"></a>Használati adatok jelentéskészítésének előállítása
 
-- Jelentéskészítés a használati adatokról teszteléséhez hozzon létre néhány erőforrásokat az Azure Stackben. Létrehozhat például egy [tárfiók](azure-stack-provision-storage-account.md), [Windows Server rendszerű virtuális gép](../user/azure-stack-create-vm-template.md), és a egy Linuxos virtuális Gépre, az alapszintű és Standard alapvető használati jelentett hogyan megtekintéséhez. A használati adatok a különböző típusú erőforrások különböző mérőszámok alapján jelenti.
+- A használati adatok jelentésének teszteléséhez hozzon létre néhány erőforrást a Azure Stackban. Létrehozhat például egy [Storage-fiókot](azure-stack-provision-storage-account.md), a [Windows Server-alapú virtuális gépet](../user/azure-stack-create-vm-template.md), valamint egy alapszintű és standard SKU-val rendelkező Linux virtuális gépet, amelyből megtudhatja, hogyan történik az alapvető használat jelentése. A különböző típusú erőforrások használati adatait különböző mérőműszerek jelentik.
 
-- Az erőforrások néhány órán keresztül fut, hagyja. Körülbelül óránként gyűjt használati adatokat. Ezeket az adatokat, begyűjtését követően az Azure-bA továbbított adatok köre és dolgozzák fel az Azure kereskedelmi rendszerben. Ez a folyamat több óráig is eltarthat.
+- Néhány órán keresztül elhagyhatja a futó erőforrásokat. A használati adatokat körülbelül óránként egyszer gyűjtjük. Az adatgyűjtés után ezeket az adatokat az Azure-ba továbbítjuk, és az Azure kereskedelmi rendszerébe dolgozzák fel. Ez a folyamat akár néhány órát is igénybe vehet.
 
-## <a name="view-usage---csp-subscriptions"></a>Használati adatok megtekintése – CSP-előfizetésekben
+## <a name="view-usage---csp-subscriptions"></a>Használat – CSP-előfizetések megtekintése
 
-Ha regisztrált az Azure Stack használatával a CSP-előfizetésekben, ahol megtekintheti az Azure-használati ugyanúgy a használat és költségek megtekintheti. Azure Stack-használat szerepel a számlán, és az egyeztetési fájlban, keresztül elérhető a [Partnerközpont](https://partnercenter.microsoft.com/partner/home). Az egyeztetési fájlt a havonta frissül. Ha a legutóbbi Azure Stack-használati adatok elérésére van szüksége, használhatja a Partner Center API-k.
+Ha a Azure Stack CSP-előfizetéssel regisztrálta, a használatot és a díjakat ugyanúgy tekintheti meg, ahogyan az Azure-felhasználást is megtekintheti. A Azure Stack használat a [partner centeren](https://partnercenter.microsoft.com/partner/home)keresztül elérhető, a számlán és a megbékélési fájlban is szerepel. Az egyeztetési fájl havonta frissül. Ha el kell érnie a legutóbbi Azure Stack használati adatokat, használhatja a partner Center API-kat.
 
-![partnerközpont](media/azure-stack-usage-reporting/partner-center.png)
+![partneri központ](media/azure-stack-usage-reporting/partner-center.png)
 
-## <a name="view-usage---enterprise-agreement-subscriptions"></a>Használati adatok megtekintése – nagyvállalati szerződéses előfizetések
+## <a name="view-usage---enterprise-agreement-subscriptions"></a>Használati Nagyvállalati Szerződés-előfizetések megtekintése
 
-Ha regisztrált az Azure Stack használatával a nagyvállalati szerződéses előfizetésébe, megtekintheti a használattal és a díjak a [a nagyvállalati szerződések portáljának](https://ea.azure.com/). Azure Stack-használat a speciális letöltések együtt az Azure-használatát ezen a portálon a jelentések szakaszban szerepel.
+Ha Nagyvállalati Szerződés-előfizetéssel regisztrálta a Azure Stack, a használat és a díjak megtekinthetők az [EA portálon](https://ea.azure.com/). Azure Stack használatot a speciális letöltések, valamint az Azure-használat című rész tartalmazza a portál jelentések szakaszában.
 
-## <a name="view-usage---other-subscriptions"></a>Használati adatok megtekintése – más előfizetések
+## <a name="view-usage---other-subscriptions"></a>Használat megtekintése – egyéb előfizetések
 
-Ha regisztrált az Azure Stack segítségével bármely más előfizetésre írja; Ha például egy használatalapú fizetéses előfizetésre, megtekintheti az Azure Account Center használat és költségek. Jelentkezzen be a [Azure Account Center](https://account.windowsazure.com/subscriptions) az Azure-rendszergazdai fiók, és válassza ki az Azure-előfizetést, amellyel az Azure Stack regisztrálni. Az Azure Stack használati adatok, az összeg, az egyes, a használt erőforrások díjat számítunk fel, a következő képen látható módon tekintheti meg:
+Ha a Azure Stack bármely más előfizetés-típussal regisztrálta, az utólagos elszámolású előfizetések esetében például megtekintheti a használatot és a díjakat a Azure Fiókközpontban. Jelentkezzen be az [Azure Fiókközpontba](https://account.windowsazure.com/subscriptions) Azure-fiók rendszergazdájaként, és válassza ki a Azure stack regisztrálásához használt Azure-előfizetést. Megtekintheti a Azure Stack használati adatait, az egyes felhasznált erőforrások összegét, az alábbi ábrán látható módon:
 
 ![számlázási folyamat](media/azure-stack-usage-reporting/pricing-details.png)
 
-Az Azure Stack Development Kit for Azure Stack-erőforrások nem számítunk fel, így a díj látható 0,00 USD.
+A ASDK esetében Azure Stack erőforrások nem számítanak fel díjat, így a feltüntetett ár $0,00.
 
-## <a name="which-azure-stack-deployments-are-charged"></a>Melyik Azure Stack üzemelő példányok díja?
+## <a name="which-azure-stack-deployments-are-charged"></a>Mely Azure Stack üzemelő példányok díja?
 
-Erőforrás-használatot pedig ingyenesen használható az Azure Stack Development Kit. Az Azure Stack több csomópontos rendszerekhez, virtuális gépek számítási, tárolási szolgáltatások és App Services, számítjuk fel.
+Az erőforrás-használat ingyenes a ASDK számára. Azure Stack a többcsomópontos rendszerek, a számítási feladatok virtuális gépei, a tárolási szolgáltatások és a App Services díjait.
 
-## <a name="are-users-charged-for-the-infrastructure-vms"></a>Felhasználók a virtuális gépek infrastruktúra díjkötelesek?
+## <a name="are-users-charged-for-the-infrastructure-vms"></a>A felhasználók díjat számítanak ki az infrastruktúra-alapú virtuális gépekért?
 
-Nem. Használati adatok az egyes Azure Stack erőforrás-szolgáltató virtuális gépeket az Azure-bA jelez, de nem számítunk fel díjat ezeknek a virtuális gépeknek, sem a virtuális gépek üzembe helyezésének részeként létrehozott engedélyezése az Azure Stack-infrastruktúra.  
+Nem. Egyes Azure Stack erőforrás-szolgáltatói virtuális gépek használati adatait a rendszer az Azure-ba küldi, de a virtuális gépekért nem számítunk fel díjat, sem pedig az üzembe helyezés során létrehozott virtuális gépeket, amelyek lehetővé teszik a Azure Stack infrastruktúra használatát.  
 
-Felhasználók csak a bérlő az előfizetések alatt futó virtuális gépek fizetnie. Minden számítási feladatok Azure Stack licencelési feltételeit ahhoz, hogy a bérlő előfizetéseknél kell telepíteni.
+A felhasználók csak a bérlői előfizetésekben futtatott virtuális gépekért számítanak fel díjat. Az összes munkaterhelést a bérlői előfizetések alatt kell telepíteni, hogy megfeleljenek a Azure Stack licencelési feltételeinek.
 
-## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Az Azure Stacken használni kívánt Windows Server-licence van, hogyan kell ehhez tennem?
+## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Egy Windows Server-licenccel szeretnék használni a Azure Stackon, hogyan csinálom?
 
-A meglévő licencek használatával elkerülhető a használati mérőszámok létrehozása. Windows Server-licenceit az Azure Stackben, használható, a "Meglévő szoftverek használata az Azure Stack használatával" szakaszban leírtak szerint a [Azure Stack-licencelési útmutató](https://go.microsoft.com/fwlink/?LinkId=851536). Annak érdekében, hogy a meglévő licenceit használja, üzembe kell helyezni a Windows Server virtuális gépeik leírtak szerint [Hybrid Benefit értékelem a Windows Server-licenc](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+A meglévő licencek használatával elkerülhető a használati fogyasztásmérők generálása. A meglévő Windows Server-licencek Azure Stackban használhatók a [Azure stack licencelési útmutatójának](https://go.microsoft.com/fwlink/?LinkId=851536)"meglévő szoftver használata Azure stack" című részében leírtak szerint. A meglévő licencek használatához a Windows Server rendszerű virtuális gépeket a [Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing)-licenchez készült Hybrid Benefit című cikkben leírtak szerint kell telepíteni.
 
-## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Melyik előfizetést a felhasznált erőforrásokért fizet?
+## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Milyen előfizetést kell fizetni a felhasznált erőforrásokért?
 
-Az előfizetés, mikor biztosított [regisztrálása az Azure Stack az Azure-ral](azure-stack-registration.md) díjat számítunk fel.
+Az Azure-beli [Azure stack regisztrálásakor](azure-stack-registration.md) biztosított előfizetés díja.
 
-## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Milyen típusú előfizetések használati adatok jelentése támogatottak?
+## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Milyen típusú előfizetéseket támogat a használati adatok jelentése?
 
-Az Azure Stack több csomópontos a nagyvállalati szerződés (EA) és a CSP-előfizetések használata támogatott. Az Azure Stack Development Kit, nagyvállalati szerződés (EA), használatalapú fizetés, a CSP és az MSDN-előfizetések támogatása használati adatok jelentése.
+Azure Stack több csomópontos, Nagyvállalati Szerződés (EA) és CSP-előfizetések támogatottak. A Azure Stack Development Kit, a Nagyvállalati Szerződés (EA), a pay-as-you-go, a CSP és az MSDN-előfizetések támogatják a használati adatok jelentéskészítését.
 
-## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>A független felhőkben munkahelyi jelentéskészítés a használati adatokról nem?
+## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Működik a használati adatok jelentése a szuverén felhőkben?
 
-Az Azure Stack Development Kit szükséges használati adatok jelentése a globális Azure rendszerben létrehozott előfizetések. A független felhőkben (Azure Government, Azure Germany és Azure China felhők) egyikében létrehozott előfizetések nem lehet regisztrálni az Azure-ban, így nem támogatják a használati adatok jelentése.
+A Azure Stack Development Kit a használati adatok jelentéskészítéséhez a globális Azure-rendszeren létrehozott előfizetésekre van szükség. A szuverén felhők (a Azure Government, az Azure Germany és az Azure China felhők) egyikében létrehozott előfizetések nem regisztrálhatók az Azure-ban, így nem támogatják a használati adatok jelentéskészítését.
 
-## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Miért nem egyezik meg a használati jelentés készül az Azure Stack az Azure Account Center által létrehozott jelentést?
+## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Miért nem szerepel a Azure Stackban jelentett felhasználás a Azure Fiókközpont-ből generált jelentéssel?
 
-Az Azure Stack-használati API-k által jelentett használati adatok és a használati adatok az Azure Account Center webhelyen jelentett késleltetés mindig van. Ez a késleltetés a használati adatokat az Azure Stack az Azure kereskedelmi feltöltéséhez szükséges idő. Miatt ez a késleltetés hamarosan éjfél előtt következik be használati jelenhet meg az Azure-ban a következő napon. Ha használja a [Azure Stack-használati API-k](azure-stack-provider-resource-api.md), és hasonlítsa össze az eredményeket a használati jelentés készül az Azure számlázási portálján, akkor megtekintheti, különbség.
+Mindig van késés a Azure Stack használati API-k által jelentett használati adatok és a Azure Fiókközpontban jelentett használati adatok között. Ez a késleltetés az Azure Stack-ból az Azure-ba történő használati adatok feltöltéséhez szükséges idő. Ennek a késésnek köszönhetően az éjfél előtt röviddel megjelenő használat a következő napon jelenhet meg az Azure-ban. Ha a [Azure stack használati API-kat](azure-stack-provider-resource-api.md)használja, és összehasonlítja az eredményeket az Azure számlázási portálon jelentett használattal, a különbség látható.
 
 ## <a name="next-steps"></a>További lépések
 
 - [Szolgáltatói használati API](azure-stack-provider-resource-api.md)  
 - [Bérlői használati API](azure-stack-tenant-resource-usage-api.md)
 - [Használat – gyakori kérdések](azure-stack-usage-related-faq.md)
-- [Kezelése a használati és számlázási információkkal Felhőszolgáltató](azure-stack-add-manage-billing-as-a-csp.md)
+- [A használat és a számlázás kezelése felhőalapú szolgáltatóként](azure-stack-add-manage-billing-as-a-csp.md)

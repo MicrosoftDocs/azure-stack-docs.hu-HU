@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack App Service üzembe helyezése a magas rendelkezésre állású konfigurációban |} A Microsoft Docs
-description: Ismerje meg, hogyan helyezhet üzembe az App Service-ben az Azure Stack használatával a magas rendelkezésre állású konfigurációval.
+title: Azure Stack App Service üzembe helyezése egy magasan elérhető konfigurációban | Microsoft Docs
+description: Megtudhatja, hogyan helyezheti üzembe a App Service a Azure Stackban egy kiválóan elérhető konfiguráció használatával.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,230 +16,230 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2d2aab654f2283cf019e609e9de14790ed44a76a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837040"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959554"
 ---
-# <a name="deploy-app-service-in-a-highly-available-configuration"></a>Magas rendelkezésre állású konfigurációban App Service üzembe helyezése
+# <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
-Ez a cikk bemutatja, hogyan használhatja az Azure Stack piactéren elemek üzembe helyezése az Azure Stack App Service egy magas rendelkezésre állású konfigurációban. Mellett rendelkezésre Piactéri elemek, ez a megoldás is használ a [az App Service-fileshare – SQL Server – magas rendelkezésre állás](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack gyorsindítási sablon. Ez a sablon egy magas rendelkezésre állású infrastruktúrát, a üzemeltetési az App Service erőforrás-szolgáltató létrehozása automatizálja. App Service-ben a virtuális gép magas rendelkezésre állású infrastruktúrát telepíti. 
+Ebből a cikkből megtudhatja, hogyan használhatók a Azure Stack Marketplace-elemek, ha a Azure Stack egy magasan elérhető konfigurációban helyezi üzembe a App Service. A piactéren elérhető elemek mellett ez a megoldás a [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack gyors üzembe helyezési sablont is használja. Ez a sablon automatizálja a App Service erőforrás-szolgáltató üzemeltetéséhez szükséges, magasan elérhető infrastruktúra létrehozását. Ezt követően a rendszer telepíti a App Service a rendelkezésre álló, magasan elérhető virtuálisgép-infrastruktúrára. 
 
-## <a name="deploy-the-highly-available-app-service-infrastructure-vms"></a>A magas rendelkezésre állású virtuális gépek App Service-ben infrastruktúra üzembe helyezése
-A [az App Service-fileshare – SQL Server – magas rendelkezésre állás](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack-gyorssablon egyszerűbbé teszi az App Service üzemelő példánya egy magas rendelkezésre állású konfigurációban. Az alapértelmezett szolgáltatója előfizetésben kell telepíteni. 
+## <a name="deploy-the-highly-available-app-service-infrastructure-vms"></a>A magasan elérhető App Service infrastruktúra-alapú virtuális gépek üzembe helyezése
+A [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack gyors üzembe helyezési sablonja leegyszerűsíti app Service központi telepítését magas rendelkezésre állású konfigurációban. Az alapértelmezett szolgáltatói előfizetésben kell központilag telepíteni. 
 
-Ha egy egyéni erőforrás létrehozása az Azure Stackben, a sablont hoz létre:
-- Egy virtuális hálózat és alhálózatok megadása kötelező.
-- A hálózati biztonsági csoportokat a fájlkiszolgáló, az SQL Server és Active Directory Domain Services (AD DS) alhálózatokhoz.
-- Storage-fiókok a Virtuálisgép-lemezek és a fürt felhőbeli tanúsítót.
-- Az SQL virtuális gépek magánhálózati IP-Címmel rendelkező egy belső terheléselosztó az SQL AlwaysOn-figyelő kötve.
-- Három rendelkezésre állási csoportok az Active Directory tartományi szolgáltatások, a fájlkiszolgáló fürt és az SQL-fürt.
+Ha Azure Stackban egyéni erőforrást hoz létre, a sablon a következőt hozza létre:
+- Egy virtuális hálózat és szükséges alhálózatok.
+- Fájlkiszolgáló, SQL Server és Active Directory tartományi szolgáltatások (AD DS) alhálózatok hálózati biztonsági csoportjai.
+- Storage-fiókok virtuálisgép-lemezekhez és a fürt Felhőbeli tanúja.
+- Egy belső terheléselosztó a magánhálózati IP-címmel rendelkező SQL virtuális gépekhez, amelyek az SQL AlwaysOn-figyelőhöz vannak kötve.
+- Három rendelkezésre állási csoport a AD DShoz, a fájlkiszolgáló fürthöz és az SQL-fürthöz.
 - Két csomópontos SQL-fürt.
-- Két csomópontos fájlkiszolgáló fürt.
-- Két tartományvezérlőt.
+- Két csomópontos fájlkiszolgáló-fürt.
+- Két tartományvezérlő.
 
-### <a name="required-azure-stack-marketplace-items"></a>Szükséges Azure Stack piactéren elemek
-Ezzel a sablonnal előtt győződjön meg arról, hogy a következő [Azure Stack piactéren elemek](azure-stack-marketplace-azure-items.md) érhetők el az Azure Stack-példány:
+### <a name="required-azure-stack-marketplace-items"></a>Szükséges Azure Stack Marketplace-elemek
+A sablon használata előtt győződjön meg arról, hogy az alábbi [Azure stack Marketplace-elemek](azure-stack-marketplace-azure-items.md) elérhetők a Azure stack-példányban:
 
-- Windows Server 2016 Datacenter Core platform (az AD DS és a file server virtuális gépek)
-- Az SQL Server 2016 SP2 a Windows Server 2016 (vállalati)
-- Legújabb SQL IaaS-bővítményt. 
-- Legújabb PowerShell Desired State Configuration bővítmény 
+- Windows Server 2016 Datacenter Core rendszerkép (AD DS és fájlkiszolgáló virtuális gépekhez)
+- SQL Server 2016 SP2 Windows Server 2016 rendszeren (Enterprise)
+- Legújabb SQL IaaS-bővítmény 
+- A PowerShell kívánt állapotának legújabb konfigurációs bővítménye 
 
 > [!TIP]
-> Felülvizsgálat [a sablon információs fájl](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) további részleteket a sablon követelményeinek és az alapértelmezett értékek a githubon. 
+> A sablonra vonatkozó követelményekkel és az alapértelmezett értékekkel kapcsolatos további részletekért tekintse meg [a sablonhoz tartozó Readme fájlt](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) a githubon. 
 
-### <a name="deploy-the-app-service-infrastructure"></a>Az App Service-infrastruktúra üzembe helyezése
-Ez a szakasz a lépéseket követve hozzon létre egy egyéni üzembe helyezés a **az App Service-fileshare – SQL Server – magas rendelkezésre állás** Azure Stack gyorsindítási sablon.
+### <a name="deploy-the-app-service-infrastructure"></a>A App Service infrastruktúra üzembe helyezése
+Az ebben a szakaszban ismertetett lépések segítségével hozzon létre egy egyéni központi telepítést a **appservice-fájlmegosztás-SQLServer-ha** Azure stack rövid útmutatóval.
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Válassza ki **\+** **erőforrás létrehozása** > **egyéni**, majd **sablonalapú telepítés**.
+2. Válassza **\+** **az erőforrás** > létrehozása**Egyéni**lehetőséget, majd **template Deployment**.
 
-   ![Egyéni sablon telepítése](media/app-service-deploy-ha/1.png)
+   ![Egyéni sablon központi telepítése](media/app-service-deploy-ha/1.png)
 
 
-3. Az a **egyéni üzembe helyezés** panelen válassza ki **szerkesztési sablon** > **gyorsindítási sablon** , majd a legördülő listából válassza ki a rendelkezésre álló egyéni sablonok, Válassza ki a **az App Service-fileshare – SQL Server – magas rendelkezésre állás** sablont, kattintson a **OK**, majd **mentése**.
+3. A **Custom Deployment (egyéni üzembe helyezés** ) panelen válassza a **sablon** > -**Gyorsindítás sablon** szerkesztése lehetőséget, majd az elérhető egyéni sablonok legördülő listájában válassza ki a **appservice-fájlmegosztás-SQLServer-ha** sablont. Kattintson **az OK**, majd a **Mentés**gombra.
 
-   ![Válassza ki az App Service-fileshare – SQL Server – magas rendelkezésre állás gyorsindítási sablon](media/app-service-deploy-ha/2.png)
+   ![Válassza ki a appservice-fájlmegosztás-SQLServer-ha Gyorsindítás sablont](media/app-service-deploy-ha/2.png)
 
-4. Az a **egyéni üzembe helyezés** panelen válassza ki **paraméterek szerkesztése** , és görgessen le a tekintse át a sablon alapértelmezett értékeit. Módosítsa ezeket az értékeket adja meg az összes kötelező paraméter információkat, majd szükség szerint **OK**.<br><br> Legalább a ADMINPASSWORD, FILESHAREOWNERPASSWORD, FILESHAREUSERPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD és SQLLOGINPASSWORD paraméterek megadására, összetett jelszavakat.
+4. Az **Egyéni telepítés** panelen válassza a **Paraméterek szerkesztése** lehetőséget, és görgessen lefelé az alapértelmezett sablon értékeinek áttekintéséhez. Szükség szerint módosítsa ezeket az értékeket az összes kötelező paraméter információjának megadásához, majd kattintson **az OK**gombra.<br><br> A (z),, `ADMINPASSWORD`, és `FILESHAREOWNERPASSWORD` `FILESHAREUSERPASSWORD` `SQLLOGINPASSWORD` paraméterekhez legalább összetett `SQLSERVERSERVICEACCOUNTPASSWORD`jelszavakat adjon meg.
     
    ![Egyéni telepítési paraméterek szerkesztése](media/app-service-deploy-ha/3.png)
 
-5. Az a **egyéni üzembe helyezés** panelen ellenőrizze, **szolgáltatói előfizetés alapértelmezett** használja majd hozzon létre egy új erőforráscsoportot, vagy válasszon ki egy meglévő erőforráscsoportot, az egyéni előfizetés van kiválasztva a központi telepítés.<br><br> Ezután válassza ki az erőforráscsoport helye (**helyi** ASDK telepítések) majd **létrehozás**. Az egyéni központi telepítési beállítások érvényesíti a sablon telepítésének megkezdése előtt.
+5. Az **Egyéni telepítés** panelen ellenőrizze, hogy az **alapértelmezett szolgáltatói előfizetés** van-e kiválasztva a használni kívánt előfizetésként, majd hozzon létre egy új erőforráscsoportot, vagy válasszon ki egy meglévő erőforráscsoportot az egyéni telepítéshez.<br><br> Ezután válassza ki az erőforráscsoport helyét (ASDK-telepítések esetén**helyi** ), majd kattintson a **Létrehozás**gombra. Az egyéni központi telepítési beállítások érvényesítése a sablon üzembe helyezésének megkezdése előtt történik.
 
     ![Egyéni központi telepítés létrehozása](media/app-service-deploy-ha/4.png)
 
-6. A felügyeleti portálon, válassza ki a **erőforráscsoportok** pedig az erőforráscsoport nevét, az egyéni üzembe helyezés (**app-service – magas rendelkezésre állás** ebben a példában). Győződjön meg arról, központi telepítések sikeresen befejeződött az üzembe helyezés állapotának megtekintéséhez.
+6. A felügyeleti portálon válassza az **erőforráscsoportok** elemet, majd az egyéni telepítéshez létrehozott erőforráscsoport nevét (ebben a példában az**app-Service-ha** lehetőséget). Tekintse meg a központi telepítés állapotát, és győződjön meg arról, hogy az összes központi telepítés sikeresen befejeződött.
 
    > [!NOTE]
-   > A sablon telepítésének befejezéséhez körülbelül egy óra alatt vesz igénybe.
+   > A sablon üzembe helyezése körülbelül egy órát vesz igénybe.
 
-   [![](media/app-service-deploy-ha/5-sm.png "Tekintse át a sablon központi telepítési állapota")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Sablon központi telepítési állapotának áttekintése")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
-### <a name="record-template-outputs"></a>Rekord sablon kimenete
-Után a sablon üzembe helyezés sikeresen befejeződik, a sablon üzembe helyezéséhez adja vissza rekord. Ezek az információk az App Service-telepítő futtatásakor kell. 
+### <a name="record-template-outputs"></a>Sablon kimenetének rögzítése
+Miután a sablon üzembe helyezése sikeresen befejeződött, jegyezze fel a sablon központi telepítési kimeneteit. Ezt az információt a App Service telepítőjének futtatásakor kell megadnia.
 
-Győződjön meg arról, jegyezze fel ezeket az értékeket a kimeneti mindegyike:
+Ügyeljen arra, hogy a következő kimeneti értékeket jegyezze fel:
 - FileSharePath
 - FileShareOwner
 - FileShareUser
 - SQLserver
 - SQLuser
 
-Fedezze fel a sablon kimeneti értékeket az alábbi lépéseket követve:
+A sablon kimeneti értékeinek felderítéséhez kövesse az alábbi lépéseket:
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. A felügyeleti portálon, válassza ki a **erőforráscsoportok** pedig az erőforráscsoport nevét, az egyéni üzembe helyezés (**app-service – magas rendelkezésre állás** ebben a példában). 
+2. A felügyeleti portálon válassza az **erőforráscsoportok** elemet, majd az egyéni telepítéshez létrehozott erőforráscsoport nevét (ebben a példában az**app-Service-ha** lehetőséget). 
 
-3. Kattintson a **központi telepítések** válassza **Microsoft.Template**.
+3. Kattintson a **központi telepítések** elemre, és válassza a **Microsoft. template**lehetőséget.
 
-    ![Microsoft.Template deployment](media/app-service-deploy-ha/6.png)
+    ![Microsoft. Template deployment](media/app-service-deploy-ha/6.png)
 
-4. Kiválasztása után a **Microsoft.Template** központi telepítését, jelölje be **kimenetek** , és jegyezze fel a sablon paraméter kimenete. Ez az információ lesz szükség, ha az App Service üzembe helyezése.
+4. A **Microsoft. template** telepítésének kiválasztása után válassza a kimenetek lehetőséget, és jegyezze fel a sablon paraméter kimenetét. Ez az információ a App Service telepítésekor szükséges.
 
-    ![A paraméter kimenete](media/app-service-deploy-ha/7.png)
+    ![Paraméter kimenete](media/app-service-deploy-ha/7.png)
 
 
-## <a name="deploy-app-service-in-a-highly-available-configuration"></a>Magas rendelkezésre állású konfigurációban App Service üzembe helyezése
-Kövesse a lépéseket ebben a szakaszban történő üzembe helyezést az Azure Stack App Service egy magas rendelkezésre állású konfiguráció alapján a [az App Service-fileshare – SQL Server – magas rendelkezésre állás](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack gyorsindítási sablon. 
+## <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
+Az ebben a szakaszban ismertetett lépéseket követve telepítse a App Service for Azure Stackt magas rendelkezésre állású konfigurációban a [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack gyors üzembe helyezési sablon alapján. 
 
-Miután telepítette az App Service erőforrás-szolgáltató, megadhatja az ajánlatok és csomagok. Felhasználók majd előfizethetnek az szolgáltatásba és az alkalmazások létrehozásának első lépései.
+A App Service erőforrás-szolgáltató telepítése után az ajánlatokat és a csomagokat is felveheti. A felhasználók ezután előfizethetnek a szolgáltatás beszerzésére és az alkalmazások létrehozásának megkezdésére.
 
 > [!IMPORTANT]
-> A resource provider telepítőjét futtatja, előtt ellenőrizze, hogy elolvasta a kibocsátási megjegyzéseket, kísérő minden App Service-ben kiadás új funkciókat, javításokat és olyan ismert problémákat, amelyek hatással lehetnek a központi telepítés megismeréséhez.
+> Az erőforrás-szolgáltatói telepítő futtatása előtt ellenőrizze, hogy elolvasta-e az egyes App Service kiadásokhoz tartozó kibocsátási megjegyzéseket, hogy megismerje az új funkciókat, javításokat, valamint az üzembe helyezést befolyásoló ismert problémákat.
 
 ### <a name="prerequisites"></a>Előfeltételek
-Az App Service-telepítő futtatása előtt több lépésre szükség, leírtak szerint a [mielőtt elkezdené a cikk az Azure Stack App Service-szel](azure-stack-app-service-before-you-get-started.md):
+A App Service telepítőjének futtatása előtt több lépésre van szükség, ahogy az [első lépések a App Service Azure stack cikkben](azure-stack-app-service-before-you-get-started.md)leírt módon:
 
 > [!TIP]
-> Nem minden lépést ismertetett a használatának megkezdése előtt a cikk akkor szükség, mert a sablon üzembe helyezéséhez konfigurálja az infrastruktúra virtuális gépein az Ön számára. 
+> A [app Service cikk](azure-stack-app-service-before-you-get-started.md) első lépéseinek megkezdése előtt leírt lépések nem szükségesek, mert a sablon központi telepítése konfigurálja az infrastruktúra-alapú virtuális gépeket.
 
-- [Töltse le a App Service-ben telepítő és a segítő szkripteket](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
-- [Töltse le a legújabb egyéni szkriptek futtatására szolgáló bővítmény az Azure Stack piactéren](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace).
-- [Szükséges tanúsítványok előállításában](azure-stack-app-service-before-you-get-started.md#get-certificates).
-- A kiválasztott Azure stack-azonosítása szolgáltató alapján azonosító-alkalmazás létrehozása. Alkalmazás azonosítója lehet tenni vagy [Azure ad-ben](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) vagy [Active Directory összevonási szolgáltatások](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) , és jegyezze fel az alkalmazásazonosítót.
-- Győződjön meg arról, hogy hozzáadta a Windows Server 2016 Datacenter rendszerképet az Azure Stack piactéren. Ez az App Service-ben a telepítéshez szükséges.
+- [Töltse le a app Service telepítőjét és a segítő parancsfájlokat](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
+- [Töltse le az egyéni szkriptek legújabb bővítményét a Azure stack Marketplace-](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)re.
+- A [szükséges tanúsítványok](azure-stack-app-service-before-you-get-started.md#get-certificates)előállítása.
+- Hozza létre az azonosító alkalmazást a Azure Stack kiválasztott azonosító alapján. Egy azonosító alkalmazás az [Azure ad](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) -hez vagy a [Active Directory összevonási szolgáltatások (AD FS)hoz](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) , és rögzíti az alkalmazás azonosítóját.
+- Győződjön meg arról, hogy felvette a Windows Server 2016 Datacenter rendszerképet a Azure Stack piactéren. Ez a rendszerkép szükséges a App Service telepítéséhez.
 
-### <a name="deploy-app-service-in-highly-available-configuration"></a>Magas rendelkezésre állású konfigurációban az App Service üzembe helyezése
-Az App Service erőforrás-szolgáltató telepítése szükséges legalább egy órát. Szükséges idő hossza attól függ, hogy hány szerepkör példányai, üzembe helyezése. A telepítő a telepítés során fut, a következő feladatokat:
+### <a name="steps-for-app-service-deployment"></a>App Service központi telepítésének lépései
+A App Service erőforrás-szolgáltató telepítése legalább egy órát vesz igénybe. A szükséges időtartam attól függ, hogy hány szerepkör-példányt telepít. A telepítés során a telepítő a következő feladatokat futtatja:
 
-- Hozzon létre egy blobtárolót a megadott Azure Stack-tárfiókban.
-- DNS-zóna és -bejegyzések létrehozása App Service-hez.
-- Az App Service erőforrás-szolgáltató regisztrálásához.
-- Az App Service-katalóguselemek regisztrálása.
+- Hozzon létre egy BLOB-tárolót a megadott Azure Stack Storage-fiókban.
+- Hozzon létre egy DNS-zónát és-bejegyzéseket a App Servicehoz.
+- Regisztrálja a App Service erőforrás-szolgáltatót.
+- Regisztrálja a App Service gyűjtemény elemeit.
 
-Az App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi lépéseket:
+A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi lépéseket:
 
-1. Futtassa az App Service-ben korábban letöltött telepítőt (**appservice.exe**) rendszergazdaként egy olyan számítógépről, amely hozzáférhet az Azure Stack rendszergazdai Azure erőforrás-kezelési végpontot.
+1. Futtassa a korábban letöltött App Service telepítőt (**appservice. exe**) rendszergazdaként egy olyan számítógépről, amely hozzáfér a Azure stack rendszergazdai Azure Resource Management-végponthoz.
 
-2. Válassza ki **App Service üzembe helyezése és frissítése a legújabb verzióra**.
+2. Válassza **a telepítés app Service vagy a frissítés a legújabb verzióra**lehetőséget.
 
-    ![Telepítése vagy frissítése](media/app-service-deploy-ha/01.png)
+    ![App Service üzembe helyezése vagy frissítése](media/app-service-deploy-ha/01.png)
 
-3. Fogadja el a Microsoft szoftverlicencelési feltételeit, és kattintson a **tovább**.
+3. Fogadja el a Microsoft licencfeltételeket, és kattintson a **tovább**gombra.
 
-    ![Microsoft licencelési feltételeit](media/app-service-deploy-ha/02.png)
+    ![A Microsoft licencelési feltételei a App Service](media/app-service-deploy-ha/02.png)
 
-4. Fogadja el a nem Microsoft-licencelési feltételeit, és kattintson a **tovább**.
+4. Fogadjon el nem Microsoft licencelési feltételeket, és kattintson a **tovább**gombra.
 
-    ![Nem a Microsofttól származó licencelési feltételek](media/app-service-deploy-ha/03.png)
+    ![Nem a Microsofttól származó licencelési feltételek App Service](media/app-service-deploy-ha/03.png)
 
-5. Adja meg az App Service-ben az Azure Stack környezettel felhőbeli végpont-konfigurációja.
+5. Adja meg a Azure Stack-környezet App Service Felhőbeli végpontjának konfigurációját.
 
-    ![App Service-ben felhőbeli végpont-konfiguráció](media/app-service-deploy-ha/04.png)
+    ![App Service a Felhőbeli végpontok konfigurálása App Service](media/app-service-deploy-ha/04.png)
 
-6. **Csatlakozás** az Azure Stack-előfizetésre, és a telepítéshez használható, és válassza ki a helyet. 
+6. **Kapcsolódjon** a telepítéshez használni kívánt Azure stack-előfizetéshez, és válassza ki a helyet. 
 
-    ![Csatlakozás az Azure Stack-előfizetéshez](media/app-service-deploy-ha/05.png)
+    ![Kapcsolódás a Azure Stack-előfizetéshez App Service](media/app-service-deploy-ha/05.png)
 
-7. Válassza ki **használja a meglévő virtuális hálózat és alhálózatok** és a **erőforráscsoport-név** a magas rendelkezésre állású sablon üzembe helyezéséhez használt erőforráscsoport.<br><br>Ezután válassza ki a sablon központi telepítésének részeként létrehozta a virtuális hálózatot, és válassza ki a megfelelő szerepkör alhálózatok a legördülő listából válassza ki lehetőségek közül. 
+7. Válassza a **meglévő VNet és** alhálózatok és az **erőforráscsoport nevének** használata a magasan elérhető sablon üzembe helyezéséhez használt erőforráscsoport számára lehetőséget.<br><br>Ezután válassza ki a sablon központi telepítésének részeként létrehozott virtuális hálózatot, majd válassza ki a megfelelő szerepkör-alhálózatokat a legördülő lista beállításai közül. 
 
-    ![Virtuális hálózat kiválasztása](media/app-service-deploy-ha/06.png)
+    ![Vnet kiválasztása App Service](media/app-service-deploy-ha/06.png)
 
-8. Adja meg a fájlmegosztás elérési útja és a fájlmegosztás tulajdonosa fájlparaméterek adatokat jelenít meg a korábban rögzített sablont. Ha befejezte, kattintson a **tovább**.
+8. Adja meg a korábban rögzített sablon kimeneteit a fájlmegosztás elérési útjának és a fájlmegosztás tulajdonosának paramétereinek. Ha elkészült, kattintson a **tovább**gombra.
 
-    ![Fájlmegosztási kimeneti adatok](media/app-service-deploy-ha/07.png)
+    ![Fájlmegosztás kimeneti adatai App Service](media/app-service-deploy-ha/07.png)
 
-9. Telepítse az App Service-ben használt gép nem található, a fájlkiszolgáló, az App Service-fájlmegosztás üzemeltetéséhez használt megegyező virtuális hálózatba, mert nem kell tudnia oldani a nevet. **Ez az elvárt működés**.<br><br>Győződjön meg arról, hogy a fájlmegosztás UNC elérési út és a fiókok adatait megadott információk helyességét, és nyomja le az **Igen** App Service-ben a telepítés folytatásához a figyelmeztető párbeszédpanelen.
+9. Mivel az App Service telepítéséhez használt gép nem ugyanazon a VNet található, mint a App Service fájlmegosztás üzemeltetéséhez használt fájlkiszolgáló, a név nem oldható fel. **Ez a hiba a várt viselkedés**.<br><br>Ellenőrizze, hogy helyesek-e a fájlmegosztás UNC elérési útjának és a fiókok adatainak megadott adatok. Ezután nyomja meg az **Igen** gombot a riasztási párbeszédpanelen a app Service telepítés folytatásához.
 
-    ![Várt hiba-párbeszédpanelen.](media/app-service-deploy-ha/08.png)
+    ![Várt hiba párbeszédpanel App Service](media/app-service-deploy-ha/08.png)
 
-    Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-    - Forrás: Bármely
-    - Forrás porttartomány: *
-    - Cél: IP-címek
-    - Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
-    - Cél porttartomány: 445
+    Ha úgy dönt, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt. Ez a szabály engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
+    - Adatforrás: Any
+    - Forrásoldali porttartomány: *
+    - Cél IP-címek
+    - Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+    - Célport tartománya: 445
     - Protokoll: TCP
-    - Művelet: Engedélyezés
-    - Prioritás: 700
+    - Művelet: Allow
+    - Prioritású 700
     - Név: Outbound_Allow_SMB445
 
-10. Adja meg az identitás Alkalmazásazonosítója és elérési útja és a jelszavakat az identitás-tanúsítványokat, és kattintson a **tovább**:
-    - Identitás alkalmazástanúsítványának (formátumban **sso.appservice.local.azurestack.external.pfx**)
-    - Az Azure Resource Manager-főtanúsítványt (**AzureStackCertificationAuthority.cer**)
+10. Adja meg az azonosító alkalmazás AZONOSÍTÓját, valamint az identitási tanúsítványok elérési útját és jelszavát, majd kattintson a **tovább**gombra:
+    - Identity Application-tanúsítvány ( **SSO. appservice. local. azurestack. external. pfx**formátumban)
+    - Azure Resource Manager főtanúsítvány (**AzureStackCertificationAuthority. cer**)
 
-    ![ID alkalmazás tanúsítványának és a legfelső szintű tanúsítvány](media/app-service-deploy-ha/008.png)
+    ![AZONOSÍTÓ alkalmazás tanúsítványa és főtanúsítványa App Service](media/app-service-deploy-ha/008.png)
 
-10. Ezután adja meg a következő tanúsítványok a fennmaradó szükséges adatokat, és kattintson a **tovább**:
-    - Alapértelmezett Azure Stack SSL-tanúsítványt (az formátumban **_.appservice.local.azurestack.external.pfx**)
-    - API SSL-tanúsítvány (formátumban **api.appservice.local.azurestack.external.pfx**)
-    - Közzétevő tanúsítványa (formájában **ftp.appservice.local.azurestack.external.pfx**) 
+11. Ezután adja meg a fennmaradó szükséges információkat a következő tanúsítványokhoz, és kattintson a **tovább**gombra:
+    - Alapértelmezett Azure Stack SSL-tanúsítvány (a következő formátumban: **_. appservice. local. azurestack. external. pfx**)
+    - API SSL-tanúsítvány ( **API. appservice. local. azurestack. external. pfx**formátumban)
+    - Közzétevői tanúsítvány ( **FTP. appservice. local. azurestack. external. pfx**formátumban) 
 
-    ![További konfigurációs tanúsítványok](media/app-service-deploy-ha/09.png)
+    ![További konfigurációs tanúsítványok App Service](media/app-service-deploy-ha/09.png)
 
-11. Adja meg az SQL Server-kapcsolódási információt, a magas rendelkezésre állású sablon üzembe helyezési kimenetek az SQL Server kapcsolati információk használatával:
+12. Adja meg a SQL Server kapcsolódási adatait a magas rendelkezésre állású sablon központi telepítési kimenetének SQL Server kapcsolódási adataival:
 
-    ![Az SQL Server-kapcsolódási információt](media/app-service-deploy-ha/10.png)
+    ![SQL Server a kapcsolatok adatai a App Service](media/app-service-deploy-ha/10.png)
 
-12. Az App Service-adatbázisok üzemeltetéséhez használt SQL server megegyező virtuális hálózatba nem található, telepítse az App Service-ben használt gép, mert nem kell tudnia oldani a nevet.  **Ez az elvárt működés**.<br><br>Győződjön meg arról, hogy az SQL Server nevét és a fiókok adatait megadott információk helyességét, és nyomja le az **Igen** App Service-ben a telepítés folytatásához. Kattintson a **tovább**.
+13. Mivel az App Service telepítéséhez használt gép nem ugyanazon a VNet található, mint a App Service-adatbázisok üzemeltetéséhez használt SQL Server, a név nem oldható fel.  **Ez a várt viselkedés**.<br><br>Győződjön meg arról, hogy a SQL Server neve és a fiókadatok adatai helyesek, és nyomja meg az **Igen** gombot a app Service telepítés folytatásához. Kattintson a **Tovább** gombra.
 
-    ![Az SQL Server-kapcsolódási információt](media/app-service-deploy-ha/11.png)
+    ![SQL Server a kapcsolatok adatai a App Service](media/app-service-deploy-ha/11.png)
 
-13. Fogadja el az alapértelmezett szerepkör konfigurációs értékeket, vagy módosítsa az ajánlott értékek, és kattintson **tovább**.<br><br>Javasoljuk, hogy az alapértelmezett értékeket, az App Service-infrastruktúra szerepkörpéldányok módon lehet módosítani a magas rendelkezésre állású konfigurációk:
+14. Fogadja el az alapértelmezett szerepkör-konfigurációs értékeket, vagy váltson az ajánlott értékekre, és kattintson a **tovább**gombra.<br><br>Azt javasoljuk, hogy az App Service infrastruktúra szerepkör-példányok alapértelmezett értékeit a következőképpen módosítsák a magasan elérhető konfigurációk esetén:
 
-    |Szerepkör|Alapértelmezett|Magas rendelkezésre állású javaslat|
+    |Role|Alapértelmezett|Magasan elérhető javaslat|
     |-----|-----|-----|
-    |Vezérlői szerepkör|2|2|
+    |Vezérlő szerepkör|2|2|
     |Felügyeleti szerepkör|1|3|
     |Közzétevői szerepkör|1|3|
     |Előtér-kiszolgálói szerepkör|1|3|
     |Megosztott feldolgozói szerepkör|1|10|
     |     |     |     |
 
-    ![Infrastruktúra-szerepkör példány értékek](media/app-service-deploy-ha/12.png)
+    ![Infrastruktúra-szerepkör példányának értékei App Service](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Alapértelmezett értékét azoknak, ajánlott a tutoral nő a hardverkövetelményekkel telepíthető az App Service-ben. A javasolt 21 virtuális gépek helyett az alapértelmezett 18 maggal és 32,256 MB RAM 15 virtuális gépek támogatásához 26 magok összesen és 46,592 MB RAM szükséges.
+    > Az ebben az oktatóanyagban ajánlott értékekre való váltás a App Service telepítéséhez szükséges hardverkövetelmények megnövekedésével növekszik. Összesen 26 mag és 46 592 MB RAM szükséges az ajánlott 21 virtuális gépek támogatásához az alapértelmezett 18 maggal és a 32 256 MB RAM-mal a 15 virtuális gépen.
 
-14. Az App Service infrastruktúráját virtuális gépek telepítéséhez használandó a platformlemezkép kiválasztása, és kattintson a **tovább**:
+15. Válassza ki az App Service-infrastruktúra virtuális gépei telepítéséhez használni kívánt platformot, és kattintson a **tovább**gombra:
 
-    ![Platform lemezkép kiválasztása](media/app-service-deploy-ha/13.png)
+    ![Platform képének kiválasztása App Service](media/app-service-deploy-ha/13.png)
 
-15. Adja meg az App Service-ben infrastruktúra szerepkör hitelesítő adatokat kell használni, és kattintson az **tovább**:
+16. Adja meg App Service infrastruktúra szerepkörének hitelesítő adatait, és kattintson a **tovább**gombra:
 
-    ![Infrastruktúra-szerepkör hitelesítő adatok](media/app-service-deploy-ha/14.png)
+    ![Infrastruktúra-szerepkör hitelesítő adatai App Service](media/app-service-deploy-ha/14.png)
 
-16. Tekintse át az adatokat az App Service üzembe helyezése, és kattintson a **tovább** való központi telepítésének megkezdése. 
+17. Tekintse át a App Service telepítéséhez használni kívánt adatokat, majd kattintson a **tovább** gombra az üzembe helyezés megkezdéséhez.
 
-    ![Tekintse át a telepítés összegzése](media/app-service-deploy-ha/15.png)
+    ![A telepítés összegzésének áttekintése App Service](media/app-service-deploy-ha/15.png)
 
-17. Tekintse át az App Service-ben üzembe helyezés folyamatban. Ez is igénybe vehet, az adott központi telepítési konfigurációt, és a hardver függően egy óránál. A telepítő sikeres befejezése után jelölje ki a **kilépési**.
+18. Tekintse át a App Service telepítési folyamatát. Ez az üzembe helyezés az adott telepítési konfigurációtól és hardvertől függően egy órát is igénybe vehet. A telepítő sikeres befejeződése után válassza a **Kilépés**lehetőséget.
 
-    ![A telepítés befejeződött.](media/app-service-deploy-ha/16.png)
+    ![A telepítés befejeződött App Service](media/app-service-deploy-ha/16.png)
 
 ## <a name="next-steps"></a>További lépések
 
-[Adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoport](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) Ha meg van adva az App Service erőforrás-szolgáltató egy SQL mindig a példányt. Az adatbázis-szolgáltatás adatbázis-feladatátvétel esetén elvesztésének elkerülése érdekében szinkronizálásához.
+[Adja hozzá a appservice_hosting és a appservice_metering-adatbázist egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , ha a app Service erőforrás-SZOLGÁLTATÓt SQL always on-példányon adta meg. Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
-[Horizontális felskálázás az App Service](azure-stack-app-service-add-worker-roles.md). Szükség lehet további App Service-ben infrastruktúra szerepkör feldolgozók várt alkalmazás igény szerint a környezetében történő hozzáadásához. Alapértelmezés szerint az Azure Stack App Service támogatja az ingyenes és a megosztott feldolgozói rétegek. Adja hozzá a többi feldolgozói rétegek, további feldolgozói szerepkörök hozzáadása kell.
+[App Service skálázása](azure-stack-app-service-add-worker-roles.md). Előfordulhat, hogy további App Service infrastruktúra-szerepkörrel rendelkező munkatársakat kell hozzáadnia, hogy megfeleljenek a környezetében várható alkalmazási igényeknek. Alapértelmezés szerint a App Service on Azure Stack támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 
-[Központi telepítés forrásának konfigurálása](azure-stack-app-service-configure-deployment-sources.md). További konfigurációs szükség, hogy igény szerinti üzembe helyezést, az több mint például a GitHub, BitBucket, onedrive vállalati verzió vagy DropBox verziókövetési szolgáltatók.
+[Konfigurálja a központi telepítési forrásokat](azure-stack-app-service-configure-deployment-sources.md). További konfigurálásra van szükség a több forrásból származó, például a GitHub, a BitBucket, a OneDrive és a DropBox eszközök igény szerinti telepítésének támogatásához.
 
-[Készítsen biztonsági másolatot az App Service-ben](app-service-back-up.md). Miután sikeresen üzembe helyezését és konfigurálását az App Service-ben győződjön meg az összes összetevő szükséges vész-helyreállítási készül biztonsági másolat megakadályozni az adatvesztést, és elkerülheti a felesleges szolgáltatás helyreállítási műveletek során.
+[App Service biztonsági mentése](app-service-back-up.md). App Service sikeres telepítése és konfigurálása után győződjön meg arról, hogy a vész-helyreállításhoz szükséges összes összetevőről biztonsági mentés készül. Az alapvető összetevőinek biztonsági mentése segít megakadályozni az adatvesztést és a szükségtelen szolgáltatási állásidőt a helyreállítási műveletek során.

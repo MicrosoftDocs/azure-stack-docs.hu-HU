@@ -1,6 +1,6 @@
 ---
-title: Készítsen biztonsági másolatot az App Service-ben az Azure Stackben |} A Microsoft Docs
-description: Az Azure Stack App Service biztonsági mentési részletes útmutatást.
+title: App Service biztonsági mentése Azure Stackon | Microsoft Docs
+description: Megtudhatja, hogyan készíthet biztonsági mentést a Azure Stack App Servicesról.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,52 +16,52 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e8e866efe8de4d4c5d116339edbe81082c6545e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b49390434990ac2efb81692c1177c634aee4bab0
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269268"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959529"
 ---
-# <a name="back-up-app-service-on-azure-stack"></a>App Service-ben készíteni az Azure Stackben
+# <a name="back-up-app-service-on-azure-stack"></a>App Service biztonsági mentése Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*  
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
 
-Ez a dokumentum útmutatást az Azure Stack App Service biztonsági tudnivalók.
+Ez a dokumentum útmutatást nyújt a Azure Stack App Service biztonsági mentéséről.
 
 > [!IMPORTANT]
-> Az Azure Stack App Service-ben nem készül részeként [Azure Stack infrastruktúra biztonsági mentését](azure-stack-backup-infrastructure-backup.md). Kezelőként Azure Stack App Service-ben sikeresen állíthatók, ha a szükséges lépések szükségesek.
+> A Azure Stack App Service nem készül biztonsági mentés [Azure stack infrastruktúra biztonsági mentésének](azure-stack-backup-infrastructure-backup.md)részeként. Azure Stack kezelőként el kell végeznie a lépéseket, hogy a App Service sikeresen helyreállítható legyen, ha szükséges.
 
-Az Azure App Service az Azure Stacken rendelkezik négy fő összetevőből katasztrófa utáni helyreállítás tervezésekor érdemes figyelembe venni:
-1. Az erőforrás-szolgáltató infrastruktúra; kiszolgálói szerepkörök, feldolgozói rétegek, stb. 
-2. Az App Service-ben titkos kulcsok
-3. Az App Service az SQL Server üzemeltetése és a mérési adatbázis
-4. Az App Service-ben felhasználómennyiség kiszolgálására alkalmasak tartalom az App Service-fájlmegosztásban tárolt   
+A Azure App Service on Azure Stack a vész-helyreállítás tervezésekor a következő négy fő összetevőt veszi figyelembe:
+1. Az erőforrás-szolgáltatói infrastruktúra; kiszolgálói szerepkörök, feldolgozói szintek stb. 
+2. A App Service titkot.
+3. A App Service SQL Server az adatbázisok üzemeltetését és mérését.
+4. A App Service felhasználói munkaterhelési tartalmat a App Service fájlmegosztás tárolja.
 
-## <a name="back-up-app-service-secrets"></a>Készítsen biztonsági másolatot az App Service titkos kulcsok
-App Service-ben helyreállítása biztonsági másolatból, amikor az első üzembe helyezés által használt App Service-ben kulcsok kell adnia. Ezeket az adatokat, amint az App Service sikeresen üzembe helyezett és tárolja biztonságos helyen kell menteni. Az erőforrás-szolgáltató infrastruktúra konfigurálása az App Service recovery PowerShell-parancsmagok használatával helyreállítás közben létrejönnek, biztonsági másolatból.
+## <a name="back-up-app-service-secrets"></a>App Service titkos kódok biztonsági mentése
+App Service biztonsági másolatból való helyreállításakor meg kell adnia a kezdeti telepítés által használt App Service kulcsokat. Ezeket az információkat azonnal el kell menteni, amint a App Service sikeresen üzembe lett helyezve, és biztonságos helyen tárolja őket. Az erőforrás-szolgáltatói infrastruktúra konfigurációja újra létrejön a biztonsági másolatból a helyreállítás során App Service helyreállítási PowerShell-parancsmagok használatával.
 
-A felügyeleti portál segítségével biztonsági másolatot Alkalmazáskulcs szolgáltatás az alábbi lépéseket: 
+Az App Service-titkok biztonsági mentését az adminisztrációs portálon végezheti el a következő lépésekkel: 
 
-1. Jelentkezzen be az Azure Stack felügyeleti portálon a szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
 
-2. Keresse meg a **App Service-ben** -> **titkok**. 
+2. Keresse meg **app Service** -> **titkokat**. 
 
-3. Válassza ki **titkos kódok letöltése**.
+3. Válassza a **titkos kulcsok letöltése**lehetőséget.
 
-   ![Titkos kódok letöltése](./media/app-service-back-up/download-secrets.png)
+   ![A titkok letöltése Azure Stack felügyeleti portálon](./media/app-service-back-up/download-secrets.png)
 
-4. Amikor a titkos kódok letöltésre készen áll, kattintson **mentése** és az App Service-ben titkos kulcsok tárolására (**SystemSecrets.JSON**) fájlt egy biztonságos helyre. 
+4. Ha a titkok készen állnak a letöltésre, kattintson a **Save (Mentés** ) gombra, és tárolja a app Service Secrets (**SystemSecrets. JSON**) fájlt biztonságos helyen. 
 
-   ![Mentse a titkos kulcsok](./media/app-service-back-up/save-secrets.png)
+   ![Titkok mentése Azure Stack felügyeleti portálon](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
-> Ismételje meg ezeket a lépéseket, minden alkalommal, amikor az App Service-ben titkos kulcsok vannak-e forgatni.
+> Ismételje meg ezeket a lépéseket a App Service titkainak minden elforgatásakor.
 
-## <a name="back-up-the-app-service-databases"></a>Az App Service-ben adatbázisainak biztonsági mentése
-Az App Service-adatbázis visszaállításához a szüksége lesz a **Appservice_hosting** és **Appservice_metering** biztonsági másolatokat. Ezek az adatbázisok biztonsági mentése, és biztonságosan rendszeresen mentett biztosítása érdekében az SQL Server karbantartási tervek vagy az Azure Backup Server használatát javasoljuk. Azonban jönnek létre, hiszen a rendszeres SQL biztonsági mentések bármelyik módszert is használható.
+## <a name="back-up-the-app-service-databases"></a>A App Service adatbázisok biztonsági mentése
+App Service visszaállításához szüksége lesz a **Appservice_hosting** és a **Appservice_metering** adatbázis biztonsági másolatára. Javasoljuk, hogy SQL Server-karbantartási terveket vagy Azure Backup Server használjon, hogy az adatbázisok biztonsági mentése és biztonságos mentése rendszeresen megtörténjen. Azonban minden olyan módszer használható, amely biztosítja a rendszeres SQL biztonsági mentések létrehozását.
 
-Manuális biztonsági mentéséhez ezeket az adatbázisokat az SQL-kiszolgálóra való bejelentkezés, a következő PowerShell-parancsokat használhatja:
+Ha manuálisan szeretné biztonsági másolatot készíteni ezekről az adatbázisokról a SQL Serverba való bejelentkezés során, használja a következő PowerShell-parancsokat:
 
   ```powershell
   $s = "<SQL Server computer name>"
@@ -72,16 +72,16 @@ Manuális biztonsági mentéséhez ezeket az adatbázisokat az SQL-kiszolgálór
   ```
 
 > [!NOTE]
-> Ha az SQL AlwaysOn adatbázisok biztonsági mentése, kövesse [ezek az utasítások](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
+> Ha SQL AlwaysOn-adatbázisokról kell biztonsági mentést készítenie, kövesse [az alábbi utasításokat](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
 
-Miután minden adatbázis lett sikeresen készített biztonsági másolatot, másolja a .bak-fájlokat egy biztonságos helyre az App Service-ben titkos információkkal együtt.
+Miután az összes adatbázis biztonsági mentése sikeres volt, másolja a. bak fájlokat egy biztonságos helyre a App Service Secrets információval együtt.
 
-## <a name="back-up-the-app-service-file-share"></a>Az App Service-fájlmegosztás biztonsági mentése
-App Service-ben tárolja bérlői alkalmazás adatai a fájlmegosztásban. Ez kell készíteni az App Service-adatbázisokat és rendszeres időközönként, hogy a lehető, kevés adattal elvész, ha a visszaállítás megadása kötelező. 
+## <a name="back-up-the-app-service-file-share"></a>A App Service fájlmegosztás biztonsági mentése
+A App Service a bérlői alkalmazás adatait a fájlmegosztás tárolja. Ennek a fájlmegosztásnak rendszeresen biztonsági mentést kell készítenie a App Service adatbázisokkal együtt, így a lehető legkevesebb adattal elvész, ha visszaállításra van szükség.
 
-A tartalom, rendszeresen másolása a fájlmegosztás használhatja az Azure Backup Server vagy egy másik módszer az App Service-fájlmegosztás biztonsági mentése a tartalom helyét mentése után az összes korábbi helyreállítási információk. 
+A App Service fájlmegosztás tartalmának biztonsági mentéséhez használja az Azure Backup Server vagy egy másik metódust a fájlmegosztás tartalmának rendszeres másolásához arra a helyre, ahol az összes korábbi helyreállítási információt mentette.
 
-Például használhatja ezeket a lépéseket egy Windows PowerShell (nem a PowerShell ISE) konzol-munkamenetet a robocopy használatával:
+Például a következő lépésekkel használhatja a Robocopyt egy Windows PowerShell-(nem PowerShell ISE-) konzol-munkamenetből:
 
 ```powershell
 $source = "<file share location>"
@@ -92,4 +92,4 @@ net use $destination /delete
 ```
 
 ## <a name="next-steps"></a>További lépések
-[Állítsa vissza az Azure Stack App Service szolgáltatásában](app-service-recover.md)
+[App Service visszaállítása Azure Stack](app-service-recover.md)

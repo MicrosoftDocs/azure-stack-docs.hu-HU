@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack PowerShell telepítése |} A Microsoft Docs
-description: Ismerje meg az Azure Stack PowerShell telepítése.
+title: A PowerShell telepítése Azure Stackhoz | Microsoft Docs
+description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stackhoz.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,44 +15,46 @@ ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
-ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
+ms.openlocfilehash: d760eb4a9ca0f958ab8be09810b97820b09f5621
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725766"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959474"
 ---
 # <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure PowerShell-parancsmagokat, amely az Azure Resource Manager modellt használja az Azure Stack-erőforrások kezeléséhez biztosít.
+Azure PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják a Azure Stack-erőforrások kezeléséhez.
 
-Dolgozunk a felhőben, telepítenie kell az Azure Stack-kompatibilis PowerShell-modulok. Az Azure Stack használja a **AzureRM** modul helyett inkább az újabb **AzureAZ** globális Azure-ban használt modul. Emellett meg kell használnia *API profilok* adja meg a kompatibilis végpontok az Azure Stack erőforrás-szolgáltatók.
+A felhővel való együttműködéshez Azure Stack kompatibilis PowerShell-modulokat kell telepítenie. A Azure Stack a **AzureRM** modult használja a globális Azure-ban használt újabb **AzureAZ** modul helyett. Az Azure Stack erőforrás-szolgáltatóhoz tartozó kompatibilis végpontok megadásához *API* -profilokat is kell használnia.
 
-API-profilok kezeléséhez az Azure és az Azure Stack közötti tartalmaznak. Egy API-verzióprofil egy Azure Resource Manager PowerShell-modulok az adott API-verziókat. Minden felhőalapú platform a támogatott API-verzióprofilok készletével rendelkezik. Például az Azure Stack egy adott profil verziót támogatja például **2019-03-01-hibrid**. Amikor telepít egy profilt, az Azure Resource Manager PowerShell-modulok, amelyek megfelelnek a megadott profil vannak telepítve.
+Az API-profilok lehetőséget biztosítanak az Azure és a Azure Stack közötti verziók közötti különbségek kezelésére. Az API-verzió profilja Azure Resource Manager PowerShell-modulok meghatározott API-verziókkal. Minden egyes felhőalapú platformon támogatott API-verzió-profilok szerepelnek. A Azure Stack például egy adott profil verzióját (például **2019-03-01-Hybrid**) támogatja. Profil telepítésekor a rendszer telepíti a megadott profilhoz tartozó Azure Resource Manager PowerShell-modulokat.
 
-Azure Stack kompatibilis PowerShell-modulok az internethez csatlakoztatott, részben csatlakoztatva vagy leválasztott forgatókönyvek is telepítheti. Ez a cikk végigvezeti a részletes utasításokat a forgatókönyvekben.
+Azure Stack kompatibilis PowerShell-modulokat az internethez csatlakoztatott, részben csatlakoztatott vagy leválasztott forgatókönyvekhez is telepíthet. Ez a cikk részletesen ismerteti ezeket a forgatókönyveket.
 
 ## <a name="1-verify-your-prerequisites"></a>1. Az Előfeltételek ellenőrzése
 
-Mielőtt elkezdené, az Azure Stack és a PowerShell, a következő előfeltételeknek kell rendelkeznie:
+A Azure Stack és a PowerShell használatának megkezdése előtt a következő előfeltételeket kell megadnia:
 
-- **5.0-s verzió PowerShell** a verzió ellenőrzéséhez futtassa **$PSVersionTable.PSVersion** és hasonlítsa össze a **fő** verzió. Ha nem rendelkezik a PowerShell 5.0, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+- **PowerShell 5,0-es verzió** <br>
+A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa össze a főverziót. Ha nem rendelkezik a PowerShell 5,0-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)című témakört.
 
   > [!Note]
-  > PowerShell 5.0 szükséges egy Windows-gépen.
+  > A PowerShell 5,0 használatához Windows rendszerű gép szükséges.
 
-- **Egy rendszergazda jogú parancssorban futtassa a Powershellt**.
+- **Futtassa a PowerShellt egy rendszergazda jogú parancssorban**.
 
-- **PowerShell-galériából hozzáférés** hozzá kell férnie a [PowerShell-galériából](https://www.powershellgallery.com). A katalógus a PowerShell-tartalmak központi adattára. A **PowerShellGet** modul felderítése, telepítése, frissítése és PowerShell-összetevőket, például a modulok, DSC-erőforrások, szerepkörrel képességeket és szkripteket a PowerShell-galériában és egyéb titkos közzétételéhez szükséges parancsmagokat tartalmazza tárházak. PowerShell használatakor a leválasztott forgatókönyvek esetében kell kérnie a erőforrások kapcsolat rendelkező számítógépről az interneten és tárolja őket egy helyen érhető el kapcsolat nélküli számítógépre.
+- **PowerShell-galéria hozzáférés** <br>
+  Hozzá kell férnie a [PowerShell-galériahoz](https://www.powershellgallery.com). A gyűjtemény a PowerShell-tartalmak központi tárháza. A **PowerShellGet** modul parancsmagokat tartalmaz a PowerShell-összetevők felfedéséhez, telepítéséhez, frissítéséhez és közzétételéhez. Ilyen összetevők például a modulok, a DSC-erőforrások, a szerepkör-képességek, valamint a PowerShell-galéria és más privát adattárakból származó parancsfájlok. Ha a PowerShellt leválasztott forgatókönyvben használja, le kell kérnie az erőforrásokat egy internetkapcsolattal rendelkező gépről, és a leválasztott gép számára elérhető helyen kell tárolnia azokat.
 
-## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. A PowerShell-galériából kisegítő ellenőrzése
+## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. A PowerShell-galéria kisegítő lehetőségek ellenőrzése
 
-Ha egy adattár, regisztrálva van a PSGallery ellenőrzése.
+Annak ellenőrzése, hogy a PSGallery regisztrálva van-e adattárként.
 
 > [!Note]  
-> Ezt a lépést Internet-hozzáférést igényel.
+> Ehhez a lépéshez internet-hozzáférés szükséges.
 
 Nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagokat:
 
@@ -62,37 +64,37 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
 
-Ha a tárház nincs regisztrálva, nyisson meg egy rendszergazda jogú PowerShell-munkamenetet, és futtassa a következő parancsot:
+Ha a tárház nincs regisztrálva, nyisson meg egy emelt szintű PowerShell-munkamenetet, és futtassa a következő parancsot:
 
 ```powershell
 Register-PSRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-## <a name="3-uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>3. Az Azure Stack PowerShell-modulok meglévő verzióinak eltávolítása
+## <a name="3-uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>3. A Azure Stack PowerShell-modulok meglévő verzióinak eltávolítása
 
-A szükséges verzió telepítése előtt győződjön meg arról, hogy távolítsa el minden korábban telepített Azure Stack AzureRM PowerShell-modulok. Az alábbi két módszer egyikével eltávolíthatja őket:
+A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávolította a korábban telepített Azure Stack AzureRM PowerShell-modulokat. Távolítsa el a modulokat a következő két módszer egyikének használatával:
 
-1. Távolítsa el a meglévő AzureRM PowerShell-modulok, zárja be az összes aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
+1. A meglévő AzureRM PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
 
     ```powershell
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ```
 
-    Ha hibát észlel például "a modul már használatban van", zárja be a PowerShell-munkamenetekben, amelyek a modulokat használ, és futtassa újra a fenti szkript.
+    Ha olyan hibát talál, mint például a "a modul már használatban van", akkor a modulokat használó PowerShell-munkameneteket, majd futtassa újra a fenti szkriptet.
 
-2. Indítsa el az összes mappa törlése `Azure` vagy `Azs.` a a `C:\Program Files\WindowsPowerShell\Modules` és `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` mappákat. Ezek a mappák törlése eltávolítja a bármely meglévő PowerShell-modulok.
+2. `Azure` Törölje az összes olyan `Azs.` mappát, amely a és `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` a `C:\Program Files\WindowsPowerShell\Modules` mappából indul. A mappák törlése eltávolítja a meglévő PowerShell-modulokat.
 
-## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Csatlakoztatva: Az Azure Stack PowerShell telepítése az internetkapcsolattal rendelkező
+## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Csatlakoztatott Az internetkapcsolattal rendelkező Azure Stack PowerShell telepítése
 
-Az API-verzióprofil és szüksége van az Azure Stack verzióját függ az Azure Stack PowerShell-modulok futtatja.
+A szükséges API-verzió profilja és Azure Stack PowerShell-modulok a futtatott Azure Stack verziójától függenek.
 
 ### <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
 
-Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői munkaállomáson telepítendő:
+Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomáson történő telepítéséhez:
 
-- Az Azure Stackhez 1904-es vagy újabb verziója:
+- Azure Stack 1904 vagy újabb verzió esetén:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -103,7 +105,7 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
   
-- Az Azure Stack 1903 vagy korábbi, csak az alábbi két modul telepítése:
+- Azure Stack 1903-es vagy korábbi verzió esetén a következő két modult kell telepítenie:
 
     ```powershell  
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -113,39 +115,39 @@ Futtassa a következő PowerShell-parancsfájl ezeket a modulokat a fejlesztői 
     ```
 
     > [!Note]  
-    > - Az Azure Stack modul 1.7.1 verziója egy használhatatlanná tévő változást tartalmazó kiadás. Migrálhat az Azure Stack 1.6.0-s tekintse meg a [áttelepítési útmutató](https://aka.ms/azspshmigration171).
-    > - A Remove-AzureRmStorageAccount parancsmag használhatatlanná tévő változást az AzureRM modul verziója 2.4.0 tartalmaz. Ennek a parancsmagnak - Force paraméterrel adható meg a tárfiók megerősítés nélküli eltávolítása.
-    > - Nem kell telepíteni **AzureRM.BootStrapper** a az Azure Stack 1901 vagy újabb verziói a modulok telepítéséhez.
-    > - Ne telepítse a 2018-03-01-hibrid profil a fenti AzureRM-modulok használata az Azure Stack 1901 vagy újabb verziójára mellett.
+    > - A Azure Stack modul 1.7.1 verziója a feltörési változás kiadása. Azure Stack 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://aka.ms/azspshmigration171).
+    > - A AzureRM modul 2.4.0 verziója a Remove-AzureRmStorageAccount parancsmag megszakítási változásával jár. Ez a parancsmag `-Force` paramétert vár a Storage-fiók megerősítés nélküli eltávolításához.
+    > - Nem kell telepítenie a **AzureRM. BootStrapper** modult a 1901-es vagy újabb verzióhoz Azure stack tartozó modulok telepítéséhez.
+    > - Ne telepítse a 2018-03-01-Hybrid profilt a fenti AzureRM-modulok Azure Stack 1901-es vagy újabb verzióra való használata mellett.
 
 ### <a name="confirm-the-installation-of-powershell"></a>A PowerShell telepítésének megerősítése
 
-Erősítse meg a telepítést a következő parancs futtatásával:
+A következő parancs futtatásával erősítse meg a telepítést:
 
 ```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-Ha a telepítés sikeres, a kimenetben az AzureRM- és AzureStack modulok jelennek meg.
+Ha a telepítés sikeres, a AzureRM és a AzureStack modulok megjelennek a kimenetben.
 
-## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. Megszakadt: Telepítse a PowerShell internetkapcsolat nélkül
+## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. Leválasztott A PowerShell telepítése internetkapcsolat nélkül
 
-Leválasztott forgatókönyvekben először töltse le a PowerShell-modulok olyan gépre, amely rendelkezik internetkapcsolattal, és utána az Azure Stack Development Kit telepítéséhez.
+Leválasztott forgatókönyv esetén először töltse le a PowerShell-modulokat egy internetkapcsolattal rendelkező gépre. Ezután a telepítéshez továbbítja azokat a Azure Stack Development Kitba (ASDK).
 
-Jelentkezzen be a számítógépre az internetkapcsolattal rendelkező, és az Azure Resource Manager és az Azure Stack-csomagok letöltése, Azure Stack verziójától függően az alábbi parancsfájlok használatával.
+Jelentkezzen be egy internetkapcsolattal rendelkező számítógépre, és a következő parancsfájlok segítségével töltse le a Azure Resource Manager és Azure Stack csomagokat a Azure Stack verziójától függően.
 
-Telepítés négy lépésből áll:
+A telepítésnek négy lépése van:
 
-1. Csatlakoztatott gépek az Azure Stack PowerShell telepítése
-2. További tárolási szolgáltatások engedélyezése
-3. A PowerShell-csomagok a kapcsolat nélküli munkaállomáson átviteli
-4. Manuálisan elindíthat a NuGet-szolgáltató a kapcsolat nélküli munkaállomáson.
-4. A PowerShell telepítésének megerősítése
+1. Telepítse a Azure Stack PowerShellt egy csatlakoztatott gépre.
+2. Engedélyezze a további tárolási funkciókat.
+3. A PowerShell-csomagok átvitele a kapcsolat nélküli munkaállomásra.
+4. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson.
+5. Erősítse meg a PowerShell telepítését.
 
 ### <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
 
-- Az Azure Stack 1904-es vagy újabb verziója.
+- Azure Stack 1904 vagy újabb.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -156,7 +158,7 @@ Telepítés négy lépésből áll:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
     ```
 
-- Az Azure Stack 1903 vagy valamely korábbi rendszerrel.
+- Azure Stack 1903 vagy korábbi.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -168,23 +170,23 @@ Telepítés négy lépésből áll:
     ```
 
     > [!Note]  
-    > Az Azure Stack modul 1.7.1 verziószáma használhatatlanná tévő változást. 1\.2.9-es migrálhat 1.6.0-s tekintse meg a [áttelepítési útmutató](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+    > A Azure Stack modul 1.7.1-verziója egy megszakítási változás. A AzureStack-1.6.0 való áttelepítéshez tekintse meg az áttelepítési [útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
-    > Internetkapcsolat nélküli gépekre javasoljuk, hogy végrehajtása a következő parancsmagot a telemetriai adatok gyűjtésének letiltása. A parancsmagok a teljesítmény csökkenése nélkül a telemetriai adatok gyűjtésének letiltása tapasztalhat. Ez a tulajdonság csak azoknál a gépeknél internetkapcsolat nélküli vonatkozik
+    > Internetkapcsolat nélküli gépeken a következő parancsmag futtatását javasoljuk a telemetria-adatgyűjtés letiltásához. A parancsmagok teljesítménybeli romlása a telemetria-adatgyűjtés letiltása nélkül is felmerülhet. Ez csak az internetkapcsolat nélküli gépek esetében érvényes
     > ```powershell
     > Disable-AzureRmDataCollection
     > ```
 
-### <a name="add-your-packages-to-your-workstation"></a>A csomagok hozzáadása a munkaállomáson
+### <a name="add-your-packages-to-your-workstation"></a>Csomagok hozzáadása a munkaállomáshoz
 
-1. Másolja a letöltött csomagokat egy USB-eszközt.
+1. Másolja a letöltött csomagokat egy USB-eszközre.
 
-2. Jelentkezzen be a kapcsolat nélküli munkaállomáson, és másolja a csomagokat az USB-eszközt egy olyan helyre a munkaállomáson.
+2. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
 
-3. Manuálisan elindíthat a NuGet-szolgáltató a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [manuálisan rendszerindítása a NuGet-szolgáltató olyan gépen, amely nem csatlakozik az internethez](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Most már ezen a helyen az alapértelmezett tárház regisztrálja, és a tárházból az AzureRM- és az AzureStack modulok telepítéséhez:
+4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a AzureRM és a AzureStack modult ebből a tárházból:
 
    ```powershell
    # requires -Version 5
@@ -204,18 +206,18 @@ Telepítés négy lépésből áll:
 
 ### <a name="confirm-the-installation-of-powershell"></a>A PowerShell telepítésének megerősítése
 
-Erősítse meg a telepítést a következő parancs futtatásával:
+A következő parancs futtatásával erősítse meg a telepítést:
 
 ```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. Proxykiszolgáló használata a PowerShell konfigurálása
+## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. A PowerShell konfigurálása proxykiszolgáló használatára
 
-Az Internet eléréséhez proxykiszolgáló használatát igénylő forgatókönyvekben először konfigurálnia kell a PowerShell használata a meglévő proxykiszolgáló:
+Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez való hozzáféréshez, először konfigurálja a PowerShellt egy meglévő proxykiszolgáló használatára:
 
-1. Nyisson meg egy rendszergazda jogú PowerShell-parancssorban.
+1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 2. Futtassa az alábbi parancsot:
 
    ```powershell
@@ -228,7 +230,7 @@ Az Internet eléréséhez proxykiszolgáló használatát igénylő forgatókön
 
 ## <a name="next-steps"></a>További lépések
 
-- [Azure Stack-eszközök letöltése a githubról](azure-stack-powershell-download.md)
-- [Az Azure Stack felhasználói PowerShell-környezet konfigurálása](../user/azure-stack-powershell-configure-user.md)
-- [Az Azure Stack-operátorokról PowerShell-környezet konfigurálása](azure-stack-powershell-configure-admin.md)
+- [Azure Stack Tools letöltése a GitHubról](azure-stack-powershell-download.md)
+- [A Azure Stack felhasználó PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)
+- [A Azure Stack operátor PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-admin.md)
 - [Az Azure Stackben API-verzióprofilok kezelése](../user/azure-stack-version-profiles.md)
