@@ -1,10 +1,10 @@
 ---
-title: Az Azure Stackben kvótatípusok |} A Microsoft Docs
-description: Megtekintheti és szerkesztheti a különböző kvótatípusok elérhető szolgáltatásokat és erőforrásokat az Azure Stackben.
+title: A kvóták típusai a Azure Stackban | Microsoft Docs
+description: Megtekintheti és szerkesztheti a Azure Stack szolgáltatásaihoz és erőforrásaihoz elérhető különböző típusú kvótákat.
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,113 +12,110 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/27/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 08/13/2019
+ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295224"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991781"
 ---
-# <a name="quota-types-in-azure-stack"></a>Az Azure Stackben kvótatípusok
+# <a name="quota-types-in-azure-stack"></a>Kvóta típusai a Azure Stackban
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-[Kvóták](azure-stack-plan-offer-quota-overview.md#plans) erőforrásokat, amelyeket a felhasználói előfizetés is üzembe helyezése és felhasználása a vonatkozó korlátok beállításához. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
+[](azure-stack-plan-offer-quota-overview.md#plans) A kvóták határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
 
 > [!IMPORTANT]
-> Új kvóták csak akkor érhető el, a felhasználói portálon, vagy előtt módosított kvóták érvényesítése akár két órát is igénybe vehet.
+> Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
 
-## <a name="compute-quota-types"></a>COMPUTE kvótatípusok
+## <a name="compute-quota-types"></a>Számítási kvóták típusai
 
 | **Típus** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
-| Virtuális gépek maximális száma | 50 | Egy előfizetést hozhat létre ezen a helyen lévő virtuális gépek maximális számát. |
-| Virtuálisgép-magok maximális száma | 100 | Egy előfizetést hozhat létre ezen a helyen lévő magok maximális számának (például egy a3-as virtuális gép rendelkezik négy magot). |
-| A rendelkezésre állási csoportok maximális száma | 10 | Ezen a helyen létrehozott rendelkezésre állási csoportok maximális száma. |
-| A virtuálisgép-méretezési csoport maximális száma | 100 | Ezen a helyen létrehozott virtuális gép méretezési csoportok maximális száma. |
-| Maximális kapacitás (GB) standard szintű felügyelt lemez | 2048 | A standard szintű managed disks ezen a helyen létrehozott maximális kapacitását. |
-| Maximális kapacitás (GB) prémium szintű felügyelt lemez | 2048 | A prémium szintű maximális kapacitását a felügyelt lemezek, ezen a helyen létrehozott. |
+| Virtuális gépek maximális száma | 50 | Azon virtuális gépek maximális száma, amelyekhez előfizetések hozhatók létre ezen a helyen. |
+| Virtuálisgép-magok maximális száma | 100 | Az előfizetések által az adott helyen létrehozható magok maximális száma (például egy A3-as virtuális gép négy maggal rendelkezik). |
+| Rendelkezésre állási készletek maximális száma | 10 | Az ezen a helyen létrehozható rendelkezésre állási készletek maximális száma. |
+| A virtuálisgép-méretezési csoportok maximális száma | 100 | Az ezen a helyen létrehozható virtuálisgép-méretezési csoportok maximális száma. |
+| Standard szintű felügyelt lemez maximális kapacitása (GB-ban) | 2048 | Az ezen a helyen létrehozható standard szintű felügyelt lemezek maximális kapacitása. |
+| Prémium szintű felügyelt lemez maximális kapacitása (GB) | 2048 | Az ezen a helyen létrehozható prémium szintű felügyelt lemezek maximális kapacitása. |
 
 > [!NOTE]  
-> Nem felügyelt lemez (lapblobok) maximális kapacitása elkülönül a felügyelt lemez kvótát. Ez az érték állítható be **tárolási kvótákat**.
+> A nem felügyelt lemez (oldal Blobok) maximális kapacitása eltér a felügyelt lemez kvótájának. Ezt az értéket megadhatja a **tárolási kvóták**között.
 
-## <a name="storage-quota-types"></a>Tárolási kvóta típusa
+## <a name="storage-quota-types"></a>Tárolási kvóták típusai
 
 | **Elem** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
-| Maximális kapacitás (GB) |2048 |Tárterület teljes kapacitás (beleértve a minden társított pillanatképet a blobok, táblák, üzenetsorok), amely képes használni a ezen a helyen az előfizetéshez. |
-| Tárfiókok teljes száma |20 |Egy előfizetést hozhat létre ezen a helyen storage-fiókok maximális számát. |
+| Maximális kapacitás (GB) |2048 |Az ezen a helyen található előfizetés által felhasználható teljes tárolókapacitás (beleértve a blobokat és az összes hozzá tartozó pillanatképet, táblát, várólistát). |
+| A Storage-fiókok teljes száma |20 |Az előfizetés által az adott helyen létrehozható tárolási fiókok maximális száma. |
 
 > [!NOTE]  
-> A maximális kapacitás, a felügyelt lemezek elkülönül a teljes tárolási kvótát. Ez az érték állítható be **kvóták számítási**.
+> A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
 
-## <a name="network-quota-types"></a>Hálózati kvótatípusok
+## <a name="network-quota-types"></a>Hálózati kvóták típusai
 
 | **Elem** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
-| Maximális nyilvános IP-címek |50 |Egy előfizetést hozhat létre ezen a helyen nyilvános IP-címek maximális számát. |
-| Maximális virtuális hálózatok |50 |Ezen a helyen előfizetést hozhat létre virtuális hálózatok maximális száma. |
-| Maximális virtuális hálózati átjárók |1 |Virtuális hálózati átjárók (VPN-átjárók), amely egy előfizetést hozhat létre ezen a helyen maximális számát. |
-| Maximális hálózati kapcsolatok |2 |A maximális hálózati kapcsolatok száma (point-to-point vagy site-to-site), amely egy előfizetést hozhat létre ezen a helyen az összes virtuális hálózati átjáró között. |
-| Maximális terheléselosztók |50 |Egy előfizetést hozhat létre ezen a helyen terheléselosztók maximális számát. |
-| Maximális hálózati adapterek |100 |A hálózati adapterek számára olyan előfizetést hozhat létre ezen a helyen maximális számát. |
-| Maximális hálózati biztonsági csoportok |50 |Egy előfizetést hozhat létre ezen a helyen hálózati biztonsági csoportok maximális száma. |
+| Nyilvános IP-címek maximális száma |50 |Azon nyilvános IP-címek maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
+| Virtuális hálózatok maximális száma |50 |Azon virtuális hálózatok maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
+| Virtuális hálózati átjárók maximális száma |1 |Azon virtuális hálózati átjárók (VPN-átjárók) maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
+| Maximális hálózati kapcsolatok |2 |A hálózati kapcsolatok (pont – pont vagy helyek közötti) maximális száma, amelyet az előfizetés az adott helyen található összes virtuális hálózati átjárón létre tud hozni. |
+| Maximális terheléselosztó |50 |Az előfizetések által az adott helyen létrehozott terheléselosztó maximális száma. |
+| Hálózati adapterek maximális száma |100 |Azon hálózati adapterek maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
+| Hálózati biztonsági csoportok maximális száma |50 |Azon hálózati biztonsági csoportok maximális száma, amelyekre az előfizetés létre tud hozni ezen a helyen. |
 
-## <a name="view-an-existing-quota"></a>Egy meglévő kvóta megtekintése
+## <a name="view-an-existing-quota"></a>Meglévő kvóta megtekintése
 
-Egy meglévő kvóta megtekintése két különböző módja van:
+Két különböző módon lehet megtekinteni egy meglévő kvótát:
 
-### <a name="plans"></a>Tervek
+### <a name="plans"></a>Csomagok
 
-1. Az adminisztrátori portál bal oldali navigációs panelén válassza **csomagok**.
-2. Válassza ki a csomagot, szeretné, részleteinek megtekintéséhez kattintson annak nevére.
-3. A megnyíló panelen válassza ki a **szolgáltatások és kvóták**.
-4. Válassza ki a kvótát, lásd: ehhez kattintson rá a szeretné a **neve** oszlop.
+1. A felügyeleti portál bal oldali navigációs paneljén válassza a **csomagok**lehetőséget.
+2. Válassza ki azt a csomagot, amelyre vonatkozóan meg szeretné tekinteni a részleteit. ehhez kattintson a nevére.
+3. A megnyíló panelen válassza a **szolgáltatások és kvóták**lehetőséget.
+4. Válassza ki a megtekinteni kívánt kvótát a **Name (név** ) oszlopban kattintson rá.
 
-    [![Kvóták](media/azure-stack-quota-types/quotas1sm.png "kvóták megtekintése")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kvóták](media/azure-stack-quota-types/quotas1sm.png "Kvóták megtekintése")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Erőforrás-szolgáltatók
 
-1. Keresse meg az alapértelmezett irányítópult, a felügyeleti portálon, a **erőforrás-szolgáltatók** csempére.
-2. Válassza ki a szolgáltatást, hogy meg szeretné tekinteni, például a kvótához **számítási**, **hálózati**, vagy **tárolási**.
-3. Válassza ki **kvóták**, majd válassza ki a megtekinteni kívánt kvótát.
+1. A felügyeleti portál alapértelmezett irányítópultján keresse meg az erőforrás- **szolgáltatók** csempét.
+2. Válassza ki a megtekinteni kívánt kvótával rendelkező szolgáltatást, például a **számítás**, a **hálózat**vagy a **tárterület**elemet.
+3. Válasszaa kvóták lehetőséget, majd válassza ki a megtekinteni kívánt kvótát.
 
 ## <a name="edit-a-quota"></a>Kvóta szerkesztése
 
-Kvóta szerkesztése két különböző módja van:
+A kvóták szerkesztésének két különböző módja van:
 
-### <a name="edit-a-plan"></a>A terv szerkesztése
+### <a name="edit-a-plan"></a>Csomag szerkesztése
 
-1. Az adminisztrátori portál bal oldali navigációs panelén válassza **csomagok**.
-2. Válassza ki a csomagot, amelynek szeretné a kvótát, szerkesztéséhez kattintson annak nevére.
-3. A megnyíló panelen válassza ki a **szolgáltatások és kvóták**.
-4. Válassza ki a szerkesztéséhez kattintson a kívánt kvótát az **neve** oszlop.
-    [![Kvóták](media/azure-stack-quota-types/quotas1sm.png "kvóták megtekintése")](media/azure-stack-quota-types/quotas1.png#lightbox)
+1. A felügyeleti portál bal oldali navigációs paneljén válassza a **csomagok**lehetőséget.
+2. Válassza ki azt a csomagot, amelynek a kvótáját szerkeszteni szeretné, ehhez kattintson a nevére.
+3. A megnyíló panelen válassza a **szolgáltatások és kvóták**lehetőséget.
+4. Válassza ki a szerkeszteni kívánt kvótát a **Name (név** ) oszlopban, majd kattintson rá.
+    [![Kvóták](media/azure-stack-quota-types/quotas1sm.png "Kvóták megtekintése")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5. A megnyíló panelen válassza ki a **Szerkesztés a számítási**, **Szerkesztés a hálózati**, vagy **Storage szerkesztése**.
-    ![Kvóták](media/azure-stack-quota-types/quotas3.png "kvóták megtekintése")
+5. A megnyíló panelen válassza a **Szerkesztés a számítás**, **a hálózat szerkesztése**vagy **a tárterület szerkesztése**lehetőséget.
+    ![Kvóták](media/azure-stack-quota-types/quotas3.png "Kvóták megtekintése")
 
-Azt is megteheti akkor is az alábbi eljárás egy kvóta szerkesztése:
+Azt is megteheti, hogy az alábbi eljárást követve módosítja a kvótát:
 
-1. Az alapértelmezett irányítópult, a felügyeleti portál, keresse meg a **erőforrás-szolgáltatók** csempére.
-2. Válassza ki a szolgáltatást, amely a módosítandó, például a kvótához **számítási**, **hálózati**, vagy **tárolási**.
-3. Majd **kvóták**, majd válassza ki a módosítani kívánt kvótát.
-4. Az a **beállítása tárolási kvótákat**, **kvóták beállítása számítási**, vagy **beállítása hálózati kvóták** ablaktáblán (attól függően, a típus szerkesztését választotta kvóta), az értékeket szerkesztheti, és válassza ki **Mentése**.
+1. A felügyeleti portál alapértelmezett irányítópultján keresse meg az erőforrás- **szolgáltatók** csempét.
+2. Válassza ki a módosítani kívánt kvótával rendelkező szolgáltatást, például a **számítást**, a **hálózatot**vagy a **tárterületet**.
+3. Ezután válassza a **kvóták**lehetőséget, majd válassza ki a módosítani kívánt kvótát.
+4. A **tárolási kvóták beállítása**lapon adja meg a **számítási kvótákat**, vagy **állítsa be a hálózati kvóták** panelt (a szerkesztésre kiválasztott kvóta típusától függően), szerkessze az értékeket, majd kattintson a **Mentés**gombra.
 
 ### <a name="edit-original-configuration"></a>Eredeti konfiguráció szerkesztése
   
-Dönthet úgy, hogy az eredeti konfiguráció helyett a kvóta szerkesztése [egy kiegészítő csomag használatával](create-add-on-plan.md). Ha szerkeszti a kvótát, az új konfigurációt automatikusan globálisan érvényes a kvóta használó összes csomag és az összes meglévő előfizetéseket, amelyek ezeket a csomagokat. A kvóta szerkesztése eltér attól, hogy ha használ egy kiegészítő csomagot adjon meg egy módosított kvóta, amely egy felhasználó úgy dönt, hogy az előfizetés.
+Megadhatja, hogy egy adott kvóta eredeti konfigurációját [egy kiegészítő csomag használata](create-add-on-plan.md)helyett szerkessze. Ha szerkeszt egy kvótát, az új konfiguráció automatikusan globálisan vonatkozik minden olyan csomagra, amely a kvótát és a csomagokat használó összes meglévő előfizetést használja. A kvóta szerkesztése eltér, mint amikor egy bővítményt használ egy módosított kvóta biztosításához, amelyet a felhasználó az előfizetéshez választ.
 
-Az új értékekkel kvóta globálisan vonatkoznak, a módosított kvóta használó kívül minden csomagra, és minden meglévő előfizetésekhez, amelyek ezeket a csomagokat.
+A kvóta új értékei globálisan vonatkoznak minden olyan csomagra, amely a módosított kvótát és a csomagokat használó összes meglévő előfizetést használja.
 
 ## <a name="next-steps"></a>További lépések
 
-- [Ismerje meg, további információk csomagok, ajánlatok és kvóták.](azure-stack-plan-offer-quota-overview.md)
-- [Kvóták létrehozása a csomag létrehozásakor.](azure-stack-create-plan.md)
-
-<!-- Update_Description: add edit a quota -->
+- [További információ a csomagokról, az ajánlatokról és a kvótáról.](azure-stack-plan-offer-quota-overview.md)
+- [Hozzon létre kvótákat a csomag létrehozásakor.](azure-stack-create-plan.md)

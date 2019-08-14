@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca303590d4dc923380e10e50fc9b8b9ce2e5aac6
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842964"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991692"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>A Azure Stack Key Vault kezelése a PowerShell használatával
 
@@ -43,7 +43,7 @@ Ez a cikk bemutatja, hogyan hozhat létre és kezelhet egy kulcstartót Azure St
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Bérlői előfizetés engedélyezése Key Vault műveletekhez
 
-Mielőtt bármilyen műveletet kiállít egy kulcstartón, gondoskodnia kell arról, hogy a bérlői előfizetés engedélyezve legyen a tár műveleteihez. Az alábbi parancs futtatásával ellenőrizheti, hogy a tár műveletei engedélyezve vannak-e:
+Mielőtt bármilyen műveletet kiállít egy kulcstartón, gondoskodnia kell arról, hogy a bérlői előfizetés engedélyezve legyen a tár műveleteihez. Annak ellenőrzéséhez, hogy a Key Vault-műveletek engedélyezve vannak-e, futtassa a következő parancsot:
 
 ```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ![Új erőforráscsoport létrehozva a PowerShellben](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Most a **New-AzureRMKeyVault** paranccsal hozzon létre egy Key vaultot a korábban létrehozott erőforráscsoport használatával. Ez a parancs három kötelező paramétert olvas: erőforráscsoport neve, kulcstároló neve és földrajzi hely.
+Most a **New-AzureRMKeyVault** parancsmaggal hozzon létre egy Key vaultot a korábban létrehozott erőforráscsoport használatával. Ez a parancs három kötelező paramétert olvas: erőforráscsoport neve, kulcstároló neve és földrajzi hely.
 
 A Key Vault létrehozásához futtassa a következő parancsot:
 
@@ -154,7 +154,7 @@ A kulcsok és a titkos kódok létrehozása után engedélyezheti a külső alka
 
 A **set-AzureRmKeyVaultAccessPolicy** paranccsal engedélyezheti, hogy egy alkalmazás hozzáférjen egy kulcshoz vagy titkos kulcshoz a kulcstartóban.
 
-A következő példában a tár neve *ContosoKeyVault* , és az engedélyezni kívánt alkalmazás a *8F8C4BBD-485B-45FD-98F7-EC6300B7B4ED*ügyfél-azonosítója. Az alkalmazás engedélyezéséhez futtassa a következő parancsot. A **PermissionsToKeys** paramétert is megadhatja egy felhasználó, egy alkalmazás vagy egy biztonsági csoport engedélyeinek megadásához.
+A következő példában a tár neve **ContosoKeyVault** , és az engedélyezni kívánt alkalmazás a **8F8C4BBD-485B-45FD-98F7-EC6300B7B4ED**ügyfél-azonosítója. Az alkalmazás engedélyezéséhez futtassa a következő parancsot. A **PermissionsToKeys** paramétert is megadhatja egy felhasználó, egy alkalmazás vagy egy biztonsági csoport engedélyeinek megadásához.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign

@@ -1,6 +1,6 @@
 ---
-title: Kvóták, csomagok, ajánlatok és előfizetések törlése |} A Microsoft Docs
-description: Ismerje meg az Azure Stack kvóták, csomagok, ajánlatok és előfizetések törlése.
+title: Kvóták, csomagok, ajánlatok és előfizetések törlése | Microsoft Docs
+description: További információ a Azure Stack kvóták, csomagok, ajánlatok és előfizetések törléséről.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,70 +11,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 2e0e4ef7abd1885d843832ed7cc9e845003d0ed7
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: fca26723c062dd9f5155030fb11c8e1d695bf5f1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152533"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991808"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Kvóták, csomagok, ajánlatok és előfizetések törlése
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk ismerteti, hogyan lehet törölni a kvóták, csomagok, ajánlatok és előfizetések, amelyekre már nincs szüksége. Általános szabály törölheti csak mi nem lesz használatban. Például egy ajánlat törlése csak akkor lehetséges, ha nem tartoznak előfizetések, amelyek az ajánlat tartoznak.
+Ez a cikk a már nem szükséges kvóták, csomagok, ajánlatok és előfizetések törlését ismerteti. Általános alapelv, hogy csak a nem használt elemek törölhetők. Az ajánlat törlése például csak akkor lehetséges, ha nincsenek az ajánlathoz tartozó előfizetések.
 
-Előfizetések a kivételt az általános szabály: törölheti; erőforrást tartalmazó előfizetés és az erőforrásokat pedig töröljük a-előfizetésével együtt.
+Az előfizetések kivételt képeznek az általános alapelv alól: törölheti az erőforrásokat tartalmazó előfizetéseket. a rendszer törli az erőforrásokat az előfizetéssel együtt.
 
-Ezért, ha törölni szeretné a kvótát, kell dolgozik a csomagok és ajánlatok, amelyek adott kvóta keresztül visszairányító: kezdve az ajánlatok, győződjön meg arról, akkor nem rendelkezik előfizetéssel, törölje az egyes ajánlatok, majd törölje a terveket, a kvóta növeléséhez használja, és így tovább.
+Ezért, ha törölni szeretné a kvótát, minden olyan csomagon és ajánlaton át kell dolgoznia, amely ezt a kvótát használja: az ajánlatokkal kezdődően győződjön meg arról, hogy nincs előfizetése, törölje az egyes ajánlatokat, majd törölje a kvótát használó csomagokat, és így tovább.
 
-## <a name="delete-a-subscription"></a>Töröl egy előfizetést
+## <a name="delete-a-subscription"></a>Előfizetés törlése
 
-Töröl egy előfizetést, válasszon **minden szolgáltatás**, majd **felhasználói előfizetések**, hogy a rendszer az összes előfizetések listájának megjelenítéséhez. Ha éppen dolgozik egy ajánlatot, Ön is megadhat **előfizetések** onnan.
+Ha törölni szeretne egy előfizetést, válassza a **minden szolgáltatás**, majd a **felhasználói**előfizetések lehetőséget a rendszeren lévő összes előfizetés listájának megjelenítéséhez. Ha egy ajánlaton dolgozik, itt is kiválaszthatja az előfizetéseket.
 
-Előfizetések törölheti a listából, vagy használhatja a Powershellt írni egy parancsfájlt, amely törli az összes előfizetés, részletes ismertetését lásd: a parancsokkal a [előfizetés - törlési referencia](/rest/api/azurestack/subscriptions/delete).
+A listából törölheti az előfizetéseket, vagy a PowerShell használatával írhat egy olyan parancsfájlt, amely törli az összes előfizetést, az előfizetések [– törlési hivatkozás](/rest/api/azurestack/subscriptions/delete)dokumentációjában ismertetett parancsokkal.
 
 > [!CAUTION]
-> Is egy előfizetés törlése töröl minden adatot és a benne található erőforrást.
+> Az előfizetés törlésével a benne lévő összes adatforrást és erőforrást is törli.
 
 ## <a name="delete-an-offer"></a>Ajánlat törlése
 
-Törölje az ajánlat, a felügyeleti portálon lépjen a **minden szolgáltatás**, majd **kínál**. Válassza ki a kívánt törölje, majd válassza ki az ajánlat **törlése**.
+Ajánlat törléséhez a felügyeleti portálon lépjen a **minden szolgáltatás**, majd a **ajánlatok**elemre. Válassza ki a törölni kívánt ajánlatot, majd válassza a **Törlés**lehetőséget.
 
 ![delsub1](media/azure-stack-delete-offer/delsub1.png)
 
-Nem tartoznak előfizetések használatával, amikor egy ajánlatot csak törölheti. Ha az előfizetések létezik az ajánlat alapján a **törlése** lehetőség szürkén jelenik meg. Ebben az esetben tekintse meg a [töröl egy előfizetést](#delete-a-subscription) szakaszban.
+Csak akkor törölhet ajánlatot, ha nincsenek használatban előfizetések. Ha előfizetések az ajánlat alapján léteznek, a **Törlés** lehetőség nem érhető el. Ebben az esetben tekintse meg az [előfizetés törlése](#delete-a-subscription) szakaszt.
 
-## <a name="delete-a-plan"></a>A csomag törlése
+## <a name="delete-a-plan"></a>Csomag törlése
 
-Törli a csomagot a felügyeleti portálon, lépjen a **minden szolgáltatás**, majd **csomagok**. Válassza ki a csomagot, törölje, majd válassza ki a kívánt **törlése**.
+Egy csomag törléséhez a felügyeleti portálon lépjen a **minden szolgáltatás**, majd a **csomagok**elemre. Válassza ki a törölni kívánt csomagot, majd válassza a **Törlés**lehetőséget.
 
 ![delsub2](media/azure-stack-delete-offer/delsub2.png)
 
-Csomagot csak törölni, ha nem ajánlatok vagy előfizetést használja. Ha az ajánlatok, amelyek a csomagot használja, a terv törlése, engedélyezze a sikertelen lesz, és egy hibaüzenetet fog kapni. Választhat **ajánlatok szülő** ajánlatok, amelyek a csomagot használja egy listájának megjelenítéséhez. Ajánlatok törlésével kapcsolatos további információkért lásd: [ajánlat törlése](#delete-an-offer).
+Csak akkor törölheti a tervet, ha nem használ fel ajánlatokat vagy előfizetéseket. Ha van olyan ajánlat, amely a csomagot használja, törölje a csomagot, és engedélyezze, hogy a művelet meghiúsuljon, és hibaüzenetet kap. A **fölérendelt ajánlatok** lehetőség kiválasztásával megjelenítheti a csomagot használó ajánlatok listáját. További információ az ajánlatok törléséről: [ajánlat törlése](#delete-an-offer).
 
-Csomagok előfordulhat, hogy bővült közvetlenül egy előfizetésben találhatók kiegészítő csomagok, még akkor is, ha azok nem részei az ajánlatot. Ebben az esetben, el kell távolítani az előfizetést, a terv törlése előtt használja őket.
+Lehetséges, hogy a csomagok közvetlenül egy előfizetéshez lettek hozzáadva kiegészítő csomagként, még akkor is, ha nem részei az ajánlatnak. Ebben az esetben a terv törlése előtt el kell távolítani azokat az előfizetéseket, amelyek azokat használják.
 
-Is egy csomagot nem lehet eltávolítani egy előfizetésből Ha az adott előfizetéshez tartozó, egy adott erőforrás csak forrását. Például ha egy csomag az 1. előfizetéshez meg van adva, és a kezeléséről az előfizetés hálózati kvótát csak terv, azt nem lehet eltávolítani az előfizetésből. Ezért azt nem lehet törölni.
+Emellett a csomag nem távolítható el az előfizetésből, ha az adott erőforráshoz tartozó egyetlen forrás az adott előfizetéshez. Ha például az A csomag hozzá lett adva az 1. előfizetéshez, és az egyetlen olyan csomag, amely hálózati kvótát biztosít az előfizetéshez, akkor nem távolítható el az előfizetésből. Ezért nem törölhető.
 
-## <a name="edit-and-delete-a-quota"></a>Szerkeszthet és törölhet egy kvótát
+## <a name="edit-and-delete-a-quota"></a>Kvóta szerkesztése és törlése
 
-Megtekintheti és szerkesztheti a felügyeleti portál használatával meglévő kvóták: válasszon **régiók kezelése**, majd válassza ki a megfelelő erőforrás-szolgáltatót, majd kattintson a **kvóták**. Kvóták bizonyos erőforrás-szolgáltatók is törölheti.
+A meglévő kvótákat a felügyeleti portálon tekintheti meg és szerkesztheti: válassza a **régió felügyelete**lehetőséget, majd válassza ki a megfelelőerőforrás-szolgáltatót, és kattintson a kvóták elemre. Bizonyos erőforrás-szolgáltatók kvótái is törölhetők.
 
 ![delsub3](media/azure-stack-delete-offer/delsub3.png)
 
-Azt is megteheti néhány kvóták REST API-k használatával törölheti:
+Emellett a REST API-kkal is törölhet néhány kvótát:
 
 - [Számítás](/rest/api/azurestack/quotas%20(compute)/delete)
 - [Hálózat](/rest/api/azurestack/quotas%20(network)/delete)
 - [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
-> Kvóta nem törölhető, ha azokat a jelenlegi csomagokat, amelyek használják azt. Először törölnie kell a sémát, amely hivatkozik a kvótát.
+> A kvóta nem törölhető, ha vannak olyan aktuális csomagok, amelyek használják azt. Először törölnie kell a kvótára hivatkozó csomagot.
 
 ## <a name="next-steps"></a>További lépések
 

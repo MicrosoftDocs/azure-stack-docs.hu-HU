@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack-házirendmodul használata |} A Microsoft Docs
-description: Ismerje meg, hogyan korlátozhatja a viselkednek, mint az Azure Stack-előfizetéshez az Azure-előfizetés
+title: A Azure Stack Policy modul használata | Microsoft Docs
+description: Megtudhatja, hogyan kényszerítheti az Azure-előfizetést úgy, hogy az Azure Stack-előfizetésre viselkedjen
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,37 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: c0872c598cc621250c3b2c5d39aca0e392f71b29
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816156"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991604"
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Az Azure policy az Azure Stack irányelvmodul használata kezelheti
+# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Az Azure-szabályzat kezelése a Azure Stack házirend modul használatával
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack irányelvmodul lehetővé teszi az ugyanazon verziókezelés és szolgáltatás rendelkezésre állása, mint az Azure Stack Azure-előfizetés konfigurálása. A modul használja a [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell-parancsmag segítségével hozzon létre egy Azure szabályzatot, amely korlátozza az erőforrástípusok és a egy előfizetésben elérhető szolgáltatások. Ezután használatával hoz létre szabályzat-hozzárendelés, a megfelelő hatókörén belül a [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) parancsmagot. Az-házirend konfigurálása után az Azure Stack-alkalmazások fejlesztéséhez használhatja az Azure-előfizetés.
+Az Azure Stack házirend modul lehetővé teszi egy Azure-előfizetés konfigurálását ugyanazzal a verziószámozással és szolgáltatással, mint Azure Stack. A modul a [New-AzureRmPolicyDefinition PowerShell-](/powershell/module/azurerm.resources/new-azurermpolicydefinition) parancsmaggal létrehoz egy Azure-szabályzatot, amely korlátozza az előfizetésben elérhető erőforrástípusok és szolgáltatások használatát. Ezután létrehoz egy szabályzat-hozzárendelést a megfelelő hatókörön belül a [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) parancsmag használatával. A házirend konfigurálása után az Azure-előfizetéssel kifejlesztheti Azure Stack számára szánt alkalmazásokat.
 
 ## <a name="install-the-module"></a>A modul telepítése
 
-1. Az AzureRM PowerShell-modult a szükséges verzió telepítéséhez, az 1. lépésben leírtak szerint [Azure Stack PowerShell telepítése](../operator/azure-stack-powershell-install.md).
-2. [Az Azure Stack-eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md).
-3. [A PowerShell konfigurálása az Azure Stackkel való használathoz](azure-stack-powershell-configure-user.md).
-4. Importálás a *AzureStack.Policy.psm1* modul:
-
+1. Telepítse a AzureRM PowerShell-modul szükséges verzióját a [PowerShell telepítése a Azure Stackhoz](../operator/azure-stack-powershell-install.md)című témakör 1. lépésében leírtak szerint.
+2. [Töltse le a Azure stack eszközöket](../operator/azure-stack-powershell-download.md)a githubról.
+3. [Konfigurálja a powershellt Azure Stackhoz való használatra](azure-stack-powershell-configure-user.md).
+4. Importálja a *AzureStack. Policy. psm1* modult:
 
    ```powershell
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
-## <a name="apply-policy-to-azure-subscription"></a>Alkalmazza a szabályzatot az Azure-előfizetés
+## <a name="apply-policy-to-azure-subscription"></a>Szabályzat alkalmazása az Azure-előfizetésre
 
-A következő parancsot használhatja az Azure Stack alapértelmezett szabályzat alkalmazásához ellen az Azure-előfizetés. A parancs futtatása előtt cserélje le a `Azure subscription name` az Azure-előfizetése nevére:
+Az alábbi parancsokkal alapértelmezett Azure Stack szabályzatot alkalmazhat az Azure-előfizetésére. A parancsok futtatása előtt cserélje le `Azure subscription name` az értékét az Azure-előfizetés nevére:
 
 ```powershell
 Add-AzureRmAccount
@@ -52,9 +51,9 @@ $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
 
-## <a name="apply-policy-to-a-resource-group"></a>Alkalmazza a szabályzatot egy erőforráscsoportot
+## <a name="apply-policy-to-a-resource-group"></a>Házirend alkalmazása erőforráscsoporthoz
 
-Érdemes a alkalmazni a házirendeket, amelyek részletesebben. Tegyük fel lehetséges, hogy ugyanahhoz az előfizetéshez futtatott egyéb erőforrásokat. A házirend-alkalmazást egy adott erőforráscsoportban, amely lehetővé teszi, hogy tesztelje alkalmazásait az Azure Stack használatával az Azure-erőforrások is körét. A következő parancs futtatása előtt cserélje le a `Azure subscription name` az Azure-előfizetése nevére:
+Előfordulhat, hogy olyan házirendeket szeretne alkalmazni, amelyek részletesebbek. Előfordulhat például, hogy az adott előfizetésben futó más erőforrásokkal is rendelkezik. A házirend alkalmazást egy adott erőforráscsoporthoz is felhasználhatja, amely lehetővé teszi az alkalmazások tesztelését Azure Stack Azure-erőforrások használatával. A következő parancsok futtatása előtt cserélje le `Azure subscription name` az értékét az Azure-előfizetés nevére:
 
 ```powershell
 Add-AzureRmAccount
@@ -65,14 +64,14 @@ $subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
 
-## <a name="policy-in-action"></a>A művelet házirend
+## <a name="policy-in-action"></a>Házirend működés közben
 
-Miután üzembe helyezte az Azure policy, hibaüzenetet kap olyan erőforrások, amelyek tiltják a szabályzat üzembe helyezése közben:
+Miután telepítette az Azure-szabályzatot, hibaüzenet jelenik meg, amikor olyan erőforrást próbál telepíteni, amelyet a szabályzat tiltott:
 
-![Erőforrás-központitelepítési hiba miatt házirendkorlátozás eredménye](./media/azure-stack-policy-module/image1.png)
+![Erőforrás-telepítési hiba eredménye a házirend megkötése miatt](./media/azure-stack-policy-module/image1.png)
 
 ## <a name="next-steps"></a>További lépések
 
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
-* [Az Azure CLI-vel sablonok üzembe helyezése](azure-stack-deploy-template-command-line.md)
-* [Sablonok üzembe helyezése Visual studióval](azure-stack-deploy-template-visual-studio.md)
+* [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
+* [Sablonok üzembe helyezése a Visual Studióval](azure-stack-deploy-template-visual-studio.md)

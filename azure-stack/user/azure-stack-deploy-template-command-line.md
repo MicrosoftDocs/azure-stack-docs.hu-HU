@@ -1,6 +1,6 @@
 ---
-title: A parancssorból az Azure Stack-sablon üzembe helyezése |} A Microsoft Docs
-description: Útmutató a sablonok az Azure Stack üzembe helyezése a többplatformos parancssori felület (CLI) használatával.
+title: Sablon üzembe helyezése a parancssorból a Azure Stackban | Microsoft Docs
+description: Az Azure platformfüggetlen parancssori felületének (CLI) használata a sablonok Azure Stack való üzembe helyezéséhez.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,41 +11,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691367"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991850"
 ---
-# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>A parancssorból az Azure Stack-sablon üzembe helyezése
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Sablon központi telepítése a parancssorban Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure parancssori felület (CLI) használatával az Azure Resource Manager-sablonok az Azure Stack üzembe helyezése. Az Azure Resource Manager-sablonok üzembe helyezése, és egyetlen, koordinált műveletben lévő alkalmazás-erőforrások kiépítése.
+Az Azure parancssori felületének (CLI) használatával Azure Resource Manager sablonokat helyezhet üzembe Azure Stackokban. Azure Resource Manager-sablonok egyetlen, koordinált művelettel telepíthetik és kioszthatják az alkalmazáshoz tartozó erőforrásokat.
 
 ## <a name="before-you-begin"></a>Előkészületek
 
-- [Telepítése és csatlakozás](azure-stack-version-profiles-azurecli2.md) az Azure Stackhez az Azure CLI használatával.
-- Töltse le a fájlokat *azuredeploy.json* és *azuredeploy.parameters.json* származó a [hozzon létre a fiók példa tárolósablonját](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+- [Telepítse és kapcsolódjon](azure-stack-version-profiles-azurecli2.md) Azure stack az Azure CLI-vel.
+- Töltse le a *azuredeploy. JSON* és a *azuredeploy. Parameters. JSON* fájlt a [Storage-fiók létrehozása példa sablonból](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
 
 ## <a name="deploy-template"></a>Sablon üzembe helyezése
 
-Keresse meg a mappát, amelybe ezeket a fájlokat le és futtassa a következő parancsot a sablon üzembe helyezéséhez:
+Navigáljon ahhoz a mappához, amelybe ezeket a fájlokat letöltötte, és futtassa a következő parancsot a sablon üzembe helyezéséhez:
 
 ```azurecli
 az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
 ```
 
-Ez a parancs üzembe helyezi a sablont az erőforráscsoport **cliRG** az Azure Stack POC alapértelmezett helyen.
+Ez a parancs központilag telepíti a sablont a Azure Stack POC alapértelmezett helyén található erőforráscsoport- **cliRG** .
 
-## <a name="validate-template-deployment"></a>A sablon telepítésének ellenőrzése
+## <a name="validate-template-deployment"></a>Sablon központi telepítésének ellenőrzése
 
-Az erőforrás és a tárfiókja fiók megtekintéséhez használja a következő CLI-parancsokat:
+Az erőforráscsoport és a Storage-fiók megtekintéséhez használja az alábbi CLI-parancsokat:
 
 ```azurecli
 az group list
@@ -55,4 +55,4 @@ az storage account list
 
 ## <a name="next-steps"></a>További lépések
 
-Tudjon meg többet [sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md).
+Megtudhatja, hogyan [helyezhet üzembe sablonokat a PowerShell használatával](azure-stack-deploy-template-powershell.md).

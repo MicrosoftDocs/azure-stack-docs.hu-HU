@@ -1,6 +1,6 @@
 ---
-title: Ellenőrzési jelentés az Azure Stackhez |} A Microsoft Docs
-description: Az Azure Stack készültségi ellenőrző jelentés segítségével tekintse át az ellenőrzési eredmények.
+title: Azure Stack ellenőrzési jelentés | Microsoft Docs
+description: Az ellenőrzési eredmények áttekintéséhez használja a Azure Stack Readiness-ellenőrző jelentését.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,41 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: d02173731f8cf7834160a0228c589b036aac7fe6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984019"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991724"
 ---
-# <a name="azure-stack-validation-report"></a>Az Azure Stack érvényesítési jelentés
+# <a name="azure-stack-validation-report"></a>Azure Stack ellenőrzési jelentés
 
-Használja a *Azure Stack készültségi ellenőrző* eszköz, amely támogatja az üzembe helyezés és a egy Azure Stack-környezet karbantartás ellenőrzések futtatását. Az eszköz eredmények jelentés .JSON kiterjesztésű fájlba írja. A jelentés üzembe helyezhető Azure Stacket előfeltételei állapotával kapcsolatos részletes és összesített adatokat jeleníti meg. A jelentés emellett az Azure Stack-telepítések meglévő titkos kódok rotációja információit jeleníti meg.  
+Használja a *Azure stack Readiness-ellenőrző* eszközt olyan érvényesítések futtatására, amelyek támogatják egy Azure stack-környezet telepítését és karbantartását. Az eszköz az eredményeket egy. JSON-jelentési fájlba írja. A jelentés részletes és összegzett információkat jelenít meg az Azure Stack telepítéséhez szükséges előfeltételek állapotáról. A jelentés a meglévő Azure Stack központi telepítések titkainak rotációs adatait is megjeleníti.  
 
 ## <a name="where-to-find-the-report"></a>Hol található a jelentés
 
-Az eszköz futtatásakor naplózza az eredményeket **AzsReadinessCheckerReport.json**. Az eszközt is létrehoz egy naplófájlt nevű **AzsReadinessChecker.log**. Ezek a fájlok helyét az ellenőrzés eredményét a PowerShellben együtt jelennek meg:
+Az eszköz futtatásakor a naplózza az eredményeket a **AzsReadinessCheckerReport. JSON**fájlban. Az eszköz egy **AzsReadinessChecker. log**nevű naplót is létrehoz. A fájlok helye a PowerShell érvényesítési eredményeivel együtt jelenik meg:
 
 ![run-validation](./media/azure-stack-validation-report/validation.png)
 
-Mindkét fájl továbbra is fennáll, további érvényességi ellenőrzések üzemidejének a ugyanazon a számítógépen. Ha például az eszköz futtatható tanúsítványok érvényesítésére, és futtassa újra az Azure-identitás ellenőrzése, majd harmadszor a regisztráció érvényesítése. Az összes három ellenőrzések eredményeit az eredményül kapott .json jelentés érhető el.  
+Mindkét fájl megőrzi a további ellenőrzési ellenőrzések eredményét, ha ugyanazon a számítógépen futnak. Például az eszköz futtatható a tanúsítványok érvényesítéséhez, újra futtatva az Azure Identity érvényesítéséhez, majd egy harmadik alkalommal a regisztráció érvényesítéséhez. Mindhárom érvényesítés eredménye elérhető a létrejövő. JSON-jelentésben.  
 
-Alapértelmezés szerint mindkét fájlt írt **C:\Users\<username > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Alapértelmezés szerint mindkét fájl a **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**-be van írva.  
 
-- Használja a `-OutputPath <path>` paraméter a parancssorban adja meg egy másik jelentés helyét végén.
-- Használja a `-CleanReport` paraméter a parancssorban, törölje az eszköz az előző futtatásokat információ végén **AzsReadinessCheckerReport.json**.
+- Egy másik jelentés helyének megadásához használja a parancssor végén található paramétert.`-OutputPath <path>`
+- A parancssor végén található paraméterreltörölhetiazeszközelőzőfuttatásávalkapcsolatosinformációkataAzsReadinessCheckerReport.JSONfájlból`-CleanReport` .
 
-## <a name="view-the-report"></a>A jelentés elolvasása
+## <a name="view-the-report"></a>A jelentés megtekintése
 
-A jelentés megtekintése a PowerShellben, adja meg a jelentés elérési útja értéket `-ReportPath`. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja az ellenőrzés eredménye még nem rendelkező.
+Ha a jelentést a PowerShellben szeretné megtekinteni, adja meg a jelentés elérési `-ReportPath`útját a következő értékként:. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja azokat az érvényességeket, amelyek még nem rendelkeznek eredménnyel.
 
-Például a jelentés egy PowerShell-parancssort, amely meg van nyitva a helyet, ahol a jelentés megtalálható a megtekintéséhez futtassa a következő parancsot:
+Ha például a jelentést egy olyan PowerShell-parancssorból szeretné megtekinteni, amely a jelentés helyét tartalmazó helyre van nyitva, futtassa a következő parancsot:
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 
@@ -94,15 +94,15 @@ Duration          : 3
 PSBoundParameters :
 ```
 
-## <a name="view-the-report-summary"></a>Összesítő jelentés megtekintése
+## <a name="view-the-report-summary"></a>A jelentés összegzésének megtekintése
 
-A jelentés megtekintésére, hozzáadhatja a `-summary` paramétert a PowerShell-parancs végéhez. Példa:
+A jelentés összegzésének megtekintéséhez adja hozzá a `-summary` paramétert a PowerShell-parancs végéhez. Példa:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
 ```
 
-Az összefoglalás ellenőrzések, amelyek nem rendelkeznek az eredményeket megjeleníti, és azt jelzi, hogy továbbítja vagy, amelyek a teljes ellenőrzések sikertelenek. A kimenet a következő példához hasonló:
+Az összefoglalás olyan érvényesítéseket mutat be, amelyek nem rendelkeznek eredményekkel, és a befejezett érvényesítések esetén a pass vagy a Fail utasítást jelzi. A kimenet a következő példához hasonló:
 
 ```shell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
@@ -130,7 +130,7 @@ Azure Stack ADFS Validation results not available.
 
 ## <a name="view-a-filtered-report"></a>Szűrt jelentés megtekintése
 
-Szűrt jelentés egy adott típusú érvényesítési megtekintéséhez használja a **- ReportSections** paramétert a következő értékek egyikét:
+Ha egy olyan jelentést szeretne megtekinteni, amely egyetlen ellenőrzési típusra van szűrve, használja a **-ReportSections** paramétert az alábbi értékek egyikével:
 
 - Tanúsítvány
 - AzureRegistration
@@ -140,7 +140,7 @@ Szűrt jelentés egy adott típusú érvényesítési megtekintéséhez használ
 - Feladatok
 - Összes  
 
-Például a jelentés megtekintéséhez a tanúsítványok összegzése csak, használja a következő PowerShell-parancssorból:
+Ha például csak a tanúsítványok jelentésének összegzését szeretné megtekinteni, használja a következő PowerShell-parancssort:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate - Summary
