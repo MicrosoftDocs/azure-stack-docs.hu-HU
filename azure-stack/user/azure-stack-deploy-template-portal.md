@@ -1,6 +1,6 @@
 ---
-title: A portál használatával az Azure Stack-sablon üzembe helyezése |} A Microsoft Docs
-description: Ismerje meg, hogyan használható az Azure Stack portálon egy sablon üzembe helyezéséhez.
+title: Sablon üzembe helyezése a portál használatával Azure Stack | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe egy sablont a Azure Stack portál használatával.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,55 +12,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8f61667351a6d22094d5f8a0ba39348cc92549a8
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: e6a9c9569f7a2aeff044232d15817313b43ed69f
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692012"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991862"
 ---
-# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>A portál használatával az Azure Stack-sablon üzembe helyezése
+# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Sablon üzembe helyezése a portál használatával Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A portál segítségével az Azure Stack üzembe helyezése Azure Resource Manager-sablonok.
+A portálon Azure Resource Manager sablonokat telepíthet Azure Stack.
 
-## <a name="to-deploy-a-template"></a>A sablon üzembe helyezése
+## <a name="to-deploy-a-template"></a>Sablon üzembe helyezése
 
-1. Jelentkezzen be a portálra, válassza ki **+ erőforrás létrehozása**, majd válassza ki **egyéni**.
+1. Jelentkezzen be a portálra, válassza az **+ erőforrás létrehozása**lehetőséget, majd válassza az **Egyéni**lehetőséget.
 
-   ![Erőforrás létrehozása az Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy1.png)
+   ![Erőforrás létrehozása Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy1.png)
 
 1. Válassza a **Template deployment** lehetőséget.
 
-   ![Az Azure Stack portal-sablon üzembe helyezése](media/azure-stack-deploy-template-portal/template-deploy2.png)
+   ![Sablon üzembe helyezése Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. Válassza ki **szerkesztési sablon**, majd illessze be a sablon JSON-kód a kód ablakba. Kattintson a **Mentés** gombra.
+1. Válassza a **Sablon szerkesztése**lehetőséget, majd illessze be a JSON-sablon kódját a kód ablakába. Kattintson a **Mentés** gombra.
 
-   ![Az Azure Stack portal sablon szerkesztése](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![Sablon szerkesztése Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
-1. Válassza ki **paraméterek szerkesztése**, adja meg, hogy látható-e, és válassza a paraméterek értékeit **OK**.
+1. Válassza a **Paraméterek szerkesztése**lehetőséget, adja meg a megjelenített paraméterek értékeit, majd kattintson **az OK gombra**.
 
-   ![Az Azure Stack portal paraméterek szerkesztése](media/azure-stack-deploy-template-portal/template-deploy4.png)
+   ![Paraméterek szerkesztése Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy4.png)
 
-1. Válassza ki **előfizetés**. Válassza ki az előfizetést szeretné használni, és válassza ki **OK**.
+1. Válassza az **előfizetés**lehetőséget. Válassza ki a használni kívánt előfizetést, majd kattintson **az OK gombra**.
 
-   ![Válassza ki az előfizetést az Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy5.png)
+   ![Előfizetés kiválasztása Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy5.png)
 
-1. Válassza ki **erőforráscsoport**. Válasszon ki egy meglévő erőforráscsoportot vagy hozzon létre egy újat, és válassza **OK**.
+1. Válassza az **erőforráscsoport**lehetőséget. Válasszon ki egy meglévő erőforráscsoportot, vagy hozzon létre egy újat, majd kattintson **az OK gombra**.
 
-   ![Válassza ki az erőforráscsoportot az Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy6.png)
+   ![Válassza ki az erőforráscsoportot a Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. Kattintson a **Létrehozás** gombra. Egy új csempét az irányítópulton a sablon központi telepítéséhez előrehaladását követi nyomon.
+1. Kattintson a **Létrehozás** gombra. Az irányítópulton egy új csempén nyomon követheti a sablon üzembe helyezésének előrehaladását.
 
-   ![Sablon létrehozása az Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy7.png)
+   ![Sablon létrehozása Azure Stack portálon](media/azure-stack-deploy-template-portal/template-deploy7.png)
 
 ## <a name="next-steps"></a>További lépések
 
-Sablonok telepítésével kapcsolatos további tudnivalókért tekintse meg a következő cikket:
+A sablonok telepítésével kapcsolatos további tudnivalókért tekintse meg a következő cikket:
 
 - [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
