@@ -16,12 +16,12 @@ ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
-ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
+ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68756643"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021700"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 frissítés
 
@@ -76,6 +76,8 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 - A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a felügyeleti műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a 6 hónaposnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítések esetében naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt [töltse le az](azure-stack-apply-updates.md) összes frissítési művelet összefoglalóját 6 hónapnál régebbi verzióra.
 
 ### <a name="changes"></a>Módosítások
+
+- Az 1907-es verzió olyan figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés **előtt** frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. Azure stack A hardveres szolgáltatók a 2,1-es 1908 verzióval megegyező időben szabadítják fel az OEM-csomagot, Azure Stack. Az 2,1-es vagy újabb OEM-csomag előfeltétele az 1908-es Azure Stack-verzió. Az OEM-csomagok 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához.
 
 - Új kimenő szabály (HTTPS) lett hozzáadva a Azure Stack diagnosztikai napló-gyűjtési szolgáltatás kommunikációjának engedélyezéséhez. További információ: [Azure stack Datacenter Integration – közzétételi végpontok](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 

@@ -1,6 +1,6 @@
 ---
-title: Támogatott vendég operációs rendszereket az Azure Stackhez |} A Microsoft Docs
-description: Ezek a vendég operációs rendszerek az Azure Stacken használható.
+title: A Azure Stack támogatott vendég operációs rendszerek | Microsoft Docs
+description: Ezek a vendég operációs rendszerek Azure Stack használhatják.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,73 +12,74 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 06/06/2018
-ms.openlocfilehash: 53acfa3a2d85e73b5d8136c7a1f42ee00d8ed1be
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.lastreviewed: 06/06/2019
+ms.openlocfilehash: 98baf8217bc245f7aa6ac7bc0e2b8f8a5284c6d6
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028263"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021846"
 ---
-# <a name="guest-operating-systems-supported-on-azure-stack"></a>Vendég operációs rendszereket támogatják az Azure Stackben
+# <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack támogatott vendég operációs rendszerek
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
-Az Azure Stack támogatja az alábbi táblázatban felsorolt Windows vendég operációs rendszerek:
+Azure Stack támogatja az alábbi táblázatban felsorolt Windows vendég operációs rendszereket:
 
-| Operációs rendszer | Leírás | A Marketplace-en elérhető |
+| Operációs rendszer | Leírás | Elérhető a piactéren |
 | --- | --- | --- |
-| A Windows Server 1709-es verzió | 64 bites | A tárolók Core |
-| A Windows Server 2019 | 64 bites |  Datacenter, Datacenter mag, Datacenter tárolókkal |
-| Windows Server 2016 | 64 bites |  Datacenter, Datacenter mag, Datacenter tárolókkal |
+| Windows Server, 1709-es verzió | 64 bites | Mag tárolókkal |
+| A Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
+| Windows Server 2016 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
 | Windows Server 2012 R2 | 64 bites |  Adatközpont |
 | Windows Server 2012 | 64 bites |  Adatközpont |
 | Windows Server 2008 R2 SP1 | 64 bites |  Adatközpont |
-| Windows Server 2008 SP2 | 64 bites |  Saját kép használata |
-| Windows 10-es *(lásd az 1. megjegyzést)* | 64 bites, Pro és Enterprise | Saját kép használata |
+| Windows Server 2008 SP2 | 64 bites |  Saját rendszerkép használata |
+| Windows 10 *(lásd az 1. megjegyzést)* | 64 bites, Pro és Enterprise | Saját rendszerkép használata |
 
 > [!NOTE]
-> Windows 10-es ügyfél operációs rendszereken az Azure Stack üzembe helyezéséhez rendelkeznie kell [Windows felhasználói licencelés](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) , vagy vásároljon egy minősített több-Bérlős szolgáltató keresztül ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
+> Ahhoz, hogy a Windows 10-es ügyfél operációs rendszereit Azure Stack telepítse, a [Windows felhasználónkénti licencelése](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) vagy egy minősített több-bérlős szolgáltató ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) használatával kell megvásárolnia.
 
-Marketplace-rendszerképek használatalapú mint-akkor-használható vagy BYOL (nagyvállalati szerződés/SPLA) licencelési érhetők el. Mindkét egyetlen Azure Stack-példány használata nem támogatott. Üzembe helyezés során az Azure Stack kódtárba a vendégügynök megfelelő verzióját a lemezképpel.
+A piactéren elérhető rendszerképek a használaton kívüli vagy BYOL (EA/SPLA) licenceléshez érhetők el. Mindkettő használata egyetlen Azure Stack példányon nem támogatott. Az üzembe helyezés során Azure Stack beinjektálja a vendég ügynök megfelelő verzióját a rendszerképbe.
 
-Datacenter kiadások érhetők el le; a piactéren ügyfelek kihasználhatják a saját kiszolgáló-lemezképekhez, beleértve a többi kiadás voltát. Windows ügyfél képek nem érhetők el a piactéren.
+Az adatközpont kiadásai letölthetők a piactéren. az ügyfelek saját kiszolgálói lemezképeket is létrehozhatnak, beleértve a többi kiadást is. A Windows-ügyfelek lemezképei nem érhetők el a piactéren.
 
 ## <a name="linux"></a>Linux
 
-Linux-disztribúciók elérhetőként szerepel a Marketplace-en tartalmazza a szükséges Windows Azure Linux ügynök (WALA). Ha saját rendszerképet az Azure Stackhez, irányelvekhez [hozzáadása típusú Linux-rendszerképeket az Azure Stackhez](azure-stack-linux.md).
+A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Windows Azure Linux-ügynököt (WALA). Ha a saját lemezképét Azure Stackja, kövesse a [Linux-rendszerképek hozzáadása](azure-stack-linux.md)a Azure Stackhoz című témakör útmutatását.
 
 > [!NOTE]
-> Egyéni rendszerképek a legújabb nyilvános WALA verzióját (az Azure Stack 1903 build és a fenti vagy 1901/1902 gyorsjavítással), vagy 2.2.20 verzióval kell építeni. Előfordulhat, hogy előtt 2.2.20 és 2.2.20 és 2.2.35 (exkluzív) közötti verziókat nem működik megfelelően az Azure Stacken.
+> Az egyéni lemezképeket a legújabb nyilvános WALA-verzióval kell felépíteni (a 1903 Azure Stack Build és újabb verziókon, vagy a 1901/1902-es gyorsjavítással), vagy pedig a 2.2.20. Előfordulhat, hogy a 2.2.20 és a 2.2.20 és a 2.2.35 (Exclusive) közötti verziók nem működnek megfelelően a Azure Stackon.
 >
-> [a cloud-init](https://cloud-init.io/) jelenleg nem támogatott az Azure Stacken.
+> a [Cloud-init](https://cloud-init.io/) Azure stack jelenleg nem támogatott.
 
-| Disztribúció | Leírás | Kiadó | Piactér |
+| Disztribúció | Leírás | Kiadó | Marketplace |
 | --- | --- | --- | --- |
-| CentOS-alapú 6.9. | 64 bites | Rogue Wave | Igen |
-| CentOS-alapú 7.5 | 64 bites | Rogue Wave | Igen |
-| CentOS-alapú 7.3 | 64 bites | Rogue Wave | Igen |
+| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7.3 | 64 bites | Gazember hullám | Igen |
 | ClearLinux | 64 bites | ClearLinux.org | Igen |
-| Tároló Linux |  64 bites | CoreOS | Stable |
-| Debian 8 "Jessie" | 64 bites | credativ |  Igen |
-| Debian 9 "Stretch" | 64 bites | credativ | Igen |
-| Red Hat Enterprise Linux 7.1-es (és újabb verziók) | 64 bites | Red Hat | Saját kép használata |
+| Tároló linuxos |  64 bites | CoreOS | Stable |
+| Debian 8 "Megbéklyóz" | 64 bites | credativ |  Igen |
+| Debian 9 "stretch" | 64 bites | credativ | Igen |
+| Oracle Linux | 64 bites | Oracle | Igen |
+| Red Hat Enterprise Linux 7,1 (és újabb verziók) | 64 bites | Red Hat | Saját rendszerkép használata |
 | SLES 11SP4 | 64 bites | SUSE | Igen |
 | SLES 12SP3 | 64 bites | SUSE | Igen |
-| Ubuntu 14.04-LTS | 64 bites | Canonical | Igen |
+| Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
 | Ubuntu 16.04-LTS | 64 bites | Canonical | Igen |
 | Ubuntu 18.04-LTS | 64 bites | Canonical | Igen |
 
-Red Hat Enterprise Linux-támogatás információkért lásd: [Red Hat és az Azure Stack: Gyakori kérdések](https://access.redhat.com/articles/3413531).
+A Red Hat Enterprise Linux támogatási információit lásd [: Red Hat és Azure stack: Gyakran ismételt kérdések](https://access.redhat.com/articles/3413531).
 
 ## <a name="next-steps"></a>További lépések
 
-Az Azure Stack piactéren kapcsolatos további információkért tekintse meg a következő cikkeket:
+A Azure Stack Marketplace-ről további információt a következő cikkekben talál:
 
 - [Piactéri termékek letöltése](azure-stack-download-azure-marketplace-item.md)  
-- [Hozzon létre, és a Piactéri elem közzététele](azure-stack-create-and-publish-marketplace-item.md)
+- [Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
