@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/15/2019
 ms.author: mabrigg
-ms.lastreviewed: 08/14/2019
+ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 92b33603ee75560d66b6604188c2ae103a1d10a3
-ms.sourcegitcommit: 6284fd52a61680ee4ba3a73ce8d13c9c5496d838
+ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
+ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519770"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69520922"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Azure Stack eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -32,7 +32,7 @@ Az eredeti berendezésgyártó (OEM) frissítései a Azure Stack hardveres össz
 
 A frissítések Microsoft Azure Stack mellett számos számítógépgyártó is kiadja a Azure Stack hardver, például az illesztőprogram és a belső vezérlőprogram frissítéseinek rendszeres frissítéseit. Ezeket az **OEM-csomagok frissítéseinek**nevezzük. Ha meg szeretné tudni, hogy az OEM-kiadás OEM-csomagok frissítéseit tartalmazza-e, tekintse [meg az oem Azure stack dokumentációját](#oem-contact-information).
 
-A Azure Stack Update 1905-es frissítéstől kezdve ezek az OEM-csomagok frissítései a **updateadminaccount** Storage-fiókba kerülnek, és a Azure stack felügyeleti portálon keresztül lesznek végrehajtva. További információ: OEM- [frissítések alkalmazása](#apply-oem-updates).
+A rendszer feltölti ezeket az OEM-csomagok frissítéseit a **updateadminaccount** Storage-fiókjába, és a Azure stack felügyeleti portálon keresztül alkalmazza őket. További információ: OEM- [frissítések alkalmazása](#apply-oem-updates).
 
 Kérje meg az eredeti berendezésgyártó (OEM) adatait az adott értesítési folyamatról, hogy biztosítsa az OEM-csomagok frissítési értesítéseinek elérését a szervezet számára.
 
@@ -57,13 +57,15 @@ Ez a szakasz OEM kapcsolattartási adatokat és az OEM Azure Stack referenciaany
 
 Alkalmazza az OEM-csomagokat a következő lépésekkel:
 
-1. Az OEM-csomag letöltéséhez vegye fel a kapcsolatot az OEM-vel a legjobb módszerrel.
+1. A következőkre kell felvennie a kapcsolatot az OEM-vel:
+      - Határozza meg az OEM-csomag aktuális verzióját.  
+      - Az OEM-csomag letöltésére szolgáló legjobb módszer megkeresése.  
 2. Készítse elő az OEM-csomagot az [integrált rendszerek frissítési csomagjainak letöltése](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems)című témakörben leírtak szerint.
 3. Alkalmazza a frissítéseket a következő témakörben ismertetett lépésekkel: a [frissítések alkalmazása Azure stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Hardveres gyártó virtuális gép konfigurálása
 
-Egyes hardvergyártók esetében előfordulhat, hogy egy virtuális gépnek segítségre van szüksége az OEM-frissítési folyamathoz. Ezeknek a virtuális gépeknek a létrehozása a hardvergyártó feladata lesz. A virtuális gépek létrehozása után beállíthatja őket a **set-OEMExternalVM** parancsmaggal a privilegizált végponton.
+Egyes hardvergyártók esetében előfordulhat, hogy egy virtuális gépnek segítségre van szüksége az OEM-frissítési folyamathoz. A hardvergyártó felelős a virtuális gépek létrehozásához, és dokumentálja, ha a **set-OEMExternalVM** parancsmag `HardwareManager` futtatásához szükség van `ProxyVM` a **-VMType** . A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
 
 További információ a Azure Stack rendszerjogosultságú végpontról: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
@@ -78,12 +80,12 @@ További információ a Azure Stack rendszerjogosultságú végpontról: [a priv
 2. Konfigurálja a hardveres gyártó virtuális gépet a **set-OEMExternalVM** parancsmag használatával. A parancsmag ellenőrzi a **-VMTYPE** `ProxyVM`IP-címét és hitelesítő adatait. A **-VMType** `HardwareManager` esetében a parancsmag nem ellenőrzi a bemenetet.
 
     ```powershell  
-    $VMCred = Get-Credential
     
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM> -credential $using:VMCred
+        -IPAddress <IP Address of hardware vendor VM>
+        }
     ```
 
 ## <a name="next-steps"></a>További lépések
