@@ -171,6 +171,8 @@
               href: azure-stack-updates.md
             - name: Frissítések alkalmazása
               href: azure-stack-apply-updates.md
+            - name: OEM-frissítések alkalmazása
+              href: azure-stack-update-oem.md
             - name: A figyelő frissítési állapot
               href: azure-stack-monitor-update.md
         - name: Állapot és riasztások monitorozása
