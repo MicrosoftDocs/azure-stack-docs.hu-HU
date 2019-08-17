@@ -86,6 +86,8 @@
               href: azure-stack-network.md
             - name: Szegély kapcsolat
               href: azure-stack-border-connectivity.md
+            - name: Konfiguráció váltása
+              href: azure-stack-customer-defined.md
             - name: A DNS-integráció
               href: azure-stack-integrate-dns.md
             - name: Tűzfal-integráció
