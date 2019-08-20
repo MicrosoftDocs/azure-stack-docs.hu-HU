@@ -1,6 +1,6 @@
 ---
-title: Speciális Azure Stack értékelési feladatok |} A Microsoft Docs
-description: Ez a cikk ismerteti az Azure Stack értékelési speciális feladatokat.
+title: Speciális ASDK-értékelési feladatok | Microsoft Docs
+description: További tudnivalók a speciális Azure Stack Development KIt (ASDK) próbaverziós feladatairól.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,34 +16,34 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fe78fa4b99ef7acad924165b98e20ca6156777bb
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 36c4dae72f7fcf91438880f07231c94c8d286253
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267114"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579070"
 ---
-# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Az Azure Stack Development Kit értékelést speciális feladatok
-Után az Azure Stack Development Kit (ASDK) szolgáltatás alapszintű funkciók és képességek ismeretét, révén, akkor is mélyítheti a Tovább az Azure Stack által speciális forgatókönyvek tesztelését. Ezek összetettebb kiértékelése a feladatok teljes körűen vannak dokumentálva az Azure Stack operátori dokumentációja.
+# <a name="advanced-asdk-evaluation-tasks"></a>Speciális ASDK-értékelési feladatok
+Miután megismerte az alapszintű Azure Stack Development Kit (ASDK) szolgáltatás funkcióit és képességeit, a fejlettebb forgatókönyvek kivizsgálása révén mélyebben megismerheti Azure Stack további ismereteket. Ezek a speciális értékelési feladatok teljes mértékben dokumentálva vannak a Azure Stack kezelő dokumentációjában.
 
 > [!NOTE]
-> Míg számos operátor feladat ASDK és termelési célra egyaránt, több csomópontos Azure Stack üzemelő példánya esetében támogatottak nem minden használati forgatókönyvek ASDK központi telepítések támogatottak. Lásd: [ASDK és több csomópontos Azure Stack különbségek](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) további információt.
+> Habár számos kezelői feladat támogatott mind a ASDK, mind a több csomópontos Azure Stack üzemelő példányok esetében, nem minden használati forgatókönyv támogatott a ASDK üzemelő példányok esetében. További információ: [ASDK és több csomópontos Azure stack különbségek](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences).
 
 ## <a name="delegate-offers-in-azure-stack"></a>Ajánlat delegálása az Azure Stackben
-Az Azure Stack-operátori, milyen gyakran szeretné ajánlatok létrehozásához, és regisztráló felhasználók felelős mások. Például ha Ön a szolgáltató, érdemes lehet a viszonteladók számára a felhasználók regisztrálása és kezelheti azokat az Ön nevében is. Vagy ha Ön egy vállalat egy központi informatikai csoport része, érdemes lehet leányvállalatai Ön beavatkozása nélkül felhasználókat regisztrálhat.
+A Azure Stack-kezelővel gyakran más személyeket is fel kell vennie az ajánlatok létrehozására és a felhasználók regisztrálására. Ha például Ön szolgáltató, érdemes lehet viszonteladókat regisztrálni az ügyfelek regisztrálásához és az Ön nevében történő felügyeletéhez. Ha egy vállalaton belül egy központi informatikai csoport tagja, érdemes lehet a leányvállalatok számára a beavatkozás nélkül regisztrálni a felhasználókat.
 
-[Ajánlat delegálása az Azure Stack](../operator/azure-stack-delegated-provider.md) segítségével éri el, és közvetlenül választhat, mint további felhasználók kezelése lehetővé teszi ezeket a feladatokat.
+A [Azure stack delegált ajánlatok](../operator/azure-stack-delegated-provider.md) segítséget nyújt ezen feladatok elvégzésében azáltal, hogy több felhasználót is elérhet és kezelhet, mint amennyit közvetlenül tud.
 
-## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-adatbázisok az Azure Stack-felhasználók számára elérhetővé
-Az Azure Stack-operátori is kínál, amelyek lehetővé teszik a felhasználók vásárolhatnak (bérlők) is használható a natív felhőalkalmazásokat, a websites és a számítási feladatokat az SQL-adatbázisok létrehozása. Az egyéni, igény szerinti, felhőalapú adatbázisok biztosításával a felhasználók számára, mentheti őket időt és erőforrásokat.
+## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-adatbázisok elérhetővé tétele a Azure Stack-felhasználók számára
+Azure Stack kezelőként létrehozhat olyan ajánlatokat, amelyek lehetővé teszik a felhasználók (bérlők) számára, hogy olyan SQL-adatbázisokat hozzanak létre, amelyeket használhatnak a felhőalapú alkalmazásaikkal, webhelyeivel és munkaterhelésekkel. Ha ezeket az egyéni, igény szerinti felhőalapú adatbázisokat a felhasználók számára biztosítja, időt és erőforrásokat takaríthat meg.
 
-Használja az SQL Server erőforrás-szolgáltató adapter való [SQL-adatbázisok az Azure Stack-felhasználók számára elérhetővé](../operator/azure-stack-tutorial-sql-server.md) szolgáltatásként az Azure Stack. Az erőforrás-szolgáltató telepítése után, csatlakoztassa azt egy vagy több SQL Server-példányt.
+Az SQL Server erőforrás-szolgáltatói adapter használatával az [SQL-adatbázisok elérhetővé válnak a Azure stack-felhasználók](../operator/azure-stack-tutorial-sql-server.md) számára Azure stack-szolgáltatásként. Az erőforrás-szolgáltató telepítése után egy vagy több SQL Server példányhoz kell csatlakoznia.
 
-## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Webes és API-alkalmazások elérhetővé tétele az Azure Stack-felhasználók számára
-Az Azure Stack-operátori is kínál, amelyek lehetővé teszik a felhasználók vásárolhatnak (bérlők) Azure Functions és a webes és API-alkalmazások létrehozása. Ezek igény szerinti, a felhőbeli alkalmazásokhoz való hozzáférés biztosításával a felhasználók számára, mentheti őket időt és erőforrásokat.
+## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Webes és API-alkalmazások elérhetővé tétele a Azure Stack-felhasználók számára
+Azure Stack operátorként olyan ajánlatokat hozhat létre, amelyek lehetővé teszik a felhasználók (bérlők) számára Azure Functions és webes és API-alkalmazások létrehozását. Ha hozzáférést biztosít ezen igény szerinti és felhőalapú alkalmazásokhoz a felhasználók számára, akkor időt és erőforrásokat takaríthat meg.
 
-Az App Service-ben az erőforrás-szolgáltató üzembe helyezése [web- és API-alkalmazások elérhetővé tétele az Azure Stack-felhasználók számára](../operator/azure-stack-tutorial-app-service.md)
+Telepítse a App Service erőforrás-szolgáltatót a [webes és API-alkalmazások elérhetővé tételéhez a Azure stack felhasználók](../operator/azure-stack-tutorial-app-service.md)számára.
 
 ## <a name="next-steps"></a>További lépések
 
-[Tudjon meg többet az Azure Stack integrált rendszerek szolgáltatásajánlások](../operator/azure-stack-offer-services-overview.md)
+[További információ a szolgáltatások Azure Stack integrált rendszerekkel való ellátásáról](../operator/azure-stack-offer-services-overview.md)

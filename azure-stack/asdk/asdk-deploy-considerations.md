@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack Development Kit (ASDK) központi telepítés előfeltételei |} A Microsoft Docs
-description: Tekintse át a vonatkozó környezeti és hardverkövetelményeket az Azure Stack Development Kit (ASDK).
+title: A ASDK követelményei és szempontjai | Microsoft Docs
+description: További információ a Azure Stack Development Kit hardver-, szoftver-és környezeti követelményeiről (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,114 +16,114 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: e7006d599a597f66b8b1c76dac55f26cebacdacd
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 691eac0c76763dcaae60aa6946c5dcbc479486a6
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267182"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579001"
 ---
-# <a name="azure-stack-deployment-planning-considerations"></a>Tervezési megfontolások az Azure Stack üzemelő példányához
+# <a name="asdk-requirements-and-considerations"></a>A ASDK követelményei és szempontjai
 
-Az Azure Stack Development Kit (ASDK), üzembe helyezése előtt győződjön meg arról, a fejlesztői csomag fogadó számítógép megfelel-e az ebben a cikkben ismertetett követelményeknek.
+A Azure Stack Development Kit (ASDK) telepítése előtt győződjön meg arról, hogy a ASDK-gazdagép megfelel a jelen cikkben ismertetett követelményeknek.
 
 ## <a name="hardware"></a>Hardver
 
 | Összetevő | Minimális | Ajánlott |
 | --- | --- | --- |
-| Lemezmeghajtók: Operációs rendszer: |1 operációsrendszer-lemez, legalább 200 GB szabad rendszerpartíció (SSD vagy HDD) |1 rendszerlemez legalább 200 GB szabad tárhellyel a rendszerpartícióhoz (SSD vagy HDD) |
-| Lemezmeghajtók: Általános development kit adatok<sup>*</sup>  |4 lemez. Mindegyik lemez legalább 240 GB tárhellyel (SSD vagy HDD) biztosít. Az összes rendelkezésre álló lemezek használhatók. |4 lemez. Mindegyik lemez legalább 400 GB tárhellyel (SSD vagy HDD) biztosít. Az összes rendelkezésre álló lemezek használhatók. |
-| Számítási: CPU |Kettős foglalat: 16 fizikai mag (összesen) |Kettős foglalat: 20 fizikai mag (összesen) |
-| Számítási: Memória |192 GB RAM |256 GB RAM |
-| Számítási: BIOS-BAN |Hyper-V engedélyezve (SLAT-támogatással) |Hyper-V engedélyezve (SLAT-támogatással) |
-| Hálózat: Hálózati adapter |A Windows Server 2012 R2 hitelesítésével. Speciális jellemzők nem szükségesek |A Windows Server 2012 R2 hitelesítésével. Speciális jellemzők nem szükségesek |
-| Hardveres tanúsítványembléma |[Certified for Windows Server 2012 R2 rendszerben](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2016-ban](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Lemezmeghajtók: Operációs rendszer |1 operációsrendszer-lemez, amely legalább 200 GB-nyi rendelkezésre áll a rendszerpartícióhoz (SSD vagy HDD). |1 operációsrendszer-lemez, amely legalább 200 GB-nyi rendelkezésre áll a rendszerpartícióhoz (SSD vagy HDD). |
+| Lemezmeghajtók: Általános fejlesztői csomag adatai<sup>*</sup>  |4 lemez. Mindegyik lemez legalább 240 GB kapacitást biztosít (SSD vagy HDD). Az összes rendelkezésre álló lemez használatban van. |4 lemez. Mindegyik lemez legalább 400 GB kapacitást biztosít (SSD vagy HDD). Az összes rendelkezésre álló lemez használatban van. |
+| Számítási CPU |Kettős szoftvercsatorna: 16 fizikai mag (összesen). |Kettős szoftvercsatorna: 20 fizikai mag (összesen). |
+| Számítási Memory (Memória) |192 – GB RAM. |256 – GB RAM. |
+| Számítási BIOS |Hyper-V engedélyezve (LÉC támogatással). |Hyper-V engedélyezve (LÉC támogatással). |
+| Hálózati Hálózati adapter |Windows Server 2012 R2 minősítés. Nincs szükség speciális funkciókra. | Windows Server 2012 R2 minősítés. Nincs szükség speciális funkciókra. |
+| Hardveres tanúsítványembléma |[Windows Server 2012 R2 minősítéssel](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)rendelkezik. |[A Windows Server 2016 minősítéssel](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)rendelkezik. |
 
-<sup>*</sup> Kell több mint kapacitás ez javasolt, ha azt tervezi, hogy számos hozzáadása a [Piactéri elemek](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból.
+<sup>*</sup>Ha az Azure-ban sok [Piactéri elem](../operator/azure-stack-create-and-publish-marketplace-item.md) hozzáadását tervezi, ennél nagyobb kapacitásra van szüksége.
 
-### <a name="hardware-notes"></a>A hardverre vonatkozó megjegyzések
+### <a name="hardware-notes"></a>Hardver megjegyzései
 
-**Adatlemez-meghajtó konfigurációja:** Minden adatmeghajtónak ugyanolyan típusú (csak SAS, minden SATA vagy minden NVMe) és kapacitást kell lennie. Ha SAS-lemezmeghajtókat használ, egyetlen elérési úttal kell őket összekapcsolnia (az MPIO nem engedélyezett, a többutas működés támogatása biztosított).
+**Adatlemez-meghajtó konfigurációja:** Minden adatmeghajtónak azonos típusúnak kell lennie (az összes SAS, az összes SATA vagy az összes NVMe) és a kapacitásnak. Ha SAS-lemezmeghajtókat használ, egyetlen elérési úttal kell őket összekapcsolnia (az MPIO nem engedélyezett, a többutas működés támogatása biztosított).
 
-**HBA-konfigurációs lehetőségek**
+**HBA-konfigurációs beállítások**
 
-* (Előnyben részesített) Egyszerű HBA
-* RAID HBA - adaptert "átmenő" módba kell konfigurálni
-* RAID HBA - lemezeket kell beállítani, mint egyetlen-lemez, RAID-0
+* Előnyben részesített Egyszerű HBA.
+* A RAID HBA-adaptert "pass through" módban kell konfigurálni.
+* RAID HBA – a lemezeket egylemezes, RAID-0 értékként kell konfigurálni.
 
-**Támogatott busz- és adathordozó-típuskombinációk**
+**Támogatott busz-és adathordozó-típusok kombinációi**
 
 * SATA HDD
 * SAS HDD
 * RAID HDD
-* RAID SSD (ha az adathordozó-típusa nem meghatározott/ismeretlen<sup>*</sup>)
+* RAID SSD (ha az adathordozó típusa meghatározatlan/ismeretlen<sup>*</sup>)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
 * NVMe
 
-<sup>*</sup> Az átmenő képesség nélküli RAID-vezérlők nem ismerik fel az adathordozó típusát. Az ilyen vezérlők a HDD és SSD nincs meghatározva megjelölni. Ebben az esetben az SSD állandó tárolóként gyorsítótáreszköz helyett szolgál. Ezért a csomagban található ezeken az SSD meghajtókon is telepítheti.
+<sup>*</sup>Az áteresztő képesség nélküli RAID-vezérlők nem ismerik fel az adathordozó típusát. Az ilyen vezérlők megjelölik a HDD-t és az SSD-t is meghatározatlan. Ebben az esetben az SSD a gyorsítótárazási eszközök helyett állandó tárolóként van használatban. Ezért a ASDK az SSD-meghajtókon is üzembe helyezheti.
 
-**Példa HBA**: LSI 9207-8i, LSI-9300-8i vagy LSI-9265-8i átmenő módban
+**Példa HBA**: LSI 9207-8i, LSI-9300-8i vagy LSI-9265-8i átmenő módban.
 
 OEM mintakonfigurációk is elérhetők.
 
-### <a name="storage-resiliency-for-the-asdk"></a>Tárolási rugalmasságát a ASDK
+### <a name="storage-resiliency-for-the-asdk"></a>Tárolási rugalmasság a ASDK
 
-Egyetlen csomópont rendszerként a ASDK nem tervezett éles redundancia az Azure Stackkel integrált rendszer érvényesítése. Azonban növelheti a ASDK HDD és SSD meghajtók optimális kombinációja révén az alapul szolgáló tárhely-redundancia szintjét. Kétutas tükrözés konfiguráció, hasonlóan egy RAID1 helyett egy egyszerű rugalmassági konfigurációban, amely egy RAID0 hasonló telepítheti. Használja a közvetlen tárolóhelyek alapjául szolgáló konfigurációs elegendő kapacitással, típusa és meghajtók száma.
+Egyetlen csomópontos rendszerként a ASDK nem egy Azure Stack integrált rendszer éles redundancia ellenőrzéséhez készült. Azonban a HDD-és SSD-meghajtók optimális kombinációja révén növelheti a ASDK mögöttes tárolási redundancia szintjét. A RAID1 hasonlóan kétirányú tükrözési konfigurációt is üzembe helyezhet, nem pedig egy egyszerű rugalmassági konfigurációt, amely a RAID0 hasonló. A mögöttes Közvetlen tárolóhelyek konfigurációhoz elegendő kapacitást, típust és meghajtót használjon.
 
-Storage rugalmasságot kétutas tükrözés konfiguráció használata:
+Kétirányú tükrözési konfiguráció használata a tárolási rugalmasság érdekében:
 
-- A rendszer két terabájtnál nagyobb HDD-kapacitás.
-- Ha a ASDK az SSD-k nem rendelkezik, szüksége lesz legalább nyolc HDD kétutas tükrözés konfiguráció.
-- Ha a ASDK HDD-k, valamint SSD-k kell legalább öt HDD. Azonban hat HHDs használata ajánlott. A hat HDD, lenne is kell javasoljuk, hogy megfelelő legalább három SSD-k a rendszer, hogy rendelkezzen egy gyorsítótár (SSD) szolgáltatása két kapacitás lemezmeghajtók (HDD).
+- A HDD kapacitása nagyobb, mint két terabájt.
+- Ha nem rendelkezik SSD-vel a ASDK, legalább nyolc HDD-t kell használnia a kétirányú tükrözési konfigurációhoz.
+- Ha a ASDK SSD-k vannak, a HDD-k mellett legalább öt HDD-t kell használnia. Hat HHDs azonban ajánlott. Hat HDD esetén ajánlott legalább három megfelelő SSD-t használni a rendszeren, hogy legyen egy gyorsítótár-lemez (SSD) a két kapacitású meghajtó (HDD) kiszolgálásához.
 
-Példa kétutas tükrözés konfiguráció:
+Példa kétirányú tükrözési konfigurációra:
 
-- Nyolc HDD-k
-- Három SSD / hat HDD
-- Négy SSD / nyolc HDD
+- Nyolc HDD
+- Három SSD/6 HDD
+- Négy SSD/8 HDD
 
 ## <a name="operating-system"></a>Operációs rendszer
 |  | **Követelmények** |
 | --- | --- |
-| **Operációsrendszer-verzió** |A Windows Server 2016 vagy újabb. Az operációs rendszer verziója nem kritikus fontosságú az üzembe helyezés megkezdése előtt, akkor a számítógép lesz indítsa el a a VHD-t, amely az Azure Stack-telepítés része. Az operációs rendszer és az összes szükséges javítást már integrálva van a lemezképpel. Ne használjon bármely kulcsok aktiválásához a csomagban használt bármilyen Windows Server-példányon. |
+| **Operációs rendszer verziója** |Windows Server 2016 vagy újabb. Az operációs rendszer verziója nem kritikus fontosságú az üzemelő példány elindítása előtt, mert a gazdagépet a Azure Stack telepítés részét képező virtuális merevlemezre indítja. Az operációs rendszer és az összes szükséges javítás már integrálva van a lemezképbe. Ne használjon kulcsokat a ASDK használt Windows Server-példányok aktiválásához. |
 
 > [!TIP]
-> Az operációs rendszer telepítése után is használhatja a [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) , győződjön meg arról, hogy a hardver megfelel-e az összes követelményének.
+> Az operációs rendszer telepítése után a [Azure stack üzembe helyezés-ellenőrzése](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) segítségével ellenőrizheti, hogy a hardver megfelel-e az összes követelménynek.
 
 ## <a name="account-requirements"></a>Fiókra vonatkozó követelmények
-Általában a csomag üzembe internetkapcsolattal, ahol a Microsoft Azure csatlakozhat. Ebben az esetben konfigurálnia kell egy Azure Active Directory (Azure AD-) fiókot a csomag telepítéséhez.
+A ASDK általában internetkapcsolattal kell központilag telepíteni, ahol Microsoft Azurehoz csatlakozhat. Ebben az esetben konfigurálnia kell egy Azure Active Directory (Azure AD) fiókot a ASDK telepítéséhez.
 
-Ha a környezet nem kapcsolódik az internethez, vagy nem szeretné használni az Azure ad-ben, az Active Directory összevonási szolgáltatások (AD FS) használatával telepítheti az Azure Stack. A csomag tartalmazza a saját AD FS és az Active Directory Domain Services-példányokat. Ha ez a beállítás használatával telepít, nem kell előre fiókok beállítása.
+Ha a környezet nem kapcsolódik az internethez, vagy nem kívánja használni az Azure AD-t, Active Directory összevonási szolgáltatások (AD FS) (AD FS) használatával telepítheti Azure Stack. A ASDK saját AD FS és Active Directory tartományi szolgáltatások példányokat tartalmaz. Ha ezt a beállítást használja, nem kell előre beállítania a fiókokat.
 
 > [!NOTE]
-> Ha az AD FS lehetőség használatával telepíti, újra kell telepítenie az Azure Stack az Azure AD-váltás.
+> Ha az AD FS lehetőséggel végzi a telepítést, újra kell telepítenie Azure Stack az Azure AD-re való váltáshoz.
 
-### <a name="azure-active-directory-accounts"></a>Az Azure Active Directory-fiókok
-Az Azure Stack üzembe helyezése egy Azure AD-fiókkal, el kell készítenie az Azure AD-fiókot, az üzembe helyezés PowerShell-parancsfájl futtatása előtt. Ezt a fiókot az Azure AD-bérlő számára a globális rendszergazdája lesz. Üzembe helyezhető, és delegálja az alkalmazások és az egyszerű szolgáltatások Azure Stack-szolgáltatásokhoz, amelyek együttműködnek az Azure Active Directory és a Graph API használatos. Az alapértelmezett szolgáltatója előfizetést (ez később módosíthatja) tulajdonosaként is használható. Bejelentkezhet az Azure Stack rendszer rendszergazdai portál e fiók használatával.
+### <a name="azure-active-directory-accounts"></a>Fiókok Azure Active Directory
+Azure Stack Azure AD-fiók használatával történő telepítéséhez elő kell készítenie egy Azure AD-fiókot az üzembe helyezési PowerShell-szkript futtatása előtt. Ez a fiók lesz az Azure AD-bérlő globális rendszergazdája. A szolgáltatás az Azure AD-vel és a Graph API-mel kommunikáló összes Azure Stack szolgáltatáshoz az alkalmazások és az egyszerű szolgáltatások kiépítésére és delegálására használatos. Az alapértelmezett szolgáltatói előfizetés tulajdonosaként is használatos (amelyet később is módosíthat). A fiók használatával bejelentkezhet a Azure Stack System felügyeleti portálján.
 
-1. Hozzon létre egy Azure AD-fiókot, amely a címtár-rendszergazdája legalább egy Azure AD-hez. Ha már rendelkezik ilyen fiókkal, használhatja azt. Ellenkező esetben létrehozhat egy ingyenes [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/free/) (Kínából <https://go.microsoft.com/fwlink/?LinkID=717821> helyett). Ha azt tervezi, hogy később [regisztrálása az Azure Stack az Azure-ral](asdk-register.md), rendelkeznie kell egy előfizetés az újonnan létrehozott fiók.
+1. Hozzon létre egy Azure AD-fiókot, amely legalább egy Azure AD-címtár rendszergazdája. Ha már rendelkezik ilyen fiókkal, használhatja azt. Ellenkező esetben létrehozhat egyet ingyen [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) a (Kínában, a látogatás <https://go.microsoft.com/fwlink/?LinkID=717821> helyett). Ha azt tervezi, hogy később [regisztrálja Azure stack az Azure](asdk-register.md)-ban, akkor ehhez az újonnan létrehozott fiókhoz is rendelkeznie kell előfizetéssel.
    
-    Mentse ezeket a hitelesítő adatokat a szolgáltatás-rendszergazdaként. Ez a fiók konfigurálhatja és kezelheti a erőforrásfelhőket, felhasználói fiókokat, bérlői csomagokat, kvótákat és díjszabás. A portálon létrehozhatnak felhőket webhelyhez, magánfelhőket virtuális géphez, csomagokat, és kezelhetik a felhasználói előfizetéseket.
-1. Hozzon létre legalább egy tesztfelhasználói fiókja az Azure AD-ben, így bejelentkezhet bérlőként development Kit.
+    Mentse ezeket a hitelesítő adatokat a szolgáltatás-rendszergazdaként való használatra. Ez a fiók az erőforrás-felhőket, a felhasználói fiókokat, a bérlői terveket, a kvótákat és a díjszabást konfigurálhatja és kezelheti A portálon létrehozhatnak webhelyeket, virtuális gépeket és saját felhőket, csomagokat hozhatnak létre, és kezelhetik a felhasználói előfizetéseket.
+1. Hozzon létre legalább egy tesztelési felhasználói fiókot az Azure AD-ben, hogy bérlőként jelentkezzen be a ASDK.
    
-   | **Az Azure Active Directory-fiók** | **Támogatott?** |
+   | **Azure Active Directory fiók** | **Támogatott?** |
    | --- | --- |
    | Munkahelyi vagy iskolai fiók érvényes globális Azure-előfizetéssel |Igen |
-   | Érvényes globális Azure-előfizetéssel rendelkező Microsoft-Account |Igen |
+   | Microsoft-fiók érvényes globális Azure-előfizetéssel |Igen |
    | Munkahelyi vagy iskolai fiók érvényes China Azure-előfizetéssel |Igen |
-   | Munkahelyi vagy iskolai fiók érvényes US Government Azure-előfizetéssel |Igen |
+   | Munkahelyi vagy iskolai fiók érvényes USA-beli kormányzati Azure-előfizetéssel |Igen |
 
-Az üzembe helyezést követően az Azure Active Directory globális rendszergazdának, nem szükséges. Egyes műveletek azonban szükség lehet a globális rendszergazdai hitelesítő adatok. Például egy erőforrás-szolgáltató szoftvertelepítő parancsfájl vagy egy új szolgáltatást igénylő engedélyt kell adni. Ideiglenesen érvényességének visszaállítása a fiók globális rendszergazdai jogosultságokkal, vagy használjon egy külön globális rendszergazdai fiókkal, amely a tulajdonosa a *szolgáltatói előfizetés alapértelmezett*.
+Az üzembe helyezést követően az Azure AD globális rendszergazdai engedélye nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
 
 ## <a name="network"></a>Network (Hálózat)
 ### <a name="switch"></a>Kapcsoló
-Egy elérhető port a kapcsolón a fejlesztői csomag gépen.  
+Egy elérhető port egy kapcsolón a ASDK gép számára.  
 
-A fejlesztői csomag gép támogatja a csatlakozást egy kapcsoló hozzáférési portjához vagy trönkportjához. A kapcsoló esetében nem szükségesek speciális jellemzők. Ha trönkportot használ, vagy ha egy VLAN-azonosítót kell beállítania, üzembehelyezési paraméterként kell megadnia a VLAN-azonosítót.
+A ASDK-gép támogatja a csatlakozást egy kapcsoló hozzáférési portjához vagy a Trunk portjához. A kapcsoló esetében nem szükségesek speciális jellemzők. Ha Trunk-portot használ, vagy ha VLAN-azonosítót kell konfigurálnia, a VLAN-azonosítót a telepítési paraméterként kell megadnia.
 
-### <a name="subnet"></a>Alhálózat
-A következő alhálózatok ne csatlakoztassa a fejlesztői csomag gépen:
+### <a name="subnet"></a>Subnet
+Ne kapcsolja a ASDK gépet a következő alhálózatokhoz:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -132,20 +132,20 @@ A következő alhálózatok ne csatlakoztassa a fejlesztői csomag gépen:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-Ezen alhálózatok a development kit környezetben található belső hálózatok számára vannak fenntartva.
+Ezek az alhálózatok a ASDK-környezeten belüli belső hálózatok számára vannak fenntartva.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
 Kizárólag az IPv4 használata támogatott. Nem hozhat létre IPv6-hálózatokat.
 
 ### <a name="dhcp"></a>DHCP
-Győződjön meg róla, hogy egy DHCP-kiszolgáló elérhető azon a hálózaton, amelyhez a NIC csatlakozik. Ha a DHCP nem elérhető el, egy kiegészítő, az állomás által használt melletti, statikus IPv4-hálózatot kell előkészítenie. Üzembehelyezési paraméterként meg kell adnia azt az IP-címet és átjárót.
+Ellenőrizze, hogy van-e olyan DHCP-kiszolgáló a hálózaton, amelyhez a hálózati adapter csatlakozik. Ha a DHCP nem érhető el, egy további, a gazdagép által használt statikus IPv4-hálózatot kell előkészítenie. Üzembehelyezési paraméterként meg kell adnia azt az IP-címet és átjárót.
 
 ### <a name="internet-access"></a>Internetelérés
-Az Azure Stack internet-hozzáférésre van szüksége, közvetlenül vagy a transzparens proxy használatával. Az Azure Stack nem támogatja az Internet-hozzáférés engedélyezése egy webalkalmazás-proxy konfigurálása. A gazdagép IP-cím és a AzS-BGPNAT01 (által a DHCP vagy statikus IP-cím) rendelt új IP az Internet eléréséhez képesnek kell lennie. 80-as és 443-as portok a graph.windows.net és login.microsoftonline.com tartományok alatt vannak használatban.
+Azure Stack az internet elérését igényli közvetlenül vagy transzparens proxyn keresztül. A Azure Stack nem támogatja a webproxyk konfigurálását az Internet-hozzáférés engedélyezéséhez. A gazdagép IP-címének és az AzS-BGPNAT01 (DHCP vagy statikus IP-cím) által hozzárendelt új IP-nek is képesnek kell lennie az internet elérésére. A 80-es és a 443-es portok a graph.windows.net és a login.microsoftonline.com tartományok alatt használatosak.
 
 
 ## <a name="next-steps"></a>További lépések
 
-- [Töltse le a ASDK központi telepítési csomag](asdk-download.md)
-- További információk a közvetlen tárolóhelyekkel, lásd: [a közvetlen tárolóhelyek áttekintése](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
+- [Töltse le a ASDK központi telepítési csomagot](asdk-download.md).
+- További információ a Közvetlen tárolóhelyekről: [közvetlen tárolóhelyek Overview (áttekintés](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)).
 

@@ -1,6 +1,6 @@
 ---
-title: Helyreállítás az Azure Stack App Service szolgáltatásában |} A Microsoft Docs
-description: Részletes útmutatás a vész-helyreállítási Azure Stack App Service-ben
+title: App Service helyreállítás a Azure Stackon | Microsoft Docs
+description: További információ a Azure Stack App Service vész-helyreállításáról.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,44 +16,44 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c302ad1188d52c86d2d42734fa9061820268d420
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269222"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579023"
 ---
-# <a name="recovery-of-app-service-on-azure-stack"></a>Helyreállítás az App Service az Azure Stackben
+# <a name="app-service-recovery-on-azure-stack"></a>App Service helyreállítás Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*  
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
 
-Ez a dokumentum érvénybe az App Service-ben vész-helyreállítási műveleteivel kapcsolatos útmutatást nyújt.
+Ez a témakör útmutatást nyújt a App Service vész-helyreállítással kapcsolatos műveletek elvégzéséhez.
 
-Az alábbi műveleteket az Azure Stack App Service-ben helyreállítása biztonsági másolatból kell venni:
-1.  Az App Service-adatbázisok visszaállítása
-2.  A fájl megosztási tartalom visszaállítása
-3.  Az App Service-szerepkörök és szolgáltatások visszaállítása
+A következő műveleteket kell végrehajtani a biztonsági másolatból Azure Stack App Service helyreállításához:
+1. Állítsa vissza a App Service-adatbázisokat.
+2. A fájlkiszolgáló megosztási tartalmának visszaállítása.
+3. App Service szerepkörök és szolgáltatások visszaállítása.
 
-Ha az Azure Stack tárolási Függvényalkalmazások tároláshoz használt, majd is szükségesek lépést Függvényalkalmazások visszaállításához.
+Ha Azure Stack tárterületet a Function apps-tárolóhoz, akkor a Function Apps szolgáltatás visszaállításához szükséges lépéseket is el kell végeznie.
 
-## <a name="restore-the-app-service-databases"></a>Az App Service-adatbázisok visszaállítása
-Éles kész SQL Server-példányt az App Service az SQL Server-adatbázisokat kell visszaállítani. 
+## <a name="restore-the-app-service-databases"></a>A App Service adatbázisok visszaállítása
+A App Service SQL Server-adatbázisokat egy éles használatra kész SQL Server példányon kell visszaállítani. 
 
-Miután [előkészítése az SQL Server-példány](azure-stack-app-service-before-you-get-started.md#prepare-the-sql-server-instance) az App Service-adatbázisok üzemeltetéséhez, használja ezeket a lépéseket adatbázisok biztonsági másolatból történő visszaállítását:
+Miután felkészítette [a SQL Server példányt](azure-stack-app-service-before-you-get-started.md#prepare-the-sql-server-instance) a app Service adatbázisok üzemeltetéséhez, kövesse az alábbi lépéseket az adatbázisok biztonsági másolatból való visszaállításához:
 
-1. Jelentkezzen be rendszergazdai engedélyekkel a helyreállított App Service-ben adatbázisokat üzemeltető SQL Server.
-2. A következő parancsokat használja egy parancssort rendszergazdai jogosultságokkal fut az App Service-adatbázisok visszaállítása:
+1. Jelentkezzen be a visszaállított App Service-adatbázisokat futtató SQL Server a rendszergazdai engedélyekkel.
+2. A következő parancsokkal állíthatja vissza a App Service adatbázisait rendszergazdai engedélyekkel futó parancssorból:
     ```dos
     sqlcmd -U <SQL admin login> -P <SQL admin password> -Q "RESTORE DATABASE appservice_hosting FROM DISK='<full path to backup>' WITH REPLACE"
     sqlcmd -U <SQL admin login> -P <SQL admin password> -Q "RESTORE DATABASE appservice_metering FROM DISK='<full path to backup>' WITH REPLACE"
     ```
-3. Győződjön meg arról, hogy mindkét App Service-adatbázisokat sikeresen vissza lett állítva, és lépjen ki az SQL Server Management Studióval.
+3. Győződjön meg arról, hogy mindkét App Service adatbázis visszaállítása sikeres volt, és lépjen ki SQL Server Management Studio.
 
 > [!NOTE]
-> A feladatátvevő fürt példány hiba, helyreállítás [ezek az utasítások](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> A feladatátvételi fürtszolgáltatás meghibásodása miatti helyreállításról a [feladatátvételi fürt példányának meghibásodása esetén](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)című témakörben talál további információt. 
 
-## <a name="restore-the-app-service-file-share-content"></a>Az App Service-ben fájltartalom megosztás visszaállítása
-Miután [előkészítése a fájlkiszolgáló](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) üzemeltetni az App Service-fájlmegosztás, a bérlő fájltartalom fájlmegosztás visszaállítása biztonsági másolatból kell. Tetszőleges módszerrel is használhat, másolja a fájlt az újonnan létrehozott App Service-ben fájlmegosztási helyet elérhető. Ebben a példában a fájl kiszolgálón futó használandó PowerShell és a robocopy csatlakozik egy távoli megosztásra mutat, és másolja a fájlokat a megosztásba:
+## <a name="restore-the-app-service-file-share-content"></a>A App Service fájlmegosztás tartalmának visszaállítása
+A [fájlkiszolgáló](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) a app Service fájlmegosztás üzemeltetése után történő előkészítése után vissza kell állítania a bérlői fájlmegosztás tartalmát a biztonsági másolatból. A fájlok az újonnan létrehozott App Service fájlmegosztás helyére való másolásához tetszőleges módszert használhat. Ha ezt a példát a fájlkiszolgálón futtatja, a PowerShell és a Robocopy használatával csatlakozhat egy távoli megosztáshoz, és átmásolja a fájlokat a megosztásba:
 
 ```powershell
 $source = "<remote backup storage share location>"
@@ -63,16 +63,16 @@ robocopy /E $source $destination
 net use $source /delete
 ```
 
-Másolja a fájlmegosztás tartalmát, mellett is vissza kell állítania magát a fájlmegosztás engedélyei. Ehhez nyisson meg egy rendszergazdai parancssort azon a fájlkiszolgálón, és futtassa a **ReACL.cmd** fájlt. A **ReACL.cmd** fájl található, az App Service-ben telepítőfájlok a **BCDR** könyvtár.
+A fájlmegosztás tartalmának másolása mellett a fájlmegosztás engedélyeit is vissza kell állítania. Az engedélyek alaphelyzetbe állításához nyisson meg egy rendszergazdai parancssort a fájlkiszolgáló számítógépen, és futtassa a **ReACL. cmd** fájlt. A **ReACL. cmd** fájl a **BCDR** könyvtárának app Service telepítési fájljaiban található.
 
-## <a name="restore-app-service-roles-and-services"></a>Az App Service-szerepkörök és szolgáltatások visszaállítása
-Miután az App Service-adatbázisokat és a megosztás tartalma vissza lett állítva, ezután az App Service-szerepkörök és szolgáltatások visszaállítása a PowerShell használatával kell. Ezeket a lépéseket az App Service titkos kódok és a szolgáltatáskonfiguráció állítja vissza.  
+## <a name="restore-app-service-roles-and-services"></a>Szerepkörök és szolgáltatások visszaállítása App Service
+A App Service-adatbázisok és a fájlmegosztás tartalmának visszaállítása után a App Service szerepköreinek és szolgáltatásainak visszaállításához a PowerShellt kell használnia. Ezek a lépések visszaállítják App Service titkokat és szolgáltatás-konfigurációkat.  
 
-1. Jelentkezzen be az App Service-vezérlő **CN0 virtuális** -alapú virtuális gép **roleadmin** App Service-ben a telepítés során megadott jelszó segítségével. 
+1. Jelentkezzen be a App Service Controller **CN0-VM** virtuális gépre **roleadmin** -ként a app Service telepítésekor megadott jelszó használatával. 
     > [!TIP]
-    > Az RDP-kapcsolatok engedélyezése a virtuális gép hálózati biztonsági csoportot módosítani kell. 
-2. Másolás a **SystemSecrets.JSON** fájlt helyileg a virtuális gép vezérlő. Meg kell adnia, a fájl elérési útját a `$pathToExportedSecretFile` paraméter a következő lépésben. 
-3. Egy rendszergazda jogú PowerShell-konzolablakot a következő parancsok segítségével visszaállíthatja az App Service-szerepkörök és szolgáltatások:
+    > Az RDP-kapcsolatok engedélyezéséhez módosítania kell a virtuális gép hálózati biztonsági csoportját. 
+2. Másolja a **SystemSecrets. JSON** fájlt helyileg a vezérlő virtuális gépre. A következő lépésben meg kell adnia a fájl `$pathToExportedSecretFile` elérési útját paraméterként.
+3. A következő parancsok futtatásával emelt szintű PowerShell-konzol ablakban állíthatja vissza App Service szerepköröket és szolgáltatásokat:
 
     ```powershell
     # Stop App Service services on the primary controller VM
@@ -102,18 +102,18 @@ Miután az App Service-adatbázisokat és a megosztás tartalma vissza lett áll
     ```
 
 > [!TIP]
-> Erősen ajánlott gombra kattintva zárja be a parancs befejeződésekor a PowerShell-munkamenetben.
+> A parancs befejezésekor erősen ajánlott a PowerShell-munkamenet lezárása.
 
-## <a name="restore-function-apps"></a>A Függvényalkalmazások visszaállítása 
-Az Azure Stack App Service nem támogatja a bérlő felhasználói alkalmazások vagy a megosztás tartalma adatok helyreállítása. Ezért ezek kell biztonsági mentése és helyreállítása App Service-en kívül biztonsági mentési és visszaállítási műveletek. Ha az Azure Stack tárolási Függvényalkalmazások tároláshoz használt, elveszett adatok helyreállítására a következő lépéseket kell tenni:
+## <a name="restore-function-apps"></a>Function-alkalmazások visszaállítása 
+A Azure Stack App Service nem támogatja a bérlői felhasználói alkalmazások vagy a fájlmegosztás tartalmától eltérő adatokat visszaállítását. Az összes többi biztonsági mentést és helyreállítást App Service biztonsági mentési és visszaállítási műveleteken kívül kell végrehajtani. Ha Azure Stack tárolót használtak a Function apps-tárolóhoz, a következő lépéseket kell végrehajtani az elveszett adatok helyreállításához:
 
-1. A Függvényalkalmazás által használt új tárfiók létrehozása. Ez a tároló lehet az Azure Stack storage, az Azure storage vagy kompatibilis tárolási.
-2. A tárolási kapcsolati karakterlánc lekéréséhez.
-3. Nyissa meg a függvény portált, tallózással keresse meg a függvényalkalmazást.
-4. Keresse meg a **platformfunkciók** fülre, és **Alkalmazásbeállítások**.
-5. Változás **AzureWebJobsDashboard** és **AzureWebJobsStorage** az új kapcsolati karakterlánc, és kattintson a **mentése**.
-6. Váltson **áttekintése**.
-7. Indítsa újra az alkalmazást. Törölje az összes hiba több próbálkozás is eltarthat.
+1. Hozzon létre egy új, a függvényalkalmazás által használandó Storage-fiókot. Ez a tároló lehet Azure Stack tároló, Azure Storage vagy bármilyen kompatibilis tároló.
+2. A tárolóhoz tartozó kapcsolatok karakterláncának beolvasása.
+3. Nyissa meg a Function Portalt, és keresse meg a Function alkalmazást.
+4. Keresse meg a **platform szolgáltatásai** lapot, és kattintson az **Alkalmazásbeállítások**elemre.
+5. Módosítsa a **AzureWebJobsDashboard** és a **AzureWebJobsStorage** az új kapcsolódási karakterláncra, majd kattintson a **Mentés**gombra.
+6. Váltson átaz áttekintésre.
+7. Indítsa újra az alkalmazást. Több próbálkozást is igénybe vehet az összes hiba törléséhez.
 
 ## <a name="next-steps"></a>További lépések
 [Az Azure Stack App Service áttekintése](azure-stack-app-service-overview.md)
