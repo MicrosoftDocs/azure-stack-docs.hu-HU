@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
-ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
+ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
+ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68956604"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643852"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Piactéri termék létrehozása és közzététele
 
@@ -55,7 +55,7 @@ ms.locfileid: "68956604"
    >
    >
 
-8. A **manifest. JSON** fájlban módosítsa a **név nevet** a Marketplace-elem nevére. Módosítsa a **közzétevőt** is a nevére vagy a vállalatára.
+8. A **manifest. JSON** fájlban módosítsa a **név nevet** a Marketplace-elem nevére. Módosítsa a **közzétevőt** is a nevére vagy a vállalatára. A rendszerkép közzététele előtt frissítse a manifest. JSON fájlt, és frissítse a következő sort: "Name": "xxx". Ügyeljen arra, hogy minden egyes rendszerkép-verzióhoz más nevet használjon.
 9. Azösszetevők területen módosítsa a megfelelő információk **nevét** és **elérési útját** a Azure Resource Manager sablonhoz:
 
    ```json
