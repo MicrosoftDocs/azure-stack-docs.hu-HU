@@ -1,6 +1,6 @@
 ---
-title: Biztonsági mentés engedélyezése az Azure Stack a felügyeleti portálról |} A Microsoft Docs
-description: Engedélyezze az infrastruktúra Backup szolgáltatás a felügyeleti portálon keresztül, úgy, hogy az Azure Stack állíthatók, ha hiba történik.
+title: Azure Stack biztonsági mentésének engedélyezése a felügyeleti portálról | Microsoft Docs
+description: Engedélyezze a Infrastructure Backup szolgáltatást a felügyeleti portálon keresztül, hogy a rendszer meghibásodás esetén visszaállítsa Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -12,48 +12,48 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: eefd393fa12814260711590f028c9a787811d8af
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269030"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896368"
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Biztonsági mentés engedélyezése az Azure Stack a felügyeleti portálról
-Engedélyezze az infrastruktúra Backup szolgáltatás a felügyeleti portálon keresztül, úgy, hogy az Azure Stack infrastruktúrájának biztonsági mentéseket hozhat létre. A hardver partner ezeket a biztonsági másolatokat segítségével visszaállíthatja az-környezet a felhőbeli helyreállítási [végzetes hiba](./azure-stack-backup-recover-data.md). A felhőbeli helyreállítási célja, hogy győződjön meg arról, hogy az operátorok és a felhasználók is jelentkezzen be újra a portál recovery befejeződése után. Felhasználók visszaállítása, beleértve a szerepköralapú hozzáférési engedélyek és szerepkörök, eredeti csomagok, ajánlatok, és a korábban meghatározott számítási, tárolási, hálózati kvóták, és a Key Vault titkos megszűnni lesz.
+# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Azure Stack biztonsági mentésének engedélyezése a felügyeleti portálról
+Engedélyezze a Infrastructure Backup szolgáltatást a felügyeleti portálon keresztül, hogy a Azure Stack infrastruktúra-biztonsági másolatokat lehessen készíteni. A hardvereszközök a biztonsági másolatok használatával visszaállíthatják a környezetet a Felhőbeli helyreállítással [végzetes hiba](./azure-stack-backup-recover-data.md)esetén. A Felhőbeli helyreállítás célja annak biztosítása, hogy az operátorok és a felhasználók a helyreállítás befejezése után vissza tudják jelentkezni a portálra. A felhasználók előfizetéseit vissza kell állítani, beleértve a szerepköralapú hozzáférési engedélyeket, a szerepköröket, az eredeti csomagokat, az ajánlatokat, valamint a korábban meghatározott számítási, tárolási, hálózati kvótákat és Key Vault titkokat.
 
-Azonban az infrastruktúra biztonsági mentési szolgáltatás nem IaaS virtuális gépek biztonsági mentése, hálózati konfigurációját, és tárolási erőforrások, például a storage-fiókok, blobok, táblák, és így tovább, így felhőalapú helyreállítás befejezése után bejelentkezett felhasználók nem látják bármelyik korábban meglévő az erőforrásokat. Platform (PaaS) szolgáltatás-erőforrások és adatok is nem készül biztonsági másolat a szolgáltatás által. 
+A Infrastructure Backup szolgáltatás azonban nem készít biztonsági mentést a IaaS virtuális gépekről, a hálózati konfigurációkról és a tárolási erőforrásokról, például a Storage-fiókokról, a blobokról, a táblákról és így tovább, így a felhasználók a Felhőbeli helyreállítást követően jelentkeznek be, és nem fogják látni a korábban meglévőket erőforrások. A szolgáltatás nem készít biztonsági másolatot a platformról (a szolgáltatásról (Pásti) származó erőforrásokról és az információkról. 
 
-A rendszergazdák és felhasználók felelőssége biztonsági mentése és visszaállítása IaaS és PaaS-erőforrásokat külön-külön, a biztonsági mentési infrastruktúra-folyamatok. IaaS és PaaS-erőforrások biztonsági mentésével kapcsolatos további információkért lásd az alábbi hivatkozásokat:
+A rendszergazdák és a felhasználók felelősek a IaaS és a Péter-erőforrások biztonsági mentéséhez és visszaállításához az infrastruktúra biztonsági mentési folyamataitól függetlenül. A IaaS és a Péter-erőforrások biztonsági mentéséről a következő hivatkozásokon talál további információt:
 
 - [Virtuális gépek](../user/azure-stack-manage-vm-protect.md)
 - [APP SERVICE](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-## <a name="enable-or-reconfigure-backup"></a>Engedélyezi, vagy konfigurálja újra a biztonsági mentés
+## <a name="enable-or-reconfigure-backup"></a>Biztonsági mentés engedélyezése vagy újrakonfigurálása
 
-1. Nyissa meg a [Azure Stack felügyeleti portálon](azure-stack-manage-portals.md).
-2. Válassza ki **minden szolgáltatás**, majd a **felügyeleti** kategória kiválasztása **infrastruktúra biztonsági mentését**. Válasszon **konfigurációs** a a **infrastruktúra biztonsági mentését** panelen.
-3. Írja be a elérési útját a **biztonsági mentési tárhelyet**. Egy univerzális elnevezési konvenció (UNC) karakterlánc használata egy különálló eszköz található fájlmegosztás elérési útját. Karakterláncnak UNC helyét adja meg az erőforrások, például megosztott fájlokhoz vagy eszközökön. A szolgáltatás IP-címet is használhatja. A biztonsági mentési adatok rendelkezésre állásának biztosításához egy vészhelyzetet követően, hogy az eszköz egy külön helyen kell lennie.
-
-    > [!Note]  
-    > Ha a környezet támogatja a vállalati környezetben az Azure Stack infrastruktúra-hálózaton a névfeloldást, használhatja a IP-cím helyett a teljes Tartománynevet.
-
-4. Írja be a **felhasználónév** segítségével tartomány és felhasználónév megfelelő szintű hozzáféréssel rendelkező fájlok olvasását és írását. Például: `Contoso\backupshareuser`.
-5. Írja be a **jelszó** a felhasználó számára.
-6. Írja be újra a jelszót **jelszó megerősítése**.
-7. A **gyakorisága (óra)** határozza meg, hogy milyen gyakran jönnek létre biztonsági mentéseket. Az alapértelmezett érték: 12. A Scheduler támogatja a legfeljebb 12 és a egy legalább 4. 
-8. A **megőrzési időszak napban** határozza meg, hány napig a biztonsági mentések megmaradnak a külső helyen. Az alapértelmezett értéke a 7. A Scheduler támogatja a legfeljebb 14 és a egy legalább 2. Biztonsági másolatok régebbi, mint a megőrzési időszak a külső helyről automatikusan törlődnek.
+1. Nyissa meg a [Azure stack felügyeleti portált](azure-stack-manage-portals.md).
+2. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza az **infrastruktúra biztonsági mentése**lehetőséget. Válassza a **konfiguráció** lehetőséget az **infrastruktúra biztonsági mentése** panelen.
+3. Adja meg a **biztonsági mentési tár helyének**elérési útját. Használjon egy univerzális elnevezési konvenció (UNC) karakterláncot a különálló eszközön tárolt fájlmegosztás elérési útjához. Az UNC-karakterlánc megadja az erőforrások, például a megosztott fájlok vagy eszközök helyét. A szolgáltatáshoz használhat IP-címet. A biztonsági mentési adatmennyiségnek a katasztrófa utáni rendelkezésre állásának biztosításához az eszköznek külön helyen kell lennie.
 
     > [!Note]  
-    > Ha a megőrzési időszak régebbi biztonsági másolatok archiválni kívánja, ügyeljen arra, hogy a fájlok biztonsági mentését, mielőtt az ütemező törli a biztonsági mentéseket. Ha csökkenti a biztonsági másolat megőrzési idejének (pl. az 5 napos 7 napig), az ütemező törli a régebbi, mint az új megőrzési időszaknál minden biztonsági mentés. Ellenőrizze, hogy ok a a biztonsági mentések törlődik, ez az érték frissítése előtt. 
+    > Ha a környezet támogatja a névfeloldást a Azure Stack infrastruktúra-hálózatról a vállalati környezetre, az IP helyett teljes tartománynevet használhat.
 
-9. Adjon meg egy tanúsítványt a tanúsítvány .cer fájl mezőbe a titkosítási beállítások. Biztonságimásolat-fájlokat a nyilvános kulcs az a tanúsítvány vannak titkosítva. Egy tanúsítványt, amely csak a biztonsági mentési beállításainak konfigurálásakor tartalmazza a nyilvános kulcs részét kell biztosítania. Állítsa be ezt a tanúsítványt először, vagy a jövőben elforgatása a tanúsítványt, ha csak megtekinteni lehet a tanúsítvány ujjlenyomatát. Nem töltse le és a feltöltött tanúsítvány megtekintése. A tanúsítványfájl létrehozásához futtassa a következő PowerShell-paranccsal önaláírt tanúsítvány létrehozása a nyilvános és titkos kulcsokat a, és csak a nyilvános kulcs rész tanúsítvány exportálása.
+4. Írja be a felhasználónevet a tartomány és a Felhasználónév használatával, amely megfelelő hozzáféréssel rendelkezik az olvasási és írási fájlokhoz. Például: `Contoso\backupshareuser`.
+5. Adja meg a felhasználó **jelszavát** .
+6. Írja be ismét a jelszót a **jelszó megerősítéséhez**.
+7. Az **órák gyakorisága** határozza meg, hogy milyen gyakran jönnek létre a biztonsági másolatok. Az alapértelmezett érték 12. A Scheduler legfeljebb 12 és legalább 4 értéket támogat. 
+8. A **megőrzési időtartam napokban** határozza meg, hogy a biztonsági másolatok hány napja maradnak meg a külső helyen. Az alapértelmezett érték 7. A Scheduler legfeljebb 14 és minimum 2 értéket támogat. A megőrzési időtartamnál régebbi biztonsági másolatokat a rendszer automatikusan törli a külső helyről.
+
+    > [!Note]  
+    > Ha a biztonsági mentéseket a megőrzési időtartamnál régebbi verzióra szeretné archiválni, mindenképpen készítsen biztonsági másolatot a fájlokról, mielőtt az ütemező törli a biztonsági mentéseket. Ha csökkenti a biztonsági másolatok megőrzési időtartamát (például 7 nap és 5 nap között), akkor az ütemező törli az új megőrzési időtartamnál régebbi összes biztonsági mentést. Az érték frissítése előtt győződjön meg arról, hogy a biztonsági mentések törlése megtörtént. 
+
+9. A titkosítási beállítások mezőben adja meg a tanúsítványt a Certificate. cer fájlban. A biztonságimásolat-fájlok titkosítva vannak a tanúsítvány ezen nyilvános kulcsával. Olyan tanúsítványt kell megadnia, amely csak a nyilvános kulcs részét tartalmazza a biztonsági mentési beállítások konfigurálásakor. Miután először beállította a tanúsítványt, vagy a későbbiekben elforgatta a tanúsítványt, csak a tanúsítvány ujjlenyomatát tekintheti meg. A feltöltött tanúsítványfájl nem tölthető le vagy nem tekinthető meg. A tanúsítványfájl létrehozásához futtassa a következő PowerShell-parancsot egy önaláírt tanúsítvány nyilvános és titkos kulccsal való létrehozásához, valamint egy olyan tanúsítvány exportálásához, amely csak a nyilvános kulcs részét képezi. A tanúsítvány bárhol elhelyezhető, amely a felügyeleti portálról érhető el.
 
     ```powershell
 
@@ -68,67 +68,67 @@ A rendszergazdák és felhasználók felelőssége biztonsági mentése és viss
     ```
 
    > [!Note]
-   > **1901 és a fenti**: Az Azure Stack infrastruktúrájának biztonsági mentési adatok titkosításához tanúsítvány fogad el. Ellenőrizze, hogy a tanúsítványt tárolja biztonságos helyen a nyilvános és titkos kulccsal. Biztonsági okokból nem ajánlott, hogy a tanúsítványt használ a nyilvános és titkos kulcsok biztonsági mentési beállítások konfigurálása. Ez a tanúsítvány életciklusának kezeléséről további információkért lásd: [infrastruktúra biztonsági mentési szolgáltatás ajánlott eljárások](azure-stack-backup-best-practices.md).
+   > **1901 és újabb**verziók: Azure Stack elfogadja az infrastruktúra biztonsági mentési adatai titkosításához szükséges tanúsítványt. Ügyeljen arra, hogy a tanúsítványt egy biztonságos helyen tárolja a nyilvános és a titkos kulccsal. Biztonsági okokból nem ajánlott a tanúsítvány és a titkos kulcs használata a biztonsági mentési beállítások konfigurálásához. További információ a tanúsítvány életciklusának kezeléséről: [Infrastructure Backup szolgáltatás ajánlott eljárásai](azure-stack-backup-best-practices.md).
    > 
-   > **1811 vagy korábbi**: Az Azure Stack infrastruktúra az adatok biztonsági másolatának titkosításához szimmetrikus kulcs fogad el. Használja a [New-AzsEncryptionKey64 parancsmaggal hozzon létre egy kulcsot](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Amikor frissít a 1811 1901, biztonsági mentési beállítások megőrzik a titkosítási kulcs. Ajánljuk, hogy a tanúsítvány használata a biztonsági mentési beállításainak frissítése. Titkosítási kulcs támogatása elavult. Tanúsítvány-beállítások frissítése legalább 3 kiadások kell. 
+   > **1811 vagy korábbi**: Azure Stack elfogad egy szimmetrikus kulcsot az infrastruktúra biztonsági mentési adatai titkosításához. Kulcs létrehozásához használja a [New-AzsEncryptionKey64 parancsmagot](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Az 1811-ról 1901-re való frissítés után a biztonsági mentési beállítások megőrzik a titkosítási kulcsot. Javasoljuk, hogy frissítse a biztonsági mentési beállításokat a tanúsítvány használatára. A titkosítási kulcs támogatása már elavult. A tanúsítvány használatához legalább 3 kiadással kell frissítenie a beállításokat. 
 
-10. Válassza ki **OK** a biztonsági mentés vezérlő beállítások mentéséhez.
+10. A biztonsági mentési vezérlő beállításainak mentéséhez kattintson **az OK gombra** .
 
-![Az Azure Stack - biztonsági mentést vezérlő beállítások](media/azure-stack-backup/backup-controller-settings-certificate.png)
+![Azure Stack – a biztonsági mentési vezérlő beállításai](media/azure-stack-backup/backup-controller-settings-certificate.png)
 
 
 ## <a name="start-backup"></a>Biztonsági mentés indítása
-A biztonsági mentés indításához kattintson a **biztonsági mentés** egy igény szerinti biztonsági mentés elindításához. Egy igény szerinti biztonsági mentés nem módosítják a következő ütemezett biztonsági mentés időpontját. A feladat befejezése után ellenőrizheti a beállítások **Essentials**:
+A biztonsági mentés elindításához kattintson a **biztonsági mentés most** gombra egy igény szerinti biztonsági mentés elindításához. Az igény szerinti biztonsági mentés nem módosítja a következő ütemezett biztonsági mentés idejét. A feladat befejezése után megerősítheti az **alapvető**beállítások beállításait:
 
-![Az Azure Stack - igény szerinti biztonsági mentés](media/azure-stack-backup/scheduled-backup.png)
+![Igény szerinti Azure Stack biztonsági mentés](media/azure-stack-backup/scheduled-backup.png)
 
-A PowerShell-parancsmagot is futtathatja **Start-AzsBackup** az Azure Stack felügyeleti számítógépen. További információkért lásd: [biztonsági mentése az Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+A **Start-AzsBackup PowerShell-** parancsmagot a Azure stack felügyeleti számítógépén is futtathatja. További információ: [Azure stack biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 
-## <a name="enable-or-disable-automatic-backups"></a>Engedélyezi vagy letiltja az automatikus biztonsági mentés
-Biztonsági mentés automatikusan van ütemezve, amikor a biztonsági mentés engedélyezése. A következő biztonsági mentési ütemezés alkalommal ellenőrizheti **Essentials**. 
+## <a name="enable-or-disable-automatic-backups"></a>Automatikus biztonsági mentések engedélyezése vagy letiltása
+A biztonsági mentéseket a rendszer automatikusan ütemezi a biztonsági mentés engedélyezésekor. A következő ütemezett biztonsági mentés időpontját a **essentialsben**tekintheti meg. 
 
-![Az Azure Stack - igény szerinti biztonsági mentés](media/azure-stack-backup/on-demand-backup.png)
+![Igény szerinti Azure Stack biztonsági mentés](media/azure-stack-backup/on-demand-backup.png)
 
-Ha a jövőbeli ütemezett biztonsági mentések tiltása van szüksége, kattintson a **automatikus biztonsági mentések tiltása**. Letiltását automatikus biztonsági mentést fogja megőrizni a biztonsági mentési beállítások konfigurálása, és megőrzi a biztonsági mentés ütemezése. Ez a művelet egyszerűen arra utasítja a jövőbeli biztonsági mentések kihagyja az ütemezőnek. 
+Ha le kell tiltania a jövőbeli ütemezett biztonsági mentéseket, kattintson az **automatikus biztonsági mentések letiltása**lehetőségre. Az automatikus biztonsági mentések letiltása megőrzi a biztonsági mentési beállításokat, és megőrzi a biztonsági mentés ütemezését. Ez a művelet egyszerűen azt jelzi, hogy a Feladatütemező kihagyja a jövőbeli biztonsági mentéseket. 
 
-![Az Azure Stack - letiltása az ütemezett biztonsági mentések](media/azure-stack-backup/disable-auto-backup.png)
+![Azure Stack – ütemezett biztonsági mentések letiltása](media/azure-stack-backup/disable-auto-backup.png)
 
-Győződjön meg arról, hogy jövőbeli ütemezett biztonsági mentések le vannak tiltva a **Essentials**:
+Győződjön meg arról, hogy a jövőbeli ütemezett biztonságimentések le vannak tiltva az essentialsben:
 
-![Az Azure Stack - erősítse meg a biztonsági mentések le vannak tiltva.](media/azure-stack-backup/confirm-disable.png)
+![Azure Stack – a biztonsági másolatok megerősítése le lettek tiltva](media/azure-stack-backup/confirm-disable.png)
 
-Kattintson a **engedélyezze az automatikus biztonsági mentés** tájékoztatja az ütemező jövőbeli biztonsági mentések elindítani az ütemezett időpontban. 
+Az **automatikus biztonsági mentések engedélyezése** lehetőségre kattintva értesítheti a Feladatütemezőt a jövőbeli biztonsági mentések ütemezett időpontban történő elindításáról. 
 
-![Az Azure Stack - enable ütemezett biztonsági mentések](media/azure-stack-backup/enable-auto-backup.png)
+![Azure Stack – ütemezett biztonsági mentések engedélyezése](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  
-> Ha konfigurálta az infrastruktúra biztonsági mentését 1807 frissítése előtt, az automatikus biztonsági mentés le lesz tiltva. Ezzel a módszerrel a lépések: Azure Stack biztonsági mentések nem ütköznek a biztonsági mentések indítja el külső Feladatütemező motor. Ha letiltja a bármely külső Feladatütemezőt, kattintson a **engedélyezze az automatikus biztonsági mentés**.
+> Ha a 1807-es frissítés előtt konfigurálta az infrastruktúra biztonsági mentését, az automatikus biztonsági mentések le lesznek tiltva. Így a Azure Stack által elindított biztonsági másolatok nem ütköznek a külső feladatütemezés által indított biztonsági mentésekkel. Ha letiltotta bármelyik külső Feladatütemezőt, kattintson az **automatikus biztonsági mentések engedélyezése**lehetőségre.
 
-## <a name="update-backup-settings"></a>Biztonsági mentés beállításainak frissítése
-Kezdődően 1901 a titkosítási kulcs elavult támogatása. Biztonsági mentés 1901 első alkalommal állítja be, ha egy tanúsítványt kell használnia. Az Azure Stack támogatja a titkosítási kulcs csak akkor, ha a kulcs 1901 frissítése előtt van konfigurálva. Előző verziókkal való kompatibilitási módban a három kiadásokhoz továbbra is. Ezt követően titkosítási kulcsok rendszer már nem támogatott. 
+## <a name="update-backup-settings"></a>Biztonsági mentési beállítások frissítése
+A 1901-as és a titkosítási kulcs támogatása elavult. Ha a biztonsági mentést az 1901-as első alkalommal konfigurálja, akkor tanúsítványt kell használnia. Azure Stack csak akkor támogatja a titkosítási kulcsot, ha a kulcs konfigurálva van a 1901-es frissítés előtt. A visszafelé kompatibilitási mód három kiadás esetén folytatódik. Ezt követően a titkosítási kulcsok többé nem lesznek támogatottak. 
 
 ### <a name="default-mode"></a>Alapértelmezett mód
-A titkosítási beállítások konfigurálásakor infrastruktúra biztonsági mentése első alkalommal után telepítése vagy frissítése az 1901, konfigurálnia kell biztonsági mentést tanúsítvánnyal. Titkosítási kulcs használata már nem támogatott. 
+Ha a titkosítási beállításokban az infrastruktúra biztonsági mentését az 1901-es verzió telepítése vagy frissítése után első alkalommal konfigurálja, akkor a biztonsági mentést egy tanúsítvánnyal kell konfigurálnia. A titkosítási kulcs használata már nem támogatott. 
 
-Az adatok biztonsági másolatának titkosításához használt tanúsítvány frissítéséhez tölthet fel egy új. CER-fájlt a nyilvános kulcs része, és válassza az OK gombra a beállítások mentéséhez. 
+A biztonsági mentési adatok titkosításához használt tanúsítvány frissítéséhez feltölthet egy újat. A nyilvános kulcs részét képező CER-fájl, majd a beállítások mentéséhez kattintson az OK gombra. 
 
-Új biztonsági másolatok megkezdi az új tanúsítvány található nyilvános kulcs használatát. Ez nincs hatással az előző tanúsítvány használatával létrehozott összes meglévő biztonsági mentést. Ellenőrizze, hogy a régi tanúsítvány körül tartsa biztonságos helyen, abban az esetben szüksége lesz rá a felhőbeli.
+Az új biztonsági mentések a nyilvános kulcsot fogják használni az új tanúsítványban. Az előző tanúsítvánnyal létrehozott összes biztonsági mentésre nincs hatással. Ügyeljen arra, hogy a régebbi tanúsítvány biztonságos helyen maradjon, ha szüksége van rá a Felhőbeli helyreállításhoz.
 
-![Az Azure Stack - nézet tanúsítvány ujjlenyomata](media/azure-stack-backup/encryption-settings-thumbprint.png)
+![Azure Stack – tanúsítvány ujjlenyomatának megtekintése](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Visszamenőleges kompatibilitási mód
-Ha konfigurálta a biztonsági mentés 1901 frissítése előtt, a beállítások átkerülnek a a működésében nincs változás. Ebben az esetben titkosítási kulcs támogatott a visszamenőleges kompatibilitás. Lehetősége van a titkosítási kulcs frissítése vagy váltás tanúsítvány használatára. A titkosítási kulcs frissítésének folytatásához legalább három kiadások kell. Hogy való áttérés egy tanúsítványt használja. Hozhat létre egy új titkosítási kulcs használatát a [New-AzsEncryptionKeyBase64 parancsmag](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+Ha a biztonsági mentést a 1901-es verzióra való frissítés előtt konfigurálta, a beállítások változása nem változik. Ebben az esetben a titkosítási kulcs támogatja a visszamenőleges kompatibilitást. Frissítheti a titkosítási kulcsot, vagy átválthat egy tanúsítvány használatára. A titkosítási kulcs frissítésének folytatásához legalább három kiadásra lesz szüksége. Ezt az időt használhatja a tanúsítványra való áttéréshez. Új titkosítási kulcs létrehozásához használja a [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
-![Az Azure Stack - titkosítási kulcs az előző verziókkal való kompatibilitási módban](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
+![Azure Stack – a titkosítási kulcs visszamenőleges kompatibilitási módban való használata](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 
 > [!Note]  
-> A titkosítási kulcs frissítése a tanúsítvány egy egyirányú művelet. A módosítás elvégzése után nem válthat vissza a titkosítási kulcs. Az összes meglévő biztonsági másolatok a korábbi titkosítási kulccsal titkosított marad. 
+> A titkosítási kulcsról a tanúsítványra történő frissítés egy egyirányú művelet. A módosítást követően nem válthat vissza a titkosítási kulcsra. Az összes meglévő biztonsági mentés titkosítva marad a korábbi titkosítási kulccsal. 
 
-![Az Azure Stack - titkosítási tanúsítvány használata az előző verziókkal való kompatibilitási módban](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
+![Azure Stack – titkosítási tanúsítvány használata visszafelé kompatibilitási módban](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
 ## <a name="next-steps"></a>További lépések
 
-Ismerje meg a biztonsági mentés futtatása. Lásd: [biztonsági mentése az Azure Stackben](azure-stack-backup-back-up-azure-stack.md)
+Útmutató a biztonsági másolatok futtatásához. Lásd: [Azure stack biztonsági mentése](azure-stack-backup-back-up-azure-stack.md)
 
-Ismerje meg, annak ellenőrzéséhez, hogy futtatta-e a biztonsági mentés. Lásd: [megerősítése a biztonsági mentés a felügyeleti portál](azure-stack-backup-back-up-azure-stack.md)
+Útmutató a biztonsági mentés futtatásának ellenőrzéséhez. Lásd: [a biztonsági mentés megerősítése befejeződött az adminisztrációs portálon](azure-stack-backup-back-up-azure-stack.md)

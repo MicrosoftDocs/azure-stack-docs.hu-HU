@@ -6,21 +6,21 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/21/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.lastreviewed: 05/09/2019
+ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 748da2aa4391d7f28e6d4273830d8d024021bb79
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 9e60a8f9ebda573141e2f97a9182087e90741652
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417486"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896363"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack Datacenter-integráció – DNS
 
-Azure Stack végpontokhoz való hozzáféréshez (**portál**, **adminportal**, **felügyelet**, **adminmanagement**stb.)  a Azure Stackon kívülről integrálnia kell a Azure Stack DNS-szolgáltatásokat azokkal a DNS-kiszolgálókkal, amelyek a Azure Stack-ben használni kívánt DNS-zónákat futtatják.
+Ahhoz, hogy hozzáférhessenek Azure Stack-végpontokhoz,például a portálhoz, a **adminportal**, a **felügyelethez**és a **adminmanagement** Azure Stack KÍVÜLről, integrálnia kell a Azure stack DNS-szolgáltatásokat a DNS-zónákat üzemeltető DNS-kiszolgálókkal. a Azure Stackban kívánja használni.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS-névtér
 
@@ -32,7 +32,7 @@ A Azure Stack telepítésekor a DNS szolgáltatással kapcsolatos fontos inform�
 |Régió|A Azure Stack központi telepítésének földrajzi helye.|`east`|
 |Külső tartomány neve|A Azure Stack-telepítéshez használni kívánt zóna neve.|`cloud.fabrikam.com`|
 |Belső tartomány neve|A Azure Stack infrastruktúra-szolgáltatásaihoz használt belső zóna neve.  Ez a címtárszolgáltatás-integrált és privát (nem érhető el a Azure Stack üzemelő példányon kívülről).|`azurestack.local`|
-|DNS Forwarder|A DNS-lekérdezések, DNS-zónák és-rekordok továbbítására használt DNS-kiszolgálók, amelyek a vállalati intraneten vagy a nyilvános interneten keresztül Azure Stackon kívül futnak.|`10.57.175.34`<br>`8.8.8.8`|
+|DNS-továbbítók|A DNS-lekérdezések, DNS-zónák és-rekordok továbbítására használt DNS-kiszolgálók, amelyek a vállalati intraneten vagy a nyilvános interneten keresztül Azure Stackon kívül futnak. Ha lecserél egy DNS-továbbítót, az IP-címet frissíteni kell. |`10.57.175.34`<br>`8.8.8.8`|
 |Elnevezési előtag (nem kötelező)|Az a névadási előtag, amelyre a Azure Stack infrastruktúra szerepkör-példányának számítógépnevét kell megneveznie.  Ha nincs megadva, az alapértelmezett érték `azs`.|`azs`|
 
 A Azure Stack központi telepítésének teljes tartományneve (FQDN) és a végpontok a régió paraméter és a külső tartománynév paraméter kombinációja. Az előző táblázatban szereplő példák értékeit használva a Azure Stack üzemelő példány teljes tartományneve a következő lesz:
@@ -80,7 +80,7 @@ A Azure Stack a mérvadó és a rekurzív DNS-kiszolgálókat is tartalmazza. A 
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Külső DNS-nevek feloldása Azure Stack
 
-A Azure stackon kívüli végpontok DNS-neveinek feloldásához (\.például: www Bing.com) olyan DNS-kiszolgálókat kell megadnia, amelyek segítségével a Azure stack továbbíthatja azokat a DNS-kéréseket, amelyekhez a Azure stack nem mérvadó. Az üzembe helyezéshez olyan DNS-kiszolgálók szükségesek, amelyeknek a Azure Stack továbbítja a kérelmeket a központi telepítési munkalapon (a DNS-továbbító mezőben). A hibatűréshez legalább két kiszolgálót adjon meg ebben a mezőben. Ezen értékek nélkül Azure Stack üzemelő példány sikertelen lesz.
+A Azure stackon kívüli végpontok DNS-neveinek feloldásához (\.például: www Bing.com) olyan DNS-kiszolgálókat kell megadnia, amelyek segítségével a Azure stack továbbíthatja azokat a DNS-kéréseket, amelyekhez a Azure stack nem mérvadó. Az üzembe helyezéshez olyan DNS-kiszolgálók szükségesek, amelyeknek a Azure Stack továbbítja a kérelmeket a központi telepítési munkalapon (a DNS-továbbító mezőben). A hibatűréshez legalább két kiszolgálót adjon meg ebben a mezőben. Ezen értékek nélkül Azure Stack üzemelő példány sikertelen lesz. Ha a DNS-továbbítókat lecserélik, frissítse az IP-címeket. 
 
 ### <a name="configure-conditional-dns-forwarding"></a>Feltételes DNS-továbbítás konfigurálása
 

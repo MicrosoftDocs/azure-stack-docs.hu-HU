@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
-ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
+ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738326"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896341"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 ismert probléma
 
@@ -107,6 +107,12 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: A felhasználói portál **kapcsolatok** paneljén egy **VPN-hibakereső**nevű funkció látható. Ez a funkció jelenleg nem támogatott Azure Stackban.
 - Előfordulása Közös
+
+### <a name="network-connection-type"></a>Hálózati kapcsolattípus
+
+- Alkalmazható Ez a probléma a 1906-es vagy a 1907-es környezetre vonatkozik. 
+- Ok: A felhasználói portálon a **AddConnection** panel egy lehetőséget mutat be a **VNet – VNet**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban. 
+- Előfordulása Közös 
 
 #### <a name="documentation"></a>Dokumentáció
 
