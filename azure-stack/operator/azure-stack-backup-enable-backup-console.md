@@ -16,12 +16,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 84dd8fdc91a796a94df71926788e62d98b5ef1ae
+ms.sourcegitcommit: 22814dd79664206a260ba0160ed3ae2612e33495
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896368"
+ms.locfileid: "69976169"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Azure Stack biztonsági mentésének engedélyezése a felügyeleti portálról
 Engedélyezze a Infrastructure Backup szolgáltatást a felügyeleti portálon keresztül, hogy a Azure Stack infrastruktúra-biztonsági másolatokat lehessen készíteni. A hardvereszközök a biztonsági másolatok használatával visszaállíthatják a környezetet a Felhőbeli helyreállítással [végzetes hiba](./azure-stack-backup-recover-data.md)esetén. A Felhőbeli helyreállítás célja annak biztosítása, hogy az operátorok és a felhasználók a helyreállítás befejezése után vissza tudják jelentkezni a portálra. A felhasználók előfizetéseit vissza kell állítani, beleértve a szerepköralapú hozzáférési engedélyeket, a szerepköröket, az eredeti csomagokat, az ajánlatokat, valamint a korábban meghatározott számítási, tárolási, hálózati kvótákat és Key Vault titkokat.
@@ -53,7 +53,7 @@ A rendszergazdák és a felhasználók felelősek a IaaS és a Péter-erőforrá
     > [!Note]  
     > Ha a biztonsági mentéseket a megőrzési időtartamnál régebbi verzióra szeretné archiválni, mindenképpen készítsen biztonsági másolatot a fájlokról, mielőtt az ütemező törli a biztonsági mentéseket. Ha csökkenti a biztonsági másolatok megőrzési időtartamát (például 7 nap és 5 nap között), akkor az ütemező törli az új megőrzési időtartamnál régebbi összes biztonsági mentést. Az érték frissítése előtt győződjön meg arról, hogy a biztonsági mentések törlése megtörtént. 
 
-9. A titkosítási beállítások mezőben adja meg a tanúsítványt a Certificate. cer fájlban. A biztonságimásolat-fájlok titkosítva vannak a tanúsítvány ezen nyilvános kulcsával. Olyan tanúsítványt kell megadnia, amely csak a nyilvános kulcs részét tartalmazza a biztonsági mentési beállítások konfigurálásakor. Miután először beállította a tanúsítványt, vagy a későbbiekben elforgatta a tanúsítványt, csak a tanúsítvány ujjlenyomatát tekintheti meg. A feltöltött tanúsítványfájl nem tölthető le vagy nem tekinthető meg. A tanúsítványfájl létrehozásához futtassa a következő PowerShell-parancsot egy önaláírt tanúsítvány nyilvános és titkos kulccsal való létrehozásához, valamint egy olyan tanúsítvány exportálásához, amely csak a nyilvános kulcs részét képezi. A tanúsítvány bárhol elhelyezhető, amely a felügyeleti portálról érhető el.
+9. A titkosítási beállítások területen adjon meg egy tanúsítványt a Certificate. cer fájl mezőben. A biztonságimásolat-fájlok titkosítva vannak a tanúsítvány ezen nyilvános kulcsával. Olyan tanúsítványt kell megadnia, amely csak a nyilvános kulcs részét tartalmazza a biztonsági mentési beállítások konfigurálásakor. Miután először beállította a tanúsítványt, vagy a későbbiekben elforgatta a tanúsítványt, csak a tanúsítvány ujjlenyomatát tekintheti meg. A feltöltött tanúsítványfájl nem tölthető le vagy nem tekinthető meg. A tanúsítványfájl létrehozásához futtassa a következő PowerShell-parancsot egy önaláírt tanúsítvány nyilvános és titkos kulccsal való létrehozásához, valamint egy olyan tanúsítvány exportálásához, amely csak a nyilvános kulcs részét képezi. A tanúsítvány bármikor menthető, amely a felügyeleti portálról érhető el.
 
     ```powershell
 
