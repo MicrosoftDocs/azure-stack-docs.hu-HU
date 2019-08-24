@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/17/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: a7a61e8eef33ee6a6efb87001504fe5234e3cf16
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.openlocfilehash: fc04032f7741c61a9b2b86e23a9173ca268a1e11
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303145"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008349"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>A Azure Stack és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -77,7 +77,7 @@ A Azure Stack a Azure PowerShell és az Azure Service API-k adott verzióit tám
 Annak ellenőrzéséhez, hogy a Azure PowerShell megfelelő verzióját használja-e, használja az [API-verziók profiljait](azure-stack-version-profiles.md). A legújabb API-verzió profiljának meghatározásához tekintse meg az Ön által használt Azure Stack összeállítását. Ezt az információt a Azure Stack rendszergazdájától kérheti le.
 
 > [!NOTE]
-> Ha a Azure Stack Development Kit használja, és rendelkezik rendszergazdai hozzáféréssel, tekintse meg az [aktuális verzió meghatározása](../operator/azure-stack-updates.md#determine-the-current-version) szakaszt a Azure stack Build meghatározásához.
+> Ha a Azure Stack Development Kit használja, és rendelkezik rendszergazdai hozzáféréssel, tekintse meg az [aktuális verzió meghatározása](../operator/azure-stack-updates.md) szakaszt a Azure stack Build meghatározásához.
 
 Más API-k esetén futtassa a következő PowerShell-parancsot a Azure Stack-előfizetésben támogatott névterek, erőforrástípusok és API-verziók kimenetéhez (a tulajdonságok szintjén továbbra is lehetnek különbségek). Ahhoz, hogy a parancs működjön, egy Azure Stack-környezethez már [telepítve](../operator/azure-stack-powershell-install.md) és [konfigurálva](azure-stack-powershell-configure-user.md) kell lennie a PowerShell-nek. Azure Stack ajánlathoz is előfizetéssel kell rendelkeznie.
 

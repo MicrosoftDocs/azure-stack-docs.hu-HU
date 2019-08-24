@@ -16,12 +16,12 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 9eca3112085d68c6a35378f8309dfd8ac5a1bafc
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685541"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008635"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 ismert probléma
 
@@ -34,7 +34,7 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Az 1906 Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz. 
-- Szervizkiszolgáló A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md#import-and-install-updates)alapján.
+- Szervizkiszolgáló A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md)alapján.
 - Előfordulása Közös
 
 ## <a name="portal"></a>Portál
@@ -190,7 +190,7 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
-- Ok: A virtuális gép diagnosztikai beállításainak paneljén egy **fogadó lap van** , amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
+- Ok: A virtuális gép diagnosztikai beállításainak paneljén egy fogadó lap van, amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 

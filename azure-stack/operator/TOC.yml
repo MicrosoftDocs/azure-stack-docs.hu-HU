@@ -10,10 +10,6 @@
       href: compare-azure-azure-stack.md
     - name: Kibocsátási megjegyzések
       items:
-        - name: Frissítési és karbantartási szabályzat
-          href: azure-stack-servicing-policy.md
-        - name: Ellenőrzőlista a frissítések alkalmazásához
-          href: azure-stack-release-notes-checklist.md
         - name: Biztonsági frissítések
           href: azure-stack-release-notes-security-updates-1907.md
         - name: 1907 frissítés
@@ -171,12 +167,22 @@
           items:
             - name: Frissítések kezelésének áttekintése
               href: azure-stack-updates.md
+            - name: Frissítési és karbantartási szabályzat
+              href: azure-stack-servicing-policy.md
+            - name: Ellenőrzőlista a frissítések alkalmazásához
+              href: azure-stack-release-notes-checklist.md
+            - name: A frissítés megtervezése
+              href: azure-stack-update-plan.md
+            - name: A frissítési csomag előkészítése
+              href: azure-stack-update-prepare-package.md
             - name: Frissítések alkalmazása
-              href: azure-stack-apply-updates.md
-            - name: OEM-frissítések alkalmazása
-              href: azure-stack-update-oem.md
+              items:
+                - name: Frissítések alkalmazása
+                  href: azure-stack-apply-updates.md
+                - name: OEM-frissítések alkalmazása
+                  href: azure-stack-update-oem.md
             - name: A figyelő frissítési állapot
-              href: azure-stack-monitor-update.md
+              href: azure-stack-update-monitor.md
         - name: Állapot és riasztások monitorozása
           href: azure-stack-monitor-health.md
         - name: Hálózati erőforrások kezelése
@@ -447,7 +453,7 @@
   items:
     - name: Azure Stack felhasználói dokumentáció
       href: /azure-stack/user/
-    - name: A ASDK dokumentációja
+    - name: ASDK-dokumentáció
       href: /azure-stack/asdk/
 - name: További források
   items:

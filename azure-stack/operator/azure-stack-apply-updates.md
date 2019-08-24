@@ -1,6 +1,6 @@
 ---
-title: Frissítések alkalmazása a Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan importálhat és telepíthet Microsoft Update-csomagokat egy Azure Stack integrált rendszerhez.
+title: Az eredeti berendezésgyártó (OEM) frissítésének alkalmazása Azure Stackra | Microsoft Docs
+description: Megtudhatja, hogyan alkalmazhat egy eredeti berendezésgyártó (OEM) frissítést Azure Stackra.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,114 +11,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/23/2019
 ms.author: mabrigg
-ms.reviewer: justini
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 04494c3f394fb5a3b836c8fcf67cd02fb2900910
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.lastreviewed: 08/23/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: 22e6945c5064a93a8dbaf6daa5c39df36cccb597
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413184"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008796"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Frissítések alkalmazása Azure Stack
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
-A felügyeleti portál **Update (frissítés** ) csempéje segítségével Microsoft-vagy OEM-frissítési csomagokat alkalmazhat a Azure stack.
+A frissítés a Azure Stack **Update (frissítés** ) paneljén is alkalmazható. Ez a cikk végigvezeti a frissítési folyamat frissítésének, figyelésének és hibaelhárításának lépésein. A frissítés panel használatával megtekintheti a frissítési adatokat, telepítheti a frissítéseket, figyelheti a frissítések állapotát, áttekintheti a frissítési előzményeket, és megtekintheti a jelenlegi OEM-csomag verzióját.
 
-Ha a 1807-es vagy korábbi verziójú integrált rendszerek valamelyikét használja, le kell töltenie a frissítési csomagot, importálnia kell a csomagokat a Azure Stackba, majd telepítenie kell a frissítési csomagot. Útmutatásért lásd: [Azure stack frissítése a csomag letöltésével](#update-azure-stack-by-downloading-the-package)
+A frissítéseket a felügyeleti portálról kezelheti. Az irányítópulton található **frissítéseket** a következő célra használhatja:
 
-Ezek a frissítési utasítások Azure Stack integrált rendszerekkel működnek. Ha a Azure Stack fejlesztői rendszert használja, le kell töltenie a jelenlegi verzióra vonatkozó telepítőcsomagot. Útmutatásért lásd: [a Azure stack Development Kit telepítése](../asdk/asdk-install.md)
+-   Tekintse meg a fontos információkat, például az aktuális verziót.
+-   Frissítések telepítése és a figyelési folyamat.
+-   Tekintse át a korábban telepített frissítések korábbi frissítéseit.
+-   Tekintse meg a felhő jelenlegi OEM-csomagjának verzióját.
 
-## <a name="update-azure-stack"></a>Azure Stack frissítése
+## <a name="determine-the-current-version"></a>Az aktuális verzió meghatározása
 
-### <a name="select-and-apply-an-update-package"></a>Frissítési csomag kiválasztása és alkalmazása
+A **frissítések** panelen megtekintheti Azure stack aktuális verzióját. Megnyitás:
 
-1. Nyissa meg a felügyeleti portált.
+1.  Nyissa meg a Azure Stack felügyeleti portált.
 
-2. Válassza az **irányítópult**lehetőséget. Válassza a **frissítés** csempét.
+2.  Válassza az **irányítópult**lehetőséget. A **frissítések** panelen az aktuális verzió szerepel a felsorolásban.
 
-    ![Azure Stack frissítés érhető el](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+    ![Az alapértelmezett irányítópulton lévő frissítések csempe](./media/azure-stack-update-apply/image1.png)
 
-3. Jegyezze fel a Azure Stack aktuális verzióját. A következő teljes verzióra frissíthet. Ha például a Azure Stack 1811-es verzióját futtatja, a következő kiadott verzió a 1901.
+    Ebben a képen például a verzió a 1.1903.0.35.
 
-    ![Azure Stack Update alkalmazás](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+## <a name="install-updates-and-monitor-progress"></a>Frissítések telepítése és a figyelési folyamat
 
-4. A frissítések listájában válassza ki a következő elérhető verziót. A kiadási megjegyzések oszlopban a **nézet** lehetőségre kattintva megnyithatja a verzióhoz tartozó kibocsátási megjegyzések témakört, ha szeretné áttekinteni a verzió módosításait.
+1.  Nyissa meg a Azure Stack felügyeleti portált.
 
-5. Válassza a frissítés most lehetőséget. Ekkor elindul a frissítés.
+2.  Válassza az **irányítópult**lehetőséget. Válassza a **frissítés**lehetőséget.
 
-### <a name="review-update-history"></a>Frissítési előzmények áttekintése
+3.  Válassza ki az alkalmazni kívánt elérhető frissítést. Ha nincs elérhetőként megjelölt frissítés, elő kell [készítenie a frissítési csomagot](azure-stack-update-prepare-package.md)
 
-1. Nyissa meg a felügyeleti portált.
+4.  Válassza a **Frissítés most**lehetőséget. .
 
-2. Válassza az **irányítópult**lehetőséget. Válassza a **frissítés** csempét.
+    ![Azure Stack frissítés futtatásának részletei](./media/azure-stack-update-apply/image2.png)
 
-3. Válassza a **frissítési előzmények**lehetőséget.
+5.  Megtekintheti a magas szintű állapotot, mivel a frissítési folyamat megismétli a Azure Stack különböző alrendszerein keresztül. Az alrendszerek például olyan fizikai gazdagépek, Service Fabric, infrastruktúra-virtuális gépek és szolgáltatások, amelyek mind a rendszergazda, mind a felhasználói portált biztosítják. A frissítés erőforrás-szolgáltatója a frissítési folyamat során további részleteket jelent a frissítésről, például a sikeres lépések számáról és a folyamatban lévő számról.
 
-![Azure Stack frissítési előzmények](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+6.  A teljes naplók letöltéséhez válassza a **teljes naplók letöltése** lehetőséget a frissítés futtatása részletek panelen.
 
-## <a name="update-azure-stack-by-downloading-the-package"></a>Azure Stack frissítése a csomag letöltésével
+    Ha a frissítés figyelése során probléma lép fel, a [jogosultsági szintű végponton](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) figyelheti egy Azure stack frissítési futtatásának állapotát, és folytathatja a sikertelen frissítés futtatását az utolsó sikeres lépéssel, ha a Azure stack-portál elérhetetlenné válik. Útmutatásért lásd:[frissítések figyelése Azure stack a PowerShell használatával](azure-stack-update-monitor.md).
 
-Ha a 1807-es vagy korábbi verziójú integrált rendszerek valamelyikét használja, le kell töltenie a frissítési csomagot, importálnia kell a csomagokat a Azure Stackba, majd telepítenie kell a frissítési csomagot.
+    ![Azure Stack frissítés futtatásának részletei](./media/azure-stack-update-apply/image3.png)
 
-## <a name="download-the-update-package"></a>A frissítési csomag letöltése
+7.  Ha elkészült, a frissítési erőforrás-szolgáltató **sikeres** megerősítést biztosít annak bemutatásához, hogy a frissítési folyamat befejeződött, és mennyi ideig tartott. A szűrő használatával megtekintheti az összes frissítéssel, elérhető frissítéssel vagy telepített frissítéssel kapcsolatos információt.
 
-Ha elérhetővé válik egy Microsoft-vagy OEM-frissítési csomag a Azure Stackhoz, töltse le a csomagot egy Azure Stack elérhető helyre, és tekintse át a csomag tartalmát. A frissítési csomagok általában a következő fájlokból állnak:
+    ![Azure-stack-Update-Apply](./media/azure-stack-update-apply/image4.png)
 
-- Egy önkicsomagoló `<PackageName>.zip` fájl. Ez a fájl tartalmazza a frissítés hasznos adatait, például a Windows Server legújabb összegző frissítését.
+    Ha a frissítés sikertelen, a **frissítési** panel jelentései **figyelmet igényelnek**. A **teljes naplók letöltése** lehetőséggel olyan magas szintű állapotot érhet el, ahol a frissítés nem sikerült. A Azure Stack log gyűjtemény segít a diagnosztika és a hibaelhárítás terén.
 
-- Megfelelő `<PackageName>.bin` fájlok. Ezek a fájlok tömörítést biztosítanak a *PackageName*. zip fájlhoz társított hasznos adatokhoz.
+## <a name="review-update-history"></a>Frissítési előzmények áttekintése
 
-- Egy `Metadata.xml` fájl. Ez a fájl lényeges információkat tartalmaz a frissítésről, például a közzétevőt, a nevet, az előfeltételt, a méretet és a támogatási útvonal URL-címét.
+1.  Nyissa meg a felügyeleti portált.
 
-> [!IMPORTANT]  
-> A Azure Stack 1901 frissítési csomag alkalmazása után a Azure Stack frissítési csomagok csomagolási formátuma. zip,. bin (s) és. XML formátumúról. zip (s) és. XML formátumúra kerül. Azure Stack csatlakoztatott bélyegzőket tartalmazó operátorok nem lesznek hatással. Azure Stack leválasztott operátorok egyszerűen csak az alább ismertetett eljárással importálják az. XML és a. zip fájlt (ka) t.
+2.  Válassza az **irányítópult**lehetőséget. Válassza a **frissítés**lehetőséget.
 
-## <a name="import-and-install-updates"></a>Frissítések importálása és telepítése
+3.  Válassza a **frissítési előzmények**lehetőséget.
 
-Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési csomagokat a felügyeleti portálon.
+![Azure Stack frissítési előzmények](./media/azure-stack-update-apply/image7.png)
 
-> [!IMPORTANT]  
-> Javasoljuk, hogy minden karbantartási műveletről értesítse a felhasználókat, és a szokásos karbantartási időszakokat a lehető legnagyobb mértékben ütemezze a munkaidőn kívüli időpontokban. A karbantartási műveletek befolyásolhatják a felhasználói munkaterheléseket és a portálon végzett műveleteket is.
+# <a name="next-steps"></a>További lépések
 
-1. A felügyeleti portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **adat + tárolás** kategóriában válassza a Storage- **fiókok**lehetőséget. (Vagy a szűrő mezőbe írja be a Storage- **fiókok**kifejezést, majd válassza ki.)
-
-    ![Itt látható, hogy hol található a Storage-fiókok a portálon](media/azure-stack-apply-updates/ApplyUpdates1.png)
-
-2. A szűrő mezőbe írja be a **frissítés**értéket, majd válassza ki a **updateadminaccount** .
-
-3. A Storage-fiók adatai alatt, a **szolgáltatások**területen válassza a **Blobok**elemet.
- 
-    ![Bemutatja, hogyan érheti el a blobokat a Storage-fiókhoz](media/azure-stack-apply-updates/ApplyUpdates3.png) 
-
-4. A tároló létrehozásához a **blob Service**alatt válassza a **+ tároló** elemet. Adjon meg egy nevet (például *Update-1811*), majd kattintson **az OK gombra**.
- 
-     ![Bemutatja, hogyan adhat hozzá tárolót a Storage-fiókhoz](media/azure-stack-apply-updates/ApplyUpdates4.png)
-
-5. A tároló létrehozása után kattintson a tároló nevére, majd kattintson a **feltöltés** gombra a csomagfájl tárolóba való feltöltéséhez.
- 
-    ![Bemutatja, hogyan tölthetők fel a csomagok fájljai](media/azure-stack-apply-updates/ApplyUpdates5.png)
-
-6. A **blob feltöltése**területen kattintson a mappa ikonra, keresse meg a frissítési csomag. zip fájlját, majd kattintson a **Megnyitás** gombra a fájlkezelő ablakban.
-  
-7. A **blob feltöltése**területen kattintson a **feltöltés**elemre.
-  
-    ![Megjeleníti az egyes csomagfájl feltöltésének helyét](media/azure-stack-apply-updates/ApplyUpdates6.png)
-
-8. Ismételje meg a 6. és 7. lépést a *PackageName*. bin és a metadata. XML fájlok esetében. Ha belefoglalt, ne importálja a kiegészítő értesítés. txt fájlt. Vegye figyelembe, hogy a fájlok. zip a 1901-as, a. bin és a. zip kiterjesztéssel kezdődően. az. xml fájlt továbbra is a szokásos módon importálja.
-
-9. Ha elkészült, tekintse át az értesítéseket (harang ikon a portál jobb felső sarkában). Az értesítéseknek jelezniük kell, hogy a feltöltés befejeződött.
-10. Váltson vissza az irányítópult Update csempére. A csempének jeleznie kell, hogy van elérhető frissítés. Kattintson a csempére az újonnan hozzáadott frissítési csomag áttekintéséhez.
-11. A frissítés telepítéséhez jelölje ki a készként megjelölt csomagot, vagy  kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most**lehetőséget, vagy kattintson a **Frissítés most** gombra a felső részen.
-12. A frissítési csomag telepítése lehetőségre kattintva megtekintheti az állapotot a **frissítési Futtatás részletei** területen. Innen az **Összefoglalás letöltése** lehetőségre kattintva letöltheti a naplófájlokat. A frissítési kísérletek naplói a kísérlet befejezése után 6 hónapig elérhetők. 
-13. Ha a frissítés befejeződött, a frissítés csempe megjeleníti a frissített Azure Stack verziót.
-
-Manuálisan is törölheti a frissítéseket a Storage-fiókból, miután telepítette azokat a Azure Stackra. Azure Stack rendszeresen ellenőrzi a régebbi frissítési csomagokat, és eltávolítja azokat a tárolóból. A régi csomagok eltávolítása Azure Stack két hétig is eltarthat.
-
-## <a name="next-steps"></a>További lépések
-
-- [Frissítések kezelése az Azure Stackben – Áttekintés](azure-stack-updates.md)
-- [Azure Stack-karbantartási szabályzat](azure-stack-servicing-policy.md)
+-   [Frissítések kezelése az Azure Stackben – Áttekintés](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Azure Stack-karbantartási szabályzat](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

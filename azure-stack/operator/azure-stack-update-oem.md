@@ -15,12 +15,12 @@ ms.date: 08/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
-ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
+ms.openlocfilehash: 9e7ac8a795849ac633a6569b3a7e027f89e4ce9d
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69520922"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008537"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Azure Stack eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -60,12 +60,12 @@ Alkalmazza az OEM-csomagokat a következő lépésekkel:
 1. A következőkre kell felvennie a kapcsolatot az OEM-vel:
       - Határozza meg az OEM-csomag aktuális verzióját.  
       - Az OEM-csomag letöltésére szolgáló legjobb módszer megkeresése.  
-2. Készítse elő az OEM-csomagot az [integrált rendszerek frissítési csomagjainak letöltése](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems)című témakörben leírtak szerint.
+2. Készítse elő az OEM-csomagot az [integrált rendszerek frissítési csomagjainak letöltése](azure-stack-servicing-policy.md)című témakörben leírtak szerint.
 3. Alkalmazza a frissítéseket a következő témakörben ismertetett lépésekkel: a [frissítések alkalmazása Azure stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Hardveres gyártó virtuális gép konfigurálása
 
-Egyes hardvergyártók esetében előfordulhat, hogy egy virtuális gépnek segítségre van szüksége az OEM-frissítési folyamathoz. A hardvergyártó felelős a virtuális gépek létrehozásához, és dokumentálja, ha a **set-OEMExternalVM** parancsmag `HardwareManager` futtatásához szükség van `ProxyVM` a **-VMType** . A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
+Egyes hardvergyártók esetében előfordulhat, hogy egy virtuális gépnek segítségre van szüksége az OEM-frissítési folyamathoz. A hardvergyártó felelős a virtuális gépek létrehozásához és a dokumentálás elvégzéséhez, `ProxyVM` ha `HardwareManager` a **set-OEMExternalVM** parancsmag futtatásához szükséges vagy a **-VMType** , valamint hogy melyik hitelesítő adatot kell használni a **- Hitelesítő adatok**. A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
 
 További információ a Azure Stack rendszerjogosultságú végpontról: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
@@ -77,14 +77,14 @@ További információ a Azure Stack rendszerjogosultságú végpontról: [a priv
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. Konfigurálja a hardveres gyártó virtuális gépet a **set-OEMExternalVM** parancsmag használatával. A parancsmag ellenőrzi a **-VMTYPE** `ProxyVM`IP-címét és hitelesítő adatait. A **-VMType** `HardwareManager` esetében a parancsmag nem ellenőrzi a bemenetet.
+2. Konfigurálja a hardveres gyártó virtuális gépet a **set-OEMExternalVM** parancsmag használatával. A parancsmag ellenőrzi a **-VMTYPE** `ProxyVM`IP-címét és hitelesítő adatait. A **-VMType** `HardwareManager` esetében a parancsmag nem ellenőrzi a bemenetet. A **set-OEMExternalVM** számára megadott **hitelesítő adat** paraméter az egyik, amelyet a hardver gyártójától származó dokumentáció egyértelműen dokumentál.  NEM a jogosultsági szintű végponttal vagy más meglévő Azure Stack hitelesítő adatokkal használt CloudAdmin hitelesítő adat.
 
     ```powershell  
-    
+    $VmCred = Get-Credential
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM>
+        -IPAddress <IP Address of hardware vendor VM> -Credential $using:VmCred
         }
     ```
 

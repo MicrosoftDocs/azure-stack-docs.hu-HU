@@ -1,6 +1,6 @@
 ---
-title: Ismert problémák az Azure Stack 1905 |} A Microsoft Docs
-description: Ismerje meg az Azure Stack 1905 ismert problémáiról.
+title: Azure Stack 1905 ismert probléma | Microsoft Docs
+description: Ismerje meg a Azure Stack 1905 ismert problémáit.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,79 +16,79 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 619bd20b3ed9affb93bceed7b253c15bdb1e3609
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419562"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008734"
 ---
-# <a name="azure-stack-1905-known-issues"></a>Az Azure Stack 1905 ismert problémák
+# <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 ismert probléma
 
-Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista frissül új problémák azonosítva.
+Ez a cikk a Azure Stack 1905-es kiadásának ismert problémáit sorolja fel. A lista új problémák észlelése esetén frissül.
 
 > [!IMPORTANT]  
-> Tekintse át az ebben a szakaszban a frissítés alkalmazása előtt.
+> A frissítés alkalmazása előtt tekintse át ezt a szakaszt.
 
-## <a name="update-process"></a>Frissítési eljárás
+## <a name="update-process"></a>Frissítési folyamat
 
-### <a name="host-node-update-prerequisite-failure"></a>Csomópont frissítés előfeltétel-ellenőrzési hiba
+### <a name="host-node-update-prerequisite-failure"></a>Gazdagép-csomópont frissítésének előfeltételi hibája
 
-- Alkalmazható: A probléma 1905 frissítésére vonatkozik.
-- OK: Az 1905 Azure Stack frissítésének megkísérlésekor a frissítés állapota miatt meghiúsulhat **fogadó csomópont frissítése előfeltétel**. Ez általában egy elegendő szabad lemezterülettel rendelkező gazdacsomópont okozzák.
-- Szervizelési: Lépjen kapcsolatba az Azure Stack-támogatás törlésével szabadítson fel lemezterületet a gazdacsomópont támogatásra.
-- Előfordulás: Nem szokványos
+- Alkalmazható Ez a probléma az 1905-es frissítésre vonatkozik.
+- Ok: Az 1905 Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota a **gazdagép csomópontjának frissítésének**előfeltétele miatt meghiúsul. Ezt általában egy olyan gazda-csomópont okozza, amely nem rendelkezik elegendő szabad lemezterülettel.
+- Szervizkiszolgáló Forduljon Azure Stack támogatási szolgálathoz, és kérjen segítséget a gazdagép-csomóponton található lemezterület törléséhez.
+- Előfordulása Nem gyakori
 
 ### <a name="preparation-failed"></a>Az előkészítés sikertelen
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: 1905 az Azure Stack frissítésének megkísérlésekor a frissítés állapota sikertelen lehet, hogy, és az állapotváltozáshoz **PreparationFailed**. A frissítés erőforrás-szolgáltató (URP) nem képes megfelelően viheti át a fájlokat a storage-tárolót egy belső infrastruktúrát megosztáshoz feldolgozási okozza. A 1905 csomag, nagyobb korábbi frissítési csomagokat, amelyek fordul elő.
-- Szervizelési: 1901 (1.1901.0.95) verziójával kezdődően is használhatja a probléma megoldásához kattintva **frissítés most** újra (nem **folytatása**). A URP ezután a fájlokat az előző próbálkozás megtisztítja, és letöltését újraindítja. Ha a probléma tartósan fennáll, javasoljuk, hogy manuálisan feltöltve az alábbi frissítési csomag a [importálása és telepítési frissítések szakasz](azure-stack-apply-updates.md#import-and-install-updates).
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Az 1905 Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz. Az 1905-es frissítési csomag nagyobb, mint az előző frissítési csomagok, amelyek nagyobb valószínűséggel tehetik ezt a problémát.
+- Szervizkiszolgáló A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md)alapján.
+- Előfordulása Közös
 
 ## <a name="portal"></a>Portál
 
-### <a name="subscription-resources"></a>Előfizetési erőforrások
+### <a name="subscription-resources"></a>Előfizetés erőforrásai
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: Felhasználói előfizetések eredmények az árva erőforrások törlése.
-- Szervizelési: Először törölje a felhasználó vagy a teljes erőforráscsoportot, és ezután törölje a felhasználói előfizetések.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Felhasználói előfizetések eredmények az árva erőforrások törlése.
+- Szervizkiszolgáló Először törölje a felhasználói erőforrásokat vagy a teljes erőforráscsoportot, majd törölje a felhasználói előfizetéseket.
+- Előfordulása Közös
 
-### <a name="subscription-permissions"></a>Előfizetése engedélyei
+### <a name="subscription-permissions"></a>Előfizetés engedélyei
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: Engedélyek nem tekintheti meg az Azure Stack portálok használata az előfizetéshez.
-- Szervizelési: Használat [engedélyek ellenőrzése érdekében PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Engedélyek nem tekintheti meg az Azure Stack portálok használata az előfizetéshez.
+- Szervizkiszolgáló [Az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Előfordulása Közös
 
-### <a name="marketplace-management"></a>Marketplace-en kezelése
+### <a name="marketplace-management"></a>Piactér-kezelés
 
-- Alkalmazható: A probléma 1904 és 1905 vonatkozik
-- OK: A piactér felügyeleti képernyő a látható esetén nem jelentkezik be a felügyeleti portálon.
-- Szervizelési: Frissítse a böngészőt, vagy keresse fel **beállítások** , és jelölje be **alapértelmezett beállításainak visszaállítása**.
-- Előfordulás: Időszakos
+- Alkalmazható Ez a probléma a 1904 és a 1905
+- Ok: A piactér-felügyeleti képernyő nem látható, ha bejelentkezik a felügyeleti portálra.
+- Szervizkiszolgáló Frissítse a böngészőt, vagy lépjen a **Beállítások** elemre, és válassza az Alaphelyzetbe állítás lehetőséget az **alapértelmezett beállítások**lehetőségnél.
+- Előfordulása Időszakos
 
 ### <a name="docker-extension"></a>Docker-bővítmény
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A rendszergazda és a felhasználói portálon, ha a **Docker**, az elem nem megfelelően adja vissza. Ez nem áll rendelkezésre, az Azure Stackben. Ha megpróbálja létrehozni, hibaüzenet jelenik meg.
-- Szervizelési: Nincs megoldás.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Ha a Docker-kereséshez a rendszergazda és a felhasználóiportálon is keres, az elem helytelenül lesz visszaadva. Ez nem áll rendelkezésre, az Azure Stackben. Ha megpróbálja létrehozni, hibaüzenet jelenik meg.
+- Szervizkiszolgáló Nincs megoldás.
+- Előfordulása Közös
 
-### <a name="upload-blob"></a>Blob feltöltése
+### <a name="upload-blob"></a>BLOB feltöltése
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon, amikor megpróbálja feltölteni egy blob használatával a **OAuth(preview)** beállítást, a feladat egy hibaüzenettel meghiúsul.
-- Szervizelési: Töltse fel a blob SAS lehetőséggel.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Ha a felhasználói portálon megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
+- Szervizkiszolgáló Töltse fel a blobot az SAS kapcsoló használatával.
+- Előfordulása Közös
 
 ### <a name="template"></a>Sablon
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálra a sablon üzembe helyezéséhez felhasználói felület nem adja meg a sablon nevét, "_" (aláhúzásjelet) kezdődő paramétereit.
-- Szervizelési: Távolítsa el a sablon nevét a "_" (aláhúzás karakterrel).
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A felhasználói portálon a sablon központi telepítési felhasználói felülete nem tölti fel a (z) _ karakterrel kezdődő nevű sablon paramétereit (aláhúzásjel).
+- Szervizkiszolgáló Távolítsa el a "_" (aláhúzás) karaktert a sablon nevéből.
+- Előfordulása Közös
 
 ## <a name="networking"></a>Hálózat
 
@@ -96,83 +96,83 @@ Ez a cikk az Azure Stack 1905 kiadás ismert problémákat ismerteti. A lista fr
 
 #### <a name="add-backend-pool"></a>Háttérkészlet hozzáadása
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon, ha megpróbálja hozzáadni egy **Háttérkészlet** , egy **terheléselosztó**, a művelet meghiúsul, a hibaüzenet **nem sikerült frissíteni a Load Balancer...** .
-- Szervizelési: A PowerShell, parancssori felület vagy a Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Ha a felhasználói portálon egy **háttér** -készletet próbál hozzáadni egy Load Balancerhoz, a művelet meghiúsul, és a hibaüzenet **nem tudta frissíteni a Load Balancer.** ...
+- Szervizkiszolgáló A PowerShell, a CLI vagy a Resource Manager-sablon használatával társítsa a háttér-készletet egy terheléselosztó-erőforráshoz.
+- Előfordulása Közös
 
 #### <a name="create-inbound-nat"></a>Bejövő NAT létrehozása
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon, ha megpróbál létrehozni egy **bejövő NAT-szabály** számára egy **Load Balancer**, a művelet meghiúsul, a hibaüzenet **nem sikerült frissíteni a Load Balancer...** .
-- Szervizelési: A PowerShell, parancssori felület vagy a Resource Manager-sablon a háttérkészlet társítása egy terheléselosztó-erőforráshoz.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Ha a felhasználói portálon egy **Load Balancer** **bejövő NAT** -szabályát kísérli meg létrehozni, a művelet meghiúsul, és a hibaüzenet **nem frissül Load Balancer.** ..
+- Szervizkiszolgáló A PowerShell, a CLI vagy a Resource Manager-sablon használatával társítsa a háttér-készletet egy terheléselosztó-erőforráshoz.
+- Előfordulása Közös
 
 #### <a name="create-load-balancer"></a>Terheléselosztó létrehozása
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon a **Load Balancer létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** terheléselosztó Termékváltozat. Ez a beállítás nem támogatott az Azure Stackben.
-- Szervizelési: Használja a **alapszintű** tölti be a terheléselosztó beállítások.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A felhasználói portálon, a **létrehozás Load Balancer** ablakban a **standard** Load Balancer SKU létrehozási lehetősége látható. Ez a beállítás Azure Stack esetén nem támogatott.
+- Szervizkiszolgáló Ehelyett használja az alapszintű Load Balancer beállításait.
+- Előfordulása Közös
 
 ### <a name="public-ip-address"></a>Nyilvános IP-cím
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A felhasználói portálon a **nyilvános IP-cím létrehozása** ablakban látható lehetőség hozzon létre egy **Standard** Termékváltozat. A **Standard** Termékváltozat nem támogatott az Azure Stackben.
-- Szervizelési: Használja a **alapszintű** Termékváltozat nyilvános IP-cím.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A felhasználói portálon a **nyilvános IP-cím létrehozása** ablakban egy **szabványos** SKU létrehozására szolgáló lehetőség látható. Azure Stack nem támogatja a **standard** SKU-t.
+- Szervizkiszolgáló Használja az alapszintű SKU-t a nyilvános IP-címhez.
+- Előfordulása Közös
 
 ## <a name="compute"></a>Compute
 
-### <a name="vm-boot-diagnostics"></a>Virtuális gép rendszerindítási diagnosztikája
+### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: Amikor egy új Windows virtuális gép (VM) hoz létre, a következő hiba jelenhet meg: **Nem sikerült elindítani a virtuális gép (vm-name). Hiba: Nem sikerült frissíteni a virtuális gép (vm-name) soros kimeneti beállításait**.
-A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika engedélyezése, de a rendszerindítás-diagnosztikai tárfiók törlése.
-- Szervizelési: Hozza létre újból a korábban használt azonos nevű tárfiók.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Új Windowsos virtuális gép (VM) létrehozásakor a következő hibaüzenet jelenhet meg: **Nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: Nem sikerült frissíteni a virtuális gép (VM-név**) soros kimeneti beállításait.
+A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
+- Szervizkiszolgáló Hozza létre újra a korábban használt nevű Storage-fiókot.
+- Előfordulása Közös
 
 ### <a name="vm-resize"></a>Virtuális gép átméretezése
 
-- Alkalmazható: A probléma a 1905 kiadásra vonatkozik.
-- OK: Nem sikerült átméretezni egy felügyelt lemezes virtuális gép. A "code" hibaüzenetet próbál, méretezze át a virtuális Gépet hoz létre: "InternalOperationError", "message": "Belső hiba történt a művelet."
-- Szervizelési: Folyamatban van kijavítani ezt a következő kiadásban. Jelenleg újra létre kell hoznia a virtuális gép és az új Virtuálisgép-méretet.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma a 1905 kiadásra vonatkozik.
+- Ok: Nem sikerült átméretezni a felügyelt lemezes virtuális gépet. A virtuális gép átméretezésére irányuló kísérlet hibát jelez a következő kóddal: "InternalOperationError", "üzenet": "Belső hiba történt a művelet során."
+- Szervizkiszolgáló A következő kiadásban dolgozunk. Jelenleg újra létre kell hoznia a virtuális gépet az új virtuálisgép-mérettel.
+- Előfordulása Közös
 
-### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
+### <a name="virtual-machine-scale-set"></a>Virtuális gép méretkészlete
 
 #### <a name="centos"></a>CentOS
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A virtual machine scale set létrehozási folyamatának 7.2 CentOS-alapú üzembe helyezési lehetőséget biztosít. CentOS 7.2 nem érhető el az Azure Stack piactéren, amely hatására a hibával kapcsolatos üzembehelyezési problémák hívott, hogy a kép nem található.
-- Szervizelési: Az üzembe helyezéshez használt egy másik operációs rendszert, vagy adjon meg egy másik CentOS lemezképet a marketplace-ről telepítené az üzemeltető által letöltött Azure Resource Manager sablonnal.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A virtuálisgép-méretezési csoport létrehozási felülete a CentOS-alapú 7,2-es lehetőséget kínálja az üzembe helyezéshez. A CentOS 7,2 Azure Stack piactéren nem érhető el, ezért a telepítési hibák miatt a rendszer nem találja a rendszerképet.
+- Szervizkiszolgáló Válasszon másik operációs rendszert a központi telepítéshez, vagy használjon egy Azure Resource Manager sablont, amely egy másik, a piactéren az operátor általi üzembe helyezés előtt letöltött CentOS-rendszerképet ad meg.
+- Előfordulása Közös
 
 #### <a name="remove-scale-set"></a>Méretezési csoport eltávolítása
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A méretezési készlet nem távolítható el a **a Virtual machine scale sets** panelen.
-- Szervizelési: Válassza ki a méretezési csoport, hogy el kívánja távolítani, majd kattintson a **törlése** gombra a **áttekintése** ablaktáblán.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A méretezési csoportokat nem lehet eltávolítani a **virtuálisgép** -méretezési csoportok paneljéről.
+- Szervizkiszolgáló Válassza ki az eltávolítani kívánt méretezési készletet, majd kattintson a **Törlés** gombra az **Áttekintés** ablaktáblán.
+- Előfordulása Közös
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása során a javítások és frissítések 4 csomópontos Azure Stack-környezetekben
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack környezetekben
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: A rendelkezésre állási csoport 3 tartalék tartomány a virtuális gépek létrehozása és a egy virtuálisgép-méretezési csoport létrehozása a példány sikertelen lesz, és állítsa be a **FabricVmPlacementErrorUnsupportedFaultDomainSize** hiba történt a frissítés során az egy 4 csomópontos az Azure Stackben környezet.
-- Szervizelési: Egy rendelkezésre állási csoport sikeresen 2 hibatűrési tartományt is létrehozhat önálló virtuális gépek. Azonban scale set-példány létrehozása nem még nem érhető el a frissítés során az egy 4 csomópontos Azure Stacken.
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A virtuális gépeket 3 tartalék tartományba tartozó rendelkezésre állási csoportba kell létrehozni, és a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack környezet frissítési folyamata során.
+- Szervizkiszolgáló Egy rendelkezésre állási csoportba egyetlen virtuális gépet hozhat létre, amelynek 2 tartalék tartománya sikeresen megtörtént. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack frissítési folyamata során.
 
-#### <a name="scale-set-instance-view-blade-doesnt-load"></a>Nem tölt be a méretezési csoport példány megtekintési paneljén
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>A méretezési csoport példányainak nézete nem töltődik be
 
-- Alkalmazható: A probléma 1904-es és 1905 kiadásra vonatkozik.
-- OK: Azure Stack portálon található beállítása egy virtuálisgép-méretezési csoport példánya megtekintési paneljén -> irányítópult -> virtuálisgép-méretezési csoportok -> AnyScaleSet – példányok > AnyScaleSetInstance sikertelen a betöltés, és a egy crying felhőalapú képet jeleníti meg.
-- Szervizelési: Jelenleg nem nincs szervizelés, és folyamatban van egy javítás. Addig használja a CLI-paranccsal `az vmss get-instance-view` beolvasni egy méretezési csoport példányait tartalmazó nézetet.
+- Alkalmazható Ez a probléma a 1904-es és a 1905-es kiadásra vonatkozik.
+- Ok: Egy virtuálisgép-méretezési csoport példány nézetének panelje, amely a Azure Stack Portal-> irányítópultján található – > virtuálisgép-méretezési csoportok – > AnyScaleSet-instances – > AnyScaleSetInstance nem töltődik be, és egy síró Felhőbeli képet jelenít meg.
+- Szervizkiszolgáló Jelenleg nincs szervizelés, és a javításon dolgozunk. Addig is használja a CLI-parancsot `az vmss get-instance-view` egy méretezési csoport példány nézetének lekéréséhez.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 
-- Alkalmazható: A probléma minden támogatott verziója vonatkozik.
-- OK: Egy Ubuntu 18.04 létrehozott virtuális gép SSH-engedélyezési engedélyezve van a nem engedélyezi az SSH-kulcsokat használhatja a bejelentkezni.
-- Szervizelési: A Linux-bővítményt a Virtuálisgép-hozzáférési használja az SSH-kulcsok megvalósításához a kiépítés után, vagy a jelszóalapú hitelesítés használatára.
-- Előfordulás: Közös
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Az SSH-hitelesítéssel létrehozott Ubuntu 18,04 virtuális gép nem teszi lehetővé az SSH-kulcsok használatát a bejelentkezéshez.
+- Szervizkiszolgáló A Linux-bővítményhez használja a VM-hozzáférést, hogy SSH-kulcsokat implementáljon a kiépítés után, vagy használjon jelszó alapú hitelesítést.
+- Előfordulása Közös
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -183,5 +183,5 @@ A hiba akkor fordul elő, ha a virtuális gép rendszerindítási diagnosztika e
 
 ## <a name="next-steps"></a>További lépések
 
-- [Felülvizsgálati tevékenység ellenőrzőlista](azure-stack-release-notes-checklist.md)
-- [Tekintse át a biztonsági frissítések listája](azure-stack-release-notes-security-updates-1905.md)
+- [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](azure-stack-release-notes-checklist.md)
+- [Biztonsági frissítések listájának áttekintése](azure-stack-release-notes-security-updates-1905.md)

@@ -15,16 +15,16 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: a2b000f60c5867e557ef5b0621f994ea7ec23913
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 058eff278dbfb7834e3b929967851f998b15f91b
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493785"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008245"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
-Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról és ismert problémáiról tartalmaz információkat. Ha nem biztos abban, hogy melyik verziót futtatja, [a portálon](../operator/azure-stack-updates.md#determine-the-current-version)is megtekintheti a következőt:.
+Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról és ismert problémáiról tartalmaz információkat. Ha nem biztos abban, hogy melyik verziót futtatja, [a portálon](../operator/azure-stack-updates.md)is megtekintheti a következőt:.
 
 Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)-hírcsatornára való feliratkozással naprakész maradhat a ASDK újdonságai.
 

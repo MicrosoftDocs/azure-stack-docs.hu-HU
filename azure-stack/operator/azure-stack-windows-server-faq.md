@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2019
+ms.date: 08/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806908"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008320"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server Azure Stack piactéren – gyakori kérdések
 
@@ -53,11 +53,29 @@ Ha a lemezkép mindkét verzióját letölti, a piactér-katalógusban csak a le
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Mi a teendő, ha a felhasználó helytelenül ellenőrizte a korábbi Windows-buildek "licencem" mezőjét, és nem rendelkezik licenccel?
 
-Lásd: [a Windows Server BYOL virtuális gépek átalakítása](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)utólagos elszámolású.
+A következő szkript futtatásával módosíthatja a licencelési modell attribútumot, hogy a saját licencét (BYOL) az utólagos elszámolású (TB) modellre váltson:
+
+```powershell
+vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
+
+A virtuális gép licencének típusát a következő parancsok futtatásával tekintheti meg. Ha a **Windows_Server**azt mondja, hogy a Windows-licencet a TB-modell szerint kell fizetnie:
+
+```powershell
+$vm | ft Name, VmId,LicenseType,ProvisioningState
+```
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Mi a helyzet akkor, ha egy régebbi rendszerképem van, és a felhasználó elfelejtettem a "licenccel rendelkezem" jelölőnégyzetet, vagy saját rendszerképeket használunk, és rendelkezünk Nagyvállalati Szerződés jogosultsággal?
 
-Lásd: [meglévő Windows Server rendszerű virtuális gép átalakítása BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Vegye figyelembe, hogy a Azure Hybrid Benefit nem vonatkozik a Azure Stackra, de a beállítás hatása nem érvényes.
+A következő parancsok futtatásával módosíthatja a licencelési modell attribútumot a saját licenc használatára:
+
+```powershell
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Mi a helyzet a Windows Servert használó más virtuális gépekkel, például az SQL vagy a Machine Learning Server?
 
