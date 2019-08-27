@@ -1,6 +1,6 @@
 ---
-title: A ASDK regisztrálása az Azure-ral |} A Microsoft Docs
-description: Ismerteti, hogyan lehet regisztrálni az Azure Stack az Azure Marketplace-en tartalomtípus-gyűjtési és használati jelentések engedélyezése.
+title: A ASDK regisztrálása az Azure-ban | Microsoft Docs
+description: Ismerje meg, hogyan regisztrálhatók a Azure Stack Development Kit (ASDK) az Azure-ban a Piactéri hírszolgáltatás és a használati jelentéskészítés lehetővé tételéhez.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,47 +15,47 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197201"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025868"
 ---
-# <a name="azure-stack-registration"></a>Azure Stack-regisztráció
+# <a name="register-the-asdk-with-azure"></a>A ASDK regisztrálása az Azure-ban
 
-Regisztrálhat az Azure Stack Development Kit (ASDK) telepítése az Azure marketplace-elemek letöltése az Azure-ból, és megkezdheti a Microsoft kereskedelmi adatok beállítása. Regisztráció teljes Azure Stack-funkciók, többek között a piactér tartalomtípus-gyűjtési támogatásához szükséges. Regisztráció szükséges ahhoz, hogy tesztelje fontos Azure Stack-funkciók, például a Marketplace-en tartalomtípus-gyűjtési és használati jelentések készítése. Miután regisztrálta Azure Stack, az Azure kereskedelmi jelentett használati. Láthatja a regisztráció során használt előfizetés alatt. Azonban ASDK felhasználók nem számítunk fel díjat minden használati jelentést.
+Az Azure-ban regisztrálhat a Azure Stack Development Kit (ASDK) telepítésére, és az Azure-ban letöltheti a Piactéri elemeket, és beállíthatja a kereskedelmi adatokat a Microsoftnak. Regisztrációra van szükség a teljes Azure Stack funkció támogatásához, beleértve a piactér-hírszolgáltatást is. A regisztráció szükséges ahhoz, hogy tesztelje a fontos Azure Stack funkciókat, például a Piactéri hírszolgáltatást és a használati jelentéseket. Azure Stack regisztrálása után a rendszer a használatot az Azure Commerce szolgáltatásnak jelenti. A regisztrációhoz használt előfizetés alatt látható. A ASDK-felhasználók azonban nem számítanak fel díjat a jelentésben szereplő használati díjakért.
 
-Ha nem regisztrál az ASDK, megjelenhet egy **aktiválás szükséges** figyelmeztetés, ami arról, hogy kell regisztrálni az Azure Stack Development Kit kapcsolódjanak. Ez várt működés.
+Ha nem regisztrálja a ASDK, az **aktiválást igénylő** figyelmeztetés figyelmezteti a ASDK regisztrálására. Ez várt működés.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Mielőtt ezeket az utasításokat a ASDK regisztrálni az Azure-ral, győződjön meg arról, hogy az Azure Stack PowerShell telepítése és az Azure Stack eszközök letöltött leírtak szerint a [üzembe helyezés utáni konfigurációs](asdk-post-deploy.md) cikk.
+Mielőtt felhasználja ezeket az utasításokat a ASDK az Azure-ban való regisztrálásához, győződjön meg arról, hogy telepítette a Azure Stack PowerShellt, és letöltötte a Azure Stack eszközöket a [Telepítés utáni konfiguráció](asdk-post-deploy.md) című cikkben leírtak szerint.
 
-Emellett a PowerShell nyelvmód értékre kell állítani **FullLanguage** azon a számítógépen, az Azure-ral a ASDK regisztrálhatók. Annak ellenőrzéséhez, hogy a jelenlegi nyelvmód beállítása teljes nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsokat:
+A ASDK Azure-ban való regisztrálásához használt számítógépen a PowerShell nyelvi üzemmódját is be kell állítani a **FullLanguage** értékre. Annak ellenőrzéséhez, hogy az aktuális nyelvi mód a teljes értékre van-e állítva, nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsokat:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Győződjön meg arról, a kimenetet visszaadja **FullLanguage**. Ha bármilyen más nyelvmód adja vissza, egy másik számítógépen kell futtatnia kell a regisztrációs vagy a nyelvmód kell beállítani **FullLanguage** a folytatás előtt.
+Győződjön meg arról, hogy a kimenet **FullLanguage**ad vissza. Ha más nyelvi módot ad vissza, a regisztrációt másik számítógépen kell futtatni, vagy a folytatás előtt a **FullLanguage** beállított nyelvi mód.
 
-Az Azure AD-szolgáltatásfiók rendelkezik hozzáféréssel az Azure-előfizetést, és a címtárban, az adott előfizetéshez tartozó identitást használó alkalmazások és az egyszerű szolgáltatások létrehozásához szükséges engedélyek regisztrációt használt. Azt javasoljuk, hogy regisztrálja az Azure Stack az Azure által a minimális jogosultságon alapuló felügyeleti [regisztrációs használandó szolgáltatásfiók létrehozására](../operator/azure-stack-registration-role.md) globális rendszergazdai hitelesítő adatok használata helyett.
+A regisztrációhoz használt Azure AD-fióknak hozzáféréssel kell rendelkeznie az Azure-előfizetéshez, és engedélyekkel kell rendelkeznie az identitás-alkalmazások és-szolgáltatások létrehozásához az adott előfizetéshez tartozó címtárban. Javasoljuk, hogy regisztrálja Azure Stack az Azure [-ban egy olyan szolgáltatásfiók létrehozásával, amely a](../operator/azure-stack-registration-role.md) globális rendszergazdai hitelesítő adatok helyett a regisztrációhoz használható.
 
-## <a name="register-azure-stack-with-azure"></a>Regisztráljon az Azure Stack az Azure-ral
+## <a name="register-the-asdk"></a>A ASDK regisztrálása
 
-Kövesse az alábbi lépéseket a ASDK regisztrálni az Azure-ral.
+A ASDK az Azure-ban való regisztrálásához kövesse az alábbi lépéseket.
 
 > [!NOTE]
-> Ezeket a lépéseket minden olyan számítógépen, amelyen a kiemelt végponthoz való hozzáférést adatbázisból kell futtatni. A ASDK Ez a fejlesztői csomag gazdaszámítógépen.
+> Ezeket a lépéseket olyan számítógépről kell futtatni, amely hozzáfér a Kiemelt végponthoz. A ASDK esetében ez a ASDK-gazda számítógép.
 
 1. Nyisson meg egy PowerShell-konzolt rendszergazdaként.  
 
-2. Futtassa a következő PowerShell-parancsokat a ASDK telepítési regisztrálni az Azure-ral. Jelentkezzen be az Azure számlázási előfizetés-Azonosítóját és a helyi ASDK telepítési is kell. Ha nem rendelkezik Azure-beli előfizetés-azonosító még számlázási, [ingyenes Azure-fiók létrehozása itt](https://azure.microsoft.com/free/?b=17.06). Az Azure-előfizetése ingyenes regisztrálása az Azure Stack tekintetében.<br><br>Állítsa be egy egyedi nevet a regisztráció futtatásakor a **Set-AzsRegistration** parancsmagot. A **RegistrationName** paraméterének alapértelmezett értéke **AzureStackRegistration**. Azonban, ha ugyanazzal a névvel egynél több Azure Stack-példányt használ, a parancsfájl futtatása sikertelen lesz.
+2. Futtassa a következő PowerShell-parancsokat a ASDK-telepítés az Azure-ban való regisztrálásához. Jelentkezzen be az Azure számlázási előfizetés-azonosítójával és a helyi ASDK-telepítéssel. Ha még nem rendelkezik Azure számlázási előfizetés-AZONOSÍTÓval, [itt hozhat létre ingyenes Azure-fiókot](https://azure.microsoft.com/free/?b=17.06). Az Azure-előfizetéshez tartozó Azure Stack regisztrációját nem kell fizetnie.<br><br>Állítsa be a regisztráció egyedi nevét a **set-AzsRegistration** parancsmag futtatásakor. A **RegistrationName** paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja a Azure Stack több példányán, a parancsfájl sikertelen lesz.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
-    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+    # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -79,20 +79,20 @@ Kövesse az alábbi lépéseket a ASDK regisztrálni az Azure-ral.
     -UsageReportingEnabled:$true
     ```
 
-3. Miután a parancsfájl futása befejeződött, az üzenetnek kell megjelennie: **A környezet már regisztrálva van, és aktiválta a megadott paraméterekkel.**
+3. A szkript befejezésekor a következő üzenetnek kell megjelennie: **A környezet most már regisztrálva van és aktiválva van a megadott paraméterek használatával.**
 
     ![A környezet már regisztrálva van](media/asdk-register/1.PNG)
 
-## <a name="register-in-disconnected-environments"></a>Regisztrálja a kapcsolat nélküli környezetben
+## <a name="register-in-disconnected-environments"></a>Regisztráció leválasztott környezetekben
 
-Ha regisztrál az Azure Stack kapcsolat nélküli környezetben (az internet-hozzáférés nélküli), szerezze be egy regisztrációs tokent az Azure Stack-környezet, majd ezt a jogkivonatot egy számítógépen, amely Azure-ban regisztrálja, és hozzon létre egy aktiválási képes kapcsolódni kell az erőforrás ASDK környezete számára.
+Ha Azure Stackt regisztrál egy leválasztott környezetben (internetkapcsolat nélkül), akkor regisztrálnia kell egy regisztrációs jogkivonatot a Azure Stack-környezetből, majd ezt a tokent kell használnia egy olyan számítógépen, amely csatlakozhat az Azure-hoz a regisztráláshoz és az aktiválás létrehozásához. a ASDK-környezet erőforrása.
 
  > [!IMPORTANT]
- > Mielőtt regisztrálja az Azure Stack használatával ezeket az utasításokat, győződjön meg arról, hogy az Azure Stack PowerShell telepítése és az Azure Stack eszközök letöltött leírtak szerint a [üzembe helyezés utáni konfigurációs](asdk-post-deploy.md) cikk mindkét a ASDK gazdagépen számítógép és a számítógép csatlakozik az Azure és a regisztráció internet-hozzáféréssel rendelkező.
+ > Mielőtt felhasználja ezeket az utasításokat a Azure Stack regisztrálásához, győződjön meg arról, hogy telepítette a PowerShellt a Azure Stackhoz, és letöltötte a Azure Stack eszközöket a [Telepítés utáni konfigurációs](asdk-post-deploy.md) cikkben leírt módon a ASDK gazdagépen és a Az Azure-hoz való kapcsolódáshoz és a regisztráláshoz használt internet-hozzáféréssel rendelkező számítógép.
 
-### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Szerezze be egy regisztrációs tokent az Azure Stack-környezet
+### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Regisztrációs jogkivonat beszerzése a Azure Stack-környezetből
 
-A ASDK gazdaszámítógépen indítsa el a Powershellt rendszergazdaként, és keresse meg a **regisztrációs** mappájában a **AzureStack-Tools-master** jön létre, amikor az Azure Stack eszközök letöltött könyvtár. A következő PowerShell-parancsok segítségével importálhatja a **RegisterWithAzure.psm1** modult, majd a **Get-AzsRegistrationToken** parancsmagot, hogy a regisztrációs jogkivonat lekérése:  
+A ASDK gazdaszámítógépen indítsa el a PowerShellt rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. A következő PowerShell-parancsokkal importálhatja a **RegisterWithAzure. psm1** modult, majd a **Get-AzsRegistrationToken** parancsmag használatával beolvashatja a regisztrációs jogkivonatot:  
 
    ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
@@ -110,11 +110,11 @@ A ASDK gazdaszámítógépen indítsa el a Powershellt rendszergazdaként, és k
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-A regisztrációs jogkivonat használatra mentse az internethez csatlakozó számítógépen. A fájl vagy a szöveg átmásolhatja a fájlt a $FilePathForRegistrationToken paraméter által létrehozott.
+Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A (z) `$FilePathForRegistrationToken` paraméterrel létrehozott fájlból vagy szövegből is másolhatja a fájlt.
 
-### <a name="connect-to-azure-and-register"></a>Csatlakozás az Azure és a regisztráció
+### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
-Az interneten csatlakoztatott számítógépen, a következő PowerShell-parancsok használata importálása a **RegisterWithAzure.psm1** modult, majd a **Register-AzsEnvironment** parancsmag regisztrálhat az Azure-ban az imént létrehozott regisztrációs jogkivonatot, és egyedi regisztrációs nevét:  
+Az internethez csatlakoztatott számítógépen a következő PowerShell-parancsokkal importálja a **RegisterWithAzure. psm1** modult, majd a **Register-AzsEnvironment** parancsmag használatával regisztrálja az Azure-t az imént létrehozott regisztrációs jogkivonat használatával. egy egyedi regisztrációs név:  
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -138,7 +138,7 @@ Az interneten csatlakoztatott számítógépen, a következő PowerShell-parancs
   -RegistrationName $RegistrationName
   ```
 
-Másik lehetőségként használhatja a **Get-tartalom** parancsmagot, hogy a regisztrációs jogkivonatot tartalmazó fájlra mutat:
+Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, amely tartalmazza a regisztrációs jogkivonatot:
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -161,18 +161,18 @@ Másik lehetőségként használhatja a **Get-tartalom** parancsmagot, hogy a re
   -RegistrationName $RegistrationName
   ```
 
-Regisztrációs befejeződése után üzenetnek kell megjelennie egy hasonló **az Azure Stack-környezet már regisztrálva van az Azure-ral.**
+A regisztráció befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **Az Azure Stack-környezet már regisztrálva van az Azure-ban.**
 
 > [!IMPORTANT]
-> Ne zárja be a PowerShell-ablakban.
+> Ne zárjuk be a PowerShell ablakot.
 
-A regisztrációs jogkivonatot, és a regisztrációs erőforrás neve a későbbiekben takaríthat meg.
+Mentse a regisztrációs jogkivonatot és a regisztrációs erőforrás nevét a későbbi referenciához.
 
-### <a name="retrieve-an-activation-key-from-the-azure-registration-resource"></a>Az Azure-regisztráció erőforrás-aktiválási kulcs lekérése
+### <a name="retrieve-an-activation-key-from-the-azure-registration-resource"></a>Aktiválási kulcs beolvasása az Azure regisztrációs erőforrásból
 
-Továbbra is használja az internetkapcsolattal rendelkező számítógépen **és az ugyanazon PowerShell-konzolablakot**, kérje le egy aktiválási kulcsot hozott létre, amikor az Azure-ban regisztrált regisztrációs erőforrásból.
+Továbbra is az internethez csatlakoztatott számítógépet **és a PowerShell-konzolt futtató ablakot**kell beolvasnia az Azure-ban regisztrált regisztrációs erőforrásból.
 
-Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsokat pedig a ugyanazon egyedi regisztrációs regisztrálásakor az Azure-ral az előző lépésben megadott név értéket:  
+Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsokat. Használja ugyanazt az egyedi regisztrációs nevet, amelyet az Azure-ban az előző lépésben való regisztráláskor adott meg:  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
@@ -182,9 +182,9 @@ Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsok
   -KeyOutputFilePath $KeyOutputFilePath
   ```
 
-### <a name="create-an-activation-resource-in-azure-stack"></a>Hozzon létre egy aktiválási erőforrást az Azure Stackben
+### <a name="create-an-activation-resource-in-azure-stack"></a>Aktiválási erőforrás létrehozása Azure Stack
 
-Az Azure Stack-környezet térjen vissza a fájl- vagy szöveget az aktiválási kulcs alapján létrehozott **Get-AzsActivationKey**. Futtassa a következő PowerShell-parancsokat az aktiválási erőforrás létrehozásához az Azure Stack a aktiválási kulccsal:   
+Térjen vissza a Azure Stack-környezetbe a **Get-AzsActivationKey**által létrehozott aktiválási kulcsból származó fájllal vagy szöveggel. A következő PowerShell-parancsok futtatásával hozzon létre egy aktiválási erőforrást Azure Stack az adott aktiválási kulccsal:   
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
@@ -197,7 +197,7 @@ Az Azure Stack-környezet térjen vissza a fájl- vagy szöveget az aktiválási
   -ActivationKey $ActivationKey
   ```
 
-Másik lehetőségként használhatja a **Get-tartalom** parancsmagot, hogy a regisztrációs jogkivonatot tartalmazó fájlra mutat:
+Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, amely tartalmazza a regisztrációs jogkivonatot:
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
@@ -211,24 +211,24 @@ Másik lehetőségként használhatja a **Get-tartalom** parancsmagot, hogy a re
   -ActivationKey $ActivationKey
   ```
 
-Az aktiválás befejeződése után üzenetnek kell megjelennie egy hasonló **a környezet a regisztrációs és aktiválási folyamat befejeződött.**
+Az aktiválás befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **A környezet befejezte a regisztrációs és aktiválási folyamatot.**
 
-## <a name="verify-the-registration-was-successful"></a>Ellenőrizze a regisztráció sikeres volt
+## <a name="verify-the-registration-was-successful"></a>Ellenőrizze, hogy a regisztráció sikeres volt-e
 
-Használhatja a **régiók kezelése** csempére kattintva ellenőrizze, hogy az Azure Stack-regisztráció sikeres volt-e. Ez a csempe nem érhető el az alapértelmezett irányítópult, a felügyeleti portálon.
+A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrációja sikeres volt-e. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján érhető el.
 
-1. Jelentkezzen be a [Azure Stack felügyeleti portálon](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a [Azure stack felügyeleti portálra](https://adminportal.local.azurestack.external).
 
-2. Az irányítópulton, válassza ki a **régiók kezelése**.
+2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
 
-    [![Régió felügyeleti csempe](media/asdk-register/admin1sm.png "régió felügyeleti csempe")](media/asdk-register/admin1.png#lightbox)
+    [![Régió-felügyeleti csempe Azure stack felügyeleti portálon](media/asdk-register/admin1sm.png "Régió-felügyeleti csempe")](media/asdk-register/admin1.png#lightbox)
 
-3. Válassza ki **tulajdonságok**. Ezen a panelen látható, az állapot és a környezet sajátosságait. Az állapot lehet **regisztrált** vagy **nincs regisztrálva**. Ha regisztrált, azt is bemutatja az Azure-előfizetés azonosítója segítségével regisztrálja az Azure Stack, a regisztrációs erőforráscsoportot és a neve mellett.
+3. Válassza ki **tulajdonságok**. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot regisztrálható vagy **nem regisztrálható**. Ha regisztrálva van, megjeleníti a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját, valamint a regisztrációs erőforráscsoportot és a nevet is.
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
-Regisztrációs erőforrás ugyanahhoz az előfizetéshez tartozó erőforráscsoportok közötti áthelyezése **van** támogatott. Erőforrások áthelyezése új erőforráscsoport kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoportba vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Az ugyanahhoz az előfizetéshez tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)előfizetésbe.
 
 
 ## <a name="next-steps"></a>További lépések
 
-- [Azure Stack piactéren elem hozzáadása](../operator/azure-stack-marketplace.md)
+- [Azure Stack Marketplace-elem hozzáadása](../operator/azure-stack-marketplace.md)

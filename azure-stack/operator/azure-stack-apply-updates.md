@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 22e6945c5064a93a8dbaf6daa5c39df36cccb597
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008796"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025908"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Frissítések alkalmazása Azure Stack
 
@@ -55,15 +55,15 @@ A **frissítések** panelen megtekintheti Azure stack aktuális verzióját. Meg
 
 3.  Válassza ki az alkalmazni kívánt elérhető frissítést. Ha nincs elérhetőként megjelölt frissítés, elő kell [készítenie a frissítési csomagot](azure-stack-update-prepare-package.md)
 
-4.  Válassza a **Frissítés most**lehetőséget. .
+4.  Válassza a **Frissítés most**lehetőséget.
 
     ![Azure Stack frissítés futtatásának részletei](./media/azure-stack-update-apply/image2.png)
 
 5.  Megtekintheti a magas szintű állapotot, mivel a frissítési folyamat megismétli a Azure Stack különböző alrendszerein keresztül. Az alrendszerek például olyan fizikai gazdagépek, Service Fabric, infrastruktúra-virtuális gépek és szolgáltatások, amelyek mind a rendszergazda, mind a felhasználói portált biztosítják. A frissítés erőforrás-szolgáltatója a frissítési folyamat során további részleteket jelent a frissítésről, például a sikeres lépések számáról és a folyamatban lévő számról.
 
-6.  A teljes naplók letöltéséhez válassza a **teljes naplók letöltése** lehetőséget a frissítés futtatása részletek panelen.
+6.  A teljes naplók letöltéséhez válassza a **Letöltés összegzése** lehetőséget a frissítés futtatása részletek panelen.
 
-    Ha a frissítés figyelése során probléma lép fel, a [jogosultsági szintű végponton](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) figyelheti egy Azure stack frissítési futtatásának állapotát, és folytathatja a sikertelen frissítés futtatását az utolsó sikeres lépéssel, ha a Azure stack-portál elérhetetlenné válik. Útmutatásért lásd:[frissítések figyelése Azure stack a PowerShell használatával](azure-stack-update-monitor.md).
+    Ha a frissítés figyelése során probléma lép fel, a [jogosultsági szintű végponton](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) figyelheti egy Azure stack frissítési futtatásának állapotát, és folytathatja a sikertelen frissítés futtatását az utolsó sikeres lépéssel, ha a Azure stack-portál elérhetetlenné válik. Útmutatásért lásd: [frissítések figyelése Azure stack a PowerShell használatával](azure-stack-update-monitor.md).
 
     ![Azure Stack frissítés futtatásának részletei](./media/azure-stack-update-apply/image3.png)
 
@@ -81,9 +81,9 @@ A **frissítések** panelen megtekintheti Azure stack aktuális verzióját. Meg
 
 3.  Válassza a **frissítési előzmények**lehetőséget.
 
-![Azure Stack frissítési előzmények](./media/azure-stack-update-apply/image7.png)
+    ![Azure Stack frissítési előzmények](./media/azure-stack-update-apply/image7.png)
 
-# <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>További lépések
 
 -   [Frissítések kezelése az Azure Stackben – Áttekintés](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
 -   [Azure Stack-karbantartási szabályzat](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

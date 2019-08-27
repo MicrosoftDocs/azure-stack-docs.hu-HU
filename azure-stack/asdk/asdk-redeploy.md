@@ -1,6 +1,6 @@
 ---
-title: Ismételt üzembe helyezése az Azure Stack Development Kit (ASDK) |} A Microsoft Docs
-description: Ebből a cikkből elsajátíthatja, hogyan telepítse újra a ASDK.
+title: A ASDK újbóli üzembe helyezése | Microsoft Docs
+description: Megtudhatja, hogyan telepítheti újra a Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -17,27 +17,27 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: f61fff0d29b1e0bf847ffc1761ff53c90b703991
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5ff77bbe915a506803a1c06f68579c199439ea73
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267779"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025894"
 ---
-# <a name="redeploy-the-asdk"></a>Telepítse újra a ASDK
-Ebből a cikkből elsajátíthatja, hogyan ismételt üzembe helyezése az Azure Stack Development Kit (ASDK) egy nem éles környezetben. A ASDK frissítése nem támogatott, mivel teljesen ismételt üzembe helyezése áthelyezése egy újabb verzióra kell. Még csak át szeretné kezdje újra a folyamatot az alapoktól bármikor telepítse újra a ASDK.
+# <a name="redeploy-the-asdk"></a>A ASDK újbóli üzembe helyezése
+Ebből a cikkből megtudhatja, hogyan telepítheti újra a Azure Stack Development Kit (ASDK) nem éles környezetben. Mivel a ASDK frissítése nem támogatott, teljesen újra kell telepítenie, hogy egy újabb verzióra váltson. Újból üzembe helyezheti a ASDK, amikor teljesen új kezdést szeretne kezdeni.
 
 > [!IMPORTANT]
-> A ASDK frissítése új verzió nem támogatott. Hogy ismételt üzembe helyezése a development kit gazdagépen a ASDK minden alkalommal, amikor szeretne értékelni az Azure Stack egy újabb verziója.
+> A ASDK új verzióra való frissítése nem támogatott. Minden alkalommal újra kell telepítenie a ASDK a ASDK-gazdagépen, ha szeretné kiértékelni Azure Stack újabb verzióját.
 
-## <a name="remove-azure-registration"></a>Távolítsa el az Azure-regisztráció 
-Ha korábban már regisztrált az ASDK telepítése az Azure-ral, ismételt üzembe helyezése a ASDK előtt távolítsa el a regisztrációs erőforrás. Regisztrálja újra a ASDK engedélyezéséhez a piactéren elemek rendelkezésre állását a ASDK újbóli telepítése során. Ha nem korábban már regisztrált az ASDK az Azure-előfizetésében, kihagyhatja az ebben a szakaszban.
+## <a name="remove-azure-registration"></a>Azure-regisztráció eltávolítása 
+Ha korábban regisztrálta a ASDK-telepítést az Azure-ban, távolítsa el a regisztrációs erőforrást a ASDK újbóli üzembe helyezése előtt. Regisztrálja újra a ASDK, hogy engedélyezze a piactéren található elemek rendelkezésre állását a ASDK újbóli telepítésekor. Ha korábban még nem regisztrálta az ASDK az Azure-előfizetésével, kihagyhatja ezt a szakaszt.
 
-A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegistration** regisztrációjának törlése az Azure Stack-parancsmagot. Ezután használja a **Remove-AzureRMResourceGroup** parancsmagot, hogy az Azure Stack erőforráscsoport törlése az Azure-előfizetésből:
+A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegistration** parancsmagot a Azure stack regisztrációjának törléséhez. Ezután a Remove **-AzureRMResourceGroup** parancsmag használatával törölje a Azure stack erőforráscsoportot az Azure-előfizetésből:
 
-1. Nyisson meg egy PowerShell-konzolt olyan számítógépen, amelyen a kiemelt végponthoz való hozzáférést a rendszergazdaként. A ASDK Ez a fejlesztői csomag gazdaszámítógépen.
+1. Nyisson meg egy PowerShell-konzolt rendszergazdaként egy olyan számítógépen, amely hozzáfér a Kiemelt végponthoz. A ASDK esetében ez a ASDK-gazda számítógép.
 
-2. Futtassa a következő PowerShell-parancsokat regisztrációjának törlése az ASDK telepítése és törlése a **azurestack** az erőforráscsoporthoz az Azure-előfizetéséhez:
+2. Futtassa a következő PowerShell-parancsokat a ASDK-telepítés regisztrációjának törléséhez, és törölje a **azurestack** -erőforráscsoportot az Azure-előfizetésből:
 
    ```powershell    
    #Import the registration module that was downloaded with the GitHub tools
@@ -58,8 +58,8 @@ A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegis
    Remove-AzureRmResourceGroup -Name azurestack -Force
    ```
 
-3. Jelentkezzen be az Azure-előfizetés és a helyi ASDK telepítési is a parancsfájl futtatásakor kéri.
-4. Miután a parancsfájl futása befejeződött, a következő példákhoz hasonló üzenetek kell megjelennie:
+3. A rendszer felszólítja, hogy jelentkezzen be az Azure-előfizetéséhez és a helyi ASDK-telepítéshez a parancsfájl futtatásakor.
+4. A parancsfájl befejeződése után az alábbi példákhoz hasonló üzeneteket kell látnia:
 
     `De-Activating Azure Stack (this may take up to 10 minutes to complete).` `Your environment is now unable to syndicate items and is no longer reporting usage data.`
     `Remove registration resource from Azure...`
@@ -68,38 +68,38 @@ A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegis
 
 
 
-Az Azure Stack sikeresen kell az Azure-előfizetés regisztrációját. Ezenkívül az azurestack erőforráscsoport jön létre, amikor az Azure-ban regisztrált a ASDK is törölni kell.
+A Azure Stack mostantól sikeresen törölni kell az Azure-előfizetésből. A azurestack erőforráscsoportot is törölni kell. Ez az erőforráscsoport a ASDK az Azure-ban való első regisztrálásakor létrehozott csoport.
 
 ## <a name="deploy-the-asdk"></a>A ASDK üzembe helyezése
-Az Azure Stack ismételt üzembe helyezése, el kell indítania keresztül teljesen új az alább ismertetett. E telepítéséhez is használt az Azure Stack (asdk-installer.ps1) telepítő szkriptet a ASDK függően más lépéseket kell végrehajtania.
+Azure Stack újbóli üzembe helyezéséhez elölről kell kezdenie az alábbiak szerint. A lépések eltérnek attól függően, hogy a Azure Stack Installer (asdk-Installer. ps1) parancsfájlt használta-e a ASDK telepítéséhez.
 
-### <a name="redeploy-the-asdk-using-the-installer-script"></a>Telepítse újra a ASDK, a telepítő parancsfájl használatával
-1. A ASDK számítógépen nyisson meg egy rendszergazda jogú PowerShell-konzolt, és keresse meg a asdk-installer.ps1 parancsfájl a **AzureStack_Installer** könyvtárban található egy nem rendszer-meghajtón. Futtassa a szkriptet, és kattintson a **újraindítás**.
+### <a name="redeploy-the-asdk-using-the-installer-script"></a>A ASDK újratelepítése a telepítő parancsfájl használatával
+1. A ASDK számítógépen nyisson meg egy rendszergazda jogú PowerShell-konzolt, és navigáljon a asdk-Installer. ps1 parancsfájlhoz a **AzureStack_Installer** könyvtárban, amely nem rendszermeghajtón található. Futtassa a szkriptet, és kattintson az **Újraindítás**gombra.
 
-   ![A asdk-installer.ps1 parancsfájl futtatása](media/asdk-redeploy/1.png)
+   ![Futtassa a asdk-Installer. ps1 parancsfájlt](media/asdk-redeploy/1.png)
 
-2. Válassza ki az operációs rendszer (nem **Azure Stack**), és kattintson a **tovább**.
+2. Válassza ki az alapszintű operációs rendszert (nem **Azure stack**), majd kattintson a **tovább**gombra.
 
-   ![Indítsa újra a számítógépet a gazdagép operációs rendszere](media/asdk-redeploy/2.png)
+   ![Újraindítás a gazda operációs rendszerbe](media/asdk-redeploy/2.png)
 
-3. Miután a development kit gazdagép újraindult, az alap operációs rendszert, jelentkezzen be helyi rendszergazdaként. Keresse meg és törölje a **C:\CloudBuilder.vhdx** fájlt, amely a korábbi központi telepítésének részeként lett megadva. 
+3. Miután a ASDK gazdagép újraindult az alapszintű operációs rendszerbe, jelentkezzen be helyi rendszergazdaként. Keresse meg és törölje az előző üzemelő példány részeként használt **C:\CloudBuilder.vhdx** -fájlt.
 
-4. Ismételje meg a lépéseket az első igénybe vett [üzembe helyezése a ASDK](asdk-install.md).
+4. Ismételje meg ugyanezeket a lépéseket, amelyeket először [a ASDK üzembe helyezése](asdk-install.md)során vett igénybe.
 
-### <a name="redeploy-the-asdk-without-using-the-installer"></a>Telepítse újra a ASDK anélkül, hogy a telepítő használatával
-Ha nem használja a asdk-installer.ps1 parancsfájlt a ASDK telepítéséhez, manuálisan kell állítani a development kit gazdaszámítógép ismételt üzembe helyezése a ASDK előtt.
+### <a name="redeploy-the-asdk-without-using-the-installer"></a>A ASDK újratelepítése a telepítő használata nélkül
+Ha nem a asdk-Installer. ps1 parancsfájlt használja a ASDK telepítéséhez, akkor a ASDK újratelepítése előtt manuálisan kell konfigurálnia a ASDK-gazdagépet.
 
-1. Indítsa el a rendszer-konfigurációs segédprogram futtatásával **msconfig.exe** ASDK számítógépen. Az a **rendszerindító** lapra, válassza ki a gazdagép számítógép operációs rendszere (nem az Azure Stack), majd **alapértelmezett**, és kattintson a **OK**. Kattintson a **indítsa újra a** amikor a rendszer kéri.
+1. Indítsa el a rendszerkonfigurációs segédprogramot a ASDK számítógép **msconfig. exe** fájljának futtatásával. A **rendszerindítás** lapon válassza ki a gazdagép operációs rendszerét (nem Azure stack), kattintson a **Beállítás alapértelmezettként**lehetőségre, majd **az OK**gombra. Ha a rendszer kéri, kattintson az **Újraindítás** gombra.
 
       ![A rendszerindítási konfiguráció beállítása](media/asdk-redeploy/4.png)
 
-2. Miután a development kit gazdagép újraindult, az alap operációs rendszert, jelentkezzen be helyi rendszergazdaként a development kit gazdagép esetében. Keresse meg és törölje a **C:\CloudBuilder.vhdx** fájlt, amely a korábbi központi telepítésének részeként lett megadva. 
+2. Miután a ASDK gazdagép újraindult az alapszintű operációs rendszerbe, jelentkezzen be helyi rendszergazdaként a ASDK gazdagéphez. Keresse meg és törölje az előző üzemelő példány részeként használt **C:\CloudBuilder.vhdx** -fájlt.
 
-3. Ismételje meg a lépéseket az első igénybe vett [üzembe helyezése a PowerShell-lel ASDK](asdk-deploy-powershell.md).
+3. Ismételje meg ugyanezen lépéseket, amelyeket először [a PowerShell használatával kell üzembe helyeznie a ASDK](asdk-deploy-powershell.md).
 
 
 ## <a name="next-steps"></a>További lépések
-[Utáni ASDK üzembe helyezési feladatok](asdk-post-deploy.md)
+[ASDK-telepítési feladatok közzététele](asdk-post-deploy.md)
 
 
 

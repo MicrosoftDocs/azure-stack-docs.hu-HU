@@ -1,5 +1,5 @@
 ---
-title: A Azure Stack Development Kit elindítása és leállítása (ASDK) | Microsoft Docs
+title: A ASDK elindítása és leállítása | Microsoft Docs
 description: Útmutató a Azure Stack Development Kit elindításához és leállításához (ASDK).
 services: azure-stack
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 6736da0f792c0e01d1a0af06e35a0984ec398158
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493713"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025813"
 ---
-# <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>A Azure Stack Development Kit elindítása és leállítása (ASDK)
-Nem ajánlott egyszerűen újraindítani a ASDK-gazdagépet. Ehelyett kövesse a cikkben ismertetett eljárásokat a ASDK-szolgáltatások megfelelő leállításához és újraindításához. 
+# <a name="start-and-stop-the-asdk"></a>A ASDK elindítása és leállítása
+Nem ajánlott egyszerűen újraindítani a ASDK-gazdagépet. Ehelyett kövesse a cikkben ismertetett eljárásokat a ASDK-szolgáltatások megfelelő leállításához és újraindításához.
 
 ## <a name="stop-azure-stack"></a>Azure Stack leállítása 
 Azure Stack szolgáltatások és a ASDK-gazdagép megfelelő leállításához használja a következő PowerShell-parancsokat:
@@ -44,7 +44,7 @@ Azure Stack szolgáltatások és a ASDK-gazdagép megfelelő leállításához h
 5. Tekintse át a PowerShell kimenetét, és győződjön meg arról, hogy az összes Azure Stack szolgáltatás sikeresen le van állítva a ASDK-gazdaszámítógép leállítása előtt. A leállítási folyamat több percet is igénybe vehet.
 
 ## <a name="start-azure-stack"></a>Kezdés Azure Stack 
-A ASDK szolgáltatásoknak automatikusan el kell indulniuk a gazdaszámítógép indításakor. A ASDK infrastrukturális szolgáltatások indítási ideje azonban a ASDK gazdagép számítógépének teljesítményének függvényében változhat. Bizonyos esetekben több óráig is eltarthat, amíg az összes szolgáltatás sikeresen újraindul.
+A ASDK szolgáltatásoknak automatikusan el kell indulniuk a gazdaszámítógép indításakor. Az ASDK infrastruktúra-szolgáltatások indítási ideje azonban a ASDK gazdagép számítógépének teljesítményén alapul. Bizonyos esetekben több óráig is eltarthat, amíg az összes szolgáltatás sikeresen újraindul.
 
 Függetlenül attól, hogy a ASDK hogyan állt le, a következő lépésekkel ellenőrizheti, hogy az összes Azure Stack szolgáltatás elindult-e, és hogy a gazdagép bekapcsolása után teljesen működőképes-e: 
 
@@ -63,7 +63,7 @@ Függetlenül attól, hogy a ASDK hogyan állt le, a következő lépésekkel el
    ```
 6. Tekintse át a kimenetet, és győződjön meg arról, hogy Azure Stack szolgáltatások újraindítása sikeresen megtörtént.
 
-Ha többet szeretne megtudni a Azure Stack szolgáltatások megfelelő leállításához és újraindításához szükséges ajánlott eljárásokról, olvassa el a [Azure stack elindítása és leállítása](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)című témakört. 
+Ha többet szeretne megtudni a Azure Stack szolgáltatások megfelelő leállításához és újraindításához szükséges ajánlott eljárásokról, olvassa el a [Azure stack elindítása és leállítása](../operator/azure-stack-start-and-stop.md)című témakört.
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Indítási és leállítási hibák 
 Ezeket a lépéseket akkor hajtsa végre, ha Azure Stack szolgáltatások a ASDK gazdagép bekapcsolása után két órán belül nem indulnak el sikeresen:
