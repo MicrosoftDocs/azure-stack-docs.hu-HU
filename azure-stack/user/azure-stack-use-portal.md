@@ -1,5 +1,5 @@
 ---
-title: A Azure Stack portál használata | Microsoft Docs
+title: A Azure Stack felhasználói portál használata | Microsoft Docs
 description: Megtudhatja, hogyan érheti el és használhatja a Azure Stack a felhasználói portált.
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 9f6282c9b08547c9449dc7f340f06a6280a98589
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376897"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064173"
 ---
-# <a name="use-the-azure-stack-portal"></a>Az Azure Stack-portál használata
+# <a name="use-the-azure-stack-user-portal"></a>A Azure Stack felhasználói portál használata
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 

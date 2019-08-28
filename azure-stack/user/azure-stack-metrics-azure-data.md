@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806937"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064178"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Azure Monitor használata Azure Stack
 
@@ -40,7 +40,7 @@ A Azure Monitor egy olyan platform-szolgáltatás, amely egyetlen forrást bizto
 
 Regisztrálja a **Microsoft.** reinsights erőforrás-szolgáltatót az előfizetéshez tartozó ajánlat erőforrás-szolgáltatói beállításainál. Ellenőrizze, hogy az erőforrás-szolgáltató elérhető-e az előfizetéséhez tartozó ajánlatban:
 
-1. Nyissa meg a Azure Stack felügyeleti portált.
+1. Nyissa meg a Azure Stack felhasználói portált.
 2. Válasszon **ajánlatokat**.
 3. Válassza ki az előfizetéshez társított ajánlatot.
 4. Válassza az **erőforrás-szolgáltatók** lehetőséget a beállítások területen **.** 
@@ -69,7 +69,7 @@ A mértékek típusai a következők:
  - .NET-esemény forrása
  - IIS-naplók
  - jegyzékalapú ETW.
- - Összeomlási memóriaképek
+ - összeomlási memóriaképek,
  - Felhasználói hibák naplói
 
 > [!Note]  
@@ -123,7 +123,7 @@ Néhány vizualizációs módszer:
 
 Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztással és a lekéréssel. Nem mindegyik módszer érhető el mindegyik művelet és adattípus esetében. 
 
- - [Azure Stack portál](azure-stack-use-portal.md)
+ - [Felhasználói portál Azure Stack](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Platformfüggetlen parancssori felület (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
