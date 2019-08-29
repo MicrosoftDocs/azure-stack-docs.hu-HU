@@ -1,6 +1,6 @@
 ---
-title: Adjon hozzá egy új Azure Stack-bérlői fiókkal az Azure Active Directoryban |} A Microsoft Docs
-description: A Microsoft Azure Stack fejlesztői készletének telepítése, után kell legalább egy bérlői felhasználói fiók létrehozása, így megismerheti a bérlői portál.
+title: Új Azure Stack bérlői fiók hozzáadása a Azure Active Directoryban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre bérlői fiókot a ASDK, így megismerheti a bérlői portált.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,66 +16,66 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 70151d7793ef1f58b544517cecb7aa53bf5b3041
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 5d5292753b6fedfb7468a0bc68dd821a2da4cd54
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691397"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118711"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adjon hozzá egy új Azure Stack-bérlői fiókkal az Azure Active Directoryban
+# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Új Azure Stack bérlői fiók hozzáadása a Azure Active Directory
 
-Miután [üzembe helyezése az Azure Stack Development Kit](../asdk/asdk-install.md), szüksége lesz egy bérlői felhasználói fiókkal, így felderítheti a bérlői portálra, és tesztelje az ajánlatok és csomagok. Létrehozhat egy bérlői fiókot által [az Azure portal használatával](#create-an-azure-stack-tenant-account-using-the-azure-portal) vagy a PowerShell használatával.
+[A Azure stack Development Kit (ASDK) üzembe helyezése](../asdk/asdk-install.md)után egy bérlői felhasználói fiókra van szüksége, amellyel megismerheti a bérlői portált, és tesztelheti ajánlatait és csomagjait. A Azure Active Directoryban (Azure AD) a [Azure Portal vagy a](#create-an-azure-stack-tenant-account-using-the-azure-portal) PowerShell használatával hozhat létre bérlői fiókot.
 
-## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Hozzon létre egy Azure Stack-bérlői fiókkal az Azure portal használatával
+## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Azure Stack bérlői fiók létrehozása a Azure Portal használatával
 
-Az Azure portal használata az Azure-előfizetéssel kell rendelkeznie.
+Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
-1. Jelentkezzen be a [Azure](https://portal.azure.com).
-2. A bal oldali navigációs sávon válassza **Active Directory** és lépjen abba a könyvtárba, amelyet szeretne használni az Azure Stack, vagy hozzon létre egy újat.
-3. Válassza ki **Azure Active Directory** > **felhasználók** > **új felhasználó**.
+1. Jelentkezzen be az [Azure](https://portal.azure.com)-ba.
+2. A bal oldali navigációs sávon válassza a **Active Directory** lehetőséget, majd váltson arra a könyvtárra, amelyet a Azure stack kíván használni (vagy hozzon létre újat).
+3. Válassza **Azure Active Directory** > felhasználókúj > **felhasználó**elemet.
 
     ![Felhasználók – minden felhasználó oldalon kiemelve az új felhasználóval](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
-4. Az a **felhasználói** lap, adja meg a szükséges adatokat.
+4. A **felhasználó** lapon adja meg a szükséges adatokat.
 
     ![Új felhasználó, a felhasználó oldalon a felhasználói adatok hozzáadása](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **A név (kötelező).** Az első és utolsó az új felhasználó neve. Ha például Anna Parker.
-   - **A felhasználónév (kötelező).** Az új felhasználó felhasználóneve. Például: mary@contoso.com.
-       A felhasználó nevét tartomány része kell használnia a vagy a kezdeti alapértelmezett tartománynévnek, <_saját_tartománynév_>. onmicrosoft.com, vagy egy egyéni tartománynevet, például contoso.com. Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [egyéni tartománynév hozzáadása az Azure Active Directoryhoz](/azure/active-directory/fundamentals/add-custom-domain).
-   - **Profil.** További információ a felhasználó igény szerint adhat hozzá. Felhasználói adatok később is hozzáadhat. Felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [hozzáadása vagy módosítása a felhasználói profil adatainak](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
-   - **Címtárbeli szerepkör.**  Válasszon **felhasználói**.
+   - **Név (kötelező)** : Az első és utolsó az új felhasználó neve. Ha például Anna Parker.
+   - **Felhasználónév (kötelező)** : Az új felhasználó felhasználóneve. Például: mary@contoso.com.
+       A felhasználó nevét tartomány része kell használnia a vagy a kezdeti alapértelmezett tartománynévnek, <_saját_tartománynév_>. onmicrosoft.com, vagy egy egyéni tartománynevet, például contoso.com. Az Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [Egyéni tartománynév hozzáadása az Azure ad](/azure/active-directory/fundamentals/add-custom-domain)-hez.
+   - **Profil**: Igény szerint további információkat is hozzáadhat a felhasználóról. Emellett később is hozzáadhat felhasználói adatokat. A felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [felhasználói profil adatainak hozzáadása vagy módosítása](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
+   - **Címtárbeli szerepkör**: válassza a **felhasználó**lehetőséget.
 
-5. Ellenőrizze **jelszó megjelenítése** , és másolja a megadott automatikusan generált jelszót a **jelszó** mezőbe. A kezdeti bejelentkezési folyamathoz kell ezt a jelszót.
+5. Jelölje be a **jelszó megjelenítése** jelölőnégyzetet, és másolja ki a **jelszó** mezőben megadott automatikusan generált jelszót. Erre a jelszóra lesz szüksége a kezdeti bejelentkezési folyamathoz.
 
 6. Kattintson a **Létrehozás** gombra.
 
     A felhasználó létrehozása és az Azure AD-bérlőhöz hozzáadni.
 
-7. Jelentkezzen be az új fiókot a Microsoft Azure-portálra. Módosítsa a jelszót, amikor a rendszer kéri.
-8. Jelentkezzen be a `https://portal.local.azurestack.external` a bérlői portál új fiókkal.
+7. Jelentkezzen be a Azure Portalba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
+8. `https://portal.local.azurestack.external` A bérlői portál megtekintéséhez jelentkezzen be az új fiókkal.
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>PowerShell-lel az Azure Stack felhasználói fiók létrehozása
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>Azure Stack felhasználói fiók létrehozása a PowerShell használatával
 
-Ha nem rendelkezik Azure-előfizetéssel, az Azure Portalon adjon hozzá egy bérlő felhasználót nem használhat. Ebben az esetben használhatja az Azure Active Directory modul a Windows PowerShell helyette.
+Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérlői felhasználói fiók hozzáadásához. Ebben az esetben a Windows PowerShellhez készült Azure AD-modult használhatja helyette.
 
 > [!NOTE]
-> Ha Microsoft-Account üzembe helyezése az Azure Stack fejlesztői készletet használ, bérlői fiók létrehozása az Azure AD PowerShell nem használhat. 
+> Ha Microsoft-fiókot használ a ASDK üzembe helyezéséhez, nem használhatja az Azure AD PowerShellt a bérlői fiók létrehozásához.
 
-1. Telepítse a **64 bites** verzióját a [informatikai szakemberek számára RTW Microsoft Online Services – bejelentkezési segéd](https://go.microsoft.com/fwlink/p/?LinkId=286152).
+1. Telepítse a [Microsoft Online Services Bejelentkezési segédének](https://go.microsoft.com/fwlink/p/?LinkId=286152) **64-bites** verzióját az informatikai szakemberek RTW-hez.
 
-2. A Microsoft Azure Active Directory modul a Windows PowerShell telepítése az alábbi lépéseket:
+2. Telepítse a Windows PowerShell Microsoft Azure AD modulját a következő lépésekkel:
 
-    - Nyisson meg egy rendszergazda jogú Windows PowerShell parancssort (a Windows PowerShell futtatása rendszergazdaként).
-    - Futtassa a **Install-Module MSOnline** parancsot.
-    - Ha a rendszer kéri, telepítse a NuGet-szolgáltató, válassza ki a **Y** és **Enter**.
-    - Ha a modul telepítése a PSGallery kéri, válassza ki a **Y** és **Enter**.
+    - Nyisson meg egy rendszergazda jogú Windows PowerShell-parancssort (futtassa a Windows PowerShellt rendszergazdaként).
+    - Futtassa az **install-Module MSOnline** parancsot.
+    - Ha a rendszer felszólítja a NuGet-szolgáltató telepítésére, válassza az **Y** lehetőséget, és **adja meg**a következőt:.
+    - Ha a rendszer kéri, hogy telepítse a modult a PSGallery-ből, válassza az **Y** lehetőséget, majd **adja meg a értéket**.
 
-3. A következő parancsmagok futtatásához:
+3. Futtassa a következő parancsmagokat:
 
     ```powershell
-    # Provide the AAD credential you use to deploy Azure Stack Development Kit
+    # Provide the Azure AD credential you use to deploy the ASDK.
 
             $msolcred = get-credential
 
@@ -87,8 +87,8 @@ Ha nem rendelkezik Azure-előfizetéssel, az Azure Portalon adjon hozzá egy bé
 
     ```
 
-1. Jelentkezzen be a Microsoft Azure-az új fiókot. Módosítsa a jelszót, amikor a rendszer kéri.
-2. Jelentkezzen be a `https://portal.local.azurestack.external` a bérlői portál új fiókkal.
+1. Jelentkezzen be az Azure-ba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
+2. `https://portal.local.azurestack.external` A bérlői portál megtekintéséhez jelentkezzen be az új fiókkal.
 
 ## <a name="next-steps"></a>További lépések
 

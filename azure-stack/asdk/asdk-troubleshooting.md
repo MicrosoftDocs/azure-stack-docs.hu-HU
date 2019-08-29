@@ -1,6 +1,6 @@
 ---
-title: A Microsoft Azure Stack hibaelhárítása |} A Microsoft Docs
-description: Az Azure Stack Development Kit (ASDK) hibaelhárítási információkat.
+title: A ASDK hibáinak megoldása | Microsoft Docs
+description: Ismerje meg, hogyan lehet elhárítani a Azure Stack Development Kitt (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,60 +16,60 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a84e85eacb033fc872241feea905b742eee0591b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267247"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118661"
 ---
-# <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>A Microsoft Azure Stack Development Kit (ASDK) hibáinak elhárítása
-Ez a cikk a ASDK általános hibaelhárítási információkat nyújt. Ha nem ismertetett problémát tapasztal, ellenőrizze, hogy ellenőrizze a [Azure Stack MSDN-fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) további segítséget és információt.  
+# <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
+Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Ha olyan problémát tapasztal, amely nem dokumentált, mindenképpen tekintse meg az [MSDN-fórum Azure stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) segítséget.  
 
 > [!IMPORTANT]
-> Mivel a ASDK kiértékelési környezet, rendszer nem érhető el – a Microsoft támogatja a szolgáltatások (CSS) hivatalos támogatja.
+> Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfélszolgálati szolgálatai (CSS) nem kínálunk hivatalos támogatást.
 
-A problémák megoldásához, amelyek ebben a szakaszban ismertetett javaslatok több forrásból származnak, és előfordulhat, hogy, vagy sem oldja meg az adott problémát. Hitelesítésikód-példák "adott állapotában", ha nem lehet garantálni a várt eredményt. Ebben a szakaszban megegyezik a gyakori módosítások és a frissítések fejlesztéseket a termékhez vannak megvalósítva.
+Az ebben a szakaszban leírt hibaelhárítási problémákra vonatkozó javaslatok több forrásból származnak, és előfordulhat, hogy nem oldják meg az adott problémát. A kód példái a "ahogy van", a várt eredmények pedig nem garantáltak. Ez a szakasz a termékre vonatkozó újdonságokkal kapcsolatos gyakori szerkesztési és frissítési funkciókra vonatkozik.
 
 ## <a name="deployment"></a>Környezet
-### <a name="deployment-failure"></a>Központi telepítési problémái
-Ha hibát tapasztal a telepítés során, a központi telepítést a sikertelen lépés újraindíthatja használatával – Újrafuttatás lehetősége a telepítési parancsfájl a következő példához hasonlóan:
+### <a name="deployment-failure"></a>Üzembe helyezési hiba
+Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl újbóli beállításával újraindíthatja a telepítést a sikertelen lépéssel. Példa:
 
   ```powershell
   cd C:\CloudDeployment\Setup
   .\InstallAzureStackPOC.ps1 -Rerun
   ```
 
-### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Az üzembe helyezés végén a PowerShell-munkamenet még meg nyitva, és semmilyen kimenet nem jelenik meg.
-Ez a viselkedés esetén valószínűleg csak egy PowerShell-parancsablakban alapértelmezett viselkedését eredményét lett kiválasztva. A development kit központi telepítés sikeres volt, de a parancsfájl az ablak kiválasztásakor szünetel. Ellenőrizheti a telepítés véget ért által keresett szót "Válassza" a parancsablakban címsorában. Kijelölésének, az ESC billentyű lenyomásával, és azt követően a befejezési üzenetet jelenjenek meg.
+### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>A telepítés végén a PowerShell-munkamenet továbbra is nyitva van, és nem jelenít meg kimenetet
+Ez a viselkedés valószínűleg csak egy PowerShell-parancssorablak alapértelmezett viselkedésének eredménye, ha ki van választva. A ASDK központi telepítése sikeres volt, de a parancsfájlt az ablak kiválasztásakor szüneteltették. Ellenőrizze, hogy a telepítés befejeződött-e, ha a "kiválasztás" szót keresi a parancssori ablakban. Az ESC billentyű lenyomásával törölje a kijelölését, és a befejezési üzenetet is meg kell jeleníteni.
 
-## <a name="virtual-machines"></a>Virtuális gépek
-### <a name="default-image-and-gallery-item"></a>Alapértelmezett kép és a katalógus elem
-Virtuális gépek az Azure Stack üzembe helyezése előtt hozzá kell adni egy Windows Server rendszerképet és a katalógus elemet.
+## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
+A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Az Azure Stack gazdagépen az újraindítás után néhány virtuális gép esetleg nem indul el automatikusan.
-A gazdagép az újraindítást követően, Észreveheti, az Azure Stack-szolgáltatások nem érhetők el közvetlenül. Ennek az az oka az Azure Stack [infrastruktúra virtuális gépein](asdk-architecture.md#virtual-machine-roles) RPs hajtsa végre a megfelelő néhány konzisztenciájának ellenőrzése időt, de végül automatikusan elindul.
+### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>A Azure Stack gazdagép újraindítása után néhány virtuális gép nem indul el automatikusan.
+A gazdagép újraindítása után észreveheti, Azure Stack szolgáltatások nem azonnal érhetők el. Ennek az az oka, hogy Azure Stack infrastruktúra-alapú [virtuális gépek](asdk-architecture.md#virtual-machine-roles) és RPs a konzisztencia ellenőrzéséhez hosszabb időt vesz igénybe, de végül automatikusan elindul.
 
-Előfordulhat, hogy a bérlői virtuális gépek nem indul el automatikusan az Azure Stack development kit gazdagép újraindítása után is. Ez egy ismert probléma, és csak az online állapotba helyezés néhány manuális lépéseket igényel:
+Azt is megfigyelheti, hogy a bérlői virtuális gépek nem indulnak el automatikusan a ASDK-gazdagép újraindítása után. Ez egy ismert probléma, és csak néhány manuális lépést kell megtennie, hogy online állapotba kerüljön:
 
-1.  Indítsa el az Azure Stack development kit állomás **Feladatátvevőfürt-kezelőben** a Start menüből.
-2.  Válassza ki a fürt **S-Cluster.azurestack.local**.
-3.  Válassza ki **szerepkörök**.
-4.  Bérlő virtuális gépek megjelennek egy *mentett* állapota. Ha minden infrastruktúra virtuális gépek futnak, kattintson a jobb gombbal a bérlői virtuális gépeket, és válassza ki **Start** folytatni a virtuális gép.
+1.  A ASDK-gazdagépen indítsa el **Feladatátvevőfürt-kezelő** a Start menüből.
+2.  Válassza ki az **S-cluster. azurestack. local**fürtöt.
+3.  Válassza a **szerepkörök**lehetőséget.
+4.  A bérlői virtuális gépek *mentett* állapotban jelennek meg. Ha az összes infrastruktúra-virtuális gép fut, kattintson a jobb gombbal a bérlői virtuális gépekre, és válassza a **Start** lehetőséget a virtuális gép folytatásához.
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Tudom a törölt néhány virtuális gép, de továbbra is tekintse meg a VHD-fájlok a lemezen. Ez a viselkedés várható?
-Igen, ez a viselkedés várható. Így mivel készült:
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Töröltem néhány virtuális gépet, de továbbra is láthatók a lemezen lévő VHD-fájlok. Ez a viselkedés várható?
+Igen, ez a várt viselkedés. Ez a következőképpen lett kialakítva:
 
-* Ha töröl egy virtuális Gépet, a VHD-k nem törlődnek. A lemezei külön erőforrások az erőforráscsoportban.
-* Lekérdezi egy storage-fiók törlésekor a törlés látható azonnal az Azure Resource Manageren keresztül, de a lemezek tartalmazhat továbbra is tartanak Storage szemétgyűjtés futtatásáig.
+* Ha töröl egy virtuális gépet, a VHD-k nem törlődnek. A lemezek különálló erőforrások az erőforráscsoporthoz.
+* Ha a Storage-fiók törölve lesz, a törlés azonnal látható Azure Resource Manageron keresztül, de az esetlegesen tartalmazott lemezek továbbra is tárolás alatt maradnak a tárolóban, amíg a rendszer a szemetet nem fut.
 
-Ha a VHD-k "árva" című fontos tudni, hogy találhatók-e egy storage-fiók, amely törölve lett a mappában részei. Ha a tárfiók nem lett törölve, normál, azok továbbra is létezik.
+Ha "árva" virtuális merevlemezeket lát, fontos tisztában lennie azzal, hogy egy törölt Storage-fiók mappájában vannak-e. Ha a Storage-fiók nem lett törölve, a virtuális merevlemezek továbbra is a megszokott módon maradnak.
 
-Tudjon meg többet az adatmegőrzési küszöbérték és igény szerinti visszaigénylését konfigurálásával kapcsolatos [tárfiókok kezelését](../operator/azure-stack-manage-storage-accounts.md).
+További információk az adatmegőrzési küszöbérték és az igény szerinti, a [Storage-fiókok kezelése](../operator/azure-stack-manage-storage-accounts.md)című témakörben olvashatók.
 
 ## <a name="storage"></a>Storage
-### <a name="storage-reclamation"></a>Tárolási visszaigénylését
-Akár 14 óra regenerált kapacitás megjelennek a portálon vehet igénybe. Terület-visszaigénylést számos tényező befolyásolja, többek között a használat százalékos aránya a tároló belső fájlok block blob tárolóban függ. Ezért attól függően, hogy mennyi adat törlődik, nincs garancia arra, hogy a szemétgyűjtő futtatásakor kell visszaigényelt terület mennyisége a.
+### <a name="storage-reclamation"></a>Tárhely-visszanyerés
+Akár 14 órát is igénybe vehet, ha visszaigényelt kapacitást szeretne megjeleníteni a portálon. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyi adattal törli a rendszer, nem garantálható, hogy a rendszer mennyi helyet szabadít fel a Garbage Collector futtatásakor.
 
 ## <a name="next-steps"></a>További lépések
-[Látogasson el az Azure Stack támogatási fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
+[Látogasson el a Azure Stack támogatási fórumára](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
