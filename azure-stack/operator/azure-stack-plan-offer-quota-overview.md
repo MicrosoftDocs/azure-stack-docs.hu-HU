@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991736"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159518"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Csomag, ajánlat, kvóta és előfizetés áttekintése
 
@@ -85,7 +85,7 @@ Egy ajánlattal rendelkező felhasználó minden kombinációja egyedi előfizet
 
 ### <a name="default-provider-subscription"></a>Alapértelmezett szolgáltatói előfizetés
 
-Az alapértelmezett szolgáltatói előfizetés automatikusan létrejön a Azure Stack Development Kit telepítésekor. Ez az előfizetés a Azure Stack kezelésére, további erőforrás-szolgáltatók üzembe helyezésére, valamint csomagok és ajánlatok létrehozására használható a felhasználók számára. Biztonsági és licencelési okokból nem ajánlott az ügyfél-munkaterhelések és alkalmazások futtatására használni.
+Az alapértelmezett szolgáltatói előfizetés automatikusan létrejön a Azure Stack Development Kit telepítésekor. Ez az előfizetés a Azure Stack kezelésére, további erőforrás-szolgáltatók üzembe helyezésére, valamint csomagok és ajánlatok létrehozására használható a felhasználók számára. Biztonsági és licencelési okokból nem ajánlott az ügyfél-munkaterhelések és alkalmazások futtatására használni. Az alapértelmezett szolgáltatói előfizetés kvótája nem módosítható.
 
 ## <a name="next-steps"></a>További lépések
 

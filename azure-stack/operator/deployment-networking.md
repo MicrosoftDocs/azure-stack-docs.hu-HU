@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack üzembe helyezési hálózati forgalom |} A Microsoft Docs
-description: Ez a cikk azt ismerteti, milyen hatással vannak az Azure Stack üzembe helyezési hálózati folyamatokkal kapcsolatos.
+title: Azure Stack központi telepítési hálózati forgalom | Microsoft Docs
+description: Ez a cikk azt ismerteti, mire számíthat Azure Stack központi telepítési hálózati folyamatokkal kapcsolatban.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,32 +12,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 08/29/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 59858d5538552fb04ddf41de0ad59cf77dcd7783
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: ba0ff94a9e5db1ad898a8702cb13d605878bfc94
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131063"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159507"
 ---
-# <a name="about-deployment-network-traffic"></a>Üzembe helyezés hálózati forgalomról
-Hálózati forgalom adatfolyamait során az Azure Stack ismertetése telepítési létfontosságú sikeres bevezetését. Ez a cikk végigvezeti várt hálózati forgalom megismerése milyen szolgáltatásokat biztosít a telepítési folyamat során.
+# <a name="about-deployment-network-traffic"></a>Tudnivalók a központi telepítési hálózati forgalomról
+A sikeres üzembe helyezés biztosításához elengedhetetlen, hogy megértsük, hogyan áramlik a hálózati forgalom a Azure Stack üzembe helyezés során. Ez a cikk végigvezeti a várható hálózati forgalomon az üzembe helyezési folyamat során, hogy megértsük, mire számíthat.
 
-Ezen az ábrán az összetevők és a kapcsolatok a telepítési folyamat:
+Ez az ábra a telepítési folyamat során felmerülő összes összetevőt és kapcsolatot mutatja:
 
-![Az Azure Stack üzembe helyezési hálózati topológia](media/deployment-networking/figure1.png)
+![Azure Stack központi telepítési hálózati topológiája](media/deployment-networking/figure1.png)
 
 > [!NOTE]
-> Ez a cikk ismerteti a csatlakoztatott telepítési követelményei, más központi telepítési módszerekkel kapcsolatos további információkért lásd: [Azure Stack üzembe helyezési kapcsolati modellek](azure-stack-connection-models.md).
+> Ez a cikk a csatlakoztatott központi telepítésre vonatkozó követelményeket ismerteti, ha további információt szeretne az egyéb telepítési módszerekről, lásd: [Azure stack telepítési kapcsolati modellek](azure-stack-connection-models.md).
 
-### <a name="the-deployment-vm"></a>Az üzembe helyezés virtuális gép
-Az Azure Stack egy Azure Stack-összetevők futtatásához használt kiszolgáló és a egy extra kiszolgáló az életciklus állomás (HLH) nevű csoportot tartalmaz. A kiszolgáló üzembe helyezése és kezelése, hogy a megoldás az életciklus szolgál, és üzemelteti a központi telepítés (DVM) virtuális gép üzembe helyezése során.
+### <a name="the-deployment-vm"></a>Az üzembe helyezési virtuális gép
+A Azure Stack megoldás olyan kiszolgálók egy csoportját tartalmazza, amelyek a Azure Stack-összetevők és a hardveres életciklus-gazdagép (HLH) nevű további kiszolgáló üzemeltetésére szolgálnak. Ez a kiszolgáló a megoldás életciklusának üzembe helyezésére és kezelésére szolgál, és az üzembe helyezési virtuális gépet (DVM) üzemelteti a telepítés során.
 
-## <a name="deployment-requirements"></a>Központi telepítésére vonatkozó követelmények
-Üzembe helyezés megkezdése előtt vannak bizonyos minimális követelményeknek, amelyek érvényesítheti az OEM annak biztosítása érdekében az üzembe helyezés sikeresen befejeződött. Understanding, ezek a követelmények segítségével készítse elő a környezetet, és győződjön meg arról, hogy az érvényesítés sikeres, a következők:
+Azure Stack a megoldás-szolgáltatók további felügyeleti virtuális gépeket is kiépíthetnek. Erősítse meg a megoldás szolgáltatóját, mielőtt módosítja a felügyeleti virtuális gépeket egy megoldás-szolgáltatótól.
+
+## <a name="deployment-requirements"></a>Üzembe helyezési követelmények
+Az üzembe helyezés megkezdése előtt bizonyos minimális követelmények érvényesek, amelyeket az OEM az üzembe helyezés sikeres végrehajtásának biztosítása érdekében érvényesít:
 
 -   [Tanúsítványok](azure-stack-pki-certs.md)
 -   [Azure előfizetés](https://azure.microsoft.com/free/?b=17.06)
@@ -46,20 +48,20 @@ Az Azure Stack egy Azure Stack-összetevők futtatásához használt kiszolgál�
 -   NTP
 
 > [!NOTE]
-> Ez a cikk az utolsó három követelmények összpontosít. Az első két további információkért tekintse meg a fenti hivatkozásokat.
+> Ez a cikk az utolsó három követelményre összpontosít. Az első kettőről a fenti hivatkozásokon talál további információt.
 
-## <a name="deployment-network-traffic"></a>Üzembe helyezés a hálózati forgalom
-A DVM egy hálózati BMC IP-címmel van konfigurálva, és az internetes hálózati hozzáférést igényel. A BMC-hálózati összetevők nem az összes szükséges külső útválasztás vagy Internet-hozzáférés, de néhány OEM-specifikus összetevőt a hálózatból IP-címek használatával is szükség lehet azt.
+## <a name="deployment-network-traffic"></a>Központi telepítési hálózati forgalom
+A DVM a BMC-hálózat IP-címével van konfigurálva, és hálózati hozzáférést igényel az internethez. Bár a BMC-hálózati összetevők egyike sem igényel külső útválasztást vagy internet-hozzáférést, bizonyos OEM-specifikus összetevők, amelyek IP-címeket használnak a hálózatról, az is szükséges lehet.
 
-Üzembe helyezés során a a DVM hitelesíti az Azure Active Directory (Azure AD) használatával az Azure-fiók az előfizetésből. Ehhez a DVM igényel internet-hozzáféréssel egy adott portot és az URL-címek listáját. A teljes listát megtalálhatja a [végpontok közzététele](azure-stack-integrate-endpoints.md) dokumentációját. A DVM felhasznál egy DNS-kiszolgáló külső URL-címek belső összetevők által végzett DNS-kérelmeket továbbítja. A belső DNS-ben a DNS-továbbító címe telepítené az OEM egészíti ki ezeket a kérelmeket továbbítja. A Ugyanez vonatkozik az NTP-kiszolgáló, egy megbízható idő kiszolgálóra szükség a konzisztencia és az idő szinkronizálása az összes Azure Stack-összetevők karbantartása.
+Az üzembe helyezés során a DVM az előfizetéshez tartozó Azure-fiókkal hitelesíti a Azure Active Directory (Azure AD) szolgáltatását. Ennek érdekében a DVM internet-hozzáférésre van szüksége a [megadott portok és URL-címek](azure-stack-integrate-endpoints.md)listájához. A DVM egy DNS-kiszolgálót fog használni a belső összetevők által külső URL-címekre küldött DNS-kérések továbbítására. A belső DNS továbbítja ezeket a kéréseket a SZÁMÍTÓGÉPGYÁRTÓ által az üzembe helyezés előtt megadott DNS-továbbító címnek. Ugyanez az NTP-kiszolgáló esetében is igaz, megbízható időkiszolgáló szükséges az összes Azure Stack-összetevő konzisztencia-és időszinkronizálásának fenntartásához.
 
-Az üzembe helyezés során a DVM által igényelt internet-hozzáférés csak akkor kimenő forgalomról beszélünk, bejövő hívások nem végzett üzembe helyezés során. Vegye figyelembe, hogy az IP azt használja forrásként, illetve, hogy az Azure Stack nem támogatja a webproxy beállításai. Ezért szükség esetén meg kell adnia egy transzparens proxy vagy a NAT az internet eléréséhez. Üzembe helyezés során az egyes belső összetevőket indul el a nyilvános virtuális IP-címek segítségével a külső hálózaton keresztül éri el az internetet. Üzembe helyezés befejezése után az Azure és az Azure Stack közötti minden kommunikáció használatával jön létre a külső hálózaton keresztül nyilvános virtuális IP-címeket.
+Az üzembe helyezés során a DVM által igényelt internet-hozzáférés csak kimenő, és az üzembe helyezés során nem történik bejövő hívás. Ne feledje, hogy az IP-címét forrásként használja, és a Azure Stack nem támogatja a proxy konfigurációját. Ezért szükség esetén transzparens proxyt vagy NAT-t kell megadnia az Internet eléréséhez. Az üzembe helyezés során egyes belső összetevők a nyilvános VIP-címek használatával megkezdik az internet elérését a külső hálózaton keresztül. Az üzembe helyezést követően az Azure és a Azure Stack közötti összes kommunikációt a külső hálózaton keresztül, nyilvános VIP-címek használatával hajtja végre.
 
-Azure Stack-kapcsolókra hálózati konfigurációk tartalmaznak, hozzáférés-vezérlési listák (ACL), amelyek korlátozzák a forgalmat között bizonyos hálózati forrásaként és céljaként. A DVM korlátlan hozzáférés; csak összetevő még a HLH nagyon korlátozódik. Az OEM lehet feltenni testreszabási beállításokat, és a hálózati hozzáférés megkönnyítése érdekében. Ezen ACL miatt fontos ne módosítsa a DNS és az NTP-kiszolgáló címei üzembe helyezéskor. Ha így tesz, szüksége lesz a kapcsolók a megoldás összes újrakonfigurálása.
+A Azure Stack kapcsolók hálózati konfigurációi olyan hozzáférés-vezérlési listákat (ACL-eket) tartalmaznak, amelyek korlátozzák a forgalmat bizonyos hálózati források és célhelyek között. A DVM az egyetlen olyan összetevő, amely korlátlan hozzáféréssel rendelkezik; még a HLH is nagyon korlátozott. Megkérheti az OEM-t a testreszabási lehetőségekkel, így egyszerűbbé teheti a felügyeletet és a hozzáférést a hálózatokból. Ezen ACL-ek miatt fontos, hogy ne módosítsa a DNS-és az NTP-kiszolgáló címét a központi telepítés idején. Ha ezt teszi, újra kell konfigurálnia a megoldás összes kapcsolóját.
 
-Üzembe helyezés befejezése után a megadott DNS- és az NTP-kiszolgálócímek továbbra is a rendszer összetevői által közvetlenül használni. Például ha a DNS-kérésekre üzembe helyezés befejezése után ellenőrizheti, a forrás változik a DVM IP-cím egy külső hálózat címtartományából címre.
+Az üzembe helyezés befejezése után a rendszer a megadott DNS-és NTP-kiszolgálói címeket továbbra is a rendszerösszetevők fogják használni. Ha például a központi telepítés befejezése után bejelöli a DNS-kérelmeket, a forrás a DVM IP-címről a külső hálózati tartományból származóra változik.
 
-Üzembe helyezés befejezése után a megadott DNS- és az NTP-kiszolgálócímek továbbra is használhatják a rendszer összetevőit az SDN segítségével a külső hálózaton keresztül. Például ha a DNS-kérésekre üzembe helyezés befejezése után ellenőrizheti, a forrás változik a DVM IP-címről egy nyilvános virtuális IP-cím.
+Az üzembe helyezés befejezése után a rendszer a megadott DNS-és NTP-kiszolgálói címeket továbbra is a külső hálózat használatával fogja használni az SDN-n keresztül. Ha például a központi telepítés befejezése után megtekinti a DNS-kéréseket, a forrás a DVM IP-címről egy nyilvános VIP-re fog váltani.
 
 ## <a name="next-steps"></a>További lépések
 [Azure-regisztráció ellenőrzése](azure-stack-validate-registration.md)

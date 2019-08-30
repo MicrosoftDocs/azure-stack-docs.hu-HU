@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/30/2019
-ms.author: mabrigg
+ms.date: 08/21/2019
+ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
-ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: 129033057c6bc7b98b81fde6fbb517a502282467
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68865893"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159574"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack Datacenter-integráció – Azure Stack szolgáltatások közzététele
 
@@ -34,16 +34,12 @@ Egy olyan üzemelő példányban, ahol egy transzparens proxy egy hagyományos p
 
 Azure Stack-végpontok külső hálózatokra való közzétételéhez infrastruktúra-VIP-készlet szükséges. A *végpont (VIP)* tábla megjeleníti az egyes végpontokat, a szükséges portot és a protokollt. A további erőforrás-szolgáltatókat, például az SQL-erőforrás-szolgáltatót igénylő végpontok esetében tekintse meg a konkrét erőforrás-szolgáltató telepítési dokumentációját.
 
-A belső infrastruktúra-VIP-címek nincsenek felsorolva, mert nem szükségesek a közzétételi Azure Stack.
+A belső infrastruktúra-VIP-címek nincsenek felsorolva, mert nem szükségesek a közzétételi Azure Stack. A felhasználó virtuális IP-címei dinamikusan vannak meghatározva, és a felhasználók maguk határozzák meg, hogy a Azure Stack operátor nem rendelkezik hozzáféréssel.
 
 > [!Note]  
-> A felhasználó virtuális IP-címei dinamikusan vannak meghatározva, és a felhasználók maguk határozzák meg, hogy a Azure Stack operátor nem rendelkezik hozzáféréssel.
+> A IKEv2 VPN egy szabványos IPsec VPN-megoldás, amely az 500-es és 4500-as UDP-portot, valamint a 50-as TCP-portot használja. A tűzfalak nem mindig nyitják meg ezeket a portokat, így előfordulhat, hogy egy IKEv2 VPN-kapcsolat nem tud áthaladni a proxykat és a tűzfalakat.
 
-> [!Note]  
-> IKEv2 VPN. Az IKEv2 VPN egy szabványalapú IPsec VPN-megoldás, amely az 500-as és 4500-as UDP-portokat, valamint a következő IP-protokollt használja: 50. A tűzfalak ezeket a portokat nem mindig nyitják meg, ezért elképzelhető, hogy az IKEv2 VPN nem képes átjutni egyes proxykon és tűzfalakon.
-
-> [!Note]  
-> Az 1811-es frissítéstől kezdve a 12495-30015-es tartományba tartozó portok többé nem szükségesek a [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadása miatt.
+A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásával a 12495-30015-es tartományba tartozó portok nem szükségesek.
 
 |Végpont (VIP)|DNS host A record|Protocol|Portok|
 |---------|---------|---------|---------|
@@ -80,11 +76,11 @@ A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy
 
 |Cél|Destination URL|Protocol|Portok|Forráshálózat|
 |---------|---------|---------|---------|---------|
-|Identitás|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//Graph.Windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//Graph.chinacloudapi.cn/<br>|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
-|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//Management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn/|HTTPS|443|Nyilvános VIP-/27|
+|Identitás|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//Graph.Windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//Graph.chinacloudapi.cn/<br>**Azure Germany**<br>https:\//login.microsoftonline.de/<br>https:\//Graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
+|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//Management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn<br>**Azure Germany**<br>https:\//Management.microsoftazure.de/<br>http://&#42;. blob.Core.cloudapi.de/|HTTPS|443|Nyilvános VIP-/27|
 |Javítás & frissítés|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
-|Regisztráció|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//Management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn/|HTTPS|443|Nyilvános VIP-/27|
-|Használat|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Nyilvános VIP-/27|
+|Regisztráció|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//Management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//Management.chinacloudapi.cn<br>**Azure Germany**<br>https:\//Management.Core.cloudapi.de/|HTTPS|443|Nyilvános VIP-/27|
+|Használat|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn<br>**Azure Germany**<br>https://&#42;. azuretrafficmanager.de|HTTPS|443|Nyilvános VIP-/27|
 |Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/CRL<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//CRL.microsoft.com/PKI/CRL/Products<br>https:\//www.microsoft.com/PKI/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
 |NTP|(Az üzemelő példányhoz megadott NTP-kiszolgáló IP-címe)|UDP|123|Nyilvános VIP-/27|
 |DNS|(Az üzembe helyezéshez megadott DNS-kiszolgáló IP-címe)|TCP<br>UDP|53|Nyilvános VIP-/27|

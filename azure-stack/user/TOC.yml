@@ -184,7 +184,7 @@
                   href: azure-stack-metrics-supported.md
                 - name: Azure monitorozási adatok felhasználásához
                   href: azure-stack-metrics-monitor.md
-        - name: Megoldási sablonok használata
+        - name: Kiegészítő szolgáltatások telepítése
           items:
             - name: Ethereum üzembe helyezése
               href: azure-stack-ethereum.md

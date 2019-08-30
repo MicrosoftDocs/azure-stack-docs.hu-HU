@@ -16,16 +16,19 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5d5292753b6fedfb7468a0bc68dd821a2da4cd54
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118711"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143992"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Új Azure Stack bérlői fiók hozzáadása a Azure Active Directory
 
-[A Azure stack Development Kit (ASDK) üzembe helyezése](../asdk/asdk-install.md)után egy bérlői felhasználói fiókra van szüksége, amellyel megismerheti a bérlői portált, és tesztelheti ajánlatait és csomagjait. A Azure Active Directoryban (Azure AD) a [Azure Portal vagy a](#create-an-azure-stack-tenant-account-using-the-azure-portal) PowerShell használatával hozhat létre bérlői fiókot.
+
+[A Azure stack Development Kit üzembe helyezése](../asdk/asdk-install.md)után szüksége lesz egy bérlői felhasználói fiókra, amellyel felfedezheti a bérlői portált, és tesztelheti ajánlatait és csomagjait. Bérlői fiókot a Azure Portal vagy a PowerShell használatával hozhat létre.
+
+
 
 ## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Azure Stack bérlői fiók létrehozása a Azure Portal használatával
 

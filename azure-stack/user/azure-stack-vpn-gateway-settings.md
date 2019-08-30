@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658590"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144036"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack
 
@@ -39,8 +39,8 @@ Minden Azure Stack virtuális hálózat egyetlen virtuális hálózati átjáró
 Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz `-GatewayType Vpn` a jelző szükséges; például:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
 
@@ -60,7 +60,7 @@ Azure Stack az alábbi táblázatban látható VPN Gateway SKU-ket kínálja.
 
 A Azure Stack nem támogatja az SKU-nak a támogatott örökölt SKU-ból való átméretezését.
 
-Hasonlóképpen, a Azure Stack nem támogatja az átméretezést egy támogatott örökölt SKU-ból (alapszintű, **standard**és **HighPerformance**) az Azure által támogatott újabb SKU-ra (**VpnGw1**, **VpnGw2**és **VpnGw3**). ****
+Hasonlóképpen, a Azure Stack nem támogatja az átméretezést egy támogatott örökölt SKU-ból (alapszintű, **standard**és **HighPerformance**) az Azure által támogatott újabb SKU-ra (**VpnGw1**, **VpnGw2**és **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Az átjáró SKU konfigurálása
 
@@ -70,27 +70,25 @@ Ha a Azure Stack portál használatával hoz létre Resource Manager virtuális 
 
 #### <a name="powershell"></a>PowerShell
 
-A következő PowerShell-példa a `-GatewaySku` as **VpnGw1**adja meg:
+A következő PowerShell-példa a `-GatewaySku` as **standardot**adja meg:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>Kapcsolattípusok
 
-A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. A `-ConnectionType` lehetséges Resource Manager PowerShell-értékei a következők:
+A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. Az elérhető Resource Manager PowerShell-értékek `-ConnectionType` a következők: **IPSec**.
 
-* **IPsec**
+A következő PowerShell-példában létrejön egy S2S-kapcsolat, amely az IPsec-kapcsolat típusát igényli:
 
-   A következő PowerShell-példában létrejön egy S2S-kapcsolat, amely az IPsec-kapcsolat típusát igényli:
-
-   ```powershell
-   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
-   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-   ```
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```
 
 ### <a name="vpn-types"></a>VPN-típusok
 
@@ -111,8 +109,8 @@ Amikor létrehoz egy VPN Gateway-konfigurációhoz tartozó virtuális hálózat
 A következő PowerShell-példa az `-VpnType` as **útvonalalapú**adja meg. Amikor létrehoz egy átjárót, meg kell győződnie arról, `-VpnType` hogy a megfelelő a konfigurációhoz.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
@@ -123,7 +121,7 @@ A következő táblázat a VPN-átjárók követelményeit sorolja fel.
 | |Házirendalapú alapszintű VPN Gateway | Útválasztó-alapú alapszintű VPN Gateway | Útválasztó-alapú standard VPN Gateway | Útválasztó-alapú nagy teljesítményű VPN Gateway|
 |--|--|--|--|--|
 | **Helyek közötti kapcsolat (S2S-kapcsolat)** | Nem támogatott | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció |
-| **Hitelesítési módszer**  | Nem támogatott | Előmegosztott kulcs a S2S-kapcsolathoz  | Előmegosztott kulcs a S2S-kapcsolathoz  | Előmegosztott kulcs a S2S-kapcsolathoz  |
+| **Hitelesítési módszer**  | Nem támogatott | Előmegosztott kulcs S2S-kapcsolathoz  | Előmegosztott kulcs S2S-kapcsolathoz  | Előmegosztott kulcs S2S-kapcsolathoz  |
 | **S2S-kapcsolatok maximális száma**  | Nem támogatott | 20 | 20| 10|
 |**Aktív Útválasztás támogatása (BGP)** | Nem támogatott | Nem támogatott | Támogatott | Támogatott |
 
@@ -156,7 +154,7 @@ Adja meg a helyi hálózati átjáró nevét, a VPN-eszköz nyilvános IP-címé
 A következő PowerShell-példa egy új helyi hálózati átjárót hoz létre:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -180,7 +178,7 @@ Az Azure-val ellentétben, amely több ajánlatot is támogat kezdeményezőkén
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Az IKE 2. fázis (Gyors mód) paraméterei
 
-| Tulajdonság| Érték|
+| Tulajdonság| Value|
 |-|-|
 |IKE verziószám |IKEv2 |
 |Titkosítási & kivonatoló algoritmusok (titkosítás)     | GCMAES256|

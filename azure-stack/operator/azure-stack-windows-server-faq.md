@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008320"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143987"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server Azure Stack piactéren – gyakori kérdések
 
@@ -57,11 +57,11 @@ A következő szkript futtatásával módosíthatja a licencelési modell attrib
 
 ```powershell
 vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "Windows_Server"
+$vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-A virtuális gép licencének típusát a következő parancsok futtatásával tekintheti meg. Ha a **Windows_Server**azt mondja, hogy a Windows-licencet a TB-modell szerint kell fizetnie:
+A virtuális gép licencének típusát a következő parancsok futtatásával tekintheti meg. Ha a **Windows_Server**azt mondja, hogy a BYOL díját számítjuk fel, akkor a TB-modellben a Windows-mérőért kell fizetnie:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -73,7 +73,7 @@ A következő parancsok futtatásával módosíthatja a licencelési modell attr
 
 ```powershell
 $vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "None"
+$vm.LicenseType = "Windows_Server"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
