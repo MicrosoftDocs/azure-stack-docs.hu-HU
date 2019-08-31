@@ -16,12 +16,13 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+monikerRange: azs-1906
+ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887111"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188303"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítés
 
@@ -116,14 +117,14 @@ A Azure Stack 1906 frissítési Build típusa **expressz**. További informáci�
 
 ## <a name="security-updates"></a>Biztonsági frissítések
 
-További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates-1906.md).
+További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Frissítés tervezése
 
 A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
 
 - [Ismert problémák](azure-stack-release-notes-known-issues-1906.md)
-- [Biztonsági frissítések](azure-stack-release-notes-security-updates-1906.md)
+- [Biztonsági frissítések](azure-stack-release-notes-security-updates.md)
 - [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>A frissítés letöltése

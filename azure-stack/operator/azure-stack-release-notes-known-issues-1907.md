@@ -16,12 +16,13 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 2d87ff424c224f10bede28099435915ab6cd6bce
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+monikerRange: azs-1907
+ms.openlocfilehash: 1ce70e44786d657df93f8feaf8e32bfbb9159386
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008621"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188231"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 ismert probléma
 
@@ -180,4 +181,4 @@ Ez a cikk a Azure Stack 1907-es kiadásának ismert problémáit sorolja fel. A 
 ## <a name="next-steps"></a>További lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](azure-stack-release-notes-checklist.md)
-- [Biztonsági frissítések listájának áttekintése](azure-stack-release-notes-security-updates-1907.md)
+- [Biztonsági frissítések listájának áttekintése](azure-stack-release-notes-security-updates.md)

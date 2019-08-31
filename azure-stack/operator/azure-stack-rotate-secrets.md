@@ -15,12 +15,13 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
-ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
+monikerRange: '>=azs-1803'
+ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497835"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188165"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>A titkok elforgatása Azure Stack
 
@@ -132,8 +133,8 @@ Ha az alábbi utasítások segítségével futtatja a titkos kulcsot, a riasztá
 > Amint láthatja, a hiba masszázs azt jelezheti, hogy probléma van a fájlmegosztás való hozzáféréssel, de a valóságban ez a mappa szerkezete, amelyet itt kényszerítenek ki.
 > További információt a Microsoft AzureStack Readiness-ellenőrző- [PublicCertHelper moduljában](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1) találhat.
 >
-> Fontos továbbá, hogy a fájlmegosztás mappa szerkezete a Certificates  mappában is megkezdődik, ellenkező esetben az érvényesítés sikertelen lesz.
-> A fájlmegosztás csatlakoztatásának a  következőhöz hasonlóan  **\\ \\ \<kell\\ kinéznie: IP_cím >\\\<megosztásnév >** és tartalmaznia kell a mappa Certificates\AAD vagy **tanúsítványait \ ADFS** belül.
+> Fontos továbbá, hogy a fájlmegosztás mappa szerkezete a Certificates mappában is megkezdődik, ellenkező esetben az érvényesítés sikertelen lesz.
+> A fájlmegosztás csatlakoztatásának a következőhöz hasonlóan  **\\ \\ \<kell\\ kinéznie: IP_cím >\\\<megosztásnév >** és tartalmaznia kell a mappa Certificates\AAD vagy **tanúsítványait \ ADFS** belül.
 >
 > Példa:
 > - Fájlmegosztás =  **\\IP_cím> \\megosztásnév\\> \<\<\\**
@@ -207,7 +208,7 @@ Külső titkok elforgatása:
     Ha a titkos kód elforgatása sikeresen befejeződött, a **konzolon a művelet általános állapota jelenik meg: Sikeres**művelet.
 
     > [!Note]
-    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, majd futtassa újra a **Start-SecretRotation** **paramétert** .
+    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, majd futtassa újra a **Start-SecretRotation** paramétert.
 
     ```powershell
     Start-SecretRotation -ReRun
@@ -301,9 +302,9 @@ A **Start-SecretRotation** parancsmag egy Azure stack rendszer infrastruktúra-t
 | Paraméter | Type | Kötelező | Pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | Sztring  | False (Hamis)  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
-| `CertificatePassword` | SecureString | False (Hamis)  | Elemzi  | None  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
-| `Internal` | Sztring | False (Hamis) | Elemzi | None | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
-| `PathAccessCredential` | PSCredential | False (Hamis)  | Elemzi  | None  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
+| `CertificatePassword` | SecureString | False (Hamis)  | Elemzi  | Nincsenek  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
+| `Internal` | Sztring | False (Hamis) | Elemzi | Nincsenek | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `PathAccessCredential` | PSCredential | False (Hamis)  | Elemzi  | Nincsenek  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
 | `ReRun` | SwitchParameter | False (Hamis)  | Elemzi  | Nincsenek  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
 
 ### <a name="examples"></a>Példák

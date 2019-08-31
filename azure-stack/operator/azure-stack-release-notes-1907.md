@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1907
+ms.openlocfilehash: 4dc9c69479066aad3f2b4ebd08646e09da89ba3a
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008761"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188118"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 frissítés
 
@@ -77,7 +78,7 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 
 ### <a name="changes"></a>Módosítások
 
-- Az 1907-es verzió olyan figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés **előtt** frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. Azure stack A hardveres szolgáltatók a 2,1-es 1908 verzióval megegyező időben szabadítják fel az OEM-csomagot, Azure Stack. Az 2,1-es vagy újabb OEM-csomag előfeltétele az 1908-es Azure Stack-verzió. Az OEM-csomagok 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához.
+- Az 1907-es verzió olyan figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés előtt frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. Azure Stack Az Azure Stack OEM-frissítések alkalmazásával kapcsolatos további információkért lásd: [Azure stack eredeti berendezésgyártó frissítésének alkalmazása](azure-stack-update-oem.md).
 
 - Új kimenő szabály (HTTPS) lett hozzáadva a Azure Stack diagnosztikai napló-gyűjtési szolgáltatás kommunikációjának engedélyezéséhez. További információ: [Azure stack Datacenter Integration – közzétételi végpontok](azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
@@ -118,14 +119,14 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 
 ## <a name="security-updates"></a>Biztonsági frissítések
 
-További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates-1907.md).
+További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Frissítés tervezése
 
 A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
 
 - [Ismert problémák](azure-stack-release-notes-known-issues-1907.md)
-- [Biztonsági frissítések](azure-stack-release-notes-security-updates-1907.md)
+- [Biztonsági frissítések](azure-stack-release-notes-security-updates.md)
 - [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>A frissítés letöltése

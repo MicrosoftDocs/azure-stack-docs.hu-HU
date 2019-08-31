@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack App Service frissítése 6 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg a frissítés hat, az Azure Stack App Service, az ismert problémákról, valamint a frissítés letöltése helyét.
+title: App Service on Azure Stack Update 6 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerje meg, hogy mi a 6. frissítés a App Service Azure Stack, az ismert problémák és a frissítés letöltésének helye.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,109 +15,109 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
-ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
+ms.openlocfilehash: c142ecda309f00ee94429be3d7b8f3c6e8072668
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67348722"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188222"
 ---
-# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service-ben az Azure Stack 6. összesített frissítéssel kibocsátási megjegyzései
+# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack Update 6 kibocsátási megjegyzései
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A kibocsátási megjegyzések láthatók a fejlesztései, valamint a javításokat az Azure App Service az Azure Stack frissítés 6 és olyan ismert problémákat. Ismert problémák az üzembe helyezési, frissítési folyamat és a build (telepítés utáni) problémái közvetlenül kapcsolódó problémák vannak felosztva.
+Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack Update 6 és bármely ismert probléma javításait és javításait. Az ismert problémák az üzembe helyezéssel, a frissítési folyamattal és a buildtel (a telepítés után) kapcsolatos problémákkal közvetlenül kapcsolatos problémákra vannak osztva.
 
 > [!IMPORTANT]
-> Az Azure Stackkel integrált rendszereknél 1904 frissítés alkalmazása, vagy a legújabb Azure Stack fejlesztői készletének telepítése az Azure App Service 1.6-os üzembe helyezése előtt.
+> Alkalmazza a 1904-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack fejlesztői csomagot a Azure App Service 1,6 üzembe helyezése előtt.
 
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
-Az App Service az Azure Stack 6. frissítés buildszámát **82.0.1.50**
+A App Service Azure Stack Update 6 Build száma **82.0.1.50**
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Tekintse meg a [mielőtt elkezdené a dokumentáció](azure-stack-app-service-before-you-get-started.md) központi telepítésének megkezdése előtt.
+Az üzembe helyezés megkezdése előtt tekintse át az [első lépések dokumentációját](azure-stack-app-service-before-you-get-started.md) .
 
-Mielőtt elkezdené a frissítés az 1.6-os az Azure App Service az Azure Stacken:
+Mielőtt megkezdené a Azure App Service frissítését Azure Stack 1,6-re:
 
-- Győződjön meg, hogy minden szerepkör kész a az Azure App Service felügyeleti az Azure Stack felügyeleti portálon
+- Győződjön meg arról, hogy az összes szerepkör készen áll a Azure App Service adminisztráció Azure Stack felügyeleti portálon
 
-- Az App Service-ben és a Master adatbázis biztonsági mentésére:
+- A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
   - Fő
 
-- A bérlő alkalmazás tartalom fájlmegosztás biztonsági mentése
+- A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése
 
-- Konzorcium a **egyéni szkriptek futtatására szolgáló bővítmény** verzió **1.9.1** a Marketplace-ről
+- Az **Egyéni szkriptek** bővítményének **1.9.1** -verziójának szindikátusa a piactéren
 
-### <a name="new-features-and-fixes"></a>Új funkciókkal és javításokkal
+### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
-Az Azure App Service az Azure Stack 6-os frissítés tartalmazza a következő fejlesztések és javítások:
+A Azure Stack Update 6 Azure App Service a következő javításokat és javításokat tartalmazza:
 
-- Frissítések **App Services-bérlő, a rendszergazda, a Functions-portálok és eszközök a Kudu**. Az Azure Stack Portal SDK-verzió összhangban.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
 
-- Frissítések **Azure Functions runtime** való **v1.0.12299**.
+- A **Azure functions Runtime** és a **v 1.0.12299**frissítése.
 
-- Fokozható a megbízhatóság és a hibaüzenetek gyakori problémák egyszerűbb diagnosztika engedélyezése a core-szolgáltatás frissítése.
+- Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
-- **A következő alkalmazás-keretrendszerek és eszközök frissítések**:
+- **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
   - ASP.NET Core 2.2.4
   - NodeJS 10.15.2
   - Zulu OpenJDK 8.36.0.1
   - Tomcat 7.0.81
   - Tomcat 8.5.37
   - Tomcat 9.0.14
-  - PHP 5.6.39
-  - PHP 7.0.33
-  - PHP 7.1.25
-  - PHP 7.2.13
-  - Updated Kudu to 81.10329.3844
+  - PHP-5.6.39
+  - PHP-7.0.33
+  - PHP-7.1.25
+  - PHP-7.2.13
+  - Frissített kudu – 81.10329.3844
 
-- **Frissítések az alapul szolgáló operációs rendszer összes szerepkör**:
-  - [A 2019-04 összegző frissítés-a Windows Server 2016 x64 alapú rendszerekhez (KB4493473)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
+- Az **összes szerepkör mögöttes operációs rendszerének frissítései**:
+  - [2019-04 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4493473)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
 
 ### <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]
-> Ha megadta az App Service erőforrás-szolgáltató-példánnyal SQL mindig meg kell [adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoport](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) és így elkerülhető, hogy az adatbázisok szinkronizálása a szolgáltatás adatbázis-feladatátvétel esetén.
+> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on-példánnyal, [hozzá kell adnia a appservice_hosting-és appservice_metering-adatbázisokat egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy elkerülje a szolgáltatás elvesztését a következő esetekben: egy adatbázis-feladatátvétel.
 
 ### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
-- Feldolgozók nem érhető el a fájlkiszolgálót, ha App Service-ben üzemel egy meglévő virtuális hálózatot és a fájlkiszolgáló csak érhető el a magánhálózaton, feltüntettük az Azure App Service az Azure Stack központi telepítési dokumentációjában az.
+- A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack üzembe helyezési dokumentációban is szerepel.
 
-Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
- * Forrás: Bármely
- * Forrás porttartomány: *
+Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
+ * Forrás: Any
+ * Forrásoldali porttartomány: *
  * Cél: IP-címek
- * Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
- * Cél porttartomány: 445
+ * Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+ * Célport tartománya: 445
  * Protokoll: TCP
- * Művelet: Engedélyezés
- * Prioritás: 700
+ * Művelet: Allow
+ * Fontosság: 700
  * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák működtetése az Azure App Service az Azure Stack felhő-rendszergazdák számára
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
 
-A dokumentáció a [Azure Stack 1904 kibocsátási megjegyzései](azure-stack-release-notes-1904.md)
+Tekintse meg a dokumentációt a [Azure Stack 1908 kibocsátási megjegyzésekben](azure-stack-release-notes-1908.md)
 
-### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Ismert problémák a bérlők számára az Azure Stack az Azure App Service-alkalmazások üzembe helyezéséhez
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Ismert problémák a bérlők számára az alkalmazások Azure App Serviceon való üzembe helyezéséhez Azure Stack
 
-- Üzembe helyezési központ szürkén jelenik meg
+- A központi telepítési központ szürkén jelenik meg
 
-Bérlők még nem hozható létre, használja az üzembe helyezési központ, amely egy szolgáltatás, amely a nyilvános felhőben késői 2018-ban jelent.  Bérlők továbbra is használhatják a normál telepítési módszerek (FTP, a Web Deploy, Git, stb.) a portálon, CLI és PowerShell használatával.
+A bérlők még nem használhatják az üzembe helyezési központot, amely a nyilvános felhőben, a 2018-es végén megjelent szolgáltatás.  A bérlők a portálon, a CLI-n és a PowerShellen keresztül továbbra is használhatják a szabványos üzembe helyezési módszereket (FTP, web Deploy, git stb.).
 
-- Központi telepítési beállítások (klasszikus) felhasználói felület és a telepítési hitelesítő adatok portál beállítások nem érhető el
+- Központi telepítési beállítások (klasszikus) UX és központi telepítési hitelesítő adatok portál beállításai nem érhetők el
 
-A központi telepítési beállítások és az üzembe helyezési hitelesítő adatok felhasználói élmény az Azure Stack üzembe helyezés, a bérlők a elérése érdekében kell be a portálra ebben a formátumban URL-cím - https://portal.&lt ; *régió*&gt;.&lt; *FQDN*&gt; /? websitesExtension_oldvsts = true –, amelyek esetében a ASDK lenne [ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd keresse meg az alkalmazások általában.
+Az üzembe helyezési lehetőségek és az üzembe helyezési hitelesítő adatok felhasználói élményének elérése érdekében Azure Stack a bérlőknek az URL-cím formátuma alapján https://portal.&lt kell elérniük a portált –; *régió.* &gt;&lt; *Teljes tartománynév* /? websitesExtension_oldvsts = True – a ASDK [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) esetében, majd a szokásos módon navigáljon az alkalmazásaihoz. &gt;
 
-- "Betöltés" folyamatosan Azure Monitoring függvény látható a portálon
+- Az Azure Function monitoring folyamatosan megjeleníti a betöltést a portálon
 
-Ha megkísérli az egyes funkciók, a bérlői portálon figyelése nem Hívásnapló, a sikeres műveletek száma, vagy a hibák száma jelenik meg.  Ez a funkció engedélyezéséhez nyissa meg a **Függvényalkalmazás**, lépjen a **Platformfunkciók**, és nyissa meg **Alkalmazásbeállítások**.  Adjon hozzá egy új alkalmazás beállítás - nevet **AzureWebJobsDashboard** és állítsa az értékét AzureWebJobsStorage meg ugyanazt az értéket.  Keresse meg a figyelő nézetben a függvényt, és látni fogja a monitorozási információkhoz.
+Amikor megkísérli figyelni az egyes függvényeket, a bérlői portálon nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma.  A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók**menüpontra, és válassza az **Alkalmazásbeállítások**lehetőséget.  Adjon hozzá egy új Alkalmazásbeállítás- **AzureWebJobsDashboard** nevet, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre.  Ezután nyissa meg a figyelés nézetet a függvényben, és látni fogja a figyelési adatokat.
 
 ## <a name="next-steps"></a>További lépések
 
-- Az Azure App Service áttekintését lásd: [Azure App Service az Azure Stack áttekintése](azure-stack-app-service-overview.md).
-- Hogyan készíti elő az Azure Stack App Service üzembe helyezése kapcsolatos további információkért lásd: [az App Service-ben az Azure Stack használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md).
+- A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
+- További információ a Azure Stack App Service telepítésének előkészítéséről: mielőtt megkezdi a [Azure Stack app Serviceének](azure-stack-app-service-before-you-get-started.md)megkezdését.

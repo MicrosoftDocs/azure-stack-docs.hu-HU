@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 1906 ismert probléma | Microsoft Docs
-description: Ismerje meg a Azure Stack 1906 ismert problémáit.
+title: Azure Stack 1908 ismert probléma | Microsoft Docs
+description: Ismerje meg a Azure Stack 1907 ismert problémáit.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/28/2019
-monikerRange: azs-1906
-ms.openlocfilehash: 1dccf043f0cae641eeca286bdbb0c5d8717894eb
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1908
+ms.openlocfilehash: da995bf2f24c4a9021be3dec675af0b2ae03e0cb
 ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188258"
+ms.locfileid: "70188930"
 ---
-# <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 ismert probléma
+# <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908 ismert probléma
 
-Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A lista új problémák észlelése esetén frissül.
+Ez a cikk a Azure Stack 1908-es kiadásának ismert problémáit sorolja fel. A lista új problémák észlelése esetén frissül.
 
 > [!IMPORTANT]  
 > A frissítés alkalmazása előtt tekintse át ezt a szakaszt.
@@ -34,8 +34,8 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 ## <a name="update-process"></a>Frissítési folyamat
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Az 1906 Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz. 
-- Szervizkiszolgáló A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md)alapján.
+- Ok: Az 1907 Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
+- Szervizkiszolgáló A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése szakaszt](azure-stack-apply-updates.md#install-updates-and-monitor-progress)követve manuálisan töltse fel a frissítési csomagot.
 - Előfordulása Közös
 
 ## <a name="portal"></a>Portál
@@ -47,11 +47,17 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 - Szervizkiszolgáló Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
 - Előfordulása Közös
 
-### <a name="subscription-resources"></a>Előfizetés erőforrásai
+### <a name="subscriptions-properties-blade"></a>Előfizetések tulajdonságai panel
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Felhasználói előfizetések eredmények az árva erőforrások törlése.
-- Szervizkiszolgáló Először törölje a felhasználói erőforrásokat vagy a teljes erőforráscsoportot, majd törölje a felhasználói előfizetéseket.
+- Ok: A felügyeleti portálon az előfizetések **tulajdonságai panel** nem töltődik be megfelelően
+- Szervizkiszolgáló Ezeket az előfizetéseket az előfizetések **áttekintése** panel **Essentials (alapvető** erőforrások) paneljén tekintheti meg.
+- Előfordulása Közös
+
+### <a name="subscriptions-lock-blade"></a>Előfizetések zárolása panel
+
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: A felügyeleti portálon a felhasználói előfizetések zárolási paneljének két butons van, amelyek az előfizetést mondják.
 - Előfordulása Közös
 
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
@@ -59,12 +65,6 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Engedélyek nem tekintheti meg az Azure Stack portálok használata az előfizetéshez.
 - Szervizkiszolgáló [Az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Előfordulása Közös
-
-### <a name="subscriptions-properties-blade"></a>Előfizetések tulajdonságai panel
-- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: A felügyeleti portálon az előfizetések **tulajdonságai panel** nem töltődik be megfelelően
-- Szervizkiszolgáló Ezek az előfizetések tulajdonságai az előfizetések áttekintése panel Essentials (alapvető erőforrások) paneljén tekinthetők meg.
 - Előfordulása Közös
 
 ### <a name="storage-account-settings"></a>Tárfiók-beállítások
@@ -79,13 +79,6 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 - Ok: Ha a felhasználói portálon megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
 - Szervizkiszolgáló Töltse fel a blobot az SAS kapcsoló használatával.
 - Előfordulása Közös
-
-### <a name="update"></a>frissítés
-
-- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
-- Ok: Az operátori portálon a gyorsjavítás állapotának frissítése helytelen állapotot mutat a frissítéshez. A kezdeti állapot azt jelzi, hogy a frissítést nem sikerült telepíteni, még akkor is, ha még folyamatban van.
-- Szervizkiszolgáló Frissítse a portált, és az állapota "folyamatban" állapotba kerül.
-- Előfordulása Időszakos
 
 ## <a name="networking"></a>Hálózat
 
@@ -103,6 +96,13 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 - Előfordulása Közös
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
+
+#### <a name="local-network-gateway-deletion"></a>Helyi hálózati átjáró törlése
+
+- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
+- Ok: A felhasználói portálon a **helyi hálózati átjáró** törlése a következő hibaüzenetet jeleníti meg: **Aktív kapcsolatban álló helyi hálózati átjáró nem törölhető**, még akkor is, ha nincs aktív internetkapcsolat.
+- Kockázatcsökkentő A probléma megoldása a 1907-es kiadásban jelenik meg. A probléma megkerülő megoldásként új helyi hálózati átjárót hoz létre ugyanazzal az IP-címmel, a címtartomány és a konfigurációs adatokkal egy másik névvel. A régi LNG törölhető, ha a környezet frissítve lett a 1907-es verziójára.
+- Előfordulása Közös
 
 #### <a name="alerts"></a>Riasztások
 
@@ -133,22 +133,6 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>Terheléselosztó
-
-#### <a name="add-backend-pool"></a>Háttérkészlet hozzáadása
-
-- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Ha a felhasználói portálon egy **háttér** -készletet próbál hozzáadni egy Load Balancerhoz, a művelet meghiúsul, és a hibaüzenet **nem tudta frissíteni a Load Balancer.** ...
-- Szervizkiszolgáló A PowerShell, a CLI vagy a Resource Manager-sablon használatával társítsa a háttér-készletet egy terheléselosztó-erőforráshoz.
-- Előfordulása Közös
-
-#### <a name="create-inbound-nat"></a>Bejövő NAT létrehozása
-
-- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Ha a felhasználói portálon egy **Load Balancer** **bejövő NAT** -szabályát kísérli meg létrehozni, a művelet meghiúsul, és a hibaüzenet **nem frissül Load Balancer.** ..
-- Szervizkiszolgáló A PowerShell, a CLI vagy a Resource Manager-sablon használatával társítsa a háttér-készletet egy terheléselosztó-erőforráshoz.
-- Előfordulása Közös
-
 ## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
@@ -159,7 +143,6 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 - Előfordulása Közös
 
 ### <a name="virtual-machine-scale-set"></a>Virtuális gép méretkészlete
-
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack környezetekben
 
@@ -176,21 +159,21 @@ Ez a cikk a Azure Stack 1906-es kiadásának ismert problémáit sorolja fel. A 
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
 
-- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
+- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
 - Ok: A méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de Azure Stack a méretezési csoportokban még nem támogatja a jelszó visszaállítását.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
 
-- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
+- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
 - Ok: A virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, amely nem támogatott a jelenlegi Azure Stack buildben.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
-- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
+- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.    
 - Ok: A virtuális gép diagnosztikai beállításainak paneljén egy fogadó lap van, amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös

@@ -16,12 +16,13 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 68b83ac38da20f341242618a1cfa62a9838a0ada
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+monikerRange: azs-1905
+ms.openlocfilehash: 27a41069c3406cdb843e263ee49a63e5c5919477
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544082"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188321"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 frissítés
 
@@ -123,14 +124,14 @@ Ezzel a frissítéssel a Windows Server 2019 sikeresen aktiválható egy 2016-ga
 
 ### <a name="security-updates"></a>Biztonsági frissítések
 
-További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates-1905.md).
+További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](azure-stack-release-notes-security-updates.md).
 
 ## <a name="update-planning"></a>Frissítés tervezése
 
 A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
 
 - [Ismert problémák](azure-stack-release-notes-known-issues-1905.md)
-- [Biztonsági frissítések](azure-stack-release-notes-security-updates-1905.md)
+- [Biztonsági frissítések](azure-stack-release-notes-security-updates.md)
 - [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>A frissítés letöltése

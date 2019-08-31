@@ -12,18 +12,35 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008602"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188082"
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure Stack karbantartási szabályzat
+- **OEM hardver gyártó által megadott frissítések**. Azure Stack hardveres partnerek felelősek a hardveres belső vezérlőprogram és az illesztőprogram-frissítési csomagok végpontok közötti karbantartási életciklusához (beleértve az útmutatást is). Emellett Azure Stack a hardveres partnereknek is, és útmutatást nyújtanak a hardveres életciklus-gazdagépen található összes szoftverhez és hardverhez. Az OEM hardvergyártó a saját letöltési helyén tárolja ezeket a frissítési csomagokat.
+
+## <a name="update-package-release-cadence"></a>A csomag kiadási ritmusának frissítése
+
+A Microsoft havi ütemben várja a szoftverfrissítési csomagok kiadását. Azonban lehetséges, hogy több vagy nem frissülő kiadás van egy hónapban. Az OEM-hardvergyártók a szükséges módon szabadítják fel a frissítéseiket.
+
+A frissítések tervezésével és kezelésével, valamint az aktuális verzió meghatározásával kapcsolatos további információkért tekintse meg a frissítések [kezelése](azure-stack-updates.md)című témakörben található dokumentációt.
+
+Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
+
+- [Azure Stack 1908 frissítés](azure-stack-release-notes-1908.md)
+- [Azure Stack 1907 frissítés](azure-stack-release-notes-1907.md)
+- [Azure Stack 1906 frissítés](azure-stack-release-notes-1906.md)
+- [Azure Stack 1905 frissítés](azure-stack-release-notes-1905.md)
+
+## <a name="hotfixes"></a>Gyorsjavítások
+
+Alkalmanként a Microsoft gyorsjavításokat biztosít a Azure Stack, amelyek gyakran megelőző vagy időérzékeny problémákra vonatkoznak.  Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti.
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
