@@ -1,6 +1,6 @@
 ---
-title: Start-AzsReadinessChecker parancsmag-referencia |} A Microsoft Docs
-description: PowerShell-parancsmag súgójában talál az Azure Stack készültségi ellenőrző modul.
+title: A Start-AzsReadinessChecker parancsmag referenciája | Microsoft Docs
+description: A PowerShell-parancsmag súgója a Azure Stack Readiness-ellenőrző modulhoz.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521255"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991708"
 ---
-# <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker parancsmag-referencia
+# <a name="start-azsreadinesschecker-cmdlet-reference"></a>A Start-AzsReadinessChecker parancsmag referenciája
 
-A modul: **Microsoft.AzureStack.ReadinessChecker**
+Modul **Microsoft.AzureStack.ReadinessChecker**
 
-Ez a modul csak egyetlen parancsmag tartalmazza. A parancsmag egy vagy több központi telepítés előtti vagy előre karbantartási műveleteket az Azure Stack hajtja végre.
+Ez a modul csak egyetlen parancsmagot tartalmaz. A parancsmag egy vagy több üzembe helyezés előtti vagy karbantartási funkciót hajt végre a Azure Stackhoz.
 
 ## <a name="syntax"></a>Szintaxis
 
@@ -166,11 +166,11 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>Leírás
 
-A **Start-AzsReadinessChecker** parancsmag ellenőrzi a tanúsítványokat, Azure-fiókok, az Azure-előfizetések és az Azure Active könyvtárak. Azure Stack üzembe helyezése előtt, vagy azt megelőzően karbantartási műveleteket, mint például a titkos Elforgatás Azure Stack érvényesítési futtatásához. A parancsmag is használható tanúsítvány-aláírási kérelem számára a tanúsítványokat, és opcionálisan a PaaS-tanúsítványok előállításához. Végül a parancsmag is ismételje meg a becsomagolást csomagolási közös problémák javítása a PFX-tanúsítványokat.
+A **Start-AzsReadinessChecker** parancsmag ellenőrzi a tanúsítványokat, az Azure-fiókokat, az Azure-előfizetéseket és az Azure Active könyvtárakat. Futtassa az ellenőrzést Azure Stack telepítése előtt, vagy Azure Stack karbantartási műveletek, például a titkos elforgatás előtt. A parancsmag használatával tanúsítvány-aláírási kérések is létrehozhatók az infrastruktúra-tanúsítványokhoz, és opcionálisan a Pásti tanúsítványokat is. Végezetül a parancsmag újracsomagolhatja a PFX-tanúsítványokat a gyakori csomagolási problémák elhárításához.
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-generate-certificate-signing-request"></a>Példa: a tanúsítvány-aláírási kérelem létrehozása
+### <a name="example-generate-certificate-signing-request"></a>Példa: tanúsítvány-aláírási kérelem előállítása
 
 ```powershell
 $regionName = 'east'
@@ -179,27 +179,27 @@ $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-Ebben a példában `Start-AzsReadinessChecker` állít elő, több tanúsítvány-aláírási kérelem (tanúsítvány-aláírási kérelmeinek) egy AD FS az Azure Stack üzembe helyezés egy régió neve, a megfelelő tanúsítványok **kelet** és a egy külső Tartományneve  **azurestack.contoso.com**.
+Ebben a példában `Start-AzsReadinessChecker` több tanúsítvány-aláírási kérést (munkatársakat) állít elő a AD FS Azure stack üzemelő példányhoz, amely egy **keleti** régió neve, és a **azurestack.contoso.com**külső teljes tartományneve.
 
-### <a name="example-validate-certificates"></a>Példa: a tanúsítványok ellenőrzése
+### <a name="example-validate-certificates"></a>Példa: tanúsítványok ellenőrzése
 
 ```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-Ebben a példában a PFX-jelszó szükség a biztonsági, és `Start-AzsReadinessChecker` ellenőrzi a relatív mappa **tanúsítványok** egy régió neve, az aad-ben üzembe helyezésének érvényes tanúsítványok **kelet** és a egy külső FQDN-jének **azurestack.contoso.com**.
+Ebben a példában a pfx-jelszó szükséges a biztonsághoz, és `Start-AzsReadinessChecker` ellenőrzi a HRE üzemelő példányok relatív mappájának **tanúsítványait** a **keleti** régió nevével és a azurestack.contoso.com külső teljes tartománynevével..
 
-### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Példa: az üzembe helyezési adatok (üzembe helyezés és támogatás) tanúsítványok érvényesítésére
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Példa: tanúsítványok ellenőrzése központi telepítési adattal (üzembe helyezés és támogatás)
 
 ```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-A központi telepítés és a támogatás a példában a PFX-jelszó szükség a biztonsági, és `Start-AzsReadinessChecker` ellenőrzi a relatív mappa **tanúsítványok** érvényes, amelyeknél identitás, a régiót és a külső FQDN központi tanúsítványok a központi telepítési adatok JSON-fájl jön létre a központi telepítés olvasni.
+Ebben az üzembe helyezési és támogatási példában a pfx-jelszó szükséges a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi a központi telepítéshez tartozó, az identitást, a régiót és a külső teljes tartománynevet tartalmazó üzemelő példányhoz tartozó tanúsítványok relatív mappájának **tanúsítványait** . az üzembe helyezéshez létrehozott, az adatjson-fájl.
 
-### <a name="example-validate-paas-certificates"></a>Példa: PaaS tanúsítványok ellenőrzése
+### <a name="example-validate-paas-certificates"></a>Példa: Pásti-tanúsítványok ellenőrzése
 
 ```powershell
 $PaaSCertificates = @{
@@ -212,9 +212,9 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
-Ebben a példában egy kivonattáblát elérési utak és a jelszavakat az egyes PaaS tanúsítvány jön létre. Tanúsítványok elhagyható. `Start-AzsReadinessChecker` ellenőrzi, hogy mindegyik PFX elérési út létezik, és érvényesíti azokat a régió **kelet** és külső FQDN **azurestack.contoso.com**.
+Ebben a példában egy szórótábla elérési utakat és jelszavakat hoz létre az egyes Péter-tanúsítványokhoz. A tanúsítványok nem hagyhatók el. `Start-AzsReadinessChecker`ellenőrzi, hogy az egyes PFX-útvonalak léteznek-e, és a **keleti** régió és a külső FQDN **azurestack.contoso.com**használatával érvényesíti őket.
 
-### <a name="example-validate-paas-certificates-with-deployment-data"></a>Példa: PaaS-tanúsítványok központi telepítési adatok ellenőrzése
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>Példa: a Pásti-tanúsítványok érvényesítése telepítési adattal
 
 ```powershell
 $PaaSCertificates = @{
@@ -227,9 +227,9 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-Ebben a példában egy kivonattáblát elérési utak és a jelszavakat az egyes PaaS tanúsítvány jön létre. Tanúsítványok elhagyható. `Start-AzsReadinessChecker` ellenőrzi, hogy mindegyik PFX elérési út létezik, és ellenőrzi azokat a régiót, és külső FQDN olvasni a telepítési adatok JSON-fájl jön létre a központi telepítés.
+Ebben a példában egy szórótábla elérési utakat és jelszavakat hoz létre az egyes Péter-tanúsítványokhoz. A tanúsítványok nem hagyhatók el. `Start-AzsReadinessChecker`ellenőrzi, hogy az egyes PFX-elérési utak léteznek-e, és a központi telepítéshez generált központi telepítési adatok JSON-fájljából beolvasva ellenőrzi a régió és a külső teljes tartománynevet.
 
-### <a name="example-validate-azure-identity"></a>Példa: Azure-identitás ellenőrzése
+### <a name="example-validate-azure-identity"></a>Példa: az Azure Identity ellenőrzése
 
 ```powershell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -237,18 +237,18 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonság érdekében és `Start-AzsReadinessChecker` ellenőrzi, hogy az Azure-fiók és az Azure Active Directory bérlői könyvtár nevét aad-ben üzembe helyezésének érvényes  **azurestack.contoso.com**.
+Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi, hogy az Azure-fiók és a Azure Active Directory érvényesek-e egy HRE-példányhoz a azurestack.contoso.com bérlői könyvtárának nevével..
 
-### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Példa: Azure-identitás (üzembe helyezés támogatása) üzembe helyezési adatok ellenőrzése
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Példa: az Azure-identitás ellenőrzése központi telepítési adatokkal (üzembe helyezési támogatás)
 
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonság érdekében és `Start-AzsReadinessChecker` ellenőrzi, hogy az Azure-fiók és az Azure Active Directory érvényesek az aad-ben üzembe helyezéshez, amelyben **AzureCloud** és **TenantName** olvassa a a telepítési adatok JSON-fájl jön létre a központi telepítés rendszer.
+Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi, hogy az Azure-fiók és a Azure Active Directory érvényesek-e egy HRE üzemelő példányhoz, ahol a **AzureCloud** és a **TenantName** olvasása történik. a központi telepítéshez generált központi telepítési adatok JSON-fájljából.
 
-### <a name="example-validate-azure-registration"></a>Példa: Azure-regisztráció ellenőrzése
+### <a name="example-validate-azure-registration"></a>Példa: az Azure-regisztráció ellenőrzése
 
 ```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -257,9 +257,9 @@ $subscriptionID = "<subscription ID"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-Ebben a példában az előfizetés tulajdonosa hitelesítő adatok szükségesek a biztonság érdekében és `Start-AzsReadinessChecker` hajtja végre az ellenőrzés az adott fiók és -előfizetés annak biztosítása érdekében az Azure Stack-regisztráció is használható.
+Ebben a példában az előfizetés tulajdonosának hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , majd a megadott fiókkal és előfizetéssel érvényesítik az érvényesítést, hogy Azure stack regisztrációhoz is felhasználhatók legyenek.
 
-### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Példa: központi adatokat (a telepítési csapat) az Azure-regisztráció ellenőrzése
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Példa: az Azure-regisztráció ellenőrzése központi telepítési adattal (üzembe helyezési csapat)
 
 ```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -267,351 +267,351 @@ $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Ebben a példában az előfizetés tulajdonosa hitelesítő adatok szükségesek a biztonság érdekében és `Start-AzsReadinessChecker` hajtja végre az ellenőrzés az adott fiókot és előfizetést győződjön meg arról is használható az Azure Stack-regisztráció, ahol a további részletekért olvassa el a üzembe helyezési adatok JSON-fájl jön létre a központi telepítéshez.
+Ebben a példában az előfizetés tulajdonosának hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , majd a megadott fiókkal és előfizetéssel érvényesíti az érvényesítést, hogy biztosítható legyen Azure stack regisztrációhoz, ahol további részletek olvashatók a a központi telepítéshez létrehozott telepítési adatjson-fájl.
 
-### <a name="example-importexport-pfx-package"></a>Példa: importálási/exportálási PFX-csomag
+### <a name="example-importexport-pfx-package"></a>Példa: PFX-csomag importálása/exportálása
 
 ```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-Ebben a példában a PFX-jelszó megadása kötelező a biztonság. A Ssl.pfx fájlt importálja a helyi számítógép tanúsítványtárolójába, ugyanazt a jelszót újra exportálva, és Ssl_new.pfx elmentve. Ez az eljárás szolgál, ha a tanúsítványok ellenőrzését megjelölt, hogy nem rendelkezik titkos kulccsal a **helyi gép** attribútumkészletet, a tanúsítványlánc megszakad, nem számít tanúsítványok találhatók a PFX vagy a tanúsítványlánc a nem megfelelő sorrendben.
+Ebben a példában a PFX-jelszó szükséges a biztonsághoz. Az SSL. pfx fájlt a rendszer importálja a helyi számítógép tanúsítványtárolóba, majd újra exportálja ugyanazzal a jelszóval, és a Ssl_new. pfx néven menti. Ezt az eljárást akkor használja a rendszer, ha a tanúsítvány-ellenőrzés azt jelzi, hogy egy titkos kulcs nem rendelkezik a **helyi számítógép** attribútumával, a tanúsítványlánc megszakad, a nem releváns tanúsítványok szerepelnek a pfx-ben, vagy a tanúsítványlánc nem megfelelő sorrendben van megadva.
 
-### <a name="example-view-validation-report-deployment-and-support"></a>Például: ellenőrzési jelentés megjelenítése (üzembe helyezés és támogatás)
+### <a name="example-view-validation-report-deployment-and-support"></a>Példa: ellenőrzési jelentés megtekintése (központi telepítés és támogatás)
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
-Ebben a példában az üzembe helyezés vagy a támogatási csapat a készültségi jelentést kap az ügyfél (Contoso), és használja `Start-AzsReadinessChecker` , az ellenőrzés céljából Contoso végrehajtott művelet állapotának megtekintéséhez.
+Ebben a példában az üzembe helyezési vagy támogatási csapat megkapja a készültségi jelentést az ügyféltől (contoso), és `Start-AzsReadinessChecker` a használatával megtekintheti a contoso által végrehajtott érvényesítési végrehajtások állapotát.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Például: ellenőrzési jelentés összefoglaló tanúsítvány érvényesítési csak (üzembe helyezés és támogatás) megtekintése
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Példa: az ellenőrzési jelentés összefoglalásának megtekintése csak tanúsítvány-ellenőrzéshez (telepítés és támogatás)
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
-Ebben a példában az üzembe helyezés vagy a támogatási csapat a készültségi jelentést kap az ügyfél (Contoso), és használja `Start-AzsReadinessChecker` a tanúsítvány érvényesítése céljából Contoso végrehajtott összesített állapotának megtekintése.
+Ebben a példában az üzembe helyezési vagy támogatási csapat megkapja a készültségi jelentést az ügyféltől (contoso), és `Start-AzsReadinessChecker` a használatával megtekinti a tanúsítvány-ellenőrzési végrehajtások contoso által végrehajtott összefoglaló állapotát.
 
 ## <a name="required-parameters"></a>Szükséges paraméterek
 
-### <a name="-regionname"></a>-RegionName
+### <a name="-regionname"></a>– RegionName
 
-Az Azure Stack üzembe helyezési régió nevét adja meg.
-
-|  |  |
-|----------------------------|--------------|
-|Típus:                       |String        |
-|Pozíció:                   |nevű         |
-|Alapértelmezett érték:              |Egyik sem          |
-|Adatcsatorna bemenetének elfogadása:      |Hamis         |
-|Helyettesítő karakterek elfogadása: |Hamis         |
-
-### <a name="-fqdn"></a>-FQDN
-
-Adja meg az Azure Stack üzembe helyezés külső teljes Tartományneve, is aliasneve **ExternalFQDN** és **ExternalDomainName**.
+Megadja a Azure Stack központi telepítési régiójának nevét.
 
 |  |  |
 |----------------------------|--------------|
-|Típus:                       |String        |
-|Pozíció:                   |nevű         |
+|Típus:                       |Sztring        |
+|Pozíció:                   |Elemzi         |
+|Alapértelmezett érték:              |Nincsenek          |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)         |
+|Helyettesítő karakterek elfogadása: |False (Hamis)         |
+
+### <a name="-fqdn"></a>– FQDN
+
+Meghatározza a Azure Stack központi telepítésének külső FQDN-jét, amely a **ExternalFQDN** és a **ExternalDomainName**is aliasként van megjelölve.
+
+|  |  |
+|----------------------------|--------------|
+|Típus:                       |Sztring        |
+|Pozíció:                   |Elemzi         |
 |Alapértelmezett érték:              |ExternalFQDN, ExternalDomainName |
-|Adatcsatorna bemenetének elfogadása:      |Hamis         |
-|Helyettesítő karakterek elfogadása: |Hamis         |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)         |
+|Helyettesítő karakterek elfogadása: |False (Hamis)         |
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
-Adja meg az Azure Stack üzembe helyezési identitás rendszer érvényes értékek, az AAD vagy az ADFS, Azure Active Directory és az Active Directory összevonási szolgáltatásokat, a jelölik.
+Meghatározza a Azure Stack központi telepítési azonosító rendszer érvényes értékeit, HRE vagy ADFS-t Azure Active Directory és Active Directory összevont szolgáltatások esetében.
 
 |  |  |
 |----------------------------|--------------|
-|Típus:                       |String        |
-|Pozíció:                   |nevű         |
-|Alapértelmezett érték:              |Egyik sem          |
+|Típus:                       |Sztring        |
+|Pozíció:                   |Elemzi         |
+|Alapértelmezett érték:              |Nincsenek          |
 |Érvényes értékek:               |'AAD','ADFS'  |
-|Adatcsatorna bemenetének elfogadása:      |Hamis         |
-|Helyettesítő karakterek elfogadása: |Hamis         |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)         |
+|Helyettesítő karakterek elfogadása: |False (Hamis)         |
 
 ### <a name="-pfxpassword"></a>-PfxPassword
 
-Adja meg a tanúsítvány PFX-fájlok társított jelszót.
+Megadja a PFX-tanúsítványfájl-fájlokhoz társított jelszót.
 
 |  |  |
 |----------------------------|---------|
 |Típus:                       |SecureString |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-paascertificates"></a>-PaaSCertificates
 
-Az elérési utak és a jelszavakat a PaaS-tanúsítványokat tartalmazó kivonattáblát határozza meg.
+Megadja a szórótábla elérési utakat és jelszavakat tartalmazó.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |Kivonattábla |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Szórótábla |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
-Itt adható meg az Azure Stack üzembe helyezési adatok JSON-konfigurációs fájlt. Ez a fájl jön létre a központi telepítés.
+Megadja a Azure Stack központi telepítési adatjson konfigurációs fájlját. Ezt a fájlt a rendszer az üzembe helyezéshez hozza létre.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-pfxpath"></a>-PfxPath
 
-Ezt az eszközt a tanúsítványok ellenőrzését aszinkronitást-importálási és exportálási rutin megoldásához, igénylő problémát észlel tanúsítvány elérési útja.
+Meghatározza egy olyan problémás tanúsítvány elérési útját, amelyhez importálási/exportálási rutin szükséges a javításhoz, ahogy azt az eszköz tanúsítvány-ellenőrzése is jelzi.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-exportpfxpath"></a>-ExportPFXPath  
 
-Megadja a eredő PFX-fájlt az importálási/exportálási rutin a cél elérési útját.  
+Megadja az eredő PFX-fájl célhelyének elérési útját az importálási/exportálási rutinból.  
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
-### <a name="-subject"></a>-Tulajdonos
+### <a name="-subject"></a>-Tárgy
 
-A tanúsítvány-kérelem létrehozása egy rendezett szótár, az e-mail tárgyát határozza meg.
+Meghatározza a tanúsítvány kérésének generálásához tartozó tulajdonos rendezett szótárát.
 
 |  |  |
 |----------------------------|---------|
 |Típus:                       |OrderedDictionary   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-requesttype"></a>-RequestType
 
-A SAN adja meg a tanúsítványkérelem. Érvényes értékek a következők **MultipleCSR**, **SingleCSR**.
+Megadja a tanúsítványkérelem SAN-típusát. Az érvényes értékek a következők: **MultipleCSR**, **SingleCSR**.
 
-- **MultipleCSR** állít elő, több tanúsítvány-kérelmeket, egyet az egyes szolgáltatások.
-- **SingleCSR** hoz létre egy tanúsítványkérelmet szolgáltatásokhoz.
+- A **MultipleCSR** több tanúsítványkérelmet generál, egyet az egyes szolgáltatásokhoz.
+- A **SingleCSR** minden szolgáltatáshoz létrehoz egy tanúsítványkérelmet.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
 |Érvényes értékek:               |'MultipleCSR','SingleCSR' |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-outputrequestpath"></a>-OutputRequestPath
 
-Megadja a tanúsítványfájlok kérelem elérési út. Könyvtár már léteznie kell.
+Megadja a tanúsítványkérelem fájljainak elérési útját. A könyvtárnak már léteznie kell.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Adja meg az Azure Active Directory szolgáltatás rendszergazdája számára az Azure Stack üzembe helyezéshez használható.
+Meghatározza a Azure Stack telepítéshez használandó Azure Active Directory szolgáltatás-rendszergazdát.
 
 |  |  |
 |----------------------------|---------|
 |Típus:                       |PSCredential   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Azure Stack központi telepítéshez használt adja meg az Azure Active Directoryban.
+Meghatározza Azure Stack központi telepítéshez használandó Azure Active Directory nevét.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
-Az Azure-szolgáltatások tartalmazó a fiókok, könyvtárak és az előfizetések Azure Stack üzembe helyezésére és regisztrációjára használható példányát határozza meg.
+Meghatározza az Azure-szolgáltatások azon példányát, amely a Azure Stack üzembe helyezéséhez és regisztrálásához használt fiókokat, címtárakat és előfizetéseket tartalmazza.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
 |Érvényes értékek:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
-Megadja, hogy a regisztráció az Azure Stack-regisztráció használandó.
+A Azure Stack regisztrációhoz használt regisztrációs fiókot adja meg.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
-Itt adhatja meg a regisztrációs előfizetés-azonosító használható az Azure Stack-regisztráció.
+Az Azure Stack regisztrációhoz használt regisztrációs előfizetés AZONOSÍTÓját adja meg.
 
 |  |  |
 |----------------------------|---------|
 |Típus:                       |Guid     |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Egyik sem     |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Nincsenek     |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-reportpath"></a>-ReportPath
 
-Készültségi jelentés elérési útja, alapértelmezés szerint az aktuális címtár és az alapértelmezett a jelentés nevét.
+Megadja a készültségi jelentés elérési útját, alapértelmezés szerint az aktuális könyvtár és a jelentés alapértelmezett neve.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Az összes      |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Összes      |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ## <a name="optional-parameters"></a>Választható paraméterek
 
 ### <a name="-certificatepath"></a>-CertificatePath
 
-Itt adhatja meg az elérési utat, amelyben csak a tanúsítványra szükség mappákat tanúsítvány jelen.
+Megadja azt az elérési utat, amely alatt csak a tanúsítványhoz szükséges tanúsítvány-mappák jelennek meg.
 
-Azure Active Directory identitáskezelő rendszerbe Azure Stack üzembe helyezéshez szükséges mappák a következők:
+A Azure Active Directory Identity System Azure Stack telepítéséhez szükséges mappák a következők:
 
 ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 
-Azure stack-telepítés Active Directory összevonási szolgáltatások identitáskezelő rendszerbe van szükséges a mappa:
+A Active Directory összevonási szolgáltatások (AD FS) Identity System Azure Stack telepítéséhez szükséges mappa a következő:
 
 ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |. \Certificates |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |.\Certificates |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
 ### <a name="-includepaas"></a>-IncludePaaS  
 
-Itt adhatja meg, e PaaS-szolgáltatások/állomásnevek hozzá kell adni a tanúsítvány kérést.
+Megadja, hogy a rendszer felveszi-e a Pásti-szolgáltatások/állomásnevek nevét a tanúsítványkérelem (ok) hoz.
 
 |  |  |
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
-|Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |Hamis             |
-|Adatcsatorna bemenetének elfogadása:      |Hamis             |
-|Helyettesítő karakterek elfogadása: |Hamis             |
+|Pozíció:                   |Elemzi             |
+|Alapértelmezett érték:              |False (Hamis)             |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
+|Helyettesítő karakterek elfogadása: |False (Hamis)             |
 
 ### <a name="-reportsections"></a>-ReportSections
 
-Itt adhatja meg, hogy csak az jeleníti meg a jelentés összefoglaló, az áttekinthetőség kedvéért kihagyja részletei.
+Megadja, hogy csak a jelentés összegzése jelenjen-e meg, kihagyja a részleteket.
 
 |  |  |
 |----------------------------|---------|
-|Típus:                       |String   |
-|Pozíció:                   |nevű    |
-|Alapértelmezett érték:              |Az összes      |
-|Érvényes értékek:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
-|Adatcsatorna bemenetének elfogadása:      |Hamis    |
-|Helyettesítő karakterek elfogadása: |Hamis    |
+|Típus:                       |Sztring   |
+|Pozíció:                   |Elemzi    |
+|Alapértelmezett érték:              |Összes      |
+|Érvényes értékek:               |"Certificate", "AzureRegistration", "AzureIdentity", "Jobs", "all" |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)    |
+|Helyettesítő karakterek elfogadása: |False (Hamis)    |
 
-### <a name="-summary"></a>-Összefoglaló
+### <a name="-summary"></a>– Összefoglalás
 
-Itt adhatja meg, hogy csak az jeleníti meg a jelentés összefoglaló, az áttekinthetőség kedvéért kihagyja részletei.
+Megadja, hogy csak a jelentés összegzése jelenjen-e meg, kihagyja a részleteket.
 
 |  |  |
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
-|Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |Hamis             |
-|Adatcsatorna bemenetének elfogadása:      |Hamis             |
-|Helyettesítő karakterek elfogadása: |Hamis             |
+|Pozíció:                   |Elemzi             |
+|Alapértelmezett érték:              |False (Hamis)             |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
+|Helyettesítő karakterek elfogadása: |False (Hamis)             |
 
 ### <a name="-cleanreport"></a>-CleanReport
 
-Eltávolítja az előző végrehajtás és érvényesítési előzmények, és a egy új jelentés ellenőrzések írja.
+Eltávolítja az előző végrehajtást és az érvényesítési előzményeket, és egy új jelentésbe írja az érvényességet.
 
 |  |  |
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
-|Aliasnevek:                    |CF-hez                |
-|Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |Hamis             |
-|Adatcsatorna bemenetének elfogadása:      |Hamis             |
-|Helyettesítő karakterek elfogadása: |Hamis             |
+|Aliasok                    |CF                |
+|Pozíció:                   |Elemzi             |
+|Alapértelmezett érték:              |False (Hamis)             |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
+|Helyettesítő karakterek elfogadása: |False (Hamis)             |
 
-### <a name="-outputpath"></a>-OutputPath
+### <a name="-outputpath"></a>– OutputPath
 
-Itt adható meg egy egyéni elérési út készültségi jelentés a JSON és a részletes naplófájl mentéséhez. Ha az elérési út már nem létezik, a parancs megkísérli a következő könyvtár létrehozásakor.
+Meghatározza a készültségi JSON-jelentés és a részletes naplófájl mentésének egyéni elérési útját. Ha az elérési út még nem létezik, a parancs megkísérli létrehozni a könyvtárat.
 
 |  |  |
 |----------------------------|------------------|
-|Típus:                       |String            |
-|Pozíció:                   |nevű             |
+|Típus:                       |Sztring            |
+|Pozíció:                   |Elemzi             |
 |Alapértelmezett érték:              |$ENV: TEMP\AzsReadinessChecker  |
-|Adatcsatorna bemenetének elfogadása:      |Hamis             |
-|Helyettesítő karakterek elfogadása: |Hamis             |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
+|Helyettesítő karakterek elfogadása: |False (Hamis)             |
 
-### <a name="-confirm"></a>-Confirm
+### <a name="-confirm"></a>– Megerősítés
 
 A parancsmag futtatása előtt megerősítést kér.
 
 |  |  |
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
-|Aliasnevek:                    |CF-hez                |
-|Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |Hamis             |
-|Adatcsatorna bemenetének elfogadása:      |Hamis             |
-|Helyettesítő karakterek elfogadása: |Hamis             |
+|Aliasok                    |CF                |
+|Pozíció:                   |Elemzi             |
+|Alapértelmezett érték:              |False (Hamis)             |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
+|Helyettesítő karakterek elfogadása: |False (Hamis)             |
 
-### <a name="-whatif"></a>-WhatIf
+### <a name="-whatif"></a>– WhatIf
 
-Megmutatja, hogy mi történne a parancsmag futtatásakor. A parancsmag nem fut.
+Azt mutatja, hogy mi történne a parancsmag futtatásakor. A parancsmag nem fut.
 
 |  |  |
 |----------------------------|------------------|
 |Típus:                       |SwitchParameter   |
-|Aliasnevek:                    |wi                |
-|Pozíció:                   |nevű             |
-|Alapértelmezett érték:              |Hamis             |
-|Adatcsatorna bemenetének elfogadása:      |Hamis             |
-|Helyettesítő karakterek elfogadása: |Hamis             |
+|Aliasok                    |Wi                |
+|Pozíció:                   |Elemzi             |
+|Alapértelmezett érték:              |False (Hamis)             |
+|Adatcsatorna bemenetének elfogadása:      |False (Hamis)             |
+|Helyettesítő karakterek elfogadása: |False (Hamis)             |
