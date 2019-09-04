@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1908 ismert probléma | Microsoft Docs
-description: Ismerje meg a Azure Stack 1907 ismert problémáit.
+description: Ismerje meg a Azure Stack 1908 ismert problémáit.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: sethm
-ms.reviewer: hectorl
+ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: da995bf2f24c4a9021be3dec675af0b2ae03e0cb
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188930"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234950"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908 ismert probléma
 
@@ -51,13 +51,13 @@ Ez a cikk a Azure Stack 1908-es kiadásának ismert problémáit sorolja fel. A 
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: A felügyeleti portálon az előfizetések **tulajdonságai panel** nem töltődik be megfelelően
-- Szervizkiszolgáló Ezeket az előfizetéseket az előfizetések **áttekintése** panel **Essentials (alapvető** erőforrások) paneljén tekintheti meg.
+- Szervizkiszolgáló Ezeket az előfizetéseket az **előfizetések áttekintése** panel **Essentials (alapvető** erőforrások) paneljén tekintheti meg.
 - Előfordulása Közös
 
 ### <a name="subscriptions-lock-blade"></a>Előfizetések zárolása panel
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: A felügyeleti portálon a felhasználói előfizetések zárolási paneljének két butons van, amelyek az előfizetést mondják.
+- Ok: A felügyeleti portálon a felhasználói előfizetések **zárolási** paneljének két butons van, amelyek az **előfizetést**mondják.
 - Előfordulása Közös
 
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
@@ -174,7 +174,7 @@ Ez a cikk a Azure Stack 1908-es kiadásának ismert problémáit sorolja fel. A 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.    
-- Ok: A virtuális gép diagnosztikai beállításainak paneljén egy fogadó lap van, amely egy **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
+- Ok: A virtuális gép diagnosztikai beállításainak paneljén egy **fogadó lap van, amely egy** **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 

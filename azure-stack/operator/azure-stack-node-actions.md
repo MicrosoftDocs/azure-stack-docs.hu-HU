@@ -15,12 +15,12 @@ ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 7ac25e86be91cf6a2e8384c88c79fe3022b3f00d
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: b75d9f37e2b2deacb5935bb6cda3c2586afb8baa
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380469"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235014"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Méretezési egység csomópontjának műveletei Azure Stack
 
@@ -56,7 +56,7 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 
 ### <a name="node-operational-states"></a>Csomópont működési állapotai
 
-| Állapot | Leírás |
+| State | Leírás |
 |----------------------|-------------------------------------------------------------------|
 | Fut | A csomópont aktívan részt vesz a skálázási egységben. |
 | Leállítva | A csomópont nem érhető el. |
@@ -169,11 +169,11 @@ A javítási művelet futtatásához nyisson meg egy rendszergazda jogú PowerSh
 
 ## <a name="shutdown"></a>Leállítás
 
-A  leállítási művelet az összes aktív munkaterhelést a többi csomópontra helyezi át ugyanabban a skálázási egységben. Ezután a művelet szabályosan leállítja a méretezési egység csomópontot.
+A **leállítási** művelet először az összes aktív munkaterhelést áthelyezi a többi csomópontra ugyanazon a skálázási egységen belül. Ezután a művelet szabályosan leállítja a méretezési egység csomópontot.
 
 A leállított csomópont elindítása után futtatnia kell a [Folytatás](#resume) műveletet. A csomóponton futó korábbi munkaterhelések nem tesznek eleget a feladat-visszavételen.
 
-Ha a leállítási művelet meghiúsul, [](#drain) próbálja megpróbálkozni a kiürítési művelettel, majd a leállítási művelettel.
+Ha a leállítási művelet meghiúsul, próbálja megpróbálkozni a [kiürítési](#drain) művelettel, majd a leállítási művelettel.
 
 A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 

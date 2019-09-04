@@ -3,7 +3,7 @@ title: Azure Stack frissítési csomag előkészítése | Microsoft Docs
 description: Útmutató Azure Stack frissítési csomag előkészítéséhez.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/15/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ab7b764e608ed1fb8008071296d0004f6ef65e7a
-ms.sourcegitcommit: 1c45814696e70ba987dd39ce61d93ea4ef5222ea
+ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70029481"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234996"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Azure Stack frissítési csomag előkészítése
 
@@ -28,14 +28,14 @@ ms.locfileid: "70029481"
 
 Ez a cikk áttekintést nyújt Azure Stack frissítési csomagok előkészítéséről, hogy azok a Azure Stack-környezet frissítéséhez használhatók legyenek. Ez a folyamat a következőkből áll:
 
-- [A frissítési csomag letöltése](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#download-the-update-package)
-- [A frissítési csomag importálása a Azure Stack-környezetbe a Azure Stack felügyeleti portálon keresztül](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#import-and-install-updates)
+- [A frissítési csomag letöltése](#download-the-update-package)
+- [A frissítési csomag importálása a Azure Stack-környezetbe a Azure Stack felügyeleti portálon keresztül](#import-and-install-updates)
 
-Ezt a folyamatot a rendszer automatikusan elvégzi Azure Stack szoftverfrissítések és gyorsjavítások számára az internettel rendelkező connectivty az [Azure stack automatikus frissítési végpontokra](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages).
+Azokon a rendszereken, amelyek csatlakozhatnak az automatikus frissítési végpontokhoz, Azure Stack szoftverfrissítések és gyorsjavítások automatikusan letöltődnek és felkészültek. A kapcsolat nélküli rendszerek és az OEM-ből származó bármely frissítés esetén a frissítési csomagot a jelen témakörben ismertetett módon kell előkészíteni.  
 
-Az alábbi táblázat azt mutatja be, hogy a frissítési csomagok manuális előkészítést igényelnek, és automatikusan készüljön fel:
+A következő táblázat azt mutatja be, hogy a frissítési csomagok manuális előkészítést igényelnek, és automatikusan készüljön fel.
 
-| Frissítés típusa | Azure Stack környezet kapcsolódása az [Azure stack automatikus frissítési végpontokhoz](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages) | Beavatkozás szükséges |
+| Frissítés típusa | Kapcsolat | Beavatkozás szükséges |
 | --- | --- | --- |
 | Szoftverfrissítések Azure Stack | Csatlakozva | A rendszer automatikusan letölti és előkészíti a frissítést a frissítés alkalmazása után. |
 | Azure Stack gyorsjavítások | Csatlakozva | A rendszer automatikusan letölti és előkészíti a frissítést a frissítés alkalmazása után. |
@@ -46,6 +46,9 @@ Az alábbi táblázat azt mutatja be, hogy a frissítési csomagok manuális el�
 
 ## <a name="download-the-update-package"></a>A frissítési csomag letöltése
 A Azure Stack frissítések és gyorsjavítások frissítési csomagja a csatlakoztatott rendszerek frissítés paneljén keresztül érhető el. Le kell töltenie a csomagot, és át kell helyeznie a csomagot egy olyan helyre, amely elérhető a Azure Stack példánya számára, ha OEM-csomagot frissít, vagy ha egy leválasztott rendszer támogatását támogatja. Előfordulhat, hogy le kell töltenie a csomagot, majd fel kell töltenie egy elérhető helyre, ha a rendszer egy időszakos kapcsolatban álló rendszert futtat.
+
+>[!NOTE]
+>Maga a frissítési csomag és annak tartalma (például bináris fájlok, PowerShell-parancsfájlok stb.) a Microsoft tulajdonában lévő tanúsítványokkal van aláírva. A csomag módosításával az aláírás érvénytelenné válik.
 
 Tekintse át a csomag tartalmát. A frissítési csomagok általában a következő fájlokból állnak:
 
@@ -103,7 +106,7 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 
 3.  Váltson vissza az irányítópult frissítés paneljére. A panelnek jeleznie kell, hogy van elérhető frissítés. Ez azt jelzi, hogy a frissítés sikeresen előkészített. Az újonnan hozzáadott frissítési csomag áttekintéséhez kattintson a panelre.
 
-4.  A frissítés telepítéséhez jelölje ki a készként megjelölt csomagot, vagy kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most**lehetőséget, vagy kattintson a **Frissítés most** gombra a felső részen.
+4.  A frissítés telepítéséhez jelölje ki a **készként** megjelölt csomagot, vagy kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most**lehetőséget, vagy kattintson a **Frissítés most** gombra a felső részen.
 
 5.  A frissítési csomag telepítése lehetőségre kattintva megtekintheti az állapotot a **frissítési Futtatás részletei** területen. Innen az **Összefoglalás letöltése** lehetőségre kattintva letöltheti a naplófájlokat. A frissítési kísérletek naplói a kísérlet befejezése után 6 hónapig elérhetők.
 
