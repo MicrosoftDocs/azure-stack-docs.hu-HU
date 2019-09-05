@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: sethm
-ms.reviewer: hectorl
+ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 64c2acc0e31266fe63b0198bd9966f74ce39dc23
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: fbf4983f6f7d2f88da70552ae182792ee316994a
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188908"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234970"
 ---
 # <a name="azure-stack-1908-update"></a>Azure Stack 1908 frissítés
 
