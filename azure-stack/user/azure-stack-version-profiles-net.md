@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: af1f1351a5659447fb0f9e7ac9782fb74208e038
+ms.sourcegitcommit: ebb5afb7968d3e6531ecfcde7f4bb5e4420caf02
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959379"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70302380"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-verzióprofilok használata a .NET-tel az Azure Stackben
 
@@ -63,7 +63,7 @@ Az alkalmazás összes beállítását egyesítheti.
 
 5.  Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Hozzon létre egy előfizetést az utasításokért lásd: [ajánlatok, előfizetések létrehozása az Azure Stackben][].
 
-6.  Hozzon létre egy egyszerű szolgáltatást, és mentse az ügyfél-Azonosítót és a titkos Ügyfélkulcsot. Az Azure Stackhoz tartozó egyszerű szolgáltatásnév létrehozásával kapcsolatos utasításokért lásd: [alkalmazások hozzáférésének biztosítása Azure Stack] []. Az ügyfél-azonosító a szolgáltatásnév létrehozásakor az alkalmazás-azonosító néven is ismert.
+6.  Hozzon létre egy egyszerű szolgáltatást, és mentse az ügyfél-Azonosítót és a titkos Ügyfélkulcsot. Az Azure Stack egyszerű szolgáltatásának létrehozásával kapcsolatos utasításokért lásd: [Alkalmazások elérése az Azure Stackhez][]. Az ügyfél-azonosító a szolgáltatásnév létrehozásakor az alkalmazás-azonosító néven is ismert.
 
 7.  Ellenőrizze, hogy az egyszerű szolgáltatást a közreműködői és tulajdonosi szerepkör-előfizetésében. Szerepkör hozzárendelése egyszerű szolgáltatást, lásd: [Alkalmazások elérése az Azure Stackhez][].
 
@@ -77,7 +77,7 @@ Azure .NET SDK használata az Azure Stack használatával, adja meg a következ�
 | Ügyfél-azonosító                 | `AZURE_CLIENT_ID `      | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. |
 | Előfizetés azonosítója           | `AZURE_SUBSCRIPTION_ID` | A [ *előfizetés-azonosító* ][] van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben.                                                      |
 | Titkos ügyfélkulcs             | `AZURE_CLIENT_SECRET`   | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve.                                      |
-| Resource Manager-végpont | `ARM_ENDPOINT`          | Lásd [*a Azure stack Resource Manager*][]-végpontot.                                                                    |
+| Resource Manager-végpont | `ARM_ENDPOINT`          | Lásd [*a Azure stack Resource Manager-végpontot*][].                                                                    |
 | Location                  | `RESOURCE_LOCATION`     | A Azure Stack helye.
 
 Az Azure stack a bérlő Azonosítójának megkereséséhez kövesse az utasításokat, található [Itt](../operator/azure-stack-csp-ref-operations.md). A környezeti változók beállításához hajtsa végre a következő lépéseket:

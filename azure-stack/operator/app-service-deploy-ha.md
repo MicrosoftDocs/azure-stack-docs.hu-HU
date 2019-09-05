@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959554"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271831"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
@@ -101,7 +101,7 @@ A sablon kimeneti értékeinek felderítéséhez kövesse az alábbi lépéseket
 
     ![Microsoft. Template deployment](media/app-service-deploy-ha/6.png)
 
-4. A **Microsoft. template** telepítésének kiválasztása után válassza a kimenetek lehetőséget, és jegyezze fel a sablon paraméter kimenetét. Ez az információ a App Service telepítésekor szükséges.
+4. A **Microsoft. template** telepítésének kiválasztása után válassza a **kimenetek** lehetőséget, és jegyezze fel a sablon paraméter kimenetét. Ez az információ a App Service telepítésekor szükséges.
 
     ![Paraméter kimenete](media/app-service-deploy-ha/7.png)
 
@@ -122,8 +122,8 @@ A App Service telepítőjének futtatása előtt több lépésre van szükség, 
 
 - [Töltse le a app Service telepítőjét és a segítő parancsfájlokat](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
 - [Töltse le az egyéni szkriptek legújabb bővítményét a Azure stack Marketplace-](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)re.
-- A [szükséges tanúsítványok](azure-stack-app-service-before-you-get-started.md#get-certificates)előállítása.
-- Hozza létre az azonosító alkalmazást a Azure Stack kiválasztott azonosító alapján. Egy azonosító alkalmazás az [Azure ad](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) -hez vagy a [Active Directory összevonási szolgáltatások (AD FS)hoz](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) , és rögzíti az alkalmazás azonosítóját.
+- A [szükséges tanúsítványok előállítása](azure-stack-app-service-before-you-get-started.md#get-certificates).
+- Hozza létre az azonosító alkalmazást a Azure Stack kiválasztott azonosító alapján. Egy azonosító alkalmazás az [Azure ad](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) -hez vagy a [Active Directory összevonási szolgáltatások (AD FS)hoz](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) , és rögzíti az alkalmazás azonosítóját.
 - Győződjön meg arról, hogy felvette a Windows Server 2016 Datacenter rendszerképet a Azure Stack piactéren. Ez a rendszerkép szükséges a App Service telepítéséhez.
 
 ### <a name="steps-for-app-service-deployment"></a>App Service központi telepítésének lépései
@@ -158,7 +158,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![Kapcsolódás a Azure Stack-előfizetéshez App Service](media/app-service-deploy-ha/05.png)
 
-7. Válassza a **meglévő VNet és** alhálózatok és az **erőforráscsoport nevének** használata a magasan elérhető sablon üzembe helyezéséhez használt erőforráscsoport számára lehetőséget.<br><br>Ezután válassza ki a sablon központi telepítésének részeként létrehozott virtuális hálózatot, majd válassza ki a megfelelő szerepkör-alhálózatokat a legördülő lista beállításai közül. 
+7. Válassza a **meglévő VNet és alhálózatok** és az **erőforráscsoport nevének** használata a magasan elérhető sablon üzembe helyezéséhez használt erőforráscsoport számára lehetőséget.<br><br>Ezután válassza ki a sablon központi telepítésének részeként létrehozott virtuális hálózatot, majd válassza ki a megfelelő szerepkör-alhálózatokat a legördülő lista beállításai közül. 
 
     ![Vnet kiválasztása App Service](media/app-service-deploy-ha/06.png)
 
@@ -171,14 +171,14 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
     ![Várt hiba párbeszédpanel App Service](media/app-service-deploy-ha/08.png)
 
     Ha úgy dönt, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt. Ez a szabály engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-    - Adatforrás: Any
+    - Forrás: Any
     - Forrásoldali porttartomány: *
-    - Cél IP-címek
+    - Cél: IP-címek
     - Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
     - Célport tartománya: 445
     - Protokoll: TCP
     - Művelet: Allow
-    - Prioritású 700
+    - Fontosság: 700
     - Név: Outbound_Allow_SMB445
 
 10. Adja meg az azonosító alkalmazás AZONOSÍTÓját, valamint az identitási tanúsítványok elérési útját és jelszavát, majd kattintson a **tovább**gombra:

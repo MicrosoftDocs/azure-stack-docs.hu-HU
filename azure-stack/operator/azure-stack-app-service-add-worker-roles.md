@@ -1,6 +1,6 @@
 ---
-title: Horizontális felskálázás az App Services szolgáltatásban – Azure Stack a feldolgozói szerepkörökhöz |} A Microsoft Docs
-description: Részletes útmutatást az Azure Stack App Services méretezése
+title: Feldolgozók és infrastruktúra hozzáadása a App Service Azure Stackban | Microsoft Docs
+description: Részletes útmutató a Azure Stack App Services skálázásához
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,33 +16,33 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: c7dcb31c74ac08f3045425d246e17376808a5b98
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 43ee38c18e2831d1cb96958501cee6f77292edd0
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269304"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271682"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service-ben az Azure Stack: További infrastruktúra vagy feldolgozói szerepkörök hozzáadása
+# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*  
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
 
-Ez a dokumentum méretezése App Service-ben az Azure Stack-infrastruktúra és a feldolgozói szerepkörök kapcsolatos útmutatást. Bármilyen méretű alkalmazások támogatásához további feldolgozói szerepkörök létrehozásának lépéseit tartalmazza.
+Ez a dokumentum útmutatást nyújt az infrastruktúra és a feldolgozói szerepkörök méretezéséhez a Azure Stack App Serviceban. Részletesen ismertetjük mindazokat a lépéseket, amelyek szükségesek a további feldolgozói szerepkörök létrehozásához bármilyen méretű alkalmazások támogatásához.
 
 > [!NOTE]
-> Ha az Azure Stack-környezet nem rendelkezik több mint 96 GB RAM, előfordulhat, hogy további kapacitást nehézségek.
+> Ha a Azure Stack-környezet nem rendelkezik több mint 96 GB RAM-mal, lehetséges, hogy nehézségekbe ütközik a további kapacitás hozzáadásával.
 
-App Service-ben az Azure Stacken, alapértelmezés szerint támogatja az ingyenes és a megosztott feldolgozói rétegek. Adja hozzá a többi feldolgozói rétegek, további feldolgozói szerepkörök hozzáadása kell.
+A App Service on Azure Stack az ingyenes és a közös feldolgozói szintet is támogatja alapértelmezetten. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 
-Ha nem biztos abban, hogy mi az Azure Stack-telepítés az alapértelmezett App Service-ben üzemel, áttekintheti a további információkat a [App Service-ben az Azure Stack áttekintése](azure-stack-app-service-overview.md).
+Ha nem biztos abban, hogy mi lett telepítve az alapértelmezett App Service Azure Stack telepítéskor, tekintse át a App Service további információit [Azure stack áttekintésében](azure-stack-app-service-overview.md).
 
-Az Azure Stack az Azure App Service üzembe helyezi a Virtual Machine Scale Sets használatával az összes szerepkör, és így igénybe veszi ezt a munkafolyamatot skálázási funkcióit. Ezért az összes méretezés a feldolgozói rétegek használatával történik az App Service-rendszergazdához.
+A Azure App Service on Azure Stack az összes szerepkört a Virtual Machine Scale Sets használatával helyezi üzembe, és így kihasználja a munkaterhelés méretezési képességeit. Ezért a feldolgozói szintek minden skálázása a App Service-rendszergazda használatával történik.
 
-## <a name="add-additional-workers-with-powershell"></a>Adja hozzá a további feldolgozó a PowerShell-lel
+## <a name="add-additional-workers-with-powershell"></a>További feldolgozók hozzáadása a PowerShell-lel
 
-1. [A PowerShell az Azure Stack rendszergazdai környezet beállítása](azure-stack-powershell-configure-admin.md)
+1. [A Azure Stack felügyeleti környezet beállítása a PowerShellben](azure-stack-powershell-configure-admin.md)
 
-2. Ez a példa használatával horizontális felskálázása a méretezési csoportot:
+2. Ez a példa a méretezési csoport felskálázására használható:
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -69,46 +69,42 @@ Az Azure Stack az Azure App Service üzembe helyezi a Virtual Machine Scale Sets
    ```    
 
    > [!NOTE]
-   > Ebben a lépésben a szerepkör típusát és a példányok számát függően órákig is igénybe vehet.
+   > Ez a lépés a szerepkör típusától és a példányok számától függően több órát is igénybe vehet.
    >
    >
 
-3. Az új App Service felügyeletének szerepkörpéldányt állapotának figyelése, egy egyéni szerepkör-példány állapota kattintson a szerepkör típusát, a listában.
+3. Az új szerepkör-példányok állapotának figyelése a App Service felügyeletben. Egy adott szerepkör-példány állapotának megtekintéséhez kattintson a listában a szerepkör típusára.
 
-## <a name="add-additional-workers-using-the-administration-portal"></a>Adja hozzá a felügyeleti portál használatával további feldolgozók
+## <a name="add-additional-workers-using-the-admin-portal"></a>További feldolgozók felvétele a felügyeleti portál használatával
 
-1. Jelentkezzen be az Azure Stack felügyeleti portálon a szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
 
-2. Keresse meg a **App Services**.
+2. Tallózással keresse meg **app Services**.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![App Service a Azure Stack felügyeleti portálon](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Kattintson a **szerepkörök**. Itt láthatja az összes üzembe helyezett App Service-szerepkör lebontása.
+3. Kattintson a **szerepkörök**elemre. Itt láthatja az összes telepített App Service-szerepkör részletezését.
 
-4. A jobb gombbal a sor a méretezhető, és kattintson a kívánt típusú a **méretezési**.
+4. Kattintson a jobb gombbal a méretezni kívánt típus sorára, majd kattintson a **méretezési csoport**elemre.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![Méretezési csoport App Service szerepkörök a Azure Stack felügyeleti portálon](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Kattintson a **méretezés**, válassza ki a méretezhető, és kattintson a kívánt példányok számát **mentése**.
+5. Kattintson a **skálázás**elemre, válassza ki a méretezni kívánt példányok számát, majd kattintson a **Mentés**gombra.
 
-    ![](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![A Azure Stack felügyeleti portálon App Service szerepkörökre méretezési példányok beállítása](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Az Azure Stack App Service-ben fog most adja hozzá a további virtuális gépek, konfigurálhatja őket, a szükséges szoftver telepítése és megjelölni készen áll a folyamat befejeződése. Ez a folyamat körülbelül 80 percet is igénybe vehet.
+6. A App Service on Azure Stack mostantól hozzáadja a további virtuális gépeket, konfigurálja őket, telepíti az összes szükséges szoftvert, és készként jelöli meg őket a folyamat befejezésekor. Ez a folyamat körülbelül 80 percet is igénybe vehet.
 
-7. Az új szerepkör készen áll-e az előrehaladását a dolgozók megtekintésével figyelheti a **szerepkörök** panelen.
+7. A **szerepkörök** panelen megtekintheti az új szerepkörök készültségének előrehaladását.
 
 ## <a name="result"></a>Eredmény
 
-Miután bekerültek a teljes körűen rendszerbe állított és készen áll, a dolgozók be azokat a számítási feladatok üzembe helyezése felhasználók válnak. Az alábbiakban látható egy példa a többféle tarifacsomagban is kapható elérhető alapértelmezés szerint. Ha egy adott feldolgozói réteg nincs rendelkezésre álló feldolgozók, válassza ki a megfelelő tarifacsomagot lehetőség nem érhető el.
+Miután teljesen üzembe lettek és készen állnak, a dolgozók elérhetővé válnak a felhasználók számára a számítási feladatok üzembe helyezéséhez. Az alábbi képernyőképen egy példa látható a több, alapértelmezés szerint elérhető díjszabási rétegre. Ha egy adott feldolgozói szinten nem állnak rendelkezésre munkavégzők, a megfelelő árképzési csomag kiválasztásának lehetősége nem érhető el.
 
-![](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Az új App Service-csomag díjszabása Azure Stack felügyeleti portálon](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> A horizontális felskálázáshoz felügyeleti kezelőfelület vagy a közzétevő szerepkört adja hozzá, ki kell terjeszteni a megfelelő szerepkör-típus. 
->
->
-
-A horizontális felskálázáshoz-kezelés, az előtérbeli vagy szerepköröket közzétevő ugyanezekkel a lépésekkel jelölje ki a megfelelő szerepkört. Tartományvezérlők, a méretezési csoportok nem települnek, és ezért két kell telepíteni az összes éles környezetekben üzemelő példányok telepítéskor.
+> A felügyeleti, az előtér-vagy a közzétevői szerepkörök felskálázásához kövesse ugyanezen lépéseket a megfelelő szerepkör típusának kiválasztásával. A vezérlők nem helyezhetők üzembe méretezési csoportként, ezért a telepítéskor a kettőt telepíteni kell az összes éles környezetben.
 
 ### <a name="next-steps"></a>További lépések
 
