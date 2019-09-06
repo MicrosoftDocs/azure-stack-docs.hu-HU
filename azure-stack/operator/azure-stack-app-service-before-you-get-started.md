@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a12aceff00cf5be2d6ab70c4957ef04ea1c135d5
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271709"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386241"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>A App Service telepítésének előfeltételei a Azure Stack
 
@@ -47,9 +47,12 @@ A Azure Stack Azure App Service telepítése előtt végre kell hajtania a cikkb
    - Modulok mappa
      - GraphAPI.psm1
 
-## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Az egyéni szkriptek kibővítése a piactéren
+## <a name="download-items-from-the-azure-marketplace"></a>Elemek letöltése az Azure Marketplace-ről
 
-A Azure App Service on Azure Stack egyéni script Extension v 1.9.1 szükséges.  A bővítményt a [piactéren](azure-stack-download-azure-marketplace-item.md) kell kiépíteni, mielőtt megkezdené a központi telepítés megkezdését vagy a Azure stack Azure app Service frissítését.
+Azure App Service on Azure Stack az [Azure Marketplace-ről le kell töltenie](azure-stack-download-azure-marketplace-item.md)az elemeket, így azok elérhetővé válnak a Azure stack piactéren. Ezeket az elemeket le kell tölteni, mielőtt megkezdené az üzembe helyezést vagy a Azure App Service frissítését Azure Stack:
+
+1. A Windows Server 2016 Datacenter virtuálisgép-lemezkép legújabb verziója.
+2. Egyéni szkript kiterjesztése v 1.9.1 vagy újabb. Ez a virtuálisgép-bővítmény.
 
 ## <a name="get-certificates"></a>Tanúsítványok beolvasása
 

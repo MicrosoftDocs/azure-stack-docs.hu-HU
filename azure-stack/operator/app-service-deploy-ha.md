@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271831"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386248"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
@@ -121,7 +121,7 @@ A App Service telepítőjének futtatása előtt több lépésre van szükség, 
 > A [app Service cikk](azure-stack-app-service-before-you-get-started.md) első lépéseinek megkezdése előtt leírt lépések nem szükségesek, mert a sablon központi telepítése konfigurálja az infrastruktúra-alapú virtuális gépeket.
 
 - [Töltse le a app Service telepítőjét és a segítő parancsfájlokat](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
-- [Töltse le az egyéni szkriptek legújabb bővítményét a Azure stack Marketplace-](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)re.
+- [Elemek letöltése a Azure stack piactérről](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace).
 - A [szükséges tanúsítványok előállítása](azure-stack-app-service-before-you-get-started.md#get-certificates).
 - Hozza létre az azonosító alkalmazást a Azure Stack kiválasztott azonosító alapján. Egy azonosító alkalmazás az [Azure ad](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) -hez vagy a [Active Directory összevonási szolgáltatások (AD FS)hoz](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) , és rögzíti az alkalmazás azonosítóját.
 - Győződjön meg arról, hogy felvette a Windows Server 2016 Datacenter rendszerképet a Azure Stack piactéren. Ez a rendszerkép szükséges a App Service telepítéséhez.

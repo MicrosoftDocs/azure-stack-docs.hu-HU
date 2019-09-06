@@ -15,12 +15,12 @@ ms.date: 09/03/2019
 ms.author: justinha
 ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f34f31ac54881c5911488f5049cc75ffee85bd38
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 366a183f551a2b03016c4e34e5de41a4b5727b80
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234935"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377262"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Frissítések kezelése Azure Stack – áttekintés
 
@@ -67,7 +67,7 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
     A Microsoft-szoftverfrissítések és-gyorsjavítások frissítési riasztása megjelenik az internethez csatlakozó Azure Stack példányok frissítés paneljén.
 
-    Ha a példány nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára.
+    Ha a példány nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára.
 
 - **OEM hardver szállítója – megadott frissítések**
 

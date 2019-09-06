@@ -15,22 +15,22 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 349634e9f7bfdab3ec08630488d19947813361dd
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494062"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377223"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>A rendszerjogosultságú végpont használata Azure Stack
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack-operátorként a legtöbb napi rendszerességű felügyeleti feladat ellátásához a felügyeleti portált, a PowerShellt vagy az Azure Resource Manager API-kat használhatja. Néhány kevésbé gyakori művelet esetében azonban a *Kiemelt jogosultságú végpontot* (PEP) kell használnia. A PEP egy előre konfigurált távoli PowerShell-konzol, amely elegendő képességet biztosít a szükséges feladatok elvégzéséhez. A végpont [PowerShell-JEA (elég felügyelet)](https://docs.microsoft.com/powershell/jea/overview) használ, hogy csak korlátozott számú parancsmagot tegyen elérhetővé. A PEP eléréséhez és a parancsmagok korlátozott készletének meghívásához egy alacsony jogosultsági szintű fiókot kell használni. Nincs szükség rendszergazdai fiókra. A további biztonság érdekében a parancsfájlok futtatása nem engedélyezett.
+Azure Stack-operátorként a legtöbb napi rendszerességű felügyeleti feladat ellátásához a felügyeleti portált, a PowerShellt vagy az Azure Resource Manager API-kat használhatja. Néhány kevésbé gyakori művelet esetében azonban a *Kiemelt jogosultságú végpontot* (PEP) kell használnia. A PEP egy előre konfigurált távoli PowerShell-konzol, amely elegendő képességet biztosít a szükséges feladatok elvégzéséhez. A végpont [PowerShell-JEA (elég felügyelet)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) használ, hogy csak korlátozott számú parancsmagot tegyen elérhetővé. A PEP eléréséhez és a parancsmagok korlátozott készletének meghívásához egy alacsony jogosultsági szintű fiókot kell használni. Nincs szükség rendszergazdai fiókra. A további biztonság érdekében a parancsfájlok futtatása nem engedélyezett.
 
 A PEP használatával olyan feladatokat hajthat végre, mint például a következők:
 
-- Alacsony szintű feladatok végrehajtásához, például a [diagnosztikai naplók](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)összegyűjtéséhez.
+- Alacsony szintű feladatok végrehajtásához, például a [diagnosztikai naplók összegyűjtéséhez](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
 - Számos üzembe helyezés utáni adatközpont-integrációs feladat elvégzéséhez az integrált rendszerekhez, például a tartománynévrendszer (DNS) továbbítóinak az üzembe helyezést követően történő hozzáadásával, Microsoft Graph integráció, a Active Directory összevonási szolgáltatások (AD FS) (AD FS) integrációjának beállításával tanúsítvány elforgatása stb.
 - Az integrált rendszer részletes hibaelhárításához az ideiglenes, magas szintű hozzáférés támogatásával dolgozhat.
 
@@ -47,7 +47,7 @@ Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön me
 
 
 > [!NOTE]
-> Biztonsági okokból szükség van arra, hogy csak olyan megerősített virtuális gépről kapcsolódjon a PEP-hez, amely a hardver életciklus-állomásán fut, vagy egy dedikált, biztonságos számítógépről, például egy emelt [szintű hozzáférésű](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)munkaállomásról. A hardveres életciklus-állomás eredeti konfigurációja nem módosítható az eredeti konfigurációjától, beleértve az új szoftverek telepítését, és nem használható a PEP-hez való kapcsolódásra.
+> Biztonsági okokból szükség van arra, hogy csak olyan megerősített virtuális gépről kapcsolódjon a PEP-hez, amely a hardver életciklus-állomásán fut, vagy egy dedikált, biztonságos számítógépről, például egy emelt [szintű hozzáférésű munkaállomásról](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). A hardveres életciklus-állomás eredeti konfigurációja nem módosítható az eredeti konfigurációjától, beleértve az új szoftverek telepítését, és nem használható a PEP-hez való kapcsolódásra.
 
 1. Hozza létre a bizalmi kapcsolatot.
 
@@ -109,7 +109,7 @@ Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön me
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tippek a Kiemelt végpont használatához 
 
-A fent említettek szerint a PEP egy [PowerShell-JEA](https://docs.microsoft.com/powershell/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a várt viselkedés.
+A fent említettek szerint a PEP egy [PowerShell-JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a várt viselkedés.
 
 Így például egy adott parancsmag paramétereinek listájának lekéréséhez futtassa a következő parancsot:
 
