@@ -12,24 +12,44 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188082"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749940"
 ---
+# <a name="azure-stack-servicing-policy"></a>Azure Stack karbantartási szabályzat
+
+Ez a cikk ismerteti Azure Stack integrált rendszerek karbantartási szabályzatát, és azt, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon.
+
+## <a name="download-update-packages-for-integrated-systems"></a>Frissítési csomagok letöltése az integrált rendszerekhez
+
+A Microsoft a teljes havi frissítési csomagokat és a gyorsjavítási csomagokat is kibocsátja a konkrét problémák megoldására.
+
+A havi frissítési csomagokat egy biztonságos Azure-végpont tárolja. Ezeket manuálisan is letöltheti a [Azure stack Updates Downloader eszközzel](https://aka.ms/azurestackupdatedownload). Ha a skálázási egység csatlakoztatva van, a frissítés **elérhetőként**automatikusan megjelenik a felügyeleti portálon. A teljes, havi frissítési csomagok minden kiadásban jól dokumentálva vannak. Az egyes kiadásokkal kapcsolatos további információkért kattintson a jelen cikk [frissítési csomag kiadási lépésszám](#update-package-release-cadence) szakaszának bármelyik kiadására.
+
+A gyorsjavítás-frissítési csomagok ugyanazon a biztonságos Azure-végponton futnak. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack gyorsjavítások 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). A teljes, havi frissítési csomagokhoz hasonlóan Azure Stack operátorok az. XML, a. bin és az. exe fájlokat is letöltik, majd importálják azokat a [frissítések alkalmazása a Azure stack-ban](azure-stack-apply-updates.md)című témakörben leírtak alapján. A csatlakoztatott méretezési egységeket Azure Stack operátorok automatikusan megjelennek a felügyeleti portálon, az üzenet **frissítésével**együtt.
+
+Ha a méretezési egység nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára, amely minden kiadásban fel van tüntetve.
+
+## <a name="update-package-types"></a>Frissítési csomagok típusai
+
+Az integrált rendszerek két típusú frissítési csomaggal rendelkeznek:
+
+- **Microsoft-szoftverfrissítések**. A Microsoft a Microsoft szoftverfrissítési csomagjainak teljes körű karbantartási életciklusát felelős. Ezek a csomagok magukban foglalhatják a Windows Server legújabb biztonsági frissítéseit, a nem biztonsági frissítéseket és a Azure Stack szolgáltatás frissítéseit. A tézisek frissítési csomagjai közvetlenül a Microsofttól tölthetők le.
+
 - **OEM hardver gyártó által megadott frissítések**. Azure Stack hardveres partnerek felelősek a hardveres belső vezérlőprogram és az illesztőprogram-frissítési csomagok végpontok közötti karbantartási életciklusához (beleértve az útmutatást is). Emellett Azure Stack a hardveres partnereknek is, és útmutatást nyújtanak a hardveres életciklus-gazdagépen található összes szoftverhez és hardverhez. Az OEM hardvergyártó a saját letöltési helyén tárolja ezeket a frissítési csomagokat.
 
 ## <a name="update-package-release-cadence"></a>A csomag kiadási ritmusának frissítése
 
 A Microsoft havi ütemben várja a szoftverfrissítési csomagok kiadását. Azonban lehetséges, hogy több vagy nem frissülő kiadás van egy hónapban. Az OEM-hardvergyártók a szükséges módon szabadítják fel a frissítéseiket.
 
-A frissítések tervezésével és kezelésével, valamint az aktuális verzió meghatározásával kapcsolatos további információkért tekintse meg a frissítések [kezelése](azure-stack-updates.md)című témakörben található dokumentációt.
+A frissítések tervezésével és kezelésével, valamint az aktuális verzió meghatározásával kapcsolatos további információkért tekintse meg a frissítések [kezelése című témakörben](azure-stack-updates.md)található dokumentációt.
 
 Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
@@ -40,11 +60,18 @@ Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés 
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Alkalmanként a Microsoft gyorsjavításokat biztosít a Azure Stack, amelyek gyakran megelőző vagy időérzékeny problémákra vonatkoznak.  Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti.
-
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
-Ez a cikk a Azure Stack integrált rendszerek karbantartási szabályzatát ismerteti, ami szükséges ahhoz, hogy a rendszer támogatott állapotban maradjon, és hogyan kérhet támogatást.
+Alkalmanként a Microsoft gyorsjavításokat biztosít a Azure Stack, amelyek gyakran megelőző vagy időérzékeny problémákra vonatkoznak.  Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti.
+
+A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azure Stack normál teljes frissítési csomagjai. Azonban a teljes frissítéstől eltérően a gyorsjavítások percek alatt telepíthetők. Javasoljuk, hogy a gyorsjavítások telepítésekor Azure Stack operátorok állítsanak be karbantartási időszakokat. A gyorsjavítások frissítik a Azure Stack-felhő verzióját, így könnyen megállapítható, hogy a gyorsjavítás alkalmazása megtörtént-e. A Azure Stack minden olyan verziójához külön gyorsjavítás van megadva, amely továbbra is támogatott. Egy adott iterációhoz tartozó javítások kumulatívak, és az adott verzió korábbi frissítéseit is tartalmazzák. A megfelelő Tudásbázis-cikkben további információt talál egy adott gyorsjavítás alkalmazhatóságáról. Tekintse meg a kibocsátási megjegyzések hivatkozásait az előző szakaszban.
+
+A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
+
+- [Azure Stack 1908 gyorsjavítás](azure-stack-release-notes-1908.md#hotfixes)
+- [Azure Stack 1907 gyorsjavítás](azure-stack-release-notes-1907.md#hotfixes)
+- [Azure Stack 1906 gyorsjavítás](azure-stack-release-notes-1906.md#hotfixes)
+- [Azure Stack 1905 gyorsjavítás](azure-stack-release-notes-1905.md#hotfixes)
 
 ## <a name="keep-your-system-under-support"></a>Tartsa a rendszerét támogatás alatt
 
@@ -58,8 +85,8 @@ A Microsoft szoftverfrissítési csomagjai nem összesítő jellegűek, és elő
 
 ## <a name="get-support"></a>Támogatás kérése
 
-Azure Stack az Azure-beli támogatási folyamatot követi. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: Azure-támogatással kapcsolatos [Gyakori kérdések](https://azure.microsoft.com/support/faq/).
+Azure Stack az Azure-beli támogatási folyamatot követi. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: [Azure-támogatással kapcsolatos gyakori kérdések](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>További lépések
 
-- [Frissítések kezelése az Azure Stackben](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Frissítések kezelése az Azure Stackben](azure-stack-updates.md)

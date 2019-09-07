@@ -15,12 +15,12 @@ ms.date: 08/28/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bea83d743e7f43ff25d446a09b0e12d0c0af4232
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188364"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749938"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Azure Stack eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -36,7 +36,7 @@ A rendszer feltölti ezeket az OEM-csomagok frissítéseit a **updateadminaccoun
 
 Kérje meg az eredeti berendezésgyártó (OEM) adatait az adott értesítési folyamatról, hogy biztosítsa az OEM-csomagok frissítési értesítéseinek elérését a szervezet számára.
 
-Egyes hardvergyártók esetében szükség lehet a belső vezérlőprogram frissítési folyamatát kezelő *hardveres szállító virtuális gépre* . További információ: hardveres [virtuális gép konfigurálása](#configure-hardware-vendor-vm)
+Egyes hardvergyártók esetében szükség lehet a belső vezérlőprogram frissítési folyamatát kezelő *hardveres szállító virtuális gépre* . További információ: [hardveres virtuális gép konfigurálása](#configure-hardware-vendor-vm)
 
 ## <a name="oem-contact-information"></a>OEM kapcsolattartási adatok 
 
@@ -59,8 +59,9 @@ Alkalmazza az OEM-csomagokat a következő lépésekkel:
 1. A következőkre kell felvennie a kapcsolatot az OEM-vel:
       - Határozza meg az OEM-csomag aktuális verzióját.  
       - Az OEM-csomag letöltésére szolgáló legjobb módszer megkeresése.  
-2. Készítse elő az OEM-csomagot az [integrált rendszerek frissítési csomagjainak letöltése](azure-stack-servicing-policy.md)című témakörben leírtak szerint.
-3. Alkalmazza a frissítéseket a következő témakörben ismertetett lépésekkel: a [frissítések alkalmazása Azure stack](azure-stack-apply-updates.md).
+2. Az OEM-csomagok frissítésének alkalmazása előtt mindig alkalmazza a legújabb Azure Stack gyorsjavítást a rendszer aktuális Azure Stack verziójára. További információ a gyorsjavításokról: [Azure stack gyorsjavítások](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+3. Készítse elő az OEM-csomagot az [integrált rendszerek frissítési csomagjainak letöltése](azure-stack-servicing-policy.md)című témakörben leírtak szerint.
+4. Alkalmazza a frissítéseket a következő témakörben ismertetett lépésekkel: a [frissítések alkalmazása Azure stack](azure-stack-apply-updates.md).
 
 ## <a name="configure-hardware-vendor-vm"></a>Hardveres gyártó virtuális gép konfigurálása
 
