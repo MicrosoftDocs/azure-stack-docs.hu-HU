@@ -445,7 +445,7 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Az Azure Stack érvényesítése
           href: azure-stack-diagnostic-test.md
-        - name: Ismert problémák
+        - name: Hibaelhárítás
           href: azure-stack-troubleshooting.md
 - name: Hivatkozás
   items:

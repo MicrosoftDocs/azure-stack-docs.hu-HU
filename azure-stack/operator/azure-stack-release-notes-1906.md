@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
 monikerRange: azs-1906
-ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: ae447df40d29b92f06f345ba54b77ff883e6ff07
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188303"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386214"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 frissítés
 
@@ -113,7 +113,7 @@ A Azure Stack 1906 frissítési Build típusa **expressz**. További informáci�
 
 - Kijavítva a probléma, hogy a virtuálisgép-méretezési csoport létrehozása során a CentOS-alapú 7,2-es verzió üzembe helyezési lehetőséget biztosít. A CentOS 7,2 Azure Stackon nem érhető el. Mostantól a CentOS 7,5-es verzióval biztosítjuk az üzembe helyezési lehetőséget
 
-- Mostantól eltávolíthat egy méretezési csoportot a **virtuálisgép** -méretezési csoportok paneljéről.
+- Mostantól eltávolíthat egy méretezési csoportot a **virtuálisgép-méretezési** csoportok paneljéről.
 
 ## <a name="security-updates"></a>Biztonsági frissítések
 
@@ -149,7 +149,7 @@ A Azure Stack 1906-es kiadását a 1905-es kiadásra kell alkalmazni a következ
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack gyorsjavítás 1.1906.12.54](https://support.microsoft.com/help/4518365)
+- [Azure Stack gyorsjavítás 1.1906.13.56](https://support.microsoft.com/help/4520375)
 
 ## <a name="automatic-update-notifications"></a>Automatikus frissítési értesítések
 
