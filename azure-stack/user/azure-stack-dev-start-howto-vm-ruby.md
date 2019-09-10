@@ -1,6 +1,6 @@
 ---
-title: Ruby-alkalmazás üzembe helyezése egy virtuális géphez az Azure Stackben |} A Microsoft Docs
-description: Ruby-alkalmazás üzembe helyezése egy virtuális géphez az Azure Stackben.
+title: Ruby-alkalmazás üzembe helyezése egy virtuális gépen Azure Stackban | Microsoft Docs
+description: Ruby-alkalmazás üzembe helyezése Azure Stack-beli virtuális gépen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,38 +9,38 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: f7867e963551d04336ac4092e8b1b2f033c29e94
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.openlocfilehash: 07b18ea8933afc225f09bfc49a8c60d9d7d43961
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838337"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808150"
 ---
-# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Ruby-webalkalmazás üzembe helyezése egy virtuális Gépet az Azure Stackben
+# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Ruby-webalkalmazás üzembe helyezése Azure Stack-beli virtuális gépen
 
-Létrehozhat egy virtuális Gépet az Azure Stack a Ruby webalkalmazás üzemeltetéséhez. Ebben a cikkben állítson be egy kiszolgálót, konfigurálja a kiszolgálót, a Ruby-webalkalmazás üzemeltetéséhez, és az alkalmazás üzembe helyezése az Azure Stack.
+Létrehozhat egy virtuális gépet a Ruby-webalkalmazás üzemeltetéséhez Azure Stackban. Ebben a cikkben egy kiszolgálót állít be, konfigurálhatja a kiszolgálót a Ruby-webalkalmazás üzemeltetéséhez, majd az alkalmazást Azure Stackre telepítheti.
 
-Ez a cikk a Ruby és a egy Ruby on Rails webalkalmazás keretrendszerben használja.
+Ez a cikk a Ruby és a Ruby on Rails webes keretrendszer használatát ismerteti.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Állítsa be a virtuális gép az Azure Stackben. Útmutatásért lásd: [Linux virtuális gép üzembe helyezése az Azure Stackben webalkalmazás üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
+1. A virtuális gép beállítása Azure Stackban. Útmutatásért lásd: [Linux rendszerű virtuális gép üzembe helyezése Azure stack-ban webalkalmazás üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
 
-2. A virtuális gép hálózati ablaktáblán győződjön meg arról, a következő portokat érhetők el:
+2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
     | Port | Protocol | Leírás |
     | --- | --- | --- |
-    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a weblapok kiszolgálókról való küldéséhez használt protokoll. DNS-nevét vagy IP-cím az ügyfelek csatlakoznak a HTTP Protokollon keresztül. |
-    | 443 | HTTPS | Hypertext Transfer Protocol biztonságos (HTTPS), amely szükséges a biztonsági tanúsítvány, és lehetővé teszi, hogy az információ titkosított továbbításába HTTP biztonságos verziója is. |
-    | 22 | SSH | Secure Shell (SSH) nem titkosított hálózati protokoll biztonságos kommunikációhoz. Ezt a kapcsolatot használja az SSH-ügyfelet konfigurálja a virtuális Gépet, és az alkalmazás üzembe helyezéséhez. |
-    | 3389 | RDP | Választható. A távoli asztal protokoll (RDP) lehetővé teszi, hogy egy távoli asztali kapcsolatot egy grafikus felhasználói felületet használja a gépén.   |
-    | 3000 | Egyéni | A Ruby on Rails webalkalmazás-keretrendszer fejlesztési által használt port. Üzemi kiszolgáló esetén irányíthatja a forgalmat a 80-as és 443-as porton keresztül. |
+    | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
+    | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
+    | 22 | SSH | A Secure Shell (SSH) egy titkosított hálózati protokoll a biztonságos kommunikációhoz. Ez a kapcsolódás egy SSH-ügyféllel a virtuális gép konfigurálásához és az alkalmazás üzembe helyezéséhez használható. |
+    | 3389 | RDP | Nem kötelező. A RDP protokoll (RDP) lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
+    | 3000 | Egyéni | A Ruby on Rails webes keretrendszer által a fejlesztés során használt port. Üzemi kiszolgálók esetében a 80-es és a 443-os adatforgalmat irányítja át. |
 
 ## <a name="install-ruby"></a>A Ruby telepítése
 
-1. Csatlakozás a virtuális gép az SSH-ügyfél használatával. Útmutatásért lásd: [a PuTTy SSH-n keresztüli csatlakozás](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
+1. Csatlakozzon a virtuális géphez az SSH-ügyfél használatával. Útmutatásért lásd: [kapcsolat SSH-n keresztül a PuTTY használatával](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
 
-1. Telepítse a PPA-val tárház. A bash parancssorban a virtuális Gépen adja meg a következő parancsokat:
+1. Telepítse a PPA-tárházat. A virtuális gépen a bash-parancssorba írja be a következő parancsokat:
 
     ```bash  
     sudo apt -y install software-properties-common
@@ -49,14 +49,14 @@ Ez a cikk a Ruby és a egy Ruby on Rails webalkalmazás keretrendszerben haszná
     sudo apt update
     ```
 
-2. Telepítse a Ruby és a Ruby on Rails a virtuális Gépen. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsokat:
+2. Telepítse a Ruby és a Ruby on Rails szolgáltatást a virtuális gépen. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsokat:
 
     ```bash  
     sudo apt install ruby
     gem install rails -v 4.2.6
     ```
 
-3. Telepítse a Ruby on Rails-függőségeket. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsokat:
+3. Telepítse a Ruby on Rails függőségeit. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsokat:
 
     ```bash  
     sudo apt-get install make
@@ -68,23 +68,23 @@ Ez a cikk a Ruby és a egy Ruby on Rails webalkalmazás keretrendszerben haszná
     ```
 
     > [!Note]  
-    > Ruby telepít a Rails függőségek, bár előfordulhat, hogy ismételten futtatni szeretné `sudo gem install bundler`. Ha a telepítés nem sikerül, tekintse át a hibanaplókat, és a problémák megoldásához.
+    > A Ruby on Rails-függőségek telepítésekor előfordulhat, hogy többször is futtatnia `sudo gem install bundler`kell a parancsot. Ha a telepítés sikertelen, tekintse át a hibák naplóit, és oldja meg a problémákat.
 
-4. A telepítés ellenőrzése. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
+4. Ellenőrizze a telepítést. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsot:
 
     ```bash  
         ruby -v
     ```
 
-3. [A Git telepítése](https://git-scm.com), a széles körben elosztott verziókezelő és forráskód code system management (SCM). Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsot:
+3. [Telepítse a git](https://git-scm.com)-t, amely egy széles körben elosztott verziókövetés és egy forráskód-kezelési (SCM) rendszer. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsot:
 
     ```bash  
        sudo apt-get -y install git
     ```
 
-## <a name="create-and-run-an-app"></a>Hozzon létre és futtathat egy alkalmazást
+## <a name="create-and-run-an-app"></a>Alkalmazás létrehozása és futtatása
 
-1. Miközben továbbra is csatlakozik a virtuális gép az SSH-munkamenetben, adja meg a következő parancsokat:
+1. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsokat:
 
     ```bash
         rails new myapp
@@ -92,7 +92,7 @@ Ez a cikk a Ruby és a egy Ruby on Rails webalkalmazás keretrendszerben haszná
         rails server -b 0.0.0.0 -p 3000
     ```
 
-2. Nyissa meg az új kiszolgálóra. Megtekintheti a futó webalkalmazás.
+2. Nyissa meg az új kiszolgálót. Látnia kell a futó webalkalmazást.
 
     ```HTTP  
        http://yourhostname.cloudapp.net:3000
@@ -100,6 +100,6 @@ Ez a cikk a Ruby és a egy Ruby on Rails webalkalmazás keretrendszerben haszná
 
 ## <a name="next-steps"></a>További lépések
 
-- Ismerje meg, hogyan [fejlesztés az Azure Stackhez](azure-stack-dev-start.md).
-- Ismerje meg [közös üzemelő példányok az Azure stack-beli iaas](azure-stack-dev-start-deploy-app.md).
-- Ismerje meg, a Ruby programozási nyelvet és további források keresése Python: [Ruby-lang.org](https://www.ruby-lang.org).
+- További információ a [Azure stack fejlesztéséről](azure-stack-dev-start.md).
+- Ismerkedjen meg a [Azure stack IaaS való gyakori központi telepítésekkel](azure-stack-dev-start-deploy-app.md).
+- A Ruby programozási nyelvének megismeréséhez és a Ruby további erőforrásainak megkereséséhez lásd: [Ruby-lang.org](https://www.ruby-lang.org).

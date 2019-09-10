@@ -1,6 +1,6 @@
 ---
-title: OEM-frissítések telepítése a Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan telepíthet OEM-frissítéseket a Azure Stackban.
+title: Azure Stack frissítések telepítése | Microsoft Docs
+description: További információ a Azure Stack frissítéseinek telepítéséről.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,18 +15,18 @@ ms.date: 09/03/2019
 ms.author: justinha
 ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a563c3ec43950122e045b0ec3168bcb3ca11fe56
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 44ad2b2e3fd5b95fd832ed50c20c388c6585d17e
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271796"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808208"
 ---
-# <a name="install-oem-updates-in-azure-stack"></a>OEM-frissítések telepítése Azure Stack
+# <a name="install-azure-stack-updates"></a>Azure Stack frissítések telepítése
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
-Az eredeti berendezésgyártó (OEM) frissítései a Azure Stack **frissítés** paneljén is telepíthetők. Ez a cikk végigvezeti a frissítési folyamat frissítésének, figyelésének és hibaelhárításának lépésein. A frissítés panel használatával megtekintheti a frissítési adatokat, telepítheti a frissítéseket, figyelheti a frissítések állapotát, áttekintheti az előzményeket, és megtekintheti a jelenlegi OEM-csomag verzióját.
+A frissítési csomagokat a Azure Stack Update ( **frissítés** ) paneljén is telepítheti. Ez a cikk végigvezeti a frissítési folyamat frissítésének, figyelésének és hibaelhárításának lépésein. A frissítés panel használatával megtekintheti a frissítési adatokat, telepítheti a frissítéseket, figyelheti a frissítések állapotát, áttekintheti az előzményeket, és megtekintheti az aktuális Azure Stack és az OEM-csomag verzióját.
 
 A frissítéseket a felügyeleti portálról kezelheti, és az irányítópult **frissítésekkel** foglalkozó szakaszában a következőket végezheti el:
 

@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack App Service frissítése 3 kibocsátási megjegyzések |} A Microsoft Docs
-description: Ismerje meg a frissítés három az App Service az Azure Stacken, az ismert hibákat, és hol töltse le a frissítést.
+title: App Service on Azure Stack Update 3 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerkedjen meg a Azure Stack App Service frissítésének javításait, javításait és ismert problémáit ismertető cikkekben.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,80 +16,78 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 4397fbbc570972fb7a041f583d81115e28fe70ce
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269099"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808242"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service-ben az Azure Stack 3-as frissítés – kibocsátási megjegyzések
+# <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack Update 3 kibocsátási megjegyzései
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A kibocsátási megjegyzések láthatók a fejlesztései, valamint a javításokat az Azure App Service az Azure Stack Update 3 és olyan ismert problémákat. Ismert problémák az üzembe helyezési, frissítési folyamat és a build (telepítés utáni) problémái közvetlenül kapcsolódó problémák vannak felosztva.
+Ezek a kibocsátási megjegyzések ismertetik a Azure Stack Update 3 Azure App Servicejának javításait, javításait és ismert problémáit. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
 > [!IMPORTANT]
-> Az Azure Stackkel integrált rendszereknél 1807 frissítés alkalmazása, vagy a legújabb Azure Stack fejlesztői készletének telepítése Azure App Service 1.3 üzembe helyezése előtt.
->
->
+> Alkalmazza a 1807-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a Azure App Service 1,3 üzembe helyezése előtt.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
-Az App Service az Azure Stack Update 3 buildszám **74.0.13698.31**
+A Azure Stack Update 3 Build számának App Service **74.0.13698.31**.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Tekintse meg a [mielőtt elkezdené a dokumentáció](azure-stack-app-service-before-you-get-started.md) központi telepítésének megkezdése előtt.
+A telepítés megkezdése előtt tekintse át a [App Service Azure stack üzembe helyezésének előfeltételeit](azure-stack-app-service-before-you-get-started.md) .
 
-Mielőtt elkezdené a frissítés az Azure App Service az Azure Stacken, 1.3, győződjön meg arról, minden szerepkör kész a az Azure App Service felügyeleti az Azure Stack felügyeleti portálon
+Mielőtt megkezdené a Azure App Service frissítését a Azure Stackról a 1,3-re, győződjön meg arról, hogy az összes szerepkör készen áll a Azure App Service adminisztráció Azure Stack felügyeleti portálon.
 
-![Az App Service-szerepkör állapota](media/azure-stack-app-service-release-notes-update-three/image01.png)
+![App Service szerepkör állapota](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-### <a name="new-features-and-fixes"></a>Új funkciókkal és javításokkal
+### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
-Az Azure App Service-ben az Azure Stack Update 3 tartalmazza a következő fejlesztések és javítások:
+A Azure Stack Update 3 Azure App Service a következő javításokat és javításokat tartalmazza:
 
-- Használja az SQL Server Always On Azure App Service erőforrás-szolgáltató adatbázisok támogatása.
+- SQL Server always on Azure App Service erőforrás-szolgáltatói adatbázisokhoz való használatának támogatása.
 
-- Új környezet paraméter hozzáadva a létrehozás-AADIdentityApp segítő parancsfájlt, amelyek segítik a célcsoport-kezelési régiókon aad-ben.
+- Új környezeti paraméter hozzáadva a Create-AADIdentityApp Helper parancsfájlhoz a különböző HRE-régiók célzásának elősegítése érdekében.
 
-- Frissítések **App Services-bérlő, a rendszergazda, a Functions-portálok és eszközök a Kudu**. Az Azure Stack Portal SDK-verzió összhangban.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
 
-- Frissítések **Azure Functions runtime** való **v1.0.11820**.
+- A **Azure functions Runtime** és a **v 1.0.11820**frissítése.
 
-- Fokozható a megbízhatóság és a hibaüzenetek gyakori problémák egyszerűbb diagnosztika engedélyezése a core-szolgáltatás frissítése.
+- Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
-- **A következő alkalmazás-keretrendszerek és eszközök frissítések**:
+- **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
   - Added ASP.NET Core 2.1.2
-  - Added NodeJS 10.0.0
-  - Zulu openjdk csomagját 8.30.0.1 hozzáadva
-  - A hozzáadott Tomcat 8.5.31 és 9.0.8
-  - A hozzáadott PHP-verziók:
+  - NodeJS 10.0.0 hozzáadva
+  - Zulu OpenJDK 8.30.0.1 hozzáadva
+  - Tomcat 8.5.31 és 9.0.8 hozzáadva
+  - PHP-verziók hozzáadva:
     - 5.6.36
     - 7.0.30
     - 7.1.17
     - 7.2.5
-  - A hozzáadott Wincache 2.0.0.8
-  - V 2.17.1.2 Windows a frissített Git esetében
-  - Frissített Kudu 74.10611.3437
+  - Wincache 2.0.0.8 hozzáadva
+  - Frissített git a Windows to v 2.17.1.2
+  - Frissített kudu – 74.10611.3437
   
-- **Frissítések az alapul szolgáló operációs rendszer összes szerepkör**:
-  - [Karbantartási frissítését Windows Server 2016 x64 alapú rendszerekhez (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
-  - [2018-07 összegző frissítés a Windows Server 2016 x64 alapú rendszerekhez (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
+- Az **összes szerepkör mögöttes operációs rendszerének frissítései**:
+  - [Karbantartási verem frissítése a Windows Server 2016 x64-alapú rendszerekhez (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
-### <a name="post-update-steps-optional"></a>Közzététel a frissítési lépéseket (nem kötelező)
+### <a name="post-update-steps-optional"></a>Frissítés utáni lépések (nem kötelező)
 
-A tartalmazott adatbázis áttelepítése az Azure Stack üzemelő példányok a meglévő Azure App Service kívánó ügyfelek hajtsa végre ezeket a lépéseket az Azure App Service az Azure Stack 1.3-as frissítés befejezése után:
+Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak áttérni Azure Stack üzemelő példányok meglévő Azure App Serviceére, hajtsa végre ezeket a lépéseket a Azure App Service Azure Stack 1,3 frissítés befejezése után:
 
 > [!IMPORTANT]
-> Ez az eljárás körülbelül 5 – 10 percet vesz igénybe.  Ez az eljárás magában foglalja a meglévő adatbázis-bejelentkezési munkamenetek leállítása.  Állásidő telepíthetőek át és ellenőrizze az Azure App Service-ben az Azure Stack a migrálás után tervezése
+> Ez az eljárás körülbelül 5-10 percet vesz igénybe. Ez az eljárás a meglévő adatbázis-bejelentkezési munkamenetek leölését foglalja magában. A Azure App Service áttelepítésének és érvényesítésének megtervezése Azure Stack áttelepítés után
 >
 >
 
-1. Adjon hozzá [az App Service-adatbázisok (appservice_hosting és appservice_metering) egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Adja hozzá [a AppService-adatbázisokat (appservice_hosting és appservice_metering) egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
-1. Enable foglalt adatbázis
+1. A tárolt adatbázis engedélyezése.
     ```sql
 
         sp_configure 'contained database authentication', 1;
@@ -98,7 +96,7 @@ A tartalmazott adatbázis áttelepítése az Azure Stack üzemelő példányok a
             GO
     ```
 
-1. A részlegesen tartalmazott adatbázis konvertálása.  Ebben a lépésben állásidő számítunk fel, az összes aktív munkamenetet kell le fognak állni
+1. Adatbázis konvertálása részben foglalt értékre. Ez a lépés állásidőt von maga után, mivel minden aktív munkamenetet le kell ölni.
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -140,7 +138,7 @@ A tartalmazott adatbázis áttelepítése az Azure Stack üzemelő példányok a
             /********[appservice_hosting] Migration End********/
     '''
 
-1. Migrate Logins to Contained Database Users
+1. Migrate logins to contained database users.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -169,39 +167,40 @@ A tartalmazott adatbázis áttelepítése az Azure Stack üzemelő példányok a
         GO
     ```
 
-Érvényesítés
+**Érvényesít**
 
-1. Ellenőrzi, hogy az SQL Server tartalmazza-e a tartalmazási engedélyezve
+1. Ellenőrizze, hogy a SQL Server engedélyezve van-e.
 
     ```sql
         sp_configure  @configname='contained database authentication'
     ```
 
-1. Ellenőrizze a létező tartalmazott esetén
+1. A meglévő foglalt viselkedés megtekintése.
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
 ### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
-- Feldolgozók nem érhető el a fájlkiszolgálót, amikor az App Service-ben meglévő virtuális hálózaton van üzembe helyezve, és a fájlkiszolgáló csak érhető el a magánhálózaton.  Ez is feltüntettük az Azure App Service az Azure Stack központi telepítési dokumentációjában az.
+- A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 
-Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Ehhez nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
- * Adatforrás: Bármely
- * Forrás porttartomány: *
+Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
+
+ * Forrás: Any
+ * Forrásoldali porttartomány: *
  * Cél: IP-címek
- * Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
- * Cél porttartomány: 445
+ * Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+ * Célport tartománya: 445
  * Protokoll: TCP
- * Művelet: Engedélyezés
- * Prioritás: 700
+ * Művelet: Allow
+ * Fontosság: 700
  * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák működtetése az Azure App Service az Azure Stack felhő-rendszergazdák számára
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
 
-Tekintse meg az Azure Stack 1807 kibocsátási megjegyzésekben a dokumentációt.
+Tekintse meg a dokumentációt a Azure Stack 1807 kibocsátási megjegyzésekben.
 
 ## <a name="next-steps"></a>További lépések
 
-- Az Azure App Service áttekintését lásd: [Azure App Service az Azure Stack áttekintése](azure-stack-app-service-overview.md).
-- Hogyan készíti elő az Azure Stack App Service üzembe helyezése kapcsolatos további információkért lásd: [az App Service-ben az Azure Stack használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md).
+- A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
+- A Azure Stack App Service telepítésének előkészítésével kapcsolatos további információkért lásd: [app Service üzembe helyezésének előfeltételei a Azure stack](azure-stack-app-service-before-you-get-started.md).

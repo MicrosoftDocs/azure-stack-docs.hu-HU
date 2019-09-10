@@ -1,6 +1,6 @@
 ---
-title: App Service-ben az Azure Stack update 1 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg a frissítést az App Service az Azure Stacken, az ismert problémákról, valamint a helyét, a frissítés letöltése.
+title: App Service a Azure Stack Update 1 kibocsátási megjegyzésekben | Microsoft Docs
+description: További információ az 1. frissítésben szereplő javításokról, javításokról és ismert problémákról Azure Stack App Service.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,52 +16,48 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: b9b884377e35b43670943f4cf94a24b5216bf233
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269112"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808266"
 ---
-# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service-ben az Azure Stack update 1 kibocsátási megjegyzései
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service Azure Stack Update 1 kibocsátási megjegyzései
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A kibocsátási megjegyzések láthatók a fejlesztései, valamint a javításokat az Azure App Service az Azure Stack Update 1 és olyan ismert problémákat. Ismert problémák az üzembe helyezési, frissítési folyamat és a build (telepítés utáni) problémái közvetlenül kapcsolódó problémák vannak felosztva.
+Ezek a kibocsátási megjegyzések az 1. Azure Stack Update-ben Azure App Service javításait, javításait és ismert problémáit ismertetik. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
 > [!IMPORTANT]
-> Az 1802-es frissítés alkalmazása az Azure Stackkel integrált rendszer, vagy a legújabb Azure Stack fejlesztői készletének telepítése az Azure App Service üzembe helyezése előtt.
->
->
+> Alkalmazza a 1802-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service üzembe helyezése előtt.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 
-Az App Service az Azure Stack Update 1 buildszám **69.0.13698.9**
+A (z) Azure Stack Update 1 Build számának App Service **69.0.13698.9**.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> Új telepítések esetén az Azure App Service az Azure Stacken most szükséges egy [három-tulajdonos helyettesítő tanúsítvány](azure-stack-app-service-before-you-get-started.md#get-certificates) köszönhető, amelyben az Azure App Service mostantól kezelése a Kudu egyszeri Bejelentkezést. Az új tulajdonos  **\*. sso.appservice.\< régió\>.\< tartománynév\>.\< bővítmény\>**
->
->
+> A Azure App Service on Azure Stack új központi telepítései a következő [három tulajdonos helyettesítő karaktert](azure-stack-app-service-before-you-get-started.md#get-certificates) igénylik, mert a kudu-hez tartozó SSO-t a Azure app Service kezeli. Az új tárgy  **\*:. SSO. appservice.\< régió\>.\< tartománynév\>.\< kiterjesztés\>**
 
-Tekintse meg a [mielőtt elkezdené a dokumentáció](azure-stack-app-service-before-you-get-started.md) központi telepítésének megkezdése előtt.
+A telepítés megkezdése előtt tekintse át a [App Service Azure stack üzembe helyezésének előfeltételeit](azure-stack-app-service-before-you-get-started.md) .
 
-### <a name="new-features-and-fixes"></a>Új funkciókkal és javításokkal
+### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
-Az Azure App Service-ben az Azure Stack 1. frissítés tartalmazza a következő fejlesztések és javítások:
+A (z) Azure Stack Update 1 Azure App Service az alábbi javításokat és javításokat tartalmazza:
 
-- **Magas rendelkezésre állás az Azure App Service** – az Azure Stack 1802-es frissítés engedélyezve számítási feladatokhoz történő központi tartalék tartományokat. Ezért az App Service-infrastruktúra képes legyen képes lehet a hibatűrő, mivel a tartalék tartomány között pedig települnek. Alapértelmezés szerint az Azure App Service összes új üzemelő példányhoz rendelkezik ezzel a képességgel azonban a központi telepítés befejezése előtt az Azure Stack 1802-es frissítés alkalmazása folyamatban tekintse meg a [App Service-tartalék tartomány dokumentációja](azure-stack-app-service-before-you-get-started.md )
+- A **Azure app Service magas rendelkezésre állása** – a Azure stack 1802 frissítés engedélyezve munkaterhelések a tartalék tartományok között telepíthetők, ami lehetővé teszi app Service infrastruktúra hibatűrővé tételét a tartalék tartományok között. Alapértelmezés szerint a Azure App Service összes új központi telepítése rendelkezik ezzel a képességgel. Azonban a Azure Stack 1802 frissítés alkalmazása előtt befejezett központi telepítések esetén tekintse meg a [app Service tartalék tartomány dokumentációját](azure-stack-app-service-before-you-get-started.md).
 
-- **A meglévő virtuális hálózat üzembe helyezése** -ügyfelek most már telepítheti az Azure Stack App Service-ben meglévő virtuális hálózaton belül. Egy meglévő virtuális hálózaton üzembe helyezése lehetővé teszi ügyfeleink számára, az SQL Server és a fájlkiszolgáló, az Azure App Service-ben privát portokon keresztül szükséges kapcsolódni. Üzembe helyezés során az ügyfelek üzembe helyezése meglévő virtuális hálózattal, viszont ki [létre kell hoznia az App Service általi használatra alhálózatok](azure-stack-app-service-before-you-get-started.md#virtual-network) üzembe helyezés előtt.
+- **Üzembe helyezés meglévő virtuális hálózatban** – az ügyfelek most már üzembe helyezhetik app Service Azure stack egy meglévő virtuális hálózaton belül. Egy meglévő virtuális hálózatban való üzembe helyezés lehetővé teszi, hogy az ügyfelek a Azure App Service számára szükséges, privát portokon keresztül csatlakozzanak a SQL Serverhoz és a fájlkiszolgálón. Az üzembe helyezés során az ügyfelek kiválaszthatják, hogy egy meglévő virtuális hálózaton helyezik üzembe a telepítést, azonban az üzembe helyezés előtt [létre kell hozni az alhálózatokat app Service használatára](azure-stack-app-service-before-you-get-started.md#virtual-network) .
 
-- Frissítések **App Services-bérlő, a rendszergazda, a Functions-portálok és eszközök a Kudu**. Az Azure Stack Portal SDK-verzió összhangban.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
 
-- Frissítések **Azure Functions runtime** való **v1.0.11388**.
+- A **Azure functions Runtime** és a **v 1.0.11388**frissítése.
 
-- **A következő alkalmazás-keretrendszerek és eszközök frissítések**:
-    - Hozzáadott **.NET Core 2.0** támogatása
-    - Hozzáadott **Node.JS** verziók:
+- **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
+    - A **.net Core 2,0** -támogatás hozzáadva.
+    - **Node. js** -verziók hozzáadva:
         - 6.11.2
         - 6.11.5
         - 7.10.1
@@ -72,7 +68,7 @@ Az Azure App Service-ben az Azure Stack 1. frissítés tartalmazza a következő
         - 8.7.0
         - 8.8.1
         - 8.9.0
-    - Hozzáadott **NPM** verziók:
+    - **NPM** -verziók hozzáadva:
         - 3.10.10
         - 4.2.0
         - 5.0.0
@@ -80,52 +76,52 @@ Az Azure App Service-ben az Azure Stack 1. frissítés tartalmazza a következő
         - 5.3.0
         - 5.4.2
         - 5.5.1
-    - Hozzáadott **PHP** frissítések:
+    - **Php** -frissítések hozzáadva:
         - 5.6.32
         - 7.0.26 (x86 és x64)
-        - 7.1.12-es (x86 és x64)
-    - Frissített **Git for Windows** v 2.14.1
-    - Frissített **Mercurial** v4.5.0,
+        - 7.1.12 (x86 és x64)
+    - Frissített **git a Windows** to v 2.14.1
+    - Frissítve a **Mercurial** -től a v 4.5.0
 
-  - Támogatás hozzáadva az **csak HTTPS** belül az App Service-bérlői portál az egyéni tartomány a szolgáltatás a szolgáltatás. 
+  - A **csak HTTPS** funkció támogatása a app Service bérlői portál egyéni tartomány funkcióján belül.
 
-  - Az Azure Functions az egyéni tároló-választó tárolási kapcsolat hozzáadott érvényesítése 
+  - A Storage-kapcsolatok ellenőrzése a Azure Functions egyéni tároló-választójában.
 
 #### <a name="fixes"></a>Javítások
 
-- Egy kapcsolat nélküli telepítőcsomag létrehozása, ha ügyfelek többé nem kapja meg "hozzáférés megtagadva" hibaüzenetet kap, amikor megnyitni a mappát, az az App Service-telepítő
+- Kapcsolat nélküli központi telepítési csomag létrehozásakor az ügyfelek többé nem kapnak hozzáférési megtagadási hibaüzenetet, amikor megnyitja a mappát a App Service telepítőből.
 
-- Az App Service-bérlői portál az egyéni tartományok funkció használatakor a probléma megoldása.
+- Megoldott problémák a App Service bérlői portál egyéni tartományok funkciójának használatakor.
 
-- Megakadályozza a telepítés során fenntartott rendszergazdai neveket használó ügyfeleink
+- A fenntartott rendszergazdai nevek használatának megakadályozása az ügyfelek számára a telepítés során.
 
-- Engedélyezve van az App Service-környezet **tartományhoz csatlakoztatott** fájlkiszolgáló
+- Engedélyezve App Service központi telepítés **tartományhoz csatlakoztatott** fájlkiszolgálón.
 
-- Továbbfejlesztett lekérése az Azure Stack legfelső szintű tanúsítvány-szkriptben, és most az az App Service-telepítő a legfelső szintű tanúsítvány érvényesítése.
+- Azure Stack főtanúsítvány jobb beolvasása parancsfájlban, és a App Service telepítőben a legfelső szintű tanúsítvány érvényesítésének lehetősége.
 
-- Az Azure Resource Manager alatt adja vissza, ha egy előfizetés rögzített helytelen állapot a benne foglalt erőforrásokat Microsoft.Web névtér törlése.
+- Helytelen állapotot adott vissza a rendszer, ha a Microsoft. Web névtérben található erőforrásokat tartalmazó előfizetés törölve lett Azure Resource Manager.
 
-### <a name="known-issues-with-the-deployment-process"></a>Az üzembe helyezési folyamat ismert problémái
+### <a name="known-issues-with-the-deployment-process"></a>Az üzembe helyezési folyamattal kapcsolatos ismert problémák
 
-- Tanúsítvány-ellenőrzési hibák
+- Tanúsítvány-érvényesítési hibák.
 
-Egyes ügyfeleink problémák lépett fel változatának tanúsítványok az App Service-telepítő való telepítésekor egy integrált rendszer, a telepítő a túl szigorú ellenőrzési miatt. Az App Service-telepítő új kiadása, az ügyfeleknek kell [töltse le a frissített](https://aka.ms/appsvconmasinstaller). Ha folytatja, a frissített telepítővel tanúsítványok érvényesítése hibákat tapasztal, forduljon az ügyfélszolgálathoz.
+    Néhány ügyfél olyan problémákat észlelt, amikor a App Service telepítőjének tanúsítványait az integrált rendszeren való üzembe helyezéskor, a telepítő túlságosan korlátozó érvényesítése miatt. Az App Service-telepítőt újra kiadták, és [az ügyfeleknek le kell tölteniük a frissített telepítőt](https://aka.ms/appsvconmasinstaller). Ha továbbra is problémákat tapasztal a tanúsítványok a frissített telepítővel való érvényesítésével kapcsolatban, forduljon az ügyfélszolgálathoz.
 
-- A probléma az Azure Stack főtanúsítványának integrált rendszer való beolvasásakor.
+- Probléma Azure Stack főtanúsítvány beolvasása az integrált rendszerből.
 
-A Get-AzureStackRootCert.ps1 hibája miatt az ügyfelek számára nem sikerült beolvasni az Azure Stack főtanúsítványának olyan számítógépen, amelyen nincs telepítve a legfelső szintű tanúsítvány a parancsfájl végrehajtása közben. A parancsfájl emellett mostantól új kiadása, ezt a problémát, és a kérés ügyfelek feloldása [töltse le a frissített segítő szkripteket](https://aka.ms/appsvconmashelpers). Ha továbbra is a frissített szkript a következő főtanúsítványok beolvasása közben jelentkezik, forduljon az ügyfélszolgálathoz.
+    A Get-AzureStackRootCert. ps1 hibája miatt az ügyfelek nem tudják lekérni a Azure Stack főtanúsítványt, amikor olyan gépen futtatják a parancsfájlt, amelyen nincs telepítve a főtanúsítvány. A szkript már újra megjelent, ami megoldja a problémát. [Töltse le a frissített segítő szkripteket itt](https://aka.ms/appsvconmashelpers). Ha továbbra is problémákat tapasztal a főtanúsítvány frissített parancsfájllal történő beolvasásakor, forduljon az ügyfélszolgálathoz.
 
 ### <a name="known-issues-with-the-update-process"></a>A frissítési folyamat ismert problémái
 
-- Nem tartoznak ismert problémák az Azure App Service az Azure Stack Update 1 frissítése.
+- Nincsenek ismert problémák a Azure App Service frissítéséhez az 1. Azure Stack Update-ben.
 
 ### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
-- Tárolóhelycsere nem működik.
+- A tárolóhely-csere nem működik.
 
-Ebben a kiadásban hely tárolóhelycsere megszakadt. Működésének visszaállításához hajtsa végre a következő lépéseket:
+A tárolóhelyek felcserélése ebben a kiadásban megszakadt. A funkciók visszaállításához hajtsa végre az alábbi lépéseket:
 
-1. Módosítsa a ControllersNSG hálózati biztonsági csoport **engedélyezése** vezérlő App Service-példányok távoli asztali kapcsolatokat. AppService.local cserélje le az üzembe helyezett App Service-erőforráscsoport nevére.
+1. Módosítsa a ControllersNSG hálózati biztonsági csoportot, hogy **engedélyezze** a távoli asztali kapcsolatokat a app Service vezérlő példányain. Cserélje le a AppService. local nevet a App Service központilag telepített erőforráscsoport nevére.
 
     ```powershell
       Add-AzureRmAccount -EnvironmentName AzureStackAdmin
@@ -150,8 +146,8 @@ Ebben a kiadásban hely tárolóhelycsere megszakadt. Működésének visszaáll
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Keresse meg a **CN0 virtuális** alatt az Azure Stack felügyeleti portálon található virtuális gépek és **kattintson a csatlakozás** , nyissa meg a távoli asztali munkamenetet a tartományvezérlő-példány. Az App Service üzembe helyezése során megadott hitelesítő adatokat használja.
-3. Indítsa el **Powershellt rendszergazdaként** , és hajtsa végre a következő parancsfájl
+2. Keresse meg a **CN0-VM-** et a Virtual Machines alatt a Azure stack felügyeleti portálon, és **kattintson a kapcsolódás lehetőségre** egy távoli asztali munkamenet a vezérlő példánnyal való megnyitásához. Használja a App Service telepítése során megadott hitelesítő adatokat.
+3. Indítsa el a **PowerShellt rendszergazdaként** , és hajtsa végre a következő parancsfájlt:
 
     ```powershell
         Import-Module appservice
@@ -174,8 +170,8 @@ Ebben a kiadásban hely tárolóhelycsere megszakadt. Működésének visszaáll
         
     ```
 
-4. Zárja be a távoli asztali munkamenetet.
-5. A ControllersNSG hálózati biztonsági csoport a visszaállítás **Megtagadás** vezérlő App Service-példányok távoli asztali kapcsolatokat. AppService.local cserélje le az üzembe helyezett App Service-erőforráscsoport nevére.
+4. A távoli asztali munkamenet lezárása.
+5. Állítsa le a ControllersNSG hálózati biztonsági csoportot, hogy **megtagadja** a távoli asztali kapcsolatokat a app Service vezérlő példányaihoz. Cserélje le a AppService. local nevet a App Service központilag telepített erőforráscsoport nevére.
 
     ```powershell
 
@@ -201,25 +197,25 @@ Ebben a kiadásban hely tárolóhelycsere megszakadt. Működésének visszaáll
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-6. Feldolgozók nem érhető el a fájlkiszolgálót, amikor az App Service-ben meglévő virtuális hálózaton van üzembe helyezve, és a fájlkiszolgáló csak érhető el a magánhálózaton.
+6. A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el.
 
-Ha úgy döntött, hogy egy meglévő virtuális hálózattal és belső IP-cím szeretne csatlakozni a fájlkiszolgáló üzembe helyezése, hozzá kell adnia egy kimenő biztonsági szabályt a feldolgozó és a fájlkiszolgáló között SMB-forgalom engedélyezése. Ehhez nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
+Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
 
-- Adatforrás: Bármely
-- Forrás porttartomány: *
+- Forrás: Any
+- Forrásoldali porttartomány: *
 - Cél: IP-címek
-- Cél IP-címtartomány: IP-címtartományt a fájlkiszolgálóhoz
-- Cél porttartomány: 445
+- Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+- Célport tartománya: 445
 - Protokoll: TCP
-- Művelet: Engedélyezés
-- Prioritás: 700
+- Művelet: Allow
+- Fontosság: 700
 - Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák működtetése az Azure App Service az Azure Stack felhő-rendszergazdák számára
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
 
-A dokumentáció a [Azure Stack 1802 kibocsátási megjegyzései](azure-stack-update-1903.md)
+Tekintse meg a dokumentációt a [Azure Stack 1802 kibocsátási megjegyzésekben](azure-stack-update-1903.md)
 
 ## <a name="next-steps"></a>További lépések
 
-- Az Azure App Service áttekintését lásd: [Azure App Service az Azure Stack áttekintése](azure-stack-app-service-overview.md).
-- Hogyan készíti elő az Azure Stack App Service üzembe helyezése kapcsolatos további információkért lásd: [az App Service-ben az Azure Stack használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md).
+- A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
+- A Azure Stack App Service telepítésének előkészítésével kapcsolatos további információkért lásd: [app Service üzembe helyezésének előfeltételei a Azure stack](azure-stack-app-service-before-you-get-started.md).
