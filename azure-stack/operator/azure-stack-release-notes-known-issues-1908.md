@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 86d8cea0164a9181f444066181945358122c831b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234950"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862986"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908 ismert probléma
 
@@ -34,7 +34,7 @@ Ez a cikk a Azure Stack 1908-es kiadásának ismert problémáit sorolja fel. A 
 ## <a name="update-process"></a>Frissítési folyamat
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Az 1907 Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
+- Ok: A Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
 - Szervizkiszolgáló A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése szakaszt](azure-stack-apply-updates.md#install-updates-and-monitor-progress)követve manuálisan töltse fel a frissítési csomagot.
 - Előfordulása Közös
 
@@ -99,7 +99,7 @@ Ez a cikk a Azure Stack 1908-es kiadásának ismert problémáit sorolja fel. A 
 
 #### <a name="local-network-gateway-deletion"></a>Helyi hálózati átjáró törlése
 
-- Alkalmazható Ez a probléma a 1906 kiadásra vonatkozik.
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: A felhasználói portálon a **helyi hálózati átjáró** törlése a következő hibaüzenetet jeleníti meg: **Aktív kapcsolatban álló helyi hálózati átjáró nem törölhető**, még akkor is, ha nincs aktív internetkapcsolat.
 - Kockázatcsökkentő A probléma megoldása a 1907-es kiadásban jelenik meg. A probléma megkerülő megoldásként új helyi hálózati átjárót hoz létre ugyanazzal az IP-címmel, a címtartomány és a konfigurációs adatokkal egy másik névvel. A régi LNG törölhető, ha a környezet frissítve lett a 1907-es verziójára.
 - Előfordulása Közös
@@ -159,21 +159,21 @@ Ez a cikk a Azure Stack 1908-es kiadásának ismert problémáit sorolja fel. A 
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
 
-- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: A méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de Azure Stack a méretezési csoportokban még nem támogatja a jelszó visszaállítását.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
 
-- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: A virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, amely nem támogatott a jelenlegi Azure Stack buildben.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
-- Alkalmazható Ez a probléma a 1906-es és a 1907-es kiadásra vonatkozik.    
+- Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.    
 - Ok: A virtuális gép diagnosztikai beállításainak paneljén egy **fogadó lap van, amely egy** **alkalmazás-Insight-fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
 - Szervizkiszolgáló Nincs.
 - Előfordulása Közös

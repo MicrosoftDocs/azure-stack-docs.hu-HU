@@ -143,6 +143,8 @@
       items:
         - name: Az adminisztráció alapjai
           href: azure-stack-manage-basics.md
+        - name: Felhasználói adatok törlése a portálról
+          href: azure-stack-portal-clear.md
         - name: Telemetriai adatok gyűjtésének konfigurálása
           href: azure-stack-telemetry.md
         - name: Az Azure Stack regisztrálása

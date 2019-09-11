@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 7b8bae02fdb3f85b856f6ccdb9d90155e6bde768
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.lastreviewed: 09/09/2019
+ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188357"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863004"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack Datacenter-integráció – Azure Stack szolgáltatások közzététele
 
@@ -72,7 +72,7 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy transzparens proxyval rendelkező üzemelő példányban, amely egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a portok és URL-címek használatát a következő táblázatban a kimenő kommunikációhoz.
 
 > [!Note]  
-> A Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez.
+> Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra.
 
 |Cél|Destination URL|Protocol|Portok|Forráshálózat|
 |---------|---------|---------|---------|---------|
@@ -95,7 +95,7 @@ A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy
 
 A kimenő URL-címek terheléselosztása az Azure Traffic Manager használatával történik a lehető legjobb kapcsolat biztosításához a földrajzi hely alapján. Elosztott terhelésű URL-címek esetén a Microsoft a háttérbeli végpontokat az ügyfelek befolyásolása nélkül tudja frissíteni és módosítani. A Microsoft nem osztja meg a terheléselosztási URL-címek IP-címeinek listáját. Olyan eszközt kell használnia, amely támogatja az URL-címeken alapuló szűrést, nem pedig az IP-címet.
 
-A kimenő DNS-t mindig kötelező megadni, ami változó a külső DNS lekérdezésének forrását, valamint azt, hogy milyen típusú identitás-integráció lett kiválasztva. Ha ez egy csatlakoztatott forgatókönyv, az üzembe helyezés során a BMC-hálózaton található DVM-nek szüksége van a kimenő hozzáférésre, de az üzembe helyezés után a DNS-szolgáltatás egy belső összetevőbe kerül, amely nyilvános VIP-en keresztül küld lekérdezéseket. Ekkor a rendszer eltávolítja a kimenő DNS-hozzáférést a BMC-hálózaton keresztül, de a DNS-kiszolgálóhoz való nyilvános VIP-hozzáférésnek továbbra is meg kell maradnia, vagy más hitelesítés sikertelen lesz.
+A kimenő DNS-t mindig kötelező megadni; a külső DNS-t és a kiválasztott identitás-integrációt a forrás kérdezi le. Egy csatlakoztatott forgatókönyv esetén a BMC-hálózaton található DVM kimenő hozzáférésre van szüksége. Az üzembe helyezést követően azonban a DNS szolgáltatás olyan belső összetevőre kerül, amely nyilvános VIP-en keresztül küld lekérdezéseket. Ekkor a BMC-hálózaton keresztüli kimenő DNS-hozzáférés el lehet távolítani, de a DNS-kiszolgálóhoz való nyilvános VIP-hozzáférésnek továbbra is meg kell maradnia, vagy más hitelesítés sikertelen lesz.
 
 ## <a name="next-steps"></a>További lépések
 

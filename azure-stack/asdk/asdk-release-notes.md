@@ -16,17 +16,17 @@ ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/30/2019
 ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70188193"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
 Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról és ismert problémáiról tartalmaz információkat. Ha nem biztos abban, hogy melyik verziót futtatja, [a portálon ellenőrizze a](../operator/azure-stack-updates.md)következőt:.
 
-Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)-hírcsatornára való feliratkozással naprakész maradhat a ASDK újdonságai.
+Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-hírcsatornára](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)való feliratkozással naprakész maradhat a ASDK újdonságai.
 
 ::: moniker range="azs-1908"
 ## <a name="build-11908020"></a>1\.1908.0.20 létrehozása
@@ -91,7 +91,7 @@ Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.micros
 
 ### <a name="fixed-and-known-issues"></a>Rögzített és ismert problémák
 
-- Kijavítva egy olyan problémát, amelyben a **RegisterWithAzure. psm1** PowerShell-szkriptet kellett SZERKESZTENI a [ASDK](asdk-register.md) sikeres regisztrálásához.
+- Kijavítva egy olyan problémát, amelyben a **RegisterWithAzure. psm1** PowerShell-szkriptet kellett SZERKESZTENI a [ASDK sikeres regisztrálásához](asdk-register.md) .
 - A jelen kiadásban rögzített egyéb Azure Stack problémák listájáért tekintse meg a Azure Stack kibocsátási megjegyzések [jelen szakaszát](../operator/azure-stack-release-notes-1905.md#fixes) .
 - Az ismert problémák listáját [ebben a cikkben](../operator/azure-stack-release-notes-known-issues-1905.md)találja.
 - Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](../operator/azure-stack-release-notes-1905.md#hotfixes) nem alkalmazhatók a Azure stack ASDK.

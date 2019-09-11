@@ -3,7 +3,7 @@ title: Azure Stack frissítési csomag előkészítése | Microsoft Docs
 description: Útmutató Azure Stack frissítési csomag előkészítéséhez.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 0a18c7e09f6be105ce1f80551cee6f341dda50d9
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234996"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863052"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Azure Stack frissítési csomag előkészítése
 
@@ -106,7 +106,7 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 
 3.  Váltson vissza az irányítópult frissítés paneljére. A panelnek jeleznie kell, hogy van elérhető frissítés. Ez azt jelzi, hogy a frissítés sikeresen előkészített. Az újonnan hozzáadott frissítési csomag áttekintéséhez kattintson a panelre.
 
-4.  A frissítés telepítéséhez jelölje ki a **készként** megjelölt csomagot, vagy kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most**lehetőséget, vagy kattintson a **Frissítés most** gombra a felső részen.
+4.  A frissítés telepítéséhez jelölje ki a készként megjelölt csomagot, vagy kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most**lehetőséget, vagy kattintson a **Frissítés most** gombra a felső részen.
 
 5.  A frissítési csomag telepítése lehetőségre kattintva megtekintheti az állapotot a **frissítési Futtatás részletei** területen. Innen az **Összefoglalás letöltése** lehetőségre kattintva letöltheti a naplófájlokat. A frissítési kísérletek naplói a kísérlet befejezése után 6 hónapig elérhetők.
 
