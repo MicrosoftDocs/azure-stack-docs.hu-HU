@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a18c7e09f6be105ce1f80551cee6f341dda50d9
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 515195e30aed9944b8e0cc0e371d08b54ea75189
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863052"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902673"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Azure Stack frissítési csomag előkészítése
 
@@ -47,9 +47,6 @@ A következő táblázat azt mutatja be, hogy a frissítési csomagok manuális 
 ## <a name="download-the-update-package"></a>A frissítési csomag letöltése
 A Azure Stack frissítések és gyorsjavítások frissítési csomagja a csatlakoztatott rendszerek frissítés paneljén keresztül érhető el. Le kell töltenie a csomagot, és át kell helyeznie a csomagot egy olyan helyre, amely elérhető a Azure Stack példánya számára, ha OEM-csomagot frissít, vagy ha egy leválasztott rendszer támogatását támogatja. Előfordulhat, hogy le kell töltenie a csomagot, majd fel kell töltenie egy elérhető helyre, ha a rendszer egy időszakos kapcsolatban álló rendszert futtat.
 
->[!NOTE]
->Maga a frissítési csomag és annak tartalma (például bináris fájlok, PowerShell-parancsfájlok stb.) a Microsoft tulajdonában lévő tanúsítványokkal van aláírva. A csomag módosításával az aláírás érvénytelenné válik.
-
 Tekintse át a csomag tartalmát. A frissítési csomagok általában a következő fájlokból állnak:
 
 -   **Egy önkicsomagoló \<PackageName >. zip fájl**. Ez a fájl tartalmazza a frissítés hasznos adatait.
@@ -62,9 +59,13 @@ Azure Stack szoftverfrissítések és gyorsjavítások automatikus előkészít�
 
 A [teljes és expressz frissítések](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) Azure stack frissítései egy biztonságos Azure-végponton futnak. Azure Stack csatlakoztatott példányokkal rendelkező operátorok [automatikusan megjelennek a felügyeleti portálon a Azure stack frissítései](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Az internetes leválasztott rendszerek vagy a gyenge internetkapcsolattal rendelkező rendszerek esetében a frissítési csomagok a [Azure stack Updates Downloader eszközzel](https://aka.ms/azurestackupdatedownload)tölthetők le. Azure Stack szoftverfrissítési csomagok tartalmazhatják Azure Stack szolgáltatások frissítéseit, valamint a Azure Stack skálázási egységei operációs rendszerének frissítéseit is.
 
+>[!NOTE]
+>Maga a frissítési csomag és annak tartalma (például bináris fájlok, PowerShell-parancsfájlok stb.) a Microsoft tulajdonában lévő tanúsítványokkal van aláírva. A csomag módosításával az aláírás érvénytelenné válik.
+
+
 ### <a name="where-to-download-azure-stack-hotfix-packages"></a>Honnan tölthetők le Azure Stack gyorsjavítási csomagok
 
-A [Azure stack gyorsjavítások](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) csomagja ugyanabban a biztonságos Azure-végponton fut, mint Azure stack frissítésekhez. Azure Stack csatlakoztatott példányokkal rendelkező operátorok [automatikusan megjelennek a felügyeleti portálon a Azure stack frissítései](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack gyorsjavítások 1.1906.11.52](https://support.microsoft.com/help/4515650). A gyorsjavításokat a Azure Stack verziójához tartozó kibocsátási megjegyzésekben találja. OEM hardver szállítója – megadott frissítések
+A [Azure stack gyorsjavítások](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) csomagja ugyanabban a biztonságos Azure-végponton fut, mint Azure stack frissítésekhez. Azure Stack csatlakoztatott példányokkal rendelkező operátorok [automatikusan megjelennek a felügyeleti portálon a Azure stack frissítései](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages). Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le, például [Azure stack gyorsjavítások 1.1906.11.52](https://support.microsoft.com/help/4515650). A gyorsjavításokat a Azure Stack verziójához tartozó kibocsátási megjegyzésekben találja.
 
 ### <a name="where-to-download-oem-update-packages"></a>Honnan tölthetők le az OEM-frissítési csomagok
 Az OEM-gyártó a frissítéseket is kiadhatja, például az illesztőprogram-és a belső vezérlőprogram-frissítéseket. Habár ezek a frissítések különálló OEM- [csomagokként](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types) jelennek meg a hardver gyártójától, azok továbbra is importálhatók, települnek és kezelhetők ugyanúgy, mint a Microsoft frissítési csomagjai. A szállítói kapcsolattartási hivatkozások listáját az [Apply Azure stack Original Equipment Manufacturer (OEM) frissítéseinél](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information)találja.

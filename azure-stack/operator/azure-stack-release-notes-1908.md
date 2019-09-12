@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 935a422aee68bb107e5bfe8b79a21d22ce1fffc8
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: ad059e09bbd544e4709a237ee0c51cafc2a734b4
+ms.sourcegitcommit: 9438b559ea314cc8c19fd710e1b2a6ceb15e50c3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876617"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912655"
 ---
 # <a name="azure-stack-1908-update"></a>Azure Stack 1908 frissítés
 
@@ -35,7 +35,7 @@ Ez a cikk az 1908-es frissítési csomag tartalmát ismerteti. A frissítés a A
 
 ## <a name="previous-release-notes"></a>Korábbi kibocsátási megjegyzések
 
-A 1908-es verziótól kezdődően a kibocsátási megjegyzések korábbi verziói már nem láthatók a bal oldali tartalomjegyzékben. Ha a kibocsátási megjegyzések régebbi verzióit szeretné elérni, jelöljön ki egy másik cikket (például a [Azure stack áttekintést](azure-stack-overview.md)), majd válassza a 1905, 1906, 1907 vagy 1908 elemet a tartalomjegyzék tetején a bal oldalon. A kibocsátási megjegyzések korábbi verzióival kapcsolatban tekintse meg az [archivált kibocsátási megjegyzések](#archived-release-notes) szakaszt.
+A 1908-es verziótól kezdődően a kibocsátási megjegyzések korábbi verziói már nem láthatók a bal oldali tartalomjegyzékben. A kibocsátási megjegyzések régebbi verzióinak eléréséhez válasszon egy másik cikket (például a [Azure stack áttekintést](azure-stack-overview.md)), majd válassza a 1905, 1906, 1907 vagy 1908 elemet a tartalomjegyzék tetején a bal oldalon. A kibocsátási megjegyzések korábbi verzióival kapcsolatban tekintse meg az [archivált kibocsátási megjegyzések](#archived-release-notes) szakaszt.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
 

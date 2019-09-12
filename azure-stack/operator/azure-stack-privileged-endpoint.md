@@ -3,7 +3,7 @@ title: A rendszerjogosultságú végpont használata a Azure Stackban | Microsof
 description: Azt mutatja be, hogyan használható a Kiemelt végpont (PEP) a Azure Stack (Azure Stack operátor esetében).
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/03/2019
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 349634e9f7bfdab3ec08630488d19947813361dd
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.lastreviewed: 09/03/2019
+ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377223"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902625"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>A rendszerjogosultságú végpont használata Azure Stack
 
@@ -68,6 +68,10 @@ Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön me
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      A `ComputerName` paraméter lehet a PEP-t futtató virtuális gépek egyikének IP-címe vagy DNS-neve. 
+
+     >[!NOTE]
+     >A Azure Stack nem végez távoli hívást a PEP hitelesítő adatának érvényesítésekor. Egy helyileg tárolt RSA nyilvános kulcsra támaszkodik.
+     
    - Ha a ASDK futtatja:
      
      ```powershell
@@ -82,7 +86,7 @@ Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön me
      - **Jelszó**: Adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
      > [!NOTE]
-     > Ha nem tud csatlakozni az ERCS-végponthoz, próbálkozzon újra egy olyan ERCS virtuális gép IP-címével, amelyhez még nem próbált csatlakozni.
+     > Ha nem tud csatlakozni az ERCS-végponthoz, próbálkozzon újra egy másik ERCS virtuális gép IP-címével.
 
 3. A kapcsolódás után a rendszer az [ ***IP-cím vagy a ERCS virtuális gép neve*] értékre vált. PS >** **vagy [AZS-ercs01]: PS >** , a környezettől függően. Innen a Futtatás `Get-Command` gombra kattintva megtekintheti az elérhető parancsmagok listáját.
 
