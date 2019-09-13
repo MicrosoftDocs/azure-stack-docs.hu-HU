@@ -1,6 +1,6 @@
 ---
-title: Hozzon létre egy ajánlatot az Azure Stackben |} A Microsoft Docs
-description: Felhő-rendszergazdák megtudhatja, hogyan hozhat létre egy ajánlatot, a felhasználók számára az Azure Stackben.
+title: Ajánlat létrehozása a Azure Stackban | Microsoft Docs
+description: Felhőalapú rendszergazdaként megtudhatja, hogyan hozhat létre ajánlatot a felhasználók számára Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,95 +15,99 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 1492c779144eac235e5c32e767e966b3a6cfb9fd
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836929"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936142"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Ajánlat létrehozása az Azure Stackben
 
-[Kínál](azure-stack-overview.md) csoportjai, egy vagy több olyan csomag, amelyet szolgáltatók felhasználóknak, amelyet a felhasználók is vásárolhat, illetve fizethetnek elő. Ez a cikk bemutatja, hogyan hozhat létre, amely tartalmazza az ajánlatot a [létrehozott csomagot](azure-stack-create-plan.md). Ez az ajánlat virtuális gépeken (VM) beállítása lehetővé teszi az előfizetők számára.
+[Az ajánlatok](azure-stack-overview.md) egy vagy több csomagból álló csomagcsoportok, amelyeket a szolgáltatók nyújtanak a felhasználóknak, amelyeket azok megvásárolhatnak vagy rájuk előfizethetnek. Ez a cikk ismerteti egy olyan ajánlat létrehozásának módját, amely tartalmazza a [létrehozott csomagot](azure-stack-create-plan.md). Ez az ajánlat lehetőséget ad az előfizetők számára virtuális gépek (VM-ek) beállítására.
 
-## <a name="create-an-offer-1902-and-later"></a>Hozzon létre egy ajánlatot (1902 és újabb verziók)
+::: moniker range=">=azs-1902"
+## <a name="create-an-offer-1902-and-later"></a>Ajánlat létrehozása (1902 és újabb)
 
-1. Jelentkezzen be a [Azure Stack rendszergazdai portál](https://adminportal.local.azurestack.external) válassza **+ erőforrás létrehozása**, majd **ajánlatok és csomagok**, majd **ajánlat**.
+1. Jelentkezzen be a [Azure stack felügyeleti portálra](https://adminportal.local.azurestack.external) , és válassza a **+ erőforrás létrehozása**, majd a **+ csomagok**, majd az **ajánlat**lehetőséget.
 
    ![Ajánlat létrehozása](media/azure-stack-create-offer/offers.png)
 
-2. Lapokra osztott felhasználói felület jelenik meg, amely lehetővé teszi, hogy határozza meg az ajánlat nevét, és adja hozzá a meglévő, vagy hozzon létre új alapcsomagok és kiegészítő csomagok. Ennél is fontosabb áttekintheti a hoz létre, mielőtt hozna létre, az ajánlat részleteit.
+2. Megjelenik egy Többlapos felhasználói felület, amely lehetővé teszi az ajánlat nevének megadását, illetve meglévő vagy új alapcsomagok és kiegészítő csomagok létrehozását. A legfontosabb, hogy a létrehozás előtt áttekintheti a létrehozott ajánlat részleteit.
 
-   Az a **alapjai** lapra, adja meg egy **megjelenített név** és a egy **erőforrásnév**, majd a **erőforráscsoport**, jelölje be **létrehozása új** vagy **meglévő**. A megjelenítendő név az ajánlat rövid nevét. Erre a rövid névre az ajánlat, amely megjelenik a felhasználók számára, amikor előfizetnek az ajánlatra, a felhasználói portálon csak információt. Használható, amely segít a felhasználóknak megérteni, hogy mit tartalmaz az ajánlat az intuitív név. Csak a rendszergazda láthatja az erőforrás neve. Ezt a nevet használják a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással végzett műveletekhez. Ezen a lapon választhatja győződjön meg arról, ez az ajánlat nyilvános, vagy legyen privát, amely az alapértelmezett érték. Is [módosítsa az ajánlat nyilvános vagy privát állapotát](#change-the-state-of-an-offer) újabb, illetve.
+   Az **alapvető beállítások** lapon adja meg a **megjelenítendő nevet** és az **erőforrás nevét**, majd az **erőforráscsoport**területen válassza az **új létrehozása** vagy a **meglévő használata**lehetőséget. A megjelenítendő név az ajánlat felhasználóbarát neve. Ez a felhasználóbarát név az egyetlen olyan ajánlat, amelyet a felhasználók a felhasználói portál ajánlatára való előfizetéskor látnak. Használjon olyan intuitív nevet, amely segít a felhasználóknak megérteni, hogy mit tartalmaz az ajánlat. Csak a rendszergazda láthatja az erőforrás nevét. Ezt a nevet használják a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással végzett műveletekhez. Ezen a lapon azt is megteheti, hogy ezt az ajánlatot nyilvánosként vagy privátként szeretné megőrizni, ami az alapértelmezett. [Az ajánlat nyilvános vagy privát állapotát később is megváltoztathatja](#change-the-state-of-an-offer) .
 
    ![Új ajánlat](media/azure-stack-create-offer/new-offer.png)
   
-3. Válassza ki a **Alapcsomagok** lapon vagy kattintson a **tovább: Alapcsomagok >** gombra. Válassza ki a kívánt foglalni az ajánlatba csomagokkal.
+3. Válassza ki az **alapcsomagok** lapot, **vagy kattintson a Tovább gombra: Alapcsomagok** > gomb. Válassza ki az ajánlatba felvenni kívánt csomag (oka) t.
 
-   ![Adatforgalmi díjcsomag kiválasztása](media/azure-stack-create-offer/select-plan.png)
+   ![Csomag kiválasztása](media/azure-stack-create-offer/select-plan.png)
 
-4. Ezen a ponton létrehozhat egy kiegészítő csomag az alapszintű csomag módosítására, de ez nem kötelező. Létre fogunk hozni egy kiegészítő csomag a következő cikkben [Azure Stack kiegészítő csomagok](create-add-on-plan.md).
+4. Ezen a ponton létrehozhat egy kiegészítő csomagot az alapcsomag módosításához, de ez nem kötelező. A következő cikkben egy kiegészítő csomagot fogunk létrehozni, [Azure stack kiegészítő](create-add-on-plan.md)csomagokat.
 
-5. Válassza ki a **felülvizsgálat + létrehozása** fülre. Tekintse át az ajánlat-összefoglaló arról, hogy minden érték helyes-e. A felület lehetővé teszi, hogy a kvóták bontsa ki a kiválasztott csomagja, egyenként, a csomagban lévő minden egyes kvóta részleteinek megtekintéséhez, és lépjen vissza a szükséges módosításokat.
+5. Válassza a **felülvizsgálat + létrehozás** lapot. Tekintse át az ajánlat összegzését, és győződjön meg arról, hogy az összes érték helyes. Az interfész lehetővé teszi, hogy a kiválasztott csomagokban lévő kvótákat egyenként kibontva megtekintse a csomagok egyes kvótáinak részleteit, és térjen vissza a szükséges módosítások elvégzéséhez.
 
-6. Válassza ki **létrehozás** az ajánlat létrehozásához.
+6. Az ajánlat létrehozásához válassza a **Létrehozás** lehetőséget.
 
-   ![Áttekintés és létrehozás](media/azure-stack-create-offer/review-offer.png)
+   ![Ellenőrzés és létrehozás](media/azure-stack-create-offer/review-offer.png)
 
 ### <a name="change-the-state-of-an-offer"></a>Ajánlat állapotának módosítása
 
-Miután létrehozta az ajánlatot, módosíthatja a állapotában. Ajánlatok kell tenni **nyilvános** a felhasználók számára a teljes képet kaphat, amikor előfizetnek. Ajánlatok a következők lehetnek:
+Az ajánlat létrehozása után megváltoztathatja az állapotát. A felhasználóknak **közzé** kell tenniük a teljes nézetet, ha előfizetnek. Az ajánlatok a következőket tehetik:
 
-- **Nyilvános**: Látható a felhasználók számára.
-- **Privát**: Csak a rendszergazdák elhelyezhetik látható. Ez a beállítás akkor hasznos, a csomag vagy ajánlat tervezése közben, vagy ha a felhő rendszergazdája szeretné [hozzon létre minden egyes felhasználók számára előfizetést](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-- **Szerelni**: Lezárva az új előfizetők számára. A felhő rendszergazdájához, leszerelheti ajánlatok megelőzni a jövőbeli előfizetések, de a jelenlegi előfizetők változatlanul hagyja.
+- **Nyilvános**: A felhasználók számára látható.
+- **Magánjellegű**: Csak a Felhőbeli rendszergazdák számára látható. Ez a beállítás akkor hasznos, ha a csomag vagy ajánlat tervezetét tervezi, vagy ha a felhő rendszergazdája szeretné [létrehozni az egyes előfizetéseket a felhasználók](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)számára.
+- **Leszerelt**: Lezárva az új előfizetőknek. A felhő rendszergazdája leszerelheti az ajánlatokat a jövőbeli előfizetések megelőzésére, de a jelenlegi előfizetőket nem érinti.
 
   > [!TIP]  
-  > Az ajánlat módosítások nem láthatók azonnal a felhasználó számára. A módosítások megtekintéséhez jelentkezzen ki, majd jelentkezzen be újra a felhasználói portálra, tekintse meg az új ajánlat felhasználók előfordulhat, hogy kell.
+  > Az ajánlat módosításai nem láthatók azonnal a felhasználó számára. A módosítások megtekintéséhez előfordulhat, hogy a felhasználóknak ki kell jelentkezniük, majd újra be kell jelentkezniük a felhasználói portálra az új ajánlat megtekintéséhez.
 
-Az ajánlat állapotának két módja van:
+Az ajánlatok állapota kétféleképpen módosítható:
 
-1. A **összes erőforrás**, válassza ki az ajánlat nevét. Az a **áttekintése** az ajánlatra, kattintson képernyő **Állapotváltozáshoz**. Válassza ki a használni kívánt állapot (például **nyilvános**).
+1. Az **összes erőforrás**területen válassza ki az ajánlat nevét. Az ajánlat **Áttekintés** képernyőjén válassza az **Állapot módosítása**lehetőséget. Válassza ki a használni kívánt állapotot (például **nyilvános**).
 
-   ![Válassza ki az állapot](media/azure-stack-create-offer/change-state.png)
+   ![Válassza ki az állapotot](media/azure-stack-create-offer/change-state.png)
 
-2. Válassza ki **ajánlat beállításai**. Válassza ki a használni kívánt állapot (például **nyilvános**), majd **mentése**.
+2. Válassza az **ajánlati beállítások**lehetőséget. Válassza ki a használni kívánt állapotot (például **nyilvános**), majd válassza a **Mentés**lehetőséget.
 
-   ![Válassza ki a kisegítő lehetőségek állapota](media/azure-stack-create-offer/offer-settings.png)
+   ![Kisegítő lehetőségek kiválasztása](media/azure-stack-create-offer/offer-settings.png)
+::: moniker-end
 
-## <a name="create-an-offer-1901-and-earlier"></a>Hozzon létre egy ajánlatot (1901 és korábbi verziók)
+::: moniker range="<=azs-1901"
+## <a name="create-an-offer-1901-and-earlier"></a>Ajánlat létrehozása (1901 és korábbi verziók)
 
-1. Jelentkezzen be a [Azure Stack rendszergazdai portál](https://adminportal.local.azurestack.external) válassza **+ erőforrás létrehozása**, majd **bérlői ajánlatok és csomagok**, majd **ajánlat**.
+1. Jelentkezzen be a [Azure stack felügyeleti portálra](https://adminportal.local.azurestack.external) , és válassza a **+ erőforrás létrehozása**, majd a **bérlői ajánlatok + csomagok**lehetőséget, majd az **ajánlat**lehetőséget.
 
    ![Ajánlat létrehozása](media/azure-stack-create-offer/image01.png)
   
-2. Alatt **új ajánlat**, adjon meg egy **megjelenített neve** és a egy **erőforrásnév**, majd a **erőforráscsoport**, jelölje be **létrehozása új** vagy **meglévő**. A megjelenítendő név az ajánlat rövid nevét. Erre a rövid névre, csak az ajánlat, amely a felhasználó számára látható előfizetés egy ajánlatra vonatkozó információk. Használható, amely segít a felhasználóknak megérteni, hogy mit tartalmaz az ajánlat az intuitív név. Csak a rendszergazda láthatja az erőforrás neve. Ezt a nevet használják a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással végzett műveletekhez.
+2. Az **új ajánlat**területen adja meg a **megjelenítendő nevet** és **az erőforrás nevét**, majd az **erőforráscsoport**területen válassza az **új létrehozása** vagy a **meglévő használata**lehetőséget. A megjelenítendő név az ajánlat felhasználóbarát neve. Ez a felhasználóbarát név az egyetlen olyan ajánlat, amelyet a felhasználók az ajánlatra való előfizetéskor látnak. Használjon olyan intuitív nevet, amely segít a felhasználóknak megérteni, hogy mit tartalmaz az ajánlat. Csak a rendszergazda láthatja az erőforrás nevét. Ezt a nevet használják a rendszergazdák az ajánlattal mint Azure Resource Manager-erőforrással végzett műveletekhez.
 
    ![Új ajánlat](media/azure-stack-create-offer/image01a.png)
   
-3. Válassza ki **Alapcsomagok** megnyitásához a **megtervezése**. Válassza ki a szeretne foglalni az ajánlatba, és válassza a csomagokat **kiválasztása**. Válassza a ajánlat létrehozása **létrehozás**.
+3. A **terv**megnyitásához válassza az alapcsomagok lehetőséget. Válassza ki az ajánlatba felvenni kívánt terveket, majd válassza a **kiválasztás**lehetőséget. Az ajánlat létrehozásához válassza a **Létrehozás**lehetőséget.
 
-   ![Adatforgalmi díjcsomag kiválasztása](media/azure-stack-create-offer/image02.png)
+   ![Csomag kiválasztása](media/azure-stack-create-offer/image02.png)
   
-4. Miután létrehozta az ajánlatot, módosíthatja a állapotában. Ajánlatok kell tenni **nyilvános** a felhasználók számára a teljes képet kaphat, amikor előfizetnek. Ajánlatok a következők lehetnek:
+4. Az ajánlat létrehozása után megváltoztathatja az állapotát. A felhasználóknak **közzé** kell tenniük a teljes nézetet, ha előfizetnek. Az ajánlatok a következőket tehetik:
 
-   - **Nyilvános**: Látható a felhasználók számára.
-   - **Privát**: Csak a rendszergazdák elhelyezhetik látható. Ez a beállítás akkor hasznos, a csomag vagy ajánlat tervezése közben, vagy ha a felhő rendszergazdája szeretné [hozzon létre minden egyes felhasználók számára előfizetést](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Szerelni**: Lezárva az új előfizetők számára. A felhő rendszergazdájához, leszerelheti ajánlatok megelőzni a jövőbeli előfizetések, de a jelenlegi előfizetők változatlanul hagyja.
+   - **Nyilvános**: A felhasználók számára látható.
+   - **Magánjellegű**: Csak a Felhőbeli rendszergazdák számára látható. Ez a beállítás akkor hasznos, ha a csomag vagy ajánlat tervezetét tervezi, vagy ha a felhő rendszergazdája szeretné [létrehozni az egyes előfizetéseket a felhasználók](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)számára.
+   - **Leszerelt**: Lezárva az új előfizetőknek. A felhő rendszergazdája leszerelheti az ajánlatokat a jövőbeli előfizetések megelőzésére, de a jelenlegi előfizetőket nem érinti.
 
    > [!TIP]  
-   > Az ajánlat módosítások nem láthatók azonnal a felhasználó számára. A módosítások megtekintéséhez jelentkezzen ki, majd jelentkezzen be újra a felhasználói portálra, tekintse meg az új ajánlat felhasználók előfordulhat, hogy kell.
+   > Az ajánlat módosításai nem láthatók azonnal a felhasználó számára. A módosítások megtekintéséhez előfordulhat, hogy a felhasználóknak ki kell jelentkezniük, majd újra be kell jelentkezniük a felhasználói portálra az új ajánlat megtekintéséhez.
 
-   Az ajánlat áttekintése képernyőn válassza ki a **kisegítő lehetőségek állapota**. Válassza ki a használni kívánt állapot (például **nyilvános**), majd válassza ki **mentése**.
+   Az ajánlat áttekintés képernyőjén válassza a **kisegítő lehetőségek állapota**lehetőséget. Válassza ki a használni kívánt állapotot (például **nyilvános**), majd válassza a **Mentés**lehetőséget.
 
-     ![Válassza ki az állapot](media/azure-stack-create-offer/change-stage-1807.png)
+     ![Válassza ki az állapotot](media/azure-stack-create-offer/change-stage-1807.png)
 
-     Alternatív megoldásként válassza **Állapotváltozáshoz** majd állapotba.
+     Alternatív megoldásként válassza az **Állapot módosítása** lehetőséget, majd válasszon egy állapotot.
 
-    ![Válassza ki a kisegítő lehetőségek állapota](media/azure-stack-create-offer/change-stage-select-1807.png)
+    ![Kisegítő lehetőségek kiválasztása](media/azure-stack-create-offer/change-stage-select-1807.png)
 
 > [!NOTE]
-> PowerShell használatával alapértelmezett ajánlatok, tervek és kvóták létrehozása. További információkért lásd: [Azure Stack PowerShell-modul 1.4.0-s](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+> Az alapértelmezett ajánlatokat, terveket és kvótákat a PowerShell használatával is létrehozhatja. További információ: [Azure stack PowerShell-modul 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+::: moniker-end
 
 ## <a name="next-steps"></a>További lépések
 

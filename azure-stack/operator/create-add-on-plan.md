@@ -1,6 +1,6 @@
 ---
-title: Ebből a cikkből elsajátíthatja, hogyan frissítse az Azure Stack ajánlatokat és csomagokat |} A Microsoft Docs
-description: Ez a cikk ismerteti, hogyan lehet megtekinteni és módosítani a meglévő Azure Stack ajánlatokat és csomagokat.
+title: Ebből a cikkből megtudhatja, hogyan frissítheti Azure Stack ajánlatait és csomagjait | Microsoft Docs
+description: Ez a cikk a meglévő Azure Stack ajánlatok és csomagok megtekintését és módosítását ismerteti.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,67 +17,71 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 01e5bc6e91311a0c27acffd4079931c3ee000d29
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836809"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936135"
 ---
-# <a name="azure-stack-add-on-plans"></a>Az Azure Stack kiegészítő csomagok
+# <a name="azure-stack-add-on-plans"></a>Azure Stack kiegészítő csomagok
 
-Az Azure Stack operátorait szerint módosíthatja a kiegészítő csomagok létrehozása egy [ALAPCSOMAG](azure-stack-create-plan.md) Ha szeretne további szolgáltatásokat, vagy kibővítéséhez *számítógép*, *tárolási*, vagy *hálózati* kvóták alapcsomagot az ajánlat mellett. Kiegészítő csomagok az alapszintű csomag módosítása és opcionális bővítmények, amelyeket a felhasználók előfizetni.
+Azure Stack operátorként kiegészítő csomagokat hozhat létre az [alapcsomag módosításához, ha további](azure-stack-create-plan.md) szolgáltatásokat szeretne biztosítani, vagy a *számítógép*-, a *tárterület*-vagy a *hálózati* kvótákat az alapcsomag kezdeti ajánlatán kívül szeretné kiterjeszteni. A kiegészítő csomagok módosítják az alapcsomagot, és választható bővítmények, amelyeket a felhasználók választhatnak.
 
-Vannak olyan helyzetek, amikor egyetlen csomagban kombinálásával mindent nem optimális. Más esetekben érdemes rendelkezik egy alap megtervezése és a majd a további szolgáltatásokat a kiegészítő csomagok. Például az IaaS-szolgáltatások ajánlat részeként egy alapcsomagot az összes PaaS-szolgáltatások kiegészítő csomagok számít sikerült dönt.
+Minden alkalommal, amikor egyetlen csomagban egyesíti az összeset, optimálisnak kell lennie. Más esetekben érdemes lehet alapcsomagot használni, majd kiegészítő csomagokkal felkínálni a további szolgáltatásokat. Dönthet például úgy, hogy a IaaS-szolgáltatásokat egy alapcsomag részeként kínálja fel, és minden, a kiegészítő csomagként kezelt Pásti-szolgáltatással rendelkezik.
 
-Egy másik oka a használatára a kiegészítő csomagok azt erőforrás-használat monitorozása. Ehhez egy alapcsomagot viszonylag kis kvóták (attól függően, a szükséges szolgáltatások) tartalmazó kezdhet. Ezt követően felhasználók kapacitás érni, azok lenne riasztást kap, akkor a lefoglalt erőforrásokat a hozzárendelt terv alapján felhasznált. Itt a felhasználók választhatják ki egy kiegészítő csomagot, amely a további forrásokat biztosít.
+A kiegészítő csomagok használatának másik oka az erőforrás-használat figyelése. Ehhez egy olyan alapcsomaggal kell kezdenie, amely viszonylag kis mennyiségű kvótát tartalmaz (a szükséges szolgáltatástól függően). Ezután, ahogy a felhasználók elérik a kapacitást, a rendszer figyelmezteti, hogy a hozzárendelt terv alapján felhasználták az erőforrások kiosztását. Innen a felhasználók kiválaszthatnak egy kiegészítő csomagot, amely biztosítja a további erőforrásokat.
 
 > [!NOTE]
-> Ha nem szeretné kiterjeszteni a kvóta egy kiegészítő csomag használatával, azt is beállíthatja a [az eredeti konfigurációt kvóta szerkesztése](azure-stack-quota-types.md#edit-a-quota).
+> Ha nem szeretne kiegészítő csomagot használni a kvóta meghosszabbításához, akkor a [kvóta eredeti konfigurációját is szerkesztheti](azure-stack-quota-types.md#edit-a-quota).
 
-Egy kiegészítő csomag egy meglévő ajánlat előfizetéshez való hozzáadásakor a további erőforrások órát is igénybe vehet egy jelenik meg.
+Ha kiegészítő csomagot ad hozzá egy meglévő ajánlat-előfizetéshez, a további erőforrások akár egy órát is igénybe vehetnek.
 
-Létező ajánlat módosításával kiegészítő csomagok jönnek létre.
+A kiegészítő csomagok egy meglévő ajánlat módosításával jönnek létre.
 
-## <a name="create-an-add-on-plan-1902-and-later"></a>Hozzon létre egy kiegészítő csomag (1902 és újabb verziók)
+::: moniker range=">=azs-1902"
+## <a name="create-an-add-on-plan-1902-and-later"></a>Kiegészítő csomag létrehozása (1902 és újabb)
 
-1. Jelentkezzen be az Azure Stack rendszergazdai portál a felhő rendszergazdájához.
-2. Ugyanezekkel a lépésekkel használt [hozzon létre egy új alapszintű csomag](azure-stack-create-plan.md) , amely nem volt korábban kínált szolgáltatásokat kínáló új tervet létrehozni.
-3. Kattintson a felügyeleti portál **kínál** , és válassza ki az ajánlat és a egy kiegészítő csomag frissíteni kell.
+1. Jelentkezzen be a Azure Stack felügyeleti portálra felhőalapú rendszergazdaként.
+2. Kövesse ugyanezeket a lépéseket [egy új alapcsomag](azure-stack-create-plan.md) létrehozásához, amely a korábban nem kínált szolgáltatásokat kínáló új csomag létrehozására szolgál.
+3. A felügyeleti portálon kattintson az **ajánlatok** lehetőségre, majd válassza ki a kiegészítő csomaggal frissítendő ajánlatot.
 
    ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on1.png)
 
-4. Az ajánlat tulajdonságok alján válassza **kiegészítő csomagok**. Kattintson a **Hozzáadás**lehetőségre.
+4. Az ajánlat tulajdonságainak alján válassza a **kiegészítő csomagok**lehetőséget. Kattintson a **Hozzáadás**lehetőségre.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on2.png)
 
-5. Válassza ki a csomag hozzáadásához. Ebben a példában a csomagot nevezik **20-storageaccounts**. A csomag kiválasztása után kattintson az **kiválasztása** a csomag hozzáadása az ajánlatot. A terv hozzáadásának az ajánlatra sikeresen értesítést kell kapnia.
+5. Válassza ki a hozzáadni kívánt csomagot. Ebben a példában a csomag neve **20-storageaccounts**. A terv kiválasztása után **a Kiválasztás gombra kattintva adja** hozzá a csomagot az ajánlathoz. Értesítést kap arról, hogy a csomag sikeresen hozzá lett adva az ajánlathoz.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on3.png)
 
-6. Tekintse át, győződjön meg arról, hogy az új kiegészítő csomag szerepel a listán az ajánlatban kiegészítő csomagok listáját.
+6. Tekintse át az ajánlatban található kiegészítő csomagok listáját annak ellenőrzéséhez, hogy az új kiegészítő csomag szerepel-e a listában.
 
-    [![Létrehozás kiegészítő csomag](media/create-add-on-plan/add-on4.png "bővítmény terv létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on4.png "Kiegészítő csomag létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
+::: moniker-end
 
-## <a name="create-an-add-on-plan-1901-and-earlier"></a>Hozzon létre egy kiegészítő csomag (1901 és korábbi verziók)
+::: moniker range="<=azs-1901"
+## <a name="create-an-add-on-plan-1901-and-earlier"></a>Kiegészítő csomag létrehozása (1901-es és korábbi verziók)
 
-1. Jelentkezzen be az Azure Stack rendszergazdai portál a felhő rendszergazdájához.
-2. Ugyanezekkel a lépésekkel használt [hozzon létre egy új alapszintű csomag](azure-stack-create-plan.md) , amely nem volt korábban kínált szolgáltatásokat kínáló új tervet létrehozni. Ebben a példában a Key Vault (**Microsoft.KeyVault**) szolgáltatásokat az új csomag fog szerepelni.
-3. Kattintson a felügyeleti portál **kínál** , és válassza ki az ajánlat és a egy kiegészítő csomag frissíteni kell.
+1. Jelentkezzen be a Azure Stack felügyeleti portálra felhőalapú rendszergazdaként.
+2. Kövesse ugyanezeket a lépéseket [egy új alapcsomag](azure-stack-create-plan.md) létrehozásához, amely a korábban nem kínált szolgáltatásokat kínáló új csomag létrehozására szolgál. Ebben a példában a Key Vault (**Microsoft.** kulcstartó) szolgáltatások szerepelni fognak az új tervben.
+3. A felügyeleti portálon kattintson az **ajánlatok** lehetőségre, majd válassza ki a kiegészítő csomaggal frissítendő ajánlatot.
 
    ![Kiegészítő csomag létrehozása](media/create-add-on-plan/1.PNG)
 
-4. Az ajánlat tulajdonságok alján görgessen és válassza ki **kiegészítő csomagok**. Kattintson a **Hozzáadás**lehetőségre.
+4. Görgessen az ajánlat tulajdonságai oldal aljára, és válassza a **kiegészítő csomagok**lehetőséget. Kattintson a **Hozzáadás**lehetőségre.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/2.PNG)
 
-5. Válassza ki a csomag hozzáadásához. Ebben a példában a csomagot nevezik **Key vault terv**. A csomag kiválasztása után kattintson az **kiválasztása** a csomag hozzáadása az ajánlatot. A terv hozzáadásának az ajánlatra sikeresen értesítést kell kapnia.
+5. Válassza ki a hozzáadni kívánt csomagot. Ebben a példában a tervet **Key Vault-tervnek**nevezzük. A terv kiválasztása után **a Kiválasztás gombra kattintva adja** hozzá a csomagot az ajánlathoz. Értesítést kap arról, hogy a csomag sikeresen hozzá lett adva az ajánlathoz.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/3.PNG)
 
-6. Tekintse át, győződjön meg arról, hogy az új kiegészítő csomag szerepel a listán az ajánlatban kiegészítő csomagok listáját.
+6. Tekintse át az ajánlatban található kiegészítő csomagok listáját annak ellenőrzéséhez, hogy az új kiegészítő csomag szerepel-e a listában.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/4.PNG)
+::: moniker-end
 
 ## <a name="next-steps"></a>További lépések
 
