@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118741"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974998"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack
 
@@ -54,13 +54,13 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 3. Konfigurálja a megfelelő IP-címet a alaplapi felügyeleti vezérlőben (BMC), és alkalmazza az összes BIOS-beállítást a SZÁMÍTÓGÉPGYÁRTÓ által biztosított dokumentációban.
 4. Alkalmazza a jelenlegi belső vezérlőprogram-alapkonfigurációt az összes összetevőre a HLH futó hardvergyártó által biztosított eszközök használatával.
 5. Futtassa a csomópont hozzáadása műveletet a Azure Stack felügyeleti portálon.
-6. Ellenőrizze, hogy a csomópont hozzáadása művelet sikeres-e. Ehhez ellenőriznie kell a skálázási [egység **állapotát** ](#monitor-add-node-operations). 
+6. Ellenőrizze, hogy a csomópont hozzáadása művelet sikeres-e. Ehhez ellenőriznie kell a [skálázási egység **állapotát** ](#monitor-add-node-operations). 
 
 ## <a name="add-the-node"></a>A csomópont hozzáadása
 
-Új csomópontok hozzáadásához használhatja a felügyeleti portált vagy a PowerShellt is. A csomópont hozzáadása művelet először hozzáadja az új méretezési egység csomópontot elérhető számítási kapacitásként, majd automatikusan kiterjeszti a tárolókapacitást. A kapacitás kibontása automatikusan megtörténik, mivel Azure Stack egy hiperkonvergens rendszer, ahol a *számítási* és a *tárolási* skála együttesen történik.
+Új csomópontok hozzáadásához a felügyeleti portált vagy a PowerShellt használhatja. A csomópont hozzáadása művelet először hozzáadja az új méretezési egység csomópontot elérhető számítási kapacitásként, majd automatikusan kiterjeszti a tárolókapacitást. A kapacitás kibontása automatikusan megtörténik, mivel Azure Stack egy hiperkonvergens rendszer, ahol a *számítási* és a *tárolási* skála együttesen történik.
 
-### <a name="use-the-admin-portal"></a>A felügyeleti portál használata
+### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
 
 1. Jelentkezzen be a Azure Stack felügyeleti portálra Azure Stack operátorként.
 2. Navigáljon a **+ erőforrás** > -**kapacitás** > **skálázási egység csomópontjának**létrehozására.
@@ -89,7 +89,7 @@ Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélj
 ## <a name="monitor-add-node-operations"></a>Csomópont-hozzáadási műveletek figyelése 
 A csomópont hozzáadása művelet állapotának beolvasásához használja a felügyeleti portált vagy a PowerShellt. A csomópont-műveletek hozzáadása több órát is igénybe vehet.
 
-### <a name="use-the-admin-portal"></a>A felügyeleti portál használata 
+### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata 
 Új csomópont hozzáadásának figyeléséhez tekintse át a méretezési egység vagy a skálázási egység csomópont objektumait a felügyeleti portálon. Ehhez nyissa meg a **régió-felügyeleti** > **méretezési egységeket**. Ezután válassza ki az áttekinteni kívánt méretezési egységet vagy méretezési egység csomópontot. 
 
 ### <a name="use-powershell"></a>A PowerShell használata

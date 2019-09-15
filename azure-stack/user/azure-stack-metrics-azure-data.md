@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
-ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
+ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70064178"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974677"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Azure Monitor használata Azure Stack
 
@@ -69,7 +69,7 @@ A mértékek típusai a következők:
  - .NET-esemény forrása
  - IIS-naplók
  - jegyzékalapú ETW.
- - összeomlási memóriaképek,
+ - Összeomlási memóriaképek
  - Felhasználói hibák naplói
 
 > [!Note]  

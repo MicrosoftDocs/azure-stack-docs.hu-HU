@@ -1,6 +1,6 @@
 ---
-title: Infrastruktúra biztonsági mentési szolgáltatás ajánlott eljárások az Azure Stackhez |} A Microsoft Docs
-description: Ajánlott eljárásokat is követheti, ha telepíti és kezeli az Azure Stack segítségével mérsékelhetik az adatvesztést egy Katasztrofális hiba esetén az adatközpontban.
+title: Infrastructure Backup szolgáltatás ajánlott eljárásai a Azure Stackhoz | Microsoft Docs
+description: A következő ajánlott eljárásokat követve telepítheti és felügyelheti Azure Stack az adatvesztés enyhítése érdekében, ha végzetes hiba történt.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,64 +16,65 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 7859888e816402872023709a5832e1ae669617e9
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 0b843018a90e0a07a1d1135099275288d4a4ce62
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268937"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974765"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Infrastruktúra Backup szolgáltatás – ajánlott eljárások
+# <a name="infrastructure-backup-service-best-practices"></a>Infrastructure Backup szolgáltatás – ajánlott eljárások
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Ajánlott eljárásokat is követheti, ha telepíti és kezeli az Azure Stack segítségével mérsékelhetik az adatvesztést egy Katasztrofális hiba esetén az adatközpontban.
+A következő ajánlott eljárásokat követve telepítheti és felügyelheti Azure Stack az adatvesztés enyhítése érdekében, ha végzetes hiba történt.
 
-Az ajánlott eljárásokat, győződjön meg arról, hogy a telepítés még a megfelelőségi végrehajtott módosítások a művelet flow rendszeres időközönként tekintse át. A Microsoft Support kell problémát tapasztal az ajánlott eljárások végrehajtása közben, kérjen segítséget.
+Rendszeresen tekintse át az ajánlott eljárásokat annak ellenőrzéséhez, hogy a telepítés még mindig megfelel-e a műveleti folyamat változásainak. Ha bármilyen probléma merül fel az ajánlott eljárások megvalósítása során, lépjen kapcsolatba Microsoft ügyfélszolgálata segítségért.
 
-## <a name="configuration-best-practices"></a>Konfigurációs eljárások
+## <a name="configuration-best-practices"></a>Ajánlott eljárások a konfigurációhoz
 
 ### <a name="deployment"></a>Környezet
 
-Infrastruktúra biztonsági mentésének engedélyezése az egyes Azure Stack-felhő üzembe helyezés után. Azure Stack PowerShell-lel az operátor felügyeleti API-végpont a hozzáférést minden olyan ügyfél-kiszolgáló biztonsági mentés is ütemezhető.
+Az egyes Azure Stack-felhő üzembe helyezése után engedélyezze Infrastructure Backup. A Azure Stack PowerShell használatával bármely ügyfél/kiszolgáló biztonsági mentését ütemezheti az operátori felügyeleti API-végponthoz való hozzáféréssel.
 
 ### <a name="networking"></a>Hálózat
 
-Az univerzális elnevezési konvenció (UNC) karakterlánc az elérési út egy teljesen minősített tartománynevét (FQDN) kell használnia. IP-cím akkor lehetséges, ha a névfeloldás ez nem lehetséges. Karakterláncnak UNC helyét adja meg az erőforrások, például megosztott fájlokhoz vagy eszközökön.
+Az elérési úthoz az univerzális elnevezési konvenció (UNC) karakterláncának teljes tartománynevet (FQDN) kell használnia. Az IP-cím akkor használható, ha a névfeloldás nem lehetséges. Az UNC-karakterlánc megadja az erőforrások, például a megosztott fájlok vagy eszközök helyét.
 
-### <a name="encryption"></a>Titkosítás
+### <a name="encryption"></a>Encryption
 
-#### <a name="version-1901-and-newer"></a>1901 és újabb verzió
+#### <a name="version-1901-and-newer"></a>1901-es és újabb verzió
 
-A titkosítási tanúsítvány lekérdezi a külső tárhelyen exportált adatok biztonsági másolatának titkosításához használatos. A tanúsítvány lehet egy önaláírt tanúsítványt, mivel a tanúsítványt csak szolgál kulcsok. Tekintse meg a New-SelfSignedCertificate további információ a tanúsítvány létrehozásával.  
-A kulcs (például globális Azure Key Vault-tanúsítvánnyal) biztonságos helyen kell tárolni. A tanúsítvány CER formátumú adatok titkosítására szolgál. A PFX-formátum biztonsági mentési adatok visszafejtése során felhőbeli helyreállítási üzembe helyezhető Azure Stacket kell használni.
+A titkosítási tanúsítvány a külső tárolóba exportált biztonsági másolatok titkosítására szolgál. A tanúsítvány lehet önaláírt tanúsítvány, mivel a tanúsítvány csak a kulcsok továbbítására szolgál. A tanúsítványok létrehozásával kapcsolatos további információkért tekintse meg a New-SelfSignedCertificate című témakört.
+  
+A kulcsot biztonságos helyen kell tárolni (például globális Azure Key Vault tanúsítvány). A tanúsítvány CER-formátuma az adattitkosításra szolgál. A PFX-formátumot a Azure Stack Cloud Recovery telepítése során kell használni a biztonsági mentési adatmennyiség visszafejtéséhez.
 
-![A tanúsítvány tárolja biztonságos helyen.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+![A tanúsítvány tárolása biztonságos helyen történik.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
 
 #### <a name="1811-and-older"></a>1811 és régebbi
 
-A titkosítási kulcs beolvasása külső tárterület exportált adatok biztonsági másolatának titkosításához használatos. A kulcs létrehozásának részeként [a biztonsági mentés engedélyezése az Azure Stack a PowerShell-lel](azure-stack-backup-enable-backup-powershell.md).
+A titkosítási kulcs segítségével titkosíthatja a külső tárolóba exportált biztonsági mentési adataikat. A kulcs a Azure Stack PowerShell-lel történő [biztonsági mentésének engedélyezésének](azure-stack-backup-enable-backup-powershell.md)részeként jön létre.
 
-A kulcs (például globális Azure Key Vaultban titkos kódot) biztonságos helyen kell tárolni. Ezt a kulcsot kell használni az Azure Stack újbóli üzembe helyezés során. 
+A kulcsot biztonságos helyen kell tárolni (például globális Azure Key Vault titkos kulcs). Ezt a kulcsot a Azure Stack újratelepítése során kell használni.
 
-![A kulcsot biztonságos helyen tárolja.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
+![A kulcs tárolása biztonságos helyen történik.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
-## <a name="operational-best-practices"></a>Gyakorlati tanácsok az üzemeltetéshez
+## <a name="operational-best-practices"></a>Operatív ajánlott eljárások
 
 ### <a name="backups"></a>Biztonsági másolatok
 
- - Biztonsági mentési feladatok végrehajtása közben a rendszer fut, így a felhasználói élmény vagy a felhasználói alkalmazások üzemkimaradást sem okoz. A várt a biztonsági mentési feladatok ésszerű mértékű terhelés alatt álló megoldások 20 – 40 percet vesz igénybe.
- - OEM alapján használja, manuálisan biztonsági mentési hálózati kapcsolók és a hardver életciklus gazdagép (HLH) kell tárolni a biztonsági mentési megosztáshoz, a biztonsági mentési infrastruktúra-vezérlő tárolók vezérlő adatsík a biztonsági mentési adatokat. Érdemes tárolni a kapcsoló- és HLH konfigurációk a régió mappában. Ha több Azure Stack-példányok ugyanabban a régióban, fontolja meg, az egyes konfigurációkhoz egy skálázási egység tartozó azonosító használatát.
+ - A biztonsági mentési feladatok a rendszer futása közben futnak, így nincs leállás a kezelési élmények vagy a felhasználói alkalmazások esetében. A biztonsági mentési feladatok 20-40 percet vesznek igénybe egy ésszerű terhelés alá tartozó megoldás esetében.
+ - A SZÁMÍTÓGÉPGYÁRTÓ által megadott utasításokat, a hálózati kapcsolók manuális biztonsági mentését, valamint a hardveres életciklus-gazdagépet (HLH) ugyanazon a biztonsági mentési megosztáson kell tárolni, ahol a Infrastructure Backup vezérlő tárolja a vezérlési sík biztonsági mentési információit. Érdemes lehet kapcsoló-és HLH-konfigurációkat tárolni a régió mappában. Ha több Azure Stack példánya van ugyanabban a régióban, érdemes lehet azonosítót használni a méretezési egységhez tartozó egyes konfigurációkhoz.
 
-### <a name="folder-names"></a>Mappanevek
+### <a name="folder-names"></a>Mappák nevei
 
- - Infrastruktúra automatikusan létrehozza a MASBACKUP mappát. Ez az a Microsoft által felügyelt fájlmegosztás. Megosztások MASBACKUP ugyanazon a szinten hozhat létre. Mappák vagy adatok a storage, amely nem hoz létre az Azure Stack MASBACKUP létrehozása nem ajánlott. 
- -  Felhasználó teljes Tartományneve és a mappa nevében régió megkülönböztetni a különböző felhőkben biztonsági mentési adatait. A teljesen minősített tartományneve (FQDN) az Azure Stack üzembe helyezés és a végpontok a régiót és a külső tartománynév paraméter együttes használata. További információkért lásd: [adatközpontban Azure Stack - integrációs DNS](azure-stack-integrate-dns.md).
+ - Az infrastruktúra automatikusan hozza létre a MASBACKUP mappát. Ez egy Microsoft által felügyelt megosztás. A megosztásokat a MASBACKUP azonos szinten is létrehozhatja. Nem ajánlott mappák vagy tárolási adattárolót létrehozni a MASBACKUP belül, Azure Stack nem hoz létre.
+ -  A felhasználói FQDN és a mappa neve a különböző felhőkből származó biztonsági mentési adatok megkülönböztetéséhez. A Azure Stack központi telepítésének és végpontjának teljes tartományneve a régió paraméter és a külső tartománynév paraméter kombinációja. További információ: [Azure stack Datacenter Integration-DNS](azure-stack-integrate-dns.md).
 
-Például a biztonsági másolatok megosztásáról az AzSBackups fileserver01.contoso.com üzemeltethetők. A fájlmegosztás egy mappát a külső tartománynév és a egy almappát, amely a régió nevét használja az Azure Stack üzemelő példányonként előfordulhatnak. 
+A biztonsági másolat megosztását például a fileserver01.contoso.com AzSBackups tárolja. Ebben a fájlmegosztásban előfordulhat, hogy a külső tartománynévvel és a régió nevét használó almappában Azure Stack központi telepítés mappája.
 
 Teljes tartománynév: contoso.com  
-Régió: nyc
+Régió: NYC
 
 
     \\fileserver01.contoso.com\AzSBackups
@@ -81,9 +82,9 @@ Régió: nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
 
-MASBackup mappában, ahol az Azure Stack tárolja a biztonsági mentési adatok. Ez a mappa nem használjon a saját adatok tárolására. OEM vagy bármely biztonsági mentési adatok tárolására ne használja ezt a mappát. 
+A MASBackup mappa a Azure Stack tárolja a biztonsági másolati adatfájljait. Ne használja ezt a mappát a saját adatai tárolásához. A számítógépgyártók nem használhatják ezt a mappát az összes biztonsági mentési érték tárolására.
 
-OEM-ek javasolt, hogy az a régió mappában összetevők biztonsági mentési adatok tárolására. Minden egyes hálózati kapcsolók, a hardver életciklus gazdagépet (HLH) és így tovább, a saját almappájába kell tárolni. Példa:
+A számítógépgyártóknak javasoljuk, hogy a régió mappájában tárolja az összetevőinek biztonsági mentési adatait. A hálózati kapcsolók, a hardveres életciklus-állomás (HLH) és így tovább is tárolhatók a saját almappájában. Példa:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -92,18 +93,18 @@ OEM-ek javasolt, hogy az a régió mappában összetevők biztonsági mentési a
 
 ### <a name="monitoring"></a>Figyelés
 
-A rendszer támogatja a következő riasztásokat:
+A rendszer a következő riasztásokat támogatja:
 
 | Riasztás                                                   | Leírás                                                                                     | Szervizelés                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Biztonsági mentés nem sikerült, mert a fájlmegosztás nincs elég kapacitás | Fájlmegosztás kívül esik a kapacitás és a biztonsági mentés vezérlő nem tudja exportálni biztonságimásolat-fájlok helyét. | Adja hozzá a további tárolókapacitás, és készítsen biztonsági másolatot próbálja újra. Szabadítson fel lemezterületet, törölje a meglévő biztonsági másolatok (kezdve Legrégebbi először).                    |
-| Biztonsági mentés kapcsolati problémái miatt nem sikerült.             | Hálózat az Azure Stack és a fájl között megosztást hibásan.                          | A hálózati probléma, és próbálkozzon újra a biztonsági mentés.                                                                                            |
-| Biztonsági mentés az elérési út egy hiba miatt nem sikerült                | A fájlmegosztás elérési útja nem oldható fel                                                          | Képezze le a megosztás egy másik számítógépről annak érdekében, hogy a megosztás érhető el. Szükség lehet frissíteni az elérési út, ha már nem érvényes.       |
-| Biztonsági mentés hitelesítési probléma miatt nem sikerült               | A hitelesítő adatokkal probléma vagy hálózati probléma, amely hatással van a hitelesítés lehet.    | Képezze le a megosztás egy másik számítógépről annak érdekében, hogy a megosztás érhető el. Szükség lehet a hitelesítő adatok frissítése, ha azok már nem érvényesek. |
-| Biztonsági mentés nem sikerült, mert egy általános hiba                    | A sikertelen kérelmek egy átmeneti probléma okozhatja. Próbálkozzon újra biztonsági mentése.                    | Telefonos támogatás                                                                                                                               |
+| A biztonsági mentés nem sikerült, mert a fájlmegosztás kapacitása nem működik. | A fájlmegosztás nem kapacitású, és a biztonságimásolat-vezérlő nem tudja exportálni a biztonságimásolat-fájlokat a helyre. | Vegyen fel további tárolókapacitást, és próbálkozzon újra a biztonsági mentéssel. A meglévő biztonsági másolatok törlése (az elsőtől kezdve) szabadítson fel lemezterületet.                    |
+| Csatlakozási problémák miatt nem sikerült a biztonsági mentés.             | A Azure Stack és a fájlmegosztás közötti hálózat problémákba ütközik.                          | Oldja meg a hálózati problémát, és próbálkozzon újra a biztonsági mentéssel.                                                                                            |
+| A biztonsági mentés nem sikerült, mert hiba történt az elérési úton.                | A fájlmegosztás elérési útja nem oldható fel.                                                          | Képezze le a megosztást egy másik számítógépről, hogy a megosztás elérhető legyen. Előfordulhat, hogy frissítenie kell az elérési utat, ha már nem érvényes.       |
+| A biztonsági mentés hitelesítési probléma miatt nem sikerült.               | Előfordulhat, hogy probléma van a hitelesítő adatokkal vagy a hitelesítést befolyásoló hálózati problémával.    | Képezze le a megosztást egy másik számítógépről, hogy a megosztás elérhető legyen. Előfordulhat, hogy frissítenie kell a hitelesítő adatokat, ha már nem érvényesek. |
+| A biztonsági mentés általános hiba miatt nem sikerült.                    | A sikertelen kérést egy átmeneti probléma okozhatja. Próbálkozzon újra a biztonsági mentéssel.                    | Hívja a támogatási szolgálatot.                                                                                                                               |
 
 ## <a name="next-steps"></a>További lépések
 
-Tekintse át a referenciaanyag az olyan a [infrastruktúra biztonsági mentési szolgáltatás](azure-stack-backup-reference.md)
+Tekintse át a [Infrastructure Backup szolgáltatás](azure-stack-backup-reference.md)hivatkozási anyagát.
 
-Engedélyezze a [infrastruktúra biztonsági mentési szolgáltatás](azure-stack-backup-enable-backup-console.md)
+Engedélyezze a [Infrastructure Backup szolgáltatást](azure-stack-backup-enable-backup-console.md).

@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808266"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974827"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service Azure Stack Update 1 kibocsátási megjegyzései
 
@@ -146,7 +146,7 @@ A tárolóhelyek felcserélése ebben a kiadásban megszakadt. A funkciók vissz
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Keresse meg a **CN0-VM-** et a Virtual Machines alatt a Azure stack felügyeleti portálon, és **kattintson a kapcsolódás lehetőségre** egy távoli asztali munkamenet a vezérlő példánnyal való megnyitásához. Használja a App Service telepítése során megadott hitelesítő adatokat.
+2. Keresse meg a **CN0-VM-** et a Virtual Machines alatt a Azure stack felügyeleti portálon, és **kattintson a kapcsolódás lehetőségre** egy távoli asztali munkamenetnek a vezérlő példánnyal való megnyitásához. Használja a App Service telepítése során megadott hitelesítő adatokat.
 3. Indítsa el a **PowerShellt rendszergazdaként** , és hajtsa végre a következő parancsfájlt:
 
     ```powershell
@@ -171,7 +171,7 @@ A tárolóhelyek felcserélése ebben a kiadásban megszakadt. A funkciók vissz
     ```
 
 4. A távoli asztali munkamenet lezárása.
-5. Állítsa le a ControllersNSG hálózati biztonsági csoportot, hogy **megtagadja** a távoli asztali kapcsolatokat a app Service vezérlő példányaihoz. Cserélje le a AppService. local nevet a App Service központilag telepített erőforráscsoport nevére.
+5. Állítsa le a ControllersNSG hálózati biztonsági csoportot, hogy megtagadja a távoli asztali kapcsolatokat a app Service vezérlő példányaihoz. Cserélje le a AppService. local nevet a App Service központilag telepített erőforráscsoport nevére.
 
     ```powershell
 

@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9190a8cb0b42b10710a4abc2671fe8ead3094d9a
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 0147108a2e4fb45fce98460fcde141b5f2e28df5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808288"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975040"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack"></a>App Service üzembe helyezése offline környezetben Azure Stack
 
@@ -103,7 +103,7 @@ App Service offline környezetben történő telepítéséhez először létre k
    - Válassza **a meglévő VNet és alhálózatok használata**lehetőséget.
        1. Válassza ki azt az **erőforráscsoportot** , amely a virtuális hálózatot tartalmazza;
        2. Válassza ki a helyes **Virtual Network** nevet, amelyet üzembe szeretne helyezni;
-       3. Válassza ki a megfelelő alhálózati **értékeket minden** szükséges szerepkör-alhálózathoz;
+       3. Válassza ki a megfelelő alhálózati értékeket minden szükséges szerepkör-alhálózathoz;
        4. Kattintson a **Tovább** gombra.
 
       ![Virtuális hálózat és alhálózat adatai App Service telepítőben][5]
@@ -185,7 +185,7 @@ App Service offline környezetben történő telepítéséhez először létre k
     ![Adja meg a szerepkörök virtuálisgép-rendszergazdáit App Service telepítőben][16]
 
 16. Az összefoglalás lapon:
-    1. Ellenőrizze az elvégzett beállításokat. A módosítások elvégzéséhez használja az **előző gombokat** az előző lapok megkereséséhez.
+    1. Ellenőrizze az elvégzett beállításokat. A módosítások elvégzéséhez használja az előző gombokat az előző lapok megkereséséhez.
     2. Ha a konfigurációk helyesek, jelölje be a jelölőnégyzetet.
     3. A telepítés elindításához kattintson a **tovább**gombra.
 

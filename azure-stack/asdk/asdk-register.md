@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025868"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974628"
 ---
 # <a name="register-the-asdk-with-azure"></a>A ASDK regisztrálása az Azure-ban
 
@@ -164,7 +164,7 @@ Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, 
 A regisztráció befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **Az Azure Stack-környezet már regisztrálva van az Azure-ban.**
 
 > [!IMPORTANT]
-> Ne zárjuk be a PowerShell ablakot.
+> Ne **zárjuk be** a PowerShell ablakot.
 
 Mentse a regisztrációs jogkivonatot és a regisztrációs erőforrás nevét a későbbi referenciához.
 
@@ -226,7 +226,7 @@ A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrá
 3. Válassza ki **tulajdonságok**. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot regisztrálható vagy **nem regisztrálható**. Ha regisztrálva van, megjeleníti a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját, valamint a regisztrációs erőforráscsoportot és a nevet is.
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
-Az ugyanahhoz az előfizetéshez tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)előfizetésbe.
+Az ugyanahhoz az előfizetéshez tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>További lépések

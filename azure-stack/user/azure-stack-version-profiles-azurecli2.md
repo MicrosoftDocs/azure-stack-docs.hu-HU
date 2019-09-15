@@ -14,12 +14,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842923"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974649"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack az Azure CLI-vel
 
@@ -31,7 +31,7 @@ A jelen cikkben ismertetett lépéseket követve állíthatja be az Azure paranc
 
 Ha a ASDK használja, szüksége lesz a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványra Azure Stack számára, hogy az Azure CLI-t használja a fejlesztői gépen. A tanúsítvány segítségével kezelheti az erőforrásokat a parancssori felületről.
 
- - **A Azure stack hitelesítésszolgáltatói** főtanúsítványra akkor van szükség, ha a parancssori FELÜLETET a ASDK kívüli munkaállomásról használja.  
+ - **A Azure stack hitelesítésszolgáltatói főtanúsítványra** akkor van szükség, ha a parancssori FELÜLETET a ASDK kívüli munkaállomásról használja.  
 
  - **A virtuális gép aliasok végpontja** egy aliast (például "UbuntuLTS" vagy "Win2012Datacenter") biztosít. Ez az alias a virtuális gépek telepítésekor egyetlen paraméterként hivatkozik a lemezkép-közzétevőre, az ajánlatra, az SKU-ra és a verzióra.  
 
@@ -44,7 +44,7 @@ Ha integrált rendszer használatával dolgozik, nem kell exportálnia a HITELES
 A ASDK legfelső szintű tanúsítványának exportálása PEM formátumban:
 
 1. Szerezze be a Azure Stack legfelső szintű tanúsítványának nevét:
-    - Jelentkezzen be a Azure Stack bérlő vagy a felügyeleti portálra.
+    - Jelentkezzen be a Azure Stack felhasználói vagy felügyeleti portálra.
     - A címsor közelében kattintson a **biztonságos** elemre.
     - Az előugró ablakban kattintson az **érvényes**elemre.
     - A tanúsítvány ablakban kattintson a tanúsítvány **elérési útja** fülre.
@@ -292,7 +292,7 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
 
 2. Regisztrálja a környezetét. A következő paraméterek használata a futtatásakor `az cloud register`:
 
-    | Érték | Példa | Leírás |
+    | Value | Példa | Leírás |
     | --- | --- | --- |
     | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
     | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Ha kérdése van az integrált rendszer-végponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
@@ -519,7 +519,7 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
 
 2. Regisztrálja a környezetét. A futtatásakor `az cloud register`használja a következő paramétereket.
 
-    | Érték | Példa | Leírás |
+    | Value | Példa | Leírás |
     | --- | --- | --- |
     | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
     | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Ha kérdése van az integrált rendszer-végponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |

@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: a72879303b80a1265450019d6b264085a8539387
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271759"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974976"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>Virtuálisgép-rendszerkép hozzáadása Azure Stack
 
@@ -60,7 +60,7 @@ A lemezképeket blob Storage URI-azonosítóval kell tudni hivatkozni. Készíts
 
    ![A rendszerkép létrehozásának megkezdése](./media/azure-stack-add-vm-image/image4.png)
 
-   A rendszerkép sikeres létrehozása után a virtuális gép rendszerképének állapota **sikeresre**változik.
+   A rendszerkép sikeres létrehozása után a virtuális gép rendszerképének állapota Sikeresreváltozik.
 
 4. Annak érdekében, hogy a virtuális gép rendszerképe könnyebben elérhető legyen a felhasználói felületen, érdemes lehet [Piactéri elemeket létrehozni](azure-stack-create-and-publish-marketplace-item.md).
 
@@ -107,7 +107,7 @@ A lemezképeket blob Storage URI-azonosítóval kell tudni hivatkozni. Készíts
      Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ezt a verziót a  *\#következő formátumban\#kell megadni:. \#* . Ilyen például a **1.0.0**. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
    - **osType**  
      Például:`Linux`  
-     A rendszerkép osType Windows vagy **Linux** **rendszernek** kell lennie.  
+     A rendszerkép osType **Windows** vagy **Linux**rendszernek kell lennie.  
    - **OSUri**  
      Például:`https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
      Megadhatja a blob Storage URI-JÁT `osDisk`.  

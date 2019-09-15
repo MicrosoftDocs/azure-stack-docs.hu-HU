@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 43ee38c18e2831d1cb96958501cee6f77292edd0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: b01199bfe96c39fe79aac65eca219a065f39375c
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271682"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975008"
 ---
 # <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack
 
@@ -75,7 +75,7 @@ A Azure App Service on Azure Stack az összes szerepkört a Virtual Machine Scal
 
 3. Az új szerepkör-példányok állapotának figyelése a App Service felügyeletben. Egy adott szerepkör-példány állapotának megtekintéséhez kattintson a listában a szerepkör típusára.
 
-## <a name="add-additional-workers-using-the-admin-portal"></a>További feldolgozók felvétele a felügyeleti portál használatával
+## <a name="add-additional-workers-using-the-administrator-portal"></a>További feldolgozók hozzáadása a felügyeleti portál használatával
 
 1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
 

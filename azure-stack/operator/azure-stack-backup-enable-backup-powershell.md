@@ -1,6 +1,6 @@
 ---
-title: Biztonsági mentés engedélyezése a PowerShell-lel az Azure Stack |} A Microsoft Docs
-description: Engedélyezze az infrastruktúra Backup szolgáltatás a Windows PowerShell-lel, úgy, hogy az Azure Stack állíthatók, ha hiba történik.
+title: Azure Stack biztonsági mentésének engedélyezése a PowerShell használatával | Microsoft Docs
+description: Megtudhatja, hogyan engedélyezheti a Infrastructure Backup szolgáltatást a PowerShell-lel, hogy a rendszer meghibásodás esetén visszaállítsa Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,47 +15,47 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 08950940510d874b407448bab37c6a43f6965c7f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2e419c32caf78d97ee38e570ce0fa823cc94651a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268948"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975180"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>A PowerShell-lel az Azure Stack biztonsági mentés engedélyezése
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Engedélyezze az infrastruktúra Backup szolgáltatás a Windows PowerShell-lel így rendszeres biztonsági mentést hajtsa végre:
- - Belső identity service és a legfelső szintű tanúsítvány
- - Felhasználói csomagok, ajánlatok, előfizetések
- - Számítási, tárolási és hálózati felhasználó kvóták
- - Felhasználói Key vault titkos kódok
- - RBAC-szerepkörök felhasználói és szabályzatok
- - Storage-fiókok felhasználó
+Engedélyezze a Infrastructure Backup szolgáltatást a Windows PowerShell használatával a következő időszakos biztonsági mentések elvégzéséhez:
+ - Belső identitás szolgáltatás és főtanúsítvány.
+ - Felhasználói csomagok, ajánlatok, előfizetések.
+ - Számítási, tárolási és hálózati felhasználói kvóták.
+ - A felhasználó Key Vault titkot.
+ - A felhasználók RBAC szerepkörei és házirendjei.
+ - Felhasználói Storage-fiókok.
 
-A PowerShell-parancsmagok, biztonsági mentés engedélyezése, indítsa el a biztonsági mentési és biztonsági mentési információ az operátor felügyeleti végponton keresztül érheti el.
+A PowerShell-parancsmagok segítségével engedélyezheti a biztonsági mentést, megkezdheti a biztonsági mentést, és lekérheti a biztonsági mentési információkat az operátor felügyeleti végpontján keresztül.
 
 ## <a name="prepare-powershell-environment"></a>PowerShell-környezet előkészítése
 
-A PowerShell-környezet konfigurálása, lásd: [Azure Stack PowerShell telepítése](azure-stack-powershell-install.md). Jelentkezzen be az Azure Stack, lásd: [konfigurálja az operátor környezetet, és jelentkezzen be az Azure Stack](azure-stack-powershell-configure-admin.md).
+A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md). A Azure Stackba való bejelentkezéshez lásd: [az operátori környezet konfigurálása és a Azure Stackba való bejelentkezés](azure-stack-powershell-configure-admin.md).
 
-## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Adja meg a biztonsági mentési megosztást, a hitelesítő adatok és a titkosítási kulcs biztonsági mentésének engedélyezése
+## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>A biztonsági mentés engedélyezéséhez adja meg a biztonsági mentési megosztást, a hitelesítő adatokat és a titkosítási kulcsot
 
-Ugyanazon PowerShell-munkamenetben szerkessze a következő PowerShell-parancsfájlt a környezetnek a változók hozzáadásával. A frissített parancsprogrammal adja meg a biztonsági mentési megosztást, a hitelesítő adatok és a titkosítási kulcsot a biztonsági mentési infrastruktúra-szolgáltatáshoz.
+Ugyanebben a PowerShell-munkamenetben szerkessze a következő PowerShell-szkriptet a környezetéhez tartozó változók hozzáadásával. Futtassa a frissített parancsfájlt a biztonsági mentési megosztás, a hitelesítő adatok és a titkosítási kulcs megadásához a Infrastructure Backup szolgáltatáshoz.
 
 | Változó        | Leírás   |
 |---              |---                                        |
-| $username       | Írja be a **felhasználónév** fájlok olvasása és írása a megfelelő szintű hozzáféréssel rendelkező megosztott meghajtóhelyét tartomány és felhasználónév használata. Például: `Contoso\backupshareuser`. |
-| $password       | Írja be a **jelszó** a felhasználó számára. |
-| $sharepath      | Írja be a elérési útját a **biztonsági mentési tárhelyet**. Egy univerzális elnevezési konvenció (UNC) karakterlánc egy különálló eszköz található fájlmegosztás elérési útját kell használnia. Karakterláncnak UNC helyét adja meg az erőforrások, például megosztott fájlokhoz vagy eszközökön. A biztonsági mentési adatok rendelkezésre állásának biztosításához, hogy az eszköz egy külön helyen kell lennie. |
-| $frequencyInHours | A gyakorisága (óra) határozza meg, hogy milyen gyakran jönnek létre biztonsági mentéseket. Az alapértelmezett érték: 12. A Scheduler támogatja a legfeljebb 12 és a egy legalább 4.|
-| $retentionPeriodInDays | A megőrzési időszak napban határozza meg, hány napig a biztonsági mentések megmaradnak a külső helyen. Az alapértelmezett értéke a 7. A Scheduler támogatja a legfeljebb 14 és a egy legalább 2. A megőrzési időszak régebbi biztonsági másolatok beolvasása automatikusan törli a külső helyről.|
-| $encryptioncertpath | 1901 és nem vonatkozik.  A paraméter az Azure Stack-modul 1.7-es verziója és más alkalmazásokhoz érhető el. A titkosítási tanúsítvány elérési útja fájl elérési útját adja meg a. CER-fájl az adatok titkosításához használt nyilvános kulccsal. |
-| $encryptionkey | Alkalmazott 1811 hozhat létre vagy régebbi. A paraméter az Azure Stack-modul 1.6 vagy régebbi verzió érhető el. Az adatok titkosításához használt titkosítási kulcs. Használja a [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) parancsmag segítségével hozzon létre egy új kulcsot. |
+| `$username`       | Írja be a felhasználónevet a megosztott meghajtó helyének a tartomány és a Felhasználónév használatával, megfelelő hozzáféréssel az olvasási és írási fájlokhoz. Például: `Contoso\backupshareuser`. |
+| `$password`       | Adja meg a felhasználó **jelszavát** . |
+| `$sharepath`      | Adja meg a **biztonsági mentési tár helyének**elérési útját. Egy különálló eszközön tárolt fájlmegosztás elérési útjához univerzális elnevezési konvenció (UNC) karakterláncot kell használnia. Az UNC-karakterlánc megadja az erőforrások, például a megosztott fájlok vagy eszközök helyét. A biztonsági mentési adatmennyiség biztosításához az eszköznek külön helyen kell lennie. |
+| `$frequencyInHours` | Az órák gyakorisága határozza meg, hogy milyen gyakran jönnek létre a biztonsági másolatok. Az alapértelmezett érték 12. A Scheduler legfeljebb 12 és legalább 4 értéket támogat.|
+| `$retentionPeriodInDays` | A megőrzési időtartam napokban határozza meg, hogy a biztonsági másolatok hány napja maradnak meg a külső helyen. Az alapértelmezett érték 7. A Scheduler legfeljebb 14 és minimum 2 értéket támogat. A megőrzési időtartamnál régebbi biztonsági mentések automatikusan törlődnek a külső helyről.|
+| `$encryptioncertpath` | A 1901-es és újabb verzióira vonatkozik. A paraméter a Azure Stack modul 1,7-es és újabb verzióiban érhető el. A titkosítási tanúsítvány elérési útja megadja a fájl elérési útját. Az adattitkosításhoz használt nyilvános kulccsal rendelkező CER-fájl. |
+| `$encryptionkey` | A Build 1811-es vagy korábbi verziójára vonatkozik. A paraméter a Azure Stack modul 1,6-es vagy korábbi verziójában érhető el. A titkosítási kulcs az adattitkosításhoz használatos. Új kulcs létrehozásához használja a [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) parancsmagot. |
 |     |     |
 
-### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>Biztonsági mentés engedélyezése 1901 és túli tanúsítvány használatával
+### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Biztonsági mentés engedélyezése a 1901-es és újabb verziókban a tanúsítvány használatával
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -82,7 +82,7 @@ Ugyanazon PowerShell-munkamenetben szerkessze a következő PowerShell-parancsf�
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
-### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>1811 vagy a korábban használt tanúsítvány biztonsági mentés engedélyezése
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>Biztonsági mentés engedélyezése a 1811-es vagy korábbi verzióban tanúsítvány használatával
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -102,23 +102,23 @@ Ugyanazon PowerShell-munkamenetben szerkessze a következő PowerShell-parancsf�
 ```
 
    
-##  <a name="confirm-backup-settings"></a>Biztonsági mentési beállításainak megerősítése
+##  <a name="confirm-backup-settings"></a>Biztonsági mentési beállítások megerősítése
 
-Az ugyanazon PowerShell-munkamenetben futtassa a következő parancsokat:
+Ugyanebben a PowerShell-munkamenetben futtassa a következő parancsokat:
 
    ```powershell
     Get-AzsBackupConfiguration | Select-Object -Property Path, UserName
    ```
 
-Az eredmény az alábbi példa kimenetében hasonlóan kell kinéznie:
+Az eredménynek a következő példában látható kimenethez hasonlóan kell kinéznie:
 
    ```powershell
     Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
    ```
 
-## <a name="update-backup-settings"></a>Biztonsági mentés beállításainak frissítése
-Ugyanebben a PowerShell munkamenetben frissítheti a megőrzési időtartam és a biztonsági mentések gyakoriságát az alapértelmezett értékeket. 
+## <a name="update-backup-settings"></a>Biztonsági mentési beállítások frissítése
+Ugyanebben a PowerShell-munkamenetben frissítheti a megőrzési időszak alapértelmezett értékeit és a biztonsági mentések gyakoriságát. 
 
    ```powershell
     #Set the backup frequency and retention period values.
@@ -130,7 +130,7 @@ Ugyanebben a PowerShell munkamenetben frissítheti a megőrzési időtartam és 
     Get-AzsBackupConfiguration | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
    ```
 
-Az eredmény az alábbi példa kimenetében hasonlóan kell kinéznie:
+Az eredménynek a következő példában látható kimenethez hasonlóan kell kinéznie:
 
    ```powershell
     Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
@@ -141,14 +141,14 @@ Az eredmény az alábbi példa kimenetében hasonlóan kell kinéznie:
    ```
 
 ### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
-A PowerShell-parancsmag használatával konfigurálja az infrastruktúra biztonsági mentést a Set-AzsBackupConfiguration. A korábbi kiadásokban a parancsmag a Set-AzsBackupShare volt. Ez a parancsmag meg kell adnia egy tanúsítványt. Ha infrastruktúra biztonsági mentését a titkosítási kulcs van konfigurálva, nem a titkosítási kulcs módosítása vagy megtekintése a tulajdonság. Szüksége lesz a felügyeleti PowerShell 1.6-os verzióját használja. 
+Az infrastruktúra biztonsági mentésének konfigurálására szolgáló PowerShell-parancsmag a set-AzsBackupConfiguration. A korábbi kiadásokban a parancsmag beállítása – AzsBackupShare. Ehhez a parancsmaghoz tanúsítványt kell biztosítani. Ha az infrastruktúra biztonsági mentése titkosítási kulccsal van konfigurálva, nem frissítheti a titkosítási kulcsot, vagy megtekintheti a tulajdonságot. A felügyeleti PowerShell 1,6-es verzióját kell használnia.
 
-Infrastruktúra biztonsági mentését 1901 frissítése előtt volt beállítva, ha a rendszergazda PowerShell 1.6-os verziójának segítségével állítsa be, és a titkosítási kulcs megtekintéséhez. 1.6-os verziójára kell frissítenie a titkosítási kulcs tanúsítványfájl nem teszi lehetővé.
-Tekintse meg [telepítse az Azure Stack PowerShell](azure-stack-powershell-install.md) megfelelő verzióját a modul telepítéséről további információt. 
+Ha az infrastruktúra biztonsági mentése a 1901-es frissítés előtt lett konfigurálva, a titkosítási kulcs beállításához és megtekintéséhez használja a felügyeleti PowerShell 1,6-os verzióját. Az 1,6-es verzió nem teszi lehetővé, hogy a titkosítási kulcsról tanúsítványfájl-fájlra frissítsen.
+A modul helyes verziójának telepítéséről a [Azure stack PowerShell telepítése](azure-stack-powershell-install.md) című témakörben talál további információt.
 
 
 ## <a name="next-steps"></a>További lépések
 
-Arról, hogyan futtathat egy biztonsági mentési, lásd: [biztonsági mentése az Azure Stackben](azure-stack-backup-back-up-azure-stack.md)
+További információ a biztonsági másolatok futtatásáról: [Azure stack biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 
-Ismerje meg, annak ellenőrzéséhez, hogy futtatta-e a biztonsági mentés, lásd: [megerősítése a biztonsági mentés a felügyeleti portál](azure-stack-backup-back-up-azure-stack.md)
+További információ a biztonsági mentés futtatásáról: a [biztonsági mentés megerősítése befejeződött a felügyeleti portálon](azure-stack-backup-back-up-azure-stack.md).

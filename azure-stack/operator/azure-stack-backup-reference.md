@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Infrastructure Backup szolgáltatás leírása | Microsoft Docs
-description: Ez a cikk a Azure Stack Infrastructure Backup szolgáltatáshoz kapcsolódó referenciaanyagok leírását tartalmazza.
+title: Infrastructure Backup szolgáltatási útmutató | Microsoft Docs
+description: A Azure Stack Infrastructure Backup szolgáltatásához tartozó anyagminta.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d45b11eb70533125ff8136763be24a3333c1f7dc
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 282d6f3a501550e49424c257b928e708f63ccadc
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493952"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974853"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
 
@@ -29,39 +29,39 @@ ms.locfileid: "68493952"
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A Azure Stack számos olyan szolgáltatást tartalmaz, amelyek a portál, a Azure Resource Manager és az infrastruktúra-kezelés felhasználói felületét alkotják. Az Azure Stack készülékhez hasonló kezelési élmény a megoldás kezelője számára elérhető bonyolultság csökkentését összpontosítja.
+A Azure Stack számos olyan szolgáltatást tartalmaz, amelyek a portált (Azure Resource Manager) és a teljes infrastruktúra-kezelési élményt alkotják. Azure Stack az alkalmazáshoz hasonló kezelési élmény a megoldás kezelője számára elérhető bonyolultság csökkentését összpontosítja.
 
-A Infrastructure Backup úgy lett kialakítva, hogy az infrastruktúra-szolgáltatások biztonsági mentésének és visszaállításának összetettségét kihasználja, így a kezelők a megoldás felügyeletére és a felhasználókra vonatkozó SLA-k fenntartására összpontosítanak.
+A Infrastructure Backup szolgáltatás úgy lett kialakítva, hogy az infrastruktúra-szolgáltatások biztonsági mentésének és visszaállításának összetettségét kihasználja, így a kezelők a megoldás felügyeletére és a felhasználókra vonatkozó SLA-k fenntartására összpontosítanak.
 
-A biztonsági mentések külső megosztásra való exportálásának elkerüléséhez a biztonsági másolatok ugyanazon a rendszeren való tárolása szükséges. A külső megosztás megkövetelése lehetővé teszi a rendszergazda számára, hogy megtudja, hol tárolja az adattárolást a meglévő BC/DR-szabályzatok alapján. 
+A biztonsági mentések külső megosztásra való exportálásának elkerüléséhez a biztonsági másolatok ugyanazon a rendszeren való tárolása szükséges. A külső megosztás megkövetelése lehetővé teszi a rendszergazda számára, hogy megtudja, hol tárolja az adattárolást a meglévő BC/DR-szabályzatok alapján.
 
-### <a name="infrastructure-backup-components"></a>Összetevők Infrastructure Backup
+### <a name="infrastructure-backup-service-components"></a>Infrastructure Backup szolgáltatás-összetevők
 
-Infrastructure Backup a következő összetevőket tartalmazza:
+Infrastructure Backup szolgáltatás a következő összetevőket tartalmazza:
 
  - **Infrastructure Backup vezérlő**  
  A Infrastructure Backup vezérlő a-ben és a-ban található minden Azure Stack-felhőben.
  - **Biztonsági mentési erőforrás-szolgáltató**  
- A biztonsági mentési erőforrás-szolgáltató (Backup RP) a felhasználói felület és az alkalmazásprogramozási felületek (API-k) és a Azure Stack-infrastruktúra alapszintű biztonsági mentési funkciója.
+ A biztonsági mentési erőforrás-szolgáltató (Backup RP) a felhasználói felületből és API-kkal áll a Azure Stack-infrastruktúra alapszintű biztonsági mentési funkcióit kitéve.
 
 #### <a name="infrastructure-backup-controller"></a>Infrastructure Backup vezérlő
 
-A Infrastructure Backup vezérlő egy Service Fabric-szolgáltatás, amely egy Azure Stack felhő példányát kapja meg. A biztonsági mentési erőforrások regionális szinten jönnek létre, és a régióra jellemző szolgáltatási adatok rögzítése AD, CA, Azure Resource Manager, CRP, RBAC, NRP, Key Vault, 
+A Infrastructure Backup vezérlő egy Service Fabric-szolgáltatás, amely egy Azure Stack-felhő példányaihoz lesz létrehozva. A biztonsági mentési erőforrások regionális szinten jönnek létre, és a régióra jellemző szolgáltatási adatok az AD, CA, Azure Resource Manager, CRP, szervizcsomag, NRP, Key Vault, RBAC.
 
 ### <a name="backup-resource-provider"></a>Biztonsági mentési erőforrás-szolgáltató
 
-A biztonsági mentési erőforrás-szolgáltató a Azure Stack portál felhasználói felületét mutatja be a biztonsági mentési erőforrások alapszintű konfigurálásához és listázásához. A kezelő a következő műveleteket hajthatja végre a felhasználói felületen:
+A biztonsági mentési erőforrás-szolgáltató felhasználói felületet biztosít a Azure Stack portálon a biztonsági mentési erőforrások alapszintű konfigurálásához és listázásához. A kezelők a következő műveleteket végezhetik el a felhasználói felületen:
 
- - A biztonsági mentés első alkalommal történő engedélyezése külső tárolási hely, hitelesítő adatok és titkosítási kulcs biztosításával
- - A befejezett létrehozott biztonsági mentési erőforrások és az állapot-erőforrások megtekintése a létrehozás alatt
- - A tárolási hely módosítása, ahol a biztonságimásolat-vezérlő a biztonsági mentési adatforrásokat helyezi
- - A biztonsági mentési vezérlő által a külső tároló helyének eléréséhez használt hitelesítő adatok módosítása
- - A biztonságimásolat-vezérlő által a biztonsági másolatok titkosításához használt titkosítási kulcs módosítása 
+ - A biztonsági mentés első alkalommal történő engedélyezése külső tárolási hely, hitelesítő adatok és titkosítási kulcs biztosításával.
+ - A befejezett létrehozott biztonsági mentési erőforrások és az állapot-erőforrások megtekintése a létrehozás alatt.
+ - Módosítsa a tárolási helyet, ahol a biztonságimásolat-vezérlő helyre helyezi a biztonsági mentési adatforrásokat.
+ - Módosítsa azokat a hitelesítő adatokat, amelyeket a Backup vezérlő használ a külső tároló helyének eléréséhez.
+ - Módosítsa a biztonságimásolat-vezérlő által a biztonsági másolatok titkosításához használt titkosítási kulcsot.
 
 
 ## <a name="backup-controller-requirements"></a>A biztonsági mentési vezérlőre vonatkozó követelmények
 
-Ez a szakasz a Infrastructure Backup fontos követelményeit ismerteti. Javasoljuk, hogy körültekintően tekintse át az információkat, mielőtt engedélyezi a Azure Stack példány biztonsági mentését, majd az üzembe helyezés és az azt követő művelet során szükség szerint visszautalja azt.
+Ez a szakasz a Infrastructure Backup szolgáltatás fontos követelményeit ismerteti. Javasoljuk, hogy figyelmesen tekintse át az adatokat, mielőtt engedélyezi a Azure Stack példány biztonsági mentését, majd az üzembe helyezés és az azt követő művelet során szükség szerint visszautalja azt.
 
 A követelmények a következők:
 
@@ -74,9 +74,9 @@ A követelmények a következők:
 
 | Tárolási hely                                                                 | Részletek                                                                                                                                                  |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Az SMB-fájlmegosztás a megbízható hálózati környezetben tárolt tárolóeszközön található. | SMB-megosztás ugyanabban az adatközpontban, ahol a Azure Stack telepítve van, vagy egy másik adatközpontban. Több Azure Stack példány is használhatja ugyanazt a fájlmegosztást. |
-| SMB-fájlmegosztás az Azure-ban                                                          | Jelenleg nem támogatott.                                                                                                                                 |
-| BLOB Storage az Azure-ban                                                            | Jelenleg nem támogatott.                                                                                                                                 |
+| A megbízható hálózati környezetben található tárolóeszközön tárolt SMB-fájlmegosztás. | SMB-megosztás ugyanabban az adatközpontban, ahol a Azure Stack telepítve van, vagy egy másik adatközpontban. Több Azure Stack példány is használhatja ugyanazt a fájlmegosztást. |
+| SMB-fájlmegosztás az Azure-ban.                                                          | Jelenleg nem támogatott.                                                                                                                                 |
+| BLOB Storage az Azure-ban.                                                            | Jelenleg nem támogatott.                                                                                                                                 |
 
 #### <a name="supported-smb-versions"></a>Támogatott SMB-verziók
 
@@ -88,11 +88,11 @@ A követelmények a következők:
 
 **1907 és azon túl**
 
-Az infrastruktúra-biztonsági mentési szolgáltatás támogatja a biztonsági mentési adat átvitelét egy külső tárolóhelyre, amelyen engedélyezve van az SMB-titkosítás a kiszolgálói oldalon. Ha a kiszolgáló nem támogatja az SMB-titkosítást, vagy nincs engedélyezve a funkció, az infrastruktúra-biztonsági mentési szolgáltatás visszakerül a titkosítatlan adatforgalomra. A külső tárolóhelyre helyezett biztonsági mentési adatok mindig titkosítva maradnak, és nem függenek az SMB-titkosítástól. 
+A Infrastructure Backup szolgáltatás támogatja a biztonsági mentési adat átvitelét egy külső tárolóhelyre, amelyen engedélyezve van az SMB-titkosítás a kiszolgáló oldalán. Ha a kiszolgáló nem támogatja az SMB-titkosítást, vagy nincs engedélyezve a funkció, Infrastructure Backup szolgáltatás visszakerül a titkosítatlan adatforgalomra. A külső tárolási helyre helyezett biztonsági mentési adatok mindig inaktív állapotban vannak, és nem függenek az SMB-titkosítástól.
 
-#### <a name="storage-location-sizing"></a>Tárolási hely méretezése 
+#### <a name="storage-location-sizing"></a>Tárolási hely méretezése
 
-Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a biztonsági mentések legfeljebb hét napján maradnak meg. Ez az alapértelmezett viselkedés, ha engedélyezi a Azure Stack az infrastruktúra biztonsági mentését. 
+Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a biztonsági mentések legfeljebb hét napján maradjanak. Ez az alapértelmezett viselkedés, ha engedélyezi a Azure Stack az infrastruktúra biztonsági mentését.
 
 **1907 és azon túl**
 
@@ -120,27 +120,31 @@ Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a bizton
 
 | Tárolási hely                                                                 | Részletek                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Az SMB-fájlmegosztás a megbízható hálózati környezetben tárolt tárolóeszközön található. | A 445-es port megadása kötelező, ha a Azure Stack-példány tűzfallal védett környezetben található. Infrastructure Backup vezérlő az 445-as porton keresztül kezdeményezi a kapcsolódást az SMB-fájlkiszolgálón. |
-| A fájlkiszolgáló teljes tartománynevének használatához a névnek feloldhatónak kell lennie a PEP-ből             |                                                                                                                                                                                         |
+| A megbízható hálózati környezetben található tárolóeszközön tárolt SMB-fájlmegosztás. | A 445-es port megadása kötelező, ha a Azure Stack-példány tűzfallal védett környezetben található. Infrastructure Backup vezérlő az 445-as porton keresztül kezdeményezi a kapcsolódást az SMB-fájlkiszolgálón. |
+| A fájlkiszolgáló teljes tartománynevének használatához a névnek feloldhatónak kell lennie a PEP-ből.             |                                                                                                                                                                                         |
 
 > [!Note]  
 > Nincs szükség bejövő port megnyitására.
 
 ### <a name="encryption-requirements"></a>Titkosítási követelmények
 
-A 1901-től kezdődően az infrastruktúra-biztonsági mentési szolgáltatás egy nyilvános kulccsal rendelkező tanúsítványt fog használni (. CER) a biztonsági mentési és a titkos kulccsal rendelkező tanúsítvány titkosítása (. PFX) a biztonsági mentési állapot visszafejtése a felhőalapú helyreállítás során.   
- - A tanúsítvány a kulcsok átviteléhez használatos, és nem a biztonságos hitelesített kommunikáció létrehozásához használatos. Emiatt a tanúsítvány önaláírt tanúsítvány lehet. Azure Stack nem kell ellenőriznie a tanúsítvány gyökerét vagy megbízhatóságát, hogy a külső internet-hozzáférés nem szükséges.
- 
-Az önaláírt tanúsítvány két részből áll, egyet a nyilvános kulccsal, egy pedig a titkos kulccsal:
- - Biztonsági mentési adatai titkosítása: A nyilvános kulccsal rendelkező tanúsítvány (a következőre lett exportálva:. CER-fájl) a biztonsági mentési adatai titkosítására szolgál
- - Biztonsági másolatok visszafejtése: A titkos kulccsal rendelkező tanúsítvány (a következőre lett exportálva:. PFX-fájl) a biztonsági másolatok visszafejtésére szolgál
+A 1901-től kezdődően a Infrastructure Backup szolgáltatás nyilvános kulccsal rendelkező tanúsítványt fog használni (. CER) a biztonsági mentési és a titkos kulccsal rendelkező tanúsítvány titkosítása (. PFX) a biztonsági mentési állapot visszafejtése a felhőalapú helyreállítás során.
 
-A nyilvános kulccsal rendelkező tanúsítvány (. A CER) nem a belső titok rotációja által felügyelt. A tanúsítvány elforgatásához létre kell hoznia egy új önaláírt tanúsítványt, és frissítenie kell a biztonsági mentési beállításokat az új fájllal (. CER).  
- - Az összes meglévő biztonsági mentés titkosítva marad a korábbi nyilvános kulcs használatával. Az új biztonsági mentések az új nyilvános kulcsot fogják használni. 
+ - A tanúsítvány a kulcsok átviteléhez használatos, és nem a biztonságos hitelesített kommunikáció létrehozásához használatos. Emiatt a tanúsítvány önaláírt tanúsítvány lehet. Azure Stack nem kell ellenőriznie a tanúsítvány gyökerét vagy megbízhatóságát, hogy a külső internet-hozzáférés nem szükséges.
+
+Az önaláírt tanúsítvány két részből áll, egyet a nyilvános kulccsal, egy pedig a titkos kulccsal:
+
+ - Biztonsági mentési adatai titkosítása: A nyilvános kulccsal rendelkező tanúsítvány (a következőre lett exportálva:. CER-fájl) a biztonsági mentési adatai titkosítására szolgál.
+ - Biztonsági másolatok visszafejtése: A titkos kulccsal rendelkező tanúsítvány (a következőre lett exportálva:. PFX-fájl) a biztonsági másolatok visszafejtésére szolgál.
+
+A nyilvános kulccsal rendelkező tanúsítvány (. A CER) nem a belső titok rotációja által felügyelt. A tanúsítvány elforgatásához létre kell hoznia egy új önaláírt tanúsítványt, és frissítenie kell a biztonsági mentési beállításokat az új fájllal (. CER). 
+ 
+ - Az összes meglévő biztonsági mentés titkosítva marad a korábbi nyilvános kulcs használatával. Az új biztonsági másolatok az új nyilvános kulcsot használják.
  
 A titkos kulccsal történő felhőalapú helyreállítás során használt tanúsítvány (. A PFX-t a Azure Stack biztonsági okokból nem őrzi meg. Ezt a fájlt explicit módon kell megadni a Felhőbeli helyreállítás során.  
 
-**Visszamenőleges kompatibilitási mód** A 1901-től kezdődően a titkosítási kulcs támogatása elavult, és egy későbbi kiadásban el lesz távolítva. Ha a 1811-as verzióról a titkosítási kulccsal már engedélyezett biztonsági mentést használ, a Azure Stack továbbra is a titkosítási kulcsot fogja használni. A visszamenőleges kompatibilitási módot legalább 3 kiadásban támogatni fogja a rendszer. Ezt követően egy tanúsítványra lesz szükség. 
+**Visszamenőleges kompatibilitási mód** A 1901-től kezdődően a titkosítási kulcs támogatása elavult, és egy későbbi kiadásban el lesz távolítva. Ha a 1811-as verzióról a titkosítási kulccsal már engedélyezett biztonsági mentést használ, a Azure Stack továbbra is a titkosítási kulcsot fogja használni. A visszamenőleges kompatibilitási módot legalább három kiadásban támogatja a rendszer. Ezt követően egy tanúsítványra lesz szükség.
+
  * A titkosítási kulcsról a tanúsítványra történő frissítés egy egyirányú művelet.  
  * Minden meglévő biztonsági mentés titkosítva marad a titkosítási kulccsal. Az új biztonsági mentések a tanúsítványt fogják használni. 
 
@@ -153,11 +157,11 @@ Vegye figyelembe ezeket a korlátokat a Microsoft Azure Stack példányok tervez
 | Korlátazonosító                                                 | Korlát        | Megjegyzések                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Biztonsági mentés típusa                                                      | Csak teljes    | Infrastructure Backup vezérlő csak a teljes biztonsági mentést támogatja. A növekményes biztonsági mentések nem támogatottak.                                          |
-| Ütemezett biztonsági mentések                                                | Ütemezett és manuális  | A Backup vezérlő támogatja az ütemezett és igény szerinti biztonsági mentéseket                                                                                 |
+| Ütemezett biztonsági mentések                                                | Ütemezett és manuális  | A Backup vezérlő támogatja az ütemezett és igény szerinti biztonsági mentéseket.                                                                                 |
 | Egyidejű biztonsági mentési feladatok maximális száma                                   | 1            | A biztonsági mentési vezérlő példányain csak egy aktív biztonsági mentési feladatok támogatottak.                                                                  |
-| Hálózati kapcsoló konfigurációja                                     | Nincs a hatókörben | Az OEM-eszközökkel a rendszergazdának biztonsági mentést kell készítenie a hálózati kapcsolók konfigurációjában. Tekintse meg az egyes OEM-gyártók által biztosított Azure Stack dokumentációját. |
+| Hálózati kapcsoló konfigurációja                                     | Nincs a hatókörben | A rendszergazdának OEM-eszközök használatával kell biztonsági mentést készítenie a hálózati kapcsoló konfigurációjában. Tekintse meg az egyes OEM-gyártók által biztosított Azure Stack dokumentációját. |
 | Hardver életciklus-állomása                                          | Nincs a hatókörben | A rendszergazdának OEM-eszközökkel kell biztonsági mentést készítenie a hardveres életciklus-gazdagépről. Tekintse meg az egyes OEM-gyártók által biztosított Azure Stack dokumentációját.      |
-| Fájlmegosztás maximális száma                                    | 1            | Csak egy fájlmegosztás használható a biztonsági másolatok tárolására                                                                                        |
+| Fájlmegosztás maximális száma                                    | 1            | A biztonsági másolatok tárolására csak egy fájlmegosztást lehet használni.                                                                                        |
 | Backup App Services, függvény, SQL, MySQL erőforrás-szolgáltatói adat | Nincs a hatókörben | Tekintse meg a Microsoft által létrehozott RPs érték bevezetéséhez és kezeléséhez közzétett útmutatót.                                                  |
 | Külső gyártótól származó erőforrás-szolgáltatók biztonsági mentése                              | Nincs a hatókörben | Tekintse meg a harmadik féltől származó gyártók által létrehozott, az érték hozzáadása és kezelése című témakörben közzétett útmutatót.                                          |
 

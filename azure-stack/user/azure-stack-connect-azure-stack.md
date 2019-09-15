@@ -1,6 +1,6 @@
 ---
-title: Csatlakozás az Azure Stack |} A Microsoft Docs
-description: Ismerje meg, hogyan csatlakozhat az Azure Stack.
+title: Kapcsolódás Azure Stackhoz | Microsoft Docs
+description: További információ a Azure Stack összekapcsolásáról.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,45 +15,45 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8b7a9e58fd4d4d8c3a05fea60c79ff47a519bf8c
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: 90759186b008c41bd9b3e35bf368d4f819534823
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197371"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975070"
 ---
 # <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
 
-Az erőforrások kezelése az Azure Stack Development Kit kell kapcsolódnia. Ez a cikk ismerteti a lépéseket a csomag való kapcsolódáshoz szükséges. A következő kapcsolati lehetőségek bármelyikét használhatja:
+Az erőforrások kezeléséhez kapcsolódnia kell a Azure Stack Development Kithoz. Ez a cikk a fejlesztői csomaghoz való kapcsolódáshoz szükséges lépéseket ismerteti. A következő kapcsolatok közül választhat:
 
-* A távoli asztal: lehetővé teszi, hogy a gyors elérését a csomag egyetlen egyidejű felhasználó.
-* Virtuális magánhálózat (VPN): lehetővé teszi több egyidejű felhasználók, az Azure Stack-infrastruktúra (a konfiguráció szükséges hozzá) kívül az ügyfelek elérését.
+* Távoli asztal: lehetővé teszi, hogy egyetlen egyidejű felhasználó gyorsan kapcsolódjon a fejlesztői készletből.
+* Virtuális magánhálózat (VPN): lehetővé teszi, hogy több egyidejű felhasználó kapcsolódjon az Azure Stack-infrastruktúrán kívüli ügyfelektől (konfigurációt igényel).
 
-## <a name="connect-to-azure-stack-with-remote-desktop"></a>Csatlakozás az Azure Stack a távoli asztallal
-A távoli asztali kapcsolat több párhuzamos felhasználó is működjön a portállal-erőforrások kezeléséhez.
+## <a name="connect-to-azure-stack-with-remote-desktop"></a>Kapcsolódás Azure Stackhoz Távoli asztal
+Egy Távoli asztali kapcsolat egyetlen egyidejű felhasználó együttműködik a portálon az erőforrások kezeléséhez.
 
-1. Nyissa meg a távoli asztali kapcsolatot, és csatlakozzon a development Kitet. Adja meg **AzureStack\AzureStackAdmin** a felhasználónevet, valamint az Azure Stack-telepítés során megadott rendszergazdai jelszót.  
+1. Nyisson meg egy Távoli asztali kapcsolat, és kapcsolódjon a fejlesztői csomaghoz. Adja meg a **AzureStack\AzureStackAdmin** nevet a felhasználónévként, valamint a Azure stack beállítása során megadott rendszergazdai jelszót.  
 
-2. A fejlesztői számítógépről kit, nyissa meg a Kiszolgálókezelőt, kattintson a **helyi kiszolgáló**, és kapcsolja ki az Internet Explorer fokozott biztonsági, majd zárja be a Kiszolgálókezelőt.
+2. A fejlesztői készlet számítógépén nyissa meg a Kiszolgálókezelő eszközt, kattintson a **helyi kiszolgáló**elemre, kapcsolja ki az Internet Explorer fokozott biztonsági szolgáltatását, majd a Kiszolgálókezelő elemet.
 
-3. Nyissa meg a portálon, lépjen a (https://portal.local.azurestack.external/) , és jelentkezzen be a felhasználói hitelesítő adatokkal.
+3. A portál megnyitásához nyissa meg a https://portal.local.azurestack.external/) (és jelentkezzen be a felhasználói hitelesítő adatok használatával.
 
 
-## <a name="connect-to-azure-stack-with-vpn"></a>Csatlakozás az Azure Stackhez VPN
+## <a name="connect-to-azure-stack-with-vpn"></a>Csatlakozás Azure Stack VPN-kapcsolattal
 
-Egy VPN-kapcsolat az Azure Stack Development Kit osztott alagút is létrehozhat. A VPN-kapcsolaton keresztül elérheti a felügyeleti portálon, a felhasználói portál és a helyileg telepített eszközök a Visual Studio és a PowerShell használatával az Azure Stack-erőforrások kezeléséhez. VPN-kapcsolat használata támogatott az Azure Active Directory (AAD) és az Active Directory összevonási szolgáltatások (AD FS)-alapú telepítések. VPN-kapcsolatok lehetővé teszik, hogy csatlakozzon az Azure Stackhez egyszerre több ügyfélnek. 
+Létrehozhat egy megosztott bújtatási VPN-kapcsolatot egy Azure Stack Development Kit. A VPN-kapcsolaton keresztül elérheti a felügyeleti portált, a felhasználói portált és a helyileg telepített eszközöket, például a Visual studiót és a PowerShellt Azure Stack erőforrások kezeléséhez. A VPN-kapcsolat a Azure Active Directory (HRE) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) alapú üzemelő példányok esetében is támogatott. A VPN-kapcsolatok lehetővé teszik, hogy több ügyfél egyszerre kapcsolódjon Azure Stackhoz. 
 
 > [!NOTE] 
-> A VPN-kapcsolat Azure Stack-infrastruktúra virtuális gépekhez való kapcsolódás nem biztosítanak. 
+> Ez a VPN-kapcsolat nem biztosít kapcsolatot Azure Stack infrastruktúra virtuális gépei számára. 
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-* Telepítés [Azure Stack-kompatibilis Azure PowerShell](../operator/azure-stack-powershell-install.md) a helyi számítógépen.  
+* Telepítse [Azure stack kompatibilis Azure PowerShell](../operator/azure-stack-powershell-install.md) a helyi számítógépre.  
 * Töltse le a [az Azure Stack működéséhez szükséges eszközök](../operator/azure-stack-powershell-download.md). 
 
 ### <a name="configure-vpn-connectivity"></a>VPN-kapcsolat konfigurálása
 
-A csomagban található VPN-kapcsolat létrehozásához nyisson meg egy rendszergazda jogú PowerShell-munkamenetből a helyi Windows-alapú számítógépről, és futtassa a következő szkriptet (ügyeljen arra, hogy frissítse az IP-címmel és jelszóval értékeket környezete számára):
+Ha VPN-kapcsolatot szeretne létrehozni a fejlesztői csomaggal, nyisson meg egy emelt szintű PowerShell-munkamenetet a helyi Windows-alapú számítógépről, és futtassa a következő parancsfájlt (Ügyeljen arra, hogy frissítse a környezet IP-címét és a jelszó értékeit):
 
 ```powershell 
 # Configure winrm if it's not already configured
@@ -84,28 +84,28 @@ Add-AzsVpnConnection `
 
 ```
 
-Ha a telepítés sikeres, látni fogja `azurestack` a VPN-kapcsolatok listájában.
+Ha a telepítés sikeres, megjelenik `azurestack` a VPN-kapcsolatok listájában.
 
 ![Hálózati kapcsolatok](media/azure-stack-connect-azure-stack/image3.png)  
 
 ### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
 
-Kapcsolódás az Azure Stack-példány, az alábbi két módszer egyikével:  
+Kapcsolódjon a Azure Stack-példányhoz a következő két módszer valamelyikével:  
 
-* Használatával a `Connect-AzsVpn` parancsot: 
+* A `Connect-AzsVpn` parancs használatával: 
     
   ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```
 
-  Amikor a rendszer kéri, az Azure Stack gazdagép megbízható, és telepítse a tanúsítványt a **AzureStackCertificateAuthority** alakzatot a helyi számítógép tanúsítványtárolójába. A rendszer kéri a PowerShell-munkamenet ablakban mögött jelenhet meg. 
+  Ha a rendszer kéri, bízza a Azure Stack gazdagépre, és telepítse a tanúsítványt a **AzureStackCertificateAuthority** -ből a helyi számítógép tanúsítványtárolóba. Előfordulhat, hogy a parancssor a PowerShell-munkamenet ablaka mögött jelenik meg. 
 
-* A helyi számítógépen nyissa meg **hálózati beállítások** > **VPN** > Válasszon `azurestack`  >  **csatlakozás**. A bejelentkezési parancssorba írja be a felhasználónevet (AzureStack\AzureStackAdmin) és a jelszót.
+* A helyi számítógépen lépjen a **hálózati beállítások** > **VPN** > válassza a `azurestack`csatlakozás lehetőséget.  >  A bejelentkezési kérésben adja meg a felhasználónevet (AzureStack\AzureStackAdmin) és a jelszót.
 
 ### <a name="test-the-vpn-connectivity"></a>A VPN-kapcsolat tesztelése
 
-A portál kapcsolat teszteléséhez, nyisson meg egy böngészőt, és nyissa meg a felhasználói portált (https://portal.local.azurestack.external/), és jelentkezzen be, majd az erőforrások létrehozása.  
+A portál-kapcsolatok teszteléséhez nyisson meg egy böngészőt, és nyissa meg https://portal.local.azurestack.external/) a felhasználói portált (, jelentkezzen be, majd hozzon létre erőforrásokat.  
 
 ## <a name="next-steps"></a>További lépések
 

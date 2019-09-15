@@ -3,7 +3,7 @@ title: A Azure Stack erőforrásaihoz való hozzáférés kezelése szerepköral
 description: Ismerje meg, hogyan kezelheti a szerepköralapú hozzáférés-vezérlés (RBAC) engedélyeit rendszergazdaként vagy bérlőként a Azure Stack-ben.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2019
-ms.author: patricka
+ms.date: 09/13/2019
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a5034e92e52c6da760389d7addc77c6220d59674
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376825"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974925"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>A Azure Stack erőforrásaihoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérléssel
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack is támogatja a szerepköralapú hozzáférés-vezérlést (RBAC), ugyanez [kezelési biztonsági modell](https://docs.microsoft.com/azure/role-based-access-control/overview) , amely a Microsoft Azure. A RBAC segítségével kezelheti az előfizetésekhez, az erőforrásokhoz és a szolgáltatásokhoz való hozzáférést a felhasználók, csoportok és alkalmazások számára.
+Az Azure Stack is támogatja a szerepköralapú hozzáférés-vezérlést (RBAC), ugyanez [kezelési biztonsági modell](/azure/role-based-access-control/overview) , amely a Microsoft Azure. A RBAC segítségével kezelheti az előfizetésekhez, az erőforrásokhoz és a szolgáltatásokhoz való hozzáférést a felhasználók, csoportok és alkalmazások számára.
 
 ## <a name="basics-of-access-management"></a>Hozzáférés-kezelés alapjait
 
-Szerepköralapú hozzáférés-vezérlés, hogy biztosítsa a környezetét segítségével részletes hozzáférés-vezérlést biztosít. A felhasználók számára a szükséges engedélyeket adja meg egy adott hatókörhöz tartozó RBAC-szerepkör hozzárendelésével. A szerepkör-hozzárendelés hatóköre egy előfizetés, erőforráscsoport vagy egyetlen erőforrás lehet. Olvassa el a [szerepköralapú hozzáférés-vezérlés az Azure Portalon](https://docs.microsoft.com/azure/role-based-access-control/overview) cikk kezelési részletes információt szeretne kapni.
+A szerepköralapú hozzáférés-vezérlés (RBAC) részletes hozzáférés-vezérlést biztosít, amelyet a környezet biztonságossá tételére használhat. A felhasználók számára a szükséges engedélyeket adja meg egy adott hatókörhöz tartozó RBAC-szerepkör hozzárendelésével. A szerepkör-hozzárendelés hatóköre egy előfizetés, erőforráscsoport vagy egyetlen erőforrás lehet. A hozzáférés-kezeléssel kapcsolatos részletesebb információkért tekintse [meg a Azure Portal cikkben található szerepköralapú Access Control](/azure/role-based-access-control/overview) .
+
+> [!NOTE]
+> Ha a Azure Stack Active Directory összevonási szolgáltatások (AD FS) identitás-szolgáltatóként van telepítve, a RBAC-forgatókönyvek esetében csak univerzális csoportok támogatottak.
 
 ### <a name="built-in-roles"></a>Beépített szerepkörök
 
@@ -59,9 +62,9 @@ A gyermek hatókörök örökölt, amely egy szülő hatókörben számára bizt
 Egynél több szerepkörhöz hozzárendelni egy felhasználóhoz, és minden egyes szerepkör társítható egy másik hatókört. Példa:
 
 * Rendelje hozzá a tesztfelhasználó-a **olvasó** szerepkört az előfizetés-1 értékhez.
-* Rendelje hozzá a tesztfelhasználó-  a tulajdonosi szerepkört a TestVM-1 értékhez.
+* Rendelje hozzá a tesztfelhasználó- a tulajdonosi szerepkört a TestVM-1 értékhez.
 
-Az Azure [szerepkör-hozzárendelések](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) cikk megtekintése, hozzárendelése és törlése a szerepkörök részletes információkat tartalmaz.
+Az Azure [szerepkör-hozzárendelések](/azure/role-based-access-control/role-assignments-portal) cikk megtekintése, hozzárendelése és törlése a szerepkörök részletes információkat tartalmaz.
 
 ## <a name="set-access-permissions-for-a-user"></a>Egy felhasználó hozzáférési engedélyek beállítása
 
