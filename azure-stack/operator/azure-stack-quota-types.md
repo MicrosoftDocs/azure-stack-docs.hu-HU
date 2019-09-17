@@ -16,18 +16,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991781"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010784"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvóta típusai a Azure Stackban
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-[](azure-stack-plan-offer-quota-overview.md#plans) A kvóták határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
+A [kvóták](azure-stack-plan-offer-quota-overview.md#plans) határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
 
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
@@ -60,12 +60,12 @@ ms.locfileid: "68991781"
 
 | **Elem** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
-| Nyilvános IP-címek maximális száma |50 |Azon nyilvános IP-címek maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Virtuális hálózatok maximális száma |50 |Azon virtuális hálózatok maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Virtuális hálózati átjárók maximális száma |1 |Azon virtuális hálózati átjárók (VPN-átjárók) maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Maximális hálózati kapcsolatok |2 |A hálózati kapcsolatok (pont – pont vagy helyek közötti) maximális száma, amelyet az előfizetés az adott helyen található összes virtuális hálózati átjárón létre tud hozni. |
-| Maximális terheléselosztó |50 |Az előfizetések által az adott helyen létrehozott terheléselosztó maximális száma. |
+| Nyilvános IP-címek maximális száma |50 |Azon nyilvános IP-címek maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Hálózati adapterek maximális száma |100 |Azon hálózati adapterek maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
+| Maximális terheléselosztó |50 |Az előfizetések által az adott helyen létrehozott terheléselosztó maximális száma. |
 | Hálózati biztonsági csoportok maximális száma |50 |Azon hálózati biztonsági csoportok maximális száma, amelyekre az előfizetés létre tud hozni ezen a helyen. |
 
 ## <a name="view-an-existing-quota"></a>Meglévő kvóta megtekintése
@@ -85,7 +85,7 @@ Két különböző módon lehet megtekinteni egy meglévő kvótát:
 
 1. A felügyeleti portál alapértelmezett irányítópultján keresse meg az erőforrás- **szolgáltatók** csempét.
 2. Válassza ki a megtekinteni kívánt kvótával rendelkező szolgáltatást, például a **számítás**, a **hálózat**vagy a **tárterület**elemet.
-3. Válasszaa kvóták lehetőséget, majd válassza ki a megtekinteni kívánt kvótát.
+3. Válassza a **kvóták**lehetőséget, majd válassza ki a megtekinteni kívánt kvótát.
 
 ## <a name="edit-a-quota"></a>Kvóta szerkesztése
 

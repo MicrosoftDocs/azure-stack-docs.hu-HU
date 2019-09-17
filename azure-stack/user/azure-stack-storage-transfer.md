@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 87e9021c6d2b085c95e186e410b009ae89753311
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188027"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010811"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Adatátviteli eszközök használata Azure Stack Storage szolgáltatásban
 
@@ -112,6 +112,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
  - Nem érhető el bármely AzCopy művelet, mert a file Storage még nem érhető el Azure Stackban.
  - Ha az adatok átvitele két Azure Stack blob-hely között, illetve Azure Stack és az Azure Storage között a AzCopy 10.1 használatával végezhető el, először le kell töltenie az adatok egy helyi helyre, majd újra fel kell töltenie a célkiszolgálóra a Azure Stack vagy az Azure Storage szolgáltatásban. Vagy használhatja a AzCopy 7,1-es verzióját, és az adatok másolásához adja meg az átvitelt a **/SyncCopy** kapcsolóval.  
  - A AzCopy Linux-verziója csak a 1802-es vagy újabb verziót támogatja, és nem támogatja a Table service.
+ - Ha át szeretné másolni az adatait az Azure Table Storage szolgáltatásba és onnan, akkor [telepítse a AzCopy Version 7.3.0](https://aka.ms/azcopyforazurestack20171109)
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 

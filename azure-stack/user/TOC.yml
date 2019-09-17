@@ -191,16 +191,39 @@
             - name: A Service Fabric-fürt üzembe helyezése
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: Kubernetes-fürt üzembe helyezése
-              href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: Kubernetes üzembe helyezése az Azure AD-vel
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: Kubernetes üzembe helyezése AD FS használatával
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: A Kubernetes irányítópult engedélyezése
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: Kubernetes-fürt hibaelhárítása
-                  href: azure-stack-solution-template-kubernetes-trouble.md
+                - name: AK-motor
+                  items:
+                    - name: AK-motor Azure Stack
+                      href: azure-stack-kubernetes-aks-engine-overview.md
+                    - name: Támogatási szabályzat
+                      href: azure-stack-kubernetes-ask-engine-support.md
+                    - name: AK-motor beállítása
+                      href: azure-stack-kubernetes-aks-engine-set-up.md
+                    - name: Linux-ügyfél létrehozása
+                      href: azure-stack-kubernetes-aks-engine-deploy-linux.md
+                    - name: Windows-ügyfél létrehozása
+                      href: azure-stack-kubernetes-aks-engine-deploy-windows.md
+                    - name: Fürt üzembe helyezése
+                      href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Fürt skálázása
+                      href: azure-stack-kubernetes-aks-engine-scale.md
+                    - name: Fürt frissítése
+                      href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Az KABAi motor hibáinak megoldása
+                      href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                - name: Marketplace-tétel
+                  items:
+                    - name: Kubernetes-fürt üzembe helyezése
+                      href: azure-stack-solution-template-kubernetes-deploy.md
+                    - name: Kubernetes üzembe helyezése az Azure AD-vel
+                      href: azure-stack-solution-template-kubernetes-azuread.md
+                    - name: Kubernetes üzembe helyezése AD FS használatával
+                      href: azure-stack-solution-template-kubernetes-adfs.md
+                    - name: A Kubernetes irányítópult engedélyezése
+                      href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Kubernetes-fürt hibaelhárítása
+                      href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Cognitive Services üzembe helyezése
               href: azure-stack-solution-template-cognitive-services.md
     - name: Alkalmazások telepítése

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 6b7d7a3e70d78b8ab943224babc515395319914e
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/16/2019
+ms.openlocfilehash: 38175eee8be9b8f678405e0ad1ec6f01bdba8b77
+ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902717"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71020844"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz való használatra
 
@@ -54,7 +54,7 @@ A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack 
 1. Az importálás befejezéséhez kattintson a Befejezés gombra.
 
 > [!NOTE]
-> Miután importált egy tanúsítványt a Azure Stackhoz, a rendszer a tanúsítvány titkos kulcsát PKCS 12 fájlként (. pfx) tárolja a fürtözött tárolón.
+> Miután importált egy tanúsítványt a Azure Stackhoz, a rendszer a tanúsítvány titkos kulcsát PKCS 12 fájlként (PFX) tárolja a fürtözött tárolón.
 
 ### <a name="export-the-certificate"></a>A tanúsítvány exportálása
 
@@ -92,7 +92,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 1. Kattintson a **Tovább** gombra.
 
-1. Válassza ki az exportálandó pfx-fájl nevét és helyét. Kattintson a **Tovább** gombra.
+1. Válassza ki az exportálandó PFX-fájl nevét és helyét. Kattintson a **Tovább** gombra.
 
 1. Válassza a **Finish** (Befejezés) elemet.
 

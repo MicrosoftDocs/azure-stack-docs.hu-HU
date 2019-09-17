@@ -3,7 +3,7 @@ title: IDNS használata a Azure Stackban | Microsoft Docs
 description: Ismerje meg, hogyan használhatja a iDNS szolgáltatásait és funkcióit Azure Stackban.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.author: mabrigg
+ms.date: 09/16/2019
+ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 6dda8562e47f17c97da5e0597a2ed88865bc6425
-ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
+ms.openlocfilehash: 24dc5fc3ea57e1a849442fb02c118615bc8b60fa
+ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497856"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71020836"
 ---
 # <a name="use-idns-in-azure-stack"></a>IDNS használata Azure Stack 
 
@@ -54,6 +54,141 @@ Azure Stack csak a belső nevek regisztrálásához támogatja a iDNS-t, így a 
 - Hozzon létre egy DNS-zónát (például Contoso.com.)
 - Hozzon létre egy rekordot a saját egyéni DNS-zónájában.
 - Támogatja a tartománynevek megvásárlását.
+
+## <a name="demo-of-how-idns-works"></a>A iDNS működésének bemutatója
+
+A virtuális hálózatokban lévő virtuális gépek összes állomásneve ugyanabban a zónában található DNS-erőforrásrekordokként van tárolva, azonban a saját egyedi rekeszük alapján, amely az SDN-infrastruktúra azon VNET-azonosítójával összefügg, amelyet a virtuális gép üzembe helyezett. A bérlői virtuális gépek teljes tartományneve (FQDN) a számítógép nevét és a DNS-utótag karakterláncát tartalmazza a Virtual Network GUID formátumban.
+
+<!--- what does compartment mean? Add a screenshot? can we clarify what we mean by host name and computer name. the description doesn't match the example in the table.--->
+ 
+A következő egy egyszerű labor, amely bemutatja, hogyan működik ez a funkció. Három virtuális gépet hoztunk létre egy VNet és egy másik virtuális gépen egy külön VNet:
+
+<!--- Is DNS Label the right term? If so, we should define it. The column lists FQDNs, afaik. Where does the domain suffix come from? --->
+ 
+|VM    |VNet    |Magánhálózati IP   |Nyilvános IP-cím    | DNS-címke                                |
+|------|--------|-------------|-------------|------------------------------------------|
+|VM – A1 |Társviszonyban áll   | 10.0.0.5    |172.31.12.68 |VM-a1-Label. lnv1. cloudapp. azscss. external |
+|VM-A2 |Társviszonyban áll   | 10.0.0.6    |172.31.12.76 |VM-a2-Label. lnv1. cloudapp. azscss. external |
+|VM – A3 |Társviszonyban áll   | 10.0.0.7    |172.31.12.49 |VM-a3-Label. lnv1. cloudapp. azscss. external |
+|VIRTUÁLIS GÉP – B1 |B   | 10.0.0.4    |172.31.12.57 |VM-B1-Label. lnv1. cloudapp. azscss. external |
+ 
+ 
+|Virtuális hálózat  |GUID                                 |DNS-utótag karakterlánca                                                  |
+|------|-------------------------------------|-------------------------------------------------------------------|
+|Társviszonyban áll |e71e1db5-0a38-460d-8539-705457a4cf75 |e71e1db5-0a38-460d-8539-705457a4cf75. internal. lnv1. azurestack. local|
+|B |e8a6e386-bc7a-43e1-a640-61591b5c76dd |e8a6e386-bc7a-43e1-a640-61591b5c76dd. internal. lnv1. azurestack. local|
+ 
+ 
+Megteheti a névfeloldási teszteket, hogy jobban megértse, hogyan működik az iDNS:
+
+<!--- why Linux?--->
+
+Virtuális gép – a1 (Linux rendszerű virtuális gép): A virtuális gép (a2) megkeresése. Láthatja, hogy a rendszer hozzáadja a Társviszonyban áll DNS-utótagját, és a nevet feloldja a magánhálózati IP-címhez:
+ 
+```console
+carlos@VM-A1:~$ nslookup VM-A2
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+ 
+Non-authoritative answer:
+Name:   VM-A2.e71e1db5-0a38-460d-8539-705457a4cf75.internal.lnv1.azurestack.local
+Address: 10.0.0.6
+```
+ 
+A virtuális gép-a2-Label megkeresése a teljes tartománynév megadása nélkül sikertelen, a várt módon:
+
+```console 
+carlos@VM-A1:~$ nslookup VM-A2-Label
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+ 
+** server can't find VM-A2-Label: SERVFAIL
+```
+
+Ha a DNS-címke teljes tartománynevét adja meg, a név a nyilvános IP-címhez lesz feloldva:
+
+```console
+carlos@VM-A1:~$ nslookup VM-A2-Label.lnv1.cloudapp.azscss.external
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+ 
+Non-authoritative answer:
+Name:   VM-A2-Label.lnv1.cloudapp.azscss.external
+Address: 172.31.12.76
+```
+ 
+A virtuális gép (azaz egy másik VNet származó) feloldására tett kísérlet sikertelen, mert ez a rekord nem létezik ezen a zónán.
+
+```console
+carlos@caalcobi-vm4:~$ nslookup VM-B1
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+ 
+** server can't find VM-B1: SERVFAIL
+```
+
+A virtuális gép teljes tartománynevének használata – a B1 nem segít, mivel ez a rekord egy másik zónából származik.
+
+```console 
+carlos@VM-A1:~$ nslookup VM-B1.e8a6e386-bc7a-43e1-a640-61591b5c76dd.internal.lnv1.azurestack.local
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+ 
+** server can't find VM-B1.e8a6e386-bc7a-43e1-a640-61591b5c76dd.internal.lnv1.azurestack.local: SERVFAIL
+```
+ 
+Ha a DNS-címke teljes tartománynevét használja, a rendszer sikeresen feloldja a következőket:
+
+``` 
+carlos@VM-A1:~$ nslookup VM-B1-Label.lnv1.cloudapp.azscss.external
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+ 
+Non-authoritative answer:
+Name:   VM-B1-Label.lnv1.cloudapp.azscss.external
+Address: 172.31.12.57
+```
+ 
+VIRTUÁLIS gépről – a3 (Windows virtuális gép). Figyelje meg a mérvadó és nem mérvadó válaszok közötti különbséget.
+
+Belső rekordok:
+
+```console
+C:\Users\carlos>nslookup
+Default Server:  UnKnown
+Address:  168.63.129.16
+ 
+> VM-A2
+Server:  UnKnown
+Address:  168.63.129.16
+ 
+Name:    VM-A2.e71e1db5-0a38-460d-8539-705457ª4cf75.internal.lnv1.azurestack.local
+Address:  10.0.0.6
+```
+
+Külső rekordok:
+
+```console
+> VM-A2-Label.lnv1.cloudapp.azscss.external
+Server:  UnKnown
+Address:  168.63.129.16
+ 
+Non-authoritative answer:
+Name:    VM-A2-Label.lnv1.cloudapp.azscss.external
+Address:  172.31.12.76
+``` 
+ 
+Röviden, a fentiek közül a következőt láthatja:
+ 
+*   Mindegyik VNet saját zónával rendelkezik, amely minden magánhálózati IP-címhez tartalmaz egy rekordot, amely a virtuális gép nevét és a VNet DNS-utótagját (a GUID azonosítóját) tartalmazza.
+    *   \<vmname >. \<vnetGUID.internal\>.\< régió >. \<stackinternalFQDN >
+    *   Ez automatikusan történik
+*   Ha nyilvános IP-címeket használ, létrehozhat DNS-címkéket is. Ezek a többi külső címnek hasonlóan oldhatók meg.
+ 
+ 
+- az iDNS-kiszolgálók a belső DNS-zónákhoz tartozó mérvadó kiszolgálók, és a nyilvános nevek feloldására is használhatók, amikor a bérlői virtuális gépek külső erőforrásokhoz próbálnak csatlakozni. Ha van lekérdezés egy külső erőforráshoz, a iDNS-kiszolgálók továbbítják a kérést a mérvadó DNS-kiszolgálókra a feloldáshoz.
+ 
+Ahogy a labor eredményei közül láthatja, megadhatja, hogy milyen IP-címet használ. Ha a virtuális gép nevét használja, akkor megkapja a magánhálózati IP-címet, és ha a DNS-címkét használja, akkor a nyilvános IP-címet kapja meg.
 
 ## <a name="next-steps"></a>További lépések
 
