@@ -3,7 +3,7 @@ title: Virtuálisgép-rendszerkép hozzáadása a Azure Stackhoz | Microsoft Doc
 description: Megtudhatja, hogyan adhat hozzá vagy távolíthat el egy virtuálisgép-rendszerképet a Azure Stackhoz.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: a72879303b80a1265450019d6b264085a8539387
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fef815ec23655638bbe4df1bcdccae42aeee13e2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974976"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061171"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>Virtuálisgép-rendszerkép hozzáadása Azure Stack
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack a virtuális gép (VM) rendszerképét hozzáadhatja a piactérhez, hogy elérhető legyen a felhasználók számára. A rendszerképeket a Azure Stack Azure Resource Manager sablonjaival adja hozzá a rendszer. Virtuálisgép-lemezképeket is hozzáadhat az Azure Marketplace felhasználói felületéhez Piactéri elemként a felügyeleti portál vagy a Windows PowerShell használatával. A globális Azure Marketplace-ről vagy a saját egyéni virtuálisgép-rendszerképéről is használhat rendszerképet.
+Azure Stack a virtuális gép (VM) rendszerképét felveheti a piactérre, és elérhetővé teheti azokat a felhasználók számára. A rendszerképeket a Azure Stack Azure Resource Manager sablonjaival adja hozzá a rendszer. Virtuálisgép-lemezképeket is hozzáadhat az Azure Marketplace felhasználói felületéhez Piactéri elemként a felügyeleti portál vagy a Windows PowerShell használatával. A globális Azure Marketplace-ről vagy a saját egyéni virtuálisgép-rendszerképéről is használhat rendszerképet.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Virtuálisgép-rendszerkép hozzáadása a portálon keresztül
 
@@ -155,10 +155,13 @@ A lemezképeket blob Storage URI-azonosítóval kell tudni hivatkozni. Készíts
 5. Készítse elő a Windows vagy Linux operációs rendszer rendszerképét VHD formátumban (nem VHDX), töltse fel a rendszerképet a Storage-fiókjába, és szerezze be azt az URI-t, ahol a PowerShell lekérheti a virtuális gép rendszerképét.  
 
    ```powershell
-    Add-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
-      -TenantId $TenantID
+   Add-AzureRmAccount 
+   -EnvironmentName "AzureStackAdmin" 
+   -TenantId $TenantID
    ```
+  
+   >[!Note]
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot:`Remove-AzureRmAccount-Scope Process`
 
 6. Opcionálisan A virtuálisgép-rendszerkép részeként feltöltheti az adatlemezek tömbjét. Hozza létre az adatlemezeket a New-DataDiskObject parancsmag használatával. Nyisson meg egy emelt szintű parancssorból a PowerShellt, és futtassa a következőt:
 

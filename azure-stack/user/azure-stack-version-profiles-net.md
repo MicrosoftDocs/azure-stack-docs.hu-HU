@@ -12,64 +12,64 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: af1f1351a5659447fb0f9e7ac9782fb74208e038
-ms.sourcegitcommit: ebb5afb7968d3e6531ecfcde7f4bb5e4420caf02
+ms.openlocfilehash: 6bb5c0cf6b5e4f2ddf60a19734a9e7c63df5d329
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70302380"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070258"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>API-verzióprofilok használata a .NET-tel az Azure Stackben
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A .NET SDK-t az Azure Stack Resource Manager biztosít eszközöket és az infrastruktúra kezelését. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, a App Services és a [Key Vault](/azure/key-vault/key-vault-whatis). A .NET SDK 14 NuGet-csomagot tartalmaz. Ezeket a csomagokat a projekt minden egyes fordításakor le kell töltenie a megoldásba. Azonban pontosan letöltheti az 2019-03-01-Hybrid vagy a 2018-03-01-Hybrid által használt erőforrás-szolgáltatót az alkalmazás memóriájának optimalizálása érdekében. Minden csomag áll egy erőforrás-szolgáltató, a megfelelő API-verzió és az API-profilt, amelyhez tartozik. A .NET SDK API-profilok engedélyezése a hibrid felhőalapú fejlesztés segít a globális Azure-erőforrások és az Azure Stacken erőforrások közötti váltáshoz.
+A .NET SDK-t az Azure Stack Resource Manager biztosít eszközöket és az infrastruktúra kezelését. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, a App Services és a [Key Vault](/azure/key-vault/key-vault-whatis). A .NET SDK 14 NuGet-csomagot tartalmaz. Ezeket a csomagokat a projekt minden egyes fordításakor le kell töltenie a megoldásba. Azonban pontosan letöltheti a **2019-03-01 hibrid** vagy **2018-03-01-hibrid** verzióhoz használni kívánt erőforrás-szolgáltatót, hogy optimalizálja a memóriát az alkalmazás számára. Minden csomag áll egy erőforrás-szolgáltató, a megfelelő API-verzió és az API-profilt, amelyhez tartozik. A .NET SDK API-profilok engedélyezése a hibrid felhőalapú fejlesztés segít a globális Azure-erőforrások és az Azure Stacken erőforrások közötti váltáshoz.
 
 ## <a name="net-and-api-version-profiles"></a>.NET- és API-verzióprofilok
 
 Egy API-profil az erőforrás-szolgáltatók és API-verziók. Az erőforrás-szolgáltatói csomagban található egyes erőforrástípusok legújabb, legstabilabb verzióját az API-profil segítségével szerezheti be.
 
--   Az összes szolgáltatás legújabb verzióját használni, hogy a **legújabb** profil olyan csomagot. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
+- Az összes szolgáltatás legújabb verzióját használni, hogy a **legújabb** profil olyan csomagot. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
 
--   A Azure Stack-kompatibilis szolgáltatások használatához használja az alábbi csomagok egyikét:
-    - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
-    - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
-    
-    Ügyeljen arra, hogy a **ResourceProvider** a fenti NuGet-csomag része a megfelelő szolgáltató értékűre változik.
+- A Azure Stack-kompatibilis szolgáltatások használatához használja az alábbi csomagok egyikét:
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
--   A szolgáltatás legújabb API-verzióját használja, használja a **legújabb** profiljának adott NuGet-csomag. Ha például csak a számítási szolgáltatás **legújabb API-** verzióját szeretné használni, használja a **számítási** csomag **legújabb** profilját. A **legújabb** profil része a **Microsoft.Azure.Management** NuGet-csomagot.
+  Ügyeljen arra, hogy a **ResourceProvider** a fenti NuGet-csomag része a megfelelő szolgáltató értékűre változik.
 
--   API-verzióját az adott erőforrás-szolgáltató az erőforrástípushoz az adott API-verziók a csomagon belül definiált használatához.
+- A szolgáltatás legújabb API-verziójának használatához használja az adott NuGet-csomag **legújabb** profilját. Ha például csak a számítási szolgáltatás **legújabb API-** verzióját szeretné használni, használja a **számítási** csomag **legújabb** profilját. A **legújabb** profil része a **Microsoft.Azure.Management** NuGet-csomagot.
+
+- Ha adott erőforrás-szolgáltatóhoz adott API-verziókat szeretne használni, használja a csomagban definiált adott API-verziókat.
 
 Az alkalmazás összes beállítását egyesítheti.
 
 ## <a name="install-the-azure-net-sdk"></a>Az Azure .NET SDK telepítése
 
-1.  A Git telepítése. Útmutatásért lásd: [Első lépések – a Git telepítése][].
+- A Git telepítése. Útmutatásért lásd: [Első lépések – a Git telepítése][].
 
-2.  A megfelelő NuGet-csomagok telepítése: [keresés és a egy csomag telepítése][].
+- A megfelelő NuGet-csomagok telepítése: [keresés és a egy csomag telepítése][].
 
-3.  A telepítendő csomagok a használni kívánt profil verziójától függenek. A profilok nevei a következők:
+- A telepítendő csomagok a használni kívánt profil verziójától függenek. A profilok nevei a következők:
 
-    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+   - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-4.  A megfelelő NuGet-csomagok telepítése a Visual Studio Code, tekintse meg a következő hivatkozásra kattintva töltse le a [NuGet-Csomagkezelő utasítások][].
+- A megfelelő NuGet-csomagok telepítése a Visual Studio Code, tekintse meg a következő hivatkozásra kattintva töltse le a [NuGet-Csomagkezelő utasítások][].
 
-5.  Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Hozzon létre egy előfizetést az utasításokért lásd: [ajánlatok, előfizetések létrehozása az Azure Stackben][].
+- Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. További információ az előfizetések létrehozásáról: [Ajánlatok, előfizetések létrehozása az Azure Stackben][].
 
-6.  Hozzon létre egy egyszerű szolgáltatást, és mentse az ügyfél-Azonosítót és a titkos Ügyfélkulcsot. Az Azure Stack egyszerű szolgáltatásának létrehozásával kapcsolatos utasításokért lásd: [Alkalmazások elérése az Azure Stackhez][]. Az ügyfél-azonosító a szolgáltatásnév létrehozásakor az alkalmazás-azonosító néven is ismert.
+- Hozzon létre egy szolgáltatásnevet, és mentse az ügyfél-azonosítót és az ügyfél titkos kulcsát. További információ az Azure Stack egyszerű szolgáltatásának létrehozásáról: [Alkalmazások elérése az Azure Stackhez][]. Az ügyfél-azonosító a szolgáltatásnév létrehozásakor az alkalmazás-azonosító néven is ismert.
 
-7.  Ellenőrizze, hogy az egyszerű szolgáltatást a közreműködői és tulajdonosi szerepkör-előfizetésében. Szerepkör hozzárendelése egyszerű szolgáltatást, lásd: [Alkalmazások elérése az Azure Stackhez][].
+- Ellenőrizze, hogy az egyszerű szolgáltatást a közreműködői és tulajdonosi szerepkör-előfizetésében. További információ a szerepkör az egyszerű szolgáltatáshoz való hozzárendeléséről: [Alkalmazások elérése az Azure Stackhez][].
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Azure .NET SDK használata az Azure Stack használatával, adja meg a következő értékeket, és adja meg az értékeket a környezeti változókat. A környezeti változók megadásához tekintse meg az adott operációs rendszer táblázatát követő utasításokat.
+Ha a .NET Azure SDK-t Azure Stack használatával szeretné használni, a következő értékeket kell megadnia, majd az értékeket környezeti változókkal kell beállítania. A környezeti változók megadásához tekintse meg az adott operációs rendszer táblázatát követő utasításokat.
 
 | Value                     | Környezeti változók   | Leírás                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -78,11 +78,11 @@ Azure .NET SDK használata az Azure Stack használatával, adja meg a következ�
 | Előfizetés azonosítója           | `AZURE_SUBSCRIPTION_ID` | A [ *előfizetés-azonosító* ][] van, hogy miként férhetnek hozzá az ajánlatok az Azure Stackben.                                                      |
 | Titkos ügyfélkulcs             | `AZURE_CLIENT_SECRET`   | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve.                                      |
 | Resource Manager-végpont | `ARM_ENDPOINT`          | Lásd [*a Azure stack Resource Manager-végpontot*][].                                                                    |
-| Location                  | `RESOURCE_LOCATION`     | A Azure Stack helye.
+| Location                  | `RESOURCE_LOCATION`     | Azure Stack helye.
 
-Az Azure stack a bérlő Azonosítójának megkereséséhez kövesse az utasításokat, található [Itt](../operator/azure-stack-csp-ref-operations.md). A környezeti változók beállításához hajtsa végre a következő lépéseket:
+A Azure Stack bérlői AZONOSÍTÓjának megkereséséhez kövesse az [ebben a cikkben szereplő](../operator/azure-stack-csp-ref-operations.md)utasításokat. A környezeti változók beállítása, tegye a következőket:
 
-### <a name="microsoft-windows"></a>Microsoft Windows
+### <a name="windows"></a>Windows
 
 A környezeti változók beállítása egy Windows parancssorban, használja a következő formátumot:
 
@@ -92,7 +92,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux és Unix-alapú rendszerek
 
-UNIX-alapú rendszerek esetén használja a következő parancsot:
+UNIX-alapú rendszerekben használja a következő parancsot:
 
 ```shell
 Export Azure_Tenant_ID=Your_Tenant_ID
@@ -100,58 +100,60 @@ Export Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>A Azure Stack Resource Manager-végpont
 
-A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
+A Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdák számára az Azure-erőforrások üzembe helyezését, kezelését és figyelését. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
 
 A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpont egy JSON-fájlt ad vissza, amely a kód futtatásához szükséges adatokkal rendelkezik.
 
 Vegye figyelembe az alábbiakat:
 
-- A **ResourceManagerUrl** van az Azure Stack Development Kit (ASDK): https://management.local.azurestack.external/
+- A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: https://management.local.azurestack.external/.
 
-- Az integrált rendszerek **ResourceManagerUrl** : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`A szükséges metaadatok beolvasása:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- Az integrált rendszerek **ResourceManagerUrl** : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
+A szükséges metaadatok beolvasása `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`:.
 
 JSON-mintafájlt:
 
 ```json
-{ 
+{
    "galleryEndpoint": "https://portal.local.azurestack.external:30015/",
    "graphEndpoint": "https://graph.windows.net/",
    "portal Endpoint": "https://portal.local.azurestack.external/",
    "authentication": 
       {
-      "loginEndpoint": "https://login.windows.net/",
-      "audiences": ["https://management.yourtenant.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
+         "loginEndpoint": "https://login.windows.net/",
+         "audiences": ["https://management.yourtenant.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
       }
 }
 ```
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: A Azure Stackhez készült legújabb profil. Használja ezt a profilt a szolgáltatásokhoz, hogy a leghatékonyabban kompatibilisek legyenek Azure Stackval, feltéve, hogy az 1904-es vagy újabb bélyegzővel rendelkezik.
+- **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**: A Azure Stackhez készült legújabb profil. Ezt a profilt olyan szolgáltatásokhoz használhatja, amelyek kompatibilisek Azure Stackval, feltéve, hogy a 1904-es vagy újabb verziójával rendelkezik.
 
-2.  **Microsoft. Azure. Management. profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>. 0.9.0-preview. nupkg**: Használja ezt a profilt ahhoz, hogy a szolgáltatások kompatibilisek legyenek a 1808-es vagy annál újabb Stamp-verziók Azure Stackával.
+- **Microsoft. Azure. Management. profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>. 0.9.0-preview. nupkg**: Használja ezt a profilt ahhoz, hogy a szolgáltatások kompatibilisek legyenek a 1808-es vagy újabb verziójú Azure Stackokkal.
 
-3.  **Legutóbbi**: Az összes szolgáltatás legújabb verzióit tartalmazó profil. Az összes szolgáltatást a legújabb verziókat használhatja. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
+- **Legutóbbi**: Az összes szolgáltatás legújabb verzióit tartalmazó profil. Az összes szolgáltatást a legújabb verziókat használhatja. Ez a profil része a **Microsoft.Azure.Management** NuGet-csomagot.
 
-Azure Stack-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok összefoglalása][]ismertető témakört.
+A Azure Stack-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok összefoglalása][]ismertető témakört.
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Azure .NET SDK API-profil használata
 
-A következő kódot kell használni egy erőforrás-kezelési ügyfél létrehozásához. Hasonló kód használható más erőforrás-szolgáltató (például számítási, hálózati és tárolási) ügyfelek létrehozásához.
+Az alábbi kód használatával hozhat létre erőforrás-kezelési ügyfelet. Hasonló kód használható más erőforrás-szolgáltatói ügyfelek (például számítás, hálózat és tárolás) létrehozásához.
 
 ```csharp
 var client = new ResourceManagementClient(armEndpoint, credentials)
 {
-    SubscriptionId = subscriptionId
+    SubscriptionId = subscriptionId;
 };
 ```
 
-Az `credentials` ügyfél létrehozásához a fenti kódban szereplő paraméter szükséges. A következő kód létrehoz egy hitelesítési jogkivonatot a bérlő azonosítója és az egyszerű szolgáltatásnév alapján.
+Az `credentials` ügyfél létrehozásához az ebben a kódban szereplő paraméter szükséges. A következő kód létrehoz egy hitelesítési jogkivonatot a bérlő azonosítója és az egyszerű szolgáltatásnév szerint:
 
 ```csharp
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
+
 A `getActiveDirectoryServiceSettings` kód hívása lekéri Azure stack végpontokat a metaadat-végpontból. A megadott hívás környezeti változóit állítja be:
 
 ```csharp
@@ -187,18 +189,19 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 }
 ```
 
-Ezekkel a lépésekkel az API-profil NuGet csomagjaival üzembe helyezheti az alkalmazást a Azure Stackához.
+Ezek a lépések lehetővé teszik, hogy az API-profil NuGet csomagjaival üzembe helyezse az alkalmazást a Azure Stackához.
 
 ## <a name="samples-using-api-profiles"></a>API-profilok használatával minták
 
-A következő minták használhatók a .NET-és Azure Stack API-profilokkal rendelkező megoldások létrehozásához.
+A következő mintákat használhatja a .NET-tel és a Azure Stack API-profilokkal való megoldások létrehozásához:
+
 - [Erőforráscsoportok kezelése](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Storage-fiókok kezelése](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
-- [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (Ez a példa a Azure Stack által támogatott 2019-03-01-hibrid profilt használja.)
+- [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm): Ez a példa a Azure Stack által támogatott **2019-03-01-Hybrid** profilt használja.
 
 ## <a name="next-steps"></a>További lépések
 
-Az API-profilokról további információt a következő témakörben talál:
+További információ az API-profilokról:
 
 - [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md)
 - [Erőforrás-szolgáltató API-ja verziókat támogatja profilok](azure-stack-profiles-azure-resource-manager-versions.md)

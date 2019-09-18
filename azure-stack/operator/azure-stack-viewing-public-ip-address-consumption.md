@@ -1,5 +1,5 @@
 ---
-title: Hálózati osztályalapú kezelése Azure Stackban | Microsoft Docs
+title: Hálózati erőforrások kezelése a Azure Stackban | Microsoft Docs
 description: A rendszergazdák kezelhetik a hálózati erőforrásokat, beleértve a MAC-címkészletet és a nyilvános IP-címek felhasználását egy adott régióban.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842910"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070201"
 ---
 # <a name="manage-network-resources"></a>Hálózati erőforrások kezelése
 
@@ -61,7 +61,7 @@ A régióban felhasznált nyilvános IP-címek teljes számának megtekintése:
 1. A Azure Stack felügyeleti portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **Adminisztráció** kategóriában válassza a **hálózat**lehetőséget.
 1. A **hálózat** ablaktáblán a **nyilvános IP-készletek használati** csempe látható az **Áttekintés** szakaszban.
 
-![Hálózati erőforrás-szolgáltató panel](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+    ![Hálózati erőforrás-szolgáltató panel](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 A **használt** szám a nyilvános IP-címkészlet által hozzárendelt nyilvános IP-címek számát jelöli. Az **ingyenes** szám a nyilvános IP-címkészlet olyan nyilvános IP-címeinek a számát jelöli, amelyek még nincsenek hozzárendelve, és továbbra is elérhetők. A **(z)% használt** szám a használt vagy a hozzárendelt címek számát jelöli a nyilvános IP-címkészlet ezen a helyen lévő nyilvános IP-címeinek teljes száma százalékában.
 
@@ -69,7 +69,7 @@ A **használt** szám a nyilvános IP-címkészlet által hozzárendelt nyilván
 
 Válassza ki a **nyilvános IP-címeket** a **bérlői erőforrások**területen. Tekintse át a bérlői előfizetések által explicit módon létrehozott nyilvános IP-címek listáját egy adott régióban.
 
-![Bérlői nyilvános IP-címek](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Bérlői nyilvános IP-címek](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 Előfordulhat, hogy néhány dinamikusan lefoglalt nyilvános IP-cím megjelenik a listában. Azonban még nincs társítva egy adott címnek. A szolgáltatási erőforrás a hálózati erőforrás-szolgáltatóban lett létrehozva, de még nem a hálózati vezérlőben.
 

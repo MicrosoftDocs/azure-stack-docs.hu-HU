@@ -3,7 +3,7 @@ title: Marketplace-elemek letöltése az Azure-ból | Microsoft Docs
 description: A Felhőbeli operátor az Azure-ból a Azure Stack üzembe helyezéshez is letöltheti a Piactéri elemeket.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: justinha
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 4c4bac9a083ca35f851acb2f2d8201742be0ed1e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 99d0c48a5e7f5fd4e58d6fdf13e0a12c4b9dfb1e
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991826"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070274"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-elemek letöltése az Azure-ból Azure Stack
 
@@ -42,7 +42,7 @@ Ha Azure Stack csatlakozik az internethez, a felügyeleti portálon töltheti le
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Az Azure Stack üzemelő példánynak internetkapcsolattal kell rendelkeznie, és regisztrálnia kell [Az Azure](azure-stack-registration.md)-ban.
+Az Azure Stack üzemelő példánynak internetkapcsolattal kell rendelkeznie, és [regisztrálnia kell az Azure](azure-stack-registration.md)-ban.
 
 ### <a name="use-the-portal-to-download-marketplace-items"></a>Marketplace-elemek letöltése a portál használatával
   
@@ -85,7 +85,7 @@ A forgatókönyv két részből áll:
 
 - Az Azure Stack üzembe helyezését [regisztrálni kell az Azure](azure-stack-registration.md)-ban.
 
-- Az internetkapcsolattal rendelkező számítógépen **Azure stack PowerShell-modul 1.2.11** vagy újabb verziójúnak kell lennie. Ha még nem létezik, [telepítse Azure stack PowerShell](azure-stack-powershell-install.md)-modulokat.  
+- Az internetkapcsolattal rendelkező számítógépen **Azure stack PowerShell-modul 1.2.11 vagy újabb verziójúnak** kell lennie. Ha még nem létezik, [telepítse Azure stack PowerShell-modulokat](azure-stack-powershell-install.md).  
 
 - A letöltött Piactéri elemek importálásának engedélyezéséhez konfigurálni kell a [Azure stack kezelőhöz tartozó PowerShell-környezetet](azure-stack-powershell-configure-admin.md) .  
 
@@ -100,6 +100,8 @@ A forgatókönyv két részből áll:
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
 2. Adja hozzá a Azure Stack regisztrálásához használt Azure-fiókot. A fiók hozzáadásához a PowerShellben paraméterek `Add-AzureRmAccount` nélkül futtassa a parancsot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és lehetséges, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
+
+   [!include[Remove Account](../../includes/remove-account.md)]
 
 3. Ha több előfizetéssel rendelkezik, a következő parancs futtatásával válassza ki a regisztrációhoz használtt:  
 

@@ -1,9 +1,9 @@
 ---
-title: Az Azure Stack felhasználói előfizetés tulajdonosának frissítése |} A Microsoft Docs
-description: Módosítsa a számlázási tulajdonosi az Azure Stack felhasználói előfizetések.
+title: Azure Stack felhasználói előfizetés tulajdonosának frissítése | Microsoft Docs
+description: Azure Stack felhasználói előfizetések számlázási tulajdonosának módosítása.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,44 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.author: sethm
+ms.date: 09/17/2019
+ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 00e55dc301102622d4771a8fd8c6ff8591263dd7
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691935"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070157"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Módosíthatja a tulajdonost az Azure Stack felhasználói előfizetés
+# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Azure Stack felhasználói előfizetés tulajdonosának módosítása
 
-Az Azure Stack-operátorok a PowerShell használatával módosíthatja a felhasználói előfizetés számlázási tulajdonosa. A tulajdonos módosítása egyik oka például, cserélje le a felhasználó elhagyja a szervezetet.
+Azure Stack operátorok a PowerShell használatával módosíthatják a felhasználói előfizetés számlázási tulajdonosát. A tulajdonos módosításának egyik oka például egy olyan felhasználó cseréje, amely elhagyja a szervezetet.
 
-Két típusa van *tulajdonosok* előfizetéshez társított:
+Az előfizetéshez két típusú *tulajdonos* van rendelve:
 
-- **Számlázási tulajdonosi**: Alapértelmezés szerint a számlázási tulajdonosi a felhasználói fiók, amely beolvassa az előfizetés egy ajánlatra, és majd az adott előfizetéshez tartozó számlázási kapcsolat tulajdonosa. Ez a fiók akkor is az előfizetés rendszergazdája. Csak egy felhasználói fiók a megjelölés rendelkezhet egy adott előfizetés. A számlázási tulajdonosi gyakran egy szervezet vagy csapat vezető.
+- **Számlázási tulajdonos**: Alapértelmezés szerint a számlázási tulajdonos az a felhasználói fiók, amely lekéri az előfizetést egy ajánlatból, majd az előfizetéshez tartozó számlázási kapcsolatot birtokolja. Ez a fiók az előfizetés rendszergazdája is. Egy előfizetéshez csak egy felhasználói fiók tartozhat. A számlázási tulajdonos gyakran szervezet vagy csapat érdeklődő.
 
-  A PowerShell-parancsmagot is használhatja [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) számlázási tulajdonosát a következőre módosítani.  
+  Használhatja a [set-AzsUserSubscription PowerShell-](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) parancsmagot a számlázási tulajdonos módosításához.  
 
-- **RBAC-szerepkörök keresztül hozzáadva tulajdonosok** – további felhasználók is megadható a **tulajdonosa** szerepkör [szerepköralapú hozzáférés-vezérlés](azure-stack-manage-permissions.md) (RBAC). Tetszőleges számú további felhasználói fiókokat a számlázási tulajdonosi segítőosztályok tulajdonosként is hozzáadhatók. További tulajdonosok is az előfizetés rendszergazdája, és minden az előfizetést, kivéve, törölheti a számlázási tulajdonosi jogosultságokkal rendelkeznek.
+- **RBAC szerepkörökkel hozzáadott tulajdonosok** – a további felhasználók a **tulajdonos** szerepkört a [szerepköralapú hozzáférés-vezérlés](azure-stack-manage-permissions.md) (RBAC) használatával biztosíthatják. Tetszőleges számú további felhasználói fiókot adhat hozzá tulajdonosként a számlázási tulajdonoshoz. A további tulajdonosok az előfizetés rendszergazdái is, és minden jogosultsággal rendelkeznek az előfizetéshez, kivéve a számlázási tulajdonos törlésére vonatkozó engedélyt.
 
-  További tulajdonosainak kezelése a PowerShell használatával is. További információkért tekintse meg [ezt a cikket](/azure/role-based-access-control/role-assignments-powershell).
+  A PowerShell használatával további tulajdonosokat is kezelhet. További információkért tekintse meg [ezt a cikket](/azure/role-based-access-control/role-assignments-powershell).
 
-## <a name="change-the-billing-owner"></a>A számlázási tulajdonosi módosítása
+## <a name="change-the-billing-owner"></a>A számlázási tulajdonos módosítása
 
-Futtassa a következő parancsfájlt, módosíthatja a felhasználói előfizetés számlázási tulajdonosa. A számítógépen, amely a parancsfájl futtatásához használt kell csatlakozás az Azure Stack, és futtassa az Azure Stack PowerShell modul 1.3.0 vagy újabb. További információkért lásd: [telepítse az Azure Stack PowerShell](azure-stack-powershell-install.md).
+Futtassa a következő szkriptet a felhasználói előfizetés számlázási tulajdonosának módosításához. A parancsfájl futtatásához használt számítógépnek csatlakoznia kell Azure Stackhoz, és futtatnia kell a Azure Stack PowerShell-modul 1.3.0 vagy újabb verzióját. További információ: [Install Azure stack PowerShell](azure-stack-powershell-install.md).
 
 >[!NOTE]
->Egy több-bérlős Azure Stack az új tulajdonos ugyanabban a könyvtárban, a meglévő tulajdonosának kell lennie. Mielőtt az előfizetés tulajdonjogának egy felhasználónak, amely egy másik címtárban, előbb futtatnia kell [meghívni, hogy a felhasználó vendégként a címtárba](/azure/active-directory/b2b/add-users-administrator).
+>Több-bérlős Azure Stack esetében az új tulajdonosnak ugyanabban a címtárban kell lennie, mint a meglévő tulajdonosnak. Ahhoz, hogy az előfizetés tulajdonjogát egy másik címtárbeli felhasználó számára is meg tudja adni, először meg kell [hívnia a felhasználót vendégként a címtárba](/azure/active-directory/b2b/add-users-administrator).
 
-Cserélje le a következő értékeket a szkriptben, futtatásuk előtt:
+A futtatása előtt cserélje le a következő értékeket a parancsfájlba:
 
-- **$ArmEndpoint**: A Resource Manager-végpontot a környezethez.
+- **$ArmEndpoint**: A környezet Resource Manager-végpontja.
 - **$TenantId**: A bérlő azonosítója.
-- **$SubscriptionId**: Az előfizetés-azonosítójára.
-- **$OwnerUpn**: Egy fiókot, például **felhasználói\@example.com**, az új számlázási tulajdonosként hozzáadni.
+- **$SubscriptionId**: Az előfizetés azonosítója.
+- **$OwnerUpn**: Egy fiók, például a **felhasználó\@example.com**, hogy új számlázási tulajdonosként adja hozzá.
 
 ```powershell
 # Set up Azure Stack admin environment
@@ -67,6 +67,8 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
+[!include[Remove Account](../../includes/remove-account.md)]
+
 ## <a name="next-steps"></a>További lépések
 
-- [Szerepköralapú hozzáférés-vezérlés kezelése](azure-stack-manage-permissions.md)
+- [Szerepköralapú Access Control kezelése](azure-stack-manage-permissions.md)

@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: dab57a59993ff5d874bff1cb69d46427d9b1862c
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 3f0a4ef35b183d6d8f87e163b373a25a454bef9f
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188952"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070124"
 ---
 # <a name="azure-stack-security-updates"></a>Azure Stack biztonsági frissítések
 
@@ -186,7 +186,6 @@ Ez a cikk felsorolja az összes biztonsági frissítést a Azure Stack utolsó n
 
 A Windows-frissítések kumulatív jellegéből adódóan ez a frissítés az előző hónapok biztonsági tartalmait is tartalmazza. A CVEs ezen listája a június, július és augusztus 2019 biztonsági adattartalmat tükrözi.
 A biztonsági rések részletes ismertetését az előző hivatkozásokra kattintva vagy a Microsoft Tudásbázis [4511553](https://support.microsoft.com/help/4511553)-es cikkeiben tekintheti meg.
-
 ::: moniker-end
 
 ::: moniker range="azs-1907"
