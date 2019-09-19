@@ -16,12 +16,12 @@ ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.openlocfilehash: 9ca13d62c69c84f29e3038899ff224d7d9cdc6d3
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749940"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101189"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack karbantartási szabályzat
 
@@ -31,9 +31,9 @@ Ez a cikk ismerteti Azure Stack integrált rendszerek karbantartási szabályzat
 
 A Microsoft a teljes havi frissítési csomagokat és a gyorsjavítási csomagokat is kibocsátja a konkrét problémák megoldására.
 
-A havi frissítési csomagokat egy biztonságos Azure-végpont tárolja. Ezeket manuálisan is letöltheti a [Azure stack Updates Downloader eszközzel](https://aka.ms/azurestackupdatedownload). Ha a skálázási egység csatlakoztatva van, a frissítés **elérhetőként**automatikusan megjelenik a felügyeleti portálon. A teljes, havi frissítési csomagok minden kiadásban jól dokumentálva vannak. Az egyes kiadásokkal kapcsolatos további információkért kattintson a jelen cikk [frissítési csomag kiadási lépésszám](#update-package-release-cadence) szakaszának bármelyik kiadására.
+A havi frissítési csomagokat egy biztonságos Azure-végpont tárolja. Ezeket manuálisan is letöltheti a [Azure stack Updates Downloader eszközzel](https://aka.ms/azurestackupdatedownload). Ha a skálázási egység csatlakoztatva van, a frissítés elérhetőként automatikusan megjelenik a felügyeletiportálon. A teljes, havi frissítési csomagok minden kiadásban jól dokumentálva vannak. Az egyes kiadásokkal kapcsolatos további információkért kattintson a jelen cikk [frissítési csomag kiadási lépésszám](#update-package-release-cadence) szakaszának bármelyik kiadására.
 
-A gyorsjavítás-frissítési csomagok ugyanazon a biztonságos Azure-végponton futnak. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack gyorsjavítások 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). A teljes, havi frissítési csomagokhoz hasonlóan Azure Stack operátorok az. XML, a. bin és az. exe fájlokat is letöltik, majd importálják azokat a [frissítések alkalmazása a Azure stack-ban](azure-stack-apply-updates.md)című témakörben leírtak alapján. A csatlakoztatott méretezési egységeket Azure Stack operátorok automatikusan megjelennek a felügyeleti portálon, az üzenet **frissítésével**együtt.
+A gyorsjavítás-frissítési csomagok ugyanazon a biztonságos Azure-végponton futnak. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack gyorsjavítások 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). A teljes, havi frissítési csomagokhoz hasonlóan Azure Stack operátorok az. XML, a. bin és az. exe fájlokat is letöltik, majd importálják azokat a [frissítések alkalmazása a Azure stack-ban](azure-stack-apply-updates.md)című témakörben leírtak alapján. A csatlakoztatott méretezési egységeket Azure Stack operátorok automatikusan megjelennek a felügyeleti portálon, az üzenet frissítésévelegyütt.
 
 Ha a méretezési egység nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára, amely minden kiadásban fel van tüntetve.
 
@@ -53,10 +53,10 @@ A frissítések tervezésével és kezelésével, valamint az aktuális verzió 
 
 Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack 1908 frissítés](azure-stack-release-notes-1908.md)
-- [Azure Stack 1907 frissítés](azure-stack-release-notes-1907.md)
-- [Azure Stack 1906 frissítés](azure-stack-release-notes-1906.md)
-- [Azure Stack 1905 frissítés](azure-stack-release-notes-1905.md)
+- [Azure Stack 1908 frissítés](/azure-stack/operator/release-notes?view=azs-1908)
+- [Azure Stack 1907 frissítés](/azure-stack/operator/release-notes?view=azs-1907)
+- [Azure Stack 1906 frissítés](/azure-stack/operator/release-notes?view=azs-1906)
+- [Azure Stack 1905 frissítés](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
@@ -68,10 +68,10 @@ A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azu
 
 A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack 1908 gyorsjavítás](azure-stack-release-notes-1908.md#hotfixes)
-- [Azure Stack 1907 gyorsjavítás](azure-stack-release-notes-1907.md#hotfixes)
-- [Azure Stack 1906 gyorsjavítás](azure-stack-release-notes-1906.md#hotfixes)
-- [Azure Stack 1905 gyorsjavítás](azure-stack-release-notes-1905.md#hotfixes)
+- [Azure Stack 1908 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
+- [Azure Stack 1907 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
+- [Azure Stack 1906 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
+- [Azure Stack 1905 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
 
 ## <a name="keep-your-system-under-support"></a>Tartsa a rendszerét támogatás alatt
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-vel engedélyezése az Azure Stack felhasználói |} A Microsoft Docs
-description: Az Azure Stacken erőforrásokat üzembe helyezheti és kezelheti a többplatformos parancssori felület (CLI) használata
+title: Az Azure CLI engedélyezése Azure Stack felhasználók számára | Microsoft Docs
+description: Megtudhatja, hogyan engedélyezheti a többplatformos parancssori felületet (CLI) a Azure Stack erőforrásainak kezeléséhez és üzembe helyezéséhez.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 6e901b2d806e85f7bc394dc9bee6412270753649
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782319"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094307"
 ---
-# <a name="enable-azure-cli-for-azure-stack-users"></a>Azure CLI-vel engedélyezése az Azure Stack-felhasználók számára
+# <a name="enable-azure-cli-for-azure-stack-users"></a>Az Azure CLI engedélyezése Azure Stack felhasználók számára
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A legfelső szintű hitelesítésszolgáltató tanúsítványát biztosíthat az Azure Stack felhasználói számára, így az Azure CLI-vel a fejlesztői gépen is használni. A felhasználók a tanúsítványt a CLI-n keresztül-erőforrások kezeléséhez szükséges.
+Megadhatja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt Azure Stack felhasználók számára, hogy az Azure CLI-t a fejlesztői gépeken is engedélyezzék. A felhasználóknak szükségük van a tanúsítványra az erőforrások CLI-n keresztüli kezeléséhez.
 
- - **Az Azure Stack hitelesítésszolgáltató főtanúsítványát** van szükség, ha a felhasználók parancssori felület használata az Azure Stack Development Kit kívül munkaállomásokon.  
+ - **A Azure stack hitelesítésszolgáltatói főtanúsítványra** akkor van szükség, ha a felhasználók a CLI-t használják a Azure stack Development Kit kívüli munkaállomásról (ASDK).  
 
- - **A virtuális gép aliasok végpontjának** alias, mint a "UbuntuLTS" vagy "Win2012Datacenter," által hivatkozott egy rendszerkép közzétevője, ajánlat, Termékváltozat és verzió egyetlen paramétert, ha a virtuális gépek üzembe helyezéséhez biztosít.  
+ - **A virtuális gép (VM) alias végpontja** olyan aliast biztosít, mint például a "UbuntuLTS" vagy a "Win2012Datacenter", amely egy képközzétevőre, ajánlatra, SKU-ra és verzióra hivatkozik, ha virtuális gépeket helyez üzembe.  
 
-A következő szakaszok ismertetik ezeket az értékeket beszerzése.
+Az alábbi szakaszok azt ismertetik, hogyan kérheti le ezeket az értékeket.
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Az Azure Stack hitelesítésszolgáltató legfelső szintű tanúsítványának exportálása
+## <a name="export-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának exportálása
 
-Ha egy integrált rendszer használ, nem kell a legfelső szintű hitelesítésszolgáltató tanúsítványának exportálása. Exportálja a hitelesítésszolgáltató főtanúsítványát a egy Azure Stack Development Kit (ASDK) kell.
+Ha integrált rendszer használatával dolgozik, nem kell exportálnia a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Exportálnia kell a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt a ASDK.
 
-PEM-formátumú ASDK főtanúsítvány exportálása, jelentkezzen be, és futtassa a következő szkriptet:
+A ASDK-főtanúsítvány PEM formátumban való exportálásához jelentkezzen be, és futtassa a következő szkriptet:
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -56,20 +56,20 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>A virtuális gép aliasok végpontjának beállítása
+## <a name="set-up-the-vm-aliases-endpoint"></a>A VM-aliasok végpontjának beállítása
 
-Az Azure Stack-operátorok egy nyilvánosan elérhető végponton, amelyen egy virtuális gép alias fájlt kell beállítania. A virtuális gép alias fájl nem egy JSON-fájl által biztosított rendszerképek köznapi neve. A nevet fogja használni, ha telepít egy virtuális Gépet az Azure CLI-vel paraméterként.  
+Azure Stack operátoroknak olyan nyilvánosan elérhető végpontot kell beállítaniuk, amely virtuálisgép-alias-fájlt üzemeltet. A VM-alias fájl egy olyan JSON-fájl, amely a rendszerkép köznapi nevét adja meg. A nevet akkor használja, ha a virtuális gépet Azure CLI-paraméterként telepíti.  
 
-Alias fájlt hozzá egy bejegyzést, előtt győződjön meg arról, hogy Ön [töltse le a rendszerképeket az Azure Marketplace-ről](azure-stack-download-azure-marketplace-item.md) vagy [közzé saját egyéni rendszerképét](azure-stack-add-vm-image.md). Ha egy egyéni rendszerkép közzététele, jegyezze fel a közzétevő, ajánlat, Termékváltozat és verzió közzététele során megadott információk. Ha egy lemezképet a marketplace webhelyről, az információk használatával megtekintheti a `Get-AzureVMImage` parancsmagot.  
+Mielőtt hozzáad egy bejegyzést egy alias-fájlhoz, győződjön meg róla, hogy [letöltötte a lemezképeket az Azure Marketplace-ről](azure-stack-download-azure-marketplace-item.md) , vagy [közzétette saját egyéni rendszerképét](azure-stack-add-vm-image.md). Ha egyéni rendszerképet tesz közzé, jegyezze fel a közzététel során megadott kiadói, ajánlati, SKU-és verziószám-információkat. Ha ez egy rendszerkép a piactéren, megtekintheti az adatokat a `Get-AzureVMImage` parancsmag használatával.  
 
-A [alias mintafájl](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) számos gyakori rendszerképpel aliasok érhető el. Kiindulási pontként használhatja azt. A gazdagép egy helyet, ahol a CLI-ügyfelek számára is elérhetővé válik a fájlhoz. Egyik módja a fájlt a blob storage-fiókot üzemeltethet, és az URL-cím megosztása a felhasználókkal:
+Elérhető egy [minta alias-fájl](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) , amelyben számos gyakori rendszerkép-alias található. Ezt kiindulási pontként is használhatja. Ezt a fájlt egy olyan térben tárolja, ahol a CLI-ügyfelek el tudják érni. Ennek egyik módja, hogy a fájlt egy blob Storage-fiókban tárolja, és megosztja az URL-címet a felhasználókkal:
 
-1. Töltse le a [mintafájl](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) a Githubról.
-2. Hozzon létre egy tárfiókot az Azure Stackben. Ha ez megtörtént, hozzon létre egy blobtárolót. A hozzáférési szabályzat a "nyilvános".  
-3. Töltse fel az új tároló a JSON-fájlt. Ha ez megtörtént, megtekintheti a blob URL-CÍMÉT. Válassza ki a blob nevét, és válassza az URL-címet a blob tulajdonságai közül.
+1. Töltse le a [mintát](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) a githubról.
+2. Hozzon létre egy Storage-fiókot Azure Stack. Ha elkészült, hozzon létre egy BLOB-tárolót. Állítsa be a hozzáférési házirendet a "Public" értékre.  
+3. Töltse fel a JSON-fájlt az új tárolóba. Ha elkészült, megtekintheti a blob URL-címét. Válassza ki a blob nevét, majd válassza ki az URL-címet a blob tulajdonságai között.
 
 ## <a name="next-steps"></a>További lépések
 
-- [Az Azure CLI-vel sablonok üzembe helyezése](../user/azure-stack-deploy-template-command-line.md )
+- [Sablonok üzembe helyezése az Azure CLI-vel](../user/azure-stack-deploy-template-command-line.md )
 - [Kapcsolódás a PowerShell-lel](azure-stack-powershell-install.md)
 - [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)

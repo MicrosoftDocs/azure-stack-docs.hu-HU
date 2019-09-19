@@ -1,6 +1,6 @@
 ---
-title: Szegély kapcsolat hálózati integráció kapcsolatos szempontok az Azure Stack integrált rendszerek |} A Microsoft Docs
-description: Ismerje meg, mi mindent adatközpont szegély hálózati kapcsolatot az Azure Stack több csomópontos tervezése.
+title: A határok közötti kapcsolat és a hálózati integráció Azure Stack integrált rendszerek esetében | Microsoft Docs
+description: Ismerje meg, hogyan tervezheti meg az adatközpontok szegélyének hálózati kapcsolatát Azure Stack integrált rendszerekben.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,56 +16,56 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 85da256828d69db600bd8e5847a110ee3519568b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 142ea9b53d64e89157ce5c5556241b41275d430d
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131404"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094346"
 ---
 # <a name="border-connectivity"></a>Szegély kapcsolat 
-Hálózati integráció megtervezése egy fontos előfeltétel sikeres Azure Stackkel integrált rendszerek üzembe helyezés, a művelet és felügyeletéhez. Szegély kapcsolat tervezési kezdődik-e a border gateway protocol (BGP) dinamikus útválasztást használnak a kiválasztásával. A 16 bites BGP autonóm rendszer száma, (nyilvános vagy magán) hozzárendelése ehhez, vagy használja a statikus útválasztást, ahol az alapértelmezett statikus útvonal hozzá van rendelve a border eszközökhöz.
+A hálózati integráció megtervezése fontos előfeltétel a sikeres Azure Stack integrált rendszerek üzembe helyezéséhez, működtetéséhez és kezeléséhez. A határok közötti kapcsolat megtervezése megkezdődik, ha a dinamikus útválasztást a Border Gateway Protocol (BGP) használatával szeretné használni. Ehhez hozzá kell rendelni egy 16 bites BGP autonóm rendszerszámot (nyilvános vagy privát) vagy statikus útválasztást, ahol a rendszer statikus alapértelmezett útvonalat rendel hozzá a szegélyhez tartozó eszközökhöz.
 
 > [!IMPORTANT]
-> Felső részén rack (TOR) kapcsoló szükséges a pont-pont típusú IP-címek a 3. rétegbeli kimenő kapcsolatok (/ 30 hálózatok) a fizikai adapteren konfigurált. 2\. rétegbeli kimenő portok használata az Azure Stack műveleteket TOR-kapcsolók nem támogatott. 
+> A (z) Top of rack (TOR) kapcsolókhoz 3. rétegbeli, pont – pont típusú IP-címek (/30 hálózat) szükségesek, amelyek a fizikai interfészeken vannak konfigurálva. A 2. rétegbeli, Azure Stack műveleteket támogató TOR-kapcsolók nem támogatottak.
 
-## <a name="bgp-routing"></a>A BGP-Útválasztás
-Egy dinamikus útválasztási protokoll, mint a BGP használata garantálja, hogy a rendszer mindig ismeri a hálózati változásokat, és megkönnyíti a felügyeletet. A fokozott biztonság érdekében jelszó alapján lehet beállítani a BGP-t a TOR és szegélye közötti társviszony-létesítés. 
+## <a name="bgp-routing"></a>BGP-Útválasztás
+Egy dinamikus útválasztási protokoll, például a BGP garantálja, hogy a rendszer mindig tisztában van a hálózati változásokkal, és megkönnyíti a felügyeletet. A fokozott biztonság érdekében a a TOR és a szegély közötti BGP-társra vonatkozó jelszót lehet beállítani.
 
-Az alábbi ábrán látható, a privát IP-cím hirdetési a TOR-kapcsoló a hely le van tiltva előtag-lista használatával. Az előtagok listáját a hirdetés a privát hálózat megtagadja, és a TOR és szegélye közötti kapcsolat az útvonal-térkép alkalmazásának.
+Az alábbi ábrán látható módon a TOR-kapcsolón lévő magánhálózati IP-terület hirdetése le van tiltva egy előtag-lista használatával. Az előtag lista megtagadja a magánhálózat hirdetményét, és a TOR és a szegély közötti kapcsolaton útvonal-térképként alkalmazza.
 
-A szoftveres terheléselosztó (SLB) az Azure Stack megoldás belül futó a tor-alapú eszközökre is társul, így dinamikusan meghirdethet, hogy a VIP-címek.
+A szoftveres Load Balancer (SLB), amely a Azure Stack megoldási partnereken belül fut a TOR-eszközökön, így dinamikusan képes reklámozni a VIP-címeket.
 
-Annak érdekében, hogy azonnal, és transzparens módon történt hiba után helyreállítja a felhasználói adatforgalmat, a VPC vagy konfigurálni a tor-alapú eszközök közötti MLAG lehetővé teszi, hogy több váz hivatkozás használata a gazdagépek és a HSRP vagy biztosító VRRP összesítési hálózati redundancia az IP-hálózatok.
+Annak biztosítása érdekében, hogy a felhasználói forgalom azonnal és transzparens módon helyreállítható legyen a meghibásodástól, a TOR-eszközök között konfigurált VPC vagy MLAG lehetővé teszi a többplatformos kapcsolatok összesítésének használatát a gazdagépeken és a HSRP, illetve a VRRP, amelyek hálózati redundanciát biztosítanak az IP-hálózatokhoz.
 
-![A BGP-Útválasztás](media/azure-stack-border-connectivity/bgp-routing.png)
+![BGP-Útválasztás](media/azure-stack-border-connectivity/bgp-routing.png)
 
 ## <a name="static-routing"></a>Statikus útválasztás
-Statikus útválasztás, a peremátjáró eszközök további konfigurálására van szükség. További manuális beavatkozásra van szükség, azt, és a felügyeleti, valamint minden olyan változás- és konfigurációs hiba okozta problémák előtt alapos elemzés előfordulhat, hogy több időt vesz igénybe, attól függően, a módosítások visszaállítása. Nem az ajánlott útválasztási módszer, de támogatja azt.
+A statikus útválasztáshoz további konfiguráció szükséges a szegély eszközeihez. További manuális beavatkozásra és felügyeletre, valamint a változás előtt alapos elemzésre van szükség. A konfigurációs hiba által okozott problémák több időt vehetnek igénybe a módosításoktól függően. Ez az útválasztási módszer nem ajánlott, de támogatott.
 
-A statikus útválasztás használatával hálózati környezetébe integrálhatja az Azure Stacket, szegélye és a tor-alapú eszközök közötti összes négy fizikai hivatkozás csatlakoztatva kell lennie, és magas rendelkezésre állás nem garantálható, hogyan statikus útválasztási működése miatt.
+Ha statikus útválasztással szeretné integrálni Azure Stack a hálózati környezetbe, akkor a szegély és a TOR-eszköz közötti négy fizikai kapcsolatnak csatlakoztatva kell lennie. A statikus útválasztás működése miatt nem garantálható a magas rendelkezésre állás.
 
-A szegély eszköz kell konfigurálni a tor-alapú eszközök P2Ps mutató, a felé irányuló statikus útvonalak a *külső* hálózati vagy a nyilvános virtuális IP-címek és a *infrastruktúra* hálózati. Ehhez szükség lesz a statikus útvonalakat a *BMC* és a *külső* hálózatok központi telepítésére vonatkozóan. Operátorok lehet váltani, hagyja a statikus útvonalakat a szegély, amelyek megtalálhatók a felügyeleti erőforrások eléréséhez a *BMC* hálózati. A statikus útvonalak hozzáadása *kapcsoló-infrastruktúra* és *felügyeleti kapcsoló* hálózatok nem kötelező.
+A szegély eszközét statikus útvonalakkal kell konfigurálni, amelyek a TOR-eszközökre mutatnak, amelyek a *külső* hálózatra vagy nyilvános VIP-re és az *infrastruktúra* -hálózatra irányuló p2ps mutatnak. A telepítéshez statikus útvonalakat kell megadni a *bmc* és a *külső* hálózatok számára. A kezelők dönthetnek úgy, hogy a következő keretben hagyják el a statikus útvonalakat a *bmc* -hálózaton található felügyeleti erőforrások eléréséhez. Nem kötelező statikus útvonalakat hozzáadni az infrastruktúra és a *switch felügyeleti* hálózatok *váltásához* .
 
-A tor-alapú eszközök az összes adatforgalmat küldő szegély eszközök alapértelmezett statikus útvonal konfigurált származnak. Az alapértelmezett szabályhoz forgalom kivételt jelent a privát területet, amely le van tiltva, egy hozzáférés-vezérlési lista, a TOR szegély kapcsolat a alkalmazni a.
+A TOR-eszközök egy statikus alapértelmezett útvonalon vannak konfigurálva, amely az összes forgalmat a szegély eszközeire küldi. Az alapértelmezett szabály alóli egyetlen forgalmi kivétel a privát területre vonatkozik, amely le van tiltva a TOR-ra vonatkozó Access Control lista használatával.
 
-Statikus útválasztás csak azokra a kimenő kapcsolatok a TOR- és szegélytulajdonságok kapcsolók között. Dinamikus útválasztás a BGP használata az állványra szerelt belül, a fontos eszközzel a szoftveres Terheléselosztó és más összetevőket, és nem letiltása vagy eltávolítása.
+A statikus útválasztás csak a TOR és a Border kapcsolók közötti kapcsolatokra vonatkozik. A BGP dinamikus útválasztás az állványon belül van használatban, mivel ez nélkülözhetetlen eszköz a SLB és más összetevők számára, és nem tiltható le és nem távolítható el.
 
 ![Statikus útválasztás](media/azure-stack-border-connectivity/static-routing.png)
 
-<sup>\*</sup> Üzembe helyezés után a BMC-hálózat nem kötelező.
+<sup>\*</sup>Az üzembe helyezés után a BMC-hálózat nem kötelező.
 
-<sup>\*\*</sup> A kapcsoló-infrastruktúra-hálózat megadása nem kötelező, a teljes hálózati kapcsolók kezelése hálózatban részeként.
+<sup>\*\*</sup>A kapcsoló-infrastruktúra hálózata nem kötelező, mivel a teljes hálózat belefoglalható a váltási felügyeleti hálózatba.
 
-<sup>\*\*\*</sup> A kapcsoló felügyeleti hálózat megadása kötelező, és a hálózati kapcsoló-infrastruktúra külön adhatók hozzá.
+<sup>\*\*\*</sup>A kapcsoló-felügyeleti hálózatot kötelező megadni, és a kapcsoló infrastruktúra hálózata külön is felvehető.
 
 ## <a name="transparent-proxy"></a>Transzparens proxy
-Ha az Adatközpont igényel minden forgalom a proxy használatát, konfigurálnia kell egy *transzparens proxy* kezelni, a hálózaton a zónák közötti forgalom szétválasztása házirend szerint az állványra szerelt érkező minden feldolgozásához.
+Ha az adatközpontban az összes forgalom proxy használatára van szüksége, egy *transzparens proxyt* kell konfigurálnia az állványról a szabályzatnak megfelelően kezelendő összes forgalom feldolgozásához, a hálózati zónák közötti forgalom elkülönítésével.
 
 > [!IMPORTANT]
-> Az Azure Stack megoldás nem támogatja a normál webes proxykat.  
+> A Azure Stack megoldás nem támogatja a normál webproxykat.  
 
-Transzparens proxy (más néven egy elfogja, beágyazott vagy kényszerített proxy) elfogja a normál kommunikáció, a hálózati rétegen anélkül, hogy minden olyan speciális ügyfél-konfigurációt. Az ügyfelek nem létezik-e a proxy tisztában lennie kell.
+Egy transzparens proxy (más néven lehallgatás, beágyazott vagy kényszerített proxy) elfogja a normál kommunikációt a hálózati rétegben anélkül, hogy speciális ügyfél-konfigurációra lenne szükség. Az ügyfeleknek nem kell megismerniük a proxy létezését.
 
 ![Transzparens proxy](media/azure-stack-border-connectivity/transparent-proxy.png)
 

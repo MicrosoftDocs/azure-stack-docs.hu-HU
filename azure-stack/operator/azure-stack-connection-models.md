@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stackkel integrált rendszerek kapcsolati modellek |} A Microsoft Docs
-description: Tervezési megfontolások az Azure Stack több csomópontos központi telepítés határozza meg.
+title: Azure Stack integrált rendszerek kapcsolatainak modelljei | Microsoft Docs
+description: A kapcsolódási modellek és az egyéb központi telepítési tervezési döntések meghatározása Azure Stack integrált rendszerekhez.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,38 +16,38 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 2fc9416515b09941deefbeb97d4a3801b47e146f
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: de9051ceee89244182c1d6d9d5724fa80a594ae6
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131319"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094384"
 ---
-# <a name="azure-stack-integrated-systems-connection-models"></a>Az Azure Stackkel integrált rendszerek kapcsolati modellek
-Ha Ön a powerappsot, olvassa az Azure Stackkel integrált rendszer, kell megérteni [több adatközpont integrációja szempontok](azure-stack-datacenter-integration.md) való határozza meg, hogyan elférnek a rendszer a helyi adatközpontban Azure Stack üzembe helyezéshez. Emellett szüksége annak eldöntése, hogyan fogja integrálja az Azure Stack a hibridfelhő-környezet. Ez a cikk a főbb kérdései, többek között az Azure-kapcsolat, ügyfélidentitás-tárolóval, és a számlázási modell döntések áttekintést nyújt.
+# <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack integrált rendszerek csatlakoztatási modelljei
+Ha érdekli egy Azure Stack integrált rendszer megvásárlása, meg kell ismernie a Azure Stack üzembe helyezésének [számos adatközpont-integrációs megfontolását](azure-stack-datacenter-integration.md) , hogy meghatározza, hogyan illeszkedik a rendszer az adatközpontba. Emellett el kell döntenie, hogyan integrálja a Azure Stackt a hibrid felhőalapú környezetbe. Ez a cikk áttekintést nyújt ezekről a főbb döntésekről, például az Azure-beli kapcsolatok modelljeiről, az Identity Store lehetőségeiről és a számlázási modell lehetőségeiről.
 
-Ha úgy dönt, hogy vásárol egy integrált rendszer, a számítógépgyártó (OEM) hardvergyártójához segítségével vezeti végig a tervezési folyamat további részleteket a jelentős részét. Azok a tényleges telepítési is elvégzi.
+Ha úgy dönt, hogy egy integrált rendszer megvásárlását választotta, az eredeti berendezésgyártó (OEM) hardver-gyártója segítséget nyújt a tervezési folyamat részletesebb ismertetésében. Az OEM hardver gyártója a tényleges telepítést is végrehajtja.
 
-## <a name="choose-an-azure-stack-deployment-connection-model"></a>Az Azure Stack üzembe helyezési kapcsolat modell kiválasztása
-Kiválaszthatja, hogy csatlakozik az internethez (és az Azure-bA), vagy csatlakoztatva az Azure Stack üzembe helyezése. Hozhatja ki a legnagyobb előnnyel az Azure Stack, hibrid forgatókönyvek között az Azure Stacket és Azure-ban, beleértve a szeretne üzembe helyezése az Azure-hoz csatlakoztatva. Ez a választás határozza meg, melyik lehetőség áll rendelkezésre az ügyfélidentitás-tárolóval (Azure Active Directory vagy Active Directory összevonási szolgáltatások) és a számlázási modellt (kell fizetnie, a használat alapú számlázási vagy a kapacitás-alapú számlázási) a következő ábra és táblázat foglalja össze: 
+## <a name="choose-an-azure-stack-deployment-connection-model"></a>Azure Stack telepítési kapcsolódási modell kiválasztása
+Dönthet úgy, hogy Azure Stack az internethez (és az Azure-hoz) csatlakozik, vagy le van választva. Az Azure-hoz csatlakoztatott üzembe helyezéssel kihasználhatja a Azure Stack legnagyobb előnyeit, beleértve a Azure Stack és az Azure közötti hibrid forgatókönyveket is. Ez a választási lehetőség határozza meg, hogy mely lehetőségek érhetők el az Identity Store-ban (Azure Active Directory vagy Active Directory összevonási szolgáltatások (AD FS)) és a számlázási modellben (a használaton kívüli számlázási vagy kapacitás-alapú számlázás alapján), az alábbi ábrán és táblázatban foglaltak szerint:
 
-![Az Azure Stack üzemelő példányához és számlázási forgatókönyvek](media/azure-stack-connection-models/azure-stack-scenarios.png)  
+![Központi telepítési és számlázási forgatókönyvek Azure Stack](media/azure-stack-connection-models/azure-stack-scenarios.png)
   
 > [!IMPORTANT]
-> Ez a fő döntési pont! Az Active Directory összevonási szolgáltatások (AD FS) vagy az Azure Active Directory (Azure AD)-e egy egyszeri döntés üzembe helyezéskor kell végrehajtania. Nem módosíthatja ezt később ismételt üzembe helyezése a teljes rendszer nélkül.  
+> Ez egy kulcsfontosságú döntési pont! Active Directory összevonási szolgáltatások (AD FS) (AD FS) vagy Azure Active Directory (Azure AD) kiválasztása egy egyszeri döntés, amelyet a telepítéskor kell elvégeznie. Ez később nem módosítható a teljes rendszer újbóli telepítése nélkül.  
 
 
-|Beállítások|Az Azure-hoz csatlakoztatva|Az Azure-ból leválasztva|
+|Beállítások|Csatlakoztatva az Azure-hoz|Leválasztva az Azure-ból|
 |-----|:-----:|:-----:|
 |Azure AD|![Támogatott](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
-|Fogyasztás alapú számlázáshoz|![Támogatott](media/azure-stack-connection-models/check.png)| |
-|Kapacitás-alapú számlázás|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
-|Licencek| Nagyvállalati szerződés vagy a Cloud Solution Provider | Nagyvállalati Szerződés |
-|A javítások és frissítések|Frissítési csomag közvetlenül az internetről letölthető az Azure Stackhez |  Kötelező<br><br>Cserélhető adathordozó is szükséges<br> és a egy különálló csatlakoztatott eszköz |
-| Regisztráció | Automatikus | Szükséges<br><br>Cserélhető adathordozó is szükséges<br> és a egy különálló csatlakoztatott eszköz |
+|Fogyasztáson alapuló számlázás|![Támogatott](media/azure-stack-connection-models/check.png)| |
+|Kapacitás alapú számlázás|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
+|Licencelés| Nagyvállalati Szerződés vagy felhőalapú megoldás szolgáltatója | Nagyvállalati szerződés |
+|Javítás és frissítés|A frissítési csomag közvetlenül az internetről Azure Stackra tölthető le |  Kötelező<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
+| Regisztráció | Automatikus | Kötelező<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
 
-Miután kiválasztotta az az Azure-kapcsolat modell használható az Azure Stack üzemelő példányához, további, a kapcsolat-függő döntéseket kell meghozni az ügyfélidentitás-tárolóval és a számlázási mód. 
+Miután eldöntötte, hogy az Azure-beli kapcsolódási modellt szeretné-e használni a Azure Stack üzembe helyezéséhez, további, egymástól függő döntéseket kell hoznia az Identity Store és a számlázási módszerhez.
 
 ## <a name="next-steps"></a>További lépések
 

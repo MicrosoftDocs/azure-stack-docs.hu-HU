@@ -1,6 +1,6 @@
 ---
-title: Azure Stack-eszközök letöltése a githubról |} A Microsoft Docs
-description: Ismerje meg, hogyan töltse le az Azure Stack használatához szükséges eszközöket.
+title: Azure Stack Tools letöltése a GitHubról | Microsoft Docs
+description: Megtudhatja, hogyan töltheti le a Azure Stack használatához szükséges eszközöket.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 722fea2777071fa78c89372a21fe52022a56f264
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: c6939a28b150073d08a4f8c8dbc2d15dfd153957
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782256"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71100924"
 ---
-# <a name="download-azure-stack-tools-from-github"></a>Azure Stack-eszközök letöltése a githubról
+# <a name="download-azure-stack-tools-from-github"></a>Azure Stack Tools letöltése a GitHubról
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-**1.2.9-es-eszközök** van egy [GitHub-adattár](https://github.com/Azure/AzureStack-Tools) kezelésére és üzembe erőforrásokat az Azure Stack PowerShell-modulok helyadatbázist. Ha azt tervezi, VPN-kapcsolatot létesíteni, letöltheti ezek a PowerShell-modulok, az Azure Stack fejlesztői készletet, vagy egy Windows-alapú külső ügyfél. Ezek az eszközök beszerzése, klónozza a GitHub-adattárát, vagy töltse le a **AzureStack-eszközök** mappában a következő szkript futtatásával:
+A **AzureStack-Tools** egy [GitHub-tárház](https://github.com/Azure/AzureStack-Tools) , amely PowerShell-modulokat tartalmaz az erőforrások Azure stack történő kezeléséhez és üzembe helyezéséhez. Ha VPN-kapcsolat létesítését tervezi, letöltheti ezeket a PowerShell-modulokat a Azure Stack Development Kitra vagy egy Windows-alapú külső ügyfélre. Az eszközök beszerzéséhez klónozott a GitHub-tárházat, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl futtatásával:
 
 ```powershell
 # Change directory to the root directory. 
@@ -48,22 +48,22 @@ cd AzureStack-Tools-master
 
 ```
 
-## <a name="functionality-provided-by-the-modules"></a>A modulok által biztosított funkciókat
+## <a name="functionality-provided-by-the-modules"></a>A modulok által biztosított funkciók
 
-A **AzureStack-eszközök** tárház, amely támogatja a következő funkciók az Azure Stack PowerShell-modulokat tartalmaz:  
+A **AzureStack-Tools** adattár PowerShell-modulokat tartalmaz, amelyek támogatják a Azure stack következő funkcióit:  
 
-| Funkció | Leírás | Ez a modul ki tudja használni? |
+| Funkció | Leírás | Kik használhatják ezt a modult? |
 | --- | --- | --- |
-| [A felhőalapú képességek](../user/azure-stack-validate-templates.md) | Ez a modul használatával a felhő felhő képességeit. Ha például a modul használatával kaphat a felhőalapú képességek, például az API-verzió és az Azure Resource Manager-erőforrásokat. Ez a modul használatával Azure Stack és az Azure-felhőket is beszerezheti a Virtuálisgép-bővítmények. | Felhő üzemeltetőinek és a felhasználók |
-| [Az Azure Stack Resource Manager-házirend](../user/azure-stack-policy-module.md) | Ez a modul használatával Azure-előfizetésre vagy Azure-erőforrás konfigurálása az Azure Stack, azonos verziókezelés és szolgáltatás rendelkezésre. | Felhő üzemeltetőinek és a felhasználók |
-| [Regisztráljon az Azure-ral](azure-stack-registration.md ) | Ez a modul segítségével a development kit példány regisztrálja az Azure-ral. A regisztrálás után a marketplace-elemek letöltése az Azure-ból, és használja őket az Azure Stackben. | Felhő üzemeltetői |
-| [Az Azure Stack üzembe helyezése](../asdk/asdk-install.md) | Ez a modul üzembe helyezése és ismételt üzembe helyezése az Azure Stack virtuális merevlemez (VHD) lemezképet használja az Azure Stack gazdaszámítógép segítségével. | Felhő üzemeltetői|
-| [Csatlakozás az Azure Stackhez](azure-stack-powershell-install.md) | Ez a modul segítségével konfigurálhatja a VPN-kapcsolat Azure stackhez. | Felhő üzemeltetőinek és a felhasználók |
-| [Sablon-érvényesítő](../user/azure-stack-validate-templates.md) | Ez a modul segítségével ellenőrizheti, ha egy meglévő vagy új sablont is üzembe helyezhetők az Azure Stackhez. | Felhő üzemeltetőinek és a felhasználók|
+| [Felhőbeli képességek](../user/azure-stack-validate-templates.md) | Ez a modul a felhő Felhőbeli képességeinek beszerzésére használható. A modul használatával például megszerezheti a felhő képességeit, például az API-verziót és a Azure Resource Manager erőforrásokat. A modul használatával a Azure Stack és az Azure-felhők virtuálisgép-bővítményeit is elérheti. | Felhőalapú operátorok és felhasználók |
+| [Resource Manager-házirend a Azure Stack](../user/azure-stack-policy-module.md) | Ezzel a modullal konfigurálhat egy Azure-előfizetést vagy egy Azure-erőforráscsoportot ugyanazzal a verziószámozással és szolgáltatással, mint Azure Stack. | Felhőalapú operátorok és felhasználók |
+| [Regisztrálás az Azure-ban](azure-stack-registration.md ) | Ezzel a modullal regisztrálhat a fejlesztői csomag példányát az Azure-ban. A regisztráció után letöltheti a Marketplace-elemeket az Azure-ból, és felhasználhatja őket a Azure Stackban. | Felhőbeli operátorok |
+| [Azure Stack üzemelő példány](../asdk/asdk-install.md) | Ezzel a modullal előkészítheti a Azure Stack gazdagépet a Azure Stack virtuális merevlemez (VHD) lemezkép használatával történő üzembe helyezéshez és újbóli üzembe helyezéshez. | Felhőbeli operátorok|
+| [Csatlakozás a Azure Stackhoz](azure-stack-powershell-install.md) | Ezzel a modullal konfigurálhatja a VPN-kapcsolatot Azure Stackhoz. | Felhőalapú operátorok és felhasználók |
+| [Sablon-érvényesítő](../user/azure-stack-validate-templates.md) | Ezzel a modullal ellenőrizheti, hogy van-e telepítve meglévő vagy új sablon Azure Stack. | Felhőalapú operátorok és felhasználók|
 
 
 ## <a name="next-steps"></a>További lépések
 
-- [Az Azure Stack PowerShell használatának első lépései](../user/azure-stack-powershell-overview.md)
-- [Az Azure Stack felhasználói PowerShell-környezet konfigurálása](../user/azure-stack-powershell-configure-user.md)   
-- [Csatlakozás az Azure Stack Development Kit egy VPN-kapcsolaton keresztül](../asdk/asdk-connect.md)  
+- [Ismerkedés a PowerShell-lel Azure Stack](../user/azure-stack-powershell-overview.md)
+- [A Azure Stack felhasználó PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)   
+- [Csatlakozás Azure Stack Development Kit VPN-kapcsolaton keresztül](../asdk/asdk-connect.md)  

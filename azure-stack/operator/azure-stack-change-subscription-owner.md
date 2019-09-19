@@ -1,6 +1,6 @@
 ---
-title: Azure Stack felhasználói előfizetés tulajdonosának frissítése | Microsoft Docs
-description: Azure Stack felhasználói előfizetések számlázási tulajdonosának módosítása.
+title: Azure Stack felhasználói előfizetés számlázási tulajdonosának módosítása | Microsoft Docs
+description: Megtudhatja, hogyan módosíthatja a Azure Stack felhasználói előfizetés számlázási tulajdonosát.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 09/17/2019
 ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 00e55dc301102622d4771a8fd8c6ff8591263dd7
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 3c4453974092fd1873e5f77b1074c82851fc1be1
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070157"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094370"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Azure Stack felhasználói előfizetés tulajdonosának módosítása
+# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>Azure Stack felhasználói előfizetés számlázási tulajdonosának módosítása
 
-Azure Stack operátorok a PowerShell használatával módosíthatják a felhasználói előfizetés számlázási tulajdonosát. A tulajdonos módosításának egyik oka például egy olyan felhasználó cseréje, amely elhagyja a szervezetet.
+Azure Stack operátorok a PowerShell használatával módosíthatják a felhasználói előfizetések számlázási tulajdonosát. A tulajdonos módosításának egyik oka például egy olyan felhasználó cseréje, amely elhagyja a szervezetet.
 
 Az előfizetéshez két típusú *tulajdonos* van rendelve:
 

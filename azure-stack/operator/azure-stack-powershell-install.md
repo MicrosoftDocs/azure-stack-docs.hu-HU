@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d760eb4a9ca0f958ab8be09810b97820b09f5621
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: 79d7a0adfc7d869f600e864264716b34d6452213
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959474"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101129"
 ---
 # <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
@@ -28,7 +28,7 @@ ms.locfileid: "68959474"
 
 Azure PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják a Azure Stack-erőforrások kezeléséhez.
 
-A felhővel való együttműködéshez Azure Stack kompatibilis PowerShell-modulokat kell telepítenie. A Azure Stack a **AzureRM** modult használja a globális Azure-ban használt újabb **AzureAZ** modul helyett. Az Azure Stack erőforrás-szolgáltatóhoz tartozó kompatibilis végpontok megadásához *API* -profilokat is kell használnia.
+A felhővel való együttműködéshez Azure Stack kompatibilis PowerShell-modulokat kell telepítenie. A Azure Stack a **AzureRM** modult használja a globális Azure-ban használt újabb **AzureAZ** modul helyett. Az Azure Stack erőforrás-szolgáltatóhoz tartozó kompatibilis végpontok megadásához *API-profilokat* is kell használnia.
 
 Az API-profilok lehetőséget biztosítanak az Azure és a Azure Stack közötti verziók közötti különbségek kezelésére. Az API-verzió profilja Azure Resource Manager PowerShell-modulok meghatározott API-verziókkal. Minden egyes felhőalapú platformon támogatott API-verzió-profilok szerepelnek. A Azure Stack például egy adott profil verzióját (például **2019-03-01-Hybrid**) támogatja. Profil telepítésekor a rendszer telepíti a megadott profilhoz tartozó Azure Resource Manager PowerShell-modulokat.
 
@@ -39,7 +39,7 @@ Azure Stack kompatibilis PowerShell-modulokat az internethez csatlakoztatott, r�
 A Azure Stack és a PowerShell használatának megkezdése előtt a következő előfeltételeket kell megadnia:
 
 - **PowerShell 5,0-es verzió** <br>
-A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa össze a főverziót. Ha nem rendelkezik a PowerShell 5,0-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)című témakört.
+A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,0-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)című témakört.
 
   > [!Note]
   > A PowerShell 5,0 használatához Windows rendszerű gép szükséges.
@@ -170,7 +170,7 @@ A telepítésnek négy lépése van:
     ```
 
     > [!Note]  
-    > A Azure Stack modul 1.7.1-verziója egy megszakítási változás. A AzureStack-1.6.0 való áttelepítéshez tekintse meg az áttelepítési [útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+    > A Azure Stack modul 1.7.1-verziója egy megszakítási változás. A AzureStack-1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
     > Internetkapcsolat nélküli gépeken a következő parancsmag futtatását javasoljuk a telemetria-adatgyűjtés letiltásához. A parancsmagok teljesítménybeli romlása a telemetria-adatgyűjtés letiltása nélkül is felmerülhet. Ez csak az internetkapcsolat nélküli gépek esetében érvényes

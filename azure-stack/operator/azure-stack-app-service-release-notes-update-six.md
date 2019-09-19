@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: c142ecda309f00ee94429be3d7b8f3c6e8072668
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 93ec7faec82fad101c7bab2d2cec2783c8a060da
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188222"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101021"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack Update 6 kibocsátási megjegyzései
 
@@ -51,7 +51,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack 1,6-re:
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése
 
-- Az **Egyéni szkriptek** bővítményének **1.9.1** -verziójának szindikátusa a piactéren
+- Az **Egyéni szkriptek bővítményének** **1.9.1** -verziójának szindikátusa a piactéren
 
 ### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
@@ -101,7 +101,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
 
-Tekintse meg a dokumentációt a [Azure Stack 1908 kibocsátási megjegyzésekben](azure-stack-release-notes-1908.md)
+Tekintse meg a dokumentációt a [Azure Stack 1908 kibocsátási megjegyzésekben](/azure-stack/operator/release-notes?view=azs-1908)
 
 ### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Ismert problémák a bérlők számára az alkalmazások Azure App Serviceon való üzembe helyezéséhez Azure Stack
 
@@ -120,4 +120,4 @@ Amikor megkísérli figyelni az egyes függvényeket, a bérlői portálon nem f
 ## <a name="next-steps"></a>További lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
-- További információ a Azure Stack App Service telepítésének előkészítéséről: mielőtt megkezdi a [Azure Stack app Serviceének](azure-stack-app-service-before-you-get-started.md)megkezdését.
+- További információ a Azure Stack App Service telepítésének előkészítéséről: [mielőtt megkezdi a Azure Stack app Serviceének](azure-stack-app-service-before-you-get-started.md)megkezdését.

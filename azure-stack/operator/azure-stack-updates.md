@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863027"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101196"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Frissítések kezelése Azure Stack – áttekintés
 
@@ -105,4 +105,4 @@ A frissítések telepítésekor megtekintheti a magas szintű állapotot, mivel 
 
 - A frissítési folyamat megkezdéséhez kövesse az [Azure stack frissítésének megtervezése](azure-stack-update-plan.md)című témakör lépéseit.
 - Ha szeretné megtudni, hogy a Azure Stack mely verziói támogatottak, tekintse meg [Azure stack karbantartási szabályzatot](azure-stack-servicing-policy.md).  
-- Ha többet szeretne megtudni az aktuális és a legutóbbi frissítésekről, tekintse meg a [Azure stack kibocsátási megjegyzéseit](azure-stack-release-notes-security-updates-1907.md).
+- Ha többet szeretne megtudni az aktuális és a legutóbbi frissítésekről, tekintse meg a [Azure stack kibocsátási megjegyzéseit](release-notes.md).

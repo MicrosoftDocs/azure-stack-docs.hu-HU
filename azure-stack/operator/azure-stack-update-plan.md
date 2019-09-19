@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 58bfdf49492caf7f8db7f4d2a04de97a17738eac
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863030"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101174"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Azure Stack frissítés megtervezése
 
@@ -36,9 +36,9 @@ Minden karbantartási műveletről értesítenie kell a felhasználókat, és ha
 
 A frissítés előkészítéséhez győződjön meg arról, hogy alkalmazta a gyorsjavításokat, a biztonsági javításokat és az OEM-frissítéseket, ellenőrizte a Azure Stack példány állapotát, ellenőrizte a rendelkezésre álló kapacitást, és áttekintette a frissítési csomagot.
 
-1. Tekintse át az ismert problémákat. Útmutatásért lásd: [Azure stack ismert problémák](https://docs.microsoft.com/azure-stack/operator/azure-stack-release-notes-known-issues-1907).
+1. Tekintse át az ismert problémákat. Útmutatásért lásd: [Azure stack ismert problémák](https://docs.microsoft.com/azure-stack/operator/release-notes.md).
 
-2. Tekintse át a biztonsági frissítéseket. A frissítések listáját itt tekintheti meg: [Azure stack biztonsági frissítések](https://docs.microsoft.com/azure-stack/operator/azure-stack-release-notes-security-updates-1907).
+2. Tekintse át a biztonsági frissítéseket. A frissítések listáját itt tekintheti meg: [Azure stack biztonsági frissítések](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md).
 
 3. A frissítés telepítésének megkezdése előtt futtassa a [test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) parancsot a Azure stack állapotának ellenőrzéséhez és a talált működési problémák megoldásához, beleértve az összes figyelmeztetést és hibát. Emellett tekintse át az aktív riasztásokat, és ha bármelyik beavatkozást igényel, kezelje őket.
 

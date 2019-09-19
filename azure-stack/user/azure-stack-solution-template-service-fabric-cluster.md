@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9b56a55ca6fd45177daaa00a7c32bcdf5c281155
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: e672ee6227e00ea6276c92c22d02874f7c8b5529
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975127"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101240"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric-fürt üzembe helyezése Azure Stack
 
@@ -35,7 +35,7 @@ A Azure Stack Service Fabric-fürt nem a Microsoft. ServiceFabric erőforrás-sz
 A Service Fabric-fürt telepítéséhez a következők szükségesek:
 1. **Fürt tanúsítványa**  
    A Service Fabric telepítésekor a Key Vaulthoz hozzáadott X. 509 kiszolgálói tanúsítvány. 
-   - A tanúsítványhoz tartozó **CN-** nek meg kell egyeznie a létrehozott Service Fabric-fürt teljes tartománynevével (FQDN). 
+   - A tanúsítványhoz tartozó **CN-** nek meg kell egyeznie a létrehozott Service Fabric-fürt teljes tartománynevével (FQDN). A teljes tartománynévvel kapcsolatos további útmutatásért tekintse meg [Azure App Service Azure stack éles környezetben történő üzembe helyezéséhez szükséges tanúsítványokat](../operator/azure-stack-app-service-before-you-get-started.md#certificates-required-for-azure-stack-production-deployment-of-azure-app-service).
    - A tanúsítvány formátumának PFX-nek kell lennie, mivel a nyilvános és a titkos kulcs is kötelező. 
      Lásd a kiszolgálóoldali tanúsítvány létrehozásához [szükséges követelményeket](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) .
 

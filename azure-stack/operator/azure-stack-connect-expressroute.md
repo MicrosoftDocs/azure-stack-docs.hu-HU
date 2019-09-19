@@ -1,5 +1,5 @@
 ---
-title: Azure Stack összekötése az Azure-val a ExpressRoute használatával
+title: Azure Stack összekötése az Azure-val a ExpressRoute használatával | Microsoft Docs
 description: Ismerje meg, hogyan csatlakoztathatók a virtuális hálózatok Azure Stack az Azure-beli virtuális hálózatokhoz az ExpressRoute használatával.
 services: azure-stack
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2ddc95097539eb1a7b15fdfc1fd2faf2c71f9ced
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377302"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094407"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack összekötése az Azure-val az Azure ExpressRoute
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk azt ismerteti, hogyan csatlakoztatható egy Azure Stack virtuális hálózat egy Azure-beli virtuális hálózathoz egy [Microsoft Azure ExpressRoute](/azure/expressroute/) közvetlen kapcsolat használatával.
+Ez a cikk azt ismerteti, hogyan lehet Azure Stack virtuális hálózatot csatlakoztatni egy Azure-beli virtuális hálózathoz egy [Microsoft Azure ExpressRoute](/azure/expressroute/) közvetlen kapcsolat használatával.
 
 Ez a cikk oktatóanyagként használható, és a példák használatával is beállíthatja ugyanazt a tesztkörnyezet. Vagy használhatja a cikket útmutatóként, amely végigvezeti a saját ExpressRoute-környezet beállításán.
 
@@ -142,7 +142,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
 A helyi hálózati átjáró erőforrás a VPN-kapcsolat másik végén található távoli átjárót azonosítja. Ebben a példában a kapcsolat távoli vége a ExpressRoute útválasztó helyi hálózati adaptere. Az előző diagram 1. bérlője esetében a távoli 10.60.3.255.
 
-1. Jelentkezzen be a Azure Stack felhasználói portálra a felhasználói fiókjával, és válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Jelentkezzen be a Azure Stack felhasználói portálra, és válassza az **+ erőforrás létrehozása**lehetőséget.
 1. Az **Azure Marketplace**területen válassza a **hálózatkezelés**lehetőséget.
 1. Az erőforrások listájában válassza a **Helyi hálózati átjáró** elemet.
 1. A **név** mezőbe írja be a következőt: **er-router-GW**.
@@ -163,7 +163,7 @@ A helyi hálózati átjáró erőforrás a VPN-kapcsolat másik végén találha
 1. Az **Azure Marketplace**területen válassza a **hálózatkezelés**lehetőséget.
 1. Az erőforrások listájában válassza a **Kapcsolat** elemet.
 1. Az **alapok**területen válassza a **helyek közötti (IPSec)** lehetőséget a **kapcsolat típusaként**.
-1. Válassza ki az **előfizetést**, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
+1. Válassza kiaz előfizetést, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
 1. A **Beállítások**területen válassza ki a **virtuális hálózati átjáró**elemet, majd válassza a **GW1**lehetőséget.
 1. Válassza a **helyi hálózati átjáró**lehetőséget, majd válassza az **er router GW**lehetőséget.
 1. A **kapcsolatok neve** mezőbe írja be a **ConnectToAzure**nevet.
@@ -179,21 +179,21 @@ A virtuális hálózati átjáró létrehozása után beszerezheti az átjáró 
 1. A **virtuális hálózati átjáró**területen válassza az **Áttekintés** lehetőséget az erőforrások listájából. Másik lehetőségként a **Tulajdonságok**elemet is kiválaszthatja.
 1. A megjegyezni kívánt IP-cím a **nyilvános IP-cím**területen jelenik meg. A példa konfigurációjának 192.68.102.1 Ez a címe.
 
-#### <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
+#### <a name="create-a-virtual-machine-vm"></a>Virtuális gép (VM) létrehozása
 
-A VPN-kapcsolaton keresztüli adatforgalom teszteléséhez virtuális gépekre van szükség az adatok küldéséhez és fogadásához a Azure Stack VNet. Hozzon létre egy virtuális gépet, és telepítse azt a virtuális hálózat virtuálisgép-alhálózatán.
+A VPN-kapcsolaton keresztüli adatforgalom teszteléséhez virtuális gépekre van szükség az adatok küldéséhez és fogadásához a Azure Stack VNet. Hozzon létre egy virtuális GÉPET, és telepítse azt a virtuális hálózat virtuálisgép-alhálózatán.
 
 1. A Azure Stack felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 1. Az **Azure Marketplace**területen válassza a **számítás**lehetőséget.
-1. A virtuálisgép-lemezképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
+1. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 
    >[!NOTE]
-   >Ha a cikkhez használt rendszerkép nem érhető el, kérje meg Azure Stack-kezelőjét, hogy adjon meg egy másik Windows Server-rendszerképet.
+   >Ha az ehhez a cikkhez használt rendszerkép nem érhető el, kérje meg a Azure Stack operátort, hogy adjon meg egy másik Windows Server-rendszerképet.
 
-1. A **virtuális gép létrehozása**területen válassza az **alapismeretek**lehetőséget, majd írja be a **VM01** **nevet**.
+1. A **virtuális gép létrehozása**területen válasszaaz alapismeretek lehetőséget, majd írja be a **VM01** **nevet**.
 1. Érvényes felhasználónevet és jelszót adjon meg. Ezt a fiókot fogja használni a virtuális gépre való bejelentkezéshez a létrehozás után.
-1. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
-1. A **méret kiválasztása**területen válassza ki a virtuális gép méretét ehhez a példányhoz, majd válassza a **kiválasztás**lehetőséget.
+1. Adja megaz előfizetést, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
+1. A **méret kiválasztása**területen válasszon egy virtuálisgép-méretet ehhez a példányhoz, majd válassza a **kiválasztás**lehetőséget.
 1. A **Beállítások**területen ellenőrizze, hogy:
 
    * A virtuális hálózat **Tenant1VNet1**.
@@ -214,18 +214,18 @@ További bérlők hozzáadásához ismételje meg a következő szakaszban leír
 
 Ha például a 2. bérlőt használja, ne felejtse el módosítani az IP-címeket az átfedések elkerülése érdekében.
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>NAT virtuális gép konfigurálása átjáró bejárásához
+### <a name="configure-the-nat-vm-for-gateway-traversal"></a>NAT virtuális gép konfigurálása átjáró bejárásához
 
 > [!IMPORTANT]
-> Ez a szakasz csak Azure Stack Development Kit (ASDK) központi telepítések esetén használható. A többcsomópontos üzemelő példányok esetében a NAT nem szükséges.
+> Ez a szakasz csak a ASDK üzemelő példányok esetében használható. A többcsomópontos üzemelő példányok esetében a NAT nem szükséges.
 
-A Azure Stack Development Kit önálló és elkülönített a fizikai gazdagépet telepítő hálózattól. A VIP-hálózat, amelyhez az átjárók csatlakoznak, nem külső; egy hálózati címfordítást (NAT) végrehajtó útválasztó mögött van.
+A ASDK önálló és elkülönített a fizikai gazdagépet telepítő hálózattól. A VIP-hálózat, amelyhez az átjárók csatlakoztatva vannak, nem külső; egy hálózati címfordítást (NAT) végrehajtó útválasztó mögött van.
 
-Az útválasztó ASDK az Útválasztás és távelérés szolgáltatás (RRAS) szerepkört futtató gazdagép. Konfigurálnia kell a NAT-t a ASDK-gazdagépen ahhoz, hogy a helyek közötti VPN-kapcsolat mindkét végén csatlakozhasson.
+Az útválasztó az Útválasztás és távelérés szolgáltatás (RRAS) szerepkört futtató ASDK-gazdagép. Konfigurálnia kell a NAT-t a ASDK-gazdagépen ahhoz, hogy a helyek közötti VPN-kapcsolat mindkét végén csatlakozhasson.
 
 #### <a name="configure-the-nat"></a>A NAT konfigurálása
 
-1. Jelentkezzen be a Azure Stack gazdaszámítógépre a rendszergazdai fiókjával.
+1. Jelentkezzen be a Azure Stack gazdagépre a rendszergazdai fiókjával.
 1. Futtassa a parancsfájlt egy emelt szintű PowerShell ISE-ben. Ez a szkript visszaadja a **külső BGPNAT-címeit**.
 
    ```powershell
@@ -329,7 +329,7 @@ A hub és a küllő virtuális hálózatok a [virtuális hálózati társítás 
 
 ### <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-A munkaterhelési virtuális gépeket a küllős VNet helyezheti üzembe.
+A számítási feladatok virtuális gépei üzembe helyezése a küllős VNet.
 
 Ismételje meg ezeket a lépéseket minden további bérlői virtuális hálózatok, amelyet az Azure-ban a megfelelő ExpressRoute-áramkörökkel szeretne csatlakozni.
 
@@ -341,7 +341,7 @@ A ExpressRoute-útválasztó konfigurálásához használhatja a következő Exp
 
 Bármely olyan útválasztót használhat, amely támogatja a IKEv2 VPN-t és BGP-t a két hálózat közötti pont-pont típusú VPN-kapcsolat megszakításához Azure Stack. Ugyanez az útválasztó használja az Azure-hoz való kapcsolódásra egy ExpressRoute áramkör használatával.
 
-A következő Cisco ASR 1000 sorozat-összesítő szolgáltatások útválasztó-konfigurációs példája támogatja a *ExpressRoute útválasztó konfigurációs* diagramjában látható hálózati infrastruktúrát.
+A következő Cisco Site Recovery 1000 sorozat-összesítő szolgáltatások útválasztó-konfigurációs példája támogatja a *ExpressRoute-útválasztó konfigurációs* diagramjában látható hálózati infrastruktúrát.
 
 ```shell
 ip vrf Tenant 1
@@ -566,15 +566,15 @@ A kapcsolat tesztelése a helyek közötti kapcsolat és a ExpressRoute áramkö
 
 Hajtsa végre a következő ping-teszteket:
 
-* Jelentkezzen be az Azure-VNet található egyik virtuális gépre, és Pingelje meg Azure Stackban létrehozott virtuális gépet.
+* Jelentkezzen be az Azure-VNet egyik virtuális gépére, és Pingelje a Azure Stackban létrehozott virtuális gépet.
 * Jelentkezzen be az Azure Stack-ben létrehozott egyik virtuális gépre, és Pingelje meg az Azure VNet létrehozott virtuális gépet.
 
 >[!NOTE]
->Annak biztosításához, hogy a helyek közötti és a ExpressRoute kapcsolaton keresztül küldje el a forgalmat, a virtuális gép dedikált IP-címét (DIP) mindkét végén pingelni kell, nem pedig a virtuális gép VIP-címét.
+>Annak biztosításához, hogy a helyek közötti és a ExpressRoute kapcsolaton keresztül küldje el a forgalmat, a virtuális gép dedikált IP-címének (DIP) a két végponton kell megfelelnie, és nem a virtuális gép VIP-címét.
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>ICMP engedélyezése a tűzfalon keresztül
 
-Alapértelmezés szerint a Windows Server 2016 nem engedélyezi a bejövő ICMP-csomagokat a tűzfalon keresztül. Minden olyan virtuális géphez, amelyet a ping tesztek esetében használ, engedélyeznie kell a bejövő ICMP-csomagokat. Az ICMP-hez készült tűzfalszabály létrehozásához futtassa a következő parancsmagot egy emelt szintű PowerShell-ablakban:
+Alapértelmezés szerint a Windows Server 2016 nem engedélyezi a bejövő ICMP-csomagokat a tűzfalon keresztül. Minden olyan virtuális gép esetében, amelyet a ping tesztek esetében használ, engedélyeznie kell a bejövő ICMP-csomagokat. Az ICMP-hez készült tűzfalszabály létrehozásához futtassa a következő parancsmagot egy emelt szintű PowerShell-ablakban:
 
 ```powershell
 # Create ICMP firewall rule.
@@ -583,11 +583,11 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>A Azure Stack virtuális gép pingelése
+### <a name="ping-the-azure-stack-vm"></a>A Azure Stack virtuális gép pingelése
 
-1. Jelentkezzen be a Azure Stack felhasználói portálra egy bérlői fiók használatával.
+1. Jelentkezzen be a Azure Stack felhasználói portálra.
 
-1. Keresse meg a létrehozott virtuális gépet, és válassza ki a virtuális gépet.
+1. Keresse meg a létrehozott virtuális gépet, és válassza ki.
 
 1. Kattintson a **Csatlakozás** gombra.
 
@@ -599,7 +599,7 @@ New-NetFirewallRule `
 
 ### <a name="view-data-transfer-statistics"></a>Adatátviteli statisztika megtekintése
 
-Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolatban, akkor a Azure Stack felhasználói portálon találhatja meg ezeket az információkat. Emellett érdemes megállapítani, hogy a pingelési teszt adatai átmentek-e a VPN-és ExpressRoute-kapcsolatokon keresztül:
+Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolatban, akkor a Azure Stack felhasználói portálon találhatja meg ezeket az információkat. Az adatátviteli statisztikák megtekintése szintén jó módszer arra, hogy megtudja, hogy a ping teszt adatai átmentek-e a VPN-és ExpressRoute-kapcsolatokon keresztül:
 
 1. Jelentkezzen be a Azure Stack felhasználói portálra, és válassza az **összes erőforrás**lehetőséget.
 1. Navigáljon a VPN Gateway erőforráscsoporthoz, és válassza ki a **kapcsolódási** objektum típusát.

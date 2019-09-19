@@ -15,12 +15,12 @@ ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 98e43cfe0226e06ca936484a78da5a61915f5797
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70188193"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101035"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -33,14 +33,14 @@ Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.micros
 
 ### <a name="new-features"></a>Új funkciók
 
-- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](../operator/azure-stack-release-notes-1908.md#whats-new) tartalmazza.
+- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1908) tartalmazza.
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>Rögzített és ismert problémák
 
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/azure-stack-release-notes-1908.md#fixes) of the Azure Stack release notes. -->
-- Az ismert problémák listáját [ebben a cikkben](../operator/azure-stack-release-notes-known-issues-1908.md)találja.
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1908) of the Azure Stack release notes. -->
+- Az ismert problémák listáját [ebben a cikkben](/azure-stack/operator/known-issues?view=azs-1908)találja.
 - Vegye figyelembe, hogy az elérhető Azure Stack gyorsjavítások nem alkalmazhatók a ASDK.
 ::: moniker-end
 
@@ -49,16 +49,16 @@ Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.micros
 
 ### <a name="new-features"></a>Új funkciók
 
-- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](../operator/azure-stack-release-notes-1907.md#whats-in-this-update) tartalmazza.
+- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update-1907) tartalmazza.
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>Rögzített és ismert problémák
 
 - Ha egyes Piactéri rendszerképeket használó virtuálisgép-erőforrásokat hoz létre, előfordulhat, hogy nem tudja befejezni az üzemelő példányt. Áthidaló megoldásként kattintson a **sablon és paraméterek letöltése** hivatkozásra az **Összefoglalás** lapon, majd a **sablon** panelen kattintson a **telepítés** gombra.
-- Az ebben a kiadásban kijavított Azure Stack problémák listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](../operator/azure-stack-release-notes-1907.md#fixes) tartalmazza.
-- Az ismert problémák listáját [ebben a cikkben](../operator/azure-stack-release-notes-known-issues-1907.md)találja.
-- Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](../operator/azure-stack-release-notes-1907.md#hotfixes) nem alkalmazhatók a Azure stack ASDK.
+- Az ebben a kiadásban kijavított Azure Stack problémák listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1907#fixes-1907) tartalmazza.
+- Az ismert problémák listáját [ebben a cikkben](/azure-stack/operator/known-issues?view=azs-1907)találja.
+- Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907) nem alkalmazhatók a Azure stack ASDK.
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -66,7 +66,7 @@ Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.micros
 
 ### <a name="new-features"></a>Új funkciók
 
-- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](../operator/azure-stack-release-notes-1906.md#whats-in-this-update) tartalmazza.
+- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1906) tartalmazza.
 
 ### <a name="changes"></a>Módosítások
 
@@ -75,9 +75,9 @@ Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.micros
 ### <a name="fixed-and-known-issues"></a>Rögzített és ismert problémák
 
 - Ha egyes Piactéri rendszerképeket használó virtuálisgép-erőforrásokat hoz létre, előfordulhat, hogy nem tudja befejezni az üzemelő példányt. Áthidaló megoldásként kattintson a **sablon és paraméterek letöltése** hivatkozásra az **Összefoglalás** lapon, majd a **sablon** panelen kattintson a **telepítés** gombra.
-- Az ebben a kiadásban kijavított Azure Stack problémák listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](../operator/azure-stack-release-notes-1906.md#fixes) tartalmazza.
-- Az ismert problémák listáját [ebben a cikkben](../operator/azure-stack-release-notes-known-issues-1906.md)találja.
-- Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](../operator/azure-stack-release-notes-1906.md#hotfixes) nem alkalmazhatók a Azure stack ASDK.
+- Az ebben a kiadásban kijavított Azure Stack problémák listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906) tartalmazza.
+- Az ismert problémák listáját [ebben a cikkben](/azure-stack/operator/known-issues?view=azs-1906)találja.
+- Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906) nem alkalmazhatók a Azure stack ASDK.
 ::: moniker-end
 
 ::: moniker range="azs-1905"
@@ -87,12 +87,12 @@ Az [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.micros
 
 ### <a name="new-features"></a>Új funkciók
 
-- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](../operator/azure-stack-release-notes-1905.md#whats-in-this-update) tartalmazza.
+- Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1905#whats-in-this-update-1905) tartalmazza.
 
 ### <a name="fixed-and-known-issues"></a>Rögzített és ismert problémák
 
 - Kijavítva egy olyan problémát, amelyben a **RegisterWithAzure. psm1** PowerShell-szkriptet kellett SZERKESZTENI a [ASDK sikeres regisztrálásához](asdk-register.md) .
-- A jelen kiadásban rögzített egyéb Azure Stack problémák listájáért tekintse meg a Azure Stack kibocsátási megjegyzések [jelen szakaszát](../operator/azure-stack-release-notes-1905.md#fixes) .
-- Az ismert problémák listáját [ebben a cikkben](../operator/azure-stack-release-notes-known-issues-1905.md)találja.
-- Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](../operator/azure-stack-release-notes-1905.md#hotfixes) nem alkalmazhatók a Azure stack ASDK.
+- A jelen kiadásban rögzített egyéb Azure Stack problémák listájáért tekintse meg a Azure Stack kibocsátási megjegyzések [jelen szakaszát](/azure-stack/operator/release-notes?view=azs-1905#fixes-1905) .
+- Az ismert problémák listáját [ebben a cikkben](/azure-stack/operator/known-issues?view=azs-1905)találja.
+- Vegye figyelembe, hogy az [elérhető Azure stack gyorsjavítások](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905) nem alkalmazhatók a Azure stack ASDK.
 ::: moniker-end
