@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
-ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
+ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68940274"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142576"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack-beli virtuális gépen
 
@@ -60,7 +60,7 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) a weblapok kiszolgálókról történő kézbesítéséhez használt protokoll. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét.  |
     | 22 | SSH | A Secure Shell (SSH) egy titkosított hálózati protokoll a biztonságos kommunikációhoz. Ezt a kapcsolódást egy SSH-ügyféllel fogja használni a virtuális gép konfigurálásához és az alkalmazás üzembe helyezéséhez. |
-    | 3389 | RDP | Választható. A RDP protokoll lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
+    | 3389 | RDP | Nem kötelező. A RDP protokoll lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
     | 8172 | Egyéni | A webdeploy által használt port. |
 
     Minden porthoz:
@@ -111,7 +111,7 @@ Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack-ben.
     ![ASP.NET-webalkalmazás üzembe helyezése Azure Stack közzétételhez](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. A **közzétételi** ablakban válassza az **új profil**lehetőséget.
-1. Válassza **az IIS**, az **FTP**stb. lehetőséget.
+1. Válassza **az IIS, FTP stb**. lehetőséget.
 1. Kattintson a **Publish** (Közzététel) elemre.
 1. **Közzétételi módszer**esetén válassza a **web Deploy (webes üzembe helyezés**) lehetőséget.
 1. A **kiszolgáló** mezőben adja meg a korábban megadott DNS-nevet, például: *w21902. local. cloudapp. azurestack. external*.

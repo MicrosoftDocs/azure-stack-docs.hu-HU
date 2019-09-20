@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b7057acd34625ffdea1de9ed533bf608de3059d6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 4ac3534278b2a7fe4ecb355207b5a13a7cb7bd10
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019237"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127483"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Az AK-motor telepítése Windows rendszeren Azure Stack
 
@@ -64,7 +64,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 2.  Hozzon létre egy Storage-fiókot a Azure Stack-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer a Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Hozzon létre egy özvegyi virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a Azure Stack portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Hozzon létre egy Windows rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a Azure Stack portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
 
 4.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack Storage-fiók blob URL-címéről, ahová feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot egy olyan könyvtárba, amelyhez hozzáféréssel rendelkezik a parancssorból.
 
