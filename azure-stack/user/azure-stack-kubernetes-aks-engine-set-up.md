@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: a65449d39f114bd0ff5eb859bd49ec36d4bb4281
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: cc278020bb4d2ba530e20b6f2f56bcb841207bbc
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019226"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159743"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Az AK-motor előfeltételeinek beállítása Azure Stack
 
@@ -30,19 +30,21 @@ Az AK-motort telepítheti egy virtuális gépre a környezetében, vagy bármely
 
 Ha rendelkezik az előfeltételekkel, megkezdheti a [fürt definiálását](azure-stack-kubernetes-aks-engine-deploy-cluster.md).
 
+Ha Ön a Azure Stack Felhőbeli operátora, és az AK-motort szeretné ajánlani, kövesse az [AK-motor hozzáadása a Azure stack Marketplace](../operator/azure-stack-aks-engine.md)-re című témakör utasításait.
+
 ## <a name="prerequisites-for-the-aks-engine"></a>Az AK-motor előfeltételei
 
 Az AK-motor használatához a következő erőforrásokkal kell rendelkeznie. Ne feledje, hogy az AK-motort Azure Stack bérlői használják, hogy Kubernetes-fürtöket telepítsenek a bérlői előfizetésbe. Az egyetlen rész, ahol a Azure Stack operátor bevonása szükséges lehet a Piactéri elemek letöltéséhez és egy egyszerű szolgáltatásnév létrehozásához. A részleteket az alábbi táblázatban találja.
 
-| Előfeltétel | Leírás | Kötelező | Útmutatás |
+| Előfeltétel | Leírás | Szükséges | Útmutatás |
 | --- | --- | --- | --- |
-| Egyéni Linux-szkriptek bővítménye | Linux Custom script bővítmény 2,0<br>Ajánlat Egyéni parancsfájl a Linux 2,0-hez<br>Verziója 2.0.6 (vagy a legújabb verzió)<br>Publisher Microsoft Corp | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. |
-| AK Base Ubuntu-rendszerkép | AK-alapú alaprendszerkép<br>Ajánlat: AK<br>Verziója 2019.07.30 (vagy újabb verzió)<br>Közzétevő: Microsoft-AK<br>SKU: AK-Ubuntu-1604-201907 | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. Tekintse meg a verzió függőségével kapcsolatos további információkat a [rendszerképek alapszintű verziójának megkereséséhez](#matching-engine-to-base-image-version). |
-| Előfizetés Azure Stack | A Azure Stack előfizetések segítségével érheti el az ajánlatokat. Az ajánlat az Ön számára elérhető szolgáltatásokat tartalmazza. | Kötelező | Ahhoz, hogy a bérlői számítási feladatokat Azure Stackban lehessen üzembe helyezni, először egy Azure Stack- [előfizetést](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services)kell beszereznie. |
-| Egyszerű szolgáltatásnév (SPN) |  Egy olyan alkalmazásnak, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia, egy egyszerű szolgáltatásnak kell képviselnie. | Kötelező | Előfordulhat, hogy kapcsolatba kell lépnie a Azure Stack operátorral az adott elemmel kapcsolatban.  Útmutatásért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) |
-| (SPN) hozzárendelt **közreműködő** szerepkör | Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéséhez tartozó erőforrásokhoz az adott szolgáltatásnév használatával, hozzá kell rendelnie a szolgáltatásnevet egy adott erőforráshoz tartozó szerepkörhöz. | Kötelező | Útmutatásért lásd: [szerepkör társítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) |
+| Egyéni Linux-szkriptek bővítménye | Linux Custom script bővítmény 2,0<br>Ajánlat Egyéni parancsfájl a Linux 2,0-hez<br>Verziója 2.0.6 (vagy a legújabb verzió)<br>Publisher Microsoft Corp | Szükséges | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. |
+| AK Base Ubuntu-rendszerkép | AK-alapú alaprendszerkép<br>Ajánlat: AK<br>Verziója 2019.07.30 (vagy újabb verzió)<br>Közzétevő: Microsoft-AK<br>SKU: AK-Ubuntu-1604-201907 | Szükséges | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. Tekintse meg a verzió függőségével kapcsolatos további információkat a [rendszerképek alapszintű verziójának megkereséséhez](#matching-engine-to-base-image-version). |
+| Előfizetés Azure Stack | A Azure Stack előfizetések segítségével érheti el az ajánlatokat. Az ajánlat az Ön számára elérhető szolgáltatásokat tartalmazza. | Szükséges | Ahhoz, hogy a bérlői számítási feladatokat Azure Stackban lehessen üzembe helyezni, először egy Azure Stack- [előfizetést](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services)kell beszereznie. |
+| Egyszerű szolgáltatásnév (SPN) |  Egy olyan alkalmazásnak, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia, egy egyszerű szolgáltatásnak kell képviselnie. | Szükséges | Előfordulhat, hogy kapcsolatba kell lépnie a Azure Stack operátorral az adott elemmel kapcsolatban.  Útmutatásért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) |
+| (SPN) hozzárendelt **közreműködő** szerepkör | Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéséhez tartozó erőforrásokhoz az adott szolgáltatásnév használatával, hozzá kell rendelnie a szolgáltatásnevet egy adott erőforráshoz tartozó szerepkörhöz. | Szükséges | Útmutatásért lásd: [szerepkör társítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) |
 | Resource group | Az erőforráscsoport egy tároló, amely Azure-megoldásokhoz kapcsolódó erőforrásokat tárol. Ha nem ad meg egy meglévő erőforráscsoportot, akkor az eszköz létrehoz egyet. | Választható | [Azure Resource Manager erőforráscsoportok kezelése a Azure Portal használatával](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
-| Titkos nyilvános kulcs | Ha a fejlesztői gépről nyitott SSH-kapcsolattal szeretné használni a webalkalmazást futtató Azure Stack-példányban található kiszolgálói virtuális gépet, létre kell hoznia egy Secure Shell (SSH) nyilvános és titkos kulcspárt. | Kötelező | A kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).|
+| Titkos nyilvános kulcs | Ha a fejlesztői gépről nyitott SSH-kapcsolattal szeretné használni a webalkalmazást futtató Azure Stack-példányban található kiszolgálói virtuális gépet, létre kell hoznia egy Secure Shell (SSH) nyilvános és titkos kulcspárt. | Szükséges | A kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).|
 
 > [!Note]  
 > Az AK-motor előfeltételeit az [Azure CLI](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2) -vel is létrehozhatja Azure Stack vagy [Azure stack powershellhez](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install).

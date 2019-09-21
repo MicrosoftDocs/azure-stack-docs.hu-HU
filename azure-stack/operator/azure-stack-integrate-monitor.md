@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712919"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159634"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Külső figyelési megoldás integrálása a Azure Stack
 
@@ -75,7 +75,7 @@ A Nagios-figyelési beépülő modul a partneri Cloudbase-megoldásokkal együtt
 
 A beépülő modul Pythonban van megírva, és kihasználja az állapot erőforrás-szolgáltató REST API. Alapszintű funkciókat biztosít a riasztások lekéréséhez és bezárásához Azure Stackban. A System Center felügyeleti csomaghoz hasonlóan több Azure Stack üzemelő példány hozzáadására és értesítések küldésére is lehetőséget nyújt.
 
-Az 1,2-es verzióban az Azure Stack – Nagios beépülő modul a Microsoft ADAL-függvénytárat használja, és támogatja a hitelesítést egy titkos vagy tanúsítvánnyal rendelkező egyszerű szolgáltatásnév használatával. Emellett a konfigurációt egy új paraméterekkel rendelkező, egyetlen konfigurációs fájllal egyszerűsítettük. Mostantól támogatja az HRE & ADFS-t használó Azure Stack üzemelő példányokat Identity rendszerként.
+Az 1,2-es verzióban az Azure Stack – Nagios beépülő modul a Microsoft ADAL-függvénytárat használja, és támogatja a hitelesítést egy titkos vagy tanúsítvánnyal rendelkező egyszerű szolgáltatásnév használatával. Emellett a konfigurációt egy új paraméterekkel rendelkező, egyetlen konfigurációs fájllal egyszerűsítettük. Mostantól támogatja az Azure AD & AD FSt használó Azure Stack üzemelő példányok azonosítását.
 
 A beépülő modul az 4x-es és a XI-as verzióval működik. [Innen](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)töltheti le. A letöltési hely tartalmazza a telepítési és konfigurációs adatokat is.
 

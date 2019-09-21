@@ -251,7 +251,9 @@
           href: azure-stack-linux.md
         - name: Red Hat virtuális gép hozzáadása
           href: azure-stack-redhat-create-upload-vhd.md
-        - name: Kubernetes-fürt ajánlat
+        - name: Az AK-motor felajánlása
+          href: azure-stack-aks-engine.md
+        - name: Ajánlat Kubernetes Marketplace-tétel
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Helyek közötti VPN-kapcsolat létrehozása
           href: azure-stack-create-vpn-connection-one-node.md

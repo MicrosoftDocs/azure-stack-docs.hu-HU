@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025972"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159437"
 ---
 # <a name="install-the-asdk"></a>A ASDK telepítése
 A [ASDK gazdagépének előkészítése](asdk-prepare-host.md)után a Azure stack Development Kit (ASDK) üzembe helyezhető a CloudBuilder. vhdx lemezképben a jelen cikkben ismertetett lépések alapján.
@@ -44,7 +44,7 @@ A cikkben ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a 
   
     Ha az Azure-előfizetéshez tartozó identitás-szolgáltatót választja, szüksége lesz egy internetkapcsolatra, egy Azure AD-címtárbeli bérlő teljes nevére a *tartománynév*. onmicrosoft.com vagy egy Azure ad által ellenőrzött egyéni tartománynév formájában. Globális rendszergazdai hitelesítő adatokra is szüksége van a megadott könyvtárhoz.
 
-    Az üzembe helyezés után Azure Active Directory (HRE) globális rendszergazdai engedély nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Például egy erőforrás-szolgáltatói telepítő parancsfájl vagy egy új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
+    Az üzembe helyezést követően a Azure Active Directory (Azure AD) globális rendszergazdai jogosultsága nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Például egy erőforrás-szolgáltatói telepítő parancsfájl vagy egy új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
 
     A AD FS identitás-szolgáltatóként való használatakor a rendszer az alapértelmezett Stamp Directory szolgáltatást használja. A szolgáltatással való bejelentkezéshez azurestackadmin@azurestack.localhasznált alapértelmezett fiók, és a használni kívánt jelszó a telepítés részeként megadott.
 
@@ -55,7 +55,7 @@ A cikkben ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a 
 
     ![Hálózati adapter kiválasztása a ASDK](media/asdk-install/3.PNG)
 
-5. A **hálózati konfiguráció** lapon adjon meg egy érvényes IDŐKISZOLGÁLÓ **IP-** címet. Ez a kötelező mező állítja be a ASDK által használandó időkiszolgálót. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.
+5. A **hálózati konfiguráció** lapon adjon meg egy érvényes **időkiszolgáló IP-** címet. Ez a kötelező mező állítja be a ASDK által használandó időkiszolgálót. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.
 
       > [!TIP]
       > Az időkiszolgáló IP-címének megkereséséhez látogasson el a [ntppool.org](https://www.ntppool.org/) vagy a ping Time.Windows.com. 
@@ -73,7 +73,7 @@ A cikkben ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a 
     ![Parancsfájl-összefoglalás a ASDK üzembe helyezése előtt](media/asdk-install/6.PNG)
 
     > [!TIP]
-    > Itt is másolhatja a PowerShell telepítési parancsait, amelyeket a rendszer a ASDK telepítéséhez fog használni. Ez akkor hasznos, ha a [PowerShell használatával](asdk-deploy-powershell.md)bármikor újra kell telepítenie a ASDK a gazdagépen.
+    > Itt is másolhatja a PowerShell telepítési parancsait, amelyeket a rendszer a ASDK telepítéséhez fog használni. Ez akkor hasznos, ha a PowerShell használatával bármikor újra kell [telepítenie a ASDK a gazdagépen](asdk-deploy-powershell.md).
 
 8. Ha Azure AD-telepítést hajt végre, a telepítés megkezdése után néhány perc múlva meg kell adnia az Azure AD globális rendszergazdai fiókjának hitelesítő adatait.
 

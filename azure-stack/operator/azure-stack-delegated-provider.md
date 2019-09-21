@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b33c96ad10d5e4269f96741a5d4aba10d782896c
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: 97b253e4df3762d4579923124b7768c14f40d3de
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959516"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159667"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Ajánlat delegálása az Azure Stackben
 
@@ -76,7 +76,7 @@ Az útmutató használatához két Azure AD-fiókra van szükség a Azure Stack-
 | Felhasználó |Felhasználó |
 
  > [!NOTE]
- > CSP-viszonteladó esetén ennek a delegált szolgáltatónak a létrehozásához a bérlői címtárban (a felhasználó HRE) kell megadnia ezeket a felhasználókat. A Azure Stack operátornak [először](azure-stack-enable-multitenancy.md) be kell állítania a bérlői HRE, majd az alábbi [lépéseket](azure-stack-csp-howto-register-tenants.md)követve konfigurálnia kell a használatot és a számlázást.
+ > CSP-viszonteladó esetén a delegált szolgáltató létrehozásához a bérlői címtárban (az Azure AD-ben) található felhasználók szükségesek. A Azure Stack operátornak [először](azure-stack-enable-multitenancy.md) elő kell készítenie a bérlő Azure ad-t, majd a használat és a számlázás konfigurálását a következő [lépésekkel](azure-stack-csp-howto-register-tenants.md).
 
 ### <a name="identify-the-delegated-provider"></a>A delegált szolgáltató azonosítása
 
@@ -100,7 +100,7 @@ Az útmutató használatához két Azure AD-fiókra van szükség a Azure Stack-
 
 A következő lépés az, hogy létrehozza a csomagot és az ajánlatot, amelyet delegálni fog, és hogy a felhasználók használni fogják. Javasoljuk, hogy ezt az ajánlatot pontosan úgy határozza meg, ahogy azt szeretné, hogy a felhasználók lássák, mert a delegált szolgáltató nem módosíthatja az általa foglalt csomagokat és kvótákat.
 
-1. Azure Stack operátorként hozzon [létre egy csomagot](azure-stack-create-plan.md) és [egy ajánlatot](azure-stack-create-offer.md) a csomag alapján. Ez a cikk egy **DelegatedOffer** nevű ajánlatot használ példaként.
+1. Azure Stack operátorként [hozzon létre egy csomagot](azure-stack-create-plan.md) és [egy ajánlatot](azure-stack-create-offer.md) a csomag alapján. Ez a cikk egy **DelegatedOffer** nevű ajánlatot használ példaként.
 
    > [!NOTE]
    > Az ajánlatnak nem kell nyilvánosnak lennie, de azt nyilvánosan is elvégezheti. A legtöbb esetben azonban csak azt szeretné, hogy a delegált szolgáltatók hozzáférjenek az ajánlathoz. Miután delegált egy privát ajánlatot az alábbi lépésekben leírtak szerint, a delegált szolgáltató hozzáfér hozzá.
@@ -145,7 +145,7 @@ Jelentkezzen be a felhasználói portálra meghatalmazott szolgáltatóként, ma
    >[!NOTE]
    >A delegált ajánlatok csak akkor láthatók, ha a delegált portált használja.
 
-1. Az irányítópulton válassza az **előfizetés**beszerzése lehetőséget. Láthatja, hogy csak a delegált szolgáltató által létrehozott delegált ajánlatok jelennek meg a felhasználó számára.
+1. Az irányítópulton válassza az **előfizetés beszerzése**lehetőséget. Láthatja, hogy csak a delegált szolgáltató által létrehozott delegált ajánlatok jelennek meg a felhasználó számára.
 
    ![Ajánlatok megtekintése és kiválasztása](media/azure-stack-delegated-provider/image8.png)
 

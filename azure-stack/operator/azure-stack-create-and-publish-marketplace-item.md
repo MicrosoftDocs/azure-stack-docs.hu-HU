@@ -1,6 +1,6 @@
 ---
 title: Marketplace-elemek létrehozása és közzététele Azure Stackban | Microsoft Docs
-description: Marketplace-elemek létrehozása és közzététele Azure Stackban.
+description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack Marketplace-elemeket.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
-ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
+ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643852"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159681"
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>Piactéri termék létrehozása és közzététele
+# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>Marketplace-elemek létrehozása és közzététele Azure Stack
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
@@ -46,7 +46,7 @@ ms.locfileid: "69643852"
     > A Azure Resource Manager sablonban soha ne végezzen semmilyen titkos kulcsot, például a termékkulcsot, a jelszót vagy az ügyfél által azonosítható adatokat. A sablon JSON-fájljai a katalógusban közzétett egyszeri hitelesítés nélkül érhetők el. Tárolja [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) összes titkát, és hívja meg őket a sablonból.
 
 4. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont a Microsoft Azure Stack API-kkal.
-5. Ha a sablon egy virtuálisgép-rendszerképre támaszkodik, kövesse az utasításokat a [virtuálisgép-rendszerképek Azure Stackhoz való hozzáadásához](azure-stack-add-vm-image.md).
+5. Ha a sablon egy virtuálisgép-(VM-) rendszerképre támaszkodik, kövesse az utasításokat, és [adjon hozzá egy VM-rendszerképet a Azure Stackhoz](azure-stack-add-vm-image.md).
 6. Mentse a Azure Resource Manager sablont a **/contoso.TodoList/DeploymentTemplates/** mappába.
 7. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis**, **közepes**, **nagy**és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
 
@@ -91,9 +91,9 @@ ms.locfileid: "69643852"
 
 ## <a name="publish-a-marketplace-item"></a>Piactéri elem közzététele
 
-1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack tárolóba, vagy feltöltheti az Azure Storage-ba. Ez a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
-2. Győződjön meg arról, hogy a Microsoft Azure Stack-környezetben lévő ügyfél virtuális gépen a PowerShell-munkamenet be van állítva a szolgáltatás-rendszergazdai hitelesítő adataival. A PowerShell hitelesítésével kapcsolatban Azure Stack a [sablon üzembe helyezése a PowerShell használatával](../user/azure-stack-deploy-template-powershell.md)című témakörben talál útmutatást.
-3. Ha PowerShell- [1.3.0](azure-stack-powershell-install.md) vagy újabb verziót használ, az **Add-AzsGalleryItem** PowerShell-parancsmag használatával közzéteheti a Piactéri elemeket Azure stack. A PowerShell-1.3.0 használata előtt használja az Add- **AzureRMGalleryitem** parancsmagot az **Add-AzsGalleryItem**helyett. Ha például PowerShell-1.3.0 vagy újabb verziót használ:
+1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack tárolóba, vagy feltöltheti az Azure Storage-ba, amely a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
+2. Győződjön meg arról, hogy a Microsoft Azure Stack-környezetben lévő ügyfél virtuális gépén a PowerShell-munkamenet beállítása a szolgáltatás-rendszergazdai hitelesítő adataival. A PowerShell hitelesítésével kapcsolatban Azure Stack a [sablon üzembe helyezése a PowerShell használatával](../user/azure-stack-deploy-template-powershell.md)című témakörben talál útmutatást.
+3. Ha PowerShell- [1.3.0](azure-stack-powershell-install.md) vagy újabb verziót használ, az **Add-AzsGalleryItem** PowerShell-parancsmag használatával közzéteheti a Piactéri elemeket Azure stack. A korábbi verziók esetében használja az Add- **AzureRMGalleryitem** parancsmagot az **Add-AzsGalleryItem**helyett. Ha például PowerShell-1.3.0 vagy újabb verziót használ:
 
    ```powershell
    Add-AzsGalleryItem -GalleryItemUri `
@@ -123,7 +123,7 @@ ms.locfileid: "69643852"
    ```
 
    > [!NOTE]
-   > Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások** elvetése a **portál testreszabása**alatt lehetőséget.
+   > Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások elvetése** a **portál testreszabása**alatt lehetőséget.
    >
    >
 
@@ -131,7 +131,7 @@ ms.locfileid: "69643852"
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Name (Név) | Kötelező | Type | Megkötések | Leírás |
+| Name (Név) | Szükséges | Type | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
 | Name (Név) |X |Sztring |[A-Za-z0-9]+ | |
 | Kiadó |X |Sztring |[A-Za-z0-9]+ | |
@@ -139,7 +139,7 @@ ms.locfileid: "69643852"
 
 ### <a name="metadata"></a>Metaadatok
 
-| Name (Név) | Kötelező | Type | Megkötések | Leírás |
+| Name (Név) | Szükséges | Type | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
@@ -162,13 +162,13 @@ A piactér a következő ikonokat használja:
 
 ### <a name="categories"></a>Categories
 
-Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja a meglévő kategóriák egyikét Azure Stackban (**számítás**, **adatok + tárolás**stb.), vagy választhat egy újat.
+Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja a meglévő kategóriák egyikét Azure Stack (**számítás**, **adatok + tárolás**stb.), vagy választhat egy újat.
 
 ### <a name="links"></a>Hivatkozások
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Name (Név) | Kötelező | Type | Megkötések | Leírás |
+| Name (Név) | Szükséges | Type | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
@@ -177,7 +177,7 @@ Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásoka
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Name (Név) | Kötelező | Type | Megkötések | Leírás |
+| Name (Név) | Szükséges | Type | Megkötések | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Value |X |Sztring |Legfeljebb 30 karakter. | |
@@ -194,11 +194,11 @@ A Marketplace-elemek ikonjai és szövege a Azure Stack-portálon látható mód
 
 ### <a name="create-blade"></a>A Create (Létrehozás) panel
 
-![A Create (Létrehozás) panel](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Panel létrehozása – Azure Stack Marketplace-elemek](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Marketplace-elemek részletei panel
 
-![Marketplace-elemek részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack Marketplace-elemek részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>További lépések
 

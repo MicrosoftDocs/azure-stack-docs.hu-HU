@@ -16,16 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 3179416a7f8dacc5c3282372038c6761009b5b76
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106428"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164238"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack ismert problémák
 
-Ez a cikk a Azure Stack kiadásának ismert problémáit sorolja fel. A lista új problémák észlelése esetén frissül. **Egy másik verzió ismert problémáinak eléréséhez használja a bal felső sarokban található Version Picker.**
+Ez a cikk a Azure Stack kiadásának ismert problémáit sorolja fel. A lista új problémák észlelése esetén frissül.
+
+Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartalomjegyzéknél válassza a verzió kiválasztása legördülő menüt.
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -83,7 +85,7 @@ Ez a cikk a Azure Stack kiadásának ismert problémáit sorolja fel. A lista ú
 - Ok: A felhasználói portálon, a Storage-fiók **konfigurációja** panelen megjelenik egy lehetőség a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
 - Előfordulása Közös
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Ha a felhasználói portálon megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
@@ -233,7 +235,7 @@ Ez a cikk a Azure Stack kiadásának ismert problémáit sorolja fel. A lista ú
 - Ok: A felhasználói portálon, a Storage-fiók **konfigurációja** panelen megjelenik egy lehetőség a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
 - Előfordulása Közös
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Ha a felhasználói portálon megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
@@ -388,7 +390,7 @@ Ez a cikk a Azure Stack kiadásának ismert problémáit sorolja fel. A lista ú
 - Ok: A felhasználói portálon, a Storage-fiók **konfigurációja** panelen megjelenik egy lehetőség a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
 - Előfordulása Közös
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Ha a felhasználói portálon megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
@@ -565,7 +567,7 @@ Ez a cikk a Azure Stack kiadásának ismert problémáit sorolja fel. A lista ú
 - Szervizkiszolgáló Nincs megoldás.
 - Előfordulása Közös
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Ha a felhasználói portálon megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
@@ -674,7 +676,7 @@ A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szol
 ::: moniker range=">=azs-1905"
 ## <a name="archive"></a>Archívum
 
-Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a lap bal felső sarkában található Version Picker elemet, és válassza ki a kívánt verziót. 
+Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
 ## <a name="next-steps"></a>További lépések
 

@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 091dc657153309298a1eda161b633a42050a0f57
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418342"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159343"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack érvényesítéshez szolgáltatásként
 
@@ -62,7 +62,7 @@ A gyakori tesztelési paraméterek olyan bizalmas információkat tartalmaznak, 
 Paraméter    | Leírás
 -------------|-----------------
 Bérlői rendszergazda felhasználó                            | Azure Active Directory a szolgáltatás-rendszergazda által kiépített Bérlői rendszergazda a HRE könyvtárban. Ez a felhasználó bérlői szintű műveleteket hajt végre, például sablonokat helyez üzembe az erőforrások (virtuális gépek, Storage-fiókok stb.) beállításához és a számítási feladatok végrehajtásához. A bérlői fiók üzembe helyezésével kapcsolatos részletekért lásd: [új Azure stack bérlő hozzáadása](../operator/azure-stack-add-new-user-aad.md).
-Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory a HRE-címtár bérlője Azure Stack telepítés során megadott rendszergazdája. Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UniqueName` a elemben. `AADTenant`
+Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory az Azure AD-címtár bérlője Azure Stack telepítés során megadott rendszergazdája. Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UniqueName` a elemben. `AADTenant`
 Felhőbeli rendszergazda felhasználó               | Azure Stack tartományi rendszergazdai fiókot (például: `contoso\cloudadmin`). Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UserName` a elemben. `User Role="CloudAdmin"`
 Diagnosztikai kapcsolatok karakterlánca          | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](#generate-the-diagnostics-connection-string). |
 

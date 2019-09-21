@@ -91,7 +91,7 @@
               href: azure-stack-version-profiles-net.md
             - name: Java
               href: azure-stack-version-profiles-java.md
-            - name: Ugrás
+            - name: Indítás
               href: azure-stack-version-profiles-go.md
             - name: Ruby
               href: azure-stack-version-profiles-ruby.md
@@ -198,7 +198,7 @@
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Támogatási szabályzat
                       href: azure-stack-kubernetes-ask-engine-support.md
-                    - name: AK-motor beállítása
+                    - name: Előfeltételek beállítása
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Linux-ügyfél létrehozása
                       href: azure-stack-kubernetes-aks-engine-deploy-linux.md

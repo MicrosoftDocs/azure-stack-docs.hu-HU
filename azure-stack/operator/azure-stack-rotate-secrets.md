@@ -16,12 +16,12 @@ ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b79e3def3444db2228992b423ca21945d7964f26
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188165"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159625"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>A titkok elforgatása Azure Stack
 
@@ -42,7 +42,7 @@ Infrastruktúra-szolgáltatási tanúsítványok a Azure Stack operátor által 
 - Rendszergazda Azure Resource Manager
 - Globális Azure Resource Manager
 - Rendszergazdai kulcstartó
-- KeyVault
+- Kulcstartó
 - Felügyeleti bővítmény gazdagépe
 - ACS (blob-, tábla-és üzenetsor-tárolóval együtt)
 - ADFS *
@@ -147,7 +147,7 @@ Külső titkok elforgatása:
 
 1. Az előlépésekben létrehozott, újonnan létrehozott **\\\Certificates\<IdentityProvider >** könyvtárban helyezze el a helyettesítő külső tanúsítványok új készletét a címtár-struktúrában a következő formátumban leírt módon: A [Azure stack PKI-tanúsítvány követelményeinek](azure-stack-pki-certs.md#mandatory-certificates)kötelező tanúsítványok szakasza.
 
-    Példa a HRE-identitás szolgáltatójának mappastruktúrát:
+    Példa a mappastruktúrát az Azure AD Identity Provider számára:
     ```powershell
         <ShareName>
         │   │
@@ -208,7 +208,7 @@ Külső titkok elforgatása:
     Ha a titkos kód elforgatása sikeresen befejeződött, a **konzolon a művelet általános állapota jelenik meg: Sikeres**művelet.
 
     > [!Note]
-    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, majd futtassa újra a **Start-SecretRotation** paramétert.
+    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, majd futtassa újra a **Start-SecretRotation** **paramétert** .
 
     ```powershell
     Start-SecretRotation -ReRun
@@ -255,7 +255,7 @@ Remove-PSSession -Session $PEPSession
 
    Ha a titkos kód elforgatása sikeresen befejeződött, a **konzolon a művelet általános állapota jelenik meg: Sikeres**művelet.
     > [!Note]
-    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, és futtassa újra a **Start-SecretRotation** parancsot a **-Internal** és a **-** újrafuttatási paraméterekkel.  
+    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, és futtassa újra a **Start-SecretRotation** parancsot a **-Internal** és a **-újrafuttatási** paraméterekkel.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -299,7 +299,7 @@ A **Start-SecretRotation** parancsmag egy Azure stack rendszer infrastruktúra-t
 
 ### <a name="parameters"></a>Paraméterek
 
-| Paraméter | Type | Kötelező | Pozíció | Alapértelmezett | Leírás |
+| Paraméter | Type | Szükséges | Pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | Sztring  | False (Hamis)  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
 | `CertificatePassword` | SecureString | False (Hamis)  | Elemzi  | Nincsenek  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |

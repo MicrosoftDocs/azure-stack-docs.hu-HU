@@ -16,18 +16,20 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 0091571dca5c966cb58fc7ce1533a17850558205
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 896169a39f450b0a0fb26699867638afb02f20a7
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106472"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164263"
 ---
-# <a name="azure-stack-updates"></a>Azure Stack frissítések
+# <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
-Ez a cikk a Azure Stack frissítési csomagjainak tartalmát ismerteti. A frissítés a Azure Stack ezen kiadásának újdonságait és javításait tartalmazza. **Egy másik verzió kibocsátási megjegyzései eléréséhez használja a bal felső sarokban található Version Picker (verzió) lehetőséget.**
+Ez a cikk a Azure Stack frissítési csomagjainak tartalmát ismerteti. A frissítés a Azure Stack ezen kiadásának újdonságait és javításait tartalmazza.
+
+Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal oldali tartalomjegyzéknél használja a verziószám legördülő menüt.
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -506,7 +508,7 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerek az **elérhet�
 
 ## <a name="archive"></a>Archívum
 
-Ha egy régebbi verzióhoz szeretné elérni az archivált kibocsátási megjegyzéseket, használja a lap bal felső sarkában található Version Picker elemet, és válassza ki a kívánt verziót. 
+Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
 ## <a name="next-steps"></a>További lépések
 

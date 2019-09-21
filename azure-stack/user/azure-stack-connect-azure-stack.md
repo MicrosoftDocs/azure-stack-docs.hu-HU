@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 90759186b008c41bd9b3e35bf368d4f819534823
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fe10926fdcb3b01cef84e021300d37168c68ae0b
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975070"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159331"
 ---
 # <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
 
@@ -41,7 +41,7 @@ Egy Távoli asztali kapcsolat egyetlen egyidejű felhasználó együttműködik 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Csatlakozás Azure Stack VPN-kapcsolattal
 
-Létrehozhat egy megosztott bújtatási VPN-kapcsolatot egy Azure Stack Development Kit. A VPN-kapcsolaton keresztül elérheti a felügyeleti portált, a felhasználói portált és a helyileg telepített eszközöket, például a Visual studiót és a PowerShellt Azure Stack erőforrások kezeléséhez. A VPN-kapcsolat a Azure Active Directory (HRE) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) alapú üzemelő példányok esetében is támogatott. A VPN-kapcsolatok lehetővé teszik, hogy több ügyfél egyszerre kapcsolódjon Azure Stackhoz. 
+Létrehozhat egy megosztott bújtatási VPN-kapcsolatot egy Azure Stack Development Kit. A VPN-kapcsolaton keresztül elérheti a felügyeleti portált, a felhasználói portált és a helyileg telepített eszközöket, például a Visual studiót és a PowerShellt Azure Stack erőforrások kezeléséhez. A VPN-kapcsolat a Azure Active Directory (Azure AD) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) alapú üzemelő példányok esetében is támogatott. A VPN-kapcsolatok lehetővé teszik, hogy több ügyfél egyszerre kapcsolódjon Azure Stackhoz. 
 
 > [!NOTE] 
 > Ez a VPN-kapcsolat nem biztosít kapcsolatot Azure Stack infrastruktúra virtuális gépei számára. 

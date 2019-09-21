@@ -16,17 +16,17 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d06dabc32141fcf2f487151e92c5f47aa79b6149
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094319"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159146"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-csatlakozású üzembe helyezési tervezési döntések Azure Stack integrált rendszerekhez
 Miután eldöntötte, [Hogyan integrálhatja a Azure stackt a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), véglegesítheti Azure stack telepítési döntéseit.
 
-Az Azure-hoz csatlakoztatott Azure Stack üzembe helyezése azt jelenti, hogy Azure Active Directory (HRE) vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) lehet az identitás-tárolóban. A számlázási modellből is választhat: utólagos használat vagy kapacitás alapján. A csatlakoztatott üzemelő példány az alapértelmezett beállítás, mivel lehetővé teszi, hogy az ügyfelek a lehető legtöbbet hozzanak ki Azure Stack közül, különösen az Azure-t és a Azure Stackt is magában foglaló hibrid felhőalapú forgatókönyvek esetén.
+Az Azure-hoz csatlakoztatott Azure Stack üzembe helyezése azt jelenti, hogy Azure Active Directory (Azure AD) vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) lehet az identitás-tárolóhoz. A számlázási modellből is választhat: utólagos használat vagy kapacitás alapján. A csatlakoztatott üzemelő példány az alapértelmezett beállítás, mivel lehetővé teszi, hogy az ügyfelek a lehető legtöbbet hozzanak ki Azure Stack közül, különösen az Azure-t és a Azure Stackt is magában foglaló hibrid felhőalapú forgatókönyvek esetén.
 
 ## <a name="choose-an-identity-store"></a>Identitás-tároló kiválasztása
 A csatlakoztatott üzemelő példányok közül választhat az Azure AD vagy az Identity Store-AD FS közül. A leválasztott, internetkapcsolat nélküli központi telepítés csak AD FS használatát tudja használni.
@@ -38,9 +38,9 @@ Ha például a IaaS-bérlő virtuális gépeket a Azure Stackon helyezi üzembe,
 ### <a name="azure-ad-identity-store"></a>Azure AD Identity Store
 Az Azure AD az Identity Store-hoz való használatához két Azure AD-fiókra van szükség: egy globális rendszergazdai fiókra és egy számlázási fiókra. Ezek a fiókok ugyanazok a fiókok vagy más fiókok lehetnek. Ha korlátozott számú Azure-fiókkal rendelkezik, előfordulhat, hogy az üzleti igények két fiókot használhatnak:
 
-1. **Globális rendszergazdai fiók** (csak a csatlakoztatott üzemelő példányokhoz szükséges). Ez egy Azure-fiók, amellyel alkalmazásokat és egyszerű szolgáltatásokat hozhat létre a HRE-ben Azure Stack infrastruktúra-szolgáltatásokhoz. Ennek a fióknak rendszergazdai jogosultságokkal kell rendelkeznie ahhoz a címtárhoz, amelyre a Azure Stack rendszer telepítve lesz. Ez lesz a "Cloud Operator" globális rendszergazdája az Azure AD-felhasználó számára, és a következő feladatokhoz használható:
+1. **Globális rendszergazdai fiók** (csak a csatlakoztatott üzemelő példányokhoz szükséges). Ez egy Azure-fiók, amellyel alkalmazásokat és egyszerű szolgáltatásokat hozhat létre Azure Stack infrastruktúra-szolgáltatásokhoz az Azure AD-ben. Ennek a fióknak rendszergazdai jogosultságokkal kell rendelkeznie ahhoz a címtárhoz, amelyre a Azure Stack rendszer telepítve lesz. Ez lesz a "Cloud Operator" globális rendszergazdája az Azure AD-felhasználó számára, és a következő feladatokhoz használható:
 
-    - Alkalmazások és egyszerű szolgáltatások kiosztása és delegálása minden olyan Azure Stack-szolgáltatáshoz, amelyeknek a HRE és a Graph API kell működniük.
+    - Alkalmazások és egyszerű szolgáltatások kiépítése és delegálása minden olyan Azure Stack szolgáltatáshoz, amelyeknek működniük kell az Azure AD-vel és a Graph APIval.
     - A szolgáltatás-rendszergazdai fiókkal. Ez a fiók az alapértelmezett szolgáltatói előfizetés tulajdonosa (amelyet később módosíthat). Ezzel a fiókkal bejelentkezhet a Azure Stack felügyeleti portálra, és a használatával ajánlatokat és csomagokat hozhat létre, kvótákat állíthat be, és más felügyeleti funkciókat is elvégezhet Azure Stackokban.
 
 2. **Számlázási fiók** (a csatlakoztatott és a leválasztott üzemelő példányokhoz egyaránt szükséges). Ez az Azure-fiók a Azure Stack integrált rendszer és az Azure kereskedelmi háttérrendszer közötti számlázási kapcsolat létesítésére szolgál. Ez az a fiók, amelyet Azure Stack díjakért kell fizetni. Ez a fiók a piactéren és más hibrid forgatókönyvekben található elemek ajánlatára is használható.

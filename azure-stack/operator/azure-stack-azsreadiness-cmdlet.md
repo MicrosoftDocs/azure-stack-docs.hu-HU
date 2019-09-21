@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 9e92101b6d00da397359ed25e8682f18305f5a83
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f60ee96673b5574f0cd0393dc6a53a2d7937c04f
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974726"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159159"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>A Start-AzsReadinessChecker parancsmag referenciája
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>Leírás
 
-A **Start-AzsReadinessChecker** parancsmag ellenőrzi a tanúsítványokat, az Azure-fiókokat, az Azure-előfizetéseket és az Azure Active könyvtárakat (HRE). Futtassa az ellenőrzést Azure Stack telepítése előtt, vagy Azure Stack karbantartási műveletek, például a titkos elforgatás előtt. A parancsmag használatával tanúsítvány-aláírási kérések is létrehozhatók az infrastruktúra-tanúsítványokhoz, és opcionálisan a Pásti tanúsítványokat is. Végezetül a parancsmag újracsomagolhatja a PFX-tanúsítványokat a gyakori csomagolási problémák elhárításához.
+A **Start-AzsReadinessChecker** parancsmag ellenőrzi a tanúsítványokat, az Azure-fiókokat, az Azure-előfizetéseket és az Azure Active Directoryt (Azure ad). Futtassa az ellenőrzést Azure Stack telepítése előtt, vagy Azure Stack karbantartási műveletek, például a titkos elforgatás előtt. A parancsmag használatával tanúsítvány-aláírási kérések is létrehozhatók az infrastruktúra-tanúsítványokhoz, és opcionálisan a Pásti tanúsítványokat is. Végezetül a parancsmag újracsomagolhatja a PFX-tanúsítványokat a gyakori csomagolási problémák elhárításához.
 
 ## <a name="examples"></a>Példák
 
@@ -188,7 +188,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-Ebben a példában a pfx-jelszó szükséges a biztonsághoz, és `Start-AzsReadinessChecker` ellenőrzi a HRE üzemelő példányok relatív mappájának **tanúsítványait** a **keleti** régió nevével és a azurestack.contoso.com külső teljes tartománynevével.
+Ebben a példában a pfx-jelszó szükséges a biztonsághoz, és `Start-AzsReadinessChecker` ellenőrzi az Azure ad-példányhoz tartozó, a **keleti** régió nevével és a külső FQDN **-vel érvényes tanúsítványok relatív mappájának tanúsítványait. azurestack.contoso.com**.
 
 ### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Példa: tanúsítványok ellenőrzése központi telepítési adattal (üzembe helyezés és támogatás)
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi, hogy az Azure-fiók és a HRE érvényesek-e egy HRE-példányhoz a **azurestack.contoso.com**bérlői címtárának nevével.
+Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi, hogy az Azure-fiók és az Azure ad érvényes-e egy Azure ad-példányhoz a **azurestack.contoso.com**bérlői címtárának nevével.
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Példa: az Azure-identitás ellenőrzése központi telepítési adatokkal (üzembe helyezési támogatás)
 
@@ -246,7 +246,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi, hogy az Azure-fiók és a HRE érvényesek-e egy HRE-telepítésre, ahol a **AzureCloud** és a **TenantName** beolvasása az üzembe helyezési adatok JSON-ból történik a központi telepítéshez létrehozott fájl.
+Ebben a példában a szolgáltatás-rendszergazdai fiók hitelesítő adatai szükségesek a biztonsághoz `Start-AzsReadinessChecker` , és ellenőrzi, hogy az Azure-fiók és az Azure ad érvényes-e egy Azure ad-telepítésre, ahol a **AzureCloud** és a **TenantName** beolvasható az üzemelő példányból a központi telepítéshez generált adatjson-fájl.
 
 ### <a name="example-validate-azure-registration"></a>Példa: az Azure-regisztráció ellenőrzése
 
@@ -435,7 +435,7 @@ Megadja a tanúsítványkérelem fájljainak elérési útját. A könyvtárnak 
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Meghatározza a Azure Stack telepítéséhez használandó HRE szolgáltatás-rendszergazdát.
+Megadja a Azure Stack telepítéséhez használandó Azure AD szolgáltatás-rendszergazdát.
 
 |  |  |
 |----------------------------|---------|
@@ -447,7 +447,7 @@ Meghatározza a Azure Stack telepítéséhez használandó HRE szolgáltatás-re
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Meghatározza Azure Stack központi telepítéshez használandó HRE nevét.
+Megadja a Azure Stack telepítéséhez használandó Azure AD-nevet.
 
 |  |  |
 |----------------------------|---------|
@@ -512,7 +512,7 @@ Megadja a készültségi jelentés elérési útját, alapértelmezés szerint a
 
 Megadja azt az elérési utat, amely alatt csak a tanúsítványhoz szükséges tanúsítvány-mappák jelennek meg.
 
-A HRE-identitási rendszerrel rendelkező Azure Stack telepítéséhez szükséges mappák a következők:
+Az Azure AD Identity System Azure Stack telepítéséhez szükséges mappák a következők:
 
 - ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 

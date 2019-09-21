@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 5b517eec23950380bf5f0fc8febe717683960b65
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579117"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159303"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -83,7 +83,7 @@ Az Azure Stack az Azure AD-vel vagy a Windows Server AD FS identitás-szolgálta
 > Ha nem ad meg telepítési paramétereket (lásd a InstallAzureStackPOC. ps1 választható paramétereket és példákat alább), a rendszer kéri a szükséges paramétereket.
 
 ### <a name="deploy-azure-stack-using-azure-ad"></a>Azure Stack üzembe helyezése az Azure AD-vel 
-Azure Stack az Azure AD-vel való üzembe helyezéséhez **használja az identitás**-szolgáltatót, vagy közvetlenül, vagy egy transzparens proxyn keresztül kell kapcsolódnia. 
+Azure Stack az Azure AD-vel való üzembe helyezéséhez **használja az identitás-szolgáltatót**, vagy közvetlenül, vagy egy transzparens proxyn keresztül kell kapcsolódnia. 
 
 Futtassa a következő PowerShell-parancsokat a ASDK üzembe helyezéséhez az Azure AD használatával:
 
@@ -143,9 +143,9 @@ Ha a környezet nem rendelkezik engedélyezve DHCP-vel, akkor a fenti lehetősé
 
 |Paraméter|Kötelező/nem kötelező|Leírás|
 |-----|-----|-----|
-|AdminPassword|Kötelező|Beállítja a helyi rendszergazdai fiókot és az összes többi felhasználói fiókot a ASDK-telepítés részeként létrehozott összes virtuális gépen. Ennek a jelszónak meg kell egyeznie a gazdagép aktuális helyi rendszergazdai jelszavával.|
-|InfraAzureDirectoryTenantName|Kötelező|Beállítja a bérlői könyvtárat. Ezzel a paraméterrel megadhat egy adott könyvtárat, amelyben a HRE-fiók rendelkezik a több könyvtár felügyeletéhez szükséges engedélyekkel. Egy HRE-bérlő teljes neve. onmicrosoft.com vagy egy Azure AD által ellenőrzött egyéni tartománynév.|
-|TimeServer|Kötelező|Ezzel a paraméterrel adható meg egy adott időkiszolgáló. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.|
+|AdminPassword|Szükséges|Beállítja a helyi rendszergazdai fiókot és az összes többi felhasználói fiókot a ASDK-telepítés részeként létrehozott összes virtuális gépen. Ennek a jelszónak meg kell egyeznie a gazdagép aktuális helyi rendszergazdai jelszavával.|
+|InfraAzureDirectoryTenantName|Szükséges|Beállítja a bérlői könyvtárat. Ezzel a paraméterrel megadhat egy adott könyvtárat, amelyben az Azure AD-fiók rendelkezik a több könyvtár felügyeletéhez szükséges engedélyekkel. Egy Azure AD-bérlő teljes neve. onmicrosoft.com vagy egy Azure AD által ellenőrzött egyéni tartománynév.|
+|TimeServer|Szükséges|Ezzel a paraméterrel adható meg egy adott időkiszolgáló. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.|
 |InfraAzureDirectoryTenantAdminCredential|Választható|Beállítja a Azure Active Directory felhasználónevét és jelszavát. Ezeknek az Azure-beli hitelesítő adatoknak szervezeti AZONOSÍTÓnak kell lenniük.|
 |InfraAzureEnvironment|Választható|Válassza ki azt az Azure-környezetet, amellyel regisztrálni szeretné ezt az Azure Stack-telepítést. A lehetőségek közé tartozik a globális Azure, az Azure-Kína, az Azure-USA kormánya.|
 |DNSForwarder|Választható|A rendszer a Azure Stack központi telepítésének részeként létrehoz egy DNS-kiszolgálót. Annak engedélyezéséhez, hogy a megoldásban lévő számítógépek a bélyegzőn kívül is feloldják a neveket, adja meg a meglévő infrastruktúra DNS-kiszolgálóját. A in-Stamp DNS-kiszolgáló ismeretlen névfeloldási kérelmeket továbbít erre a kiszolgálóra.|

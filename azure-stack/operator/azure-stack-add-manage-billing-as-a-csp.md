@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack használatának és számlázásának kezelése felhőalapú szolgáltatóként | Microsoft Docs
-description: Megtudhatja, hogyan regisztrálhat Azure Stack felhőalapú szolgáltatóként (CSP), és hogyan veheti fel az ügyfeleket a számlázáshoz.
+title: A Azure Stack használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként | Microsoft Docs
+description: Megtudhatja, hogyan regisztrálhat Azure Stack felhőalapú megoldás-szolgáltatóként (CSP), és hogyan veheti fel az ügyfeleket a számlázáshoz.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a8ae60e9ee19f96196d1c3763a32be0842567c7a
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 82aa27440a496a813e2f1fa99879005503ba8d07
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118692"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159501"
 ---
-# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>A Azure Stack használatának és számlázásának kezelése felhőalapú szolgáltatóként
+# <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>A Azure Stack használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
@@ -32,7 +32,7 @@ CSP-ként különböző ügyfelekkel dolgozhat a Azure Stack használatával. Mi
 
 Az alábbi ábrán a megosztott szolgáltatási fiók kiválasztásához szükséges lépések láthatók, valamint az Azure-fiók regisztrálása a Azure Stack fiókkal. A regisztrációt követően a végfelhasználók a következőket vehetik igénybe:
 
-[A ![használat és a kezelés felhőalapú szolgáltatóként való engedélyezésének folyamata] A (media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "használat és a kezelés felhőalapú szolgáltatóként való engedélyezésének folyamata")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[A ![használat és a kezelés felhőalapú megoldás-szolgáltatóként való engedélyezésének folyamata] A (media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "használat és a kezelés felhőalapú megoldás-szolgáltatóként való engedélyezésének folyamata")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>CSP-vagy APSS-előfizetés létrehozása
 
@@ -40,7 +40,7 @@ Az alábbi ábrán a megosztott szolgáltatási fiók kiválasztásához szüks�
 
 Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típusát. Az alábbi előfizetés-típusokkal lehet regisztrálni egy több-bérlős Azure Stacket:
 
-- Felhőszolgáltató
+- Cloud Solution Provider program
 - Partner Shared Services-előfizetés
 
 #### <a name="azure-partner-shared-services"></a>Azure partner megosztott szolgáltatások
@@ -57,7 +57,7 @@ A CSP-előfizetések előnyben részesítettek a regisztrációhoz, ha a CSP-vis
 
 ## <a name="register-azure-stack"></a>Az Azure Stack regisztrálása
 
-Használja az előző szakasz információi alapján létrehozott APSS-előfizetést az Azure-beli Azure Stack regisztrálásához. További információ: [Azure stack regisztrálása az Azure](azure-stack-registration.md)-előfizetéssel.
+Használja az előző szakasz információi alapján létrehozott APSS-előfizetést az Azure-beli Azure Stack regisztrálásához. További információ: [Azure stack regisztrálása az Azure-előfizetéssel](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Végfelhasználó hozzáadása
 

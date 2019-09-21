@@ -15,12 +15,12 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602931"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159357"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Szakaszos adatelemzési megoldás üzembe helyezése Azure Stack
 
@@ -49,7 +49,7 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
 ## <a name="prerequisites-for-staged-data-analytics"></a>Az előkészített adatelemzés előfeltételei
 
   - Azure-előfizetés.
-  - Egy Azure Active Directory (HRE) egyszerű szolgáltatásnév, amely engedéllyel rendelkezik a bérlői előfizetéshez az Azure-ban és Azure Stack. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha a Azure Stack eltérő HRE-bérlőt használ, mint az Azure-előfizetése. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet a Azure Stackhoz, nyissa meg az [egyszerű szolgáltatás létrehozása lehetőséget, hogy az alkalmazások hozzáférjenek Azure stack erőforrásokhoz](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
+  - Egy Azure Active Directory (Azure AD) egyszerű szolgáltatásnév, amely jogosult a bérlői előfizetésre az Azure-ban és Azure Stack. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha a Azure Stack eltérő HRE-bérlőt használ, mint az Azure-előfizetése. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet a Azure Stackhoz, nyissa meg az [egyszerű szolgáltatás létrehozása lehetőséget, hogy az alkalmazások hozzáférjenek Azure stack erőforrásokhoz](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals).
       - **Jegyezze fel az egyes szolgáltatásnév alkalmazás-AZONOSÍTÓját, az ügyfél titkos kulcsát, az Azure AD-bérlő AZONOSÍTÓját és a bérlő nevét (xxxxx.onmicrosoft.com).**
   - Az adatelemzéshez meg kell adnia egy adatgyűjtési adatkészletet. A mintaadatok megadására szolgálnak.
   - A helyi gépre telepített [Windows Docker](https://docs.docker.com/docker-for-windows/) .
@@ -117,4 +117,4 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
 
   - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)
 
-  - Használja saját adatait, vagy módosítsa a kódot erre a mintára [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)a githubon.
+  - Használja saját adatait, vagy módosítsa a kódot erre a mintára a [githubon](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
