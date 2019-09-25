@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: efab23f12086fee2e4f5c14a70f95717ac9669b9
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522064"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224951"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>A diagnosztikai naplók automatikus Azure Stackának konfigurálása
 
@@ -44,12 +44,12 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
 1. Kattintson a **Storage-fiókok** > **Hozzáadás**elemre. 
 1. Hozzon létre egy BLOB-tárolót a következő beállításokkal:
-   - **Előfizetés**: Válassza ki az Azure-előfizetését.
-   - **Erőforráscsoport**: Válasszon erőforráscsoportot.
-   - **Storage-fiók neve**: Adjon meg egyedi nevet a Storage-fiók számára.
-   - **Hely**: Válasszon egy adatközpontot a vállalati házirendnek megfelelően.
-   - **Teljesítmény**: Válassza a standard lehetőséget.
-   - **Fiók típusa** Válassza a StorageV2 (általános célú v2) lehetőséget. 
+   - **Előfizetés**: Azure-előfizetés kiválasztása
+   - **Erőforráscsoport**: Erőforráscsoport meghatározása
+   - **Storage-fiók neve**: Egyedi Storage-Fióknév megadása
+   - **Hely**: Válasszon egy adatközpontot a vállalati házirendnek megfelelően
+   - **Teljesítmény**: Standard kiválasztása
+   - **Fiók típusa** StorageV2 kiválasztása (általános célú v2) 
    - **Replikáció**: Helyileg redundáns tárolás (LRS) kiválasztása
    - **Hozzáférési szintek**: Jó választás
 
@@ -60,20 +60,20 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 ### <a name="create-a-blob-container"></a>Blobtároló létrehozása 
 
 1. Miután az üzembe helyezés sikeres volt, kattintson az **erőforrás keresése**elemre. A Storage-fiókot az irányítópulton is rögzítheti a könnyű hozzáférés érdekében. 
-1. Kattintson a **Storage Explorer (előnézet)** gombra, kattintson a jobb gombbal a **blob**-tárolók elemre, majd kattintson a **blob-tároló létrehozása**elemre 
+1. Kattintson a **Storage Explorer (előnézet)** gombra, kattintson a jobb gombbal a **blob-tárolók**elemre, majd kattintson a **blob-tároló létrehozása**elemre 
 1. Adja meg az új tároló nevét, majd kattintson **az OK**gombra.
 
 ## <a name="create-a-sas-url"></a>SAS URL-cím létrehozása
 
-1. Kattintson a jobb gombbal a tárolóra, majd kattintson a **megosztott hozzáférés aláírásának**beolvasása elemre. 
+1. Kattintson a jobb gombbal a tárolóra, majd kattintson a **megosztott hozzáférés aláírásának beolvasása**elemre. 
    
    ![A blob-tároló megosztott hozzáférési aláírásának beszerzését bemutató képernyőkép](media/azure-stack-automatic-log-collection/get-sas.png)
 
 1. Válassza ki a következő tulajdonságokat:
-   - Kezdő időpont: Igény szerint áthelyezheti a kezdési időpontot 
+   - Kezdés időpontja: Igény szerint áthelyezheti a kezdési időpontot 
    - Lejárati idő: Két év
    - Időzóna: UTC
-   - Engedélyek: Olvasás, írás és Listázás
+   - Engedélyek Olvasás, írás és Listázás
 
    ![A megosztott hozzáférési aláírás tulajdonságait bemutató képernyőfelvétel](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
@@ -100,7 +100,6 @@ Az alábbi lépéseket követve adja hozzá az SAS URL-címet a log Collection f
 >[!NOTE]
 >Az automatikus naplózási gyűjtemény letiltható, és bármikor újra engedélyezhető. A SAS URL-cím konfigurációja nem változik. Ha az automatikus naplózási gyűjtemény újra engedélyezve van, a korábban beírt SAS URL-cím ugyanazokat az ellenőrzési ellenőrzéseket fogja végezni, és a rendszer elutasítja a lejárt SAS URL-címet. 
 
-
 ## <a name="view-log-collection"></a>Napló-gyűjtemény megtekintése
 
 A Azure Stack gyűjtött naplók előzményei a Súgó és támogatás **napló gyűjtemény** lapján jelennek meg a következő dátumokkal és időpontokkal:
@@ -116,6 +115,36 @@ Ha a diagnosztikai napló gyűjtése sikertelen, ellenőrizze, hogy érvényes-e
 Az operátorok is megnézhetik a Storage-fiókot az automatikusan összegyűjtött naplókhoz. Ez a képernyőkép például a naplózási gyűjteményeket jeleníti meg a Azure Portal Storage Explorer előzetes verziójának használatával:
 
 ![Képernyőfelvétel a naplókról](media/azure-stack-automatic-log-collection/check-storage-account.png)
+
+## <a name="automatic-diagnostic-log-collection-alerts"></a>Diagnosztikai naplók automatikus gyűjtésével kapcsolatos riasztások 
+
+Ha engedélyezve van, az automatikus diagnosztikai napló gyűjtése csak akkor történik meg, ha szükséges. Csak a következő riasztások indíthatnak gyűjteményt. 
+
+|Riasztás címe  | FaultIdType|    
+|-------------|------------|
+|Nem lehet csatlakozni a távoli szolgáltatáshoz |  UsageBridge.NetworkError|
+|Sikertelen volt a frissítés |    Urp.UpdateFailure   |          
+|Tárolási erőforrás-szolgáltatói infrastruktúra/függőségek nem érhetők el |  StorageResourceProviderDependencyUnavailable     |     
+|A csomópont nem csatlakozik a vezérlőhöz|  ServerHostNotConnectedToController   |     
+|Útvonal-közzétételi hiba |    SlbMuxRoutePublicationFailure | 
+|A tárolási erőforrás-szolgáltató belső adattára nem érhető el |    StorageResourceProvider. DataStoreConnectionFail     |       
+|Hiba az adattároló eszközön | Microsoft. Health. hibatípushoz. előzőtől. leválasztva   |      
+|Az állapotvezérlő nem éri el a tárfiókot | Microsoft. Health. hibatípushoz. StorageError |    
+|A fizikai lemezzel létesített kapcsolat megszakadt |    Microsoft. Health. hibatípushoz. lemez. LostCommunication    |    
+|A blob szolgáltatás nem fut csomóponton. | A StorageService. The. blob. Service. nem fut. on. a. csomópont – kritikus | 
+|Infrastruktúra-szerepkör sérült |    Microsoft. Health. hibatípushoz. GenericExceptionFault |        
+|Hibák a Table Service-ben | StorageService. table. Service. errors – kritikus |              
+|A fájlmegosztás több mint 80%-ot használ |    Microsoft. Health. hibatípushoz. fájlmegosztás. Capacity. warning. infra |       
+|A skálázásiegység-csomópont offline állapotban van | FRP. Szívverés. PhysicalNode |  
+|Az infrastruktúra-szerepkör példánya nem érhető el | FRP. Szívverés. InfraVM   |    
+|Az infrastruktúra-szerepkör példánya nem érhető el  |    FRP. Szívverés. NonHaVm     |        
+|Az infrastruktúra-szerepkör, a címtár-kezelés, az idő szinkronizációs hibáit jelentette |  DirectoryServiceTimeSynchronizationError |     
+|Külső tanúsítvány lejárata miatt függőben |  CertificateExpiration. ExternalCert. warning |
+|Külső tanúsítvány lejárata miatt függőben |  CertificateExpiration. ExternalCert. Critical |
+|Az adott osztályú és méretű virtuális gépek az alacsony memóriakapacitás miatt nem építhetők ki |  AzureStack. ComputeController. VmCreationFailure. LowMemory |
+|A csomópont nem érhető el a virtuális gép elhelyezéséhez |  AzureStack. ComputeController. HostUnresponsive | 
+|A biztonsági mentés nem sikerült  | AzureStack. BackupController. BackupFailedGeneralFault |    
+|Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt  | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |   
 
 
 ## <a name="see-also"></a>Lásd még

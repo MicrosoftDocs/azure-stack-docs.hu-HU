@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/04/2019
-ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271742"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224930"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack diagnosztikai napló gyűjteményének áttekintése 
 
@@ -34,7 +34,7 @@ Az 1907-as előtt a [test-AzureStack](azure-stack-diagnostic-test.md) használat
 Az 1907-es kiadástól kezdve a **Súgó és támogatás** lap egy egyszerűbb felhasználói élményt nyújt a **diagnosztikai naplók gyűjtésével**. 
 A **diagnosztikai naplók gyűjteménye** egy folyamatban lévő beruházás része, amely a hibaelhárítási folyamattal Azure stack operátorral kapcsolatos tapasztalatokat fejleszti. Ezeknek a fejlesztéseknek köszönhetően a kezelők gyorsan gyűjthetik és oszthatják meg a diagnosztikai naplókat a Microsoft ügyfél-támogatási szolgáltatásaival (CSS). A naplók tárolhatók az Azure-beli blob-tárolóban, ahol a hozzáférés igény szerint testreszabható.    
    
-A **diagnosztikai naplók gyűjtése** két különböző módon gyűjthet diagnosztikai naplókat:
+A **diagnosztikai naplók gyűjtése** két különböző módon működik:
 
 - **Automatikus gyűjtés**: Ha engedélyezve van (ajánlott), a rendszer automatikusan kiváltja a naplók gyűjtését, és az Azure Storage-fiókjában tárolja azokat
 - **Naplók gyűjtése most**: Ez egy igény szerinti lehetőség, amellyel a naplókat összegyűjtheti egy 1-4 órás csúszó ablakból az elmúlt hét napban
@@ -46,7 +46,7 @@ Ha a szabályzat lehetővé teszi a diagnosztikai naplók CSS-sel való megoszt�
 
 ## <a name="automatic-diagnostic-log-collection"></a>Diagnosztikai naplók automatikus gyűjtése 
 
-Az automatikus diagnosztikai napló összegyűjtése proaktív módon feltölti a diagnosztikai Azure Stack naplókat az Azure-beli tárolási blobba, ha bizonyos kritikus riasztások bekövetkeznek, és jelentősen csökkentik a diagnosztikai naplók CSS-sel való megosztásához szükséges időt.
+Ha egy [adott riasztás](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts) aktív, az automatikus diagnosztikai napló gyűjtése elindul, és proaktív módon feltölti a diagnosztikai naplókat a Azure Stackból egy Azure-beli tárolási blobba, ami jelentősen csökkenti a diagnosztikai naplók CSS-sel való megosztásához szükséges időt. A rendszer csak akkor gyűjt diagnosztikai naplókat, ha riasztást vált ki.  
 
 További információ az automatikus naplók gyűjtéséről: [automatikus Azure stack diagnosztikai naplók konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection.md).
 

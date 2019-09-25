@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 7e2ac217ead86502513b7914a102a029f2472a40
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 9c600451070373d10ee943d8e497693d89708801
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019358"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224974"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Az KABAi motor telepítése Linux rendszeren Azure Stack
 
@@ -43,13 +43,13 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 1. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Hozzon létre egy Linux-alapú virtuális gépet a](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure stack portál használatával.
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót, például `--version v0.39.0`:. Ha nem adja meg a verziót, a parancs a legújabb verziót fogja telepíteni, amely esetleg nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.41.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa a következő parancsot:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.XX.X
+        ./get-akse.sh --version v0.41.0
     ```
 
     > [!Note]  

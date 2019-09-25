@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974677"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225000"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Azure Monitor használata Azure Stack
 
@@ -41,8 +41,8 @@ A Azure Monitor egy olyan platform-szolgáltatás, amely egyetlen forrást bizto
 Regisztrálja a **Microsoft.** reinsights erőforrás-szolgáltatót az előfizetéshez tartozó ajánlat erőforrás-szolgáltatói beállításainál. Ellenőrizze, hogy az erőforrás-szolgáltató elérhető-e az előfizetéséhez tartozó ajánlatban:
 
 1. Nyissa meg a Azure Stack felhasználói portált.
-2. Válasszon **ajánlatokat**.
-3. Válassza ki az előfizetéshez társított ajánlatot.
+2. Válassza az **Előfizetések** lehetőséget.
+3. Válassza ki a regisztrálni kívánt előfizetést.
 4. Válassza az **erőforrás-szolgáltatók** lehetőséget a beállítások területen **.** 
 5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy azállapot regisztrálva van-e.
 
@@ -56,7 +56,7 @@ Azure Monitor az Azure-ban, mint például az Azure Monitor az Azure Stacken biz
 
 A (z **) Azure stack Microsoft. számítási** erőforrás-szolgáltatója a következőket tartalmazza:
  - Virtual machines (Virtuális gépek) 
- - Virtuálisgép-méretezési csoportok
+ - virtuálisgép-méretezési csoportok
 
 ### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Alkalmazás-diagnosztikai naplók, alkalmazás-naplók és metrikák
 

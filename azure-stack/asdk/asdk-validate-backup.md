@@ -11,12 +11,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 685f2d868314610ea7c19443fe47f29182561a51
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118760"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225015"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
 Azure Stack üzembe helyezése és a felhasználói erőforrások kiépítése (például ajánlatok, csomagok, kvóták és előfizetések) után [engedélyeznie kell Azure stack-infrastruktúra biztonsági mentését](../operator/azure-stack-backup-enable-backup-console.md). Az infrastruktúra rendszeres biztonsági mentésének ütemezése és futtatása biztosítja, hogy az infrastruktúra-kezelési adatokat ne veszítse el a rendszer, ha katasztrofális hardveres vagy szolgáltatási hiba történik.
@@ -59,7 +59,6 @@ A ASDK felhőalapú helyreállításának elindítása előtt ellenőrizze, hogy
 |Időkiszolgáló IP-címe|Azure Stack központi telepítéshez érvényes időkiszolgálói IP-címet (például 132.163.97.2) kell megadni.|
 |Külső tanúsítvány jelszava|Az Azure Stack által használt külső tanúsítvány jelszava. A HITELESÍTÉSSZOLGÁLTATÓ biztonsági mentése külső tanúsítványokat tartalmaz, amelyeket ezzel a jelszóval kell visszaállítani.|
 |Titkosítási kulcs biztonsági mentése|Kötelező, ha a biztonsági mentési beállítások a-ben egy titkosítási kulccsal vannak konfigurálva, ami elavult. A telepítő a visszamenőleges kompatibilitási módban támogatja a titkosítási kulcsot legalább 3 kiadásban. Miután frissítette a biztonsági mentési beállításokat a tanúsítvány használatára, tekintse meg a következő táblázatot a szükséges információkkal kapcsolatban.|
-
 |     |     | 
 
 **PowerShell-telepítőre vonatkozó követelmények**
@@ -89,9 +88,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-Ezután másolja a legújabb Azure Stack biztonságimásolat-fájljait az újonnan létrehozott megosztásra. A megosztáson belüli mappa struktúrájának a következőket `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`kell tennie:.
+Ezután másolja a legújabb Azure Stack biztonságimásolat-fájljait az újonnan létrehozott megosztásra. Ügyeljen arra, hogy a `<BackupID>` mappa szülőmappa mappájába másolja, amely a biztonsági mentés időbélyege. A megosztáson belüli mappa struktúrájának a következőket `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`kell tennie:. 
 
-Végül másolja a visszafejtési tanúsítványt (. pfx) a tanúsítvány könyvtárába, és nevezze `C:\CloudDeployment\Setup\Certificates\` át a `BackupDecryptionCert.pfx`fájlt a következőre:.
+Végül másolja a visszafejtési tanúsítványt (. pfx) a tanúsítvány könyvtárába, és nevezze `C:\CloudDeployment\Setup\BackupDecryptionCert\` át a `BackupDecryptionCert.pfx`fájlt a következőre:.
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>A ASDK üzembe helyezése Felhőbeli helyreállítási módban
 
