@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 4db6eb06216294712456b3445b27bd2ed89150e9
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159655"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269491"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Bérlő hozzáadása a használathoz és a számlázáshoz Azure Stack
 
@@ -33,9 +33,11 @@ A kriptográfiai szolgáltatók gyakran kínálnak szolgáltatásokat több vég
 Az alábbi ábra azokat a lépéseket mutatja be, amelyekkel a CSP-nek követnie kell, hogy az új végfelhasználók Azure Stack használjanak, valamint az ügyfél használati követésének beállításához. A végfelhasználók hozzáadásával a Azure Stack erőforrásai is kezelhetők. Az erőforrások kezeléséhez két lehetősége van:
 
 - Megtarthatja a végfelhasználót, és megadhatja a végfelhasználó számára a helyi Azure Stack előfizetéshez tartozó hitelesítő adatokat.  
-- A végfelhasználó az előfizetését helyileg is használhatja, és a CSP-t a tulajdonosi engedélyekkel rendelkező vendégként adja hozzá.  
+- A végfelhasználó az előfizetését helyileg is használhatja, és a CSP-t a tulajdonosi engedélyekkel rendelkező vendégként adja hozzá.
 
 ## <a name="add-an-end-customer"></a>Végfelhasználó hozzáadása
+
+A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el `azstcsp@microsoft.com`a regisztrációs előfizetés azonosítóját, az erőforráscsoport nevét és a regisztrációs nevet a következőnek:. Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
 
 A következő ábrán látható módon vegyen fel egy végfelhasználót az alábbi lépésekkel:
 

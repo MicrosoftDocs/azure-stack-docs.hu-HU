@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 123849750cbfb343fc63cb43376651a6554ab6b4
-ms.sourcegitcommit: 6239b35370d21852529978777c0e39cfba5a4552
+ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917553"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279125"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace-változások
 
@@ -30,33 +30,32 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
-- 1/25/2019: A10-es vThunder: L4 – L7 Application Delivery Controller, globális kiszolgálói terheléselosztás (GSLB), SSL-betekintés
+- 08/05/2019: Bitnami Drupal
 
-- 6/14/2019: Veeam® biztonsági mentési & replikálási™
+- 08/05/2019: Bitnami etcd
 
-- 08/05/2019: Drupal
+- 08/05/2019: Bitnami Grafana
 
-- 08/05/2019: etcd
+- 08/05/2019: Bitnami Neo4j
 
-- 08/05/2019: Grafana
+- 08/05/2019: Bitnami-elemzési kiszolgáló
 
-- 08/05/2019: Neo4j
+- 08/05/2019: Bitnami WordPress többhelyes
 
-- 08/05/2019: Kiszolgáló elemzése
+- 08/05/2019: Bitnami ZooKeeper
 
-- 08/05/2019: WordPress többhelyes
+- 08/05/2019: Bitnami TensorFlow-kiszolgáló
 
-- 08/05/2019: ZooKeeper
+- 08/05/2019: Bitnami NAT-i
 
-- 08/05/2019: TensorFlow-kiszolgáló
+- 08/05/2019: Bitnami felülvizsgálati Tanács
 
-- 08/05/2019: MINDEGYIKE NAT
-
-- 08/05/2019: Review Board
-
-- 08/05/2019: Alkotó
+- 08/05/2019: Bitnami-alkotó
 
 - 08/09/2019: Oracle Linux
+
+- 08/19/2019: Iguazio adatelemzési platform
+
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
@@ -64,13 +63,23 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 - X2Engine Sales CRM
 - SugarCRM
 - Node. js magas rendelkezésre állású fürt
+- A10-es vThunder: L4 – L7 Application Delivery Controller, globális kiszolgálói terheléselosztás (GSLB), SSL-betekintés
+- JsonADDomain-bővítmény
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
-- 07/30/2019: SQL Server 2016 SP1 (Express, Developer, standard és Enterprise kiadás) 13.2.20190410
-- 07/30/2019: SQL Server 2016 SP2 (expressz, fejlesztői, standard és Enterprise kiadás) 13.2.20190410
-- 07/30/2019: SQL Server 2017 (expressz, fejlesztői, standard és Enterprise kiadás) 14.0.20190410
-- 07/30/2019: SQLIaaSExtension 1.3.20180
+- 07/30/2019: SQL Server 2016 SP1 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
+- 07/30/2019: SQL Server 2016 SP2 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
+- 07/30/2019: SQL Server 2017 (expressz, fejlesztői, standard és Enterprise kiadás) – 14.0.20190410 verzió
+- 07/30/2019: SQLIaaSExtension – 1.3.20180 verziója
+- 08/08/2019: CloudLink SecureVM-bővítmény a Linux rendszerhez – 6,8-es verzió
+- 08/08/2019: CloudLink SecureVM-bővítmény a Windowshoz – 6,8-es verzió
+- 08/30/2019: Azure Stack Kubernetes-fürt verziójának 0.5.1
+- 09/02/2019: AK-alapú alaprendszerkép – Version 2019.08.09 és 2019.08.21 verzió
+- 09/12/2019: Service Fabric-Version 1.0.3
+- 09/24/2019: F5 – Networks Big-IP Virtual Edition – Version 14.1.200000
+- 09/25/2019: Debian 8 – 8.0.20190806 verzió
+
 
 ## <a name="next-steps"></a>További lépések
 

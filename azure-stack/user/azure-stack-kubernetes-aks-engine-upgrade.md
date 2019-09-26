@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 280c5bf6a09670479a8497ecedb0364e6e27f949
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 377857019e6a4d55e6a9372296817e1776c081c9
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019204"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279150"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt frissítése Azure Stack
 
@@ -87,7 +87,7 @@ Az üzembe helyezett fürtök frissítéseinek fedele:
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
     | ügyfél-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet. |
     | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
-
+    | identitás-rendszerek | ADFS | Nem kötelező. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
 
 4. A következő parancs futtatásával adja meg az értékeket:
 
@@ -100,7 +100,8 @@ Az üzembe helyezett fürtök frissítéseinek fedele:
     --api-model kube-rg/apimodel.json \
     --upgrade-version 1.13.5 \
     --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --identity-system adfs # required if using AD FS
     ```
 
 5.  Ha bármilyen okból kifolyólag a frissítési művelet hibát észlel, a probléma megoldása után újra futtathatja a frissítési parancsot. Az AK-motor folytatja a műveletet, ahol az előző alkalommal meghiúsult.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 896169a39f450b0a0fb26699867638afb02f20a7
-ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
+ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164263"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279189"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -39,6 +39,16 @@ Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal olda
 > [!IMPORTANT]  
 > Ha a Azure Stack-példánya több mint két frissítés mögött van, akkor az nem felel meg a megfelelőségnek. A [támogatás fogadásához legalább a támogatott verzióra kell frissítenie](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
+
+## <a name="update-planning"></a>Frissítés tervezése
+
+A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
+
+- [Ismert problémák](known-issues.md)
+- [Biztonsági frissítések](release-notes-security-updates.md)
+- [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](release-notes-checklist.md)
+
+A frissítésekkel és a frissítési folyamattal kapcsolatos segítségért tekintse meg a [javítások és a frissítési problémák elhárítása Azure stack](azure-stack-updates-troubleshoot.md).
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -93,14 +103,6 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 ## <a name="security-updates-1908"></a>Biztonsági frissítések
 
 További információ a Azure Stack ezen frissítésében található biztonsági frissítésekről: [Azure stack biztonsági frissítések](release-notes-security-updates.md).
-
-## <a name="update-planning-1908"></a>Frissítés tervezése
-
-A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
-
-- [Ismert problémák](known-issues.md)
-- [Biztonsági frissítések](release-notes-security-updates.md)
-- [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](release-notes-checklist.md)
 
 ## <a name="download-the-update-1908"></a>A frissítés letöltése
 

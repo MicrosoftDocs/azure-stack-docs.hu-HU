@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 8891ac7a1fb4b5b5af110e800f49c0d8fa873f66
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019325"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279179"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack
 
@@ -108,6 +108,7 @@ Fürt üzembe helyezésének folytatása:
     | Paraméter | Példa | Leírás |
     | --- | --- | --- |
     | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack használni `AzureStackCloud`kívánt AK-motor. |
+    | identitás-rendszerek | ADFS | Nem kötelező. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
     | location | helyi | A Azure Stack régiójának neve. Azon ASDK esetében, amelyekhez a régió `local`van beállítva. |
     | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket. |
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
@@ -119,15 +120,16 @@ Fürt üzembe helyezésének folytatása:
     Például:
 
     ```bash  
-    aks-engine deploy \\
-    --azure-env AzureStackCloud
-    --location <for asdk is local>\\
-    --resource-group kube-rg \\
-    --api-model ./kubernetes-azurestack.json \\
-    --output-directory kube-rg \\
-    --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \\
-    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \\
-    --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    aks-engine deploy \
+    --azure-env AzureStackCloud \
+    --location <for asdk is local> \
+    --resource-group kube-rg \
+    --api-model ./kubernetes-azurestack.json \
+    --output-directory kube-rg \
+    --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    --identity-system adfs # required if using AD FS
     ```
 
 2.  Ha valamilyen oknál fogva a kimeneti könyvtár létrehozása után a végrehajtás meghiúsul, javítsa ki a hibát, és futtassa újra a parancsot. Ha újra futtatja az üzemelő példányt, és ugyanazt a kimeneti könyvtárat használta, az AK-motor hibát jelez, ami azt jelzi, hogy a könyvtár már létezik. A meglévő könyvtárat a Flag: `--force-overwrite`paranccsal írhatja felül.

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 7847d79d0f2816aa56940fd7b81d25cbb1a3a7f2
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 70adb6abaefc81faf487bbae5c560cc67f705341
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019215"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279214"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt méretezése Azure Stack
 
@@ -46,7 +46,8 @@ A Scale parancs a következő paramétereket használja a fürt definíciós fá
 | ügyfél – titok |  | A fürt létrehozásakor használt egyszerű szolgáltatás titka. | 
 | API – modell | Kube-RG/apimodel. JSON | A fürt definíciós fájljának elérési útja (apimodel. JSON). Ez a következő lehet: _output/\<dnsPrefix >/apimodel.JSON | 
 | -új csomópontok száma | 9 | A csomópontok kívánt száma. | 
-| -Master-FQDN |  | Fő FQDN. Leskálázáskor szükséges. | 
+| -Master-FQDN |  | Fő FQDN. Leskálázáskor szükséges. |
+| identitás-rendszerek | ADFS | Nem kötelező. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
 
 A **-Azure-env** paramétert kell megadnia, amikor a fürt méretezését Azure stack. A paraméterekkel és azok értékeivel kapcsolatos további információkért lásd : [Scale-parameters (méretezési paraméterek](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)).
 
@@ -65,6 +66,7 @@ aks-engine scale \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
     --master-FQDN <master FQDN> \
+    --identity-system adfs # required if using AD FS
 ```
 
 ## <a name="next-steps"></a>További lépések

@@ -165,6 +165,8 @@
                   href: azure-stack-update-oem.md
             - name: A figyelő frissítési állapot
               href: azure-stack-update-monitor.md
+            - name: Frissítések hibáinak megoldása
+              href: azure-stack-updates-troubleshoot.md
         - name: Állapot és riasztások monitorozása
           href: azure-stack-monitor-health.md
         - name: Hálózati erőforrások kezelése
