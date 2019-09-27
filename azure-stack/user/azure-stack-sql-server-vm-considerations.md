@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d054f4ad45f27994c7ef6fc5e52f07eb1fa7f761
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974638"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311294"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Az SQL Server ajánlott eljárásai a teljesítmény optimalizálása érdekében Azure Stack
 
@@ -98,12 +98,12 @@ Azt javasoljuk, hogy adatlemezként tárolja a TempDB, mivel az adatlemezek legf
 
 ### <a name="data-disks"></a>Adatlemezek
 
-- **Adatlemezek használata az adatfájlokhoz és a naplófájlokhoz.** Ha nem használ lemezes csíkozást, használjon két adatlemezt egy Premium Storage-t támogató virtuális gépről, ahol az egyik lemez tartalmazza a naplófájlokat, a másik pedig tartalmazza az adatok és a TempDB fájljait. Az egyes adatlemezek számos IOPS és sávszélességet (MB/s) biztosítanak a virtuálisgép-családtól függően, a [Azure stack által támogatott](azure-stack-vm-sizes.md)virtuálisgép-méretek című cikkben leírtak szerint. Ha lemezes csíkozási technikát (például tárolóhelyeket) használ, helyezze az összes adatfájlt és naplófájlt ugyanarra a meghajtóra (beleértve a TempDB is). Ez a konfiguráció biztosítja a SQL Server számára elérhető IOPS maximális számát, függetlenül attól, hogy mely fájlokra van szükség egy adott időpontban.
+- **Adatlemezek használata az adatfájlokhoz és a naplófájlokhoz.** Ha nem használ lemezes csíkozást, használjon két adatlemezt egy Premium Storage-t támogató virtuális gépről, ahol az egyik lemez tartalmazza a naplófájlokat, a másik pedig tartalmazza az adatok és a TempDB fájljait. Az egyes adatlemezek a virtuálisgép-családtól függően több IOPS biztosítanak, a [Azure stack által támogatott](azure-stack-vm-sizes.md)virtuálisgép-méretek című cikkben leírtak szerint. Ha lemezes csíkozási technikát (például tárolóhelyeket) használ, helyezze az összes adatfájlt és naplófájlt ugyanarra a meghajtóra (beleértve a TempDB is). Ez a konfiguráció biztosítja a SQL Server számára elérhető IOPS maximális számát, függetlenül attól, hogy mely fájlokra van szükség egy adott időpontban.
 
 > [!NOTE]  
 > Amikor kiépít egy SQL Server VM a portálon, lehetősége van a tárolási konfiguráció szerkesztésére. A konfigurációtól függően Azure Stack egy vagy több lemezt konfigurál. Több lemez egyetlen tárolási készletbe van összevonva. Ebben a konfigurációban az adatfájlok és a naplófájlok is együtt találhatók.
 
-- **Lemezek csíkozása:** További átviteli sebesség esetén további adatlemezeket adhat hozzá, és a lemezek csíkozását is használhatja. A szükséges adatlemezek számának meghatározásához elemezze a naplófájlokhoz és az adatés TempDB-fájlokhoz szükséges IOPS és sávszélesség számát. Figyelje meg, hogy az IOPS-korlátok a virtuálisgép-sorozat családján alapuló adatlemezek, és nem a virtuális gép méretétől függenek. A hálózati sávszélesség korlátai azonban a virtuális gép méretétől függenek. További részletekért tekintse meg a [virtuális gépek méreteit Azure stack](azure-stack-vm-sizes.md) táblázatban. Használja az alábbi irányelveket:
+- **Lemezek csíkozása:** További átviteli sebesség esetén további adatlemezeket adhat hozzá, és a lemezek csíkozását is használhatja. A szükséges adatlemezek számának meghatározásához elemezze a naplófájlokhoz szükséges IOPS, valamint az adatai és a TempDB fájljait. Figyelje meg, hogy az IOPS-korlátok a virtuálisgép-sorozat családján alapuló adatlemezek, és nem a virtuális gép méretétől függenek. A hálózati sávszélesség korlátai azonban a virtuális gép méretétől függenek. További részletekért tekintse meg a [virtuális gépek méreteit Azure stack](azure-stack-vm-sizes.md) táblázatban. Használja az alábbi irányelveket:
 
   - A Windows Server 2012-es vagy újabb verzióiban a [tárolóhelyek](https://technet.microsoft.com/library/hh831739.aspx) a következő irányelvekkel használhatók:
 

@@ -1,6 +1,6 @@
 ---
-title: Adja hozzá az Azure Kubernetes Services (ak) motort a Azure Stack Marketplace-hez | Microsoft Docs
-description: Megtudhatja, hogyan adhat hozzá AK-motort a Azure Stack Marketplace-hez.
+title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez | Microsoft Docs
+description: Megtudhatja, hogyan adhatja hozzá a Azure Stack Marketplace-re vonatkozó előfeltételeket a piactérhez.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 948d2a00b021b701990b5d8e3192e053e1277a3e
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: bcb9dab55d00c48e5b77e7184fae0567ff1f620e
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71160231"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311291"
 ---
-# <a name="add-the-azure-kubernetes-services-aks-engine-to-the-azure-stack-marketplace"></a>Az Azure Kubernetes Services (ak) motor hozzáadása a Azure Stack piactérhez
+# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 

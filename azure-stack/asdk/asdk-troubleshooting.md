@@ -12,24 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 09/26/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118661"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319090"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
-Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Ha olyan problémát tapasztal, amely nem dokumentált, mindenképpen tekintse meg az [MSDN-fórum Azure stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) segítséget.  
+Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
 
-> [!IMPORTANT]
-> Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfélszolgálati szolgálatai (CSS) nem kínálunk hivatalos támogatást.
+Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfél-támogatási szolgálata (CSS) nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
 
-Az ebben a szakaszban leírt hibaelhárítási problémákra vonatkozó javaslatok több forrásból származnak, és előfordulhat, hogy nem oldják meg az adott problémát. A kód példái a "ahogy van", a várt eredmények pedig nem garantáltak. Ez a szakasz a termékre vonatkozó újdonságokkal kapcsolatos gyakori szerkesztési és frissítési funkciókra vonatkozik.
 
 ## <a name="deployment"></a>Környezet
 ### <a name="deployment-failure"></a>Üzembe helyezési hiba
@@ -47,18 +45,18 @@ Ez a viselkedés valószínűleg csak egy PowerShell-parancssorablak alapértelm
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
 A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>A Azure Stack gazdagép újraindítása után néhány virtuális gép nem indul el automatikusan.
+### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>A Azure Stack gazdagép újraindítása után néhány virtuális gép nem indul el automatikusan
 A gazdagép újraindítása után észreveheti, Azure Stack szolgáltatások nem azonnal érhetők el. Ennek az az oka, hogy Azure Stack infrastruktúra-alapú [virtuális gépek](asdk-architecture.md#virtual-machine-roles) és RPs a konzisztencia ellenőrzéséhez hosszabb időt vesz igénybe, de végül automatikusan elindul.
 
-Azt is megfigyelheti, hogy a bérlői virtuális gépek nem indulnak el automatikusan a ASDK-gazdagép újraindítása után. Ez egy ismert probléma, és csak néhány manuális lépést kell megtennie, hogy online állapotba kerüljön:
+Azt is megfigyelheti, hogy a bérlői virtuális gépek nem indulnak el automatikusan a ASDK-gazdagép újraindítása után. Néhány manuális lépéssel online állapotba hozhatja őket:
 
 1.  A ASDK-gazdagépen indítsa el **Feladatátvevőfürt-kezelő** a Start menüből.
 2.  Válassza ki az **S-cluster. azurestack. local**fürtöt.
 3.  Válassza a **szerepkörök**lehetőséget.
 4.  A bérlői virtuális gépek *mentett* állapotban jelennek meg. Ha az összes infrastruktúra-virtuális gép fut, kattintson a jobb gombbal a bérlői virtuális gépekre, és válassza a **Start** lehetőséget a virtuális gép folytatásához.
 
-### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Töröltem néhány virtuális gépet, de továbbra is láthatók a lemezen lévő VHD-fájlok. Ez a viselkedés várható?
-Igen, ez a várt viselkedés. Ez a következőképpen lett kialakítva:
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>Töröltem néhány virtuális gépet, de továbbra is láthatók a lemezen lévő VHD-fájlok 
+Ennek a viselkedésnek a kialakítása a következő:
 
 * Ha töröl egy virtuális gépet, a VHD-k nem törlődnek. A lemezek különálló erőforrások az erőforráscsoporthoz.
 * Ha a Storage-fiók törölve lesz, a törlés azonnal látható Azure Resource Manageron keresztül, de az esetlegesen tartalmazott lemezek továbbra is tárolás alatt maradnak a tárolóban, amíg a rendszer a szemetet nem fut.

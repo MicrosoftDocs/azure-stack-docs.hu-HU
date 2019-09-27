@@ -3,7 +3,7 @@ title: Kvóták, csomagok, ajánlatok és előfizetések törlése | Microsoft D
 description: További információ a Azure Stack kvóták, csomagok, ajánlatok és előfizetések törléséről.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: fca26723c062dd9f5155030fb11c8e1d695bf5f1
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991808"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319128"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Kvóták, csomagok, ajánlatok és előfizetések törlése
 
@@ -34,9 +34,9 @@ Ezért, ha törölni szeretné a kvótát, minden olyan csomagon és ajánlaton 
 
 ## <a name="delete-a-subscription"></a>Előfizetés törlése
 
-Ha törölni szeretne egy előfizetést, válassza a **minden szolgáltatás**, majd a **felhasználói**előfizetések lehetőséget a rendszeren lévő összes előfizetés listájának megjelenítéséhez. Ha egy ajánlaton dolgozik, itt is kiválaszthatja az előfizetéseket.
+Ha törölni szeretne egy előfizetést, válassza a **minden szolgáltatás**, majd a **felhasználói előfizetések**lehetőséget a rendszeren lévő összes előfizetés listájának megjelenítéséhez. Ha egy ajánlaton dolgozik, itt is kiválaszthatja az **előfizetéseket** .
 
-A listából törölheti az előfizetéseket, vagy a PowerShell használatával írhat egy olyan parancsfájlt, amely törli az összes előfizetést, az előfizetések [– törlési hivatkozás](/rest/api/azurestack/subscriptions/delete)dokumentációjában ismertetett parancsokkal.
+A listából törölheti az előfizetéseket, vagy a PowerShell használatával írhat egy olyan parancsfájlt, amely törli az összes előfizetést, az [előfizetések – törlési hivatkozás](/rest/api/azurestack/subscriptions/delete)dokumentációjában ismertetett parancsokkal.
 
 > [!CAUTION]
 > Az előfizetés törlésével a benne lévő összes adatforrást és erőforrást is törli.
@@ -63,7 +63,7 @@ Emellett a csomag nem távolítható el az előfizetésből, ha az adott erőfor
 
 ## <a name="edit-and-delete-a-quota"></a>Kvóta szerkesztése és törlése
 
-A meglévő kvótákat a felügyeleti portálon tekintheti meg és szerkesztheti: válassza a **régió felügyelete**lehetőséget, majd válassza ki a megfelelőerőforrás-szolgáltatót, és kattintson a kvóták elemre. Bizonyos erőforrás-szolgáltatók kvótái is törölhetők.
+A meglévő kvótákat a felügyeleti portálon tekintheti meg és szerkesztheti: válassza a **régió felügyelete**lehetőséget, majd válassza ki a megfelelő erőforrás-szolgáltatót, és kattintson a **kvóták**elemre. Bizonyos erőforrás-szolgáltatók kvótái is törölhetők.
 
 ![delsub3](media/azure-stack-delete-offer/delsub3.png)
 

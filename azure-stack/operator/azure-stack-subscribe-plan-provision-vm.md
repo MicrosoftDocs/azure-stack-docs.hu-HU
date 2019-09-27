@@ -3,7 +3,7 @@ title: Előfizetés a Azure Stack ajánlatára | Microsoft Docs
 description: Előfizetések létrehozása a Azure Stack ajánlatokhoz
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 51b61eae1f2c00a959eded275c13c5c4b8d06e4c
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991789"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319152"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Előfizetések létrehozása a Azure Stack ajánlatokhoz
 
@@ -41,7 +41,7 @@ Miután létrehozta a felhasználóhoz tartozó előfizetést, bejelentkezhet a 
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Előfizetés létrehozása felhasználó számára
 
-1. A felügyeleti portálon lépjen a felhasználói előfizetések elemre **.**
+1. A felügyeleti portálon lépjen a **felhasználói előfizetések** elemre.
 2. Válassza a **Hozzáadás** lehetőséget. Az **új felhasználói előfizetés**területen adja meg a következő adatokat:  
 
    - **Megjelenítendő név** – a *felhasználói előfizetés neveként*megjelenő előfizetés azonosítására szolgáló rövid név.
@@ -61,7 +61,7 @@ Miután létrehozta a felhasználóhoz tartozó előfizetést, bejelentkezhet a 
 
 A Felhőbeli operátorok bármikor hozzáadhatnak egy csomagot egy korábban létrehozott előfizetéshez:
 
-1. A felügyeleti portálon válassza a **minden szolgáltatás** lehetőséget, majd a **felügyeleti erőforrások** kategóriában válassza a **felhasználói**előfizetések lehetőséget. Válassza ki a módosítani kívánt előfizetést.
+1. A felügyeleti portálon válassza a **minden szolgáltatás** lehetőséget, majd a **felügyeleti erőforrások** kategóriában válassza a **felhasználói előfizetések**lehetőséget. Válassza ki a módosítani kívánt előfizetést.
 
 2. Válassza a bővítmények, majd a **+ Hozzáadás**lehetőséget.  
 
@@ -76,11 +76,11 @@ Felhasználóként bejelentkezhet a felhasználói portálra, ahol megkeresheti 
 
 ### <a name="to-subscribe-to-an-offer"></a>Előfizetés egy ajánlatra
 
-1. [Jelentkezzen](../asdk/asdk-connect.md) be a [Azure stack felhasználói portálra](https://portal.local.azurestack.external) , és válassza az **előfizetés**beszerzése lehetőséget.
+1. [Jelentkezzen](../asdk/asdk-connect.md) be a [Azure stack felhasználói portálra](https://portal.local.azurestack.external) , és válassza az **előfizetés beszerzése**lehetőséget.
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. Az **előfizetés**beolvasása területen adja meg az előfizetés rövid nevét a **megjelenítendő névben**. Válassza az **ajánlat** lehetőséget, majd az **ajánlat választása**területen válasszon ajánlatot. Válassza a **Létrehozás** lehetőséget az előfizetés létrehozásához.
+2. Az **előfizetés beolvasása**területen adja meg az előfizetés rövid nevét a **megjelenítendő névben**. Válassza az **ajánlat** lehetőséget, majd az **ajánlat választása**területen válasszon ajánlatot. Válassza a **Létrehozás** lehetőséget az előfizetés létrehozásához.
 
    ![Ajánlat létrehozása](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   

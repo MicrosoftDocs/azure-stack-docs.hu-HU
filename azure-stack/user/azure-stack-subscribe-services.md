@@ -3,7 +3,7 @@ title: Előfizetés létrehozása a Azure Stack ajánlatával | Microsoft Docs
 description: Megtudhatja, hogyan hozhat létre új előfizetést Azure Stack ajánlatával, majd tesztelje az ajánlatot egy teszt virtuális géppel.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/04/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5b72ccee255aadd5d8f42aefea9e397ba310812c
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: f47278fed9cd9e93024d37a0a433388594bbd124
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376806"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319156"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Oktatóanyag: Előfizetés létrehozása és tesztelése Azure Stack
 
