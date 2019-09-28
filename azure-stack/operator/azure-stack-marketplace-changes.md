@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279125"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342721"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace-változások
 
@@ -29,6 +29,26 @@ Ez a cikk a [Azure stack Marketplace-elemek](azure-stack-marketplace-azure-items
 A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk mindig tartalmazza az elérhető Azure stack Marketplace-elemek legfrissebb listáját.
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
+
+- 06/27/2019:   SIOS Datakeeper-fürt kiadása
+
+- 06/27/2019:   Veeam biztonsági mentési & replikációja
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core with containers utólagos használat
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core with containers BYOL
+
+- 06/27/2019:   Windows Server 2019 Datacenter – utólagos használat
+
+- 06/27/2019:   Windows Server 2019 Datacenter BYOL
+
+- 06/27/2019: A Windows Server 2019 Datacenter Server Core használata
+
+- 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
+
+- 06/27/2019:   Windows Server 2019 Datacenter, tárolók általi használattal
+
+- 06/27/2019:   Windows Server 2019 Datacenter tárolók BYOL
 
 - 08/05/2019: Bitnami Drupal
 
@@ -59,15 +79,26 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
-- Codiad
-- X2Engine Sales CRM
-- SugarCRM
-- Node. js magas rendelkezésre állású fürt
+- Bitnami Codiad
+- Bitnami X2Engine Sales CRM
+- Bitnami cukornád
+- Bitnami Node. js magas rendelkezésre állású fürt
 - A10-es vThunder: L4 – L7 Application Delivery Controller, globális kiszolgálói terheléselosztás (GSLB), SSL-betekintés
 - JsonADDomain-bővítmény
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 07/11/2019:   Thales CipherTrust Cloud Key Manager – verzió 1.0.7
+- 07/16/2019:   Windows Server 2016 Datacenter Server Core BYOL – verzió 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter Server Core – 2016.127.20190522 verzió
+- 07/16/2019:   Windows Server 2016 Datacenter with containers BYOL-Version 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter with containers Pay-as-you-Version 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter BYOL – verzió: 2016.127.20190522
+- 07/16/2019:   Windows Server 2016 Datacenter – az Ön által használt verzió 2016.127.20190522
+- 07/16/2019:   Windows Server 2008 R2 BYOL-Version 2.127.20190522
+- 07/16/2019:   Windows Server 2008 R2 – használati díj – 2.127.20190522
+- 07/16/2019:   Windows Server 2012 R2 Datacenter BYOL – verzió 4.127.20190522
+- 07/16/2019:   Windows Server 2012 R2 Datacenter – az Ön által használt verzió 4.127.20190522
 - 07/30/2019: SQL Server 2016 SP1 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
 - 07/30/2019: SQL Server 2016 SP2 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
 - 07/30/2019: SQL Server 2017 (expressz, fejlesztői, standard és Enterprise kiadás) – 14.0.20190410 verzió

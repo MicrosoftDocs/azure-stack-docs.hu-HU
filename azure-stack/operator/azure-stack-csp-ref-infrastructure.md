@@ -1,6 +1,6 @@
 ---
-title: Használati reporting infrastruktúra a Felhőbeli szolgáltatók számára az Azure Stackhez |} A Microsoft Docs
-description: Az Azure Stack magában foglalja a bérlők szervizelt egy Cloud Service Provider (CSP), akkor fordul elő, majd továbbítja azokat az Azure használatának nyomon követéséhez szükséges infrastruktúrát.
+title: Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára a Azure Stackhoz | Microsoft Docs
+description: A felhőalapú megoldás-szolgáltató (CSP) által kiszolgált bérlők használatának nyomon követésére használt használati jelentési infrastruktúra ismertetése.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,41 +15,41 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0b4ff1e6c76bedc4618bfa527b0045d7bfce41af
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419483"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342809"
 ---
-# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Jelentéskészítési infrastruktúra felhőszolgáltatók használat
+# <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára
 
-Az Azure Stack magában foglalja a használat nyomon követésére, akkor fordul elő, majd továbbítja azokat az Azure-hoz szükséges infrastruktúrát. Az Azure-ban az Azure kereskedelmi dolgozza fel a használati adatok, és a megfelelő Azure-előfizetés használati díjak. Ez a használat nyomon követése a globális Azure-felhőben figyel ugyanúgy történik.
+Azure Stack tartalmazza a használat nyomon követéséhez és az Azure-ba való továbbításához szükséges infrastruktúrát. Az Azure-ban az Azure kereskedelmi feldolgozza a használati adatokat és a díjakat a megfelelő Azure-előfizetésekben. Ez a folyamat ugyanúgy működik, mint a globális Azure-felhőben a használat nyomon követése.
 
-Egyes fogalmak egységes, globális Azure és az Azure Stack között. Az Azure Stack helyi előfizetések, amelyek hasonló szerepet Azure-előfizetéssel rendelkezik. Csak érvényes helyileg a helyi előfizetések. Ha az Azure-bA továbbítja használati helyi előfizetések Azure-előfizetések vannak leképezve.
+Bizonyos fogalmak konzisztensek a globális Azure és a Azure Stack között. Azure Stack rendelkezik helyi előfizetésekkel, amelyek az Azure-előfizetéshez hasonló szerepkört teljesítenek. A helyi előfizetések csak helyileg érvényesek. A helyi előfizetések az Azure-előfizetésekhez vannak leképezve, amikor a használatot az Azure-ba továbbítja
 
-Az Azure Stack helyi használati mérőszámok rendelkezik. A mérőszámok az Azure kereskedelmi használt helyi használat lesz leképezve. Azonban a mérőszám-azonosítói különböznek. Nincsenek elérhető helyileg, mint a Microsoft az elszámolási az egyik további mérőszámok.
+Azure Stack helyi használati mérőszámokkal rendelkezik. A helyi használat az Azure-kereskedelemben használt mérőórákra van leképezve. A mérési azonosítók azonban eltérőek. Több mérőszám is elérhető helyileg, mint amennyit a Microsoft a számlázáshoz használ.
 
-Nincsenek hogyan szolgáltatások díjszabása az Azure Stack és Azure közötti különbségeket. Például az Azure Stackben, a díjat a virtuális gépek csak alapul virtuális mag/óra, az összes Virtuálisgép-sorozat, eltérően az Azure ugyanez a díjszabás. A hiba oka, hogy a globális Azure-ban a különböző díjak másik hardverre. Az Azure Stack az ügyfél hardver, nyújt, így nem indokolt, több virtuális gép osztály különböző sebességeit díja szerint számítjuk fel.
+A szolgáltatások díjszabása Azure Stack és az Azure-ban is fennáll. Azure Stack például a virtuális gépek díját csak virtuális mag/óra alapján számítjuk fel, az Azure-val ellentétben az összes virtuálisgép-sorozat esetében azonos sebességgel. Ennek az az oka, hogy a globális Azure-ban a különböző árak különböző hardvereket tükröznek. Azure Stack az ügyfél biztosítja a hardvert, így nincs ok arra, hogy a különböző virtuálisgép-osztályok esetében eltérő díjszabást kellene fizetni.
 
-Akkor is megismerheti az Azure Stack az Azure-szolgáltatásokhoz hasonlóan azonos módon kereskedelmi és az árak a Partner Center, a használt mérőszámok:
+A kereskedelemben használt Azure Stack mérőszámokról és azok árairól a partner Centerben talál további információt. A folyamat ugyanaz, mint az Azure-szolgáltatásokhoz:
 
-1. Partnerközpont, nyissa meg a **Irányítópultos menüjében**, majd **értékesíteni**, majd válassza **díjszabás és ajánlatok**.
-2. A **használat alapú szolgáltatások**válassza **aktuális**.
-3. Nyissa meg a **Azure in CSP globális árlista** táblázatot.
-4. Szűrés **régióban az Azure Stack =** .
+1. A partner Centerben lépjen az **irányítópult menüre**, majd válassza az **értékesítés**, majd a **díjszabás és ajánlatok**lehetőséget.
+2. A **használati alapú szolgáltatások**területen válassza az **aktuális**lehetőséget.
+3. Nyissa meg az **Azure-t a globális CSP árlista-** számolótáblában.
+4. Szűrés a **régión = Azure stack**.
 
-## <a name="terms-used-for-billing-and-usage"></a>Számlázási és használati feltételek
+## <a name="terms-used-for-billing-and-usage"></a>A számlázáshoz és a használathoz használt kifejezések
 
-Az alábbi kifejezések és fogalmak használt használati és számlázási az Azure Stack:
+A használat és a számlázás a következő feltételekkel és fogalmakkal történik Azure Stackban:
 
 | Kifejezés | Meghatározás |
 | --- | --- |
-| Közvetlen CSP-partner | Közvetlen Felhőszolgáltató (CSP) partner közvetlenül kap számlát közvetlenül a Microsoft Azure és az Azure Stack használatának, és a számlák vásárlóink számára. |
-| A közvetett CSP | Közvetett viszonteladók az közvetett szolgáltatóval (is terjesztő) működik. A viszonteladók toborzására végfelhasználókat; a közvetett szolgáltató tárolja a számlázást, a Microsoft, a számlázás a vásárlók kezeli, és további szolgáltatásokat, például a terméktámogatási szolgálathoz. |
-| Végfelhasználói | Végfelhasználókat a vállalkozás és az alkalmazások és más az Azure Stacken futó alkalmazások és szolgáltatások saját kormányzati szervek. |
+| Közvetlen CSP-partner | A közvetlen felhőalapú megoldás-szolgáltató (CSP) partner közvetlenül a Microsofttól kapja meg az Azure-t, és Azure Stack használatot, és az ügyfeleket közvetlenül számlázza. |
+| Közvetett CSP | A közvetett viszonteladók egy közvetett szolgáltatóval (más néven terjesztővel) működnek. A viszonteladók végfelhasználók toborzása; a közvetett szolgáltató a Microsofttal számlázási kapcsolatot tart fenn, kezeli az ügyfelek számlázását, és további szolgáltatásokat nyújt, mint például a terméktámogatás. |
+| Végfelhasználó | A végfelhasználók az alkalmazások és a Azure Stack-on futó egyéb munkaterhelések tulajdonában lévő vállalkozások és kormányzati szervek. |
 
 ## <a name="next-steps"></a>További lépések
 
-- A CSP program kapcsolatos további információkért lásd: [Felhőmegoldások](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
-- Erőforrás-használati adatok lekérése az Azure Stack kapcsolatos további tudnivalókért lásd: [használat és számlázás az Azure Stackben](azure-stack-billing-and-chargeback.md).
+- További információ a CSP programról: [felhőalapú megoldások](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
+- Ha többet szeretne megtudni a Azure Stack erőforrás-használati adatok lekéréséről, tekintse meg a [használat és a számlázás Azure Stackban](azure-stack-billing-and-chargeback.md)című témakört.

@@ -1,6 +1,6 @@
 ---
 title: Bérlők regisztrálása a használat nyomon követéséhez Azure Stackban | Microsoft Docs
-description: A bérlői regisztrációk kezeléséhez és a bérlők használatának nyomon követéséhez használt műveletek részletei Azure Stack.
+description: Megtudhatja, hogyan regisztrálhat bérlőket, és hogyan követheti nyomon a bérlők használatát Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070093"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342833"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Bérlői regisztráció kezelése Azure Stack
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
@@ -50,7 +50,7 @@ A Azure Stack-és API-profilokkal kapcsolatos további információkért lásd: 
 | Paraméter                  | Leírás |
 |---                         | --- |
 | registrationSubscriptionID | A kezdeti regisztrációhoz használt Azure-előfizetés. |
-| customerSubscriptionID     | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack). A partner centeren keresztül kell létrehozni a felhőalapú szolgáltatói (CSP) ajánlatban. Ha egy ügyfél több Bérlővel rendelkezik, hozzon létre egy előfizetést a bérlőnek Azure Stackba való bejelentkezéshez. |
+| customerSubscriptionID     | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack). A partner centeren keresztül kell létrehozni a Cloud Solution Provider (CSP) ajánlatban. Ha egy ügyfél több Bérlővel rendelkezik, hozzon létre egy előfizetést a bérlőnek Azure Stackba való bejelentkezéshez. |
 | resourceGroup              | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
 | registrationName           | A Azure Stack regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. A név általában a **azurestack-CloudID**formában van, ahol a **CloudID** a Azure stack üzemelő példányának felhő-azonosítója. |
 

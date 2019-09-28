@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 201af19756ef3958e943549482610ee32e208f01
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 4bf1334f2b4e83223bb2eb1dfbb187dc860ed360
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603064"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342959"
 ---
 # <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Hibrid felhőalapú megoldás üzembe helyezése az Azure-ban és Azure Stack
 
@@ -52,7 +52,7 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
-### <a name="assumptions"></a>Előfeltevésekbe
+### <a name="assumptions"></a>Feltételezések
 
 Ez az oktatóanyag feltételezi, hogy rendelkezik a globális Azure és a Azure Stack alapszintű ismeretével. Ha többet szeretne megtudni az oktatóanyag megkezdése előtt, tekintse át a következő cikkeket:
 
@@ -86,13 +86,13 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
     ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. A **piactéren**válassza a **számítás**lehetőséget, majd válassza a **továbbiak**lehetőséget. A **továbbiak**területen válassza **az ingyenes SQL Server licencet: SQL Server 2017 fejlesztő a Windows Server** rendszerképén.
+3. A **piactéren**válassza a **számítás**lehetőséget, majd válassza a **továbbiak**lehetőséget. A **továbbiak**területen válassza ki a **Free SQL Server licencet: SQL Server 2017 fejlesztő a Windows Server @ no__t-0 rendszerképben.
 
     ![Virtuális gép rendszerképének kiválasztása](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. **Ingyenes SQL Server licenc: SQL Server 2017-fejlesztő a Windows**Serveren válassza a **Létrehozás**lehetőséget.
+4. @No__t 0Free SQL Server licenc: SQL Server 2017 fejlesztői Windows Server @ no__t-0, válassza a **Létrehozás**lehetőséget.
 
-5. Az **alapvető beállítások konfigurálása >** alapszintű beállításnál adja meg a virtuális gép (VM) **nevét** , a SQL Server SA **felhasználónevét** és a biztonsági társításhoz tartozó **jelszót** .  Az **előfizetés** legördülő listából válassza ki azt az előfizetést, amelyre telepíteni kívánja. Az **erőforráscsoport**esetében használja a **meglévő kiválasztása lehetőséget** , és helyezze a virtuális gépet ugyanabba az erőforráscsoporthoz, mint a Azure stack webalkalmazás.
+5. Az **alapvető beállítások konfigurálása > alapszintű beállításnál**adja meg a virtuális gép (VM) **nevét** , a SQL Server SA **felhasználónevét** és a biztonsági társításhoz tartozó **jelszót** .  Az **előfizetés** legördülő listából válassza ki azt az előfizetést, amelyre telepíteni kívánja. Az **erőforráscsoport**esetében használja a **meglévő kiválasztása lehetőséget** , és helyezze a virtuális gépet ugyanabba az erőforráscsoporthoz, mint a Azure stack webalkalmazás.
 
     ![A virtuális gép alapszintű beállításainak konfigurálása](media/azure-stack-solution-hybrid-cloud/image3.png)
 
@@ -130,7 +130,7 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
     ![Konfiguráció összegzése](media/azure-stack-solution-hybrid-cloud/image6.png)
 
-10. Némi időbe telik az új virtuális gép létrehozása. A **virtuális gépek**állapota a Virtual Machines szolgáltatásban tekinthető meg.
+10. Némi időbe telik az új virtuális gép létrehozása. A **virtuális gépek állapota a Virtual Machines**szolgáltatásban tekinthető meg.
 
     ![Virtual machines (Virtuális gépek)](media/azure-stack-solution-hybrid-cloud/image7.png)
 
@@ -148,11 +148,11 @@ A Azure App Service leegyszerűsíti a webalkalmazások futtatását és felügy
 
 A Azure Stack App Servicenek irányíthatónak kell lennie a nyilvános internetről, hogy a felhasználók hozzáférhessenek az alkalmazáshoz. Ha az Azure Stack elérhető az internetről, jegyezze fel a Azure Stack webalkalmazás nyilvános IP-címét vagy URL-címét.
 
-Ha ASDK használ, beállíthatja [a statikus NAT](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal) -leképezést úgy, hogy a virtuális környezeten kívül is elérhetővé tegye a app Service.
+Ha ASDK használ, beállíthatja [a statikus NAT-leképezést](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-vm-on-each-asdk-for-gateway-traversal) úgy, hogy a virtuális környezeten kívül is elérhetővé tegye a app Service.
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>Webalkalmazás összekötése az Azure-ban hibrid hálózattal
 
-Az Azure-beli webes kezelőfelület és a Azure Stack SQL Server adatbázis közötti kapcsolat biztosításához a webalkalmazásnak csatlakoznia kell az Azure és a Azure Stack közötti hibrid hálózathoz. A kapcsolat engedélyezéséhez a következőkre lesz szüksége:
+Az Azure-beli webes kezelőfelület és a Azure Stack SQL Server-adatbázis közötti kapcsolat biztosításához a webalkalmazásnak csatlakoznia kell az Azure és a Azure Stack közötti hibrid hálózathoz. A kapcsolat engedélyezéséhez a következőkre lesz szüksége:
 
 - Pont – hely kapcsolat konfigurálása.
 - Konfigurálja a webalkalmazást.
@@ -170,7 +170,7 @@ A hibrid hálózat Azure oldalán lévő virtuális hálózati átjárónak lehe
 
     ![Pont – hely konfiguráció indítása](media/azure-stack-solution-hybrid-cloud/image9.png)
 
-3. A **pont – hely** konfiguráció lapon adja meg a címkészlet számára használni kívánt magánhálózati IP- **címtartományt.**
+3. A **pont – hely** konfiguráció lapon adja meg a címkészlet számára használni kívánt magánhálózati IP-címtartományt.
 
    > [!Note]  
    > Ügyeljen arra, hogy a megadott tartomány ne legyen átfedésben a globális Azure-ban vagy Azure Stack a hibrid hálózat összetevőiben már használt alhálózatok bármelyikével.
@@ -181,9 +181,9 @@ A hibrid hálózat Azure oldalán lévő virtuális hálózati átjárónak lehe
 
 ### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>A Azure App Service alkalmazás integrálása a hibrid hálózattal
 
-1. Az alkalmazás Azure VNet való összekapcsolásához kövesse az [átjáró szükséges VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)-integrációjának utasításait.
+1. Az alkalmazás Azure VNet való összekapcsolásához kövesse az [átjáró szükséges VNet-integrációjának](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)utasításait.
 
-2. Navigáljon  a webalkalmazást üzemeltető app Service terv beállításaihoz. A **Beállítások**területen válassza a **hálózatkezelés**lehetőséget.
+2. Navigáljon a webalkalmazást üzemeltető App Service terv **beállításaihoz** . A **Beállítások**területen válassza a **hálózatkezelés**lehetőséget.
 
     ![Hálózatkezelés konfigurálása](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -233,7 +233,7 @@ Létre kell hoznia egy altartományt is az Azure Stack végponthoz tartozó reko
 
 1. Adja hozzá a **azurestack.Northwind.com** -gazdagépet a Azure stack webalkalmazáshoz [egy olyan rekord hozzárendelésével, Azure app Service](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record). Használja az App Service alkalmazás internetre irányítható IP-címét.
 
-2. Adja hozzá a **app.Northwind.com** hostname-t a Azure stack webalkalmazáshoz, és rendelje hozzá a [CNAME-t](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)a Azure app Servicehoz. Használja az előző lépésben (1) konfigurált állomásnevet a CNAME célhelyként.
+2. Adja hozzá a **app.Northwind.com** hostname-t a Azure stack webalkalmazáshoz, [és rendelje hozzá a CNAME-t a Azure app Servicehoz](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record). Használja az előző lépésben (1) konfigurált állomásnevet a CNAME célhelyként.
 
 ## <a name="configure-ssl-certificates-for-cross-cloud-scaling"></a>Az SSL-tanúsítványok konfigurálása a Felhőbeli skálázáshoz
 
@@ -247,9 +247,9 @@ SSL hozzáadása az Azure-hoz:
 
 1. Győződjön meg arról, hogy a beszerzett SSL-tanúsítvány érvényes a létrehozott altartományhoz. (A helyettesítő tanúsítványok használata rendben van.)
 
-2. Az Azure-ban kövesse a webalkalmazás **előkészítése** és az SSL- **tanúsítvány** kötése szakaszát a [meglévő egyéni SSL-tanúsítvány kötése az Azure Web Apps](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl) cikkhez című cikkben található utasításokat. Az **SSL**-típusként válassza a **SNI-alapú SSL** lehetőséget.
+2. Az Azure-ban kövesse a **webalkalmazás előkészítése** és az SSL- **tanúsítvány** kötése szakaszát a [meglévő egyéni SSL-tanúsítvány kötése az Azure Web Apps](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl) cikkhez című cikkben található utasításokat. Az **SSL-típusként**válassza a **SNI-alapú SSL** lehetőséget.
 
-3. A HTTPS-portra irányuló összes forgalom átirányítása. Kövesse a [meglévő egyéni SSL-tanúsítvány kötése az Azure-Web Apps](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl) cikk **https-alapú** hitelesítésének megkövetelése című szakaszának utasításait.
+3. A HTTPS-portra irányuló összes forgalom átirányítása. Kövesse a [meglévő egyéni SSL-tanúsítvány kötése az Azure-Web Apps cikk HTTPS-alapú hitelesítésének](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl) **megkövetelése** című szakaszának utasításait.
 
 SSL hozzáadása Azure Stackhoz:
 
@@ -296,7 +296,7 @@ App Service környezeti változók használatával más kapcsolódási karakterl
 
 1. Hozzon létre a kapcsolatok karakterláncait az Azure-hoz és a Azure Stack. A karakterláncoknak azonosnak kell lenniük, kivéve a használt IP-címeket.
 
-2. Az Azure-ban és a Azure stack-ban adja hozzá a megfelelő kapcsolati karakterláncot a webalkalmazásban, a név előtagként használva. [](https://docs.microsoft.com/azure/app-service/web-sites-configure) `SQLCONNSTR\_`
+2. Az Azure-ban és a Azure Stack [-ban adja](https://docs.microsoft.com/azure/app-service/web-sites-configure) hozzá a megfelelő kapcsolati karakterláncot a webalkalmazásban, `SQLCONNSTR\_` előtagként használva a nevet.
 
 3. **Mentse** a webalkalmazás beállításait, és indítsa újra az alkalmazást.
 
@@ -317,7 +317,7 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
 
     ![Automatikus skálázás engedélyezése](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Adja meg az autoskálázási **beállítás nevének**nevét. Az **alapértelmezett** automatikus skálázási szabálynál válassza a **skála mérőszám alapján**lehetőséget. A **példányokra vonatkozó korlátok** **minimálisra állítása: 1** ,**maximum: 10** és**alapértelmezett: 1**.
+3. Adja meg az **autoskálázási beállítás nevének**nevét. Az **alapértelmezett** automatikus skálázási szabálynál válassza a **skála mérőszám alapján**lehetőséget. Adja meg a **példányok korlátait** **Minimum: 1 @ no__t-0, **Maximum: 10 @ no__t-0 és **Default: 1 @ no__t-0.
 
     ![Automatikus skálázás konfigurálása](media/azure-stack-solution-hybrid-cloud/image18.png)
 
@@ -333,8 +333,8 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
 
 3. Az **operátor**területen válassza a **nagyobb, mint**lehetőséget.
 
-   - Állítsa a  küszöbértéket **50**-re.
-   - Állítsa az  időtartamot **10**értékre.
+   - Állítsa a küszöbértéket **50**-re.
+   - Állítsa az időtartamot **10**értékre.
 
 **Művelet**
 
@@ -367,8 +367,8 @@ A forgalom csökkenése esetén az Azure-webalkalmazás automatikusan csökkenth
 
 3. Az **operátor**területen válassza a **kisebb, mint**lehetőséget.
 
-   - Állítsa a  küszöbértéket **30**-ra.
-   - Állítsa az  időtartamot **10**értékre.
+   - Állítsa a küszöbértéket **30**-ra.
+   - Állítsa az időtartamot **10**értékre.
 
 **Művelet**
 
@@ -389,7 +389,7 @@ Hozzon létre egy Traffic Manager-profilt az Azure-ban, majd konfigurálja a vé
 2. Válassza a **hálózatkezelés**lehetőséget.
 3. Válassza ki **Traffic Manager profilt** , és konfigurálja a következő beállításokat:
 
-   - A **név**mezőben adja meg a profil nevét. Ennek a **névnek** egyedinek kell lennie az trafficmanager.net zónában, és egy új DNS-név (például northwindstore.trafficmanager.net) létrehozására szolgál.
+   - A **név**mezőben adja meg a profil nevét. Ennek a névnek egyedinek kell lennie az trafficmanager.net zónában, és egy új DNS-név (például northwindstore.trafficmanager.net) létrehozására szolgál.
    - Az **útválasztási módszer**beállításnál válassza ki a **súlyozott**értéket.
    - Az **előfizetés**mezőben válassza ki azt az előfizetést, amelyben a profilt létre szeretné hozni.
    - Az **erőforráscsoport**területen hozzon létre egy új erőforráscsoportot ehhez a profilhoz.
@@ -459,9 +459,9 @@ Ezzel a nézettel kibővíthető riasztást és a riasztások méretezését fog
 2. Válassza a **metrikus riasztás hozzáadása (klasszikus)** lehetőséget.
 3. A **szabály hozzáadása**területen adja meg a következő beállításokat:
 
-   - A **név**mezőben adja meg az **Azure-felhőbe való**betörést.
+   - A **név**mezőben adja meg az **Azure-felhőbe való betörést**.
    - A **Leírás** megadása nem kötelező.
-   - A **forrás** > **riasztás**területen válassza a **metrikák**lehetőséget.
+   - A **forrás**@no__t – 1**riasztás**területen válassza a **metrikák**lehetőséget.
    - A **feltételek**területen válassza ki az előfizetését, a Traffic Manager profiljához tartozó erőforráscsoportot, valamint az erőforrás Traffic Manager profiljának nevét.
 
 4. A **metrika**mezőben válassza a **kérelmek aránya**lehetőséget.
@@ -482,7 +482,7 @@ Ezzel a nézettel kibővíthető riasztást és a riasztások méretezését fog
 
    - A **név**mezőbe írja be a **Méretezés vissza Azure stack**.
    - A **Leírás** megadása nem kötelező.
-   - A **forrás** > **riasztás**területen válassza a **metrikák**lehetőséget.
+   - A **forrás**@no__t – 1**riasztás**területen válassza a **metrikák**lehetőséget.
    - A **feltételek**területen válassza ki az előfizetését, a Traffic Manager profiljához tartozó erőforráscsoportot, valamint az erőforrás Traffic Manager profiljának nevét.
 
 4. A **metrika**mezőben válassza a **kérelmek aránya**lehetőséget.
@@ -497,7 +497,7 @@ Ezzel a nézettel kibővíthető riasztást és a riasztások méretezését fog
 
 Az alábbi képernyőfelvételen a méretezési és skálázási riasztások láthatók.
 
-   ![Értesítések (klasszikus)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![Riasztások (klasszikus)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>Az Azure és a Azure Stack közötti forgalom átirányítása
 
@@ -511,14 +511,14 @@ Ha a webhely eléri a konfigurált küszöbértékeket, riasztást kap. A követ
 
     ![Traffic Manager-végpontok](media/azure-stack-solution-hybrid-cloud/image20.png)
 
-2. Válassza a végpontok lehetőséget.
-3. Válassza ki az **Azure**-végpontot.
+2. Válasszaa végpontok lehetőséget.
+3. Válassza ki az **Azure-végpontot**.
 4. Az **állapot**területen válassza az **engedélyezve**lehetőséget, majd kattintson a **Mentés**gombra.
 
     ![Azure-végpont engedélyezése](media/azure-stack-solution-hybrid-cloud/image23.png)
 
-5. A  Traffic Manager profilhoz tartozó végpontokon válassza a **külső végpont**lehetőséget.
-6. Az **állapot**területen válassza a letiltva, majd a **Mentés**lehetőséget.
+5. A Traffic Manager profilhoz tartozó végpontokon válassza a **külső végpont**lehetőséget.
+6. Az **állapot**területen válassza a **Letiltva**, majd a **Mentés**lehetőséget.
 
     ![Azure Stack végpont letiltása](media/azure-stack-solution-hybrid-cloud/image24.png)
 
