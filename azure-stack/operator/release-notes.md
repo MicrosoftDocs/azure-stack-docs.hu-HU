@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: 62440c61ee637a0092b1e956b08ba0a9c94d8bab
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279189"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342934"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -56,7 +56,7 @@ A frissítésekkel és a frissítési folyamattal kapcsolatos segítségért tek
 ::: moniker range="azs-1908"
 ## <a name="1908-build-reference"></a>1908-Build referenciája
 
-A Azure Stack 1908 frissítési Build száma **1.1908.0.20**.
+A Azure Stack 1908 frissítési Build száma **1.1908.4.33**.
 
 ### <a name="update-type-1908"></a>Frissítés típusa
 
@@ -119,7 +119,7 @@ Azure Stack gyorsjavítások csak Azure Stack integrált rendszerekre alkalmazha
 A Azure Stack 1908-es kiadását a 1907-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack gyorsjavítás 1.1907.12.44](https://support.microsoft.com/help/4517473)
+- [Azure Stack gyorsjavítás 1.1907.17.54](https://support.microsoft.com/help/4523826)
 
 A Azure Stack 1908 frissítéshez **Azure stack OEM 2,1-es vagy újabb verzió** szükséges a rendszer hardver-szolgáltatójából. Az OEM-frissítések a Azure Stack rendszer hardverének illesztőprogram-és belső vezérlőprogram-frissítéseit tartalmazzák. További információ az OEM-frissítések alkalmazásáról: [Azure stack eredeti berendezésgyártó frissítéseinek alkalmazása](azure-stack-update-oem.md)
 
@@ -250,7 +250,7 @@ A Azure Stack 1907-es kiadását a 1906-es kiadásra kell alkalmazni a következ
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack gyorsjavítás 1.1907.15.50](https://support.microsoft.com/help/4520315)
+- [Azure Stack gyorsjavítás 1.1907.17.54](https://support.microsoft.com/help/4523826)
 ::: moniker-end
 
 ::: moniker range="azs-1906"
