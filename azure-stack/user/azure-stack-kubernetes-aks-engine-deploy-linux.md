@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 9c600451070373d10ee943d8e497693d89708801
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: d831f5ad30fe2c7e2b4c2ce5d6a9018f8cc833fb
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224974"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681731"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Az KABAi motor telepítése Linux rendszeren Azure Stack
 
@@ -43,13 +43,13 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 1. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Hozzon létre egy Linux-alapú virtuális gépet a](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure stack portál használatával.
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.41.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.40.1`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa a következő parancsot:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.41.0
+        ./get-akse.sh --version v0.40.1
     ```
 
     > [!Note]  

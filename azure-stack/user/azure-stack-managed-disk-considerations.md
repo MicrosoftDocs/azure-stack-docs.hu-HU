@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a2809ed8a745f2ec4cdb31d924e964ecc28209b0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271720"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687983"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack felügyelt lemezek: különbségek és szempontok
 
@@ -38,7 +38,7 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker 128 bites AES-titkosítás      |
 |Image          | Felügyelt egyéni rendszerkép |Támogatott|
-|Biztonsági mentés beállításai | Azure Backup szolgáltatás |Még nem támogatott |
+|Biztonsági mentési beállítások | Azure Backup szolgáltatás |Még nem támogatott |
 |Vész-helyreállítási lehetőségek | Azure Site Recovery |Még nem támogatott|
 |Lemez típusa     |Prémium SSD, standard SSD és standard HDD |Prémium SSD, standard HDD |
 |Prémium szintű lemezek  |Teljes mértékben támogatott |Kiépíthető, de nincs teljesítménybeli korlát vagy garancia  |
@@ -159,7 +159,7 @@ A felügyelt rendszerkép létrehozásához használhatja a portált, a PowerShe
 
 A lépés végrehajtása előtt győződjön meg arról, hogy megfelelően általánosítja a virtuális gépet. Az általánosítás után már nem használhatja ezt a virtuális gépet. A nem megfelelően általánosított rendszerképből létrehozott virtuális gépek **VMProvisioningTimeout** hibához vezethetnek.
 
-Kövesse a [rendszerkép létrehozása virtuális merevlemezről egy Storage-fiókban](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account) című témakör utasításait egy felügyelt rendszerkép létrehozásához egy általános VHD-ből egy Storage-fiókban. A jövőben ezt a rendszerképet használhatja a felügyelt virtuális gépek létrehozásához.
+Kövesse a [rendszerkép létrehozása olyan virtuális gépről, amely Storage-fiókot használ](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account) egy felügyelt rendszerkép létrehozásához egy általános VHD-ből egy Storage-fiókban. A jövőben ezt a rendszerképet használhatja a felügyelt virtuális gépek létrehozásához.
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>2\. eset: Felügyelt virtuális gép létrehozása a felügyelt rendszerképből a PowerShell használatával
 

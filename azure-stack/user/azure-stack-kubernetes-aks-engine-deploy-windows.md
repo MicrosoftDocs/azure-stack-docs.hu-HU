@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 87cd2031c15611173308bf23e50d07690d3930e9
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: bd5d1d473bd72b65df3377fb7b2de79b0aa6c7b0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224910"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681803"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Az AK-motor telepítése Windows rendszeren Azure Stack
 
@@ -46,11 +46,11 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 3. [A chocolatey telepítése a PowerShell-utasítások használatával](https://chocolatey.org/install#install-with-powershellexe). 
 
     A chocolaty webhelye szerint: A chocolatey a Windows rendszerhez készült csomagkezelő, például az apt-get vagy a yum, de a Windows. A rendszer úgy lett kialakítva, hogy egy decentralizált keretrendszer legyen a szükséges alkalmazások és eszközök gyors telepítéséhez. A szolgáltatás a NuGet-infrastruktúrára épül, amely jelenleg a PowerShell-t használja, mivel a disztribúciók csomagjait a saját ajtajára, az err-re, a számítógépekre irányítja.
-4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.41.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.40.1`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 5. Futtassa a következő parancsot egy emelt szintű parancssorból, és adja meg a verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.0 -y
+        choco install aks-engine --version v0.40.1 -y
     ```
 
 > [!Note]  
@@ -75,7 +75,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 7.  Futtassa a következő parancsot egy emelt szintű parancssorból. Adja meg a megfelelő verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version v0.0.0 -y
+        choco install aks-engine --version v0.40.1 -y
     ```
 
 ## <a name="verify-the-installation"></a>A telepítés ellenőrzése

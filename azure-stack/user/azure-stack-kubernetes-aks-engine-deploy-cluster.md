@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279179"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681822"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack
 
@@ -60,9 +60,23 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     aks-engine get-versions
     ```
 
-4.  Keresse `portalURL` meg és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`.
+4.  Keresse `customCloudProfile` meg és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`. 
 
-5.  A tömbben `masterProfile`állítsa be a következő mezőket:
+5. Adja hozzá a `"identitySystem":"adfs"` értéket, ha AD FS használ. Például:
+
+    ```JSON  
+        "customCloudProfile": {
+            "portalURL": "https://portal.local.azurestack.external",
+            "identitySystem": "adfs"
+        },
+    ```
+
+    > [!Note]  
+    > Ha az Azure AD-t használja az identitásrendszer számára, nincs szükség a **identitySystem** mező hozzáadására.
+
+6. Keresse `portalURL` meg és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`.
+
+7.  A tömbben `masterProfile`állítsa be a következő mezőket:
 
     | Mező | Leírás |
     | --- | --- |
@@ -71,7 +85,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | vmSize |  Adja meg [a Azure stack által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(példa `Standard_D2_v2`). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
-6.  A tömb `agentPoolProfiles` frissítése:
+8.  A tömb `agentPoolProfiles` frissítése:
 
     | Mező | Leírás |
     | --- | --- |
@@ -79,7 +93,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | vmSize | Adja meg [a Azure stack által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(példa `Standard_D2_v2`). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
-7.  A tömb `linuxProfile` frissítése:
+9.  A tömb `linuxProfile` frissítése:
 
     | Mező | Leírás |
     | --- | --- |

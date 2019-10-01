@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101174"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687958"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Azure Stack frissítés megtervezése
 
@@ -36,9 +36,9 @@ Minden karbantartási műveletről értesítenie kell a felhasználókat, és ha
 
 A frissítés előkészítéséhez győződjön meg arról, hogy alkalmazta a gyorsjavításokat, a biztonsági javításokat és az OEM-frissítéseket, ellenőrizte a Azure Stack példány állapotát, ellenőrizte a rendelkezésre álló kapacitást, és áttekintette a frissítési csomagot.
 
-1. Tekintse át az ismert problémákat. Útmutatásért lásd: [Azure stack ismert problémák](https://docs.microsoft.com/azure-stack/operator/release-notes.md).
+1. Tekintse át az ismert problémákat. Útmutatásért lásd: [Azure stack ismert problémák](https://docs.microsoft.com/azure-stack/operator/release-notes).
 
-2. Tekintse át a biztonsági frissítéseket. A frissítések listáját itt tekintheti meg: [Azure stack biztonsági frissítések](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md).
+2. Tekintse át a biztonsági frissítéseket. A frissítések listáját itt tekintheti meg: [Azure stack biztonsági frissítések](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates).
 
 3. A frissítés telepítésének megkezdése előtt futtassa a [test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) parancsot a Azure stack állapotának ellenőrzéséhez és a talált működési problémák megoldásához, beleértve az összes figyelmeztetést és hibát. Emellett tekintse át az aktív riasztásokat, és ha bármelyik beavatkozást igényel, kezelje őket.
 

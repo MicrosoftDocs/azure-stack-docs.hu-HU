@@ -12,21 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 09/30/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/26/2019
-ms.openlocfilehash: 865592d476eadaa847c4b46ff2a802f5fa0cc63e
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.lastreviewed: 09/30/2019
+ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319076"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687970"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
 
 Ez a dokumentum a Azure Stack integrált környezetek hibaelhárítási információit tartalmazza. Ha segítségre van a Azure Stack Development Kit kapcsolatban, tekintse meg a [ASDK-hibaelhárítást](../asdk/asdk-troubleshooting.md) ismertető témakört, vagy kérjen segítséget a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
-
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
@@ -91,6 +90,15 @@ Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típ
 ### <a name="general-deployment-failure"></a>Általános telepítési hiba
 Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl újbóli beállításával újraindíthatja a telepítést a sikertelen lépéssel.  
 
+### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>A sablon-érvényesítési hiba paraméterének osProfile nem engedélyezett
+
+Ha a sablon érvényesítése során hibaüzenet jelenik meg, hogy a "osProfile" paraméter nem engedélyezett, ügyeljen arra, hogy az API-k megfelelő verzióit használja az alábbi összetevőkhöz:
+
+- [Számítás](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [Hálózat](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+
+A virtuális merevlemez Azure-ból Azure Stackba történő másolásához használja a [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Működjön együtt a gyártóval a rendszerképpel kapcsolatos problémák megoldásához. A Azure Stack WALinuxAgent követelményeivel kapcsolatos további információkért lásd: [Azure Linux Agent](azure-stack-linux.md#azure-linux-agent).
+
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>A telepítés sikertelen a külső hozzáférés hiánya miatt
 Ha a telepítés sikertelen, és a külső hozzáférés kötelező, az alábbi példához hasonló kivételt ad vissza:
 
@@ -99,15 +107,18 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
 ```
-Ha ez a hiba történik, ellenőrizze, hogy az összes minimális hálózati követelmény teljesült-e a [központi telepítési hálózati forgalom dokumentációjának](deployment-networking.md)áttekintésével. A partneri eszközkészlet részeként egy hálózati ellenőrzési eszköz is elérhető a partnerek számára.
+Ha ez a hiba történik, ellenőrizze, hogy teljesülnek-e az összes minimális hálózati követelmény a [központi telepítési hálózati forgalom dokumentációjának](deployment-networking.md)áttekintésével. A partneri eszközkészlet részeként egy hálózati ellenőrzési eszköz is elérhető a partnerek számára.
 
 Az egyéb központi telepítési hibák általában az interneten található erőforrásokhoz való csatlakozással kapcsolatos problémák miatt jelentkeznek.
 
 Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez hajtsa végre a következő lépéseket:
 
-1. A PowerShell megnyitása
-2. Adja meg a-PSSession a WAS01 vagy a ERCs virtuális gépekhez
-3. Futtassa a parancsmagot: Test-NetConnection login.windows.net-port 443
+1. Nyissa meg a PowerShellt.
+2. Adja meg a-PSSession a WAS01 vagy a ERCs virtuális gépekhez.
+3. Futtassa a következő parancsmagot: 
+   ```powershell
+   Test-NetConnection login.windows.net -port 443
+   ```
 
 Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](azure-stack-network.md).
 
@@ -129,4 +140,9 @@ További információk az adatmegőrzési küszöbérték és az igény szerinti
 ## <a name="troubleshoot-storage"></a>A tárolás hibaelhárítása
 ### <a name="storage-reclamation"></a>Tárhely-visszanyerés
 Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való megjelenítéséhez. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyit töröl az adatmennyiség, a rendszer nem garantálja, hogy mennyi helyet szabadít fel a rendszer a Garbage Collector futtatásakor.
+
+## <a name="troubleshooting-app-service"></a>Hibaelhárítási App Service
+### <a name="create-aadidentityappps1-script-fails"></a>A Create-AADIdentityApp. ps1 parancsfájl végrehajtása sikertelen
+
+Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor vegye fel a szükséges-AzureStackAdminCredential paramétert. További információ: a [app Service telepítésének Előfeltételei Azure stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
 
