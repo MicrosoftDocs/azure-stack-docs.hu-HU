@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/01/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: e87baeba1b961c134fc5754fda8c9f1688f3fe90
-ms.sourcegitcommit: f38903cb925276e96dd62ebe8ffe92df8bf6e5c8
+ms.openlocfilehash: 32533b063d4c42b740825923e9e2b5692ec03728
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256533"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714632"
 ---
 # <a name="footfall-detection-solution"></a>Lépés hangja-észlelési megoldás
 
@@ -92,6 +92,6 @@ Ez a megoldás rögzíti a vásárlói rendszerképeket, így a biztonság a leg
 
 ## <a name="next-steps"></a>További lépések
 
-Ha többet szeretne megtudni a megoldás által használt kapcsolódó mintázatokról, tekintse meg a [Lépcsőzetes adatminta](azure-stack-solution-staged-data.md)című témakört. 
-
-Ha többet szeretne megtudni az egyéni jövőkép használatáról, tekintse meg a [Custom Vision AI fejlesztői készletet](https://azure.github.io/Vision-AI-DevKit-Pages/). 
+- Ha többet szeretne megtudni a megoldás által használt kapcsolódó mintázatokról, tekintse meg a [Lépcsőzetes adatminta](azure-stack-solution-staged-data.md)című témakört. 
+- Ha többet szeretne megtudni az egyéni jövőkép használatáról, tekintse meg a [Custom Vision AI fejlesztői készletet](https://azure.github.io/Vision-AI-DevKit-Pages/). 
+- Töltse le és telepítse a [lépés hangja-megoldás mintájának megvalósítását](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis). Megtudhatja, hogyan hozhatja ki a valós tevékenységekből származó információkat az Azure, a Azure Stack és a Custom Vision AI dev kit használatával.   

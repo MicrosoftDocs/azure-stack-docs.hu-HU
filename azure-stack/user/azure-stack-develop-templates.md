@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: bedc4c3971c5d4a177f4d8ac804878babebaa9b6
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658647"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714722"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Sablonok fejlesztése a Azure Stackhoz Azure Resource Manager
 
@@ -31,11 +31,11 @@ Az alkalmazás fejlesztése során fontos, hogy az Azure és a Azure Stack köz�
 
 ## <a name="resource-provider-availability"></a>Erőforrás-szolgáltató rendelkezésre állása
 
-A telepíteni kívánt sablonnak csak olyan Microsoft Azure-szolgáltatásokat kell használnia, amelyek már elérhetők vagy előzetes verzióban Azure Stack.
+A telepíteni kívánt sablonnak csak Microsoft Azure szolgáltatásokat kell használnia, amelyek már elérhetők vagy előzetes verzióban, Azure Stack.
 
 ## <a name="public-namespaces"></a>Nyilvános névterek
 
-Mivel Azure Stack a saját adatközpontjában található, különböző szolgáltatási végponti névterek vannak, mint az Azure nyilvános felhője. Ennek eredményeképpen a Azure Resource Manager-sablonokban található, rögzített nyilvános végpontok meghiúsulnak, amikor Azure Stackre próbálják telepíteni őket. A `reference` és`concatenate` a függvények használatával dinamikusan hozhat létre szolgáltatási végpontokat az erőforrás-szolgáltató értékének az üzembe helyezés során való lekéréséhez. Például ahelyett, hogy a sablonban rögzített `blob.core.windows.net` kódolást használ, a [primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) beolvasásával dinamikusan állíthatja be a *osDisk. URI* végpontot:
+Mivel Azure Stack a saját adatközpontjában található, különböző szolgáltatási végponti névterek vannak, mint az Azure nyilvános felhője. Ennek eredményeképpen a Azure Resource Manager-sablonokban található, rögzített nyilvános végpontok meghiúsulnak, amikor Azure Stackre próbálják telepíteni őket. A `reference` és a `concatenate` függvények használatával dinamikusan építhet ki szolgáltatási végpontokat az erőforrás-szolgáltató értékének az üzembe helyezés során való lekéréséhez. Például ahelyett, hogy a sablonban nem a `blob.core.windows.net` kódolást használ, a [primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) beolvasásával dinamikusan állíthatja be a *osDisk. URI* végpontot:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -52,7 +52,7 @@ Az Azure-szolgáltatási verziók eltérőek lehetnek az Azure-ban és a Azure S
 | Compute |**2015-06-15** |
 | Network (Hálózat) |**2015-06-15**, **2015-05-01 – előzetes** verzió |
 | Storage |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
-| KeyVault | **2015-06-01** |
+| Kulcstartó | **2015-06-01** |
 | App Service |**2015-08-01** |
 
 ## <a name="template-functions"></a>Sablonfüggvények
@@ -66,11 +66,11 @@ Azure Resource Manager [függvények](/azure/azure-resource-manager/resource-gro
 Ezek a függvények nem érhetők el Azure Stackban:
 
 * Kihagyás
-* Eltarthat
+* eltarthat
 
 ## <a name="resource-location"></a>Erőforrás helye
 
-Azure Resource Manager-sablonok egy `location` attribútum használatával helyezik el az erőforrásokat az üzembe helyezés során. Az Azure-ban a helyszínek egy régióra, például az USA nyugati régiójára vagy Dél-Amerikára vonatkoznak. Azure Stack a helyszínek eltérnek, mert Azure Stack az adatközpontjában van. Annak biztosítása érdekében, hogy a sablonok átvihetők legyenek az Azure és a Azure Stack között, az egyes erőforrások telepítésekor az erőforráscsoport helyére kell hivatkoznia. Ezt a használatával `[resourceGroup().Location]` biztosíthatja, hogy az összes erőforrás örökölje az erőforráscsoport helyét. A következő kód egy példa arra, hogyan használhatja ezt a függvényt egy Storage-fiók telepítésekor:
+Azure Resource Manager-sablonok egy `location` attribútummal helyezik el az erőforrásokat az üzembe helyezés során. Az Azure-ban a helyszínek egy régióra, például az USA nyugati régiójára vagy Dél-Amerikára vonatkoznak. Azure Stack a helyszínek eltérnek, mert Azure Stack az adatközpontjában van. Annak biztosítása érdekében, hogy a sablonok átvihetők legyenek az Azure és a Azure Stack között, az egyes erőforrások telepítésekor az erőforráscsoport helyére kell hivatkoznia. Ezt a `[resourceGroup().Location]` használatával végezheti el, hogy az összes erőforrás örökölje az erőforráscsoport helyét. A következő kód egy példa arra, hogyan használhatja ezt a függvényt egy Storage-fiók telepítésekor:
 
 ```json
 "resources": [

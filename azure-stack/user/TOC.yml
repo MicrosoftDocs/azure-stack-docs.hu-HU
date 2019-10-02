@@ -73,16 +73,19 @@
               href: azure-stack-develop-templates.md
             - name: Sablonok fejlesztése az Azure-ban
               href: azure-stack-developer.md
-            - name: Sablonok ellenőrzése
+            - name: Sablonok üzembe helyezése
               href: azure-stack-validate-templates.md
-            - name: Üzembe helyezés a portállal
-              href: azure-stack-deploy-template-portal.md
-            - name: Üzembe helyezés a PowerShell-lel
-              href: azure-stack-deploy-template-powershell.md
-            - name: Üzembe helyezés CLI-vel
-              href: azure-stack-deploy-template-command-line.md
-            - name: Üzembe helyezés a Visual Studióval
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: Üzembe helyezés a portállal
+                  href: azure-stack-deploy-template-portal.md
+                - name: Üzembe helyezés a PowerShell-lel
+                  href: azure-stack-deploy-template-powershell.md
+                - name: Üzembe helyezés CLI-vel
+                  href: azure-stack-deploy-template-command-line.md
+                - name: Üzembe helyezés a Visual Studio Code-ban
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: Üzembe helyezés a Visual Studióval
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: API-verziók profiljainak használata
           items:
             - name: Áttekintés

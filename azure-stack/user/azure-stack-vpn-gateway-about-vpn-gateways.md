@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 980d601dd5830d653787fe4cc31f57be3b3f8d00
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: a66057ea2490f4510d28db8b07d03e4ed17ba3ad
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658674"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714754"
 ---
 # <a name="create-vpn-gateways-for-azure-stack"></a>VPN-átjárók létrehozása a Azure Stackhoz
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Hálózati forgalom küldése az Azure virtuális hálózat és a helyszíni hely között, előtt a virtuális hálózat egy virtuális hálózati átjárót kell létrehoznia.
+Mielőtt hálózati forgalmat küldene az Azure-beli virtuális hálózat és a helyszíni hely között, létre kell hoznia egy virtuális hálózati (VPN-) átjárót a virtuális hálózathoz.
 
 A VPN-átjáró a virtuális hálózati átjárók egy olyan típusa, amely titkosított adatforgalmat továbbít nyilvános kapcsolaton keresztül. VPN-átjárók segítségével biztonságosan a virtuális hálózat az Azure Stackben és a egy virtuális hálózat között forgalmat küldeni az Azure-ban. Biztonságosan egy virtuális hálózat és a egy VPN-eszközhöz van csatlakoztatva egy másik hálózat közötti forgalmat is küldhet.
 
@@ -42,7 +42,7 @@ A Azure Stack VPN-átjárók létrehozása és konfigurálása előtt tekintse �
 > Példa:
 >
 > * Az Azure-ban az alapszintű VPN Gateway SKU körülbelül 100 Mbps összesített adatátviteli kapacitást tud kielégíteni. Ha két kapcsolatot hoz létre a VPN-átjáróhoz, és az egyik kapcsolat 50 Mbps sávszélességet használ, akkor az 50 Mbps elérhető lesz a másik kapcsolat számára.
-> * Azure Stack az alapszintű VPN Gateway SKU-val **létesített minden kapcsolat** 100 MB/s adatátviteli sebességet foglal le.
+> * Azure Stack az alapszintű VPN Gateway SKU-hoz való minden kapcsolat 100 Mbps átviteli sebességgel van lefoglalva.
 
 ## <a name="configuring-a-vpn-gateway"></a>VPN-átjáró konfigurálása
 
@@ -73,13 +73,13 @@ Az ábrák és leírások az alábbi szakaszok segítségével válassza ki az i
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Helyek közötti és többhelyes (IPsec/IKE VPN-alagút)
 
-### <a name="site-to-site"></a>Helyek közötti
+### <a name="site-to-site"></a>Helyek közötti kapcsolat
 
-A *helyek közötti* (S2S) VPN Gateway-kapcsolat IPSec/IKE (IKEV2) VPN-alagúton keresztüli kapcsolat. Az ilyen típusú kapcsolathoz olyan VPN-eszköz szükséges, amely a helyszínen található, és egy nyilvános IP-címet kap. Ez az eszköz nem található a NAT mögötti. A helyek közötti kapcsolatok létesítmények közötti és hibrid konfigurációk esetében is alkalmazhatók.
+A *helyek közötti* (S2S) VPN Gateway-kapcsolat IPSec/IKE (IKEV2) VPN-alagúton keresztüli kapcsolat. Az ilyen típusú kapcsolathoz olyan VPN-eszköz szükséges, amely a helyszínen található, és egy nyilvános IP-címet kap. Ez az eszköz nem helyezhető el NAT mögött. A helyek közötti kapcsolatok létesítmények közötti és hibrid konfigurációk esetében is alkalmazhatók.
 
 ![Site-to-site VPN kapcsolat konfigurációja – példa](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>Többhelyes
+### <a name="multi-site"></a>Több hely
 
 A többhelyes kapcsolat a helyek közötti kapcsolat egy változata. A virtuális hálózati átjáróról több VPN-kapcsolatot hoz létre, amelyek általában több helyszíni helyhez csatlakoznak. Több kapcsolat használata esetén egy Route-alapú VPN-típust (más néven dinamikus átjárót) kell használnia a klasszikus virtuális hálózatok használata esetén. Mivel minden virtuális hálózat csak egy VPN-átjáróval rendelkezhet, az átjárón keresztüli összes kapcsolat osztozik a rendelkezésre álló sávszélességen.
 
@@ -100,12 +100,12 @@ A Azure Stack nem támogatja az ultra Performance Gateway SKU-t, amely kizáról
 Az SKU kiválasztásakor vegye figyelembe a következőket:
 
 * A Azure Stack nem támogatja a házirend-alapú átjárókat.
-* A Border Gateway Protocol (BGP) nem támogatott az alapszintű SKU-ban.
+* Az alapszintű termékváltozat nem támogatott a Border Gateway Protocol (BGP).
 * ExpressRoute – a VPN-átjárók egyidejű konfigurációi Azure Stack nem támogatottak.
 
 ## <a name="gateway-availability"></a>Átjáró rendelkezésre állása
 
-A magas rendelkezésre állási forgatókönyvek csak a **nagy teljesítményű átjáró** -kapcsolatok SKU-ban konfigurálhatók. Az Azure-val ellentétben, amely az aktív/aktív és az aktív/passzív konfigurációkon keresztül biztosítja a rendelkezésre állást, Azure Stack csak az aktív/passzív konfigurációt támogatja. 
+A magas rendelkezésre állási forgatókönyvek csak a **nagy teljesítményű átjáró** -kapcsolatok SKU-ban konfigurálhatók. Az Azure-val ellentétben, amely az aktív/aktív és az aktív/passzív konfigurációkon keresztül biztosítja a rendelkezésre állást, Azure Stack csak az aktív/passzív konfigurációt támogatja.
 
 ### <a name="failover"></a>Feladatátvétel
 
@@ -115,20 +115,20 @@ A Azure Stackban három több-bérlős átjáró-infrastruktúra található. K�
 
 A következő táblázat az átjárók típusát és az átjáró SKU által becsült összesített átviteli sebességet mutatja:
 
-|| VPN Gateway teljesítménye *(1)* | VPN Gateway maximális IPsec-alagútjainak *(2)* |
+|| VPN Gateway teljesítménye (1) | VPN Gateway IPsec-alagútjainak maximális száma (2) |
 |-------|-------|-------|
-|**Alapszintű Termékváltozat** ***(3)*** | 100 Mbps | 20 |
+|**Alapszintű Termékváltozat** **(3)** | 100 Mbps | 20 |
 |**A standard Termékváltozat** | 100 Mbps | 20 |
 |**Nagy teljesítményű SKU** | 200 Mbps | 10 |
 
-**Tábla megjegyzések:**
+### <a name="table-notes"></a>Tábla megjegyzései
 
-*Megjegyzés (1)* – a VPN-átviteli sebesség nem garantált átviteli sebesség az interneten keresztül létesített létesítmények közötti kapcsolatokhoz. Legyen a maximális mérhető teljesítmény.  
-*Megjegyzés (2)* – az összes előfizetésre vonatkozóan Azure stack üzemelő példányok maximális száma.  
-*Megjegyzés (3)* – az alapszintű Termékváltozat esetén a BGP-útválasztás nem támogatott.
+**(1)** – a VPN-átviteli sebesség nem garantált átviteli sebesség az interneten keresztül létesített létesítmények közötti kapcsolatokhoz. Ez a maximális mérhető teljesítmény.  
+**(2)** – a maximális alagutak az összes előfizetésre vonatkozóan Azure stack üzemelő példányok száma.  
+**(3)** – a BGP-útválasztás nem támogatott az alapszintű SKU esetében.
 
 >[!NOTE]
->Két Azure Stack üzemelő példány között csak egy helyek közötti VPN-kapcsolat hozható létre. Ennek oka a platform olyan korlátozása, amely csak egyetlen VPN-kapcsolat használatát teszi lehetővé ugyanahhoz az IP-címhez. Mivel Azure Stack kihasználja a több-bérlős átjárót, amely egyetlen nyilvános IP-címet használ a Azure Stack rendszer összes VPN-átjárója számára, csak egy VPN-kapcsolat lehet két Azure Stack rendszer között. Ez a korlátozás arra az esetre is vonatkozik, ha egynél több helyek közötti VPN-kapcsolatot csatlakoztat egy olyan VPN-átjáróhoz, amely egyetlen IP-címet használ. Azure Stack nem engedélyezi egynél több helyi hálózati átjáró erőforrás létrehozását ugyanazzal az IP-címmel.
+>Két Azure Stack üzemelő példány között csak egy helyek közötti VPN-kapcsolat hozható létre. Ennek oka a platform olyan korlátozása, amely csak egyetlen VPN-kapcsolat használatát teszi lehetővé ugyanahhoz az IP-címhez. Mivel Azure Stack kihasználja a több-bérlős átjárót, amely egyetlen nyilvános IP-címet használ a Azure Stack rendszer összes VPN-átjárója számára, csak egy VPN-kapcsolat lehet két Azure Stack rendszer között. Ez a korlátozás arra az esetre is vonatkozik, ha egynél több helyek közötti VPN-kapcsolatot csatlakoztat egy olyan VPN-átjáróhoz, amely egyetlen IP-címet használ. Azure Stack nem teszi lehetővé, hogy egynél több helyi hálózati átjáró-erőforrást hozzon létre ugyanazzal az IP-címmel.
 
 ## <a name="next-steps"></a>További lépések
 

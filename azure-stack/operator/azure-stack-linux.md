@@ -1,6 +1,6 @@
 ---
-title: Linux-lemezképek hozzáadása az Azure Stackhez
-description: Ismerje meg, hogyan adhat hozzá a Linux-rendszerképeket az Azure Stackhez.
+title: Linuxos rendszerképek hozzáadása Azure Stackhoz
+description: Megtudhatja, hogyan adhat hozzá linuxos lemezképeket Azure Stackhoz.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,48 +11,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 8e9617974984afac55c2b1542065ea0455da0acc
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 309d3d7185bd225f58691d4996ba649e8df7b97a
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197148"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714615"
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Linux-lemezképek hozzáadása az Azure Stackhez
+# <a name="add-linux-images-to-azure-stack"></a>Linuxos rendszerképek hozzáadása Azure Stackhoz
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Linux rendszerű virtuális gépeket úgy helyezhet üzembe az Azure Stackben, hogy hozzáad egy Linux-alapú rendszerképet az Azure Stack-piactérhez. A leggyorsabban a Piactérkezelőn keresztül adhat hozzá Linux rendszerképet az Azure Stackhez. Ezek a rendszerképek elő lettek készítve az Azure Stackben történő használathoz, és ellenőrizve lett a kompatibilitásuk.
 
-## <a name="marketplace-management"></a>Marketplace-en kezelése
+## <a name="marketplace-management"></a>Piactér-kezelés
 
-Töltse le a Linux-rendszerképeket az Azure Marketplace-ről, kövesse a a [Piactéri termékek letöltése az Azure-ból az Azure Stackhez](azure-stack-download-azure-marketplace-item.md) cikk. Válassza ki, hogy a felhasználók számára az Azure Stack kívánt Linux-lemezképekhez.
+Ha Linux-lemezképeket szeretne letölteni az Azure Marketplace-ről, használja a [Marketplace-elemek letöltése az Azure-ból Azure stack](azure-stack-download-azure-marketplace-item.md) cikk eljárásait. Válassza ki azokat a Linux-lemezképeket, amelyeken a felhasználók számára biztosítani szeretné a Azure Stack.
 
-Gyakori frissítések érhetők el ezeket a lemezképeket, ezért érdemes ellenőrizni a Marketplace-en felügyeleti gyakran és naprakész állapotban tarthatja.
+Ezek a lemezképek gyakran frissülnek, ezért a piactér-felügyeletet gyakran érdemes naprakészen tartani.
 
-## <a name="prepare-your-own-image"></a>A saját lemezkép előkészítése
+## <a name="prepare-your-own-image"></a>Saját rendszerkép előkészítése
 
-Amikor csak lehetséges, töltse le a képek Marketplace Management szolgáltatáson keresztül érhető el. Ezeket a lemezképeket készíteni, és tesztelni az Azure Stackhez.
+Amikor lehetséges, a Marketplace-kezelőből töltse le az elérhető rendszerképeket. Ezek a rendszerképek elő lettek készítve az Azure Stackben történő használathoz, és tesztelésen estek át.
 
 ### <a name="azure-linux-agent"></a>Azure Linux-ügynök
 
-Az Azure Linux-ügynök (általános nevén `WALinuxAgent` vagy `walinuxagent`) van az ügynök munka az Azure Stacken szükséges, és nem minden verzióit. 2\.2.20 és 2.2.35 verziói nem támogatottak az Azure Stacken. Használja a legújabb ügynökverziók 2.2.35 fent, 1901 gyorsjavítás/1902 gyorsjavítást, vagy frissítse az Azure Stack a 1903 (vagy újabb). Vegye figyelembe, hogy [a cloud-init](https://cloud-init.io/) jelenleg nem támogatott az Azure Stacken.
+Az Azure Linux-ügynököt (általában **WALinuxAgent** vagy **WALinuxAgent**) kötelező megadni, és az ügynök nem minden verziója működik Azure stackon. A 2.2.20 és a 2.2.35 közötti verziók nem támogatottak Azure Stackon. A legújabb ügynök-verziók 2.2.35 való használatához alkalmazza a 1901-es gyorsjavítást/1902-es gyorsjavítást, vagy frissítse a Azure Stack a 1903-es kiadásra (vagy újabb verzióra). Vegye figyelembe, hogy jelenleg nem támogatott a [Cloud-init](https://cloud-init.io/) Azure stack.
 
-| Az Azure Stack-build | Az Azure Linux ügynök-build |
+| Azure Stack Build | Azure Linux-ügynök létrehozása |
 | ------------- | ------------- |
-| 1.1901.0.99 és a korábbi verziók | 2.2.20 |
+| 1.1901.0.99 vagy korábbi | 2.2.20 |
 | 1.1902.0.69  | 2.2.20  |
 |  1.1901.3.105   | 2.2.35 vagy újabb |
 | 1.1902.2.73  | 2.2.35 vagy újabb |
 | 1.1903.0.35  | 2.2.35 vagy újabb |
-| Miután 1903 buildek | 2.2.35 vagy újabb |
+| 1903 utáni buildek | 2.2.35 vagy újabb |
 | Nem támogatott | 2.2.21-2.2.34 |
 
-Saját Linux-rendszerképek, az alábbi utasítások segítségével készítheti elő:
+Készítse elő saját linuxos rendszerképét a következő utasítások használatával:
 
 * [CentOS-alapú disztribúciók](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -60,13 +60,13 @@ Saját Linux-rendszerképek, az alábbi utasítások segítségével készíthet
 * [SLES és openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="add-your-image-to-the-marketplace"></a>A lemezkép felvétele a Marketplace-en
+## <a name="add-your-image-to-the-marketplace"></a>Rendszerkép hozzáadása a piactérhez
 
-Hajtsa végre a [adja hozzá a lemezképet a Marketplace-en](azure-stack-add-vm-image.md). Győződjön meg arról, hogy a `OSType` paraméter értéke `Linux`.
+Kövesse a [rendszerkép hozzáadása a piactérhez](azure-stack-add-vm-image.md)című témakört. Győződjön meg arról, hogy a `OSType` paraméter értéke `Linux`.
 
-A lemezképet a Marketplace-en való felvételét, Piactéri elem jön létre, és a felhasználók üzembe helyezhetnek egy Linux rendszerű virtuális gépet.
+Miután hozzáadta a lemezképet a piactérhez, létrejön egy Marketplace-elem, és a felhasználók telepíthetnek egy linuxos virtuális gépet.
 
 ## <a name="next-steps"></a>További lépések
 
 * [Azure Marketplace-elemek letöltése az Azure-ból az Azure Stackbe](azure-stack-download-azure-marketplace-item.md)
-* [Az Azure Stack piactéren – áttekintés](azure-stack-marketplace.md)
+* [Azure Stack Marketplace – áttekintés](azure-stack-marketplace.md)

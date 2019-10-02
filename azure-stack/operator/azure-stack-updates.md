@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101196"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714705"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Frissítések kezelése Azure Stack – áttekintés
 
@@ -49,7 +49,7 @@ Az integrált rendszerek három különböző típusú frissítési csomaggal re
 
 ## <a name="when-to-update"></a>Mikor kell frissíteni
 
-A következő lépésszám jelenik meg a frissítések három típusában:
+A frissítések három típusát a következő lépésszám bocsátja ki:
 
 -   **Szoftverfrissítések Azure stack**. A Microsoft általában havonta frissíti a szoftverfrissítési csomagokat.
 
@@ -65,7 +65,7 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
 - **Microsoft-szoftverfrissítések és-gyorsjavítások** 
 
-    A Microsoft-szoftverfrissítések és-gyorsjavítások frissítési riasztása megjelenik az internethez csatlakozó Azure Stack példányok frissítés paneljén.
+    A Microsoft-szoftverfrissítések és-gyorsjavítások frissítési riasztása megjelenik az internethez csatlakozó Azure Stack példányok frissítés paneljén. Ha a frissítés panel nem jelenik meg, indítsa újra az infrastruktúra-kezelő vezérlő virtuális gépet.
 
     Ha a példány nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára.
 

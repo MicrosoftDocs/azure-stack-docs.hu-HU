@@ -6,22 +6,21 @@ documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6824e6bfd0b6c824783c82041fb1a51ba8f5213f
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.reviewer: sijuman
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303119"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71708967"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Sablon üzembe helyezése a PowerShell használatával Azure Stack
 
@@ -38,13 +37,13 @@ Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablo
 
 1. Keresse meg a [AzureStackGitHub](https://aka.ms/AzureStackGitHub) -tárházat, és keresse meg a **101-Simple-Windows-VM** sablont. Mentse a sablont erre a helyre: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
-3. Cserélje `username` le `password` a és a parancsot a következő parancsfájlba a felhasználónevével és jelszavával, majd futtassa a szkriptet:
+3. Cserélje le a `username` és a `password` értéket a következő parancsfájlban a felhasználónevével és jelszavával, majd futtassa a szkriptet:
 
     ```powershell
     # Set deployment variables
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
-    $myLocation = "local"
+    $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
@@ -53,19 +52,19 @@ Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablo
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
-        -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-        -NewStorageAccountName mystorage$myNum `
-        -DnsNameForPublicIP mydns$myNum `
+        -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
         -AdminUsername <username> `
-        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-        -VmName myVM$myNum `
-        -WindowsOSVersion 2012-R2-Datacenter
+        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force)
     ```
 
     >[!IMPORTANT]
     > Minden alkalommal, amikor futtatja a szkriptet, növelje a `$myNum` paraméter értékét, hogy megakadályozza a telepítés felülírását.
 
 4. Nyissa meg a Azure Stack portált, válassza a **Tallózás**lehetőséget, majd válassza a **virtuális gépek** lehetőséget az új virtuális gép (**myDeployment001**) megkereséséhez.
+
+## <a name="cancel-a-running-template-deployment"></a>Futó sablon központi telepítésének megszakítása
+
+Egy futó sablon központi telepítésének megszakításához használja a `Stop-AzureRmResourceGroupDeployment` PowerShell-parancsmagot.
 
 ## <a name="next-steps"></a>További lépések
 
