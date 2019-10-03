@@ -1,6 +1,6 @@
 ---
-title: Oktatóanyag – szolgáltatásként érvényesítéshez beállítása erőforrások |} A Microsoft Docs
-description: Ebből az oktatóanyagból megtudhatja, hogyan erőforrások beállítása szolgáltatás ellenőrzés céljából.
+title: Oktatóanyag – erőforrások beállítása szolgáltatásként történő érvényesítéshez | Microsoft Docs
+description: Ebből az oktatóanyagból megtudhatja, hogyan állíthat be erőforrásokat az érvényesítéshez szolgáltatásként.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,115 +10,115 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8914d9a030e9c76f3663277e104317db0cfa308d
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 33ead43fd8dbe77feae12db58ca7c689030c6f98
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131648"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829104"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: A szolgáltatás érvényesítése erőforrások beállítása
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: Erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Érvényesítés szolgáltatásként (VaaS) egy Azure-szolgáltatás, amellyel ellenőrizheti, és támogatja az Azure Stack megoldásokat a piacon. Kövesse az ebben a cikkben ellenőrzése a megoldás a szolgáltatás használata előtt.
+Az érvényesítési szolgáltatásként (az Azure-ban) olyan Azure-szolgáltatás, amely a piacon Azure Stack megoldások ellenőrzéséhez és támogatásához használható. Kövesse ezt a cikket, mielőtt a szolgáltatást használja a megoldás ellenőrzéséhez.
 
 Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 > [!div class="checklist"]
-> * Felkészülés az VaaS használata az Azure Active Directory (AD) mentése beállításával.
+> * Készüljön fel az Azure Active Directory (AD) beállításával való használatra.
 > * Tárfiók létrehozása.
 
-## <a name="configure-an-azure-ad-tenant"></a>Az Azure AD-bérlő konfigurálása
+## <a name="configure-an-azure-ad-tenant"></a>Azure AD-bérlő konfigurálása
 
-Az Azure AD-bérlő regisztrálásához a szervezet, és hitelesíti a felhasználókat az VaaS szolgál. A partner fogja használni a szerepköralapú hozzáférés-vezérlés (RBAC) funkcióját a bérlő kezelésére is, akik a fiókpartner-szervezet VaaS használni. További információkért lásd: [Mi az az Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+Az Azure AD-bérlő használatával regisztrálhat egy szervezetet, és hitelesítheti a felhasználókat az Azure-ban. A partner a bérlő szerepköralapú hozzáférés-vezérlési (RBAC) funkcióit fogja használni, hogy a partner szervezeten belül kik is használhatják az Varga-t. További információkért lásd: [Mi az az Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Bérlő létrehozása
 
-Hozzon létre egy bérlőt, amelyet a szervezet VaaS szolgáltatások eléréséhez fog használni. Egy leíró nevet, például használja `ContosoVaaS@onmicrosoft.com`.
+Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga szolgáltatások eléréséhez. Adjon meg egy leíró nevet, például `ContosoVaaS@onmicrosoft.com`.
 
-1. Az Azure AD-bérlő létrehozása a [az Azure portal](https://portal.azure.com), vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Hozzon létre egy Azure AD- [](https://portal.azure.com)bérlőt a Azure Portalban, vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
-2. Adja hozzá a szervezet tagjai a bérlőhöz. Ezek a felhasználók felelőssége a szolgáltatás használatával megtekinthető és ütemezhető teszteket. Ha befejezte a regisztrációs, felhasználói hozzáférési szintet határozza meg.
+2. Vegye fel a szervezet tagjait a bérlőbe. Ezeknek a felhasználóknak a feladata a szolgáltatás használata a tesztek megtekintéséhez vagy megadásához. A regisztráció befejezését követően meg kell határoznia a felhasználók hozzáférési szintjeit.
 
-    Engedélyezi a felhasználókat a bérlőben a VaaS műveletek futtatására a következő szerepkörök hozzárendelésével:
+    A következő szerepkörök egyikének hozzárendelésével engedélyezheti a bérlőben lévő felhasználók számára a műveletek futtatását az Varga-ban:
 
     | Szerepkör neve | Leírás |
     |---------------------|------------------------------------------|
-    | Tulajdonos | Az összes erőforrás teljes hozzáféréssel rendelkezik. |
-    | Olvasó | Megtekintheti összes erőforrást, de nem létrehozása és kezelése. |
-    | Teszt Közreműködője | Létrehozhat és test-erőforrások kezeléséhez. |
+    | Tulajdonos | Teljes hozzáféréssel rendelkezik az összes erőforráshoz. |
+    | Olvasó | Megtekintheti az összes erőforrást, de nem hozható létre és nem kezelhető. |
+    | Tesztelési közreműködő | Létrehozhat és kezelhet tesztelési erőforrásokat. |
 
-    Ha a szerepköröket a **Azure Stack érvényesítési Service** alkalmazás:
+    Szerepkörök társítása a **Azure stack érvényesítési szolgáltatásalkalmazás** alkalmazásban:
 
    1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
-   2. Válassza ki **minden szolgáltatás** > **Azure Active Directory** alatt a **identitás** szakaszban.
-   3. Válassza ki **vállalati alkalmazások** > **Azure Stack érvényesítési Service** alkalmazás.
-   4. Válassza a **Felhasználók és csoportok** elemet. A **Azure Stack érvényesítési Service – felhasználók és csoportok** panel felsorolja a felhasználók számára a engedélyt az alkalmazás használatára.
-   5. Válassza ki **+ Hozzáadás felhasználó** felhasználó hozzáadása a bérlőről és rendelhet egy szerepkört.
+   2. Válassza az **összes szolgáltatás** > **Azure Active Directory** az **identitás** szakaszban.
+   3. Válassza a **vállalati alkalmazások** > **Azure stack érvényesítési szolgáltatásalkalmazás** elemet.
+   4. Válassza a **Felhasználók és csoportok** elemet. A **Azure stack érvényesítési szolgáltatás – felhasználók és csoportok** panel felsorolja azokat a felhasználókat, akik jogosultak az alkalmazás használatára.
+   5. Válassza a **+ felhasználó hozzáadása** lehetőséget egy felhasználó hozzáadásához a bérlőtől, és rendeljen hozzá egy szerepkört.
 
-      Ha szeretné elkülöníteni a VaaS erőforráshoz és művelethez egy szervezeten belül különböző csoportokkal, az Azure AD-bérlő több címtárat is létrehozhat.
+      Ha el szeretné különíteni az Azure-erőforrásokat és-műveleteket a szervezeten belüli különböző csoportok között, létrehozhat több Azure AD-bérlői könyvtárat is.
 
-### <a name="register-your-tenant"></a>A bérlő regisztrálásához
+### <a name="register-your-tenant"></a>Bérlő regisztrálása
 
-Ez a folyamat engedélyezi a bérlőben a **Azure Stack érvényesítési Service** Azure AD-alkalmazást.
+Ezzel a folyamattal engedélyezheti a bérlőnek az **Azure stack érvényesítési szolgáltatás** Azure ad-alkalmazását.
 
-1. A bérlő a következő információkat küldeni a Microsoftnak, [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+1. Küldje el az alábbi adatokat a bérlőről a Microsoftnak a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
 
-    | Adatok | Leírás |
+    | Data | Leírás |
     |--------------------------------|---------------------------------------------------------------------------------------------|
-    | Szervezet neve | A hivatalos szervezet nevét. |
-    | Az Azure AD-bérlő könyvtár neve | Regisztrálja a címtár Azure AD-bérlő neve. |
-    | Az Azure AD címtár azonosítója | Az Azure AD-bérlő Directory, a címtárhoz társított GUID. Információk megkereséséhez az Azure AD-bérlő címtár-azonosító: [Bérlőazonosító beszerzése](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
+    | Szervezet neve | A hivatalos szervezet neve. |
+    | Azure AD-bérlői könyvtár neve | Az Azure AD-bérlő könyvtárának neve regisztrálva van. |
+    | Azure AD-bérlői címtár azonosítója | A címtárhoz tartozó Azure AD-bérlői könyvtár GUID-azonosítója. További információ az Azure AD-bérlői címtár AZONOSÍTÓjának megkereséséről: a [bérlő azonosítójának beolvasása](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
-2. Várjon, amíg az Azure Stack érvényesítési csapat, ellenőrizze, hogy a bérlő használja az VaaS portal megerősítést.
+2. Várja meg, amíg a Azure Stack ellenőrző csapata megerősíti, hogy a bérlő használhatja-e az adatbázis-portált.
 
-### <a name="consent-to-the-vaas-application"></a>Hozzájárulás az a VaaS alkalmazáshoz
+### <a name="consent-to-the-vaas-application"></a>Beleegyezett az alapprogram-alkalmazásba
 
-Az Azure AD-rendszergazdaként a szükséges engedélyek nevében a bérlő az Azure ad-ben VaaS alkalmazás megadása:
+Az Azure AD-rendszergazdaként adja meg az Azure AD-alkalmazás számára a bérlő nevében szükséges engedélyeket:
 
-1. A bérlő globális rendszergazdai hitelesítő adatainak használatával jelentkezzen be a [VaaS portál](https://azurestackvalidation.com/). 
+1. A bérlőhöz tartozó globális rendszergazdai hitelesítő adatokkal jelentkezzen be az [Varga portálra](https://azurestackvalidation.com/). 
 
-2. Válassza ki **fiókom**.
+2. Válassza **a saját fiók**lehetőséget.
 
-3 elfogadására folytatja, amikor a rendszer VaaS a felsorolt az Azure AD-engedélyek megadására kéri.
+3 fogadja el a feltételt, amikor a rendszer kéri, hogy adja meg az Azure AD-engedélyek listáját.
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage-fiók létrehozása
 
-Teszt végrehajtása VaaS jelenít meg a diagnosztikai naplók egy Azure Storage-fiókhoz. Vizsgálati naplókat, valamint a tárfiók lehet, hogy is használható, a feltöltési az OEM bővítménycsomagok a csomag érvényesítése munkafolyamat.
+A tesztelés végrehajtása során az Azure a diagnosztikai naplókat egy Azure Storage-fiókba exportálja. A naplók tesztelésén kívül a Storage-fiók is felhasználható a csomag-ellenőrzési munkafolyamat OEM-bővítmény csomagjainak feltöltésére.
 
-Az Azure Storage-fiókot az Azure nyilvános felhő, nem pedig az Azure Stack-környezet üzemel.
+Az Azure Storage-fiók az Azure nyilvános felhőben, nem pedig a Azure Stack-környezetben üzemel.
 
-1. Az Azure Portalon válassza ki a **minden szolgáltatás** > **tárolási** > **tárfiókok**. Az a **Tárfiókok** panelen válassza ki **Hozzáadás**.
+1. A Azure Portal válassza a **minden szolgáltatás** > **Storage**@no__t – 3**Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
 
 2. Válassza ki azt az előfizetést, amelyben létre kívánja hozni a tárfiókot.
 
-3. A **erőforráscsoport**válassza **új létrehozása**. Adja meg az új erőforráscsoport nevét.
+3. Az **erőforráscsoport**területen válassza az **új létrehozása**lehetőséget. Adja meg az új erőforráscsoport nevét.
 
-4. Tekintse át a [elnevezési konvenciók](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) Azure Storage-fiókok. Adja meg a tárfiók nevét.
+4. Tekintse [](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) át az Azure Storage-fiókok elnevezési konvencióit. Adja meg a tárfiók nevét.
 
-5. Válassza ki a **USA nyugati régiójában** a tárfiók régióját.
+5. Válassza ki az **USA nyugati** régióját a Storage-fiókjához.
 
-    Győződjön meg arról, hogy hálózati nem számítunk fel díjat a naplók tárolásához, hogy csak az Azure Storage-fiók konfigurálható a **USA nyugati régiójában** régióban. Az adatreplikáció és a gyakori elérésű tárolási szinten a szolgáltatás az adatok nem szükségesek. Mindkét funkció engedélyezése jelentősen növeli a költségeket.
+    Az Azure Storage-fiók csak az **USA nyugati** régiójának használatára konfigurálható, hogy a hálózati költségek ne legyenek a naplók tárolásához. Ezekhez az adatokhoz nem szükséges az adatreplikálás és a gyakori tárolási réteg funkció. Az egyik funkció engedélyezése jelentősen növeli a költségeket.
 
-6. A beállítások hagyja az alapértelmezett értékeket, kivéve a **fióktípus**:
+6. A beállításokat a **Fiók típusa**kivételével az alapértelmezett értékekre hagyja:
 
-    - A **üzemi modell** mező értéke **Resource Manager** alapértelmezés szerint.
+    - A **telepítési modell** mező alapértelmezett értéke a **Resource Manager** .
     - A **Teljesítmény** mező alapértelmezett értéke **Standard**.
-    - Válassza ki **fióktípus** mezőt **a Blob storage-** .
-    - A **replikációs mező** értékre van állítva **helyileg redundáns tárolás (LRS)** alapértelmezés szerint.
+    - Válassza ki a **Fiók típusa** mezőt **blob Storage**-ként.
+    - Alapértelmezés szerint a **replikálási mező** a **helyileg REDUNDÁNS tárolás (LRS)** értékre van beállítva.
     - A **Hozzáférési szint** alapértelmezett beállítása **Gyakori elérésű**.
 
 7. A tárfiók beállításainak áttekintéséhez és a fiók létrehozásához válassza a **Felülvizsgálat + létrehozás** elemet.
 
 ## <a name="next-steps"></a>További lépések
 
-A környezet nem engedélyezi a bejövő kapcsolatok, kövesse az oktatóanyag a helyi ügynök egy teszt futtatásához hardverre történő üzembe helyezése.
+Ha a környezet nem engedélyezi a kötött kapcsolatokat, kövesse az oktatóanyagot a helyi ügynök üzembe helyezéséről, hogy tesztet futtasson a hardveren.
 
 > [!div class="nextstepaction"]
-> [A helyi ügynök telepítése](azure-stack-vaas-local-agent.md)
+> [A helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md)

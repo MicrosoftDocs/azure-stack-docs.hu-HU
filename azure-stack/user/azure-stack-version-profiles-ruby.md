@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0faaa7be69ad8d23dc94eec1107362a7a7eadfa
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: d9ef8ab09031db59311317693f72433b63737c34
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959342"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814473"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "68959342"
 
 ## <a name="ruby-and-api-version-profiles"></a>Ruby és API-verziók profiljai
 
-A Azure Stack Resource Managerhez készült Ruby SDK eszközöket biztosít az infrastruktúra kiépítéséhez és kezeléséhez. Az SDK erőforrás-szolgáltatói közé tartozik a kiszámítások, a virtuális hálózatok és a Ruby nyelvű tárterület. A Ruby SDK API-profiljai lehetővé teszik a hibrid felhőalapú fejlesztést azáltal, hogy a Azure Stack globális Azure-erőforrásai és-erőforrásai közötti váltást segítik.
+A Azure Stack Resource Managerhez készült Ruby SDK eszközöket biztosít az infrastruktúra kiépítéséhez és kezeléséhez. Az SDK erőforrás-szolgáltatói közé tartozik a Ruby nyelve: számítási, virtuális hálózatok és tárterület. A Ruby SDK API-profiljai lehetővé teszik a hibrid felhőalapú fejlesztést azáltal, hogy a Azure Stack globális Azure-erőforrásai és-erőforrásai közötti váltást segítik.
 
 Az API-profilok erőforrás-szolgáltatók és szolgáltatási verziók kombinációja. Az API-profilokkal kombinálhatja a különböző erőforrástípusok használatát.
 
@@ -45,13 +45,17 @@ Az API-profilok erőforrás-szolgáltatók és szolgáltatási verziók kombiná
 
 - A [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)telepítéséhez kövesse a hivatalos utasításokat.
 - A [Ruby](https://www.ruby-lang.org/en/documentation/installation/)telepítéséhez kövesse a hivatalos utasításokat.
-  - A telepítése közben válassza a **Ruby to PATH változó hozzáadása**lehetőséget.
-  - Ha a rendszer kéri, telepítse a fejlesztői csomagot a Ruby telepítésekor.
-  - Ezután telepítse a köteget a következő parancs használatával:  
-    `Gem install bundler`
-- Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Az előfizetés létrehozásával kapcsolatos utasításokat [itt](../operator/azure-stack-subscribe-plan-provision-vm.md)találja.
-- Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. [Itt](../operator/azure-stack-create-service-principals.md)talál útmutatást az egyszerű szolgáltatásnév létrehozásához a Azure stack.
-- Győződjön meg arról, hogy a szolgáltatásnév rendelkezik az előfizetéshez hozzárendelt közreműködő/tulajdonos szerepkörrel. A szerepkör az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatban [itt talál](../operator/azure-stack-create-service-principals.md)útmutatást.
+  - A telepítésekor válassza **a Ruby to PATH változó hozzáadása**lehetőséget.
+  - Ha a rendszer a Ruby telepítésekor kéri, telepítse a fejlesztői csomagot.
+  - Ezután telepítse a köteget a következő parancs használatával: 
+
+       ```Ruby
+       Gem install bundler
+       ```
+
+- Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Az előfizetés létrehozásához szükséges utasítások a Azure Stack cikkben található [előfizetések létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) című témakörben találhatók.
+- Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack egyszerű szolgáltatásnév létrehozásához az [alkalmazás-identitás használata az erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md) című cikkben talál útmutatást.
+- Győződjön meg arról, hogy a szolgáltatásnév rendelkezik az előfizetéshez hozzárendelt közreműködő/tulajdonos szerepkörrel. A szerepkör egy egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasítások az alkalmazás- [identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md)című témakörben találhatók.
 
 ## <a name="install-the-rubygem-packages"></a>A RubyGem-csomagok telepítése
 
@@ -62,7 +66,11 @@ gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
 gem install azure_mgmt_network
-Or use them in your Gemfile.
+```
+
+Vagy használhatja őket a Gemfile.
+
+```Ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -73,7 +81,7 @@ A Azure Resource Manager Ruby SDK előzetes verzióban érhető el, és valósz�
 
 ## <a name="use-the-azure_sdk-gem"></a>A azure_sdk gem használata
 
-A **azure_sdk** gem a Ruby SDK által támogatott drágakövek összesítése. Ez a gem egy **legújabb** profilt tartalmaz, amely az összes szolgáltatás legújabb verzióját támogatja. Tartalmazza a Azure Stack-hoz készült, a **V2017_03_09** és a **V2019_03_01_Hybrid**verziószámú profilokat is.
+A **azure_sdk** gem a Ruby SDK által támogatott drágakövek összesítése. Ez a gem egy **legújabb** profile tartalmaz, amely az összes szolgáltatás legújabb verzióját támogatja. Tartalmazza a Azure Stack-hoz készült, a **V2017_03_09** és a **V2019_03_01_Hybrid**verziószámú profilokat is.
 
 A azure_sdk összegző gyöngyszem a következő paranccsal telepíthető:  
 
@@ -87,11 +95,11 @@ Ha a Ruby Azure SDK-t Azure Stack használatával szeretné használni, a követ
 
 | Value | Környezeti változók | Leírás |
 | --- | --- | --- |
-| Bérlőazonosító | `AZURE_TENANT_ID` | A Azure Stack [bérlő azonosítójának](../operator/azure-stack-identity-overview.md)értéke. |
-| Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a jelen dokumentum előző szakaszában a szolgáltatásnév lett létrehozva.  |
-| Előfizetés azonosítója | `AZURE_SUBSCRIPTION_ID` | Az [előfizetés-azonosító](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) az Azure stack-ban elérhető ajánlatok elérési módja. |
-| Titkos ügyfélkulcs | `AZURE_CLIENT_SECRET` | A szolgáltatás egyszerű alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
-| Resource Manager-végpont | `ARM_ENDPOINT` | Lásd [a Azure stack Resource Manager](#the-azure-stack-resource-manager-endpoint)-végpontot.  |
+| Bérlőazonosító | `AZURE_TENANT_ID` | Azure Stack [bérlő azonosítója](../operator/azure-stack-identity-overview.md). |
+| Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve.  |
+| Előfizetés azonosítója | `AZURE_SUBSCRIPTION_ID` | Az előfizetés- [azonosítóval](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) érheti el az ajánlatokat a Azure Stackban. |
+| Titkos ügyfélkulcs | `AZURE_CLIENT_SECRET` | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. |
+| Resource Manager-végpont | `ARM_ENDPOINT` | Lásd [a Azure stack Resource Manager-végpontot](#the-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>A Azure Stack Resource Manager-végpont
 
@@ -100,8 +108,8 @@ A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehető
 A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpont egy JSON-fájlt ad vissza, amely a kód futtatásához szükséges adatokkal rendelkezik.
 
  > [!NOTE]  
- > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** :`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
- > A szükséges metaadatok beolvasása:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+ > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: @no__t – 0 a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+ > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
  JSON-mintafájlt:
 
@@ -117,28 +125,33 @@ A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpo
  }
 ```
 
-### <a name="set-environmental-variables"></a>Környezeti változók beállítása
+### <a name="set-environment-variables"></a>Környezeti változók beállítása
 
-**Microsoft Windows**  
-A környezeti változók beállításához használja a következő formátumot egy Windows-parancssorban:  
-`set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+#### <a name="microsoft-windows"></a>Microsoft Windows
 
-**macOS-, Linux-és UNIX-alapú rendszerek** <br>
-UNIX-alapú rendszerek esetén használja a következő parancsot:  
-`export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+A környezeti változók beállításához használja a következő formátumot egy Windows-parancssorban:
+
+```shell
+set AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
+
+#### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux-és UNIX-alapú rendszerek
+
+UNIX-alapú rendszerekben használja a következő parancsot:
+
+```bash
+export AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-A Azure_sdk-összesítési gem a következő három profillal rendelkezik:
+A **Azure_sdk** -összesítési gem a következő 3 profillal rendelkezik:
 
-1. **V2019_03_01_Hybrid** <br>
-  A profil a Azure Stackhez készült. Használja ezt a profilt a Azure Stack Stamp 1904-es vagy újabb verziójában elérhető összes szolgáltatás legújabb verziójának kihasználása érdekében.
-1. **V2017_03_09**  
-  A profil a Azure Stackhez készült. Ezt a profilt olyan szolgáltatásokhoz használhatja, amelyek a Azure Stack Stamp 1808-es vagy korábbi verziójával kompatibilisek.
-1. **Legújabb**  
-  A profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
+- **V2019_03_01_Hybrid**: A profil a Azure Stackhez készült. Ezt a profilt a Azure Stack 1904-es vagy újabb verziójában elérhető szolgáltatások legújabb verzióihoz használhatja.
+- **V2017_03_09**: A profil a Azure Stackhez készült. Használja ezt a profilt a szolgáltatásokhoz, hogy a leghatékonyabban kompatibilis legyen a Azure Stack 1808-es vagy korábbi verziójával.
+- **Legutóbbi**: A profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
 
-Azure Stack-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok](azure-stack-version-profiles.md#summary-of-api-profiles)összefoglalását ismertető témakört.
+Azure Stack-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok összefoglalását](azure-stack-version-profiles.md#summary-of-api-profiles)ismertető témakört.
 
 ## <a name="azure-ruby-sdk-api-profile-usage"></a>Azure Ruby SDK API-profil használata
 
@@ -181,7 +194,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Azure Stack-környezet beállítás függvények definiálása
 
-Az egyszerű szolgáltatásnév Azure Stack-környezetbe való hitelesítéséhez adja meg a végpontokat a `get_active_directory_settings()`használatával. Ez a metódus a környezeti változók létrehozásakor beállított **ARM_Endpoint** környezeti változót használja:
+Az egyszerű szolgáltatásnév Azure Stack-környezetbe való hitelesítéséhez adja meg a végpontokat `get_active_directory_settings()` használatával. Ez a metódus a korábban beállított **ARM_Endpoint** környezeti változót használja:
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -203,10 +216,10 @@ end
 
 ## <a name="samples-using-api-profiles"></a>API-profilokat használó minták
 
-A GitHubon található következő mintákat használhatja a Ruby és Azure Stack API-profilokkal rendelkező megoldások létrehozásához:
+A GitHubon a következő mintákat használhatja a Ruby és Azure Stack API-profilokkal rendelkező megoldások létrehozásához:
 
 - [Azure-erőforrások és-erőforráscsoportok kezelése a Ruby-](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)mel.
-- [Virtuális gépek kezelése a Ruby használatával](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (A 2019-03-01-hibrid profilt használó minta a Azure Stack által támogatott legújabb API-verziókat célozza meg.
+- [Virtuális gépek kezelése a Ruby használatával](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (a 2019-03-01-hibrid profilt használó minta, amely a Azure stack által támogatott legújabb API-verziókat célozza meg).
 - [Egy SSH-t használó virtuális gép üzembe helyezése a rubyban található sablonnal](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment).
 
 ### <a name="sample-resource-manager-and-groups"></a>A Resource Manager és a csoportok mintája
@@ -214,7 +227,7 @@ A GitHubon található következő mintákat használhatja a Ruby és Azure Stac
 A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepítette. Ha Visual Studio Code-ot használ, töltse le a Ruby SDK bővítményt is.
 
 > [!NOTE]  
-> Szerezze be a minta tárházát az "[Azure-erőforrások és-erőforráscsoportok kezelése a Ruby szolgáltatással](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)" című résznél.
+> A minta tárháza a [Hybrid-Resource-Manager-Ruby-Resources-and-groups](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups).
 
 1. A tárház klónozása:
 
@@ -234,13 +247,14 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    Egyszerű szolgáltatás létrehozásával kapcsolatos útmutatóért lásd: [tanúsítvánnyal egyszerű szolgáltatás létrehozása az Azure PowerShell használatával](../operator/azure-stack-create-service-principals.md).
 
    A szükséges értékek a következők:
+
    - Bérlőazonosító
    - Ügyfél-azonosító
    - Titkos ügyfélkulcs
    - Előfizetés azonosítója
    - Resource Manager-végpont
 
-   Állítsa be az alábbi környezeti változókat az Ön által létrehozott egyszerű szolgáltatásból beolvasott információk alapján.
+   Állítsa be az alábbi környezeti változókat az Ön által létrehozott szolgáltatásnév alapján lekért információk alapján:
 
    - `export AZURE_TENANT_ID={your tenant ID}`
    - `export AZURE_CLIENT_ID={your client ID}`
@@ -249,17 +263,17 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
 
    > [!NOTE]  
-   > Windows rendszeren használja az Exportálás helyett a készletet.
+   > Windows rendszeren a `export` helyett használja a `set` értéket.
 
-4. Győződjön meg arról, hogy a Location változó a Azure Stack helyére van beállítva; például `LOCAL="local"`:.
+4. Győződjön meg arról, hogy a Location változó a Azure Stack helyére van beállítva; például `LOCAL="local"`.
 
-5. Adja hozzá a következő kódrészletet, ha Azure Stack vagy más privát felhők használatával célozza meg a megfelelő Active Directory-végpontokat:
+5. A megfelelő Active Directory-végpontok célzásához adja hozzá a következő kódrészletet, ha Azure Stack vagy más privát felhőt használ:
 
    ```Ruby  
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. Az Options változóban adja hozzá a Active Directory beállításokat és az alap URL-címet, hogy működjön a Azure Stack:
+6. A `options` változóban adja hozzá a Active Directory beállításokat és az alap URL-címet, hogy működjön a Azure Stack:
 
    ```ruby  
    options = {
@@ -276,7 +290,7 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. Az egyszerű szolgáltatásnév Azure Stack-vel történő hitelesítéséhez a végpontokat a **get_active_directory_settings ()** használatával kell meghatározni. Ez a metódus a környezeti változók létrehozásakor beállított **ARM_Endpoint** környezeti változót használja:
+8. Az egyszerű szolgáltatásnév Azure Stack-vel történő hitelesítéséhez a végpontokat a **get_active_directory_settings ()** használatával kell meghatározni. Ez a metódus a korábban beállított **ARM_Endpoint** környezeti változót használja:
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -297,7 +311,7 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
 
 9. Futtassa a mintát.
 
-   ```ruby
+   ```Ruby
    bundle exec ruby example.rb
    ```
 

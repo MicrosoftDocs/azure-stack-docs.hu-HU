@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: bffd86e876f212fbcbf14f8c3a1e9ce61cda7a4b
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159146"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829083"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure-csatlakozású üzembe helyezési tervezési döntések Azure Stack integrált rendszerekhez
 Miután eldöntötte, [Hogyan integrálhatja a Azure stackt a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), véglegesítheti Azure stack telepítési döntéseit.
@@ -61,7 +61,7 @@ Ha CSP-előfizetést fog használni, tekintse át az alábbi táblázatot a hasz
 
 |Forgatókönyv|Tartomány-és előfizetési lehetőségek|
 |-----|-----|
-|Ön **közvetlen CSP-partner** vagy **közvetett CSP-szolgáltató**, és a Azure stack fogja használni|Használjon CSL (Common Service Layer) előfizetést.<br>     vagy<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. A szervezete &lt;például > CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
+|Ön **közvetlen CSP-partner** vagy **közvetett CSP-szolgáltató**, és a Azure stack fogja használni|Használjon CSL (Common Service Layer) előfizetést.<br>     or<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. A szervezete &lt;például > CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
 |Ön egy **közvetett CSP-viszonteladó**, és a Azure stack fogja használni|Kérje meg a közvetett CSP-szolgáltatót, hogy hozzon létre egy Azure AD-bérlőt a szervezete számára a partner Center használatával társított Azure CSP-előfizetéssel.|
 
 ### <a name="capacity-based-billing"></a>Kapacitás alapú számlázás

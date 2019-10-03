@@ -1,6 +1,6 @@
 ---
-title: Azure Stack diagnosztikai naplók gyűjtése most | Microsoft Docs
-description: Igény szerinti diagnosztikai naplók konfigurálása a Azure Stack Súgó és támogatás szolgáltatásban.
+title: Igény szerinti Azure Stack diagnosztikai naplók gyűjtése | Microsoft Docs
+description: Ismerje meg, hogyan gyűjthet diagnosztikai naplókat Azure Stack igény szerint a Súgó és támogatás vagy a privilegizált végpont (PEP) használatával.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 007703facf882eccd594dfb6f78941570c9cfb02
-ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
+ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68865905"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829060"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>Azure Stack diagnosztikai naplók begyűjtése most (igény szerint)
+# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack diagnosztikai naplók gyűjtése
 
 *Vonatkozik: Integrált rendszerek Azure Stack*
 
 A hibaelhárítás részeként előfordulhat, hogy a Microsoft ügyfél-támogatási szolgálatának (CSS) elemezni kell a diagnosztikai naplókat. Az 1907-es kiadástól kezdve Azure Stack operátorok igény szerinti diagnosztikai naplókat tölthetnek fel az Azure-beli blob-tárolóba a **Súgó és támogatás**használatával. Ha a portál nem érhető el, akkor a kezelők a Get-AzureStackLog használatával gyűjthetnek naplókat a privilegizált végponton (PEP) keresztül. Ez a témakör a diagnosztikai naplók igény szerinti gyűjtésének mindkét módját ismerteti.
 
-## <a name="using-help-and-support"></a>Súgó és támogatás használata
+## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>A Súgó és támogatás segítségével gyűjtsön diagnosztikai naplókat
 
 A probléma elhárításához a CSS kérheti Azure Stack operátort, hogy az előző hét adott időablakára vonatkozóan igény szerint gyűjtsön diagnosztikai naplókat. Ebben az esetben a CSS a kezelőt egy SAS URL-címmel fogja biztosítani a gyűjtemény feltöltéséhez. A következő lépésekkel konfigurálhatja az igény szerinti naplózási gyűjteményt a CSS SAS URL-címének használatával:
 
@@ -43,17 +43,17 @@ A probléma elhárításához a CSS kérheti Azure Stack operátort, hogy az el�
 >[!NOTE]
 >Ha az automatikus diagnosztikai napló gyűjteménye engedélyezve van, a **Súgó és támogatás** megjeleníti a naplózási gyűjtemény folyamatát. Ha a **naplók gyűjtése** gombra kattint a naplók egy adott időpontból való összegyűjtéséhez, miközben az automatikus naplózási gyűjtemény folyamatban van, az igény szerinti gyűjtemény az automatikus naplózási gyűjtemény befejeződése után kezdődik. 
 
-## <a name="using-pep"></a>A PEP használata
+## <a name="using-pep-to-collect-diagnostic-logs"></a>A PEP használata diagnosztikai naplók gyűjtésére
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 Azure Stack diagnosztikai eszközök megkönnyítik a naplók gyűjtését. Az alábbi ábra a diagnosztikai eszközök működését mutatja be:
 
-![Diagnosztikai eszközök Azure Stack](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack diagnosztikai eszközök munkafolyamat-diagramja](media/azure-stack-diagnostics/get-azslogs.png)
 
 ### <a name="trace-collector"></a>Trace Collector
 
-A Trace Collector alapértelmezés szerint engedélyezve van, és folyamatosan fut a háttérben, hogy összegyűjtse az összes Windows esemény-nyomkövetés (ETW) naplót a Azure Stack Component servicesből. A ETW-naplókat egy közös helyi megosztás tárolja, amely egy öt napos korhatárt eredményez. Ha elérte ezt a korlátot, a rendszer törli a legrégebbi fájlokat, mert újak jönnek létre. Az egyes fájlokhoz engedélyezett alapértelmezett maximális méret 200 MB. A méret-ellenőrzési művelet 2 percenként történik, és ha az aktuális fájl > = 200 MB, a rendszer menti, és létrehoz egy új fájlt. Az esemény-munkamenetek által generált teljes fájlméret 8 GB-os korláttal is rendelkezik.
+A Trace Collector alapértelmezés szerint engedélyezve van, és folyamatosan fut a háttérben, hogy összegyűjtse az összes Windows esemény-nyomkövetés (ETW) naplót a Azure Stack Component servicesből. A ETW-naplókat egy közös helyi megosztás tárolja, amely egy öt napos korhatárt használ. Ha elérte ezt a korlátot, a rendszer törli a legrégebbi fájlokat, mert újak jönnek létre. Az egyes fájlokhoz engedélyezett alapértelmezett maximális méret 200 MB. A méret-ellenőrzési folyamat 2 percenként történik, és ha az aktuális fájl > = 200 MB, a rendszer menti, és új fájlt hoz létre. Az esemény-munkamenetek által generált teljes fájlméret 8 GB-os korláttal is rendelkezik.
 
 ### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
@@ -75,7 +75,7 @@ Ezeket a fájlokat a rendszer összegyűjti és menti egy megosztásban Trace Co
 
 #### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>A Get-AzureStackLog futtatása Azure Stack integrált rendszereken
 
-Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy olyan parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat egy integrált rendszeren:
+Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy olyan parancsfájlt futtat, amelyen a PEP használatával gyűjthet naplókat egy integrált rendszeren:
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -144,14 +144,14 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
   ```
 
   > [!NOTE]
-  > Ez az eljárás a naplók feltöltésére használható. Még ha nem rendelkezik elérhető SMB-megosztással vagy internet-hozzáféréssel, létrehozhat egy blob Storage-fiókot a Azure Stack a naplók átviteléhez, majd az ügyfél használatával lekérheti a naplókat.  
+  > Ez az eljárás a naplók feltöltésére használható. Ha nem rendelkezik elérhető SMB-megosztással vagy internet-hozzáféréssel, létrehozhat egy blob Storage-fiókot a Azure Stack a naplók átviteléhez, majd az ügyfél használatával lekérheti a naplókat.  
 
   Az SAS-jogkivonat létrehozásához a Storage-fiókhoz a következő engedélyek szükségesek:
 
-  * Hozzáférés a Blob Storage szolgáltatáshoz
-  * Hozzáférés a tároló erőforrástípus
+  * Hozzáférés a Blob Storage szolgáltatáshoz.
+  * Hozzáférés a tároló erőforrástípus-típusához.
 
-  A `-OutputSasUri` paraméterhez használandó sas URI-érték létrehozásához hajtsa végre a következő lépéseket:
+  A `-OutputSasUri` paraméterhez használandó SAS URI-érték létrehozásához kövesse az alábbi lépéseket:
 
   1. Hozzon létre egy Storage-fiókot a [cikk](/azure/storage/common/storage-quickstart-create-account)lépéseit követve.
   2. Nyissa meg a Azure Storage Explorer egy példányát.
@@ -168,7 +168,7 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
 
 * A **OutputSharePath** és a **OutputShareCredential** paraméterek a naplók a felhasználó által megadott helyen történő tárolására szolgálnak.
 
-* A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, alapértelmezés szerint a rendszer a naplókat az elmúlt négy órára gyűjti.
+* A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, a rendszer alapértelmezés szerint a naplókat az elmúlt négy órára gyűjti.
 
 * A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Példa:
 
@@ -209,11 +209,11 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
   |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
   |   |   |   |    |     | 
 
-### <a name="additional-considerations"></a>Néhány fontos megjegyzés
+### <a name="additional-considerations-on-diagnostic-logs"></a>További szempontok a diagnosztikai naplókhoz
 
 * A parancs eltarthat egy ideig, hogy a naplók milyen szerepkör (ek) gyűjtését végzik. A közreműködő tényezők közé tartozik a naplókhoz megadott időtartam és a Azure Stack környezet csomópontjainak száma is.
 * A napló-gyűjtemény futtatásakor ellenőrizze a parancsban megadott **OutputSharePath** paraméterben létrehozott új mappát.
-* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, majdválassza a Kibontás lehetőséget. Ezzel kibontja az adott szerepkörhöz tartozó összes naplófájlt egyetlen egyesített mappában.
+* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, és válassza a **Kibontás**lehetőséget. Az adott szerepkörhöz tartozó összes naplófájl egyetlen egyesített mappába lesz kibontva.
 * A **Get-AzureStackLog_Output. log** nevű fájl a tömörített naplófájlokat tartalmazó mappában is létrejön. Ez a fájl a parancs kimenetének naplója, amely a naplózási problémák elhárításához használható. Előfordulhat, hogy a naplófájl `PS>TerminatingError` olyan bejegyzéseket tartalmaz, amelyek nyugodtan figyelmen kívül hagyhatók, kivéve, ha a napló-gyűjtemény futtatása után hiányoznak a várt naplófájlok.
 * Egy adott hiba kivizsgálásához több összetevőre is szükség lehet a naplókra.
 
@@ -223,11 +223,11 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
   * Az ACS-naplókat a **tároló** és az **ACS** szerepkör gyűjti.
 
 > [!NOTE]
-> A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplók esetében, mivel ez elengedhetetlen a tárolóhelyek hatékony kihasználtságának biztosításához, így biztosítva, hogy nem lesz elárasztva a naplókkal. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek esetleg nem léteznek többé ezen korlátok miatt. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
+> A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplókon, mivel ez elengedhetetlen a tárterület hatékony kihasználtságának biztosításához, valamint a naplók beszerzésének elkerüléséhez. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek ezen korlátok miatt már nem léteznek. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
-A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók nem találhatók meg alapértelmezés szerint a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
+A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók alapértelmezés szerint nem jelennek meg a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
 
 Jelenleg a `-FilterByRole` (z) paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
 
@@ -236,7 +236,7 @@ Jelenleg a `-FilterByRole` (z) paraméterrel szűrheti a naplózási gyűjtemén
 * SLB
 * Átjáró
 
-#### <a name="example-of-collecting-on-demand-logs"></a>Példa az igény szerinti naplók gyűjtésére
+#### <a name="example-of-collecting-on-demand-diagnostic-logs"></a>Példa az igény szerinti diagnosztikai naplók gyűjtésére
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.

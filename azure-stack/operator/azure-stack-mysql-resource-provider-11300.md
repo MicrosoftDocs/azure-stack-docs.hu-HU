@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack MySQL erőforrás szolgáltató 1.1.30.0 kibocsátási megjegyzései |} A Microsoft Docs
-description: További tudnivalók a a legújabb Azure Stack MySQL erőforrás szolgáltató frissítése, beleértve az olyan ismert problémákat, és a helyét, ahonnan letöltheti azt.
+title: Azure Stack MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerkedjen meg a legújabb Azure Stack MySQL erőforrás-szolgáltató frissítésével, beleértve az ismert problémákat és a letöltés helyét.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,77 +12,77 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: e5126f55a60b98ec7c410b7f8f2256ad08fa9753
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618563"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829439"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A kibocsátási megjegyzések a fejlesztéseket és a MySQL erőforrás-szolgáltató verziója 1.1.30.0 az ismert problémákat ismertetik.
+Ezek a kibocsátási megjegyzések ismertetik a MySQL erőforrás-szolgáltató 1.1.30.0-verziójának újdonságait és ismert problémáit.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
-Töltse le a MySQL erőforrás-szolgáltató bináris, és futtassa a mappába, csomagolja ki a tartalmát egy ideiglenes könyvtárba. Az erőforrás-szolgáltató rendelkezik egy minimális megfelelő Azure Stack hozhat létre. Ez a verzió, a MySQL erőforrás-szolgáltató telepítéséhez szükséges minimális Azure Stack-verzió alább:
+Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbiakban látható:
 
-> |Azure Stack minimális verziója|MySQL erőforrás-szolgáltató verziója|
+> |Minimális Azure Stack-verzió|MySQL erőforrás-szolgáltató verziója|
 > |-----|-----|
-> |Azure Stack 1808 frissítése (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+> |Azure Stack 1808 frissítés (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> A minimális támogatott az Azure Stack-frissítés alkalmazása az Azure Stackkel integrált rendszereknél, vagy a legújabb Azure Stack Development Kit (ASDK) telepíteni a MySQL erőforrás-szolgáltató legújabb verziójának telepítése előtt.
+> Alkalmazza a minimális támogatott Azure Stack frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a MySQL erőforrás-szolgáltató legújabb verziójának telepítése előtt.
 
-## <a name="new-features-and-fixes"></a>Új funkciókkal és javításokkal
-Az Azure Stack MySQL erőforrás-szolgáltató ezen verziója tartalmazza a következő fejlesztések és javítások:
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
+A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-- **MySQL erőforrás-szolgáltató telepítések engedélyezve telemetriai**. Eszköztelemetria-gyűjtést MySQL erőforrás-szolgáltató telepítések engedélyezve van. Gyűjtött telemetriai tartalmazza az erőforrás-szolgáltató üzembe helyezési, indítsa el záró időpontját, lépjen ki a állapot, a kilépési üzenetet és a hiba részletei (ha van).
+- **A telemetria engedélyezve van a MySQL erőforrás-szolgáltató üzembe helyezéséhez**. A telemetria-gyűjtemény engedélyezve lett a MySQL erőforrás-szolgáltató üzembe helyezéséhez. A gyűjtött telemetria magában foglalja az erőforrás-szolgáltató üzembe helyezését, az indítási és leállítási időt, a kilépési állapotot, a kilépési üzeneteket és a hibák részleteit
 
-- **A TLS 1.2-es titkosítási frissítés**. Engedélyezve a TLS 1.2-es csak támogatja a belső Azure Stack-összetevők erőforrás-szolgáltató kommunikál. 
+- **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack-összetevőkkel. 
 
 ### <a name="fixes"></a>Javítások
 
-- **MySQL erőforrás-szolgáltató az Azure Stack PowerShell kompatibilitási**. A MySQL erőforrás-szolgáltató frissítve lett az Azure Stack 2018-03-01-hibrid PowerShell-profillal, és kompatibilitást biztosítanak AzureRM 1.3.0 a munkahelyi és a későbbi.
+- **MySQL erőforrás-szolgáltató Azure stack PowerShell-kompatibilitás**. A MySQL erőforrás-szolgáltató frissítve lett a Azure Stack 2018-03-01 hibrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
 
-- **MySQL bejelentkezési Módosítsa jelszavát panel**. Javítva lett egy probléma, ahol a jelszó nem lehet módosítani a jelszó módosítása panelen. Jelszó eltávolított hivatkozások fájlmódosítási értesítések.
+- **MySQL bejelentkezési jelszó módosítása**panel. Kijavított egy hibát, ha a jelszó módosítása panelen nem lehet módosítani a jelszót. Eltávolított hivatkozások a jelszó-módosítási értesítésekről.
 
 ## <a name="known-issues"></a>Ismert problémák 
 
-- **MySQL termékváltozatot órát is igénybe vehet egy lesznek láthatók a portálon**. Is igénybe vehet egy órát újonnan létrehozott termékváltozatok lesznek láthatók a használatra, amikor új MySQL-adatbázisok létrehozásához. 
+- **A MySQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy órát is igénybe vehet, hogy az újonnan létrehozott SKU-i megjelenjenek az új MySQL-adatbázisok létrehozásakor. 
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: Nincs.
 
-- **Újra felhasználhatók a MySQL-bejelentkezések**. Hozzon létre egy új MySQL próbál jelentkezzen be a felhasználónevet, egy meglévő bejelentkezést egy előfizetésen belül eredményez újbóli felhasználása ugyanazokat a bejelentkezési adatokat és a meglévő jelszót. 
+- A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni. 
 
-    **Megkerülő megoldás**: Azonos előfizetéshez tartozó új bejelentkezéseket létrehozásakor különböző felhasználónevet használ, vagy hozzon létre bejelentkezések a különböző előfizetéseknél felhasználónevet.
+    **Áthidaló megoldás**: Használjon más felhasználóneveket, amikor új bejelentkezéseket hoz létre ugyanazon előfizetés alatt, vagy hozzon létre bejelentkezési adatokat ugyanazzal a felhasználónévvel különböző előfizetésekben.
 
-- **A TLS 1.2 támogatási követelmények**. Ha megpróbálja telepíteni vagy frissíteni a MySQL erőforrás-szolgáltató egy olyan számítógépről, amelyen nincs engedélyezve a TLS 1.2-es, a művelet sikertelen lehet. Futtassa a következő PowerShell-parancsot a számítógépen használt telepíteni vagy frissíteni az erőforrás-szolgáltatót, győződjön meg arról, hogy a TLS 1.2 támogatott adja vissza:
+- **TLS 1,2-támogatásra vonatkozó követelmény**. Ha olyan számítógépről próbálja meg telepíteni vagy frissíteni a MySQL erőforrás-szolgáltatót, ahol a TLS 1,2 nincs engedélyezve, a művelet sikertelen lehet. Futtassa a következő PowerShell-parancsot az erőforrás-szolgáltató üzembe helyezéséhez vagy frissítéséhez használt számítógépen annak ellenőrzéséhez, hogy a TLS 1,2 támogatott-e:
 
   ```powershell
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  Ha **Tls12** van a parancs kimenete nem szerepel, a TLS 1.2 nincs engedélyezve a számítógépen.
+  Ha a **Tls12** nem szerepel a parancs kimenetében, a TLS 1,2 nincs engedélyezve a számítógépen.
 
-    **Megkerülő megoldás**: Futtassa a következő PowerShell-parancsot a TLS 1.2-es és indítsa el az erőforrás-szolgáltató üzembe helyezés, vagy frissítse a parancsfájlt a ugyanebben a PowerShell-munkamenetben:
+    **Áthidaló megoldás**: Futtassa a következő PowerShell-parancsot a TLS 1,2 engedélyezéséhez, majd indítsa el az erőforrás-szolgáltató üzembe helyezését vagy a parancsfájl frissítését ugyanabból a PowerShell-munkamenetből:
 
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
  
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack működő felhő rendszergazdái számára ismert problémák
-A dokumentáció a [Azure Stack kibocsátási megjegyzések](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
+Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
 
 ## <a name="next-steps"></a>További lépések
-[További információ a MySQL erőforrás-szolgáltató](azure-stack-mysql-resource-provider.md).
+[További információ a MySQL erőforrás-szolgáltatóról](azure-stack-mysql-resource-provider.md).
 
-[A MySQL erőforrás-szolgáltató telepítésének előkészítéséhez](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+[Felkészülés a MySQL erőforrás-szolgáltató üzembe helyezésére](azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-[A MySQL erőforrás-szolgáltató frissítés egy korábbi verziójáról](azure-stack-mysql-resource-provider-update.md). 
+[Frissítse a MySQL erőforrás-szolgáltatót egy korábbi verzióról](azure-stack-mysql-resource-provider-update.md). 

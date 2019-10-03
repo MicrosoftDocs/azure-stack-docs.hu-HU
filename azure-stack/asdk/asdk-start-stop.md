@@ -16,12 +16,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: b33ae5ce88cf05fb73e2519f7f697fca90f7f8bc
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025813"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824758"
 ---
 # <a name="start-and-stop-the-asdk"></a>A ASDK elindítása és leállítása
 Nem ajánlott egyszerűen újraindítani a ASDK-gazdagépet. Ehelyett kövesse a cikkben ismertetett eljárásokat a ASDK-szolgáltatások megfelelő leállításához és újraindításához.
@@ -66,7 +66,7 @@ Függetlenül attól, hogy a ASDK hogyan állt le, a következő lépésekkel el
 Ha többet szeretne megtudni a Azure Stack szolgáltatások megfelelő leállításához és újraindításához szükséges ajánlott eljárásokról, olvassa el a [Azure stack elindítása és leállítása](../operator/azure-stack-start-and-stop.md)című témakört.
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Indítási és leállítási hibák 
-Ezeket a lépéseket akkor hajtsa végre, ha Azure Stack szolgáltatások a ASDK gazdagép bekapcsolása után két órán belül nem indulnak el sikeresen:
+Kövesse az alábbi lépéseket, ha Azure Stack szolgáltatások a ASDK gazdagép bekapcsolása után két órán belül nem indulnak el sikeresen:
 
 1. Jelentkezzen be AzureStack\AzureStackAdmin-ként a ASDK-gazdaszámítógépen.
 2. Nyissa meg a PowerShellt rendszergazdaként (nem PowerShell ISE).
@@ -90,4 +90,4 @@ Ezeket a lépéseket akkor hajtsa végre, ha Azure Stack szolgáltatások a ASDK
 Ha a **Start-AzureStack** futtatása hibát eredményez, látogasson el a [Azure stack támogatási fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) , ahol lekérdezheti a ASDK hibaelhárítási támogatását. 
 
 ## <a name="next-steps"></a>További lépések 
-További információ a Azure Stack diagnosztikai eszközről és a naplózási problémákról: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+További információ a Azure Stack diagnosztikai eszközről és a naplózási problémákról: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).

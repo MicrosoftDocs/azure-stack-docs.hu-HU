@@ -3,23 +3,23 @@ title: Azure Stack kezelése az Azure CLI-vel | Microsoft Docs
 description: Megtudhatja, hogyan használhatja a többplatformos parancssori felületet (CLI) a Azure Stack erőforrásainak kezeléséhez és üzembe helyezéséhez.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
-ms.author: sethm
+ms.date: 10/02/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974649"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824787"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack az Azure CLI-vel
 
@@ -175,10 +175,10 @@ Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítv�
     | Value | Példa | Leírás |
     | --- | --- | --- |
     | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Ha kérdése van az integrált rendszer-végponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : @no__t – 0 Ha kérdése van az integrált rendszer-végponttal kapcsolatban, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
     | Tárolási végpont | local.azurestack.external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-rendszerkép aliasneveit tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
@@ -295,10 +295,10 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
     | Value | Példa | Leírás |
     | --- | --- | --- |
     | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Ha kérdése van az integrált rendszer-végponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : @no__t – 0 Ha kérdése van az integrált rendszer-végponttal kapcsolatban, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
     | Tárolási végpont | local.azurestack.external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-rendszerkép aliasneveit tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
@@ -411,10 +411,10 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
     | Value | Példa | Leírás |
     | --- | --- | --- |
     | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Ha kérdése van az integrált rendszer-végponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : @no__t – 0 Ha kérdése van az integrált rendszer-végponttal kapcsolatban, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
     | Tárolási végpont | local.azurestack.external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-rendszerkép aliasneveit tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
@@ -522,10 +522,10 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
     | Value | Példa | Leírás |
     | --- | --- | --- |
     | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`Ha kérdése van az integrált rendszer-végponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`Az integrált rendszerek **ResourceManagerUrl** : @no__t – 0 Ha kérdése van az integrált rendszer-végponttal kapcsolatban, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
     | Tárolási végpont | local.azurestack.external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuálisgép-rendszerkép aliasneveit tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>

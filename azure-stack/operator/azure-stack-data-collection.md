@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 3e46007c07856df9ecc6b4edca4c595525b3b8ba
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: 31fa9bcdf60b27b2eb2e8396be1d2a0e89f31b70
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342774"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829186"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>A naplók és az ügyfelek adatkezelésének Azure Stack 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
@@ -31,7 +31,7 @@ Ahhoz, hogy a Microsoft a Azure Stack-mel kapcsolatos személyes adatfeldolgozó
 - A személyes adatainak feldolgozása; GDPR "az [online szolgáltatások használati feltételei](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)" adatvédelmi feltételek "szakaszában.
 - Az Európai Unió Általános adatvédelmi rendelet az [online szolgáltatások használati feltételeinek](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)4. mellékletében foglalt feltételeket.
 
-Ahogy Azure Stack az ügyfél-adatközpontokban található, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
+Ahogy Azure Stack az ügyfél-adatközpontokban található, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
 
 ## <a name="data-access-controls"></a>Adathozzáférési vezérlők 
 Az adott támogatási eset kivizsgálásához hozzárendelt Microsoft-alkalmazottak csak olvasási hozzáférést kapnak a titkosított adathoz. A Microsoft alkalmazottai is hozzáférhetnek az adattörléshez használt eszközökhöz, ha szükségesek. A rendszer naplózza és naplózza az ügyféladatok összes hozzáférését.  
@@ -51,7 +51,7 @@ Az automatikus adattörlési művelethez (a kis-és nagybetűk után 90 nappal) 
 Az igény szerinti adattörlési művelethez a Microsoft támogatási szakemberei hozzáférhetnek az eszközhöz, amellyel igény szerint törölhetik az adatvesztést. Megerősítik a telefont az ügyféllel, ha elkészült.
 
 ## <a name="diagnostic-data"></a>Diagnosztikai adatszolgáltatások
-A támogatási folyamat részeként Azure Stack operátorok [megoszthatják a diagnosztikai naplókat](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) Azure stack támogatási és mérnöki csapatokkal, hogy segítsenek a hibaelhárításban.
+A támogatási folyamat részeként Azure Stack operátorok [megoszthatják a diagnosztikai naplókat](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) Azure stack támogatási és mérnöki csapatokkal, hogy segítsenek a hibaelhárításban.
 
 A Microsoft egy eszközt és parancsfájlt biztosít az ügyfeleknek a kért diagnosztikai naplófájlok gyűjtéséhez és feltöltéséhez. Az adatgyűjtés után a rendszer a naplófájlokat HTTPS-védelemmel ellátott, titkosított kapcsolaton keresztül továbbítja a Microsoftnak. Mivel a HTTPS biztosítja a titkosítást a hálózaton keresztül, nincs szükség jelszóra az átvitelhez szükséges titkosításhoz. A fogadást követően a rendszer titkosítja és tárolja a naplókat, amíg a támogatási eset bezárása után 90 nappal automatikusan törlődnek.
 

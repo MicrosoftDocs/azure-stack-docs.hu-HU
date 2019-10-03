@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stacken MySQL erőforrás-szolgáltató eltávolítása |} A Microsoft Docs
-description: Ismerje meg, hogyan távolíthat el a MySQL erőforrás-szolgáltató az Azure Stack üzemelő példányához.
+title: A MySQL erőforrás-szolgáltató eltávolítása Azure Stackon | Microsoft Docs
+description: Ismerje meg, hogyan távolíthatja el a MySQL erőforrás-szolgáltatót a Azure Stack-telepítésből.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,52 +11,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: d44d60495ad4820277b6fdb7532404fb9aa42b09
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 3a48ded6a9a21650bae488e0a858086a3575235e
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308589"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829408"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>A MySQL erőforrás-szolgáltató eltávolítása
 
-A MySQL erőforrás-szolgáltató eltávolítása, előtt el kell távolítania a szolgáltató függőségeket. Emellett szüksége lesz egy példányát a központi telepítési csomag, amely az erőforrás-szolgáltató telepítéséhez használt.
+A MySQL erőforrás-szolgáltató eltávolítása előtt el kell távolítania az összes szolgáltatói függőséget. Szüksége lesz az erőforrás-szolgáltató telepítéséhez használt központi telepítési csomag másolatára is.
 
 > [!NOTE]
-> A letöltési hivatkozásokat talál az erőforrás a szolgáltató telepítők [üzembe helyezése az erőforrás-szolgáltatóra vonatkozó Előfeltételek](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> Az erőforrás-szolgáltatói telepítők letöltési hivatkozásait az erőforrás- [szolgáltató előfeltételeinek telepítése című](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)cikkben találja.
 
-A MySQL erőforrás-szolgáltató eltávolítása nem törli bérlői adatbázisokat üzemeltető kiszolgálók.
+A MySQL erőforrás-szolgáltató eltávolítása nem törli a bérlői adatbázisokat az üzemeltetési kiszolgálókról.
 
-## <a name="dependency-cleanup"></a>Függőségi karbantartása
+## <a name="dependency-cleanup"></a>Függőségek törlése
 
-Nincsenek ehhez az erőforrás-szolgáltató eltávolítása a DeployMySqlProvider.ps1 parancsfájl futtatása előtt több karbantartási feladatot.
+A DeployMySqlProvider. ps1 parancsfájl futtatása előtt több karbantartási feladatot is el kell végezni az erőforrás-szolgáltató eltávolításához.
 
-Az Azure Stack – operátor felelős az alábbi karbantartási feladatokat:
+A Azure Stack operátor felelős a következő karbantartási feladatokért:
 
-* Törölje azokat a csomagokat, amelyek a MySQL-Adapter hivatkoznak.
-* Törölje a MySQL-adapterhez társított kvóták.
+* Törölje a MySQL-adapterre hivatkozó terveket.
+* Törölje a MySQL-adapterhez társított kvótákat.
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>A MySQL erőforrás-szolgáltató eltávolítása
 
-1. Győződjön meg arról, hogy eltávolította a meglévő MySQL erőforrás szolgáltató függőségeket.
+1. Győződjön meg arról, hogy eltávolította az összes meglévő MySQL erőforrás-szolgáltató függőségét.
 
    > [!NOTE]
-   > A MySQL erőforrás-szolgáltató eltávolítása akkor is, ha a tőle függő erőforrások jelenleg használja az erőforrás-szolgáltató folytatódik.
+   > A MySQL erőforrás-szolgáltató eltávolítása akkor is folytatódni fog, ha a függő erőforrások jelenleg az erőforrás-szolgáltatót használják.
   
-2. A MySQL erőforrás-szolgáltató telepítési csomag le, és futtassa a mappába, csomagolja ki a tartalmát egy ideiglenes könyvtárba.
-3. Nyisson meg egy új emelt szintű PowerShell-konzolablakot, és váltson arra a könyvtárra, amelyben kibontotta az MySQL erőforrás-szolgáltató telepítési fájljait.
-4. Futtassa a DeployMySqlProvider.ps1 parancsfájlt a következő paraméterekkel:
-    - **Távolítsa el**. Eltávolítja az erőforrás-szolgáltató és az összes társított erőforrást.
-    - **PrivilegedEndpoint**. Az IP-cím vagy a kiemelt végponthoz DNS-nevét.
-    - **AzureEnvironment**. Az Azure-környezethez az Azure Stack üzembe helyezéséhez használt. Kizárólag az Azure AD központi telepítések esetén szükséges.
-    - **CloudAdminCredential**. A felhő rendszergazdájához, a kiemelt végponthoz eléréséhez szükséges hitelesítő adatait.
+2. Szerezzen be egy másolatot a MySQL erőforrás-szolgáltató telepítési csomagjáról, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához.
+3. Nyisson meg egy új emelt szintű PowerShell-konzolt, és váltson arra a könyvtárra, ahová kicsomagolta a MySQL erőforrás-szolgáltató telepítési fájljait.
+4. Futtassa a DeployMySqlProvider. ps1 parancsfájlt a következő paraméterek használatával:
+    - **Eltávolítás**. Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást.
+    - **PrivilegedEndpoint**. Az emelt szintű végpont IP-címe vagy DNS-neve.
+    - **AzureEnvironment**. A Azure Stack üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
+    - **CloudAdminCredential**. A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához.
     - **DirectoryTenantID**
-    - **AzCredential**. Az Azure Stack szolgáltatás rendszergazdai fiók hitelesítő adatait. Használja az Azure Stack üzembe helyezéséhez használt hitelesítő adatokkal.
+    - **AzCredential**. A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt.
 
 ## <a name="next-steps"></a>További lépések
 
-[Alkalmazás-szolgáltatások ajánlása PaaS-ként](azure-stack-app-service-overview.md)
+[Ajánlati App Services Péterként](azure-stack-app-service-overview.md)

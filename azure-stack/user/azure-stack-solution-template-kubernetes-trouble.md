@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 135bffd37c98ce53de4b7ec58ddca1d65f4c9495
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 8d6730135e2a7055fc50f5c69918d1f0b2dbe5af
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493830"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71823874"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>A Kubernetes telepítésének hibája Azure Stack
 
@@ -47,17 +47,17 @@ A következő ábra a fürt üzembe helyezésének általános folyamatát mutat
     Adja meg a Kubernetes-fürt beállításához szükséges értékeket, beleértve a következőket:
     -  **Felhasználónév**: A Kubernetes-fürt és a DVM részét képező linuxos virtuális gépek (VM-EK) felhasználóneve.
     -  **Nyilvános SSH-kulcs**: A Kubernetes-fürt és-DVM részeként létrehozott összes Linux-gép engedélyezéséhez használt kulcs.
-    -  **Egyszerű szolgáltatásnév**: Az Kubernetes Azure Cloud Provider által használt azonosító. Az ügyfél-azonosító az egyszerű szolgáltatásnév létrehozásakor alkalmazás-AZONOSÍTÓként van meghatározva. 
-    -  **Ügyfél titkos kulcsa**: Az egyszerű szolgáltatásnév létrehozásakor létrehozott kulcs.
+    -  **Egyszerű szolgáltatás**: Az Kubernetes Azure Cloud Provider által használt azonosító. Az ügyfél-azonosító az egyszerű szolgáltatásnév létrehozásakor alkalmazás-AZONOSÍTÓként van meghatározva. 
+    -  **Titkos ügyfélkulcs**: Az egyszerű szolgáltatásnév létrehozásakor létrehozott kulcs.
 
 2. Hozza létre az üzembe helyezési virtuális gépet és az egyéni szkriptek bővítményét.
     -  Hozza létre az üzembe helyezési linuxos virtuális gépet a Marketplace Linux rendszerkép **Ubuntu Server 16,04-LTS**használatával.
-    -  Töltse le és futtassa az egyéni szkriptek bővítményét a piactéren. A szkript a **Linux 2,0**-es egyéni szkriptje.
+    -  Töltse le és futtassa az egyéni szkriptek bővítményét a piactéren. A szkript a **Linux 2,0-es egyéni szkriptje**.
     -  Futtassa az egyéni DVM parancsfájlt. A szkript a következő feladatokat hajtja végre:
         1. Lekéri a katalógus végpontját a Azure Resource Manager metaadat-végpontból.
         2. Az Active Directory-erőforrás AZONOSÍTÓjának beolvasása a Azure Resource Manager metaadat-végpontból.
         3. Betölti az alkabai Motor API-modelljét.
-        4. Üzembe helyezi az AK-motort a Kubernetes-fürtön, és menti `/etc/kubernetes/azurestackcloud.json`a Azure stack felhőalapú profilt a következőre:.
+        4. Üzembe helyezi az AK-motort a Kubernetes-fürtön, és elmenti a Azure Stack Cloud-profilt `/etc/kubernetes/azurestackcloud.json`-ra.
 3. Hozza létre a fő virtuális gépeket.
 
 4. Egyéni parancsfájl-bővítmények letöltése és futtatása.
@@ -94,7 +94,7 @@ A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttek
 4.  Ha a virtuális gép **rendben**van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
 
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
-    - A Kiemelt végpontok használatával lépjen kapcsolatba a Azure Stack rendszergazdájával, és kérje le a Azure Stack naplóit. További információ: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep).
+    - A Kiemelt végpontok használatával lépjen kapcsolatba a Azure Stack rendszergazdájával, és kérje le a Azure Stack naplóit. További információ: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
 5. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Központi telepítés állapotának áttekintése
@@ -113,7 +113,7 @@ A Kubernetes-fürt üzembe helyezésekor áttekintheti a központi telepítés �
     | ----     | ----        |
     | Resource | Az erőforrás neve. |
     | Type | Az erőforrás-szolgáltató és az erőforrás típusa. |
-    | Állapot | Az tétel állapota. |
+    | State | Az tétel állapota. |
     | TimeStamp | Az idő UTC-időbélyege. |
     | Művelet részletei | A művelet részleteit, például a műveletben érintett erőforrás-szolgáltatót, az erőforrás-végpontot és az erőforrás nevét. |
 
@@ -121,7 +121,7 @@ A Kubernetes-fürt üzembe helyezésekor áttekintheti a központi telepítés �
 
 ## <a name="review-deployment-logs"></a>Telepítési naplók áttekintése
 
-Ha a Azure Stack-portál nem biztosít elegendő információt az üzembe helyezési hibák elhárításához vagy leállításához, a következő lépés a fürt naplófájljainak beásása. Az üzembe helyezési naplók manuális beolvasásához általában csatlakoznia kell a fürt egyik fő virtuális géphez. Egyszerűbb alternatív megoldás, ha letölti és futtatja a Azure Stack csapata által biztosított alábbi [bash](https://aka.ms/AzsK8sLogCollectorScript) -szkriptet. Ez a szkript csatlakozik a DVM és a fürt virtuális gépeihoz, összegyűjti a kapcsolódó rendszer-és fürtözött naplókat, és letölti azokat a munkaállomásra.
+Ha a Azure Stack-portál nem biztosít elegendő információt az üzembe helyezési hibák elhárításához vagy leállításához, a következő lépés a fürt naplófájljainak beásása. Az üzembe helyezési naplók manuális beolvasásához általában csatlakoznia kell a fürt egyik fő virtuális géphez. Egyszerűbb alternatív megoldás, ha letölti és futtatja a Azure Stack csapata által biztosított alábbi [bash-szkriptet](https://aka.ms/AzsK8sLogCollectorScript) . Ez a szkript csatlakozik a DVM és a fürt virtuális gépeihoz, összegyűjti a kapcsolódó rendszer-és fürtözött naplókat, és letölti azokat a munkaállomásra.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
@@ -146,10 +146,10 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
 
     | Paraméter           | Leírás                                                                                                      | Példa                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | A DVM nyilvános IP-címe vagy teljesen minősített tartományneve (FQDN). A virtuális gép neve a `vmd-`(z) karakterlánccal kezdődik. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | A DVM nyilvános IP-címe vagy teljesen minősített tartományneve (FQDN). A virtuális gép neve `vmd-` karakterrel kezdődik. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h,-– Súgó  | A parancs használatának nyomtatása. | |
     | -i,--Identity-file | Az Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott RSA titkos kulcsfájl elérési útja. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | C:\data\id_rsa.PEM (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m, --master-host   | A Kubernetes fő csomópontjának nyilvános IP-címe vagy teljes tartományneve (FQDN). A virtuális gép neve a `k8s-master-`(z) karakterlánccal kezdődik. | IP: 192.168.102.37<br>FQDN: k8s-12345. local. cloudapp. azurestack. external      |
+    | -m, --master-host   | A Kubernetes fő csomópontjának nyilvános IP-címe vagy teljes tartományneve (FQDN). A virtuális gép neve `k8s-master-` karakterrel kezdődik. | IP: 192.168.102.37<br>FQDN: k8s-12345. local. cloudapp. azurestack. external      |
     | -u,--User          | A Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott felhasználó neve. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | Azureus (alapértelmezett érték) |
 
 
@@ -159,7 +159,7 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Néhány perc elteltével a szkript kiírja az összegyűjtött naplókat egy nevű `KubernetesLogs_{{time-stamp}}`könyvtárba. Itt talál egy könyvtárat a fürthöz tartozó minden egyes virtuális géphez.
+4. Néhány perc elteltével a szkript kiírja az összegyűjtött naplókat egy `KubernetesLogs_{{time-stamp}}` nevű könyvtárba. Itt talál egy könyvtárat a fürthöz tartozó minden egyes virtuális géphez.
 
     A log Collector parancsfájl a naplófájlokban is hibákat keres, és hibaelhárítási lépéseket is tartalmaz, ha ismert problémát talál. Győződjön meg arról, hogy a szkript legújabb verzióját futtatja, hogy növelje az ismert problémák megtalálásának esélyét.
 

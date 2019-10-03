@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.openlocfilehash: cd65f51867a4626e8f9b288c5113909bfa32b1c2
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224930"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829194"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack diagnosztikai napló gyűjteményének áttekintése 
 
@@ -29,7 +29,7 @@ ms.locfileid: "71224930"
 
 Azure Stack az összetevők nagy gyűjteménye, amely együttműködik egymással, és interakciót végez. Ezek az összetevők saját egyedi naplókat hoznak. Ez egy kihívást jelentő feladat kijavítását teszi elérhetővé, különösen a több, interakcióban lévő Azure Stack-összetevőtől érkező hibák esetén. A probléma megoldása érdekében diagnosztikai napló-gyűjtési élményt alakítottunk ki. 
 
-Az 1907-as előtt a [test-AzureStack](azure-stack-diagnostic-test.md) használatával ellenőrizheti a rendszerállapotot és [a Kiemelt jogosultságú végpont (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) használatával gyűjti össze a hibakeresési naplókat. 
+Az 1907-as előtt a [test-AzureStack](azure-stack-diagnostic-test.md) használatával ellenőrizheti a rendszerállapotot és [a Kiemelt jogosultságú végpont (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) használatával gyűjti össze a hibakeresési naplókat. 
 
 Az 1907-es kiadástól kezdve a **Súgó és támogatás** lap egy egyszerűbb felhasználói élményt nyújt a **diagnosztikai naplók gyűjtésével**. 
 A **diagnosztikai naplók gyűjteménye** egy folyamatban lévő beruházás része, amely a hibaelhárítási folyamattal Azure stack operátorral kapcsolatos tapasztalatokat fejleszti. Ezeknek a fejlesztéseknek köszönhetően a kezelők gyorsan gyűjthetik és oszthatják meg a diagnosztikai naplókat a Microsoft ügyfél-támogatási szolgáltatásaival (CSS). A naplók tárolhatók az Azure-beli blob-tárolóban, ahol a hozzáférés igény szerint testreszabható.    
@@ -42,7 +42,7 @@ A **diagnosztikai naplók gyűjtése** két különböző módon működik:
 ![A diagnosztikai naplók gyűjtési lehetőségeinek képernyőképe](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 A **diagnosztikai napló gyűjteménye** egyszerű felhasználói felülettel rendelkezik, és nem igényel PowerShellt. A naplók gyűjtése megbízhatóan történik, még akkor is, ha az infrastrukturális szolgáltatások nem állnak le.
-Ha a szabályzat lehetővé teszi a diagnosztikai naplók CSS-sel való megosztását, a rendszer a 1907 kiadástól kezdődően az ajánlott gyűjtési módszert alkalmazza a **diagnosztikai naplók gyűjtésére** . Csak [a PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) használatával gyűjthet naplókat, ha a súgóban és a támogatásban nem érhető el a **diagnosztikai naplók gyűjteménye** .
+Ha a szabályzat lehetővé teszi a diagnosztikai naplók CSS-sel való megosztását, a rendszer a 1907 kiadástól kezdődően az ajánlott gyűjtési módszert alkalmazza a **diagnosztikai naplók gyűjtésére** . Csak [a PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) használatával gyűjthet naplókat, ha a súgóban és a támogatásban nem érhető el a **diagnosztikai naplók gyűjteménye** .
 
 ## <a name="automatic-diagnostic-log-collection"></a>Diagnosztikai naplók automatikus gyűjtése 
 

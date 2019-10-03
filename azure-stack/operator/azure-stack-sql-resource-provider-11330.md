@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack SQL resource provider 1.1.30.0 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg, mi az a legújabb Azure Stack SQL resource provider frissítések, beleértve az olyan ismert problémákat és helyét, ahonnan letöltheti azt.
+title: Azure Stack SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerkedjen meg a legújabb Azure Stack SQL Resource Provider frissítésével, beleértve az ismert problémákat és a letöltés helyét.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,70 +12,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 5e5e44ed9eca3cde0844c0eafbc4188bd1449da2
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 69ea42a9efbf57cfdeb589cc221eae8a9f21913c
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618157"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829316"
 ---
-# <a name="sql-resource-provider-11330-release-notes"></a>SQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
+# <a name="sql-resource-provider-11330-release-notes"></a>SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A kibocsátási megjegyzések a javításokat és a SQL-erőforrás-szolgáltató verziója 1.1.33.0 ismert problémákat ismertetik.
+Ezek a kibocsátási megjegyzések ismertetik az SQL Resource Provider 1.1.33.0 verziójának frissítéseit és ismert problémáit.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
-Töltse le az SQL erőforrás-szolgáltató bináris, és futtassa a mappába, csomagolja ki a tartalmát egy ideiglenes könyvtárba. Az erőforrás-szolgáltató rendelkezik egy minimális megfelelő Azure Stack hozhat létre. Ezen verziója az SQL erőforrás-szolgáltató telepítéséhez szükséges minimális Azure Stack-verzió alább:
+Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbi listában látható:
 
-> |Azure Stack minimális verziója|Erőforrás-szolgáltató az SQL verziója|
+> |Minimális Azure Stack-verzió|SQL erőforrás-szolgáltató verziója|
 > |-----|-----|
-> |Verzió 1808 (1.1808.0.97)|[SQL-RP 1.1.33.0 verzió](https://aka.ms/azurestacksqlrp11330)|  
+> |1808-es verzió (1.1808.0.97)|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> A minimális támogatott az Azure Stack-frissítés alkalmazása az Azure Stackkel integrált rendszereknél, vagy üzembe helyezése a legújabb Azure Stack Development Kit (ASDK) az erőforrás-szolgáltató az SQL legújabb verziójának telepítése előtt.
+> Alkalmazza a minimális támogatott Azure Stack frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) az SQL Resource Provider legújabb verziójának telepítése előtt.
 
-## <a name="new-features-and-fixes"></a>Új funkciókkal és javításokkal
-Az Azure Stack SQL erőforrás-szolgáltató ezen verziója tartalmazza a következő fejlesztések és javítások:
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
+A Azure Stack SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
 ### <a name="fixes"></a>Javítások
-- **SQL resource provider portálbővítmény előfordulhat, hogy válassza ki a megfelelő előfizetést**. Az erőforrás-szolgáltató az SQL Azure Resource Manager hívásait, lehet, hogy nem lesz meghatározni az első szolgáltatás rendszergazdai előfizetést szeretné használni, használja a *szolgáltatói előfizetés alapértelmezett*. Ha ez történik, az erőforrás-szolgáltató az SQL nem működik megfelelően. 
+- **Előfordulhat, hogy az SQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. Az SQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ a használni kívánt szolgáltatás-felügyeleti előfizetés meghatározásához, ami esetleg nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, az SQL-erőforrás szolgáltatója nem működik megfelelően. 
 
-- **SQL Állomáskiszolgálót nem tartalmazza a üzemeltetett adatbázisok.** Felhasználó által létrehozott adatbázisok előfordulhat, hogy nem szerepel a listában, az SQL-kiszolgálókat üzemeltető bérlői erőforrások megtekintésekor.
+- **Az SQL üzemeltetési kiszolgáló nem sorolja fel az üzemeltetett adatbázisokat.** Előfordulhat, hogy a felhasználó által létrehozott adatbázisok nem jelennek meg az SQL üzemeltetési kiszolgálók bérlői erőforrásainak megtekintésekor.
 
-- **A korábbi SQL resource provider (1.1.30.0) központi telepítés sikertelen lehet, ha nincs engedélyezve a TLS 1.2**. Frissítve az SQL erőforrás-szolgáltató 1.1.33.0 engedélyezéséhez a TLS 1.2-es, az erőforrás-szolgáltató, az erőforrás-szolgáltató frissítése vagy titkos kulcsok Elforgatás üzembe helyezésekor. 
+- **A korábbi SQL-erőforrás-szolgáltató (1.1.30.0) telepítése meghiúsulhat, ha a TLS 1,2 nincs engedélyezve**. Frissítette az SQL Resource Provider 1.1.33.0, hogy engedélyezze a TLS 1,2-et az erőforrás-szolgáltató telepítésekor, az erőforrás-szolgáltató frissítésekor vagy a titkok elforgatásakor. 
 
-- **SQL erőforrás-szolgáltató titkos elforgatás nem sikerül**. Kijavítva a hiba a következő hibakóddal eredményez, amikor a titkos kulcsok elforgatás: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Sikertelen volt az SQL-erőforrás-szolgáltató titkos elforgatása**. A következő hibakód miatt kijavított hiba történt a titkok elforgatásakor: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Ismert problémák 
 
-- **SQL-termékváltozatok órát is igénybe vehet egy lesznek láthatók a portálon**. Is igénybe vehet egy órát újonnan létrehozott termékváltozatok lesznek láthatók a használatra, amikor új SQL-adatbázisok létrehozásához. 
+- **Az SQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy óráig is eltarthat, amíg az újonnan létrehozott SKU-t új SQL-adatbázisok létrehozásakor használni szeretné. 
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: Nincs.
 
-- **Fel újra az SQL-bejelentkezésekben**. Próbál létrehozni egy új SQL jelentkezzen be a felhasználónevet, egy előfizetésen belül egy meglévő bejelentkezést eredményez szakember újból felhasználja a meglévő jelszót, és ugyanazokat a bejelentkezési adatokat. 
+- Az **SQL-bejelentkezések újra felhasználva**. Ha egy olyan új SQL-bejelentkezést próbál létrehozni ugyanazzal a felhasználónévvel, amely ugyanazzal az előfizetéssel rendelkezik, akkor ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni. 
 
-    **Megkerülő megoldás**: Azonos előfizetéshez tartozó új bejelentkezéseket létrehozásakor különböző felhasználónevet használ, vagy hozzon létre bejelentkezések a különböző előfizetéseknél felhasználónevet.
+    **Áthidaló megoldás**: Használjon más felhasználóneveket, amikor új bejelentkezéseket hoz létre ugyanazon előfizetés alatt, vagy hozzon létre bejelentkezési adatokat ugyanazzal a felhasználónévvel különböző előfizetésekben.
 
-- **Megosztott SQL-bejelentkezésekben adatinkonzisztenciát okozhat**. Ha az egy előfizetésen belül több SQL-adatbázis egy SQL-bejelentkezési megosztott, a bejelentkezési jelszó módosítása adatinkonzisztenciát okoz.
+- A **megosztott SQL-bejelentkezések adatkövetkezetlenséget okozhatnak**. Ha egy SQL-bejelentkezés ugyanahhoz az előfizetéshez tartozó több SQL-adatbázishoz van megosztva, akkor a bejelentkezési jelszó módosítása az adatok inkonzisztenciát okoz.
 
-    **Megkerülő megoldás**: Mindig használjon különböző bejelentkezések különböző adatbázisokat ugyanahhoz az előfizetéshez.
+    **Áthidaló megoldás**: Mindig használjon eltérő bejelentkezési adatokat a különböző adatbázisokhoz ugyanazon előfizetés alatt.
 
-- **SQL típusú erőforrás-szolgáltató nem sikerül hozzáadni az SQL Server Always On figyelő**. Az SQL Server Always figyelője figyelő IP-címének használata esetén az SQL-erőforrás-szolgáltató virtuális gép nem oldható fel a figyelő gazdagép nevét.
+- **Az SQL erőforrás-szolgáltató nem tud felvenni SQL Server always on figyelőt**. Ha a figyelő IP-címét használja a SQL Server mindig a figyelőn, az SQL-erőforrás szolgáltatójának virtuális gépe nem tudja feloldani a figyelő gazdagépének nevét.
 
-    **Megkerülő megoldás**: Győződjön meg arról, hogy DNS megfelelően működik, és oldja fel a figyelő IP-címet figyelő gazdagép nevét.
+    **Áthidaló megoldás**: Győződjön meg arról, hogy a DNS megfelelően működik-e a figyelő IP-címének a figyelő állomásneve általi feloldásához.
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack működő felhő rendszergazdái számára ismert problémák
-A dokumentáció a [Azure Stack kibocsátási megjegyzések](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
+Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
 
 ## <a name="next-steps"></a>További lépések
-[További információ az SQL erőforrás-szolgáltató](azure-stack-sql-resource-provider.md).
+[További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).
 
-[Az SQL erőforrás-szolgáltató telepítésének előkészítéséhez](azure-stack-sql-resource-provider-deploy.md#prerequisites).
+[Felkészülés az SQL-erőforrás-szolgáltató üzembe helyezésére](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Az erőforrás-szolgáltató SQL frissítés egy korábbi verziójáról](azure-stack-sql-resource-provider-update.md). 
+[Frissítse az SQL-erőforrás-szolgáltatót egy korábbi verzióról](azure-stack-sql-resource-provider-update.md). 

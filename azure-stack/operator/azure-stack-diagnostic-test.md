@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack ellenőrző eszköz használata | Microsoft Docs
-description: Diagnosztikai naplófájlok gyűjtése a Azure Stack-ben.
+title: A rendszerállapot ellenőrzése a Azure Stack ellenőrzési eszköz használatával | Microsoft Docs
+description: Megtudhatja, hogyan ellenőrizheti a rendszerállapotot a Azure Stack ellenőrzési eszköz használatával.
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,49 +14,49 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 194af241480cce42273ff81d91213a63b1b9fd59
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685524"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829172"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
 *Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack-operátorként a rendszer állapotának igény szerinti meghatározása elengedhetetlen. A Azure Stack Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy a rendszer teszteket futtasson a rendszeren a hibák azonosítása érdekében, ha van ilyen. Jellemzően arra fogják kérni, hogy ezt az eszközt a [kiemelt végponton (PEP)](azure-stack-privileged-endpoint.md) futtassa, amikor egy hiba miatt kapcsolatba lép a Microsoft ügyfélszolgálattal és támogatási csapatával (CSS). Az egész rendszerre kiterjedő állapotinformációk segítségével a CSS képes begyűjteni és elemezni a részletes naplókat, a hiba előfordulási helyére összpontosíthat, és Önnel együttműködve megoldhatja a problémát.
+Azure Stack kezelőként elengedhetetlen, hogy az igény szerinti rendszer állapotát és állapotát meg lehessen határozni. A Azure Stack Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy a rendszer teszteket futtasson a rendszeren a hibák azonosítása érdekében, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Az érvényesítési eszköz futtatása és az eredmények elérése
 
-Amint azt korábban már említettük, az ellenőrző eszköz a PEP-n keresztül fut. Minden teszt a PowerShell-ablakban a **Pass/Fail** állapotot adja vissza. Itt látható a végpontok közötti érvényesítés tesztelési folyamatának vázlata: 
+A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Minden teszt a PowerShell-ablakban a **Pass/Fail** állapotot adja vissza. Itt látható a végpontok közötti érvényesítés tesztelési folyamatának vázlata:
 
-1. Hozzáférés az emelt szintű végponthoz (PEP). A következő parancsok futtatásával hozzon létre egy PEP-munkamenetet:
+1. Hozzáférés a PEP-hez. A következő parancsok futtatásával hozzon létre egy PEP-munkamenetet:
 
    ```powershell
    Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
    ```
 
    > [!TIP]
-   > Ha a PEP-t egy ASDK futtató számítógépen szeretné elérni, használja a AzS-ERCS01 for-számítógépnév szolgáltatást.
+   > A PEP Azure Stack Development Kit (ASDK) gazdagépen való eléréséhez használja a következőt: AzS-ERCS01 for-számítógépnév.
 
-2. Ha a PEP-et futtatja, futtassa a következőket: 
+2. A PEP futtatása után futtassa a következőket:
 
    ```powershell
    Test-AzureStack
    ```
 
-   További információért tekintse meg a [paraméterekkel kapcsolatos szempontokat](azure-stack-diagnostic-test.md#parameter-considerations) , és [használjon példákat](azure-stack-diagnostic-test.md#use-case-examples) .
+   További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Ha bármilyen teszt jelentés **sikertelen**, futtassa `Get-AzureStackLog`a parancsot. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)vagy a ASDK: a [Get-AzureStackLog futtatása Azure stack Development Kit (ASDK) rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog` parancsot. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
-   A parancsmag a test-AzureStack által generált naplókat gyűjti. Ne gyűjtsön naplókat, vagy forduljon a CSS-hez, ha a tesztek jelentés **figyelmeztet**.
+   A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne gyűjtsön naplókat, és ne vegye fel a kapcsolatot a CSS-sel, ha a tesztek **figyelmeztetnek**
 
-4. Ha arra utasította, hogy a CSS-sel futtassa az ellenőrző eszközt, a CSS-képviselő az összegyűjtött naplókat fogja kérni a probléma megoldásának folytatásához.
+4. Ha arra utasítja az ellenőrző eszközt, hogy a CSS-t futtatja, a CSS-képviselő az összegyűjtött naplókat fogja kérni a probléma megoldásának folytatásához.
 
 ## <a name="tests-available"></a>Elérhető tesztek
 
-Az ellenőrző eszköz lehetővé teszi a rendszerszintű tesztek és az alapszintű felhőalapú forgatókönyvek sorozatának futtatását, amelyek betekintést nyújtanak az aktuális állapotba, és megerősítik a rendszer hibáit.
+Az ellenőrző eszköz lehetővé teszi a rendszerszintű tesztek és az alapszintű Felhőbeli forgatókönyvek futtatását, amelyek betekintést nyújtanak az aktuális állapotba, így kijavíthatja a rendszerével kapcsolatos problémákat.
 
 ### <a name="cloud-infrastructure-tests"></a>Felhőalapú infrastruktúra-tesztek
 
@@ -93,26 +93,26 @@ Ezek az alacsony hatású tesztek infrastrukturális szinten működnek, és inf
 
 ### <a name="cloud-scenario-tests"></a>Felhőbeli forgatókönyvek tesztelése
 
-A fenti infrastruktúra-tesztek mellett lehetősége van arra is, hogy felhőalapú forgatókönyv-teszteket futtasson az infrastruktúra-összetevők funkcióinak ellenőrzéséhez. A tesztek futtatásához Felhőbeli rendszergazdai hitelesítő adatok szükségesek, mivel ezek az erőforrások üzembe helyezésével járnak.
+A fenti infrastruktúra-tesztek mellett a felhőalapú forgatókönyvek tesztelését is futtathatja az infrastruktúra-összetevők funkcióinak ellenőrzéséhez. A tesztek futtatásához Felhőbeli rendszergazdai hitelesítő adatokra van szükség, mivel ezek az erőforrások üzembe helyezését foglalják magukban.
 
 > [!NOTE]
-> Jelenleg nem futtathat felhőalapú forgatókönyv-teszteket Active Directory összevont szolgáltatások (AD FS) hitelesítő adataival. 
+> Jelenleg nem futtathat felhőalapú forgatókönyv-teszteket Active Directory összevont szolgáltatások (AD FS) hitelesítő adataival.
 
 Az ellenőrzési eszköz a következő Felhőbeli forgatókönyveket teszteli:
-- Erőforráscsoport létrehozása   
-- Terv létrehozása              
-- Ajánlat létrehozása            
-- Storage-fiók létrehozása   
-- Virtuális gépek létrehozása 
-- BLOB Storage-művelet   
-- Várólista tárolási művelete  
-- Tábla tárolási művelete  
+- Erőforráscsoport létrehozása
+- Terv létrehozása
+- Ajánlat létrehozása
+- Storage-fiók létrehozása
+- Virtuális gép létrehozása (VM)
+- BLOB Storage-művelet
+- Várólista tárolási művelete
+- Tábla tárolási művelete
 
 ## <a name="parameter-considerations"></a>Paraméterekkel kapcsolatos szempontok
 
 - A paraméterek **listája** az összes rendelkezésre álló tesztelési kategória megjelenítésére használható.
 
-- A paraméterek **közé tartozik** és **figyelmen kívül hagyható** a tesztelési kategóriák belefoglalása vagy kizárása is. Az argumentumokkal használandó információkkal kapcsolatos további információkért tekintse meg a következő szakaszt.
+- A paraméterek **közé tartozik** és **figyelmen kívül hagyható** a tesztelési kategóriák belefoglalása vagy kizárása is. További információt ezekről az argumentumokról a következő szakaszban talál.
 
   ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
@@ -122,7 +122,7 @@ Az ellenőrzési eszköz a következő Felhőbeli forgatókönyveket teszteli:
   Test-AzureStack -Ignore AzsInfraPerformance
   ```
 
-- A bérlői virtuális gép üzembe helyezése egy felhőalapú forgatókönyv-teszt részeként történik. A **DoNotDeployTenantVm** használatával letilthatja ezt.
+- A bérlői virtuális gép üzembe helyezése a felhőalapú forgatókönyv-tesztek részeként történik. A virtuális gép központi telepítésének letiltásához használja a **DoNotDeployTenantVm** .
 
 - A **ServiceAdminCredential** paramétert kell megadnia a Felhőbeli forgatókönyvek teszteléséhez a [használati példák](azure-stack-diagnostic-test.md#use-case-examples) című szakaszban leírtak szerint.
 
@@ -160,14 +160,14 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
 ```
 
-A Felhőbeli rendszergazda felhasználónevet az UPN formátumba kell írni: serviceadmin@contoso.onmicrosoft.com(Azure AD). Ha a rendszer kéri, írja be a jelszót a Felhőbeli rendszergazdai fiókba.
+A Felhőbeli rendszergazda felhasználónevet az UPN formátumba kell írni: @no__t – 0 (Azure AD). Ha a rendszer kéri, írja be a jelszót a Felhőbeli rendszergazdai fiókba.
 
 ### <a name="groups"></a>Csoportok
 
-A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg 3 csoport van definiálva: **Alapértelmezett**, **UpdateReadiness** és **SecretRotationReadiness**.
+A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **Alapértelmezett**, **UpdateReadiness**és **SecretRotationReadiness**.
 
 - **Alapértelmezett**: A **teszt-AzureStack**normál futtatásának számít. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
-- **UpdateReadiness**: Ellenőrizze, hogy a bélyegző frissíthető-e. Ha a **UpdateReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és blokkoló kell tekinteni őket a frissítéshez. A következő kategóriák a **UpdateReadiness** csoport részét képezik:
+- **UpdateReadiness**: Ellenőrizze, hogy a Azure Stack-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A következő kategóriák a **UpdateReadiness** csoport részét képezik:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -178,7 +178,7 @@ A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve 
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**: Ellenőrizze, hogy a bélyegző olyan-e, amelyben a titkos elforgatás futtatható. A **SecretRotationReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
+- **SecretRotationReadiness**: Ellenőrizze, hogy a Azure Stack példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -198,7 +198,7 @@ Az alábbi példa a **test-AzureStack** tesztelésével teszteli a rendszer kés
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Ha azonban a Azure Stack 1811-es verziót futtat, akkor a következő PowerShell-parancsokkal futtassa a **test-AzureStack**:
+Ha a Azure Stack a 1811 előtti verziót futtatja, akkor a következő PowerShell-parancsokkal futtassa a **test-AzureStack**:
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -207,7 +207,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>Ellenőrzési eszköz futtatása az infrastruktúra biztonsági mentési beállításainak teszteléséhez
 
-Az infrastruktúra biztonsági mentésének konfigurálása *előtt* tesztelheti a biztonsági mentési megosztás elérési útját és a hitelesítő adatokat az **AzsBackupShareAccessibility** teszt használatával: 
+Az infrastruktúra biztonsági mentésének konfigurálása *előtt* tesztelheti a biztonsági mentési megosztás elérési útját és a hitelesítő adatokat az **AzsBackupShareAccessibility** teszt használatával:
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -228,20 +228,18 @@ Ha új hitelesítő adatokat szeretne tesztelni a beállított biztonsági ment�
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
-### <a name="run-validation-tool-to-test-network-infrastructure"></a>Ellenőrző eszköz futtatása a hálózati infrastruktúra teszteléséhez 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>Ellenőrző eszköz futtatása a hálózati infrastruktúra teszteléséhez
 
-Ez a teszt ellenőrzi a hálózati infrastruktúra azon kapcsolatát, amely megkerüli a Azure Stack szoftver által meghatározott hálózatot (SDN). Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és a hitelesítési végpontokkal. Ez magában foglalja az Azure-hoz való kapcsolódást, ha az Azure AD-t identitás-szolgáltatóként vagy az összevont kiszolgálóként használja, amikor az ADFS-t 
+Ez a teszt ellenőrzi a hálózati infrastruktúra azon kapcsolatát, amely megkerüli a Azure Stack szoftver által meghatározott hálózatot (SDN). Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és a hitelesítési végpontokkal. Ez magában foglalja az Azure-hoz való kapcsolódást is, ha az Azure AD-t identitás-szolgáltatóként vagy az összevont kiszolgálóként használja AD FS identitás-szolgáltatóként
 
 Adja meg a Debug paramétert a parancs részletes kimenetének lekéréséhez:
 
-```powershell 
+```powershell
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
-
-
 ## <a name="next-steps"></a>További lépések
 
-Ha többet szeretne megtudni Azure Stack diagnosztikai eszközökről és a naplózási problémákról, tekintse meg a [Azure stack diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)című témakört.
+Ha többet szeretne megtudni Azure Stack diagnosztikai eszközökről és a naplózási problémákról, tekintse meg a [Azure stack diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)című témakört.
 
 A hibaelhárítással kapcsolatos további tudnivalókért tekintse meg a [Microsoft Azure stack hibaelhárítást](azure-stack-troubleshooting.md)ismertető témakört.

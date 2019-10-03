@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 993c0c668a8894c82eddbf79e93b1722d3a3d8f4
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 5072c40f4e8eba787e0a18c7c73a51111d0c847b
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494020"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829272"
 ---
 # <a name="start-and-stop-azure-stack"></a>Elindítása és leállítása az Azure Stackben
 A jelen cikkben ismertetett eljárásokkal Azure Stack szolgáltatások megfelelő leállítására és újraindítására van lehetőség. A Leállítás fizikailag kikapcsolja a teljes Azure Stack környezetet. A rendszer elindítja az összes infrastruktúra-szerepkörre vonatkozó hatásköröket, és visszaadja a bérlői erőforrásokat a leállításuk előtti állapotba.
@@ -91,4 +91,4 @@ Hajtsa végre az alábbi lépéseket, ha az infrastruktúra és a bérlői szolg
 
 ## <a name="next-steps"></a>További lépések 
 
-További információ a [Azure stack diagnosztikai eszközökről](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
+További információ a [Azure stack diagnosztikai eszközökről](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

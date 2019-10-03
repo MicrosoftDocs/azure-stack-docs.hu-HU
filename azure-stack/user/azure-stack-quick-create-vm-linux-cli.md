@@ -1,6 +1,6 @@
 ---
-title: Linux rendszerű virtuális gép létrehozása az Azure CLI-vel az Azure Stackben |} A Microsoft Docs
-description: Linux rendszerű virtuális gép létrehozása az Azure Stack az Azure parancssori felület használatával.
+title: Linuxos virtuális gép létrehozása az Azure CLI-vel a Azure Stack-ben | Microsoft Docs
+description: Hozzon létre egy linuxos virtuális gépet a Azure Stack Azure CLI használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,45 +11,45 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d47e5908e674a8b57b9e6d686e4596e1002b67c9
-ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
+ms.openlocfilehash: 84689e45bff8150616f37205eaa4a9bd9b25ff04
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394401"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824253"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack"></a>Gyors útmutató: Egy Linux-kiszolgáló virtuális gép létrehozása az Azure Stack az Azure parancssori felület használatával
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack"></a>Gyors útmutató: Linux Server rendszerű virtuális gép létrehozása az Azure parancssori felületének használatával Azure Stack
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
 
-Létrehozhat egy Ubuntu Server 16.04 LTS virtuális gép (VM) az Azure parancssori felület használatával. Ebben a cikkben hozzon létre és használhat egy virtuális gépet. Ez a cikk emellett bemutatja, hogyan való:
+Az Azure CLI használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
-* Csatlakozzon a virtuális géphez a távoli ügyfélhez.
-* Egy NGINX-webkiszolgáló telepítéséhez, és az alapértelmezett kezdőlap megtekintéséhez.
-* A fel nem használt erőforrások törlése.
+* Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
+* Telepítsen egy NGINX-webkiszolgálót, és tekintse meg az alapértelmezett kezdőlapot.
+* Törölje a használaton kívüli erőforrásokat.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Egy Linuxos rendszerképet az Azure Stack piactéren
+* Linux-rendszerkép a Azure Stack piactéren
 
-   Az Azure Stack piactéren alapértelmezés szerint nem tartalmaz a Linux-rendszerképen. Az Azure Stack-operátorokról, adja meg az Ubuntu Server 16.04 LTS rendszerképet kell rendelkeznie. Az operátor kövesse az utasításokat a [letöltése Marketplace-elemek az Azure-ból az Azure Stackhez](../operator/azure-stack-download-azure-marketplace-item.md).
+   A Azure Stack piactér alapértelmezés szerint nem tartalmaz Linux-rendszerképet. A Azure Stack operátorral adja meg a szükséges Ubuntu Server 16,04 LTS-rendszerképet. Az operátor a [Marketplace-elemek Azure-ból Azure stack történő letöltésére](../operator/azure-stack-download-azure-marketplace-item.md)vonatkozó utasításokat is használhatja.
 
-* Az Azure Stack egy adott verzióját az Azure CLI használatával az erőforrások létrehozásához és kezeléséhez szükséges. Ha nem rendelkezik az Azure CLI, Azure Stack konfigurált, jelentkezzen be a [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (vagy egy Windows-alapú külső ügyfél Ha [VPN-kapcsolaton keresztül csatlakozó](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)), és kövesse az utasításokat a [telepítése és konfigurálása az Azure CLI](azure-stack-version-profiles-azurecli2.md).
+* Azure Stack az Azure CLI egy adott verzióját igényli az erőforrások létrehozásához és kezeléséhez. Ha nem rendelkezik a Azure Stackhoz konfigurált Azure CLI-vel, jelentkezzen be a [Azure stack Development Kitba](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (vagy egy Windows-alapú külső ügyfélre, ha [VPN-kapcsolaton keresztül csatlakozik](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)), és kövesse az [Azure telepítésére és konfigurálására vonatkozó utasításokat. PARANCSSORI](azure-stack-version-profiles-azurecli2.md)felület.
 
-* Egy nyilvános Secure Shell (SSH) kulcs nevét *id_rsa.pub* menti a *.ssh* a Windows felhasználói profiljának. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [nyilvános SSH-kulcsot használ](azure-stack-dev-start-howto-ssh-public-key.md).
+* A *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
-Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezelése az Azure Stack-erőforrások. A fejlesztői készlet vagy az Azure Stack integrált rendszerek, futtassa a [az csoport létrehozása](/cli/azure/group#az-group-create) parancs használatával hozzon létre egy erőforráscsoportot.
+Az erőforráscsoportok olyan logikai tárolók, amelyekben Azure Stack erőforrásokat lehet üzembe helyezni és felügyelni. A fejlesztői készletből vagy a Azure Stack integrált rendszerből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
 
 > [!NOTE]
-> A következő kódot a példákban az összes változók értékeit hozzárendelte azt. Azonban rendelhet hozzá a saját értékeire.
+> A következő példákban az összes változóhoz rendeltünk értékeket. Azonban a saját értékeit is hozzárendelheti.
 
-Az alábbi példa létrehoz egy helyi helyen myResourceGroup nevű erőforráscsoportot: 
+A következő példában létrehozunk egy myResourceGroup nevű erőforráscsoportot a helyi helyen: 
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-A virtuális gép létrehozása a [az virtuális gép létrehozása](/cli/azure/vm#az-vm-create) parancsot. Az alábbi példában a myVM nevű virtuális Gépet hoz létre. A példában *Bemutatofelhasznalo* rendszergazdai felhasználónévként és *Demouser@123* rendszergazdai jelszót. Ezeket az értékeket módosítsa úgy, hogy válasszon a környezetének megfelelő.
+Hozzon létre egy virtuális gépet az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. A következő példa egy myVM nevű virtuális gépet hoz létre. A példa rendszergazdai felhasználónévvel és *Demouser@123* rendszergazdai jelszóval használja a *demouser* -t. Módosítsa ezeket az értékeket úgy, hogy az a környezetének megfelelő legyen.
 
 ```cli
 az vm create \
@@ -69,19 +69,19 @@ az vm create \
   --location local
 ```
 
-A nyilvános IP-címet adja vissza a **PublicIpAddress** paraméter. Vegye figyelembe a címet a virtuális gépet későbbi használatra.
+A rendszer a nyilvános IP-címet adja vissza a **PublicIpAddress** paraméterben. Jegyezze fel a címeket, hogy később használhassa a virtuális gépet.
 
 ## <a name="open-port-80-for-web-traffic"></a>A 80-as port megnyitása a webes adatforgalom számára
 
-Mivel a virtuális gép futtatása az IIS-webkiszolgálón történik, meg kell nyitnia az internetes forgalmat a 80-as porton. A port megnyitásához használja a [az vm open-port](/cli/azure/vm) parancsot: 
+Mivel ez a virtuális gép az IIS-webkiszolgálót fogja futtatni, meg kell nyitnia az 80-as portot az internetes forgalomhoz. A port megnyitásához használja az az [VM Open-port](/cli/azure/vm) parancsot: 
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>Csatlakozzon a virtuális géphez SSH-val
+## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>SSH használata a virtuális géphez való kapcsolódáshoz
 
-Az ssh-val telepített egy ügyfélszámítógépen a csatlakozás a virtuális géphez. Ha dolgozik, a Windows-ügyfélen, [PuTTY](https://www.putty.org/) a kapcsolat létrehozásához. A virtuális géphez csatlakozni, használja a következő parancsot:
+Egy olyan ügyfélszámítógépről, amelyen telepítve van az SSH, csatlakozzon a virtuális géphez. Ha Windows-ügyfélen dolgozik, használja a [Putty](https://www.putty.org/) -t a kapcsolat létrehozásához. A virtuális géphez való kapcsolódáshoz használja a következő parancsot:
 
 ```bash
 ssh <publicIpAddress>
@@ -89,7 +89,7 @@ ssh <publicIpAddress>
 
 ## <a name="install-the-nginx-web-server"></a>Az NGINX-webkiszolgáló telepítése
 
-Csomag erőforrásokat, és telepítse a legújabb NGINX-csomagot, futtassa a következő szkriptet:
+A csomag erőforrásainak frissítéséhez és a legújabb NGINX-csomag telepítéséhez futtassa a következő parancsfájlt:
 
 ```bash
 #!/bin/bash
@@ -103,13 +103,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Az NGINX webkiszolgáló is telepítve van, és nyissa meg a virtuális gépen a 80-as porton a webkiszolgáló elérheti, ha a virtuális gép nyilvános IP-cím használatával. Ehhez nyisson meg egy böngészőt, és nyissa meg ```http://<public IP address>```.
+Ha telepítette az NGINX-webkiszolgálót, és a 80-es portot nyitja meg a virtuális gépen, a webkiszolgálót a virtuális gép nyilvános IP-címének használatával érheti el. Ehhez nyisson meg egy böngészőt, és lépjen a ```http://<public IP address>``` elemre.
 
-![Az NGINX web server kezdőlapjának](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
+![Az NGINX webkiszolgáló kezdőlapja](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
-Az erőforrásokat, amelyeket többé nem kell törölni. Használhatja a [az csoport törlése](/cli/azure/group#az-group-delete) paranccsal távolítsa el őket. Futtassa a következő parancsot:
+Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Group delete](/cli/azure/group#az-group-delete) paranccsal távolíthatja el őket. Futtassa a következő parancsot:
 
 ```cli
 az group delete --name myResourceGroup
@@ -117,4 +117,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>További lépések
 
-Ez a rövid útmutatóban üzembe helyezett egy egyszerű Linux server virtuális géphez a webkiszolgáló. Virtuális gépek az Azure Stack kapcsolatos további információkért lásd: [szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített egy webkiszolgálóval. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, tekintse meg a [Azure stack virtuális gépei szempontjait](azure-stack-vm-considerations.md).

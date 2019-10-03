@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 07b18ea8933afc225f09bfc49a8c60d9d7d43961
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: e54fc1cd1e8fe8588a9498b5af8476437880e988
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808150"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824185"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Ruby-webalkalmazás üzembe helyezése Azure Stack-beli virtuális gépen
 
@@ -68,7 +68,7 @@ Ez a cikk a Ruby és a Ruby on Rails webes keretrendszer használatát ismerteti
     ```
 
     > [!Note]  
-    > A Ruby on Rails-függőségek telepítésekor előfordulhat, hogy többször is futtatnia `sudo gem install bundler`kell a parancsot. Ha a telepítés sikertelen, tekintse át a hibák naplóit, és oldja meg a problémákat.
+    > A Ruby on Rails-függőségek telepítésekor előfordulhat, hogy többször is futtatnia kell a `sudo gem install bundler` értéket. Ha a telepítés sikertelen, tekintse át a hibák naplóit, és oldja meg a problémákat.
 
 4. Ellenőrizze a telepítést. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsot:
 

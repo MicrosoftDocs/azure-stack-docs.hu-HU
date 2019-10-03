@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: e3da204e101d0c0ce97ebb5fa08355cd57bb802c
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 250c51982e0a3cf9bfedce2842c126c77498776b
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133205"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71830108"
 ---
-Adja meg a teszt paraméterekkel. További részletekért és az utasításokért lásd: [teszt paramétereiben](../azure-stack-vaas-parameters.md#test-parameters).
+Adja meg a teszt paramétereit. További részletekért és útmutatásért lásd: [Paraméterek tesztelése](../azure-stack-vaas-parameters.md#test-parameters).

@@ -1,6 +1,6 @@
 ---
-title: Tárfiókok az Azure Stackben |} A Microsoft Docs
-description: Ismerje meg, hogyan hozhat létre egy Azure Stack tárfiókok.
+title: Storage-fiókok a Azure Stackban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre Azure Stack Storage-fiókot.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,33 +10,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 77d4963d2e3e468cb2de1e41a5c483e0339a3449
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 60336477f1dec9618fd6cc439e9d2f5d098b3399
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782457"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829385"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Tárfiókok az Azure Stack szolgáltatásban
 
-Az Azure Stack tárfiókok tartalmazzák a Blob és Table szolgáltatások, és az egyedi névteret a tároló adatobjektumaihoz. Alapértelmezés szerint a fiókban tárolt adatok csak Ön, azaz a tárfiók tulajdonosa számára érhetők el.
+Az Azure Stack-tárfiókok tartalmazzák a Blob és a Table szolgáltatásokat és az egyedi névteret a tároló adatobjektumaihoz. Alapértelmezés szerint a fiókban tárolt adatok csak Ön, azaz a tárfiók tulajdonosa számára érhetők el.
 
-1. Az Azure Stack POC számítógépen jelentkezzen be `https://adminportal.local.azurestack.external` , [rendszergazda](../asdk/asdk-connect.md), és kattintson a **+ erőforrás létrehozása** > **adatok + tárolás**  >  **Tárfiók**.
+1. A Azure stack POC számítógépén jelentkezzen be `https://adminportal.local.azurestack.external` rendszergazdaként [](../asdk/asdk-connect.md), majd kattintson az **+ erőforrás** > létrehozása **+ tároló** > **Storage-fiók**elemre.
 
-   ![A storage-fiók létrehozása](media/azure-stack-provision-storage-account/image01.png)
-2. Az a **storage-fiók létrehozása** panelen írja be a tárfiók nevét. Hozzon létre egy új **erőforráscsoport**, vagy válasszon ki egy meglévőt, majd kattintson a **létrehozás** a tárfiók létrehozásához.
+   ![A Storage-fiók létrehozása](media/azure-stack-provision-storage-account/image01.png)
+2. A **Storage-fiók létrehozása** panelen adja meg a Storage-fiók nevét. Hozzon létre egy új **erőforráscsoportot**, vagy válasszon ki egy meglévőt, majd kattintson a **Létrehozás** gombra a Storage-fiók létrehozásához.
 
-   ![Tekintse át a storage-fiók](media/azure-stack-provision-storage-account/image02.png)
-3. Az új tárfiók megtekintéséhez kattintson **összes erőforrás**, majd keresse meg a storage-fiókot, és kattintson a nevére.
+   ![A Storage-fiók áttekintése](media/azure-stack-provision-storage-account/image02.png)
+3. Az új Storage-fiók megjelenítéséhez kattintson a **minden erőforrás**lehetőségre, majd keresse meg a Storage-fiókot, és kattintson a nevére.
 
-    ![A tárfiók nevét](media/azure-stack-provision-storage-account/image03.png)
+    ![A Storage-fiók neve](media/azure-stack-provision-storage-account/image03.png)
 
 ### <a name="next-steps"></a>További lépések
 [Használjon Azure Resource Manager-sablonokat](../user/azure-stack-arm-templates.md)
 
-[További tudnivalók az Azure storage-fiókok](/azure/storage/common/storage-create-storage-account)
+[További tudnivalók az Azure Storage-fiókokról](/azure/storage/common/storage-create-storage-account)
 
-[Töltse le az Azure Stack az Azure-konzisztens tároló-ellenőrzési útmutatóját](https://aka.ms/azurestacktp1doc)
+[Töltse le a Azure Stack Azure-konzisztens tárolási ellenőrzési útmutatóját](https://aka.ms/azurestacktp1doc)

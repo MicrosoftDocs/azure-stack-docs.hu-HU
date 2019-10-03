@@ -1,6 +1,6 @@
 ---
-title: Windows virtuális gép létrehozása az Azure Stacken Azure parancssori felületével |} A Microsoft Docs
-description: Windows virtuális gép létrehozása az Azure Stack az Azure CLI használatával
+title: Windows rendszerű virtuális gép létrehozása Azure Stack az Azure CLI használatával | Microsoft Docs
+description: Windows rendszerű virtuális gép létrehozása Azure Stack az Azure CLI-vel
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,41 +11,41 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 090ad90f15056d614e5f61b848e5c8c248889ef2
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782636"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824264"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Az Azure Stack az Azure parancssori felület használatával a Windows Server virtuális gép létrehozása
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack
 
-‎*A következőkre vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+@no__t – 0Applies: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Létrehozhat egy Windows Server 2016 virtuális gép az Azure parancssori felület használatával. Kövesse a cikkben hozhat létre és használhat egy virtuális gépet. Ez a cikk is biztosít az alábbi lépéseket:
+Az Azure CLI használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet. A virtuális gép létrehozásához és használatához kövesse a cikkben ismertetett lépéseket. A cikk a következő lépéseket is biztosítja:
 
-* Csatlakozzon a virtuális géphez a távoli ügyfélhez.
-* Az IIS-webkiszolgáló telepítéséhez, és az alapértelmezett kezdőlap megtekintéséhez.
-* Az erőforrások törlése.
+* Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
+* Telepítse az IIS-webkiszolgálót, és tekintse meg az alapértelmezett kezdőlapot.
+* Távolítsa el az erőforrásokat.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Győződjön meg arról, hogy az Azure Stack – operátor hozzáadása a **Windows Server 2016** lemezképet az Azure Stack piactéren.
+* Győződjön meg arról, hogy a Azure Stack operátor a **Windows Server 2016** rendszerképet adta hozzá a Azure stack Marketplace-hez.
 
-* Az Azure Stack egy adott verzióját az Azure CLI használatával az erőforrások létrehozásához és kezeléséhez szükséges. Ha nincs konfigurálva az Azure Stackhez készült Azure CLI, kövesse a lépéseket [telepítése és konfigurálása az Azure CLI-vel](azure-stack-version-profiles-azurecli2.md).
+* Azure Stack az erőforrások létrehozásához és kezeléséhez az Azure CLI adott verziójára van szükség. Ha nem rendelkezik a Azure Stackhoz konfigurált Azure CLI-vel, kövesse az [Azure CLI telepítésének és konfigurálásának](azure-stack-version-profiles-azurecli2.md)lépéseit.
 
 ## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
-Egy erőforráscsoport olyan logikai tároló, ahol üzembe helyezése és kezelése az Azure Stack-erőforrások. Az Azure Stack környezettel, futtassa a [az csoport létrehozása](/cli/azure/group#az-group-create) parancs használatával hozzon létre egy erőforráscsoportot.
+Az erőforráscsoportok olyan logikai tárolók, amelyekben Azure Stack erőforrásokat lehet üzembe helyezni és felügyelni. Az Azure Stack-környezetből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
 
 > [!NOTE]
->  Hitelesítésikód-példák az összes változót értékek vannak hozzárendelve. Megadhat azonban új értéket, ha szeretné.
+>  Az értékek a kódban szereplő összes változóhoz vannak rendelve. Szükség esetén azonban új értékeket is hozzárendelhet.
 
-Az alábbi példa létrehoz egy helyi helyen myResourceGroup nevű erőforráscsoportot:
+A következő példában létrehozunk egy myResourceGroup nevű erőforráscsoportot a helyi helyen:
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuális gépet (VM) használatával a [az virtuális gép létrehozása](/cli/azure/vm#az-vm-create) parancsot. Az alábbi példában a myVM nevű virtuális Gépet hoz létre. Ebben a példában Bemutatofelhasznalo használ egy rendszergazdai felhasználónevet és a Demouser@123 rendszergazdai jelszót. Ezeket az értékeket módosítsa úgy, hogy válasszon a környezetének megfelelő.
+Hozzon létre egy virtuális gépet (VM) az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. A következő példa egy myVM nevű virtuális gépet hoz létre. Ez a példa egy rendszergazdai felhasználónévhez és a @no__t – 0 rendszergazdai jelszóhoz használja a demouser-t. Módosítsa ezeket az értékeket a környezetének megfelelő értékre.
 
 ```cli
 az vm create \
@@ -65,13 +65,13 @@ az vm create \
   --location local
 ```
 
-A virtuális gép létrehozásakor a **PublicIPAddress** paraméter a kimenet tartalmazza a virtuális gép nyilvános IP-címét. Jegyezze fel ezt a címet, mert szüksége lesz, hogy a virtuális gép használja.
+A virtuális gép létrehozásakor a kimenetben található **PublicIPAddress** paraméter a virtuális gép nyilvános IP-címét tartalmazza. Jegyezze fel ezt a címeket, mert szüksége van rá a virtuális gép használatára.
 
 ## <a name="open-port-80-for-web-traffic"></a>A 80-as port megnyitása a webes adatforgalom számára
 
-Mivel ez a virtuális gép futtatása az IIS-webkiszolgálón történik, meg kell nyitnia az internetes forgalmat a 80-as porton.
+Mivel ez a virtuális gép az IIS-webkiszolgálót fogja futtatni, meg kell nyitnia az 80-as portot az internetes forgalomhoz.
 
-Használja a [az vm open-port](/cli/azure/vm) parancsot a 80-as port megnyitásához:
+A 80-es port megnyitásához használja az az [VM Open-port](/cli/azure/vm) parancsot:
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -79,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>Csatlakozás a virtuális géphez
 
-A következő paranccsal hozzon létre egy távoli asztali kapcsolatot a virtuális gép. Cserélje le a "Nyilvános IP-cím" a virtuális gép IP-címmel. Ha a rendszer kéri, adja meg a felhasználónevet és jelszót, amelyet a virtuális gép használt.
+A következő parancs használatával hozzon létre egy Távoli asztal-kapcsolódást a virtuális géphez. Cserélje le a "nyilvános IP-cím" kifejezést a virtuális gép IP-címére. Ha a rendszer kéri, adja meg a virtuális géphez használt felhasználónevet és jelszót.
 
 ```
 mstsc /v <Public IP Address>
@@ -87,7 +87,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Az IIS telepítése a PowerShell-lel
 
-Most, hogy a virtuális géphez már bejelentkezett, a PowerShell használatával telepítse az IIS szolgáltatást. Indítsa el a Powershellt a virtuális gépen, és futtassa a következő parancsot:
+Most, hogy bejelentkezett a virtuális gépre, a PowerShell használatával telepítheti az IIS-t. Indítsa el a PowerShellt a virtuális gépen, és futtassa a következő parancsot:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -95,13 +95,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Az IIS kezdőlapjának megtekintése
 
-Egy böngészőt, használhatja az alapértelmezett IIS kezdőlapjának megtekintéséhez. Az előző szakaszban szereplő nyilvános IP-cím használatával keresse fel az alapértelmezett oldalt:
+Az alapértelmezett IIS-Kezdőlap megtekintésére használhat egy tetszőleges böngészőt. Használja az előző szakaszban felsorolt nyilvános IP-címet az alapértelmezett lap felkereséséhez:
 
 ![Alapértelmezett IIS-webhely](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
-Az erőforrásokat, amelyeket többé nem kell törölni. Használja a [az csoport törlése](/cli/azure/group#az-group-delete) paranccsal eltávolítható az erőforráscsoport, a virtuális gép és az összes kapcsolódó erőforrás.
+Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Group delete](/cli/azure/group#az-group-delete) parancs használatával távolítsa el az erőforráscsoportot, a virtuális gépet és az összes kapcsolódó erőforrást.
 
 ```cli
 az group delete --name myResourceGroup
@@ -109,4 +109,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>További lépések
 
-Ez a rövid útmutatóban üzembe helyezett egy alapszintű Windows Server virtuális gépet. További információ a virtuális gépekről az Azure Stack, továbbra is [szempontok a virtuális gépek az Azure Stackben](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa a [Azure Stack Virtual Machinesével kapcsolatos szempontokat](azure-stack-vm-considerations.md).

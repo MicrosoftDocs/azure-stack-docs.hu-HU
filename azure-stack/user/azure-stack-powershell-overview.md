@@ -1,6 +1,6 @@
 ---
-title: PowerShell az Azure Stackben |} A Microsoft Docs
-description: Az Azure Stack PowerShell számos modulok és környezeteket.
+title: PowerShell a Azure Stackban | Microsoft Docs
+description: Azure Stack PowerShell-ben számos modul és kontextus található.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,71 +11,71 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 8f5d97969c96e8f3546d37ffed28b6332d80dc05
-ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 1c2727562fe287c5450a4977803a7c6fce14f27a
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394427"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824291"
 ---
-# <a name="get-started-with-powershell-in-azure-stack"></a>Az Azure Stack PowerShell használatának első lépései
+# <a name="get-started-with-powershell-in-azure-stack"></a>Ismerkedés a PowerShell-lel Azure Stack
 
-PowerShell kezelésére és a parancssorból erőforrások felügyeletére szolgál. Használhatja a Powershellt, ha szeretne létrehozni, amely az Azure Resource Manager modellt használja, automatizált eszközökkel. Egy PowerShell-modul PowerShell-funkciók, amelyek egy adott terület minden szempontjának kezeléséhez adható meg. Azure Stack használatának különböző virtuálisgép-csoportokon PowerShell-parancsmagok juggle kell.
+A PowerShell úgy van kialakítva, hogy az erőforrásokat a parancssorból kezelhesse és felügyelje. A PowerShellt akkor használhatja, ha olyan automatizált eszközöket szeretne létrehozni, amelyek a Azure Resource Manager modellt használják. A PowerShell-modul olyan PowerShell-függvények készlete lehet, amelyek egy adott terület összes aspektusának kezelésére vannak csoportosítva. A Azure Stack használatához a PowerShell-parancsmagok különböző készleteit kell megzsonglőrködni.
 
-Ez a cikk segít az Elhelyezés önállóan a PowerShell-modulok az Azure Stack által használt különböző. Az Azure Stack PowerShell használatakor használhatja bármelyik négyféle az API-k, az alábbi táblázatban látható módon:
+Ez a cikk segítséget nyújt a Azure Stack-ben használt PowerShell-modulok különböző eléréséhez. Ha Azure Stack PowerShellt használ, az alábbi táblázatban látható módon használhatja a négy API-készlet bármelyikét:
 
-| API | PowerShell-referencia | REST-referencia |
+| API | PowerShell-referencia | REST-hivatkozás |
 | --- | --- | --- |
-| Globális Azure Resource Manager | [Az Azure PowerShell-modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API-böngésző](https://docs.microsoft.com/rest/api/) |
-| Az Azure Stack Resource Manager | [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md) | [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md) |
-| Az Azure Stack rendszergazdai végpontok | [Az Azure Stack rendszergazdai modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST API-böngésző - Azure Stack](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
-| Az Azure Stack az emelt szintű végpont | [A kiemelt jogosultságú végpont használata az Azure Stackben](../operator/azure-stack-privileged-endpoint.md) | |
+| Globális Azure Resource Manager | [Azure PowerShell modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](https://docs.microsoft.com/rest/api/) |
+| Azure Stack Resource Manager | [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md) | [Az Azure Stackben API-verzióprofilok kezelése](azure-stack-version-profiles.md) |
+| Azure Stack rendszergazdai végpontok | [Azure Stack felügyeleti modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST API böngésző – Azure Stack](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
+| Azure Stack Kiemelt végpont | [A rendszerjogosultságú végpont használata Azure Stack](../operator/azure-stack-privileged-endpoint.md) | |
 
-Mindegyik adapterhez kapcsolatba lép az erőforrás-szolgáltatók a globális Azure-ban. Erőforrás-szolgáltatók az Azure képességek engedélyezéséhez. Például az Azure Compute erőforrás-szolgáltató programozás alapú hozzáférést biztosít a létrehozását és kezelését virtuális gépek és az azokat támogató erőforrásokhoz.
+Minden csatoló a globális Azure-ban vagy Azure Stack-ban található erőforrás-szolgáltatót. Az erőforrás-szolgáltatók lehetővé teszik az Azure képességeit. Az Azure számítási erőforrás-szolgáltatója például programozott hozzáférést biztosít a virtuális gépek létrehozásához és kezeléséhez, valamint az azokhoz kapcsolódó erőforrásokhoz.
 
-Erőforrás-szolgáltatók adja meg a funkciók és a vezérlők kezeléséhez és az erőforrás-konfigurálása. Az erőforrás-szolgáltatókat is programozott módon érheti el, hogy az Azure Resource Managerrel. A felület, a surface biztosít a PowerShell, az Azure CLI és a saját REST-ügyfelek.
+Az erőforrás-szolgáltatók mindkét funkciót és vezérlőt biztosítják az erőforrás kezeléséhez és konfigurálásához. Azure Resource Manager használatával programozott módon érheti el az erőforrás-szolgáltatókat. Az illesztőfelület pedig felületet biztosít a PowerShell, az Azure CLI és a saját REST-ügyfelek számára.
 
-## <a name="where-to-find-azure-stack-powershell"></a>Hol található az Azure Stack PowerShell-lel
+## <a name="where-to-find-azure-stack-powershell"></a>Hol található Azure Stack PowerShell
 
-A következő blokkban ábrán a PowerShell-modulok a készletek közötti kapcsolatokat. A gép számára a PowerShell-modulokat betölteni és a globális Azure és az Azure Stack kezeléséhez.
+A következő blokk diagram a PowerShell-modulok készletei közötti kapcsolatokat mutatja. A gépről betöltheti a PowerShell-modulokat, és felügyelheti a globális Azure-t és a Azure Stack is.
 
-![Az Azure Stack Powershell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
+![Azure Stack PowerShell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
 
 ### <a name="global-azure"></a>Globális Azure
 
-Az Azure PowerShell parancsmagok, amelyek a jelenlegi verzió az Azure Resource Manager használata az Azure-erőforrások használata egy készletét tartalmazza. Az Azure PowerShell a .NET Standard verziót, ami azt jelenti, hogy használhatja a Windows, macOS és Linux PowerShell-verziókat használja. Az Azure PowerShell az Azure Cloud Shellben is elérhető. További információért lásd [az Azure PowerShell használatának első lépéseit](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure PowerShell olyan parancsmagokat tartalmaz, amelyek a Azure Resource Manager aktuális verzióját használják az Azure-erőforrásokkal való munkavégzéshez. Azure PowerShell a .NET Standard verziót használja, ami azt jelenti, hogy a PowerShell-verziókat Windows, macOS és Linux rendszeren is használhatja. Az Azure PowerShell az Azure Cloud Shellben is elérhető. További információért lásd [az Azure PowerShell használatának első lépéseit](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-### <a name="azure-stack-resource-manager"></a>Az Azure Stack Resource Manager
+### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manager
 
-Az Azure Stack PowerShell-parancsmagokat, amelyek használják a korábbi verziók az Azure Resource Manager biztosít. Ezek a parancsmagok kompatibilisek az erőforrás-szolgáltatók az Azure Stackben. Mindegyik erőforrás-szolgáltató az Azure Stackben a globális Azure-ban található szolgáltató régebbi verzióját használja. Könnyebben koordinálja az egyes Azure Stack által támogatott szolgáltató verziója, használhat API-t. Az Azure Stack PowerShell PowerShell 5.1 használja, és csak a Windows érhető el. További információkért lásd: [kezelése API-verzióprofilok az Azure Stackben](azure-stack-version-profiles.md).
+Azure Stack PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager korábbi verzióit használják. Ezek a parancsmagok kompatibilisek a Azure Stack található erőforrás-szolgáltatókkal. A Azure Stack minden erőforrás-szolgáltatója a globális Azure-ban található szolgáltató egy régebbi verzióját használja. Az Azure Stack által támogatott összes szolgáltató verziójának koordinálásához használhatja az API-profilokat. Azure Stack PowerShell a PowerShell 5,1-et használja, és csak Windows rendszeren érhető el. További információ: [az API-verziók profiljainak kezelése Azure Stackban](azure-stack-version-profiles.md).
 
-### <a name="azure-stack-administrator"></a>Azure Stack-rendszergazda
+### <a name="azure-stack-administrator"></a>Azure Stack rendszergazda
 
-Az Azure Stack tesz elérhetővé, a felhő üzemeltetője az erőforrás-szolgáltatók, hogy az operátor is telepítése és kezelése az Azure Stack. A globális Azure-ban ennek az interakciónak emeli ki, a felhasználó és a színfalak mögött az Azure részeként kezeli. Az Azure Stack azonban vállalatok számára is támogatja a privát felhő. Ezek a feladatok végrehajtásához az operátor az Azure Stack rendszergazdai API-k kommunikál. További információkért lásd: [Azure Stack PowerShell telepítése](../operator/azure-stack-powershell-install.md).
+A Azure Stack erőforrás-szolgáltatók készletét teszi elérhetővé a Felhőbeli operátor számára, hogy az operátor Azure Stack telepítsen és őrizzen meg. A globális Azure-ban ez az interakció a felhasználótól származik, és az Azure részeként kezeli a színfalak mögött. A Azure Stack azonban a vállalatok támogatják a privát felhőket is. A feladatok végrehajtásához az operátor a Azure Stack felügyeleti API-kkal kommunikál. További információ: [a PowerShell telepítése Azure Stackhoz](../operator/azure-stack-powershell-install.md).
 
-### <a name="azure-stack-privileged-endpoint"></a>Az Azure Stack az emelt szintű végpont
+### <a name="azure-stack-privileged-endpoint"></a>Azure Stack Kiemelt végpont
 
-Operátor tevékenységek az Azure Stackben, például a telepítés tesztelése és a naplók elérése operátorok a kiemelt végponthoz (EGP) kezelheti. Az EGP egy előre konfigurált távoli PowerShell-konzolt, amely operátorok elegendő hozzáférést adott feladatok elvégzéséhez nyújt. A végpont PowerShell csak Enough Administration (JEA) használatával teszi közzé a parancsmagok egy korlátozott készletét. További információkért lásd: [az emelt szintű végpontot használja az Azure Stackben](../operator/azure-stack-privileged-endpoint.md).
+A Azure Stack kezelői tevékenységeit, például a telepítés tesztelését és a naplók elérését, a kezelők kezelhetik a privilegizált végpontot (PEP). A PEP egy előre konfigurált távoli PowerShell-konzol, amely lehetővé teszi, hogy a kezelők számára megfelelő hozzáférést biztosítson bizonyos feladatokhoz. A végpont a PowerShell elég felügyeletét (JEA) használja a parancsmagok korlátozott készletének elérhetővé tétele érdekében. További információ: [a privilegizált végpont használata Azure Stackban](../operator/azure-stack-privileged-endpoint.md).
 
-### <a name="azure-stack-tools"></a>Azure Stack Tools
+### <a name="azure-stack-tools"></a>Eszközök Azure Stack
 
-Az Azure Stack teszi elérhetővé parancsfájlok és további parancsmag egy GitHub-adattárában *AzureStack-eszközök*. 1.2.9-es-eszközök kezeléséhez, és üzembe erőforrásokat az Azure Stack PowerShell-modulok üzemelteti. Ha VPN-kapcsolatot létesíteni, letöltheti ezek a PowerShell-modulok, az Azure Stack fejlesztői készletet, vagy egy Windows-alapú külső ügyfél. További információkért látogasson el a [AzureStack-eszközök](https://github.com/Azure/AzureStack-Tools) lapot.
+A Azure Stack parancsfájlokat és további parancsmagokat tesz elérhetővé egy GitHub-tárházban, a *AzureStack-eszközökben*. A AzureStack-Tools PowerShell-modulokat üzemeltet az erőforrások Azure Stack történő kezeléséhez és üzembe helyezéséhez. Ha VPN-kapcsolat létesítését tervezi, letöltheti ezeket a PowerShell-modulokat a Azure Stack Development Kitra vagy egy Windows-alapú külső ügyfélre. További információért lépjen a [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) oldalra.
 
-## <a name="work-with-powershell-in-azure-stack"></a>Az Azure Stack PowerShell-lel dolgozni
+## <a name="work-with-powershell-in-azure-stack"></a>A PowerShell használata Azure Stack
 
-PowerShell-programozott módon kezelheti az Azure Resource Manager biztosít. Egy interaktív parancssort használhatja, vagy ha feladatok vagyunk automatizálása, szkripteket.
+A PowerShell programozási módszert biztosít a Azure Resource Manager való interakcióhoz. Dolgozhat interaktív parancssorral, vagy ha automatizálja a feladatokat, írhat parancsfájlokat.
 
-Mennyi időt az Azure Stack PowerShell használata, ha saját maga telepítése és újratelepítése az modulok találja. Dolgozunk a globális Azure-ral egyszerre, ha a rutin nehéz feladat lehet, mert eltávolítása és újratelepítése függően a cél a modulok kell. 
+Ha sok időt tölt Azure Stack PowerShell-lel, a modulok telepítését és újratelepítését is megtalálhatja. Ha egyszerre dolgozik a globális Azure-ban, ez a rutin kihívást jelenthet, mivel a célnak megfelelően el kell távolítania és újra kell telepítenie a modulokat. 
 
-A Docker-tárolók használatával elkülönítheti az egyes PowerShell-verzió a helyi gépen. Tekintse meg, hogy válthat a PowerShell-modul set beállítása PowerShell-modul Docker-tárolók használatához [használja a Docker, futtassa a Powershellt](azure-stack-powershell-user-docker.md).
+A Docker-tárolók segítségével elkülönítheti a PowerShell egyes verzióit a helyi gépen. Ha Docker-tárolókat szeretne használni, hogy a PowerShell-modul PowerShell-modul készletére váltson, a PowerShell [futtatásához használja a Docker használata](azure-stack-powershell-user-docker.md)című témakört.
 
 
 ## <a name="next-steps"></a>További lépések
 
-- További információ [PowerShell API-profilok](azure-stack-version-profiles.md) az Azure Stackben.
-- Telepítés [az Azure Stack Powershell](../operator/azure-stack-powershell-install.md).
-- Olvassa el létrehozása [Azure Resource Manager-sablonok](azure-stack-develop-templates.md) felhőalapú konzisztencia.
+- További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack.
+- Telepítse a [Azure stack PowerShellt](../operator/azure-stack-powershell-install.md).
+- További információ a Felhőbeli konzisztencia [Azure Resource Manager-sablonok](azure-stack-develop-templates.md) létrehozásáról.

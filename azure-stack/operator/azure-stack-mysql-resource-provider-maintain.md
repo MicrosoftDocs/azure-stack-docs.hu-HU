@@ -1,6 +1,6 @@
 ---
-title: A MySQL erőforrás-szolgáltató az Azure Stacken karbantartása |} A Microsoft Docs
-description: Ismerje meg, hogyan kezelheti a MySQL erőforrás-szolgáltató szolgáltatás az Azure Stacken.
+title: A MySQL erőforrás-szolgáltató karbantartása a Azure Stackon | Microsoft Docs
+description: Ismerje meg, hogyan tarthatja karban a MySQL erőforrás-szolgáltató szolgáltatást Azure Stackon.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,51 +11,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d9d91dce762265da498a0a1232b023c2956edefd
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6667fd3db21cd6138e756c16eb8e68b8ecd1b3e9
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617847"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829417"
 ---
-# <a name="mysql-resource-provider-maintenance-operations"></a>MySQL erőforrás-szolgáltatói karbantartási műveletek
+# <a name="mysql-resource-provider-maintenance-operations"></a>MySQL erőforrás-szolgáltató karbantartási műveletei
 
-A MySQL erőforrás-szolgáltató zárolt virtuális gépen fut. Ahhoz, hogy a karbantartási műveleteket, frissíteni szeretné a virtuális gép biztonsági. Ehhez használja a legalacsonyabb jogosultsági szint elvének PowerShell csak Enough Administration (JEA) végpont DBAdapterMaintenance használhatja. Az erőforrás-szolgáltató telepítési csomag tartalmaz egy parancsfájlt, ehhez a művelethez.
+A MySQL erőforrás-szolgáltató zárolt virtuális gépen fut. A karbantartási műveletek engedélyezéséhez frissítenie kell a virtuális gép biztonságát. Ha ezt a legalacsonyabb jogosultsági szint elve alapján szeretné elvégezni, akkor a PowerShell elég adminisztrációs (JEA) végpont DBAdapterMaintenance használhatja. Az erőforrás-szolgáltató telepítési csomagja tartalmaz egy parancsfájlt ehhez a művelethez.
 
 ## <a name="update-the-virtual-machine-operating-system"></a>A virtuális gép operációs rendszerének frissítése
 
-Mivel az erőforrás-szolgáltatót futtat egy *felhasználói* virtuális gép, alkalmaznia kell a szükséges javítások és frissítések már kiadásakor. A javítási és frissítési ciklus részeként a Windows update csomagok biztosított használatával frissítések alkalmazása a virtuális géphez.
+Mivel az erőforrás-szolgáltató egy *felhasználói* virtuális gépen fut, a kiadáskor a szükséges javításokat és frissítéseket kell alkalmaznia. A javítási és frissítési ciklus részeként biztosított Windows Update-csomagokat használhatja a virtuális gép frissítéseinek alkalmazásához.
 
-Frissítse a szolgáltatót virtuális gépet a következő módszerek egyikével:
+Frissítse a szolgáltatói virtuális gépet az alábbi módszerek egyikével:
 
-- Telepítse a legújabb szolgáltató erőforráscsomagja jelenleg javított Windows Server 2016 Core rendszerkép használatával.
-- Windows Update csomag telepítése, a telepítés során, vagy frissítse az erőforrás-szolgáltató.
+- Telepítse a legújabb erőforrás-szolgáltatói csomagot egy jelenleg javított Windows Server 2016 Core rendszerképpel.
+- Telepítsen egy Windows Update csomagot a telepítése során, vagy frissítsen az erőforrás-szolgáltatóra.
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>A virtuális géphez a Windows Defender-definíciók frissítése
+## <a name="update-the-virtual-machine-windows-defender-definitions"></a>A virtuális gép Windows Defender-definícióinak frissítése
 
 A Defender-definíciók frissítéséhez kövesse az alábbi lépéseket:
 
-1. A Windows Defender-definíciók frissítése a letöltési [Windows Defender definíciós](https://www.microsoft.com/en-us/wdsi/definitions).
+1. Töltse le a Windows Defender-definíciók frissítését a [Windows Defender-definícióból](https://www.microsoft.com/en-us/wdsi/definitions).
 
-    A definíciók oldalon görgessen "Manuálisan töltse le és telepítse a definíciókat". Töltse le a "Windows Defender víruskereső Windows 10 és Windows 8.1" 64 bites fájlrendszer.
+    A definíciók lapon görgessen le a "a definíciók manuális letöltése és telepítése" elemre. Töltse le a "Windows Defender Antivirus for Windows 10 és a Windows 8,1" 64 bites fájlt.
 
-    Másik megoldásként használhatja [a közvetlen hivatkozás](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) letöltése és futtatása fpam-fe.exe fájl.
+    Másik lehetőségként használja [ezt a közvetlen hivatkozást](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) a fpam-fe. exe fájl letöltéséhez/futtatásához.
 
-2. Nyisson meg egy PowerShell-munkamenetet, a MySQL erőforrás szolgáltató adapter virtuális gép karbantartási végpontra.
+2. Nyisson meg egy PowerShell-munkamenetet a MySQL erőforrás-szolgáltatói adapter virtuális gépe karbantartási végpontján.
 
-3. Az erőforrás-szolgáltató adapter a virtuális gép a karbantartás végpont munkamenet használatával másolja a definíciók frissítési fájlt.
+3. Másolja a definíciók frissítési fájlját az erőforrás-szolgáltatói adapter virtuális gépre a karbantartási végpont-munkamenet használatával.
 
-4. A karbantartási PowerShell-munkamenetben futtassa a _Update-DBAdapterWindowsDefenderDefinitions_ parancsot.
+4. A karbantartási PowerShell-munkamenetben futtassa az _Update-DBAdapterWindowsDefenderDefinitions_ parancsot.
 
-5. Miután telepítette a definíciókat, azt javasoljuk, hogy a definíciók frissítési fájl használatával törölje a _Remove-ItemOnUserDrive)_ parancsot.
+5. A definíciók telepítése után javasoljuk, hogy törölje a definíciók frissítési fájlját a _Remove-ItemOnUserDrive_ parancs használatával.
 
-**PowerShell-példaszkript definíciók frissítéséhez.**
+**Példa a PowerShell-parancsfájlra a definíciók frissítéséhez.**
 
-Szerkesztheti, és futtassa a következő szkriptet a Defender-definíciók frissítéséhez. Cserélje le a szkriptben lévő értékek a környezetből.
+A Defender-definíciók frissítéséhez szerkesztheti és futtathatja a következő szkriptet. A parancsfájlban szereplő értékeket cserélje le a környezet értékeire.
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
@@ -91,19 +91,19 @@ $session | Remove-PSSession
 
 ```
 
-## <a name="secrets-rotation"></a>Titkos kódok rotációja
+## <a name="secrets-rotation"></a>Titkok rotációja
 
-*Ezek az utasítások csak az Azure Stack integrált rendszerek vonatkoznak.*
+*Ezek az utasítások csak Azure Stack integrált rendszerekre vonatkoznak.*
 
-Ha az SQL- és MySQL erőforrás-szolgáltatók használata az Azure Stack integrált rendszerek, az Azure Stack – operátor felelős a következő erőforrás szolgáltató infrastruktúra titkos győződjön meg arról, hogy azok ne járjanak le az elforgatást:
+Ha Azure Stack integrált rendszerrel rendelkező SQL-és MySQL-erőforrás-szolgáltatót használ, a Azure Stack operátor feladata a következő erőforrás-szolgáltatói infrastruktúra-titkok elforgatása annak biztosítása érdekében, hogy ne járjanak le:
 
-- Külső SSL-tanúsítvány [üzembe helyezés során](azure-stack-pki-certs.md).
-- A resource provider virtuális gép helyi rendszergazdai fiók jelszavának üzembe helyezés során.
-- Erőforrás-szolgáltató (dbadapterdiag) diagnosztikai felhasználó jelszava.
+- Az [üzembe helyezés során megadott](azure-stack-pki-certs.md)külső SSL-tanúsítvány.
+- Az erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának jelszava az üzembe helyezés során.
+- Erőforrás-szolgáltató diagnosztikai felhasználói (dbadapterdiag) jelszava.
 
-### <a name="powershell-examples-for-rotating-secrets"></a>A titkos kulcsok rotált PowerShell-példák
+### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-példák a titkok elforgatására
 
-**Módosítsa a titkos kulcsait egy időben.**
+**Módosítsa az összes titkot egy időben.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -117,7 +117,7 @@ Ha az SQL- és MySQL erőforrás-szolgáltatók használata az Azure Stack integ
 
 ```
 
-**A diagnosztikai felhasználói jelszó módosítása.**
+**A diagnosztikai felhasználó jelszavának módosítása.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -128,7 +128,7 @@ Ha az SQL- és MySQL erőforrás-szolgáltatók használata az Azure Stack integ
 
 ```
 
-**A virtuális gép helyi rendszergazdai fiók jelszavának módosítása.**
+**Módosítsa a virtuális gép helyi rendszergazdai fiókjának jelszavát.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -139,7 +139,7 @@ Ha az SQL- és MySQL erőforrás-szolgáltatók használata az Azure Stack integ
 
 ```
 
-**Módosítsa az SSL-tanúsítványának jelszava.**
+**Módosítsa az SSL-tanúsítvány jelszavát.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -151,52 +151,52 @@ Ha az SQL- és MySQL erőforrás-szolgáltatók használata az Azure Stack integ
 
 ```
 
-### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 parameters
+### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider. ps1 paraméterek
 
 |Paraméter|Leírás|
 |-----|-----|
-|AzCredential|Az Azure Stack szolgáltatás-rendszergazdai fiók hitelesítő adatait.|
-|CloudAdminCredential|Az Azure Stack felhő rendszergazdai tartományifiók-hitelesítő adat.|
-|PrivilegedEndpoint|Kiemelt jogosultságú végpont Get-AzureStackStampInformation eléréséhez.|
-|DiagnosticsUserPassword|Diagnosztikai felhasználói fiók jelszavát.|
+|AzCredential|Azure Stack a szolgáltatás-rendszergazdai fiók hitelesítő adatait.|
+|CloudAdminCredential|Azure Stack a Felhőbeli rendszergazdai tartományi fiók hitelesítő adatait.|
+|PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|
+|DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|
 |VMLocalCredential|A helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|
-|DefaultSSLCertificatePassword|Alapértelmezett SSL-tanúsítvány (* pfx) jelszavát.|
-|DependencyFilesLocalPath|Függőségi fájl helyi elérési útja.|
+|DefaultSSLCertificatePassword|Az alapértelmezett SSL-tanúsítvány (* pfx) jelszava.|
+|DependencyFilesLocalPath|Függőségi fájlok helyi elérési útja|
 |     |     |
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**A probléma leírása:**<br>
-A titkos kódok rotációja naplókat automatikusan nem gyűjt, ha a titkos tanúsítványrotációs parancsfájlt sikertelen futtatásakor.
+**Probléma:**<br>
+A titkok rotációs naplója nem kerül automatikusan begyűjtésre, ha a titkos elforgatási parancsfájl futtatása meghiúsul.
 
-**Megkerülő megoldás:**<br>
-A Get-AzsDBAdapterLogs parancsmag használatával minden az erőforrás szolgáltató naplók összegyűjtése, beleértve AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, C:\Logs mentett.
+**Workaround**<br>
+A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack. DatabaseAdapter. SecretRotation. ps1 _*. log és a C:\Logs. mentett adatokat.
 
-## <a name="collect-diagnostic-logs"></a>Diagnosztikai naplók összegyűjtése
+## <a name="collect-diagnostic-logs"></a>Diagnosztikai naplók gyűjtése
 
-Naplók gyűjtése a zárolt virtuális gépről, a PowerShell csak Enough Administration (JEA) végpont DBAdapterDiagnostics használhatja. Ez a végpont a következő parancsokat kínálja:
+A zárolt virtuális gépről származó naplók összegyűjtéséhez használhatja a PowerShell elég adminisztrációs (JEA) végponti DBAdapterDiagnostics. Ez a végpont a következő parancsokat tartalmazza:
 
-- **Get-AzsDBAdapterLog**. Ez a parancs létrehoz egy zip-csomagját, az erőforrás-szolgáltató diagnosztikai naplók, és menti a fájlt a munkamenet felhasználói meghajtón. Ez a parancs paraméterek nélkül futtathatja, és a naplók az elmúlt négy órában gyűjtött.
+- **Get-AzsDBAdapterLog**. Ez a parancs létrehoz egy ZIP-csomagot az erőforrás-szolgáltató diagnosztikai naplóiból, és menti a fájlt a munkamenet felhasználói meghajtóján. Ezt a parancsot paraméterek nélkül is futtathatja, és a rendszer az utolsó négy órányi naplót gyűjti.
 
-- **Remove-AzsDBAdapterLog**. Ez a parancs eltávolítja a meglévő log csomagokat a virtuális gép erőforrás-szolgáltató.
+- **Remove-AzsDBAdapterLog**. Ez a parancs eltávolítja a meglévő napló csomagokat az erőforrás-szolgáltató virtuális gépen.
 
-### <a name="endpoint-requirements-and-process"></a>Végpont követelményei és folyamata
+### <a name="endpoint-requirements-and-process"></a>Végponti követelmények és folyamat
 
-Ha egy erőforrás-szolgáltató telepítése vagy frissítése, a dbadapterdiag felhasználói fiók jön létre. Ezt a fiókot fogja használni a diagnosztikai naplók gyűjtésére.
+Egy erőforrás-szolgáltató telepítésekor vagy frissítésekor a rendszer létrehozza a dbadapterdiag felhasználói fiókot. Ezt a fiókot fogja használni a diagnosztikai naplók összegyűjtéséhez.
 
 >[!NOTE]
->A dbadapterdiag jelszava megegyezik a helyi rendszergazda, a virtuális gépen, egy szolgáltató központi telepítés vagy frissítés során létrehozott használt jelszót.
+>A dbadapterdiag fiók jelszava megegyezik a szolgáltató üzembe helyezése vagy frissítése során létrehozott virtuális gép helyi rendszergazdájához használt jelszóval.
 
-Használatához a _DBAdapterDiagnostics_ parancsokat, és hozzon létre egy távoli PowerShell-munkamenetben az erőforrás-szolgáltató virtuális géphez, és futtassa a **Get-AzsDBAdapterLog** parancsot.
+A _DBAdapterDiagnostics_ parancsok használatához hozzon létre egy távoli PowerShell-munkamenetet az erőforrás-szolgáltató virtuális géphez, és futtassa a **Get-AzsDBAdapterLog** parancsot.
 
-Az Erőforrásnapló-gyűjtés időtartamának beállítása használatával a **FromDate** és **ToDate** paramétereket. Ha nem adja meg az egyik vagy mindkét paramétert, a következő Alapértelmezések használhatók:
+A naplók időtartományát a **FromDate** és a **ToDate** paraméterek használatával állíthatja be. Ha nem ad meg egyet vagy mindkét paramétert, a rendszer a következő alapértelmezett értékeket használja:
 
-* FromDate négy órát jelent az aktuális időpont elé.
-* ToDate az az aktuális idő.
+* A FromDate az aktuális idő előtt négy órával korábbi.
+* A ToDate az aktuális idő.
 
-**PowerShell-példaszkript naplók gyűjtésére szolgáló.**
+**Példa PowerShell-parancsfájlra a naplók összegyűjtéséhez.**
 
-A következő parancsprogram mutatja be a diagnosztikai naplók gyűjtésére a virtuális gép erőforrás-szolgáltató.
+Az alábbi szkript bemutatja, hogyan gyűjthet diagnosztikai naplókat az erőforrás-szolgáltató virtuális gépről.
 
 ```powershell
 # Create a new diagnostics endpoint session.

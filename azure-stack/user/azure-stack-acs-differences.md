@@ -1,6 +1,6 @@
 ---
-title: Az Azure stack tárolási különbségek és szempontok |} A Microsoft Docs
-description: Az Azure stack storage és az Azure storage, Azure Stack üzembe helyezési szempontok együtt közötti különbségek megértéséhez.
+title: Az Azure stack Storage eltérései és szempontjai | Microsoft Docs
+description: Ismerje meg az Azure stack Storage és az Azure Storage közötti különbségeket, valamint Azure Stack üzembe helyezési megfontolásokat.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,60 +11,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: cb7a9358a8c80c31f251bfdda16246c3ef6d0822
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783041"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824726"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Az Azure Stack-tár: Különbségek és szempontok
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack tárterület: Különbségek és szempontok
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack storage a storage cloud services a Microsoft Azure Stackhez. Az Azure Stack storage biztosít a blob, table, queue és fiók felügyeleti funkciók az Azure-konzisztens szemantikáját.
+A Azure Stack Storage a Storage Cloud Services készlete Microsoft Azure Stackban. A Azure Stack Storage blob-, tábla-, üzenetsor-és fiókkezelés-funkciókat biztosít az Azure-konzisztens szemantikai funkciókhoz.
 
-Ez a cikk az Azure Storage szolgáltatások ismert Azure Stack Storage különbségeket foglalja össze. Szintén megfontolandó szempontok az Azure Stack telepítésekor sorolja fel. Globális Azure és az Azure Stack közötti magas szintű különbségek kapcsolatos további információkért tekintse meg a [szempontok kulcs](azure-stack-considerations.md) cikk.
+Ez a cikk az Azure Storage-szolgáltatásokkal kapcsolatos ismert Azure Stack tárolási különbségeket foglalja össze. Emellett felsorolja azokat a dolgokat, amelyeket figyelembe kell venni a Azure Stack telepítésekor. A globális Azure és a Azure Stack közötti magas szintű különbségek megismeréséhez tekintse meg a [legfontosabb szempontokat](azure-stack-considerations.md) ismertető cikket.
 
-## <a name="cheat-sheet-storage-differences"></a>Hasznos tanácsok: Tárolási különbségek
+## <a name="cheat-sheet-storage-differences"></a>Cheat Sheet: Tárolási különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack |
+| Funkció | Azure (globális) | Azure Stack |
 | --- | --- | --- |
-|File Storage|Felhőalapú SMB-fájlmegosztások támogatott|Még nem támogatott
-|Az Azure storage service encryption az inaktív adatok|256 bites AES-titkosítás. Támogatja a titkosítást, felhasználó által kezelt kulcsok használata a Key Vaultban.|BitLocker 128 bites AES-titkosítást. Titkosítás az ügyfél által kezelt kulcsok használata nem támogatott.
-|Tárfiók típusa|Általános célú V1, V2 és Blob storage-fiókok|Csak általános célú V1.
-|Replikációs beállítások|Helyileg redundáns tárolás, georedundáns tárolás, georedundáns írásvédett tárolás és zónaredundáns tárolás|Helyileg redundáns tárolás.
-|Prémium szintű Storage|Nagy teljesítményű és kis késésű tárolási kapacitás biztosítása. Csak a prémium szintű storage-fiókok támogatják a lapblobokat.|Bővítheti, de nincs teljesítményszint vagy garantálja. Nem lenne letiltása a blokkblobokat, hozzáfűző blobok, táblák és üzenetsorok, a prémium szintű storage-fiókok.
-|Felügyelt lemezek|Prémium és standard szintű támogatott|1808 vagy újabb verzió használata esetén támogatott.
-|Blob neve|1024 karakter hosszúságú (2048 bájt)|880 karakter (1,760 bájt)
-|Block blob maximális mérete|4,75 TB (100 MB X 50 000 blokk)|Az 1802-es frissítés vagy újabb verzió 4,75 TB (100 MB x 50 000 blokk) 50 000 x 4 MB (KB. 195 GB), a korábbi verziók.
-|Blob pillanatkép-másolás lap|Biztonsági mentés nem felügyelt virtuális Géphez csatolt Azure lemezeken futó virtuális gépek támogatott|Még nem támogatott.
-|Blob növekményes pillanatkép-másolás lap|Prémium és standard oldala az Azure-blobok támogatott|Még nem támogatott.
-|Blob Számlázás lapon|Díjait egyedi lapok attól a blob vagy a pillanatkép. További díjakat csak alap blob frissítése folyamatban van egy blob társított pillanatképekhez nem járna.|Az alap blob és assiociated pillanatképek számítunk fel díjat. Járna minden egyes pillanatkép felül további díjakat.
-|A blob Storage tárolási rétegek|Gyakori és ritka elérésű és archív tárolási szintek.|Még nem támogatott.
-|A blob Storage a helyreállítható törlés|Általános elérhető|Még nem támogatott.
-|Blob maximális mérete|8 TB|1 TB
-|Lapblob oldal méretét|512 bájt|4 KB
-|Tábla partíciós kulcs és a sor kulcsméret|1024 karakter hosszúságú (2048 bájt)|400 karakter (800 bájt)
-|BLOB-pillanatkép|Egy blob pillanatképeinek maximális számát. nem korlátozódik.|Egy blob pillanatképeinek maximális száma 1000.
-|Tárolás az Azure AD-hitelesítés|Előzetes verzióban|Még nem támogatott.
-|Blobok nem módosítható|Általános elérhető|Még nem támogatott.
-|Tűzfal- és tárolási virtuális hálózati szabályok|Általános elérhető|Még nem támogatott.|
+|File Storage|Felhőalapú SMB-fájlmegosztás támogatott|Még nem támogatott
+|Azure Storage szolgáltatás titkosítása inaktív adatok esetén|256 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás támogatása Key Vaultban.|BitLocker 128 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás nem támogatott.
+|Tárfiók típusa|Általános célú v1, v2 és blob Storage-fiókok|Csak általános célú v1.
+|Replikációs lehetőségek|Helyileg redundáns tárolás, Geo-redundáns tárolás, olvasási hozzáférés a Geo-redundáns tároláshoz és a zóna-redundáns tároláshoz|Helyileg redundáns tárolás.
+|Prémium szintű Storage|Nagy teljesítményű és kis késésű tárolást biztosít. Csak a Premium Storage-fiókokban lévő Blobok támogatása.|Kiépíthető, a teljesítmény korlátja és a garancia nem lehetséges. Nem tiltható le a blokk Blobok használata, blobok, táblák és várólisták hozzáfűzése a Premium Storage-fiókokban.
+|Felügyelt lemezek|Prémium és standard támogatott|Az 1808-es vagy újabb verzió használata esetén támogatott.
+|A blob neve|1 024 karakter (2 048 bájt)|880 karakter (1 760 bájt)
+|BLOB maximális méretének letiltása|4,75 TB (100 MB X 50 000 blokk)|4,75 TB (100 MB x 50 000 blokk) az 1802 frissítéshez vagy újabb verzióhoz. 50 000 X 4 MB (körülbelül 195 GB) a korábbi verziókhoz.
+|Oldal blob-pillanatképének másolata|Azure-beli nem felügyelt virtuálisgép-lemezek biztonsági mentése támogatott futó virtuális gépekhez|Még nem támogatott.
+|Oldal blob növekményes pillanatképének másolása|Támogatott prémium és standard Azure-oldal Blobok|Még nem támogatott.
+|Oldal blob-számlázása|Az egyedi lapokra vonatkozó díjak a blobban vagy a pillanatképben vannak felszámítva. Nem számít fel további díjat a blobokhoz társított Pillanatképek esetében, amíg az alap blob nem frissül.|Az alap blob-és assiociated-Pillanatképek esetében díjat számítunk fel. Az egyes Pillanatképek esetében további díjakat számítunk fel.
+|A blob Storage tárolási szintjei|Gyakori, ritka elérésű és archív tárolási szintek.|Még nem támogatott.
+|A blob Storage-hoz készült Soft delete|Általánosan elérhető|Még nem támogatott.
+|Oldal blobjának maximális mérete|8 TB|1 TB
+|Oldal blob-oldalának mérete|512 bájt|4 KB
+|Tábla partíciós kulcsának és a sor kulcsának mérete|1 024 karakter (2 048 bájt)|400 karakter (800 bájt)
+|BLOB pillanatképe|Egy blob pillanatképének maximális száma nincs korlátozva.|Egy blob pillanatképének maximális száma 1 000.
+|Azure AD-hitelesítés a Storage-hoz|Előzetes verzióban|Még nem támogatott.
+|Megváltoztathatatlan Blobok|Általánosan elérhető|Még nem támogatott.
+|Tűzfal-és virtuális hálózati szabályok a tároláshoz|Általánosan elérhető|Még nem támogatott.|
 
-A storage-mérőszámok különbségek is vannak:
+A tárolási metrikákkal kapcsolatban is különbségek vannak:
 
-* A storage-mérőszámok tranzakciós adatok nem tesznek különbséget a belső vagy külső hálózati sávszélességet.
-* A tranzakciós adatokat a storage-mérőszámok nem tartalmazza a virtuális gép hozzá a csatlakoztatott lemezeket.
+* A tárolási mérőszámokban lévő tranzakciós adatok nem különböztetik meg a belső vagy külső hálózati sávszélességet.
+* A tárolási metrikákban lévő tranzakciós adatok nem tartalmazzák a csatlakoztatott lemezekhez tartozó virtuális gépek elérését.
 
 ## <a name="api-version"></a>API-verzió
 
-Azure Stack Storage a következő verziók támogatottak:
+A Azure Stack Storage a következő verziókat támogatja:
 
-Az Azure Storage szolgáltatási API-kkal:
+Azure Storage Services API-k:
 
 1811 frissítés vagy újabb verzió:
 
@@ -84,7 +84,7 @@ Korábbi verziók:
 - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
-Az Azure Storage felügyeleti API-k szolgáltatásaihoz:
+Az Azure Storage Services kezelési API-jai:
 
 1811 frissítés vagy újabb verzió:
 
@@ -102,10 +102,10 @@ Korábbi verziók:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Támogatott az Azure Stack-tároló ügyfélkódtárai kapcsolatos további információkért lásd: [Ismerkedés az Azure Stack tárolásfejlesztési eszközök](azure-stack-storage-dev.md).
+További információ a Azure Stack támogatott tárolási ügyféloldali kódtárakkal kapcsolatban: [Ismerkedés a Azure stack Storage fejlesztői eszközeivel](azure-stack-storage-dev.md).
 
 ## <a name="next-steps"></a>További lépések
 
-* [Ismerkedés az Azure Stack tárolásfejlesztési eszközök](azure-stack-storage-dev.md)
-* [Adatok átvitele tools for Azure Stack-tároló használata](azure-stack-storage-transfer.md)
-* [Az Azure Stack Storage bemutatása](azure-stack-storage-overview.md)
+* [Ismerkedés a Azure Stack Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)
+* [Adatátviteli eszközök használata a Azure Stack Storage szolgáltatáshoz](azure-stack-storage-transfer.md)
+* [A Azure Stack Storage bemutatása](azure-stack-storage-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack SQL resource provider 1.1.30.0 kibocsátási megjegyzései |} A Microsoft Docs
-description: Ismerje meg, mi az a legújabb Azure Stack SQL resource provider frissítések, beleértve az olyan ismert problémákat és helyét, ahonnan letöltheti azt.
+title: Azure Stack SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerkedjen meg a legújabb Azure Stack SQL Resource Provider frissítésével, beleértve az ismert problémákat és a letöltés helyét.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,86 +12,86 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 22525fc9109bd2c03e28c4ca34b60c7a1f2585fe
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618053"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829361"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A kibocsátási megjegyzések a javításokat és a SQL-erőforrás-szolgáltató verziója 1.1.30.0 ismert problémákat ismertetik.
+Ezek a kibocsátási megjegyzések ismertetik az SQL Resource Provider 1.1.30.0 verziójának frissítéseit és ismert problémáit.
 
 ## <a name="build-reference"></a>Hivatkozás létrehozása
-Töltse le az SQL erőforrás-szolgáltató bináris, és futtassa a mappába, csomagolja ki a tartalmát egy ideiglenes könyvtárba. Az erőforrás-szolgáltató rendelkezik egy minimális megfelelő Azure Stack hozhat létre. Ezen verziója az SQL erőforrás-szolgáltató telepítéséhez szükséges minimális Azure Stack-verzió alább:
+Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbi listában látható:
 
-> |Azure Stack minimális verziója|Erőforrás-szolgáltató az SQL verziója|
+> |Minimális Azure Stack-verzió|SQL erőforrás-szolgáltató verziója|
 > |-----|-----|
-> |Verzió 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+> |1808-es verzió (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> A minimális támogatott az Azure Stack-frissítés alkalmazása az Azure Stackkel integrált rendszereknél, vagy üzembe helyezése a legújabb Azure Stack Development Kit (ASDK) az erőforrás-szolgáltató az SQL legújabb verziójának telepítése előtt.
+> Alkalmazza a minimális támogatott Azure Stack frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) az SQL Resource Provider legújabb verziójának telepítése előtt.
 
-## <a name="new-features-and-fixes"></a>Új funkciókkal és javításokkal
-Az Azure Stack SQL erőforrás-szolgáltató ezen verziója tartalmazza a következő fejlesztések és javítások:
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
+A Azure Stack SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-- **Engedélyezve van az erőforrás-szolgáltató telepítések SQL telemetriai**. Eszköztelemetria-gyűjtést SQL erőforrás-szolgáltató telepítések engedélyezve van. Gyűjtött telemetriai tartalmazza az erőforrás-szolgáltató üzembe helyezési, indítsa el záró időpontját, lépjen ki a állapot, a kilépési üzenetet és a hiba részletei (ha van).
+- **Telemetria engedélyezve az SQL erőforrás-szolgáltató üzembe helyezéséhez**. A telemetria-gyűjtemény engedélyezve van az SQL erőforrás-szolgáltató üzembe helyezéséhez. A gyűjtött telemetria magában foglalja az erőforrás-szolgáltató üzembe helyezését, az indítási és leállítási időt, a kilépési állapotot, a kilépési üzeneteket és a hibák részleteit
 
-- **A TLS 1.2-es titkosítási frissítés**. Engedélyezve a TLS 1.2-es csak támogatja a belső Azure Stack-összetevők erőforrás-szolgáltató kommunikál. 
+- **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack-összetevőkkel. 
 
 ### <a name="fixes"></a>Javítások
 
-- **SQL-erőforrás-szolgáltató az Azure Stack PowerShell kompatibilitási**. Az SQL erőforrás-szolgáltató frissítve lett az Azure Stack 2018-03-01-hibrid PowerShell-profillal, és kompatibilitást biztosítanak AzureRM 1.3.0 a munkahelyi és a későbbi.
+- Az **SQL erőforrás-szolgáltató Azure stack PowerShell-kompatibilitást**. Az SQL erőforrás-szolgáltató frissítve lett a Azure Stack 2018-03-01 hibrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
 
-- **Az SQL bejelentkezési Módosítsa jelszavát panel**. Javítva lett egy probléma, ahol a jelszó nem lehet módosítani a jelszó módosítása panelen. Jelszó eltávolított hivatkozások fájlmódosítási értesítések.
+- **SQL-bejelentkezési jelszó módosítása**panel. Kijavított egy hibát, ha a jelszó módosítása panelen nem lehet módosítani a jelszót. Eltávolított hivatkozások a jelszó-módosítási értesítésekről.
 
-- **Az SQL futtató kiszolgálót a beállítások panelen frissítése**. Javítva lett egy probléma, ahol a beállítások panelen helytelenül címe, a "Password".
+- Az **SQL üzemeltetési kiszolgáló beállításai panel frissítése**. Kijavítva a hiba, hogy a beállítások panel neve helytelenül "password".
 
 ## <a name="known-issues"></a>Ismert problémák 
 
-- **SQL-termékváltozatok órát is igénybe vehet egy lesznek láthatók a portálon**. Is igénybe vehet egy órát újonnan létrehozott termékváltozatok lesznek láthatók a használatra, amikor új SQL-adatbázisok létrehozásához. 
+- **Az SQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy óráig is eltarthat, amíg az újonnan létrehozott SKU-t új SQL-adatbázisok létrehozásakor használni szeretné. 
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: Nincs.
 
-- **Fel újra az SQL-bejelentkezésekben**. Próbál létrehozni egy új SQL jelentkezzen be a felhasználónevet, egy előfizetésen belül egy meglévő bejelentkezést eredményez szakember újból felhasználja a meglévő jelszót, és ugyanazokat a bejelentkezési adatokat. 
+- Az **SQL-bejelentkezések újra felhasználva**. Ha egy olyan új SQL-bejelentkezést próbál létrehozni ugyanazzal a felhasználónévvel, amely ugyanazzal az előfizetéssel rendelkezik, akkor ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni. 
 
-    **Megkerülő megoldás**: Azonos előfizetéshez tartozó új bejelentkezéseket létrehozásakor különböző felhasználónevet használ, vagy hozzon létre bejelentkezések a különböző előfizetéseknél felhasználónevet.
+    **Áthidaló megoldás**: Használjon más felhasználóneveket, amikor új bejelentkezéseket hoz létre ugyanazon előfizetés alatt, vagy hozzon létre bejelentkezési adatokat ugyanazzal a felhasználónévvel különböző előfizetésekben.
 
-- **Megosztott SQL-bejelentkezésekben adatinkonzisztenciát okozhat**. Ha az egy előfizetésen belül több SQL-adatbázis egy SQL-bejelentkezési megosztott, a bejelentkezési jelszó módosítása adatinkonzisztenciát okoz.
+- A **megosztott SQL-bejelentkezések adatkövetkezetlenséget okozhatnak**. Ha egy SQL-bejelentkezés ugyanahhoz az előfizetéshez tartozó több SQL-adatbázishoz van megosztva, akkor a bejelentkezési jelszó módosítása az adatok inkonzisztenciát okoz.
 
-    **Megkerülő megoldás**: Mindig használjon különböző bejelentkezések különböző adatbázisokat ugyanahhoz az előfizetéshez.
+    **Áthidaló megoldás**: Mindig használjon eltérő bejelentkezési adatokat a különböző adatbázisokhoz ugyanazon előfizetés alatt.
 
-- **A TLS 1.2 támogatási követelmények**. Ha megpróbálja telepíthet vagy frissíthet az SQL erőforrás-szolgáltató egy olyan számítógépről, amelyen nincs engedélyezve a TLS 1.2-es, a művelet sikertelen lehet. Futtassa a következő PowerShell-parancsot a számítógépen használt telepíteni vagy frissíteni az erőforrás-szolgáltatót, győződjön meg arról, hogy a TLS 1.2 támogatott adja vissza:
+- **TLS 1,2-támogatásra vonatkozó követelmény**. Ha olyan számítógépről kísérli meg az SQL-erőforrás-szolgáltató üzembe helyezését vagy frissítését, ahol a TLS 1,2 nincs engedélyezve, a művelet sikertelen lehet. Futtassa a következő PowerShell-parancsot az erőforrás-szolgáltató üzembe helyezéséhez vagy frissítéséhez használt számítógépen annak ellenőrzéséhez, hogy a TLS 1,2 támogatott-e:
 
   ```powershell
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  Ha **Tls12** van a parancs kimenete nem szerepel, a TLS 1.2 nincs engedélyezve a számítógépen.
+  Ha a **Tls12** nem szerepel a parancs kimenetében, a TLS 1,2 nincs engedélyezve a számítógépen.
 
-    **Megkerülő megoldás**: Futtassa a következő PowerShell-parancsot a TLS 1.2-es és indítsa el az erőforrás-szolgáltató üzembe helyezés, vagy frissítse a parancsfájlt a ugyanebben a PowerShell-munkamenetben:
+    **Áthidaló megoldás**: Futtassa a következő PowerShell-parancsot a TLS 1,2 engedélyezéséhez, majd indítsa el az erőforrás-szolgáltató üzembe helyezését vagy a parancsfájl frissítését ugyanabból a PowerShell-munkamenetből:
 
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
-- **SQL típusú erőforrás-szolgáltató nem sikerül hozzáadni az SQL Server Always On figyelő**. Az SQL Server Always figyelője figyelő IP-címének használata esetén az SQL-erőforrás-szolgáltató virtuális gép nem oldható fel a figyelő gazdagép nevét.
+- **Az SQL erőforrás-szolgáltató nem tud felvenni SQL Server always on figyelőt**. Ha a figyelő IP-címét használja a SQL Server mindig a figyelőn, az SQL-erőforrás szolgáltatójának virtuális gépe nem tudja feloldani a figyelő gazdagépének nevét.
 
-    **Megkerülő megoldás**: Győződjön meg arról, hogy DNS megfelelően működik, és oldja fel a figyelő IP-címet figyelő gazdagép nevét.
+    **Áthidaló megoldás**: Győződjön meg arról, hogy a DNS megfelelően működik-e a figyelő IP-címének a figyelő állomásneve általi feloldásához.
     
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack működő felhő rendszergazdái számára ismert problémák
-A dokumentáció a [Azure Stack kibocsátási megjegyzések](azure-stack-servicing-policy.md).
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
+Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
 
 ## <a name="next-steps"></a>További lépések
-[További információ az SQL erőforrás-szolgáltató](azure-stack-sql-resource-provider.md).
+[További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).
 
-[Az SQL erőforrás-szolgáltató telepítésének előkészítéséhez](azure-stack-sql-resource-provider-deploy.md#prerequisites).
+[Felkészülés az SQL-erőforrás-szolgáltató üzembe helyezésére](azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-[Az erőforrás-szolgáltató SQL frissítés egy korábbi verziójáról](azure-stack-sql-resource-provider-update.md). 
+[Frissítse az SQL-erőforrás-szolgáltatót egy korábbi verzióról](azure-stack-sql-resource-provider-update.md). 
