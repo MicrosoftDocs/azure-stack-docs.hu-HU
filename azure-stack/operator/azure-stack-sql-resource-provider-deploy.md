@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 22fdf65ae4949468d3408097c787f0a5b93dd75f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: fb2e5d33baf2dfd4a6cafd2567c2650e89ac8c38
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418077"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909400"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack
 
@@ -83,7 +83,7 @@ Futtassa a DeploySqlProvider. ps1 parancsfájlt, amely a következő feladatokat
 
 A következő paramétereket adhatja meg a parancssorból. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
 
-| Paraméternév | Leírás | Megjegyzés vagy alapértelmezett érték |
+| Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához. | _Kötelező_ |
 | **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt. | _Kötelező_ |

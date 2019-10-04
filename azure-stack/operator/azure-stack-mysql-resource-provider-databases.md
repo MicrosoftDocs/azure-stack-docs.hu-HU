@@ -1,6 +1,6 @@
 ---
-title: A MySQL-Adapter RP az AzureStack által biztosított adatbázisok használata |} A Microsoft Docs
-description: Hogyan hozhat létre és kezelheti a MySQL-adatbázisok, a MySQL Adapter erőforrás-szolgáltató használatával építettek ki
+title: A MySQL-adapter (RP) által biztosított adatbázisok használata Azure Stackon | Microsoft Docs
+description: A MySQL-adapter erőforrás-szolgáltatójának használatával kiépített MySQL-adatbázisok létrehozása és kezelése
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -11,56 +11,56 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4f2e7a77af14c71c2b3231436d723c6e721ceca9
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 6a933f812edeede1802c35e3d25915ce09b6f01b
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308624"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909214"
 ---
 # <a name="create-mysql-databases"></a>MySQL-adatbázisok létrehozása
-Az Azure Stack felhasználói, az előfizetett egy ajánlatra, amely tartalmazza a MySQL-adatbázisszolgáltatás, létrehozhat és kezelheti a MySQL-adatbázisok önkiszolgáló a felhasználói portálon.
+A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack felhasználó a felhasználói portálon hozhat létre és kezelhet önkiszolgáló MySQL-adatbázisokat.
 
 ## <a name="create-a-mysql-database"></a>MySQL-adatbázisok létrehozása
 
-1. Jelentkezzen be az Azure Stack felhasználói portálon.
-2. Válassza ki **+ erőforrás létrehozása** > **adatok + tárolás** > **MySQL-adatbázis** > **Hozzáadás**.
-3. A **MySQL-adatbázis létrehozása**, adja meg az adatbázis nevét, és az egyéb beállításokat állítsa be a környezetéhez szükséges.
+1. Jelentkezzen be a Azure Stack felhasználói portálra.
+2. Válassza az **+ erőforrás létrehozása** > **adattároló** > **MySQL-adatbázis** > **Hozzáadás**lehetőséget.
+3. A **MySQL-adatbázis létrehozása**területen adja meg az adatbázis nevét, és konfigurálja a környezetéhez szükséges egyéb beállításokat.
 
-    ![Hozzon létre egy tesztet a MySQL-adatbázis](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Teszt MySQL-adatbázis létrehozása](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
-4. A **Create Database**válassza **Termékváltozat**. A **válassza ki a MySQL Termékváltozatot**, válassza ki az adatbázis a Termékváltozat.
+4. Az **adatbázis létrehozása**területen válassza az **SKU**lehetőséget. A **MySQL SKU kiválasztása**területen válassza ki az adatbázishoz tartozó SKU-t.
 
-    ![Válassza ki a MySQL a Termékváltozat](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
+    ![MySQL SKU kiválasztása](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Azure Stack üzemeltetési kiszolgáló van hozzáadva, mert hozzá vannak rendelve a Termékváltozat. Az üzemeltető kiszolgálók a Termékváltozat a készletben található adatbázisok jönnek létre.
+    >Mivel a szolgáltatói kiszolgálók hozzáadódnak a Azure Stackhoz, egy SKU-t kapnak hozzájuk. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
 
-5. A **bejelentkezési**válassza ***kötelező beállítások konfigurálása***.
-6. Alatt **válassza ki a bejelentkezési**, választhat egy meglévő bejelentkezést, vagy válasszon **+ új bejelentkezés létrehozása** új bejelentkezés beállításához.  Adjon meg egy **adatbázis bejelentkezési** neve és **jelszó**, majd válassza ki **OK**.
+5. A **Bejelentkezés**területen válassza a ***kötelező beállítások konfigurálása***elemet.
+6. A **Bejelentkezés kiválasztása**területen válasszon egy meglévő felhasználónevet, vagy válassza az **+ új bejelentkezés létrehozása** lehetőséget egy új bejelentkezés beállításához.  Adja meg az **adatbázis bejelentkezési** nevét és **jelszavát**, majd kattintson **az OK gombra**.
 
-    ![Hozzon létre egy új adatbázis-bejelentkezés](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
+    ![Új adatbázis-bejelentkezés létrehozása](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
     >[!NOTE]
-    >Az adatbázis-bejelentkezési név hossza legfeljebb 32 karakter hosszú lehet a MySQL 5.7-es. Korábbi kiadások legfeljebb 16 karakter.
+    >Az adatbázis-bejelentkezési név hossza nem haladhatja meg a 32 karaktert a MySQL 5,7-ben. A korábbi kiadásokban nem lehet hosszabb 16 karakternél.
 
-7. Válassza ki **létrehozás** az adatbázis beállításának befejezéséhez.
+7. Válassza a **Létrehozás** lehetőséget az adatbázis beállításának befejezéséhez.
 
-Az adatbázis telepítése után jegyezze fel a **kapcsolati karakterlánc** alatt **Essentials**. Ez a karakterlánc használhatja bármely olyan alkalmazásban, el kell érnie a MySQL-adatbázishoz.
+Az adatbázis üzembe helyezését követően jegyezze fel a **kapcsolatok karakterláncot** az **alapvető**erőforrások területen. Ezt a sztringet bármely olyan alkalmazásban használhatja, amelynek hozzá kell férnie a MySQL-adatbázishoz.
 
-![A MySQL-adatbázis a kapcsolati sztring lekérése](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+![A MySQL-adatbázishoz tartozó kapcsolatok karakterláncának beolvasása](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
 ## <a name="update-the-administrative-password"></a>A rendszergazdai jelszó frissítése
 
-A jelszót a MySQL server-példányon módosításával módosíthatja.
+A jelszót a MySQL-kiszolgáló példányán módosítva módosíthatja.
 
-1. Válassza ki **felügyeleti erőforrások** > **üzemeltető kiszolgálók MySQL**. Válassza ki az üzemeltető kiszolgálót.
-2. A **beállítások**válassza **jelszó**.
-3. A **jelszó**, adja meg az új jelszót, majd **mentése**.
+1. Válassza a **felügyeleti erőforrások**@no__t – 1**MySQL üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
+2. A **Beállítások**területen válassza a **jelszó**lehetőséget.
+3. A **jelszó**területen adja meg az új jelszót, majd kattintson a **Mentés**gombra.
 
 ![A rendszergazdai jelszó frissítése](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 

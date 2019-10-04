@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: ce89ffdee0e0de2db8109102418f4513ce1cb99a
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 24271bf3f4155433980972df19e541dbb77fa908
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418151"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909471"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Üzemeltetési kiszolgálók hozzáadása az SQL erőforrás-szolgáltatóhoz
 
@@ -56,16 +56,16 @@ Győződjön meg arról, hogy mindig letölti az **SQL IaaS-bővítmény** legú
 Az SQL-alapú virtuális gépek üzembe helyezéséhez más lehetőségek is rendelkezésre állnak, beleértve a [Azure stack Gyorsindítás galériájában](https://github.com/Azure/AzureStack-QuickStart-Templates)található sablonokat is.
 
 > [!NOTE]
-> A több csomópontos Azure Stack telepített üzemeltetési kiszolgálókat felhasználói előfizetésből kell létrehozni, nem az alapértelmezett szolgáltatói előfizetéshez. A felhasználókat a felhasználói portálról vagy egy megfelelő bejelentkezési azonosítóval rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és megfelelő SQL-licenccel kell rendelkeznie. A szolgáltatás rendszergazdája  az előfizetés tulajdonosa lehet.
+> A több csomópontos Azure Stack telepített üzemeltetési kiszolgálókat felhasználói előfizetésből kell létrehozni, nem az alapértelmezett szolgáltatói előfizetéshez. A felhasználókat a felhasználói portálról vagy egy megfelelő bejelentkezési azonosítóval rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és megfelelő SQL-licenccel kell rendelkeznie. A szolgáltatás rendszergazdája az előfizetés tulajdonosa lehet.
 
 ### <a name="required-privileges"></a>Szükséges jogosultságok
 
 Létrehozhat olyan rendszergazda felhasználót, amely alacsonyabb jogosultságokkal rendelkezik, mint az SQL sysadmin. A felhasználónak csak a következő műveletekhez szükséges engedélyekkel kell rendelkeznie:
 
-* Adatbázis: Létrehozás, módosítás, tárolás (csak always on), drop, Backup
+* Adatbázis Létrehozás, módosítás, tárolás (csak always on), drop, Backup
 * Rendelkezésre állási Csoport: Adatbázis módosítása, csatlakoztatása, hozzáadása/eltávolítása
-* Bejelentkezés: Létrehozás, kijelölés, módosítás, eldobás, visszavonás
-* Select Operations \[:\]Master\[ . sys\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases \[,\]Master\[ . sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[Master\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys. master_files
+* Bejelentkezési Létrehozás, kijelölés, módosítás, eldobás, visszavonás
+* Válassza a műveletek: \[master @ no__t-1. \[sys @ no__t-3. \[availability_group_listeners @ no__t-5 (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[master @ no__t-7. \[sys @ no__t-9. \]0dm_os_ sys_memory @ no__t-11, SERVERPROPERTY, 2master @ no__t-13. 4sys @ no__t-15. 6availability_groups @ no__t-17 (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>További biztonsági információk
 
@@ -100,7 +100,7 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
     Megadhatja a példány nevét, és megadhatja a portszámot, ha a példány nincs az alapértelmezett 1433-as porthoz rendelve.
 
    > [!NOTE]
-   > Ha az SQL-példányt a felhasználó és a rendszergazda Azure Resource Manager is elérheti, akkor az erőforrás-szolgáltató irányítása alá helyezhető. Az SQL-  példányt kizárólag az erőforrás-szolgáltató számára kell lefoglalni.
+   > Ha az SQL-példányt a felhasználó és a rendszergazda Azure Resource Manager is elérheti, akkor az erőforrás-szolgáltató irányítása alá helyezhető. Az SQL- példányt kizárólag az erőforrás-szolgáltató számára kell lefoglalni.
 
 4. A kiszolgálók hozzáadásakor hozzá kell rendelnie őket egy meglévő SKU-hoz, vagy létre kell hoznia egy új SKU-t. Az **üzemeltetési kiszolgáló hozzáadása**területen válassza az **SKU**-ket.
 
@@ -166,7 +166,7 @@ A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési k
 
 4. Az Always On rendelkezésre állási csoport jelölőnégyzet bejelölésével engedélyezheti az SQL always on rendelkezésre állási csoport példányainak támogatását.
 
-   ![Always On engedélyezése](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![Az Always On engedélyezése](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Adja hozzá az SQL always on-példányt egy SKU-hoz.
 

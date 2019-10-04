@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fd9564e25690c2119bfa3d576802858514ef0475
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 7cfbba830b91d5dba8935cce20a2cdc0e65e49de
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417721"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909161"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack a privilegizált végpont használatával
 
@@ -40,7 +40,7 @@ Mivel a parancsmagok a Azure Stack 1710 frissítési csomagja újdonságai, a 17
 
 Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a parancsok a Kiemelt végpontról történő lekérdezésével. Ehhez futtassa a következő parancsokat a hardver életciklus-gazdagépén vagy egy emelt szintű hozzáférési munkaállomáson. Győződjön meg arról is, hogy a Kiemelt végpont megbízható gazdagép. További információ: [a privilegizált végpont elérésének](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)1. lépése. 
 
-1. Hozzon létre egy PowerShell-munkamenetet a Azure Stack-környezetben található egyik ERCS virtuális gépen (*előtag*: ERCS01, *prefix*-ERCS02 vagy *előtag*-ERCS03). Cserélje  le az előtagot a környezetre jellemző virtuálisgép-előtagi karakterlánccal.
+1. Hozzon létre egy PowerShell-munkamenetet a Azure Stack-környezetben található egyik ERCS virtuális gépen (*előtag*: ERCS01, *prefix*-ERCS02 vagy *előtag*-ERCS03). Cserélje le az előtagot a környezetre jellemző virtuálisgép-előtagi karakterlánccal.
 
    ```powershell
    $cred = Get-Credential

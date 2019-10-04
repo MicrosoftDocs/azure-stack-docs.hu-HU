@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: de9051ceee89244182c1d6d9d5724fa80a594ae6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 8646e9d1936c865482368d176194c095c9dd0483
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094384"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909416"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack integrált rendszerek csatlakoztatási modelljei
 Ha érdekli egy Azure Stack integrált rendszer megvásárlása, meg kell ismernie a Azure Stack üzembe helyezésének [számos adatközpont-integrációs megfontolását](azure-stack-datacenter-integration.md) , hogy meghatározza, hogyan illeszkedik a rendszer az adatközpontba. Emellett el kell döntenie, hogyan integrálja a Azure Stackt a hibrid felhőalapú környezetbe. Ez a cikk áttekintést nyújt ezekről a főbb döntésekről, például az Azure-beli kapcsolatok modelljeiről, az Identity Store lehetőségeiről és a számlázási modell lehetőségeiről.
@@ -44,8 +44,8 @@ Dönthet úgy, hogy Azure Stack az internethez (és az Azure-hoz) csatlakozik, v
 |Fogyasztáson alapuló számlázás|![Támogatott](media/azure-stack-connection-models/check.png)| |
 |Kapacitás alapú számlázás|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
 |Licencelés| Nagyvállalati Szerződés vagy felhőalapú megoldás szolgáltatója | Nagyvállalati szerződés |
-|Javítás és frissítés|A frissítési csomag közvetlenül az internetről Azure Stackra tölthető le |  Kötelező<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
-| Regisztráció | Automatikus | Kötelező<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
+|Javítás és frissítés|A frissítési csomag közvetlenül az internetről Azure Stackra tölthető le |  Szükséges<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
+| Regisztráció | Automatikus | Szükséges<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
 
 Miután eldöntötte, hogy az Azure-beli kapcsolódási modellt szeretné-e használni a Azure Stack üzembe helyezéséhez, további, egymástól függő döntéseket kell hoznia az Identity Store és a számlázási módszerhez.
 

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9f6282c9b08547c9449dc7f340f06a6280a98589
-ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
+ms.openlocfilehash: 392d850e5d74a1bd069653aae3b9def6438c5288
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70064173"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909578"
 ---
 # <a name="use-the-azure-stack-user-portal"></a>A Azure Stack felhasználói portál használata
 

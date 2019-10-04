@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack-tűzfal tervezése az Azure Stack integrált rendszerek |} A Microsoft Docs
-description: A több csomópontos, az Azure Stack Azure-kapcsolattal rendelkező üzemelő példányok az Azure Stack tűzfal szempontokat ismerteti.
+title: Azure Stack tűzfal a Azure Stack integrált rendszerek tervezéséhez | Microsoft Docs
+description: A többcsomópontos Azure Stack Azure-beli üzemelő példányok Azure Stack tűzfallal kapcsolatos szempontjait ismerteti.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,58 +12,58 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: abca6560e8644b201483001258542121fefb6b08
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: ec8d45add2b2d0312d82d2a7e2d71fbd2a2b41d6
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131522"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909193"
 ---
-# <a name="azure-stack-firewall-integration"></a>Az Azure Stack tűzfal integrációja
-Javasoljuk, hogy egy tűzfal eszköz segítségével biztonságos Azure Stack segítségével. Tűzfalak segítségével többek között elosztott--szolgáltatásmegtagadásos (DDOS) támadások, behatolásérzékelési és a tartalomvizsgálat szemben. Azonban akkor is válhat az Azure storage-szolgáltatásokhoz hasonlóan a blobok, táblák és üzenetsorok átviteli szűk keresztmetszetté.
+# <a name="azure-stack-firewall-integration"></a>Azure Stack tűzfal-integráció
+Javasoljuk, hogy használjon egy tűzfal eszközt a Azure Stack biztonságossá tételéhez. A tűzfalak segítenek megvédeni az olyan műveleteket, mint az elosztott szolgáltatásmegtagadási (DDOS) támadások, a behatolások észlelése és a tartalmi ellenőrzés. Ugyanakkor az Azure Storage-szolgáltatások, például a Blobok, a táblák és a várólisták adatátviteli szűk keresztmetszete is lehetnek.
 
- Ha a kapcsolat nélküli telepítési módban használja, az AD FS-végpont közzé kell tennie. További információkért lásd: a [adatközpont integrációja identitás cikk](azure-stack-integrate-identity.md).
+ Ha a rendszer leválasztott központi telepítési módot használ, közzé kell tennie a AD FS végpontot. További információ: [Datacenter Integration Identity (adatközpont-integrációs identitás](azure-stack-integrate-identity.md)) című cikk.
 
-Az Azure Resource Manager (rendszergazda), a felügyeleti portál és a Key Vault (rendszergazda) végpontok nem feltétlenül szükséges külső közzétételét. Például szolgáltató, korlátozhatja a támadási felület által csak felügyelete az Azure Stack, a hálózaton belül, és nem az internetről.
+A Azure Resource Manager (rendszergazda), a felügyeleti portál és a Key Vault (rendszergazda) végpontok nem feltétlenül igényelnek külső közzétételt. Például szolgáltatóként korlátozhatja a támadási felületet úgy, hogy csak a hálózatán belüli Azure Stack felügyeli, és nem az internetről.
 
-A vállalati szervezetek számára a külső hálózat lehet a meglévő vállalati hálózaton. Ebben a forgatókönyvben közzé kell tennie a végpontok Azure Stack működjön a vállalati hálózatról.
+A vállalati szervezetek esetében a külső hálózat lehet a meglévő vállalati hálózat. Ebben a forgatókönyvben a végpontokat közzé kell tenni a vállalati hálózatról Azure Stack működéséhez.
 
 ### <a name="network-address-translation"></a>Hálózati címfordítás
-Hálózati címfordítás (NAT), hogy a központi telepítés a virtuális gép (DVM) külső erőforrások hozzáféréséhez és üzembe helyezése során az interneten, valamint a válságkezelési helyreállítási konzol (ERCS) virtuális gépek vagy a kiemelt jogosultságú a végpontot (EGP) a során a javasolt módszer a regisztráció és a hibaelhárítás.
+A hálózati címfordítás (NAT) az ajánlott módszer, amely lehetővé teszi a telepítési virtuális gép (DVM) számára a külső erőforrások és az internet elérését az üzembe helyezés során, valamint a vész-helyreállítási konzol (ERCS) VM-EK vagy privilegizált végpontja (PEP) regisztráció és hibaelhárítás.
 
-NAT is lehet a külső hálózaton vagy a nyilvános virtuális IP-cím nyilvános IP-címek helyett. Azonban nem ajánlott, mert azt korlátozza a bérlő felhasználói élményt, és növeli az összetettséget. Az egyik lehetőség, amely itt is szükség van egy nyilvános IP-Címek száma a felhasználói IP-cím használatát a készletben egy az egyhez NAT lenne. Egy másik lehetőség, több-több NAT egy NAT-szabályt egy felhasználói virtuális IP-cím szükséges összes port, a felhasználó használhatja.
+A NAT a külső hálózat vagy a nyilvános VIP-címek nyilvános IP-címeinek alternatívája is lehet. Ez azonban nem ajánlott, mert korlátozza a bérlői felhasználói élményt, és növeli a bonyolultságot. Az egyik lehetőség egy olyan NAT lenne, amelyhez felhasználói IP-címenként még egy nyilvános IP-címet kell megadni a készleten. Egy másik lehetőség egy olyan NAT-szabály, amelyhez felhasználónként egy virtuális IP-cím szükséges NAT-szabályt a felhasználók által használt összes porthoz.
 
-A nyilvános virtuális IP-CÍMEK a NAT használatával több szempontból sem ajánlott a következők:
-- NAT többletterheléssel tűzfalszabályok kezelésekor, mert a felhasználók saját végpontokat és a saját közzététel szabályai a szoftveralapú hálózatkezelési (SDN) verem szabályozhatja. Felhasználók kapcsolatba kell lépnie a VIP-k közzététele, és a port listájának frissítése az Azure Stack-operátorokról.
-- NAT-használat korlátozza a felhasználói élmény, miközben nyújt teljes hozzáférés az operátor keresztül közzétételi kérelmeket.
-- Hibrid felhős rendszerekben az Azure-ral fontolja meg, hogy az Azure nem támogatja a VPN-alagúton NAT használata a végpont beállítása
+A NAT nyilvános VIP-hez való használatának néhány hátránya a következő:
+- A NAT a tűzfalszabályok kezelésekor növeli a terhelést, mivel a felhasználók saját végpontokat és saját közzétételi szabályokat irányítanak a szoftveresen definiált hálózatkezelési (SDN) veremben. A felhasználóknak kapcsolatba kell lépniük a Azure Stack operátorral a virtuális IP-címek közzétételéhez, valamint a portok listájának frissítéséhez.
+- Míg a NAT-használat korlátozza a felhasználói élményt, teljes hozzáférést biztosít az operátornak a közzétételi kérelmekhez.
+- Az Azure-ban használt hibrid felhőalapú forgatókönyvek esetében vegye figyelembe, hogy az Azure nem támogatja VPN-alagút beállítását a NAT-t használó végpontok számára.
 
-### <a name="ssl-decryption"></a>Az SSL visszafejtési
-Jelenleg javasoljuk, hogy az összes Azure Stack-forgalom SSL visszafejtési letiltása. A jövőbeli frissítések támogatott, ha útmutatást nyújtanak az Azure Stack SSL visszafejtési engedélyezésével kapcsolatos.
+### <a name="ssl-decryption"></a>SSL-visszafejtés
+Jelenleg ajánlott letiltani az SSL-visszafejtést az összes Azure Stack-forgalom esetében. Ha a jövőbeli frissítések támogatják, útmutatást nyújt a Azure Stack SSL-visszafejtésének engedélyezéséhez.
 
 ## <a name="edge-firewall-scenario"></a>Peremhálózati tűzfal forgatókönyv
-Az edge üzemelő példány, az Azure Stack közvetlenül a peremhálózati útválasztó vagy a tűzfal mögött van telepítve. Ezekben az esetekben támogatott meghaladta a szegély (1. forgatókönyv esetében), ahol támogatja mindkét aktív-aktív és az aktív-passzív Tűzfalkonfiguráció, vagy a szegély eszköz (2. forgatókönyv) átjáróként, csak a támogatott aktív-aktív tűzfal tűzfal függő a egyenlő költség több elérési út (ECMP) BGP vagy a statikus útválasztás feladatátvételi konfiguráció.
+Az Edge-telepítésekben a Azure Stack közvetlenül a peremhálózati útválasztó vagy a tűzfal mögött helyezhető üzembe. Ezekben a forgatókönyvekben a tűzfal a szegély felett (1. forgatókönyv) meghaladja az aktív-aktív és az aktív-passzív tűzfal konfigurációját, vagy a szegély eszközként (2. eset), ahol csak az aktív-aktív tűzfalat támogatja. a konfiguráció a BGP-vel vagy statikus útválasztással, a feladatátvételhez kapcsolódóan egyenlő árú, több útvonalon (ECMP) alapul.
 
-Nyilvános irányítható IP-címek üzembe helyezéskor megváltozhatja a nyilvános VIP-készletet a külső hálózathoz vannak megadva. Az edge a forgatókönyvben nem ajánlott bármilyen más hálózati biztonsági okokból nyilvános irányítható IP-címek használatát. Ebben a forgatókönyvben lehetővé teszi, hogy a felhasználó élmény, mint például az Azure nyilvános felhő mint a teljes körű önálló felügyelt felhőbeli élményt.  
+Nyilvános IP-címek a nyilvános VIP-készlethez a külső hálózatról üzembe helyezéskor vannak megadva. Az Edge-forgatókönyvek esetében nem ajánlott nyilvános útválasztású IP-címeket használni bármely más hálózaton biztonsági célokra. Ez a forgatókönyv lehetővé teszi a felhasználók számára, hogy a teljes mértékben felügyelt Felhőbeli élményt a nyilvános felhőben, például az Azure-ban is megtapasztalják.  
 
 ![Azure Stack peremhálózati tűzfal – példa](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Vállalati intranet vagy peremhálózati tűzfal forgatókönyve
-Vállalati intranetes vagy szegélyhálózat-alapú üzembe helyezés Azure Stack üzembe lesz helyezve a többszörös zónázva tűzfalon, vagy a peremhálózati tűzfalon, és a belső, vállalati hálózati tűzfal között. Ezután ossza a biztonságos, szegélyhálózaton (vagy a DMZ) között a forgalmat, és nem biztonságos zónák, az alábbiakban:
+A vállalati intranet vagy peremhálózati környezetekben Azure Stack több zónás tűzfalon, illetve a peremhálózati tűzfal és a belső, vállalati hálózati tűzfal között helyezhető üzembe. Ezután a rendszer a biztonságos, peremhálózati (vagy DMZ) és a nem biztonságos zónák között osztja el a forgalmat, az alábbiak szerint:
 
-- **Biztonságos zóna**: Ez az a belső hálózat, amely a belső vagy vállalati irányítható IP-címet használ. A biztonságos hálózati oszthatók, a tűzfalon keresztül, NAT kimenő internet-hozzáféréssel rendelkezik, és általában érhető el, bárhol az adatközpontban, a belső hálózaton belül. Az összes Azure Stack-hálózatok a külső hálózati nyilvános VIP-címkészlet kivételével a biztonságos zóna kell lennie.
-- **Szegélyhálózat-alapú zóna**. A szegélyhálózaton van, ha külső vagy internetkapcsolattal rendelkező alkalmazás, például webkiszolgálók általában vannak telepítve. Egy tűzfal, például DDoS és a behatolás (feltörés) miközben továbbra is lehetővé teszi a megadott bejövő forgalom az internetről érkező támadások elkerülése érdekében általában figyelhető. Csak a külső hálózati nyilvános VIP-készletet az Azure Stack kell lennie a DMZ zónában.
-- **Nem biztonságos zóna**. Ez az a külső hálózat, az interneten. Ez **nem** javasoljuk, hogy a nem biztonságos zónában az Azure Stack üzembe helyezése.
+- **Biztonságos zóna**: Ez az a belső hálózat, amely belső vagy vállalati útválasztású IP-címeket használ. A biztonságos hálózat osztható, a tűzfalon keresztül a NAT-on keresztül érhető el az internetről kimenő hozzáférés, és a belső hálózaton keresztül általában bárhonnan elérhető az adatközponton belül. Minden Azure Stack hálózatnak a biztonságos zónában kell lennie, kivéve a külső hálózat nyilvános VIP-készletét.
+- **Peremhálózati zóna**. A peremhálózaton a külső vagy az internetkapcsolattal rendelkező alkalmazások, például a webkiszolgálók jellemzően üzembe helyezhetők. Általában egy tűzfal figyeli, hogy elkerülje a támadásokat (például a DDoS és a behatolást), miközben továbbra is engedélyezi a megadott bejövő forgalmat az internetről. Csak a Azure Stack külső hálózat nyilvános VIP-készletének kell lennie a DMZ-zónában.
+- Nem **biztonságos zóna**. Ez a külső hálózat, az Internet. A **nem** biztonságos zónában nem ajánlott Azure stack üzembe helyezése.
 
-![Azure Stack szegélyhálózat-alapú hálózat – példa](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Azure Stack peremhálózati hálózati példa](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
-## <a name="learn-more"></a>Részletek
-Tudjon meg többet [Azure Stack-végpontok által használt portokról és protokollokról](azure-stack-integrate-endpoints.md).
+## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
+További információ az [Azure stack-végpontok által használt portokról és protokollokról](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>További lépések
-[Az Azure Stack nyilvános kulcsokra épülő infrastruktúra követelményei](azure-stack-pki-certs.md)
+[PKI-követelmények Azure Stack](azure-stack-pki-certs.md)
 

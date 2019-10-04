@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 4f9e9c4f79a06e0f1f74db8152047beb3af07b75
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a7bd45b8eefe201a8c3767f31f7de138e37bb01d
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417543"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909274"
 ---
 # <a name="manage-azure-stack-storage-accounts"></a>Azure Stack Storage-fiókok kezelése
 
@@ -93,7 +93,7 @@ Azure Stack egy egyszerű módja van ennek:
   Előfordulhat, hogy a fiók nem jelenik meg a fiók listájában, ha a Törölt fiók már be van gyűjtve. Ebben az esetben nem lehet helyreállítani. Lásd a [kapacitás](#reclaim) visszaigénylése című cikket.
 
 ## <a name="set-the-retention-period"></a>A megőrzési időtartam beállítása
-A megőrzési időtartam beállítás lehetővé teszi, hogy a felhő operátora napokban határozzon meg egy időszakot (0 és 9999 nap között), amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett megőrzési időtartam 0 napra van állítva. Ha az értéket "0" értékre állítja, az azt jelenti, hogy a törölt fiókok azonnal nem maradnak meg, és meg vannak jelölve az időszakos szemetet tartalmazó gyűjtemény számára.
+Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzemeltető napokban (0–9999 nap) meghatározza azt az időszakot, amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett adatmegőrzési időszak 0 nap. Az érték „0”-ra állításával a törölt fiók azonnal megszűnik, és a rendszer megjelöli az időszakos szemétgyűjtésre.
 
 **A megőrzési időtartam módosítása:**
 

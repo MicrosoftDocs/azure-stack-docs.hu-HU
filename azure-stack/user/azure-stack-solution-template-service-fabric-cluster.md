@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: e672ee6227e00ea6276c92c22d02874f7c8b5529
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 8a323bf5d767db288cd2d876f38119b61f577afa
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101240"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909671"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric-fürt üzembe helyezése Azure Stack
 
@@ -138,7 +138,7 @@ További információ: [a Azure Stack Key Vault kezelése a PowerShell](azure-st
     >
     > A leválasztott központi telepítések esetében töltse le ezeket a csomagokat a megadott helyről, és helyileg tárolja egy Azure Stack blobon.
 
-   ![Alapvető beállítások](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+   ![Alapadatok](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
     
 3. A *hálózati beállítások* lapon megadhatja az alkalmazásai számára megnyitható portokat:
