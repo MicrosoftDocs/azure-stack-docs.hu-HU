@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842748"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961505"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Azure Stack Key Vault kezelése a portál használatával
 
@@ -40,7 +40,7 @@ Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Azure Key Vault szo
 
 3. A **Key Vault létrehozása** panelen rendeljen hozzá egy **nevet** a tárolóhoz. A tárolók nevei csak alfanumerikus karaktereket és kötőjelet (-) tartalmazhatnak. Nem kezdődhet számmal.
 
-4. Válasszon egy előfizetést az elérhető előfizetések listájából. A Key Vault szolgáltatást nyújtó összes előfizetés megjelenik a legördülő listában.
+4. Válasszon egy **előfizetést** az elérhető előfizetések listájából. A Key Vault szolgáltatást nyújtó összes előfizetés megjelenik a legördülő listában.
 
 5. Válasszon ki egy meglévő **erőforráscsoportot**, vagy hozzon létre egy újat.
 
@@ -64,11 +64,11 @@ A kulcstároló létrehozása után a következő eljárással hozhat létre és
 
 3. A **kulcsok** ablaktáblán válassza a **Hozzáadás**lehetőséget.
 
-4. A **kulcs létrehozása** ablaktáblán a **Beállítások**listájából válassza ki a kulcs létrehozásához használni kívánt módszert. Létrehozhat egy új kulcsot, feltöltheti a meglévő kulcsot, vagy használhatja a **visszaállítás biztonsági mentést** a kulcsok biztonsági másolatának kiválasztásához.
+4. A **kulcs létrehozása** ablaktáblán a **Beállítások**listájából válassza ki a kulcs létrehozásához használni kívánt módszert. **Létrehozhat egy új** kulcsot, **feltöltheti** a meglévő kulcsot, vagy használhatja a **visszaállítás biztonsági mentést** a kulcsok biztonsági másolatának kiválasztásához.
 
 5. Adja meg a kulcs **nevét** . A kulcs neve csak alfanumerikus karaktereket és kötőjel (-) karaktert tartalmazhat.
 
-6. Megadhatja az **aktiválási dátum beállítása** és a kulcs lejárati **dátumának** beállítása beállítást is.
+6. Megadhatja az **aktiválási dátum beállítása** és a kulcs **lejárati dátumának** beállítása beállítást is.
 
 7. A telepítés elindításához válassza a **Létrehozás** lehetőséget.
 
@@ -88,7 +88,7 @@ A kulcs sikeres létrehozása után kiválaszthatja a **kulcsok** területen, é
 
 5. Adja meg a titok **nevét** . A titkos név csak alfanumerikus karaktereket és a kötőjel (-) karaktert tartalmazhatja.
 
-6. Szükség esetén megadhatjaa tartalomtípust, és konfigurálhatja az **aktiválási dátum beállítása** és a titkos kód lejárati **dátuma** beállítás értékét.
+6. Szükség esetén megadhatja a **tartalomtípust**, és konfigurálhatja az **aktiválási dátum beállítása** és a titkos kód **lejárati dátuma** beállítás értékét.
 
 7. A telepítés elindításához válassza a **Létrehozás** lehetőséget.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack felügyelt&#58; lemezek eltérései és szempontjai | Microsoft Docs
+title: Azure Stack felügyelt lemezek; különbségek és szempontok | Microsoft Docs
 description: A felügyelt lemezek és a felügyelt lemezképek Azure Stack-ben való használatakor felmerülő különbségek és megfontolások ismertetése.
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687983"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974058"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack felügyelt lemezek: különbségek és szempontok
 
@@ -30,24 +30,24 @@ Ez a cikk összefoglalja az Azure-ban Azure Stack és [felügyelt lemezeken](/az
 A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemezes kezelését a virtuálisgép-lemezekhez társított [Storage-fiókok](../operator/azure-stack-manage-storage-accounts.md) kezelésével.
 
 > [!NOTE]  
-> A Azure Stack felügyelt lemezek az 1808-es frissítéstől kezdve érhetők el. Az 1811-es frissítéstől kezdve a virtuális gépek a Azure Stack portál használatával történő létrehozásakor alapértelmezés szerint engedélyezve van.
+> A Azure Stack felügyelt lemezek az 1808-es frissítéstől kezdve érhetők el. Az 1811-es frissítéstől kezdve a szolgáltatás alapértelmezés szerint engedélyezve van, amikor a Azure Stack-portál használatával hoz létre virtuális gépeket.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
 | Funkció | Azure (globális) | Azure Stack |
 | --- | --- | --- |
-|Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker 128 bites AES-titkosítás      |
+|Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
 |Image          | Felügyelt egyéni rendszerkép |Támogatott|
 |Biztonsági mentési beállítások | Azure Backup szolgáltatás |Még nem támogatott |
 |Vész-helyreállítási lehetőségek | Azure Site Recovery |Még nem támogatott|
-|Lemez típusa     |Prémium SSD, standard SSD és standard HDD |Prémium SSD, standard HDD |
-|Prémium szintű lemezek  |Teljes mértékben támogatott |Kiépíthető, de nincs teljesítménybeli korlát vagy garancia  |
-|Prémium szintű lemezek IOPs  |A lemez méretétől függ  |2300 IOPs/lemez |
-|Prémium szintű lemezek átviteli sebessége |A lemez méretétől függ |145 MB/másodperc/lemez |
+|Lemez típusa     |Prémium SSD, standard SSD és standard HDD. |Prémium SSD, standard HDD |
+|Prémium szintű lemezek  |Teljes mértékben támogatott. |Kiépíthető, de nincs teljesítménybeli korlát vagy garancia  |
+|Prémium szintű lemezek IOPs  |A lemez méretétől függ.  |2300 IOPs/lemez |
+|Prémium szintű lemezek átviteli sebessége |A lemez méretétől függ. |145 MB/másodperc/lemez |
 |Lemezméret  |Prémium szintű Azure-lemez: P4 (32 GiB) – P80 (32 TiB)<br>Azure standard SSD lemez: E10 (128 GiB) – E80 (32 TiB)<br>Azure standard HDD lemez: S4 (32 GiB) – S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15 256 GiB<br>M20: 512 GiB<br>M30: 1023 GiB |
-|Lemezek pillanatképének másolása|A futó virtuális gépekhez csatlakoztatott pillanatképes Azure által felügyelt lemezek|Még nem támogatott |
-|Lemezek teljesítményének analitikai |Összesített mérőszámok és lemezes mérőszámok támogatottak |Még nem támogatott |
-|Áttelepítés      |Eszköz áttelepítésének megadására meglévő nem felügyelt Azure Resource Manager virtuális gépekről anélkül, hogy újból létre kellene hozni a virtuális gépet  |Még nem támogatott |
+|Lemezek pillanatképének másolása|A futó virtuális gépekhez csatolt pillanatképes Azure által felügyelt lemezek.|Még nem támogatott |
+|Lemezek teljesítményének analitikai |Összesített mérőszámok és lemezes mérőszámok támogatottak. |Még nem támogatott |
+|Áttelepítés      |Adja meg az eszközt a meglévő, nem felügyelt Azure Resource Manager virtuális gépekről való áttelepítéshez anélkül, hogy újra létre kellene hoznia a virtuális gépet.  |Még nem támogatott |
 
 > [!NOTE]  
 > A felügyelt lemezek IOPs és átviteli sebessége Azure Stackban nem kiosztott szám, hanem a Azure Stackban futó hardverek és munkaterhelések is befolyásolhatják.
@@ -56,7 +56,7 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
 
 A tárolási metrikákkal kapcsolatban is különbségek vannak:
 
-- A Azure Stack a tárolási mérőszámokban lévő tranzakciós adatok nem különböztetik meg a belső vagy külső hálózati sávszélességet.
+- Azure Stack esetén a tárolási metrikákban lévő tranzakciós adatok nem különböztetik meg a belső vagy külső hálózati sávszélességet.
 - A tárolási metrikákban Azure Stack tranzakciós adatok nem tartalmazzák a csatlakoztatott lemezekhez tartozó virtuális gépek elérését.
 
 ## <a name="api-versions"></a>API-verziók
@@ -69,7 +69,7 @@ Azure Stack felügyelt lemezek támogatják a következő API-verziókat:
 ## <a name="convert-to-managed-disks"></a>Átalakítás felügyelt lemezekre
 
 > [!NOTE]  
-> A Azure PowerShell **-parancsmag ConvertTo-AzureRmVMManagedDisk** nem használható a nem felügyelt lemezek Azure stack-ben felügyelt lemezre való átalakításához. A Azure Stack jelenleg nem támogatja ezt a parancsmagot.
+> A Azure PowerShell **-parancsmag ConvertTo-AzureRmVMManagedDisk** nem használható nem felügyelt lemez Azure stack-beli felügyelt lemezre történő átalakítására. A Azure Stack jelenleg nem támogatja ezt a parancsmagot.
 
 A következő szkripttel a jelenleg kiépített virtuális gépek nem felügyelt lemezekre konvertálhatók. Cserélje le a helyőrzőket a saját értékeire:
 

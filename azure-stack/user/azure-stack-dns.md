@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8bfe15ad19e4aaec45492aa98cfb2ef02294742a
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5600dd6537df35e703e0ac7a08ad4a61f976e489
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658478"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961486"
 ---
 # <a name="use-dns-in-azure-stack"></a>DNS használata Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 A Azure Stack a következő Azure DNS funkciókat támogatja:
 
@@ -49,7 +49,7 @@ A következő képernyőfelvétel a nyilvános IP **-cím létrehozása** párbe
 
 Van egy webalkalmazásból származó terheléselosztó feldolgozási kérelme. A terheléselosztó mögött egy webhely fut egy vagy több virtuális gépen. IP-cím helyett DNS-név használatával érheti el a terheléselosztási webhelyet.
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>DNS-zónák és-rekordok létrehozása és kezelése az API használatával
+## <a name="create-and-manage-dns-zones-and-records-using-the-apis"></a>DNS-zónák és-rekordok létrehozása és kezelése az API-k használatával
 
 A Azure Stack DNS-zónákat és-rekordokat hozhat létre és kezelhet.
 
@@ -61,7 +61,7 @@ Az Azure Stack DNS-infrastruktúra sokkal rugalmasabb, mint az Azure. Egy Azure 
 
 A Azure Stack DNS-ben hasonló a DNS az Azure-ban, de van néhány fontos kivétel:
 
-* **Nem támogatja az AAAA**-rekordokat: A Azure Stack nem támogatja az AAAA-rekordokat, mert Azure Stack nem támogatja az IPv6-címeket. Ez az Azure-beli DNS-ben és a Azure Stackban megjelenő fő különbség.
+* A **nem támogatja az AAAA-rekordokat**: A Azure Stack nem támogatja az AAAA-rekordokat, mert az Azure Stack nem támogatja az IPv6-címeket. Ez az Azure-beli DNS-ben és a Azure Stackban megjelenő fő különbség.
 
 * **Nem több-bérlős**: A Azure Stack DNS szolgáltatása nem több-bérlős. A bérlők nem tudják létrehozni ugyanazt a DNS-zónát. Csak az első előfizetés, amely a zóna létrehozását kísérli meg, és a későbbi kérelmek sikertelenek lesznek. Ez az Azure és a Azure Stack DNS között egy másik fő különbség.
 
@@ -83,13 +83,13 @@ Tegyük fel, hogy két személy vagy két folyamat egyszerre próbálkozik a DNS
 
 Azure Stack a DNS a *etagek* -t használja az egyazon erőforrás egyidejű változásainak biztonságos kezelésére. A etagek különböznek Azure Resource Manager *címkéktől*. Minden DNS-erőforráshoz (zónához vagy rekordhoz) társítva van egy ETAG. Erőforrás lekérése esetén a rendszer a ETAG is beolvassa. Amikor frissít egy erőforrást, dönthet úgy, hogy visszaadja a ETAG, így Azure Stack DNS ellenőrizheti a ETAG a kiszolgálói egyezéseken. Mivel az erőforrás minden frissítése újra létrehozza a ETAG, egy ETAG eltérés azt jelzi, hogy egyidejű változás történt. A etagek akkor is használható, ha új erőforrást hoz létre annak biztosítására, hogy az erőforrás még nem létezik.
 
-Alapértelmezés szerint a Azure Stack DNS PowerShell-parancsmagok a Etagek használatával blokkolják a zónák és a rekordhalmazok egyidejű módosításait. A választható `-Overwrite` kapcsoló használatával elkerülheti a ETAG-ellenőrzéseket. A ETAG-ellenőrzések nélkül az egyidejű változások felülírva vannak.
+Alapértelmezés szerint a Azure Stack DNS PowerShell-parancsmagok a Etagek használatával blokkolják a zónák és a rekordhalmazok egyidejű módosításait. Az opcionális `-Overwrite` kapcsolóval tilthatja le a ETAG-ellenőrzéseket. A ETAG-ellenőrzések nélkül az egyidejű változások felülírva vannak.
 
 A Azure Stack DNS-REST API szintjén a Etagek HTTP-fejlécek használatával vannak megadva. A viselkedést az alábbi táblázat ismerteti:
 
 | Fejléc | Viselkedés|
 |--------|---------|
-| None   | A mindig sikeres (nincs ETAG-ellenőrzés).|
+| Nincsenek   | A mindig sikeres (nincs ETAG-ellenőrzés).|
 | If-Match| A csak akkor lesz sikeres, ha az erőforrás létezik, és a ETAG egyezik.|
 | If-Match *| Az üzembe helyezés csak akkor sikeres, ha az erőforrás létezik.|
 | If-None-Match *| A csak akkor lesz sikeres, ha az erőforrás nem létezik.|

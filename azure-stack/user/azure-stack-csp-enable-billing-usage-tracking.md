@@ -1,6 +1,6 @@
 ---
-title: Lehetővé teszik a Felhőszolgáltató az Azure Stack-előfizetés kezelése |} A Microsoft Docs
-description: Ismerje meg, hogy a Felhőszolgáltató (CSP) kezelése az Azure Stack-előfizetést, hogyan.
+title: Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack-előfizetését | Microsoft Docs
+description: Ismerje meg, hogyan kezelheti a felhőalapú megoldás-szolgáltató (CSP) a Azure Stack-előfizetését.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,47 +11,48 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 0dc162dd1d4021323f1bf80ad4f89fc721e575a9
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: a11846feb852a44a5ae526e9c060ca1626bbe245
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691975"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961634"
 ---
-# <a name="let-your-cloud-service-provider-manage-your-azure-stack-subscription"></a>Lehetővé teszik a Felhőszolgáltató az Azure Stack-előfizetés kezelése
+# <a name="let-your-cloud-solution-provider-manage-your-azure-stack-subscription"></a>Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack-előfizetését
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
 
-Ha az Azure Stack az a Felhőbeli szolgáltató (CSP) használ, választhatja erőforrások eléréséhez az Azure-ban, és az Azure Stack saját előfizetése kezelésére. A szolgáltató, az előfizetés kezelése is engedélyezheti. Ez a cikk bemutatja, hogyan való:
+Ha a Azure Stackt felhőalapú megoldás-szolgáltatóval (CSP) használja, akkor dönthet úgy, hogy saját előfizetését felügyeli az Azure-ban és a Azure Stack található erőforrásokhoz való hozzáféréshez. Azt is engedélyezheti, hogy a szolgáltató kezelje az előfizetését. Ez a cikk bemutatja, hogyan végezheti el a következőket:
 
-* A service provider hozzáférést biztosít az előfizetéshez.
-* Ellenőrizze, hogy a szolgáltató kezelheti a szolgáltatást.
+* Adja meg a szolgáltatóhoz való hozzáférést az előfizetéséhez.
+* Győződjön meg arról, hogy a szolgáltató felügyelheti a szolgáltatást.
 
 > [!NOTE]
-> A kriptográfiai Szolgáltató nem a fiók kezelésében, és a következő lépés kihagyható, ha a kriptográfiai Szolgáltató az Azure Stack-előfizetést, nem tudja kezelni.
+> Ha a CSP nem kezeli a fiókját, és kihagyja a következő lépéseket, a CSP nem tudja kezelni a Azure Stack-előfizetését.
 
-## <a name="manage-your-subscription-with-a-cloud-service-provider"></a>A Felhőszolgáltató az előfizetés kezelése
+## <a name="manage-your-subscription-with-a-csp"></a>Előfizetés kezelése CSP-vel
 
-Adja hozzá a CSP, **felhasználói** az előfizetéshez.
+Adja hozzá a CSP-t **felhasználóként** az előfizetéséhez.
 
-1. A CSP a vendégfelhasználó hozzáadása a **felhasználói** szerepkört a bérlő címtárát. A felhasználó hozzáadása kapcsolatos útmutatásért lásd: [új felhasználók hozzáadása az Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
+1. Adja hozzá a CSP-t vendég felhasználóként a bérlői címtárhoz tartozó **felhasználói** szerepkörrel. A felhasználók hozzáadásával kapcsolatos segítségért lásd: [új felhasználók hozzáadása Azure Active Directoryhoz](/azure/active-directory/add-users-azure-active-directory).
 
-2. A CSP hoz létre az Ön számára a helyi Azure Stack-előfizetéssel. Készen áll az Azure Stack használatának megkezdéséhez.
-3. A CSP hozzon létre egy erőforrást az előfizetésében, győződjön meg arról, hogy is kezelhetik az erőforrásokat. Ha például a következőkre [Windows virtuális gép létrehozása az Azure Stack portal](azure-stack-quick-windows-portal.md).
+2. A CSP létrehoz egy helyi Azure Stack-előfizetést. Készen áll a Azure Stack használatának megkezdésére.
 
-## <a name="let-the-cloud-service-provider-manage-your-subscription-using-rbac-rights"></a>Lehetővé teszik a Felhőszolgáltató az előfizetésben az RBAC-jogosultságok kezelése
+3. A CSP-nek létre kell hoznia egy erőforrást az előfizetésben annak ellenőrzéséhez, hogy képes-e az erőforrások kezelésére is. [Létrehozhatnak például egy Windows rendszerű virtuális gépet a Azure stack-portálon](azure-stack-quick-windows-portal.md).
 
-Adja hozzá a CSP, **tulajdonos** az előfizetéshez.
+## <a name="let-the-csp-manage-your-subscription-using-rbac-rights"></a>Lehetővé teszi, hogy a CSP RBAC jogokkal kezelhesse az előfizetést
 
-1. A kriptográfiai Szolgáltató, a vendégfelhasználó hozzáadása a bérlő címtárát. A felhasználó hozzáadása kapcsolatos útmutatásért lásd: [új felhasználók hozzáadása az Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
+Adja hozzá a CSP-t **tulajdonosként** az előfizetéséhez.
 
-2. Adja hozzá a **tulajdonos** a CSP Vendég felhasználói szerepkört. Segítség a CSP-felhasználók hozzáadása az előfizetéséhez, tekintse meg a [Use Role-Based hozzáférés-vezérlés az Azure-előfizetések erőforrásaihoz való hozzáférés kezelése](/azure/role-based-access-control/role-assignments-portal). A CSP hoz létre az Ön számára a helyi Azure Stack-előfizetéssel. Készen áll az Azure Stack használatának megkezdéséhez.
-3. A CSP hozzon létre egy erőforrást az előfizetésében, győződjön meg arról, hogy képesek kezelni az erőforrásokat.
+1. Adja hozzá a CSP-t vendég felhasználóként a bérlői címtárhoz. További információ a felhasználók hozzáadásáról: [új felhasználók hozzáadása Azure Active Directoryhoz](/azure/active-directory/add-users-azure-active-directory).
+
+2. Adja hozzá a **tulajdonos** szerepkört a CSP vendég felhasználóhoz. A CSP-felhasználók előfizetéshez való hozzáadásával kapcsolatos információkért lásd: [szerepköralapú Access Control használata az Azure-előfizetések erőforrásaihoz való hozzáférés kezeléséhez](/azure/role-based-access-control/role-assignments-portal). A CSP létrehoz egy helyi Azure Stack-előfizetést. Készen áll a Azure Stack használatának megkezdésére.
+3. A CSP-nek létre kell hoznia egy erőforrást az előfizetésben annak ellenőrzéséhez, hogy képes-e az erőforrások kezelésére.
 
 ## <a name="next-steps"></a>További lépések
 
-* Erőforrás-használati adatok lekérése az Azure Stack kapcsolatos további tudnivalókért lásd: [használat és számlázás az Azure Stackben](../operator/azure-stack-billing-and-chargeback.md).
+* Ha többet szeretne megtudni a Azure Stack erőforrás-használati adatok lekéréséről, tekintse meg a [használat és a számlázás Azure Stackban](../operator/azure-stack-billing-and-chargeback.md)című témakört.

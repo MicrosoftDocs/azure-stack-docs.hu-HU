@@ -31,7 +31,7 @@
       items:
         - name: Előfizetés egy ajánlatra
           href: azure-stack-subscribe-services.md
-        - name: Felhőszolgáltató engedélyezése
+        - name: Felhőalapú megoldások szolgáltatójának engedélyezése
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Az Azure Stack Portal használata
           href: azure-stack-use-portal.md
@@ -267,6 +267,14 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: Magas rendelkezésre állású SQL Server üzembe helyezése 2016
           href: azure-stack-solution-sql-ha.md
+    - name: Alapvető minták üzembe helyezése
+      items:
+        - name: VPN beállítása helyszíni rendszerre
+          href: azure-stack-network-howto-vnet-to-onprem.md
+        - name: VNET – VNET-kapcsolatok
+          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+        - name: VNET-társítás
+          href: azure-stack-network-howto-vnet-to-vnet.md
 - name: Alapelvek
   items:
     - name: Hibrid felhő minták

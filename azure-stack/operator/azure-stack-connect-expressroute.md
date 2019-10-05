@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094407"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961560"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack összekötése az Azure-val az Azure ExpressRoute
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 Ez a cikk azt ismerteti, hogyan lehet Azure Stack virtuális hálózatot csatlakoztatni egy Azure-beli virtuális hálózathoz egy [Microsoft Azure ExpressRoute](/azure/expressroute/) közvetlen kapcsolat használatával.
 
@@ -163,7 +163,7 @@ A helyi hálózati átjáró erőforrás a VPN-kapcsolat másik végén találha
 1. Az **Azure Marketplace**területen válassza a **hálózatkezelés**lehetőséget.
 1. Az erőforrások listájában válassza a **Kapcsolat** elemet.
 1. Az **alapok**területen válassza a **helyek közötti (IPSec)** lehetőséget a **kapcsolat típusaként**.
-1. Válassza kiaz előfizetést, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
+1. Válassza ki az **előfizetést**, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
 1. A **Beállítások**területen válassza ki a **virtuális hálózati átjáró**elemet, majd válassza a **GW1**lehetőséget.
 1. Válassza a **helyi hálózati átjáró**lehetőséget, majd válassza az **er router GW**lehetőséget.
 1. A **kapcsolatok neve** mezőbe írja be a **ConnectToAzure**nevet.
@@ -188,11 +188,11 @@ A VPN-kapcsolaton keresztüli adatforgalom teszteléséhez virtuális gépekre v
 1. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 
    >[!NOTE]
-   >Ha az ehhez a cikkhez használt rendszerkép nem érhető el, kérje meg a Azure Stack operátort, hogy adjon meg egy másik Windows Server-rendszerképet.
+   >Ha a cikkhez használt rendszerkép nem érhető el, kérje meg Azure Stack-kezelőjét, hogy adjon meg egy másik Windows Server-rendszerképet.
 
-1. A **virtuális gép létrehozása**területen válasszaaz alapismeretek lehetőséget, majd írja be a **VM01** **nevet**.
+1. A **virtuális gép létrehozása**területen válassza az **alapismeretek**lehetőséget, majd írja be a **VM01** **nevet**.
 1. Érvényes felhasználónevet és jelszót adjon meg. Ezt a fiókot fogja használni a virtuális gépre való bejelentkezéshez a létrehozás után.
-1. Adja megaz előfizetést, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
+1. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
 1. A **méret kiválasztása**területen válasszon egy virtuálisgép-méretet ehhez a példányhoz, majd válassza a **kiválasztás**lehetőséget.
 1. A **Beállítások**területen ellenőrizze, hogy:
 
@@ -219,7 +219,7 @@ Ha például a 2. bérlőt használja, ne felejtse el módosítani az IP-címeke
 > [!IMPORTANT]
 > Ez a szakasz csak a ASDK üzemelő példányok esetében használható. A többcsomópontos üzemelő példányok esetében a NAT nem szükséges.
 
-A ASDK önálló és elkülönített a fizikai gazdagépet telepítő hálózattól. A VIP-hálózat, amelyhez az átjárók csatlakoztatva vannak, nem külső; egy hálózati címfordítást (NAT) végrehajtó útválasztó mögött van.
+A ASDK önálló és elkülönített a fizikai gazdagépet telepítő hálózattól. A VIP-hálózat, amelyhez az átjárók csatlakoznak, nem külső; egy hálózati címfordítást (NAT) végrehajtó útválasztó mögött van.
 
 Az útválasztó az Útválasztás és távelérés szolgáltatás (RRAS) szerepkört futtató ASDK-gazdagép. Konfigurálnia kell a NAT-t a ASDK-gazdagépen ahhoz, hogy a helyek közötti VPN-kapcsolat mindkét végén csatlakozhasson.
 
@@ -232,7 +232,7 @@ Az útválasztó az Útválasztás és távelérés szolgáltatás (RRAS) szerep
    Get-NetNatExternalAddress
    ```
 
-1. A NAT konfigurálásához másolja és szerkessze a következő PowerShell-szkriptet. Szerkessze a szkriptet, `External BGPNAT address` és `Internal IP address` cserélje le a következő példában szereplő értékeket:
+1. A NAT konfigurálásához másolja és szerkessze a következő PowerShell-szkriptet. Szerkessze a szkriptet a `External BGPNAT address` és a `Internal IP address` helyére a következő példában szereplő értékekkel:
 
    * *Külső BGPNAT-címek* esetén használja a 10.10.0.62
    * *Belső IP-cím* használata 192.168.102.1
@@ -560,7 +560,7 @@ route-map VNET-ONLY permit 10
 !
 ```
 
-## <a name="test-the-connection"></a>Kapcsolat tesztelése
+## <a name="test-the-connection"></a>A kapcsolat tesztelése
 
 A kapcsolat tesztelése a helyek közötti kapcsolat és a ExpressRoute áramkör létrehozása után.
 
@@ -570,7 +570,7 @@ Hajtsa végre a következő ping-teszteket:
 * Jelentkezzen be az Azure Stack-ben létrehozott egyik virtuális gépre, és Pingelje meg az Azure VNet létrehozott virtuális gépet.
 
 >[!NOTE]
->Annak biztosításához, hogy a helyek közötti és a ExpressRoute kapcsolaton keresztül küldje el a forgalmat, a virtuális gép dedikált IP-címének (DIP) a két végponton kell megfelelnie, és nem a virtuális gép VIP-címét.
+>Annak érdekében, hogy a helyek közötti és a ExpressRoute kapcsolaton keresztül küldje el a forgalmat, a virtuális gép dedikált IP-címének (DIP) a két végén kell lennie, és nem a virtuális gép VIP-címét.
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>ICMP engedélyezése a tűzfalon keresztül
 
@@ -604,7 +604,7 @@ Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolatban, akkor a Azur
 1. Jelentkezzen be a Azure Stack felhasználói portálra, és válassza az **összes erőforrás**lehetőséget.
 1. Navigáljon a VPN Gateway erőforráscsoporthoz, és válassza ki a **kapcsolódási** objektum típusát.
 1. Válassza ki a **ConnectToAzure** -összekötőt a listából.
-1. A **kapcsolatok** > **áttekintése**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
+1. A **kapcsolatok**@no__t – 1**Áttekintés**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
 
    ![És kimenő adatbevitel](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

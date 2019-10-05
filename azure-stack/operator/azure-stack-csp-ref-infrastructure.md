@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c170e450739609e0ef0be353f2354a17e39a28b1
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342809"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961841"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára
 
@@ -45,7 +45,7 @@ A használat és a számlázás a következő feltételekkel és fogalmakkal tö
 
 | Kifejezés | Meghatározás |
 | --- | --- |
-| Közvetlen CSP-partner | A közvetlen felhőalapú megoldás-szolgáltató (CSP) partner közvetlenül a Microsofttól kapja meg az Azure-t, és Azure Stack használatot, és az ügyfeleket közvetlenül számlázza. |
+| Közvetlen CSP-partner | A közvetlen CSP-partner közvetlenül a Microsofttól kapja meg az Azure-t, és Azure Stack használatot, és az ügyfeleket közvetlenül számlázza. |
 | Közvetett CSP | A közvetett viszonteladók egy közvetett szolgáltatóval (más néven terjesztővel) működnek. A viszonteladók végfelhasználók toborzása; a közvetett szolgáltató a Microsofttal számlázási kapcsolatot tart fenn, kezeli az ügyfelek számlázását, és további szolgáltatásokat nyújt, mint például a terméktámogatás. |
 | Végfelhasználó | A végfelhasználók az alkalmazások és a Azure Stack-on futó egyéb munkaterhelések tulajdonában lévő vállalkozások és kormányzati szervek. |
 

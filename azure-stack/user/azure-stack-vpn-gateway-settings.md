@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144036"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961462"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack és egy távoli VPN-átjáró között a virtuális hálózat között. A távoli VPN-átjáró lehet az Azure-ban, egy eszköz az adatközpontban vagy egy másik helyen lévő eszköz. Ha van hálózati kapcsolat a két végpont között, létrehozhat egy biztonságos helyek közötti (S2S) VPN-kapcsolatot a két hálózat között.
 
-A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. A [Azure stack](azure-stack-vpn-gateway-about-vpn-gateways.md)a VPN Gatewayről az egyes csatlakoztatási megoldásokhoz tartozó leírások és topológiai diagramok találhatók.
+A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. A [Azure stack a VPN Gatewayről](azure-stack-vpn-gateway-about-vpn-gateways.md)az egyes csatlakoztatási megoldásokhoz tartozó leírások és topológiai diagramok találhatók.
 
 ## <a name="vpn-gateway-settings"></a>A VPN gateway beállításairól
 
@@ -36,7 +36,7 @@ A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelye
 
 Minden Azure Stack virtuális hálózat egyetlen virtuális hálózati átjárót támogat, amelynek a **VPN**típusúnak kell lennie.  Ez a támogatás eltér az Azure-tól, amely támogatja a további típusokat.
 
-Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz `-GatewayType Vpn` a jelző szükséges; például:
+Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz a `-GatewayType Vpn` jelző szükséges; például:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -48,7 +48,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Virtuális hálózati átjáró létrehozásakor meg kell adnia a használni kívánt átjáró-SKU-t. Válassza ki a számítási feladatok, a teljesítmény, a funkciók és a szolgáltatói szerződés igényeinek megfelelő termékváltozatokat.
 
-Azure Stack az alábbi táblázatban látható VPN Gateway SKU-ket kínálja.
+Azure Stack az alábbi táblázatban látható VPN Gateway SKU-ket kínálja:
 
 | | VPN Gateway átviteli sebesség |VPN-átjáró maximális IPsec-alagutak |
 |-------|-------|-------|
@@ -58,9 +58,9 @@ Azure Stack az alábbi táblázatban látható VPN Gateway SKU-ket kínálja.
 
 ### <a name="resizing-gateway-skus"></a>Átjárók átméretezése
 
-A Azure Stack nem támogatja az SKU-nak a támogatott örökölt SKU-ból való átméretezését.
+A Azure Stack nem támogatja az SKU-i átméretezését a támogatott örökölt SKU-ból.
 
-Hasonlóképpen, a Azure Stack nem támogatja az átméretezést egy támogatott örökölt SKU-ból (alapszintű, **standard**és **HighPerformance**) az Azure által támogatott újabb SKU-ra (**VpnGw1**, **VpnGw2**és **VpnGw3**).
+Hasonlóképpen, Azure Stack nem támogatja az átméretezést egy támogatott örökölt SKU-ból (**Alapszintű**, **standard**és **HighPerformance**) az Azure által támogatott újabb SKU-ra (**VpnGw1**, **VpnGw2**és **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Az átjáró SKU konfigurálása
 
@@ -70,7 +70,7 @@ Ha a Azure Stack portál használatával hoz létre Resource Manager virtuális 
 
 #### <a name="powershell"></a>PowerShell
 
-A következő PowerShell-példa a `-GatewaySku` as **standardot**adja meg:
+A következő PowerShell-példa a `-GatewaySku` paramétert adja meg **standard**értékként:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -80,7 +80,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="connection-types"></a>Kapcsolattípusok
 
-A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. Az elérhető Resource Manager PowerShell-értékek `-ConnectionType` a következők: **IPSec**.
+A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. A `-ConnectionType` számára elérhető Resource Manager PowerShell-értékek az **IPSec**.
 
 A következő PowerShell-példában létrejön egy S2S-kapcsolat, amely az IPsec-kapcsolat típusát igényli:
 
@@ -106,7 +106,7 @@ Amikor létrehoz egy VPN Gateway-konfigurációhoz tartozó virtuális hálózat
 
 * **Útvonalalapú**: Az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használva irányítják a csomagokat a megfelelő bújtatási felületre. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú** VPN-EK házirendje vagy forgalmi választója bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú** VPN-típus értéke **útvonalalapú**.
 
-A következő PowerShell-példa az `-VpnType` as **útvonalalapú**adja meg. Amikor létrehoz egy átjárót, meg kell győződnie arról, `-VpnType` hogy a megfelelő a konfigurációhoz.
+A következő PowerShell-példa a `-VpnType` értéket adja meg **útvonalalapú**. Átjáró létrehozásakor győződjön meg arról, hogy a `-VpnType` helyes a konfigurációhoz.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -134,7 +134,7 @@ A VPN-átjáró létrehozása előtt létre kell hoznia egy átjáró-alhálóza
 
 Az átjáróalhálózat létrehozásakor meg kell adnia, hogy hány IP-címet tartalmaz az alhálózat. Az átjáró-alhálózat IP-címei az átjáró virtuális gépei és az átjáró szolgáltatások számára vannak lefoglalva. Egyes konfigurációknak a többinél nagyobb számú IP-címre van szükségük. Tekintse meg a létrehozni kívánt konfiguráció utasításait, és ellenőrizze, hogy a létrehozni kívánt átjáró-alhálózat megfelel-e a követelményeknek.
 
-Emellett győződjön meg arról, hogy az átjáró-alhálózat elegendő IP-címmel rendelkezik a további jövőbeli konfigurációk kezeléséhez. Bár létrehozhat egy átjáró-alhálózatot kisebb as/29-ként is, javasoljuk, hogy hozzon létre egy/28 vagy nagyobb (/28,/27,/26) átjáró-alhálózatot, és így tovább.) Így ha a jövőben a funkcionalitást is hozzáadja, nem kell lebontania az átjárót, majd törölnie és újra létre kell hoznia az átjáró-alhálózatot, hogy több IP-címet engedélyezzen.
+Emellett győződjön meg arról, hogy az átjáró-alhálózat elegendő IP-címmel rendelkezik a további jövőbeli konfigurációk kezeléséhez. Bár létrehozhat egy átjáró-alhálózatot kisebb as/29-ként is, javasoljuk, hogy hozzon létre egy/28 vagy nagyobb (/28,/27,/26) átjáró-alhálózatot, és így tovább.) Így ha a jövőben új funkciókat ad hozzá, nem kell lebontania az átjárót, majd törölnie és újból létre kell hoznia az átjáró-alhálózatot, hogy több IP-címet engedélyezzen.
 
 A következő Resource Manager PowerShell-példa egy **GatewaySubnet**nevű átjáró-alhálózatot mutat be. Láthatja, hogy a CIDR jelölése egy/27, amely elegendő IP-címet biztosít a jelenleg létező konfigurációkhoz.
 
@@ -151,7 +151,7 @@ Amikor VPN Gateway-konfigurációt hoz létre az Azure-ban, a helyi hálózati �
 
 Adja meg a helyi hálózati átjáró nevét, a VPN-eszköz nyilvános IP-címét, és adja meg a helyszíni helyen található címek előtagjait. Az Azure a hálózati forgalomhoz tartozó célcím előtagjait tekinti át, a helyi hálózati átjáróhoz megadott konfigurációt, és ennek megfelelően irányítja a csomagokat.
 
-A következő PowerShell-példa egy új helyi hálózati átjárót hoz létre:
+Ez a PowerShell-példa egy új helyi hálózati átjárót hoz létre:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
@@ -164,7 +164,7 @@ Előfordulhat, hogy módosítania kell a helyi hálózati átjáró beállítás
 
 Ha Azure Stackban VPN-kapcsolattal rendelkezik, mindkét végponton konfigurálnia kell a kapcsolódást. Ha VPN-kapcsolatot konfigurál Azure Stack és egy hardvereszköz, például egy olyan kapcsoló vagy útválasztó között, amely VPN-átjáróként működik, akkor az eszköz további beállítások megadását kéri.
 
-Az Azure-val ellentétben, amely több ajánlatot is támogat kezdeményezőként és válaszadóként, Azure Stack alapértelmezés szerint csak egy ajánlatot támogat.  Ha más IPSec/IKE-beállításokat kell használnia a VPN-eszköz használatához, több beállítás is elérhető a kapcsolat manuális konfigurálásához.  További információ: [IPSec/IKE-szabályzat konfigurálása helyek közötti VPN-kapcsolatokhoz](azure-stack-vpn-s2s.md).
+Az Azure-val ellentétben, amely több ajánlatot is támogat kezdeményezőként és válaszadóként, Azure Stack alapértelmezés szerint csak egy ajánlatot támogat. Ha más IPSec/IKE-beállításokat kell használnia a VPN-eszköz használatához, több beállítás is elérhető a kapcsolat manuális konfigurálásához. További információ: [IPSec/IKE-szabályzat konfigurálása helyek közötti VPN-kapcsolatokhoz](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Az IKE 1. fázis (Elsődleges mód) paraméterei
 
@@ -185,10 +185,10 @@ Az Azure-val ellentétben, amely több ajánlatot is támogat kezdeményezőkén
 |Titkosítási & kivonatolási algoritmusok (hitelesítés) | GCMAES256|
 |SA élettartama (Idő)  | 27 000 másodperc  |
 |SA élettartama (kilobájt) | 33 553 408     |
-|Sérülés utáni titkosságvédelem (PFS) |Nincs (lásd az 1. megjegyzést) |
+|Sérülés utáni titkosságvédelem (PFS) |Nincs (lásd az **1. megjegyzést**) |
 |Kapcsolat megszakadásának észlelése | Támogatott|  
 
-* *1. Megjegyzés:*  Az 1807-es verzió előtt Azure Stack a PFS2048 értéket használta a tökéletes továbbítási titokhoz (PFS).
+**1. Megjegyzés:** Az 1807-es verzió előtt Azure Stack a PFS2048 értéket használta a tökéletes továbbítási titokhoz (PFS).
 
 ## <a name="next-steps"></a>További lépések
 

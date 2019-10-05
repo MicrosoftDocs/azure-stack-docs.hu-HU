@@ -1,6 +1,6 @@
 ---
-title: Virtuális gép létrehozása az Azure Stacken biztonságosan tárolt tanúsítvány |} A Microsoft Docs
-description: Ismerje meg, hogyan helyezhet üzembe egy virtuális gépet, és küldje le azt a tanúsítványt a key vault használatával az Azure Stackben
+title: Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stackon | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet, és hogyan küldhet el egy tanúsítványt a Azure Stack található kulcstartó használatával
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9403931d91756e744dcdb6c34adb26e8281f6d28
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492383"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961525"
 ---
-# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Virtuális gép létrehozása az Azure Stacken biztonságosan tárolt tanúsítvány 
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack 
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
-Ez a cikk bemutatja, hogyan helyezhet üzembe egy Azure Stack virtuális gépet (VM) telepítve van a key vault-tanúsítvánnyal.
+Ez a cikk azt ismerteti, hogyan helyezhet üzembe egy Azure Stack virtuális gépet (VM) egy telepített Key Vault-tanúsítvánnyal.
 
 ## <a name="overview"></a>Áttekintés
 
-A tanúsítványokat helyzetekben, például az Active Directory hitelesítő vagy a webes forgalom titkosításához használja. Tanúsítványok biztonságosan tárolhatja az Azure Stack a key vault titkos kódként. Az Azure Stack Key Vault használatának előnyei a következők:
+A tanúsítványokat számos esetben használják, például a hitelesítés Active Directory vagy a webes forgalom titkosítása. A tanúsítványokat a Azure Stack Key vaultban titkos kulcsként is tárolhatja. A Azure Stack Key Vault használatának előnyei a következők:
 
-* Egy parancsfájl, a parancssori előzményekben vagy a sablon a tanúsítványok nem érhetőek el.
-* A tanúsítványkezelési folyamatot zökkenőmentesen történik.
-* A tanúsítványok hozzáférő kulcsok hozzáférése van.
+* A tanúsítványok nem jelennek meg parancsfájlokban, parancssori előzményekben vagy sablonban.
+* A Tanúsítványkezelő folyamata egyszerűsítve van.
+* A tanúsítványokhoz hozzáférő kulcsok ellenőrzése megtörtént.
 
-## <a name="process-description"></a>Folyamat – leírás
+## <a name="process-description"></a>Folyamat leírása
 
-A folyamat leküldéses tanúsítványt a virtuális géphez szükséges a következő lépésekből áll:
+A következő lépések azt írják le, hogy milyen folyamat szükséges a tanúsítvány virtuális géphez való leküldéséhez:
 
-1. A key vault titkos kulcs létrehozása.
-2. Frissítés a **azuredeploy.parameters.json** fájlt.
-3. A sablon üzembe helyezéséhez.
+1. Hozzon létre egy Key Vault-titkot.
+2. Frissítse az **azuredeploy. Parameters. JSON** fájlt.
+3. A sablon üzembe helyezése.
 
 > [!NOTE]
-> Ezeket a lépéseket, vagy az Azure Stack Development Kit (ASDK) a külső ügyfélről is használhatja, ha a VPN-kapcsolaton keresztül kapcsolódik.
+> Ezeket a lépéseket a Azure Stack Development Kit (ASDK) vagy egy külső ügyfélről is használhatja, ha VPN-kapcsolaton keresztül csatlakozik.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Az ajánlat, amely tartalmazza a Key Vault szolgáltatás elő kell fizetnie.
-* [Az Azure Stack PowerShell telepítése](../operator/azure-stack-powershell-install.md).
-* [Az Azure Stack felhasználói PowerShell-környezet konfigurálása](azure-stack-powershell-configure-user.md).
+* Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Key Vault szolgáltatást.
+* [Telepítse a powershellt Azure Stackhoz](../operator/azure-stack-powershell-install.md).
+* [Konfigurálja a Azure stack felhasználó PowerShell-környezetét](azure-stack-powershell-configure-user.md).
 
-## <a name="create-a-key-vault-secret"></a>A key vault titkos kulcs létrehozása
+## <a name="create-a-key-vault-secret"></a>Key Vault-titok létrehozása
 
-A következő szkriptet a .pfx formátumú tanúsítványt hoz létre egy kulcstartót hoz létre és tárolja a tanúsítványt a key vault titkos kulcs.
+A következő szkript egy. pfx formátumú tanúsítványt hoz létre, létrehoz egy kulcstartót, és a Key vaultban tárolja a tanúsítványt titkos kulcsként.
 
 > [!IMPORTANT]
-> Kell használnia a `-EnabledForDeployment` paraméter a key vault létrehozása során. Ez a paraméter gondoskodik arról, hogy a key vault az Azure Resource Manager-sablonok lehet hivatkozni.
+> A Key Vault létrehozásakor a `-EnabledForDeployment` paramétert kell használnia. Ez a paraméter biztosítja, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -119,13 +119,13 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-Ez a szkript futtatásakor a kimenet tartalmazza a titkos URI. Jegyezze fel ezt az URI, hivatkoznia kell a a [Push-tanúsítvány a Windows Resource Manager-sablon](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Töltse le a [vm-push-tanúsítvány-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) Szolgáltatássablon mappáját, a fejlesztői számítógépen. Ebben a mappában találhatók a **azuredeploy.json** és **azuredeploy.parameters.json** fájlokat, amelyek a következő lépésekben van szüksége.
+A parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t. Jegyezze fel ezt az URI-t, mert a [leküldéses tanúsítványban a Windows Resource Manager-sablonra](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)kell hivatkoznia. Töltse le a [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) template mappát a fejlesztői számítógépére. Ez a mappa tartalmazza a **azuredeploy. JSON** és a **azuredeploy. Parameters. JSON** fájlt, amelyet a következő lépésekben kell megadnia.
 
-Módosítsa a **azuredeploy.parameters.json** fájl a környezet értékeknek megfelelően. Fontos paraméterei a következők: a tároló nevére, a tár erőforráscsoportja és a titkos kulcs URI-t (mivel az előző parancsfájl által létrehozott). A következő szakasz egy alkalmazásparaméter-fájlt egy példát mutat be.
+Módosítsa a **azuredeploy. Parameters. JSON** fájlt a környezeti értékek alapján. A fontos paraméterek a tár neve, a tár erőforráscsoport és a titkos URI (az előző szkript által generált). A következő szakasz egy példát mutat be egy paraméter fájlra.
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Frissítés a azuredeploy.parameters.json fájlhoz
+## <a name="update-the-azuredeployparametersjson-file"></a>A azuredeploy. Parameters. JSON fájl frissítése
 
-Frissítés a **azuredeploy.parameters.json** -fájlt a `vaultName`, titkos URI `VmName`, és más paramétereket, a környezet alapján. A következő JSON-fájlt a sablon paraméterfájljának egy példát mutat be:
+Frissítse az **azuredeploy. Parameters. JSON** fájlt a `vaultName`, titkos URI, `VmName` és egyéb paraméterekkel, a környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
 
 ```json
 {
@@ -162,10 +162,10 @@ Frissítés a **azuredeploy.parameters.json** -fájlt a `vaultName`, titkos URI 
 
 ## <a name="deploy-the-template"></a>A sablon üzembe helyezése
 
-A sablon üzembe helyezése a következő PowerShell-parancsfájl használatával:
+A sablon üzembe helyezéséhez használja a következő PowerShell-parancsfájlt:
 
 ```powershell
-# Deploy a Resource Manager template to create a VM and push the secret onto it
+# Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzureRmResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
@@ -173,20 +173,20 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-Ha a sablon üzembe helyezése sikeresen befejeződött, a következő kimenetet eredményezi:
+A sablon sikeres központi telepítésekor a következő kimenet jelenik meg:
 
-![Sablon üzembe helyezés eredményei](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
+![Template deployment eredmények](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-Az Azure Stack leküldéses tanúsítvány a virtuális gép üzembe helyezése során. A tanúsítvány helye a virtuális gép operációs rendszerének függ:
+Azure Stack leküldi a tanúsítványt a virtuális gépre az üzembe helyezés során. A tanúsítvány helye a virtuális gép operációs rendszertől függ:
 
-* A Windows, hogy hozzáadta a tanúsítványt a **LocalMachine** tanúsítványt a tanúsítványtárolóban, amely a felhasználó által megadott helyen.
-* A Linux, a tanúsítvány alá kerül a **/var/lib/waagent** könyvtárban, a Fájlnév **UppercaseThumbprint.crt** a X509 a tanúsítványfájl és **UppercaseThumbprint.prv**  a titkos kulcs.
+* A Windows rendszerben a tanúsítvány a **LocalMachine** -tanúsítvány helyére kerül, a felhasználó által megadott tanúsítványtárolóval együtt.
+* A Linux rendszerben a tanúsítvány a **/var/lib/waagent** könyvtár alá kerül, és a **UppercaseThumbprint. CRT** fájlnevet adja meg a X509-tanúsítványfájl és a **UppercaseThumbprint. prv** fájl számára a titkos kulcshoz.
 
-## <a name="retire-certificates"></a>Tanúsítványok visszavonása
+## <a name="retire-certificates"></a>Tanúsítványok kivonása
 
-Tanúsítványok eltávolítása a felügyeleti folyamat részét képezi. Nem lehet törölni a tanúsítványt a régebbi verzióját, de a segítségével letilthatja a `Set-AzureKeyVaultSecretAttribute` parancsmagot.
+A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verziója nem törölhető, de a `Set-AzureKeyVaultSecretAttribute` parancsmag használatával letilthatja.
 
-Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványt. A saját értékeit használja a `VaultName`, `Name`, és `Version` paramétereket.
+Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. Használja a `VaultName`, `Name` és `Version` paraméterek saját értékeit.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
@@ -195,4 +195,4 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 ## <a name="next-steps"></a>További lépések
 
 * [Virtuális gép üzembe helyezése Key Vault-jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
-* [Key Vault elérése érdekében alkalmazás engedélyezése](azure-stack-key-vault-sample-app.md)
+* [Key Vault elérésének engedélyezése az alkalmazás számára](azure-stack-key-vault-sample-app.md)

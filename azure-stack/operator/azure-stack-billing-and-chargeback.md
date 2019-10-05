@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: d3eacfa8ab4b071d44ebd3bd2ad52351b72e7f00
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094342"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974040"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Használat és számlázás Azure Stack
 
@@ -47,15 +47,15 @@ Az erőforrás-szolgáltatók (például a számítás, a tárolás és a háló
 A használati adatok gyűjtése után a rendszer [jelentést küld az Azure-nak](azure-stack-usage-reporting.md) a számla létrehozásához, amelyet az Azure számlázási portálján tekinthet meg.
 
 > [!NOTE]  
-> A Azure Stack Development Kit (ASDK) és a kapacitási modellben licencet nem igénylő Azure Stack integrált rendszerfelhasználók számára nem szükséges a használati adatok jelentése. A Azure Stack licencelésével kapcsolatos további tudnivalókért tekintse meg a [csomagolási és díjszabási adatlapot](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+> A használati adatok jelentéskészítése nem szükséges a Azure Stack Development Kit (ASDK) és a Azure Stack integrált rendszerfelhasználók számára, akik a kapacitás modellben licencet biztosítanak. A Azure Stack licencelésével kapcsolatos további tudnivalókért tekintse meg a [csomagolási és díjszabási adatlapot](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
 
 Az Azure számlázási portál a felszámítható erőforrások használati adatait jeleníti meg. A felszámítható erőforrások mellett Azure Stack a használati adatokat a szélesebb körű erőforrások számára is rögzíti, amelyeket REST API-kon vagy PowerShell-parancsmagokon keresztül elérhet a Azure Stack környezetben. Azure Stack operátorok megkapják az összes felhasználói előfizetés használati adatait. Az egyes felhasználók csak a saját használati adataikat vehetik igénybe.
 
-## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>Használati jelentéskészítés a több-bérlős felhőalapú szolgáltatók számára
+## <a name="usage-reporting-for-multi-tenant-cloud-solution-providers"></a>Használati jelentéskészítés a több-bérlős felhőalapú megoldás-szolgáltatók számára
 
 Az Azure Stackt használó több-bérlős felhőalapú megoldás-szolgáltató (CSP) külön jelentést szeretne készíteni az egyes ügyfelek használatáról, így a szolgáltató a különböző Azure-előfizetésekhez is felszámíthatja a használatot.
 
-Minden ügyfél identitását egy másik Azure Active Directory (Azure AD) bérlő képviseli. Azure Stack támogatja az egyes Azure AD-bérlők egy CSP-előfizetésének hozzárendelését. Bérlőket és előfizetéseket adhat hozzá az alapszintű Azure Stack-regisztrációhoz. Az alapszintű regisztráció minden Azure Stack példány esetében elkészült. Ha egy előfizetés nincs regisztrálva a bérlőhöz, a felhasználó továbbra is használhatja a Azure Stackt, és a használatuk az alapregisztrációhoz használt előfizetésnek lesz elküldve.
+Minden ügyfél identitását egy másik Azure Active Directory (Azure AD) bérlő képviseli. Azure Stack támogatja az egyes Azure AD-bérlők egy CSP-előfizetésének hozzárendelését. Bérlőket és előfizetéseket adhat hozzá az alapszintű Azure Stack-regisztrációhoz. Az alapszintű regisztráció minden Azure Stack példány esetében elkészült. Ha egy előfizetés nincs regisztrálva a bérlőhöz, a felhasználó továbbra is használhatja a Azure Stackt, és a használatuk az alapregisztrációhoz használt előfizetéshez lesz küldve.
 
 ## <a name="next-steps"></a>További lépések
 

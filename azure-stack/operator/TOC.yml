@@ -261,6 +261,8 @@
           href: azure-stack-create-vpn-connection-one-node.md
     - name: Szolgáltatások ajánlása
       href: azure-stack-offer-services-overview.md
+    - name: Hálózati megoldások ajánlása
+      href: azure-stack-network-solutions-enable.md
     - name: SQL kínál PaaS-ként
       href: azure-stack-sql-resource-provider.md
       items:

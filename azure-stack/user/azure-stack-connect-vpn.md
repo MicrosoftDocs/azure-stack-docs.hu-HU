@@ -1,6 +1,6 @@
 ---
-title: Csatlakozás Azure Stack Azure-hoz VPN |} A Microsoft Docs
-description: Virtuális hálózatok az Azure Stack az Azure-ban a VPN virtuális hálózatokhoz való kapcsolódásának módja.
+title: Azure Stack csatlakozás az Azure-hoz VPN használatával | Microsoft Docs
+description: Virtuális hálózatok összekötése az Azure-beli virtuális hálózatokkal a VPN használatával Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,260 +12,260 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: a0e1312beac5f0591658295ac3e48f122aceec4b
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 844162e4f31a6f543a9fe774aa40bd606dad85b9
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316287"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974113"
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack csatlakozni az Azure VPN használatával
+# <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack csatlakozás az Azure-hoz VPN használatával
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
 
-Ez a cikk bemutatja, hogyan hozhat létre az Azure Stack egy virtuális hálózat csatlakoztatása egy virtuális hálózatot az Azure-ban a site-to-site VPN.
+Ez a cikk azt ismerteti, hogyan lehet helyek közötti VPN-t létrehozni egy virtuális hálózat Azure Stack egy Azure-beli virtuális hálózatban való összekapcsolásához.
 
 ## <a name="before-you-begin"></a>Előkészületek
 
-A kapcsolat konfigurációját, győződjön meg arról, hogy rendelkezik a következőkkel, mielőtt elkezdené:
+A kapcsolódási konfiguráció befejezéséhez győződjön meg arról, hogy rendelkezik a következő elemek elkezdése előtt:
 
-* Az Azure Stackkel integrált rendszerek (több csomópontos) központi telepítés, amely közvetlenül csatlakozik az internethez. A külső, nyilvános IP-címtartomány kell lennie a nyilvános interneten keresztül közvetlenül elérhető.
-* Egy érvényes Azure-előfizetés. Ha nem rendelkezik Azure-előfizetéssel, létrehozhat egy [ingyenes Azure-fiók Itt](https://azure.microsoft.com/free/?b=17.06).
+* Azure Stack integrált rendszerek (több csomópontos) központi telepítése, amely közvetlenül csatlakozik az internethez. A külső nyilvános IP-címtartományt közvetlenül elérhetőnek kell lennie a nyilvános internetről.
+* Érvényes Azure-előfizetés. Ha nem rendelkezik Azure-előfizetéssel, itt hozhat létre [ingyenes Azure-fiókot](https://azure.microsoft.com/free/?b=17.06).
 
 ### <a name="vpn-connection-diagram"></a>VPN-kapcsolati diagram
 
-A következő ábrán látható, hogy mi a kapcsolat konfigurációját hasonlóan kell kinéznie eredménye:
+A következő ábra azt mutatja be, hogy a kapcsolódási konfigurációnak hogyan kell kinéznie, amikor elkészült:
 
-![Site-to-site VPN-kapcsolat konfigurálása](media/azure-stack-connect-vpn/image2.png)
+![Helyek közötti VPN-kapcsolat konfigurációja](media/azure-stack-connect-vpn/image2.png)
 
-### <a name="network-configuration-example-values"></a>Hálózati konfiguráció példaértékek
+### <a name="network-configuration-example-values"></a>Hálózati konfigurációs példa értékei
 
-A hálózati konfiguráció példák táblázatban példák ebben a cikkben használt értékeket. Ezeket az értékeket is használhat, vagy olvassa el segítségükkel értelmezheti a cikkben szereplő példákat:
+A hálózati konfigurációval kapcsolatos példák táblázat a cikkben szereplő példákhoz használt értékeket jeleníti meg. Ezeket az értékeket használhatja, vagy megtekintheti őket, hogy jobban megértse a cikkben szereplő példákat:
 
 |   |Azure Stack|Azure|
 |---------|---------|---------|
 |Virtuális hálózat neve     |Azs-VNet|AzureVNet |
-|Virtuális hálózat címtere |10.1.0.0/16|10.100.0.0/16|
+|Virtuális hálózati címtartomány |10.1.0.0/16|10.100.0.0/16|
 |Alhálózat neve     |Előtér|Előtér|
-|Alhálózati címtartomány|10.1.0.0/24 |10.100.0.0/24 |
-|Átjáró alhálózata     |10.1.1.0/24|10.100.1.0/24|
+|Alhálózat címtartománya|10.1.0.0/24 |10.100.0.0/24 |
+|Átjáróalhálózat     |10.1.1.0/24|10.100.1.0/24|
 
-## <a name="create-the-network-resources-in-azure"></a>A hálózati erőforrások létrehozása az Azure-ban
+## <a name="create-the-network-resources-in-azure"></a>Hálózati erőforrások létrehozása az Azure-ban
 
-Először hozza létre a hálózati erőforrások az Azure-hoz. A következőkben megtudhatja, hogyan hozhat létre az erőforrások használatával a [az Azure portal](https://portal.azure.com/).
+Először hozza létre az Azure hálózati erőforrásait. Az alábbi utasítások bemutatják, hogyan hozhatja létre az erőforrásokat a [Azure Portal](https://portal.azure.com/)használatával.
 
-### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>A virtuális hálózatot és alhálózatot a virtuális gép (VM) létrehozása
+### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>A virtuális hálózat és a virtuális gép (VM) alhálózatának létrehozása
 
-1. Jelentkezzen be a [az Azure portal](https://portal.azure.com/) Azure-fiókjával.
+1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com/) az Azure-fiók használatával.
 
-2. Válassza ki a felhasználói portálon **+ erőforrás létrehozása**.
-3. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
+2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
+3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 4. Válassza ki a **Virtuális hálózatot**.
-5. Azonosítsa azokat az értékeket az Azure-ban a hálózati konfiguráció tábla adatait használja **neve**, **címtér**, **alhálózatnév**, és **alhálózati cím tartomány**.
-6. A **erőforráscsoport**, hozzon létre egy új erőforráscsoportot, vagy ha már rendelkezik ilyennel, válassza ki a **meglévő**.
-7. Válassza ki a **hely** virtuális hálózat.  A példában szereplő értékeket használja, ha válassza **USA keleti Régiójában** vagy egy másik helyet.
+5. A hálózati konfiguráció tábla információi alapján azonosíthatja az Azure-beli **név**, a **címterület**, az **alhálózat neve**és az **alhálózat címtartomány**értékét.
+6. **Erőforráscsoport**esetén hozzon létre egy új erőforráscsoportot, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
+7. Válassza ki a VNet **helyét** .  Ha a példában szereplő értékeket használja, válassza az **USA keleti** régiója lehetőséget, vagy használjon másik helyet.
 8. Válassza a **Rögzítés az irányítópulton** lehetőséget.
 9. Kattintson a **Létrehozás** gombra.
 
-### <a name="create-the-gateway-subnet"></a>Az átjáró-alhálózat létrehozása
+### <a name="create-the-gateway-subnet"></a>Az átjáró alhálózatának létrehozása
 
 1. Nyissa meg a létrehozott virtuális hálózati erőforrást (**AzureVNet**) az irányítópultról.
-2. Az a **beállítások** szakaszban jelölje be **alhálózatok**.
-3. Válassza ki **átjáró-alhálózat** , adjon hozzá egy átjáró-alhálózatot a virtuális hálózathoz.
+2. A **Beállítások** szakaszban válassza az **alhálózatok**lehetőséget.
+3. Válassza ki az **átjáró alhálózatát** , és adjon hozzá egy átjáró-alhálózatot a virtuális hálózathoz.
 4. Az alhálózat neve alapértelmezés szerint **GatewaySubnet**.
 
    >[!IMPORTANT]
    >Az átjáró-alhálózatok egyediek, és a megfelelő működéshez ezzel az adott névvel kell rendelkezniük.
 
-5. Az a **címtartomány** mezőben ellenőrizze, hogy a cím **10.100.1.0/24**.
-6. Válassza ki **OK** az átjáró-alhálózat létrehozásához.
+5. A **címtartomány** mezőben ellenőrizze, hogy a címe **10.100.1.0/24**.
+6. Az átjáró-alhálózat létrehozásához kattintson **az OK gombra** .
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. Az Azure Portalon válassza ki a **+ erőforrás létrehozása**.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 
-2. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
-3. Hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**.
-4. Az a **neve** mezőbe írja be a **Azure-GW**.
-5. Virtuális hálózat kiválasztásához jelölje ki a **virtuális hálózati**. Válassza ki **AzureVnet** a listából.
-6. Válassza a **Nyilvános IP-cím** elemet. Ha a **nyilvános IP-cím választása** szakasz megnyílik, válassza ki **új létrehozása**.
-7. Az a **neve** mezőbe írja be a **Azure-GW-PiP**, majd válassza ki **OK**.
-8. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Az erőforrás az irányítópulton is rögzíthet. Kattintson a **Létrehozás** gombra.
+2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
+3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
+4. A név mezőbe írja be az **Azure-GW** **nevet** .
+5. Virtuális hálózat kiválasztásához válassza a **virtuális hálózat**lehetőséget. Ezután válassza a **AzureVnet** elemet a listából.
+6. Válassza a **Nyilvános IP-cím** elemet. Amikor megnyílik a **nyilvános IP-cím választása** szakasz, válassza az **új létrehozása**lehetőséget.
+7. A név mezőbe írja be az **Azure-GW-pip** **nevet** , majd kattintson az **OK gombra**.
+8. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Az erőforrást rögzítheti az irányítópulton. Kattintson a **Létrehozás** gombra.
 
-### <a name="create-the-local-network-gateway-resource"></a>A helyi hálózati átjáró erőforrás létrehozása
+### <a name="create-the-local-network-gateway-resource"></a>A helyi hálózati átjáró erőforrásának létrehozása
 
-1. Az Azure Portalon válassza ki a **+ erőforrás létrehozása**.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 
-2. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
-3. Az erőforrások listájában válassza ki a **helyi hálózati átjáró**.
-4. Az a **neve** mezőbe írja be a **Azs-GW**.
-5. Az a **IP-cím** mezőbe írja be a nyilvános IP-cím az Azure Stack virtuális hálózati átjáró, amely korábban a hálózati konfiguráció táblázatban szerepel.
-6. Az a **címtér** mezőt, az Azure Stack, írja be a **10.1.0.0/24** és **10.1.1.0/24** címtere **AzureVNet**.
-7. Ellenőrizze, hogy a **előfizetés**, **erőforráscsoport**, és **hely** helyes-e, és válassza ki **létrehozás**.
+2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
+3. Az erőforrások listájából válassza a **helyi hálózati átjáró**elemet.
+4. A **név** mezőbe írja be a következőt: **AZS-GW**.
+5. Az **IP-cím** mezőbe írja be a Azure stack Virtual Network ÁTJÁRÓ nyilvános IP-címét, amely a korábban a hálózati konfigurációs táblában szerepel.
+6. A **címterület** mezőbe írja be a (Azure stack) értéket a **AzureVNet** **10.1.0.0/24** és **10.1.1.0/24** címtartomány mezőjébe.
+7. Ellenőrizze, hogy az **előfizetés**, az **erőforráscsoport**és a **hely** helyes-e, majd válassza a **Létrehozás**lehetőséget.
 
 ## <a name="create-the-connection"></a>A kapcsolat létrehozása
 
-1. Válassza ki a felhasználói portálon **+ erőforrás létrehozása**.
-2. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
-3. Az erőforrások listájában válassza ki a **kapcsolat**.
-4. Az a **alapszintű** beállítások szakaszban, az a **kapcsolattípus**, válassza a **Site-to-site (IPSec)** .
-5. Válassza ki a **előfizetés**, **erőforráscsoport**, és **hely**, majd válassza ki **OK**.
-6. Az a **beállítások** szakaszban jelölje be **virtuális hálózati átjáró**, majd válassza ki **Azure-GW**.
-7. Válassza ki **helyi hálózati átjáró**, majd válassza ki **Azs-GW**.
-8. A **kapcsolatnevet**, típus **Azure-Azs**.
-9. A **megosztott kulcs (PSK)** , típus **12345**, majd **OK**.
+1. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
+2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
+3. Az erőforrások listájából válassza a **kapcsolatok**lehetőséget.
+4. Az **alapszintű** beállítások szakaszban, a **kapcsolat típusa**területen válassza a **helyek közötti (IPSec)** lehetőséget.
+5. Válassza ki az **előfizetést**, az **erőforráscsoportot**és a **helyet**, majd kattintson **az OK gombra**.
+6. A **Beállítások** szakaszban válassza ki a **virtuális hálózati átjáró**elemet, majd válassza az **Azure-GW**lehetőséget.
+7. Válassza a **helyi hálózati átjáró**lehetőséget, majd válassza a **AZS-GW**lehetőséget.
+8. A **kapcsolatok neve**mezőbe írja be az **Azure-AZS**nevet.
+9. A **megosztott kulcs (PSK)** mezőbe írja be a **12345**értéket, majd kattintson **az OK gombra**.
 
    >[!NOTE]
-   >Ha egy másik értéket a megosztott kulcsot használ, ne feledje, hogy a megosztott kulcsot, amely hoz létre a kapcsolat másik végén értékét meg kell egyeznie.
+   >Ha más értéket használ a megosztott kulcshoz, ne feledje, hogy meg kell egyeznie a kapcsolatok másik végén létrehozott megosztott kulcs értékével.
 
-10. Tekintse át a **összefoglalás** szakaszt, és válassza ki **OK**.
+10. Tekintse át az **Összefoglalás** szakaszt, majd kattintson **az OK gombra**.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-Most egy virtuális gép létrehozása az Azure-ban, és a virtuális hálózat Virtuálisgép-alhálózatára helyezi azt.
+Most hozzon létre egy virtuális GÉPET az Azure-ban, és helyezze a virtuális hálózata virtuálisgép-alhálózatára.
 
-1. Az Azure Portalon válassza ki a **+ erőforrás létrehozása**.
-2. Lépjen a **Marketplace**, majd válassza ki **számítási**.
-3. A Virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter próbaverzió** kép.
-4. Az a **alapjai** szakaszban a **neve**, típus **AzureVM**.
-5. Írjon be egy érvényes felhasználónevet és jelszót. Ez a fiók használatával jelentkezzen be a virtuális gép létrehozása után.
-6. Adjon meg egy **előfizetés**, **erőforráscsoport**, és **hely**, majd válassza ki **OK**.
-7. Az a **mérete** szakaszt, válassza ki a virtuális gép méretét, ehhez a példányhoz, és válassza ki **kiválasztása**.
-8. Az a **beállítások** szakaszban használhatja az alapértelmezett beállításokat is. Kiválasztása előtt **OK**, ellenőrizze, hogy:
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
+3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
+4. Az **alapismeretek** szakaszban a **név**mezőbe írja be a következőt: **AzureVM**.
+5. Írjon be egy érvényes felhasználónevet és jelszót. Ezzel a fiókkal jelentkezhet be a virtuális gépre a létrehozása után.
+6. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**, majd kattintson **az OK gombra**.
+7. A **méret** szakaszban válassza ki a virtuális gép méretét ehhez a példányhoz, majd válassza a **kiválasztás**lehetőséget.
+8. A **Beállítások** szakaszban az alapértelmezett beállításokat használhatja. **Az OK gombra**kattintva erősítse meg a következőket:
 
    * A **AzureVnet** virtuális hálózat van kiválasztva.
-   * Az alhálózat beállítása pedig **10.100.0.0/24**.
+   * Az alhálózat beállítása **10.100.0.0/24**.
 
    Kattintson az **OK** gombra.
 
-9. Tekintse át a beállításokat a **összefoglalás** szakaszt, és válassza ki **OK**.
+9. Tekintse át a beállításokat az **Összefoglalás** szakaszban, majd kattintson az **OK gombra**.
 
-## <a name="create-the-network-resources-in-azure-stack"></a>A hálózati erőforrások létrehozása az Azure Stackben
+## <a name="create-the-network-resources-in-azure-stack"></a>Hálózati erőforrások létrehozása a Azure Stackban
 
-Ezután hozza létre a hálózati erőforrások az Azure Stackben.
+Ezután hozza létre a hálózati erőforrásokat a Azure Stackban.
 
-### <a name="sign-in-as-a-user"></a>Felhasználói bejelentkezés
+### <a name="sign-in-as-a-user"></a>Bejelentkezés felhasználóként
 
-A szolgáltatás-rendszergazda bejelentkezhet felhasználóként a csomagok, ajánlatok és előfizetések, amely a felhasználók tesztelése. Ha még nem rendelkezik ilyennel, [hozzon létre egy felhasználói fiókot](../operator/azure-stack-add-new-user-aad.md) előtt jelentkezzen be.
+A szolgáltatás-rendszergazda bejelentkezhet felhasználóként a felhasználók által használt csomagok, ajánlatok és előfizetések teszteléséhez. Ha még nem rendelkezik ilyennel, [hozzon létre egy felhasználói fiókot a](../operator/azure-stack-add-new-user-aad.md) bejelentkezés előtt.
 
-### <a name="create-the-virtual-network-and-a-vm-subnet"></a>A virtuális hálózat és a egy Virtuálisgép-alhálózat létrehozása
+### <a name="create-the-virtual-network-and-a-vm-subnet"></a>A virtuális hálózat és a virtuálisgép-alhálózat létrehozása
 
-1. A felhasználói fiók használatával jelentkezzen be a felhasználói portálra.
-2. Válassza ki a felhasználói portálon **+ erőforrás létrehozása**.
+1. Felhasználói fiók használata a felhasználói portálra való bejelentkezéshez.
+2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 
     ![Új virtuális hálózat létrehozása](media/azure-stack-connect-vpn/image3.png)
 
-3. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
+3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 4. Válassza ki a **Virtuális hálózatot**.
-5. A **neve**, **címtér**, **alhálózatnév**, és **alhálózati címtartomány**, használja a hálózati konfiguráció táblából az értékeket.
-6. A **előfizetés**, a korábban létrehozott előfizetés jelenik meg.
-7. A **erőforráscsoport**, hozzon létre egy erőforráscsoportot, vagy ha már rendelkezik ilyennel, válassza ki a **meglévő**.
+5. A **név**, a **címterület**, az **alhálózat neve**és az **alhálózat címtartomány**mezőben adja meg a hálózati konfiguráció tábla értékeit.
+6. Az **előfizetés**területen megjelenik a korábban létrehozott előfizetés.
+7. **Erőforráscsoport**esetén létrehozhat egy erőforráscsoportot, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
 8. Ellenőrizze az alapértelmezett helyet.
 9. Válassza a **Rögzítés az irányítópulton** lehetőséget.
 10. Kattintson a **Létrehozás** gombra.
 
 ### <a name="create-the-gateway-subnet"></a>Az átjáróalhálózat létrehozása
 
-1. Az irányítópulton nyissa meg a létrehozott Azs-VNet virtuálishálózat-erőforrást.
-2. Az a **beállítások** szakaszban jelölje be **alhálózatok**.
-3. Adjon hozzá egy átjáró-alhálózatot a virtuális hálózathoz, jelölje be **átjáró-alhálózat**.
+1. Az irányítópulton nyissa meg a létrehozott AZS-VNet virtuális hálózati erőforrást.
+2. A **Beállítások** szakaszban válassza az **alhálózatok**lehetőséget.
+3. Ha átjáró-alhálózatot szeretne hozzáadni a virtuális hálózathoz, válassza az **átjáró alhálózat**lehetőséget.
 
-    ![Átjáróalhálózat hozzáadása](media/azure-stack-connect-vpn/image4.png)
+    ![Átjáró-alhálózat hozzáadása](media/azure-stack-connect-vpn/image4.png)
 
-4. Alapértelmezés szerint az alhálózat neve van beállítva, **GatewaySubnet**. Az átjáró-alhálózatokkal megfelelő működéséhez, kell használniuk a **GatewaySubnet** nevét.
-5. A **címtartomány**, győződjön meg arról, hogy a cím **10.1.1.0/24**.
-6. Válassza ki **OK** az átjáró-alhálózat létrehozásához.
+4. Alapértelmezés szerint az alhálózat neve **GatewaySubnet**értékre van állítva. Ahhoz, hogy az átjáró-alhálózatok megfelelően működjenek, a **GatewaySubnet** nevet kell használniuk.
+5. A **címtartomány**területen ellenőrizze, hogy a címe **10.1.1.0/24**.
+6. Az átjáró-alhálózat létrehozásához kattintson **az OK gombra** .
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. Válassza ki az Azure Stack portálon **+ erőforrás létrehozása**.
-2. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
-3. Hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**.
-4. A **neve**, típus **Azs-GW**.
-5. Válassza ki a **virtuális hálózati** elemet válassza ki a virtuális hálózatot. Válassza ki **Azs-VNet** a listából.
-6. Válassza ki a **nyilvános IP-cím** menüpontot. Ha a **nyilvános IP-cím választása** szakasz megnyílik, válassza ki **új létrehozása**.
-7. A **neve**, típus **Azs-GW-PiP**, majd válassza ki **OK**.
-8. Alapértelmezés szerint **útvonalalapú** van kiválasztva a **VPN-típust**. Tartsa a **útvonalalapú** VPN-típust.
+1. A Azure Stack portálon válassza az **+ erőforrás létrehozása**lehetőséget.
+2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
+3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
+4. A **név**mezőbe írja be a következőt: **AZS-GW**.
+5. Válassza a **virtuális** hálózat elemet a virtuális hálózat kiválasztásához. Válassza a **AZS-VNet** elemet a listából.
+6. Válassza ki a **nyilvános IP-cím** menüelemet. Amikor megnyílik a **nyilvános IP-cím választása** szakasz, válassza az **új létrehozása**lehetőséget.
+7. A **név**mezőbe írja be a **AZS-GW-pip**nevet, majd kattintson **az OK gombra**.
+8. Alapértelmezés szerint az **Útválasztás-alapú** beállítás a **VPN-típushoz**van kiválasztva. Tartsa meg az **Útválasztás-alapú** VPN-típust.
 
-9. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Az erőforrás az irányítópulton is rögzíthet. Kattintson a **Létrehozás** gombra.
+9. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Az erőforrást rögzítheti az irányítópulton. Kattintson a **Létrehozás** gombra.
 
 ### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
-A kiszolgálóvirtualizálás egy *helyi hálózati átjáró* az Azure Stackben egy kicsit más, mint Azure-környezetben.
+Azure Stack egy *helyi hálózati átjáró* fogalma nem azonos egy Azure-környezetben.
 
-Azure-környezetben a helyi hálózati átjáró jelöli egy (a felhasználó helyét) helyszíni fizikai eszköz az Azure-beli virtuális hálózati átjáró csatlakozik. Az Azure Stackben azonban a kapcsolat mindkét végén virtuális hálózati átjárók találhatók.
+Egy Azure-beli üzembe helyezés esetén a helyi hálózati átjáró egy helyszíni (felhasználói hely) fizikai eszköz, amely az Azure-beli virtuális hálózati átjáróhoz csatlakozik. Azure Stack azonban a kapcsolatok mindkét végpontja virtuális hálózati átjáró.
 
-Általánosabb érvényűvé leírását, hogy a helyi hálózati átjáró erőforrás minden esetben azt jelzi, hogy a kapcsolat másik végén lévő távoli átjárót.
+A további általános leírás szerint a helyi hálózati átjáró erőforrás mindig a távoli átjárót jelzi a kapcsolatok másik végén.
 
-### <a name="create-the-local-network-gateway-resource"></a>A helyi hálózati átjáró erőforrás létrehozása
+### <a name="create-the-local-network-gateway-resource"></a>A helyi hálózati átjáró erőforrásának létrehozása
 
-1. Jelentkezzen be az Azure Stack portálon.
-2. Válassza ki a felhasználói portálon **+ erőforrás létrehozása**.
-3. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
-4. Az erőforrások listájában válassza ki a **helyi hálózati átjáró**.
-5. Az a **neve** mezőbe írja be a **Azure-GW**.
-6. Az a **IP-cím** mezőbe írja be a virtuális hálózati átjáró nyilvános IP-címét az Azure-ban **Azure-GW-PiP**. Ez a cím jelenik meg a korábban a hálózati konfiguráció táblázatban.
-7. Az a **címtér** mezőjét, az Azure virtuális hálózat létrehozott, írja be a címtér **10.100.0.0/24** és **10.100.1.0/24**.
+1. Jelentkezzen be a Azure Stack portálra.
+2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
+3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
+4. Az erőforrások listájából válassza a **helyi hálózati átjáró**elemet.
+5. A név mezőbe írja be az **Azure-GW** **nevet** .
+6. Az **IP-cím** mezőben adja meg a virtuális hálózati átjáróhoz tartozó nyilvános IP-címet az Azure **-GW-pip-** ben. Ez a címe korábban a hálózati konfigurációs táblában jelenik meg.
+7. A **címterület** mezőben a létrehozott Azure-VNET címterület mezőjébe írja be a következőt: **10.100.0.0/24** és **10.100.1.0/24**.
 
-8. Ellenőrizze, hogy a **előfizetés**, **erőforráscsoport**, és **hely** értékek helyesek, és válassza ki **létrehozás**.
+8. Győződjön meg arról, hogy az **előfizetés**, az **erőforráscsoport**és a **hely** értékei helyesek, majd válassza a **Létrehozás**lehetőséget.
 
 ### <a name="create-the-connection"></a>A kapcsolat létrehozása
 
-1. Válassza ki a felhasználói portálon **+ erőforrás létrehozása**.
-2. Lépjen a **Marketplace**, majd válassza ki **hálózatkezelés**.
-3. Az erőforrások listájában válassza ki a **kapcsolat**.
-4. Az a **alapjai** beállítások szakaszban, az a **kapcsolattípus**, jelölje be **Site-to-site (IPSec)** .
-5. Válassza ki a **előfizetés**, **erőforráscsoport**, és **hely**, majd válassza ki **OK**.
-6. Az a **beállítások** szakaszban jelölje be **virtuális hálózati átjáró**, majd válassza ki **Azs-GW**.
-7. Válassza ki **helyi hálózati átjáró**, majd válassza ki **Azure-GW**.
-8. A **kapcsolatnevet**, típus **Azs Azure-beli**.
-9. A **megosztott kulcs (PSK)** , típus **12345**, majd válassza ki **OK**.
+1. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
+2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
+3. Az erőforrások listájából válassza a **kapcsolatok**lehetőséget.
+4. Az **alapvető** beállítások szakasz **kapcsolat típusa**területén válassza a **helyek közötti (IPSec)** lehetőséget.
+5. Válassza ki az **előfizetést**, az **erőforráscsoportot**és a **helyet**, majd kattintson **az OK gombra**.
+6. A **Beállítások** szakaszban válassza ki a **virtuális hálózati átjáró**elemet, majd válassza a **AZS-GW**lehetőséget.
+7. Válassza a **helyi hálózati átjáró**lehetőséget, majd válassza az **Azure-GW**lehetőséget.
+8. A **kapcsolatok neve**mezőbe írja be a következőt: **AZS-Azure**.
+9. A **megosztott kulcs (PSK)** mezőbe írja be a **12345**értéket, majd kattintson **az OK gombra**.
 
-10. Az a **összefoglalás** szakaszban jelölje be **OK**.
+10. Az **Összefoglalás** szakaszban kattintson az **OK gombra**.
 
 ### <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-A VPN-kapcsolat ellenőrzéséhez hozzon létre két virtuális gépet: az Azure-ban, és a egy, az Azure Stackben. Miután létrehozta a virtuális gépeken, használhatja őket a VPN-alagúton keresztül adatokat küldeni és fogadni.
+A VPN-kapcsolat vizsgálatához hozzon létre két virtuális gépet: egyet az Azure-ban, és egy Azure Stack. Miután létrehozta ezeket a virtuális gépeket, használhatja őket a VPN-alagúton keresztüli adatküldésre és fogadásra.
 
-1. Az Azure Portalon válassza ki a **+ erőforrás létrehozása**.
-2. Lépjen a **Marketplace**, majd válassza ki **számítási**.
-3. A Virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter próbaverzió** kép.
-4. Az a **alapjai** részben, a **neve**, típus **Azs-VM**.
-5. Írjon be egy érvényes felhasználónevet és jelszót. Ez a fiók használatával jelentkezzen be a virtuális gép létrehozása után.
-6. Adjon meg egy **előfizetés**, **erőforráscsoport**, és **hely**, majd válassza ki **OK**.
-7. Az a **mérete** szakaszban, ehhez a példányhoz válassza ki a virtuális gép méretét, és válassza ki **kiválasztása**.
-8. Az a **beállítások** területen fogadja el az alapértelmezett értéket. Győződjön meg arról, hogy a **Azs-VNet** virtuális hálózat van kiválasztva. Győződjön meg arról, hogy az alhálózat beállítása pedig **10.1.0.0/24**. Ezután kattintson az **OK** gombra.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
+3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
+4. Az **alapok** szakaszban, a **név**mezőbe írja be a következőt: **AZS-VM**.
+5. Írjon be egy érvényes felhasználónevet és jelszót. Ezzel a fiókkal jelentkezhet be a virtuális gépre a létrehozása után.
+6. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**, majd kattintson **az OK gombra**.
+7. A **méret** szakaszban ehhez a példányhoz válassza ki a virtuális gép méretét, majd válassza a **kiválasztás**lehetőséget.
+8. A **Beállítások** szakaszban fogadja el az alapértelmezett értékeket. Győződjön meg arról, hogy a **AZS-VNet** virtuális hálózat van kiválasztva. Ellenőrizze, hogy az alhálózat **10.1.0.0/24**értékre van-e állítva. Ezután kattintson az **OK** gombra.
 
-9. Az a **összefoglalás** szakaszt, tekintse át a beállításokat, és válassza ki **OK**.
+9. Az **Összefoglalás** szakaszban tekintse át a beállításokat, majd kattintson az **OK gombra**.
 
 ## <a name="test-the-connection"></a>A kapcsolat tesztelése
 
-A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irányban áramló adatok kérheti. A kapcsolat tesztelése a legegyszerűbb módja,-ping teszt elvégzésével:
+A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irányban elérhető-e az adatforgalom. A kapcsolódás tesztelésének legegyszerűbb módja a ping teszt:
 
-* Jelentkezzen be a virtuális gép az Azure Stack- és ping a virtuális gép az Azure-ban létrehozott.
-* Jelentkezzen be a virtuális gép Azure-ban létrehozott, és Pingelje meg a virtuális gép az Azure Stackben.
+* Jelentkezzen be a Azure Stack-ben létrehozott virtuális gépre, és Pingelje meg a virtuális gépet az Azure-ban.
+* Jelentkezzen be az Azure-ban létrehozott virtuális gépre, és Pingelje a virtuális gépet Azure Stackban.
 
 >[!NOTE]
->Ahhoz, hogy a helyek közötti kapcsolaton keresztül a forgalom küldése folyamatban van, pingelje a távoli alhálózaton, nem a virtuális IP-CÍMEK a virtuális gép közvetlen IP (DIP) címét.
+>Annak ellenőrzéséhez, hogy a helyek közötti kapcsolaton keresztül küld forgalmat, Pingelje a virtuális gép közvetlen IP-címét (DIP) a távoli alhálózaton, ne pedig a VIP-t.
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Jelentkezzen be a felhasználói virtuális gép az Azure Stackben
+### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Jelentkezzen be Azure Stack a felhasználói virtuális gépre
 
-1. Jelentkezzen be az Azure Stack portálon.
-2. A bal oldali navigációs sávon válassza **virtuális gépek**.
-3. Virtuális gépek listáját, keresse meg **Azs-VM** , amelyet korábban létrehozott, és válassza ki azt.
-4. A szakasz a virtuális gép, jelölje be **Connect**, majd nyissa meg a Azs-VM.rdp fájlt.
+1. Jelentkezzen be a Azure Stack portálra.
+2. A bal oldali navigációs sávon válassza a **Virtual Machines**lehetőséget.
+3. A virtuális gépek listájában keresse meg a korábban létrehozott **AZS-VM** elemet, majd jelölje ki.
+4. A virtuális gép szakaszban válassza a **kapcsolat**lehetőséget, majd nyissa meg a AZS-VM. rdp fájlt.
 
-     ![Csatlakozás gomb](media/azure-stack-connect-vpn/image17.png)
+     ![Csatlakozási gomb](media/azure-stack-connect-vpn/image17.png)
 
-5. Jelentkezzen be a virtuális gép létrehozásakor beállított fiókot.
-6. Nyisson meg egy rendszergazda jogú Windows PowerShell-parancssorban.
+5. Jelentkezzen be azzal a fiókkal, amelyet a virtuális gép létrehozásakor konfigurált.
+6. Nyisson meg egy rendszergazda jogú Windows PowerShell-parancssort.
 7. Írja be az **ipconfig /all** parancsot.
-8. A kimenetben keresse meg a **IPv4-cím**, majd mentse a cím későbbi használatra. Ez az a cím, amely az Azure-ból pingelést. A példakörnyezetben a cím van **10.1.0.4**, de a környezetében ettől eltérő lehet. Alá kell tartozniuk a **10.1.0.0/24** alhálózatot, amelyet korábban hozott létre.
-9. Hozzon létre egy tűzfalszabályt, amely lehetővé teszi, hogy a virtuális gép pingelésre, futtassa a következő PowerShell-parancsot:
+8. A kimenetben keresse meg az **IPv4-címeket**, majd mentse a címeket későbbi használatra. Ez az a címe, amelyet az Azure-ból Pingel. A példában a **10.1.0.4**a címe, de a környezetben eltérő lehet. Ennek a **10.1.0.0/24** alhálózaton belül kell lennie, amelyet korábban hozott létre.
+9. A következő PowerShell-parancs futtatásával olyan tűzfalszabály hozható létre, amely lehetővé teszi a virtuális gép számára, hogy válaszoljon a pingelésre:
 
    ```powershell
    New-NetFirewallRule `
@@ -273,17 +273,17 @@ A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irá
     -Protocol ICMPv4
    ```
 
-### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Jelentkezzen be a bérlői virtuális Géphez az Azure-ban
+### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Jelentkezzen be a bérlői virtuális gépre az Azure-ban
 
 1. Jelentkezzen be az Azure portálra.
-2. A bal oldali navigációs sávon válassza **virtuális gépek**.
-3. A virtuális gépek listáját, keresse meg a **Azure-beli virtuális gép** , amelyet korábban létrehozott, és válassza ki azt.
-4. A szakasz a virtuális gép, jelölje be **Connect**.
-5. Jelentkezzen be a virtuális gép létrehozásakor beállított fiókot.
-6. Nyisson meg egy emelt szintű **Windows PowerShell** ablak.
+2. A bal oldali navigációs sávon válassza a **Virtual Machines**lehetőséget.
+3. A virtuális gépek listájából keresse meg a korábban létrehozott **Azure-VM-** t, majd jelölje ki.
+4. A virtuális gép szakaszban válassza a **kapcsolat**lehetőséget.
+5. Jelentkezzen be azzal a fiókkal, amelyet a virtuális gép létrehozásakor konfigurált.
+6. Nyisson meg egy emelt szintű **Windows PowerShell** -ablakot.
 7. Írja be az **ipconfig /all** parancsot.
-8. Megtekintheti az IPv4-címmel, amely beleesik **10.100.0.0/24**. A példakörnyezetben a cím van **10.100.0.4**, de előfordulhat, hogy a címe különböző.
-9. Hozzon létre egy tűzfalszabályt, amely lehetővé teszi, hogy a virtuális gép pingelésre, futtassa a következő PowerShell-parancsot:
+8. Meg kell jelennie egy IPv4-címnek, amely a **10.100.0.0/24**tartományba esik. A példában szereplő környezet **10.100.0.4**, de a címe eltérő lehet.
+9. A következő PowerShell-parancs futtatásával olyan tűzfalszabály hozható létre, amely lehetővé teszi a virtuális gép számára, hogy válaszoljon a pingelésre:
 
    ```powershell
    New-NetFirewallRule `
@@ -291,24 +291,24 @@ A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irá
     -Protocol ICMPv4
    ```
 
-10. A virtuális gépről az Azure-ban Pingelje meg az Azure Stackben, a virtuális Gépet az alagúton keresztül. Ehhez a virtuális gépről Azs feljegyzett DIP pingelje. Ez a példa a környezetben, **10.1.0.4**, de ügyeljen arra, hogy a tesztkörnyezetében feljegyzett címet pingelje. Az alábbi képernyőfelvétel-készítés hasonló öröklési eredményt kell megjelennie:
+10. Az Azure-beli virtuális gépről Pingelje Azure Stack a virtuális gépet az alagúton keresztül. Ehhez Pingelje a AZS-VM-ről rögzített DIP-t. A példában ez a **10.1.0.4**, de ügyeljen arra, hogy Pingelje a laborban feljegyzett címeket. A következő képernyőfelvételhez hasonló eredményt kell látnia:
 
-    ![Sikeres ping](media/azure-stack-connect-vpn/image19b.png)
+    ![Sikeres pingelés](media/azure-stack-connect-vpn/image19b.png)
 
-11. A távoli virtuális gépről kapott válasz sikeres tesztet jelez. Zárja be a virtuális gép ablakban.
+11. A távoli virtuális gép válasza sikeres tesztet jelez. A virtuális gép ablakát lezárhatja.
 
-Szigorúbb adatátvitel tesztelése (például eltérő méretű fájlok másolása mindkét irányban) is el kell végeznie.
+Szigorúbb adatátviteli tesztelésre is szükség van (például a különböző méretű fájlok másolására mindkét irányban).
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Adatátviteli statisztika megtekintése az átjárókapcsolaton keresztül
 
-Ha szeretné tudni, hogy mennyi adatot továbbítja a helyek közötti kapcsolaton keresztül, ez az információ érhető el a **kapcsolat** szakaszban. Ez a teszt akkor is egy másik módja az imént elküldött ping tényleg végighaladt a VPN-kapcsolat ellenőrzése.
+Ha tudni szeretné, hogy mennyi adat halad át a helyek közötti kapcsolaton keresztül, ez az információ a **kapcsolat** szakaszban érhető el. Ez a teszt azt is lehetővé teszi, hogy ellenőrizze, hogy az imént küldött pingelés valóban a VPN-kapcsolaton keresztül járt-e.
 
-1. Amíg a felhasználó virtuális Gépet az Azure Stackben bejelentkezett, a felhasználói fiók használatával jelentkezzen be a felhasználói portál.
-2. Lépjen a **összes erőforrás**, majd válassza ki a **Azs Azure-beli** kapcsolat. **Kapcsolatok** jelenik meg.
-3. Az a **kapcsolat** részben, a statisztikáit **adatok** és **kimenő adatforgalom** jelennek meg. Az alábbi képernyőfelvételen a nagy mennyiségű rendelnek a további fájlátvitel. Néhány nem nulla értéket kell megjelennie.
+1. Amikor bejelentkezett a Azure Stack felhasználói virtuális gépre, a felhasználói fiókkal jelentkezzen be a felhasználói portálra.
+2. Nyissa meg az **összes erőforrást**, majd válassza ki a **AZS – Azure-** kapcsolatokat. Megjelenik a **kapcsolatok** .
+3. A **kapcsolatok** szakaszban megjelennek az **adatok** és a **kimenő** adatok statisztikái. A következő képernyőfelvételen a nagyméretű számok további fájlátvitelt kapnak. Itt nem nulla értékeket kell látnia.
 
-    ![Bejövő és kimenő adatforgalom](media/azure-stack-connect-vpn/Connection.png)
+    ![Be-és kimenő adatterületek](media/azure-stack-connect-vpn/Connection.png)
 
 ## <a name="next-steps"></a>További lépések
 
-* [Alkalmazások üzembe helyezése az Azure és az Azure Stackben](azure-stack-solution-pipeline.md)
+* [Alkalmazások telepítése az Azure-ba és Azure Stack](azure-stack-solution-pipeline.md)
