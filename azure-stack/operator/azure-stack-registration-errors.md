@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: b06892e5e4c9d388756a2197f2054c1bac9f013c
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: e660b5024e9aa2b582fd3e8d2f6f51d7d20a5130
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973999"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019488"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Használati és számlázási regisztrációs hibakódok
 
@@ -41,6 +41,6 @@ Ha Ön CSP, a következő hibaüzenetek jelenhetnek meg, amikor [bérlőket ad h
 
 ## <a name="next-steps"></a>További lépések
 
-- További információ a [felhőalapú szolgáltatók használati jelentési infrastruktúrájának használatáról](azure-stack-csp-ref-infrastructure.md).
+- További információ a [felhőalapú megoldások szolgáltatóinak használati jelentési infrastruktúráról](azure-stack-csp-ref-infrastructure.md).
 - További információ a CSP programról: [felhőalapú megoldások](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Ha többet szeretne megtudni a Azure Stack erőforrás-használati adatok lekéréséről, tekintse meg a [használat és a számlázás Azure Stackban](azure-stack-billing-and-chargeback.md)című témakört.

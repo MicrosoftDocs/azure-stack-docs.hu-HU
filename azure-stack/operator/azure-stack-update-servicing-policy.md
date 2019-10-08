@@ -15,16 +15,16 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 70fe7c8cdb43f55c8e013dcca27dcde870b1cc9a
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 4794ad098e83677d712af611fc74395e0e5f4e20
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862962"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019452"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack karbantartási szabályzat
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
 
 Ez a cikk a Azure Stack integrált rendszerek karbantartási szabályzatát ismerteti, ami szükséges ahhoz, hogy a rendszer támogatott állapotban maradjon, és hogyan kérhet támogatást.
 
@@ -42,8 +42,8 @@ A Microsoft szoftverfrissítési csomagjai nem összesítő jellegűek, és elő
 
 ## <a name="get-support"></a>Támogatás kérése
 
-Azure Stack az Azure-beli támogatási folyamatot követi. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: [Azure-támogatással kapcsolatos gyakori kérdések](https://azure.microsoft.com/support/faq/).
+Azure Stack az Azure-beli támogatási folyamatot követi. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú megoldás-szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: [Azure-támogatással kapcsolatos gyakori kérdések](https://azure.microsoft.com/support/faq/).
 
-# <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>További lépések
 
 [Frissítések kezelése az Azure Stackben](azure-stack-updates.md)

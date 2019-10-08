@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 81ba613ec6a816d1ae6161d078452eea63ce1164
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974017"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019423"
 ---
 # <a name="usage-connectivity-errors"></a>Használati csatlakozási hibák
 
@@ -61,4 +61,4 @@ Emellett előfordulhat, hogy az alábbi [lépéseket](azure-stack-configure-on-d
 
 - További információ a [Azure stack használati adatok Azure-ba történő jelentéskészítéséről](azure-stack-usage-reporting.md).
 - Ha a regisztrációs folyamat során aktiválják a hibaüzeneteket, tekintse át a [bérlői regisztrációs hibaüzeneteket](azure-stack-registration-errors.md).
-- További információ a [felhőalapú szolgáltatók használati jelentési infrastruktúrájának használatáról](azure-stack-csp-ref-infrastructure.md).
+- További információ a [felhőalapú megoldások szolgáltatóinak használati jelentési infrastruktúráról](azure-stack-csp-ref-infrastructure.md).

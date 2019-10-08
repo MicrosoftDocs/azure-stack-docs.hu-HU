@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269491"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019283"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Bérlő hozzáadása a használathoz és a számlázáshoz Azure Stack
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
 
 Ez a cikk bemutatja, hogyan adhat hozzá bérlőt egy felhőalapú megoldás-szolgáltató (CSP) által kezelt Azure Stack központi telepítéshez. Amikor az új bérlő erőforrásokat használ, Azure Stack a jelentések használatát a CSP-előfizetéséhez.
 
@@ -37,11 +37,11 @@ Az alábbi ábra azokat a lépéseket mutatja be, amelyekkel a CSP-nek követnie
 
 ## <a name="add-an-end-customer"></a>Végfelhasználó hozzáadása
 
-A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el `azstcsp@microsoft.com`a regisztrációs előfizetés azonosítóját, az erőforráscsoport nevét és a regisztrációs nevet a következőnek:. Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
+A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el a regisztrációs előfizetés AZONOSÍTÓját, az erőforráscsoport nevét és a regisztrációs nevet a `azstcsp@microsoft.com` értékre. Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
 
 A következő ábrán látható módon vegyen fel egy végfelhasználót az alábbi lépésekkel:
 
-![A felhőalapú szolgáltató beállítása a használat nyomon követéséhez és a végfelhasználói fiók kezeléséhez](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
+![Felhőalapú megoldás-szolgáltató beállítása a használat nyomon követéséhez és a végfelhasználói fiók kezeléséhez](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>Új ügyfél létrehozása a partner Centerben
 
@@ -66,7 +66,7 @@ Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner
    ```
 
    >[!Note]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot:`Remove-AzureRmAccount-Scope Process`
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process`
 
 2. Adja meg az Azure-beli hitelesítő adatait.
 3. A PowerShell-munkamenetben futtassa a következőket:
@@ -102,4 +102,4 @@ Miután hozzáadta az új ügyfelet a Azure Stackhoz, vagy a végfelhasználói 
 
 - Ha szeretné áttekinteni a regisztrációs folyamat során elindított hibaüzeneteket, tekintse meg a [bérlői regisztrációs hibaüzeneteket](azure-stack-registration-errors.md).
 - Ha többet szeretne megtudni a Azure Stack erőforrás-használati adatok lekéréséről, tekintse meg a [használat és a számlázás Azure Stackban](azure-stack-billing-and-chargeback.md)című témakört.
-- Ha szeretné áttekinteni, hogy a végfelhasználó hogyan veheti fel Önt, a CSP-t a Azure Stack bérlője kezelőjéként tekintse meg a [felhőalapú szolgáltató engedélyezése a Azure stack-előfizetés kezeléséhez](../user/azure-stack-csp-enable-billing-usage-tracking.md)című témakört.
+- Ha szeretné áttekinteni, hogy a végfelhasználó hogyan veheti fel Önt, a CSP-t a Azure Stack bérlője kezelőjéként tekintse meg a [felhőalapú megoldások szolgáltatójának engedélyezése a Azure stack-előfizetés kezeléséhez](../user/azure-stack-csp-enable-billing-usage-tracking.md)című témakört.

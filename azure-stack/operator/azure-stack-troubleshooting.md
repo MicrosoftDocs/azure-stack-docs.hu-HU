@@ -16,12 +16,12 @@ ms.date: 09/30/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 7e2f13fa20c9aafd90abe34277c907a4d12b4d81
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687970"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019443"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
 
@@ -57,7 +57,7 @@ Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljutt
 
 További memória hozzáadásával megnövelheti az Azure Stack számára rendelkezésre álló teljes memóriakapacitást. Az Azure Stackben a fizikai kiszolgálót skálázásiegység-csomópontnak is nevezik. Az ugyanahhoz a skálázási egységhez tartozó skálázásiegység-csomópontokhoz [azonos mennyiségű memóriát](azure-stack-manage-storage-physical-memory-capacity.md) kell hozzárendelni.
 
-#### <a name="retention-period"></a>Megtartási időszak
+#### <a name="retention-period"></a>Megőrzési időszak
 
 Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzemeltető napokban (0–9999 nap) meghatározza azt az időszakot, amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett megőrzési időtartam **0** napra van állítva. Ha a **0** értéket állítja be, az azt jelenti, hogy a törölt fiókok azonnal megmaradnak, és meg vannak jelölve az időszakos szemét-gyűjtéshez.
 
@@ -82,7 +82,7 @@ Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet 
 
 Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típusát. Az alábbi előfizetés-típusokkal lehet regisztrálni egy több-bérlős Azure Stacket:
 
-* Felhőszolgáltató
+* Cloud Solution Provider program
 * Partner Shared Services-előfizetés
 
 

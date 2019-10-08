@@ -1,6 +1,6 @@
 ---
-title: Azure Stack nyilvános kulcsú infrastruktúra-tanúsítványok előállítása Azure Stack integrált rendszerek üzembe helyezéséhez | Microsoft Docs
-description: A Azure Stack integrált rendszerek Azure Stack PKI-tanúsítványának telepítési folyamatát ismerteti.
+title: Tanúsítvány-aláírási kérelmek előállítása a Azure Stackhoz | Microsoft Docs
+description: Megtudhatja, hogyan hozhatja Azure Stack PKI-tanúsítványokhoz tartozó tanúsítvány-aláírási kérelmeket Azure Stack integrált rendszerekben.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,25 +14,25 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 365f727f7e07c697dc2fd3cfe2a5c1bea5b68409
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902687"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019258"
 ---
-# <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack tanúsítvány-aláírási kérelem létrehozása
+# <a name="generate-certificate-signing-requests-for-azure-stack"></a>Tanúsítvány-aláírási kérelmek előállítása Azure Stackhoz
 
 A Azure Stack Readiness-ellenőrző eszköz használatával tanúsítvány-aláírási kérelmeket (munkatársakat) hozhat létre Azure Stack központi telepítéshez. A tanúsítványokat az üzembe helyezés előtt elég időt kell kérni, generálni és érvényesíteni. Az eszközt [a PowerShell-galériaból](https://aka.ms/AzsReadinessChecker)kérheti le.
 
 A következő tanúsítványok igényléséhez használhatja a Azure Stack Readiness-ellenőrző eszközt (AzsReadinessChecker):
 
-- **Szabványos tanúsítványkérelmek** a [Azure stack központi telepítéshez PKI-tanúsítványok előállítása](azure-stack-get-pki-certs.md)alapján.
+- **Szabványos tanúsítványkérelmek** a [tanúsítvány-aláírási kérelem előállítása](azure-stack-get-pki-certs.md#generate-certificate-signing-requests)alapján.
 - **Platform-as-a-Service**: A tanúsítványokra vonatkozóan a [nyilvános kulcsokra épülő infrastruktúra tanúsítványára vonatkozó követelményekben Azure stack](azure-stack-pki-certs.md#optional-paas-certificates)megadott platform-szolgáltatásként (a-Service-szolgáltatások (Pásti) nevét is kérheti – opcionális Péter-tanúsítványok.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt egy Azure Stack központi telepítéshez a PKI-tanúsítványokhoz tartozó CSR (ka) t hozza létre:
+A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt a PKI-tanúsítványokhoz tartozó összes ügyfélszolgálatot létrehoz egy Azure Stack központi telepítéshez:
 
 - Microsoft Azure Stack Readiness-ellenőrző
 - Tanúsítvány attribútumai:
@@ -44,7 +44,7 @@ A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt egy A
   > [!NOTE]  
   > Amikor visszakapja a tanúsítványokat a hitelesítésszolgáltatótól, a [Azure stack PKI-tanúsítványok előkészítésének](azure-stack-prepare-pki-certs.md) lépéseit ugyanazon a rendszeren kell végrehajtania.
 
-## <a name="generate-certificate-signing-requests"></a>Tanúsítvány-aláírási kérelem (ek) előállítása
+## <a name="generate-certificate-signing-requests"></a>Tanúsítvány-aláírási kérelmek előállítása
 
 Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-tanúsítványokat:
 
@@ -61,7 +61,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     ```
 
     > [!note]  
-    > Ha köznapi nevet (CN) ad meg, a rendszer felülírja a tanúsítványkérelem első DNS-nevével.
+    > Köznapi név (CN) megadása esetén a tanúsítványkérelem első DNS-neve felül lesz írva.
 
 3. Deklaráljon egy már létező kimeneti könyvtárat. Példa:
 
@@ -69,15 +69,15 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
-4. Identity System deklarálása
+4. Állapítsa meg a személyazonossági rendszereket.
 
-    Azure Active Directory
+    Azure Active Directory (Azure AD):
 
     ```powershell
     $IdentitySystem = "AAD"
     ```
 
-    Active Directory összevonási szolgáltatások
+    Active Directory összevonási szolgáltatások (AD FS) (AD FS):
 
     ```powershell
     $IdentitySystem = "ADFS"
@@ -91,7 +91,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     ```
 
     > [!note]  
-    > `<regionName>.<externalFQDN>`az alapot képezi, hogy a Azure Stack összes külső DNS-neve hogyan jön létre, ebben a példában a `portal.east.azurestack.contoso.com`portál lenne.  
+    > @no__t – 0 – a Azure Stack összes külső DNS-nevének létrehozása, ebben a példában a portál `portal.east.azurestack.contoso.com`.  
 
 6. Tanúsítvány-aláírási kérelmek előállítása minden DNS-névhez:
 
@@ -99,7 +99,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    A Pásti-szolgáltatások belefoglalásához adja meg a kapcsolót```-IncludePaaS```
+    A Péter-szolgáltatások belefoglalásához adja meg a kapcsolót ```-IncludePaaS```.
 
 7. A fejlesztési és tesztelési környezetekben egyetlen, több tulajdonos alternatív névvel rendelkező **RequestType SingleCSR** paramétert és értéket (éles környezetekben**nem** ajánlott) hozhat létre.
 
@@ -107,7 +107,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    A Pásti-szolgáltatások belefoglalásához adja meg a kapcsolót```-IncludePaaS```
+    A Péter-szolgáltatások belefoglalásához adja meg a kapcsolót @no__t – 0
 
 8. Tekintse át a kimenetet:
 
@@ -124,7 +124,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     New-AzsCertificateSigningRequest Completed
     ```
 
-9. Küldje el a t **.** A CA-hoz GENERÁLT REQ-fájl (belső vagy nyilvános).  A **New-AzsCertificateSigningRequest** kimeneti könyvtára tartalmazza a hitelesítésszolgáltatóhoz való beküldéshez szükséges CSR (ka) t.  A könyvtár tartalmazza a hivatkozáshoz tartozó alárendelt könyvtárat is, amely a tanúsítványkérelem létrehozásakor használt INF-fájl (oka) t tartalmazza. Győződjön meg arról, hogy a HITELESÍTÉSSZOLGÁLTATÓ olyan tanúsítványokat hoz létre, amelyek megfelelnek a [Azure stack PKI követelményeinek](azure-stack-pki-certs.md).
+9. Küldje el a t **.** A CA-hoz GENERÁLT REQ-fájl (belső vagy nyilvános). A **New-AzsCertificateSigningRequest** kimeneti könyvtára tartalmazza a hitelesítésszolgáltatóhoz való beküldéshez szükséges CSR (ka) t. A könyvtár tartalmazza a hivatkozáshoz tartozó alárendelt könyvtárat is, amely a tanúsítványkérelem létrehozásakor használt INF-fájl (oka) t tartalmazza. Győződjön meg arról, hogy a HITELESÍTÉSSZOLGÁLTATÓ olyan tanúsítványokat hoz létre, amelyek megfelelnek a [Azure stack PKI követelményeinek](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>További lépések
 

@@ -1,6 +1,6 @@
 ---
-title: Identitásarchitektúra az Azure Stackhez |} A Microsoft Docs
-description: Ismerje meg az identitás architektúra is használhatja az Azure Stack használatával.
+title: A Azure Stack identitás-architektúrája | Microsoft Docs
+description: Ismerje meg a Azure Stack identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,87 +16,94 @@ ms.date: 05/09/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: e09451c1bf49a2de075388f555cb7b80e70db63f
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 364028183445df7e74828605439bfd7b3784f01f
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532320"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019406"
 ---
-# <a name="identity-architecture-for-azure-stack"></a>Identitásarchitektúra az Azure Stackhez
+# <a name="identity-architecture-for-azure-stack"></a>Azure Stack identitás-architektúrája
 
-Ha az Azure Stack használata Identitásszolgáltatóként, tisztában kell lennie a fontos különbségek a beállításokat az Azure Active Directory (Azure AD) és az Active Directory összevonási szolgáltatások (AD FS) között.
+Ha a Azure Stackhoz használandó identitás-szolgáltatót választ, meg kell ismernie az Azure Active Directory (Azure AD) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) lehetőségei közötti lényeges különbségeket.
 
-## <a name="capabilities-and-limitations"></a>Képességei és korlátozásai 
-Az Ön által választott identitásszolgáltató korlátozhatja a beállításokat, beleértve a több-bérlős támogatás. 
+## <a name="capabilities-and-limitations"></a>Képességek és korlátozások
 
-  
+A választott identitás-szolgáltató korlátozhatja a beállításokat, beleértve a több-bérlős támogatást is.
 
-|Funkció vagy forgatókönyv        |Azure AD  |AD FS  |
+|Képesség vagy forgatókönyv        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
 |Csatlakozik az internethez     |Igen       |Választható|
-|Több-bérlős támogatás     |Igen       |Nem      |
-|A piactéren az ajánlat elemek |Igen       |Igen. Használatát igényli a [offline Marketplace szindikálási](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) eszközt.|
-|Az Active Directory Authentication Library (ADAL) támogatása |Igen |Igen|
-|Azure CLI-vel, a Visual Studio és a PowerShell hálózatdiagnosztikai eszközök támogatása  |Igen |Igen|
-|Az Azure Portalon keresztül szolgáltatásnevek létrehozása     |Igen |Nem|
-|Szolgáltatásnevek létrehozása tanúsítványokkal      |Igen |Igen|
-|Szolgáltatásnevek létrehozása titkos kulcsok (kulcsok)    |Igen |Igen|
-|Alkalmazások használhatják a Graph szolgáltatás           |Igen |Nem|
-|Alkalmazások identitásszolgáltató használhatják a bejelentkezéshez |Igen |Igen. Szükséges összevonni a helyszíni alkalmazások az AD FS-példányok. |
+|Több-bérlős támogatás támogatása     |Igen       |Nem      |
+|Ajánlati elemek a piactéren |Igen       |Igen (az [Offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) eszköz használatát igényli)|
+|Active Directory-hitelesítési tár támogatása (ADAL) |Igen |Igen|
+|Támogatás olyan eszközökhöz, mint az Azure CLI, a Visual Studio és a PowerShell  |Igen |Igen|
+|Egyszerű szolgáltatás létrehozása a Azure Portal     |Igen |Nem|
+|Egyszerű szolgáltatások létrehozása tanúsítványokkal      |Igen |Igen|
+|Egyszerű szolgáltatás létrehozása a Secrets (kulcsok) használatával    |Igen |Igen|
+|Az alkalmazások használhatják a Graph szolgáltatást           |Igen |Nem|
+|Az alkalmazások használhatják az Identitáskezelő szolgáltatást a bejelentkezéshez |Igen |Igen (az alkalmazásoknak a helyszíni AD FS-példányokkal való összevonása szükségesek) |
 
 ## <a name="topologies"></a>Topológiák
-A következő részekben bemutatjuk a különböző identitás topológiákat, amelyet használhat.
 
-### <a name="azure-ad-single-tenant-topology"></a>Az Azure AD: egybérlős topológia 
-Alapértelmezés szerint az Azure Stack telepítése és használata az Azure Active Directory, Azure Stack használja egy egybérlős topológiát. 
+A következő fejezetek a különböző identitás-topológiákat tárgyalják.
 
-Egy egybérlős topológia a következő esetekben hasznos:
-- Minden felhasználó ugyanahhoz a bérlőhöz tartoznak.
-- A szolgáltató egy szervezet az Azure Stack példányt üzemeltetnek. 
+### <a name="azure-ad-single-tenant-topology"></a>Azure AD: egybérlős topológia
 
-![Az Azure Stack egybérlős topológia az Azure ad-vel](media/azure-stack-identity-architecture/single-tenant.png)
+Alapértelmezés szerint a Azure Stack telepítésekor és az Azure AD használatakor a Azure Stack egyetlen bérlős topológiát használ.
 
-Ez a topológia szolgáltatások a következő jellemzőkkel:
-- Az Azure Stack regisztrálja minden alkalmazást, és ugyanazt az Azure AD-szolgáltatások directory bérlővel. 
-- Az Azure Stack hitelesíti, csak a felhasználók és az alkalmazások a könyvtárban, beleértve a jogkivonatokat. 
-- Rendszergazdák (a felhő üzemeltetői) és a bérlői felhasználók identitásainak ugyanahhoz a directory-bérlőhöz vannak. 
-- Ahhoz, hogy egy felhasználó egy másik címtárból az Azure Stack-környezet elérésére, kell [meghívása a felhasználó vendégként](azure-stack-identity-overview.md#guest-users) , a bérlő címtárát. 
+Az egybérlős topológia akkor hasznos, ha:
+- Minden felhasználó ugyanahhoz a bérlőhöz tartozik.
+- A szolgáltató Azure Stack példányt üzemeltet a szervezet számára.
 
-### <a name="azure-ad-multi-tenant-topology"></a>Az Azure AD: több-bérlős topológia
-Felhő üzemeltetői konfigurálhatja egy vagy több szervezet bérlők által az alkalmazásoknak hozzáférést az Azure Stack. Felhasználók a felhasználói portálon keresztül férhetnek hozzá az alkalmazásokhoz. Ebben a konfigurációban a felügyeleti portálon (a felhő üzemeltetője által használt) korlátozódik a felhasználók számára egy egy címtárból. 
+![Egybérlős topológia Azure Stack az Azure AD-vel](media/azure-stack-identity-architecture/single-tenant.png)
 
-Egy több-bérlős topológia a következő esetekben hasznos:
-- A szolgáltató szeretné, hogy a felhasználók több szervezet az Azure Stack eléréséhez.
+Ez a topológia a következő jellemzőkkel rendelkezik:
 
-![Az Azure Stack több-bérlős topológia az Azure ad-vel](media/azure-stack-identity-architecture/multi-tenant.png)
+- Azure Stack regisztrálja az összes alkalmazást és szolgáltatást ugyanahhoz az Azure AD-bérlői címtárhoz.
+- Azure Stack csak a címtárban lévő felhasználókat és alkalmazásokat hitelesíti, beleértve a jogkivonatokat is.
+- A rendszergazdák (felhőalapú operátorok) és a bérlői felhasználók identitása ugyanabban a címtár-bérlőben található.
+- Ha engedélyezni szeretné, hogy egy felhasználó egy másik címtárból hozzáférhessen ehhez a Azure Stack-környezethez, meg kell [hívnia a felhasználót vendégként](azure-stack-identity-overview.md#guest-users) a bérlői címtárba.
 
-Ez a topológia szolgáltatások a következő jellemzőkkel:
-- Erőforrásokhoz való hozzáférés a szervezet alapon kell lennie. 
-- Lehet, hogy egy szervezet felhasználóitól származó nem lehet a szervezeten kívüli felhasználók erőforrásokhoz való hozzáférést. 
-- A felhasználók identitásainak külön címtárbérlő identitások a rendszergazdák számára (a felhő üzemeltetői) is lehet. Ez a fajta elkülönítés el vannak különítve fiók az identity provider szintjén. 
+### <a name="azure-ad-multi-tenant-topology"></a>Azure AD: több-bérlős topológia
+
+A Felhőbeli operátorok úgy konfigurálhatják Azure Stack, hogy a bérlők egy vagy több szervezettől hozzáférjenek az alkalmazásokhoz. A felhasználók a Azure Stack felhasználói portálon keresztül férhetnek hozzá az alkalmazásokhoz. Ebben a konfigurációban a felügyeleti portál (amelyet a felhőalapú operátor használ) egyetlen címtárban lévő felhasználókra korlátozódik.
+
+A több-bérlős topológia akkor hasznos, ha:
+
+- A szolgáltató lehetővé szeretné tenni, hogy több szervezet felhasználói hozzáférhessenek Azure Stackhoz.
+
+![Több-bérlős topológia Azure Stack az Azure AD-vel](media/azure-stack-identity-architecture/multi-tenant.png)
+
+Ez a topológia a következő jellemzőkkel rendelkezik:
+
+- Az erőforrásokhoz való hozzáférésnek szervezeti alapon kell lennie.
+- Az egyik szervezet felhasználói nem tudnak hozzáférést biztosítani az erőforrásokhoz a szervezeten kívüli felhasználók számára.
+- A rendszergazdák identitásai (felhőalapú operátorok) a felhasználók identitása különálló címtár-bérlőn is lehetnek. Ez az elkülönítés az identitás-szolgáltató szintjén biztosítja a fiók elkülönítését.
  
-### <a name="ad-fs"></a>AD FS  
-Az AD FS-topológia kötelező megadni, ha a következő feltételek valamelyike teljesül:
-- Az Azure Stack nem csatlakozik az internethez.
-- Az Azure Stack csatlakozni az internethez, de úgy dönt, hogy az AD FS használata az identitásszolgáltató.
+### <a name="ad-fs"></a>AD FS
+
+A AD FS topológiára akkor van szükség, ha az alábbi feltételek bármelyike teljesül:
+
+- Azure Stack nem csatlakozik az internethez.
+- Azure Stack csatlakozhat az internethez, de Ön úgy dönt, hogy a AD FS használja az identitás-szolgáltatóhoz.
   
-![Az AD FS az Azure Stack-topológia](media/azure-stack-identity-architecture/adfs.png)
+![Topológia Azure Stack AD FS használatával](media/azure-stack-identity-architecture/adfs.png)
 
-Ez a topológia szolgáltatások a következő jellemzőkkel:
-- Éles környezetben ez a topológia támogatása, integrálnia kell az Azure Stack az AD FS beépített példányt egy meglévő AD FS-példánnyal alapját az Active Directory összevonási megbízhatósági keresztül. 
-- A Graph szolgáltatás az Azure Stackben integrálható a meglévő Active Directory-példányból. Az OData-alapú Graph API szolgáltatás, amely támogatja az API-k konzisztensek legyenek az Azure AD Graph API is használható. 
+Ez a topológia a következő jellemzőkkel rendelkezik:
 
-  A Graph API használatához az Active Directory-példánnyal, megköveteli a felhasználói hitelesítő adatokat az Active Directory-példányból, amelyek csak olvasható engedélyek. 
-  - A beépített AD FS-példányt a Windows Server 2016-on alapul. 
-  - Az AD FS és az Active Directory-példányok Windows Server 2012 vagy újabb rendszeren kell alapulniuk. 
+- A topológia éles környezetben való használatának támogatásához integrálnia kell a beépített Azure Stack AD FS példányt egy olyan meglévő AD FS-példánnyal, amelyet Active Directory egy összevonási megbízhatósági kapcsolaton keresztül támogat.
+- A Graph szolgáltatást Azure Stack a meglévő Active Directory-példánnyal integrálhatja. Használhatja a OData-alapú Graph API szolgáltatást is, amely támogatja az Azure AD-Graph API konzisztens API-kat.
+
+  A Active Directory-példánnyal való kommunikációhoz a Graph API felhasználói hitelesítő adatokat igényel az Active Directory-példánytól, amely csak olvasási jogosultsággal rendelkezik.
+  - A beépített AD FS példány a Windows Server 2016-es verzióján alapul.
+  - A AD FS-és Active Directory-példányok Windows Server 2012-es vagy újabb verzión alapulnak.
   
-  Az Active Directory-példányból, és a beépített AD FS-példány között interakciók nem korlátozott, az OpenID Connect, és bármely kölcsönösen támogatott protokollt használhatják. 
-  - Felhasználói fiókok létrehozása és kezelése a helyszíni Active Directory-példányában.
-  - Az egyszerű szolgáltatások és alkalmazások regisztrációját kezeli a beépített Active Directory-példányban.
-
-
+  A Active Directory-példány és a beépített AD FS-példány között az interakciók nem korlátozódnak az OpenID Connect használatára, és bármilyen kölcsönösen támogatott protokollt használhatnak.
+  - A felhasználói fiókok létrehozása és kezelése a helyszíni Active Directory-példányban történik.
+  - Az alkalmazások egyszerű szolgáltatásait és regisztrációit a beépített Active Directory-példány kezeli.
 
 ## <a name="next-steps"></a>További lépések
-- [Az identitások áttekintése](azure-stack-identity-overview.md)   
-- [Adatközpont integrációja - identitás](azure-stack-integrate-identity.md)
+
+- [Az identitás áttekintése](azure-stack-identity-overview.md)
+- [Adatközpont-integráció – identitás](azure-stack-integrate-identity.md)
