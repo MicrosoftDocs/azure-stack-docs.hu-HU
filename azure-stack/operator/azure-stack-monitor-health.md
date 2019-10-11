@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1747be1c97a706aae5d49889949fd0b0f9a70da3
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829477"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164963"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Állapot és riasztások figyelése Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 A Azure Stack infrastruktúra-figyelési funkciókat is tartalmaz, amelyek segítségével megtekintheti egy Azure Stack régió állapotát és riasztásait. Az alapértelmezett szolgáltatói előfizetéshez tartozó felügyeleti portálon alapértelmezés szerint rögzített **régió-felügyeleti** csempe felsorolja Azure stack összes telepített régióját. A csempe az egyes régiókban az aktív kritikus és figyelmeztető riasztások számát jeleníti meg. A csempe a Azure Stack állapotának és riasztási funkciójának belépési pontja.
 
@@ -55,7 +55,7 @@ Ha meg szeretné tekinteni az állapotot a portálon, kattintson arra a régiór
 Az erőforrás-szolgáltatóra vagy az infrastruktúra-szerepkörre kattintva részletesebb információkat jeleníthet meg.
 
 > [!WARNING]  
-> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás**vagy a **Leállítás**lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. Ezeket a beállításokat ne használja Azure stack Development Kit-környezetben. Ezek a beállítások csak egy integrált rendszer-környezethez készültek, ahol infrastruktúra-szerepkör esetén több szerepkör-példány is található. A fejlesztői csomagban lévő szerepkör-példány (különösen a AzS-Xrp01) újraindítása a rendszer instabilitását okozza. A hibaelhárítással kapcsolatos segítségért tegye fel a problémát a [Azure stack fórumba](https://aka.ms/azurestackforum).
+> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás**vagy a **Leállítás**lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. Ezeket a beállításokat **ne használja Azure stack Development Kit** -környezetben. Ezek a beállítások csak egy integrált rendszer-környezethez készültek, ahol infrastruktúra-szerepkör esetén több szerepkör-példány is található. A fejlesztői csomagban lévő szerepkör-példány (különösen a AzS-Xrp01) újraindítása a rendszer instabilitását okozza. A hibaelhárítással kapcsolatos segítségért tegye fel a problémát a [Azure stack fórumba](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Riasztások megtekintése
@@ -64,9 +64,12 @@ Az egyes Azure Stack régiók aktív riasztások listája közvetlenül a **rég
 
 ![Riasztások csempéje, amely figyelmeztetést jelenít meg](media/azure-stack-monitor-health/image3.png)
 
-A riasztások csempe felső részének kiválasztásával navigáljon a régió összes aktív riasztásának listájához. Ha a csempe **kritikus** vagy **figyelmeztető** sorát választja, navigáljon a riasztások szűrt listájához (kritikus vagy figyelmeztetés). 
+A **riasztások** csempe felső részének kiválasztásával navigáljon a régió összes aktív riasztásának listájához. Ha a csempe **kritikus** vagy **figyelmeztető** sorát választja, navigáljon a riasztások szűrt listájához (kritikus vagy figyelmeztetés). 
 
 A **riasztások** panel támogatja az állapot (aktív vagy lezárt) és a súlyosság (kritikus vagy figyelmeztetés) szűrését. Az alapértelmezett nézet az összes aktív riasztást megjeleníti. Hét nap után minden lezárt riasztás el lesz távolítva a rendszerből.
+
+>[!Note]
+>Ha egy riasztás aktív marad, de egy nap alatt még nem frissült, futtathatja a [test-AzureStack](azure-stack-diagnostic-test.md) , és ha nem jelent problémát, akkor lezárhatja a riasztást.
 
 ![Szűrés ablaktábla kritikus vagy figyelmeztetési állapot alapján történő szűréshez](media/azure-stack-monitor-health/alert-view.png)
 

@@ -12,24 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829060"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173061"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack diagnosztikai naplók gyűjtése
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
-A hibaelhárítás részeként előfordulhat, hogy a Microsoft ügyfél-támogatási szolgálatának (CSS) elemezni kell a diagnosztikai naplókat. Az 1907-es kiadástól kezdve Azure Stack operátorok igény szerinti diagnosztikai naplókat tölthetnek fel az Azure-beli blob-tárolóba a **Súgó és támogatás**használatával. Ha a portál nem érhető el, akkor a kezelők a Get-AzureStackLog használatával gyűjthetnek naplókat a privilegizált végponton (PEP) keresztül. Ez a témakör a diagnosztikai naplók igény szerinti gyűjtésének mindkét módját ismerteti.
+A hibaelhárítás részeként előfordulhat, hogy a Microsoft ügyfél-támogatási szolgálatának (CSS) elemezni kell a diagnosztikai naplókat. Az 1907-es kiadástól kezdve Azure Stack operátorok igény szerinti diagnosztikai naplókat tölthetnek fel az Azure-beli blob-tárolóba a **Súgó és támogatás**használatával. Ha a portál nem érhető el, a kezelők a Get-AzureStackLog használatával gyűjthetnek naplókat a privilegizált végponton (PEP) keresztül. Ez a témakör a diagnosztikai naplók igény szerinti gyűjtésének mindkét módját ismerteti.
 
-## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>A Súgó és támogatás segítségével gyűjtsön diagnosztikai naplókat
+>[!Note]
+>A naplók igény szerinti gyűjtésének alternatívájaként egyszerűsítheti a hibaelhárítási folyamatot, ha engedélyezi az [automatikus diagnosztikai naplók gyűjtését](azure-stack-configure-automatic-diagnostic-log-collection.md). Ha a rendszerállapot-feltételek kivizsgálására van szükség, a rendszer automatikusan feltölti a naplókat a CSS-elemzésekhez. 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>A Súgó és támogatás használatával igény szerint gyűjthet diagnosztikai naplókat
 
 A probléma elhárításához a CSS kérheti Azure Stack operátort, hogy az előző hét adott időablakára vonatkozóan igény szerint gyűjtsön diagnosztikai naplókat. Ebben az esetben a CSS a kezelőt egy SAS URL-címmel fogja biztosítani a gyűjtemény feltöltéséhez. A következő lépésekkel konfigurálhatja az igény szerinti naplózási gyűjteményt a CSS SAS URL-címének használatával:
 
@@ -99,7 +102,7 @@ if ($session) {
 
 #### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog futtatása Azure Stack Development Kit (ASDK) rendszeren
 
-Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
+A következő lépésekkel futtathatja `Get-AzureStackLog` rendszert egy ASDK-gazdagépen.
 
 1. Jelentkezzen be **AzureStack\CloudAdmin** -ként a ASDK-gazdaszámítógépen.
 2. Nyisson meg egy új PowerShell-ablakot rendszergazdaként.
@@ -156,10 +159,10 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
   1. Hozzon létre egy Storage-fiókot a [cikk](/azure/storage/common/storage-quickstart-create-account)lépéseit követve.
   2. Nyissa meg a Azure Storage Explorer egy példányát.
   3. Kapcsolódjon az 1. lépésben létrehozott Storage-fiókhoz.
-  4. Navigáljon a **Storage Services** **blob** -tárolói között.
+  4. Navigáljon a **Storage Services** **blob-tárolói** között.
   5. Válassza **az új tároló létrehozása**lehetőséget.
-  6. Kattintson a jobb gombbal az új tárolóra, majd kattintson a **megosztott hozzáférés aláírásának**beolvasása elemre.
-  7. A követelményektől függően adjon meg egy érvényes kezdési és **befejezési**időpontot.
+  6. Kattintson a jobb gombbal az új tárolóra, majd kattintson a **megosztott hozzáférés aláírásának beolvasása**elemre.
+  7. A követelményektől függően adjon meg egy érvényes **kezdési** és **befejezési időpontot**.
   8. A szükséges engedélyek esetében válassza az **olvasás**, **írás**és **lista**lehetőséget.
   9. Kattintson a **Létrehozás** gombra.
   10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg a `-OutputSasUri` paraméternek.
@@ -189,17 +192,17 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
   |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
-  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |LETT            |
+  |ACSDownloadService    |Számítási szolgáltatások                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
   |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSSettingsService    |EGB                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Adattárolás                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
@@ -214,7 +217,7 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
 * A parancs eltarthat egy ideig, hogy a naplók milyen szerepkör (ek) gyűjtését végzik. A közreműködő tényezők közé tartozik a naplókhoz megadott időtartam és a Azure Stack környezet csomópontjainak száma is.
 * A napló-gyűjtemény futtatásakor ellenőrizze a parancsban megadott **OutputSharePath** paraméterben létrehozott új mappát.
 * Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, és válassza a **Kibontás**lehetőséget. Az adott szerepkörhöz tartozó összes naplófájl egyetlen egyesített mappába lesz kibontva.
-* A **Get-AzureStackLog_Output. log** nevű fájl a tömörített naplófájlokat tartalmazó mappában is létrejön. Ez a fájl a parancs kimenetének naplója, amely a naplózási problémák elhárításához használható. Előfordulhat, hogy a naplófájl `PS>TerminatingError` olyan bejegyzéseket tartalmaz, amelyek nyugodtan figyelmen kívül hagyhatók, kivéve, ha a napló-gyűjtemény futtatása után hiányoznak a várt naplófájlok.
+* A **Get-AzureStackLog_Output. log** nevű fájl a tömörített naplófájlokat tartalmazó mappában is létrejön. Ez a fájl a parancs kimenetének naplója, amely a naplózási problémák elhárításához használható. Előfordulhat, hogy a naplófájl `PS>TerminatingError` bejegyzéseket tartalmaz, amelyek nyugodtan figyelmen kívül hagyhatók, kivéve, ha a napló-gyűjtemény futtatása után hiányoznak a várt naplófájlok.
 * Egy adott hiba kivizsgálásához több összetevőre is szükség lehet a naplókra.
 
   * Az összes infrastruktúra-virtuális gép rendszer-és eseménynaplói a **VirtualMachines** szerepkörben lesznek összegyűjtve.
@@ -225,11 +228,11 @@ Ezekkel a lépésekkel `Get-AzureStackLog` futtathat ASDK gazdaszámítógépen.
 > [!NOTE]
 > A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplókon, mivel ez elengedhetetlen a tárterület hatékony kihasználtságának biztosításához, valamint a naplók beszerzésének elkerüléséhez. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek ezen korlátok miatt már nem léteznek. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
 
-### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Meghívás – AzureStackOnDemandLog
 
 A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók alapértelmezés szerint nem jelennek meg a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
 
-Jelenleg a `-FilterByRole` (z) paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
+Jelenleg a `-FilterByRole` paraméter használatával szűrheti a naplózási gyűjteményt a következő szerepkörökkel:
 
 * OEM
 * NC

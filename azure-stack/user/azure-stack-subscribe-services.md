@@ -17,19 +17,19 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: f47278fed9cd9e93024d37a0a433388594bbd124
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319156"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164994"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>Oktatóanyag: Előfizetés létrehozása és tesztelése Azure Stack
 
 Ez az oktatóanyag bemutatja, hogyan hozhat létre egy ajánlatot tartalmazó előfizetést, majd hogyan tesztelheti azt. A teszthez jelentkezzen be a Azure Stack felhasználói portálra felhőalapú rendszergazdaként, iratkozzon fel az ajánlatra, majd hozzon létre egy virtuális gépet (VM).
 
 > [!TIP]
-> A fejlettebb értékelési élmény érdekében [létrehozhat egy adott felhasználóhoz tartozó](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) előfizetést, majd a felhasználói portálon is bejelentkezhet.
+> A fejlettebb értékelési élmény érdekében [létrehozhat egy adott felhasználóhoz tartozó előfizetést](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) , majd a felhasználói portálon is bejelentkezhet.
 
 Ez az oktatóanyag bemutatja, hogyan fizethet elő Azure Stack ajánlatra.
 
@@ -43,7 +43,7 @@ Ismertetett témák:
 
 Ha felhasználóként szeretne előfizetni az ajánlatra, jelentkezzen be a Azure Stack felhasználói portálra, és tekintse meg az Azure Stack operátor által kínált elérhető szolgáltatásokat.
 
-1. Jelentkezzen be a felhasználói portálra, és válassza az **előfizetés**beszerzése lehetőséget.
+1. Jelentkezzen be a felhasználói portálra, és válassza az **előfizetés beszerzése**lehetőséget.
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-services/get-subscription.png)
 
@@ -54,13 +54,13 @@ Ha felhasználóként szeretne előfizetni az ajánlatra, jelentkezzen be a Azur
    > [!TIP]
    > Frissítse a felhasználói portált az előfizetés használatának megkezdéséhez.
 
-3. A létrehozott előfizetés megtekintéséhez válassza a **minden szolgáltatás**lehetőséget. Ezután az **általános** kategóriában válassza az előfizetések lehetőséget, majd válassza ki az új előfizetést. Az ajánlatra való előfizetést követően frissítse a portált, és ellenőrizze, hogy az új szolgáltatások részét képezték-e az új előfizetés részeként. Ebben a példában a **virtuális gépek** lettek hozzáadva.
+3. A létrehozott előfizetés megtekintéséhez válassza a **minden szolgáltatás**lehetőséget. Ezután az **általános** kategóriában válassza az **előfizetések**lehetőséget, majd válassza ki az új előfizetést. Az ajánlatra való előfizetést követően frissítse a portált, és ellenőrizze, hogy az új szolgáltatások részét képezték-e az új előfizetés részeként. Ebben a példában a **virtuális gépek** lettek hozzáadva.
 
    ![Előfizetés megtekintése](media/azure-stack-subscribe-services/view-subscription.png)
 
 ## <a name="test-the-offer"></a>Az ajánlat tesztelése
 
-Ha bejelentkezett a felhasználói portálra, tesztelje az ajánlatot az új előfizetési lehetőségekkel (VM) való kiépítés használatával.
+Ha bejelentkezett a felhasználói portálra, tesztelje az ajánlatot úgy, hogy kiépít egy virtuális gépet az új előfizetési funkciók használatával.
 
 > [!NOTE]
 > Ehhez a teszthez először hozzá kell adni egy Windows Server 2016 Datacenter rendszerű virtuális gépet a Azure Stack Marketplace-hez.
@@ -69,7 +69,7 @@ Ha bejelentkezett a felhasználói portálra, tesztelje az ajánlatot az új el�
 
 2. A felhasználói portálon válassza a **Virtual Machines**, majd a **Hozzáadás**, majd a **Windows Server 2016 Datacenter**elemet, majd válassza a **Létrehozás**lehetőséget.
 
-3. Az **alapismeretek** szakaszban adja meg a **nevet**, a **felhasználónevet**és a **jelszót**, válasszon ki egy előfizetést, hozzon létre egy **erőforráscsoportot** (vagy válasszon ki egy meglévőt), majd kattintson **az OK gombra**.
+3. Az **alapismeretek** szakaszban adja meg a **nevet**, a **felhasználónevet**és a **jelszót**, válasszon ki egy **előfizetést**, hozzon létre egy **erőforráscsoportot** (vagy válasszon ki egy meglévőt), majd kattintson **az OK gombra**.
 
 4. A **méret választása** szakaszban válassza az **a1 standard**lehetőséget, majd kattintson a **kiválasztás**elemre.  
 

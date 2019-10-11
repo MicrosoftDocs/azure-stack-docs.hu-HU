@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/27/2019
-ms.openlocfilehash: bd5d1d473bd72b65df3377fb7b2de79b0aa6c7b0
-ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 9c19047629d95ba1ffe7c0fe6ab2da5c745576a0
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71681803"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037940"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Az AK-motor telepítése Windows rendszeren Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez használhatja a Azure Stackban található Windows-gépet az AK-motor üzemeltetéséhez. Ez a cikk azt tekinti át, hogyan készítheti elő az ügyfél virtuális gépet a fürt kezeléséhez a csatlakoztatott és a leválasztott Azure Stack-példányok esetében, ellenőrizze a telepítést, és állítsa be az ügyfél virtuális gépet a ASDK.
 
@@ -41,16 +41,16 @@ Az ügyfélszámítógép kiválasztásakor vegye figyelembe a következőket:
 
 Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az internethez csatlakozó Azure Stackon.
 
-1. Hozzon létre egy Windows rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Hozzon létre egy Windows Server rendszerű virtuális gépet](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)a Azure stack portál használatával.
+1. Hozzon létre egy Windows rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd: [Quickstart: Hozzon létre egy Windows Server rendszerű virtuális gépet a Azure Stack Portal @ no__t-0 használatával.
 2. Kapcsolódjon a virtuális géphez.
 3. [A chocolatey telepítése a PowerShell-utasítások használatával](https://chocolatey.org/install#install-with-powershellexe). 
 
     A chocolaty webhelye szerint: A chocolatey a Windows rendszerhez készült csomagkezelő, például az apt-get vagy a yum, de a Windows. A rendszer úgy lett kialakítva, hogy egy decentralizált keretrendszer legyen a szükséges alkalmazások és eszközök gyors telepítéséhez. A szolgáltatás a NuGet-infrastruktúrára épül, amely jelenleg a PowerShell-t használja, mivel a disztribúciók csomagjait a saját ajtajára, az err-re, a számítógépekre irányítja.
-4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.40.1`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a `--version v0.41.2` verziót. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 5. Futtassa a következő parancsot egy emelt szintű parancssorból, és adja meg a verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version v0.40.1 -y
+        choco install aks-engine --version v0.41.2 -y
     ```
 
 > [!Note]  
@@ -60,11 +60,11 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az internetről leválasztott Azure Stack.
 
-1.  Egy internettel rendelkező gépről nyissa meg a GitHub [Azure/AK-Engine-](https://github.com/Azure/aks-engine/releases/latest)t. Töltse le a Windows rendszerű gépek archívumát (*. tar. gz), például `aks-engine-v0.38.8-windows-amd64.tar.gz`:.
+1.  Egy internettel rendelkező gépről nyissa meg a GitHub [Azure/AK-Engine-](https://github.com/Azure/aks-engine/releases/latest)t. Töltsön le egy Windows rendszerű gép archívumát (*. tar. gz), például `aks-engine-v0.38.8-windows-amd64.tar.gz`.
 
 2.  Hozzon létre egy Storage-fiókot a Azure Stack-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer a Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Hozzon létre egy Windows rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a Azure Stack portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Hozzon létre egy Windows rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd: [Quickstart: Windows Server rendszerű virtuális gép létrehozása a Azure Stack portál @ no__t-0 használatával
 
 4.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack Storage-fiók blob URL-címéről, ahová feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot egy olyan könyvtárba, amelyhez hozzáféréssel rendelkezik a parancssorból.
 
@@ -75,7 +75,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 7.  Futtassa a következő parancsot egy emelt szintű parancssorból. Adja meg a megfelelő verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version v0.40.1 -y
+        choco install aks-engine --version v0.41.2 -y
     ```
 
 ## <a name="verify-the-installation"></a>A telepítés ellenőrzése

@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224951"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173081"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>A diagnosztikai naplók automatikus Azure Stackának konfigurálása
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Javasoljuk, hogy az automatikus diagnosztikai napló gyűjtési funkciójának konfigurálásával egyszerűsítse a naplók gyűjtését és az ügyfél-támogatási élményt. Ha a rendszerállapot-feltételek kivizsgálására van szükség, a rendszer automatikusan feltöltheti a naplókat a Microsoft Customer Support Services (CSS) által végzett elemzéshez. 
 
@@ -41,17 +41,17 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 
 ### <a name="create-a-blob-storage-account"></a>BLOB Storage-fiók létrehozása
  
-1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
+1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
 1. Kattintson a **Storage-fiókok** > **Hozzáadás**elemre. 
 1. Hozzon létre egy BLOB-tárolót a következő beállításokkal:
-   - **Előfizetés**: Azure-előfizetés kiválasztása
-   - **Erőforráscsoport**: Erőforráscsoport meghatározása
-   - **Storage-fiók neve**: Egyedi Storage-Fióknév megadása
-   - **Hely**: Válasszon egy adatközpontot a vállalati házirendnek megfelelően
-   - **Teljesítmény**: Standard kiválasztása
+   - **Előfizetés**: válassza ki az Azure-előfizetését
+   - **Erőforráscsoport**: erőforráscsoport meghatározása
+   - **Storage-fiók neve**: adjon meg egy egyedi nevet a Storage-fiókhoz
+   - **Hely**: válasszon egy adatközpontot a vállalati házirendnek megfelelően
+   - **Teljesítmény**: válassza a standard lehetőséget
    - **Fiók típusa** StorageV2 kiválasztása (általános célú v2) 
-   - **Replikáció**: Helyileg redundáns tárolás (LRS) kiválasztása
-   - **Hozzáférési szintek**: Jó választás
+   - **Replikáció**: válassza a helyileg redundáns tárolás (LRS) lehetőséget
+   - **Hozzáférési szint**: válassza a jó lehetőséget
 
    ![A blob-tároló tulajdonságait ábrázoló képernyőkép](media/azure-stack-automatic-log-collection/azure-stack-log-collection-create-storage-account.png)
 
@@ -70,14 +70,14 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
    ![A blob-tároló megosztott hozzáférési aláírásának beszerzését bemutató képernyőkép](media/azure-stack-automatic-log-collection/get-sas.png)
 
 1. Válassza ki a következő tulajdonságokat:
-   - Kezdés időpontja: Igény szerint áthelyezheti a kezdési időpontot 
-   - Lejárati idő: Két év
+   - Kezdési idő: igény szerint áthelyezheti a kezdési időt 
+   - Lejárati idő: két év
    - Időzóna: UTC
-   - Engedélyek Olvasás, írás és Listázás
+   - Engedélyek: olvasás, írás és Listázás
 
    ![A megosztott hozzáférési aláírás tulajdonságait bemutató képernyőfelvétel](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
-1. Kattintson a **Create** (Létrehozás) gombra.  
+1. Kattintson a  **Create** (Létrehozás) gombra.  
 
 Másolja az URL-címet, és adja meg az [automatikus napló-gyűjtemény konfigurálásakor](azure-stack-configure-automatic-diagnostic-log-collection.md). A SAS URL-címekkel kapcsolatos további információkért lásd: [közös hozzáférésű aláírások (SAS) használata](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
@@ -104,9 +104,9 @@ Az alábbi lépéseket követve adja hozzá az SAS URL-címet a log Collection f
 
 A Azure Stack gyűjtött naplók előzményei a Súgó és támogatás **napló gyűjtemény** lapján jelennek meg a következő dátumokkal és időpontokkal:
 
-- **Gyűjtés időpontja**: A napló-gyűjtési művelet megkezdése után 
-- **Kezdő dátum**: Annak az időszaknak a kezdete, amelynek a gyűjtését el szeretné indítani
-- **A mai napig**: Az időtartam vége
+- **Gyűjtés időpontja**: a naplózási művelet megkezdése után 
+- Kezdő **dátum**: annak az időszaknak a kezdete, amelynek a gyűjtését el szeretné indítani
+- Záró **dátum**: az időszak vége
 
 ![Képernyőfelvétel a naplókról](media/azure-stack-automatic-log-collection/azure-stack-log-collection.png)
 
@@ -118,12 +118,14 @@ Az operátorok is megnézhetik a Storage-fiókot az automatikusan összegyűjtö
 
 ## <a name="automatic-diagnostic-log-collection-alerts"></a>Diagnosztikai naplók automatikus gyűjtésével kapcsolatos riasztások 
 
-Ha engedélyezve van, az automatikus diagnosztikai napló gyűjtése csak akkor történik meg, ha szükséges. Csak a következő riasztások indíthatnak gyűjteményt. 
+Ha engedélyezve van, az automatikus diagnosztikai napló gyűjtése csak akkor történik meg, ha szükséges. Csak a következő táblázatban található riasztások gyűjteménye. 
+
+A **frissítés sikertelen volt** például egy olyan riasztás, amely elindítja az automatikus diagnosztikai naplók gyűjtését. Ha engedélyezve van az automatikus gyűjtés, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során a probléma elhárítása érdekében. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni. 
 
 |Riasztás címe  | FaultIdType|    
 |-------------|------------|
 |Nem lehet csatlakozni a távoli szolgáltatáshoz |  UsageBridge.NetworkError|
-|Sikertelen volt a frissítés |    Urp.UpdateFailure   |          
+|Sikertelen frissítés |    Urp.UpdateFailure   |          
 |Tárolási erőforrás-szolgáltatói infrastruktúra/függőségek nem érhetők el |  StorageResourceProviderDependencyUnavailable     |     
 |A csomópont nem csatlakozik a vezérlőhöz|  ServerHostNotConnectedToController   |     
 |Útvonal-közzétételi hiba |    SlbMuxRoutePublicationFailure | 
@@ -143,11 +145,11 @@ Ha engedélyezve van, az automatikus diagnosztikai napló gyűjtése csak akkor 
 |Külső tanúsítvány lejárata miatt függőben |  CertificateExpiration. ExternalCert. Critical |
 |Az adott osztályú és méretű virtuális gépek az alacsony memóriakapacitás miatt nem építhetők ki |  AzureStack. ComputeController. VmCreationFailure. LowMemory |
 |A csomópont nem érhető el a virtuális gép elhelyezéséhez |  AzureStack. ComputeController. HostUnresponsive | 
-|A biztonsági mentés nem sikerült  | AzureStack. BackupController. BackupFailedGeneralFault |    
+|Sikertelen biztonsági mentés  | AzureStack. BackupController. BackupFailedGeneralFault |    
 |Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt  | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |   
 
 
-## <a name="see-also"></a>Lásd még
+## <a name="see-also"></a>Lásd még:
 
 [A naplók és az ügyfelek adatkezelésének Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 

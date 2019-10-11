@@ -123,6 +123,8 @@
       items:
         - name: Az adminisztráció alapjai
           href: azure-stack-manage-basics.md
+        - name: Üzemeltetési ellenőrzőlista
+          href: azure-stack-operations-checklist.md
         - name: Felhasználói adatok törlése a portálról
           href: azure-stack-portal-clear.md
         - name: Telemetriai adatok gyűjtésének konfigurálása
@@ -314,7 +316,7 @@
           href: app-service-billing-faq.md
         - name: A kezdés előtt
           href: azure-stack-app-service-before-you-get-started.md
-        - name: Az App Service üzembe helyezése
+        - name: App Service üzembe helyezése
           href: azure-stack-app-service-deploy.md
         - name: Magas rendelkezésre állású App Service üzembe helyezése
           href: app-service-deploy-ha.md

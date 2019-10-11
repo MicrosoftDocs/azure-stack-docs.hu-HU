@@ -16,19 +16,19 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: f633f000968fcf4f373fc502898fa18084f93f80
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824302"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257772"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>Azure Stack üzembe helyezett virtuális gépek elleni védelem
 
 Ez a cikk útmutatóként használható olyan virtuális gépek (VM-EK) védelmére, amelyeket a felhasználók Azure Stack telepíthetnek.
 
 
-Az adatvesztés és a nem tervezett leállások elleni védelem érdekében egy biztonsági mentési vagy vész-helyreállítási tervet kell megvalósítani a felhasználói alkalmazásokhoz és adataihoz. Ez a csomag minden alkalmazás esetében egyedi lehet, de a szervezet átfogó üzletmenet-folytonossági és vész-helyreállítási (BC/DR) stratégiája által létrehozott keretrendszert követ. Jó kiindulási pont a [Azure stack: Az üzletmenet folytonosságának és a vész-helyreállítási megfontolásoknak a no__t-0.
+Az adatvesztés és a nem tervezett leállások elleni védelem érdekében egy biztonsági mentési vagy vész-helyreállítási tervet kell megvalósítani a felhasználói alkalmazásokhoz és adataihoz. Ez a csomag minden alkalmazás esetében egyedi lehet, de a szervezet átfogó üzletmenet-folytonossági és vész-helyreállítási (BC/DR) stratégiája által létrehozott keretrendszert követ. Jó kiindulási pont [Azure stack: az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Infrastruktúra-helyreállítás Azure Stack
 
@@ -73,17 +73,17 @@ Az RTO-ra és az RPO-ra üzleti követelményként tekinthet. Kockázatértékel
 
 Egy másik metrika a **helyreállításhoz szükséges idő** (MTTR), amely az alkalmazás meghibásodás utáni visszaállításának átlagos időtartama. A MTTR egy rendszer empirikus értéke. Ha a MTTR túllépi a RTO, akkor a rendszer meghibásodása elfogadhatatlan üzleti fennakadást okoz, mivel nem lehet visszaállítani a rendszer a megadott RTO belül.
 
-### <a name="backup-restore"></a>Backup-restore
+### <a name="backup-restore"></a>Biztonsági mentés visszaállítása
 
 A virtuálisgép-alapú alkalmazások leggyakoribb védelmi sémája a Backup szoftver használata. A virtuális gépek biztonsági mentése általában tartalmazza az operációs rendszert, az operációs rendszer konfigurációját, az alkalmazás bináris fájljait és az alkalmazásadatok. A biztonsági mentéseket a kötetek, lemezek vagy a teljes virtuális gép pillanatképével hozza létre a rendszer. A Azure Stack lehetővé teszi a biztonsági mentés rugalmasságát a vendég operációs rendszer kontextusában, illetve a Azure Stack Storage és a számítási API-k között. Azure Stack nem támogatja a biztonsági másolatok meghozatalát a hypervisor szintjén.
  
-![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
+![Backup-helyreállító](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Az alkalmazás helyreállításához egy vagy több virtuális gépet ugyanarra a felhőre vagy egy új felhőre kell visszaállítani. Az adatközpontban vagy a nyilvános felhőben is megcélozhat egy felhőt. Az Ön által választott felhő teljes mértékben a vezérlőn belül van, és az adatvédelemre és a szuverenitásra vonatkozó követelményeken alapul.
 
- - RTO Órákban mért állásidő
- - RPO Változó adatvesztés (a biztonsági mentési gyakoriságtól függően)
- - Üzembe helyezési topológia: Aktív/passzív
+ - RTO: órákban mért állásidő
+ - RPO: változó adatvesztés (a biztonsági mentés gyakorisága függvényében)
+ - Üzembe helyezési topológia: aktív/passzív
 
 #### <a name="planning-your-backup-strategy"></a>A biztonsági mentési stratégia megtervezése
 
@@ -109,9 +109,9 @@ Ezzel a módszerrel az alkalmazást egy felhőben helyezik üzembe, és a virtu�
 
 ![Replikáció – manuális feladatátvétel](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
- - RTO Percek alatt mért állásidő
- - RPO Változó adatvesztés (a replikálási gyakoriságtól függően)
- - Üzembe helyezési topológia: Aktív/passzív készenlét
+ - RTO: a leállás percben mérve
+ - RPO: változó adatvesztés (a replikálás gyakorisága függvényében)
+ - Üzembe helyezési topológia: aktív/passzív készenlét
  
 ### <a name="high-availabilityautomatic-failover"></a>Magas rendelkezésre állás/automatikus feladatátvétel
 
@@ -121,9 +121,9 @@ A méretezési csoportokkal együtt az alkalmazásnak natív módon támogatnia 
 
 Ennek a módszernek a használatával az alkalmazás csak egy felhőben aktív, de a szoftver több felhőben is üzembe helyezhető. A többi felhő készenléti állapotban van, készen áll az alkalmazás elindítására, amikor a feladatátvétel aktiválódik.
 
- - RTO Másodpercek alatt mért állásidő
- - RPO Minimális adatvesztés
- - Üzembe helyezési topológia: Aktív/aktív készenlét
+ - RTO: a leállás másodpercben mérve
+ - RPO: minimális adatvesztés
+ - Üzembe helyezési topológia: aktív/aktív készenléti
 
 ### <a name="fault-tolerance"></a>Hibatűrés
 
@@ -133,16 +133,16 @@ Először is gondoskodnia kell arról, hogy az alkalmazás virtuális gépei a m
 
 Ne feledje, hogy minden Azure Stack-felhő egymástól független, így a felhők mindig aktívnak számítanak az infrastruktúra szempontjából. Ebben az esetben az alkalmazás több aktív példánya van telepítve egy vagy több aktív felhőben.
 
- - RTO Nincs leállás
- - RPO Nincs adatvesztés
- - Üzembe helyezési topológia: Aktív/aktív
+ - RTO: nincs leállás
+ - RPO: Nincs adatvesztés
+ - Üzembe helyezési topológia: aktív/aktív
 
 ### <a name="no-recovery"></a>Nincs helyreállítás
 
 Előfordulhat, hogy a környezet egyes alkalmazásai nem igényelnek védelmet a nem tervezett leállások vagy az adatvesztés ellen. Például a fejlesztéshez és teszteléshez használt virtuális gépeket általában nem kell helyreállítani. Az Ön döntése az alkalmazás vagy egy adott virtuális gép védelmének védelme nélkül. Azure Stack nem biztosít virtuális gépek biztonsági mentését vagy replikálását az alapul szolgáló infrastruktúrából. Az Azure-hoz hasonlóan az egyes előfizetésekben lévő virtuális gépek védelméhez is be kell jelentkeznie.
 
- - RTO Helyreállíthatatlan
- - RPO Teljes adatvesztés
+ - RTO: helyreállíthatatlan
+ - RPO: teljes adatvesztés
 
 ## <a name="recommended-topologies"></a>Ajánlott topológiák
 
@@ -158,12 +158,20 @@ Fontos szempontok a Azure Stack üzembe helyezéséhez:
 | A biztonsági mentési cél üzembe helyezése ugyanazon a Azure Stack-felhőben az alkalmazás adataival | Nem ajánlott | Ne tárolja a biztonsági mentéseket ugyanazon a Azure Stack-felhőn belül. A felhő nem tervezett leállása megtarthatja az elsődleges adatok és a biztonsági mentési adatok mennyiségét. Ha úgy dönt, hogy a biztonsági mentési célt virtuális készülékként helyezi üzembe (a biztonsági mentés és a visszaállítás optimalizálása érdekében), gondoskodnia kell arról, hogy a rendszer folyamatosan másolja az összes adatforrást egy külső biztonsági mentési helyre. |
 | Fizikai biztonsági mentési berendezés üzembe helyezése ugyanabba az állványba, ahol a Azure Stack megoldás telepítve van | Nem támogatott | Jelenleg nem csatlakoztatható más eszközök az eredeti megoldás részét nem képező rack-kapcsolók tetejéhez. |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ez a cikk általános iránymutatásokat ismertetett a Azure Stackon üzembe helyezett felhasználói virtuális gépek védelméhez. További információ az Azure-szolgáltatásoknak a felhasználói virtuális gépek számára történő használatáról:
 
+- [Az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások](http://aka.ms/azurestackbcdrconsiderationswp)
+
+### <a name="azure-backup-server"></a>Azure Backup Server
  - [Fájlok és alkalmazások biztonsági mentése a Azure Backup használatával Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [Azure Stack Azure Backup Server támogatása](https://docs.microsoft.com/azure/backup/ ) 
+ 
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [Azure Stack Azure Site Recovery támogatása](https://docs.microsoft.com/azure/site-recovery/)  
+ 
+ ### <a name="partner-products"></a>Partneri termékek
+ - [Azure Stack Datacenter Integration partner ökoszisztémájának Adatlapja](http://aka.ms/azurestackbcdrpartners)
 
 Ha többet szeretne megtudni azokról a partneri termékekről, amelyek a Azure Stack virtuálisgép-védelmet kínálnak, tekintse [meg az alkalmazások és az adatok védelme Azure stackon](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)című témakört

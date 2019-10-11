@@ -14,16 +14,16 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 36ed1b7ef7225f848aa3e5869b8c46f911be7e19
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961560"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257779"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack összekötése az Azure-val az Azure ExpressRoute
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk azt ismerteti, hogyan lehet Azure Stack virtuális hálózatot csatlakoztatni egy Azure-beli virtuális hálózathoz egy [Microsoft Azure ExpressRoute](/azure/expressroute/) közvetlen kapcsolat használatával.
 
@@ -79,7 +79,7 @@ Az első bérlő Azure Stack környezetének beállításához kövesse az aláb
 
 ![Azure Stack hálózati beállítás](media/azure-stack-connect-expressroute/image2.png)
 
-### <a name="before-you-begin"></a>Előkészületek
+### <a name="before-you-begin"></a>Előzetes teendők
 
 A Azure Stack konfigurálásának megkezdése előtt a következőkre lesz szüksége:
 
@@ -102,18 +102,18 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
 5. A **virtuális hálózat létrehozása**területen adja meg az alábbi táblázatban látható értékeket a megfelelő mezőkbe:
 
-   |Mező  |Érték  |
+   |Mező  |Value (Díj)  |
    |---------|---------|
-   |Name (Név)     |Tenant1VNet1         |
-   |Címtartomány     |10.1.0.0/16|
+   |Név     |Tenant1VNet1         |
+   |Címtér     |10.1.0.0/16|
    |Alhálózat neve     |Tenant1-Sub1|
-   |Alhálózat címtartománya     |10.1.1.0/24|
+   |Alhálózati címtartomány     |10.1.1.0/24|
 
 6. Ekkor meg kell jelennie a korábban létrehozott előfizetésnek az **előfizetés** mezőben. A fennmaradó mezőknél:
 
     * Az **erőforráscsoport**területen válassza az **új létrehozása** lehetőséget egy új erőforráscsoport létrehozásához, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
     * Ellenőrizze az alapértelmezett **helyet**.
-    * Kattintson a **Create** (Létrehozás) gombra.
+    * Kattintson a  **Create** (Létrehozás) gombra.
     * Választható Kattintson **a rögzítés az irányítópulton**elemre.
 
 #### <a name="create-the-gateway-subnet"></a>Az átjáróalhálózat létrehozása
@@ -136,7 +136,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 1. Válassza a **nyilvános IP-cím**lehetőséget, majd **válassza a nyilvános IP-cím**lehetőséget, majd kattintson az **új létrehozása**lehetőségre.
 1. A név mezőbe írja be a **GW1-pip** **nevet** , majd kattintson az **OK**gombra.
 1. Az **VPN típusa** mezőben alapértelmezés szerint a **Útvonalalapú** lehetőség van kiválasztva. Ne módosítsa ezt a beállítást.
-1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Create** (Létrehozás) gombra.
+1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a  **Create** (Létrehozás) gombra.
 
 #### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
@@ -341,7 +341,7 @@ A ExpressRoute-útválasztó konfigurálásához használhatja a következő Exp
 
 Bármely olyan útválasztót használhat, amely támogatja a IKEv2 VPN-t és BGP-t a két hálózat közötti pont-pont típusú VPN-kapcsolat megszakításához Azure Stack. Ugyanez az útválasztó használja az Azure-hoz való kapcsolódásra egy ExpressRoute áramkör használatával.
 
-A következő Cisco Site Recovery 1000 sorozat-összesítő szolgáltatások útválasztó-konfigurációs példája támogatja a *ExpressRoute-útválasztó konfigurációs* diagramjában látható hálózati infrastruktúrát.
+A következő Cisco ASR 1000 sorozat-összesítő szolgáltatások útválasztó-konfigurációs példája támogatja a *ExpressRoute útválasztó konfigurációs* diagramjában látható hálózati infrastruktúrát.
 
 ```shell
 ip vrf Tenant 1
@@ -608,6 +608,6 @@ Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolatban, akkor a Azur
 
    ![És kimenő adatbevitel](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Alkalmazások telepítése az Azure-ba és Azure Stack](../user/azure-stack-solution-pipeline.md )

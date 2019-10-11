@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 7e2f13fa20c9aafd90abe34277c907a4d12b4d81
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019443"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173105"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
 
@@ -47,17 +47,17 @@ Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljutt
 * [Az Azure Stack által támogatott vendég operációs rendszerek](azure-stack-supported-os.md)
 * [Azure Stack támogatott virtuálisgép-méretek](../user/azure-stack-vm-sizes.md)
 
-### <a name="azure-marketplace"></a>Azure Marketplace
+### <a name="azure-marketplace"></a>Azure Piactér
 
 * [Az Azure Stackhez elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
 
 ### <a name="manage-capacity"></a>Kapacitás kezelése
 
-#### <a name="memory"></a>Memory (Memória)
+#### <a name="memory"></a>Memória
 
 További memória hozzáadásával megnövelheti az Azure Stack számára rendelkezésre álló teljes memóriakapacitást. Az Azure Stackben a fizikai kiszolgálót skálázásiegység-csomópontnak is nevezik. Az ugyanahhoz a skálázási egységhez tartozó skálázásiegység-csomópontokhoz [azonos mennyiségű memóriát](azure-stack-manage-storage-physical-memory-capacity.md) kell hozzárendelni.
 
-#### <a name="retention-period"></a>Megőrzési időszak
+#### <a name="retention-period"></a>Megőrzési idő
 
 Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzemeltető napokban (0–9999 nap) meghatározza azt az időszakot, amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett megőrzési időtartam **0** napra van állítva. Ha a **0** értéket állítja be, az azt jelenti, hogy a törölt fiókok azonnal megmaradnak, és meg vannak jelölve az időszakos szemét-gyűjtéshez.
 
@@ -73,9 +73,9 @@ Az Azure Stack-felhasználók az előfizetés, erőforráscsoport vagy szolgált
 
 Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet igényeinek, saját egyéni szerepköröket is létrehozhat. Ebben az oktatóanyagban egy Reader Support Tickets (Olvasó – Támogatási jegyek) nevű egyéni szerepkört fog létrehozni az Azure PowerShell-lel.
 
-* [Oktatóanyag: Egyéni szerepkörök létrehozása Azure-erőforrásokhoz az Azure PowerShell használatával](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+* [Oktatóanyag: egyéni szerepkör létrehozása Azure-erőforrásokhoz Azure PowerShell használatával](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
 
-### <a name="manage-usage-and-billing-as-a-csp"></a>Kezelése a használati és számlázási információkkal egy CSP-hez
+### <a name="manage-usage-and-billing-as-a-csp"></a>Használat és számlázás kezelése felhőszolgáltatóként
 
 * [Használat és számlázás kezelése felhőszolgáltatóként](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 * [CSP-vagy APSS-előfizetés létrehozása](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
@@ -85,6 +85,17 @@ Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típ
 * Cloud Solution Provider program
 * Partner Shared Services-előfizetés
 
+## <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
+
+A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a CSS súgója nélkül. A bélyegző kihasználtságának beszerzése: 
+
+1. PEP-munkamenet létrehozása
+2. Teszt futtatása – azurestack
+3. A PEP-munkamenet bezárása
+4. A Get-azurestacklog-filterbyrole seedring futtatása hívási parancs használatával
+5. Bontsa ki a seedring. zip fájlt, és szerezze be az ellenőrzési jelentést a ERCS mappából, amelyen a test-azurestack futott.
+
+További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
 
 ## <a name="troubleshoot-deployment"></a>Üzembe helyezési hibák 
 ### <a name="general-deployment-failure"></a>Általános telepítési hiba

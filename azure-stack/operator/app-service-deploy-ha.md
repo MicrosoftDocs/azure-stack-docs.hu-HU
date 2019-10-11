@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 10/07/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975211"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165011"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
@@ -56,16 +56,16 @@ Az ebben a szakaszban ismertetett lépések segítségével hozzon létre egy eg
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Válassza **\+** **az erőforrás** > létrehozása**Egyéni**lehetőséget, majd **template Deployment**.
+2. Válassza a **\+** **erőforrás létrehozása** > **Egyéni**lehetőséget, majd **template Deployment**.
 
    ![Egyéni sablon központi telepítése](media/app-service-deploy-ha/1.png)
 
 
-3. A **Custom Deployment (egyéni üzembe helyezés** ) panelen válassza a **sablon** > -**Gyorsindítás sablon** szerkesztése lehetőséget, majd az elérhető egyéni sablonok legördülő listájában válassza ki a **appservice-fájlmegosztás-SQLServer-ha** sablont. Kattintson **az OK**, majd a **Mentés**gombra.
+3. Az **Egyéni telepítés** panelen válassza a **Sablon szerkesztése**@no__t – 2 rövid útmutató**sablont** , majd az elérhető egyéni sablonok legördülő listáját választva válassza ki a **appservice-fájlmegosztás-SQLServer-ha** sablont. Kattintson **az OK**, majd a **Mentés**gombra.
 
    ![Válassza ki a appservice-fájlmegosztás-SQLServer-ha Gyorsindítás sablont](media/app-service-deploy-ha/2.png)
 
-4. Az **Egyéni telepítés** panelen válassza a **Paraméterek szerkesztése** lehetőséget, és görgessen lefelé az alapértelmezett sablon értékeinek áttekintéséhez. Szükség szerint módosítsa ezeket az értékeket az összes kötelező paraméter információjának megadásához, majd kattintson **az OK**gombra.<br><br> A (z),, `ADMINPASSWORD`, és `FILESHAREOWNERPASSWORD` `FILESHAREUSERPASSWORD` `SQLLOGINPASSWORD` paraméterekhez legalább összetett `SQLSERVERSERVICEACCOUNTPASSWORD`jelszavakat adjon meg.
+4. Az **Egyéni telepítés** panelen válassza a **Paraméterek szerkesztése** lehetőséget, és görgessen lefelé az alapértelmezett sablon értékeinek áttekintéséhez. Szükség szerint módosítsa ezeket az értékeket az összes kötelező paraméter információjának megadásához, majd kattintson **az OK**gombra.<br><br> A `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD` és `SQLLOGINPASSWORD` paraméterek esetében legalább összetett jelszavakat adjon meg.
     
    ![Egyéni telepítési paraméterek szerkesztése](media/app-service-deploy-ha/3.png)
 
@@ -101,7 +101,7 @@ A sablon kimeneti értékeinek felderítéséhez kövesse az alábbi lépéseket
 
     ![Microsoft. Template deployment](media/app-service-deploy-ha/6.png)
 
-4. A **Microsoft. template** telepítésének kiválasztása után válassza a kimenetek lehetőséget, és jegyezze fel a sablon paraméter kimenetét. Ez az információ a App Service telepítésekor szükséges.
+4. A **Microsoft. template** telepítésének kiválasztása után válassza a **kimenetek** lehetőséget, és jegyezze fel a sablon paraméter kimenetét. Ez az információ a App Service telepítésekor szükséges.
 
     ![Paraméter kimenete](media/app-service-deploy-ha/7.png)
 
@@ -209,7 +209,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
     |Vezérlő szerepkör|2|2|
     |Felügyeleti szerepkör|1|3|
     |Közzétevői szerepkör|1|3|
-    |Előtér-kiszolgálói szerepkör|1|3|
+    |Előtér-szerepkör|1|3|
     |Megosztott feldolgozói szerepkör|1|10|
     |     |     |     |
 
@@ -236,7 +236,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
 ## <a name="next-steps"></a>További lépések
 
-[Adja hozzá a appservice_hosting és a appservice_metering-adatbázist egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , ha a app Service erőforrás-SZOLGÁLTATÓt SQL always on-példányon adta meg. Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
+[Adja hozzá a appservice_hosting és a appservice_metering-adatbázist egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , ha a app Service erőforrás-SZOLGÁLTATÓt SQL always on-példányon adta meg. Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén. [Parancsfájlt](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) is futtathat a AppServices-bejelentkezések az eredeti elsődleges kiszolgálóról a feladatátvételi kiszolgálóra való importálásához.
 
 [App Service skálázása](azure-stack-app-service-add-worker-roles.md). Előfordulhat, hogy további App Service infrastruktúra-szerepkörrel rendelkező munkatársakat kell hozzáadnia, hogy megfeleljenek a környezetében várható alkalmazási igényeknek. Alapértelmezés szerint a App Service on Azure Stack támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 

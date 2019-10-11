@@ -15,16 +15,16 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 76c6c21c2a728004d2a33c04a02b905ec674b972
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: d5606e7904fe311a54d792a18e5d4029c709b33c
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301225"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257751"
 ---
 # <a name="troubleshooting-patch-and-update-issues-for-azure-stack"></a>A Azure Stack javításával és frissítésével kapcsolatos hibák elhárítása
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 A jelen cikkben található útmutatást követve megoldhatja a Azure Stack frissítése során felmerülő problémákat.
 
@@ -32,13 +32,13 @@ A jelen cikkben található útmutatást követve megoldhatja a Azure Stack fris
 
 **Alkalmazható**: Ez a probléma az összes támogatott kiadásra vonatkozik.
 
-**Ok**: A Azure Stack frissítés telepítésének megkísérlése során előfordulhat, hogy a frissítés állapota meghiúsul, és az állapot `PreparationFailed`módosul. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
+**OK**: amikor a Azure stack frissítés telepítését kísérli meg, a frissítés állapota meghiúsulhat, és az állapotot `PreparationFailed` értékre módosíthatja. Internetkapcsolattal rendelkező rendszerek esetében ez általában azt jelzi, hogy a frissítési csomag nem tölthető le megfelelően, mert gyenge az internetkapcsolat. 
 
-**Szervizelés**: A 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti ezt a problémát úgy, hogy a **frissítés** most lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) szakaszt követve manuálisan töltse fel a frissítési csomagot.
+**Szervizelés**: a probléma megkerüléséhez kattintson a **Telepítés most** lehetőségre. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) szakaszt követve manuálisan töltse fel a frissítési csomagot.
 
-**Előfordulás**: Közös
+**Előfordulás**: gyakori
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack frissítése](azure-stack-updates.md)  
 - [Microsoft Azure Stack Súgó és támogatás](azure-stack-help-and-support-overview.md)

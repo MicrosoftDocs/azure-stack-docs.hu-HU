@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: dca5d863a046ec225b4d34c8cf5917153a3a5785
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842728"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037969"
 ---
 # <a name="network-connectivity"></a>Hálózati kapcsolat
 Ez a cikk Azure Stack hálózati infrastruktúrával kapcsolatos információkat tartalmaz, amelyek segítségével eldöntheti, hogyan integrálhatja a Azure Stackt a meglévő hálózati környezetbe. 
 
 > [!NOTE]
-> A külső DNS-nevek Azure Stackból (például a www\.Bing.com) való feloldásához DNS-kiszolgálókat kell megadnia a DNS-kérések továbbításához. Azure Stack DNS-követelményekkel kapcsolatos további információkért lásd: [Azure stack Datacenter Integration-DNS](azure-stack-integrate-dns.md).
+> A külső DNS-nevek Azure Stackból való feloldásához (például www\.bing.com) a DNS-kérelmek továbbításához meg kell adnia a DNS-kiszolgálókat. Azure Stack DNS-követelményekkel kapcsolatos további információkért lásd: [Azure stack Datacenter Integration-DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fizikai hálózat kialakítása
 Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizikai infrastruktúrára van szüksége működése és szolgáltatásai támogatásához. A ToR és a Border kapcsolók közötti Kikapcsolások SFP + vagy SFP28 adathordozóra, illetve 1 GB, 10 GB vagy 25 GB sebességre korlátozódnak. A rendelkezésre állás érdekében érdeklődjön az eredeti berendezésgyártó (OEM) hardver gyártójánál. A következő ábra a javasolt kialakítást mutatja be:
@@ -55,7 +55,7 @@ A Azure Stack hálózati infrastruktúrája több, a kapcsolókon konfigurált l
 ![Logikai hálózati diagram és kapcsolási kapcsolatok](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC-hálózat
-Ez a hálózat dedikált az összes alaplapi-felügyeleti vezérlő (más néven szolgáltatási processzor, például iDRAC, iLO, iBMC stb.) összekapcsolásához a felügyeleti hálózathoz. Ha van ilyen, a hardver életciklus-állomása (HLH) ezen a hálózaton található, és OEM-specifikus szoftvereket biztosíthat a hardveres karbantartáshoz vagy monitorozáshoz. 
+Ez a hálózat dedikált az összes alaplapi-felügyeleti vezérlő (más néven szolgáltatási processzor, például iDRAC, iLO, iBMC stb.) összekapcsolásához a felügyeleti hálózathoz. A BMC-csomópontokkal való kommunikációhoz csak egy BMC-fiók használható. Ha van ilyen, a hardver életciklus-állomása (HLH) ezen a hálózaton található, és OEM-specifikus szoftvereket biztosíthat a hardveres karbantartáshoz vagy monitorozáshoz. 
 
 A HLH az üzembe helyezési virtuális gépet (DVM) is üzemelteti. A DVM Azure Stack központi telepítés során használatos, és a telepítés befejeződése után törlődik. A DVM használatához internetkapcsolat szükséges a csatlakoztatott üzembe helyezési forgatókönyvekben több összetevő teszteléséhez, ellenőrzéséhez és eléréséhez. Ezek az összetevők a vállalati hálózaton belül és kívül is lehetnek; például: NTP, DNS és Azure. A kapcsolati követelményekkel kapcsolatos további információkért tekintse [meg a Azure stack tűzfal integrációjának NAT szakaszát](azure-stack-firewall.md#network-address-translation). 
 

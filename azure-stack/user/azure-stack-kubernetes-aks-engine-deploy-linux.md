@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/27/2019
-ms.openlocfilehash: d831f5ad30fe2c7e2b4c2ce5d6a9018f8cc833fb
-ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 3debcd152a54fd3a0b940ad3dd4d379c6688faec
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71681731"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037964"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Az KABAi motor telepítése Linux rendszeren Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez a Azure Stack Linux rendszerű gépeket is használhat. Ez a cikk azt tekinti át, hogyan készítheti elő az ügyfél virtuális gépet a fürt kezeléséhez a csatlakoztatott és a leválasztott Azure Stack-példányok esetében, ellenőrizze a telepítést, és állítsa be az ügyfél virtuális gépet a ASDK.
 
@@ -41,15 +41,15 @@ Az ügyfélszámítógép kiválasztásakor vegye figyelembe a következőket:
 
 Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az internethez csatlakozó Azure Stackon.
 
-1. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Hozzon létre egy Linux-alapú virtuális gépet a](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure stack portál használatával.
+1. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd: [Quickstart: Hozzon létre egy Linux-alapú virtuális gépet a Azure Stack Portal @ no__t-0 használatával.
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.40.1`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a `--version v0.41.2` verziót. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa a következő parancsot:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.40.1
+        ./get-akse.sh --version v0.41.2
     ```
 
     > [!Note]  
@@ -59,13 +59,13 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az internetről leválasztott Azure Stack.
 
-1.  Egy internettel rendelkező gépről nyissa meg a GitHub [Azure/AK-Engine-](https://github.com/Azure/aks-engine/releases/latest)t. Töltse le a Linux rendszerű gépek archívumát (*. tar. gz), például `aks-engine-v0.xx.x-linux-amd64.tar.gz`:.
+1.  Egy internettel rendelkező gépről nyissa meg a GitHub [Azure/AK-Engine-](https://github.com/Azure/aks-engine/releases/latest)t. Töltse le a Linux rendszerű gépek archívumát (*. tar. gz), például `aks-engine-v0.xx.x-linux-amd64.tar.gz`.
 
 2.  Hozzon létre egy Storage-fiókot a Azure Stack-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer a Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
 
-3. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd [: gyors útmutató: Hozzon létre egy Linux-alapú virtuális gépet a](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)Azure stack portál használatával.
+3. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd: [Quickstart: Hozzon létre egy Linux-alapú virtuális gépet a Azure Stack Portal @ no__t-0 használatával.
 
-3.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack Storage-fiók blob URL-címéről, ahová feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot `/usr/local/bin`a könyvtárba.
+3.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack Storage-fiók blob URL-címéről, ahová feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot a `/usr/local/bin` könyvtárba.
 
 4. Kapcsolódjon a virtuális géphez.
 
@@ -94,7 +94,7 @@ Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuál
 
 Hozzá kell adnia egy tanúsítványt, amikor a ASDK található, az AK-motorhoz tartozó ügyfél virtuális gépet futtatja.
 
-Ha ASDK használ, a Azure Resource Manager végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható. Egy Ubuntu rendszerű virtuális gépen például megtalálhatja ezt a könyvtárat `/var/lib/waagent/Certificates.pem`. 
+Ha ASDK használ, a Azure Resource Manager végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható. Egy Ubuntu rendszerű virtuális gépen például a következő könyvtárban találhatja meg `/var/lib/waagent/Certificates.pem`. 
 
 Másolja a tanúsítványfájl a következő paranccsal:
 

@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: bcb9dab55d00c48e5b77e7184fae0567ff1f620e
-ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311291"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037903"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
 
 Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket a Azure Stackhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ.
 
@@ -69,10 +69,9 @@ Adja hozzá a következő elemeket a piactérhez:
 1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
 
     A listában válassza a következőket:
-    - **Közzétevő**: Microsoft-AK
+    - **Közzétevő**: Azure Kubernetes Service
     - **Ajánlat**: AK
-    - **Verzió**: 2019.07.30 (vagy az AK-motort leképező verzió)
-    - **SKU**: AK-ubuntu-1604-201907
+    - **Verzió**: AK-alapú alaprendszerkép 16,04-LTS rendszerkép-disztribúció, 2019. szeptember (2019.09.19 vagy Version, amely az AK-motorhoz van leképezve)
 
 1. Válassza a **Letöltés lehetőséget.**
 
