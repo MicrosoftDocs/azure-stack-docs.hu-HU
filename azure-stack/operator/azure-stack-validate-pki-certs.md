@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8d929a3b1fd67f3ec73137b2e1a87f594ea5b544
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 3823aa73d58af48c662690aa0d8e8a21180b4ed6
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417826"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283237"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>PKI-tanúsítványok Azure Stack ellenőrzése
 
@@ -57,8 +57,8 @@ A készenléti ellenőrző eszköz a következő tanúsítványokat hajtja végr
 A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt ellenőrzi a PKI-tanúsítványokat egy Azure Stack központi telepítéshez:
 
 - Microsoft Azure Stack Readiness-ellenőrző
-- Az előkészítési útmutatást követően exportált SSL [](azure-stack-prepare-pki-certs.md) -tanúsítvány (ok)
-- DeploymentData.json
+- Az [előkészítési útmutatást](azure-stack-prepare-pki-certs.md) követően exportált SSL-tanúsítvány (ok)
+- DeploymentData. JSON
 - Windows 10 vagy Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Alapszintű szolgáltatások tanúsítványának ellenőrzése
@@ -71,7 +71,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja `<c:\certificates>` a kívánt új könyvtár elérési útját.
+2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja a `<c:\certificates>` értéket a választott új elérési útra.
     ```powershell  
     New-Item C:\Certificates -ItemType Directory
     
@@ -150,9 +150,9 @@ Invoke-AzsCertificateValidation Completed
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**Tünet**: A tesztek kimaradnak
+**Tünet**: a tesztek kimaradnak
 
-**Ok**: A AzsReadinessChecker kihagy bizonyos teszteket, ha függőség nem teljesül:
+**OK**: a AzsReadinessChecker kihagy bizonyos teszteket, ha függőség nem teljesül:
 
  - A rendszer kihagyja a többi tanúsítványt, ha a tanúsítványlánc meghiúsul.
 
@@ -177,7 +177,7 @@ Invoke-AzsCertificateValidation Completed
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Feloldási**: Kövesse az eszköz útmutatását a Részletek szakaszban az egyes tanúsítványokhoz tartozó tesztek alapján.
+**Megoldás**: kövesse az eszköz útmutatását a Részletek szakaszban az egyes tanúsítványokhoz tartozó tesztek alapján.
 
 ## <a name="perform-platform-as-a-service-certificate-validation"></a>Platform végrehajtása szolgáltatás-tanúsítvány érvényesítése
 
@@ -252,19 +252,19 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack PKI
 
 ## <a name="certificates"></a>Tanúsítványok
 
-| Címtár | Tanúsítvány |
+| Könyvtár | Tanúsítvány |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
-| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
-| ACSTable  |  wildcard_table_\<régió > _\<externalFQDN > |
-| Felügyeleti bővítmény gazdagépe  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
-| Felügyeleti portál  |  adminportal_\<region>_\<externalFQDN> |
-| ARM-rendszergazda  |  adminmanagement_\<region>_\<externalFQDN> |
-| ARM nyilvános  |  management_\<region>_\<externalFQDN> |
-| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
-| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
-| Nyilvános kiterjesztésű gazdagép  |  wildcard_hosting_\<region>_\<externalFQDN> |
-| Nyilvános portál  |  portal_\<régió > _\<externalFQDN > |
+| acsBlob | wildcard_blob_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| ACSQueue  |  wildcard_queue_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| ACSTable  |  wildcard_table_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Felügyeleti bővítmény gazdagépe  |  wildcard_adminhosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Felügyeleti portál  |  adminportal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| ARM-rendszergazda  |  adminmanagement_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| ARM nyilvános  |  management_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| KeyVault  |  wildcard_vault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Nyilvános kiterjesztésű gazdagép  |  wildcard_hosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| Nyilvános portál  |  portal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Ellenőrzött tanúsítványok használata
 
@@ -272,8 +272,8 @@ Miután az AzsReadinessChecker hitelesítette a tanúsítványokat, készen áll
 
  - Az üzembe helyezéshez biztonságosan vigye át a tanúsítványokat a telepítési mérnökbe, hogy azok a [Azure stack PKI-követelmények dokumentációjában](azure-stack-pki-certs.md)megadott módon másolja őket a központi telepítési gazdagépre.
  - A Secret rotációs szolgáltatásban a tanúsítványok segítségével frissítheti Azure Stack környezete nyilvános infrastruktúra-végpontjának régi tanúsítványait a [Azure stack Secret rotációs dokumentációjának](azure-stack-rotate-secrets.md)követésével.
- - A Pásti-szolgáltatások esetében a tanúsítványokkal telepítheti az SQL, a MySQL és a App Services erőforrás-szolgáltatót Azure Stack az [Azure stack dokumentációjában elérhető szolgáltatások áttekintését](azure-stack-offer-services-overview.md)követve.
+ - A Pásti-szolgáltatások esetében a tanúsítványokkal telepítheti az SQL, a MySQL és a App Services erőforrás-szolgáltatót Azure Stack az [Azure stack dokumentációjában elérhető szolgáltatások áttekintését](service-plan-offer-subscription-overview.md)követve.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Adatközpont identitásának integrációja](azure-stack-integrate-identity.md)

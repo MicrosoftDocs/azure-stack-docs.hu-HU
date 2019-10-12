@@ -1,6 +1,6 @@
 ---
-title: A felügyeleti portál használatával az Azure Stackben |} A Microsoft Docs
-description: Az Azure Stack operátorait szerint megtudhatja, hogyan használhatja a felügyeleti portált.
+title: A Azure Stack felügyeleti portál használata | Microsoft Docs
+description: Megtudhatja, hogyan használhatja a Azure Stack a felügyeleti portált.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,85 +16,85 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: a5a2c86d4680d38b3923eea4a04cacbf61fff108
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821747"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283497"
 ---
-# <a name="quickstart-use-the-azure-stack-administration-portal"></a>Gyors útmutató: az Azure Stack felügyeleti portál használata
+# <a name="use-the-administrator-portal-in-azure-stack"></a>A Azure Stack felügyeleti portáljának használata
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Nincsenek két portált az Azure Stackben; a felügyeleti portál és a felhasználói portál (más néven a *bérlői* portálon.) Az Azure Stack-operátori: használhatja a felügyeleti portálon a napi szintű felügyeletéért és az Azure Stack műveletek.
+Két portál található Azure Stackban: a felügyeleti Portálon és a felhasználói portálon. Azure Stack kezelőként a felügyeleti portálon használhatja a Azure Stack napi felügyeletét és műveleteit.
 
-## <a name="access-the-administrator-portal"></a>A felügyeleti portál elérése
+## <a name="access-the-administrator-portal"></a>Hozzáférés a felügyeleti portálhoz
 
-A felügyeleti portálhoz való hozzáféréshez nyissa meg a portál URL-címét, és jelentkezzen be egy Azure Stack-operátor hitelesítő adataival. Az integrált rendszer a portál URL-cím változik alapul a régió neve és a külső teljesen minősített tartománynevét (FQDN) az Azure Stack üzembe helyezés. A felügyeleti portál URL-cím mindig azonos, az Azure Stack Development Kit (ASDK) központi telepítéséhez. 
+A felügyeleti portál eléréséhez keresse meg a portál URL-címét, és jelentkezzen be a Azure Stack-kezelő hitelesítő adataival. Integrált rendszer esetén a portál URL-címe a Azure Stack üzemelő példányának régió neve és külső teljes tartományneve (FQDN) alapján változik. A felügyeleti portál URL-címe mindig megegyezik a Azure Stack Development Kit (ASDK) üzemelő példányok esetében.
 
 | Környezet | Felügyeleti portál URL-címe |   
 | -- | -- | 
-| ASDK| https://adminportal.local.azurestack.external  |
-| Integrált rendszerek | https://adminportal.&lt; *régió*&gt;.&lt; *Teljes Tartományneve*&gt; | 
+| AZURE STACK FEJLESZTŐI KÉSZLET (ASDK)| https://adminportal.local.azurestack.external  |
+| Integrált rendszerek | @no__t – 0; *régió*&gt;. &lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]
-> A ASDK környezetekben, először győződjön meg arról, hogy kell [development kit állomás csatlakozni](../asdk/asdk-connect.md) távoli asztali kapcsolaton keresztül, vagy virtuális magánhálózati (VPN) keresztül.
+> ASDK-környezet esetén először győződjön meg arról, hogy Távoli asztali kapcsolat vagy virtuális magánhálózati (VPN) [kapcsolaton keresztül tud csatlakozni a fejlesztői csomag gazdagépéhez](../asdk/asdk-connect.md) .
 
- ![A felügyeleti portál](media/azure-stack-manage-portals/admin-portal.png)
+ ![Azure Stack felügyeleti portál](media/azure-stack-manage-portals/admin-portal.png)
 
-Az alapértelmezett időzóna az összes Azure Stack üzemelő példányhoz van beállítva az egyezményes világidő (UTC). 
+Az összes Azure Stack üzemelő példány alapértelmezett időzónája az egyezményes világidő (UTC) szerint van beállítva.
 
-A felügyeleti portálon teheti többek között:
+A felügyeleti portálon a következőkhöz hasonló műveleteket végezhet:
 
 * [Az Azure Stack regisztrálása az Azure-ban](azure-stack-registration.md)
 * [A piactér feltöltése](azure-stack-download-azure-marketplace-item.md)
-* [Hozzon létre a csomagok, ajánlatok és előfizetések számára](azure-stack-plan-offer-quota-overview.md)
+* [Csomagok, ajánlatok és előfizetések létrehozása felhasználók számára](service-plan-offer-subscription-overview.md)
 * [Állapotfelügyelet és riasztások](azure-stack-monitor-health.md)
-* [Azure Stack frissítéseinek kezelése](azure-stack-updates.md)
+* [Azure Stack frissítések kezelése](azure-stack-updates.md)
 
-A **a rövid útmutató** csempe hivatkozások a leggyakoribb feladatokat az online dokumentációt.
+A gyors üzembe helyezési **útmutató** csempéje a leggyakoribb feladatokhoz kapcsolódó online dokumentációra mutató hivatkozásokat tartalmaz.
 
-Bár az operátornak a felügyeleti portálon hozhat létre erőforrásokat, például a virtuális gépek, virtuális hálózatok és tárfiókok, akkor [jelentkezzen be a felhasználói portál](../user/azure-stack-use-portal.md) hozhat létre, és tesztelje az erőforrásokat.
+Bár az operátorok olyan erőforrásokat is létrehozhatnak, mint például a virtuális gépek, a virtuális hálózatok és a Storage-fiókok a felügyeleti portálon, az erőforrások létrehozásához és teszteléséhez be kell [jelentkezniük a felhasználói portálra](../user/azure-stack-use-portal.md) .
 
 >[!NOTE]
->A **hozzon létre egy virtuális gépet** csatolása a rövid útmutató csempe rendelkezik, hozzon létre egy virtuális gépet a felügyeleti portálon, de ez csak a ellenőrzése, hogy az Azure Stack sikeresen üzembe helyezték szolgál.
+>A gyors üzembe helyezési oktatóanyag csempén a **virtuális gép létrehozása** hivatkozásra kattintva létrehoz egy virtuális gépet a felügyeleti portálon, de ez csak annak ellenőrzésére szolgál, hogy a Azure stack sikeresen telepítve lett-e.
 
-## <a name="understand-subscription-behavior"></a>Előfizetés a viselkedés értelmezése
+## <a name="understand-subscription-behavior"></a>Az előfizetés viselkedésének megismerése
 
-A felügyeleti portálon; alapértelmezés szerint létrehozott három előfizetés használat alapértelmezett szolgáltató és mérési. Kezelőként többnyire használhatja a *szolgáltatói előfizetés alapértelmezett*. Nem lehet bármely más előfizetéseket, és használhatja azokat a felügyeleti portálon. 
+A felügyeleti portálon alapértelmezés szerint három előfizetés jön létre: a felhasználás, az alapértelmezett szolgáltató és a mérés. Operátorként többnyire az *alapértelmezett szolgáltatói előfizetést*fogja használni. Nem adhat hozzá más előfizetéseket, és nem használhatja azokat a felügyeleti portálon.
 
-Egyéb előfizetések a felhasználók a felhasználói portálon, a csomagok és ajánlatok hoz létre, azok alapján jönnek létre. A felhasználói portál azonban nem biztosít hozzáférést a felügyeleti portál felügyeleti vagy működési képességeit.
+Más előfizetéseket a felhasználók a felhasználói portálon hozhatnak létre a számukra létrehozott csomagok és ajánlatok alapján. A felhasználói portál azonban nem biztosít hozzáférést a felügyeleti portál bármely adminisztratív vagy működési képességéhez.
 
-A felügyeleti és a felhasználói portált különálló példány az Azure Resource Manager élvezik. Az Azure Resource Manager-elkülönítés, mert az előfizetések nem lépi túl portálokat. Például, mint az Azure Stack-operátori jelentkezik be a felhasználói portálra, ha nem fér hozzá a *szolgáltatói előfizetés alapértelmezett*. Bár nem kell minden olyan felügyeleti funkciók elérését, létrehozhat saját előfizetések elérhető nyilvános ajánlatokat. Mindaddig, amíg a felhasználói portálra van bejelentkezve, egy bérlő felhasználói minősülnek.
+A rendszergazdák és a felhasználói portálok a Azure Resource Manager külön példányain vannak támogatva. A Azure Resource Manager elkülönítése miatt az előfizetések nem kereszteznek portálokat. Ha például Azure Stack operátorként jelentkezik be a felhasználói portálra, az *alapértelmezett szolgáltatói előfizetés*nem érhető el. Habár nem rendelkezik hozzáféréssel egyetlen rendszergazdai feladathoz sem, létrehozhat előfizetéseket saját magához az elérhető nyilvános ajánlatok közül. Ha bejelentkezett a felhasználói portálra, akkor a bérlői felhasználónak minősül.
 
   >[!NOTE]
-  >ASDK környezetben ha egy felhasználó tartozik, az Azure Stack-operátori bérlői könyvtárába, nincs letiltva a jelentkezik be a felügyeleti portálon. Nem lehet azonban, fér hozzá a felügyeleti funkciók egyik, vagy adja hozzá az előfizetés eléréséhez kínál, amelyek számára elérhető a felhasználói portálon.
+  >ASDK-környezetben, ha a felhasználó ugyanahhoz a bérlői címtárhoz tartozik, mint a Azure Stack operátor, nem tiltják le a bejelentkezést a felügyeleti portálra. Azonban nem férhetnek hozzá a rendszergazdai funkciókhoz, vagy előfizetések hozzáadásával hozzáférhetnek a felhasználói portálon elérhető ajánlatokhoz.
 
-## <a name="administration-portal-tips"></a>Felügyeleti portál tippek
+## <a name="administrator-portal-tips"></a>Rendszergazdai portál – tippek
 
-### <a name="customize-the-dashboard"></a>Az irányítópult testreszabásával
+### <a name="customize-the-dashboard"></a>Az irányítópult testreszabása
 
-Az irányítópult tartalmaz az alapértelmezett csempék jelennek meg. Választhat **irányítópult szerkesztése** módosítsa az alapértelmezett irányítópult, vagy válasszon **új irányítópult** egyéni irányítópult hozzáadása. Egyszerűen hozzáadhatja csempét az irányítópulton. Kiválaszthatja például **+ erőforrás létrehozása**, kattintson a jobb gombbal **ajánlatok és csomagok**, majd válassza ki **rögzítés az irányítópulton**.
+Az irányítópult az alapértelmezett csempék készletét tartalmazza. Az irányítópult **szerkesztése** lehetőség kiválasztásával módosíthatja az alapértelmezett irányítópultot, vagy kiválaszthat egy **új irányítópultot** egyéni irányítópult hozzáadásához. Csempéket is hozzáadhat az irányítópulthoz. Válassza például a **+ erőforrás létrehozása**lehetőséget, kattintson a jobb gombbal az **ajánlatok + csomagok**lehetőségre, majd válassza **a rögzítés az irányítópulton**lehetőséget.
 
-Egyes esetekben jelenhet meg egy üres irányítópult, a portálon. Az irányítópult helyreállítani, kattintson **irányítópult szerkesztése**, majd kattintson a jobb gombbal, és válassza ki **visszaállítja az alapértelmezett állapotba**.
+Időnként előfordulhat, hogy megjelenik egy üres irányítópult a portálon. Az irányítópult helyreállításához kattintson az **irányítópult szerkesztése**lehetőségre, majd kattintson a jobb gombbal, és válassza **a visszaállítás az alapértelmezett állapotba**lehetőséget.
 
-### <a name="quick-access-to-online-documentation"></a>Online dokumentáció gyors elérése
+### <a name="quick-access-to-online-documentation"></a>Gyors hozzáférés az online dokumentációhoz
 
-Hozzáférhet az Azure Stack operátori dokumentációja, használja a Súgó és ikonra (kérdőjel) támogatja a felügyeleti portál jobb felső sarkában. Helyezze a kurzort a ikonra, és válassza ki **súgó + támogatás**.
+A Azure Stack kezelő dokumentációjának eléréséhez használja a Súgó és támogatás ikont (kérdőjel) a felügyeleti portál jobb felső sarkában. Vigye a kurzort az ikonra, majd válassza a **Súgó + támogatás**lehetőséget.
 
-### <a name="quick-access-to-help-and-support"></a>Súgó és támogatás gyors elérése
+### <a name="quick-access-to-help-and-support"></a>Gyors hozzáférés a súgóhoz és támogatáshoz
 
-Ha rákattint a Súgó ikonra (kérdőjel) a felügyeleti portál jobb felső sarokban, kattintson a **súgó + támogatás**, és kattintson a **új támogatási kérelem** alatt **támogatja**, egyet az alábbi eredményeket történik:
+Ha a felügyeleti portál jobb felső sarkában található Súgó ikonra (kérdőjel) kattint, kattintson a **Súgó + támogatás**lehetőségre, majd az **új támogatási kérelem** a **támogatás**alatt lehetőségre, a következő eredmények egyike történik:
 
-- Integrált rendszer használja, ha ez a művelet megnyitja a hely, ahol közvetlenül megnyithatja egy támogatási jegyet a Microsoft ügyfél támogatási szolgálat (CSS). Tekintse meg [kérhet támogatást Where](azure-stack-manage-basics.md#where-to-get-support) megértéséhez, hogy mikor kell lépjen a Microsoft támogatási vagy a számítógépgyártó (OEM) hardver szállítójával támogatási keresztül.
-- Ha a ASDK használ, ez a művelet megnyitja a [Azure Stack-fórumok](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) közvetlenül. Ezek a fórumok rendszeresen figyeli a program. Mivel a ASDK kiértékelési környezet, rendszer nem hivatalos támogatja a Microsoft CSS keresztül érhető el.
+- Ha integrált rendszerű szolgáltatást használ, akkor a művelet megnyit egy webhelyet, ahol közvetlenül nyithat egy támogatási jegyet a Microsoft ügyfélszolgálati szolgáltatásaival (CSS). Ha segítségre van szüksége annak megismeréséhez, hogy a Microsoft támogatási szolgálata vagy az eredeti berendezésgyártó (OEM) hardvergyártó támogatását használja, olvassa el a következő [témakört](azure-stack-manage-basics.md#where-to-get-support) :.
+- Ha a ASDK használja, ez a művelet közvetlenül a [Azure stack Fórumok webhelyet](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) nyitja meg. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, a Microsoft CSS-ben nem érhető el hivatalos támogatás.
 
-### <a name="quick-access-to-the-azure-roadmap"></a>Gyors elérése az Azure-ütemterv
+### <a name="quick-access-to-the-azure-roadmap"></a>Gyors hozzáférés az Azure-ütemtervhez
 
-Ha **Súgó és támogatás** (a kérdőjel) a felügyeleti portálra, és majd kattintson a jobb felső sarokban **Azure ütemterve**, egy új böngészőlapon nyílik meg, és megnyílik az Azure-ütemterv. Beírásával **Azure Stack** a a **termékek** keresőmezőbe, láthatja az összes Azure Stack ütemterv frissítés.
+Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet**, megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja a **Azure stack** kifejezést a **Products (termékek** ) keresőmezőbe, megtekintheti az összes Azure stack-ütemterv frissítését.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Regisztráljon az Azure Stack az Azure-ral](azure-stack-registration.md) , és töltse fel a [Azure Stack piactéren](azure-stack-marketplace.md) elemek nyújtani a felhasználóknak. 
+[Regisztrálja Azure stack az Azure](azure-stack-registration.md) -ban, és töltse fel [Azure stack Marketplace](azure-stack-marketplace.md) elemet a felhasználók számára.

@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 187fe88ad304804462cc4461b24eb10a7af7a299
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159357"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277732"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Szakaszos adatelemzési megoldás üzembe helyezése Azure Stack
 
@@ -37,8 +37,8 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
 > - Tesztelje az üzenetsor által aktivált függvényt.
 
 > [!Tip]  
-> ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
+> Microsoft Azure Stack az Azure kiterjesztése. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
@@ -113,7 +113,7 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
  
 ![előkészített adatelemzési megoldás Azure Stack](media/azure-stack-solution-staged-data/image3.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
   - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)
 

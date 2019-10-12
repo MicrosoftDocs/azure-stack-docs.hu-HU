@@ -1,6 +1,6 @@
 ---
-title: Az intelligens peremhálózaton egyaránt az Azure Stack használatával a fejlesztési és üzemeltetési minta |} A Microsoft Docs
-description: Ismerje meg az intelligens peremhálózaton egyaránt az Azure Stack fejlesztési és üzemeltetési minta.
+title: Az intelligens peremhálózat DevOps mintázata Azure Stack | Microsoft Docs
+description: Ismerkedjen meg az intelligens peremhálózat DevOps-mintázatával Azure Stackával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,46 +11,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 07e0c3f0ca52c7079b879050ab36bf6a5f166f92
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: deab520045d50acefb03691b9b127f99676061a0
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856364"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277717"
 ---
 # <a name="geo-distributed-pattern"></a>Földrajzilag elosztott minta
 
-Adja meg az alkalmazás végpontjainak több régióban. Útvonal felhasználói forgalom helyét és megfelelőségi igényeinek megfelelően.
+Több régióban is biztosíthatja az alkalmazások végpontját. A felhasználói forgalom irányítása a hely és a megfelelőségi igények alapján.
 
 ## <a name="context-and-problem"></a>Kontextus és probléma
 
-Wide elérése szervezetekre földrajzi területeken arra törekszik, hogy biztonságosan és nagy pontossággal terjesztése és adatokhoz való hozzáférés engedélyezéséhez szükséges szintű biztonsági, megfelelőségi és teljesítmény / felhasználó, helyen és eszközön határokon biztosítva.
+Azok a szervezetek, amelyek széles körű földrajzi területtel rendelkeznek, az adathozzáférés biztonságos és pontos elosztására és engedélyezésére törekednek, miközben a biztonság, a megfelelőség és a teljesítmény szükséges szintje felhasználónként, helyen és eszközön a határokon belül.
 
 ## <a name="solution"></a>Megoldás
 
-Az Azure Stack a földrajzi forgalom-útválasztási minta vagy Geo-Distributed alkalmazások, engedélyezi a forgalmat a rendszer az eszközspecifikus végpontokat különböző metrikák alapján. Útvonalakat hoz létre egy Traffic Manager földrajzi alapú útválasztást és a végpont-konfiguráció-végpontokra irányuló forgalom alapján regionális követelmények, a vállalati és nemzetközi szabályozás és az adatok igényeinek megfelelően.
+A Azure Stack földrajzi forgalom-útválasztási minta vagy földrajzilag elosztott alkalmazások lehetővé teszik, hogy a forgalom a különböző metrikák alapján meghatározott végpontokra legyen irányítva. A földrajzi alapú útválasztási és végponti konfigurációval rendelkező Traffic Managerek a regionális követelmények, a vállalati és a nemzetközi szabályozás, valamint az adatszükségletek alapján irányítják át a végpontokra irányuló forgalmat.
 
 ![Földrajzilag elosztott minta](media/azure-stack-edge-pattern-geo-distribution/geo-distribution.png)
 
 **Traffic Manager**  
-Az ábrán ez a nyilvános felhőn kívül, de azt tudja a forgalmat a helyi adatközpontban és a nyilvános felhőben is működnie kell. A terheléselosztó átirányítja a forgalmat a földrajzi helyeket.
+A diagramon ez a nyilvános felhőn kívül található, de a helyi adatközpontban és a nyilvános felhőben is képesnek kell lennie a forgalom koordinálására. A Balancer a földrajzi helyszínekre irányítja a forgalmat.
 
 **Tartománynévrendszer (DNS)**  
-A Domain Name System, vagy a DNS-beli felelős fordítása (vagy feloldása) az IP-címét a webhely vagy szolgáltatás nevét.
+A tartománynévrendszer vagy a DNS a webhely vagy szolgáltatás nevének az IP-címére való fordítására (vagy feloldására) felelős.
 
 ### <a name="public-cloud"></a>Nyilvános felhő
 
 **Felhőbeli végpont**  
-A bejövő forgalom a traffic manager átirányítása a nyilvános felhőben alkalmazásvégpont erőforrások nyilvános IP-címek használhatók.  
+A nyilvános IP-címek használatával a bejövő forgalom átirányítható a Traffic Managerrel a nyilvános Felhőbeli alkalmazás erőforrásainak végpontján.  
 
-### <a name="local-clouds"></a>Helyi felhő
+### <a name="local-clouds"></a>Helyi felhők
 
 **Helyi végpont**  
-A bejövő forgalom a traffic manager átirányítása a nyilvános felhőben alkalmazásvégpont erőforrások nyilvános IP-címek használhatók.
+A nyilvános IP-címek használatával a bejövő forgalom átirányítható a Traffic Managerrel a nyilvános Felhőbeli alkalmazás erőforrásainak végpontján.
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
@@ -58,32 +58,32 @@ A minta megvalósítása során az alábbi pontokat vegye figyelembe:
 
 ### <a name="scalability-considerations"></a>Méretezési szempontok
 
-A minta kezeli a földrajzi forgalom útválasztási méretezésről, hogy megfeleljenek a megnövekedett forgalom helyett. Ez a minta kombinálhatja azonban más Azure-ban és a helyszíni megoldásokkal. Ez a minta például használható a több felhőre kiterjedő skálázás mintával.
+A minta a földrajzi forgalom útválasztását kezeli, és nem méretezhető, hogy megfeleljen a forgalom növekedésének. Ezt a mintát azonban más Azure-és helyszíni megoldásokkal is kombinálhatja. Ez a minta például a több felhőre kiterjedő skálázási mintával használható.
 
 ### <a name="availability-considerations"></a>Rendelkezésre állási szempontok
 
-Győződjön meg arról helyileg telepített alkalmazások magas rendelkezésre állású keresztül a helyszíni hardver konfiguráció és a szoftverek központi telepítési vannak konfigurálva.
+Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 
 ### <a name="manageability-considerations"></a>Felügyeleti szempontok
 
-A minta biztosítja a zökkenőmentes kezelés és ismerős felületet környezetek között.
+A minta zökkenőmentes felügyeletet és ismerős felületet biztosít a környezetek között.
 
 ## <a name="when-to-use-this-pattern"></a>Mikor érdemes ezt a mintát használni?
 
--   Nemzetközi, regionális egyéni biztonsági és terjesztési házirendeket igénylő ágak rendelkező.
+-   A szervezetem olyan nemzetközi ágakat tartalmaz, amelyek egyéni regionális biztonsági és terjesztési házirendeket igényelnek.
 
--   A szervezet irodával mindegyikének lekéri az alkalmazottak, az üzleti és létesítmény, tevékenység / helyi szabályozásokról és időzóna reporting igénylő.
+-   A szervezeti irodák mindegyike lekéri az alkalmazottakat, az üzleti és a létesítményi tevékenységeket, amelyek helyi szabályozással és időzónával kapcsolatos jelentési tevékenységet igényelnek.
 
--   Vízszintes horizontális felskálázás alkalmazások esetében kerül sor egy adott régión belül, valamint a régióban, annak érdekében rendkívüli terhelést jelent, hogy több alkalmazást üzembe helyezés az nagy méretű követelmények is kielégíthetők.
+-   A nagy léptékű követelmények az alkalmazások horizontális felskálázásával hajthatók végre, több alkalmazás üzembe helyezése egyetlen régióban, valamint régiók között, a szélsőséges terhelési követelmények kezelése érdekében.
 
--   Az alkalmazások magas rendelkezésre állású és válaszol-e az ügyfelektől érkező kérelmeket, még akkor is egy adott régión szolgáltatáskimaradás esetén kell lennie.
+-   Az alkalmazásoknak rendkívül elérhetőnek kell lenniük, és az ügyfelek kéréseire kell reagálnia, még akkor is, ha egyetlen régió meghibásodása esetén.
 
 ## <a name="example"></a>Példa
 
-Útmutató a forgalmat a földrajzilag elosztott alkalmazások minta használatával különböző metrikák alapján meghatározott végpontokhoz. Egy Traffic Manager létrehozása a földrajzi alapú útválasztást és a végpont konfigurációs profil biztosítja, információk alapján a regionális követelmények, a vállalati és a nemzetközi szabályozás és az adattárolási igényeinek végpontok van irányítva.
+Megtudhatja, hogyan irányíthatja át a forgalmat adott végpontokra különböző mérőszámok alapján a földrajzilag elosztott alkalmazások mintájának használatával. A Traffic Manager-profilok földrajzi alapú útválasztási és végponti konfigurációval való létrehozása biztosítja az információk átirányítását a végpontok számára a regionális követelmények, a vállalati és a nemzetközi szabályozás, valamint az adatok igényei alapján.
 
-[Földrajzilag elosztott alkalmazás megoldás létrehozása az Azure és az Azure Stackben](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-geo-distributed)
+[Földrajzilag elosztott app-megoldás létrehozása az Azure-ban és Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-geo-distributed)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ismerje meg [hibrid felhő tervezési minták az Azure Stackhez](azure-stack-edge-pattern-overview.md)
+Ismerje meg a [hibrid felhő kialakítási mintáit Azure stack](azure-stack-edge-pattern-overview.md)

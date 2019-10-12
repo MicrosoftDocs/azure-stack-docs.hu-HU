@@ -15,16 +15,16 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 64554d0bd2c9e9d8622b1fd48bb7d086cd0b4b76
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ca313e2e936f7bb006fdc1c15c49d271b1059a16
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603126"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283292"
 ---
 # <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Többfelhős méretezési alkalmazási megoldások létrehozása az Azure-ban és Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Megtudhatja, hogyan hozhat létre többfelhős megoldást egy olyan manuálisan aktivált folyamat megadására, amely egy Azure Stack üzemeltetett webalkalmazásból egy Azure-ban üzemeltetett webalkalmazásra vált át a Traffic Manager használatával történő automatikus skálázással. Ez a folyamat rugalmas és méretezhető felhőalapú segédprogramot biztosít a betöltés alatt.
 
@@ -40,8 +40,8 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 > - Ismerje meg az üzemelő példányok figyelését és nyomon követését.
 
 > [!Tip]  
-> ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
+> Microsoft Azure Stack az Azure kiterjesztése. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
@@ -49,14 +49,14 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 
 -   Egy Azure-előfizetés. Ha szükséges, hozzon létre egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a Kezdés előtt.
 
-- Az Azure Stackkel integrált rendszereknél vagy az Azure Stack fejlesztői készletének telepítése.
+- Azure Stack integrált rendszer vagy Azure Stack Development Kit üzembe helyezése.
     - A Azure Stack telepítésére vonatkozó utasításokért lásd: [a Azure stack Development Kit telepítése](../asdk/asdk-install.md).
-    - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
+    - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Előfordulhat, hogy a telepítés elvégzéséhez néhány óra szükséges.
 
 -   [App Service](../operator/azure-stack-app-service-deploy.md) Péter-szolgáltatások üzembe helyezése Azure stack.
 
--   [Hozzon létre egy csomagot/ajánlatokat](../operator/azure-stack-plan-offer-quota-overview.md) a Azure stack környezetben.
+-   [Hozzon létre egy csomagot/ajánlatokat](../operator/service-plan-offer-subscription-overview.md) a Azure stack környezetben.
 
 -   [Bérlői előfizetés létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) a Azure stack környezetben.
 
@@ -66,15 +66,15 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 
 -   A Windows Server 2016 rendszerű virtuális gépeket .NET 3,5-tel kell megadnia. Ez a virtuális gép a bérlői előfizetésben lesz felépítve, Azure Stack a privát Build ügynökként.
 
--   A [Windows Server 2016 és az SQL 2017](../operator/azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) virtuálisgép-rendszerkép a Azure stack piactéren érhető el. Ha ez a rendszerkép nem érhető el, működjön együtt egy Azure Stack operátorral annak biztosításához, hogy hozzá legyen adva a környezethez.
+-   A [Windows Server 2016 és az SQL 2017](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) virtuálisgép-rendszerkép a Azure stack piactéren érhető el. Ha ez a rendszerkép nem érhető el, működjön együtt egy Azure Stack operátorral annak biztosításához, hogy hozzá legyen adva a környezethez.
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
-### <a name="scalability"></a>Méretezhetőség
+### <a name="scalability"></a>Skálázhatóság
 
 A többfelhős méretezés kulcsfontosságú összetevője az, hogy a nyilvános és a helyszíni felhőalapú infrastruktúra között azonnali és igény szerinti skálázást lehessen biztosítani, amely konzisztens és megbízható szolgáltatást biztosít.
 
-### <a name="availability"></a>Rendelkezésre állás
+### <a name="availability"></a>Elérhetőség
 
 Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 
@@ -117,7 +117,7 @@ Azure-beli adattárak
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza `Runtimeidentifier` ki és `win10-x64`adja hozzá a elemet. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.) 
+1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza a `Runtimeidentifier` lehetőséget, és adja hozzá a `win10-x64` értéket. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.) 
 
     ![Webalkalmazás-projektfájl szerkesztése](media/azure-stack-solution-cloud-burst/image3.png)
 
@@ -161,7 +161,7 @@ Az Azure-folyamatok és a Azure DevOps Server egy kiválóan konfigurálható é
 
    ![Az Azure Cloud Environment értékeinek beállítása](media/azure-stack-solution-cloud-burst/image8.png)
 
-5. Adja meg a **környezet nevét** , és válassza ki az Azure-beli Felhőbeli végponthoz tartozó **Azure** -előfizetést.
+5. Adja meg a **környezet nevét** , és válassza ki az Azure-beli Felhőbeli végponthoz tartozó **Azure-előfizetést** .
 
       ![Azure-előfizetés kiválasztása Azure Felhőbeli végponthoz](media/azure-stack-solution-cloud-burst/image9.png)
 
@@ -169,7 +169,7 @@ Az Azure-folyamatok és a Azure DevOps Server egy kiválóan konfigurálható é
 
       ![Az Azure app Service nevének beállítása](media/azure-stack-solution-cloud-burst/image10.png)
 
-7. Adja meg a "üzemeltetett VS2017" kifejezést az Azure Cloud üzemeltetett környezet **ügynök** -várólistájában.
+7. Adja meg a "üzemeltetett VS2017" kifejezést az Azure Cloud üzemeltetett környezet **ügynök-várólistájában** .
 
       ![Az Azure Cloud üzemeltetett környezet ügynök-várólistájának beállítása](media/azure-stack-solution-cloud-burst/image11.png)
 
@@ -179,7 +179,7 @@ Az Azure-folyamatok és a Azure DevOps Server egy kiválóan konfigurálható é
 
       ![Azure App Service-környezethez tartozó csomag vagy mappa kiválasztása](media/azure-stack-solution-cloud-burst/image13.png)
 
-9. Mentse az összes módosítást, és térjen vissza a kiadási folyamathoz.
+9. Mentse az összes módosítást, és térjen vissza a **kiadási folyamathoz**.
 
     ![A kiadási folyamat módosításainak mentése](media/azure-stack-solution-cloud-burst/image14.png)
 
@@ -218,7 +218,7 @@ Az Azure-folyamatok és a Azure DevOps Server egy kiválóan konfigurálható é
 
     ![Mappa kiválasztása Azure App Service központi telepítéshez](media/azure-stack-solution-cloud-burst/image23.png)
 
-18. A változó lapon adjon hozzá egy nevű `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`változót, állítsa az értékét **igaz**értékre, a hatókört pedig Azure Stackra.
+18. A változó lapon adjon hozzá egy `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` nevű változót, állítsa az értékét **igaz**értékre, és a hatókört Azure stack.
     
     ![Változó hozzáadása az Azure-alkalmazások üzembe helyezéséhez](media/azure-stack-solution-cloud-burst/image24.png)
 
@@ -243,13 +243,13 @@ A végpontok létrehozásával a Visual Studio online-(VSTO-) buildek üzembe he
 
 2.  A **Beállítások**területen válassza a **Biztonság**elemet.
 
-3.  A **vsts-csoportok**területen válassza a **végpont**-létrehozók lehetőséget.
+3.  A **vsts-csoportok**területen válassza a **végpont-létrehozók**lehetőséget.
 
 4.  A **tagok** lapon válassza a **Hozzáadás**lehetőséget.
 
 5.  A **felhasználók és csoportok hozzáadása**lapon adja meg a felhasználónevet, és válassza ki a felhasználót a felhasználók listájából.
 
-6.  Válassza ki **módosítások mentése**.
+6.  Válassza a **módosítások mentése**lehetőséget.
 
 7.  A **vsts-csoportok** listában válassza ki a **végponti rendszergazdák**elemet.
 
@@ -257,7 +257,7 @@ A végpontok létrehozásával a Visual Studio online-(VSTO-) buildek üzembe he
 
 9.  A **felhasználók és csoportok hozzáadása**lapon adja meg a felhasználónevet, és válassza ki a felhasználót a felhasználók listájából.
 
-10. Válassza ki **módosítások mentése**.
+10. Válassza a **módosítások mentése**lehetőséget.
 
 Most, hogy a végponti információ már létezik, az Azure-folyamatok Azure Stack a kapcsolódás készen áll a használatra. A Azure Stack Build ügynöke beolvassa az Azure-folyamatok utasításait, majd az ügynök a Azure Stacksal folytatott kommunikációhoz végponti információkat továbbít.
 
@@ -276,7 +276,7 @@ A felhőben való üzembe helyezéshez használjon [Azure Resource Manager sablo
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  A **webalkalmazás. csproj** fájljának szerkesztése: Válassza `Runtimeidentifier` ki, majd `win10-x64`adja hozzá a elemet. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentáció.
+1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, majd adja hozzá a `win10-x64` elemet. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentáció.
 
 2.  Az Team Explorer segítségével keresse meg a kódot az Azure Reposban.
 
@@ -314,9 +314,9 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 5.  A **folyamat** lapon válassza az **1 fázis**, **1 feladat** hivatkozás lehetőséget a **környezeti feladatok megtekintéséhez**.
 
-6.  A **feladatok** lapon adja meg az Azure-t a **környezet neveként** , majd válassza a AzureCloud Traders-web EP elemet az **Azure** -előfizetések listájából.
+6.  A **feladatok** lapon adja meg az Azure-t a **környezet neveként** , majd válassza a AzureCloud Traders-web EP elemet az **Azure-előfizetések** listájából.
 
-7.  Adja meg az **Azure app Service nevét**, amely `northwindtraders` a következő képernyőfelvételen szerepel.
+7.  Adja meg az **Azure app Service nevét**, amely a következő képernyőfelvételen `northwindtraders`.
 
 8.  Az ügynök fázisa esetében az **ügynök-várólista** listából válassza az **üzemeltetett VS2017** lehetőséget.
 
@@ -324,17 +324,17 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 10. A **fájl vagy mappa kiválasztása**lapon kattintson **az OK** gombra a **helyhez**.
 
-11. Mentse az összes módosítást, és térjen vissza a folyamathoz.
+11. Mentse az összes módosítást, és térjen vissza a **folyamathoz**.
 
 12. A **folyamat** lapon válassza az összetevő **hozzáadása**lehetőséget, majd válassza ki a **NorthwindCloud Traders-hajót** a **forrás (összeállítás definíciója)** listából.
 
 13. A **sablon kiválasztása**lapon adjon hozzá egy másik környezetet. Válassza a **Azure app Service központi telepítés** lehetőséget, majd kattintson az **alkalmaz**gombra.
 
-14. Adja `Azure Stack` meg a **környezet nevét**.
+14. Adja meg a `Azure Stack` értéket a **környezet neveként**.
 
 15. A **feladatok** lapon keresse meg és válassza ki Azure stack.
 
-16. Az **Azure** -előfizetések listájából válassza ki a **AzureStack-kereskedők –** az Azure stack-végpontot.
+16. Az **Azure-előfizetések** listájából válassza ki a **AzureStack-kereskedők –** az Azure stack-végpontot.
 
 17. Adja meg az Azure Stack webalkalmazás nevét az **app Service neveként**.
 
@@ -342,7 +342,7 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 19. **Azure app Service üzembe helyezéséhez**válassza ki a környezet érvényes **csomagját vagy mappáját** . A **fájl vagy mappa kiválasztása**lapon válassza az **OK** lehetőséget a mappa **helyeként**.
 
-20. A **változó** lapon keresse meg a nevű `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`változót. Állítsa a változó értékét **igaz**értékre, és állítsa a hatókörét **Azure Stackra**.
+20. A **változó** lapon keresse meg a `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` nevű változót. Állítsa a változó értékét **igaz**értékre, és állítsa a hatókörét **Azure Stackra**.
 
 21. A **folyamat** lapon válassza a **folyamatos üzembe helyezés trigger** ikont a NorthwindCloud Traders-web összetevőhöz, és állítsa a **folyamatos üzembe helyezési triggert** **engedélyezve**értékre. Tegye ugyanezt a **NorthwindCloud-kereskedők** számára.
 
@@ -369,17 +369,17 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 2.  A **művelet** oszlopban jelölje ki a személy ikont az üzembe helyezés előtti vagy a telepítés utáni jóváhagyáshoz, és tekintse meg, hogy ki hagyta jóvá (vagy utasította el) a központi telepítést, illetve hogy milyen üzenetet adott meg.
 
-3.  Az üzembe helyezés befejeződése után a teljes naplófájl megjelenik a jobb oldali ablaktáblán. A bal  oldali ablaktábla bármelyik lépését kiválasztva megtekintheti a naplófájlt egy adott lépéshez, például a **feladatok inicializálásához**. Az egyes naplók megtekintésének képessége megkönnyíti a teljes telepítés részeinek nyomon követését és hibakeresését. **Mentse** a naplófájlt egy lépéshez, vagy **töltse le az összes naplót zip**-fájlként.
+3.  Az üzembe helyezés befejeződése után a teljes naplófájl megjelenik a jobb oldali ablaktáblán. A bal oldali ablaktábla bármelyik **lépését** kiválasztva megtekintheti a naplófájlt egy adott lépéshez, például a **feladatok inicializálásához**. Az egyes naplók megtekintésének képessége megkönnyíti a teljes telepítés részeinek nyomon követését és hibakeresését. **Mentse** a naplófájlt egy lépéshez, vagy **töltse le az összes naplót zip**-fájlként.
 
 4.  Nyissa meg az **Összefoglalás** lapot a kiadással kapcsolatos általános információk megtekintéséhez. Ez a nézet a kiépítés, a környezetek üzembe helyezési állapota és a kiadással kapcsolatos egyéb információk részleteit jeleníti meg.
 
 5.  Válasszon egy környezeti hivatkozást (**Azure** vagy **Azure stack**) a meglévő és a függőben lévő központi telepítésekkel kapcsolatos információk megtekintéséhez egy adott környezetben. Ezekkel a nézetekkel gyorsan ellenőrizheti, hogy ugyanazon Build mindkét környezetbe lett-e telepítve.
 
-6.  Nyissa meg az **üzembe helyezett éles alkalmazást** egy böngészőben. Az Azure App Services webhelyén például nyissa meg az URL-címet `https://[your-app-name\].azurewebsites.net`.
+6.  Nyissa meg az **üzembe helyezett éles alkalmazást** egy böngészőben. Az Azure App Services webhelyén például nyissa meg `https://[your-app-name\].azurewebsites.net` URL-címet.
 
 **Az Azure és a Azure Stack integrációja méretezhető, felhőalapú megoldást kínál**
 
 A rugalmas és robusztus többfelhős szolgáltatás adatbiztonságot, biztonsági mentést és redundanciát, egységes és gyors rendelkezésre állást, méretezhető tárolást és elosztást, valamint geo-kompatibilis útválasztást biztosít. Ez a manuálisan aktivált folyamat megbízható és hatékony terhelést biztosít a szolgáltatott webalkalmazások között, és azonnal elérhetővé teszi a kritikus fontosságú adatmennyiséget.
 
-## <a name="next-steps"></a>További lépések
-- Az Azure-minták Felhőkhöz kapcsolatos további információkért lásd: [tervezési minták Felhőkhöz](https://docs.microsoft.com/azure/architecture/patterns).
+## <a name="next-steps"></a>Következő lépések
+- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

@@ -1,81 +1,81 @@
 ---
-title: Az Azure Stack különbségek hálózatkezelés |} A Microsoft Docs
-description: Különbségek és szempontok ismerje meg az Azure Stack a hálózatkezelés használatakor.
+title: Azure Stack hálózati különbségek | Microsoft Docs
+description: A hálózatkezeléssel kapcsolatos különbségek és megfontolások a Azure Stackban.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 07/10/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
-ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
+ms.openlocfilehash: 79ec0994ecd99a5279fc0b3b032ef6872f921f38
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68229442"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277810"
 ---
-# <a name="differences-and-considerations-for-azure-stack-networking"></a>Különbségek és szempontok az Azure Stack-hálózatkezelés
+# <a name="differences-and-considerations-for-azure-stack-networking"></a>Különbségek és szempontok Azure Stack hálózatkezeléshez
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack-hálózatok számos, az Azure-hálózatok által kínált szolgáltatásokkal rendelkezik. Vannak azonban néhány fontos különbség, hogy az Azure Stack hálózat üzembe helyezése előtt tisztában kell lennie.
+Azure Stack hálózatkezelés az Azure-hálózatkezelés számos szolgáltatásával rendelkezik. Van azonban néhány fontos különbség, amelyet érdemes megismernie a Azure Stack hálózat telepítése előtt.
 
-Ez a cikk az Azure Stack hálózati és annak szolgáltatásait egyedi szempontjai áttekintést nyújt. Azure Stack és az Azure magas szintű különbségeit kapcsolatos további információkért tekintse meg a [szempontok kulcs](azure-stack-considerations.md) cikk.
+Ez a cikk áttekintést nyújt a Azure Stack hálózatkezeléssel és szolgáltatásaival kapcsolatos egyedi szempontokról. A Azure Stack és az Azure közötti magas szintű különbségek megismeréséhez tekintse meg a [legfontosabb szempontokat](azure-stack-considerations.md) ismertető cikket.
 
-## <a name="cheat-sheet-networking-differences"></a>Hasznos tanácsok: Hálózatkezelés különbségek
+## <a name="cheat-sheet-networking-differences"></a>Cheat Sheet: hálózati különbségek
 
-| Szolgáltatás | Funkció | Azure (globális) | Azure Stack |
+| Szolgáltatás | Szolgáltatás | Azure (globális) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | Több-bérlős DNS | Támogatott | Még nem támogatott |
-|  | DNS AAAA records | Támogatott | Nem támogatott |
-|  | DNS-zónák előfizetésenként | 100 (alapértelmezett)<br>Kérésre növelhető. | 100 |
-|  | DNS-rekord zónánként beállítása | 5000 (alapértelmezett)<br>Kérésre növelhető. | 5000 |
-|  | A névkiszolgálóktól a zónadelegálás | Az Azure biztosít minden felhasználó (bérlő) zónában jön létre, a négy névkiszolgálói nevet. | Az Azure Stack két névkiszolgálókat biztosít minden egyes létrehozott felhasználó (bérlő) zóna. |
+|  | DNS AAAA-rekordok | Támogatott | Nem támogatott |
+|  | DNS-zónák/előfizetés | 100 (alapértelmezett)<br>Igény szerint növelhető. | 100 |
+|  | DNS-rekordhalmazok száma zónában | 5000 (alapértelmezett)<br>Igény szerint növelhető. | 5000 |
+|  | Névkiszolgálók a zónák delegálásához | Az Azure négy névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. | Azure Stack két névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. |
 | Azure Firewall | Hálózati biztonsági szolgáltatás | Az Azure Firewall egy felügyelt, felhőalapú hálózatbiztonsági szolgáltatás, amely Azure Virtual Network-erőforrásait védi. | Még nem támogatott. |
-| Virtuális hálózat | Társviszony létesítése virtuális hálózatok között | Az azonos régióban található két virtuális hálózat csatlakoztatása az Azure gerinchálózatán keresztül. | Még nem támogatott |
-|  | IPv6-címek | IPv6-címet rendelhet részeként a [hálózatiadapter-konfigurációjában](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Kizárólag az IPv4 használata támogatott. |
-|  | DDoS Protection-Díjcsomag | Támogatott | Még nem támogatott. |
-|  | Méretezési csoport IP-konfigurációk | Támogatott | Még nem támogatott. |
-|  | Személyes elérési szolgáltatások (alhálózat) | Támogatott | Még nem támogatott. |
-|  | Service Endpoints – szolgáltatásvégpont | Belső (nem Internet) kapcsolatot Azure-szolgáltatások esetében támogatott. | Még nem támogatott. |
+| Virtual Network (Virtuális hálózat) | Virtuális hálózatok közötti társviszony létesítése | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Még nem támogatott |
+|  | IPv6-címek | A [hálózati adapter konfigurációjának](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)részeként egy IPv6-cím is hozzárendelhető. | Kizárólag az IPv4 használata támogatott. |
+|  | DDoS Protection terv | Támogatott | Még nem támogatott. |
+|  | Méretezési csoport IP-konfigurációi | Támogatott | Még nem támogatott. |
+|  | Magánhálózati hozzáférési szolgáltatások (alhálózat) | Támogatott | Még nem támogatott. |
+|  | Service Endpoints – szolgáltatásvégpont | Az Azure-szolgáltatásokhoz való belső (nem internetes) kapcsolódás esetén támogatott. | Még nem támogatott. |
 |  | Szolgáltatásvégpont-szabályzatok | Támogatott | Még nem támogatott. |
-|  | Szolgáltatás-alagút | Támogatott | Még nem támogatott.  |
-| Network Security Groups (Hálózati biztonsági csoportok) | Kibővített biztonsági szabályok | Támogatott | Még nem támogatott. |
+|  | Szolgáltatási alagutak | Támogatott | Még nem támogatott.  |
+| Hálózati biztonsági csoportok | Kibővített biztonsági szabályok | Támogatott | Még nem támogatott. |
 |  | Érvényes biztonsági szabályok | Támogatott | Még nem támogatott. |
 |  | Alkalmazásbiztonsági csoportok | Támogatott | Még nem támogatott. |
-| Virtuális hálózati átjárók | Pont – hely VPN-átjáró | Támogatott | Még nem támogatott. |
-|  | Vnet – Vnet-átjáró | Támogatott | Még nem támogatott. |
-|  | Virtuális hálózati átjáró típusa | Az Azure támogatja a VPN<br> Express Route <br> A Hyper-háló. | Az Azure Stack jelenleg csak a VPN-típust támogat. |
-|  | VPN-átjáró-termékváltozatok | Alapszintű, GW1, GW2, GW3, Standard, nagy teljesítményű, ultramagas szintű teljesítmény támogatása. | Alapszintű, Standard és a nagy teljesítményű termékváltozatok támogatása. |
-|  | VPN-típust | Az Azure támogatja a házirendalapú és útvonalalapú is. | Az Azure Stack útvonalalapú csak támogatja. |
-|  | BGP-beállítások | Az Azure támogatja a BGP-társviszony-létesítés címét és a Társviszony súlyozása konfigurációját. | BGP-társviszony-létesítés címét és a Társviszony súlyozása is, automatikusan konfigurált az Azure Stackben. Nincs lehetőség a saját értékekkel a beállítások konfigurálása a felhasználó számára. |
-|  | Alapértelmezett átjáró hely | Az Azure támogatja az alapértelmezett hely konfigurációs a kényszerített bújtatás. | Még nem támogatott. |
-|  | Átjáró átméretezése | Az Azure támogatja az átjáró átméretezése az üzembe helyezés után. | A méretezés nem támogatott. |
-|  | Rendelkezésre állás konfigurálása | Aktív/aktív | Aktív/passzív |
-|  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a szabályzatalapú forgalomválasztóinak útvonalalapú átjárót kapcsolatokkal. | Még nem támogatott. |
-| Terheléselosztó | SKU | Alapszintű és Standard Load Balancer Terheléselosztók támogatottak. | Csak az alapszintű Load Balancer használata támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű Termékváltozat load balancer /path/ nem rendelkezhet 5-nél több előtér-IP-konfigurációk.  |
-|  | Zóna | Rendelkezésre állási zónák használata támogatott. | Még nem támogatott |
-|  | A Szolgáltatásvégpontok bejövő NAT-szabályok támogatása | Az Azure támogatja a késleltetve Szolgáltatásvégpontok bejövő NAT-szabályok. | Az Azure Stack még Szolgáltatásvégponthoz nem támogatja, így ezek nem adhatók meg. |
-|  | Protocol | Az Azure támogatja a GRE- vagy ESP megadására. | Az Azure Stackben protokoll osztály nem támogatott. |
-| Nyilvános IP-cím | Nyilvános IP-cím verziója | Az Azure az IPv6 és IPv4 támogatja. | Kizárólag az IPv4 használata támogatott. |
-| Hálózati adapter | Hatályos útvonaltábla beolvasása | Támogatott | Még nem támogatott. |
-|  | Hatékony hozzáférés-vezérlési listák beolvasása | Támogatott | Még nem támogatott. |
-|  | Gyorsított hálózatkezelés engedélyezéséhez | Támogatott | Még nem támogatott. |
-|  | IP-továbbítás | Alapértelmezés szerint le van tiltva.  Engedélyezhető. | Ezzel a beállítással vizualizációtól nem támogatott.  Az alapértelmezés szerint. |
+| Virtuális hálózati átjárók | Pont – hely VPN Gateway | Támogatott | Még nem támogatott. |
+|  | Vnet – vnet átjáró | Támogatott | Még nem támogatott. |
+|  | Virtual Network átjáró típusa | Az Azure támogatja a VPN-t<br> ExpressRoute <br> Hyper-háló. | Azure Stack jelenleg csak a VPN-típust támogatja. |
+|  | SKU VPN Gateway | Az alapszintű, a GW1, a GW2, a GW3, a standard nagy teljesítményű, rendkívül nagy teljesítményű funkciók támogatása. | Az alapszintű, a standard és a nagy teljesítményű SKU támogatása. |
+|  | VPN-típus | Az Azure a házirend-alapú és a Route-alapú rendszert is támogatja. | A Azure Stack csak a Route-alapú használatát támogatja. |
+|  | BGP-beállítások | Az Azure támogatja a BGP-társas címek és a társak súlyozásának konfigurációját. | A BGP-társak címzési címe és a társ súlya automatikusan konfigurálva van Azure Stackban. A felhasználó nem állíthatja be ezeket a beállításokat a saját értékeivel. |
+|  | Alapértelmezett átjáró helye | Az Azure támogatja az alapértelmezett hely konfigurációját a kényszerített bújtatáshoz. | Még nem támogatott. |
+|  | Átjáró átméretezése | Az Azure támogatja az átjáró átméretezését az üzembe helyezés után. | Az átméretezés nem támogatott. |
+|  | Rendelkezésre állási konfiguráció | Aktív/aktív | Aktív/passzív |
+|  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a házirend-alapú forgalom-választókat az Útválasztás-alapú átjáró kapcsolataival. | Még nem támogatott. |
+| Load Balancer | SKU (Cikkszám) | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer/Path/legfeljebb 5 előtér-IP-konfigurációval rendelkezhet.  |
+|  | Zóna | A Availability Zones támogatottak. | Még nem támogatott |
+|  | Bejövő NAT-szabályok támogatása szolgáltatási végpontok számára | Az Azure támogatja a szolgáltatási végpontok megadását a bejövő NAT-szabályokhoz. | A Azure Stack még nem támogatja a szolgáltatási végpontokat, így ezeket nem lehet megadni. |
+|  | Protocol (Protokoll) | Az Azure támogatja a GRE vagy az ESP megadását. | A protokoll osztály nem támogatott Azure Stackban. |
+| Nyilvános IP-cím | Nyilvános IP-cím verziója | Az Azure az IPv6 és az IPv4 protokollt is támogatja. | Kizárólag az IPv4 használata támogatott. |
+| Hálózati adapter | Hatékony útválasztási táblázat beolvasása | Támogatott | Még nem támogatott. |
+|  | Érvényes ACL-ek lekérése | Támogatott | Még nem támogatott. |
+|  | Gyorsított hálózatkezelés engedélyezése | Támogatott | Még nem támogatott. |
+|  | IP-továbbítás | Alapértelmezés szerint letiltva.  Engedélyezve lehet. | Ez a beállítás nem támogatott.  Alapértelmezés szerint bekapcsolva. |
 |  | Alkalmazásbiztonsági csoportok | Támogatott | Még nem támogatott. |
-|  | Belső DNS-névcímke | Támogatott | Még nem támogatott. |
-|  | Magánhálózati IP-cím verziója | Az IPv6 és IPv4 használata támogatott. | Kizárólag az IPv4 használata támogatott. |
-|  | Statikus MAC-cím | Nem támogatott | Nem támogatott. Minden egyes Azure Stack rendszert használja az azonos MAC-címkészlet. |
-| Network Watcher | Network Watcher bérlői hálózathoz figyelési képességek | Támogatott | Még nem támogatott. |
-| Tartalomkézbesítési hálózat (CDN) | Content Delivery Network-profilok | Támogatott | Még nem támogatott. |
-| Alkalmazásátjáró | 7\. rétegbeli terheléselosztási | Támogatott | Még nem támogatott. |
-| Traffic Manager | A bejövő forgalom irányítása az optimális alkalmazásteljesítmény és megbízhatóság. | Támogatott | Még nem támogatott. |
-| Express Route | Állítsa be egy gyors privát kapcsolat a helyszíni infrastruktúrát vagy közös elhelyezési létesítményből származó Microsoft-felhőszolgáltatásokhoz. | Támogatott | Támogatás az Azure Stack csatlakoztatása egy Expressroute-kapcsolatcsoportot. |
+|  | Belső DNS-név címkéje | Támogatott | Még nem támogatott. |
+|  | Magánhálózati IP-cím verziója | Az IPv6 és az IPv4 is támogatott. | Kizárólag az IPv4 használata támogatott. |
+|  | Statikus MAC-címek | Nem támogatott | Nem támogatott. Az egyes Azure Stack rendszerek ugyanazt a MAC-címkészletet használják. |
+| Network Watcher | Network Watcher bérlői hálózat figyelési képességei | Támogatott | Még nem támogatott. |
+| CDN | Content Delivery Network profilok | Támogatott | Még nem támogatott. |
+| Alkalmazásátjáró | 7\. rétegbeli terheléselosztás | Támogatott | Még nem támogatott. |
+| Forgalomkezelő | A bejövő forgalom irányítása az alkalmazások optimális teljesítményének és megbízhatóságának megfelelően. | Támogatott | Még nem támogatott. |
+| ExpressRoute | Hozzon létre egy gyors, privát kapcsolatokat a Microsoft Cloud Services szolgáltatással a helyszíni infrastruktúráról vagy a helyi létesítményből. | Támogatott | Azure Stack csatlakoztatásának támogatása Express Route-áramkörhöz. |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [DNS az Azure Stackben](azure-stack-dns.md)

@@ -15,16 +15,16 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037903"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283058"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket a Azure Stackhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ.
 
@@ -38,7 +38,7 @@ Az [AK-motor](https://github.com/Azure/aks-engine) egy létrehozott rendszerkép
 
 A felhasználóknak egy csomagra, ajánlatra és előfizetésre van szükségük, hogy elegendő lemezterülettel Azure Stack. A felhasználók általában legfeljebb hat virtuális gépet telepíthetnek a három főkiszolgálóból és három feldolgozó csomópontból álló fürtökön. Érdemes meggyőződni arról, hogy elég nagy mennyiségű kvótával rendelkeznek.
 
-Ha további információra van szüksége a szolgáltatási ajánlatok megtervezéséről és beállításáról, tekintse meg az [ajánlati szolgáltatások áttekintése Azure stack](azure-stack-offer-services-overview.md)
+Ha további információra van szüksége a szolgáltatási ajánlatok megtervezéséről és beállításáról, tekintse meg az [ajánlati szolgáltatások áttekintése Azure stack](service-plan-offer-subscription-overview.md)
 
 ## <a name="create-a-service-principal-and-credentials"></a>Egyszerű szolgáltatásnév és hitelesítő adatok létrehozása
 
@@ -58,7 +58,7 @@ Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való b
 
 Adja hozzá a következő elemeket a piactérhez:
 
-1. Jelentkezzen be a [felügyeleti portálján](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
 
 1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
 
@@ -71,7 +71,7 @@ Adja hozzá a következő elemeket a piactérhez:
     A listában válassza a következőket:
     - **Közzétevő**: Azure Kubernetes Service
     - **Ajánlat**: AK
-    - **Verzió**: AK-alapú alaprendszerkép 16,04-LTS rendszerkép-disztribúció, 2019. szeptember (2019.09.19 vagy Version, amely az AK-motorhoz van leképezve)
+    - **Verzió**: AK alaprendszerkép 16,04 – LTS rendszerkép-disztribúció, 2019. szeptember (2019.09.19 vagy Version, amely az AK-motorhoz van leképezve)
 
 1. Válassza a **Letöltés lehetőséget.**
 
@@ -88,8 +88,8 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 1. Írja be a `Custom Script for Linux` (igen) kifejezést.
 
 1. Válassza ki a parancsfájlt a következő profillal:
-   - **Ajánlat**: Egyéni parancsfájl a Linux 2,0-hez
-   - **Verzió**: 2.0.6 (vagy a legújabb verzió)
+   - **Ajánlat**: egyéni parancsfájl a Linux 2,0-hez
+   - **Verzió**: 2.0.6 (vagy legújabb verzió)
    - **Közzétevő**: Microsoft Corp
 
      > [!Note]  
@@ -97,8 +97,8 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Válassza a **Letöltés lehetőséget.**
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Mi a Azure Stack AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[A Azure Stack szolgáltatásainak áttekintése](azure-stack-offer-services-overview.md)
+[A Azure Stack szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md)

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 25be3914f58abad44b64870f9da94610a7498d52
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: e31a71098cda4f769fbce4e55bec6ec72a5a651b
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603038"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277766"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>Magasan elérhető MongoDB-megoldás üzembe helyezése az Azure-ban és Azure Stack
 
@@ -35,8 +35,8 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
 
 
 > [!Tip]  
-> ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
+> Microsoft Azure Stack az Azure kiterjesztése. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
@@ -53,7 +53,7 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
       - **Jegyezze fel mindegyik előfizetés-azonosítót és a Azure Resource Manager végpontot az egyes Azure Stackokhoz.**
   - Egy Azure Active Directory (Azure AD) egyszerű szolgáltatásnév, amely minden egyes Azure Stack a bérlői előfizetéshez rendelkezik engedéllyel. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha az Azure stackek különböző Azure AD-bérlők között vannak telepítve. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet a Azure Stackhoz, tekintse meg az [egyszerű szolgáltatások létrehozása az alkalmazások Azure stack erőforrásokhoz való hozzáférésének biztosítása érdekében](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)című témakört.    
       - **Jegyezze fel az egyes egyszerű szolgáltatások alkalmazás-AZONOSÍTÓját, az ügyfél titkos kulcsát és a bérlő nevét (xxxxx.onmicrosoft.com).**
-  - Ubuntu 16,04 szindikált minden Azure Stack Marketplace-en. További információ a Marketplace Syndication szolgáltatásról: [Marketplace-elemek letöltése az Azure-ból Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
+  - Ubuntu 16,04 szindikált minden Azure Stack Marketplace-en. További információ a Marketplace Syndication [szolgáltatásról: Marketplace-elemek letöltése az Azure-ból Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
   - A helyi gépre telepített [Windows Docker](https://docs.docker.com/docker-for-windows/) .
 
 ## <a name="get-the-docker-image"></a>A Docker-rendszerkép beszerzése
@@ -97,7 +97,7 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
 
-4.  Írja `Y` be a NuGet-szolgáltató telepítésének engedélyezését, amely a telepítendő "2018-03-01-Hybrid" modulok indítását fogja elindítani.
+4.  Írja be a `Y` értéket a NuGet-szolgáltató telepítésének engedélyezéséhez, amely elindítja a telepíteni kívánt "2018-03-01-Hybrid" modulok API-profilját.
 
 5.  Először a HA-erőforrások lesznek telepítve. Figyelje a központi telepítést, és várjon, amíg befejeződik. Ha az üzenet arról tájékoztatja, hogy a HA a telepítés befejeződött, a Azure Stack portálján megtekintheti a telepített erőforrásokat. 
 
@@ -111,10 +111,10 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
   exit
   ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-  - Ha a DR Azure Stackban engedélyezte a Jump Box virtuális gépet, az SSH-n keresztül kapcsolódhat a MongoDB-fürthöz, és a Mongo parancssori felületének telepítésével is folytathatja a munkát. Ha többet szeretne megtudni a MongoDB-mel való interakcióról, tekintse meg [a Mongo](https://docs.mongodb.com/manual/mongo/)-rendszerhéjat.
+  - Ha a DR Azure Stackban engedélyezte a Jump Box virtuális gépet, az SSH-n keresztül kapcsolódhat a MongoDB-fürthöz, és a Mongo parancssori felületének telepítésével is folytathatja a munkát. Ha többet szeretne megtudni a MongoDB-mel való interakcióról, tekintse meg [a Mongo-rendszerhéjat](https://docs.mongodb.com/manual/mongo/).
 
   - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)
 
-  - Módosítsa a minta kódját a githubon [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
+  - Módosítsa a minta kódját a [githubon](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

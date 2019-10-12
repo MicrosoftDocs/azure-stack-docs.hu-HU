@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6a933f812edeede1802c35e3d25915ce09b6f01b
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909214"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283468"
 ---
 # <a name="create-mysql-databases"></a>MySQL-adatbázisok létrehozása
 A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack felhasználó a felhasználói portálon hozhat létre és kezelhet önkiszolgáló MySQL-adatbázisokat.
@@ -64,6 +64,6 @@ A jelszót a MySQL-kiszolgáló példányán módosítva módosíthatja.
 
 ![A rendszergazdai jelszó frissítése](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[A MySQL típusú erőforrás-szolgáltató frissítése](azure-stack-mysql-resource-provider-update.md)
+Ismerje meg, hogyan [kínálhat kiválóan elérhető MySQL-adatbázisokat](azure-stack-tutorial-mysql.md)

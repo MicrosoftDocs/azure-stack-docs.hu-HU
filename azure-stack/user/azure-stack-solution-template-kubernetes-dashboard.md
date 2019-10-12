@@ -1,6 +1,6 @@
 ---
-title: Hozzáférés a Kubernetes-irányítópulthoz az Azure Stackben |} A Microsoft Docs
-description: Az Azure Stack a Kubernetes-irányítópult elérése
+title: A Kubernetes-irányítópult elérése a Azure Stackban | Microsoft Docs
+description: Útmutató a Kubernetes-irányítópult eléréséhez Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,100 +11,100 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: ecd0d3c79edc2359cf82aa9c52fb9021d7fc7a6f
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 2c1a762f002e5058e11857117b4210ad0b59e564
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308678"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277548"
 ---
-# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Hozzáférés a Kubernetes-irányítópultot az Azure Stackben 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>A Kubernetes-irányítópult elérése Azure Stack 
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete* 
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit* 
 > [!Note]   
-> Az Azure Stacken Kubernetes szolgáltatás előzetes verzióban. Az Azure Stack kapcsolat nélküli forgatókönyv jelenleg nem érhető el az előzetes verzió. Csak a Piactéri elem használata fejlesztéshez és teszteléshez.
+> A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
 
-Kubernetes webes irányítópultot is használhatja az alapvető felügyeleti műveletet tartalmaz. Ez az irányítópult lehetővé teszi az alapszintű állapot-állapot és az alkalmazások metrikáinak megtekintése, létrehozása és -szolgáltatások telepítését és szerkesztheti a meglévő alkalmazásokat. Ez a cikk bemutatja, hogyan állítható be a Kubernetes-irányítópultot az Azure Stacken.
+A Kubernetes tartalmaz egy webes irányítópultot, amely alapszintű felügyeleti műveletekhez használható. Ez az irányítópult lehetővé teszi az alkalmazások alapvető állapotának és mérőszámának megtekintését, szolgáltatások létrehozását és üzembe helyezését, valamint meglévő alkalmazások szerkesztését. Ez a cikk bemutatja, hogyan állíthatja be a Kubernetes irányítópultját Azure Stackon.
 
-## <a name="prerequisites-for-kubernetes-dashboard"></a>A Kubernetes-irányítópult előfeltételei
+## <a name="prerequisites-for-kubernetes-dashboard"></a>A Kubernetes irányítópultjának előfeltételei
 
-* Az Azure Stack Kubernetes-fürt
+* Azure Stack Kubernetes-fürt
 
-    Azure Stack üzembe egy Kubernetes-fürtöt kell. További információkért lásd: [üzembe helyezése Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
+    Telepítenie kell egy Kubernetes-fürtöt, hogy Azure Stack. További információ: a [Kubernetes telepítése](azure-stack-solution-template-kubernetes-deploy.md).
 
 * SSH-ügyfél
 
-    SSH-ügyfelet, a security kell csatlakozni a a fürt fő csomópontjának. Ha Windows használata esetén használhatja [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Szüksége lesz a titkos kulcsot, a Kubernetes-fürt üzembe helyezésekor alkalmazott.
+    Szüksége lesz egy SSH-ügyfélre a fürt fő csomópontjának biztonsági összekapcsolásához. Ha Windows rendszert használ, használhatja a [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm)-t. Szüksége lesz a Kubernetes-fürt üzembe helyezésekor használt titkos kulcsra.
 
 * FTP (PSCP)
 
-    Az FTP-ügyfél, amely támogatja az SSH és az SSH File Transfer Protocol viheti át a tanúsítványokat a fő csomópontot az Azure Stack felügyeleti géphez is szükség lehet. Használhat [Filezillát](https://filezilla-project.org/download.php?type=client). Szüksége lesz a titkos kulcsot, a Kubernetes-fürt üzembe helyezésekor alkalmazott.
+    Szükség lehet egy olyan FTP-ügyfélre is, amely támogatja az SSH-t és az SSH-t File Transfer Protocol a tanúsítványok a főcsomópontról a Azure Stack felügyeleti gépre való átviteléhez. A [FileZilla](https://filezilla-project.org/download.php?type=client)-t használhatja. Szüksége lesz a Kubernetes-fürt üzembe helyezésekor használt titkos kulcsra.
 
-## <a name="overview-of-steps-to-enable-dashboard"></a>További lépések elvégzésével irányítópult áttekintése
+## <a name="overview-of-steps-to-enable-dashboard"></a>Az irányítópult engedélyezésének lépései – áttekintés
 
-1.  A Kubernetes tanúsítványokat exportálhat a fürt fő csomópontja. 
-2.  A tanúsítványok importálása az Azure Stack felügyeleti gépére.
-2.  Nyissa meg a Kubernetes webes irányítópultot. 
+1.  Exportálja a Kubernetes tanúsítványokat a fürt fő csomópontján. 
+2.  Importálja a tanúsítványokat a Azure Stack felügyeleti gépre.
+2.  Nyissa meg a Kubernetes webes irányítópultját. 
 
-## <a name="export-certificate-from-the-master"></a>Exportálja a tanúsítványt a főágból 
+## <a name="export-certificate-from-the-master"></a>Tanúsítvány exportálása a főkiszolgálóról 
 
-Az irányítópult URL-CÍMÉT a fő csomópont kérheti le a fürtben.
+Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
 
-1. Szerezze be a nyilvános IP-cím és a felhasználónév a fürt fő az Azure Stack-irányítópultról. Ezek az információk lekéréséhez:
+1. Szerezze be a fürt főkiszolgálójára vonatkozó nyilvános IP-címet és felhasználónevet a Azure Stack irányítópulton. A következő információk beszerzése:
 
-    - Jelentkezzen be a [Azure Stack portálon](https://portal.local.azurestack.external/)
-    - Válassza ki **minden szolgáltatás** > **összes erőforrás**. A fő található a fürterőforrás-csoportot. A fő nevű `k8s-master-<sequence-of-numbers>`. 
+    - Bejelentkezés a [Azure stack portálra](https://portal.local.azurestack.external/)
+    - Válassza az **összes szolgáltatás** > **minden erőforrás**elemet. Keresse meg a főkiszolgálót a fürterőforrás-csoportban. A főkiszolgáló neve `k8s-master-<sequence-of-numbers>`. 
 
-2. Nyissa meg a portálon a fő csomóponttal. Másolás a **nyilvános IP-cím** címet. Kattintson a **Connect** található a felhasználó nevének lekérése a **virtuális gép helyi fiókjával bejelentkezési** mezőbe. Ez az a fürt létrehozásakor beállított ugyanazt a felhasználónevet. A connect panelen felsorolt magánhálózati IP-cím helyett a nyilvános IP-címet használja.
+2. Nyissa meg a fő csomópontot a portálon. Másolja a **nyilvános IP-** címet. Kattintson a **Kapcsolódás** gombra a Felhasználónév beolvasásához a **Bejelentkezés a virtuális gép helyi fiókjával jelölőnégyzet használatával** . Ez ugyanaz a Felhasználónév, amelyet a fürt létrehozásakor beállított. A nyilvános IP-cím helyett használja a kapcsolat panelen felsorolt magánhálózati IP-címet.
 
-3.  Nyisson meg egy SSH-ügyfél a főcsomóponthoz való kapcsolódáshoz. Ha Windows dolgozik, akkor használhatja [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) a kapcsolat létrehozásához. Ön a fő csomóponttal, a felhasználónév a nyilvános IP-címet használja, és adja hozzá a titkos kulcsot, a fürt létrehozásakor használt.
+3.  Nyisson meg egy SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. Ha Windows rendszeren dolgozik, a [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) segítségével hozhatja létre a kapcsolódást. A főcsomóponthoz tartozó nyilvános IP-címet, a felhasználónevet és a fürt létrehozásakor használt titkos kulcsot kell felvennie.
 
-4.  Amikor a terminál csatlakozik, írja be a `kubectl` megnyitásához a Kubernetes parancssori ügyfelét.
+4.  Ha a terminál csatlakozik, írja be a `kubectl` parancsot a Kubernetes parancssori ügyfél megnyitásához.
 
-5. Futtassa a következő parancsot:
+5. Futtassa az alábbi parancsot:
 
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Az URL-cím az irányítópulton található. Példa: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Keresse meg az irányítópult URL-címét. Például: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
-6.  Bontsa ki az önaláírt tanúsítvány, és a PFX-formátumba konvertálja. Futtassa a következő parancsot:
+6.  Bontsa ki az önaláírt tanúsítványt, és alakítsa át a PFX formátumba. Futtassa az alábbi parancsot:
 
     ```Bash  
     sudo su 
     openssl pkcs12 -export -out /etc/kubernetes/certs/client.pfx -inkey /etc/kubernetes/certs/client.key  -in /etc/kubernetes/certs/client.crt -certfile /etc/kubernetes/certs/ca.crt 
     ```
 
-7.  A titkos kulcsok lekéréséhez a **kube rendszer** névtér. Futtassa a következő parancsot:
+7.  A **Kube-System** névtérben található titkos kódok listájának beolvasása. Futtassa az alábbi parancsot:
 
     ```Bash  
     kubectl -n kube-system get secrets
     ```
 
-    Jegyezze fel a kubernetes-irányítópult-jogkivonat -\<XXXXX > érték. 
+    Jegyezze fel a kubernetes-Dashboard-token-\<XXXXX > értéket. 
 
-8.  A token beszerzéséhez, és mentse azt. Frissítés a `kubernetes-dashboard-token-<####>` az előző lépésben a titkos értékkel.
+8.  Szerezze be a jogkivonatot, és mentse azt. Frissítse a `kubernetes-dashboard-token-<####>` értéket az előző lépésből származó titkos értékkel.
 
     ```Bash  
     kubectl -n kube-system describe secret kubernetes-dashboard-token-<####>| awk '$1=="token:"{print $2}' 
     ```
 
-## <a name="import-the-certificate"></a>Importálja a tanúsítványt
+## <a name="import-the-certificate"></a>A tanúsítvány importálása
 
-1. Nyissa meg a Filezillát, és kapcsolódjon a fő csomóponttal. Szüksége lesz a:
+1. Nyissa meg a FileZilla-t, és kapcsolódjon a fő csomóponthoz. A következőkre lesz szüksége:
 
-    - a főcsomópont nyilvános IP-cím
-    - a felhasználónév
-    - a privát titkos kulcs
-    - Használat **SFTP - SSH File Transfer Protocol**
+    - a fő csomópont nyilvános IP-címe
+    - a Felhasználónév
+    - a titkos titok
+    - Az **SFTP-SSH File Transfer Protocol** használata
 
-2. Másolás `/etc/kubernetes/certs/client.pfx` és `/etc/kubernetes/certs/ca.crt` az Azure Stack felügyeleti gépére.
+2. Másolja a `/etc/kubernetes/certs/client.pfx` és a `/etc/kubernetes/certs/ca.crt` értéket a Azure Stack felügyeleti gépre.
 
-3. Jegyezze meg a fájlok helyét. A parancsfájl frissítse a helyeket, és a PowerShell nyisson meg egy rendszergazda jogú parancssorba. Futtassa a frissített parancsfájlt:  
+3. Jegyezze fel a fájlok helyét. Frissítse a parancsfájlt a helyekkel, majd nyissa meg a PowerShellt egy emelt szintű parancssorral. Futtassa a frissített parancsfájlt:  
 
     ```powershell   
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
@@ -114,27 +114,27 @@ Az irányítópult URL-CÍMÉT a fő csomópont kérheti le a fürtben.
 
 ## <a name="open-the-kubernetes-dashboard"></a>A Kubernetes-irányítópult megnyitása 
 
-1. Tiltsa le az előugró ablakok a böngészőben.
+1. Tiltsa le a webböngésző előugró ablakának blokkoló eszközét.
 
-2. Az URL-címet a böngésző jelezve, hogy a parancs futtatásakor pont `kubectl cluster-info`. Például: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy 
-3. Jelölje be az ügyféltanúsítványt.
+2. Irányítsa a böngészőt arra az URL-címre, amelyet a `kubectl cluster-info` parancs futtatásakor feljegyzett. Például: https: \//azurestackdomainnamefork8sdashboard/API/v1/névtér/Kube-System/Services/https: kubernetes-Dashboard:/proxy 
+3. Válassza ki az ügyféltanúsítványt.
 4. Adja meg a jogkivonatot. 
-5. A bash parancssorban, a fő csomópont újra, és engedélyeket biztosíthat a `kubernetes-dashboard`. Futtassa a következő parancsot:
+5. Kapcsolódjon újra a bash parancssorához a fő csomóponton, és adjon meg `kubernetes-dashboard` engedélyeket. Futtassa az alábbi parancsot:
 
     ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
 
-    A parancsprogram megjeleníti `kubernetes-dashboard` felhőalapú rendszergazdai jogosultságokkal. További információkért lásd: [az RBAC-kompatibilis fürtök](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
+    A parancsfájl `kubernetes-dashboard` Felhőbeli rendszergazdai jogosultságot biztosít. További információ: [RBAC-kompatibilis fürtök](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
-Használhatja az irányítópultot. A Kubernetes-irányítópult további információkért lásd: [Kubernetes webes felhasználói felületének irányítópultja](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
+Használhatja az irányítópultot. A Kubernetes-irányítópulttal kapcsolatos további információkért lásd: [Kubernetes webes felhasználói felület irányítópultja](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
-![Az Azure Stack a Kubernetes-irányítópult](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+![Azure Stack Kubernetes-irányítópult](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 
-[Az Azure Stack üzembe helyezése Kubernetes](azure-stack-solution-template-kubernetes-deploy.md)  
+[A Kubernetes üzembe helyezése Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)  
 
-[Kubernetes-fürt hozzáadása a Marketplace-en (az Azure Stack-operátorokról)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
+[Kubernetes-fürt hozzáadása a piactérhez (Azure Stack operátor)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
 [Kubernetes az Azure-ban](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  

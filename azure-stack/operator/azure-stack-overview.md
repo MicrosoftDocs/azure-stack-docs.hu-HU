@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 060258b07e3eef385298600794a6dd8154a461fc
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070162"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283425"
 ---
 # <a name="azure-stack-overview"></a>Az Azure Stack áttekintése
 
@@ -57,12 +57,12 @@ Az Azure Stack az iparági szabványoknak megfelelő hardverre épül, és ugyan
 
 A Azure Stack architektúra lehetővé teszi, hogy az Azure-szolgáltatásokat a peremhálózat távoli helyein vagy időszakos kapcsolaton keresztül, az internetről leválasztva biztosítson. Létrehozhat olyan hibrid megoldásokat, amelyek az adatokat helyileg dolgozzák fel Azure Stack, majd az Azure-ban összesítve további feldolgozást és elemzést végeznek. Végezetül, mivel Azure Stack a helyszínen van telepítve, a konkrét szabályozási vagy házirend-követelmények teljesítése érdekében a felhőalapú alkalmazások helyszíni üzembe helyezése a kód módosítása nélkül is megváltoztatható. 
 
-## <a name="deployment-options"></a>Telepítési beállítások
+## <a name="deployment-options"></a>Üzembe helyezési lehetőségek
 
 ### <a name="production-or-evaluation-environments"></a>Üzemi vagy kiértékelési környezetek
 Azure Stack két üzembe helyezési lehetőség közül választhat, amelyek megfelelnek az igényeinek, Azure Stack a termelési célú integrált rendszerek és a Azure Stack Development Kit (ASDK) számára a Azure Stack értékeléséhez:
 
-- **Azure stack integrált rendszerek**. Azure Stack integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét kínálják. Azure Stack érhető el egy integrált hardver- és szoftver-, mert rendelkezik a rugalmasság és a vezérlés van szüksége, és innovációját annak a felhőből lehetőséget. Azure Stack az integrált rendszerek 4-16 csomópontokból állnak, és a hardveres partner és a Microsoft közösen támogatja őket. Integrált Azure Stack rendszerek használata új forgatókönyvek létrehozása és telepítése az új megoldások a termelési számítási feladatokhoz.
+- **Azure stack integrált rendszerek**. Azure Stack integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét kínálják. Mivel a Azure Stack integrált hardver-és szoftveres rendszerként érhető el, rugalmassága és szabályozása szükséges, valamint a felhőből való innováció képessége is. Azure Stack az integrált rendszerek 4-16 csomópontokból állnak, és a hardveres partner és a Microsoft közösen támogatja őket. Azure Stack integrált rendszerek használatával új forgatókönyveket hozhat létre, és új megoldásokat telepíthet az éles számítási feladatokhoz.
 
 - **Azure stack Development Kit**. A [Azure stack Development Kit (ASDK)](../asdk/asdk-what-is.md) egy olyan Azure stack ingyenes, egycsomópontos telepítése, amelynek segítségével kiértékelheti és megismerheti a Azure stack. A ASDK fejlesztői környezetként is felhasználhatja az alkalmazások az Azure-ban konzisztens API-k és eszközök használatával történő létrehozásához. A ASDK azonban nem használható éles környezetként, és a következő korlátozások vonatkoznak a teljes integrált rendszerek éles üzembe helyezéséhez képest:
 
@@ -92,7 +92,7 @@ A Azure Stack az adminisztrációs portál, a felhasználói portál vagy a [Pow
 
 Azure Stack kezelőként számos szolgáltatást és alkalmazást, például [virtuális gépeket](azure-stack-tutorial-tenant-vm.md), [webalkalmazásokat](azure-stack-app-service-overview.md), nagy rendelkezésre állású [SQL Server](azure-stack-tutorial-sql.md)és [MySQL kiszolgálói](azure-stack-tutorial-mysql.md) adatbázisokat biztosíthat. A SharePoint, az Exchange és más rendszereken is üzembe helyezhetők a Azure Stack rövid útmutató [Azure Resource Manager sablonjai](https://github.com/Azure/AzureStack-QuickStart-Templates) . 
 
-A felügyeleti portálon konfigurálhatja a szolgáltatásokat a bérlők számára a csomagok, kvóták, ajánlatok és előfizetések használatával történő [kézbesítéshez Azure stack](azure-stack-plan-offer-quota-overview.md) . A bérlői felhasználók több ajánlatra is fizethetnek. Az ajánlatok egy vagy több csomaggal rendelkezhetnek, a csomagok pedig egy vagy több szolgáltatással rendelkezhetnek. A kezelők is kezelhetik a kapacitást, és reagálnak a riasztásokra. 
+A felügyeleti portálon konfigurálhatja a szolgáltatásokat a bérlők számára a csomagok, kvóták, ajánlatok és előfizetések használatával történő [kézbesítéshez Azure stack](service-plan-offer-subscription-overview.md) . A bérlői felhasználók több ajánlatra is fizethetnek. Az ajánlatok egy vagy több csomaggal rendelkezhetnek, a csomagok pedig egy vagy több szolgáltatással rendelkezhetnek. A kezelők is kezelhetik a kapacitást, és reagálnak a riasztásokra. 
 
 Ha Azure Stack konfigurálva van, egy **Azure stack felhasználó** (más néven bérlő) az operátor által kínált szolgáltatásokat használja fel. A felhasználók üzembe helyezhetik, felügyelhetik és kezelhetik a előfizetett szolgáltatásokat, például a webalkalmazásokat, a tárolókat és a virtuális gépeket.
 
@@ -127,7 +127,7 @@ Habár a Azure Stack infrastruktúrája már rugalmas a hibákhoz, az alapul szo
 ## <a name="role-based-access-control"></a>Szerepköralapú hozzáférés-vezérlés
 A szerepköralapú hozzáférés-vezérlés (RBAC) segítségével hozzáférést biztosíthat a jogosult felhasználókhoz, csoportokhoz és szolgáltatásokhoz, ha hozzárendeli a szerepköröket egy előfizetéshez, erőforráscsoporthoz vagy egyedi erőforrás-szinthez. Minden szerepkör egy felhasználó, csoport vagy szolgáltatás hozzáférési szintjét határozza meg Microsoft Azure Stack erőforrásokon keresztül.
 
-Azure Stack a RBAC három alapvető szerepkört tartalmaz, amelyek az összes erőforrástípust érvényesek: Tulajdonos, közreműködő és olvasó. A tulajdonos teljes hozzáféréssel rendelkezik az összes erőforráshoz, beleértve a másokhoz való hozzáférés delegálására vonatkozó jogosultságot is. A közreműködő az Azure-erőforrások összes típusát létrehozhatja és kezelheti, de mások számára nem biztosít hozzáférést. Az olvasó csak a meglévő erőforrásokat tudja megtekinteni. A többi RBAC-szerepkör lehetővé teszi bizonyos Azure-erőforrások kezelését. A virtuális gépi közreműködő szerepkör például lehetővé teszi a virtuális gépek létrehozását és felügyeletét, de nem engedélyezi a virtuális hálózat vagy azon alhálózat felügyeletét, amelyhez a virtuális gép csatlakozik.
+Azure Stack a RBAC három alapvető szerepkört tartalmaz, amelyek minden erőforrástípus esetében érvényesek: tulajdonos, közreműködő és olvasó. A tulajdonos teljes hozzáféréssel rendelkezik az összes erőforráshoz, beleértve a másokhoz való hozzáférés delegálására vonatkozó jogosultságot is. A közreműködő az Azure-erőforrások összes típusát létrehozhatja és kezelheti, de mások számára nem biztosít hozzáférést. Az olvasó csak a meglévő erőforrásokat tudja megtekinteni. A többi RBAC-szerepkör lehetővé teszi bizonyos Azure-erőforrások kezelését. A virtuális gépi közreműködő szerepkör például lehetővé teszi a virtuális gépek létrehozását és felügyeletét, de nem engedélyezi a virtuális hálózat vagy azon alhálózat felügyeletét, amelyhez a virtuális gép csatlakozik.
 
 > További információt a [szerepköralapú hozzáférés-vezérlés kezelése](azure-stack-manage-permissions.md) című témakörben talál. 
 
@@ -136,7 +136,7 @@ Azure Stack gyűjti és összesíti a használati adatokat az összes erőforrá
 
 > További információ a [Azure stack használati adatok Azure-ba történő jelentéskészítéséről](azure-stack-usage-reporting.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack és a globális Azure összehasonlítása](compare-azure-azure-stack.md)
 

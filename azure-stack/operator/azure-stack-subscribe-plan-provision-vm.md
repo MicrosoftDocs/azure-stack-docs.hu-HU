@@ -1,30 +1,25 @@
 ---
-title: Előfizetés a Azure Stack ajánlatára | Microsoft Docs
+title: Előfizetés Azure Stack-ajánlatra
 description: Előfizetések létrehozása a Azure Stack ajánlatokhoz
 services: azure-stack
 documentationcenter: ''
 author: bryanla
 manager: femila
-editor: ''
-ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319152"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283372"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Előfizetések létrehozása a Azure Stack ajánlatokhoz
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhasználóknak elő kell fizetniük rá, hogy használhassák. A felhasználók kétféleképpen fizethetnek elő egy ajánlatra:
 
@@ -33,11 +28,11 @@ Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhaszná
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>Előfizetés létrehozása Felhőbeli kezelőként
 
-A Felhőbeli operátorok a felügyeleti portál használatával előfizetést hozhatnak létre egy felhasználónak szóló ajánlathoz. Létrehozhat előfizetéseket a saját címtár-bérlő tagjai számára. Ha engedélyezve van a [többszörös](azure-stack-enable-multitenancy.md) kisegítő lehetőség, létrehozhat előfizetéseket is a felhasználók számára további címtár-bérlők esetében.
+A Felhőbeli operátorok a felügyeleti portál használatával előfizetést hozhatnak létre egy felhasználónak szóló ajánlathoz. Előfizetések hozhatók létre a saját címtár-bérlő tagjai számára. Ha engedélyezve van a [többszörös](azure-stack-enable-multitenancy.md) kisegítő lehetőség, létrehozhat előfizetéseket is a felhasználók számára további címtár-bérlők esetében.
 
 Ha nem szeretné, hogy a bérlők saját előfizetéseket hozzanak létre, tegye a saját ajánlatait, majd hozzon létre előfizetéseket a bérlők számára. Ez a megközelítés gyakori a Azure Stack külső számlázási vagy Service Catalog rendszerekkel való integrálásakor.
 
-Miután létrehozta a felhasználóhoz tartozó előfizetést, bejelentkezhet a felhasználói portálra, és láthatja, hogy előfizetett az ajánlatra.  
+Miután létrehozott egy előfizetést egy felhasználóhoz, bejelentkezhet a felhasználói portálra, és láthatja, hogy előfizetett az ajánlatra.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Előfizetés létrehozása felhasználó számára
 
@@ -45,7 +40,7 @@ Miután létrehozta a felhasználóhoz tartozó előfizetést, bejelentkezhet a 
 2. Válassza a **Hozzáadás** lehetőséget. Az **új felhasználói előfizetés**területen adja meg a következő adatokat:  
 
    - **Megjelenítendő név** – a *felhasználói előfizetés neveként*megjelenő előfizetés azonosítására szolgáló rövid név.
-   - **Felhasználó** – válasszon egy felhasználót egy elérhető címtár-bérlőből ehhez az előfizetéshez. A Felhasználónév tulajdonosként jelenikmeg.  A Felhasználónév formátuma a személyazonossági megoldástól függ. Példa:
+   - **Felhasználó** – válasszon egy felhasználót egy elérhető címtár-bérlőből ehhez az előfizetéshez. A Felhasználónév *tulajdonosként*jelenik meg.  A Felhasználónév formátuma a személyazonossági megoldástól függ. Példa:
 
      - **Azure ad:** `<user1>@<contoso.onmicrosoft.com>`
 
@@ -63,7 +58,7 @@ A Felhőbeli operátorok bármikor hozzáadhatnak egy csomagot egy korábban lé
 
 1. A felügyeleti portálon válassza a **minden szolgáltatás** lehetőséget, majd a **felügyeleti erőforrások** kategóriában válassza a **felhasználói előfizetések**lehetőséget. Válassza ki a módosítani kívánt előfizetést.
 
-2. Válassza a bővítmények, majd a **+ Hozzáadás**lehetőséget.  
+2. Válassza a **bővítmények** , majd a **+ Hozzáadás**lehetőséget.  
 
 3. A **csomag hozzáadása**területen válassza ki azt a csomagot, amelyet bővítményként szeretne használni.
 
@@ -86,18 +81,20 @@ Felhasználóként bejelentkezhet a felhasználói portálra, ahol megkeresheti 
   
 3. Az ajánlatra való feliratkozás után frissítse a portált, hogy megtekintse, mely szolgáltatások tartoznak az új előfizetéshez.
 
-4. A létrehozott előfizetés megtekintéséhez válassza a **minden szolgáltatás** lehetőséget, majd az **általános** kategóriában válassza az előfizetések lehetőséget. Az előfizetés részleteinek megtekintéséhez válassza ki az előfizetést.  
+4. A létrehozott előfizetés megtekintéséhez válassza a **minden szolgáltatás** lehetőséget, majd az **általános** kategóriában válassza az **előfizetések**lehetőséget. Az előfizetés részleteinek megtekintéséhez válassza ki az előfizetést.  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>Előfizetés egy kiegészítő csomagra
+### <a name="to-enable-an-add-on-plan-in-your-subscription"></a>Kiegészítő csomag engedélyezése az előfizetésben
 
-Ha egy ajánlat kiegészítő csomaggal rendelkezik, bármikor hozzáadhatja a csomagot az előfizetéséhez.  
+Ha az előfizetett ajánlat egy kiegészítő csomaggal rendelkezik, akkor bármikor hozzáadhatja azt az előfizetéshez.  
 
-1. A felhasználói portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **általános** kategóriában válassza az előfizetések lehetőséget, majd válassza ki a módosítani kívánt előfizetést. Ha van elérhető kiegészítő csomag, a **+ csomag hozzáadása** aktív, és a **kiegészítő csomagok**csempéi is rendelkezésre állnak.
+1. A felhasználói portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **általános** kategóriában válassza az **előfizetések**lehetőséget, majd válassza ki a módosítani kívánt előfizetést. Ha elérhetők kiegészítő csomagok, a **+ csomag hozzáadása** aktív, és a **kiegészítő csomagok**csempéjét jeleníti meg.
 
    Ha a **+ hozzáadási terv** nem aktív, akkor az adott előfizetéshez társított ajánlathoz nem tartoznak kiegészítő csomagok.
 
 1. Válassza a **+ csomag hozzáadása** vagy a **kiegészítő csomagok** csempét. A **kiegészítő csomagok**területen válassza ki a hozzáadni kívánt csomagot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Virtuális gép kiépítése](../user/azure-stack-create-vm-template.md)
+További információ arról, hogy a felhasználók hogyan telepíthetnek erőforrásokat az előfizetésbe: 
+  - [Számos felhasználói](../user/azure-stack-quick-windows-portal.md) útmutató bemutatja, hogyan lehet Windows és Linux rendszerű virtuális gépeket kiépíteni a PowerShell, az Azure CLI és a felhasználói portál használatával. 
+  - [Egy Azure Resource Manager sablont használó oktatóanyag](../user/azure-stack-create-vm-template.md) bemutatja, hogyan helyezhet üzembe egy Minikube-t futtató Ubuntu 16,04 virtuális gépet a kubenetes-fürt felügyeletéhez. 

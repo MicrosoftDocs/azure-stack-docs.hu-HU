@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: mabriggs
+ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a3864bc7233edd5b6b81a19a467ad1dca63fd3fa
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974792"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277612"
 ---
 # <a name="install-azure-stack-updates"></a>Azure Stack frissítések telepítése
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 A frissítési csomagokat a Azure Stack Update ( **frissítés** ) paneljén is telepítheti. Ez a cikk végigvezeti a frissítési folyamat frissítésének, figyelésének és hibaelhárításának lépésein. A frissítés panel használatával megtekintheti a frissítési adatokat, telepítheti a frissítéseket, figyelheti a frissítések állapotát, áttekintheti az előzményeket, és megtekintheti az aktuális Azure Stack és az OEM-csomag verzióját.
 
@@ -83,7 +83,7 @@ A **frissítések** panelen megtekintheti Azure stack aktuális verzióját. Meg
 
     ![Azure Stack frissítési előzmények](./media/azure-stack-update-apply/image7.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 -   [Frissítések kezelése az Azure Stackben – Áttekintés](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
 -   [Azure Stack-karbantartási szabályzat](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

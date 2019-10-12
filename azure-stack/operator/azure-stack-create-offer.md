@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 14f2300be0309cbd47b1481a4a52b02331f120a4
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 6ada971c092acbc1ebe8e83a784a5d1e392c4dea
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319206"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283591"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Ajánlat létrehozása az Azure Stackben
 
@@ -39,13 +39,13 @@ ms.locfileid: "71319206"
 
    ![Új ajánlat a Azure Stack](media/azure-stack-create-offer/new-offer.png)
   
-3. Válassza ki az **alapcsomagok** lapot, **vagy kattintson a Tovább gombra: Alapcsomagok** > gomb. Válassza ki az ajánlatba felvenni kívánt csomag (oka) t.
+3. Válassza az **alapcsomagok** fület, vagy kattintson a **Tovább gombra: alapcsomagok >** gombra. Válassza ki az ajánlatba felvenni kívánt csomag (oka) t.
 
    ![Válassza ki azt a csomagot, amelyet fel szeretne venni a Azure Stack ajánlatba](media/azure-stack-create-offer/select-plan.png)
 
-4. Ezen a ponton létrehozhat egy kiegészítő csomagot az alapcsomag módosításához, de ez nem kötelező. A következő cikkben hozzunk létre egy kiegészítő csomagot, [Azure stack kiegészítő](create-add-on-plan.md)csomagokat.
+4. Ezen a ponton létrehozhat egy kiegészítő csomagot az alapcsomag módosításához, de ez nem kötelező. Lehetőség van arra, hogy kiegészítő csomagot hozzon létre a következő cikkben, [Azure stack kiegészítő terveket](create-add-on-plan.md).
 
-5. Válassza a **felülvizsgálat + létrehozás** lapot. Tekintse át az ajánlat összegzését, és győződjön meg arról, hogy az összes érték helyes. Az interfész lehetővé teszi, hogy a kiválasztott csomagok kvótái kibontásával egy adott csomag egyes kvótáinak részleteit megtekinthesse. Visszatérhet a szükséges módosítások elvégzéséhez is.
+5. Válassza a **felülvizsgálat + létrehozás** lapot. tekintse át az ajánlat összegzését, és győződjön meg arról, hogy az összes érték helyes. Az interfész lehetővé teszi, hogy a kiválasztott csomagok kvótái kibontásával egy adott csomag egyes kvótáinak részleteit megtekinthesse. Visszatérhet a szükséges módosítások elvégzéséhez is.
 
 6. Az ajánlat létrehozásához válassza a **Létrehozás** lehetőséget.
 
@@ -55,9 +55,9 @@ ms.locfileid: "71319206"
 
 Az ajánlat létrehozása után megváltoztathatja az állapotát. A felhasználóknak **közzé** kell tenniük a teljes nézetet, ha előfizetnek. Az ajánlatok a következőket tehetik:
 
-- **Nyilvános**: A felhasználók számára látható.
-- **Magánjellegű**: Csak a Felhőbeli rendszergazdák számára látható. Ez a beállítás akkor hasznos, ha a csomag vagy ajánlat tervezetét tervezi, vagy ha a felhő rendszergazdája szeretné [létrehozni az egyes előfizetéseket a felhasználók](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)számára.
-- **Leszerelt**: Lezárva az új előfizetőknek. A felhő rendszergazdája leszerelheti az ajánlatokat a jövőbeli előfizetések megelőzésére, de a jelenlegi előfizetőket nem érinti.
+- **Nyilvános**: látható a felhasználók számára.
+- **Magánjellegű**: csak a Felhőbeli rendszergazdák láthatják. Ez a beállítás akkor hasznos, ha a csomag vagy ajánlat tervezetét tervezi, vagy ha a felhő rendszergazdája szeretné [létrehozni az egyes előfizetéseket a felhasználók](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)számára.
+- **Leszerelve:** Új előfizetők már nem választhatják. A felhő rendszergazdája leszerelheti az ajánlatokat a jövőbeli előfizetések megelőzésére, de a jelenlegi előfizetőket nem érinti.
 
   > [!TIP]  
   > Az ajánlat módosításai nem láthatók azonnal a felhasználó számára. A módosítások megtekintéséhez előfordulhat, hogy a felhasználóknak ki kell jelentkezniük, majd újra be kell jelentkezniük a felhasználói portálra az új ajánlat megtekintéséhez.
@@ -84,15 +84,15 @@ Az ajánlatok állapota kétféleképpen módosítható:
 
    ![Új ajánlat a Azure Stack](media/azure-stack-create-offer/image01a.png)
   
-3. A **terv**megnyitásához válassza az alapcsomagok lehetőséget. Válassza ki az ajánlatba felvenni kívánt terveket, majd válassza a **kiválasztás**lehetőséget. Az ajánlat létrehozásához válassza a **Létrehozás**lehetőséget.
+3. A **terv**megnyitásához válassza az **alapcsomagok** lehetőséget. Válassza ki az ajánlatba felvenni kívánt terveket, majd válassza a **kiválasztás**lehetőséget. Az ajánlat létrehozásához válassza a **Létrehozás**lehetőséget.
 
    ![Válassza ki azt a csomagot, amelyet fel szeretne venni a Azure Stack ajánlatba](media/azure-stack-create-offer/image02.png)
   
 4. Az ajánlat létrehozása után megváltoztathatja az állapotát. A felhasználóknak **közzé** kell tenniük a teljes nézetet, ha előfizetnek. Az ajánlatok a következőket tehetik:
 
-   - **Nyilvános**: A felhasználók számára látható.
-   - **Magánjellegű**: Csak a Felhőbeli rendszergazdák számára látható. Ez a beállítás akkor hasznos, ha a csomag vagy ajánlat tervezetét tervezi, vagy ha a felhő rendszergazdája szeretné [létrehozni az egyes előfizetéseket a felhasználók](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)számára.
-   - **Leszerelt**: Lezárva az új előfizetőknek. A felhő rendszergazdája leszerelheti az ajánlatokat a jövőbeli előfizetések megelőzésére, de a jelenlegi előfizetőket nem érinti.
+   - **Nyilvános**: látható a felhasználók számára.
+   - **Magánjellegű**: csak a Felhőbeli rendszergazdák láthatják. Ez a beállítás akkor hasznos, ha a csomag vagy ajánlat tervezetét tervezi, vagy ha a felhő rendszergazdája szeretné [létrehozni az egyes előfizetéseket a felhasználók](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)számára.
+   - **Leszerelve:** Új előfizetők már nem választhatják. A felhő rendszergazdája leszerelheti az ajánlatokat a jövőbeli előfizetések megelőzésére, de a jelenlegi előfizetőket nem érinti.
 
    > [!TIP]  
    > Az ajánlat módosításai nem láthatók azonnal a felhasználó számára. A módosítások megtekintéséhez előfordulhat, hogy a felhasználóknak ki kell jelentkezniük, majd újra be kell jelentkezniük a felhasználói portálra az új ajánlat megtekintéséhez.
@@ -109,7 +109,7 @@ Az ajánlatok állapota kétféleképpen módosítható:
 > Az alapértelmezett ajánlatokat, terveket és kvótákat a PowerShell használatával is létrehozhatja. További információ: [Azure stack PowerShell-modul 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Előfizetések létrehozása](azure-stack-subscribe-plan-provision-vm.md)
-- [Virtuális gép kiépítése](../user/azure-stack-create-vm-template.md)
+- Ha szeretné megtudni, hogyan módosíthat egy ajánlatot, és hogyan adhat hozzá felhasználókat egy kiegészítő csomaggal, folytassa a [kiegészítő csomag létrehozásával](create-add-on-plan.md) (opcionális).
+- Ellenkező esetben ugorjon az [ajánlatra való előfizetésre](azure-stack-subscribe-plan-provision-vm.md)

@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 5d0c3bdff2684c90f118e26ac62b8219802fa25b
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 5da479853487dfd93467bd1413159d6e602b93c6
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008646"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277668"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Fizikai lemez cseréje Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk a fizikai lemezek Azure Stackban való cseréjének általános folyamatát ismerteti. Ha egy fizikai lemez meghibásodik, minél hamarabb cserélje ki.
 
@@ -56,7 +56,7 @@ A lemez cseréje után Azure Stack automatikusan felfedi az új lemezt, és elin
 A lemez cseréje után nyomon követheti a virtuális lemez állapotának állapotát, és javíthatja a feladatok előrehaladását Azure Stack PowerShell használatával.
 
 1. Győződjön meg arról, hogy telepítve van Azure Stack PowerShell. További információ: [a PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md).
-2. Kapcsolódjon Azure Stack a PowerShell-lel operátorként. További információ: [kapcsolódás Azure Stackhoz a PowerShell-](azure-stack-powershell-configure-admin.md)lel kezelőként.
+2. Kapcsolódjon Azure Stack a PowerShell-lel operátorként. További információ: [kapcsolódás Azure Stackhoz a PowerShell-lel kezelőként](azure-stack-powershell-configure-admin.md).
 3. Futtassa a következő parancsmagokat a virtuális lemez állapotának és javítási állapotának ellenőrzéséhez:
     ```powershell  
     $scaleunit=Get-AzsScaleUnit

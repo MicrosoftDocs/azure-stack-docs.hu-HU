@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: dfa8e778b21826ff1f589efbf2b49097d5ee3685
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829340"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283393"
 ---
 # <a name="create-sql-databases"></a>SQL-adatbázisok létrehozása
 
@@ -28,7 +28,7 @@ ms.locfileid: "71829340"
 
 1. Jelentkezzen be a [Azure stack](azure-stack-overview.md) felhasználói portálra.
 
-2. Válassza az **+ új** &gt;adattároló &gt; **SQL Server adatbázis** &gt; **hozzáadása**elemet.
+2. Válassza az **+ új** &gt;**adattároló** &gt; **SQL Server adatbázis** &gt; **Hozzáadás**lehetőséget.
 
 3. Az **adatbázis létrehozása**területen adja meg a szükséges adatokat, például az **adatbázis nevét** és **a maximális méretet MB-ban**.
 
@@ -57,7 +57,7 @@ ms.locfileid: "71829340"
 
 Jegyezze fel a **kapcsolatok sztringjét**az **alapok**területen, amely az adatbázis központi telepítése után jelenik meg. Ezt a sztringet bármely olyan alkalmazásban használhatja, amelynek hozzá kell férnie a SQL Server-adatbázishoz.
 
-![A kapcsolati karakterlánc](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![A kapcsolatok karakterláncának beolvasása](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
 ## <a name="sql-always-on-databases"></a>SQL always on Databases
 
@@ -77,6 +77,6 @@ Amikor töröl egy SQL AlwaysOn-adatbázist az erőforrás-szolgáltatótól, az
 
 Az SQL ezután visszaállítja az adatbázist a többi replikán lévő visszaállítási állapotba, és csak akkor dobja el az adatbázist, ha az aktiválva van. Ha az adatbázis nincs elvetve, a másodlagos replikák nem szinkronizálási állapotba kerülnek.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[A SQL Server erőforrás-szolgáltató karbantartása](azure-stack-sql-resource-provider-maintain.md)
+Ismerje meg, hogyan [használhatók a magasan elérhető SQL-adatbázisok](azure-stack-tutorial-sql.md)

@@ -13,20 +13,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: d34b57a76f654e4d1825124f0f13ca26049332e5
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 4b3fed8ee02739cf82b1446cc8c0a9b807763d49
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319186"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283290"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack kiegészítő csomagok
 
-Azure Stack operátorként kiegészítő csomagokat hozhat létre az [alapcsomag módosításához, ha további](azure-stack-create-plan.md) szolgáltatásokat szeretne biztosítani, vagy a *számítógép*-, a *tárterület*-vagy a *hálózati* kvótákat az alapcsomag kezdeti ajánlatán kívül szeretné kiterjeszteni. A kiegészítő csomagok módosítják az alapcsomagot, és választható bővítmények, amelyeket a felhasználók választhatnak.
+Azure Stack operátorként kiegészítő csomagokat hozhat létre az [alapcsomag módosításához, ha további](azure-stack-create-plan.md) szolgáltatásokat szeretne biztosítani, vagy a *számítógép*-, a *tárterület*-vagy a *hálózati* kvótákat az alapcsomag kezdeti ajánlatán kívül szeretné kiterjeszteni. A kiegészítő csomagok módosítják az alapcsomagot, és választható bővítmények, amelyeket a felhasználók az előfizetésük alapján választhatnak.
 
 Minden alkalommal, amikor egyetlen csomagban egyesíti az összeset, optimálisnak kell lennie. Más esetekben érdemes lehet alapcsomagot használni, majd kiegészítő csomagokkal felkínálni a további szolgáltatásokat. Dönthet például úgy, hogy a IaaS-szolgáltatásokat egy alapcsomag részeként kínálja fel, és minden, a kiegészítő csomagként kezelt Pásti-szolgáltatással rendelkezik.
 
@@ -35,9 +35,7 @@ A kiegészítő csomagok használatának másik oka az erőforrás-használat fi
 > [!NOTE]
 > Ha nem szeretne kiegészítő csomagot használni a kvóta meghosszabbításához, akkor a [kvóta eredeti konfigurációját is szerkesztheti](azure-stack-quota-types.md#edit-a-quota).
 
-Ha kiegészítő csomagot ad hozzá egy meglévő ajánlat-előfizetéshez, a további erőforrások akár egy órát is igénybe vehetnek.
-
-A kiegészítő csomagok egy meglévő ajánlat módosításával jönnek létre.
+A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) történik, mint az alapcsomag. A kettő közötti különbség akkor van meghatározva, amikor a csomagot hozzáadják egy ajánlathoz. Alapszintű csomagként vagy kiegészítő csomagként van kijelölve. Ha bővítményt ad hozzá egy meglévő ajánlathoz, a további erőforrások akár egy órát is igénybe vehetnek, hogy megjelenjenek az előfizetésben.
 
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>Kiegészítő csomag létrehozása (1902 és újabb)
@@ -48,7 +46,7 @@ A kiegészítő csomagok egy meglévő ajánlat módosításával jönnek létre
 
    ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on1.png)
 
-4. Az ajánlat tulajdonságainak alján válassza a **kiegészítő csomagok**lehetőséget. Kattintson a **Hozzáadás**lehetőségre.
+4. Az ajánlat tulajdonságainak alján válassza a **kiegészítő csomagok**lehetőséget. Kattintson a **Hozzáadás** parancsra.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on2.png)
 
@@ -58,7 +56,7 @@ A kiegészítő csomagok egy meglévő ajánlat módosításával jönnek létre
 
 6. Tekintse át az ajánlatban található kiegészítő csomagok listáját annak ellenőrzéséhez, hogy az új kiegészítő csomag szerepel-e a listában.
 
-    [![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on4.png "Kiegészítő csomag létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Kiegészítő csomag]létrehozási terv(media/create-add-on-plan/add-on4.png "létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -70,7 +68,7 @@ A kiegészítő csomagok egy meglévő ajánlat módosításával jönnek létre
 
    ![Kiegészítő csomag létrehozása](media/create-add-on-plan/1.PNG)
 
-4. Görgessen az ajánlat tulajdonságai oldal aljára, és válassza a **kiegészítő csomagok**lehetőséget. Kattintson a **Hozzáadás**lehetőségre.
+4. Görgessen az ajánlat tulajdonságai oldal aljára, és válassza a **kiegészítő csomagok**lehetőséget. Kattintson a **Hozzáadás** parancsra.
 
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/2.PNG)
 
@@ -83,6 +81,6 @@ A kiegészítő csomagok egy meglévő ajánlat módosításával jönnek létre
     ![Kiegészítő csomag létrehozása](media/create-add-on-plan/4.PNG)
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ajánlat létrehozása](azure-stack-create-offer.md)

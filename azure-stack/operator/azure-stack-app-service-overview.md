@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 698d38e971d37457d50637cb2e7e2ffe88890c20
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 14c37e894d87d7a19ff6edc91b9c827ce53c08e8
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808223"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282634"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Az Azure Stack App Service szolgáltatásának áttekintése
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 A Azure App Service on Azure Stack a Microsoft Azure elérhető platform-szolgáltatás, amely Azure Stack érhető el. A szolgáltatás lehetővé teszi, hogy a belső vagy külső ügyfelei webes, API-és Azure Functions alkalmazásokat hozzanak létre bármely platformra vagy eszközre. Integrálhatja az alkalmazásokat a helyszíni alkalmazásokkal, és automatizálhatja az üzleti folyamatait. Azure Stack a Felhőbeli operátorok a teljes körűen felügyelt virtuális gépeken (VM-EK) futtathatják az ügyfélalkalmazások számára a megosztott virtuálisgép-erőforrásokat vagy a dedikált virtuális gépeket.
 
@@ -34,9 +34,9 @@ A Azure App Service lehetővé teszi az üzleti folyamatok automatizálását é
 
 Az App Service legfontosabb funkciói és képességei többek között az alábbiak:
 
-- **Több nyelv és keretrendszer**: App Service rendelkezik a ASP.NET, a Node. js, a Java, a PHP és a Python első osztályú támogatásával. A Windows PowerShell és más parancsfájlok vagy végrehajtható fájlok App Service virtuális gépeken is futtathatók.
-- **DevOps-optimalizálás**: A folyamatos integrációt és üzembe helyezést a GitHub, a helyi git vagy a BitBucket beállítással állíthatja be. A frissítések tesztelési és átmeneti környezetekben, valamint az alkalmazások App Service való kezelése Azure PowerShell vagy a többplatformos parancssori felület (CLI) használatával.
-- **Visual Studio-integráció**: A Visual Studióban a dedikált eszközök megkönnyítik az alkalmazások létrehozásának és üzembe helyezésének munkáját.
+- **Több nyelv és keretrendszer**: app Service rendelkezik a ASP.net, a Node. js, a Java, a PHP és a Python első osztályú támogatásával. A Windows PowerShell és más parancsfájlok vagy végrehajtható fájlok App Service virtuális gépeken is futtathatók.
+- **DevOps-optimalizálás**: a folyamatos integráció és üzembe helyezés beállítása a GitHub, a helyi git vagy a BitBucket számára. A frissítések tesztelési és átmeneti környezetekben, valamint az alkalmazások App Service való kezelése Azure PowerShell vagy a többplatformos parancssori felület (CLI) használatával.
+- **Visual Studio-integráció**: a Visual Studióban a dedikált eszközök megkönnyítik az alkalmazások létrehozásának és üzembe helyezésének munkáját.
 
 ## <a name="app-types-in-app-service"></a>Alkalmazástípusok az App Service-ben
 
@@ -53,7 +53,7 @@ Az alkalmazás több App Service különböző típusú alkalmazásból is állh
 - Mindkettő (előtér és API) üzembe helyezése egyetlen webalkalmazásban
 - a kezelőfelület kódját üzembe helyezheti egy webalkalmazásban, a háttérrendszerét pedig egy API-alkalmazásban.
 
-   [![App Service áttekintése monitorozási adattal](media/azure-stack-app-service-overview/image01.png "App Service áttekintése monitorozási adattal")](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![App Service áttekintése a monitorozási](media/azure-stack-app-service-overview/image01.png "adatApp Service áttekintésével")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>Mi az App Service terv?
 
@@ -65,9 +65,9 @@ Az Azure-ban megosztott és dedikált feldolgozók vannak. A közös feldolgozó
 
 A App Service on Azure Stack ugyanazt a felhasználói felületet használja, amelyet a Azure App Service használ. Ugyanez igaz a háttérrel. Néhány szolgáltatás azonban le van tiltva a Azure Stackban. A szolgáltatások által igényelt Azure-specifikus elvárások vagy szolgáltatások jelenleg nem érhetők el Azure Stackban.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A App Service telepítésének előfeltételei a Azure Stack](azure-stack-app-service-before-you-get-started.md)
 - [A App Service erőforrás-szolgáltató telepítése](azure-stack-app-service-deploy.md)
 
-Kipróbálhatja a más [platformként nyújtott szolgáltatások (Pásti) szolgáltatásait](azure-stack-offer-services-overview.md)is, például a [SQL Server erőforrás-szolgáltatót](azure-stack-sql-resource-provider-deploy.md) és a [MySQL erőforrás-szolgáltatót](azure-stack-mysql-resource-provider-deploy.md).
+Kipróbálhatja a más [platformként nyújtott szolgáltatások (Pásti) szolgáltatásait](service-plan-offer-subscription-overview.md)is, például a [SQL Server erőforrás-szolgáltatót](azure-stack-sql-resource-provider-deploy.md) és a [MySQL erőforrás-szolgáltatót](azure-stack-mysql-resource-provider-deploy.md).

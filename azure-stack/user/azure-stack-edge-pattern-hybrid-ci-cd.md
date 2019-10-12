@@ -1,6 +1,6 @@
 ---
-title: Az intelligens peremhálózaton egyaránt az Azure Stack fejlesztési és üzemeltetési minta |} A Microsoft Docs
-description: További tudnivalók az intelligens peremhálózaton egyaránt az Azure Stack fejlesztési és üzemeltetési minta
+title: Az intelligens peremhálózat DevOps mintázata Azure Stack | Microsoft Docs
+description: Ismerkedjen meg az intelligens peremhálózat DevOps-mintázatával Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,101 +11,101 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 76437cd37733984d3230d4c40ccc82c7e6ede2b9
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: 04eff0f095f14d88443fc4b221799e63f523c82c
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856386"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277004"
 ---
-# <a name="devops-pattern"></a>Fejlesztési és üzemeltetési minta
+# <a name="devops-pattern"></a>DevOps minta
 
-Kód egyetlen helyről, és üzembe helyezése fejlesztési, tesztelési és éles környezetekben, amelyek a helyi adatközpontban, privát felhőket vagy a nyilvános felhőben lehetnek több cél.
+Kód egyetlen helyről, és üzembe helyezése több célra olyan fejlesztési, tesztelési és éles környezetekben, amelyek lehetnek a helyi adatközpontban, a privát felhőkben vagy a nyilvános felhőben.
 
 ## <a name="context-and-problem"></a>Kontextus és probléma
 
-Alkalmazások üzembe helyezési elérhetőségének folytonosságát, biztonságot és megbízhatóságot olyan szervezetek alapvető fontosságú, kritikus fontosságú fejlesztői csoportjaink számára.
+Az alkalmazások üzembe helyezésének folytonossága, biztonsága és megbízhatósága elengedhetetlen a szervezetek számára, és kritikus fontosságú a fejlesztési csapatoknak.
 
-Alkalmazások gyakran igényelnek újratervezhetők kód minden célként megadott környezetben való futtatásához. Ez azt jelenti, hogy az alkalmazás ne legyen teljesen hordozható. Azt kell kell frissíteni, és tesztelését, minden környezetben keresztül áthelyezi azt. Például egy fejlesztési környezetben írt kóddal kell majd feladatátvitelt tesztelési környezetben működik, és újraírja, ha végül azok éles környezetben. Ezenkívül ez a kód kifejezetten vannak kötve a gazdagéphez. Ez növeli a költséges és bonyolult az alkalmazás karbantartása. Az alkalmazás minden egyes verziója minden környezethez van kötve. A nagyobb összetettséget és a párhuzamos növelheti a biztonság és a kód minőségének kockázatát. Emellett a kód nem lehet könnyen újratelepítése távolítsa el őket a visszaállítás sikertelen volt, vagy kezelje az igény növekedésével további gazdagépként használandó számítógépek telepítéséhez.
+Az alkalmazások gyakran megkövetelik, hogy az egyes célszámítógépeken fusson az újraszámított kód. Ez azt jelenti, hogy egy alkalmazás nem teljesen hordozható. Frissíteni, tesztelni és érvényesíteni kell, ahogy az az egyes környezeteken halad át. Például egy fejlesztési környezetben írt kódot újra kell írni, hogy a tesztelési környezetben működjön, és újra kell írni, amikor végül éles környezetben landol. Továbbá ez a kód kifejezetten a gazdagéphez van kötve. Ez növeli az alkalmazás fenntartásának költségeit és összetettségét. Az alkalmazás minden verziója az egyes környezetekhez van kötve. A megnövekedett összetettség és a megkettőzés növeli a biztonság és a kód minőségének kockázatát. Emellett a kód nem helyezhető újra üzembe, ha eltávolítja a visszaállítási sikertelen gazdagépeket, vagy további gazdagépeket telepít az igény szerinti növekedés kezelésére.
 
 ## <a name="solution"></a>Megoldás
 
-A fejlesztési és üzemeltetési minta lehetővé teszi, hogy összeállítását, tesztelését és helyezhet üzembe egy alkalmazást, amely több felhő futtat. Ez a minta több egység a gyakorlat, folyamatos integrációt és teljesítést. Folyamatos integráció, a kód a fejlesztett és tesztelt minden alkalommal, amikor egy csapattag változást véglegesíti a verziókezeléshez. Folyamatos készregyártás automatizálja a build éles környezetben minden egyes lépést. Ezek a folyamatok készítsen egy kiadási folyamatot, amely támogatja az üzembe helyezés különböző környezetek között. Ezzel a mintával vázlatszintű a kódot, és telepítheti egy helyszíni környezetben, más magánfelhők és a nyilvános felhők ugyanazt a kódot. Különbségek a környezetben van szükség, egy konfigurációs fájl módosítása helyett a kód módosításait.
+A DevOps minta lehetővé teszi több felhőben futó alkalmazások készítését, tesztelését és üzembe helyezését. Ez a minta a folyamatos integráció és a folyamatos teljesítés gyakorlatát egyesíti. A folyamatos integráció révén a kód minden alkalommal felépítve és tesztelve lett, amikor egy csapattag véglegesíti a verziókövetés változását. A folyamatos teljesítés automatizálja az egyes lépéseket a buildről a termelési környezetbe. Ezek a folyamatok együttesen olyan kiadási folyamatot hoznak létre, amely a különböző környezetekben történő telepítést támogatja. Ezzel a mintával előkészítheti a kódot, majd telepítheti ugyanazt a kódot egy helyi környezetbe, a különböző privát felhőkbe és a nyilvános felhőkbe. A környezetbeli különbségekhez a kód módosítása helyett konfigurációs fájlra van szükség.
 
-![Fejlesztési és üzemeltetési minta](media/azure-stack-edge-pattern-hybrid-ci-cd/hybrid-ci-cd.png)
+![DevOps minta](media/azure-stack-edge-pattern-hybrid-ci-cd/hybrid-ci-cd.png)
 
-A fejlesztői eszközöket a helyszíni, magán- és nyilvános felhőkörnyezetek közötti konzisztens a folyamatos integrációt és teljesítést gyakorlata valósíthat meg. Alkalmazások és szolgáltatások a fejlesztési és üzemeltetési minta használatával üzembe helyezett felcserélhetők, és ezek a helyek, kihasználva a helyszíni és a nyilvános felhőbeli szolgáltatások és funkciók bármelyikét futtathatja.
+A helyszíni, a saját Felhőbeli és a nyilvános felhőalapú környezetek egységes fejlesztési eszközeivel a folyamatos integráció és a folyamatos teljesítés gyakorlata valósítható meg. A DevOps mintázattal üzembe helyezett alkalmazások és szolgáltatások felcserélhetők, és bármelyik helyen futhatnak, így kihasználhatják a helyszíni és a nyilvános Felhőbeli funkciókat és képességeket.
 
-A DevOps használatával kibocsátási folyamatok nyújt segítséget:
+A DevOps kiadási folyamata a következőket teszi lehetővé:
 
--   Kód véglegesítése a egyetlen tárházat alapján új build kezdeményezni.
+-   Hozzon létre egy új buildet a kód alapján véglegesítve egyetlen adattárra.
 
--   Az újonnan létrehozott kód automatikus üzembe helyezése a felhasználói tesztelés a nyilvános felhőben.
+-   Az újonnan létrehozott kód automatikus üzembe helyezése a nyilvános felhőben a felhasználók elfogadásának teszteléséhez.
 
--   Automatikus központi telepítése magánfelhőbe kódja megfelelt a tesztelés után.
+-   Automatikus üzembe helyezés a privát felhőben, ha a kód sikeresen átadta a tesztelést.
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
-A fejlesztési és üzemeltetési minta célja a célkörnyezet függetlenül üzembe helyezett konzisztencia biztosításához. Képességek eltérő lehet azonban, felhőbeli és helyszíni környezetek között. A következőket ajánljuk figyelmébe:
+A DevOps minta az üzemelő példányok közötti konzisztencia biztosítására szolgál, függetlenül a célként megadott környezettől. A képességek azonban eltérőek a Felhőbeli és a helyszíni környezetek között. A következőket ajánljuk figyelmébe:
 
--   Az funkciók, a végpontok, szolgáltatások és egyéb erőforrások a központi telepítésben érhető el az üzembe helyezés célhelyek?
+-   Elérhetők a központi telepítésben szereplő függvények, végpontok, szolgáltatások és egyéb erőforrások a cél telepítési helyein?
 
--   Konfigurációs összetevők helyen tárolódnak, amely több felhő között érhető el?
+-   A a felhőben elérhető helyen tárolt konfigurációs összetevők?
 
--   Működni fog az üzembe helyezéshez megadott paraméterek a cél-környezetekben?
+-   Az üzembe helyezési paraméterek az összes cél környezetben működnek?
 
--   Erőforrás-specifikus tulajdonságokat az összes cél felhő érhető el?
+-   Az erőforrás-specifikus tulajdonságok elérhetők az összes cél felhőkben?
 
-További információkért lásd: [felhőalapú konzisztencia fejlesztése az Azure Resource Manager-sablonokkal](https://docs.microsoft.com/azure/azure-resource-manager/templates-cloud-consistency).
+További információ: Azure Resource Manager- [sablonok fejlesztése a felhő konzisztenciája](https://docs.microsoft.com/azure/azure-resource-manager/templates-cloud-consistency)érdekében.
 
-Emellett az Ez a minta megvalósítása során vegye figyelembe a következőket:
+Emellett vegye figyelembe a következő szempontokat is a minta megvalósításának eldöntése során:
 
 ### <a name="scalability-considerations"></a>Méretezési szempontok
 
-Üzembe helyezési automatizálás rendszereket a fő ellenőrzési pontot a DevOps-minták. Megvalósításokhoz eltérőek lehetnek. A kijelölés a kiszolgáló megfelelő méretű számítási feladatok várható méretétől függ. Virtuális gépek költség a méretezési csoport több mint a tárolóké. Ha azonban tárolókat használna a skálázáshoz, a build-folyamatoknak tárolókkal kell futnia.
+A központi telepítési automatizálási rendszerek a DevOps-mintázatok kulcsfontosságú vezérlői pontja. A megvalósítások eltérőek lehetnek. A megfelelő kiszolgáló méretének kiválasztása a várt munkaterhelés méretétől függ. A virtuális gépek drágábbak, mint a tárolók. Ha azonban tárolókat használna a skálázáshoz, a build-folyamatoknak tárolókkal kell futnia.
 
 ### <a name="availability-considerations"></a>Rendelkezésre állási szempontok
 
-A DevPattern kontextusában rendelkezésre állási azt jelenti, hogy képesek helyreállítani kapcsolatos állapotinformációkat társított a-munkafolyamatban például a vizsgálati eredmények, szintű kódok függőségeinek és más összetevőket. A rendelkezésre állásra vonatkozó követelmények felméréséhez két általános mérőszámot érdemes figyelembe vennie:
+A DevPattern kontextusában a rendelkezésre állás azt jelenti, hogy képes helyreállítani a munkafolyamathoz társított állapotinformációkat, például a teszteredmények, a kódok függőségei vagy más összetevők számára. A rendelkezésre állásra vonatkozó követelmények felméréséhez két általános mérőszámot érdemes figyelembe vennie:
 
--   A helyreállítási időre vonatkozó célkitűzés (RTO) meghatározza, hogyan mennyi ideig üzemelhet a rendszer nélkül.
+-   A helyreállítási időre vonatkozó célkitűzés (RTO) határozza meg, hogy mennyi ideig mehet a rendszer nélkül.
 
--   A helyreállítási időkorlátot (RPO) azt jelzi, hogy mennyi adatot, ha a szolgáltatás megengedhet érint a rendszer.
+-   A helyreállítási időkorlát (RPO) azt jelzi, hogy mennyi adat veszíthető el, ha a szolgáltatás fennakadása hatással van a rendszerre.
 
-A gyakorlatban RTO és RPO hasonló redundancia és a biztonsági mentés. A globális Azure-felhő, rendelkezésre állás nem hardveres helyreállítás kérdése – részét képező Azure – de inkább biztosítását jelenti a fejlesztési és üzemeltetési rendszerek állapotát. Az Azure Stacken hardveres helyreállítás lehet veszi figyelembe.
+A gyakorlatban a RTO és a RPO a redundanciát és a biztonsági mentést jelenti. A globális Azure-felhőben a rendelkezésre állás nem a hardveres helyreállítás – amely az Azure része –, hanem a DevOps rendszerek állapotának fenntartása. Azure Stack a hardveres helyreállítás lehet megfontolás.
 
-Egy másik fő szempont az üzembe helyezési automatizálást használni a rendszer tervezésekor a hozzáférés-vezérléshez és a szolgáltatások üzembe helyezéséhez a felhőbeli környezetekhez szükséges jogokat megfelelő kezelésének. Melyik jogosultságok szükségesek, létrehozása, törlése, vagy módosíthatja a központi telepítések? Jogok egy halmaza például általában szükséges hozzon létre egy erőforráscsoportot az Azure, és a egy másik erőforráscsoportban szolgáltatások üzembe helyezéséhez.
+Az üzembe helyezés automatizálásához használt rendszer tervezésekor egy másik fontos szempont a hozzáférés-vezérlés, valamint a szolgáltatások Felhőbeli környezetekben való üzembe helyezéséhez szükséges jogok megfelelő kezelése. Milyen jogosultságok szükségesek az üzemelő példányok létrehozásához, törléséhez vagy módosításához? Például az egyik jogosultságot általában egy erőforráscsoport létrehozásához kell létrehozni az Azure-ban, egy másikat pedig az erőforráscsoport szolgáltatásainak telepítéséhez.
 
 ### <a name="manageability-considerations"></a>Felügyeleti szempontok
 
-A fejlesztési és üzemeltetési minta alapján rendszer kialakításától figyelembe kell vennie az automation-naplózás és az értesítések küldése az egyes szolgáltatások között a portfólió. Megosztott szolgáltatások, az alkalmazás csapatához vagy mindkettőt, és nyomon követheti a biztonsági szabályzatok és cégirányítási is.
+A DevOps minta alapján bármely rendszer kialakításának meg kell fontolnia az automatizálást, a naplózást és a riasztást az egyes szolgáltatásokhoz a portfólión keresztül. A megosztott szolgáltatásokat, az alkalmazások csapatait vagy mindkettőt használhatja, és nyomon követheti a biztonsági házirendeket és a szabályozást is.
 
-Éles környezetben és a fejlesztési/tesztkörnyezeteket külön erőforráscsoportokban az Azure- vagy Azure Stack üzembe helyezése. Ezután figyelheti az egyes környezetek erőforrásait, és a költségeket erőforráscsoportonként. Erőforrások készletként, amely hasznos tesztkörnyezetek esetében is törölheti.
+Éles környezetek és fejlesztési/tesztelési környezetek üzembe helyezése az Azure-ban vagy Azure Stack-ban külön erőforráscsoportok. Ezután nyomon követheti az egyes környezetek erőforrásait, és elvégezheti a számlázási költségek csoportosítását az erőforráscsoport alapján. Az erőforrásokat készletként is törölheti, ami hasznos lehet a tesztelési környezetekben való üzembe helyezéshez.
 
 ## <a name="when-to-use-this-pattern"></a>Mikor érdemes ezt a mintát használni?
 
 Használja a következő mintát a következő helyzetekben:
 
--   Egy adott környezetben, amely a fejlesztők igényeit egyaránt kielégíti a kód fejlesztéséhez és a egy adott környezetben, ahol nehéz lehet fejleszthet új kódot a megoldás üzembe helyezése.
+-   Létrehozhat egy kódot egy olyan környezetben, amely megfelel a fejlesztői igényeknek, és a megoldásra jellemző környezetbe helyezi azokat, ahol nehéz lehet új kódot kifejleszteni.
 
--   A kód és a fejlesztők szeretne velünk a kapcsolatot, amennyiben azok a folyamatos integrációt és folyamatos készregyártás a fejlesztési és üzemeltetési minta folyamatot követve eszközöket használhatja.
+-   Használhatja a fejlesztőknek szóló kódot és eszközöket, ha a DevOps mintában a folyamatos integráció és a folyamatos kézbesítés folyamatát szeretné követni.
 
 Ez a minta nem ajánlott a következő helyzetekben:
 
--   Ha nem automatizálja infrastruktúra kiépítése az erőforrások, konfigurációs, identitáskezelési és biztonsági feladatokat.
+-   Ha nem automatizálható az infrastruktúra, az erőforrások, a konfiguráció, az identitás és a biztonsági feladatok kiépítése.
 
--   Ha a csapatok nincs hozzáférése a folyamatos integráció/folyamatos fejlesztési (CI/CD) megközelítés megvalósításához a hibrid felhőalapú erőforrásokhoz.
+-   Ha a csapatok nem férnek hozzá a hibrid felhőalapú erőforrásokhoz a folyamatos integráció/folyamatos fejlesztési (CI/CD) megközelítés megvalósításához.
 
 ## <a name="example"></a>Példa
 
-Ismerje meg, hogyan helyezhet üzembe egy alkalmazást az Azure és az Azure Stack egy hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) folyamat használatával.
+Megtudhatja, hogyan helyezhet üzembe egy alkalmazást az Azure-ban, és hogyan Azure Stack egy hibrid, folyamatos integrációs és folyamatos teljesítési (CI/CD) folyamat használatával.
 
-[Alkalmazások üzembe helyezése az Azure és az Azure Stackben](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline)
+[Alkalmazások telepítése az Azure-ba és Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ismerje meg [hibrid felhő tervezési minták az Azure Stackhez](azure-stack-edge-pattern-overview.md)
+Ismerje meg a [hibrid felhő kialakítási mintáit Azure stack](azure-stack-edge-pattern-overview.md)

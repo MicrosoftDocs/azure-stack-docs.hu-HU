@@ -15,16 +15,16 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714705"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283260"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Frissítések kezelése Azure Stack – áttekintés
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 A teljes és expressz frissítések, gyorsjavítások, valamint az eredeti berendezésgyártó (OEM) illesztőprogram-és belső vezérlőprogram-frissítései minden segítséget Azure Stack naprakészen tartanak. Ez a cikk ismerteti a frissítések különböző típusait, a megjelenésük időpontját, valamint azt, hogy hol talál további információkat a jelenlegi kiadásról.
 
@@ -71,7 +71,7 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
 - **OEM hardver szállítója – megadott frissítések**
 
-    Az OEM-frissítések a gyártótól függenek. Létre kell hoznia egy kommunikációs csatornát az OEM-mel, hogy tisztában legyen azzal, hogy mikor van szükség az OEM-mel való frissítésre. További információ a Számítógépgyártókról és az OEM-frissítési folyamatról: [Azure stack eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása](azure-stack-update-oem.md).
+    Az OEM-frissítések a gyártótól függenek. Létre kell hoznia egy kommunikációs csatornát az OEM-mel, hogy tisztában legyen az OEM-mel kapcsolatos frissítésekkel, amelyeket alkalmazni kell. További információ a Számítógépgyártókról és az OEM-frissítési folyamatról: [Azure stack eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása](azure-stack-update-oem.md).
 
 ## <a name="update-processes"></a>Folyamatok frissítése
 
@@ -101,7 +101,7 @@ Azure Stack tartalmaz egy frissítési erőforrás-szolgáltatót, amely a Micro
 
 A frissítések telepítésekor megtekintheti a magas szintű állapotot, mivel a frissítési folyamat a Azure Stack különböző alrendszereit (például a fizikai gazdagépeket és az infrastruktúra virtuális gépeket) célozza meg.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A frissítési folyamat megkezdéséhez kövesse az [Azure stack frissítésének megtervezése](azure-stack-update-plan.md)című témakör lépéseit.
 - Ha szeretné megtudni, hogy a Azure Stack mely verziói támogatottak, tekintse meg [Azure stack karbantartási szabályzatot](azure-stack-servicing-policy.md).  

@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stackben (szolgáltatás-rendszergazda és bérlői) felhasználónként-erőforrások kezelése |} A Microsoft Docs
-description: Szolgáltatás-rendszergazda vagy bérlői megtudhatja, hogyan kezelheti az RBAC-engedélyek.
+title: Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával | Microsoft Docs
+description: Megtudhatja, hogyan állíthat be hozzáférési engedélyeket szerepköralapú hozzáférés-vezérléssel (RBAC) Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,40 +15,40 @@ ms.date: 05/16/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9fc4e6bb48c8cdd7508a1a85d193a22761c62e99
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fa4e836a2c7cd5b59a6234a05efcc1cface12620
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268585"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277049"
 ---
-# <a name="manage-role-based-access-control"></a>Szerepköralapú hozzáférés-vezérlés kezelése
+# <a name="set-access-permissions-using-role-based-access-control"></a>Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack egy felhasználó lehet egy olvasó, tulajdonos vagy közreműködő egy előfizetés, erőforráscsoport vagy szolgáltatás minden egyes példányánál. Például a felhasználó előfordulhat, hogy olvasó engedélye arra, hogy egy előfizetés, de a virtuális gép hét tulajdonosi engedélyekkel rendelkeznek.
+Az Azure Stack-felhasználók az előfizetés, erőforráscsoport vagy szolgáltatás minden egyes példányánál rendelkezhetnek olvasó, tulajdonos vagy közreműködő szerepkörrel. Előfordulhat például, hogy az A felhasználó rendelkezik olvasói engedéllyel az előfizetéshez, de a tulajdonosi engedélyekkel rendelkezik a hét virtuális géphez.
 
- - Olvasó: Felhasználó, aki mindent megtekinthet, de nem módosíthatja.
- - Közreműködői: Felhasználók erőforrásokhoz való hozzáférés kivételével mindent felügyelhetnek.
- - Tulajdonos: Felhasználói mindent felügyelhetnek, beleértve az erőforrásokhoz való hozzáférést.
+ - Olvasó: a felhasználó mindent megtekinthet, de nem végezhet módosításokat.
+ - Közreműködő: a felhasználó mindent kezelhet, kivéve az erőforrásokhoz való hozzáférést.
+ - Tulajdonos: a felhasználó mindent kezelhet, beleértve az erőforrásokhoz való hozzáférést is.
 
-## <a name="set-access-permissions-for-a-user"></a>Egy felhasználó hozzáférési engedélyek beállítása
+## <a name="set-access-permissions-for-a-user"></a>Felhasználó hozzáférési engedélyeinek beállítása
 
-1. A felügyelni kívánt erőforrás tulajdonosi engedélyekkel rendelkező fiókkal jelentkezzen be.
-2. Az erőforrás panelen kattintson a **hozzáférés** ikon ![](media/azure-stack-manage-permissions/image1.png).
-3. Az a **felhasználók** panelen kattintson a **szerepkörök**.
-4. Az a **szerepkörök** panelen kattintson a **Hozzáadás** hozzáférés biztosítása a felhasználónak.
+1. Jelentkezzen be egy olyan fiókkal, amely tulajdonosi engedélyekkel rendelkezik a kezelni kívánt erőforráshoz.
+2. Az erőforrás paneljén kattintson a **hozzáférés** ikonra ![](media/azure-stack-manage-permissions/image1.png).
+3. A **felhasználók** panelen kattintson a **szerepkörök**elemre.
+4. A **szerepkörök** panelen kattintson a **Hozzáadás** gombra a felhasználó engedélyeinek hozzáadásához.
 
-## <a name="set-access-permissions-for-a-universal-group"></a>Az univerzális csoportok a hozzáférési engedélyek beállítása 
+## <a name="set-access-permissions-for-a-universal-group"></a>Egy univerzális csoport hozzáférési engedélyeinek beállítása 
 
 > [!Note]
-> Alkalmazható, csak az Active Directory összevont szolgáltatások (AD FS).
+> Csak Active Directory összevont szolgáltatások (AD FS) esetében alkalmazható.
 
-1. A felügyelni kívánt erőforrás tulajdonosi engedélyekkel rendelkező fiókkal jelentkezzen be.
-2. Az erőforrás panelen kattintson a **hozzáférés** ikon ![](media/azure-stack-manage-permissions/image1.png).
-3. Az a **felhasználók** panelen kattintson a **szerepkörök**.
-4. Az a **szerepkörök** panelen kattintson a **Hozzáadás** hozzáférés biztosítása az univerzális csoport az Active Directory-csoporthoz.
+1. Jelentkezzen be egy olyan fiókkal, amely tulajdonosi engedélyekkel rendelkezik a kezelni kívánt erőforráshoz.
+2. Az erőforrás paneljén kattintson a **hozzáférés** ikonra ![](media/azure-stack-manage-permissions/image1.png).
+3. A **felhasználók** panelen kattintson a **szerepkörök**elemre.
+4. A **szerepkörök** panelen kattintson a **Hozzáadás** gombra az univerzális csoport Active Directory csoport engedélyeinek hozzáadásához.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack-bérlő hozzáadása](azure-stack-add-new-user-aad.md)

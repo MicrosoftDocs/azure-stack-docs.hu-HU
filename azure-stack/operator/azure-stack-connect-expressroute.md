@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 36ed1b7ef7225f848aa3e5869b8c46f911be7e19
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257779"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283570"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack összekötése az Azure-val az Azure ExpressRoute
 
@@ -84,7 +84,7 @@ Az első bérlő Azure Stack környezetének beállításához kövesse az aláb
 A Azure Stack konfigurálásának megkezdése előtt a következőkre lesz szüksége:
 
 * Azure Stack integrált rendszer központi telepítése vagy Azure Stack Development Kit (ASDK) telepítése. További információ a ASDK telepítéséről: [Azure stack Development Kit üzembe helyezési](../asdk/asdk-download.md)útmutató.
-* Azure Stack ajánlata, amelyhez a felhasználók előfizethetnek. További információ: [csomagok, ajánlatok és előfizetések](azure-stack-plan-offer-quota-overview.md).
+* Azure Stack ajánlata, amelyhez a felhasználók előfizethetnek. További információ: [szolgáltatás, csomag, ajánlat, előfizetés áttekintése](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack"></a>Hálózati erőforrások létrehozása a Azure Stackban
 

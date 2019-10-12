@@ -1,6 +1,6 @@
 ---
-title: A Docker használatával futtassa a Powershellt az Azure Stackben |} A Microsoft Docs
-description: Az Azure Stack PowerShell futtatása a Docker használatával
+title: A Docker használata a PowerShell futtatásához Azure Stackban | Microsoft Docs
+description: A Docker használata a PowerShell futtatásához Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,64 +11,64 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: 27f2b4c1817c28cf5d345f5aa9387a26cd18316b
-ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
+ms.openlocfilehash: 118f29c46a1b11c07c62407f19b86aa28ada3bd1
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725749"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277781"
 ---
-# <a name="use-docker-to-run-powershell-in-azure-stack"></a>Az Azure Stack PowerShell futtatása a Docker használatával
+# <a name="use-docker-to-run-powershell-in-azure-stack"></a>A Docker használata a PowerShell futtatásához Azure Stack
 
-Ez a cikk a Docker, amelyen szeretné, a PowerShell használata a különböző felületek szükséges verzióját futtató Windows-alapú tárolók létrehozásához használhatja. Docker Windows-alapú tárolók kell használnia.
+Ebben a cikkben a Docker használatával hozhat létre Windows-alapú tárolókat, amelyeken futtathatja a PowerShell azon verzióját, amely a különböző felületeken való munkához szükséges. A Docker-ben Windows-alapú tárolókat kell használnia.
 
-## <a name="docker-prerequisites"></a>Docker-Előfeltételek
+## <a name="docker-prerequisites"></a>A Docker előfeltételei
 
-1. Telepítés [Docker](https://docs.docker.com/install/).
+1. A [Docker](https://docs.docker.com/install/)telepítése.
 
-1. Parancssori program, például a Powershell vagy a Bash adja meg:
+1. Egy parancssori programban, például a PowerShellben vagy a bash-ben írja be a következőket:
 
     ```bash
         Docker --version
     ```
 
-1. Docker futtatása szükséges a Windows 10-es Windows-tárolók használatával kell. Amikor futtatja a Docker, Windows-tárolók váltani.
+1. A Docker futtatásához Windows 10 rendszerű Windows-tárolókat kell használnia. A Docker futtatásakor váltson a Windows-tárolók elemre.
 
-1. Futtassa a Docker Azure Stack azonos tartományhoz csatlakozó gépről. Ha az Azure Stack Development Kit (ASDK) használ, telepítenie kell [a távoli gépen a VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+1. Futtassa a Docker-t olyan gépről, amely ugyanahhoz a tartományhoz csatlakozik, mint Azure Stack. Ha a Azure Stack Development Kit (ASDK) használja, telepítenie kell [a VPN-t a távoli gépen](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-## <a name="set-up-a-service-principal-for-using-powershell"></a>Egyszerű szolgáltatás beállítása a PowerShell használatával
+## <a name="set-up-a-service-principal-for-using-powershell"></a>Egyszerű szolgáltatásnév beállítása a PowerShell használatához
 
-Erőforrások eléréséhez az Azure Stack PowerShell használatához szüksége egy egyszerű szolgáltatást az Azure Active Directory (Azure AD-) bérlőben. A felhasználói szerepkör alapú hozzáférés-vezérlés (RBAC) engedélyekkel delegálhat.
+Ahhoz, hogy a PowerShell használatával hozzáférhessen a Azure Stack erőforrásaihoz, szüksége lesz egy egyszerű szolgáltatásnév használatára a Azure Active Directory (Azure AD) bérlőben. Engedélyeket delegálhat a felhasználói szerepköralapú hozzáférés-vezérléssel (RBAC).
 
-1. Az egyszerű szolgáltatás beállításához, kövesse a [alkalmazások hozzáférést biztosíthat az Azure Stack-erőforrások egyszerű szolgáltatások létrehozásával](azure-stack-create-service-principals.md).
+1. Az egyszerű szolgáltatás beállításához kövesse az [alkalmazások Azure stack erőforrásokhoz való hozzáférésének biztosítása az egyszerű szolgáltatások létrehozásával](azure-stack-create-service-principals.md)című témakör utasításait.
 
-2. Jegyezze fel az Alkalmazásazonosítót, a titkos kulcsot és a bérlő Azonosítóját későbbi felhasználásra.
+2. Jegyezze fel az alkalmazás AZONOSÍTÓját, a titkos kulcsot és a bérlő AZONOSÍTÓját későbbi használatra.
 
-## <a name="docker---azure-stack-api-profiles-module"></a>Docker – az Azure Stack API profilok modul
+## <a name="docker---azure-stack-api-profiles-module"></a>Docker-Azure Stack API-profilok modul
 
-A docker-fájl megnyitása a Microsoft kép *microsoft/windowsservercore*, amely rendelkezik a Windows PowerShell 5.1 telepítve. A fájlt, majd betölti a NuGet és az Azure Stack PowerShell-modulok, és letölti az eszközök az Azure Stack elől.
+A Docker megnyitja a Microsoft */Windowsservercore Microsoft-* rendszerképét, amelyen telepítve van a Windows PowerShell 5,1. A fájl ezután betölti a NuGet és a Azure Stack PowerShell-modulokat, és letölti az eszközöket Azure Stack eszközökről.
 
-1. [Töltse le az azure-verem – powershell-adattáron](https://github.com/mattbriggs/azure-stack-powershell) ZIP-fájlt, vagy a tárház klónozása.
+1. [Töltse le az Azure-stack-PowerShell-tárházat](https://github.com/mattbriggs/azure-stack-powershell) zip-fájlként, vagy az adattár klónozásával.
 
-2. Nyissa meg a tárház mappát a terminálról.
+2. Nyissa meg a tárház mappát a terminálon.
 
-3. A tárházban nyissa meg egy parancssori felületet, és írja be a következő parancsot:
+3. Nyisson meg egy parancssori felületet a tárházban, majd írja be a következő parancsot:
 
     ```bash  
     docker build --tag azure-stack-powershell .
     ```
 
-4. Amikor a lemezkép állították össze, először egy interaktív tárolóba írja be:
+4. A rendszerkép létrehozása után indítson el egy interaktív tárolót az alábbiak beírásával:
 
     ```bash  
         docker run -it azure-stack-powershell powershell
     ```
 
-5. A rendszerhéj a parancsmagok készen áll.
+5. A rendszerhéj készen áll a parancsmagokra.
 
     ```bash
     Windows PowerShell
@@ -77,7 +77,7 @@ A docker-fájl megnyitása a Microsoft kép *microsoft/windowsservercore*, amely
     PS C:\>
     ```
 
-6. Csatlakozás az Azure Stack-példány az egyszerű szolgáltatás használatával. Most már használ egy PowerShell-parancssort a Docker. 
+6. Kapcsolódjon a Azure Stack-példányhoz az egyszerű szolgáltatásnév használatával. Most egy PowerShell-parancssort használ a Docker-ben. 
 
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
@@ -85,7 +85,7 @@ A docker-fájl megnyitása a Microsoft kép *microsoft/windowsservercore*, amely
     Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
     ```
 
-   PowerShell a fiók objektumot ad vissza:
+   A PowerShell visszaadja a fiók objektumát:
 
     ```powershell  
     Account    SubscriptionName    TenantId    Environment
@@ -93,15 +93,15 @@ A docker-fájl megnyitása a Microsoft kép *microsoft/windowsservercore*, amely
     <AccountID>    <SubName>       <TenantID>  AzureCloud
     ```
 
-7. Tesztelje a kapcsolatot hoz létre egy erőforráscsoportot az Azure Stackben.
+7. A kapcsolat teszteléséhez hozzon létre egy erőforráscsoportot a Azure Stack.
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
--  Olvassa el az áttekintést [az Azure Stack PowerShell az Azure Stackben](azure-stack-powershell-overview.md).
-- További információ [PowerShell API-profilok](azure-stack-version-profiles.md) az Azure Stackben.
-- Telepítés [az Azure Stack Powershell](../operator/azure-stack-powershell-install.md).
-- Olvassa el létrehozása [Azure Resource Manager-sablonok](azure-stack-develop-templates.md) felhőalapú konzisztencia.
+-  Olvassa el a [Azure stack PowerShell áttekintését Azure Stackban](azure-stack-powershell-overview.md).
+- További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack.
+- Telepítse a [Azure stack PowerShellt](../operator/azure-stack-powershell-install.md).
+- További információ a Felhőbeli konzisztencia [Azure Resource Manager-sablonok](azure-stack-develop-templates.md) létrehozásáról.

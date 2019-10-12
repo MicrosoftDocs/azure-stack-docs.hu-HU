@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 501040273eca6ce80972ae2a69eca2018f9f8d2d
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159603"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283432"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes hozzáadása a Azure Stack Marketplace-hez
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!note]  
 > A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
@@ -48,7 +48,7 @@ Hozzon létre egy csomagot, egy ajánlatot és egy előfizetést a Kubernetes Ma
 
 1. Válassza az **Állapot módosítása**lehetőséget. Válassza a **nyilvános**lehetőséget.
 
-1. Előfizetés létrehozásához válassza az **+ erőforrás** > létrehozása**ajánlatok és csomagok** > előfizetését.
+1. Válassza az **+ erőforrás létrehozása** > **ajánlatok és csomagok** > **előfizetés** létrehozásához előfizetést.
 
     a. Adja meg a **megjelenítendő nevet**.
 
@@ -68,7 +68,7 @@ Ha Active Directory összevont szolgáltatásokat (AD FS) használ az Identitás
 
 Adja hozzá a következő Ubuntu Server-rendszerképet a piactérhez:
 
-1. Jelentkezzen be a [felügyeleti portálján](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
 
 1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
 
@@ -79,8 +79,8 @@ Adja hozzá a következő Ubuntu Server-rendszerképet a piactérhez:
 1. Válassza ki a kiszolgáló legújabb verzióját. Ellenőrizze a teljes verziót, és győződjön meg arról, hogy a legújabb verzióval rendelkezik:
     - **Közzétevő**: Canonical
     - **Ajánlat**: UbuntuServer
-    - **Verzió**: 16.04.201806120 (vagy a legújabb verzió)
-    - **SKU**: 16.04-LTS
+    - **Verzió**: 16.04.201806120 (vagy legújabb verzió)
+    - **SKU**: 16,04 – LTS
 
 1. Válassza a **Letöltés lehetőséget.**
 
@@ -97,8 +97,8 @@ Adja hozzá a Kubernetes a piactéren:
 1. Írja be a `Custom Script for Linux` (igen) kifejezést.
 
 1. Válassza ki a parancsfájlt a következő profillal:
-   - **Ajánlat**: Egyéni parancsfájl a Linux 2,0-hez
-   - **Verzió**: 2.0.6 (vagy a legújabb verzió)
+   - **Ajánlat**: egyéni parancsfájl a Linux 2,0-hez
+   - **Verzió**: 2.0.6 (vagy legújabb verzió)
    - **Közzétevő**: Microsoft Corp
 
      > [!Note]  
@@ -140,7 +140,7 @@ A Kubernetes elemek eltávolítása:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Megjegyzés az aktuális elem neve, például:`Microsoft.AzureStackKubernetesCluster.0.3.0`
+3. Megjegyzés: az aktuális elem neve, például `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Az alábbi PowerShell-parancsmag használatával távolítsa el az elemeket:
 
@@ -150,8 +150,8 @@ A Kubernetes elemek eltávolítása:
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Kubernetes üzembe helyezése Azure Stack](../user/azure-stack-solution-template-kubernetes-deploy.md)
 
-[A Azure Stack szolgáltatásainak áttekintése](azure-stack-offer-services-overview.md)
+[A Azure Stack szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md)

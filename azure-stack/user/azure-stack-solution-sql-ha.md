@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 841b2b3d525380d927b9d4b121b7e832c99b7147
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: afb295d775eb9e8d35878c4d9c69106c558ffec0
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602937"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277751"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>SQL Server 2016 rendelkezésre állási csoport üzembe helyezése az Azure-ban és Azure Stack
 
@@ -34,8 +34,8 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog létrehozni a k
 > - Alapszintű, magasan elérhető SQL Server 2016 Enterprise-fürt üzembe helyezése vész-helyreállítási hellyel
 
 > [!Tip]  
-> ![hibrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> A Microsoft Azure Stack az Azure bővítménye. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
+> @no__t -0hybrid-Pillars. png @ no__t-1  
+> Microsoft Azure Stack az Azure kiterjesztése. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
@@ -50,7 +50,7 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog létrehozni a k
       - **Jegyezze fel mindegyik előfizetés-azonosítót és a Azure Resource Manager végpontot az egyes Azure Stackokhoz.**
   - Egy Azure Active Directory (Azure AD) egyszerű szolgáltatásnév, amely minden egyes Azure Stack a bérlői előfizetéshez rendelkezik engedéllyel. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha az Azure stackek különböző Azure AD-bérlők között vannak telepítve. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet a Azure Stackhoz, tekintse meg az [egyszerű szolgáltatások létrehozása az alkalmazások Azure stack erőforrásokhoz való hozzáférésének biztosítása érdekében](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)című témakört.
       - **Jegyezze fel az egyes egyszerű szolgáltatások alkalmazás-AZONOSÍTÓját, az ügyfél titkos kulcsát és a bérlő nevét (xxxxx.onmicrosoft.com).**
-  - SQL Server 2016 Enterprise konzorciális az egyes Azure Stack a piactéren. További információ a Marketplace Syndication szolgáltatásról: [Marketplace-elemek letöltése az Azure-ból Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
+  - SQL Server 2016 Enterprise konzorciális az egyes Azure Stack a piactéren. További információ a Marketplace Syndication [szolgáltatásról: Marketplace-elemek letöltése az Azure-ból Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item).
     **Győződjön meg arról, hogy a szervezet rendelkezik a megfelelő SQL-licenccel.**
   - A helyi gépre telepített [Windows Docker](https://docs.docker.com/docker-for-windows/) .
 
@@ -97,7 +97,7 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
       -AzureStackSubscriptionId_DR "drSubscriptionId"
       ```
 
-4.  Írja `Y` be a NuGet-szolgáltató telepítésének engedélyezését, amely a telepítendő "2018-03-01-Hybrid" modulok indítását fogja elindítani.
+4.  Írja be a `Y` értéket a NuGet-szolgáltató telepítésének engedélyezéséhez, amely elindítja a telepíteni kívánt "2018-03-01-Hybrid" modulok API-profilját.
 
 5.  Várjon, amíg az erőforrás üzembe helyezése befejeződik.
 
@@ -111,8 +111,8 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
 
 ![SQL Server 2016 SQL HA](media/azure-stack-solution-sql-ha/image2.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-  - A SQL Server Management Studio használatával manuálisan hajthatja végre a feladatátvételt a fürtön, lásd: az AlwaysOn [rendelkezésre állási csoport kényszerített manuális feladatátvételének végrehajtása (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
+  - A SQL Server Management Studio használatával manuálisan hajthatja végre a feladatátvételt a fürtön, lásd: az [AlwaysOn rendelkezésre állási csoport kényszerített manuális feladatátvételének végrehajtása (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
   - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)
-  - Használja saját adatait, vagy módosítsa a kódot erre a mintára [](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)a githubon.
+  - Használja saját adatait, vagy módosítsa a kódot erre a mintára a [githubon](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).

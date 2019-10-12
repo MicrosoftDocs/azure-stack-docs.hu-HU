@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Datacenter-integráció – identitás
-description: Ismerje meg, hogyan integrálható Azure Stack AD FS az adatközpontba AD FS
+title: AD FS identitás integrálása az Azure Stack adatközpontba | Microsoft Docs
+description: Ismerje meg, hogyan integrálhatja Azure Stack AD FS Identity providert az adatközpont AD FS.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
-ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
+ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71127515"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277199"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack Datacenter-integráció – identitás
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>AD FS identitás integrálása az Azure Stack adatközpontba
 
-Az Azure Stack a Azure Active Directory (Azure AD) vagy a Active Directory összevonási szolgáltatások (AD FS) (AD FS) használatával is üzembe helyezheti identitás-szolgáltatóként. A Azure Stack telepítése előtt el kell végeznie a választást. Egy csatlakoztatott forgatókönyvben kiválaszthatja az Azure AD-t vagy a AD FS. A leválasztott forgatókönyvek esetében csak AD FS támogatott.
+Azure Stack az Azure Active Directory (Azure AD) vagy a Active Directory összevonási szolgáltatások (AD FS) (AD FS) használatával is üzembe helyezhető az identitás-szolgáltatóként. A Azure Stack telepítése előtt el kell végeznie a választást. Egy csatlakoztatott forgatókönyvben kiválaszthatja az Azure AD-t vagy a AD FS. A leválasztott forgatókönyvek esetében csak AD FS támogatott. Ez a cikk bemutatja, hogyan integrálható Azure Stack AD FS az adatközpont AD FS.
 
 > [!IMPORTANT]
 > Az identitás-szolgáltatót nem lehet átváltani a teljes Azure Stack megoldás újbóli üzembe helyezése nélkül.
@@ -28,13 +28,13 @@ Az Azure Stack a Azure Active Directory (Azure AD) vagy a Active Directory össz
 
 A AD FS-ben való üzembe helyezése lehetővé teszi egy meglévő Active Directory erdőben lévő identitások hitelesítését a Azure Stack erőforrásaival. A meglévő Active Directory erdőben a AD FS központi telepítése szükséges, hogy lehetővé váljon AD FS összevonási megbízhatósági kapcsolat létrehozása.
 
-A hitelesítés az identitás egyik része. A szerepkör alapú Access Control (RBAC) Azure Stack-ben való kezeléséhez konfigurálni kell a Graph összetevőt. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
+A hitelesítés az identitás egyik része. A szerepköralapú hozzáférés-vezérlés (RBAC) Azure Stack-ben való kezeléséhez konfigurálni kell a Graph összetevőt. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
 
 ![Azure Stack AD FS architektúra](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
 A meglévő AD FS a fiók biztonsági jogkivonat-szolgáltatása (STS), amely jogcímeket küld a Azure Stack AD FS (az erőforrás STS) számára. Azure Stack az Automation létrehozza a jogcím-szolgáltatói megbízhatóságot a meglévő AD FS metaadat-végpontján.
 
-A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack VIP-végpontját a minta `https://adfs.<Region>.<ExternalFQDN>/`használatával lehet létrehozni.
+A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack VIP-végpontja az `https://adfs.<Region>.<ExternalFQDN>/` minta használatával hozható létre.
 
 A függő entitás megbízhatóságának konfigurációjában a Microsoft által biztosított jogcím-átalakítási szabályok konfigurálására is szükség van.
 
@@ -44,9 +44,9 @@ Az utolsó lépésben új tulajdonos van konfigurálva az alapértelmezett szolg
 
 Követelmények:
 
-|Összetevő|Követelmény|
+|Component (Összetevő)|Követelmény|
 |---------|---------|
-|Graph|Microsoft Active Directory 2012/2012 R2/2016|
+|Gráf|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Gráf-integráció beállítása
@@ -57,27 +57,27 @@ A következő információk szükségesek az Automation-paraméterek bemenetei s
 
 |Paraméter|Üzembe helyezési munkalap paramétere|Leírás|Példa|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|Erdő teljes tartományneve AD FS|A cél Active Directory erdő teljes tartományneve<br>, amelyet integrálni szeretne|Contoso.com|
+|`CustomADGlobalCatalog`|Erdő teljes tartományneve AD FS|Annak a célként Active Directory erdőnek a teljes tartományneve, amelyet integrálni szeretne|Contoso.com|
 |`CustomADAdminCredentials`| |LDAP-olvasási engedéllyel rendelkező felhasználó|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Active Directory helyek konfigurálása
 
 Active Directory több hellyel rendelkező üzemelő példányokhoz konfigurálja a legközelebbi Active Directory helyet a Azure Stack központi telepítéshez. A konfiguráció elkerüli, hogy a Azure Stack Graph szolgáltatás a távoli helyről származó globáliskatalógus-kiszolgáló használatával oldja fel a lekérdezéseket.
 
-Adja hozzá a Azure Stack [nyilvános VIP hálózati](azure-stack-network.md#public-vip-network) alhálózatot a Azure Stackhoz legközelebb lévő Active Directory-helyhez. Ha például a Active Directory két, Seattle és Redmond nevű hellyel rendelkezik, Azure Stack a Seattle-i helyen helyezi üzembe, akkor a Azure Stack nyilvános VIP hálózati alhálózatot a Seattle-hez készült Active Directory webhelyhez adja hozzá.
+Adja hozzá a Azure Stack [nyilvános VIP hálózati](azure-stack-network.md#public-vip-network) alhálózatot a Azure Stackhoz legközelebb lévő Active Directory-helyhez. Tegyük fel például, hogy a Active Directory két hellyel rendelkezik: Seattle és Redmond. Ha Azure Stack van telepítve a Seattle-beli helyen, a Azure Stack nyilvános VIP hálózati alhálózatot a Seattle Active Directory-webhelyéhez adja hozzá.
 
-További információ a Active Directory helyekről: [a hely topológiájának megtervezése](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+Active Directory-helyekkel kapcsolatos további információkért lásd: [a hely topológiájának megtervezése](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
-> Ha a Active Directory egyetlen helyből áll, akkor kihagyhatja ezt a lépést. Ha van egy catch-all alhálózat konfigurálva, ellenőrizze, hogy a Azure Stack nyilvános VIP hálózati alhálózat nem része-e.
+> Ha a Active Directory egyetlen helyből áll, akkor kihagyhatja ezt a lépést. Ha rendelkezik egy Catch-alhálózattal, ellenőrizze, hogy a Azure Stack nyilvános VIP hálózati alhálózat nem része-e.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Felhasználói fiók létrehozása a meglévő Active Directoryban (nem kötelező)
 
-Igény szerint létrehozhat egy fiókot a Graph szolgáltatáshoz a meglévő Active Directoryban. Ha még nem rendelkezik a használni kívánt fiókkal, hajtsa végre ezt a lépést.
+Igény szerint létrehozhat egy fiókot a Graph szolgáltatáshoz a meglévő Active Directoryban. Akkor hajtsa végre ezt a lépést, ha még nem rendelkezik a használni kívánt fiókkal.
 
 1. A meglévő Active Directory hozza létre a következő felhasználói fiókot (javaslat):
    - **Felhasználónév**: graphservice
-   - **Jelszó**: erős jelszó használata<br>Konfigurálja a jelszót, hogy soha ne járjon le.
+   - **Jelszó**: Használjon erős jelszót, és konfigurálja a jelszót, hogy soha ne járjon le.
 
    Nincs szükség különleges engedélyekre vagy tagságra.
 
@@ -103,11 +103,11 @@ Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálóz
    > [!IMPORTANT]
    > Várjon, amíg a hitelesítő adatok előugró ablaka (a lekéréses hitelesítő adatok nem támogatottak a privilegizált végponton), és adja meg a Graph szolgáltatás fiókjának hitelesítő adatait.
 
-3. A **Register-DirectoryService** parancsmag olyan választható paramétereket tartalmaz, amelyeket bizonyos esetekben használhat, ha a meglévő Active Directory érvényesítése sikertelen. A parancsmag végrehajtásakor a rendszer ellenőrzi, hogy a megadott tartomány a legfelső szintű tartomány-e, a globáliskatalógus-kiszolgáló elérhető-e, és a megadott fiók olvasási hozzáférést biztosít.
+3. A **Register-DirectoryService** parancsmag olyan választható paramétereket tartalmaz, amelyeket bizonyos esetekben használhat, ha a meglévő Active Directory érvényesítése sikertelen. A parancsmag végrehajtásakor a rendszer ellenőrzi, hogy a megadott tartomány a legfelső szintű tartomány-e, a globáliskatalógus-kiszolgáló elérhető-e, és hogy a megadott fiók olvasási hozzáférést kap-e.
 
    |Paraméter|Leírás|
    |---------|---------|
-   |`-SkipRootDomainValidation`|Azt adja meg, hogy a rendszer az ajánlott legfelső szintű tartomány helyett alárendelt tartományt kell használni.|
+   |`-SkipRootDomainValidation`|Megadja, hogy a rendszer a javasolt gyökértartomány helyett gyermektartomány használatát használja.|
    |`-Force`|Az összes ellenőrzési ellenőrzés mellőzése.|
 
 #### <a name="graph-protocols-and-ports"></a>Graph protokollok és portok
@@ -116,7 +116,7 @@ A Azure Stack gráf szolgáltatása a következő protokollokat és portokat has
 
 A Azure Stack gráf szolgáltatása a következő protokollokat és portokat használja a célként megadott Active Directory való kommunikációhoz:
 
-|Type|Port|Protocol|
+|Type (Típus)|Port|Protocol (Protokoll)|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -130,8 +130,8 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |Paraméter|Üzembe helyezési munkalap paramétere|Leírás|Példa|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
-|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében|Nincsenek|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https: \//AD01. contoso. com/federationmetadata/2007-06/federationmetadata. XML |
+|SigningCertificateRevocationCheck|n/a|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|None|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack
@@ -151,7 +151,7 @@ Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunik�
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
-3. Futtassa a következő parancsot az alapértelmezett szolgáltatói előfizetés tulajdonosának frissítéséhez a környezetének megfelelő paraméterek használatával:
+3. Futtassa a következő parancsot az alapértelmezett szolgáltatói előfizetés tulajdonosának frissítéséhez a környezetének megfelelő paraméterekkel:
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -170,7 +170,7 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |Paraméter|Leírás|Példa|
 |---------|---------|---------|
 |CustomAdfsName|A jogcím-szolgáltató neve. Így jelenik meg a AD FS kezdőlapján.|Contoso|
-|CustomADFSFederationMetadataFileContent|Metaadatok tartalma|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Metaadatok tartalma.|$using: federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Összevonási metaadatok fájljának létrehozása
 
@@ -206,14 +206,14 @@ Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunik�
     Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
     ```
 
-3. Futtassa a következő parancsot az alapértelmezett szolgáltatói előfizetés tulajdonosának frissítéséhez a környezetének megfelelő paraméterek használatával:
+3. Futtassa az alábbi parancsot az alapértelmezett szolgáltatói előfizetés tulajdonosának frissítéséhez. Használja a környezetének megfelelő paramétereket.
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
    > [!Note]  
-   > Ha elforgatja a tanúsítványt a meglévő AD FSon (a fiók STS-fiókjával), akkor újra be kell állítania a AD FS-integrációt. Akkor is be kell állítania az integrációt, ha a metaadat-végpont elérhető, vagy a metaadat-fájl megadásával lett konfigurálva.
+   > Ha elforgatja a tanúsítványt a meglévő AD FSban (a fiók STS), akkor újra be kell állítania a AD FS-integrációt. Akkor is be kell állítania az integrációt, ha a metaadat-végpont elérhető, vagy a metaadat-fájl megadásával lett konfigurálva.
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Függő entitás konfigurálása meglévő AD FS üzemelő példányon (fiók STS)
 
@@ -256,14 +256,14 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
    => issue(claim = c);
    ```
 
-2. Ellenőrizze, hogy engedélyezve van-e az extranetes és intranetes Windows Forms-alapú hitelesítés. Először ellenőrizze, hogy a már engedélyezve van-e a következő parancsmag futtatásával:
+2. Ellenőrizze, hogy engedélyezve van-e az extranetes és intranetes Windows Forms-alapú hitelesítés. A következő parancsmag futtatásával ellenőrizhető, hogy a szolgáltatás már engedélyezve van-e:
 
    ```powershell  
    Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
 
     > [!Note]  
-    > Előfordulhat, hogy az integrált Windows-hitelesítés (WIA) támogatott felhasználói ügynök sztringek elavultak, AD FS a központi telepítéshez szükség lehet a legújabb ügyfelek támogatására. A WIA által támogatott felhasználói ügynök sztringek frissítésével kapcsolatos további információkért tekintse meg az [intranetes űrlapalapú hitelesítés konfigurálása a WIA-t nem támogató eszközök esetében című](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)cikket.<br>Az űrlapalapú hitelesítési házirend engedélyezésének lépéseit a cikk a [hitelesítési házirendek konfigurálása](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)című cikkben ismertetett módon ismerteti.
+    > Előfordulhat, hogy a központi Windows-hitelesítés (WIA) által támogatott felhasználói ügynöki karakterláncok elavultak lehetnek, ha a AD FS üzemelő példánya frissítést igényel a legújabb ügyfelek támogatásához. A WIA által támogatott felhasználói ügynök sztringek frissítésével kapcsolatos további információkért tekintse meg az [intranetes űrlapalapú hitelesítés konfigurálása a WIA-t nem támogató eszközök esetében című](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)cikket.<br><br>Az űrlapalapú hitelesítési házirend engedélyezésének lépései a [hitelesítési házirendek konfigurálása](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)című cikkben olvashatók.
 
 3. A függő entitás megbízhatóságának hozzáadásához futtassa a következő Windows PowerShell-parancsot a AD FS példányán vagy egy farm tagján. Ügyeljen arra, hogy frissítse a AD FS végpontot, és mutasson az 1. lépésben létrehozott fájlra.
 
@@ -285,7 +285,7 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
 4. Ha az Internet Explorer vagy a Microsoft Edge böngésző használatával fér hozzá a Azure Stackhoz, figyelmen kívül hagyhatja a jogkivonat-kötéseket. Ellenkező esetben a bejelentkezési kísérletek sikertelenek lesznek. A AD FS-példányon vagy egy farmon, futtassa a következő parancsot:
 
    > [!note]  
-   > Ez a lépés nem alkalmazható Windows Server 2012 vagy 2012 R2 AD FS használata esetén. Ezt a parancsot nyugodtan kihagyhatja, és folytathatja az integrációt.
+   > Ez a lépés nem alkalmazható Windows Server 2012 vagy 2012 R2 AD FS használata esetén. Ebben az esetben nyugodtan kihagyhatja ezt a parancsot, és folytathatja az integrációt.
 
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
@@ -295,19 +295,19 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
 
 Az egyszerű szolgáltatásnév (SPN) használatának megkövetelése számos esetben szükséges a hitelesítéshez. Az alábbiakban néhány példát láthat:
 
-- A CLI használata a Azure Stack AD FS üzembe helyezésével
-- System Center felügyeleti csomag Azure Stack esetén AD FS
-- Erőforrás-szolgáltatók Azure Stack a AD FS-vel való üzembe helyezéskor
-- Különböző alkalmazások
-- Nem interaktív bejelentkezésre van szükség
+- A CLI használata a Azure Stack AD FS üzembe helyezésével.
+- A System Center felügyeleti csomagja a Azure Stack AD FSsal történő telepítésekor.
+- A Azure Stack erőforrás-szolgáltatója AD FSsal való üzembe helyezéskor.
+- Különböző alkalmazások.
+- Nem interaktív bejelentkezésre van szükség.
 
 > [!Important]  
-> AD FS csak az interaktív bejelentkezési munkameneteket támogatja. Ha nem interaktív bejelentkezésre van szüksége egy automatizált forgatókönyvhöz, SPN-t kell használnia.
+> AD FS csak az interaktív bejelentkezési munkameneteket támogatja. Ha nem interaktív bejelentkezésre van szüksége egy automatikus forgatókönyvhöz, SPN-t kell használnia.
 
 Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [egyszerű szolgáltatásnév létrehozása ad FShoz](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Hibaelhárítás
+## <a name="troubleshooting"></a>Hibakeresés
 
 ### <a name="configuration-rollback"></a>Konfiguráció visszaállítása
 
@@ -329,7 +329,7 @@ Ha olyan hiba történik, amely egy olyan állapotban hagyja a környezetet, aho
    A visszaállítási művelet futtatása után a rendszer az összes konfigurációs módosítást visszaállítja. Csak a beépített **CloudAdmin** -felhasználóval történő hitelesítés lehetséges.
 
    > [!IMPORTANT]
-   > Konfigurálnia kell az alapértelmezett szolgáltatói előfizetés eredeti tulajdonosát
+   > Konfigurálnia kell az alapértelmezett szolgáltatói előfizetés eredeti tulajdonosát.
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
@@ -352,5 +352,6 @@ Ha a parancsmagok bármelyike meghibásodik, a `Get-Azurestacklogs` parancsmag h
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
+## <a name="next-steps"></a>Következő lépések
 
 [Külső monitorozási megoldások integrálása](azure-stack-integrate-monitor.md)
