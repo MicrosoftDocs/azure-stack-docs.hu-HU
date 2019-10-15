@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: eb9ed23437d5fd708d3f98d5a5b601f3ed1a02a0
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: c821f35928df5da4c34455a0b541699b0a84d490
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283721"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310678"
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
 
@@ -342,20 +342,62 @@ A hibrid CI/CD az alkalmazás kódjára és az infrastruktúra kódjára is alka
 1. A böngészőben nyissa meg az Azure DevOps-szervezetét és-projektjét.
    
 1. Válassza a **folyamatok** > **buildek** lehetőséget a bal oldali navigációs sávon, majd válassza az **új folyamat**elemet. 
+
+1. Válassza ki a kód tárházát. Az Azure-folyamatok elemzik és azonosítják a projektet ASP.NET Coreként, és megnyitják az alapértelmezett ASP.NET Core *Azure-pipelines. YML* Build sablont. 
    
-1. A **sablon kiválasztása**területen válassza ki a **ASP.net Core** sablont, majd válassza az **alkalmaz**lehetőséget. 
+   ![ASP.NET Core Azure-pipelines. YML fájl](media/azure-stack-solution-pipeline/buildargument.png)
    
-1. A konfiguráció lapon válassza a **Közzététel** lehetőséget a bal oldali ablaktáblán.
+1. A folyamat kódját közvetlenül szerkesztheti, vagy az **asszisztens megjelenítése** lehetőséggel megnyithatja **a feladatok panelt** , amely segítséget nyújt a feladatok és a lépések hozzáadásához. 
    
-1. A jobb oldali ablaktábla argumentumok területén adja hozzá a `-r win10-x64` **paramétert**a konfigurációhoz. 
+   Ha a **Segéd megjelenítése**lehetőséget választja, válassza a **.net Core** elemet a **feladatok** ablaktáblán. A **.net Core** formátumban:
+   - A **parancs**alatt válassza a legördülő menü **Közzététel**elemét. 
+   - Az **argumentumok**területen adja meg a *-r win10-x64*értéket.
+   - Győződjön meg arról, hogy a **közzétételi webes projektek** beállítás van kiválasztva.
+   - Válassza a **Hozzáadás** lehetőséget.
    
-   ![Build folyamati argumentum hozzáadása](media/azure-stack-solution-pipeline/buildargument.png)
+   A Segéd használata helyett szerkesztheti és hozzáadhatja a következő kódot közvetlenül az *Azure-pipelines. YML* fájlhoz:
    
-1. Válassza az oldal tetején található **&-várólista mentése** lehetőséget.
+   - A `pool` alatt módosítsa a `vmImage` értéket `ubuntu-latest` értékről `vs2017-win2016` értékre.
+     
+   - A `steps` területen adja hozzá a [DotNetCoreCLI](/azure/devops/pipelines/tasks/build/dotnet-core-cli) feladatot, a parancsot és az argumentumokat: 
+     
+     ```yaml
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '-r win10-x64'
+     ```
+   A *Azure-pipelines. YML* fájlnak most már a következő kóddal kell rendelkeznie: 
    
-1. A **folyamat futtatása** párbeszédpanelen válassza a **Mentés és Futtatás**lehetőséget. 
+   ```yaml
+   # ASP.NET Core
+   # Build and test ASP.NET Core projects targeting .NET Core.
+   # Add steps that run tests, create a NuGet package, deploy, and more:
+   # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
    
-A [saját üzemeltetésű üzembe helyezési Build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) közzéteszi az Azure-ban és a Azure stackon futtatható összetevőket is.
+   trigger:
+   - master
+   
+   pool:
+     vmImage: 'vs2017-win2016'
+   
+   variables:
+     buildConfiguration: 'Release'
+
+   steps:
+   - script: dotnet build --configuration $(buildConfiguration)
+     displayName: 'dotnet build $(buildConfiguration)'
+   
+   - task: DotNetCoreCLI@2
+     inputs:
+       command: 'publish'
+       publishWebProjects: true
+       arguments: '-r win10-x64'
+   ```
+1. Válassza a **Mentés és Futtatás**lehetőséget, vegyen fel egy véglegesítő üzenetet és nem kötelező leírást, majd kattintson a **Mentés és Futtatás** gombra. 
+   
+A [saját üzemeltetésű üzembe helyezési Build](/dotnet/core/deploying/#self-contained-deployments-scd) közzéteszi az Azure-ban és a Azure stackon futtatható összetevőket is.
 
 ### <a name="create-a-release-pipeline"></a>Kiadási folyamat létrehozása
 
@@ -381,25 +423,25 @@ A kiadási folyamat létrehozása a hibrid CI/CD-konfiguráció utolsó lépése
    
    ![Válassza ki az előfizetést, és adja meg App Service nevét](media/azure-stack-solution-pipeline/stage1.png)
    
-1. A bal oldali ablaktáblán válassza a **Futtatás az ügynökön**lehetőséget. Ha még nincs kiválasztva, a jobb oldali ablaktáblában válassza a **tárolt VS2017** elemet az **ügynök készlet** legördülő listából.
+1. A bal oldali ablaktáblán válassza a **Futtatás az ügynökön**lehetőséget. A jobb oldali ablaktáblában válassza ki az **Azure-folyamatok** elemet az **ügynök készlete** legördülő listából, majd válassza az **Vs2017-win2016** elemet az **ügynök specifikációja** legördülő listából.
    
    ![Üzemeltetett ügynök kiválasztása](media/azure-stack-solution-pipeline/agentjob.png)
    
-1. A bal oldali ablaktáblán válassza a **központi telepítés Azure app Service**lehetőséget, majd a jobb oldali ablaktáblában keresse meg az Azure-webalkalmazás-Build **csomagját vagy mappáját** .
+1. A bal oldali ablaktáblán válassza a **Azure app Service üzembe helyezés**lehetőséget. A jobb oldali ablaktáblában görgessen lefelé, és válassza a **csomag vagy mappa**melletti három pontot **...** lehetőséget.
    
    ![Csomag vagy mappa kiválasztása](media/azure-stack-solution-pipeline/packageorfolder.png)
    
-1. A **fájl vagy mappa kiválasztása** párbeszédpanelen kattintson **az OK gombra**.
+1. A **fájl vagy mappa kiválasztása** párbeszédpanelen keresse meg az Azure-webalkalmazás-Build helyét, majd kattintson **az OK gombra**.
    
-1. Válassza a **Mentés** lehetőséget a jobb felső sarokban az **új kiadási folyamat** oldalon.
+1. Az **új kiadási folyamat** lapon kattintson a jobb felső sarokban található **Mentés** elemre. 
    
-   ![Módosítások mentése](media/azure-stack-solution-pipeline/save-devops-icon.png)
+1. A **folyamat** lapon válassza az **összetevő hozzáadása**elemet. Válassza ki a projektet, majd válassza ki a Azure Stack épít a **forrás (folyamat létrehozása)** legördülő menüből. Válassza a **Hozzáadás** lehetőséget. 
    
-1. A **folyamat** lapon válassza az **összetevő hozzáadása**elemet. Válassza ki a projektet, és válassza ki a Azure Stack épít a **forrás (folyamat létrehozása)** legördülő menüből. Válassza a **Hozzáadás** lehetőséget. 
+1. A **szakaszok**szakaszban vigye az egérmutatót az **Azure** -ra, amíg a **+** megjelenik, majd válassza a **Hozzáadás**lehetőséget.
    
-1. A **folyamat** lap **szakaszok**területén válassza a **Hozzáadás**lehetőséget.
+1. A **sablon**területen válassza az **üres feladatot**. 
    
-1. Az új szakaszban válassza ki a hivatkozást a **szakasz feladatainak megtekintéséhez**. Adja meg a *Azure stackt* a szakasz neveként. 
+1. A **szakasz** párbeszédpanelen írja be a *Azure stack* a szakasz neve mezőbe. 
    
    ![Új szakasz megtekintése](media/azure-stack-solution-pipeline/newstage.png)
    
@@ -430,7 +472,7 @@ A kiadási folyamat létrehozása a hibrid CI/CD-konfiguráció utolsó lépése
 
 Most, hogy már rendelkezik egy kiadási folyamattal, felhasználhatja egy kiadás létrehozásához és az alkalmazás üzembe helyezéséhez. 
 
-Mivel a folyamatos üzembe helyezési trigger be van állítva a kiadási folyamatba, a forráskód módosítása új buildet indít el, és automatikusan létrehoz egy új kiadást. Az új kiadást azonban manuálisan kell létrehoznia és futtatnia.
+Mivel a folyamatos üzembe helyezési trigger be van állítva a kiadási folyamatba, a forráskód módosítása új buildet indít el, és automatikusan létrehoz egy új kiadást. Ezúttal azonban manuálisan létrehozhatja és futtathatja az új kiadást.
 
 Kiadás létrehozása és üzembe helyezése:
 

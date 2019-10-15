@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/09/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 45600ee6e35c7e80a1dd74c6c6d456b3bf68ed3f
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173105"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310537"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
 
@@ -85,7 +85,7 @@ Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típ
 * Cloud Solution Provider program
 * Partner Shared Services-előfizetés
 
-## <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
+### <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
 
 A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a CSS súgója nélkül. A bélyegző kihasználtságának beszerzése: 
 

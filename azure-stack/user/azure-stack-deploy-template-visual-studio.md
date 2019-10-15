@@ -3,7 +3,7 @@ title: Sablonok üzembe helyezése a Visual Studióval Azure Stackban | Microsof
 description: Megtudhatja, hogyan helyezhet üzembe sablonokat a Visual Studióval Azure Stackban.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: sethm
+ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: c735e2a2d58e31cdd6b9e94c461a101b2b79b914
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 7b9e9a62b269b5c5b01db6d8859ad50bbf998939
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714687"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304038"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Sablonok üzembe helyezése Azure Stack a Visual Studióval
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 A Visual Studióval Azure Resource Manager sablonokat telepíthet Azure Stack.
 
@@ -45,7 +45,7 @@ A Visual Studióval Azure Resource Manager sablonokat telepíthet Azure Stack.
 11. Az **erőforráscsoport helye** listából válassza ki a helyet, majd válassza a **telepítés**lehetőséget.
 12. A **Paraméterek szerkesztése**területen adja meg a paraméterek (amelyek sablon alapján változnak) értékeit, majd válassza a **Mentés**lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a parancssorral](azure-stack-deploy-template-command-line.md)
 * [Sablonok fejlesztése az Azure Stackhez](azure-stack-develop-templates.md)

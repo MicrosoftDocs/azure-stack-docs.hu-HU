@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: e972c7799b8cac37d1cd75cda9dc4e94a7ae73e2
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061177"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310546"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack regisztrálása az Azure-ban
 
@@ -46,7 +46,7 @@ A regisztráció előtt a következő előfeltételek szükségesek:
 
 A Azure Stack az Azure-ban való regisztrálása előtt a következőket kell tennie:
 
-- Az Azure-előfizetéshez tartozó előfizetés-azonosító. A regisztráció csak az EA, a CSP vagy a CSP közös szolgáltatások előfizetéseit támogatja. A CSP-nek el kell döntenie, hogy [CSP-t vagy APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)-előfizetést használ-e.<br><br>Az azonosító beszerzéséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás**elemre. Ezt követően az **általános** kategóriában válassza az előfizetések elemet, kattintson a használni kívánt előfizetésre, és az **Essentials** területen találja az előfizetés-azonosítót.
+- Az Azure-előfizetéshez tartozó előfizetés-azonosító. A regisztráció csak az EA, a CSP vagy a CSP közös szolgáltatások előfizetéseit támogatja. A CSP-nek el kell döntenie, hogy [CSP-t vagy APSS-előfizetést használ](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)-e.<br><br>Az azonosító beszerzéséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás**elemre. Ezt követően az **általános** kategóriában válassza az **előfizetések**elemet, kattintson a használni kívánt előfizetésre, és az **Essentials** területen találja az előfizetés-azonosítót. Ajánlott eljárásként használjon külön előfizetéseket üzemi és fejlesztési vagy tesztelési környezetekhez. 
 
   > [!Note]  
   > A németországi felhőalapú előfizetések jelenleg nem támogatottak.
@@ -86,7 +86,7 @@ Ha a legújabb verzió még nincs telepítve, olvassa el a [PowerShell telepít�
 
 A Azure Stack Tools GitHub-adattár olyan PowerShell-modulokat tartalmaz, amelyek támogatják a Azure Stack funkciókat; beleértve a regisztrációs funkciókat is. A regisztrációs folyamat során importálnia és használnia kell a **RegisterWithAzure. psm1** PowerShell-modult, amely a Azure stack Tools adattárban található, hogy regisztrálja Azure stack példányát az Azure-ban.
 
-Annak érdekében, hogy a legújabb verziót használja, törölje a Azure Stack eszközök meglévő verzióit, és [töltse le a legújabb verziót](azure-stack-powershell-download.md) a githubról az Azure-ban való regisztrálás előtt.
+Annak érdekében, hogy a legújabb verziót használja, törölje a Azure Stack eszközök meglévő verzióit, és [töltse le a legújabb verziót a githubról](azure-stack-powershell-download.md) az Azure-ban való regisztrálás előtt.
 
 ### <a name="determine-your-registration-scenario"></a>A regisztrációs forgatókönyv meghatározása
 
@@ -103,7 +103,7 @@ Előfordulhat, hogy a Azure Stack üzemelő példánya *csatlakoztatva* van vagy
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>A használni kívánt egyedi regisztrációs név meghatározása 
 
-Azure Stack az Azure-ban való regisztrálásakor egyedi regisztrációs nevet kell megadnia. A Azure Stack-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha aAzure stack FELHŐbeli azonosítóját használja. 
+Azure Stack az Azure-ban való regisztrálásakor egyedi regisztrációs nevet kell megadnia. A Azure Stack-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha a Azure Stack **Felhőbeli azonosítóját**használja. 
 
 > [!NOTE]
 > A Capacity-alapú számlázási modell használatával Azure Stack regisztrációkat módosítani kell az egyedi nevet, ha az éves előfizetések lejárta után újra regisztrálni kell, hacsak nem [törli a lejárt regisztrációt](azure-stack-registration.md#change-the-subscription-you-use) , és újra regisztrálja magát az Azure-ban.
@@ -134,10 +134,10 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | environmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
    >[!Note]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot:`Remove-AzureRmAccount-Scope Process`
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process`
 
 3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
@@ -165,7 +165,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | environmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
 7. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot. Futtatandó PowerShell:  
 
@@ -201,7 +201,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | environmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
 3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
@@ -336,14 +336,14 @@ A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrá
 
 2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
 
-3. Válassza ki **tulajdonságok**. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot regisztrálható, **nem regisztrálható**vagy nem **járt le**.
+3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**.
 
-    [![Régió-felügyeleti csempe](media/azure-stack-registration/admin1sm.png "Régió-felügyeleti csempe")](media/azure-stack-registration/admin1.png#lightbox)
+    [![Régió-felügyeleti csempe](media/azure-stack-registration/admin1sm.png "régiójának kezelése csempe")](media/azure-stack-registration/admin1.png#lightbox)
 
     Ha regisztrálva van, a tulajdonságok a következők:
     
-    - **Regisztrációs előfizetés azonosítója**: Az Azure-előfizetés regisztrálása és Azure Stackhoz való társítása
-    - **Regisztrációs erőforráscsoport**: Az Azure Stack erőforrásokat tartalmazó társított előfizetésben található Azure-erőforráscsoport.
+    - **Regisztrációs előfizetés azonosítója**: az Azure-előfizetési azonosító regisztrálva van, és a Azure Stackhoz van társítva
+    - **Regisztrációs erőforráscsoport**: az Azure-erőforráscsoport a Azure stack erőforrásokat tartalmazó társított előfizetésben.
 
 4. A Azure Portal használatával megtekintheti Azure Stack regisztrációs erőforrásait, majd ellenőrizheti, hogy a regisztráció sikeres volt-e. Jelentkezzen be a [Azure Portal](https://portal.azure.com) a Azure stack regisztrálásához használt előfizetéshez társított fiókkal. Válassza a **minden erőforrás**lehetőséget, engedélyezze a **rejtett típusok megjelenítése** jelölőnégyzetet, és válassza ki a regisztrációs nevet.
 5. Ha a regisztráció sikertelen volt, a probléma megoldásához kövesse az [itt ismertetett lépéseket](#change-the-subscription-you-use) .  
@@ -365,7 +365,7 @@ A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 
 #### <a name="change-the-subscription-you-use"></a>A használt előfizetés módosítása
 
-Ha módosítani szeretné a használt előfizetést, először futtatnia kell a Remove **-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe, és végül a **set-AzsRegistration** minden módosított paraméterrel fut-e. többek között `<billing model>`:
+Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe, és végül a **set-AzsRegistration** minden módosított paraméterrel fut-e. beleértve a `<billing model>`:
 
   ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
@@ -452,7 +452,7 @@ A kapacitás-számlázási modellt használó Azure Stack környezetekben a **se
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
 
-Ha egy regisztrációs erőforrást ugyanahhoz az előfizetéshez tartozó erőforráscsoportok között helyez át **,** az összes környezet esetében támogatott. Azonban az előfizetések közötti regisztrációs erőforrás áthelyezése csak akkor támogatott, ha a két előfizetés ugyanahhoz a partner-AZONOSÍTÓhoz van feloldva. További információ az erőforrások új erőforráscsoporthoz való áthelyezéséről: [erőforrások áthelyezése új erőforráscsoporthoz vagy](/azure/azure-resource-manager/resource-group-move-resources)előfizetésbe.
+Ha egy regisztrációs erőforrást ugyanahhoz az előfizetéshez tartozó erőforráscsoportok között helyez át **,** az összes környezet esetében támogatott. Azonban az előfizetések közötti regisztrációs erőforrás áthelyezése csak akkor támogatott, ha a két előfizetés ugyanahhoz a partner-AZONOSÍTÓhoz van feloldva. További információ az erőforrások új erőforráscsoporthoz való áthelyezéséről: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](/azure/azure-resource-manager/resource-group-move-resources).
 
 > [!IMPORTANT]
 > Ha meg szeretné akadályozni a regisztrációs erőforrások véletlen törlését a portálon, a regisztrációs parancsfájl automatikusan zárolást helyez el az erőforráshoz. Az áthelyezés vagy a törlés előtt el kell távolítania ezt a zárolást. Javasoljuk, hogy a véletlen törlés megakadályozása érdekében adjon hozzá egy zárolást a regisztrációs erőforráshoz.
@@ -475,18 +475,18 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Paraméter | Type | Leírás |
+| Paraméter | Type (Típus) | Leírás |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| PrivilegedEndpointCredential | PSCredential | A rendszerjogosultságú [végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring | Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Sztring |  |
 | ResourceGroupLocation | Sztring |  |
-| BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: Kapacitás, PayAsYouUse és fejlesztés. |
+| BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: kapacitás, PayAsYouUse és fejlesztés. |
 | MarketplaceSyndicationEnabled | Igaz/hamis | Meghatározza, hogy a piactér-felügyeleti szolgáltatás elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) használható a Piactéri elemek letöltésére. |
-| UsageReportingEnabled | Igaz/hamis | Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: Igaz, hamis. |
+| UsageReportingEnabled | Igaz/hamis | Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
 | AgreementNumber | Sztring |  |
-| RegistrationName | Sztring | Adja meg a regisztráció egyedi nevét, ha a regisztrációs parancsfájlt több példányon futtatja Azure Stack ugyanazzal az Azure-előfizetési AZONOSÍTÓval. A paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja a Azure Stack több példányán, a parancsfájl meghiúsul. |
+| registrationName | Sztring | Adja meg a regisztráció egyedi nevét, ha a regisztrációs parancsfájlt több példányon futtatja Azure Stack ugyanazzal az Azure-előfizetési AZONOSÍTÓval. A paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja a Azure Stack több példányán, a parancsfájl meghiúsul. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -497,16 +497,16 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Paraméter | Type | Leírás |
+| Paraméter | Type (Típus) | Leírás |
 |-------------------------------|--------------|-------------|
-| PrivilegedEndpointCredential | PSCredential | A rendszerjogosultságú [végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring |  Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
 | AzureContext | PSObject |  |
 | ResourceGroupName | Sztring |  |
 | ResourceGroupLocation | Sztring |  |
-| BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: Kapacitás, PayAsYouUse és fejlesztés. |
+| BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: kapacitás, PayAsYouUse és fejlesztés. |
 | MarketplaceSyndicationEnabled | Igaz/hamis |  |
-| UsageReportingEnabled | Igaz/hamis | Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: Igaz, hamis. |
+| UsageReportingEnabled | Igaz/hamis | Alapértelmezés szerint Azure Stack a jelentések használati metrikáit. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
 | AgreementNumber | Sztring |  |
 
 ## <a name="registration-failures"></a>Regisztrációs hibák
@@ -522,8 +522,8 @@ Amikor megpróbál hozzáférni a piactér-felügyelethez, hiba történik a ter
 > Ok: ez általában akkor fordul elő, ha Azure Stack nem fér hozzá a regisztrációs erőforráshoz. Ennek egyik gyakori oka, hogy amikor egy Azure-előfizetés címtár-bérlője megváltozik, visszaállítja a regisztrációt. Ha módosította az előfizetés címtár-bérlőjét, nem férhet hozzá a Azure Stack Marketplace-hez vagy a jelentésekhez. A probléma megoldásához újra kell regisztrálnia a problémát.
 
 A piactér-felügyelet továbbra is kéri a Azure Stack regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával. 
-> Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a következő lépésekkel ellenőrizheti [](azure-stack-registration.md#verify-azure-stack-registration). A piactér-kezelés használatához [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)kell használnia. 
+> Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a következő [lépésekkel](azure-stack-registration.md#verify-azure-stack-registration)ellenőrizheti. A piactér-kezelés használatához [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)kell használnia. 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

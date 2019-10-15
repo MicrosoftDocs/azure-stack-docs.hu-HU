@@ -42,13 +42,15 @@
     - name: Adatközpont integrációja
       href: azure-stack-customer-journey.md
       items:
-        - name: Általános Azure Stack integrációs megfontolások
+        - name: Útmutatás
+          href: azure-stack-customer-journey.md
+        - name: Általános megfontolások
           href: azure-stack-datacenter-integration.md
-        - name: Azure Stack üzembe helyezési kapcsolatok modelljei
+        - name: Kapcsolatok modelljei
           href: azure-stack-connection-models.md
-        - name: Csatlakoztatott üzembe helyezési megfontolások
+        - name: Csatlakoztatott üzemelő példány
           href: azure-stack-connected-deployment.md
-        - name: Leválasztott központi telepítési megfontolások
+        - name: Leválasztott központi telepítés
           href: azure-stack-disconnected-deployment.md
         - name: Datacenter hálózati integráció
           items:
@@ -119,8 +121,6 @@
       items:
         - name: Az adminisztráció alapjai
           href: azure-stack-manage-basics.md
-        - name: Üzemeltetési ellenőrzőlista
-          href: azure-stack-operations-checklist.md
         - name: Felhasználói adatok törlése a portálról
           href: azure-stack-portal-clear.md
         - name: Telemetria-gyűjtemény konfigurálása

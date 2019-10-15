@@ -3,7 +3,7 @@ title: Azure Resource Manager-sablonok használata a Azure Stackban | Microsoft 
 description: Ismerje meg, hogyan hozhat létre erőforrásokat a Azure Stack Azure Resource Manager sablonjaival.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 0b9aedb4a6b046755192b84e18e8c75a8d015c8f
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: e2daa9416c966966b3c7cff240ddeb72ac227a8c
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974071"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304051"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Resource Manager-sablonok használata a Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Az alkalmazás összes erőforrását egyetlen, koordinált műveletben használhatja Azure Resource Manager sablonokkal. Az erőforráscsoportok erőforrásainak módosítására is lehetősége van a sablonok újbóli üzembe helyezésére.
 
@@ -63,7 +63,7 @@ A PowerShell DSC bővítmény használatával [hozzon létre egy SQL Server 2014
 * Egy virtuális gép (VM) tartományvezérlőként van konfigurálva egy új erdőhöz egyetlen tartománnyal
 * Egy virtuális gép SQL Server 2014 önálló kiszolgálóként van konfigurálva
 
-## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
+## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-bővítmény-Azure-Automation-pull-Server
 
 A PowerShell DSC bővítmény használatával konfigurálhat egy meglévő virtuális gép helyi Configuration Manager (LCD ChipOnGlas), és regisztrálhatja azt egy Azure Automation-fiók DSC lekérési kiszolgálójára.
 
@@ -79,7 +79,7 @@ A PowerShell DSC bővítmény használatával konfigurálhat egy meglévő virtu
 
 Egy futó sablon központi telepítésének megszakításához használja a [stop-AzureRmResourceGroupDeployment PowerShell-](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) [parancsmagot](/powershell/developer/cmdlet/cmdlet-overview).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a portállal](azure-stack-deploy-template-portal.md)
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)

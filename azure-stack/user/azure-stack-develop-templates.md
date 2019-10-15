@@ -3,7 +3,7 @@ title: Sablonok fejlesztése a Azure Stackhoz | Microsoft Docs
 description: Ismerje meg, hogyan fejleszthet Azure Resource Manager-sablonokat az Azure és a Azure Stack közötti alkalmazás-hordozhatósághoz.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: sethm
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 96e43607809c192b9498c092b4a2584cec40a515
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714722"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304101"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Sablonok fejlesztése a Azure Stackhoz Azure Resource Manager
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Az alkalmazás fejlesztése során fontos, hogy az Azure és a Azure Stack között a sablon hordozhatósága legyen. Ez a cikk a Azure Resource Manager- [sablonok](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)fejlesztésének szempontjait ismerteti. Ezekkel a sablonokkal az alkalmazás prototípusát és tesztelési célú üzembe helyezését az Azure-ban Azure Stack környezethez való hozzáférés nélkül végezheti el.
 
@@ -49,10 +49,10 @@ Az Azure-szolgáltatási verziók eltérőek lehetnek az Azure-ban és a Azure S
 
 | Erőforrás-szolgáltató | apiVersion |
 | --- | --- |
-| Compute |**2015-06-15** |
+| Számítási szolgáltatások |**2015-06-15** |
 | Network (Hálózat) |**2015-06-15**, **2015-05-01 – előzetes** verzió |
-| Storage |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
-| Kulcstartó | **2015-06-01** |
+| Adattárolás |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
+| KeyVault | **2015-06-01** |
 | App Service |**2015-08-01** |
 
 ## <a name="template-functions"></a>Sablonfüggvények
@@ -66,7 +66,7 @@ Azure Resource Manager [függvények](/azure/azure-resource-manager/resource-gro
 Ezek a függvények nem érhetők el Azure Stackban:
 
 * Kihagyás
-* eltarthat
+* Eltarthat
 
 ## <a name="resource-location"></a>Erőforrás helye
 
@@ -87,7 +87,7 @@ Azure Resource Manager-sablonok egy `location` attribútummal helyezik el az er�
 ]
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
 * [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
