@@ -277,35 +277,53 @@
           href: azure-stack-quota-types.md
     - name: Hálózati megoldások ajánlása
       href: azure-stack-network-solutions-enable.md
-    - name: SQL-ajánlat
+    - name: Bővítmény-szolgáltatás erőforrás-szolgáltatóinak kezelése
       items:
-        - name: SQL-adatbázisok nyújtása Azure Stack
+        - name: App Service on Azure Stack
           items:
             - name: Áttekintés
-              href: azure-stack-sql-resource-provider.md
-            - name: A SQL Server erőforrás-szolgáltató üzembe helyezése
-              href: azure-stack-sql-resource-provider-deploy.md
-            - name: SQL-üzemeltetési kiszolgálók hozzáadása
-              href: azure-stack-sql-resource-provider-hosting-servers.md
-            - name: SQL-adatbázisok létrehozása
-              href: azure-stack-sql-resource-provider-databases.md
-        - name: Kiválóan elérhető SQL-adatbázisok
-          href: azure-stack-tutorial-sql.md
-        - name: A SQL Server erőforrás-szolgáltató frissítése
-          href: azure-stack-sql-resource-provider-update.md
-        - name: A SQL Server erőforrás-szolgáltató karbantartása
-          href: azure-stack-sql-resource-provider-maintain.md
-        - name: A SQL Server erőforrás-szolgáltató eltávolítása
-          href: azure-stack-sql-resource-provider-remove.md
-        - name: Az SQL erőforrás-szolgáltató kibocsátási megjegyzései
-          items:
-            - name: SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései
-              href: azure-stack-sql-resource-provider-11300.md
-            - name: SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
-              href: azure-stack-sql-resource-provider-11330.md
-    - name: MySQL-ajánlat
-      items:
-        - name: MySQL-adatbázisok nyújtása Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: App Service kapacitás megtervezése
+              href: azure-stack-app-service-capacity-planning.md
+            - name: A kezdés előtt
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: App Service üzembe helyezése
+              href: azure-stack-app-service-deploy.md
+            - name: Magas rendelkezésre állású App Service üzembe helyezése
+              href: app-service-deploy-ha.md
+            - name: App Service-szolgáltatások offline üzembe helyezése
+              href: azure-stack-app-service-deploy-offline.md
+            - name: App Service frissítése
+              href: azure-stack-app-service-update.md
+            - name: App Service offline frissítése
+              href: azure-stack-app-service-update-offline.md
+            - name: Infrastruktúra-Szerepkörök hozzáadása App Service
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Központi telepítés forrásának konfigurálása
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: App Service biztonsági mentése
+              href: app-service-back-up.md
+            - name: App Service helyreállítása
+              href: app-service-recover.md
+            - name: App Service számlázás – gyakori kérdések
+              href: app-service-billing-faq.md
+            - name: Azure Stack kibocsátási megjegyzések App Service
+              items:
+                - name: App Service Azure Stack Update 1 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-one.md
+                - name: App Service on Azure Stack Update 2 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: App Service on Azure Stack Update 3 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: App Service on Azure Stack Update 4 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: Azure Stack Update 5 kibocsátási megjegyzései App Service
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: App Service on Azure Stack Update 6 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: App Service on Azure Stack Update 7 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-seven.md
+        - name: MySQL on Azure Stack
           items:
             - name: Áttekintés
               href: azure-stack-mysql-resource-provider.md
@@ -315,63 +333,44 @@
               href: azure-stack-mysql-resource-provider-hosting-servers.md
             - name: MySQL-adatbázisok létrehozása
               href: azure-stack-mysql-resource-provider-databases.md
-        - name: Kiválóan elérhető MySQL-adatbázisok
-          href: azure-stack-tutorial-mysql.md
-        - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának frissítése
-          href: azure-stack-mysql-resource-provider-update.md
-        - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának karbantartása
-          href: azure-stack-mysql-resource-provider-maintain.md
-        - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának eltávolítása
-          href: azure-stack-mysql-resource-provider-remove.md
-        - name: A MySQL erőforrás-szolgáltató kibocsátási megjegyzései
+            - name: Magasan elérhető MySQL-adatbázisok üzembe helyezése
+              href: azure-stack-tutorial-mysql.md
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának frissítése
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának karbantartása
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának eltávolítása
+              href: azure-stack-mysql-resource-provider-remove.md
+            - name: A MySQL erőforrás-szolgáltató kibocsátási megjegyzései
+              items:
+                - name: MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
+                  href: azure-stack-mysql-resource-provider-11300.md
+                - name: MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
+                  href: azure-stack-mysql-resource-provider-11330.md
+        - name: SQL on Azure Stack
           items:
-            - name: MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
-              href: azure-stack-mysql-resource-provider-11300.md
-            - name: MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
-              href: azure-stack-mysql-resource-provider-11330.md
-    - name: App Service ajánlása PaaS-ként
-      href: azure-stack-app-service-overview.md
-      items:
-        - name: App Service kapacitás megtervezése
-          href: azure-stack-app-service-capacity-planning.md
-        - name: App Service számlázás – gyakori kérdések
-          href: app-service-billing-faq.md
-        - name: A kezdés előtt
-          href: azure-stack-app-service-before-you-get-started.md
-        - name: App Service üzembe helyezése
-          href: azure-stack-app-service-deploy.md
-        - name: Magas rendelkezésre állású App Service üzembe helyezése
-          href: app-service-deploy-ha.md
-        - name: App Service-szolgáltatások offline üzembe helyezése
-          href: azure-stack-app-service-deploy-offline.md
-        - name: App Service frissítése
-          href: azure-stack-app-service-update.md
-        - name: App Service offline frissítése
-          href: azure-stack-app-service-update-offline.md
-        - name: Infrastruktúra-Szerepkörök hozzáadása App Service
-          href: azure-stack-app-service-add-worker-roles.md
-        - name: Központi telepítés forrásának konfigurálása
-          href: azure-stack-app-service-configure-deployment-sources.md
-        - name: App Service biztonsági mentése
-          href: app-service-back-up.md
-        - name: App Service helyreállítása
-          href: app-service-recover.md
-        - name: Azure Stack kibocsátási megjegyzések App Service
-          items:
-            - name: App Service Azure Stack Update 1 kibocsátási megjegyzései
-              href: azure-stack-app-service-release-notes-update-one.md
-            - name: App Service on Azure Stack Update 2 kibocsátási megjegyzései
-              href: azure-stack-app-service-release-notes-update-two.md
-            - name: App Service on Azure Stack Update 3 kibocsátási megjegyzései
-              href: azure-stack-app-service-release-notes-update-three.md
-            - name: App Service on Azure Stack Update 4 kibocsátási megjegyzései
-              href: azure-stack-app-service-release-notes-update-four.md
-            - name: Azure Stack Update 5 kibocsátási megjegyzései App Service
-              href: azure-stack-app-service-release-notes-update-five.md
-            - name: App Service on Azure Stack Update 6 kibocsátási megjegyzései
-              href: azure-stack-app-service-release-notes-update-six.md
-            - name: App Service on Azure Stack Update 7 kibocsátási megjegyzései
-              href: azure-stack-app-service-release-notes-update-seven.md
+            - name: Áttekintés
+              href: azure-stack-sql-resource-provider.md
+            - name: A SQL Server erőforrás-szolgáltató üzembe helyezése
+              href: azure-stack-sql-resource-provider-deploy.md
+            - name: SQL-üzemeltetési kiszolgálók hozzáadása
+              href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: SQL-adatbázisok létrehozása
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Magasan elérhető SQL-adatbázisok üzembe helyezése
+              href: azure-stack-tutorial-sql.md
+            - name: A SQL Server erőforrás-szolgáltató frissítése
+              href: azure-stack-sql-resource-provider-update.md
+            - name: A SQL Server erőforrás-szolgáltató karbantartása
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: A SQL Server erőforrás-szolgáltató eltávolítása
+              href: azure-stack-sql-resource-provider-remove.md
+            - name: Az SQL erőforrás-szolgáltató kibocsátási megjegyzései
+              items:
+                - name: SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései
+                  href: azure-stack-sql-resource-provider-11300.md
+                - name: SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
+                  href: azure-stack-sql-resource-provider-11330.md
     - name: Használat és elszámolás
       href: azure-stack-billing-and-chargeback.md
       items:

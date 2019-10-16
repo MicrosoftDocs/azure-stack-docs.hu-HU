@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: ea117df9b763d33fee59b6a7f8f951b8d81cc6e7
-ms.sourcegitcommit: 03f5932da0147f78e986dcc3da610db54f195bd7
+ms.openlocfilehash: e3601f4489a0a80881cccd2ba64f98b61e14683a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252491"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381437"
 ---
 # <a name="azure-stack-vm-features"></a>Virtuálisgép-funkciók Azure Stack
 
@@ -95,7 +95,7 @@ Ha egy virtuális gép telepítésének kiépítése túl sokáig tart, hagyja m
 
 A Azure Stack virtuális gépekkel kapcsolatos funkciói a következő API-verziókat támogatják:
 
-![VM-erőforrástípusok](media/azure-stack-vm-considerations/vm-resoource-types.png)
+"2017-12-01", "2017-03-30", "2016-03-30", "2015-06-15"
 
 A következő PowerShell-szkripttel kérheti le a Azure Stack-környezetben elérhető virtuálisgép-funkciók API-verzióit:
 

@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: f28eda4a54ae95b1d5f3cc9c694344f8aec46f33
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: bb5ece23c0e484dbc2fec7881ce3ef2e29ed2d4a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277259"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381412"
 ---
 # <a name="integrate-azure-stack-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -255,6 +255,7 @@ Az emelt szintű végpont eseményeinek táblázata:
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
 |GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
 |ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
+|PrivilegedEndpointSessionTimedOut |1017|PrivilegedEndpointSessionTimedOutEvent|5|
 
 A PEP súlyossági táblázata:
 

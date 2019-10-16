@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.lastreviewed: 10/14/2019
+ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
+ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342833"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72350180"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Ez a cikk a regisztrációs műveletekkel kapcsolatos részleteket tartalmazza. A következő műveletekkel végezheti el a műveleteket:
 
@@ -61,17 +61,16 @@ A Azure Stack-és API-profilokkal kapcsolatos további információkért lásd: 
 
 Bérlő hozzáadásához használja a **New-AzureRmResource** parancsmagot. [Kapcsolódjon Azure Stackhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból használja a következő parancsmagot:
 
-```powershell
-New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+```powershell  
+New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API-hívás
 
-**Művelet**: PUT  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**Művelet**: Put  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Válasz**: 201 létrehozva  
-**Válasz törzse**: Üres  
+**Válasz törzse**: üres  
 
 ## <a name="list-all-registered-tenants"></a>Az összes regisztrált bérlő listázása
 
@@ -100,10 +99,8 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 A lekérési művelettel lekérheti az összes bérlői hozzárendelés listáját.
 
-**Művelet**: GET  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
-api-version=2017-06-01 HTTP/1.1`  
+**Művelet**: Get  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **Válasz**: 200  
 **Válasz törzse**:
 
@@ -151,13 +148,11 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 A TÖRLÉSi művelettel eltávolíthatja a bérlői leképezéseket.
 
-**Művelet**: DELETE  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**Művelet**: törlés  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Válasz**: 204 nincs tartalom  
-**Válasz törzse**: Üres
+**Válasz törzse**: üres
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Erőforrás-használati adatok beolvasása a Azure Stackból](azure-stack-billing-and-chargeback.md)
