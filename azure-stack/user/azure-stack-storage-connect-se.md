@@ -14,21 +14,21 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: ebee962bbf53cad48df11bd21653830410f04d9d
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 454fe5b07dc5576cecdb11b59e5424e3c5ccbb72
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417557"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445379"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>A Storage Explorer összekötése egy Azure Stack-előfizetéssel vagy egy Storage-fiókkal
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ebből a cikkből megtudhatja, hogyan csatlakozhat a Azure Stack-előfizetésekhez és a Storage-fiókokhoz a [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)használatával. A Storage Explorer egy önálló alkalmazás, amely lehetővé teszi, hogy könnyedén működjön a Azure Stack Storage-beli adattárolási szolgáltatással Windows, macOS és Linux rendszeren.
 
 > [!NOTE]  
-> Több eszköz is rendelkezésre áll az adatok Azure Stack tárolóba való áthelyezéséhez. További információ: adatátviteli [eszközök Azure stack Storage](azure-stack-storage-transfer.md)szolgáltatáshoz.
+> Több eszköz is rendelkezésre áll az adatok Azure Stack tárolóba való áthelyezéséhez. További információ: [adatátviteli eszközök Azure stack Storage](azure-stack-storage-transfer.md)szolgáltatáshoz.
 
 Ha még nincs telepítve, [töltse le Storage Explorer](https://www.storageexplorer.com/) és telepítse.
 
@@ -38,16 +38,16 @@ Miután kapcsolódott egy Azure Stack előfizetéshez vagy a Storage-fiókhoz, a
 
 A Azure Stack-előfizetés eléréséhez közvetlen hozzáférésre van szükség a Storage Explorer Azure Stack vagy VPN-kapcsolathoz. A VPN-kapcsolat Azure Stackhez való beállításáról a [Csatlakozás az Azure Stackhez VPN segítségével](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) témakörben talál további információt.
 
-A Azure Stack Development Kit (ASDK) esetében exportálnia kell a Azure Stack-szolgáltató főtanúsítványát.
-
 > [!Note]  
-> Ha a ASDK VPN-kapcsolaton keresztül csatlakozik a ASDK, ne használja a VPN telepítési folyamata során létrehozott főtanúsítványt (CA. cer).  Ez egy DER kódolású tanúsítvány, és nem teszi lehetővé Storage Explorer számára a Azure Stack-előfizetések lekérését. Az alábbi lépések végrehajtásával exportálhat egy, a 64-es kódolású tanúsítványt a Storage Explorer használatával való használatra.
+> Ha a ASDK VPN-kapcsolaton keresztül csatlakozik a ASDK, ne használja a VPN telepítési folyamata során létrehozott főtanúsítványt (CA. cer).  Ez egy DER kódolású tanúsítvány, és nem teszi lehetővé Storage Explorer számára a Azure Stack-előfizetések lekérését. A következő lépésekkel exportálhatja a 64-es kódolású tanúsítványt, hogy az a Storage Explorer használatával legyen használatban.
+
+A leválasztott és a ASDK integrált rendszerek esetében a javaslat egy belső vállalati hitelesítésszolgáltató használata a főtanúsítvány alapszintű 64 formátumban való exportálásához, majd a Azure Storage Explorerba történő importálásához.  
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Az Azure Stack-tanúsítvány exportálása és importálása
 
-Exportálja és importálja Azure Stack a ASDK tanúsítványát. Az integrált rendszerek esetében a tanúsítvány nyilvánosan aláírva, és ez a lépés nem szükséges.
+Exportálja és importálja Azure Stack tanúsítványt a leválasztott integrált rendszerekhez és a ASDK. A csatlakoztatott integrált rendszerek esetében a tanúsítvány nyilvánosan aláírva, és ez a lépés nem szükséges.
 
-1. Nyisson `mmc.exe` meg egy Azure stack gazdagépen vagy egy olyan helyi gépen, amely VPN-kapcsolattal rendelkezik Azure Stackhoz. 
+1. Nyissa meg `mmc.exe` értéket egy Azure Stack gazdagépen vagy egy olyan helyi gépen, amely VPN-kapcsolattal rendelkezik a Azure Stackhoz. 
 
 2. A **fájl**menüben kattintson a **beépülő modul hozzáadása/eltávolítása**elemre. Válassza ki a **tanúsítványok** lehetőséget az elérhető beépülő modulokban. 
 
@@ -148,7 +148,7 @@ A Storage-fiók neve és a kulcspár használatával is csatlakozhat egy Azure S
 
 3. A Kapcsolódás az Azure Storage-hoz párbeszédpanelen jelölje be **a Storage-fiók nevének és kulcsának használata**jelölőnégyzetet.
 
-4. Adja meg a fiók nevét a fióknév mezőben **, és illessze** be a fiók kulcsát a **fiók kulcsa** szövegmezőbe. Ezután válassza a **továbbiak lehetőséget (adja meg alább)** a **tárolási végpontok tartományban** , és adja meg a Azure stack végpontot.
+4. Adja meg a fiók nevét a **fióknév mezőben, és illessze** be a fiók kulcsát a **fiók kulcsa** szövegmezőbe. Ezután válassza a **továbbiak lehetőséget (adja meg alább)** a **tárolási végpontok tartományban** , és adja meg a Azure stack végpontot.
 
     Egy Azure Stack végpont két részből áll: a régió és a Azure Stack tartomány neve. A Azure Stack Development Kit az alapértelmezett végpont **helyi. azurestack. external**. Ha nem biztos benne, hogy a végpontról van szó, forduljon a felhő rendszergazdájához.
 
@@ -159,7 +159,7 @@ A Storage-fiók neve és a kulcspár használatával is csatlakozhat egy Azure S
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ismerkedés a Storage Explorerrel](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack Storage: különbségek és szempontok](azure-stack-acs-differences.md)

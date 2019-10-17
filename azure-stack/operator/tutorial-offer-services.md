@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 10/16/2019
 ms.reviewer: shriramnat
-ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: dc35f5249a9fb71722d51f2a47afc516a8d51379
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72287080"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445355"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Oktatóanyag: szolgáltatás nyújtása a felhasználóknak
 
@@ -29,7 +29,7 @@ Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 ## <a name="overview"></a>Áttekintés
 
-Egy ajánlat egy vagy több csomagból áll. A csomag a megfelelő erőforrás-szolgáltató és kvóta megadásával jogosult egy vagy több szolgáltatás elérésére. A csomagok alapcsomagként adhatók hozzá az ajánlathoz, vagy kiegészítő csomagként is kiterjeszthetők az ajánlatra. További információ: [szolgáltatás, csomag, ajánlat, előfizetés áttekintése](service-plan-offer-subscription-overview.md).
+Egy ajánlat egy vagy több csomagból áll. A csomag az egyes szolgáltatások megfelelő erőforrás-szolgáltatójának és kvótájának megadásával jogosult egy vagy több szolgáltatás elérésére. A csomagok alapcsomagként adhatók hozzá az ajánlathoz, vagy kiegészítő csomagként is kiterjeszthetők az ajánlatra. További információ: [szolgáltatás, csomag, ajánlat, előfizetés áttekintése](service-plan-offer-subscription-overview.md).
 
 ![Előfizetések, ajánlatok és csomagok](media/azure-stack-key-features/image4.png)
 
