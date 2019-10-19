@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/17/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 44eca76e3b9e969681f4540093088785ad06f97c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687958"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534001"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Azure Stack frissítés megtervezése
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Készítse elő a Azure Stack, hogy a frissítés folyamata a lehető legzökkenőmentesebb legyen, így a felhasználók számára minimális hatással lehet. Ebben a cikkben áttekintheti a lehetséges szolgáltatási kimaradások bejelentésének lépéseit, és lépéseket kell végrehajtania a frissítés előkészítéséhez.
 
@@ -56,8 +56,10 @@ A frissítés előkészítéséhez győződjön meg arról, hogy alkalmazta a gy
 
 7. Futtassa a Capacity Planner eszközt. Az eszköz használatával kapcsolatos áttekintésért és útmutatásért lásd: [Azure stack kapacitás megtervezésének áttekintése](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview).
 
+8. Lehetőség van arra is, hogy [engedélyezze az automatikus diagnosztikai napló gyűjtését](azure-stack-configure-automatic-diagnostic-log-collection.md) , hogy proaktív módon Gyűjtse össze a naplókat az ügyfél-támogatási elemzéshez, ha olyan riasztást lát, mint a **frissítés sikertelen**. 
+
 8. Tekintse át a frissítési csomagot. A karbantartási időszak megtervezésekor fontos áttekinteni a Microsoft által kiadott frissítési csomag adott típusát a kibocsátási megjegyzésekben leírtak szerint.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Alkalmazza a Azure stack frissítést](azure-stack-apply-updates.md).

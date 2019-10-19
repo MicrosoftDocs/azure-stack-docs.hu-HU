@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 79ec0994ecd99a5279fc0b3b032ef6872f921f38
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 09e75656fc6a00181ffb31087e19e80b92760ed2
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277810"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543674"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Különbségek és szempontok Azure Stack hálózatkezeléshez
 
@@ -75,6 +75,23 @@ Ez a cikk áttekintést nyújt a Azure Stack hálózatkezeléssel és szolgálta
 | Alkalmazásátjáró | 7\. rétegbeli terheléselosztás | Támogatott | Még nem támogatott. |
 | Forgalomkezelő | A bejövő forgalom irányítása az alkalmazások optimális teljesítményének és megbízhatóságának megfelelően. | Támogatott | Még nem támogatott. |
 | ExpressRoute | Hozzon létre egy gyors, privát kapcsolatokat a Microsoft Cloud Services szolgáltatással a helyszíni infrastruktúráról vagy a helyi létesítményből. | Támogatott | Azure Stack csatlakoztatásának támogatása Express Route-áramkörhöz. |
+
+## <a name="api-versions"></a>API-verziók 
+
+Azure Stack hálózatkezelés a következő API-verziókat támogatja: 
+
+- 2018-11-01
+- 2018-10-01
+- 2018-08-01
+- 2018-07-01
+- 2018-06-01
+- 2018-05-01
+- 2018-04-01
+- 2018-03-01
+- 2018-02-01
+- 2018-01-01
+- 2017-11-01
+- 2017-10-01
 
 ## <a name="next-steps"></a>Következő lépések
 

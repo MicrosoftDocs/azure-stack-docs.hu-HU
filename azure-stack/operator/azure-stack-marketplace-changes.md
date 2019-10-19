@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c5b0472921c25379f894be5e0b799b7abcb8a43b
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.lastreviewed: 10/01/2019
+ms.openlocfilehash: 49b3ac4123a385b468d5eb995ac00bb768347d5d
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961815"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534069"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace-változások
 
@@ -30,25 +30,25 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
-- 06/27/2019:   SIOS Datakeeper-fürt kiadása
+- 06/27/2019: SIOS Datakeeper-fürt kiadása
 
-- 06/27/2019:   Veeam biztonsági mentési & replikációja
+- 06/27/2019: Veeam biztonsági mentési & replikációja
 
-- 06/27/2019: Windows Server 2019 Datacenter Server Core with containers utólagos használat
+- 06/27/2019: a Windows Server 2019 Datacenter Server Core with containers szolgáltatás használata
 
 - 06/27/2019: Windows Server 2019 Datacenter Server Core with containers BYOL
 
-- 06/27/2019:   Windows Server 2019 Datacenter – utólagos használat
+- 06/27/2019: a Windows Server 2019 Datacenter használata
 
-- 06/27/2019:   Windows Server 2019 Datacenter BYOL
+- 06/27/2019: Windows Server 2019 Datacenter BYOL
 
-- 06/27/2019: A Windows Server 2019 Datacenter Server Core használata
+- 06/27/2019: a Windows Server 2019 Datacenter Server Core utólagos használat
 
 - 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
 
-- 06/27/2019:   Windows Server 2019 Datacenter, tárolók általi használattal
+- 06/27/2019: a Windows Server 2019 Datacenter és a tárolók használati díja
 
-- 06/27/2019:   Windows Server 2019 Datacenter tárolók BYOL
+- 06/27/2019: Windows Server 2019 Datacenter tárolók BYOL
 
 - 08/05/2019: Bitnami Drupal
 
@@ -66,7 +66,7 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 
 - 08/05/2019: Bitnami TensorFlow-kiszolgáló
 
-- 08/05/2019: Bitnami NAT-i
+- 08/05/2019: Bitnami NAT
 
 - 08/05/2019: Bitnami felülvizsgálati Tanács
 
@@ -83,37 +83,37 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 - Bitnami X2Engine Sales CRM
 - Bitnami cukornád
 - Bitnami Node. js magas rendelkezésre állású fürt
-- A10-es vThunder: L4 – L7 Application Delivery Controller, globális kiszolgálói terheléselosztás (GSLB), SSL-betekintés
+- A10 vThunder: L4 – L7 Application Delivery Controller, globális kiszolgáló terheléselosztása (GSLB), SSL-betekintés
 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
-- 07/11/2019:   Thales CipherTrust Cloud Key Manager – verzió 1.0.7
-- 07/16/2019:   Windows Server 2016 Datacenter Server Core BYOL – verzió 2016.127.20190522
-- 07/16/2019:   Windows Server 2016 Datacenter Server Core – 2016.127.20190522 verzió
-- 07/16/2019:   Windows Server 2016 Datacenter with containers BYOL-Version 2016.127.20190522
-- 07/16/2019:   Windows Server 2016 Datacenter with containers Pay-as-you-Version 2016.127.20190522
-- 07/16/2019:   Windows Server 2016 Datacenter BYOL – verzió: 2016.127.20190522
-- 07/16/2019:   Windows Server 2016 Datacenter – az Ön által használt verzió 2016.127.20190522
-- 07/16/2019:   Windows Server 2008 R2 BYOL-Version 2.127.20190522
-- 07/16/2019:   Windows Server 2008 R2 – használati díj – 2.127.20190522
-- 07/16/2019:   Windows Server 2012 R2 Datacenter BYOL – verzió 4.127.20190522
-- 07/16/2019:   Windows Server 2012 R2 Datacenter – az Ön által használt verzió 4.127.20190522
+- 07/11/2019: Thales CipherTrust Cloud Key Manager – verzió 1.0.7
+- 07/16/2019: Windows Server 2016 Datacenter Server Core BYOL – Version 2016.127.20190522
+- 07/16/2019: a Windows Server 2016 Datacenter Server Core 2016.127.20190522 verziójának használata
+- 07/16/2019: Windows Server 2016 Datacenter, tárolók BYOL – 2016.127.20190522 verzió
+- 07/16/2019: a Windows Server 2016 Datacenter with containers 2016.127.20190522-verziót használja
+- 07/16/2019: Windows Server 2016 Datacenter BYOL – verzió 2016.127.20190522
+- 07/16/2019: a Windows Server 2016 Datacenter 2016.127.20190522-verziójának használati díja
+- 07/16/2019: Windows Server 2008 R2 BYOL-Version 2.127.20190522
+- 07/16/2019: a Windows Server 2008 R2 használati díjas 2.127.20190522
+- 07/16/2019: Windows Server 2012 R2 Datacenter BYOL – verzió 4.127.20190522
+- 07/16/2019: Windows Server 2012 R2 Datacenter – 4.127.20190522 verzió
 - 07/30/2019: SQL Server 2016 SP1 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
 - 07/30/2019: SQL Server 2016 SP2 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
 - 07/30/2019: SQL Server 2017 (expressz, fejlesztői, standard és Enterprise kiadás) – 14.0.20190410 verzió
-- 07/30/2019: SQLIaaSExtension – 1.3.20180 verziója
+- 07/30/2019: SQLIaaSExtension – 1.3.20180 verzió
 - 08/08/2019: CloudLink SecureVM-bővítmény a Linux rendszerhez – 6,8-es verzió
-- 08/08/2019: CloudLink SecureVM-bővítmény a Windowshoz – 6,8-es verzió
-- 08/30/2019: Azure Stack Kubernetes-fürt verziójának 0.5.1
+- 08/08/2019: CloudLink SecureVM-bővítmény a Windows-verzió 6,8-es verziójához
+- 08/30/2019: Azure Stack Kubernetes-fürt verziója 0.5.1
 - 09/02/2019: AK-alapú alaprendszerkép – Version 2019.08.09 és 2019.08.21 verzió
 - 09/12/2019: Service Fabric-Version 1.0.3
 - 09/24/2019: F5 – Networks Big-IP Virtual Edition – Version 14.1.200000
-- 09/25/2019: Debian 8 – 8.0.20190806 verzió
-- 10/1/2019:  Microsoft JsonADDomain bővítmény – verzió: 1.3.4
+- 09/25/2019: Debian 8 – Version 8.0.20190806
+- 10/1/2019: Microsoft JsonADDomain bővítmény – Version 1.3.4
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A Azure Stack Marketplace-ről további információt a következő cikkekben talál:
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 9dc5039a2c8b74b14da59573758a4cf8d1a3657a
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 91fdd5c0068638f3e597f72ce5aee50fe04b324c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282658"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534044"
 ---
 # <a name="add-a-custom-vm-to-azure-stack"></a>Egyéni virtuális gép hozzáadása Azure Stackhoz
 
@@ -58,6 +58,8 @@ Ha a VHD az Azure-ból származik, kövesse az alábbi utasításokat a virtuál
 
 2. Állítsa le a virtuális gépet, és töltse le a VHD-t. Ha a virtuális merevlemezt az Azure-ból hozza, ezt a lemez exportálása paranccsal végezheti el, ahogyan az az [Azure-ból származó Windows VHD letöltése](/azure/virtual-machines/windows/download-vhd)című cikkben látható.
 
+Tartsa szem előtt az Azure Linux-ügynök azon verzióit, amelyek az [itt leírt módon](azure-stack-linux.md#azure-linux-agent)működnek Azure stack. Győződjön meg arról, hogy a Sysprep használatával létrehozott-rendszerkép rendelkezik az Azure Linux-ügynök olyan verziójával, amely kompatibilis a Azure Stackával.
+
 ### <a name="common-steps-for-both-windows-and-linux"></a>A Windows és a Linux közös lépései
 
 A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
@@ -80,7 +82,7 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
 
    - A [Windows rendszerű virtuális gép rendszerképének](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)feltöltésekor ügyeljen arra, hogy az Azure-ba való **bejelentkezést** a [Azure stack operátor PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-admin.md) lépéssel váltsa át.  
 
-3. Jegyezze fel a blob Storage URI-jét, ahová feltölti a rendszerképet. A blob Storage URI formátuma a következő: *&lt;storageAccount @ no__t-2 @ no__t-3 @ no__t-4blobContainer @ no__t-5 @ no__t-6 @ no__t-7targetVHDName @ no__t-8*. vhd.
+3. Jegyezze fel a blob Storage URI-jét, ahová feltölti a rendszerképet. A blob Storage URI formátuma a következő: *&lt;storageAccount &gt; / &lt;blobContainer &gt; / &lt;targetVHDName &gt;* . vhd.
 
 4. Ha névtelenül szeretné elérhetővé tenni a blobot, nyissa meg a Storage-fiók blob-tárolóját, ahol a virtuális gép rendszerképét feltöltötte. Válassza a **blob**lehetőséget, majd válassza a **hozzáférési házirend**elemet. Szükség esetén létrehozhat egy közös hozzáférési aláírást a tárolóhoz, és belefoglalhatja azt a blob URI részeként. Ez a lépés gondoskodik arról, hogy a blob elérhető legyen a használathoz. Ha a blob nem érhető el névtelenül, a virtuálisgép-rendszerkép sikertelen állapotban lesz létrehozva.
 
@@ -88,7 +90,7 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
 
    ![BLOB-hozzáférés beállítása nyilvánoshoz](./media/azure-stack-add-vm-image/image2.png)
 
-5. Jelentkezzen be Azure Stack operátorként. A menüben válassza a **minden szolgáltatás** > **lemezkép** lehetőséget a **számítás**@no__t – 4**Hozzáadás**elemnél.
+5. Jelentkezzen be Azure Stack operátorként. A menüben válassza a **minden szolgáltatás**  > **lemezképek** a **számítási**  > **Hozzáadás**elemet.
 
 6. A **rendszerkép létrehozása**területen adja meg a nevet, az előfizetést, az erőforráscsoportot, a helyet, az operációsrendszer-lemezt, az operációs rendszer típusát, a Storage blob URI-ját, a fióktípus és a gazdagép gyorsítótárazását. Ezután válassza a **Létrehozás** lehetőséget a virtuálisgép-rendszerkép létrehozásának megkezdéséhez.
 

@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack fizikai memória kapacitásának kezelése | Microsoft Docs
-description: Azure Stack számára elérhető tárterület figyelése és kezelése.
+title: A fizikai memória kapacitásának kezelése a Azure Stackban | Microsoft Docs
+description: Megtudhatja, hogyan figyelheti és kezelheti Azure Stack a fizikai memóriát és a kapacitást.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,28 +16,28 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 147bfb6ba35115f44fe24f388f36814db766c7f2
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: f72ad1b86bf8ef84e64f79603c27d14571b00838
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829461"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534153"
 ---
-# <a name="manage-physical-memory-capacity-for-azure-stack"></a>A Azure Stack fizikai memória kapacitásának kezelése
+# <a name="manage-physical-memory-capacity-in-azure-stack"></a>Fizikai memória kapacitásának kezelése a Azure Stackban
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
-További memória hozzáadásával megnövelheti az Azure Stack számára rendelkezésre álló teljes memóriakapacitást. Azure Stack a fizikai kiszolgálót a *méretezési egység csomópontjának*is nevezzük. Az egyetlen méretezési egységhez tartozó összes skálázási egység csomópontjainak azonos mennyiségű memóriával kell rendelkezniük.
+A rendelkezésre álló memória teljes kapacitásának növeléséhez Azure Stack több memóriát is hozzáadhat. Azure Stack a fizikai kiszolgálót a *méretezési egység csomópontjának*is nevezzük. Az egyetlen méretezési egységhez tartozó összes skálázási egység csomópontjainak azonos mennyiségű memóriával kell rendelkezniük.
 
 > [!note]  
 > A folytatás előtt tekintse meg a hardver gyártójától származó dokumentációt, és ellenőrizze, hogy a gyártója támogatja-e a fizikai memória frissítését. Előfordulhat, hogy az OEM hardveres gyártó támogatási szerződése megköveteli, hogy a szállító végrehajtsa a fizikai kiszolgáló rack elhelyezését és az eszköz belső vezérlőprogram-frissítését.
 
 A következő folyamatábrában látható az általános folyamat, amellyel memóriát adhat hozzá az egyes skálázási egységek csomópontjaihoz.
 
-![Memória hozzáadása az egyes méretezési egységek csomópontjaihoz](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
+![Memória hozzáadásának folyamata az egyes skálázási egységek csomópontjaihoz](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>Memória hozzáadása egy meglévő csomóponthoz
-A következő lépések áttekintést nyújtanak a memória hozzáadása folyamatról. 
+A következő lépések áttekintést nyújtanak a memória hozzáadásának folyamatáról.
 
 > [!Warning]
 > Ne kövesse ezeket a lépéseket a SZÁMÍTÓGÉPGYÁRTÓ által biztosított dokumentációra való hivatkozás nélkül.
@@ -49,7 +49,7 @@ A következő lépések áttekintést nyújtanak a memória hozzáadása folyama
 2. Frissítse a memóriát az egyes fizikai számítógépeken a hardver gyártójától származó dokumentáció használatával.
 3. Indítsa el Azure Stack a [Azure stack elindítása és leállítása](azure-stack-start-and-stop.md) című cikkben ismertetett lépések alapján.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
- - Ha szeretné megtudni, hogyan kezelheti Azure Stack Storage-fiókjait a tárolási kapacitás üzleti igények alapján történő megkereséséhez, helyreállításához és visszaigényléséhez, tekintse meg [a Azure stack Storage-fiókok kezelése](azure-stack-manage-storage-accounts.md)című témakört.
- - Ha meg szeretné tudni, hogy az Azure Stack Cloud operátor hogyan figyeli és kezeli a Azure Stack üzembe helyezésének tárolókapacitását, tekintse meg a [Azure stack tárolási](azure-stack-manage-storage-shares.md)kapacitásának kezelése című témakört. 
+ - A Azure Stack lévő Storage-fiókok kezelésével kapcsolatos további információkért lásd: [a Storage-fiókok kezelése a Azure Stackban](azure-stack-manage-storage-accounts.md).
+ - A Azure Stack üzemelő példány tárolási kapacitásának figyelésével és kezelésével kapcsolatos további információkért lásd: [Azure stack tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).
