@@ -1,6 +1,6 @@
 ---
 title: MySQL-adatbázisok használata a (z) Azure Stackban lévő Pástiként | Microsoft Docs
-description: Ismerje meg, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatót, és hogyan biztosíthat szolgáltatásként MySQL-adatbázisokat Azure Stack.
+description: Megtudhatja, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatót, és hogyan biztosíthat szolgáltatásként MySQL-adatbázisokat Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 7c429fac7a24af3a1488687a79dd822fa4bccd24
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 8f498896489a0c217b1f7c51ec4dda6b493ddda7
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71908964"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534030"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-adatbázisok használata Microsoft Azure Stack
 
@@ -40,7 +40,7 @@ Az erőforrás-szolgáltató a következő összetevőket biztosítja:
 * A **MySQL-kiszolgálót működtető kiszolgálók**, amelyek kapacitást biztosítanak az olyan adatbázisok számára, amelyek neve üzemeltetési kiszolgáló. Saját maga is létrehozhat MySQL-példányokat, vagy hozzáférést biztosíthat a külső MySQL-példányokhoz. A [Azure stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) rövid útmutatóban egy példa sablon látható, amely a következőhöz használható:
 
   * Hozzon létre egy MySQL-kiszolgálót.
-  * Töltsön le és helyezzen üzembe egy MySQL-kiszolgálót az Azure piactéren.
+  * MySQL-kiszolgáló letöltése és üzembe helyezése az Azure Marketplace-en.
 
 > [!NOTE]
 > Azure Stack integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket a bérlői portálról vagy egy megfelelő bejelentkezéssel rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
@@ -52,6 +52,6 @@ A rendszerfióknak a következő jogosultságokkal kell rendelkeznie:
 * **Adatbázis:** létrehozás, eldobás
 * **Bejelentkezés:** létrehozás, beállítás, eldobás, engedélyezés, visszavonás  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A MySQL erőforrás-szolgáltató üzembe helyezése](azure-stack-mysql-resource-provider-deploy.md)
