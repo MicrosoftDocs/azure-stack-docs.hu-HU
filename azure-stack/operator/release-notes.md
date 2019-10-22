@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 10/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 6e7f4785603dc6a0523186ee31af5ef9b51bec46
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 34422c5d868b26be599065c33ef0cfe20d790a2f
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909523"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682141"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Ez a cikk a Azure Stack frissítési csomagjainak tartalmát ismerteti. A frissítés a Azure Stack ezen kiadásának újdonságait és javításait tartalmazza.
 
@@ -33,7 +33,7 @@ Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal olda
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
-> Ez a csomag csak olyan Azure Stack integrált rendszerek. Ez a csomag nem vonatkoznak az Azure Stack Development Kit.
+> Ez a frissítési csomag csak Azure Stack integrált rendszerekhez használható. Ezt a frissítési csomagot ne alkalmazza a Azure Stack Development Kit.
 ::: moniker-end
 ::: moniker range="<azs-1905"
 > [!IMPORTANT]  
@@ -62,7 +62,7 @@ A Azure Stack 1908 frissítési Build száma **1.1908.4.33**.
 
 A 1908 esetében a Azure Stack futtatását futtató operációs rendszer frissítve lett a Windows Server 2019-es verziójára. Ez lehetővé teszi az alapvető fontosságú fejlesztéseket, valamint a közeljövőben Azure Stack további képességeket is.
 
-A Azure Stack 1908 frissítési Build típusa **megtelt**. Ennek eredményeképpen az 1908-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1906 és a 1907. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában a Azure Stack-példány által tartalmazott csomópontok számától függenek, a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha csatlakozik az internethez) és a rendszer hardvere Configuration. Az 1908-es frissítés a belső tesztelés során a következő várt futtatókörnyezeteket használta: 4 csomópont – 42 óra, 8 csomópont – 50 óra, 12 csomópont – 60 óra, 16 csomópont – 70 óra. A várt értéknél hosszabb ideig tartó frissítési futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack operátorok, kivéve, ha a frissítés meghiúsul.
+A Azure Stack 1908 frissítési Build típusa **megtelt**. Ennek eredményeképpen az 1908-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1906 és a 1907. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában a Azure Stack-példány által tartalmazott csomópontok számától függenek, a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha csatlakozik az internethez) és a rendszer hardvere Configuration. Az 1908-es frissítés a belső tesztelés következő várt futtatókörnyezeteit használta: 4 csomópont – 42 óra, 8 csomópont – 50 óra, 12 csomópont – 60 óra, 16 csomópont – 70 óra. A várt értéknél hosszabb ideig tartó frissítési futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack operátorok, kivéve, ha a frissítés meghiúsul.
 
 További információ a frissítési buildek típusairól: [frissítések kezelése Azure Stackban](azure-stack-updates.md).
 
@@ -114,7 +114,7 @@ Azure Stack a gyorsjavításokat rendszeresen kiadják. Győződjön meg arról,
 
 Azure Stack gyorsjavítások csak Azure Stack integrált rendszerekre alkalmazhatók. Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
-### <a name="prerequisites-before-applying-the-1908-update"></a>Előfeltételek: Az 1908-es frissítés alkalmazása előtt
+### <a name="prerequisites-before-applying-the-1908-update"></a>Előfeltételek: az 1908-es frissítés alkalmazása előtt
 
 A Azure Stack 1908-es kiadását a 1907-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
@@ -128,7 +128,7 @@ A Azure Stack 1908 frissítéshez **Azure stack OEM 2,1-es vagy újabb verzió**
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- Nem érhető el gyorsjavítás a 1908-es kiadáshoz.
+- [Azure Stack gyorsjavítás 1.1908.6.37](https://support.microsoft.com/help/4527372)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -380,7 +380,7 @@ A Azure Stack 1905 frissítési Build száma **1.1905.0.40**.
 
 ### <a name="update-type-1905"></a>Frissítés típusa
 
-A Azure Stack 1905 frissítési Build típusa **megtelt**. Ennek eredményeképpen az 1905-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1903 és a 1904. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában a Azure Stack-példány által tartalmazott csomópontok számától függenek, a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha csatlakozik az internethez) és a rendszer hardvere Configuration. Az 1905-es frissítés a belső tesztelés során a következő várt futtatókörnyezeteket használta: 4 csomópont – 35 óra, 8 csomópont – 45 óra, 12 csomópont – 55 óra, 16 csomópont – 70 óra. a várt értéknél hosszabb ideig tartó 1905-es futtatókörnyezet nem ritka, és nem igényel beavatkozást Azure Stack operátorok, kivéve, ha a frissítés meghiúsul. További információ a frissítési buildek típusairól: [frissítések kezelése Azure Stackban](azure-stack-updates.md).
+A Azure Stack 1905 frissítési Build típusa **megtelt**. Ennek eredményeképpen az 1905-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1903 és a 1904. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában a Azure Stack-példány által tartalmazott csomópontok számától függenek, a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha csatlakozik az internethez) és a rendszer hardvere Configuration. Az 1905-es frissítés a belső tesztelés következő várt futtatókörnyezeteit használta: 4 csomópont – 35 óra, 8 csomópont – 45 óra, 12 csomópont – 55 óra, 16 csomópont – 70 óra. a várt értéknél hosszabb ideig tartó 1905-es futtatókörnyezet nem ritka, és nem igényel beavatkozást Azure Stack operátorok, kivéve, ha a frissítés meghiúsul. További információ a frissítési buildek típusairól: [frissítések kezelése Azure Stackban](azure-stack-updates.md).
 
 ## <a name="whats-in-this-update-1905"></a>A frissítés ismertetése
 
@@ -400,11 +400,11 @@ Ezzel a frissítéssel a Windows Server 2019 sikeresen aktiválható egy 2016-ga
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - A TLS 1,2 Azure Stackon való betartatásának részeként a következő bővítmények frissültek az alábbi verziókra:
 
-  - microsoft.customscriptextension-arm-1.9.3
-  - microsoft.iaasdiagnostics-1.12.2.2
+  - Microsoft. customscriptextension-ARM-1.9.3
+  - Microsoft. iaasdiagnostics – 1.12.2.2
   - Microsoft. antimalware – Windows-ARM-1.5.5.9
-  - microsoft.dsc-arm-2.77.0.0
-  - microsoft.vmaccessforlinux-1.5.2
+  - Microsoft. DSC-ARM – 2.77.0.0
+  - Microsoft. vmaccessforlinux – 1.5.2
 
   Töltse le azonnal a bővítmények ezen verzióit, hogy a bővítmény új telepítései ne legyenek sikertelenek, ha a TLS 1,2 egy későbbi kiadásban van érvényben. Mindig állítsa be a **autoUpgradeMinorVersion = True** értéket, hogy a rendszer a bővítmények (például 1,8 – 1,9) alverziójának frissítéseit automatikusan elvégezze.
 
@@ -422,8 +422,8 @@ Ezzel a frissítéssel a Windows Server 2019 sikeresen aktiválható egy 2016-ga
 
 - Az 1905 Azure Stack Update két új infrastruktúra-szerepkört biztosít a platform megbízhatóságának és támogatásának javításához:
 
-  - **Infrastruktúra-gyűrű**: A jövőben az infrastruktúra-gyűrű a meglévő infrastruktúra-szerepkörök (például XRP) tároló verzióit fogja üzemeltetni, amelyekhez jelenleg saját kijelölt infrastruktúra-virtuális gépek szükségesek. Ez növeli a platform megbízhatóságát, és csökkenti a Azure Stack által igényelt infrastruktúra-virtuális gépek számát. Ez a későbbiekben csökkenti a Azure Stack infrastruktúra-szerepköreinek teljes erőforrás-felhasználását a jövőben.
-  - **Támogatási kör**: A jövőben a támogatási gyűrűt az ügyfelek számára továbbfejlesztett támogatási forgatókönyvek kezelésére fogjuk használni.  
+  - **Infrastruktúra-gyűrű**: a jövőben az infrastruktúra-gyűrű a meglévő infrastruktúra-szerepkörök (például XRP) tároló verzióit fogja üzemeltetni, amelyekhez jelenleg saját kijelölt infrastruktúra-virtuális gépek szükségesek. Ez növeli a platform megbízhatóságát, és csökkenti a Azure Stack által igényelt infrastruktúra-virtuális gépek számát. Ez a későbbiekben csökkenti a Azure Stack infrastruktúra-szerepköreinek teljes erőforrás-felhasználását a jövőben.
+  - **Támogatási gyűrű**: a későbbiekben a támogatási gyűrűt az ügyfelek számára továbbfejlesztett támogatási forgatókönyvek kezelésére fogjuk használni.  
 
   Emellett a tartományvezérlő virtuális gép egy további példányát is hozzáadta a szerepkör jobb rendelkezésre állásához.
 
@@ -512,12 +512,12 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerek az **elérhet�
 
 Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- A frissítéskezelés az Azure Stackben áttekintését lásd: [kezelheti a frissítéseket az Azure Stack áttekintés](azure-stack-updates.md).  
-- Az Azure Stack frissítések alkalmazásával kapcsolatos további információkért lásd: [alkalmazza a frissítéseket az Azure Stackben](azure-stack-apply-updates.md).
-- Az Azure Stack integrált rendszerek, és hogy mit kell tennie, hogy a rendszer egy támogatott állapotban karbantartási házirend áttekintéséhez lásd: [karbantartási szabályzat az Azure Stack](azure-stack-servicing-policy.md).  
-- Az emelt szintű végpontját (EGP) használatával figyelheti, és folytathatja a frissítéseket, lásd: [monitorozása az Azure Stack használatával a privilegizált végpont frissítések](azure-stack-monitor-update.md).
+- A Azure Stack Update Management áttekintését lásd: a [frissítések kezelése Azure stack áttekintés](azure-stack-updates.md).  
+- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](azure-stack-apply-updates.md).
+- A Azure Stack integrált rendszerek karbantartási szabályzatának áttekintéséhez, valamint arról, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, tekintse meg [Azure stack karbantartási házirendet](azure-stack-servicing-policy.md).  
+- Ha a jogosultsági szintű végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack az emelt szintű végpont használatával](azure-stack-monitor-update.md).
 ::: moniker-end
 
 <!------------------------------------------------------------>

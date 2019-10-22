@@ -1,6 +1,6 @@
 ---
-title: A MySQL-adapter (RP) által biztosított adatbázisok használata Azure Stackon | Microsoft Docs
-description: A MySQL-adapter erőforrás-szolgáltatójának használatával kiépített MySQL-adatbázisok létrehozása és kezelése
+title: MySQL-adatbázisok létrehozása a Azure Stackban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre és kezelhet olyan MySQL-adatbázisokat, amelyeket a Azure Stack a MySQL-adapter erőforrás-szolgáltatójának használatával kiépített.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283468"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682234"
 ---
-# <a name="create-mysql-databases"></a>MySQL-adatbázisok létrehozása
+# <a name="create-mysql-databases-in-azure-stack"></a>MySQL-adatbázisok létrehozása a Azure Stackban
 A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack felhasználó a felhasználói portálon hozhat létre és kezelhet önkiszolgáló MySQL-adatbázisokat.
 
 ## <a name="create-a-mysql-database"></a>MySQL-adatbázisok létrehozása
@@ -58,7 +58,7 @@ Az adatbázis üzembe helyezését követően jegyezze fel a **kapcsolatok karak
 
 A jelszót a MySQL-kiszolgáló példányán módosítva módosíthatja.
 
-1. Válassza a **felügyeleti erőforrások**@no__t – 1**MySQL üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
+1. Válassza a **felügyeleti erőforrások**  >  a**MySQL-üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
 2. A **Beállítások**területen válassza a **jelszó**lehetőséget.
 3. A **jelszó**területen adja meg az új jelszót, majd kattintson a **Mentés**gombra.
 
@@ -66,4 +66,4 @@ A jelszót a MySQL-kiszolgáló példányán módosítva módosíthatja.
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ismerje meg, hogyan [kínálhat kiválóan elérhető MySQL-adatbázisokat](azure-stack-tutorial-mysql.md)
+Ismerje meg, hogyan [használhatók a kiválóan elérhető MySQL-adatbázisok](azure-stack-tutorial-mysql.md).
