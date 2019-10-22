@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
-description: Ismerkedjen meg a legújabb Azure Stack MySQL erőforrás-szolgáltató frissítésével, beleértve az ismert problémákat és a letöltés helyét.
+title: Azure Stack MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései | Microsoft Docs
+description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg a Azure Stack MySQL erőforrás-szolgáltató 1.1.33.0 frissítésének újdonságait.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,20 +16,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909149"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682149"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik a MySQL erőforrás-szolgáltató 1.1.33.0-verziójának újdonságait és ismert problémáit.
 
-## <a name="build-reference"></a>Hivatkozás létrehozása
+## <a name="build-reference"></a>Build referenciája
 Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbiakban látható:
 
 > |Minimális Azure Stack-verzió|MySQL erőforrás-szolgáltató verziója|
@@ -43,34 +43,35 @@ Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa a
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-### <a name="fixes"></a>Javítások
-- **Előfordulhat, hogy a MySQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. A MySQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ az első olyan szolgáltatás-rendszergazdai előfizetés meghatározásához, amely nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, a MySQL erőforrás-szolgáltató nem működik megfelelően. 
+### <a name="fixes"></a>Hibajavítások
+
+- **Előfordulhat, hogy a MySQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. A MySQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ az első olyan szolgáltatás-rendszergazdai előfizetés meghatározásához, amely nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, a MySQL erőforrás-szolgáltató nem működik megfelelően.
 
 - **A MySQL üzemeltetési kiszolgáló nem sorolja fel az üzemeltetett adatbázisokat.** Előfordulhat, hogy a felhasználó által létrehozott adatbázisok nem jelennek meg a MySQL üzemeltetési kiszolgálók bérlői erőforrásainak megtekintésekor.
 
-- **Az előző MySQL erőforrás-szolgáltató (1.1.30.0) telepítése meghiúsulhat, ha a TLS 1,2 nincs engedélyezve**. Frissítettük a MySQL erőforrás-szolgáltató 1.1.33.0, hogy engedélyezzék a TLS 1,2-et az erőforrás-szolgáltató üzembe helyezésekor, az erőforrás-szolgáltató frissítésekor vagy a titkok elforgatásakor. 
+- Az **előző MySQL erőforrás-szolgáltató (1.1.30.0) telepítése meghiúsulhat, ha a TLS 1,2 nincs engedélyezve**. Frissítettük a MySQL erőforrás-szolgáltató 1.1.33.0, hogy engedélyezzék a TLS 1,2-et az erőforrás-szolgáltató üzembe helyezésekor, az erőforrás-szolgáltató frissítésekor vagy a titkok elforgatásakor.
 
-- **Nem sikerül a MySQL erőforrás-szolgáltató titkos elforgatása**. A következő hibakód miatt kijavított hiba történt a titkok elforgatásakor: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Nem sikerül a MySQL erőforrás-szolgáltató titkos elforgatása**. Javítva lett egy probléma, amely a következő hibakódot eredményezte a titkok elforgatásakor: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
-## <a name="known-issues"></a>Ismert problémák 
+## <a name="known-issues"></a>Ismert problémák
 
 - **A MySQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy órát is igénybe vehet, hogy az újonnan létrehozott SKU-i megjelenjenek az új MySQL-adatbázisok létrehozásakor. 
 
-    **Áthidaló megoldás**: Nincs.
+    **Áthidaló megoldás**: nincs.
 
-- A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni. 
+- A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 
-    **Áthidaló megoldás**: Használjon más felhasználóneveket, amikor új bejelentkezéseket hoz létre ugyanazon előfizetés alatt, vagy hozzon létre bejelentkezési adatokat ugyanazzal a felhasználónévvel különböző előfizetésekben.
+    **Megkerülő megoldás**: használjon eltérő felhasználóneveket, amikor új bejelentkezéseket hoz létre ugyanazon előfizetés alatt, vagy hozzon létre bejelentkezési adatokat ugyanazzal a felhasználónévvel különböző előfizetésekben.
 
 - A **megosztott MySQL-bejelentkezések adatkövetkezetlenséget okozhatnak**. Ha egy MySQL-bejelentkezés több MySQL-adatbázishoz van megosztva ugyanazzal az előfizetéssel, akkor a bejelentkezési jelszó módosítása az adatok inkonzisztenciát okoz.
 
-    **Áthidaló megoldás**: Mindig használjon eltérő bejelentkezési adatokat a különböző adatbázisokhoz ugyanazon előfizetés alatt.
+    **Megkerülő megoldás**: az azonos előfizetéshez tartozó különböző adatbázisokhoz mindig használjon eltérő bejelentkezéseket.
 
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
 Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [További információ a MySQL erőforrás-szolgáltatóról](azure-stack-mysql-resource-provider.md).
 
 [Felkészülés a MySQL erőforrás-szolgáltató üzembe helyezésére](azure-stack-mysql-resource-provider-deploy.md#prerequisites).

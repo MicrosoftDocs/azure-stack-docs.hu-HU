@@ -1,6 +1,6 @@
 ---
-title: MySQL üzemeltetési kiszolgálók Azure Stackon | Microsoft Docs
-description: MySQL-példányok hozzáadása a MySQL-adapter erőforrás-szolgáltatóján keresztüli üzembe helyezéshez
+title: MySQL üzemeltetési kiszolgálók hozzáadása a Azure Stack-ben | Microsoft Docs
+description: Ismerje meg, hogyan adhat hozzá MySQL-üzemeltetési kiszolgálókat a MySQL-adapter erőforrás-szolgáltatóján keresztül történő üzembe helyezéshez.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 8c774d78cd03efeee830b1cbc5e726c7c53e3c57
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909042"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682211"
 ---
-# <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adja hozzá a MySQL erőforrás-szolgáltatóhoz tartozó üzemeltetési kiszolgálókat
+# <a name="add-mysql-hosting-servers-in-azure-stack"></a>MySQL üzemeltetési kiszolgálók hozzáadása a Azure Stack
 
 A virtuális gépen (VM) üzemeltetheti a MySQL üzemeltetési kiszolgáló példányát [Azure stack](azure-stack-overview.md)vagy a Azure stack-környezeten kívüli virtuális gépen, ha a MySQL erőforrás-szolgáltató csatlakozni tud a példányhoz.
 
@@ -35,23 +35,23 @@ Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is h
 
 Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező fiók hitelesítő adataival. Üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
 
-1. Jelentkezzen be az Azure Stack Operator portálra szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
 2. Válassza az **Összes szolgáltatás** elemet.
-3. A **felügyeleti erőforrások** kategóriában válassza a **MySQL üzemeltetési kiszolgálók** >  **+ Hozzáadás**lehetőséget. Ekkor megnyílik a **MySQL üzemeltetési kiszolgáló hozzáadása** párbeszédpanel, amely az alábbi képernyőfelvételen látható.
+3. A **felügyeleti erőforrások** kategóriában válassza a **MySQL üzemeltetési kiszolgálók**  >  **+ Hozzáadás**lehetőséget. Megnyílik a **MySQL üzemeltetési kiszolgáló hozzáadása** párbeszédpanel, amely az alábbi képernyőfelvételen látható.
 
-   ![Üzemeltetési kiszolgáló konfigurálása](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+   ![MySQL üzemeltetési kiszolgáló konfigurálása](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 4. Adja meg a MySQL-kiszolgáló példányának kapcsolati adatait.
 
    * A **MySQL üzemeltetési kiszolgáló neve mezőben**adja meg a teljes tartománynevet (FQDN) vagy egy érvényes IPv4-címeket. Ne használja a rövid virtuális gép nevét.
-   * A Azure Stack piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*. 
-   * Ha nem ismeri a legfelső szintű **jelszót**, tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le. 
+   * A Azure Stack piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*.
+   * Ha nem ismeri a legfelső szintű **jelszót**, tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le.
    * Nincs megadva alapértelmezett MySQL-példány, ezért az **üzemeltetési kiszolgáló méretét GB-ban**kell megadnia. Adjon meg egy olyan méretet, amely az adatbázis-kiszolgáló kapacitásához közeledik.
    * Az **előfizetés**alapértelmezett beállításának megtartása.
    * **Erőforráscsoport**esetén hozzon létre egy újat, vagy használjon egy meglévő csoportot.
 
    > [!NOTE]
-   > Ha a MySQL-példányt a bérlő és a felügyeleti Azure Resource Manager is elérheti, azt az erőforrás-szolgáltató felügyelete alá helyezheti. A MySQL-példányt azonban kizárólag az erőforrás-szolgáltatóhoz kell lefoglalni.
+   > Ha a MySQL-példányt a bérlő és a felügyeleti Azure Resource Manager is elérheti, azt az erőforrás-szolgáltató felügyelete alá helyezheti. A MySQL **-példányt azonban** kizárólag az erőforrás-szolgáltatóhoz kell lefoglalni.
 
 5. Válassza az **SKU** -t az **SKU létrehozása** párbeszédpanel megnyitásához.
 
@@ -83,16 +83,16 @@ A háttérbeli adatbázis kapacitása a Azure Stack portálon további MySQL-kis
 Használjon olyan SKU-nevet, amely leírja az SKU-ban található kiszolgálók képességeit, például a kapacitást és a teljesítményt. A név segítséget nyújt arra, hogy a felhasználók a megfelelő SKU-ban telepíthessék az adatbázisaikat. Az alábbi jellemzőkkel rendelkezhet például az SKU-nevek használatával a szolgáltatási ajánlatok megkülönböztetéséhez:
   
 * nagy kapacitás
-* nagy teljesítményű
-* Magas rendelkezésre állás
+* nagy teljesítmény
+* magas rendelkezésre állás
 
 Az ajánlott eljárás szerint az SKU-ban lévő összes üzemeltetési kiszolgálónak ugyanazzal az erőforrással és teljesítménnyel kapcsolatos tulajdonságokkal kell rendelkeznie.
 
 A SKU-t nem lehet hozzárendelni meghatározott felhasználókhoz vagy csoportokhoz.
 
-Az SKU szerkesztéséhez lépjen a **minden szolgáltatás** > **MySQL-adapter** > **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
+Az SKU szerkesztéséhez lépjen a **minden szolgáltatás**  > **MySQL-adapter**  > **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
 
-A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás** > **MySQL-adapter** > **SKU**-t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
+A már nem szükséges SKU törléséhez lépjen a **minden szolgáltatás**  > **MySQL-adapter**  > **SKU**-k elemre. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
 
 > [!IMPORTANT]
 > Akár egy óráig is eltarthat, amíg az új SKU elérhetővé válik a felhasználói portálon.
@@ -104,6 +104,6 @@ Terveket és ajánlatokat hozhat létre a MySQL adatbázis-kiszolgálók felhasz
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [MySQL-adatbázis létrehozása](azure-stack-mysql-resource-provider-databases.md)

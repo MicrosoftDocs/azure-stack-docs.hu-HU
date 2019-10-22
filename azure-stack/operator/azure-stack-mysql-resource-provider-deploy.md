@@ -1,6 +1,6 @@
 ---
-title: MySQL-adatbázisok használata a Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe MySQL-adatbázisokat szolgáltatásként a Azure Stackon, valamint a MySQL-kiszolgáló erőforrás-szolgáltatói adapterének gyors lépéseit.
+title: MySQL erőforrás-szolgáltató üzembe helyezése Azure Stackon | Microsoft Docs
+description: Megtudhatja, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatói adaptert és a MySQL-adatbázisokat Azure Stack-szolgáltatásként.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 603a42fcd98872a59109a1c8f6806fba72e615e0
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909001"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682119"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack
 
@@ -34,8 +34,8 @@ A MySQL Server erőforrás-szolgáltatóval Azure Stack-szolgáltatásként tehe
 A Azure Stack MySQL erőforrás-szolgáltató üzembe helyezése előtt több előfeltételt is meg kell hoznia. A követelmények teljesítése érdekében hajtsa végre a jelen cikkben ismertetett lépéseket egy olyan számítógépen, amely hozzáfér az emelt szintű végpont virtuális géphez.
 
 * Ha még nem tette meg, [regisztráljon Azure stack](./azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
-* Telepítenie kell az Azure-és Azure Stack PowerShell-modulokat azon a rendszeren, amelyen a telepítést futtatni fogja. A rendszernek Windows 10 vagy Windows Server 2016 lemezképnek kell lennie a .NET-futtatókörnyezet legújabb verziójával. Lásd: [a PowerShell telepítése Azure Stackhoz](./azure-stack-powershell-install.md).
-* A **Windows server 2016 Datacenter-Server Core** rendszerkép letöltésével adja hozzá a szükséges Windows Server Core virtuális gépet a Azure stack Marketplace-hez.
+* Telepítse az Azure-t és Azure Stack PowerShell-modulokat azon a rendszeren, amelyen a telepítést futtatni fogja. A rendszernek Windows 10 vagy Windows Server 2016 lemezképnek kell lennie a .NET-futtatókörnyezet legújabb verziójával. Lásd: [a PowerShell telepítése Azure Stackhoz](./azure-stack-powershell-install.md).
+* A **Windows server 2016 Datacenter-Server Core** rendszerkép letöltésével adja hozzá a szükséges Windows Server Core virtuális gépet Azure stack Marketplace-hez.
 
 * Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához.
 
@@ -53,11 +53,11 @@ A Azure Stack MySQL erőforrás-szolgáltató üzembe helyezése előtt több el
 
 * Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
-    |Előfeltétel|Hivatkozás|
+    |Előfeltétel|Leírások|
     |-----|-----|
     |A feltételes DNS-továbbítás helyesen van beállítva.|[Azure Stack Datacenter-integráció – DNS](azure-stack-integrate-dns.md)|
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack Datacenter-integráció – végpontok közzététele](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |A PKI-tanúsítvány tárgya és SAN beállítása helyesen van beállítva.|[Azure stack központi telepítés kötelező PKI](azure-stack-pki-certs.md#mandatory-certificates) -előfeltételei [Azure stack üzembe helyezési Péter tanúsítványának](azure-stack-pki-certs.md#optional-paas-certificates) előfeltételei|
+    |A PKI-tanúsítvány tárgya és SAN beállítása helyesen van beállítva.|[Azure stack központi telepítés kötelező PKI-előfeltételei](azure-stack-pki-certs.md#mandatory-certificates)[Azure stack üzembe helyezési Péter tanúsítványának előfeltételei](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Tanúsítványok
@@ -91,14 +91,14 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 
 | Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
-| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához. | _Kötelező_ |
-| **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt. | _Kötelező_ |
-| **VMLocalCredential** | A MySQL erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ |
-| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ |
+| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához. | _Szükséges_ |
+| **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt. | _Szükséges_ |
+| **VMLocalCredential** | A MySQL erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Szükséges_ |
+| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Szükséges_ |
 | **AzureEnvironment** | A Azure Stack telepítéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
 | **DependencyFilesLocalPath** | Csak az integrált rendszerek esetében a tanúsítvány. pfx fájlját ebbe a könyvtárba kell helyezni. A leválasztott környezetekhez töltse le a [MySQL-Connector-Net-6.10.5. msi fájlt](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) erre a könyvtárba. Itt egy Windows Update MSU-csomagot is másolhat. | Nem _kötelező_ (az integrált rendszerekhez és a leválasztott környezetekhez_kötelező_ ) |
-| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
-| **MaxRetryCount** | Az egyes műveletek újrapróbálkozásának száma, ha hiba történt.| 2 |
+| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Szükséges_ |
+| **Maxretrycount csak** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
 | **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
 | **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
@@ -118,7 +118,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines.
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
@@ -132,7 +132,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the new resource provider VM local administrator account
+# Set the credentials for the new resource provider VM local admin account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
@@ -147,7 +147,7 @@ Clear-AzureRMContext -Scope Process -Force
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+# Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -165,11 +165,11 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>A központi telepítés ellenőrzése a Azure Stack portál használatával
 
 1. Jelentkezzen be a felügyeleti portálra szolgáltatás-rendszergazdaként.
-2. **Erőforráscsoportok** kiválasztása
-3. Válassza ki a rendszerállapotot **.\< Location\>. mysqladapter** erőforráscsoport.
+2. Válassza az **erőforráscsoportok**lehetőséget.
+3. Válassza ki a **System. \<location \>. mysqladapter** erőforráscsoportot.
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül válassza a **virtuális gépek** lehetőséget a felügyeleti portálon annak ellenőrzéséhez, hogy a MySQL erőforrás-szolgáltató virtuális gépe sikeresen létrejött-e, és fut-e.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Üzemeltetési kiszolgálók hozzáadása](azure-stack-mysql-resource-provider-hosting-servers.md)
