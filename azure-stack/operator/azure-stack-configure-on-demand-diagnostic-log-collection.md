@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/22/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 822055eecb59f9eceab75317aed5682c104fb616
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: c37da77ea5965bfaae3d9970fa47959ec42305b8
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310567"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780499"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack diagnosztikai naplók gyűjtése
 
@@ -132,6 +132,18 @@ A következő lépésekkel futtathatja `Get-AzureStackLog` rendszert egy ASDK-ga
 
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
+
+* Begyűjti a naplókat a saját felügyeletű Azure Kubernetes-szolgáltatásokat (ak) futtató bérlői példányokról Azure Stackon. Az AK-naplókat a bérlői tárolási fiókban kell tárolni olyan formátumban, amely lehetővé teszi, hogy a gyűjtemény időtartománya is alkalmazható legyen rájuk. 
+
+  ```powershell
+  Get-AzureStackLog -OutputPath <<Kubernetes Log Location>> -InputSasUri "<<SasURI>>" -FromDate "<<beginning of the time range>>" -ToDate "<<end of the time range>>" 
+  ```
+
+  Példa:
+
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://diagnostics.blob.redmond.ext-n26r1102.masd.stbtest.microsoft.com/kuberneteslogs?sv=2017-04-17=sco&sp=rl&se=2019-09-30T02:06:54Z&st=2019-08-22T18:06:54Z&spr=https&sig=EtmCy8Got4Ro8ZNCSKLuf4tgBcC%2BOYSDwNdfa8czhlE%3D" -FromDate "8/22/2019 06:00:00" -ToDate "8/22/2019 08:00:00" 
   ```
 
 * Gyűjtsön naplókat, és tárolja őket a megadott Azure Storage blob-tárolóban. A művelet általános szintaxisa a következő:
