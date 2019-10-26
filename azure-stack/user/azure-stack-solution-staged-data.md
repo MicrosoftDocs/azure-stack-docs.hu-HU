@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 187fe88ad304804462cc4461b24eb10a7af7a299
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 4d93e16a46efad33c4392e40ca3a79e89a14795b
+ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277732"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72891272"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Szakaszos adatelemzési megoldás üzembe helyezése Azure Stack
 
@@ -37,7 +37,7 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
 > - Tesztelje az üzenetsor által aktivált függvényt.
 
 > [!Tip]  
-> @no__t -0hybrid-Pillars. png @ no__t-1  
+> ![Hybrid-Pillars. png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack az Azure kiterjesztése. Azure Stack a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](azure-stack-edge-pattern-overview.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
@@ -83,12 +83,12 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
       ```powershell
       .\DeploySolution-Azure-AzureStack.ps1 `
       -AzureApplicationId "applicationIDforAzureServicePrincipal" `
-      -AzureApplicationSercet "clientSecretforServicePrincipal" `
+      -AzureApplicationSecret "clientSecretforServicePrincipal" `
       -AzureTenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
       -AzureStackAADTenantName "azurestacktenant.onmicrosoft.com" `
       -AzureStackTenantARMEndpoint "https://management.haazurestack.com" `
       -AzureStackApplicationId "applicationIDforStackServicePrincipal" `
-      -AzureStackApplicationSercet "ClientSecretforStackServicePrincipal" `
+      -AzureStackApplicationSecret "ClientSecretforStackServicePrincipal" `
       -AzureStackTenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" `
       -ResourcePrefix "aPrefixForResources"
       ```

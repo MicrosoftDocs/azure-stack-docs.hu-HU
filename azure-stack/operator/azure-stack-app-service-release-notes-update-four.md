@@ -16,23 +16,23 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e42ad185373eeb59b6fdfa5d1c769a5843774537
+ms.sourcegitcommit: 64c18637cafcc38044d139bf35b16422ada8160c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974892"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72889851"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service on Azure Stack Update 4 kibocsátási megjegyzései
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack Update 4 verziójának javításait, javításait és ismert problémáit. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
 > [!IMPORTANT]
 > Alkalmazza a 1809-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a Azure App Service 1,4 üzembe helyezése előtt.
 
-## <a name="build-reference"></a>Hivatkozás létrehozása
+## <a name="build-reference"></a>Build referenciája
 
 A (z) Azure Stack Update 4 Build számának App Service **78.0.13698.5**
 
@@ -159,9 +159,9 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak áttérni Azu
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Bejelentkezések migrálása a tárolt adatbázis-felhasználók számára.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -203,27 +203,27 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak áttérni Azu
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 
 Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
 
- * Forrás: Any
+ * Forrás: bármely
  * Forrásoldali porttartomány: *
  * Cél: IP-címek
- * Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+ * Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
  * Célport tartománya: 445
  * Protokoll: TCP
- * Művelet: Allow
- * Fontosság: 700
+ * Művelet: Engedélyezés
+ * Prioritás: 700
  * Név: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
 
 Tekintse meg a dokumentációt a [Azure Stack 1809 kibocsátási megjegyzésekben](azure-stack-update-1903.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
 - A Azure Stack App Service telepítésének előkészítésével kapcsolatos további információkért lásd: [app Service üzembe helyezésének előfeltételei a Azure stack](azure-stack-app-service-before-you-get-started.md).

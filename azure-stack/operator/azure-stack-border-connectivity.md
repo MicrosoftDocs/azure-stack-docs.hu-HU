@@ -16,14 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 583b23f8b70856e39f5d6f53204fd3234cb92a4e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: d6e4aa25b558d12cfb437155c453d3d093ea7e00
+ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829109"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888059"
 ---
-# <a name="border-connectivity"></a>Szegély kapcsolat 
+# <a name="border-connectivity"></a>Szegélyek közötti kapcsolat 
 A hálózati integráció megtervezése fontos előfeltétel a sikeres Azure Stack integrált rendszerek üzembe helyezéséhez, működtetéséhez és kezeléséhez. A határok közötti kapcsolat megtervezése megkezdődik, ha a dinamikus útválasztást a Border Gateway Protocol (BGP) használatával szeretné használni. Ehhez hozzá kell rendelni egy 16 bites BGP autonóm rendszerszámot (nyilvános vagy privát) vagy statikus útválasztást, ahol a rendszer statikus alapértelmezett útvonalat rendel hozzá a szegélyhez tartozó eszközökhöz.
 
 > [!IMPORTANT]
@@ -45,19 +45,19 @@ A statikus útválasztáshoz további konfiguráció szükséges a szegély eszk
 
 Ha statikus útválasztással szeretné integrálni Azure Stack a hálózati környezetbe, akkor a szegély és a TOR-eszköz közötti négy fizikai kapcsolatnak csatlakoztatva kell lennie. A statikus útválasztás működése miatt nem garantálható a magas rendelkezésre állás.
 
-A szegély eszközét statikus útvonalakkal kell konfigurálni, amelyek a TOR-eszközökre mutatnak, amelyek a *külső* hálózatra vagy nyilvános VIP-re és az *infrastruktúra* -hálózatra irányuló p2ps mutatnak. A telepítéshez statikus útvonalakat kell megadni a *bmc* és a *külső* hálózatok számára. A kezelők dönthetnek úgy, hogy a következő keretben hagyják el a statikus útvonalakat a *bmc* -hálózaton található felügyeleti erőforrások eléréséhez. Nem kötelező statikus útvonalakat hozzáadni az infrastruktúra és a *switch felügyeleti* hálózatok *váltásához* .
+A szegélyt tartalmazó eszközt statikus útvonalakkal kell konfigurálni, amelyek a TOR és a Azure Stack hálózaton belüli bármely hálózatra irányuló forgalom határa, de csak a *külső* vagy a nyilvános VIP-hálózat szükséges a működéshez. Az első telepítéshez statikus útvonalak szükségesek a *bmc* -hez és a *külső* hálózatokhoz. A kezelők dönthetnek úgy, hogy statikus útvonalakat hagynak a szegélyben a *bmc* -ben és az *infrastruktúra* -hálózaton található felügyeleti erőforrások eléréséhez. Nem kötelező statikus útvonalakat hozzáadni az infrastruktúra és a *switch felügyeleti* hálózatok *váltásához* .
 
-A TOR-eszközök egy statikus alapértelmezett útvonalon vannak konfigurálva, amely az összes forgalmat a szegély eszközeire küldi. Az alapértelmezett szabály alóli egyetlen forgalmi kivétel a privát területre vonatkozik, amely le van tiltva a TOR-ra vonatkozó Access Control lista használatával.
+A TOR-eszközök statikus alapértelmezett útvonalon vannak konfigurálva, és a teljes adatforgalmat a szegély eszközeire küldik. Az alapértelmezett szabály alóli egyetlen forgalmi kivétel a privát területre vonatkozik, amely le van tiltva a TOR-ra vonatkozó Access Control lista használatával.
 
 A statikus útválasztás csak a TOR és a Border kapcsolók közötti kapcsolatokra vonatkozik. A BGP dinamikus útválasztás az állványon belül van használatban, mivel ez nélkülözhetetlen eszköz a SLB és más összetevők számára, és nem tiltható le és nem távolítható el.
 
 ![Statikus útválasztás](media/azure-stack-border-connectivity/static-routing.png)
 
-<sup>\*</sup>Az üzembe helyezés után a BMC-hálózat nem kötelező.
+<sup>\*</sup> Az üzembe helyezés után a BMC-hálózat nem kötelező.
 
-<sup>\*\*</sup>A kapcsoló-infrastruktúra hálózata nem kötelező, mivel a teljes hálózat belefoglalható a váltási felügyeleti hálózatba.
+<sup>\*\*</sup> A kapcsoló-infrastruktúra hálózata nem kötelező, mivel a teljes hálózat belefoglalható a váltási felügyeleti hálózatba.
 
-<sup>\*\*\*</sup>A kapcsoló-felügyeleti hálózatot kötelező megadni, és a kapcsoló infrastruktúra hálózata külön is felvehető.
+<sup>\*\*\*</sup> A kapcsoló-felügyeleti hálózatot kötelező megadni, és a kapcsoló infrastruktúra hálózata külön is felvehető.
 
 ## <a name="transparent-proxy"></a>Transzparens proxy
 Ha az adatközpontban az összes forgalom proxy használatára van szüksége, egy *transzparens proxyt* kell konfigurálnia az állványról a szabályzatnak megfelelően kezelendő összes forgalom feldolgozásához, a hálózati zónák közötti forgalom elkülönítésével.
@@ -69,5 +69,5 @@ Egy transzparens proxy (más néven lehallgatás, beágyazott vagy kényszeríte
 
 ![Transzparens proxy](media/azure-stack-border-connectivity/transparent-proxy.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [DNS-integráció](azure-stack-integrate-dns.md)
