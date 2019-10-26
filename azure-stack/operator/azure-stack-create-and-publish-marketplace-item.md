@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/25/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a8f24c11f8e72c4b3e2b99ae6b2a417e3bd0cba
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: 5481cdc7e4ad8dc2b3b3cbbb56a403335ff97524
+ms.sourcegitcommit: 35de1a6e0fb6fe9f938d613f161dc378b3452541
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310589"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72915204"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Egyéni Azure Stack Marketplace-elemek létrehozása és közzététele
 
@@ -141,7 +141,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     }
     ```
 
-    ![Package Display @ no__t-1 ![Package kijelző @ no__t-3
+    ![csomag megjeleníti](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![csomag megjelenítését](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont a [Azure stack API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
 
@@ -156,10 +156,10 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 10. A manifest. JSON további szerkesztését a következő témakörben tekintheti meg [: hivatkozás: Marketplace Item manifest. JSON](#reference-marketplace-item-manifestjson).
 
-11. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGalleryPackager. exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
+11. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGallery. exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
 
     ```shell
-    .\AzureGalleryPackager.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
     ```
 
     > [!NOTE]
@@ -192,7 +192,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
    A katalógus-csomag befejezése és az **Add-AzsGalleryItem**használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
 
-   [![Egyéni Marketplace-elemek feltöltött](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Egyéni Marketplace-elemek feltöltve")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+   [![Egyéni Marketplace-elemek feltöltve](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Egyéni Marketplace-elemek feltöltve")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
 6. Miután sikeresen közzétette az elemet a piactéren, törölheti a tartalmat a Storage-fiókból.
 
