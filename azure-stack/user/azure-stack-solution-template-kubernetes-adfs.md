@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: d1ac66074f88ed131623888d8f1aa6ba044686b3
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: a57d1d1520eb09e52e651d65c92314723c3aee4f
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277683"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047222"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes üzembe helyezése Azure Stack Active Directory összevont szolgáltatások használatával
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
-> A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A cikk lépéseit követve üzembe helyezheti és beállíthatja a Kubernetes erőforrásait. Ezeket a lépéseket akkor használja, ha Active Directory összevont szolgáltatások (AD FS) a személyazonosság-kezelési szolgáltatás.
 

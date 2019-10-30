@@ -15,16 +15,16 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 0b1c28369fb1865778c68040894d100af9ea7fd6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 93a835b6d3eff233ccbd421930f9618325126ea4
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019182"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73057773"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Mi a Azure Stack AK-motorja?
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 A Kubernetes-fürtök Azure Stack Azure-beli üzembe helyezéséhez és kezeléséhez használhatja az KABAi motor parancssori eszközét is. A Azure Resource Manager natív fürtök létrehozásához, frissítéséhez és méretezéséhez használja az AK motort. A motorral a csatlakoztatott és a leválasztott környezetekben is telepíthet fürtöt. Ez a cikk áttekintést nyújt az AK-motorról, a motor és a Azure Stack használatának támogatott forgatókönyveit, valamint az olyan műveletek bevezetését, mint például a telepítés, a frissítés és a skálázás.
 
@@ -50,7 +50,7 @@ A Azure Stack támogatási csapat az alábbi forgatókönyveket támogatja:
 2.  Az AK-motor üzembe helyezi a fürtöt egy meglévő VNET. További információ: [Egyéni virtuális hálózat használata az Kabai motorral](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md).
 3.  [Frissítési](azure-stack-kubernetes-aks-engine-upgrade.md) és [méretezési](azure-stack-kubernetes-aks-engine-scale.md) műveletek.
 
-További információ az AK-motorról és a Azure Stackről: az [AK-motorra vonatkozó támogatási szabályzatok Azure stack](azure-stack-kubernetes-ask-engine-support.md).
+További információ az AK-motorról és a Azure Stackről: az [AK-motorra vonatkozó támogatási szabályzatok Azure stack](azure-stack-kubernetes-aks-engine-support.md).
 
 ## <a name="install-the-aks-engine-and-deploy-a-kubernetes-cluster"></a>Az AK-motor telepítése és a Kubernetes-fürt üzembe helyezése
 
@@ -62,7 +62,7 @@ Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stackon:
      - [Az KABAi motor telepítése Linux rendszeren Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)
 3. [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor előfeltételeinek beállítása](azure-stack-kubernetes-aks-engine-set-up.md)

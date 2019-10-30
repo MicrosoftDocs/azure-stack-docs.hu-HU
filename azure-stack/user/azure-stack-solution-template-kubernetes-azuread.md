@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e625ba27e683dc11cd8a825441ef73ef37d00f0a
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 902645ffcb6fda4afad76a1a258b55f0ace2b189
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277708"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047249"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack a Azure Active Directory használatával
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
-> A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A cikk lépéseit követve üzembe helyezheti és beállíthatja a Kubernetes erőforrásait, ha az Azure Active Directory (Azure AD) használja az Identitáskezelés szolgáltatásként, egyetlen, koordinált műveletben.
 
@@ -69,7 +69,7 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
 
 1. Jegyezze fel az **alkalmazás azonosítóját**. A fürt létrehozásakor szüksége lesz az AZONOSÍTÓra. Az azonosító az **egyszerű szolgáltatásnév ügyfél-azonosítójaként**van hivatkozva.
 
-1. A szolgáltatás alapelveinek paneljén válassza az **új ügyfél titkot**. **Beállítások**@no__t – 1**kulcs**. A szolgáltatási elv hitelesítési kulcsát kell létrehoznia.
+1. A szolgáltatás alapelveinek paneljén válassza az **új ügyfél titkot**. A **beállítások** > **kulcsok**. A szolgáltatási elv hitelesítési kulcsát kell létrehoznia.
 
     a. Adja meg a **leírást**.
 

@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 10/10/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 14a32696a3e46782b8990ba57f9510976200f7d3
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277569"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047220"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>A Kubernetes telepítésének hibája Azure Stack
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
-> A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 Ez a cikk azt ismerteti, hogyan lehet elhárítani a Kubernetes-fürtöt. A hibaelhárítás megkezdéséhez tekintse át a központi telepítéshez szükséges elemeket. Előfordulhat, hogy az üzembe helyezési naplókat Azure Stack vagy a Kubernetes futtató Linux rendszerű virtuális gépekről kell összegyűjtenie. A naplók felügyeleti végpontból való lekéréséhez forduljon a Azure Stack rendszergazdájához.
 
@@ -159,7 +159,7 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Néhány perc elteltével a szkript kiírja az összegyűjtött naplókat egy `KubernetesLogs_{{time-stamp}}` nevű könyvtárba. Itt talál egy könyvtárat a fürthöz tartozó minden egyes virtuális géphez.
+4. Néhány perc elteltével a szkript kiírja az összegyűjtött naplókat egy `KubernetesLogs_{{time-stamp}}`nevű könyvtárba. Itt talál egy könyvtárat a fürthöz tartozó minden egyes virtuális géphez.
 
     A log Collector parancsfájl a naplófájlokban is hibákat keres, és hibaelhárítási lépéseket is tartalmaz, ha ismert problémát talál. Győződjön meg arról, hogy a szkript legújabb verzióját futtatja, hogy növelje az ismert problémák megtalálásának esélyét.
 

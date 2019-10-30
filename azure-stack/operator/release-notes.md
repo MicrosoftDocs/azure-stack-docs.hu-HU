@@ -16,12 +16,12 @@ ms.date: 10/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 4dd8bd48cfd9c842556cae7c359a805e88754ab0
-ms.sourcegitcommit: 64c18637cafcc38044d139bf35b16422ada8160c
+ms.openlocfilehash: 1e15358f88e7aece62425042536d775b707f567f
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72889846"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047131"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -119,7 +119,7 @@ Azure Stack gyorsjavítások csak Azure Stack integrált rendszerekre alkalmazha
 A Azure Stack 1908-es kiadását a 1907-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack gyorsjavítás 1.1907.17.54](https://support.microsoft.com/help/4523826)
+- [Azure Stack gyorsjavítás 1.1907.18.56](https://support.microsoft.com/help/4528552)
 
 A Azure Stack 1908 frissítéshez **Azure stack OEM 2,1-es vagy újabb verzió** szükséges a rendszer hardver-szolgáltatójából. Az OEM-frissítések a Azure Stack rendszer hardverének illesztőprogram-és belső vezérlőprogram-frissítéseit tartalmazzák. További információ az OEM-frissítések alkalmazásáról: [Azure stack eredeti berendezésgyártó frissítéseinek alkalmazása](azure-stack-update-oem.md)
 
@@ -250,7 +250,7 @@ A Azure Stack 1907-es kiadását a 1906-es kiadásra kell alkalmazni a következ
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack gyorsjavítás 1.1907.17.54](https://support.microsoft.com/help/4523826)
+- [Azure Stack gyorsjavítás 1.1907.18.56](https://support.microsoft.com/help/4528552)
 ::: moniker-end
 
 ::: moniker range="azs-1906"

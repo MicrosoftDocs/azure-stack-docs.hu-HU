@@ -11,23 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283432"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047182"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes hozzáadása a Azure Stack Marketplace-hez
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!note]  
-> A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-aks-engine.md).
+
 A Kubernetes-t Piactéri elemekként is kínálhatja a felhasználók számára. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes.
 
 A következő cikk a különálló Kubernetes-fürtök erőforrásainak üzembe helyezéséhez és kiépítéséhez Azure Resource Manager sablont használ. Mielőtt elkezdené, tekintse át a Azure Stack és a globális Azure-bérlői beállításokat. Gyűjtse össze a Azure Stack szükséges információkat. Adja hozzá a szükséges erőforrásokat a bérlőhöz és a Azure Stack Marketplace-hez. A fürt az Ubuntu-kiszolgálótól, az egyéni szkripttől és a Kubernetes-fürt Piactéri elemtől függ a piactéren.

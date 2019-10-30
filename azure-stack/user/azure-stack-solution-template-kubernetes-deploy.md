@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 74cad0b1f41c5c764bef361f3f521162eec59198
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 0fc45ae0413fb7e269d8d7347e2279895c234950
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277654"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047168"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>A Kubernetes üzembe helyezése tárolók használatára Azure Stack
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
-> A Azure Stack Kubernetes előzetes verzióban érhető el. Az előzetes verzió jelenleg nem támogatja Azure Stack leválasztott forgatókönyv használatát. Csak fejlesztési és tesztelési forgatókönyvek esetén használja a Piactéri elemeket.
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A cikk lépéseit követve üzembe helyezheti és állíthatja be a Kubernetes erőforrásait egyetlen, koordinált műveletben. A lépések Azure Resource Manager megoldási sablont használnak. Össze kell gyűjtenie a szükséges információkat a Azure Stack telepítéséről, elő kell állítania a sablont, majd üzembe kell helyeznie a felhőben. A Azure Stack sablon nem ugyanazt a felügyelt AK-szolgáltatást használja, mint a globális Azure-ban.
 

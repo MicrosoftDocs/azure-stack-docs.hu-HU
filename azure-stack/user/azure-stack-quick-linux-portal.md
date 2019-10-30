@@ -1,5 +1,5 @@
 ---
-title: Linux Server rendszerű virtuális gép létrehozása Azure Stack használatával | Microsoft Docs
+title: Linuxos virtuális gép létrehozása Azure Stack használatával | Microsoft Docs
 description: Hozzon létre egy Linux-alapú virtuális gépet Azure Stack használatával.
 services: azure-stack
 cloud: azure-stack
@@ -12,16 +12,16 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7bfb56ef9fcb2795a579321bfa58ded872ed3485
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5c3b8d85f5dca0eeb439ca475d4396848d316366
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824362"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047268"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Gyors útmutató: Linux rendszerű virtuális gép létrehozása a Azure Stack portál használatával
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Gyors útmutató: linuxos kiszolgálói virtuális gép létrehozása a Azure Stack portál használatával
 
-*Vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
 
 A Azure Stack portál használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
@@ -70,7 +70,7 @@ SSH kulcspár létrehozása:
 
 A Azure Stack-portál címe attól függ, hogy Azure Stack melyik termékhez csatlakozik:
 
-* A ASDK nyissa meg a https://portal.local.azurestack.external értéket.
+* A ASDK nyissa meg a https://portal.local.azurestack.external.
 
 * Azure Stack integrált rendszer esetén keresse meg a Azure Stack operátor által megadott URL-címet.
 
@@ -119,7 +119,7 @@ A Azure Stack-portál címe attól függ, hogy Azure Stack melyik termékhez csa
 
 1. A **Kategória** panelen görgessen felfelé, és válassza a **munkamenet**lehetőséget.
 
-1. Az **állomásnév (vagy IP-cím)** mezőben illessze be a Azure stack-portálon megjelenített kapcsolatok karakterláncát. Ebben a példában a karakterlánc a következő: *asadmin@192.168.102.34* .
+1. Az **állomásnév (vagy IP-cím)** mezőben illessze be a Azure stack-portálon megjelenített kapcsolatok karakterláncát. Ebben a példában a sztring *asadmin@192.168.102.34* .
 
 1. Válassza a **Megnyitás** lehetőséget a virtuális gép munkamenetének megnyitásához.
 
@@ -163,7 +163,7 @@ A hálózati biztonsági csoport (NSG) biztosítja A bejövő és a kimenő forg
 
 Ha az NGINX telepítve van, és a 80-es port meg van nyitva a virtuális gépen, a virtuális gép nyilvános IP-címének használatával érheti el a webkiszolgálót. (A nyilvános IP-cím a virtuális gép **Áttekintés** lapján látható.)
 
-Nyisson meg egy webböngészőt, és lépjen a *http://\<PUBLIC IP-cím >* elemre.
+Nyisson meg egy webböngészőt, és válassza a *http://\<nyilvános IP-cím >* lehetőséget.
 
 ![Az NGINX webkiszolgáló kezdőlapja](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
@@ -171,6 +171,6 @@ Nyisson meg egy webböngészőt, és lépjen a *http://\<PUBLIC IP-cím >* elemr
 
 Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. A virtuális gép és erőforrásai törléséhez válassza ki az erőforráscsoportot a virtuális gép lapon, majd válassza a **Törlés**lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített egy webkiszolgálóval. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa a [Azure stack virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).
