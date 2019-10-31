@@ -9,14 +9,16 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c11d5ad563ff673cfaf9e28cea7373bbc6e551aa
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543800"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167291"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack FortiGate NVA használatával
+
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk azt ismerteti, hogyan hozható létre VPN-kapcsolat a Azure Stackhoz. A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack és egy távoli VPN-átjáró között a virtuális hálózat között. Az alábbi eljárás az egyik VNET üzembe helyezi egy FortiGate-NVA, egy hálózati virtuális berendezéssel, egy erőforráscsoporton belül. Emellett útmutatást nyújt az IPSec VPN beállításához a FortiGate-NVA.
 
@@ -34,7 +36,7 @@ Ez a cikk azt ismerteti, hogyan hozható létre VPN-kapcsolat a Azure Stackhoz. 
     > [!Note]  
     > Ha nem rendelkezik a **Fortinet FortiGate-VM for Azure BYOL** és **FortiGate NGFW – egyetlen virtuálisgép-telepítés (BYOL)** a Azure stack piactéren, lépjen kapcsolatba a felhőalapú szolgáltatójával.
 
--  A FortiGate NVA aktiválásához szüksége lesz legalább egy elérhető FortiGate-fájlra. A licencek beszerzésével kapcsolatos információkat lásd: a Fortinet-dokumentum [regisztrálása és a licenc letöltése](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
+-  A FortiGate-NVA aktiválásához szüksége lesz legalább egy elérhető FortiGate-fájlra. A licencek beszerzésével kapcsolatos információkat lásd: a Fortinet-dokumentum [regisztrálása és a licenc letöltése](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
     Ez az eljárás az [egyetlen FortiGate-VM-telepítést](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)használja. A FortiGate-NVA a helyszíni hálózatban lévő, a Azure Stack VNET való összekapcsolásával kapcsolatban talál további lépéseket.
 
@@ -116,7 +118,7 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
 
-5. Válassza az *Igen*lehetőséget.
+5. Válassza az *Igen* lehetőséget.
 
 6. Új útvonal hozzáadásához válassza a **Hozzáadás** lehetőséget.
 

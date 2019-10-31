@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7e866187c81b488cc90f7ddaa443db4868ba4d9
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 2ee5a873a6281ed5d71db05b05abd15986043676
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417736"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167368"
 ---
 # <a name="create-an-oem-package"></a>OEM-csomag létrehozása
 
@@ -34,11 +34,11 @@ A létrehozás és az ellenőrzés után az OEM-bővítmény használható az al
 
 1. Azonosítsa a csomag következő tartalmát:
     - A csomag tartalmát tartalmazó Zip-fájl
-    - Egy nevű `oemMetadata.xml`jegyzékfájl, amelynek meg kell egyeznie a tartalomban található metadata. xml fájl tartalmával.
+    - Egy `oemMetadata.xml`nevű jegyzékfájl, amelynek meg kell egyeznie a tartalomban található metadata. xml fájl tartalmával.
 
 2. Válassza ki a tartalmi fájlokat, és hozzon létre egy zip-fájlt a tartalomból:
 
-    ![Zip-fájl](media/vaas-create-oem-package-1.png) tartalmát ![tömörítő elemek tartalma](media/vaas-create-oem-package-2.png)
+    ![zip-fájl tartalma](media/vaas-create-oem-package-1.png) ![az elemek tartalmának tömörítése](media/vaas-create-oem-package-2.png)
 
 3. Nevezze át az eredményül kapott fájlt, hogy a rendszer elég legyen annak azonosításához.
 
@@ -52,6 +52,6 @@ A zip-fájl struktúrájának ellenőrzéséhez vizsgálja meg, és ellenőrizze
 
 A zip-fájl már feltölthető az Varga-ra, és a Microsoft aláírja a csomag-ellenőrzési munkafolyamatban.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [OEM-csomag ellenőrzése](azure-stack-vaas-validate-oem-package.md)

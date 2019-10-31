@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d42b1f161d1b74633c4e9924e45677a57b3493e1
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277817"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167134"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
@@ -66,7 +66,7 @@ Ha a Azure Stack havi frissítés-ellenőrzési munkafolyamatot futtatja, és az
 
 - Az alapkövetelmények
 
-    @no__t – 0 már nem igényel Felhőbeli rendszergazdai hitelesítő adatokat. Ha a parancsmag legújabb verzióját futtatja, az előfeltételek telepítéséhez tekintse meg az [ügynök letöltése és telepítése](azure-stack-vaas-local-agent.md#download-and-install-the-agent) című témakört a felülvizsgált parancsokhoz. Íme a parancsok:
+    `Install-VaaSPrerequisites` többé nem szükségesek a Felhőbeli rendszergazdai hitelesítő adatok. Ha a parancsmag legújabb verzióját futtatja, tekintse meg a [helyi ügynök letöltése és telepítése](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) című témakört az előfeltételek telepítéséhez szükséges átdolgozott parancsokhoz. Íme a parancsok:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -83,7 +83,7 @@ Ha a Azure Stack havi frissítés-ellenőrzési munkafolyamatot futtatja, és az
 
 - Az előfeltételeket és a VHD-frissítéseket
 
-    @no__t – 0 most megköveteli a Felhőbeli rendszergazdai hitelesítő adatok megadását a csomagok ellenőrzése során felmerülő problémák megoldásához. Az [ügynök letöltésére és telepítésére](azure-stack-vaas-local-agent.md#download-and-install-the-agent) szolgáló dokumentáció a következővel frissült:
+    `Install-VaaSPrerequisites` most a Felhőbeli rendszergazdai hitelesítő adatokkal kell rendelkeznie a csomagok ellenőrzése során felmerülő problémák megoldásához. A [helyi ügynök letöltésére és telepítésére](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) szolgáló dokumentáció frissítve lett a következővel:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -96,11 +96,11 @@ Ha a Azure Stack havi frissítés-ellenőrzési munkafolyamatot futtatja, és az
                               -CloudAdminCredentials $CloudAdminCreds
     ```
     > [!NOTE]
-    > A parancsfájl által igényelt @no__t – 0 az érvényesített Azure Stack-példányra vonatkozóan szükséges. Nem az a Azure Active Directory hitelesítő adat, amelyet az alaprendszer-bérlő használ.
+    > A parancsfájl által igényelt `$CloudAdminCreds` az érvényesített Azure Stack-példányhoz van. Nem az a Azure Active Directory hitelesítő adat, amelyet az alaprendszer-bérlő használ.
 
 - Helyi ügynök frissítése
 
-    A helyi ügynök előző verziója nem kompatibilis a szolgáltatás aktuális 4.0.0-kiadásával. Minden felhasználónak frissítenie kell a helyi ügynököket. A legújabb ügynök telepítésével kapcsolatos utasításokért tekintse meg [az ügynök letöltése és telepítése](azure-stack-vaas-local-agent.md#download-and-install-the-agent) című témakört.
+    A helyi ügynök előző verziója nem kompatibilis a szolgáltatás aktuális 4.0.0-kiadásával. Minden felhasználónak frissítenie kell a helyi ügynököket. A legújabb ügynök telepítésével kapcsolatos utasításokért tekintse meg [a helyi ügynök letöltése és telepítése](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) című témakört.
 
 - PowerShell Automation frissítése
 

@@ -257,6 +257,8 @@
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Helyek közötti VPN-kapcsolat létrehozása
           href: azure-stack-create-vpn-connection-one-node.md
+        - name: Ajánlat CommVault Marketplace-tétel
+          href: azure-stack-network-offer-backup-commvault.md
     - name: Szolgáltatások ajánlása
       items:
         - name: 'Szolgáltatás, csomag, ajánlat, előfizetés áttekintése'

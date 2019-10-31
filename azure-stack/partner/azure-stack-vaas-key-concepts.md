@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1ffb66bb1abe9f2ffb64162f834c682df2aaa609
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a79b6e6f34c8293febf30a9cb48ddbfae9c99816
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418402"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167329"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
 
@@ -34,10 +34,10 @@ Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure St
 
 1. Jelentkezzen be az [Varga portálra](https://azurestackvalidation.com).
 2. A megoldások irányítópulton válassza az **új megoldás**lehetőséget.
-3. Adja meg a megoldás nevét. A névadási javaslatokért lásd: [az](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions)alaprendszerek elnevezési konvenciója.
+3. Adja meg a megoldás nevét. A névadási javaslatokért lásd: az alaprendszerek [elnevezési konvenciója](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. A megoldás létrehozásához válassza a **Mentés** lehetőséget.
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Munkafolyamatok
 
 Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack üzemelő példány funkcióit gyakorolják. Létre kell hozni egy munkafolyamatot egy Azure Stack-megoldás minden központi telepítéséhez vagy szoftverfrissítési frissítéséhez.
 
@@ -46,7 +46,7 @@ A munkafolyamatok tesztelési forgatókönyv típusa szerint vannak kategorizál
 ![Az Varga munkafolyamatok csempéi](media/tile_all-workflows.png)
 
 > [!NOTE]
-> A **csomag-ellenőrzési** munkafolyamat jelenleg két forgatókönyvet támogat: [OEM-csomagok érvényesítése](azure-stack-vaas-validate-oem-package.md) és [a szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md).
+> A **csomag-ellenőrzési** munkafolyamat jelenleg két forgatókönyvet támogat: az [OEM-csomagok érvényesítése](azure-stack-vaas-validate-oem-package.md) és [a Microsofttól származó szoftverfrissítések ellenőrzése](azure-stack-vaas-validate-microsoft-updates.md).
 
 A munkafolyamat-típusokkal kapcsolatos további információkért tekintse meg a [Mi az érvényesítési szolgáltatás a Azure stack?](azure-stack-vaas-overview.md)című témakört.
 
@@ -54,14 +54,14 @@ A munkafolyamat-típusokkal kapcsolatos további információkért tekintse meg 
 
 1. A megoldások irányítópulton hozzon létre egy új megoldást, vagy válasszon ki egy meglévőt. Ez frissíti és aktiválja a munkafolyamat-csempéket.
 2. Ha új munkafolyamatot szeretne létrehozni, válassza az **Indítás** bármely csempén lehetőséget. Az egyes munkafolyamatokkal kapcsolatos információkért tekintse meg a következő cikkeket:
-    - Teszt menete: [Rövid útmutató: Az érvényesítés a szolgáltatás-portálon az első teszt beütemezhetés céljából](azure-stack-vaas-schedule-test-pass.md)
-    - Megoldás ellenőrzése: [Új Azure Stack-megoldás ellenőrzése](azure-stack-vaas-validate-solution-new.md)
-    - Csomag ellenőrzése (havi frissítés): [Szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md)
+    - Test pass: gyors útmutató [: az ellenőrzés használata a szolgáltatás-portálon az első teszt beütemezett végrehajtásához](azure-stack-vaas-schedule-test-pass.md)
+    - Megoldás ellenőrzése: [új Azure stack megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md)
+    - Csomag ellenőrzése (havi frissítés): [szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md)
     - Csomag ellenőrzése (csomag aláírása): [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md)
 
 3. Meglévő munkafolyamat kezeléséhez vagy figyeléséhez válassza a **kezelés** lehetőséget a munkafolyamat csempén. Válassza ki a munkafolyamat nevét, és a **Szerkesztés** gombbal tekintse meg a tulajdonságokat, vagy módosítsa a gyakori tesztelési paramétereket.
 
-További információ a munkafolyamat-tulajdonságokról és-paraméterekről: [Azure stack érvényesítése szolgáltatásként az általános munkafolyamat](azure-stack-vaas-parameters.md)-paraméterekkel.
+További információ a munkafolyamat-tulajdonságokról és-paraméterekről: [Azure stack érvényesítése szolgáltatásként az általános munkafolyamat-paraméterekkel](azure-stack-vaas-parameters.md).
 
 ## <a name="tests"></a>Tesztek
 
@@ -82,6 +82,6 @@ A helyi ügynökök nem kötődnek egy adott Azure Stack-vagy az Az ajánlott el
 
 Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Ajánlott eljárások szolgáltatásként történő érvényesítéshez](azure-stack-vaas-best-practice.md)

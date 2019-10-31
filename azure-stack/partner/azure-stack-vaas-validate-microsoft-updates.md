@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418283"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167149"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Szoftverfrissítések érvényesítése a Microsofttól
 
@@ -41,23 +41,17 @@ Mielőtt elvégezte a havi frissítési folyamatot az Varga-ban, ismernie kell a
 
 A következő teszteket kell végrehajtani a havi szoftveres ellenőrzéshez a következő sorrendben:
 
-1. Havi Azure Stack frissítés ellenőrzése
-2. Felhőalapú szimulációs motor
+- 1\. lépés – havi AzureStack-frissítés ellenőrzése
+- 2\. lépés – OEM-bővítményi csomag ellenőrzése
+- 3\. lépés – OEM – Cloud szimulációs motor
 
 ## <a name="validating-software-updates"></a>Szoftverfrissítések ellenőrzése
 
 1. Hozzon létre egy új **csomag-ellenőrzési** munkafolyamatot.
 1. A fenti tesztek végrehajtásához kövesse a [csomag-ellenőrzési tesztek futtatásának](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)utasításait. A **havi Azure stack Update ellenőrzési** teszttel kapcsolatos további információkért tekintse meg az alábbi szakaszt.
 
-### <a name="apply-the-monthly-update"></a>A havi frissítés alkalmazása
-
-1. Válasszon ki egy ügynököt a tesztek végrehajtásához.
-1. A **havi Azure stack frissítés ellenőrzésének**ütemezett időpontja.
-1. Adja meg a bélyegzőn jelenleg üzembe helyezett OEM kiterjesztési csomag helyét, valamint a frissítés során alkalmazni kívánt OEM-kiterjesztési csomag helyét. A csomagok URL-címeinek konfigurálásával kapcsolatban lásd: [csomagok kezelése ellenőrzés céljából](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
-1. Kövesse a kiválasztott ügynök felhasználói felületének lépéseit.
-
 Ha kérdése vagy problémája van, lépjen kapcsolatba az "az [Varga súgóval](mailto:vaashelp@microsoft.com)".
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

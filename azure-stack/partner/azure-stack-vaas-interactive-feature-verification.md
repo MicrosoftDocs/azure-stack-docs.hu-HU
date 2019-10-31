@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: af36943ebaa78ad1838506d6614a7fd6671afe4f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 5da64bbd13e2bfde5b469c1ae0de89d85a054e3c
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418471"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167249"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
@@ -70,7 +70,7 @@ Ha nem érhető el meglévő tesztelési fázis, kövesse a [tesztek ütemezés�
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-1. Ennek a  forgatókönyvnek a végrehajtásához kövesse a dokumentációt és az **érvényesítési** hivatkozásokat, és tekintse át a Microsoft utasításait.
+1. Ennek a forgatókönyvnek a végrehajtásához kövesse a **dokumentációt** és az **érvényesítési** hivatkozásokat, és tekintse át a Microsoft utasításait.
 
     ![Helyettesítő szöveg](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
@@ -112,6 +112,6 @@ Ha nem érhető el meglévő tesztelési fázis, kövesse a [tesztek ütemezés�
 
 1. Válassza a **Submit (Küldés** ) lehetőséget az eredmények Microsoftnak való elküldéséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

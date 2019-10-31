@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 69bb9c89793789280debe13a142f4c96470f7c31
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 20d5d2d962fbe85db5d4725c864defe84c2c152c
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418313"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167359"
 ---
 # <a name="validate-oem-packages"></a>OEM-csomagok ellenőrzése
 
@@ -37,28 +37,28 @@ Tesztelheti az új OEM-csomagokat, ha módosult a belső vezérlőprogram vagy a
 
 Ha a csomag- **ellenőrzési** munkafolyamattal ellenőrzi a csomagokat, meg kell adnia egy **Azure Storage-blob**URL-címét. Ez a blob az aláírt OEM-csomag, amelyet a rendszer a frissítési folyamat részeként fog telepíteni. Hozza létre a blobot a telepítés során létrehozott Azure Storage-fiók használatával (lásd: [az érvényesítés beállítása szolgáltatási erőforrásként](azure-stack-vaas-set-up-resources.md)).
 
-### <a name="prerequisite-provision-a-storage-container"></a>Előfeltétele Storage-tároló kiépítése
+### <a name="prerequisite-provision-a-storage-container"></a>Előfeltétel: Storage-tároló kiépítése
 
 Hozzon létre egy tárolót a Storage-fiókban a csomagok Blobok számára. Ez a tároló használható a csomagok ellenőrzésének összes futtatásához.
 
-1. A Azure Portalban nyissa meg az [Érvényesítés beállítása szolgáltatás](azure-stack-vaas-set-up-resources.md)-erőforrásokként beállításban létrehozott Storage-fiókot. [](https://portal.azure.com)
+1. A [Azure Portalban](https://portal.azure.com)nyissa meg az [Érvényesítés beállítása szolgáltatás-erőforrásokként beállításban](azure-stack-vaas-set-up-resources.md)létrehozott Storage-fiókot.
 
-2. A bal oldali panelen a **blob szolgáltatás**területen válassza a tárolók lehetőséget.
+2. A bal oldali panelen a **blob szolgáltatás**területen válassza a **tárolók**lehetőséget.
 
 3. Válassza a menüsorban a **+ tároló** elemet.
-    1. Adja meg a tároló nevét, például `vaaspackages`:.
+    1. Adja meg a tároló nevét, például `vaaspackages`.
     1. Válassza ki a nem hitelesített ügyfelek, például az Varga kívánt hozzáférési szintjét. A csomagok az egyes forgatókönyvekben való hozzáférésének biztosításáról további részleteket a [tárolók hozzáférési szintjének kezelésével](#handling-container-access-level)foglalkozó témakörben talál.
 
 ### <a name="upload-package-to-storage-account"></a>Csomag feltöltése a Storage-fiókba
 
-1. Készítse elő az érvényesíteni kívánt csomagot. Ez egy olyan `.zip` fájl, amelynek tartalmának meg kell egyeznie az [OEM-csomag létrehozása](azure-stack-vaas-create-oem-package.md)című témakörben leírt struktúrával.
+1. Készítse elő az érvényesíteni kívánt csomagot. Ez egy `.zip` fájl, amelynek tartalmának meg kell egyeznie a [OEM-csomag létrehozása](azure-stack-vaas-create-oem-package.md)című témakörben leírt struktúrával.
 
     > [!NOTE]
-    > Győződjön meg arról, `.zip` hogy a tartalom a `.zip` fájl gyökerébe kerül. A csomagban nem lehetnek almappák.
+    > Győződjön meg arról, hogy a `.zip` tartalma a `.zip` fájl gyökerébe kerül. A csomagban nem lehetnek almappák.
 
 1. A [Azure Portal](https://portal.azure.com)válassza ki a csomag tárolót, és töltse fel a csomagot a menüsávon a **feltöltés** lehetőség kiválasztásával.
 
-1. Válassza ki a `.zip` feltölteni kívánt csomagot. Tartsa meg az alapértelmezett **blob** -típust (azaz a **blob blokkolását**) és a **blokk méretét**.
+1. Válassza ki a feltölteni kívánt csomagot `.zip` fájlt. Tartsa meg az alapértelmezett **blob-típust** (azaz a **blob blokkolását**) és a **blokk méretét**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Csomag blob URL-címének előállítása az Varga számára
 
@@ -72,32 +72,32 @@ A **privát** és a **blob** -hozzáférési szintek esetében átmenetileg hozz
 
 |Hozzáférési szint | Munkafolyamat-követelmény | Tesztelési követelmény |
 |---|---------|---------|
-|Magánjellegű | SAS URL-cím létrehozása csomag blobján ([1. lehetőség](#option-1-generate-a-blob-sas-url)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
+|Saját | SAS URL-cím létrehozása csomag blobján ([1. lehetőség](#option-1-generate-a-blob-sas-url)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
 |Blob | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
 |Tároló | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)). | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)).
 
 A csomagok hozzáférésének megadására vonatkozó beállítások a lehető legkevesebb hozzáféréshez vannak rendelve.
 
-#### <a name="option-1-generate-a-blob-sas-url"></a>1\. lehetőség: BLOB SAS URL-cím létrehozása
+#### <a name="option-1-generate-a-blob-sas-url"></a>1\. lehetőség: blob SAS URL-cím létrehozása
 
 Akkor használja ezt a beállítást, ha a tároló hozzáférési szintje **magán**értékre van állítva, ahol a tároló nem engedélyezi a nyilvános olvasási hozzáférést a tárolóhoz vagy a blobokhoz.
 
 > [!NOTE]
-> Ez a metódus nem fog működni az *interaktív* teszteknél. Lásd [a 2. lehetőséget: Tároló SAS URL-címének](#option-2-construct-a-container-sas-url)létrehozása.
+> Ez a metódus nem fog működni az *interaktív* teszteknél. Lásd [a 2. lehetőséget: tároló sas URL-címének létrehozása](#option-2-construct-a-container-sas-url).
 
 1. A [Azure Portal](https://portal.azure.com/)nyissa meg a Storage-fiókját, és navigáljon a csomagot tartalmazó. zip fájlhoz.
 
-2. Válassza a helyi menü **sas** előállítása elemét.
+2. Válassza a helyi menü **sas előállítása** elemét.
 
 3. Válassza az **olvasás** az **engedélyekből**lehetőséget.
 
-4. Állítsa be a **kezdési időt** az aktuális időpontra, a **befejezési időt** pedig legalább 48 óráig a **kezdési**időpontból. Ha más munkafolyamatokat is szeretne létrehozni ugyanazzal a csomaggal, érdemes lehet  megnövelni a tesztelés hosszának befejezési idejét.
+4. Állítsa be a **kezdési időt** az aktuális időpontra, a **befejezési időt** pedig legalább 48 óráig a **kezdési**időpontból. Ha más munkafolyamatokat is szeretne létrehozni ugyanazzal a csomaggal, érdemes lehet megnövelni a tesztelés hosszának **befejezési idejét** .
 
-5. Válassza ki **készítése a blob SAS-jogkivonat és URL-cím**.
+5. Válassza **a blob sas-token és URL-cím előállítása**lehetőséget.
 
 A **blob sas URL-címének** használata a csomag blob URL-címeinek a portálra való megadásakor.
 
-#### <a name="option-2-construct-a-container-sas-url"></a>2\. lehetőség: Tároló SAS URL-címének létrehozása
+#### <a name="option-2-construct-a-container-sas-url"></a>2\. lehetőség: tároló SAS URL-címének létrehozása
 
 Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szintje **magánjellegűre** van állítva, és egy *interaktív* teszthez meg kell adnia egy csomag blob URL-címét. Ezt az URL-címet a munkafolyamat szintjén is használhatja.
 
@@ -105,20 +105,20 @@ Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szint
 
 1. Válassza a **blob** lehetőséget az **engedélyezett szolgáltatások beállításai**közül. Törölje a többi beállítást.
 
-1. Válassza  ki a tárolót és az **objektumot** az **engedélyezett erőforrástípusok**közül.
+1. Válassza ki a **tárolót** és az **objektumot** az **engedélyezett erőforrástípusok**közül.
 
 1. Válassza az **olvasás** és **Listázás** lehetőséget az **engedélyezett engedélyek**közül. Törölje a többi beállítást.
 
-1. Válassza ki a **kezdési időt** az aktuális idő és a **Befejezés időpontja** szerint legalább 14 napig a **kezdési**időpontból. Ha más teszteket is futtat ugyanazzal a csomaggal, érdemes megfontolnia a tesztelési **idő** hosszának növelését. Az összes, a befejezési **időpont** utáni ütemezett teszt sikertelen lesz, és új sas-t kell létrehozni.
+1. Válassza ki a **kezdési időt** az aktuális idő és a **Befejezés időpontja** szerint legalább 14 napig a **kezdési időpontból**. Ha más teszteket is futtat ugyanazzal a csomaggal, érdemes megfontolnia a tesztelési **idő** hosszának növelését. Az összes, a **befejezési időpont** utáni ütemezett teszt sikertelen lesz, és új sas-t kell létrehozni.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    A formátumnak a következőképpen kell megjelennie:`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+    A formátumnak a következőképpen kell megjelennie: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. Módosítsa a generált sas URL-címét, hogy tartalmazza a `{containername}`csomag tárolóját, és a csomag `{mypackage.zip}`blobjának nevét, az alábbiak szerint:`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+1. Módosítsa a generált SAS URL-címet, hogy tartalmazza a csomag tárolóját, a `{containername}`és a csomag blobjának nevét `{mypackage.zip}`a következőképpen: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
     Akkor használja ezt az értéket, ha a csomag blob URL-címét adja meg a portálon.
 
-#### <a name="option-3-grant-public-read-access"></a>3\. lehetőség: Nyilvános olvasási hozzáférés megadása
+#### <a name="option-3-grant-public-read-access"></a>3\. lehetőség: nyilvános olvasási hozzáférés megadása
 
 Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára engedélyezi az egyes blobokhoz való hozzáférést, vagy *interaktív* tesztek esetén a tárolót.
 
@@ -148,24 +148,30 @@ Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára
 
 5. Adja meg az Azure Storage-blob URL-címét a Microsofttól származó aláírást igénylő teszt aláírt OEM-csomaghoz. Útmutatásért lásd: [csomag blob URL-címének előállítása az Varga számára](#generate-package-blob-url-for-vaas).
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. Másolja a AzureStack-frissítési csomag mappáját egy helyi könyvtárba a DVM. Adja meg a szülő könyvtár elérési útját a "AzureStack frissítési csomag mappájának elérési útja"
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. Másolja a fent létrehozott OEM-csomag mappát a DVM egy helyi könyvtárába. Adja meg a szülő könyvtár elérési útját az "OEM-frissítési csomag mappájának elérési útja"
+
+    > [!NOTE]
+    > Másolja a AzureStack Update és az OEM Update-et **2 külön** szülő könyvtárba.
+
+8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Munkafolyamat létrehozása után a környezeti paraméterek nem módosíthatók.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     A rendszer átirányítja a tesztek összegzése lapra.
 
 ## <a name="required-tests"></a>Szükséges tesztek
 
-Az OEM-csomagok ellenőrzéséhez az alábbi tesztek szükségesek:
+Az alábbi tesztek szükségesek a futtatásához a megadott sorrendben az OEM-csomagok érvényesítéséhez:
 
-- OEM kiterjesztési csomag ellenőrzése
-- Felhőalapú szimulációs motor
+- 1\. lépés – havi AzureStack-frissítés ellenőrzése
+- 2\. lépés – OEM-bővítményi csomag ellenőrzése
+- 3\. lépés – OEM – Cloud szimulációs motor
 
 ## <a name="run-package-validation-tests"></a>Csomag-ellenőrzési tesztek futtatása
 
@@ -177,43 +183,23 @@ Az OEM-csomagok ellenőrzéséhez az alábbi tesztek szükségesek:
     > Egy meglévő példányon egy érvényesítési teszt ütemezése egy új példányt hoz létre a régi példány helyett a portálon. A régi példány naplói megmaradnak, de nem érhetők el a portálról.  
     > Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva.
 
-2. Válassza ki azt az ügynököt, amely a tesztet futtatni fogja. A helyi tesztelési végrehajtó ügynökök hozzáadásával kapcsolatos információkért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
+2. A csomagok ellenőrzésekor a felsorolt sorrendben fogja futtatni a **szükséges teszteket**.
 
-3. Az OEM kiterjesztési csomag ellenőrzésének befejezéséhez válassza az **Ütemezés** lehetőséget a helyi menüből, és nyisson meg egy parancssort a tesztelési példány ütemezéséhez.
+    > [!CAUTION]
+    > Az Varga a teszteket az ütemezett sorrendben futtatja. A teszteket a megadott sorrendben kell ütemezni.
 
-4. Tekintse át a tesztelési paramétereket, majd válassza a **Submit (Küldés** ) lehetőséget az OEM-bővítmények ellenőrzésének végrehajtásához.
+3. Válassza ki azt az ügynököt, amely a tesztet futtatni fogja. A helyi tesztelési végrehajtó ügynökök hozzáadásával kapcsolatos információkért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-    Az OEM-bővítmények ellenőrzése két manuális lépésre oszlik: Azure Stack Update és az OEM Update.
+4. A teszt futtatásának ütemezéséhez válassza az **Ütemezés** lehetőséget a helyi menüben, és nyisson meg egy kérdést a tesztelési példány ütemezéséhez.
 
-   1. **Válassza ki** Az elővizsgálati parancsfájl végrehajtásához futtassa a "Futtatás" parancsot. Ez egy automatizált teszt, amely körülbelül 5 percet vesz igénybe, és nem igényel műveletet.
+5. Tekintse át a tesztelési paramétereket, majd válassza a **Submit (Küldés** ) lehetőséget a teszt elvégzéséhez.
 
-   1. Az előellenőrzési parancsfájl befejeződése után végezze el a manuális lépést: **telepítse** a legújabb elérhető Azure stack frissítést a Azure stack portál használatával.
+6. A következő teszt ütemezése előtt nem kell megvárnia, amíg a teszt be nem fejeződik. Az összes **kötelező** tesztet a fent megadott sorrendben ütemezze.
 
-   1. **Futtatás** Test-AzureStack a bélyegzőn. Ha bármilyen hiba történik, ne folytassa a teszttel és a kapcsolatfelvételsel [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+7. Tekintse át a **szükséges** tesztek eredményét.
 
-       További információ a test-AzureStack parancs futtatásáról: [Azure stack rendszerállapotának ellenőrzése](../operator/azure-stack-diagnostic-test.md).
+A csomag-aláírási kérelem elküldéséhez küldje el [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) a futtatáshoz társított megoldás nevét és a csomag érvényesítési nevét.
 
-   1. **Válassza ki** A "Next" (tovább) gombra a postcheck parancsfájl végrehajtásához. Ez egy automatizált teszt, amely a Azure Stack frissítési folyamat végét jelöli.
-
-   1. **Válassza ki** Futtassa az "Run" parancsot az OEM-frissítés elővizsgálati parancsfájljának végrehajtásához.
-
-   1. Ha az előzetes ellenőrzés befejeződött, hajtsa végre a manuális lépést: **telepítse** az OEM-bővítmény csomagot a portálon keresztül.
-
-   1. **Futtatás** Test-AzureStack a bélyegzőn.
-
-      > [!NOTE]
-      > Ahogy korábban is, ne folytassa a teszttel, és [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) lépjen kapcsolatba, ha az sikertelen. Ez a lépés kritikus fontosságú, mivel az újratelepítést fogja menteni.
-
-   1. **Válassza ki** A "Next" (tovább) gombra a postcheck parancsfájl végrehajtásához. Ez az OEM frissítés lépésének végét jelöli.
-
-   1. Válaszoljon a teszt végén megjelenő további kérdésekre, és válassza a Küldés **lehetőséget** .
-
-   1. Ez az interaktív teszt végét jelöli.
-
-5. Tekintse át az OEM kiterjesztési csomag ellenőrzésének eredményét. Ha a teszt sikeres volt, ütemezze a felhőalapú szimulációs motort a végrehajtáshoz.
-
-A csomag-aláírási kérelem elküldéséhez küldje [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) el a futtatáshoz társított megoldás nevét és a csomag érvényesítési nevét.
-
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

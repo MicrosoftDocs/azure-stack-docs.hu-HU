@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6b4e74cce10522fc241c7662ed381793bd264093
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 930a8ea40fde7a021a893e5289d16fa73398300f
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418578"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167267"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>Ajánlott eljárások szolgáltatásként történő érvényesítéshez
 
@@ -28,7 +28,7 @@ ms.locfileid: "68418578"
 
 Ez a cikk az erőforrások szolgáltatásként történő érvényesítésének ajánlott eljárásait ismerteti. Az alaprendszer-erőforrások áttekintéséhez tekintse meg az [Érvényesítés a szolgáltatás alapvető fogalmai](azure-stack-vaas-key-concepts.md)című témakört.
 
-## <a name="solution-management"></a>Megoldások kezelése
+## <a name="solution-management"></a>Megoldás-kezelés
 
 ### <a name="naming-convention-for-vaas-solutions"></a>Az Varga-megoldások elnevezési konvenciója
 
@@ -48,10 +48,10 @@ Ugyanazt az adatbázis-megoldást használja, ha ugyanazon hardveres SKU-ra futt
 
 Egységes elnevezési konvenció használata az összes, az Hozzon létre például egy munkafolyamat nevét az alábbi Build-tulajdonságok közül a következők szerint:
 
-|Build száma (Major) | Date | Megoldás mérete | Munkafolyamat neve
+|Build száma (Major) | Dátum | Megoldás mérete | Munkafolyamat neve
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

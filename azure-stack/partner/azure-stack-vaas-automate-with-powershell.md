@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5a49685da010fd7188fd04514a17b91dff7404f7
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 7c6da84700c73e0976214bd999dfb3ca4ba0ee47
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418447"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167344"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack érvényesítésének automatizálása a PowerShell használatával
 
@@ -32,9 +32,9 @@ A szolgáltatásként történő érvényesítés lehetővé teszi a tesztek aut
 Ez a szkript a következőket tudja használni:
 
 > [!div class="checklist"]
-> * Előfeltételek telepítése
+> * Az előfeltételek telepítése
 > * A helyi ügynök telepítése és elindítása
-> * Elindíthat egy teszt kategóriát , például az integrációt, a *működést*, a *megbízhatóságot*
+> * Elindíthat egy teszt kategóriát, például az *integrációt*, a *működést*, a *megbízhatóságot*
 > * Vizsgálati eredmények jelentése
 
 ## <a name="launch-the-test-pass-workflow"></a>A test pass munkafolyamat elindítása
@@ -77,7 +77,7 @@ Ez a szkript a következőket tudja használni:
     | VaaSAccountTenantId | Az Ön által használt Varga-bérlő GUID-azonosítója. |
     | VaaSSolutionName | Annak az adatbázis-megoldásnak a neve, amely alatt a tesztelési fázis futni fog. |
     | VaaSTestPassName | A létrehozandó, az Varga test pass munkafolyamat neve. |
-    | VaaSTestCategories | `Integration`, `Functional`, vagy. `Reliability`. Ha több értéket használ, az egyes értékeket vesszővel válassza el egymástól.  |
+    | VaaSTestCategories | `Integration`, `Functional`vagy. `Reliability` kérdésre adott válaszban foglalt lépéseket. Ha több értéket használ, az egyes értékeket vesszővel válassza el egymástól.  |
     | ServiceAdminUserName | A Azure Stack szolgáltatás-rendszergazdai fiókja.  |
     | ServiceAdminPassword | A Azure Stack szolgáltatás jelszava.  |
     | TenantAdminUserName | Az elsődleges bérlő rendszergazdája.  |
@@ -85,9 +85,9 @@ Ez a szkript a következőket tudja használni:
     | CloudAdminUserName | A Felhőbeli rendszergazda felhasználóneve.  |
     | CloudAdminPassword | A felhő rendszergazdájának jelszava.  |
 
-4. Tekintse át a teszt eredményét. További lehetőségekért lásd: [tesztek figyelése és kezelése az](azure-stack-vaas-monitor-test.md)alapvizsgálati portálon.
+4. Tekintse át a teszt eredményét. További lehetőségekért lásd: [tesztek figyelése és kezelése az alapvizsgálati portálon](azure-stack-vaas-monitor-test.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha többet szeretne megtudni a Azure Stack PowerShell-ről, tekintse át a legújabb modulokat.
 

@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277199"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167166"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>AD FS identitás integrálása az Azure Stack adatközpontba
 
@@ -263,7 +263,7 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
    ```
 
     > [!Note]  
-    > Előfordulhat, hogy a központi Windows-hitelesítés (WIA) által támogatott felhasználói ügynöki karakterláncok elavultak lehetnek, ha a AD FS üzemelő példánya frissítést igényel a legújabb ügyfelek támogatásához. A WIA által támogatott felhasználói ügynök sztringek frissítésével kapcsolatos további információkért tekintse meg az [intranetes űrlapalapú hitelesítés konfigurálása a WIA-t nem támogató eszközök esetében című](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)cikket.<br><br>Az űrlapalapú hitelesítési házirend engedélyezésének lépései a [hitelesítési házirendek konfigurálása](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)című cikkben olvashatók.
+    > Előfordulhat, hogy a Windows beépített hitelesítés (WIA) által támogatott felhasználói ügynök sztringek elavultak a AD FS központi telepítéséhez, és frissítésre lehet szükség a legújabb ügyfelek támogatásához. A WIA által támogatott felhasználói ügynök sztringek frissítésével kapcsolatos további információkért tekintse meg az [intranetes űrlapalapú hitelesítés konfigurálása a WIA-t nem támogató eszközök esetében című](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)cikket.<br><br>Az űrlapalapú hitelesítési házirend engedélyezésének lépései a [hitelesítési házirendek konfigurálása](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)című cikkben olvashatók.
 
 3. A függő entitás megbízhatóságának hozzáadásához futtassa a következő Windows PowerShell-parancsot a AD FS példányán vagy egy farm tagján. Ügyeljen arra, hogy frissítse a AD FS végpontot, és mutasson az 1. lépésben létrehozott fájlra.
 

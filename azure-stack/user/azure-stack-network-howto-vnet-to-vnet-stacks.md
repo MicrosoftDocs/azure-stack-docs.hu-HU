@@ -9,14 +9,16 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: b68b0119e30d39b126aa43c2c8ed4c859073663e
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: cf9239f57423b54f6cd7f093779f5c7afa7745b1
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962187"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167238"
 ---
 # <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-with-fortinet-fortigate-nva"></a>VNET létrehozása VNET-kapcsolathoz Azure Stack a Fortinet FortiGate NVA
+
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ebben a cikkben egy VNET fog csatlakozni egy Azure Stack egy másik Azure Stack egy VNET a Fortinet FortiGate NVA, egy hálózati virtuális berendezés használatával.
 
@@ -43,7 +45,7 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 
 ### <a name="deployment-one-forti1"></a>Központi telepítés: Forti1
 
-| FortiGate-példány neve | Forti1 |
+| FortiGate-példány neve | forti1 |
 |-----------------------------------|---------------------------|
 | BYOL-licenc/-verzió | 6.0.3 |
 | FortiGate rendszergazdai Felhasználónév | fortiadmin |
@@ -54,9 +56,9 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 | Nyilvános VNET-címek előtagja | 172.16.0.0/24 * |
 | VNET alhálózatának neve | forti1-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.16.1.0/24 * |
-| FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
+| FortiGate NVA virtuális gép mérete | Szabványos F2s_v2 |
 | Nyilvános IP-cím neve | forti1-publicip1 |
-| Nyilvános IP-cím típusa | Statikus tartalom |
+| Nyilvános IP-cím típusa | Statikus |
 
 ### <a name="deployment-two-forti2"></a>Kettő üzembe helyezése: Forti2
 
@@ -71,12 +73,12 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 | Nyilvános VNET-címek előtagja | 172.17.0.0/24 * |
 | VNET alhálózatának neve | Forti2-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.17.1.0/24 * |
-| FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
+| FortiGate NVA virtuális gép mérete | Szabványos F2s_v2 |
 | Nyilvános IP-cím neve | Forti2-publicip1 |
-| Nyilvános IP-cím típusa | Statikus tartalom |
+| Nyilvános IP-cím típusa | Statikus |
 
 > [!Note]
-> @no__t – 0 – válasszon egy másik címtartományt és alhálózat-előtagokat, ha a fentiek bármilyen módon átfedésben vannak a helyszíni hálózati környezettel, beleértve az egyik Azure Stack virtuális IP-készletét is. Győződjön meg arról is, hogy a címtartományok nem fedik egymást egymással. * *
+> \* válassza ki a címtartomány és az alhálózat előtagjainak egy másik készletét, ha a fentiek bármilyen módon átfedésben vannak a helyszíni hálózati környezettel, beleértve a Azure Stack virtuális IP-készletét is. Győződjön meg arról is, hogy a címtartományok nem fedik egymást egymással. * *
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>A FortiGate NGFW Marketplace-elemek üzembe helyezése
 
@@ -134,21 +136,21 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image11.png)
 
-5. Válassza az **Igen**lehetőséget.
+5. Válassza az **Igen** lehetőséget.
 
 6. Válassza a **Hozzáadás** lehetőséget.
 
 7. Nevezze el az **útvonalat** `to-forti1` vagy `to-forti2`. Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
 8. Be
-    - forti1: @no__t – 0  
-    - forti2: @no__t – 0  
+    - forti1: `172.17.0.0/16`  
+    - forti2: `172.16.0.0/16`  
 
     Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
 9. Válassza ki a **virtuális készüléket** a **következő ugrási típushoz**.
-    - forti1: @no__t – 0  
-    - forti2: @no__t – 0  
+    - forti1: `172.16.1.4`  
+    - forti2: `172.17.0.4`  
 
     Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
@@ -180,7 +182,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.  Válassza a **System** > **belső vezérlőprogram**elemet.
+5.  Válassza ki a **System**  > **belső vezérlőprogram**elemet.
 
 6.  Jelölje be a legújabb belső vezérlőprogram (például `FortiOS v6.2.0 build0866`) jelölőnégyzetet.
 
@@ -190,9 +192,9 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 8.  A NVA frissíti a belső vezérlőprogramot a legújabb buildekre és újraindításokra. A folyamat körülbelül öt percet vesz igénybe. Jelentkezzen be újra a FortiGate webkonzolra.
 
-10.  Kattintson a **VPN** > **IPSec varázsló**elemre.
+10.  Kattintson a **VPN**  > **IPSec varázsló**elemre.
 
-11. Adja meg a VPN nevét, például `conn1` értéket a **VPN-létrehozási varázslóban**.
+11. Adja meg a VPN nevét, például `conn1` a **VPN-létrehozási varázslóban**.
 
 12. Válassza **ezt a helyet a NAT mögött**.
 
@@ -216,14 +218,14 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 18. Válassza a **port2** lehetőséget a **helyi adapterhez**.
 
 19. Adja meg a helyi alhálózat tartományát:
-    - forti1: 172.16.0.0/16
-    - forti2: 172.17.0.0/16
+    - forti1:172.16.0.0/16
+    - forti2:172.17.0.0/16
 
     Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
 20. Adja meg a helyszíni hálózatot jelölő megfelelő távoli alhálózatot, amelyet a helyszíni VPN-eszközön keresztül fog csatlakozni.
-    - forti1: 172.16.0.0/16
-    - forti2: 172.17.0.0/16
+    - forti1:172.16.0.0/16
+    - forti2:172.17.0.0/16
 
     Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
@@ -231,7 +233,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 21. Kattintson a **Létrehozás** elemre.
 
-22. Válassza a **Network** > **interfészek**lehetőséget.
+22. Válassza a **hálózati**  > **adapterek**lehetőséget.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
@@ -248,11 +250,11 @@ Ismételje meg a többi NVA lépéseit.
 
 Miután a fentiek befejeződtek **mindkét** NVA esetében:
 
-1.  A forti2 FortiGate webkonzolon válassza a  >  IPSec-**figyelő** **figyelése**lehetőséget. 
+1.  A forti2 FortiGate webkonzolon válassza a > **IPSec-figyelő** **figyelése** lehetőséget. 
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
 
-2.  Jelölje **ki a @no__t**-0 értéket, és válassza ki a 2. fázis @no__t – 2**lehetőséget**.
+2.  Jelölje ki `conn1`, és válassza ki az **üzembe helyezés** > a **2. fázis lehetőséget**.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
 
@@ -267,7 +269,7 @@ A FortiGate-NVA keresztül most már képesnek kell lennie az egyes VNET közöt
 
 -   Győződjön meg arról, hogy a virtuálisgép-tűzfalszabályok lehetővé teszik a kapcsolat teszteléséhez használni kívánt kommunikációt. Tesztelési célból javasoljuk, hogy a tűzfalat teljes mértékben tiltsa le az operációs rendszeren belül, ha lehetséges.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
 [Hálózati megoldás nyújtása Azure Stack Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  
