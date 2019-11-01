@@ -19,7 +19,7 @@
 - name: Gyorsútmutatók
   expanded: true
   items:
-    - name: Az adminisztrációs portál használata
+    - name: A felügyeleti portál használata
       href: azure-stack-manage-portals.md
 - name: Oktatóanyagok
   items:

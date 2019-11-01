@@ -215,8 +215,6 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Az KABAi motor hibáinak megoldása
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
-                    - name: AK-motor áthelyezése a Marketplace-elemből
-                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Marketplace-tétel
                   items:
                     - name: Kubernetes-fürt üzembe helyezése
@@ -227,6 +225,8 @@
                       href: azure-stack-solution-template-kubernetes-adfs.md
                     - name: A Kubernetes irányítópult engedélyezése
                       href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: AK-motor áthelyezése a Marketplace-elemből
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                     - name: Kubernetes-fürt hibáinak megoldása
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Cognitive Services üzembe helyezése
@@ -271,14 +271,36 @@
           href: azure-stack-solution-sql-ha.md
     - name: Alapvető minták üzembe helyezése
       items:
+        - name: VNET-társítás
+          items:
+            - name: VNet-társítás a FortiGate
+              href: azure-stack-network-howto-vnet-to-vnet.md
+            - name: VNet-társítás virtuális gépekkel
+              href: azure-stack-network-howto-vnet-peering.md
         - name: VPN beállítása helyszíni rendszerre
           href: azure-stack-network-howto-vnet-to-onprem.md
         - name: VNET – VNET-kapcsolatok
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: VNET-társítás
-          href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: Előfizetés-erőforrások másolása
-          href: azure-stack-network-howto-backup-replicator.md
+        - name: Az adatközpont kiterjesztése
+          href: azure-stack-network-howto-extend-datacenter.md
+        - name: Kapcsolódás iSCSI-tárolóhoz
+          href: azure-stack-network-howto-iscsi-storage.md
+        - name: Alagutak beállítása
+          items:
+            - name: Több helyek közötti VPN beállítása
+              href: network-howto-vpn-tunnel.md
+            - name: VPN-alagút létrehozása (GRE)
+              href: network-howto-vpn-tunnel-gre.md
+            - name: VPN-alagút (IPSEC) létrehozása
+              href: network-howto-vpn-tunnel-ipsec.md
+        - name: Biztonsági mentés és helyreállítás
+          items:
+            - name: A virtuális gép biztonsági mentése Azure Stack a CommVault
+              href: azure-stack-network-howto-backup-commvault.md
+            - name: A Storage-fiókok biztonsági mentése Azure Stack
+              href: azure-stack-network-howto-backup-storage.md
+            - name: Előfizetés-erőforrások másolása
+              href: azure-stack-network-howto-backup-replicator.md
 - name: Alapelvek
   items:
     - name: Hibrid Felhőbeli minták
