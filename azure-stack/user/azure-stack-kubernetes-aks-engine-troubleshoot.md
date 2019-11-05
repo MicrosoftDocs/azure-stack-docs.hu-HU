@@ -15,12 +15,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047149"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595289"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Az AK-motor hibáinak megoldása Azure Stack
 
@@ -36,7 +36,7 @@ Előfordulhat, hogy a Azure Stack-on lévő AK-motor telepítésekor vagy haszn�
 
 ### <a name="try-gofish"></a>GoFish kipróbálása
 
-Ha a telepítési lépések sikertelenek voltak, a GoFish csomagkezelő használatával próbálkozhat a telepítéssel. A [GoFish](https://gofi.sh) platformfüggetlen Homebrew-ként mutatja be magát.
+Ha az előző telepítési lépések sikertelenek voltak, a GoFish csomagkezelő használatával telepítheti az AK-motort. A [GoFish](https://gofi.sh) platformfüggetlen Homebrew-ként mutatja be magát.
 
 #### <a name="install-the-aks-engine-with-gofish-on-linux"></a>Az AK-motor telepítése a GoFish Linux rendszeren
 
@@ -62,7 +62,7 @@ Telepítse a GoFish a [telepítés](https://gofi.sh/#install) lapról.
 
     ```PowerShell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
     ```
 
 2.  Futtassa az alábbi parancsot ugyanabban a munkamenetben az AK-motor GoFish való telepítéséhez:
@@ -126,13 +126,13 @@ Követelmények:
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.tar.gz
-    tar xvzf diagnosis.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
+    tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
 2. Keresse meg a `getkuberneteslogs.sh` parancsfájl által megkövetelt paramétereket. A szkript a következő paramétereket fogja használni:
 
-    | Paraméter | Leírás | Szükséges | Példa |
+    | Paraméter | Leírás | Kötelező | Példa |
     | --- | --- | --- | --- |
     | -h,-– Súgó | A parancs használatának nyomtatása. | nem | 
     -u,--felhasználó | A fürt virtuális gépei rendszergazdai felhasználóneve | igen | azureuser<br>(alapértelmezett érték) |
@@ -182,6 +182,6 @@ Ha nem tudja feloldani a telepítési hibát, megnyithatja a GitHub-problémát.
      - A következő **kubectl** -parancs kimenete `get nodes`.  
      - `/var/log/azure/cluster-provision.log` és `/var/log/cloud-init-output.log` tartalma
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)

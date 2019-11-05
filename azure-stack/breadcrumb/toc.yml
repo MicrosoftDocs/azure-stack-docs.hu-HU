@@ -6,26 +6,26 @@
       tocHref: /azure-stack/
       topicHref: /azure-stack/
       items:
-        - name: ASDK
+        - name: Hub ASDK
           tocHref: /azure-stack/asdk/
           topicHref: /azure-stack/asdk/index
-        - name: Operátor
+        - name: Hub operátor
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
           items:
-            - name: Útmutató végigvezeti a / biztonsági mentése az Azure Stackben
+            - name: Útmutatók/biztonsági mentés Azure Stack
               tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               items:
-                - name: Fájlok és alkalmazások biztonsági mentése az Azure Stackben
+                - name: Fájlok és alkalmazások biztonsági mentése Azure Stack
                   tocHref: /azure/backup/backup-mabs-files-applications-azure-stack
                   topicHref: /azure/backup/backup-mabs-files-applications-azure-stack
-                - name: Az Azure Stack-alapú virtuális gépek replikálása az Azure-bA
+                - name: Azure Stack rendszerű virtuális gépek replikálása az Azure-ba
                   tocHref: /azure/site-recovery/azure-stack-site-recovery
                   topicHref: /azure/site-recovery/azure-stack-site-recovery
-        - name: Partner
+        - name: Hub-partner
           tocHref: /azure-stack/partner/
           topicHref: /azure-stack/partner/index
-        - name: Felhasználó
+        - name: Hub-felhasználó
           tocHref: /azure-stack/user/
           topicHref: /azure-stack/user/index

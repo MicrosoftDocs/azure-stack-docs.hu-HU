@@ -1,47 +1,47 @@
-- name: Az Azure Stack Development Kit dokumentáció
+- name: Azure Stack hub fejlesztői csomag dokumentációja
   href: index.yml
 - name: Áttekintés
   expanded: true
   items:
-    - name: Mi az a ASDK?
+    - name: Mi a ASDK?
       href: asdk-what-is.md
     - name: ASDK kibocsátási megjegyzései
       href: asdk-release-notes.md
 - name: Alapelvek
   items:
-    - name: Központi telepítés tervezési szempontok
+    - name: Üzembe helyezési tervezési szempontok
       href: asdk-deploy-considerations.md
-    - name: Development kit architektúrája
+    - name: Fejlesztői csomag architektúrája
       href: asdk-architecture.md
-    - name: ASDK Adminisztráció alapjai
+    - name: ASDK-adminisztráció alapjai
       href: asdk-admin-basics.md
-    - name: Speciális értékelésével kapcsolatos feladatok
+    - name: Speciális értékelési feladatok
       href: asdk-advanced-eval.md
 - name: Útmutató
   items:
     - name: A ASDK beállítása
       items:
-        - name: Töltse le és csomagolja ki a fejlesztői készlet
+        - name: A fejlesztői csomag letöltése és kibontása
           href: asdk-download.md
-        - name: A ASDK számítógép előkészítése
+        - name: A ASDK-gazda számítógép előkészítése
           href: asdk-prepare-host.md
-        - name: Üzembe helyezése a ASDK – telepítő
+        - name: A ASDK telepítése – telepítő
           href: asdk-install.md
-        - name: Üzembe helyezése a ASDK – PowerShell
+        - name: A ASDK üzembe helyezése – PowerShell
           href: asdk-deploy-powershell.md
-        - name: Üzembe helyezés utáni konfigurációs
+        - name: Telepítés utáni konfiguráció
           href: asdk-post-deploy.md
-        - name: Telepítse újra a ASDK
+        - name: A ASDK újbóli üzembe helyezése
           href: asdk-redeploy.md
     - name: A ASDK regisztrálása
       href: asdk-register.md
-    - name: Azure Stack telemetriai beállításainak konfigurálása
+    - name: Azure Stack hub telemetria beállításainak konfigurálása
       href: asdk-telemetry.md
-    - name: Elindíthatja és leállíthatja a ASDK
+    - name: A ASDK elindítása és leállítása
       href: asdk-start-stop.md
-    - name: Az Azure Stack biztonsági másolat ellenőrzése
+    - name: Azure Stack hub biztonsági mentésének ellenőrzése
       href: asdk-validate-backup.md
-    - name: Csatlakozás a ASDK
+    - name: Kapcsolódás a ASDK
       href: asdk-connect.md
     - name: Hibaelhárítás
       href: asdk-troubleshooting.md
@@ -49,21 +49,21 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Azure Stack parancssori felület
+    - name: CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakörök
+- name: Kapcsolódó témakör
   items:
-    - name: Az Azure Stack operátori dokumentációja
+    - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator
-    - name: Az Azure Stack felhasználói dokumentációja
+    - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
-- name: További források
+- name: Segédanyagok és eszközök
   items:
-    - name: Azure Stack-ütemterv
+    - name: Azure Stack ütemterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Az Azure Stack MSDN-fórum
+    - name: MSDN-fórum Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Az Azure Stack-dokumentáció visszajelzés
+    - name: Azure Stack dokumentációs visszajelzés
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

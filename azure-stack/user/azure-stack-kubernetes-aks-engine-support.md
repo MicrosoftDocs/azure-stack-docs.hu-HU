@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 6a9ce8551975ccc98bb6e47bfa07b703dfdd341c
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 8c83e0b006904482634e50bdf217ec5d236e4e5c
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064756"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594958"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Támogatási szabályzatok az AK motorhoz Azure Stack
 
@@ -108,10 +108,10 @@ Ha a rendszer biztonsági hibát talál a Azure Stackhoz tartozó AK-motor vagy 
 
 A felhasználók letölthetik a Kubernetes Marketplace-elemeket, amelyek lehetővé teszik a felhasználók számára, hogy a Azure Stack felhasználói portálon keresztül közvetve központilag telepítsenek Kubernetes-fürtöket, így egyszerűbb, mint az AK-motor közvetlen használata. Ez egy hasznos eszköz, amellyel gyorsan beállíthatja a fürtöket a bemutatók, a tesztelés és a fejlesztés számára. Nem éles környezethez készült, mert nem szerepel a Microsoft által támogatott elemek készletében.
 
-## <a name="preview-features"></a>Előzetes verziók
+## <a name="preview-features"></a>Előzetes verziójú funkciók
 
 A kiterjesztett tesztelést és felhasználói visszajelzéseket igénylő funkciók és funkciók esetében a Microsoft új előzetes verziójú funkciókat vagy szolgáltatásokat bocsát ki a szolgáltatás jelölője mögött. Ezeket a funkciókat előzetes vagy bétaverziós funkciókként érdemes figyelembe venni. Az előzetes verziójú funkciók vagy a szolgáltatás-jelölő funkciók nem éles környezetben használhatók. A funkcionalitással kapcsolatos változások és viselkedés, hibajavítások és egyéb változások instabil fürtöket és állásidőt okozhatnak. A Microsoft nem támogatja ezeket a szolgáltatásokat.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)

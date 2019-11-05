@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 93a835b6d3eff233ccbd421930f9618325126ea4
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057773"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595125"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Mi a Azure Stack AK-motorja?
 
@@ -62,7 +62,7 @@ Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stackon:
      - [Az KABAi motor telepítése Linux rendszeren Azure Stack](azure-stack-kubernetes-aks-engine-deploy-linux.md)
 3. [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor előfeltételeinek beállítása](azure-stack-kubernetes-aks-engine-set-up.md)

@@ -1,8 +1,8 @@
-- name: Az Azure Stack operátori dokumentációja
+- name: Azure Stack hub-kezelő dokumentációja
   href: index.yml
 - name: Áttekintés
   items:
-    - name: Mi az Azure Stack?
+    - name: Mi az Azure Stack hub?
       href: azure-stack-overview.md
     - name: Mi az Azure Stack HCI?
       href: azure-stack-hci-overview.md
@@ -16,7 +16,7 @@
           href: release-notes.md
         - name: Ismert problémák
           href: known-issues.md
-- name: Gyorsútmutatók
+- name: Gyors útmutatók
   expanded: true
   items:
     - name: A felügyeleti portál használata
@@ -33,9 +33,9 @@
       items:
         - name: Áttekintés
           href: azure-stack-capacity-planning-overview.md
-        - name: Számítási szolgáltatások
+        - name: Compute
           href: azure-stack-capacity-planning-compute.md
-        - name: Adattárolás
+        - name: Storage
           href: azure-stack-capacity-planning-storage.md
         - name: Azure Stack Capacity Planner
           href: azure-stack-capacity-planner.md
@@ -229,7 +229,7 @@
           href: azure-stack-data-collection.md
     - name: A Marketplace feltöltése
       items:
-        - name: A Piactér áttekintése
+        - name: Piactér áttekintése
           href: azure-stack-marketplace.md
         - name: Marketplace-változások
           href: azure-stack-marketplace-changes.md
@@ -373,7 +373,7 @@
                   href: azure-stack-sql-resource-provider-11300.md
                 - name: SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
                   href: azure-stack-sql-resource-provider-11330.md
-    - name: Használat és elszámolás
+    - name: Használat és számlázás
       href: azure-stack-billing-and-chargeback.md
       items:
         - name: Használat és számlázás kezelése felhőszolgáltatóként
@@ -440,21 +440,21 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Azure Stack érvényesítése
           href: azure-stack-diagnostic-test.md
-        - name: Hibakeresés
+        - name: Hibaelhárítás
           href: azure-stack-troubleshooting.md
 - name: Leírások
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview
-- name: Kapcsolódó témakörök
+- name: Kapcsolódó témakör
   items:
-    - name: Azure Stack felhasználói dokumentáció
+    - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
     - name: ASDK-dokumentáció
       href: /azure-stack/asdk/
 - name: Segédanyagok és eszközök
   items:
-    - name: Képzési és minősítési lehetőségek
+    - name: Képzés és tanúsítványok
       href: azure-stack-train-and-cert.md
     - name: Azure Stack ütemterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

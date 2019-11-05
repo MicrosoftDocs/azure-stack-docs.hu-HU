@@ -1,12 +1,12 @@
-- name: Az Azure Stack felhasználói dokumentációja
+- name: Azure Stack hub felhasználói dokumentációja
   href: index.yml
 - name: Áttekintés
   items:
-    - name: Megoldások létrehozása Azure Stack
+    - name: Megoldások létrehozása Azure Stack hubhoz
       href: azure-stack-hybrid-cloud-patterns.md
     - name: Fő szempontok
       href: azure-stack-considerations.md
-- name: Gyorsútmutatók
+- name: Gyors útmutatók
   expanded: true
   items:
     - name: Windows rendszerű virtuális gép létrehozása – Portál
@@ -33,29 +33,29 @@
           href: azure-stack-subscribe-services.md
         - name: Felhőalapú megoldások szolgáltatójának engedélyezése
           href: azure-stack-csp-enable-billing-usage-tracking.md
-        - name: Az Azure Stack Portal használata
+        - name: Az Azure Stack hub portál használata
           href: azure-stack-use-portal.md
         - name: Az ügyfél konfigurálása
           items:
             - name: Fejlesztési környezet beállítása
               href: azure-stack-dev-start.md
-            - name: A PowerShell használata Azure Stack
+            - name: A PowerShell használata Azure Stack hub használatával
               items:
-                - name: Azure Stack PowerShell – áttekintés
+                - name: Azure Stack hub PowerShell – áttekintés
                   href: azure-stack-powershell-overview.md
                 - name: Az Azure Stack PowerShell telepítése
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Kapcsolódás PowerShell-lel
                   href: azure-stack-powershell-configure-user.md
-                - name: Azure Stack eszközök letöltése
+                - name: Azure Stack hub-eszközök letöltése
                   href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: A PowerShell futtatása a Docker használatával
                   href: azure-stack-powershell-user-docker.md
-                - name: A Azure Stack házirend modul használata
+                - name: Az Azure Stack hub házirend moduljának használata
                   href: azure-stack-policy-module.md
-            - name: Az Azure CLI használata Azure Stack
+            - name: Az Azure CLI használata Azure Stack hub használatával
               href: azure-stack-version-profiles-azurecli2.md
             - name: A Visual Studio Code használata
               href: azure-stack-dev-start-vscode-azure.md
@@ -65,9 +65,9 @@
               href: azure-stack-dev-start-howto-ssh-public-key.md
             - name: REST-ügyfél használata az API-val
               href: azure-stack-rest-api-use.md
-        - name: Azure Stack Resource Manager-sablonok használata
+        - name: Azure Stack hub Resource Manager-sablonok használata
           items:
-            - name: Sablonok – áttekintés
+            - name: Sablonok áttekintése
               href: azure-stack-arm-templates.md
             - name: Sablonokkal kapcsolatos megfontolások
               href: azure-stack-develop-templates.md
@@ -84,7 +84,7 @@
                   href: azure-stack-deploy-template-command-line.md
                 - name: Üzembe helyezés a Visual Studio Code-ban
                   href: azure-stack-resource-manager-deploy-template-vscode.md
-                - name: Üzembe helyezés a Visual Studio használatával
+                - name: Üzembe helyezés a Visual Studióval
                   href: azure-stack-deploy-template-visual-studio.md
         - name: API-verziók profiljainak használata
           items:
@@ -114,13 +114,13 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatások használata
           items:
-            - name: Számítási szolgáltatások
+            - name: Compute
               items:
                 - name: Áttekintés
                   href: azure-stack-compute-overview.md
                 - name: A virtuális gépekkel kapcsolatos szempontok
                   href: azure-stack-vm-considerations.md
-                - name: Virtuálisgép-méretek
+                - name: A virtuális gépek mérete
                   href: azure-stack-vm-sizes.md
                 - name: VM-lemezek kezelése
                   href: azure-stack-manage-vm-disks.md
@@ -132,7 +132,7 @@
                   href: vm-update-management.md
                 - name: SQL Server VM megfontolások
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Adattárolás
+            - name: Storage
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -144,13 +144,13 @@
                   href: azure-stack-storage-transfer.md
                 - name: A Storage Explorer csatlakoztatása
                   href: azure-stack-storage-connect-se.md
-            - name: Network (Hálózat)
+            - name: Hálózat
               items:
                 - name: Áttekintés
                   href: azure-stack-network-overview.md
-                - name: Hálózati szempontok
+                - name: Hálózati megfontolások
                   href: azure-stack-network-differences.md
-                - name: VPN Gateway átjárók
+                - name: VPN-átjárók
                   items:
                     - name: Csatlakozás VPN használatával
                       href: azure-stack-connect-vpn.md
@@ -160,9 +160,9 @@
                       href: azure-stack-vpn-s2s.md
                     - name: VPN-átjáró beállításai
                       href: azure-stack-vpn-gateway-settings.md
-                - name: iDNS Azure Stackhez
+                - name: iDNS Azure Stack hub-hoz
                   href: azure-stack-understanding-dns.md
-                - name: DNS az Azure Stackben
+                - name: DNS Azure Stack központban
                   href: azure-stack-dns.md
             - name: Key Vault
               items:
@@ -197,7 +197,7 @@
               items:
                 - name: AK-motor
                   items:
-                    - name: AK-motor Azure Stack
+                    - name: AK-motor Azure Stack hub-on
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Támogatási szabályzat
                       href: azure-stack-kubernetes-aks-engine-support.md
@@ -251,7 +251,7 @@
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Hibrid Felhőbeli minták üzembe helyezése
       items:
-        - name: Alkalmazások üzembe helyezése az Azure-ban és az Azure Stacken
+        - name: Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz
           href: azure-stack-solution-pipeline.md
         - name: Hibrid Felhőbeli identitás konfigurálása
           href: azure-stack-solution-hybrid-identity.md
@@ -303,6 +303,18 @@
               href: azure-stack-network-howto-backup-replicator.md
 - name: Alapelvek
   items:
+    - name: IaaS architektúrák
+      items:
+        - name: Linux rendszerű virtuális gép
+          href: iaas-architecture-vm-linux.md
+        - name: Windows rendszerű virtuális gép
+          href: iaas-architecture-vm-windows.md
+        - name: N szintű alkalmazás SQL-sel
+          href: iaas-architecture-windows-sql-n-tier.md
+        - name: N szintű alkalmazás több régióban
+          href: iaas-architecture-sql-n-tier-multi-region.md
+        - name: Hálózati virtuális berendezések
+          href: iaas-architecture-nva-architecture.md
     - name: Hibrid Felhőbeli minták
       items:
         - name: Hibrid Felhőbeli minták – áttekintés
@@ -319,13 +331,13 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
-    - name: Azure Stack REST API böngésző
+    - name: Azure Stack hub REST API böngésző
       href: /rest/api/
-    - name: Azure Stack parancssori felület
+    - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakörök
+- name: Kapcsolódó témakör
   items:
-    - name: Az Azure Stack operátori dokumentációja
+    - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator/
     - name: A ASDK dokumentációja
       href: /azure-stack/asdk/
@@ -341,5 +353,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Képzési és minősítési lehetőségek
+    - name: Képzés és tanúsítványok
       href: /azure-stack/operator/azure-stack-train-and-cert

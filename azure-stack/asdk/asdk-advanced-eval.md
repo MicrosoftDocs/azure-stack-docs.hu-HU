@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a47bae619b2525534797158cf2660d5bc77192c9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282626"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594770"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Speciális ASDK-értékelési feladatok
 Miután megismerte az alapszintű Azure Stack Development Kit (ASDK) szolgáltatás funkcióit és képességeit, a fejlettebb forgatókönyvek kivizsgálása révén mélyebben megismerheti Azure Stack további ismereteket. Ezek a speciális értékelési feladatok teljes mértékben dokumentálva vannak a Azure Stack kezelő dokumentációjában.
 
 > [!NOTE]
-> Habár számos kezelői feladat támogatott mind a ASDK, mind a több csomópontos Azure Stack üzemelő példányok esetében, nem minden használati forgatókönyv támogatott a ASDK üzemelő példányok esetében. További információ: [ASDK és több csomópontos Azure stack különbségek](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences).
+> Habár számos kezelői feladat támogatott mind a ASDK, mind a több csomópontos Azure Stack üzemelő példányok esetében, nem minden használati forgatókönyv támogatott a ASDK üzemelő példányok esetében. További információ: [ASDK és több csomópontos Azure stack különbségek](asdk-what-is.md#asdk-and-multi-node-azure-stack-hub-differences).
 
 ## <a name="delegate-offers-in-azure-stack"></a>Ajánlat delegálása az Azure Stackben
 A Azure Stack-kezelővel gyakran más személyeket is fel kell vennie az ajánlatok létrehozására és a felhasználók regisztrálására. Ha például Ön szolgáltató, érdemes lehet viszonteladókat regisztrálni az ügyfelek regisztrálásához és az Ön nevében történő felügyeletéhez. Ha egy vállalaton belül egy központi informatikai csoport tagja, érdemes lehet a leányvállalatok számára a beavatkozás nélkül regisztrálni a felhasználókat.
@@ -44,6 +44,6 @@ Azure Stack operátorként olyan ajánlatokat hozhat létre, amelyek lehetővé 
 
 Telepítse a App Service erőforrás-szolgáltatót a [webes és API-alkalmazások elérhetővé tételéhez a Azure stack felhasználók](../operator/azure-stack-tutorial-app-service.md)számára.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [További információ a szolgáltatások Azure Stack integrált rendszerekkel való ellátásáról](../operator/service-plan-offer-subscription-overview.md)

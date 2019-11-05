@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack-partner – dokumentáció
+title: Azure Stack hub-partner dokumentációja
 metadata:
   document_id: null
-  title: Azure Stack-partner D\documentation – oktatóanyagok és API-t R\reference
-  description: 'Ismerje meg, hogyan érvényesítheti a hardvert, az Azure Stack gazdagépen. Érvényesítés szolgáltatásként egy natív Azure-szolgáltatás a Microsoft Azure Stack-ajánlatok közös vannak mérnöki megoldáspartnerek számára készült.'
+  title: 'Azure Stack hub partner D\documentation – oktatóanyagok, API-R\reference'
+  description: 'Ismerje meg, hogyan érvényesítheti a hardvert a gazdagépek Azure Stack. A szolgáltatásként történő érvényesítés egy natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik közös mérnöki Azure Stack hub-ajánlatokat biztosítanak a Microsoft számára.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -16,26 +16,26 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: 'Érvényesítési szolgáltatás segítségével ellenőrizze a hardver, az Azure Stackkel való használathoz. A szolgáltatás egy vannak közös mérnöki a Microsoft Azure Stack-ajánlatok megoldáspartnerek számára készült, natív Azure-szolgáltatás áll.'
+  description: 'Az érvényesítést szolgáltatásként használva ellenőrizhető, hogy a hardver a Azure Stack használatával használható-e. A szolgáltatás egy olyan natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik a Microsofttal közös mérnöki Azure Stack hub-ajánlatokat biztosítanak.'
 sections:
   - title: 5 perces rövid útmutatók
     items:
       - type: paragraph
-        text: 'Ismerje meg, az érvényesítési tesztek alapján a hardver ütemezése egy portált használata.'
+        text: 'Megtudhatja, hogyan használhatja az érvényesítést szolgáltatási portálként a hardveren végzett tesztek ütemezett ellenőrzéséhez.'
       - type: list
         style: icon48
         items:
           - image:
               src: media/i_account-management.svg
-            text: 'Az érvényesítés használja egy portált, az első vizsgálat ütemezése'
+            text: Az érvényesítés a szolgáltatás-portálon az első teszt beütemezhetés céljából
             href: azure-stack-vaas-schedule-test-pass.md
   - title: Részletes útmutatók
     items:
       - type: paragraph
-        text: Útmutató az Azure Stack hardver ellenőrzése.
+        text: 'Ismerje meg, hogyan érvényesítheti Azure Stack hub hardverét.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Új Azure Stack-megoldás ellenőrzése</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM-csomagok érvényesítése</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">A Microsoft szoftverfrissítések ellenőrzése</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Új Azure Stack hub-megoldás érvényesítése</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM-csomagok ellenőrzése</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Szoftverfrissítések érvényesítése a Microsofttól</a>

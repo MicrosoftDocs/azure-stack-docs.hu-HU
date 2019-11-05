@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: b7d20327410ace5b5ad12d34a24ff474c1a384b0
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 39c651649aea60ab12aae9daf35b0d07615bf697
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780473"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595299"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt méretezése Azure Stack
 
@@ -38,8 +38,8 @@ A Scale parancs a következő paramétereket használja a fürt definíciós fá
 
 | Paraméter | Példa | Leírás |
 | --- | --- | --- | 
-| Azure – env | AzureStackCloud | Azure Stack használatakor a környezeti neveket `AzureStackCloud` értékre kell állítani. | 
-| location | helyi | Ez az Azure Stack-példány régiója. ASDK esetében a régió `local` értékre van állítva.  | 
+| Azure – env | AzureStackCloud | Azure Stack használatakor a környezeti neveket `AzureStackCloud`értékre kell állítani. | 
+| location | helyi | Ez az Azure Stack-példány régiója. ASDK esetében a régió `local`értékre van állítva.  | 
 | resource-group | Kube – RG | A fürtöt tartalmazó erőforráscsoport neve. | 
 | előfizetés-azonosító |  | Annak az előfizetésnek a GUID azonosítója, amely a fürt által használt erőforrásokat tartalmazza. Győződjön meg arról, hogy az előfizetéshez elegendő kvóta tartozik a skálázáshoz. | 
 | ügyfél-azonosító |  | A fürtnek az AK-motorból való létrehozásához használt szolgáltatásnév ügyfél-azonosítója. | 
@@ -69,7 +69,7 @@ aks-engine scale \
     --identity-system adfs # required if using AD FS
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
 - [Kubernetes-fürt frissítése Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md)

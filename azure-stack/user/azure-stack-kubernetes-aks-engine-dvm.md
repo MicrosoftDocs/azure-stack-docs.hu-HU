@@ -15,12 +15,12 @@ ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 41ffa9d9d9f96506d30a6a3c69a557cdba034843
-ms.sourcegitcommit: 4d7611d81da6f2f8ef50adab3c09f9122a75bc9d
+ms.openlocfilehash: 4236f1dff939621aa391927341c0ee1136a64b58
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73145772"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595313"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack"></a>A Marketplace-elem fürtjének áthelyezése az AK-motorba Azure Stack
 
@@ -46,7 +46,7 @@ Miután megtalálta az AK-motort, a bemeneti apimodel. JSON fájlt, a kimeneti k
 
 2.  Hozzon létre egy könyvtárat annak a fürtnek vagy más mnemotechnic a nevével, amely az új fürtre hivatkozik, és mentse a kimeneti apimodel. JSON fájlt. Győződjön meg arról, hogy védett hely, mivel a fájl hitelesítő adatokat tartalmaz. Ezután futtathatja az AK-motort olyan műveletek futtatásához, mint a [Méretezés](azure-stack-kubernetes-aks-engine-scale.md) vagy a [frissítés](azure-stack-kubernetes-aks-engine-upgrade.md) .
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - [Az AK-motor hibáinak megoldása Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)  

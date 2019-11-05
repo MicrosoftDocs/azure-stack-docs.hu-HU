@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Az Azure Stack operátori dokumentációja
+title: Azure Stack hub-kezelő dokumentációja
 metadata:
-  title: Az Azure Stack dokumentációja – oktatóanyagok és API-referencia
+  title: Azure Stack hub dokumentációja – oktatóanyagok és API-referenciák
   meta.description: azure-stack
   services: azure-stack
   author: justinha
@@ -16,9 +16,9 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: 'A Microsoft Azure Stack egy hibrid felhőplatform, amellyel Azure-szolgáltatásokat biztosíthat az adatközpontjából. Ismerje meg, hogyan kezelheti a Azure Stack integrált rendszerek infrastruktúráját, és hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.<br/><br/>Ha Ön Azure Stack felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat hoz létre a Azure Stackhoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.<br/><br/>Ha Ön egy Azure Stack érdekli a Azure Stack Development Kit (ASDK), a Azure Stack egyetlen csomópontos üzembe helyezése, amelyet ingyenesen tölthet le és használhat, tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentációját</a>.'
+  description: 'Az Microsoft Azure Stack hub egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások biztosítását az adatközpontból. Ismerje meg, hogyan kezelheti az Azure Stack hub integrált rendszer-infrastruktúráját, és hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.<br/><br/>Ha Ön Azure Stack hub-felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat épít Azure Stack hub-hoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.<br/><br/>Ha Ön egy Azure Stack hub-operátor érdekli az Azure Stack hub Development Kit (ASDK) szolgáltatásban, a Azure Stack hub egycsomópontos üzembe helyezése, amelyet ingyenesen tölthet le és használhat fel, tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentációját</a>.'
 sections:
-  - title: Az Azure Stack használatának első lépései
+  - title: Azure Stack hub – első lépések
     items:
       - type: list
         style: cards
@@ -28,18 +28,18 @@ sections:
               <a href="/azure-stack/operator/azure-stack-manage-portals">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
               <br><b>Az adminisztrációs portál használata</b></a>
-              <p>A Azure Stack mindennapos felügyeletéhez és működéséhez használja az adminisztrációs portált.</p>
+              <p>Azure Stack hub napi szintű felügyeletéhez és működéséhez használja az adminisztrációs portált.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack PowerShell</b></a>
-              <p>A Azure Stack-erőforrások egyszerűen kezelhetők a PowerShellből.</p>
+              <br><b>Azure stack PowerShell</b> -</a>
+              <p>Egyszerűen kezelheti Azure Stack hub-erőforrásait a PowerShellből.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
               <br><b>Kapacitás megtervezése</b></a>
               <p>Megtudhatja, hogyan illeszkednek egymáshoz a különböző számítási erőforrások kiosztásai a kiválasztott hardveres ajánlatok között.</p>
-  - title: Azure Stack-szolgáltatások nyújtása
+  - title: Azure Stack hub-szolgáltatások nyújtása
     items:
       - type: list
         style: cards
@@ -48,19 +48,19 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br><b>SQL-ajánlat</b></a>
-              <p>Az SQL Server erőforrás-szolgáltató használatával Azure Stack szolgáltatásként kínál SQL-adatbázisokat.</p>
+              <br><b>SQL-ajánlat a pásti</b></a>
+              <p>Az SQL Server erőforrás-szolgáltató használatával Azure Stack hub szolgáltatásként kínálhat SQL-adatbázisokat.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br><b>MySQL-ajánlat</b></a>
-              <p>A MySQL erőforrás-szolgáltató használatával Azure Stack-szolgáltatásként kínál MySQL-adatbázisokat.</p>
+              <br><b>MySQL-ajánlat – pásti</b></a>
+              <p>A MySQL erőforrás-szolgáltató használatával Azure Stack hub szolgáltatásként kínál MySQL-adatbázisokat.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-app-service-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
-              <br><b>Ajánlati Azure App Service Péterként</b></a>
+              <br><b>Az ajánlat Azure app Service a pásti</b></a>
               <p>Segítsen a felhasználóknak webalkalmazások és API-k létrehozásában bármilyen platformon vagy eszközön.</p>
-  - title: Azure Stack kezelése
+  - title: Azure Stack hub kezelése
     items:
       - type: list
         style: cards
@@ -69,15 +69,15 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-updates">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
-              <br><b>Azure Stack frissítése</b></a>
-              <p>A Microsoft minden hónapban egyetlen csomagot biztosít, hogy Azure Stack integrált rendszerek naprakészek maradjanak. </p>
+              <br><b>Azure stack hub frissítése</b></a>
+              <p>A Microsoft minden hónapban egyetlen csomagot csomagol, hogy Azure Stack hub integrált rendszereit naprakészen tartsa. </p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>Azure Stack biztonsági mentése</b></a>
+              <br><b>Azure stack hub biztonsági mentése</b></a>
               <p>A konfigurációs és a szolgáltatási adatai biztonsági mentése és visszaállítása a Infrastructure Backup szolgáltatás használatával.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-security-configuration">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>Azure Stack biztonság konfigurálása</b></a>
-              <p>Azure Stack úgy lett kialakítva, hogy megvédje a modern fenyegetésekkel szemben, és megfeleljen a megfelelőségi követelményeknek.</p>
+              <br><b>Azure stack hub biztonsági</a> konfigurálása</b>
+              <p>Az Azure Stack hub úgy lett kialakítva, hogy megvédje a modern fenyegetésekkel szemben, és megfeleljen a megfelelőségi követelményeknek.</p>

@@ -1,60 +1,60 @@
-- name: Az Azure Stack-Partner dokumentációja
+- name: Azure Stack hub-partner dokumentációja
   href: index.yml
 - name: Áttekintés
   href: index.yml
   expanded: true
   items:
-    - name: Az Azure stack-beli szolgáltatás érvényesítése
+    - name: Érvényesítés Azure Stack hub szolgáltatásként
       href: azure-stack-vaas-overview.md
     - name: Kibocsátási megjegyzések
       href: azure-stack-vaas-release-notes.md
 - name: Oktatóanyag
   items:
-    - name: Az erőforrások beállítása
+    - name: Erőforrások beállítása
       href: azure-stack-vaas-set-up-resources.md
-    - name: A PowerShell-lel az Azure Stack Kódérvényesítés automatizálása
+    - name: Azure Stack hub ellenőrzésének automatizálása a PowerShell-lel
       href: azure-stack-vaas-automate-with-powershell.md
-- name: Hogyan útmutató
+- name: Útmutató
   items:
-    - name: A helyi ügynök telepítése
+    - name: A helyi ügynök üzembe helyezése
       href: azure-stack-vaas-local-agent.md
-    - name: A vizsgálat ütemezése
+    - name: A teszt időzítése
       href: azure-stack-vaas-schedule-test-pass.md
     - name: OEM-csomag létrehozása
       href: azure-stack-vaas-create-oem-package.md
-    - name: OEM-csomagok érvényesítése
+    - name: OEM-csomagok ellenőrzése
       href: azure-stack-vaas-validate-oem-package.md
-    - name: Egy új Azure Stack megoldás ellenőrzése
+    - name: Új Azure Stack hub-megoldás érvényesítése
       href: azure-stack-vaas-validate-solution-new.md
-    - name: A Microsoft szoftverfrissítések ellenőrzése
+    - name: Szoftverfrissítések érvényesítése a Microsofttól
       href: azure-stack-vaas-validate-microsoft-updates.md
-    - name: Interaktív funkció ellenőrzési tesztelés
+    - name: Interaktív funkció-ellenőrzési teszt
       href: azure-stack-vaas-interactive-feature-verification.md
 - name: Alapelvek
   items:
-    - name: Fő fogalmak
+    - name: Alapfogalmak
       href: azure-stack-vaas-key-concepts.md
     - name: Ajánlott eljárások
       href: azure-stack-vaas-best-practice.md
-    - name: Figyelheti és kezelheti a VaaS portálon tesztek
+    - name: Tesztek monitorozása és kezelése az alapkonfiguráció-portálon
       href: azure-stack-vaas-monitor-test.md
-    - name: Általános munkafolyamat-paraméterek
+    - name: Közös munkafolyamat-paraméterek
       href: azure-stack-vaas-parameters.md
-    - name: Érvényesítési szolgáltatás hibaelhárítása
+    - name: A szolgáltatás érvényesítésének megoldása
       href: azure-stack-vaas-troubleshoot.md
-- name: Kapcsolódó témakörök
+- name: Kapcsolódó témakör
   items:
-    - name: Azure Stack – dokumentáció
+    - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator
     - name: Azure Active Directory
       href: /azure/active-directory/
-- name: További források
+- name: Segédanyagok és eszközök
   items:
-    - name: Azure Stack-ütemterv
+    - name: Azure Stack ütemterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Az Azure Stack MSDN-fórum
+    - name: MSDN-fórum Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
-    - name: Az Azure Stack-dokumentáció visszajelzés
+    - name: Azure Stack dokumentációs visszajelzés
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

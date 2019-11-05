@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Az Azure Stack felhasználói dokumentációja
+title: Azure Stack hub felhasználói dokumentációja
 metadata:
-  title: Az Azure Stack dokumentációja – oktatóanyagok és API-referencia
+  title: Azure Stack hub dokumentációja – oktatóanyagok és API-referenciák
   meta.description: azure-stack
   services: azure-stack
   author: mattbriggs
@@ -16,41 +16,41 @@ metadata:
   ms.date: 07/11/2019
   ms.author: mabrigg
 abstract:
-  description: 'A Microsoft Azure Stack egy hibrid felhőplatform, amellyel Azure-szolgáltatásokat használhat a szervezete vagy a szolgáltatója adatközpontjából. Fejlesztőként létrehozhat alkalmazásokat az Azure Stackben. Ezeket üzembe helyezheti magában az Azure Stackben vagy az Azure-ban is, vagy létrehozhat valódi hibrid alkalmazásokat is, amelyek az Azure Stack felhő és az Azure közötti kapcsolatot használják ki. Rövid útmutatóink és oktatóanyagaink segítségével megtudhatja, hogyan hozhat létre erőforrásokat és helyezhet üzembe alkalmazásokat.<br/><br/>Ha Ön Azure Stack kezelő, aki felügyeli az infrastruktúrát, és szolgáltatásokat kínál, <a href="../operator/"></a>tekintse meg az operátori dokumentációt.<br/><br/>Ha Ön olyan Azure Stack felhasználó, aki az Azure Stack Development Kit (ASDK) számára érdekli, a Azure Stack egyetlen csomópontos üzembe helyezése, amelyet ingyenesen tölthet le és használhat, tekintse meg a <a href="../asdk">ASDK dokumentációját</a>.'
+  description: 'Az Azure Stack hub egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások használatát a vállalat vagy a szolgáltató adatközpontjában. Fejlesztőként Azure Stack hub-on hozhat létre alkalmazásokat. Ezután központilag telepítheti őket Azure Stack hubhoz az Azure-ba, vagy létrehozhat valódi hibrid alkalmazásokat, amelyek kihasználják az Azure Stack hub-felhő és az Azure közötti kapcsolatot. Rövid útmutatóink és oktatóanyagaink segítségével megtudhatja, hogyan hozhat létre erőforrásokat és helyezhet üzembe alkalmazásokat.<br/><br/>Ha Ön Azure Stack hub-kezelő, aki felügyeli az infrastruktúrát, és szolgáltatásokat kínál, tekintse meg az <a href="../operator/">operátori dokumentációt</a>.<br/><br/>Ha Ön egy Azure Stack hub-felhasználó, aki a Azure Stack hub Development Kit (ASDK) szolgáltatásban érdekli, az Azure Stack hub egycsomópontos üzembe helyezése, amelyet ingyenesen tölthet le és használhat fel, tekintse meg a <a href="../asdk">ASDK dokumentációját</a>.'
 sections:
-  - title: Az Azure Stack használatának első lépései
+  - title: Azure Stack hub – első lépések
     items:
       - type: list
         style: cards
         className: cardsA
         items:
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_code-edit.svg" alt=""> <br><b>Megoldások fejlesztése Azure Stack</b></a> <p>Windows 10, Linux vagy macOS rendszerű munkaállomás használatával fejlesztheti Azure Stack alkalmazásait.</p>'
-          - html: '<a href="https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt=""> <br><b>Azure Stack PowerShell</b></a> <p>A Azure Stack-erőforrások egyszerűen kezelhetők a PowerShellből.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-version-profiles-azurecli2"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt=""> <br><b>Azure parancssori felület (CLI)</b></a> <p>Azure Stack erőforrások kezelésének parancssori felülete.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-dev-start"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_code-edit.svg" alt=""> <br><b>Megoldások fejlesztése Azure stack hub</b> -</a> <p>Windows 10, Linux vagy macOS rendszerű munkaállomás használatával fejlesztheti Azure Stack hub alkalmazásait.</p>'
+          - html: '<a href="https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt=""> <br><b>Azure stack PowerShell</b> -</a> <p>Egyszerűen kezelheti Azure Stack hub-erőforrásait a PowerShellből.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-version-profiles-azurecli2"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt=""> <br><b>Azure parancssori felület (CLI)</b></a> <p>Azure Stack hub-erőforrások kezeléséhez használható parancssori felület.</p>'
   - title: Hibrid felhőalapú alkalmazások
     items:
       - type: list
         style: cards
         className: cardsA
         items:
-          - html: '<a href="/azure-stack/user/azure-stack-solution-pipeline"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_workflow.svg" alt="hybrid cloud app ci/cd"> <br><b>Hibrid alkalmazások folyamatos integrációja és továbbítása</b></a> <p>Hibrid alkalmazásokat helyezhet üzembe az Azure-ban, és Azure Stack egy hibrid, folyamatos integrációs és folyamatos teljesítési (CI/CD) folyamat használatával.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-solution-hybrid-identity"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_identity-protection.svg" alt="hybrid cloud app identity"> <br><b>Hibrid Felhőbeli identitás konfigurálása</b></a> <p>Hibrid Felhőbeli identitás konfigurálása Azure-beli és Azure Stack-alkalmazásokhoz.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-solution-cloud-burst"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_multi-connect.svg" alt="hybrid cloud app scaling"> <br><b>Több felhőre kiterjedő méretezési megoldások</b></a> <p>Hozzon létre egy többfelhős megoldást, amely egy Azure Stack üzemeltetett webalkalmazásból egy Azure-ban üzemeltetett webalkalmazásba való váltásra szolgáló, manuálisan aktivált folyamatot biztosít.</p>'
-  - title: Infrastruktúra-szolgáltatás (IaaS) Azure Stack
+          - html: '<a href="/azure-stack/user/azure-stack-solution-pipeline"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_workflow.svg" alt="hybrid cloud app ci/cd"> <br><b>Hibrid alkalmazások folyamatos integrációja és továbbítása</b></a> <p>Hibrid alkalmazások üzembe helyezése az Azure-ban és Azure Stack hub hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) folyamat használatával.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-solution-hybrid-identity"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_identity-protection.svg" alt="hybrid cloud app identity"> <br><b>Hibrid Felhőbeli identitás konfigurálása</b></a> <p>Hibrid Felhőbeli identitás konfigurálása Azure-és Azure Stack hub-alkalmazásokhoz.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-solution-cloud-burst"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_multi-connect.svg" alt="hybrid cloud app scaling"> <br><b>Több felhőre kiterjedő méretezési megoldások</b></a> <p>Hozzon létre egy többfelhős megoldást, amely egy Azure Stack hub által üzemeltetett webalkalmazásból egy Azure-ban üzemeltetett webalkalmazásba való váltásra szolgáló, manuálisan indított folyamatot biztosít.</p>'
+  - title: Infrastruktúra-szolgáltatás (IaaS) Azure Stack hub-on
     items:
       - type: list
         style: cards
         className: cardsA
         items:
-          - html: '<a href="/azure-stack/user/azure-stack-create-vm-template"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_package.svg" alt=""> <br><b>Helyezzen üzembe egy virtuális gépet a IaaS-ben egy sablonnal.</b></a> <p>Virtuális gép létrehozása Azure Stack Resource Manager-sablonok használatával</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-quick-linux-portal"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_vmm-cloud.svg" alt=""> <br><b>Rövid útmutató – virtuális gép létrehozása</b></a> <p>Hozzon létre egy virtuális gépet az alkalmazás üzemeltetéséhez.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start-deploy-app"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-color.svg" alt=""> <br><b>A kódban írt alkalmazások.</b></a> <p>Állítson be egy virtuális gépet Azure Stack és az alkalmazás üzembe helyezését C#a, a Java, a Python, a go, a Ruby vagy a NodeJS használatával.</p>'
-  - title: Szolgáltatásként szolgáló platform (Pásti) Azure Stack
+          - html: '<a href="/azure-stack/user/azure-stack-create-vm-template"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_package.svg" alt=""> <br><b>Helyezzen üzembe egy virtuális gépet a IaaS-ben egy sablonnal.</b></a> <p>Virtuális gép létrehozása Azure Stack hub Resource Manager-sablonok használatával</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-quick-linux-portal"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_vmm-cloud.svg" alt=""> <br>Rövid útmutató <b>– virtuális gép létrehozása</b></a> <p>Hozzon létre egy virtuális gépet az alkalmazás üzemeltetéséhez.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-dev-start-deploy-app"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-color.svg" alt=""> <br><b>A kódban írt alkalmazások.</b></a> <p>Állítson be egy virtuális gépet Azure Stack hub-ban, és telepítse az C#alkalmazást a, a Java, a Python, a go, a Ruby vagy a NodeJS használatával.</p>'
+  - title: Szolgáltatásként szolgáló platform (Pásti) Azure Stack hub-on
     items:
       - type: list
         style: cards
         className: cardsA
         items:
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-service-fabric-cluster"> <img height="48" width="48" src="/azure-stack/user/media/index/service-fabric-cluster.png" alt=""> <br><b>Service Fabric-fürt üzembe helyezése</b></a> <p>Helyezzen üzembe egy biztonságos Service Fabric fürtöt a Azure Stackban.</p>
+          - html: <a href="/azure-stack/user/azure-stack-solution-template-service-fabric-cluster"> <img height="48" width="48" src="/azure-stack/user/media/index/service-fabric-cluster.png" alt=""> <br><b>Service Fabric-fürt üzembe helyezése</b></a> <p>Biztonságos Service Fabric-fürt üzembe helyezése Azure Stack központban.</p>
           - html: '<a href="/azure-stack/user/azure-stack-solution-template-kubernetes-deploy"> <img height="48" width="48" src="/azure-stack/user/media/index/kubernetes.png" alt=""> <br><b>Kubernetes-fürt üzembe helyezése</b></a> <p>A Kubernetes erőforrásainak üzembe helyezése és beállítása egyetlen, koordinált műveletben.</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-solution-template-cognitive-services"> <img height="48" width="48" src="/azure-stack/user/media/index/icon-cognitive-services.svg" alt=""> <br><b>Az Azure Cognitive Services üzembe helyezése</b></a> <p>Az Azure Cognitive Services tárolók támogatása lehetővé teszi, hogy ugyanazokat az API-kat használja, amelyek az Azure-ban is elérhetők.</p>'
+          - html: '<a href="/azure-stack/user/azure-stack-solution-template-cognitive-services"> <img height="48" width="48" src="/azure-stack/user/media/index/icon-cognitive-services.svg" alt=""> <br>Az <b>Azure Cognitive Services üzembe helyezése</b></a> <p>Az Azure Cognitive Services tárolók támogatása lehetővé teszi, hogy ugyanazokat az API-kat használja, amelyek az Azure-ban is elérhetők.</p>'

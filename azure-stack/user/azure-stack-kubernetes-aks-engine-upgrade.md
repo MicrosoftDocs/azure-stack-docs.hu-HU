@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3720781dc2545fefaff0b2cd703d7c3880c4b97b
-ms.sourcegitcommit: 83cef2c4ec6e1b2fd3f997c91675c1058a850e2f
+ms.openlocfilehash: 39eebfbc4d60d4cd68bb33d6efcf35cc12ffe313
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72999884"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594892"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt frissítése Azure Stack
 
@@ -86,7 +86,7 @@ Az alábbi utasítások a frissítés végrehajtásához szükséges minimális 
 
     | Paraméter | Példa | Leírás |
     | --- | --- | --- |
-    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack használja a `AzureStackCloud` értéket. |
+    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack használja `AzureStackCloud`. |
     | location | helyi | A Azure Stack régiójának neve. A ASDK a régió `local`értékre van állítva. |
     | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
     | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
@@ -139,7 +139,7 @@ aks-engine upgrade \
 
 Útmutatásért lásd: [kényszerített frissítés](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md#force-upgrade).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
 - [Kubernetes-fürt méretezése Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)
