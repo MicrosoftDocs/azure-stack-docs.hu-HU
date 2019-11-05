@@ -1,0 +1,117 @@
+### YamlMime:Hub
+title: Azure Stack – dokumentáció
+summary: A Azure Stack olyan termékcsalád, amely az Azure-t az adatközponthoz vagy az Edge-hez is kiterjesztheti. Azure Stack hubot, Azure Stack HCI-t és Azure Stack Edge-t tartalmaz.
+brand: azure
+metadata:
+  title: Azure Stack – dokumentáció
+  description: A Azure Stack olyan termékcsalád, amely az Azure-t az adatközponthoz vagy az Edge-hez is kiterjesztheti. Azure Stack hubot, Azure Stack HCI-t és Azure Stack Edge-t tartalmaz.
+  ms.service: azure-stack
+  ms.topic: hub-page
+  author: BryanLa
+  ms.author: bryanla
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 188a1e58f592f88beee2781d5ee53a9fef48d418
+  ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+  ms.translationtype: MT
+  ms.contentlocale: hu-HU
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73607961"
+highlightedContent:
+  items:
+  - title: Azure Stack család bejelentése
+    itemType: overview
+    url: http://aka.ms/AzsFamAnnounce
+  - title: A termékek és megoldások Azure Stack termékcsaládjának összehasonlítása
+    itemType: overview
+    url: /azure-stack/operator/compare-azure-azure-stack
+productDirectory:
+  items:
+  - title: Azure Stack hub
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-overview
+      text: Mi az Azure Stack hub?
+  - title: Azure Stack Edge
+    imageSrc: media/index/azure-stack-edge.svg
+    links:
+    - url: /azure/databox-online/data-box-edge-overview
+      text: Mi az Azure Stack Edge?
+  - title: Azure Stack HCI
+    imageSrc: media/index/azure-stack-hci.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-hci-overview
+      text: Azure Stack HCI – áttekintés
+additionalContent:
+  sections:
+  - title: Azure Stack hub
+    items:
+    - title: Művelet
+      links:
+      - url: /azure-stack/operator/azure-stack-manage-portals
+        text: A felügyeleti portál használata
+      - url: /azure-stack/operator/release-notes
+        text: Kibocsátási megjegyzések
+      - url: /azure-stack/operator/azure-stack-servicing-policy
+        text: Azure Stack hub karbantartási szabályzata
+      - url: /azure-stack/operator/azure-stack-create-service-principals
+        text: Alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez
+    - title: Felhasználó
+      links:
+      - url: /azure-stack/user/azure-stack-quick-windows-portal
+        text: Virtuális gép üzembe helyezése
+      - url: /azure-stack/user/azure-stack-vm-sizes
+        text: Támogatott virtuálisgép-méretek
+      - url: /azure-stack/user/azure-stack-considerations
+        text: Az alkalmazások összeállításának legfontosabb szempontjai
+      - url: /azure-stack/user/azure-stack-key-vault-manage-portal
+        text: Key Vault létrehozása és kezelése
+    - title: Azure Stack hub Development Kit (ASDK)
+      links:
+      - url: /azure-stack/asdk/asdk-deploy-considerations
+        text: A ASDK követelményei és szempontjai
+      - url: /azure-stack/asdk/asdk-download
+        text: A ASDK letöltése és kibontása
+      - url: /azure-stack/asdk/asdk-prepare-host
+        text: A ASDK-gazda számítógép előkészítése
+  - title: Azure Stack Edge
+    items:
+    - title: Üzembe helyezés
+      links:
+      - url: /azure/databox-online/data-box-edge-system-requirements
+        text: Rendszerkövetelmények áttekintése
+      - url: /azure/databox-online/data-box-edge-limits
+        text: Korlátozások ismertetése
+      - url: /azure/databox-online/data-box-edge-deploy-prep
+        text: Az üzembe helyezés előkészítése
+      - url: /azure/databox-online/data-box-edge-deploy-install
+        text: Telepítés
+    - title: Fejlesztés
+      links:
+      - url: /azure/databox-online/data-box-edge-create-iot-edge-module
+        text: IoT Edge modul fejlesztése (C#)
+      - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
+        text: IoT Edge modul SamplesC#()
+  - title: Azure Stack HCI
+    items:
+    - title: Megoldások
+      links:
+      - url: https://azure.microsoft.com/overview/azure-stack/hci/
+        text: Azure Stack HCI-megoldások áttekintése
+      - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+        text: Azure Stack HCI-katalógus
+    - title: Kezelés
+      links:
+      - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+        text: Windows felügyeleti központ
+      - url: /windows-server/manage/windows-admin-center/azure
+        text: Azure Hybrid Services
+    - title: Alapvető technológiák
+      links:
+      - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+        text: Hyper-V
+      - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+        text: Közvetlen tárolóhelyek
+      - url: /windows-server/networking/sdn
+        text: Szoftver által definiált hálózatkezelés
+      - url: /windows-server/failover-clustering/failover-clustering-overview
+        text: Feladatátvételi fürtszolgáltatás
