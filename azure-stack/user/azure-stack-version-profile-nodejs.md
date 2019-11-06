@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 7e2753ebb5bebad4f1ac2a7bbc17a27ccd87cbe9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 65ea0b4f6f7f7cb3769e83bf9052ac2953668e48
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283042"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618232"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>API-verziók profiljainak használata a Node. js szoftverfejlesztői készlettel (SDK) Azure Stack
 
@@ -57,7 +57,7 @@ A következő csomagokat találja:
 | [Számítás](https://www.npmjs.com/package/@azure/arm-compute-profile-2019-03-01-hybrid) | @azure/arm-compute-profile-2019-03-01-hybrid |
 | [Storage](https://www.npmjs.com/package/@azure/arm-storage-profile-2019-03-01-hybrid) | @azure/arm-storage-profile-2019-03-01-hybrid |
 | [Hálózat](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid) | @azure/arm-network-profile-2019-03-01-hybrid |
-| [Erőforrások](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
+| [Forrásanyagok](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
 A szolgáltatás legújabb API-verziójának használatához használja az adott ügyféloldali függvénytár **legújabb** profilját. Ha például az erőforrás-szolgáltatás legújabb API-verzióját szeretné használni, használja az **Erőforrás-kezelés ügyféloldali kódtár** `azure-arm-resource` profilját. csomag.
@@ -73,7 +73,7 @@ A csomagban meghatározott API-verziókat használhatja az erőforrás-szolgált
 
 2. Telepítse vagy frissítsen a [Node. js](https://nodejs.org/en/download/)aktuális verziójára. A Node. js a [NPM](https://www.npmjs.com/) JavaScript Package Managert is tartalmazza.
 
-3. Telepítse vagy frissítse a [Visual Studio Code](https://code.visualstudio.com/) -ot, és telepítse a [Node. js-bővítményt](https://code.visualstudio.com/docs/Node.js/nodejs-debugging) a Visual Studio Code-hoz.
+3. Telepítse vagy frissítse a [Visual Studio Code](https://code.visualstudio.com/) -ot, és telepítse a [Node. js-bővítményt](https://code.visualstudio.com/docs/nodejs/nodejs-debugging) a Visual Studio Code-hoz.
 
 2.  Telepítse az Azure Stack Resource Manger-ügyfél csomagjait. További információ: [az ügyféloldali kódtárak telepítése](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid).
 
@@ -93,11 +93,11 @@ Ha a Node. js Azure SDK-t Azure Stack használatával szeretné használni, meg 
 
 | Value (Díj) | Környezeti változók | Leírás |
 | --- | --- | --- |
-| Bérlőazonosító | BÉRLŐi @ no__t – 0ID | A Azure Stack [bérlő azonosítójának](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)értéke. |
-| Ügyfél-azonosító | ÜGYFÉL @ no__t – 0ID | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a jelen dokumentum előző szakaszában a szolgáltatásnév lett létrehozva.  |
-| Subscription ID (Előfizetés azonosítója) | AZURE @ no__t-0SUBSCRIPTION @ no__t-1ID az [előfizetés azonosítója](https://docs.microsoft.com/azure/azure-stack/service-plan-offer-subscription-overview#subscriptions) , hogy hogyan érheti el az ajánlatokat Azure stack.  |
-| Ügyfél titka | ALKALMAZÁS @ no__t – 0SECRET | Az egyszerű szolgáltatásnév alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
-| Resource Manager-végpont | ARM @ no__t – 0ENDPOINT | Lásd [a Azure stack Resource Manager-végpontot](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint). |
+| Bérlőazonosító | BÉRLŐi\_azonosítója | A Azure Stack [bérlő azonosítójának](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)értéke. |
+| Ügyfél-azonosító | ÜGYFÉL\_azonosítója | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a jelen dokumentum előző szakaszában a szolgáltatásnév lett létrehozva.  |
+| Subscription ID (Előfizetés azonosítója) | Az AZURE\_előfizetése\_ID azonosító az [előfizetés azonosítója](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) , hogyan érheti el az ajánlatokat a Azure Stackban.  |
+| Ügyfél titka | ALKALMAZÁS\_TITKa | Az egyszerű szolgáltatásnév alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
+| Resource Manager-végpont | ARM\_VÉGPONT | Lásd [a Azure stack Resource Manager-végpontot](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint). |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Környezeti változók beállítása a Node. js-hez
 

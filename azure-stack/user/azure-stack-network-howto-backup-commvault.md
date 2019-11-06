@@ -9,12 +9,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 428a91503c6943ed1dcc2f48ccad09620d650039
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236263"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618290"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack a CommVault
 
@@ -149,7 +149,7 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 
 9. Adja meg a Storage-fiókjához tartozó hozzáférési adatokat. Itt megtalálhatja az Azure Storage-fiók beállításával kapcsolatos utasításokat. Hozzáférési információk:
 
-    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Például az URL-cím https://backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban.
+    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Például az URL-cím https:\//backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
     
     -   **Fiók neve**: használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
     

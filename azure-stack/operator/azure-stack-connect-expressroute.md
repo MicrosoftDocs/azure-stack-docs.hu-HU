@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: efea925c421a031206ac33b49a13bd486bab1eea
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283570"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636887"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack összekötése az Azure-val az Azure ExpressRoute
 
@@ -62,7 +62,7 @@ Az alábbi ábra a Azure Stack és az Azure-környezeteket mutatja be a ExpressR
 
 ![ExpressRoute hálózat](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Az alábbi ábra azt mutatja be, hogy több bérlő Hogyan kapcsolódhat a Azure Stack-infrastruktúrából a ExpressRoute-útválasztón keresztül az Azure-ba a Microsoft Edge-ben:
+Az alábbi ábra azt mutatja be, hogy több bérlő Hogyan kapcsolódhat a Azure Stack infrastruktúrához a ExpressRoute-útválasztón keresztül az Azure-ba:
 
 ![Több-bérlős kapcsolatok a ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -604,10 +604,10 @@ Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolatban, akkor a Azur
 1. Jelentkezzen be a Azure Stack felhasználói portálra, és válassza az **összes erőforrás**lehetőséget.
 1. Navigáljon a VPN Gateway erőforráscsoporthoz, és válassza ki a **kapcsolódási** objektum típusát.
 1. Válassza ki a **ConnectToAzure** -összekötőt a listából.
-1. A **kapcsolatok**@no__t – 1**Áttekintés**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
+1. A **kapcsolatok** > **áttekintése**területen megtekintheti a és **a** **kimenő**adatok statisztikáit. Néhány nem nulla értéket kell látnia.
 
    ![És kimenő adatbevitel](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Alkalmazások telepítése az Azure-ba és Azure Stack](../user/azure-stack-solution-pipeline.md )
+[Alkalmazások telepítése az Azure-ba és Azure Stack](../user/azure-stack-solution-pipeline.md)

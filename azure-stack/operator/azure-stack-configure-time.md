@@ -14,12 +14,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: cc432538715c1c990a9efe6473b33303deb78734
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: a70eaaf46988524f5323052a3f2ca90f5b7719e1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72280533"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636808"
 ---
 # <a name="configure-the-time-server-for-azure-stack"></a>A Azure Stack időkiszolgálójának konfigurálása
 
@@ -29,7 +29,10 @@ A rendszerjogosultságú végpont (PEP) használatával frissítheti Azure Stack
 
 A Azure Stack a Network Time Protocol (NTP) protokollt használja az internetes időkiszolgálókhoz való kapcsolódáshoz. Az NTP-kiszolgálók pontos rendszeridőt biztosítanak. Az idő Azure Stack fizikai hálózati kapcsolók, a hardver életciklus-gazdagép, az infrastruktúra-szolgáltatás és a virtuális gépek között használatos. Ha az óra nincs szinkronizálva, Azure Stack a hálózattal és a hitelesítéssel kapcsolatos súlyos problémák léphetnek fel. A naplófájlok, dokumentumok és egyéb fájlok helytelen időbélyegzővel hozhatók létre.
 
-Legalább egy időkiszolgáló (NTP) szükséges a Azure Stack számára az idő szinkronizálásához. Azure Stack telepítésekor meg kell adnia egy NTP-kiszolgáló címeit. Az idő egy kritikus adatközpont-infrastruktúra szolgáltatás. Ha a szolgáltatás megváltozik, frissítenie kell az időt.
+A szinkronizálás időpontjának Azure Stack egy időkiszolgáló (NTP) megadása szükséges. Azure Stack telepítésekor meg kell adnia egy NTP-kiszolgáló címeit. Az idő egy kritikus adatközpont-infrastruktúra szolgáltatás. Ha a szolgáltatás megváltozik, frissítenie kell az időt.
+
+> [!NOTE]
+> Azure Stack támogatja az idő szinkronizálását csak egyszeres kiszolgálóval (NTP). Nem adhat meg több NTPs a Azure Stack számára az idő szinkronizálásához.
 
 ## <a name="configure-time"></a>Konfigurálás időpontja
 

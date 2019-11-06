@@ -15,14 +15,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 33ead43fd8dbe77feae12db58ca7c689030c6f98
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829104"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618242"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: Erőforrások beállítása szolgáltatásként történő érvényesítéshez
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -42,7 +42,7 @@ Az Azure AD-bérlő használatával regisztrálhat egy szervezetet, és hiteles�
 
 Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga szolgáltatások eléréséhez. Adjon meg egy leíró nevet, például `ContosoVaaS@onmicrosoft.com`.
 
-1. Hozzon létre egy Azure AD- [](https://portal.azure.com)bérlőt a Azure Portalban, vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Hozzon létre egy Azure AD-bérlőt a [Azure Portalban](https://portal.azure.com), vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Vegye fel a szervezet tagjait a bérlőbe. Ezeknek a felhasználóknak a feladata a szolgáltatás használata a tesztek megtekintéséhez vagy megadásához. A regisztráció befejezését követően meg kell határoznia a felhasználók hozzáférési szintjeit.
 
@@ -56,7 +56,7 @@ Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga s
 
     Szerepkörök társítása a **Azure stack érvényesítési szolgáltatásalkalmazás** alkalmazásban:
 
-   1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
+   1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
    2. Válassza az **összes szolgáltatás** > **Azure Active Directory** az **identitás** szakaszban.
    3. Válassza a **vállalati alkalmazások** > **Azure stack érvényesítési szolgáltatásalkalmazás** elemet.
    4. Válassza a **Felhasználók és csoportok** elemet. A **Azure stack érvényesítési szolgáltatás – felhasználók és csoportok** panel felsorolja azokat a felhasználókat, akik jogosultak az alkalmazás használatára.
@@ -70,7 +70,7 @@ Ezzel a folyamattal engedélyezheti a bérlőnek az **Azure stack érvényesít�
 
 1. Küldje el az alábbi adatokat a bérlőről a Microsoftnak a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
 
-    | Data | Leírás |
+    | Adatok | Leírás |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Szervezet neve | A hivatalos szervezet neve. |
     | Azure AD-bérlői könyvtár neve | Az Azure AD-bérlő könyvtárának neve regisztrálva van. |
@@ -94,13 +94,13 @@ A tesztelés végrehajtása során az Azure a diagnosztikai naplókat egy Azure 
 
 Az Azure Storage-fiók az Azure nyilvános felhőben, nem pedig a Azure Stack-környezetben üzemel.
 
-1. A Azure Portal válassza a **minden szolgáltatás** > **Storage**@no__t – 3**Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
+1. A Azure Portal válassza a **minden szolgáltatás** > **Storage** - > **Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
 
 2. Válassza ki azt az előfizetést, amelyben létre kívánja hozni a tárfiókot.
 
 3. Az **erőforráscsoport**területen válassza az **új létrehozása**lehetőséget. Adja meg az új erőforráscsoport nevét.
 
-4. Tekintse [](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) át az Azure Storage-fiókok elnevezési konvencióit. Adja meg a tárfiók nevét.
+4. Tekintse át az Azure Storage-fiókok [elnevezési konvencióit](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) . Adja meg a tárfiók nevét.
 
 5. Válassza ki az **USA nyugati** régióját a Storage-fiókjához.
 
@@ -116,7 +116,7 @@ Az Azure Storage-fiók az Azure nyilvános felhőben, nem pedig a Azure Stack-k�
 
 7. A tárfiók beállításainak áttekintéséhez és a fiók létrehozásához válassza a **Felülvizsgálat + létrehozás** elemet.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a környezet nem engedélyezi a kötött kapcsolatokat, kövesse az oktatóanyagot a helyi ügynök üzembe helyezéséről, hogy tesztet futtasson a hardveren.
 

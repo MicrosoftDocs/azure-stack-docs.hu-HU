@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 91314fcd33d3b4171dc7e9a3e2d78cdf07e2f50e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283539"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618279"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Meglévő Piactéri elemek letöltése az Azure-ból és közzététel a Azure Stack
 
@@ -50,7 +50,7 @@ Az Azure Stack üzemelő példánynak internetkapcsolattal kell rendelkeznie, é
 
 2. A Piactéri elemek letöltése előtt tekintse át a rendelkezésre álló tárolóhelyet. Később, amikor kiválasztja az elemeket a letöltéshez, összehasonlíthatja a letöltési méretet a rendelkezésre álló tárterület kapacitásával. Ha a kapacitás korlátozott, vegye figyelembe a [rendelkezésre álló terület kezelésének](azure-stack-manage-storage-shares.md#manage-available-space)lehetőségeit.
 
-    A rendelkezésre álló terület áttekintéséhez: a **régió felügyelete**területen válassza ki a vizsgálni kívánt régiót, majd nyissa meg az **erőforrás-szolgáltatók**@no__t – 2**tárolót**:
+    A rendelkezésre álló terület áttekintéséhez: a **régió felügyelete**területen válassza ki a vizsgálni kívánt régiót, majd lépjen az **erőforrás-szolgáltatók** > **tárolóhoz**:
 
     ![Tárterület áttekintése Azure Stack felügyeleti portálon](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -101,7 +101,7 @@ A forgatókönyv két részből áll:
 
 A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen megjelenő alábbi üzenetet, mivel ez nem vonatkozik a leválasztott használati esetekre:
 
-[![Nincs regisztrált üzenet]–(media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "nincs regisztrált") üzenet](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
+[![Nem regisztrált üzenet](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "Nem regisztrált üzenet")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Marketplace-elemek letöltése a Marketplace Syndication eszköz használatával
 
@@ -150,9 +150,9 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
 
 6. Az eszköz futtatásakor az alábbi képhez hasonló képernyő jelenik meg az elérhető Azure Marketplace-elemek listájával:
 
-   [![Azure Marketplace-elemek felugró](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace-elemek")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Azure Marketplace-elemek előugró ablak](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace-elemek")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Ha nem telepítette az Azure Storage-eszközöket, a következő üzenet jelenik meg. Az eszközök telepítéséhez győződjön meg róla, hogy letöltötte a [AzCopy](/azure/storage/common/storage-use-azcopy#download-and-install-azcopy-on-windows):
+7. Ha nem telepítette az Azure Storage-eszközöket, a következő üzenet jelenik meg. Az eszközök telepítéséhez győződjön meg róla, hogy letöltötte a [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy):
 
    ![Storage-eszközök](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
 
@@ -178,7 +178,7 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
 
    Az alábbi ábrán egy példa látható a mappák struktúrájában. a `D:\downloadfolder` a piactér összes letöltött elemét tartalmazza. Minden almappa olyan Piactéri elem (például `microsoft.custom-script-linux-arm-2.0.3`), amelyet a termékazonosító nevez. Az egyes almappákon belül a Piactéri elem letöltött tartalma.
 
-   [![Marketplace letöltési könyvtár]szerkezete(media/azure-stack-download-azure-marketplace-item/mp1sm.png "piactér letöltési könyvtár szerkezete")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Marketplace letöltési könyvtár szerkezete](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace letöltési könyvtár szerkezete")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. A Azure Stack kezelő PowerShell-munkamenet konfigurálásához kövesse az [ebben a cikkben](azure-stack-powershell-configure-admin.md) szereplő utasításokat.
 

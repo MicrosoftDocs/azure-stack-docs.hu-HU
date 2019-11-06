@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: fdb0f9a34fe40b3d3fef6abf96b9e1a6927b04e6
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909306"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618255"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Azure Stack Datacenter integrációs útmutató
 
@@ -29,12 +29,49 @@ Ez a cikk a teljes körű Azure Stack felhasználói élményt ismerteti, amely 
 
 Azure Stack ügyfélként a következő fázisokra kell számítani:
 
-|     |Tervezési fázis|Megrendelés folyamata|Üzembe helyezés előtti|Gyári folyamat|Hardveres kézbesítés|Helyszíni üzembe helyezés|
-|-----|-----|-----|-----|-----|-----|-----|
-|**Microsoft**|Folytassa a partnerrel az értékesítés előtti támogatás biztosításához.|Szükség szerint készítse elő a szoftver licencelését és a szerződéseket.|Adja meg a szükséges eszközöket az adatközpont-integrációs követelmények és dokumentáció összegyűjtéséhez az ügyfél számára.|Adja meg a legújabb alapkonfigurációk és az eszközök láncának frissítéseit egy havi ritmusban.|–|A Microsoft támogatási szakemberei segítséget nyújtanak az üzembe helyezési problémák megoldásában.|
-|**Partner**|Az ügyfélre vonatkozó követelmények alapján ajánljuk a megoldás beállításait.<br><br>Szükség esetén javasoljon megvalósíthatósági igazolást (POC).<br><br>Üzleti kapcsolat létrehozása.<br><br>Döntse el a támogatási szintet.|Készítse elő a szükséges szerződéseket az ügyféllel.<br><br>Hozzon létre egy ügyfél-beszerzési rendelést.<br><br>Döntse el a kézbesítési ütemtervet.<br><br>Ha szükséges, az ügyfél összekapcsolását a Microsofttal.|Adja meg az ügyfél számára a szükséges képzést az összes üzembe helyezési előfeltétel és adatközpont-integrációs lehetőség megismerése érdekében.<br><br>Segítheti az ügyfelet az összegyűjtött adatok érvényesítésében a teljesség és pontosság biztosítása érdekében.|Alkalmazza az utolsó érvényesített alapterv-buildet.<br><br>Alkalmazza a szükséges Microsoft központi telepítési eszközkészletet.|Hardver szállítása az ügyfél webhelyére.|Helyszíni mérnök által kezelt üzembe helyezés.<br><br>Állvány és verem.<br><br>Hardveres életciklus-gazdagép (HLH) telepítése.<br><br>Azure Stack üzemelő példány.<br><br>Kikapcsolás az ügyfélnek.|
-|**Ügyfél**|Ismertesse a felhasználási példákat, és adja meg a követelményeket.|Határozza meg, hogy milyen számlázási modellt kíván használni, ellenőrizni és jóváhagyni a szerződéseket.|Fejezze be a [telepítési munkalapot](azure-stack-deployment-worksheet.md), és győződjön meg arról, hogy az összes központi telepítés előfeltétele teljesül, és készen áll a telepítésre|–|Készítse elő az adatközpontot az összes szükséges energiaellátási és hűtési, határ-és egyéb szükséges adatközpont-integrációs követelmény biztosításával.|Az üzembe helyezés során elérhetőnek kell lennie az előfizetés hitelesítő adatainak és támogatásának biztosításához, ha kérdése van a megadott adatokkal kapcsolatban.|
-| | | | | | | |
+# <a name="customertabcustomer"></a>[Ügyfél](#tab/customer)
+
+1. Ismertesse a felhasználási példákat, és adja meg a követelményeket.
+2. Határozza meg, hogy milyen számlázási modellt kíván használni, ellenőrizni és jóváhagyni a szerződéseket.
+3. Fejezze be a [telepítési munkalapot](azure-stack-deployment-worksheet.md), és győződjön meg arról, hogy az összes központi telepítés előfeltétele teljesül, és készen áll a telepítésre
+4. Készítse elő az adatközpontot úgy, hogy az összes szükséges energiaellátási és hűtési, szegélyi és egyéb szükséges adatközpont-integrációs követelményt biztosítja.
+5. Az üzembe helyezés során elérhetőnek kell lennie az előfizetés hitelesítő adatainak és támogatásának biztosításához, ha kérdése van a megadott adatokkal kapcsolatban.
+
+# <a name="partnertabpartner"></a>[Partner](#tab/partner)
+
+1. Tervezési fázis:
+   - Az ügyfélre vonatkozó követelmények alapján ajánljuk a megoldás beállításait.
+   - Szükség esetén javasoljon megvalósíthatósági igazolást (POC).
+   - Üzleti kapcsolat létrehozása.
+   - Döntse el a támogatási szintet.
+2. Megrendelés folyamata:
+   - Készítse elő a szükséges szerződéseket az ügyféllel.
+   - Hozzon létre egy ügyfél-beszerzési rendelést.
+   - Döntse el a kézbesítési ütemtervet.
+   - Ha szükséges, az ügyfél összekapcsolását a Microsofttal.
+3. Üzembe helyezés előtti
+   - Adja meg az ügyfél számára a szükséges képzést az összes központi telepítés előfeltételének és az adatközpont-integrációs lehetőségek megismerése érdekében.
+   - Segítheti az ügyfelet az összegyűjtött adatok érvényesítésében a teljesség és pontosság biztosítása érdekében.
+4. Gyári folyamat
+   - Alkalmazza az utolsó érvényesített alapterv-buildet.
+   - Alkalmazza a szükséges Microsoft központi telepítési eszközkészletet.
+5. Hardveres kézbesítés:
+   - Hardver szállítása az ügyfél webhelyére.
+6. Helyszíni üzembe helyezés
+   - Helyszíni mérnök által kezelt üzembe helyezés.
+   - Állvány és verem.
+   - Hardveres életciklus-gazdagép (HLH) telepítése.
+   - Azure Stack üzemelő példány.
+   - Kikapcsolás az ügyfélnek.
+
+# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+
+1. Folytassa a partnerrel az értékesítés előtti támogatás biztosításához.
+2. Szükség szerint készítse elő a szoftver licencelését és a szerződéseket.
+3. Adja meg a szükséges eszközöket az adatközpont-integrációs követelmények és dokumentáció összegyűjtéséhez az ügyfél számára.
+4. Adja meg a legújabb alapkonfigurációk és az eszközök láncának frissítéseit egy havi ritmusban.
+5. A Microsoft támogatási szakemberei segítséget nyújtanak az üzembe helyezési problémák megoldásában.
+
 
 
 ## <a name="planning-phase"></a>Tervezési fázis
@@ -152,5 +189,5 @@ A Azure Stack lehetővé teszi az Azure-konzisztens, integrált támogatási él
 
 Az integrált támogatási élmény egy Case Exchange-mechanizmust használ a támogatási esetek és a Microsoft és a hardverprofil közötti, kétirányú átvitelhez. Microsoft Azure Stack követni fogja a [modern életciklus-szabályzatot](https://support.microsoft.com/help/30881).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 További információ az [általános adatközpont integrációs szempontjairól](azure-stack-datacenter-integration.md).

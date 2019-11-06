@@ -2,11 +2,9 @@
   href: index.yml
 - name: Áttekintés
   items:
-    - name: Megoldások létrehozása Azure Stack hubhoz
-      href: azure-stack-hybrid-cloud-patterns.md
     - name: Fő szempontok
       href: azure-stack-considerations.md
-- name: Gyors útmutatók
+- name: Gyorsútmutatók
   expanded: true
   items:
     - name: Windows rendszerű virtuális gép létrehozása – Portál
@@ -67,7 +65,7 @@
               href: azure-stack-rest-api-use.md
         - name: Azure Stack hub Resource Manager-sablonok használata
           items:
-            - name: Sablonok áttekintése
+            - name: Sablonok – áttekintés
               href: azure-stack-arm-templates.md
             - name: Sablonokkal kapcsolatos megfontolások
               href: azure-stack-develop-templates.md
@@ -84,7 +82,7 @@
                   href: azure-stack-deploy-template-command-line.md
                 - name: Üzembe helyezés a Visual Studio Code-ban
                   href: azure-stack-resource-manager-deploy-template-vscode.md
-                - name: Üzembe helyezés a Visual Studióval
+                - name: Üzembe helyezés a Visual Studio használatával
                   href: azure-stack-deploy-template-visual-studio.md
         - name: API-verziók profiljainak használata
           items:
@@ -114,13 +112,13 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatások használata
           items:
-            - name: Compute
+            - name: Számítási szolgáltatások
               items:
                 - name: Áttekintés
                   href: azure-stack-compute-overview.md
                 - name: A virtuális gépekkel kapcsolatos szempontok
                   href: azure-stack-vm-considerations.md
-                - name: A virtuális gépek mérete
+                - name: Virtuálisgép-méretek
                   href: azure-stack-vm-sizes.md
                 - name: VM-lemezek kezelése
                   href: azure-stack-manage-vm-disks.md
@@ -132,7 +130,7 @@
                   href: vm-update-management.md
                 - name: SQL Server VM megfontolások
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Storage
+            - name: Adattárolás
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -144,13 +142,13 @@
                   href: azure-stack-storage-transfer.md
                 - name: A Storage Explorer csatlakoztatása
                   href: azure-stack-storage-connect-se.md
-            - name: Hálózat
+            - name: Network (Hálózat)
               items:
                 - name: Áttekintés
                   href: azure-stack-network-overview.md
-                - name: Hálózati megfontolások
+                - name: Hálózati szempontok
                   href: azure-stack-network-differences.md
-                - name: VPN-átjárók
+                - name: VPN Gateway átjárók
                   items:
                     - name: Csatlakozás VPN használatával
                       href: azure-stack-connect-vpn.md
@@ -249,26 +247,6 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: NodeJS-webalkalmazás üzembe helyezése
               href: azure-stack-dev-start-howto-vm-nodejs.md
-    - name: Hibrid Felhőbeli minták üzembe helyezése
-      items:
-        - name: Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz
-          href: azure-stack-solution-pipeline.md
-        - name: Hibrid Felhőbeli identitás konfigurálása
-          href: azure-stack-solution-hybrid-identity.md
-        - name: Hibrid felhőalapú kapcsolat konfigurálása
-          href: azure-stack-solution-hybrid-connectivity.md
-        - name: Több felhőre kiterjedő méretezési megoldás létrehozása az Azure-ban
-          href: azure-stack-solution-cloud-burst.md
-        - name: Földrajzilag elosztott alkalmazás-megoldás létrehozása
-          href: azure-stack-solution-geo-distributed.md
-        - name: Hibrid felhőalapú megoldás üzembe helyezése
-          href: azure-stack-solution-hybrid-cloud.md
-        - name: Az előkészített adatelemzés üzembe helyezése
-          href: azure-stack-solution-staged-data.md
-        - name: Magas rendelkezésre állású MongoDB üzembe helyezése
-          href: azure-stack-solution-mongodb-ha.md
-        - name: Magas rendelkezésre állású SQL Server üzembe helyezése 2016
-          href: azure-stack-solution-sql-ha.md
     - name: Alapvető minták üzembe helyezése
       items:
         - name: VNET-társítás
@@ -315,27 +293,15 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Hálózati virtuális berendezések
           href: iaas-architecture-nva-architecture.md
-    - name: Hibrid Felhőbeli minták
-      items:
-        - name: Hibrid Felhőbeli minták – áttekintés
-          href: azure-stack-edge-pattern-overview.md
-        - name: Cross Cloud skálázás
-          href: azure-stack-edge-pattern-cross-cloud-scaling.md
-        - name: DevOps (hibrid CI/CD)
-          href: azure-stack-edge-pattern-hybrid-ci-cd.md
-        - name: Lépés hangja észlelése
-          href: hybrid-solution-retail-footfall-detection.md
-        - name: Földrajzilag elosztott alkalmazás
-          href: azure-stack-edge-pattern-geo-distribution.md
 - name: Leírások
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
     - name: Azure Stack hub REST API böngésző
       href: /rest/api/
-    - name: Azure CLI
+    - name: Azure parancssori felület (CLI)
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakör
+- name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator/
@@ -353,5 +319,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Képzés és tanúsítványok
+    - name: Képzési és minősítési lehetőségek
       href: /azure-stack/operator/azure-stack-train-and-cert

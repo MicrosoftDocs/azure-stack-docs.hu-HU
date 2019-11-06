@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3b6d1b9e91acfdb7a54cf3b7fbc70399bf635c09
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595248"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636882"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
 
@@ -54,7 +54,7 @@ Ha Active Directory összevont szolgáltatásokat (AD FS) használ az Identitás
 
 ## <a name="add-the-aks-base-image"></a>Az AK-alapú alaprendszerkép hozzáadása
 
-Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban a Azure Stack le van választva, az alábbi utasításokat követve [töltheti le a Marketplace-elemeket az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott tételt.
+Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban a Azure Stack le van választva, az alábbi utasításokat követve [töltheti le a Marketplace-elemeket az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
 
 Adja hozzá a következő elemeket a piactérhez:
 
@@ -64,20 +64,20 @@ Adja hozzá a következő elemeket a piactérhez:
 
 1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
 
-1. Írja be a `AKS Base Image` (igen) kifejezést.
+1. Írja be a `AKS Base` (igen) kifejezést.
 
 1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
 
     A listában válassza a következőket:
     - **Közzétevő**: Azure Kubernetes Service
     - **Ajánlat**: AK
-    - **Verzió**: AK alaprendszerkép 16,04 – LTS rendszerkép-disztribúció, 2019. szeptember (2019.09.19 vagy Version, amely az AK-motorhoz van leképezve)
+    - **Verzió**: AK alaprendszerkép 16,04 – LTS rendszerkép-disztribúció, október 2019 (2019.10.24 vagy Version, amely az AK-motorhoz van leképezve)
 
 1. Válassza a **Letöltés lehetőséget.**
 
 ## <a name="add-a-custom-script-extension"></a>Egyéni parancsfájl-kiterjesztés hozzáadása
 
-Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban a Azure Stack le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) című témakört.  Adja hozzá az 5. lépésben megadott tételt.
+Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban a Azure Stack le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
 
 1. Nyissa meg a [felügyeleti portált](https://adminportal.local.azurestack.external).
 
@@ -97,7 +97,7 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Válassza a **Letöltés lehetőséget.**
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Mi a Azure Stack AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 

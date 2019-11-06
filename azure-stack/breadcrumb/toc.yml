@@ -9,6 +9,9 @@
         - name: Hub ASDK
           tocHref: /azure-stack/asdk/
           topicHref: /azure-stack/asdk/index
+        - name: Hibrid
+          tocHref: /azure-stack/hybrid/
+          topicHref: /azure-stack/hybrid/index
         - name: Hub operátor
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
