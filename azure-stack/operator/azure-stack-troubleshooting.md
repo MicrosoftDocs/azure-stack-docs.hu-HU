@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445283"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659241"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
 
@@ -45,7 +45,7 @@ Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljutt
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>A vendég virtuális gépek által támogatott operációs rendszerek és méretek
 
 * [Az Azure Stack által támogatott vendég operációs rendszerek](azure-stack-supported-os.md)
-* [Azure Stack támogatott virtuálisgép-méretek](../user/azure-stack-vm-sizes.md)
+* [Az Azure Stackben támogatott virtuálisgép-méretek](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure Piactér
 
@@ -96,42 +96,6 @@ A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a 
 5. Bontsa ki a seedring. zip fájlt, és szerezze be az ellenőrzési jelentést a ERCS mappából, amelyen a test-azurestack futott.
 
 További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
-
-## <a name="troubleshoot-deployment"></a>Üzembe helyezési hibák 
-### <a name="general-deployment-failure"></a>Általános telepítési hiba
-Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl újbóli beállításával újraindíthatja a telepítést a sikertelen lépéssel.  
-
-### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>A sablon-érvényesítési hiba paraméterének osProfile nem engedélyezett
-
-Ha a sablon érvényesítése során hibaüzenet jelenik meg, hogy a "osProfile" paraméter nem engedélyezett, ügyeljen arra, hogy az API-k megfelelő verzióit használja az alábbi összetevőkhöz:
-
-- [Számítás](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [Hálózat](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
-
-A virtuális merevlemez Azure-ból Azure Stackba történő másolásához használja a [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Működjön együtt a gyártóval a rendszerképpel kapcsolatos problémák megoldásához. A Azure Stack WALinuxAgent követelményeivel kapcsolatos további információkért lásd: [Azure Linux Agent](azure-stack-linux.md#azure-linux-agent).
-
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>A telepítés sikertelen a külső hozzáférés hiánya miatt
-Ha a telepítés sikertelen, és a külső hozzáférés kötelező, az alábbi példához hasonló kivételt ad vissza:
-
-```
-An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
-```
-Ha ez a hiba történik, ellenőrizze, hogy teljesülnek-e az összes minimális hálózati követelmény a [központi telepítési hálózati forgalom dokumentációjának](deployment-networking.md)áttekintésével. A partneri eszközkészlet részeként egy hálózati ellenőrzési eszköz is elérhető a partnerek számára.
-
-Az egyéb központi telepítési hibák általában az interneten található erőforrásokhoz való csatlakozással kapcsolatos problémák miatt jelentkeznek.
-
-Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez hajtsa végre a következő lépéseket:
-
-1. Nyissa meg a PowerShellt.
-2. Adja meg a-PSSession a WAS01 vagy a ERCs virtuális gépekhez.
-3. Futtassa a következő parancsmagot: 
-   ```powershell
-   Test-NetConnection login.windows.net -port 443
-   ```
-
-Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](azure-stack-network.md).
 
 ## <a name="troubleshoot-virtual-machines"></a>Virtuális gépek hibáinak megoldása
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem

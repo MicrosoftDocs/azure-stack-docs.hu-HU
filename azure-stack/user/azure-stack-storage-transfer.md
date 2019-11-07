@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 87e9021c6d2b085c95e186e410b009ae89753311
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: e9b474a47c0ab80d34330aff463bcd9d8ada5ab8
+ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010811"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73712751"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Adatátviteli eszközök használata Azure Stack Storage szolgáltatásban
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 A Azure Stack lemezek, blobok, táblák, várólisták és fiókkezelés függvények számára biztosít tárolási szolgáltatásokat. Egyes Azure Storage-eszközök akkor érhetők el, ha Azure Stack tárolóból vagy rendszerből kívánja felügyelni vagy áthelyezni az adatátvitelt. Ez a cikk áttekintést nyújt az elérhető eszközökről.
 
@@ -49,7 +49,7 @@ A követelmények határozzák meg, hogy a következő eszközök közül melyik
 
     Egy virtuális fájlrendszer-illesztőprogram az Azure Blob Storagehoz, amely lehetővé teszi a meglévő blokk blob-adatai elérését a Storage-fiókban a Linux fájlrendszer használatával.
 
-Az Azure és a Azure Stack közötti tárolási szolgáltatások közötti különbségek miatt előfordulhat, hogy az alábbi szakaszokban ismertetett eszközökhöz bizonyos követelmények vonatkoznak. A Azure stack Storage és az Azure Storage közötti összehasonlításért lásd [: Azure stack Storage: Különbségek és szempontok](azure-stack-acs-differences.md).
+Az Azure és a Azure Stack közötti tárolási szolgáltatások közötti különbségek miatt előfordulhat, hogy az alábbi szakaszokban ismertetett eszközökhöz bizonyos követelmények vonatkoznak. Azure Stack Storage és az Azure Storage közötti összehasonlításért lásd [: Azure stack Storage: különbségek és szempontok](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -68,17 +68,17 @@ A AzCopy egy parancssori segédprogram, amely az adatok másolását Microsoft A
 ### <a name="azcopy-101-configuration-and-limits"></a>AzCopy 10,1 konfiguráció és korlátok
 
 A AzCopy 10,1 mostantól a régebbi API-verziók használatára is konfigurálható. Ez lehetővé teszi (korlátozott) a Azure Stack támogatását.
-A AzCopy API-verziójának a Azure stack támogatásához való konfigurálásához `AZCOPY_DEFAULT_SERVICE_API_VERSION` állítsa a környezeti `2017-11-09`változót a következőre:.
+Ha a AzCopy API-verzióját szeretné konfigurálni a Azure Stack támogatásához, állítsa a `AZCOPY_DEFAULT_SERVICE_API_VERSION` környezeti változót `2017-11-09`értékre.
 
 | Operációs rendszer | Parancs  |
 |--------|-----------|
-| **Windows** | A parancssorban használja a következőket:`set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> A PowerShellben használja a következőket:`$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Windows** | A parancssorban használja a következőket: `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> A PowerShell használata: `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
 | **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 | **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 
 A AzCopy 10,1-ben a következő funkciók támogatottak Azure Stack esetén:
 
-| Funkció | Támogatott műveletek |
+| Szolgáltatás | Támogatott műveletek |
 | --- | --- |
 |Tároló kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladatok kezelése|Feladatok megjelenítése<br>Feladatok folytatása
@@ -126,9 +126,9 @@ Azure Stack kompatibilis Azure PowerShell modulok szükségesek a Azure Stack ha
 
 Ez a példa feltételezi, hogy sikeresen [telepítette a PowerShellt a Azure Stackhoz](../operator/azure-stack-powershell-install.md). Ez a szkript segítséget nyújt a konfiguráció végrehajtásában, és felkéri a Azure Stack bérlői hitelesítő adatait, hogy vegye fel a fiókját a helyi PowerShell-környezetbe. A szkript ezután beállítja az alapértelmezett Azure-előfizetést, létrehoz egy új Storage-fiókot az Azure-ban, létrehoz egy új tárolót az új Storage-fiókban, és feltölt egy meglévő lemezképfájlt (blobot) a tárolóba. Miután a parancsfájl felsorolja az adott tárolóban lévő összes blobot, a rendszer létrehoz egy új célhelyet a helyi számítógépen, és letölti a lemezképfájlt.
 
-1. Telepítés [Azure Stack-kompatibilis Azure PowerShell-modulok](../operator/azure-stack-powershell-install.md).
-2. Töltse le a [az Azure Stack működéséhez szükséges eszközök](../operator/azure-stack-powershell-download.md).
-3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként**lehetőséget, majd kattintson az**új** **fájl** > elemre egy új parancsfájl létrehozásához.
+1. Telepítse [Azure stack-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
+2. Töltse le a [Azure stack használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
+3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként**lehetőséget, majd kattintson a **fájl** > **új** elemre egy új parancsfájl létrehozásához.
 4. Másolja az alábbi szkriptet, és illessze be az új parancsfájlba.
 5. Frissítse a parancsfájl-változókat a konfigurációs beállítások alapján.
    > [!NOTE]
@@ -157,9 +157,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # Configure the PowerShell environment
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
-
-# Set the GraphEndpointResourceId value
-Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
@@ -203,7 +200,7 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 A felhasználói műveletekhez a Azure Stack aktuálisan kompatibilis Azure PowerShell moduljának verziója 1.2.11. Eltér a Azure PowerShell legújabb verziójától. Ez a különbség a tárolási szolgáltatások működését befolyásolja a következő módon:
 
-A 1.2.11 verziójának visszatérési értékének formátuma `Get-AzureRmStorageAccountKey` két tulajdonsággal rendelkezik: `Key1` és `Key2`, míg az aktuális Azure-verzió az összes fiók kulcsát tartalmazó tömböt ad vissza.
+A (z) 1.2.11 verzióban található `Get-AzureRmStorageAccountKey` visszatérési értékének formátuma két tulajdonsággal rendelkezik: `Key1` és `Key2`, míg az aktuális Azure-verzió az összes fiók kulcsát tartalmazó tömböt ad vissza.
 
 ```powershell
 # This command gets a specific key for a storage account, 
@@ -219,7 +216,7 @@ A 1.2.11 verziójának visszatérési értékének formátuma `Get-AzureRmStorag
 
 További információ: [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure parancssori felület (CLI)
 
 Az Azure CLI az Azure parancssori felülete, amely Azure-erőforrások kezelésére szolgál. Telepítheti macOS, Linux és Windows rendszeren, és futtathatja a parancssorból.
 
@@ -241,8 +238,8 @@ A szkript futtatása előtt győződjön meg arról, hogy sikeresen tud csatlako
 1. Nyissa meg a kedvenc szövegszerkesztőjét, majd másolja és illessze be az előző szkriptet a szerkesztőbe.
 2. Frissítse a szkript változóit a konfigurációs beállításoknak megfelelően.
 3. A szükséges változók frissítése után mentse a parancsfájlt, és lépjen ki a szerkesztőből. A következő lépések feltételezik, hogy elnevezte a **my_storage_sample. sh**parancsfájlt.
-4. A parancsfájlt végrehajthatóként kell megjelölnie, ha szükséges:`chmod +x my_storage_sample.sh`
-5. Futtassa a szkriptet. Például a Bashben:`./my_storage_sample.sh`
+4. A parancsfájlt végrehajthatóként kell megjelölnie, ha szükséges: `chmod +x my_storage_sample.sh`
+5. Futtassa a szkriptet. Például a bash: `./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash
@@ -284,15 +281,15 @@ A Azure Storage Explorer egy önálló alkalmazás a Microsofttól. Lehetővé t
 * Ha többet szeretne megtudni arról, hogyan konfigurálhatja a Azure Storage Explorert a Azure Stack való együttműködésre, tekintse meg a [Storage Explorer Azure stack-előfizetéshez való kapcsolódás](azure-stack-storage-connect-se.md)
 * További információ a Microsoft Azure Storage Explorerról: Ismerkedés [a Storage Explorerrel](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 
-## <a name="blobfuse"></a>Blobfuse 
+## <a name="blobfuse"></a>blobfuse 
 
-A [Blobfuse](https://github.com/Azure/azure-storage-fuse) az Azure Blob Storage virtuális fájlrendszer-illesztőprogramja, amely lehetővé teszi a meglévő blokk blob-adatai elérését a Storage-fiókban a Linux fájlrendszerén keresztül. Az Azure Blob Storage egy objektum-tárolási szolgáltatás, ezért nem rendelkezik hierarchikus névtérrel. A Blobfuse a virtuális könyvtár sémájának használatával biztosítja ezt a névteret a továbbítási `/` perjelek elválasztóként való használatával. A Blobfuse az Azure-on és a Azure Stackon is működik. 
+A [Blobfuse](https://github.com/Azure/azure-storage-fuse) az Azure Blob Storage virtuális fájlrendszer-illesztőprogramja, amely lehetővé teszi a meglévő blokk blob-adatai elérését a Storage-fiókban a Linux fájlrendszerén keresztül. Az Azure Blob Storage egy objektum-tárolási szolgáltatás, ezért nem rendelkezik hierarchikus névtérrel. A Blobfuse a virtuális könyvtár sémájának használatával biztosítja ezt a névteret, és elválasztóként használja a továbbítási perjelek `/`. A Blobfuse az Azure-on és a Azure Stackon is működik. 
 
 Ha többet szeretne megtudni arról, hogyan csatlakoztatható a blob Storage fájlrendszerrel a Blobfuse Linux rendszeren, tekintse meg a [blob Storage csatlakoztatása](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)fájlrendszerként a Blobfuse-mel című témakört. 
 
 Azure Stack esetében meg kell adni a *blobEndpoint* a Storage-fiók hitelesítő adatainak konfigurálásakor a accountName, a AccountKey/sasToken és a containerName mellett.
 
-A Azure Stack Development Kitban (ASDK) a *blobEndpoint* kell lennie `myaccount.blob.local.azurestack.external`. Azure Stack integrált rendszeren lépjen kapcsolatba a felhő rendszergazdájával, ha nem biztos benne, hogy a végpontról van szó.
+A Azure Stack Development Kitban (ASDK) a *blobEndpoint* `myaccount.blob.local.azurestack.external`kell lennie. Azure Stack integrált rendszeren lépjen kapcsolatba a felhő rendszergazdájával, ha nem biztos benne, hogy a végpontról van szó.
 
 a *accountKey* és a *sasToken* egyszerre csak egy konfigurálható. Ha meg van adva egy Storage-fiók kulcsa, a hitelesítő adatok konfigurációs fájljának formátuma a következő:
 
@@ -312,7 +309,7 @@ containerName mycontainer
 blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [A Storage Explorer összekötése Azure Stack-előfizetéssel](azure-stack-storage-connect-se.md)
 * [Ismerkedés a Storage Explorerrel](/azure/vs-azure-tools-storage-manage-with-storage-explorer)

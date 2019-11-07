@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319090"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659222"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
 Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
@@ -29,7 +29,7 @@ Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási inform�
 Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfél-támogatási szolgálata (CSS) nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
 
 
-## <a name="deployment"></a>Környezet
+## <a name="deployment"></a>Üzembe helyezés
 ### <a name="deployment-failure"></a>Üzembe helyezési hiba
 Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl újbóli beállításával újraindíthatja a telepítést a sikertelen lépéssel. Példa:
 
@@ -40,6 +40,39 @@ Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl új
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>A telepítés végén a PowerShell-munkamenet továbbra is nyitva van, és nem jelenít meg kimenetet
 Ez a viselkedés valószínűleg csak egy PowerShell-parancssorablak alapértelmezett viselkedésének eredménye, ha ki van választva. A ASDK központi telepítése sikeres volt, de a parancsfájlt az ablak kiválasztásakor szüneteltették. Ellenőrizze, hogy a telepítés befejeződött-e, ha a "kiválasztás" szót keresi a parancssori ablakban. Az ESC billentyű lenyomásával törölje a kijelölését, és a befejezési üzenetet is meg kell jeleníteni.
+
+### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>A sablon-érvényesítési hiba paraméterének osProfile nem engedélyezett
+
+Ha a sablon érvényesítése során hibaüzenet jelenik meg, hogy a "osProfile" paraméter nem engedélyezett, ügyeljen arra, hogy az API-k megfelelő verzióit használja az alábbi összetevőkhöz:
+
+- [Számítás](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [Hálózat](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+
+A virtuális merevlemez Azure-ból Azure Stackba történő másolásához használja a [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Működjön együtt a gyártóval a rendszerképpel kapcsolatos problémák megoldásához. A Azure Stack WALinuxAgent követelményeivel kapcsolatos további információkért lásd: [Azure Linux Agent](../operator/azure-stack-linux.md#azure-linux-agent).
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>A telepítés sikertelen a külső hozzáférés hiánya miatt
+Ha a telepítés sikertelen, és a külső hozzáférés kötelező, az alábbi példához hasonló kivételt ad vissza:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Ha ez a hiba történik, ellenőrizze, hogy teljesülnek-e az összes minimális hálózati követelmény a [központi telepítési hálózati forgalom dokumentációjának](../operator/deployment-networking.md)áttekintésével. A partneri eszközkészlet részeként egy hálózati ellenőrzési eszköz is elérhető a partnerek számára.
+
+Az egyéb központi telepítési hibák általában az interneten található erőforrásokhoz való csatlakozással kapcsolatos problémák miatt jelentkeznek.
+
+Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez hajtsa végre a következő lépéseket:
+
+1. Nyissa meg a PowerShellt.
+2. Adja meg a-PSSession a WAS01 vagy a ERCs virtuális gépekhez.
+3. Futtassa a következő parancsmagot: 
+   ```powershell
+   Test-NetConnection login.windows.net -port 443
+   ```
+
+Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](../operator/azure-stack-network.md).
+
 
 ## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
@@ -65,9 +98,9 @@ Ha "árva" virtuális merevlemezeket lát, fontos tisztában lennie azzal, hogy 
 
 További információk az adatmegőrzési küszöbérték és az igény szerinti, a [Storage-fiókok kezelése](../operator/azure-stack-manage-storage-accounts.md)című témakörben olvashatók.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Adattárolás
 ### <a name="storage-reclamation"></a>Tárhely-visszanyerés
 Akár 14 órát is igénybe vehet, ha visszaigényelt kapacitást szeretne megjeleníteni a portálon. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyi adattal törli a rendszer, nem garantálható, hogy a rendszer mennyi helyet szabadít fel a Garbage Collector futtatásakor.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Látogasson el a Azure Stack támogatási fórumára](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)

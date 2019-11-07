@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
+ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682211"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73712722"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>MySQL üzemeltetési kiszolgálók hozzáadása a Azure Stack
 
@@ -71,7 +71,7 @@ A kiszolgálók hozzáadásakor rendeljen hozzá egy új vagy egy meglévő SKU-
 
 Az alábbi információk az RP-és MySQL-üzemeltetési kiszolgálókra vonatkoznak:
 
-* Győződjön meg arról, hogy az összes üzemeltetési kiszolgáló konfigurálva van a TLS 1,2 használatával történő kommunikációra. Lásd: [a MySQL beállítása titkosított kapcsolatok használatára](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Győződjön meg arról, hogy az összes üzemeltetési kiszolgáló konfigurálva van a TLS 1,1 használatával történő kommunikációra. Lásd: [a MySQL beállítása titkosított kapcsolatok használatára](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
 * [Transzparens adattitkosítás](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)alkalmaz.
 * A MySQL RP nem támogatja a caching_sha2_password-hitelesítést.
 
