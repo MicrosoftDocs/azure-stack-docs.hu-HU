@@ -15,12 +15,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 540121b1de46eb8b1f3669a441c5aff5d8ff2e33
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 787453550e9a8ed69aa9dfda0a03ea5e57c49d7a
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167508"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802326"
 ---
 # <a name="add-commvault-to-the-azure-stack-marketplace"></a>CommVault hozzáadása a Azure Stack Marketplace-hez
 
@@ -47,7 +47,7 @@ Ez a cikk bemutatja, hogyan CommVault élő szinkronizálást egy különálló 
     ![Azure Stack CommVault](./media/azure-stack-network-offer-backup-commvault/get-commvault-for-marketplace.png)
 
 3. Írja be a `commvault` (igen) kifejezést.
-4. Válassza a **CommVault Trail**elemet. Majd válassza a **Letöltés**lehetőséget.
+4. Válassza ki a **CommVault próbaverzióját**. Majd válassza a **Letöltés**lehetőséget.
 
 
 ## <a name="next-steps"></a>Következő lépések

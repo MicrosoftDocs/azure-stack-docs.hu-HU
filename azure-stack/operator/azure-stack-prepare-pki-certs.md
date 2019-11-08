@@ -1,6 +1,7 @@
 ---
-title: Azure Stack nyilvános kulcsokra épülő infrastruktúra-tanúsítványok előkészítése Azure Stack integrált rendszerek üzembe helyezéséhez vagy a titkos kód elforgatásához | Microsoft Docs
-description: Ismerteti, hogyan lehet előkészíteni a Azure Stack PKI-tanúsítványokat Azure Stack integrált rendszerekhez.
+title: PKI-tanúsítványok Azure Stack előkészítése üzembe helyezéshez vagy rotációhoz | Microsoft Docs
+titleSuffix: Azure Stack
+description: Ismerje meg, hogyan készítheti elő a PKI-tanúsítványokat Azure Stack integrált rendszerek központi telepítésére, illetve a titkok egy meglévő Azure Stack-környezetben történő elforgatására.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,21 +16,20 @@ ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 38175eee8be9b8f678405e0ad1ec6f01bdba8b77
-ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
+ms.openlocfilehash: a63e0e3a2246cc3c3c659f9671afdf4be0cc93cd
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71020844"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802372"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz való használatra
+# <a name="prepare-azure-stack-pki-certificates-for-deployment-or-rotation"></a>Azure Stack PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 
-Az [Ön által választott hitelesítésszolgáltatótól beszerzett](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack tanúsítványára vonatkozó követelményeknek megfelelő tulajdonságokkal.
+Az [Ön által választott hitelesítésszolgáltatótól (CA) kapott](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack tanúsítványával egyező tulajdonságokkal.
 
 ## <a name="prepare-certificates-for-deployment"></a>Tanúsítványok előkészítése központi telepítéshez
 
-A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-tanúsítványokat, amelyeket egy új Azure Stack-környezet telepítéséhez vagy a titkok egy meglévő Azure Stack környezetben való elforgatásához fog használni. 
-
+A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-tanúsítványokat, amelyeket egy új Azure Stack-környezet telepítéséhez vagy a titkok egy meglévő Azure Stack környezetben való elforgatásához fog használni.
 
 ### <a name="import-the-certificate"></a>A tanúsítvány importálása
 
@@ -37,21 +37,21 @@ A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack 
    > [!WARNING]
    > Ne másolja a közvetlenül a HITELESÍTÉSSZOLGÁLTATÓ által biztosított fájlokból a már importált, exportált vagy módosított fájlokat.
 
-1. Kattintson a jobb gombbal a tanúsítványra, és válassza a **tanúsítvány telepítése** vagy a **pfx telepítése** lehetőséget attól függően, hogy a tanúsítványt hogyan adták ki a hitelesítésszolgáltatótól.
+1. Kattintson a jobb gombbal a tanúsítványra, és válassza a **tanúsítvány telepítése** vagy a **pfx telepítése**lehetőséget attól függően, hogy a tanúsítványt hogyan szállították le a hitelesítésszolgáltatótól.
 
 1. A **tanúsítvány importálása varázslóban**válassza a **helyi gép** importálási helyként lehetőséget. Kattintson a **Tovább** gombra. A következő képernyőn kattintson ismét a Tovább gombra.
 
-    ![Helyi számítógép importálási helye](./media/prepare-pki-certs/1.png)
+    ![Helyi számítógép importálási helye a tanúsítványhoz](./media/prepare-pki-certs/1.png)
 
-1. Válassza a **minden tanúsítvány elhelyezése a következő tárban** lehetőséget, majd válassza a **vállalati megbízhatóság** lehetőséget a helyként. Kattintson az **OK** gombra a tanúsítványtároló kiválasztása párbeszédpanel bezárásához, majd a **tovább**gombra.
+1. Válassza a **minden tanúsítvány elhelyezése a következő tárban** lehetőséget, majd válassza a **vállalati megbízhatóság** lehetőséget a helyként. A tanúsítványtároló kiválasztása párbeszédpanel bezárásához kattintson **az OK gombra** , majd válassza a **tovább**lehetőséget.
 
-   ![A tanúsítványtároló konfigurálása](./media/prepare-pki-certs/3.png)
+   ![A tanúsítványtároló konfigurálása a tanúsítványok importálásához](./media/prepare-pki-certs/3.png)
 
-   a. Ha PFX-t importál, egy további párbeszédpanel jelenik meg. A **titkos kulcs védelme** lapon adja meg a tanúsítványfájl jelszavát, majd engedélyezze a **kulcs megjelölését exportálhatóként. Ez lehetővé teszi, hogy a kulcsok egy későbbi időpontban** történő biztonsági mentésére vagy továbbítására legyen lehetőség. Kattintson a **Tovább** gombra.
+   a. Ha PFX-t importál, egy további párbeszédablak jelenik meg. A **titkos kulcs védelme** lapon adja meg a tanúsítványfájl jelszavát, majd engedélyezze a **kulcs megjelölését exportálhatóként. Ez lehetővé teszi, hogy a kulcsok egy későbbi időpontban történő biztonsági mentésére vagy továbbítására legyen** lehetőség. Kattintson a **Tovább** gombra.
 
    ![Kulcs megjelölése exportálhatóként](./media/prepare-pki-certs/2.png)
 
-1. Az importálás befejezéséhez kattintson a Befejezés gombra.
+1. Az importálás befejezéséhez kattintson a **Befejezés** gombra.
 
 > [!NOTE]
 > Miután importált egy tanúsítványt a Azure Stackhoz, a rendszer a tanúsítvány titkos kulcsát PKCS 12 fájlként (PFX) tárolja a fürtözött tárolón.
@@ -60,26 +60,26 @@ A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack 
 
 Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi számítógép tanúsítványtárolóhoz.
 
-1. Nyissa meg a Microsoft Management Console-t a Windows 10 jobb gombbal a Start menüben, majd kattintson a Futtatás parancsra. Írja be az **MMC** kifejezést, majd kattintson az OK gombra.
+1. Nyissa meg a Microsoft Management Console-t. A Windows 10-es konzol megnyitásához kattintson a jobb gombbal a **Start menü** **Futtatás**parancsára, majd írja be az **MMC** parancsot, majd nyomja le az ENTER billentyűt.
 
-1. Kattintson a fájl, beépülő modul hozzáadása/eltávolítása elemre, majd válassza a tanúsítványok lehetőséget, majd kattintson a Hozzáadás gombra.
+2. Válassza a **fájl** > **beépülő modul hozzáadása/eltávolítása**elemet, majd kattintson a **tanúsítványok** elemre, és válassza a **Hozzáadás**lehetőséget.
 
-    ![Tanúsítványok beépülő modul hozzáadása](./media/prepare-pki-certs/mmc-2.png)
- 
-1. Válassza a számítógépfiók lehetőséget, kattintson a Tovább gombra, majd válassza a helyi számítógép, majd a Befejezés lehetőséget. A beépülő modul hozzáadása/eltávolítása lap bezárásához kattintson az OK gombra.
+    ![Tanúsítványkezelő beépülő modul hozzáadása a Microsoft Management Console-ban](./media/prepare-pki-certs/mmc-2.png)
 
-    ![Tanúsítványok beépülő modul hozzáadása](./media/prepare-pki-certs/mmc-3.png)
+3. Válassza a **számítógépfiók**lehetőséget, majd kattintson a **Tovább gombra**. Válassza a **helyi számítógép** lehetőséget, majd fejezze be a **befejezést**. A beépülő modul hozzáadása/eltávolítása lap bezárásához kattintson **az OK gombra** .
 
-1. Keresse meg a tanúsítványok > a vállalati megbízhatóság > a tanúsítvány helyét. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
+    ![Fiók kiválasztása a tanúsítványok hozzáadása beépülő modulhoz a Microsoft Management Console-ban](./media/prepare-pki-certs/mmc-3.png)
 
-1. A Tanúsítványkezelő konzol tálcán válassza a **műveletek** > **minden feladat** > **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
+4. Keresse meg a **tanúsítványok** > a **vállalati megbízhatóság** > a **tanúsítvány helyét**. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
+
+5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek** > az **összes feladat** > **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
 
    > [!NOTE]
-   > Attól függően, hogy hány Azure Stack tanúsítványra van szüksége, többször is végre kell hajtania ezt a folyamatot.
+   > Attól függően, hogy hány Azure Stack tanúsítvány van, előfordulhat, hogy a folyamatot többször kell végrehajtania.
 
-1. Válassza **az igen, a titkos kulcs exportálása**lehetőséget, majd kattintson a **tovább**gombra.
+6. Válassza **az igen, a titkos kulcs exportálása**lehetőséget, majd kattintson a **tovább**gombra.
 
-1. A fájlformátum exportálása szakaszban:
+7. A fájlformátum exportálása szakaszban:
     
    - **Ha lehetséges, jelölje be a tanúsítványban szereplő összes tanúsítvány belefoglalása**jelölőnégyzetet.  
    - Válassza **az összes kibővített tulajdonság exportálása**lehetőséget.  
@@ -88,14 +88,19 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
     
      ![Tanúsítvány exportálása varázsló kiválasztott beállításokkal](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
-1. Válassza a **jelszó** lehetőséget, és adja meg a tanúsítványok jelszavát. Hozzon létre egy jelszót, amely megfelel az alábbi jelszó-összetettségi követelményeknek. Legalább nyolc karakter hosszúnak kell lennie. A jelszó legalább hármat tartalmaz a következők közül: nagybetűk, kisbetűk, 0-9, speciális karakterek, alfabetikus karakter, amely nem nagybetűs és nem kisbetűs. Jegyezze fel ezt a jelszót. Ezt fogja használni központi telepítési paraméterként.
+8. Válassza a **jelszó** lehetőséget, és adja meg a tanúsítványok jelszavát. Hozzon létre egy jelszót, amely megfelel a következő jelszó-összetettségi követelményeknek:
 
-1. Kattintson a **Tovább** gombra.
+    * Legalább nyolc karakter hosszúnak kell lennie.
+    * Legalább hármat a következők közül: nagybetűs, kisbetűk, 0-9, speciális karakterek, alfabetikus karakter, amely nem nagybetűs vagy kisbetűs.
 
-1. Válassza ki az exportálandó PFX-fájl nevét és helyét. Kattintson a **Tovább** gombra.
+    Jegyezze fel ezt a jelszót. Ezt fogja használni központi telepítési paraméterként.
 
-1. Válassza a **Finish** (Befejezés) elemet.
+9. Kattintson a **Tovább** gombra.
 
-## <a name="next-steps"></a>További lépések
+10. Válassza ki az exportálandó PFX-fájl nevét és helyét. Kattintson a **Tovább** gombra.
+
+11. Válassza a **Finish** (Befejezés) elemet.
+
+## <a name="next-steps"></a>Következő lépések
 
 [PKI-tanúsítványok ellenőrzése](azure-stack-validate-pki-certs.md)

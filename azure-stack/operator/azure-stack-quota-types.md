@@ -1,5 +1,6 @@
 ---
 title: A kvóták típusai a Azure Stackban | Microsoft Docs
+titleSuffix: Azure Stack
 description: Megtekintheti és szerkesztheti a Azure Stack szolgáltatásaihoz és erőforrásaihoz elérhető különböző típusú kvótákat.
 services: azure-stack
 documentationcenter: ''
@@ -16,18 +17,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 1fe65370d7631f4096d010756135c67c3d2f359e
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283455"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802304"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvóta típusai a Azure Stackban
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
+A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta például lehetővé teheti, hogy egy felhasználó legfeljebb öt virtuális gépet hozzon létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
 
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
@@ -37,13 +38,13 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 | **Típus** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
 | Virtuális gépek maximális száma | 50 | Azon virtuális gépek maximális száma, amelyekhez előfizetések hozhatók létre ezen a helyen. |
-| Virtuálisgép-magok maximális száma | 100 | Az előfizetések által az adott helyen létrehozható magok maximális száma (például egy A3-as virtuális gép négy maggal rendelkezik). |
+| VM-magok maximális száma | 100 | Az előfizetések által az adott helyen létrehozható magok maximális száma (például egy A3-as virtuális gép négy maggal rendelkezik). |
 | Rendelkezésre állási készletek maximális száma | 10 | Az ezen a helyen létrehozható rendelkezésre állási készletek maximális száma. |
-| A virtuálisgép-méretezési csoportok maximális száma | 100 | Az ezen a helyen létrehozható virtuálisgép-méretezési csoportok maximális száma. |
+| A virtuálisgép-méretezési csoportok maximális száma | 100 | Az ezen a helyen létrehozható méretezési csoportok maximális száma. |
 | Standard szintű felügyelt lemez maximális kapacitása (GB-ban) | 2048 | Az ezen a helyen létrehozható standard szintű felügyelt lemezek maximális kapacitása. |
 | Prémium szintű felügyelt lemez maximális kapacitása (GB) | 2048 | Az ezen a helyen létrehozható prémium szintű felügyelt lemezek maximális kapacitása. |
 
-> [!NOTE]  
+> [!NOTE]
 > A nem felügyelt lemez (oldal Blobok) maximális kapacitása eltér a felügyelt lemez kvótájának. Ezt az értéket megadhatja a **tárolási kvóták**között.
 
 ## <a name="storage-quota-types"></a>Tárolási kvóták típusai
@@ -53,7 +54,7 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 | Maximális kapacitás (GB) |2048 |Az ezen a helyen található előfizetés által felhasználható teljes tárolókapacitás (beleértve a blobokat és az összes hozzá tartozó pillanatképet, táblát, várólistát). |
 | A Storage-fiókok teljes száma |20 |Az előfizetés által az adott helyen létrehozható tárolási fiókok maximális száma. |
 
-> [!NOTE]  
+> [!NOTE]
 > A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
 
 ## <a name="network-quota-types"></a>Hálózati kvóták típusai
@@ -75,11 +76,11 @@ Két különböző módon lehet megtekinteni egy meglévő kvótát:
 ### <a name="plans"></a>Csomagok
 
 1. A felügyeleti portál bal oldali navigációs paneljén válassza a **csomagok**lehetőséget.
-2. Válassza ki azt a csomagot, amelyre vonatkozóan meg szeretné tekinteni a részleteit. ehhez kattintson a nevére.
+2. Válassza ki azt a csomagot, amelyre vonatkozóan meg szeretné tekinteni a részleteket, ha a nevére kattint.
 3. A megnyíló panelen válassza a **szolgáltatások és kvóták**lehetőséget.
-4. Válassza ki a megtekinteni kívánt kvótát a **Name (név** ) oszlopban kattintson rá.
+4. Válassza ki a megtekinteni kívánt kvótát a Name ( **név** ) oszlopban.
 
-    [![Kvóták](media/azure-stack-quota-types/quotas1sm.png "nézet kvótái")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Kvóták a Azure Stack felügyeleti portálon](media/azure-stack-quota-types/quotas1sm.png "Kvóták megtekintése a felügyeleti portálon")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Erőforrás-szolgáltatók
 
@@ -94,13 +95,15 @@ A kvóták szerkesztésének két különböző módja van:
 ### <a name="edit-a-plan"></a>Csomag szerkesztése
 
 1. A felügyeleti portál bal oldali navigációs paneljén válassza a **csomagok**lehetőséget.
-2. Válassza ki azt a csomagot, amelynek a kvótáját szerkeszteni szeretné, ehhez kattintson a nevére.
+2. Válassza ki azt a csomagot, amelynek a nevét módosítani szeretné, majd kattintson a kívánt kvótára.
 3. A megnyíló panelen válassza a **szolgáltatások és kvóták**lehetőséget.
 4. Válassza ki a szerkeszteni kívánt kvótát a **Name (név** ) oszlopban, majd kattintson rá.
-    [![Kvóták](media/azure-stack-quota-types/quotas1sm.png "nézet kvótái")](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+    [![Kvóták a Azure Stack felügyeleti portálon](media/azure-stack-quota-types/quotas1sm.png "Kvóták megtekintése a felügyeleti portálon")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. A megnyíló panelen válassza a **Szerkesztés a számítás**, **a hálózat szerkesztése**vagy **a tárterület szerkesztése**lehetőséget.
-    ![Kvóták](media/azure-stack-quota-types/quotas3.png "nézet kvótái")
+
+    ![Csomag szerkesztése Azure Stack felügyeleti portálon](media/azure-stack-quota-types/quotas3.png "Csomag szerkesztése Azure Stack felügyeleti portálon")
 
 Azt is megteheti, hogy az alábbi eljárást követve módosítja a kvótát:
 
