@@ -12,97 +12,82 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 6ea5248881e10ca9e96ba423ecb4ea5569f00211
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 6bcdbcb03cdd4151978e9eeee645a0d4ab488fe3
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618255"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845773"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Azure Stack Datacenter integrációs útmutató
 
-Ez a cikk a teljes körű Azure Stack felhasználói élményt ismerteti, amely egy integrált rendszer megvásárlását mutatja be a megoldás-szolgáltató sikeres helyszíni telepítésére. Ezekkel az információkkal könnyedén elvégezheti az utazást, és segítheti az elvárások megadását Azure Stack ügyfélként.
-
-Azure Stack ügyfélként a következő fázisokra kell számítani:
+Ez a cikk a Azure Stack Datacenter integrációjának teljes körű folyamatát ismerteti az üzembe helyezés utáni támogatás megvásárlása után. Az integráció egy együttműködési projekt az ügyfél, a megoldás szolgáltatója és a Microsoft között. A következő lapokon megtekintheti a projekt egyes tagjainak konkrét lépéseit, és a következő szakaszokban láthatja a projekt idővonalának különböző fázisainak összegzését. 
 
 # <a name="customertabcustomer"></a>[Ügyfél](#tab/customer)
 
-1. Ismertesse a felhasználási példákat, és adja meg a követelményeket.
-2. Határozza meg, hogy milyen számlázási modellt kíván használni, ellenőrizni és jóváhagyni a szerződéseket.
-3. Fejezze be a [telepítési munkalapot](azure-stack-deployment-worksheet.md), és győződjön meg arról, hogy az összes központi telepítés előfeltétele teljesül, és készen áll a telepítésre
-4. Készítse elő az adatközpontot úgy, hogy az összes szükséges energiaellátási és hűtési, szegélyi és egyéb szükséges adatközpont-integrációs követelményt biztosítja.
-5. Az üzembe helyezés során elérhetőnek kell lennie az előfizetés hitelesítő adatainak és támogatásának biztosításához, ha kérdése van a megadott adatokkal kapcsolatban.
+1. Használati esetek és követelmények leírása
+1. A számlázási modell meghatározása
+1. Szerződések áttekintése és jóváhagyása
+1. Az [üzembe helyezési munkalap](azure-stack-deployment-worksheet.md) befejezése
+1. Győződjön meg arról, hogy teljesülnek az üzembe helyezés előfeltételei
+1. Az adatközpont előkészítése 
+1. Előfizetési adatok megadása az üzembe helyezés során
+1. A megadott adattal kapcsolatos kérdések megoldása
 
 # <a name="partnertabpartner"></a>[Partner](#tab/partner)
 
-1. Tervezési fázis:
-   - Az ügyfélre vonatkozó követelmények alapján ajánljuk a megoldás beállításait.
-   - Szükség esetén javasoljon megvalósíthatósági igazolást (POC).
-   - Üzleti kapcsolat létrehozása.
-   - Döntse el a támogatási szintet.
-2. Megrendelés folyamata:
-   - Készítse elő a szükséges szerződéseket az ügyféllel.
-   - Hozzon létre egy ügyfél-beszerzési rendelést.
-   - Döntse el a kézbesítési ütemtervet.
-   - Ha szükséges, az ügyfél összekapcsolását a Microsofttal.
-3. Üzembe helyezés előtti
-   - Adja meg az ügyfél számára a szükséges képzést az összes központi telepítés előfeltételének és az adatközpont-integrációs lehetőségek megismerése érdekében.
-   - Segítheti az ügyfelet az összegyűjtött adatok érvényesítésében a teljesség és pontosság biztosítása érdekében.
-4. Gyári folyamat
-   - Alkalmazza az utolsó érvényesített alapterv-buildet.
-   - Alkalmazza a szükséges Microsoft központi telepítési eszközkészletet.
-5. Hardveres kézbesítés:
-   - Hardver szállítása az ügyfél webhelyére.
-6. Helyszíni üzembe helyezés
-   - Helyszíni mérnök által kezelt üzembe helyezés.
-   - Állvány és verem.
-   - Hardveres életciklus-gazdagép (HLH) telepítése.
-   - Azure Stack üzemelő példány.
-   - Kikapcsolás az ügyfélnek.
+1. Az ügyfélre vonatkozó követelmények alapján javasolt megoldási lehetőségek
+1. Javaslat a koncepció igazolására (POC) 
+1. A támogatási szint eldöntése
+1. Szerződések előkészítése az ügyféllel
+1. Ügyfél-beszerzési megrendelés létrehozása
+1. Kézbesítési ütemterv kiválasztása
+1. Ügyfél összekötése a Microsofttal 
+1. Ügyfél betanítása üzembe helyezéskor 
+1. Az összegyűjtött adatok érvényesítésének segítése az ügyfélen
+1. Az alapkonfiguráció-Build és a Microsoft Deployment Toolkit telepítése és ellenőrzése
+1. Hardver szállítása az ügyfél webhelyére
+1. Helyszíni mérnök megadása
+1. Állvány és verem
+1. Hardveres életciklus-gazdagép (HLH) üzembe helyezése 
+1. Az Azure Stack üzembe helyezése
+1. Kikapcsolás az ügyfélnek
 
 # <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
 
-1. Folytassa a partnerrel az értékesítés előtti támogatás biztosításához.
-2. Szükség szerint készítse elő a szoftver licencelését és a szerződéseket.
-3. Adja meg a szükséges eszközöket az adatközpont-integrációs követelmények és dokumentáció összegyűjtéséhez az ügyfél számára.
-4. Adja meg a legújabb alapkonfigurációk és az eszközök láncának frissítéseit egy havi ritmusban.
-5. A Microsoft támogatási szakemberei segítséget nyújtanak az üzembe helyezési problémák megoldásában.
+1. Partner használata az értékesítés előtti támogatáshoz
+2. Szoftverlicencelési és szerződések előkészítése
+3. Eszközöket biztosít az adatközpont-integráció követelményeinek gyűjtéséhez
+4. Havi alapkonfiguráció-buildek és az eszközök láncának frissítéseinek megadása
+5. A Microsoft támogatási szakemberei bármilyen üzembe helyezési problémával segítenek
 
+---
 
-
-## <a name="planning-phase"></a>Tervezési fázis
-A tervezési fázis az, amikor a Microsoft vagy a Azure Stack-megoldás partnere együttműködik Önnel, hogy kiértékelje és megértse az igényeinek megfelelő megoldást, ha a Azure Stack a legmegfelelőbb megoldás:
-
-A következő kérdések segítenek eldönteni:
+## <a name="planning"></a>Tervezés
+A Microsoft vagy egy Azure Stack megoldási partner segít kiértékelni a célokat. Segítenek a következő kérdések eldöntésében:
 
 -   Azure Stack a megfelelő megoldás a szervezet számára?
-
--   Milyen méretű megoldásra lesz szüksége?
-
 -   Milyen típusú számlázási és licencelési modellt fog működni a szervezete számára?
-
+-   Milyen méretű megoldásra lesz szüksége?
 -   Mik a szükséges energiagazdálkodási és hűtési követelmények?
 
-Annak biztosítása érdekében, hogy a hardveres megoldás megfeleljen az igényeinek, a [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) az elővételi tervezés elősegítése érdekében a Azure stack hardveres megoldás megfelelő kapacitásának és konfigurációjának meghatározására szolgál.
+Az [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) segítségével vizsgálhatja és elemezheti az igényeinek legmegfelelőbb hardver-kapacitást és konfigurációt. 
 
-A táblázat *nem* helyettesíti a saját igényeihez legjobban illő hardveres megoldások kiértékelését és elemzését. Azure Stack központi telepítésének tervezésekor tekintse át a Azure Stack integrált rendszerek [általános adatközpont-integrációs szempontjait](azure-stack-datacenter-integration.md) is.
+## <a name="ordering"></a>Rendelés
+A szervezet vállalja a Azure Stack megvásárlását, aláírja a szerződéseket és a vásárlási rendeléseket, és biztosítja az integrációs követelmények adatait a megoldás szolgáltatójának.
 
-## <a name="order-process-phase"></a>Rendelési folyamat fázisa
-Ebben a szakaszban a megvalósíthatósági kérdésekkel kapcsolatos számos kérdést megválaszoltak. Most, hogy készen áll a Azure Stack megvásárlására, és az összes szükséges szerződés és beszerzési megrendelés aláírása után meg kell adnia az integrációs követelmények adatait a megoldás szolgáltatójának.
-
-## <a name="pre-deployment-phase"></a>Üzembe helyezés előtti fázis
-Ebben a fázisban el kell döntenie, hogyan szeretné integrálni Azure Stack az adatközpontba. Ennek a folyamatnak a megkönnyítése érdekében a Microsoft összefoglalja a követelményekkel kapcsolatos sablont, amely segítséget nyújt a szükséges információk összegyűjtéséhez, hogy a környezetén belül integrált rendszer-telepítést tervezzen. Ez a követelmény-sablon a megoldás-szolgáltatókkal együttműködve készült.
-
+## <a name="pre-deployment"></a>Üzembe helyezés előtti
+Ön dönti el, hogyan integrálhatja Azure Stackeit az adatközpontba. A Microsoft a megoldás-szolgáltatókkal együttműködve közzétesz egy [üzembe helyezési munkalapot](azure-stack-deployment-worksheet.md) a szükséges információk összegyűjtésének elősegítése érdekében.
 Az [általános adatközpont-integrációs megfontolások](azure-stack-datacenter-integration.md) című cikk olyan információt tartalmaz, amely segítséget nyújt a sablon végrehajtásához, amelyet a központi telepítési munkalapnak nevezünk.
 
 > [!IMPORTANT]
-> Ebben a szakaszban fontos, hogy a megoldás megrendelése előtt minden előfeltételi információt megvizsgáljon, és döntést hozzon. Vegye figyelembe, hogy ez a lépés időigényes, és a szervezeten belül több tudományágból történő koordinációt és adatgyűjtést igényel. A helytelen vagy hiányos információk már nem üzemelő telepítést eredményezhetnek. 
+> A rendszer a megoldás megrendelése előtt minden előfeltételt megvizsgál, hogy elkerülje az üzembe helyezés késését. Az Előfeltételek ellenőrzése időt vehet igénybe, és megkövetelheti a szervezeten belüli különböző részlegek koordinálását és az adatok gyűjtését. 
 
-Az üzembe helyezés előtti fázisban a következő elemeket kell eldöntenie:
+A következő elemek közül választhat:
 
 - **Azure stack a kapcsolatok modelljét és az identitás-szolgáltatót**. Dönthet úgy, hogy Azure Stack [az internethez (és az Azure-hoz) csatlakozik, vagy le van választva](azure-stack-connection-models.md). Ahhoz, hogy a lehető leghatékonyabban használhassa a Azure Stackt, beleértve a hibrid forgatókönyveket is, az Azure-hoz való csatlakozást szeretné telepíteni. Active Directory összevonási szolgáltatások (AD FS) (AD FS) vagy Azure Active Directory (Azure AD) kiválasztása egy egyszeri döntés, amelyet a telepítéskor kell elvégeznie. **Az identitás-szolgáltatót később nem módosíthatja a teljes rendszer újbóli üzembe helyezése nélkül**.
 
@@ -115,12 +100,11 @@ Az üzembe helyezés előtti fázisban a következő elemeket kell eldöntenie:
 
 - **Tűzfal-integráció**. Ajánlott [tűzfalat használni](azure-stack-firewall.md) a Azure stack biztonságossá tételéhez. A tűzfalak segítenek megakadályozni a DDOS-támadásokat, a behatolás észlelését és a tartalom vizsgálatát. Azt azonban érdemes megjegyezni, hogy az Azure Storage-szolgáltatások számára az átviteli sebesség szűk keresztmetszete lehet.
 
-
 - A **tanúsítványokra vonatkozó követelmények**. Fontos, hogy az összes [szükséges tanúsítvány](azure-stack-pki-certs.md) elérhető legyen, *mielőtt* egy helyszíni mérnök megérkezik az adatközpontba üzembe helyezéshez.
 
 Miután az összes előfeltételként szükséges információt összegyűjtötte az üzembe helyezési munkalapon, a megoldás szolgáltatója a begyűjtött adatok alapján elindítja a gyári folyamatot, hogy a Azure Stack sikeres integrációja legyen az adatközpontba.
 
-## <a name="hardware-delivery-phase"></a>Hardveres kézbesítési fázis
+## <a name="hardware-delivery"></a>Hardveres kézbesítés 
 A megoldás szolgáltatója Önnel együtt fog működni az ütemezéskor, amikor a megoldás megérkezik a létesítménybe. A beérkezés és a bevezetésük után időt kell ütemeznie a megoldás szolgáltatójának, hogy a Azure Stack központi telepítésének elvégzéséhez egy mérnök kerüljön a helyszínen.
 
 **Rendkívül fontos** , hogy az előfeltételként szükséges összes érték zárolva legyen és elérhető legyen, *mielőtt a helyszíni mérnök megérkezik a megoldás üzembe helyezéséhez*.
@@ -134,7 +118,7 @@ A megoldás szolgáltatója Önnel együtt fog működni az ütemezéskor, amiko
 > [!TIP]
 > Ha bármelyik információ módosult, ügyeljen arra, hogy a tényleges telepítés megkezdése előtt tájékoztassa a változást a megoldás szolgáltatójával.
 
-## <a name="onsite-deployment-phase"></a>Helyszíni telepítési fázis
+## <a name="onsite-deployment"></a>Helyszíni üzembe helyezés 
 Azure Stack üzembe helyezéséhez a hardveres megoldás szolgáltatójától származó helyszíni mérnöknek jelen kell lennie az üzembe helyezés elindításához. A sikeres telepítés érdekében győződjön meg arról, hogy a központi telepítés munkalapon megadott összes információ nem módosult.
 
 A következő ellenőrzéseket kell elvárnia a helyszíni mérnöktől az üzembe helyezési élményben:
@@ -148,7 +132,7 @@ A következő ellenőrzéseket kell elvárnia a helyszíni mérnöktől az üzem
 > [!NOTE]
 > A helyszíni mérnök üzembe helyezési eljárása egy munkahetet is igénybe vehet.
 
-## <a name="post-deployment-phase"></a>Üzembe helyezés utáni fázis
+## <a name="post-deployment"></a>Üzembe helyezés után 
 A partnernek az integráció utáni fázisban több lépést kell végrehajtania, mielőtt a megoldás bekerül az ügyfélbe. Ebben a fázisban az érvényesítés fontos annak biztosítása érdekében, hogy a rendszer üzembe helyezése és megfelelő végrehajtása sikeres legyen. 
 
 Az OEM-partner által végrehajtandó műveletek a következők:
@@ -180,7 +164,7 @@ A telepítés típusától függően több lépés szükséges vagy választhat�
 
   -   [Nagios-integráció](azure-stack-integrate-monitor.md#integrate-with-nagios).
 
-## <a name="overall-timeline"></a>Teljes idősor
+## <a name="schedule"></a>Ütemezés
 
 ![Azure Stack helyszíni üzembe helyezésének teljes idővonala](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 

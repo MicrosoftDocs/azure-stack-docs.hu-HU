@@ -14,18 +14,63 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167134"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846239"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Ez a cikk a Azure Stack érvényesítésére szolgáló kibocsátási megjegyzésekkel szolgál.
+
+## <a name="version-4353"></a>4\.3.5.3 verziója
+
+2019 november 7.
+
+- Tartalmi frissítések tesztelése
+  - Havi Azure Stack frissítés ellenőrzése (5.1.46.0-> 5.1.49.0)
+  - OEM kiterjesztési csomag ellenőrzése (5.1.46.0-> 5.1.49.0)
+  - A 5.1.46.0 eredményei megmaradtak. Ha sikeresen futtatta a 5.1.46.0-t, értesítse vaashelp@microsoft.com az eredmények elküldésekor.
+
+- Hibajavítások
+  - Kijavítva a hiba, Azure Stack ahol a frissítés ellenőrzése sikertelen volt, ha az Update. zip speciális karaktereket tartalmaz.
+
+- Ismert problémák
+  - Az mstest. exe nem található. Workaround
+    1. CTRL + C az ügynök a PowerShell-ablakban.
+    1. Írja be a mstest. exe fájlt annak ellenőrzéséhez, hogy a mstest. exe egy felismert program.
+    1. Ha a mstest. exe nem ismerhető fel, akkor a jelenlegi PowerShell-ablak bezárásához.
+    1. Kattintson a Start gombra (ne a PowerShell elemre a tálcán), keresse meg a PowerShellt, és nyissa meg rendszergazdaként.
+    1. Írja be a mstest. exe parancsot, és ellenőrizze, hogy elérhető-e parancsként.
+    1. Indítsa újra az ügynököt, és futtassa újra a tesztet.
+  - Alkalmanként a Cloud szimulációs motor \*VM-tesztekkel kapcsolatos hibákat fog jelenteni. A ismételt Futtatás megkísérlése előtt lépjen kapcsolatba vaashelp@microsoft.com. 
+
+
+2019 október 29.
+
+- A havi Azure Stack frissítési munkafolyamat online dokumentációja és az OEM-csomag érvényesítési munkafolyamata frissítve lett.
+
+    Tekintse át a frissített dokumentációt, itt ellenőrizze az OEM-csomagokat, és itt ellenőrizheti a Microsofttól származó szoftverfrissítéseket.
+- Varga munkafolyamat frissítése: havi Azure Stack frissítés (5.1.30.0-> 5.1.46.0) – a havi Azure Stack frissítés-ellenőrzési teszt munkafolyamata frissítve lett.
+
+    A munkafolyamatnak már nincs manuális beavatkozása, és a ütemezése zökkenőmentesen futtatható.
+- Varga munkafolyamat frissítése: OEM-csomag ellenőrzése (5.1.30.0-> 5.1.46.0) – az OEM-csomag érvényesítési munkafolyamata frissítve lett.
+
+    A munkafolyamatnak már nincs manuális beavatkozása, és a ütemezése zökkenőmentesen futtatható.
+- Az OEM-csomag érvényesítési munkafolyamatában (5.1.30.0-> 5.1.46.0) található felhőalapú szimulációs motor frissült az érvényesítési idő meggyorsítása érdekében: futási idő 1 órára csökken.
+- A felhőalapú szimulációs motor az OEM-csomag érvényesítési munkafolyamatában és a Azure Stack frissítési munkafolyamatban (5.1.30.0-> 5.1.46.0) megköveteli, hogy a frissítések érvényesítése 2 különböző szülőmappa legyen, és ne legyen más frissítés a gyermek mappákban.
+- Az OEM-csomag érvényesítési munkafolyamatában és a Azure Stack frissítési munkafolyamatban (5.1.30.0-> 5.1.46.0) lévő felhőalapú szimulációs motor megköveteli a tesztek ütemezését a következő sorrendben: havi Azure Stack frissítés-ellenőrzési teszt, OEM-bővítmény csomag Ellenőrzési teszt, és végül a Cloud szimulációs motor.
+- Varga-ügynök frissítése: a frissített Varga ügynök mostantól a Azure Stack Cloud admin hitelesítő adatokkal kérdezi le a bélyegzőt, hogy lekérdezze a bélyegző adatait, hogy automatikusan feltöltse a munkafolyamatokat. 
+
+    Ehhez a frissítéshez az összes ügynök frissítése és újraindítása szükséges. Az alábbi útmutatást követve frissítheti az Varga-ügynököt: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+- Az Varga portál felhasználói felületének frissítése: az ügynök kiválasztása tábla a tesztek ütemezése ablaktábla fölé került, hogy megkönnyítse a tesztelést.
+
+    A feladatok ütemezésekor a továbbiakban nem kell megadnia a Stamp-adatokat, ha az alaprendszer-ügynökök megfelelően frissültek.
+
 
 ## <a name="version-405"></a>4\.0.5 verziója
 

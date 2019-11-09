@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 31436cbe92550044efe8b28a5063da61508e7304
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283260"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845784"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Frissítések kezelése Azure Stack – áttekintés
 
@@ -81,7 +81,7 @@ Ha már tudja, hogy rendelkezik frissítéssel, alkalmazza a következő lépés
 
 1. **Tervezze meg a frissítést**.
 
-    Készítse elő a Azure Stack, hogy a frissítés folyamata a lehető legzökkenőmentesebb legyen, így a felhasználók számára minimális hatással lehet. Értesítse a felhasználókat a lehetséges szolgáltatások leállásáról, majd kövesse a példány frissítésre való előkészítésének lépéseit. A frissítés megtervezésének további lépéseiért tekintse meg a [Azure stack frissítésének megtervezése](azure-stack-update-plan.md)című témakört.
+    Készítse elő a Azure Stack, hogy a frissítés folyamata a lehető legzökkenőmentesebb legyen, így a felhasználók számára minimális hatással lehet. Értesítse a felhasználókat a lehetséges szolgáltatások leállásáról, majd kövesse a példány frissítésre való előkészítésének lépéseit. A frissítés megtervezésének további lépéseiért lásd: [Azure stack Update Activity ellenőrzőlista](release-notes-checklist.md).
 
 2. **Töltse fel és készítse elő a frissítési csomagot**.
 
@@ -103,6 +103,6 @@ A frissítések telepítésekor megtekintheti a magas szintű állapotot, mivel 
 
 ## <a name="next-steps"></a>Következő lépések
 
-- A frissítési folyamat megkezdéséhez kövesse az [Azure stack frissítésének megtervezése](azure-stack-update-plan.md)című témakör lépéseit.
+- A frissítési folyamat megkezdéséhez kövesse az [Azure stack frissítési tevékenységre vonatkozó ellenőrzőlista](release-notes-checklist.md)című témakör lépéseit.
 - Ha szeretné megtudni, hogy a Azure Stack mely verziói támogatottak, tekintse meg [Azure stack karbantartási szabályzatot](azure-stack-servicing-policy.md).  
 - Ha többet szeretne megtudni az aktuális és a legutóbbi frissítésekről, tekintse meg a [Azure stack kibocsátási megjegyzéseit](release-notes.md).

@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 91a90146f1f62ebea980a785d8a8e347f04fe137
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064712"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845838"
 ---
 # <a name="vnet-peering-in-azure-stack-with-vms"></a>virtuális társhálózatok létesítése virtuális gépekkel Azure Stack
 
@@ -24,8 +24,8 @@ Ugyanahhoz a Azure Stack-környezethez két Azure Stack virtuális hálózatok i
 
 Ez az üzembe helyezési minta az alapja, amely lehetővé teszi, hogy a VPN-alagutak ne csak Azure Stack példányon belül jöjjenek létre, hanem Azure Stack példányok és más erőforrások, például a Windows RRAS S2S VPN-alagutak használatát használó helyszíni hálózatok számára is. 
 
-A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns
-) -tárház **lucidqdreams** villájában találja. A sablon a **S2SVPNTunnel** mappában található.
+A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
+) -tárházában találja. A sablon a **S2SVPNTunnel** mappában található.
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-vnet-peering/overview.png)
 
@@ -50,7 +50,7 @@ A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/lucid
 
 ## <a name="options"></a>Beállítások
 
-- A _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával saját blob Storage-fiókját és SAS-tokenjét is használhatja
+- A blob Storage-fiókját és az SAS-tokent a _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával is használhatja
 - Ennek a sablonnak két kimenete van a INTERNALSUBNETREFVNET1 és a INTERNALSUBNETREFVNET2, amely a belső alhálózatok erőforrás-azonosítói, ha ezt szeretné használni egy folyamat típusú telepítési mintában.
 
 A sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit biztosítja. A rendszergazdának (rrasadmin) jelszót kell használnia, és a saját tárolási blobját is használhatja SAS-token használatával. Ügyeljen arra, hogy ezeket az értékeket a jogi tartományokon belül tárolja, mivel a telepítés sikertelen lehet. A PowerShell DSC-csomag minden RRAS virtuális gépen fut, és az Útválasztás és az összes szükséges függő szolgáltatás és szolgáltatás telepítése történik. Ezt a DSC-t szükség esetén tovább lehet testreszabni. Az egyéni szkriptek bővítménye a következő parancsfájlt futtatja, és `Add-Site2Site.ps1` konfigurálja a VPNS2S-alagutat a két RRAS-kiszolgáló között egy megosztott kulccsal. Az egyéni szkriptek bővítményének részletes kimenetét megtekintve megtekintheti a VPN-alagút konfigurációjának eredményét.
