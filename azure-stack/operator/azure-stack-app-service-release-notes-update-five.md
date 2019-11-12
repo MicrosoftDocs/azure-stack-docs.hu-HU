@@ -16,23 +16,23 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 4adad49b27b1ab1d255ccc566c95b003cfd09b3b
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f44bfcaf91e06979d1a9eb745bf681c0d9f69371
+ms.sourcegitcommit: cb9548e5a2ca27d9c44f349eeb08d94c9c6334da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974903"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73916401"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Azure Stack Update 5 kibocsátási megjegyzései App Service
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések az 5. Azure Stack Update webhelyen Azure App Service javításait, javításait és ismert problémáit ismertetik. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
 > [!IMPORTANT]
 > Alkalmazza a 1901-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a Azure App Service 1,5 üzembe helyezése előtt.
 
-## <a name="build-reference"></a>Hivatkozás létrehozása
+## <a name="build-reference"></a>Build referenciája
 
 A Azure Stack Update 5 Build számának App Service **80.0.2.15**.
 
@@ -61,7 +61,7 @@ Az Azure Stack Update 5 Azure App Service a következő javításokat és javít
 
 - A **Azure functions Runtime** és a **v 1.0.12205**frissítése.
 
-- A **kudu-eszközök** frissítései a megszakadt Azure stack operációs rendszert használó ügyfelek stílusával és funkcióival kapcsolatos problémák megoldásához. 
+- A **kudu-eszközök** frissítései a **megszakadt** Azure stack operációs rendszert használó ügyfelek stílusával és funkcióival kapcsolatos problémák megoldásához. 
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
@@ -77,7 +77,7 @@ Az Azure Stack Update 5 Azure App Service a következő javításokat és javít
 ### <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]  
-> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on-példánnyal, hozzá *kell* [adnia a appservice_hosting-és appservice_metering-adatbázisokat egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy elkerülje a szolgáltatás elvesztését adatbázis-feladatátvételi esemény.
+> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, fel *kell* [vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
 ### <a name="post-update-steps"></a>Frissítés utáni lépések
 
@@ -86,7 +86,7 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak áttérni Azu
 > [!IMPORTANT]
 > Az áttelepítési eljárás körülbelül 5-10 percet vesz igénybe. Az eljárás magában foglalja a meglévő adatbázis-bejelentkezési munkamenetek leölését. Tervezze meg a Azure App Service áttelepítését és érvényesítését Azure Stack post Migrálás után. Ha a Azure App Service Azure Stack 1,3-as frissítés után végrehajtotta ezeket a lépéseket, akkor ezek a lépések nem szükségesek.
 
-1. Adja hozzá [a AppService-adatbázisokat (appservice_hosting és appservice_metering) egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+1. [AppService-adatbázisok (appservice_hosting és appservice_metering) hozzáadása egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. A tárolt adatbázis engedélyezése.
     ```sql
@@ -137,9 +137,9 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak áttérni Azu
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Bejelentkezések migrálása a tárolt adatbázis-felhasználók számára.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -181,27 +181,27 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak áttérni Azu
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 
 Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
 
- * Forrás: Any
+ * Forrás: bármely
  * Forrásoldali porttartomány: *
  * Cél: IP-címek
- * Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+ * Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
  * Célport tartománya: 445
  * Protokoll: TCP
- * Művelet: Allow
- * Fontosság: 700
+ * Művelet: Engedélyezés
+ * Prioritás: 700
  * Név: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
 
 Tekintse meg a dokumentációt a [Azure Stack 1809 kibocsátási megjegyzésekben](azure-stack-update-1903.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
 - A Azure Stack App Service telepítésének előkészítésével kapcsolatos további információkért lásd: [app Service központi telepítésének előfeltételei a Azure stack](azure-stack-app-service-before-you-get-started.md).
