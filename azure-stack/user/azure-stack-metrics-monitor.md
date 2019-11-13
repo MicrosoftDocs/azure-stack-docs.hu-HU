@@ -11,33 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
-ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 64935022f8ace33bd4350ab4ef5421636ff3991e
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 20e4f71480aa377e56115c499f96492e768010c3
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418505"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955738"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>A monitorozási adatok felhasználása Azure Stack
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamattal, akárcsak Azure Monitor a globális Azure-ban. A globális Azure-ban található összes figyelési érték azonban nem érhető el Azure Stackban. Ebben a cikkben összefoglaljuk, hogyan használhatók a monitorozási információk a Azure Stackban.
  
 ## <a name="options-for-data-consumption"></a>Adatfelhasználási beállítások
 
-| Adattípus | Category | Támogatott szolgáltatások | Hozzáférési módszerek |
+| Data type | Kategória | Támogatott szolgáltatások | Hozzáférési módszerek |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Azure Monitor platform szintű mérőszámok | Mérőszámok | [Támogatott metrikák a Azure Monitor on Azure Stack](azure-stack-metrics-supported.md) | REST API |
-| A vendég operációsrendszer-metrikák (például a Perfek száma) kiszámítása | Mérőszámok | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
-| Tárolási metrikák | Mérőszámok | Azure Storage | Storage-tábla:<br>Storage Analytics |
-| Tevékenységnapló | Events | Minden Azure-szolgáltatás | REST API:<br>Azure Monitor Event API |
-| Vendég operációs rendszer naplóinak számítása (például IIS, ETW, syslogs) | Events | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
-| Tárolási naplók | Events | Azure Storage | Storage-tábla:<br>Storage Analytics |
+| Azure Monitor platform szintű mérőszámok | Metrikák | [Támogatott metrikák a Azure Monitor on Azure Stack](azure-stack-metrics-supported.md) | REST API |
+| A vendég operációsrendszer-metrikák (például a Perfek száma) kiszámítása | Metrikák | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
+| Tárolási metrikák | Metrikák | Azure Storage | Storage-tábla:<br>Storage Analytics |
+| Tevékenységnapló | Események | Minden Azure-szolgáltatás | REST API:<br>Azure Monitor Event API |
+| Vendég operációs rendszer naplóinak számítása (például IIS, ETW, syslogs) | Események | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
+| Tárolási naplók | Események | Azure Storage | Storage-tábla:<br>Storage Analytics |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Tudjon meg többet [Azure monitorozása az Azure Stacken](azure-stack-metrics-azure-data.md).
+További információ az [Azure monitorról Azure Stackról](azure-stack-metrics-azure-data.md).

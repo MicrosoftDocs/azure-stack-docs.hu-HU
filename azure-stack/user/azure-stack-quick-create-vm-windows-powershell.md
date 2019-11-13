@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 21dacbd9fc0bd7b646eb937e5460f6e7a89e3465
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: a46630e7f1e55d248354639a35aa7a389effc353
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417401"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955657"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack PowerShell használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet (VM). A virtuális gép létrehozásához és használatához kövesse a cikk lépéseit. A cikk a következőket is ismerteti:
 
@@ -44,7 +44,7 @@ Azure Stack PowerShell használatával létrehozhat egy Windows Server 2016 rend
 
 * A Azure Stack PowerShell beállítása után csatlakoznia kell a Azure Stack-környezethez. Útmutatásért lásd: [Kapcsolódás a Azure Stackhoz a PowerShell felhasználóként](azure-stack-powershell-configure-user.md).
 
-## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
+## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
 Az erőforráscsoport olyan logikai tároló, amelybe Azure Stack erőforrások üzembe helyezése és kezelése történik. A fejlesztői készletből vagy a Azure Stack integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
 
@@ -246,6 +246,6 @@ Remove-AzureRmResourceGroup `
   -Name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ebben a rövid útmutatóban egy egyszerű Windowsos virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa [Azure stack](azure-stack-vm-considerations.md)virtuálisgép-funkciókkal.
+Ebben a rövid útmutatóban egy egyszerű Windowsos virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa Azure Stack virtuálisgép- [funkciókkal](azure-stack-vm-considerations.md).

@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 08/09/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 2b2d1bccbe41e57b81492e0ba0b201fe03df2d7d
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142576"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955777"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack-beli virtuális gépen
 
@@ -55,19 +55,19 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
     e. Adjon hozzá egy bejövő biztonsági szabályt a következő portokhoz:
 
-    | Port | Protocol | Leírás |
+    | Port | Protocol (Protokoll) | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) a weblapok kiszolgálókról történő kézbesítéséhez használt protokoll. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét.  |
     | 22 | SSH | A Secure Shell (SSH) egy titkosított hálózati protokoll a biztonságos kommunikációhoz. Ezt a kapcsolódást egy SSH-ügyféllel fogja használni a virtuális gép konfigurálásához és az alkalmazás üzembe helyezéséhez. |
-    | 3389 | RDP | Nem kötelező. A RDP protokoll lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
+    | 3389 | RDP | Választható. A RDP protokoll lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
     | 8172 | Egyéni | A webdeploy által használt port. |
 
     Minden porthoz:
 
     a. A **forrás**mezőben válassza a **bármelyik**lehetőséget.
 
-    b. A **forrásport-tartomány**mezőbe írjon be egy csillag **\*** () karaktert.
+    b. A **forrásport-tartomány**mezőbe írjon be egy csillagot ( **\*** ).
 
     c. A **cél**mezőben válassza a **bármelyik**lehetőséget.
 
@@ -99,8 +99,8 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
 ## <a name="create-an-app"></a>Alkalmazás létrehozása 
 
-A Visual Studióval](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-)használhatja a saját webalkalmazást, vagy [egy ASP.net Core alkalmazás közzétételét az Azure-ban. A cikk azt ismerteti, hogyan hozhat létre és tehet közzé egy ASP.NET-webalkalmazást egy Azure-beli virtuális gépen a Visual Studio 2017 Azure Virtual Machines Publishing funkciójának használatával. Miután telepítette és ellenőrizte, hogy az alkalmazás helyileg fut-e, frissítenie kell a közzétételi célt a Windows rendszerű virtuális gépre a Azure Stack-példányban.
+A Visual Studióval használhatja a saját webalkalmazást, vagy [egy ASP.net Core alkalmazás közzétételét az Azure-](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
+)ban. A cikk azt ismerteti, hogyan hozhat létre és tehet közzé egy ASP.NET-webalkalmazást egy Azure-beli virtuális gépen a Visual Studio 2017 Azure Virtual Machines Publishing funkciójának használatával. Miután telepítette és ellenőrizte, hogy az alkalmazás helyileg fut-e, frissítenie kell a közzétételi célt a Windows rendszerű virtuális gépre a Azure Stack-példányban.
 
 ## <a name="deploy-and-run-the-app"></a>Az alkalmazás üzembe helyezése és futtatása
 
@@ -134,7 +134,7 @@ Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack-ben.
         mywebapp.local.cloudapp.azurestack.external
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Ismerje meg, hogyan [állíthat be fejlesztési környezetet a Azure Stackban](azure-stack-dev-start.md).
 - Ismerkedjen meg a [Azure stack IaaS való gyakori központi telepítésekkel](azure-stack-dev-start-deploy-app.md).

@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 35f350628a5c13e26bf6f3d1c931aa78a05bfb53
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 0ac0a75e0986642020567ea554a4500cc051fd01
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380495"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955306"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Méretezési egység csomópontjának cseréje Azure Stack integrált rendszeren
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Ez a cikk azt ismerteti, hogyan lehet lecserélni egy fizikai számítógépet (más néven a méretezési egység csomópontját) egy Azure Stack integrált rendszeren. A tényleges méretezési egység csomópontjának helyettesítő lépései az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
 
@@ -59,7 +59,7 @@ Ha megnyitja a **méretezési egység csomópontot offline** riasztás, a riaszt
 
 Az alábbi lépések a méretezési egység csomópont-helyettesítési folyamatának magas szintű áttekintését nyújtanak. A rendszerre vonatkozó részletes lépésekért tekintse meg az OEM hardver gyártójának cserélhető szoftveres dokumentációját. Ne kövesse ezeket a lépéseket a SZÁMÍTÓGÉPGYÁRTÓ által biztosított dokumentációra való hivatkozás nélkül.
 
-1. A leállítási művelettel könnyedén leállíthatja a skálázási egység csomópontját. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges. 
+1. A **leállítási** művelettel könnyedén leállíthatja a skálázási egység csomópontját. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges. 
 
 2. Ha nem valószínű, hogy a leállítási művelet meghiúsul, a [kiürítési](azure-stack-node-actions.md#drain) művelettel állítsa be a méretezési egység csomópontját karbantartási módba. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
 
@@ -76,7 +76,7 @@ Az alábbi lépések a méretezési egység csomópont-helyettesítési folyamat
 6. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
 7. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A fizikai lemezek a rendszer bekapcsolásakor történő cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md). 
 - További információ a rendszer kikapcsolását igénylő hardver-összetevők lecseréléséről: [hardver-összetevő cseréje](azure-stack-replace-component.md).

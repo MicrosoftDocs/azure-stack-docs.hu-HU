@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 61d938ef1a3039c4b685c4df8f09577d9c7d3f50
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.lastreviewed: 11/01/2019
+ms.openlocfilehash: 183abaa85607f0ad0c1bb9f82901b86176ae5c65
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909286"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955227"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Az Azure leválasztott üzembe helyezési tervezési döntései Azure Stack integrált rendszerek esetében
 Miután eldöntötte, [Hogyan integrálhatja a Azure stackt a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), befejezheti Azure stack telepítési döntéseit.
@@ -41,7 +41,7 @@ A leválasztott központi telepítés nem korlátozza, hogy később összekapcs
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>A leválasztott üzemelő példányokban nem párosított vagy nem elérhető funkciók 
 Azure Stack úgy lett tervezve, hogy az Azure-hoz való csatlakozáskor a legjobban működjön, ezért fontos megjegyezni, hogy vannak olyan funkciók és funkciók, amelyek vagy a leválasztott módban nem állnak rendelkezésre vagy teljesen elérhetetlenné válnak.
 
-|Funkció|Leválasztott üzemmódra gyakorolt hatás|
+|Szolgáltatás|Leválasztott üzemmódra gyakorolt hatás|
 |-----|-----|
 |VM üzembe helyezése DSC bővítménnyel a virtuális gép üzembe helyezésének konfigurálásához|A nem párosított DSC-bővítmény az internetet keresi a legújabb WMF-hez.|
 |Virtuális gép üzembe helyezése Docker-bővítménnyel a Docker-parancsok futtatásához|A korlátozott – a Docker a legújabb verzióra fogja ellenőriznie az internetet, és ez az ellenőrzési művelet sikertelen lesz.|
@@ -57,10 +57,10 @@ Telemetria|Nem érhető el – a telemetria adatai Azure Stack és bármely harm
 |Tanúsítványok|Nem érhető el – az internetkapcsolat szükséges a visszavont tanúsítványok listájának (CRL) és az online tanúsítványállapot-protokoll (OSCP) szolgáltatásai számára a HTTPS kontextusában.|
 |Key Vault|Nem párosított – A Key Vault gyakori használati esete, ha egy alkalmazás olvasási titkokat használ futásidőben. Ebben a használati esetben az alkalmazásnak szüksége van egy egyszerű szolgáltatásnév használatára a címtárban. Az Azure AD-ben a normál felhasználók (nem rendszergazdák) alapértelmezés szerint adhatnak hozzá egyszerű szolgáltatásokat. Az Azure AD-ben (AD FS használatával) nem. Ez az inpair akadályt mutat a teljes körű élményben, mivel az egyiknek mindig egy címtár-rendszergazdának kell lennie az alkalmazások hozzáadásához.
 
-## <a name="learn-more"></a>Tudnivalók a modellalapú alkalmazások létrehozásáról
+## <a name="learn-more"></a>További információ
 - További információ a használati esetekről, a vásárlásról, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack](https://azure.microsoft.com/overview/azure-stack/) termék oldal.
-- Az Azure Stack integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a tanulmányt: [Azure Stack: Az Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)kiterjesztése. 
+- Az Azure Stack integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Ha többet szeretne megtudni a Microsoft Azure Stack csomagolásról és a díjszabásról, [töltse le a. PDF fájlt](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Datacenter hálózati integráció](azure-stack-network.md)

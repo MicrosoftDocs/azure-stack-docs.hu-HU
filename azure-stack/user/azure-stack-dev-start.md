@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 404f6b889f921e547f8c44c7b4219b232819c322
-ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 437963355c8077c31ca5f0f55acdd344bb0060e2
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616461"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955726"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack"></a>Fejlesztési környezet beállítása Azure Stack 
 
@@ -38,7 +38,7 @@ Parancsfájlokat és alkalmazásokat is írhat a Azure Stack számos feladatána
 
 A Cloud platform termékként Azure Stack a következőket támogatja: 
 
-- Szolgáltatott infrastruktúra (IaaS) 
+- Infrastruktúra-szolgáltatás (IaaS) 
 - Platformszolgáltatás (PaaS) 
 
 A IaaS és a Péter is tájékoztatja a fejlesztői gép beállításáról. 
@@ -55,7 +55,7 @@ A három korábban említett módot, valamint a Pétert vagy a IaaS-t a Azure Re
 
 Azure Stack a Azure Resource Manager Azure Stack verzióját használja. Ha segítségre van szüksége a Azure Stack Resource Managerrel való együttműködéshez a választott kóddal, számos SDK-t adtunk meg, többek között: 
 
-- [.NET/C#](azure-stack-version-profiles-net.md)
+- [NETC#](azure-stack-version-profiles-net.md)
 - [Java](azure-stack-version-profiles-java.md)
 - [Go](azure-stack-version-profiles-go.md)
 - [Ruby](azure-stack-version-profiles-ruby.md)
@@ -98,7 +98,7 @@ Ha Windows 10 rendszerű gépet használ, a PowerShell 5,0 és a Visual Studio s
 
 2. Telepítse az SDK-t a kódhoz: 
 
-     - [.NET/C#](azure-stack-version-profiles-net.md) 
+     - [NETC#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
      - [Go](azure-stack-version-profiles-go.md) 
      - [Ruby](azure-stack-version-profiles-python.md) 
@@ -127,7 +127,7 @@ Ha Linux rendszerű gépet használ, használhatja az Azure CLI-t, a Visual Stud
 
 2. Telepítse az SDK-t a kódhoz: 
 
-     - [.NET/C#](azure-stack-version-profiles-net.md) 
+     - [NETC#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
      - [Go](azure-stack-version-profiles-go.md) 
      - [Ruby](azure-stack-version-profiles-python.md) 
@@ -156,12 +156,12 @@ A macOS rendszerű gépek lehetővé teszik az Azure CLI és a Visual Studio Cod
 
 2. Telepítse az SDK-t a kódhoz: 
 
-     - [.NET/C#](azure-stack-version-profiles-net.md) 
+     - [NETC#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
      - [Go](azure-stack-version-profiles-go.md)
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 
 Az alkalmazások Azure Stackban lévő erőforrásokra való telepítéséhez lásd: [a Azure stack általános telepítései](azure-stack-dev-start-deploy-app.md).

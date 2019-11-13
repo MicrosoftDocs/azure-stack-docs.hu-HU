@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 1fe65370d7631f4096d010756135c67c3d2f359e
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802304"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955304"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvóta típusai a Azure Stackban
 
@@ -41,21 +41,21 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 | VM-magok maximális száma | 100 | Az előfizetések által az adott helyen létrehozható magok maximális száma (például egy A3-as virtuális gép négy maggal rendelkezik). |
 | Rendelkezésre állási készletek maximális száma | 10 | Az ezen a helyen létrehozható rendelkezésre állási készletek maximális száma. |
 | A virtuálisgép-méretezési csoportok maximális száma | 100 | Az ezen a helyen létrehozható méretezési csoportok maximális száma. |
-| Standard szintű felügyelt lemez maximális kapacitása (GB-ban) | 2048 | Az ezen a helyen létrehozható standard szintű felügyelt lemezek maximális kapacitása. |
-| Prémium szintű felügyelt lemez maximális kapacitása (GB) | 2048 | Az ezen a helyen létrehozható prémium szintű felügyelt lemezek maximális kapacitása. |
+| Standard szintű felügyelt lemez maximális kapacitása (GB-ban) | 2048 | Az ezen a helyen létrehozható standard szintű felügyelt lemezek maximális kapacitása. Ez az érték a standard szintű felügyelt lemezek foglalási mérete és a szabványos Pillanatképek felhasznált mérete összesen. |
+| Prémium szintű felügyelt lemez maximális kapacitása (GB) | 2048 | Az ezen a helyen létrehozható prémium szintű felügyelt lemezek maximális kapacitása. Ez az érték a prémium szintű felügyelt lemezek foglalási méretének és a prémium Pillanatképek felhasznált méretének teljes összege. |
 
 > [!NOTE]
-> A nem felügyelt lemez (oldal Blobok) maximális kapacitása eltér a felügyelt lemez kvótájának. Ezt az értéket megadhatja a **tárolási kvóták**között.
+> A nem felügyelt lemezek maximális kapacitása (Blobok) elkülönül a felügyelt lemez kvótájában. Ezt az értéket **maximális kapacitás (GB)** értékre állíthatja a **tárolási kvótákban**.
 
 ## <a name="storage-quota-types"></a>Tárolási kvóták típusai
 
 | **Elem** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
-| Maximális kapacitás (GB) |2048 |Az ezen a helyen található előfizetés által felhasználható teljes tárolókapacitás (beleértve a blobokat és az összes hozzá tartozó pillanatképet, táblát, várólistát). |
+| Maximális kapacitás (GB) |2048 |Az ezen a helyen lévő előfizetések által felhasználható tárterület teljes kapacitása. Ez az érték az összes blob (beleértve a nem felügyelt lemezeket is) és az összes hozzá tartozó pillanatkép, tábla és várólista felhasznált méretének teljes mérete. |
 | A Storage-fiókok teljes száma |20 |Az előfizetés által az adott helyen létrehozható tárolási fiókok maximális száma. |
 
 > [!NOTE]
-> A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
+> Ha egy előfizetésben túllépi a **maximális kapacitást (GB)** , nem hozhat létre új tárolási erőforrást ebben az előfizetésben. Az előfizetésben létrehozott nem felügyelt lemezek azonban továbbra is használhatók virtuális gépeken, ami a kvótán kívüli teljes kapacitást okozhatja.<br>A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
 
 ## <a name="network-quota-types"></a>Hálózati kvóták típusai
 

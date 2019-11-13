@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: bf377234b71683e6c56bef030cd5de5b4a06a743
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 8843b6791876b4e0362d7aee3aa738453a8c3b88
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418389"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955930"
 ---
 # <a name="scheduling-a-test"></a>Teszt ütemezése
 
@@ -29,15 +29,15 @@ Egy tesztet ütemezhet a Azure Stack-megoldáshoz tartozó érvényesítési szo
 
 A megoldás ellenőrzéséhez hozzon létre egy teszt munkafolyamatot. Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack központi telepítés funkcióit gyakorolják a hardveren. Adja hozzá a megoldás környezeti paramétereit, és válasszon ki egy vagy több, a megoldáson futtatandó tesztet.
 
-Míg a test pass munkafolyamat használható az összes olyan teszt futtatására, amelyet az adatbázis-ellenőrzés is tartalmaz, beleértve az ellenőrzési munkafolyamatokból származó teszteket, a test pass-munkafolyamat eredményei nem tekintendők hivatalosnak. További információ a hivatalos ellenőrzési munkafolyamatokról: [](azure-stack-vaas-key-concepts.md#workflows)munkafolyamatok.
+Míg a test pass munkafolyamat használható az összes olyan teszt futtatására, amelyet az adatbázis-ellenőrzés is tartalmaz, beleértve az ellenőrzési munkafolyamatokból származó teszteket, a test pass-munkafolyamat eredményei nem tekintendők *hivatalosnak*. További információ a hivatalos ellenőrzési munkafolyamatokról: [munkafolyamatok](azure-stack-vaas-key-concepts.md#workflows).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
 A rövid útmutató elvégzése előtt végezze el a következő elemeket:
 
 - [Az érvényesítés beállítása szolgáltatási erőforrásként](azure-stack-vaas-set-up-resources.md)
-- [A helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md) Szükséges
-- [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md) Szükséges
+- [A helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md) (kötelező)
+- [Érvényesítés szolgáltatási kulcs fogalmai](azure-stack-vaas-key-concepts.md) (kötelező)
 
 ## <a name="start-a-workflow"></a>Munkafolyamat elindítása
 
@@ -46,7 +46,7 @@ A rövid útmutató elvégzése előtt végezze el a következő elemeket:
 Jelentkezzen be a portálra, válasszon ki vagy hozza létre a megoldást, majd válassza ki a megoldást.
 
 1. Jelentkezzen be az [Varga portálra](https://azurestackvalidation.com).
-2. Írja be egy meglévő megoldás nevét, vagy válassza az **új** megoldás lehetőséget új megoldás létrehozásához. Útmutatásért lásd: [megoldás létrehozása az](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)alaprendszer-portálon.
+2. Írja be egy meglévő megoldás nevét, vagy válassza az **új** megoldás lehetőséget új megoldás létrehozásához. Útmutatásért lásd: [megoldás létrehozása az alaprendszer-portálon](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal).
 3. Válassza a **Start** lehetőséget a **teszt** átadása csempén.
 
 ## <a name="specify-parameters"></a>Paraméterek megadása
@@ -85,6 +85,6 @@ Munkafolyamat-létrehozás befejezése
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

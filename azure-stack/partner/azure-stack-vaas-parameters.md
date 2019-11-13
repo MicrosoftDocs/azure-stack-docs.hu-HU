@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 091dc657153309298a1eda161b633a42050a0f57
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: e7df32ea390c236e10d64e7575dcfdd45f01ea3a
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159343"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955882"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack érvényesítéshez szolgáltatásként
 
@@ -53,7 +53,7 @@ A környezeti paraméterek a Azure Stack környezetet írják le a test alatt. E
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>Értékek megkeresése az ECE konfigurációs fájlban
 
-A környezeti paraméterek értékei manuálisan is megtalálhatók a DVM található `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` **ECE konfigurációs fájlban** .
+A környezeti paraméterek értékei manuálisan is megtalálhatók a DVM `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` található **ECE konfigurációs fájlban** .
 
 ## <a name="test-parameters"></a>Paraméterek tesztelése
 
@@ -62,8 +62,8 @@ A gyakori tesztelési paraméterek olyan bizalmas információkat tartalmaznak, 
 Paraméter    | Leírás
 -------------|-----------------
 Bérlői rendszergazda felhasználó                            | Azure Active Directory a szolgáltatás-rendszergazda által kiépített Bérlői rendszergazda a HRE könyvtárban. Ez a felhasználó bérlői szintű műveleteket hajt végre, például sablonokat helyez üzembe az erőforrások (virtuális gépek, Storage-fiókok stb.) beállításához és a számítási feladatok végrehajtásához. A bérlői fiók üzembe helyezésével kapcsolatos részletekért lásd: [új Azure stack bérlő hozzáadása](../operator/azure-stack-add-new-user-aad.md).
-Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory az Azure AD-címtár bérlője Azure Stack telepítés során megadott rendszergazdája. Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UniqueName` a elemben. `AADTenant`
-Felhőbeli rendszergazda felhasználó               | Azure Stack tartományi rendszergazdai fiókot (például: `contoso\cloudadmin`). Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UserName` a elemben. `User Role="CloudAdmin"`
+Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory az Azure AD-címtár bérlője Azure Stack telepítés során megadott rendszergazdája. Keresse meg `AADTenant` az ECE konfigurációs fájlban, és válassza ki az értéket a `UniqueName` elemben.
+Felhőbeli rendszergazda felhasználó               | Azure Stack tartományi rendszergazdai fiókot (például `contoso\cloudadmin`). Keresse meg `User Role="CloudAdmin"` az ECE konfigurációs fájlban, és válassza ki az értéket a `UserName` elemben.
 Diagnosztikai kapcsolatok karakterlánca          | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]
@@ -89,6 +89,6 @@ Diagnosztikai naplók tárolásához a diagnosztika-kapcsolatok karakterlánca s
 > Az SAS URL-cím az URL-cím létrehozásakor megadott befejezési időpontban lejár.  
 Az ütemezési tesztek során győződjön meg arról, hogy az URL-cím legalább 30 napig érvényes, valamint a tesztelés végrehajtásához szükséges idő (három hónap javasolt).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

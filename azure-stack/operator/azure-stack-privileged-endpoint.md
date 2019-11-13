@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 3730da9d185f1c38411453a6bef965ab5df7d3ae
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 52f61321980503667119c5cc45863e51fa0639ac
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829374"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955259"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>A rendszerjogosultságú végpont használata Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack-operátorként a legtöbb napi rendszerességű felügyeleti feladat ellátásához a felügyeleti portált, a PowerShellt vagy az Azure Resource Manager API-kat használhatja. Néhány kevésbé gyakori művelet esetében azonban a *Kiemelt jogosultságú végpontot* (PEP) kell használnia. A PEP egy előre konfigurált távoli PowerShell-konzol, amely elegendő képességet biztosít a szükséges feladatok elvégzéséhez. A végpont [PowerShell-JEA (elég felügyelet)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) használ, hogy csak korlátozott számú parancsmagot tegyen elérhetővé. A PEP eléréséhez és a parancsmagok korlátozott készletének meghívásához egy alacsony jogosultsági szintű fiókot kell használni. Nincs szükség rendszergazdai fiókra. A további biztonság érdekében a parancsfájlkezelés nem engedélyezett.
 
@@ -82,18 +82,18 @@ Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön me
      ``` 
      Ha a rendszer kéri, használja a következő hitelesítő adatokat:
 
-     - **Felhasználónév**: A CloudAdmin fiókjának  **&lt; *Azure stack tartományi*&gt;\cloudadmin**formátumban kell megadnia. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
-     - **Jelszó**: Adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
+     - **Felhasználónév**: adja meg a CloudAdmin-fiókot **&lt;*Azure stack tartomány*&gt;\cloudadmin**formátumban. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
+     - **Password (jelszó**): adja meg ugyanazt a jelszót, amelyet a azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
      > [!NOTE]
      > Ha nem tud csatlakozni az ERCS-végponthoz, próbálkozzon újra egy másik ERCS virtuális gép IP-címével.
 
-3. A kapcsolódás után a prompt **[*IP-cím vagy ERCS virtuális gép neve*] értékre változik: PS >** vagy a  **[AZS-ercs01]: PS >** , a környezettől függően. Innen a Futtatás `Get-Command` gombra kattintva megtekintheti az elérhető parancsmagok listáját.
+3. A kapcsolódást követően a rendszer a (z) **[*IP-cím vagy ERCS virtuális gép neve*]: PS >** vagy a (z) **[AZS-ercs01]: PS >** értékre vált a környezettől függően. Innen futtassa `Get-Command` az elérhető parancsmagok listájának megtekintéséhez.
 
    Ezen parancsmagok nagy része kizárólag az integrált rendszerkörnyezetekhez (például az adatközpont-integrációhoz kapcsolódó parancsmagokhoz) készült. A ASDK a következő parancsmagok lettek érvényesítve:
 
-   - Clear-Host
-   - Close-PrivilegedEndpoint
+   - Gazdagép törlése
+   - Bezárás – PrivilegedEndpoint
    - Kilépés – PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
@@ -102,13 +102,13 @@ Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön me
    - Get-Help
    - Get-ThirdPartyNotices
    - Mérték – objektum
-   - New-CloudAdminUser
+   - Új – CloudAdminUser
    - Alapértelmezett
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
-   - Test-AzureStack
-   - Stop-AzureStack
+   - Teszt – AzureStack
+   - Leállítás – AzureStack
    - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tippek a Kiemelt végpont használatához 
@@ -154,8 +154,8 @@ Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a köv
      ``` 
      Ha a rendszer kéri, használja a következő hitelesítő adatokat:
 
-     - **Felhasználónév**: A CloudAdmin fiókjának  **&lt; *Azure stack tartományi*&gt;\cloudadmin**formátumban kell megadnia. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
-     - **Jelszó**: Adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
+     - **Felhasználónév**: adja meg a CloudAdmin-fiókot **&lt;*Azure stack tartomány*&gt;\cloudadmin**formátumban. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
+     - **Password (jelszó**): adja meg ugyanazt a jelszót, amelyet a azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
 3. A PEP-munkamenet importálása a helyi gépre
      ```powershell 
@@ -166,7 +166,7 @@ Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a köv
 
 ## <a name="close-the-privileged-endpoint-session"></a>Az emelt szintű végpont munkamenetének lezárása
 
- Ahogy azt korábban említettük, a PEP a PowerShell-munkamenetben elvégezhető összes műveletet (és a hozzá tartozó kimenetet) naplózza. A-munkamenetet a `Close-PrivilegedEndpoint` parancsmag használatával kell lezárva. Ez a parancsmag helyesen zárja le a végpontot, és átviszi a naplófájlokat egy külső fájlmegosztást a megőrzéshez.
+ Ahogy azt korábban említettük, a PEP a PowerShell-munkamenetben elvégezhető összes műveletet (és a hozzá tartozó kimenetet) naplózza. A munkamenetet a `Close-PrivilegedEndpoint` parancsmag használatával kell lezárva. Ez a parancsmag helyesen zárja le a végpontot, és átviszi a naplófájlokat egy külső fájlmegosztást a megőrzéshez.
 
 A végpont-munkamenet lezárása:
 
@@ -177,18 +177,18 @@ A végpont-munkamenet lezárása:
      ```
    A parancsmag a következő táblázatban szereplő paramétereket használja:
 
-   | Paraméter | Leírás | Type | Szükséges |
+   | Paraméter | Leírás | Type (Típus) | Szükséges |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | a külső fájlmegosztás elérési útja "fileshareIP\sharefoldername"-ként definiálva | Sztring | Igen|
-   | *Hitelesítő adatok* | a fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |   Igen |
+   | *TranscriptsPathDestination* | A külső fájlmegosztás elérési útja "fileshareIP\sharefoldername"-ként definiálva | Sztring | Igen|
+   | *Hitelesítőadat* | A fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |   Igen |
 
 
 Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztásba, automatikusan törlődnek a PEP-ből. 
 
 > [!NOTE]
-> Ha a-parancsmagok `Exit-PSSession` `Exit`használatával, vagy csak a PowerShell-konzol bezárásával zárta be a PEP-munkamenetet, a rendszer nem továbbítja a fájlokat a fájlmegosztás számára. A PEP-ben maradnak. Amikor legközelebb futtatja `Close-PrivilegedEndpoint` és belefoglal egy fájlmegosztást, az előző munkamenet (ek) ből származó átiratok is át lesznek továbbítva. A PEP-munkamenet bezárásához ne használja a `Exit-PSSession` vagy a `Exit` értéket. használja helyette a `Close-PrivilegedEndpoint` értéket.
+> Ha a PEP-munkamenetet `Exit-PSSession` vagy `Exit`parancsmagok használatával, vagy csak a PowerShell-konzol bezárásával zárta be, a másolási naplók nem továbbítanak fájlmegosztást. A PEP-ben maradnak. Amikor legközelebb futtatja `Close-PrivilegedEndpoint` és belefoglal egy fájlmegosztást, az előző munkamenet (ek) ből származó átirati naplók is átkerülnek. Ne használja `Exit-PSSession` vagy `Exit` a PEP-munkamenet bezárásához; Ehelyett használja a `Close-PrivilegedEndpoint`.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Diagnosztikai eszközök Azure Stack](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

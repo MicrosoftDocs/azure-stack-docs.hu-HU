@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7cb5d7b90359b73292d9e8209d4237e9d8914302
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 9d1c9f963433e0a41218bb1984d07f0b47d032eb
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418527"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955704"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
 
 A Azure Stack PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
@@ -40,9 +40,9 @@ A Azure Stack PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LT
   * Ha nincs konfigurálva a PowerShell a Azure Stackhoz, tekintse meg [a PowerShell telepítése Azure Stackhoz](../operator/azure-stack-powershell-install.md)című témakört. 
   * Azure Stack PowerShell beállítása után csatlakozni fog a Azure Stack-környezethez. Útmutatásért lásd: [Kapcsolódás a Azure Stackhoz a PowerShell felhasználóként](azure-stack-powershell-configure-user.md).
 
-* A *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
+* A (z) *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
+## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
 Az erőforráscsoportok olyan logikai tárolók, amelyekben Azure Stack erőforrásokat lehet üzembe helyezni és felügyelni. Erőforráscsoport létrehozásához a Azure Stack Development Kit (ASDK) vagy a Azure Stack integrált rendszerből futtassa a következő kódrészletet: 
 
@@ -203,7 +203,7 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="vm-quick-create-full-script"></a>Virtuális gép gyors létrehozása: Teljes szkript
+## <a name="vm-quick-create-full-script"></a>VM gyors létrehozás: teljes parancsfájl
 
 > [!NOTE]
 > Ez a lépés lényegében az előző kód összeolvadt, de a jelszóval nem rendelkező SSH-kulcs helyett a hitelesítéshez.
@@ -404,7 +404,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Ha telepítette az NGINX-webkiszolgálót, és a 80-es port meg van nyitva a virtuális gépen, a virtuális gép nyilvános IP-címe segítségével érheti el a webkiszolgálót. Nyisson meg egy webböngészőt, és ```http://<public IP address>```nyissa meg a következőt:.
+Ha telepítette az NGINX-webkiszolgálót, és a 80-es port meg van nyitva a virtuális gépen, a virtuális gép nyilvános IP-címe segítségével érheti el a webkiszolgálót. Nyisson meg egy webböngészőt, és lépjen a ```http://<public IP address>```.
 
 ![Az NGINX webkiszolgáló kezdőlapja](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
@@ -416,6 +416,6 @@ A [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azur
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített. Azure Stack virtuális gépekkel kapcsolatos további tudnivalókért tekintse meg a [Azure stack virtuális gépek szempontjait](azure-stack-vm-considerations.md).

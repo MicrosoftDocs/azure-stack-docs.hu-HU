@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9c8807d6fb28a99c9de8464a0eaff7114bd6a162
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 2dfa55af61627a82f869c7e222dc29997b07a6e3
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418268"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955842"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>A szolgáltatás érvényesítésének megoldása
 
@@ -39,7 +39,7 @@ Ez valószínűleg azért van így, mert az ügynök nem tud szívveréseket kü
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>A teszt végrehajtása közben leállt az ügynök folyamata a gépen. Mi várható?
 
-Ha az ügynök folyamata nem megfelelően van leállítva, például a gép újraindult, a folyamat megszakadt (a CTRL + C az ügynök ablakában a megfelelő leállítás lesz), akkor a rajta futó teszt továbbra is **futként**fog megjelenni. Ha az ügynök újraindul, az ügynök a teszt állapotát megszakítva fogja frissíteni. Ha nem indítja újra az ügynököt, a teszt futként jelenik meg  , és manuálisan kell megszüntetnie a tesztet.
+Ha az ügynök folyamata nem megfelelően van leállítva, például a gép újraindult, a folyamat megszakadt (a CTRL + C az ügynök ablakában a megfelelő leállítás lesz), akkor a rajta futó teszt továbbra is **futként**fog megjelenni. Ha az ügynök újraindul, az ügynök a teszt állapotát **megszakítva**fogja frissíteni. Ha nem indítja újra az ügynököt, a teszt **futként** jelenik meg, és manuálisan kell megszüntetnie a tesztet.
 
 > [!Note]
 > A munkafolyamaton belüli tesztek futtatása ütemezett sorrendben történik. A **függőben lévő** tesztek addig nem lesznek végrehajtva, amíg a tesztek nem **futnak** ugyanabban a munkafolyamatban.
@@ -66,6 +66,8 @@ A PIR-rendszerképet letöltheti a helyi adatközpontban található megosztásr
     .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'WindowsServer2012R2DatacenterBYOL.vhd' /NC:12 /V:azcopylog.log /Y
     .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'Ubuntu1404LTS.vhd' /NC:12 /V:azcopylog.log /Y
     .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'Ubuntu1604-20170619.1.vhd' /NC:12 /V:azcopylog.log /Y
+    .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'OpenLogic-CentOS-69-20180105.vhd' /NC:12 /V:azcopylog.log /Y
+    .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'Debian8_latest.vhd' /NC:12 /V:azcopylog.log /Y
 ```
 
 > [!Note]  
@@ -75,15 +77,17 @@ A PIR-rendszerképet letöltheti a helyi adatközpontban található megosztásr
 
 A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilvános rendszerkép-tárházhoz tartozó képfájlok kivonatának értékét a rendszerképek integritásának ellenőrzése érdekében.
 
-| Fájlnév | SHA256 |
+| Fájl neve | SHA256 |
 |---------------------------------------|------------------------------------------------------------------|
-| Server2016DatacenterFullBYOL.vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
-| WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
-| Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
-| Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
-| Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| Server2016DatacenterFullBYOL. vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
+| WindowsServer2012R2DatacenterBYOL. vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
+| Server2016DatacenterCoreBYOL. vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
+| Ubuntu1404LTS. vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
+| Ubuntu1604-20170619.1. vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| OpenLogic-CentOS-69-20180105. vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
+| Debian8_latest. vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Hiba történik a `VaaSPreReq` virtuálisgép-rendszerkép parancsfájlban való feltöltésekor
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Hiba történt a virtuálisgép-rendszerképnek a `VaaSPreReq` parancsfájlban való feltöltésekor
 
 Először győződjön meg arról, hogy a környezet kifogástalan állapotban van:
 
@@ -93,19 +97,19 @@ Először győződjön meg arról, hogy a környezet kifogástalan állapotban v
 Ha a környezet kifogástalan állapotban van, töltse fel kézzel a következő 5 virtuálisgép-rendszerképet, amelyekhez szükség van az alapszolgáltatások teszteléséhez:
 
 1. Jelentkezzen be a felügyeleti portálon a szolgáltatás-rendszergazdaként. A felügyeleti portál URL-címét az ECE áruházból vagy a Stamp-információs fájlból találja. Útmutatásért lásd: [környezeti paraméterek](azure-stack-vaas-parameters.md#environment-parameters).
-1. Válassza a **További szolgáltatások** > **erőforrás-szolgáltatók** > **számítási** > virtuálisgép-**lemezképek**lehetőséget.
-1. A virtuálisgép-lemezképek panel felső részén kattintson  a **+ Hozzáadás** gombra.
+1. Válassza a **További szolgáltatások** > **erőforrás-szolgáltatók** > **számítási** > virtuálisgép- **lemezképek**lehetőséget.
+1. A virtuálisgép- **lemezképek** panel felső részén kattintson a **+ Hozzáadás** gombra.
 1. Módosítsa vagy vizsgálja meg a következő mezők értékeit az első virtuálisgép-rendszerképnél:
     > [!IMPORTANT]
     > Nem minden alapértelmezett érték helyes a piactér meglévő eleménél.
 
-    | Mező  | Value  |
+    | Mező  | Value (Díj)  |
     |---------|---------|
-    | Kiadó | MicrosoftWindowsServer |
+    | Gyártó/kiadó | MicrosoftWindowsServer |
     | Ajánlat | WindowsServer |
     | Operációs rendszer típusa | Windows |
-    | SKU | 2012-R2-Datacenter |
-    | Version | 1.0.0 |
+    | SKU (Cikkszám) | 2012-R2-Datacenter |
+    | Verzió | 1.0.0 |
     | OPERÁCIÓSRENDSZER-lemez blob URI-ja | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
 1. Válassza a **Létrehozás** gombot.
@@ -113,14 +117,16 @@ Ha a környezet kifogástalan állapotban van, töltse fel kézzel a következő
 
 Az 5 virtuálisgép-rendszerkép tulajdonságai a következők:
 
-| Kiadó  | Ajánlat  | Operációs rendszer típusa | SKU | Version | OPERÁCIÓSRENDSZER-lemez blob URI-ja |
+| Gyártó/kiadó  | Ajánlat  | Operációs rendszer típusa | SKU (Cikkszám) | Verzió | OPERÁCIÓSRENDSZER-lemez blob URI-ja |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
 | Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
+| OpenLogic | CentOS | Linux | 6,9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
+| credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- Tekintse át a [kibocsátási megjegyzéseket](azure-stack-vaas-release-notes.md) a szolgáltatásként való érvényesítéshez a legújabb kiadásokban való változásokhoz.
+- Tekintse át a [kibocsátási megjegyzéseket a szolgáltatásként való érvényesítéshez](azure-stack-vaas-release-notes.md) a legújabb kiadásokban való változásokhoz.
