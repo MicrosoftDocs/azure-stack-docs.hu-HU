@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: 8ed7b3c71c1a9a2098fa125caeb03c949a332f50
-ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559348"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955336"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>A Azure Stack kapcsoló konfigurációjának adott beállításainak módosítása
 
@@ -31,13 +31,13 @@ Az Azure Stack-megoldás üzembe helyezése során az eredeti berendezésgyárt�
 Vannak azonban olyan értékek, amelyek hozzáadhatók, eltávolíthatók vagy módosíthatók a hálózati kapcsolók konfigurációjában.
 
 >[!Warning]  
-> Ne módosítsa a konfigurációt a számítógépgyártó vagy a Microsoft Azure stack mérnöki csapat beleegyezike nélkül. A hálózati eszköz konfigurációjának módosítása jelentős hatással lehet a Azure Stack-példány hálózati problémáinak működésére vagy hibaelhárítására.
+> **Ne módosítsa a** konfigurációt a számítógépgyártó vagy a Microsoft Azure stack mérnöki csapat beleegyezike nélkül. A hálózati eszköz konfigurációjának módosítása jelentős hatással lehet a Azure Stack-példány hálózati problémáinak működésére vagy hibaelhárítására.
 >
 > Ha többet szeretne megtudni ezekről a függvényekről a hálózati eszközön, hogyan hajthatja végre ezeket a módosításokat, forduljon az OEM-szolgáltatóhoz vagy a Microsoft ügyfélszolgálatához. A SZÁMÍTÓGÉPGYÁRTÓ rendelkezik az Automation eszköz által létrehozott konfigurációs fájllal a Azure Stack üzembe helyezési munkalap alapján. 
 
 ## <a name="password-update"></a>Jelszó frissítése
 
-Az operátor bármikor frissítheti a hálózati kapcsolók bármelyik felhasználójának jelszavát. Nincs szükség a Azure Stack rendszerre vonatkozó információk módosítására, vagy a titkok elforgatásának lépéseire [Azure Stackban](azure-stack-rotate-secrets.md).
+Az operátor bármikor frissítheti a hálózati kapcsolók bármelyik felhasználójának jelszavát. Nincs szükség a Azure Stack rendszerre vonatkozó információk módosítására, vagy a [titkok elforgatásának lépéseire Azure Stackban](azure-stack-rotate-secrets.md).
 
 ## <a name="syslog-server"></a>Syslog-kiszolgáló
 
@@ -47,7 +47,7 @@ A kezelők átirányítják a kapcsoló naplóit egy syslog-kiszolgálóra az ad
 
 Az operátor konfigurálhatja a hálózati eszközök figyelésére és a trapek küldését egy hálózati figyelő alkalmazásba az adatközpontban. Biztonsági okokból a SNMPv3-t használja, mivel ez a v2-nél biztonságosabb. A szükséges MIB és konfigurációval kapcsolatban forduljon az OEM-hardvereszközökhöz. Tekintse át a [hozzáférés-vezérlési lista frissítései](#access-control-list-updates) szakaszt, és tekintse át, hogyan konfigurálhatja a Switch Management-hozzáférés engedélyeit.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Hitelesítés
 
 Az operátor a hálózati eszközök hitelesítésének kezeléséhez RADIUS-vagy TACACS konfigurálhat. A támogatott módszerekhez és konfigurációhoz forduljon az OEM-hardveres szolgáltatóhoz.  Tekintse át a [hozzáférés-vezérlési lista frissítései](#access-control-list-updates) szakaszt, és tekintse át, hogyan konfigurálhatja a Switch Management-hozzáférés engedélyeit.
 
@@ -55,6 +55,6 @@ Az operátor a hálózati eszközök hitelesítésének kezeléséhez RADIUS-vag
 
 Az operátor módosíthatja a hozzáférés-vezérlési listák (ACL-ek) egy részét, hogy lehetővé tegye a hálózati eszközök felügyeleti felületéhez és a hardveres életciklus-gazdagéphez (HLH) való hozzáférést egy megbízható adatközpont hálózati tartományában. A kezelő kiválaszthatja, hogy melyik összetevő érhető el, és honnan. A hozzáférés-vezérlési listával az operátor engedélyezheti a felügyeleti Jumpbox egy adott hálózati tartományon belül, hogy hozzáférjenek a Switch Management felületéhez, valamint a HLH operációs rendszerhez és a HLH BMC-hez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack Datacenter-integráció – DNS](azure-stack-integrate-dns.md)
