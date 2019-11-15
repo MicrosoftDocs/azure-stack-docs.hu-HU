@@ -16,16 +16,16 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 98baf8217bc245f7aa6ac7bc0e2b8f8a5284c6d6
-ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
+ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69021846"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100016"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack támogatott vendég operációs rendszerek
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
@@ -34,7 +34,7 @@ Azure Stack támogatja az alábbi táblázatban felsorolt Windows vendég operá
 | Operációs rendszer | Leírás | Elérhető a piactéren |
 | --- | --- | --- |
 | Windows Server, 1709-es verzió | 64 bites | Mag tárolókkal |
-| A Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
+| Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
 | Windows Server 2016 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
 | Windows Server 2012 R2 | 64 bites |  Adatközpont |
 | Windows Server 2012 | 64 bites |  Adatközpont |
@@ -51,20 +51,20 @@ Az adatközpont kiadásai letölthetők a piactéren. az ügyfelek saját kiszol
 
 ## <a name="linux"></a>Linux
 
-A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Windows Azure Linux-ügynököt (WALA). Ha a saját lemezképét Azure Stackja, kövesse a [Linux-rendszerképek hozzáadása](azure-stack-linux.md)a Azure Stackhoz című témakör útmutatását.
+A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Windows Azure Linux-ügynököt (WALA). Ha a saját lemezképét Azure Stackja, kövesse a [Linux-rendszerképek hozzáadása a Azure Stackhoz](azure-stack-linux.md)című témakör útmutatását.
 
 > [!NOTE]
 > Az egyéni lemezképeket a legújabb nyilvános WALA-verzióval kell felépíteni (a 1903 Azure Stack Build és újabb verziókon, vagy a 1901/1902-es gyorsjavítással), vagy pedig a 2.2.20. Előfordulhat, hogy a 2.2.20 és a 2.2.20 és a 2.2.35 (Exclusive) közötti verziók nem működnek megfelelően a Azure Stackon.
 >
 > a [Cloud-init](https://cloud-init.io/) Azure stack jelenleg nem támogatott.
 
-| Disztribúció | Leírás | Kiadó | Marketplace |
+| Terjesztés | Leírás | Gyártó/kiadó | Piactér |
 | --- | --- | --- | --- |
 | CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7.3 | 64 bites | Gazember hullám | Igen |
 | ClearLinux | 64 bites | ClearLinux.org | Igen |
-| Tároló linuxos |  64 bites | CoreOS | Stable |
+| CoreOS Linux (stabil) |  64 bites | CoreOS | Igen |
 | Debian 8 "Megbéklyóz" | 64 bites | credativ |  Igen |
 | Debian 9 "stretch" | 64 bites | credativ | Igen |
 | Oracle Linux | 64 bites | Oracle | Igen |
@@ -72,12 +72,12 @@ A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Window
 | SLES 11SP4 | 64 bites | SUSE | Igen |
 | SLES 12SP3 | 64 bites | SUSE | Igen |
 | Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 16.04-LTS | 64 bites | Canonical | Igen |
-| Ubuntu 18.04-LTS | 64 bites | Canonical | Igen |
+| Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
 
-A Red Hat Enterprise Linux támogatási információit lásd [: Red Hat és Azure stack: Gyakran ismételt kérdések](https://access.redhat.com/articles/3413531).
+Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A Azure Stack Marketplace-ről további információt a következő cikkekben talál:
 

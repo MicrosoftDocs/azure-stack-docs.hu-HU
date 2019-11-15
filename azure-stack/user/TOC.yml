@@ -261,6 +261,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: Az adatközpont kiterjesztése
           href: azure-stack-network-howto-extend-datacenter.md
+        - name: F5 Load Balancer
+          href: network-howto-f5.md
         - name: Kapcsolódás iSCSI-tárolóhoz
           href: azure-stack-network-howto-iscsi-storage.md
         - name: Alagutak beállítása

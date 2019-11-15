@@ -16,12 +16,12 @@ ms.date: 10/17/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: dac6b6dad423ab3d18e069a91d8bdd5a09498842
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 53c5273b343a4a1186732928db1ac7bed501dc0f
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534201"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100280"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack elérhető Azure Marketplace-elemek
 
@@ -85,7 +85,7 @@ Microsoft Azure Stack a következő Azure Marketplace-alapú virtuális gépeket
 |  | Elemnév | Leírás | Gyártó/kiadó |
 | --- | --- | --- | --- |
 | ![Linux operációs rendszer törlése](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux operációs rendszer törlése](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Az Intel architektúrára optimalizált, Linux-disztribúció. | Linux-projekt törlése |
-| ![Tároló linuxos CoreOS szerint](media/azure-stack-marketplace-azure-items/coreos.png) | [Tároló linuxos CoreOS szerint](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | A Container Linux egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevő, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
+| ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | A CoreOS egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevőre, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Az Ubuntu Server a világ legnépszerűbb Linux-környezete. | Canonical |
 | ![Debian 8 "Megbéklyóz"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Megbéklyóz"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | A Debian GNU/Linux az egyik legnépszerűbb Linux-disztribúció. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | A Oracle Linux operációs rendszer a nyílt felhőalapú infrastruktúra kialakítására szolgál. A nagyvállalati SaaS-és a Pásti-munkaterhelések, valamint a hagyományos Nagyvállalati alkalmazások vezető teljesítményének, méretezhetőségének és megbízhatóságának köszönhetően. | Oracle |
