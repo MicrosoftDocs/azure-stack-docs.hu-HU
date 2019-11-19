@@ -6,29 +6,32 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/15/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: d165b2c2ae2293f8549cf1c0d2f482801f645312
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277428"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162892"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>Azure Stack szolgáltatások közzététele az adatközpontban 
 
-Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés idején van megadva. A felhasználói portál például a portál DNS-gazdagépének bejegyzéséhez van rendelve. *&lt;region >. &lt;fqdn >* .
+Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés idején van megadva. A felhasználói portál például a portál DNS-gazdagépének bejegyzéséhez van rendelve. *&lt;régió >.&lt;fqdn >* .
 
 A következő építészeti ábrán a különböző hálózati rétegek és ACL-ek láthatók:
 
 ![Különböző hálózati rétegeket és ACL-eket bemutató diagram](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>Portok és URL-címek
+
 Ahhoz, hogy Azure Stack szolgáltatásokat (például a portálok, a Azure Resource Manager, a DNS stb.) elérhetővé kell tenni a külső hálózatok számára, engedélyeznie kell a bejövő forgalmat a végpontok számára adott URL-címek, portok és protokollok esetén.
  
 Egy olyan üzemelő példányban, ahol egy transzparens proxy egy hagyományos proxykiszolgálóhoz vagy egy tűzfallal védi a megoldást, engedélyeznie kell a [bejövő](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) és a [kimenő](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) kommunikációhoz megadott portokat és URL-címeket. Ezek közé tartoznak az identitáshoz tartozó portok és URL-címek, a piactér, a javítások és a frissítés, a regisztrálás és a használati adatok.
+
+Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-interception) , és a végpontok elérésekor a szolgáltatás meghibásodásához vezethet. 
 
 ## <a name="ports-and-protocols-inbound"></a>Portok és protokollok (bejövő)
 
@@ -43,27 +46,27 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 
 |Végpont (VIP)|Rekord DNS-állomása|Protocol (Protokoll)|Portok|
 |---------|---------|---------|---------|
-|AD FS|ADFS. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Portál (rendszergazda)|Adminportal. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Adminhosting | *. adminhosting. \<region >. \<fqdn > | HTTPS | 443 |
-|Azure Resource Manager (rendszergazda)|Adminmanagement. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Portál (felhasználó)|Portál. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Azure Resource Manager (felhasználó)|Felügyeleti. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Gráf|Graph. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Tanúsítvány-visszavonási lista|CRL. *&lt;region >. &lt;fqdn >*|HTTP|80|
-|DNS|&#42;. *&lt;region >. &lt;fqdn >*|TCP & UDP|53|
-|Üzemeltetés | *. hosting. \<region >. \<fqdn > | HTTPS | 443 |
-|Key Vault (felhasználó)|&#42;Vault. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Key Vault (rendszergazda)|&#42;.adminvault. *&lt;region >. &lt;fqdn >*|HTTPS|443|
-|Tárolási üzenetsor|&#42;várólista. *&lt;region >. &lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
-|Storage-tábla|&#42;tábla. *&lt;region >. &lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
-|Storage Blob|&#42;BLOB. *&lt;region >. &lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
-|SQL-erőforrásszolgáltató|sqladapter.dbadapter. *&lt;region >. &lt;fqdn >*|HTTPS|44300-44304|
-|MySQL-erőforrásszolgáltató|mysqladapter.dbadapter. *&lt;region >. &lt;fqdn >*|HTTPS|44300-44304|
-|App Service|&#42;appservice. *&lt;region >. &lt;fqdn >*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;. SCM. appservice. *&lt;region >. &lt;fqdn >*|TCP|443 (HTTPS)|
-|  |API. appservice. *&lt;region >. &lt;fqdn >*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
-|  |FTP. appservice. *&lt;region >. &lt;fqdn >*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
+|AD FS|ADFS. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Portál (rendszergazda)|Adminportal. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Adminhosting | *.adminhosting.\<régió >.\<FQDN > | HTTPS | 443 |
+|Azure Resource Manager (rendszergazda)|Adminmanagement. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Portál (felhasználó)|Portál. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Azure Resource Manager (felhasználó)|Felügyeleti. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Gráf|Graph. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Tanúsítvány-visszavonási lista|CRL. *&lt;régió >.&lt;fqdn >*|HTTP|80|
+|DNS|&#42;. *&lt;régió >.&lt;fqdn >*|TCP & UDP|53|
+|Üzemeltetés | *. hosting.\<régió >.\<FQDN > | HTTPS | 443 |
+|Key Vault (felhasználó)|&#42;Vault. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Key Vault (rendszergazda)|&#42;.adminvault. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Tárolási üzenetsor|&#42;várólista. *&lt;régió >.&lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
+|Storage-tábla|&#42;tábla. *&lt;régió >.&lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;BLOB. *&lt;régió >.&lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
+|SQL-erőforrásszolgáltató|sqladapter.dbadapter. *&lt;régió >.&lt;fqdn >*|HTTPS|44300-44304|
+|MySQL-erőforrásszolgáltató|mysqladapter.dbadapter. *&lt;régió >.&lt;fqdn >*|HTTPS|44300-44304|
+|App Service|&#42;appservice. *&lt;régió >.&lt;fqdn >*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;. SCM. appservice. *&lt;régió >.&lt;fqdn >*|TCP|443 (HTTPS)|
+|  |API. appservice. *&lt;régió >.&lt;fqdn >*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |FTP. appservice. *&lt;régió >.&lt;fqdn >*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
 |VPN Gateway átjárók|     |     |[Lásd: VPN Gateway – gyakori kérdések](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
 
@@ -71,17 +74,19 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 
 A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy transzparens proxyval rendelkező üzemelő példányban, amely egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a portok és URL-címek használatát a következő táblázatban a kimenő kommunikációhoz.
 
+Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-interception) , és a végpontok elérésekor a szolgáltatás meghibásodásához vezethet. Az identitáshoz szükséges végpontokkal folytatott kommunikáció maximális támogatott időtúllépése 60-as.
+
 > [!Note]  
 > Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra.
 
 |Rendeltetés|Cél URL-címe|Protocol (Protokoll)|Portok|Forrásoldali hálózat|
 |---------|---------|---------|---------|---------|
-|Identitáskezelés|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https: \//login. microsoftonline. USA/<br>https: \//Graph. Windows. net/<br>**Azure China 21Vianet**<br>https: \//login. chinacloudapi. cn/<br>https: \//Graph. chinacloudapi. cn/<br>**Azure Germany**<br>https: \//login. microsoftonline. de/<br>https: \//Graph. cloudapi. de/|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
-|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.Core.Windows.net<br>https://&#42;. azureedge.net<br>**Azure Government**<br>https: \//Management. usgovcloudapi. net/<br>https://&#42;. blob.Core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https: \//Management. chinacloudapi. cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
-|Javítás & frissítés|https://&#42;. azureedge.net<br>https: \//aka. MS/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
-|Regisztráció|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https: \//Management. usgovcloudapi. net/<br>**Azure China 21Vianet**<br>https: \//Management. chinacloudapi. cn|HTTPS|443|Nyilvános VIP-/27|
+|Identitáskezelés|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Germany**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
+|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.Core.Windows.net<br>https://&#42;. azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
+|Javítás & frissítés|https://&#42;. azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
+|Regisztráció|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
 |Használat|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Nyilvános VIP-/27|
-|Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https: \//www. microsoft. com/pkiops/CRL<br>https: \//www. microsoft. com/pkiops/tanúsítványok<br>https: \//CRL. microsoft. com/PKI/CRL/Products<br>https: \//www. microsoft. com/PKI/tanúsítványok<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
+|Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
 |NTP|(Az üzemelő példányhoz megadott NTP-kiszolgáló IP-címe)|UDP|123|Nyilvános VIP-/27|
 |DNS|(Az üzembe helyezéshez megadott DNS-kiszolgáló IP-címe)|TCP<br>UDP|53|Nyilvános VIP-/27|
 |CRL|(URL-cím a CRL terjesztési pontok alatt a tanúsítványon)|HTTP|80|Nyilvános VIP-/27|

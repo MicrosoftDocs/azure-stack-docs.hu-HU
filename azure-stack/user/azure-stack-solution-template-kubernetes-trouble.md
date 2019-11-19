@@ -11,22 +11,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047220"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162973"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>A Kubernetes telepítésének hibája Azure Stack
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
-> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 Ez a cikk azt ismerteti, hogyan lehet elhárítani a Kubernetes-fürtöt. A hibaelhárítás megkezdéséhez tekintse át a központi telepítéshez szükséges elemeket. Előfordulhat, hogy az üzembe helyezési naplókat Azure Stack vagy a Kubernetes futtató Linux rendszerű virtuális gépekről kell összegyűjtenie. A naplók felügyeleti végpontból való lekéréséhez forduljon a Azure Stack rendszergazdájához.
 
@@ -57,7 +57,7 @@ A következő ábra a fürt üzembe helyezésének általános folyamatát mutat
         1. Lekéri a katalógus végpontját a Azure Resource Manager metaadat-végpontból.
         2. Az Active Directory-erőforrás AZONOSÍTÓjának beolvasása a Azure Resource Manager metaadat-végpontból.
         3. Betölti az alkabai Motor API-modelljét.
-        4. Üzembe helyezi az AK-motort a Kubernetes-fürtön, és elmenti a Azure Stack Cloud-profilt `/etc/kubernetes/azurestackcloud.json`-ra.
+        4. Üzembe helyezi az AK-motort a Kubernetes-fürtön, és elmenti a Azure Stack Cloud-profilt `/etc/kubernetes/azurestackcloud.json`ba.
 3. Hozza létre a fő virtuális gépeket.
 
 4. Egyéni parancsfájl-bővítmények letöltése és futtatása.
@@ -85,17 +85,18 @@ A következő ábra a fürt üzembe helyezésének általános folyamatát mutat
 
 A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttekintheti a telepítési naplókat. Forduljon a Azure Stack rendszergazdájához a használni kívánt Azure Stack verziójának ellenőrzéséhez, valamint a telepítéshez kapcsolódó Azure Stack naplóinak beszerzéséhez.
 
-1. Tekintse át a [központi telepítés állapotát](#review-deployment-status) , és kérje le a naplókat a Kubernetes-fürt fő csomópontján.
-2. Ügyeljen arra, hogy a Azure Stack legújabb verzióját használja. Ha nem tudja biztosan, hogy melyik verziót használja, forduljon a Azure Stack rendszergazdájához.
-3.  Tekintse át a virtuális gépek létrehozásához tartozó fájlokat. Lehetséges, hogy a következő problémák léptek fel:  
+1. Tekintse át az ARM-telepítés által visszaadott hibakódot azon erőforráscsoport **központi telepítések** paneljén, amelyben üzembe helyezte a fürtöt. A hibakódok leírása az AK-motor GitHub-tárházában található [hibaelhárítási](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md) cikkben található. Ha a hiba leírása nem oldható meg, folytassa a következő lépésekkel.
+2. Tekintse át a [központi telepítés állapotát](#review-deployment-status) , és kérje le a naplókat a Kubernetes-fürt fő csomópontján.
+3. Győződjön meg arról, hogy a Azure Stack legújabb verzióját használja. Ha nem tudja biztosan, hogy melyik verziót használja, forduljon a Azure Stack rendszergazdájához.
+4. Tekintse át a virtuális gépek létrehozásához tartozó fájlokat. Lehetséges, hogy a következő problémák léptek fel:  
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
     - Lehetséges, hogy a virtuális gép létrehozása belső hibát váltott ki, vagy létrehozási hibát váltott ki. Számos tényező okozhat hibákat, beleértve a Azure Stack-előfizetés kapacitásának korlátozásait is.
     - Győződjön meg arról, hogy a virtuális gép teljes tartományneve (FQDN) ismétlődő előtaggal kezdődik.
-4.  Ha a virtuális gép **rendben**van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
+5.  Ha a virtuális gép **rendben**van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
 
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
     - A Kiemelt végpontok használatával lépjen kapcsolatba a Azure Stack rendszergazdájával, és kérje le a Azure Stack naplóit. További információ: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
-5. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+6. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Központi telepítés állapotának áttekintése
 
@@ -146,10 +147,10 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
 
     | Paraméter           | Leírás                                                                                                      | Példa                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d,--VMD-Host      | A DVM nyilvános IP-címe vagy teljesen minősített tartományneve (FQDN). A virtuális gép neve `vmd-` karakterrel kezdődik. | IP: 192.168.102.38<br>DNS: VMD-myk8s. local. cloudapp. azurestack. external |
+    | -d,--VMD-Host      | A DVM nyilvános IP-címe vagy teljesen minősített tartományneve (FQDN). A virtuális gép neve `vmd-`vel kezdődik. | IP: 192.168.102.38<br>DNS: VMD-myk8s. local. cloudapp. azurestack. external |
     | -h,-– Súgó  | A parancs használatának nyomtatása. | |
-    | -i,--Identity-file | Az Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott RSA titkos kulcsfájl elérési útja. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | C:\data\id_rsa.PEM (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m,--Master-Host   | A Kubernetes fő csomópontjának nyilvános IP-címe vagy teljes tartományneve (FQDN). A virtuális gép neve `k8s-master-` karakterrel kezdődik. | IP: 192.168.102.37<br>FQDN: k8s-12345. local. cloudapp. azurestack. external      |
+    | -i,--Identity-file | Az Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott RSA titkos kulcsfájl elérési útja. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | C:\data\ id_rsa. PEM (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m,--Master-Host   | A Kubernetes fő csomópontjának nyilvános IP-címe vagy teljes tartományneve (FQDN). A virtuális gép neve `k8s-master-`vel kezdődik. | IP: 192.168.102.37<br>FQDN: k8s-12345. local. cloudapp. azurestack. external      |
     | -u,--User          | A Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott felhasználó neve. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | Azureus (alapértelmezett érték) |
 
 

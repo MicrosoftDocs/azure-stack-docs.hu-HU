@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 11/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595289"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162944"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Az AK-motor hibáinak megoldása Azure Stack
 
@@ -132,13 +132,13 @@ Követelmények:
 
 2. Keresse meg a `getkuberneteslogs.sh` parancsfájl által megkövetelt paramétereket. A szkript a következő paramétereket fogja használni:
 
-    | Paraméter | Leírás | Kötelező | Példa |
+    | Paraméter | Leírás | Szükséges | Példa |
     | --- | --- | --- | --- |
     | -h,-– Súgó | A parancs használatának nyomtatása. | nem | 
     -u,--felhasználó | A fürt virtuális gépei rendszergazdai felhasználóneve | igen | azureuser<br>(alapértelmezett érték) |
-    | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (néha "id_rsa" néven)  | igen | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
+    | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (más néven "id_rsa")  | igen | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g,--Resource-Group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
-    |   -n,--User-Namespace               | Naplók gyűjtése a tárolókban a megadott névterekben (a Kube-rendszernaplókat mindig gyűjti a rendszer) | nem |   Figyelés |
+    |   -n,--User-Namespace               | Naplók gyűjtése a tárolókban a megadott névterekben (a Kube-rendszernaplókat mindig gyűjti a rendszer) | nem |   figyelés |
     |       --API-Model                    | Megőrzi a apimodel. JSON fájlt egy Azure Stack Storage-fiókban. Töltse fel a apimodel. JSON fájlt a Storage-fiókba, ha a--upload-logs paraméter is meg van adni. | nem | `./apimodel.json` |
     | – az összes névtér               | Naplók gyűjtése a tárolókban az összes névtérben. Felülbírálja a--User-Namespace | nem | |
     | – naplók feltöltése                  | Beolvasott naplókat tart fenn egy Azure Stack Storage-fiókban. A naplók a KubernetesLogs erőforráscsoporthoz találhatók | nem | |
@@ -182,6 +182,6 @@ Ha nem tudja feloldani a telepítési hibát, megnyithatja a GitHub-problémát.
      - A következő **kubectl** -parancs kimenete `get nodes`.  
      - `/var/log/azure/cluster-provision.log` és `/var/log/cloud-init-output.log` tartalma
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
