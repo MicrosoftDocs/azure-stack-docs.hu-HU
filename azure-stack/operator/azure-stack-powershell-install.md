@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 53390633cf1abb1508a87a10e8672d7a23772207
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.lastreviewed: 09/19/2019
+ms.openlocfilehash: 813cfb72a2fad2b22dfce5baff8680b30d2c599d
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802361"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298816"
 ---
 # <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Azure PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják a Azure Stack-erőforrások kezeléséhez.
 
@@ -228,7 +228,7 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack Tools letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack felhasználó PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

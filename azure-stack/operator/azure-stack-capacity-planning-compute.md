@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142587"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299159"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack számítás
 
@@ -48,7 +48,7 @@ Mivel az elhelyezési algoritmusok nem tekintik meg a meglévő virtuális fizik
 
 A Azure Stack kapacitásának pontos megtervezése új szempont. Az 1901-es frissítéssel (és minden további frissítéssel) mostantól a létrehozható virtuális gépek teljes száma korlátozva lesz. Ez a korlát ideiglenes lehet a megoldás instabilitásának elkerülése érdekében. A stabilitási probléma forrása nagyobb számú virtuális gépen történik, de a szervizelés egy adott idővonala még nem lett meghatározva. A 60-es virtuális gépek száma mostantól a 700-es teljes megoldási korláttal. Például egy 8 kiszolgáló Azure Stack virtuális gép korlátja 480 (8 * 60). Egy 12 – 16 kiszolgálói Azure Stack megoldás esetén a korlát 700. Ez a korlát a számítási kapacitással kapcsolatos szempontokat is figyelembe vette, például a rugalmassági tartalékot és a CPU virtuális fizikai arányát, amelyet egy operátor a bélyegzőn szeretne fenntartani. További információ: a Capacity Planner új kiadása. 
 
-Abban az esetben, ha elérte a virtuális gép méretezési korlátját, a következő hibakódokat adja vissza eredményként: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
+Abban az esetben, ha elérte a virtuális gép méretezési korlátját, a rendszer a következő hibakódokat adja vissza eredményként: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded.
 
 ## <a name="considerations-for-deallocation"></a>A felszabadítás szempontjai
 
@@ -101,21 +101,21 @@ A skálázási egységben a V, a legnagyobb méretű virtuális gép a legnagyob
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
-**K**: A bérlő üzembe helyezett egy új virtuális gépet, mennyi időt vesz igénybe a felügyeleti portál képesség diagramja, hogy megjelenjen a fennmaradó kapacitás?
+**K**: a bérlő üzembe helyezett egy új virtuális gépet, mennyi időt vesz igénybe a felügyeleti portál képesség diagramja, hogy megjelenjen a fennmaradó kapacitás?
 
-**A**: A kapacitás panel 15 percenként frissül, ezért kérjük, vegye figyelembe.
+**A**: a kapacitás panel 15 percenként frissül, ezért kérjük, vegye figyelembe.
 
-**K**: A telepített virtuális gépek száma a Azure Stackon nem módosult, de a kapacitásom ingadozik. Hogy miért?
+**K**: a Azure stack telepített virtuális gépek száma nem módosult, de a kapacitásom ingadozik. Hogy miért?
 
-**A**: A virtuális gép elhelyezéséhez rendelkezésre álló memória több függőséggel rendelkezik, amelyek közül az egyik a gazda operációs rendszer tartaléka. Ez az érték függ a gazdagépen futó különböző Hyper-V-folyamatok által használt memóriától, amely nem állandó érték.
+**A**: a virtuális gép elhelyezéséhez rendelkezésre álló memória több függőséggel rendelkezik, amelyek közül az egyik a gazda operációs rendszer tartaléka. Ez az érték függ a gazdagépen futó különböző Hyper-V-folyamatok által használt memóriától, amely nem állandó érték.
 
-**K**: Milyen állapotban kell lennie a bérlői virtuális gépeknek a memória felhasználásához?
+**K**: milyen állapotban kell lennie a bérlői virtuális gépeknek a memória felhasználásához?
 
-v A virtuális gépeken kívül minden olyan virtuális gép felhasznál memóriát, amely a hálóra van kiképezve. Ez azt jelenti, hogy a "létrehozás", a "sikertelen" vagy a virtuális gépek nem a portálról, hanem a powershellből vagy a CLI-ből leállított virtuális gépek a memóriát fogják használni.
+**A**: a virtuális gépeken kívül minden olyan virtuális gép használja a memóriát, amely a hálóra van leképezve. Ez azt jelenti, hogy a "létrehozás", a "sikertelen" vagy a virtuális gépek nem a portálról, hanem a powershellből vagy a CLI-ből leállított virtuális gépek a memóriát fogják használni.
 
-**K**: Négy gazdagép Azure Stack van. A bérlő 3 virtuális géppel rendelkezik, amelyek mindegyike 56 GB RAM memóriát (D5_v2) használ. Az egyik virtuális gép mérete 112 GB RAM-ra (D14_v2), az irányítópulton rendelkezésre álló memória-jelentéskészítés pedig 168 GB-nyi használatot eredményezett a kapacitás panelen. A másik két D5_v2 virtuális gép későbbi átméretezése a D14_v2-be, ami csak a RAM 56 GB eredményezte. Miért van ez?
+**K**: van egy négy gazdagép Azure stack. A bérlő 3 virtuális gépet használ, amelyek 56 GB RAM-ot (D5_v2) használnak. Az egyik virtuális gép mérete 112 GB RAM-ra (D14_v2), az irányítópulton rendelkezésre álló memória-jelentéskészítés pedig 168 GB-nyi használatot eredményezett a kapacitás panelen. A másik két D5_v2 virtuális gép későbbi átméretezése D14_v2, ami csak a RAM 56 GB eredményezi. Miért van ez?
 
-**A**: A rendelkezésre álló memória a Azure Stack által karbantartott rugalmassági tartalék függvénye. A rugalmassági tartalék a Azure Stack Stamp legnagyobb virtuálisgép-méretének függvénye. Eleinte a bélyeg legnagyobb virtuális gépe 56 GB memóriával rendelkezik. A virtuális gép átméretezése után a bélyeg legnagyobb virtuális gépe 112 GB memóriát vett igénybe, amely nem csak növelte a bérlői virtuális gép által használt memóriát, de megnövelte a rugalmassági tartalékot is. Ennek eredményeképpen a 56 GB (56 GB – 112 GB bérlői virtuálisgép-memória növekedése) + 112 GB rugalmassági tartalék memória növelését eredményezte. Ha a további virtuális gépek átméretezése megtörtént, a legnagyobb méretű virtuálisgép-méret a 112 GB-os virtuális gép marad, ezért nem volt ilyen mértékű rugalmassági tartalék. A memóriahasználat növekedése csak a bérlői virtuális gép memóriájának növekedését (56 GB) eredményezte. 
+**A**: a rendelkezésre álló memória a Azure stack által karbantartott rugalmassági tartalék függvénye. A rugalmassági tartalék a Azure Stack Stamp legnagyobb virtuálisgép-méretének függvénye. Eleinte a bélyeg legnagyobb virtuális gépe 56 GB memóriával rendelkezik. A virtuális gép átméretezése után a bélyeg legnagyobb virtuális gépe 112 GB memóriát vett igénybe, amely nem csak növelte a bérlői virtuális gép által használt memóriát, de megnövelte a rugalmassági tartalékot is. Ennek eredményeképpen a 56 GB (56 GB – 112 GB bérlői virtuálisgép-memória növekedése) + 112 GB rugalmassági tartalék memória növelését eredményezte. Ha a további virtuális gépek átméretezése megtörtént, a legnagyobb méretű virtuálisgép-méret a 112 GB-os virtuális gép marad, ezért nem volt ilyen mértékű rugalmassági tartalék. A memóriahasználat növekedése csak a bérlői virtuális gép memóriájának növekedését (56 GB) eredményezte. 
 
 
 > [!NOTE]

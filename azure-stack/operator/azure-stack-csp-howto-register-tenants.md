@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019283"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310153"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Bérlő hozzáadása a használathoz és a számlázáshoz Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
 
 Ez a cikk bemutatja, hogyan adhat hozzá bérlőt egy felhőalapú megoldás-szolgáltató (CSP) által kezelt Azure Stack központi telepítéshez. Amikor az új bérlő erőforrásokat használ, Azure Stack a jelentések használatát a CSP-előfizetéséhez.
 
@@ -37,7 +37,7 @@ Az alábbi ábra azokat a lépéseket mutatja be, amelyekkel a CSP-nek követnie
 
 ## <a name="add-an-end-customer"></a>Végfelhasználó hozzáadása
 
-A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el a regisztrációs előfizetés AZONOSÍTÓját, az erőforráscsoport nevét és a regisztrációs nevet a `azstcsp@microsoft.com` értékre. Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
+A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el a regisztrációs előfizetés AZONOSÍTÓját, az erőforráscsoport nevét és a regisztrációs nevet `azstcsp@microsoft.com`. Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
 
 A következő ábrán látható módon vegyen fel egy végfelhasználót az alábbi lépésekkel:
 
@@ -72,7 +72,7 @@ Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner
 3. A PowerShell-munkamenetben futtassa a következőket:
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
+   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
 ### <a name="new-azurermresource-powershell-parameters"></a>New-AzureRmResource PowerShell-paraméterek
@@ -84,8 +84,7 @@ A következő szakasz a **New-AzureRmResource** parancsmag paramétereit ismerte
 |registrationSubscriptionID | A Azure Stack első regisztrálásához használt Azure-előfizetés.|
 | customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést a Azure Stackba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés AZONOSÍTÓjának kisbetűs karaktereket kell használnia. |
 | resourceGroup | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
-| registrationName | A Azure Stack regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. |
-| properties | Megadja az erőforrás tulajdonságait. Ezzel a paraméterrel adhatja meg az erőforrástípus jellemző tulajdonságok értékeit.
+| registrationName | A Azure Stack regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. 
 
 > [!NOTE]  
 > A bérlőket regisztrálni kell az általuk használt összes Azure Stack. Ha két Azure Stack üzemelő példánya van, és a bérlő mindkettőt használja, frissítenie kell az egyes üzemelő példányok kezdeti regisztrációját a bérlői előfizetéssel.

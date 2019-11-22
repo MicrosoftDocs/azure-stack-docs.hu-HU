@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 39c651649aea60ab12aae9daf35b0d07615bf697
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 078cacad88a0a7d055baef799c5785d5a06ce922
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595299"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310100"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt méretezése Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A fürt az AK-motorral méretezhető a **Scale** parancs használatával. A **skálázási** parancs egy új Azure Resource Manager-telepítésre vonatkozó bemenetként újrahasznosítja a fürt konfigurációs fájlját (`apimodel.json`) a kimeneti könyvtáron belül. A motor végrehajtja a skálázási műveletet a megadott ügynök-készleten. A skálázási művelet elvégzése után a motor frissíti a fürt definícióját az adott `apimodel.json` fájlban az új csomópontok számának megjelenítéséhez, hogy tükrözze a frissített, aktuális fürtkonfiguráció.
 
@@ -72,4 +72,4 @@ aks-engine scale \
 ## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
-- [Kubernetes-fürt frissítése Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md)
+- [Kubernetes-fürt frissítése az Azure Stackben](azure-stack-kubernetes-aks-engine-upgrade.md)

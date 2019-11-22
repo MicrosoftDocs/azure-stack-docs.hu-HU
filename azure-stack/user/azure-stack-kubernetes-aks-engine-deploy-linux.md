@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3979dfdf6a229f1d81b6c5cc017d4d3f75a62e1a
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 3095ede91ce8ac98f1571307c61b28e80aa90fba
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595352"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310263"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Az KABAi motor telepítése Linux rendszeren Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez a Azure Stack Linux rendszerű gépeket is használhat. Ez a cikk azt tekinti át, hogyan készítheti elő az ügyfél virtuális gépet a fürt kezeléséhez a csatlakoztatott és a leválasztott Azure Stack-példányok esetében, ellenőrizze a telepítést, és állítsa be az ügyfél virtuális gépet a ASDK.
 
@@ -43,7 +43,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 1. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása a Azure stack portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a `--version v0.43.0` verziót. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a `--version v0.43.0`verzióját. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa az alábbi parancsot:
 
     ```bash  
@@ -65,7 +65,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 
 3. Hozzon létre egy Linux rendszerű virtuális gépet a Azure Stack. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása a Azure stack portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 
-3.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack Storage-fiók blob URL-címéről, ahová feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot a `/usr/local/bin` könyvtárba.
+3.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack Storage-fiók blob URL-címéről, ahová feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot a könyvtárba `/usr/local/bin`.
 
 4. Kapcsolódjon a virtuális géphez.
 
@@ -94,7 +94,7 @@ Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuál
 
 Hozzá kell adnia egy tanúsítványt, amikor a ASDK található, az AK-motorhoz tartozó ügyfél virtuális gépet futtatja.
 
-Ha ASDK használ, a Azure Resource Manager végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható. Egy Ubuntu rendszerű virtuális gépen például a következő könyvtárban találhatja meg `/var/lib/waagent/Certificates.pem`. 
+Ha ASDK használ, a Azure Resource Manager végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható. Egy Ubuntu rendszerű virtuális gépen például megtalálhatja ezt a könyvtárat `/var/lib/waagent/Certificates.pem`. 
 
 Másolja a tanúsítványfájl a következő paranccsal:
 

@@ -3,7 +3,7 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel a Azure St
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,16 +16,16 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: bc696d4b14aecd5890893f00b64cf2c4a3804173
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618279"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299174"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Meglévő Piactéri elemek letöltése az Azure-ból és közzététel a Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Felhőbeli operátorként letöltheti az elemeket az Azure Marketplace-ről, és elérhetővé teheti őket a Azure Stackban. A kiválasztható elemek az Azure Marketplace azon elemeinek válogatott listája, amelyek előzetesen tesztelve vannak, és amelyek a Azure Stack használatával használhatók. A lista további elemeket is felvesz a listára, ezért folytassa az új tartalmak újbóli beadásával.
 
@@ -58,17 +58,21 @@ Az Azure Stack üzemelő példánynak internetkapcsolattal kell rendelkeznie, é
 
     ![Marketplace-elemek hozzáadása az Azure-ból](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-4. A portál megjeleníti az Azure piactéren letölthető elemek listáját. A termékeket név, közzétevő és/vagy terméktípus alapján szűrheti. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
+4. A portál megjeleníti az Azure piactéren letölthető elemek listáját. A termékeket név, közzétevő és/vagy terméktípus alapján szűrheti. Az egyes sorok a jelenleg elérhető verziót is megjelenítik. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több**látható. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
 
-    ![Azure Marketplace-elemek listája ](media/azure-stack-download-azure-marketplace-item/image03.PNG)
+    [![Marketplace-elemek listája](media/azure-stack-download-azure-marketplace-item/add-from-azure1sm.png "Marketplace-elemek listája")](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png#lightbox)
 
-5. Válassza ki a kívánt elemet, majd válassza a **Letöltés**lehetőséget. A letöltési idő változhat.
+5. Ha egy elem verziója **több**néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából:
+
+    [![Verzió kiválasztása](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Verzió kiválasztása")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
+
+6. Válassza ki a kívánt elemet, majd válassza a **Letöltés**lehetőséget. A letöltési idő változhat.
 
     ![Az Azure Marketplace-elemek letöltése](media/azure-stack-download-azure-marketplace-item/image04.png)
 
     A letöltés befejezése után telepítheti az új Piactéri elemeket Azure Stack operátorként vagy felhasználóként.
 
-6. A letöltött elem üzembe helyezéséhez válassza az **+ erőforrás létrehozása**lehetőséget, majd keressen az új piactér elem kategóriái között. Ezután válassza ki az elemet a telepítési folyamat megkezdéséhez. A folyamat eltérő lehet a piactér különböző elemeinél.
+7. A letöltött elem üzembe helyezéséhez válassza az **+ erőforrás létrehozása**lehetőséget, majd keressen az új piactér elem kategóriái között. Ezután válassza ki az elemet a telepítési folyamat megkezdéséhez. A folyamat eltérő lehet a piactér különböző elemeinél.
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>Leválasztott vagy részben csatlakoztatott forgatókönyv
 
@@ -110,7 +114,7 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
 
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
-2. Adja hozzá a Azure Stack regisztrálásához használt Azure-fiókot. A fiók hozzáadásához a PowerShellben a `Add-AzureRmAccount` paraméter nélkül futtassa a következőt:. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően kétfaktoros hitelesítést kell használnia.
+2. Adja hozzá a Azure Stack regisztrálásához használt Azure-fiókot. A fiók hozzáadásához a PowerShellben a `Add-AzureRmAccount` paraméterek nélkül futtassa a parancsot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően kétfaktoros hitelesítést kell használnia.
 
    [!include[Remove Account](../../includes/remove-account.md)]
 
@@ -138,7 +142,7 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
    cd .\AzureStack-Tools-master
    ```
 
-5. Importálja a szindikált modult, majd indítsa el az eszközt az alábbi parancsok futtatásával. Cserélje le a `Destination folder path` értéket az Azure Marketplace-ről letöltött fájlok tárolására szolgáló hellyel.
+5. Importálja a szindikált modult, majd indítsa el az eszközt az alábbi parancsok futtatásával. Cserélje le a `Destination folder path`t az Azure Marketplace-ről letöltött fájlok tárolására szolgáló helyre.
 
    ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
@@ -146,11 +150,15 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
    ```
 
-   Vegye figyelembe, hogy a `Export-AzSOfflineMarketplaceItem` további `-cloud` jelzővel rendelkezik, amely meghatározza a felhőalapú környezetet. Alapértelmezés szerint ez a **azurecloud**.
+   Vegye figyelembe, hogy `Export-AzSOfflineMarketplaceItem` tartalmaz egy további `-cloud` jelzőt, amely megadja a felhőalapú környezetet. Alapértelmezés szerint ez a **azurecloud**.
 
 6. Az eszköz futtatásakor az alábbi képhez hasonló képernyő jelenik meg az elérhető Azure Marketplace-elemek listájával:
 
-   [![Azure Marketplace-elemek előugró ablak](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace-elemek")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Azure Marketplace-elemek előugró ablak](media/azure-stack-download-azure-marketplace-item/tool1sm.png "Azure Marketplace-elemek")](media/azure-stack-download-azure-marketplace-item/tool1.png#lightbox)
+
+7. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több verzió**is látható. Ha egy elem verziója **több verzióként**jelenik meg, akkor kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió kiválasztása ablakból:
+
+   [![Verzió-választó](media/azure-stack-download-azure-marketplace-item/tool2sm.png "Verzió kiválasztása")](media/azure-stack-download-azure-marketplace-item/tool2.png#lightbox)
 
 7. Ha nem telepítette az Azure Storage-eszközöket, a következő üzenet jelenik meg. Az eszközök telepítéséhez győződjön meg róla, hogy letöltötte a [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy):
 
@@ -170,13 +178,13 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
     Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
     ```
 
-    Az újrapróbálkozás előtt távolítsa el azt a terméket tartalmazó mappát, amelyben a letöltés sikertelen volt. Ha például a letöltési parancsfájl a `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`-ra való letöltéskor meghiúsul, távolítsa el a `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` mappát, majd futtassa újra a parancsmagot.
+    Az újrapróbálkozás előtt távolítsa el azt a terméket tartalmazó mappát, amelyben a letöltés sikertelen volt. Ha például a letöltési parancsfájl nem sikerül `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`ra való letöltéskor, távolítsa el a `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` mappát, majd futtassa újra a parancsmagot.
 
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace-using-powershell"></a>A letöltés és a közzététel a Azure Stack piactéren a PowerShell használatával
 
 1. Helyezze át a helyileg [letöltött](#use-the-marketplace-syndication-tool-to-download-marketplace-items) fájlokat, hogy azok elérhetők legyenek a Azure stack-környezet számára. A Marketplace Syndication eszköznek emellett elérhetőnek kell lennie a Azure Stack-környezet számára, mivel az importálási művelet végrehajtásához az eszközt kell használnia.
 
-   Az alábbi ábrán egy példa látható a mappák struktúrájában. a `D:\downloadfolder` a piactér összes letöltött elemét tartalmazza. Minden almappa olyan Piactéri elem (például `microsoft.custom-script-linux-arm-2.0.3`), amelyet a termékazonosító nevez. Az egyes almappákon belül a Piactéri elem letöltött tartalma.
+   Az alábbi ábrán egy példa látható a mappák struktúrájában. `D:\downloadfolder` tartalmazza a piactér összes letöltött elemét. Minden almappa egy Marketplace-elem (például `microsoft.custom-script-linux-arm-2.0.3`), amelyet a termékazonosító nevez el. Az egyes almappákon belül a Piactéri elem letöltött tartalma.
 
    [![Marketplace letöltési könyvtár szerkezete](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace letöltési könyvtár szerkezete")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
@@ -189,7 +197,7 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
 
-   A `-origin` paraméter határozza meg az összes letöltött terméket tartalmazó legfelső szintű mappát; például `"D:\downloadfolder"`.
+   A `-origin` paraméter a letöltött termékeket tartalmazó legfelső szintű mappát határozza meg. például `"D:\downloadfolder"`.
 
    A `-AzsCredential` paraméter nem kötelező. A hozzáférési jogkivonat megújítására szolgál, ha lejárt. Ha a `-AzsCredential` paraméter nincs megadva, és a jogkivonat lejár, a rendszer felszólítja az operátor hitelesítő adatainak megadására.
 
@@ -198,7 +206,7 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
 
 4. A parancsfájl sikeres befejeződése után az elemnek elérhetőnek kell lennie Azure Stack piactéren.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Egyéni virtuálisgép-rendszerkép hozzáadása](azure-stack-add-vm-image.md)
 - [Egyéni Piactéri elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

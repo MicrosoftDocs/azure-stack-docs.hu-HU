@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: b9dd45b6ea7fdfaab1b1e7418800dcd2031dc151
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 1a4e11996b3dc1f86e8dd337c3243c210c68b33e
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595181"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310285"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Az AK-motor telepítése Windows rendszeren Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez használhatja a Azure Stackban található Windows-gépet az AK-motor üzemeltetéséhez. Ez a cikk azt tekinti át, hogyan készítheti elő az ügyfél virtuális gépet a fürt kezeléséhez a csatlakoztatott és a leválasztott Azure Stack-példányok esetében, ellenőrizze a telepítést, és állítsa be az ügyfél virtuális gépet a ASDK.
 
@@ -46,7 +46,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt kezelésére az in
 3. [A chocolatey telepítése a PowerShell-utasítások használatával](https://chocolatey.org/install#install-with-powershellexe). 
 
     A chocolaty webhelye szerint: a chocolatey egy Windows rendszerű csomagkezelő, például az apt-get vagy a yum, de a Windows. A rendszer úgy lett kialakítva, hogy egy decentralizált keretrendszer legyen a szükséges alkalmazások és eszközök gyors telepítéséhez. A szolgáltatás a NuGet-infrastruktúrára épül, amely jelenleg a PowerShell-t használja, mivel a disztribúciók csomagjait a saját ajtajára, az err-re, a számítógépekre irányítja.
-4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a `--version v0.43.0` verziót. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie a Azure Stack piactéren. A parancs futtatásakor meg kell adnia a `--version v0.43.0`verzióját. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 5. Futtassa a következő parancsot egy emelt szintű parancssorból, és adja meg a verziószámot:
 
     ```PowerShell  

@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: e4f10cb3e5d96942e5fe32b0d8fe3a04cf921521
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595195"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310305"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Kubernetes-fürtöt Azure Stack is telepítheti egy olyan ügyfél virtuális gépről, amely az AK-motort futtatja. Ebben a cikkben bemutatjuk a fürt specifikációjának írását, a fürt üzembe helyezését a `apimodel.json` fájllal, valamint a fürt ellenőrzésével, amely a MySQL-t a Helm használatával helyezi üzembe.
 
@@ -98,7 +98,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | Mező | Leírás |
     | --- | --- |
     | adminUsername | Adja meg a virtuális gép rendszergazdájának felhasználónevét. |
-    | SSH | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. |
+    | ssh | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. |
 
 ### <a name="more-information-about-the-api-model"></a>További információ az API-modellről
 
@@ -124,12 +124,12 @@ Fürt üzembe helyezésének folytatása:
     | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack használja `AzureStackCloud`. |
     | identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
     | location | helyi | A Azure Stack régiójának neve. A ASDK a régió `local`értékre van állítva. |
-    | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
+    | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket. |
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
     | kimenet – könyvtár | Kube – RG | Adja meg annak a könyvtárnak a nevét, amely a kimeneti fájlt `apimodel.json` és egyéb létrehozott fájlokat is tartalmaz. |
-    | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet. |
-    | ügyfél – titok | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
-    | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés az ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
+    | ügyfél-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet. |
+    | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
+    | előfizetés-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés az ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
     Például:
 

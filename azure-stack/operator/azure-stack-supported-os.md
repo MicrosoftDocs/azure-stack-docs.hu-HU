@@ -16,16 +16,16 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: fc3eecb8f4e06ce02737e513c48d946f2a667c21
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100016"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298765"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack támogatott vendég operációs rendszerek
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 ## <a name="windows"></a>Windows
 
@@ -54,11 +54,11 @@ Az adatközpont kiadásai letölthetők a piactéren. az ügyfelek saját kiszol
 A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Windows Azure Linux-ügynököt (WALA). Ha a saját lemezképét Azure Stackja, kövesse a [Linux-rendszerképek hozzáadása a Azure Stackhoz](azure-stack-linux.md)című témakör útmutatását.
 
 > [!NOTE]
-> Az egyéni lemezképeket a legújabb nyilvános WALA-verzióval kell felépíteni (a 1903 Azure Stack Build és újabb verziókon, vagy a 1901/1902-es gyorsjavítással), vagy pedig a 2.2.20. Előfordulhat, hogy a 2.2.20 és a 2.2.20 és a 2.2.35 (Exclusive) közötti verziók nem működnek megfelelően a Azure Stackon.
+> Az egyéni lemezképeket a legújabb nyilvános WALA-verzióval kell felépíteni (a 1903 Azure Stack Build és újabb verziókon, vagy a 1901/1902-es gyorsjavítással), vagy pedig a 2.2.20. Előfordulhat, hogy a 2.2.20 és a 2.2.21 és a 2.2.34 (beleértve) közötti verziók nem működnek megfelelően a Azure Stackon. Azure Stack 1910-es kiadáson és azon kívül minden Azure WALA-ügynök verziója működni fog a Azure Stack.
 >
-> a [Cloud-init](https://cloud-init.io/) Azure stack jelenleg nem támogatott.
+> a [Cloud-init](https://cloud-init.io/) Azure stack 1910-es kiadáson és ezen az időponton túl támogatott.
 
-| Terjesztés | Leírás | Gyártó/kiadó | Piactér |
+| Disztribúció | Leírás | Közzétevő | Piactér |
 | --- | --- | --- | --- |
 | CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
@@ -72,12 +72,12 @@ A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Window
 | SLES 11SP4 | 64 bites | SUSE | Igen |
 | SLES 12SP3 | 64 bites | SUSE | Igen |
 | Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu 16.04-LTS | 64 bites | Canonical | Igen |
+| Ubuntu 18.04-LTS | 64 bites | Canonical | Igen |
 
 Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A Azure Stack Marketplace-ről további információt a következő cikkekben talál:
 

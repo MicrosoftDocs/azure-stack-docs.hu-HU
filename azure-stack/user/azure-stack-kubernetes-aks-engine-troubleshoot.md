@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162944"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310342"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Az AK-motor hibáinak megoldása Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Előfordulhat, hogy a Azure Stack-on lévő AK-motor telepítésekor vagy használatakor problémába ütközik. Ez a cikk az AK-motor üzembe helyezésével kapcsolatos hibaelhárítási lépéseket ismerteti, adatokat gyűjt az AK-motorról, gyűjti össze a Kubernetes-naplókat, áttekinti az egyéni szkriptek bővítményének hibakódait, valamint útmutatást nyújt a GitHub-probléma megmegnyitásához
-
-> [!IMPORTANT]
-> Az AK-motor jelenleg nyilvános előzetes verzióban érhető el.
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Az KABAi motor telepítésének hibája
 
@@ -132,12 +128,12 @@ Követelmények:
 
 2. Keresse meg a `getkuberneteslogs.sh` parancsfájl által megkövetelt paramétereket. A szkript a következő paramétereket fogja használni:
 
-    | Paraméter | Leírás | Szükséges | Példa |
+    | Paraméter | Leírás | Kötelező | Példa |
     | --- | --- | --- | --- |
     | -h,-– Súgó | A parancs használatának nyomtatása. | nem | 
     -u,--felhasználó | A fürt virtuális gépei rendszergazdai felhasználóneve | igen | azureuser<br>(alapértelmezett érték) |
     | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (más néven "id_rsa")  | igen | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
-    |   -g,--Resource-Group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
+    |   -g, --resource-group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
     |   -n,--User-Namespace               | Naplók gyűjtése a tárolókban a megadott névterekben (a Kube-rendszernaplókat mindig gyűjti a rendszer) | nem |   figyelés |
     |       --API-Model                    | Megőrzi a apimodel. JSON fájlt egy Azure Stack Storage-fiókban. Töltse fel a apimodel. JSON fájlt a Storage-fiókba, ha a--upload-logs paraméter is meg van adni. | nem | `./apimodel.json` |
     | – az összes névtér               | Naplók gyűjtése a tárolókban az összes névtérben. Felülbírálja a--User-Namespace | nem | |
@@ -182,6 +178,6 @@ Ha nem tudja feloldani a telepítési hibát, megnyithatja a GitHub-problémát.
      - A következő **kubectl** -parancs kimenete `get nodes`.  
      - `/var/log/azure/cluster-provision.log` és `/var/log/cloud-init-output.log` tartalma
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)

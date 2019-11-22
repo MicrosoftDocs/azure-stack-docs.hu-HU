@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 99d52dc7165fdd37a614c1396d7e5c1f0165e235
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955336"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299133"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>A Azure Stack kapcsoló konfigurációjának adott beállításainak módosítása
 
@@ -47,14 +47,17 @@ A kezelők átirányítják a kapcsoló naplóit egy syslog-kiszolgálóra az ad
 
 Az operátor konfigurálhatja a hálózati eszközök figyelésére és a trapek küldését egy hálózati figyelő alkalmazásba az adatközpontban. Biztonsági okokból a SNMPv3-t használja, mivel ez a v2-nél biztonságosabb. A szükséges MIB és konfigurációval kapcsolatban forduljon az OEM-hardvereszközökhöz. Tekintse át a [hozzáférés-vezérlési lista frissítései](#access-control-list-updates) szakaszt, és tekintse át, hogyan konfigurálhatja a Switch Management-hozzáférés engedélyeit.
 
-## <a name="authentication"></a>Hitelesítés
+## <a name="authentication"></a>Authentication
 
 Az operátor a hálózati eszközök hitelesítésének kezeléséhez RADIUS-vagy TACACS konfigurálhat. A támogatott módszerekhez és konfigurációhoz forduljon az OEM-hardveres szolgáltatóhoz.  Tekintse át a [hozzáférés-vezérlési lista frissítései](#access-control-list-updates) szakaszt, és tekintse át, hogyan konfigurálhatja a Switch Management-hozzáférés engedélyeit.
 
 ## <a name="access-control-list-updates"></a>Hozzáférés-vezérlési lista frissítései
 
-Az operátor módosíthatja a hozzáférés-vezérlési listák (ACL-ek) egy részét, hogy lehetővé tegye a hálózati eszközök felügyeleti felületéhez és a hardveres életciklus-gazdagéphez (HLH) való hozzáférést egy megbízható adatközpont hálózati tartományában. A kezelő kiválaszthatja, hogy melyik összetevő érhető el, és honnan. A hozzáférés-vezérlési listával az operátor engedélyezheti a felügyeleti Jumpbox egy adott hálózati tartományon belül, hogy hozzáférjenek a Switch Management felületéhez, valamint a HLH operációs rendszerhez és a HLH BMC-hez.
+> [!NOTE]
+> A 1910-es verziótól kezdődően az üzembe helyezési munkalap egy új mezővel fog rendelkezni az **engedélyezett hálózatokra** vonatkozóan, amelyek lecserélik azokat a manuális lépéseket, amelyek lehetővé teszik a hálózati eszközök felügyeleti felületeinek elérését, valamint a hardveres életciklus-GAZDAGÉP (HLH) megbízható adatközpont Az új szolgáltatással kapcsolatos további információkért tekintse meg a [Azure stack hálózati integrációjának megtervezését](azure-stack-network.md#permitted-networks)ismertető témakört.
 
-## <a name="next-steps"></a>Következő lépések
+Az operátor módosíthatja a hozzáférés-vezérlési listák (ACL-ek) egy részét, hogy lehetővé tegye a hálózati eszközök felügyeleti felületéhez és a hardveres életciklus-gazdagéphez (HLH) való hozzáférést egy megbízható adatközpont hálózati tartományában. A hozzáférés-vezérlési listával az operátor engedélyezheti a felügyeleti Jumpbox egy adott hálózati tartományon belül, hogy hozzáférjenek a Switch Management felületéhez, a HLH operációs rendszerhez és a HLH BMC-hez.
+
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack Datacenter-integráció – DNS](azure-stack-integrate-dns.md)

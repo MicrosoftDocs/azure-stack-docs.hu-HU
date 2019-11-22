@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8a323bf5d767db288cd2d876f38119b61f577afa
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: 1b6975490a876c0ff0b51fdf9f21ba010e14622d
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909671"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299139"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric-fürt üzembe helyezése Azure Stack
 
@@ -35,7 +35,7 @@ A Azure Stack Service Fabric-fürt nem a Microsoft. ServiceFabric erőforrás-sz
 A Service Fabric-fürt telepítéséhez a következők szükségesek:
 1. **Fürt tanúsítványa**  
    A Service Fabric telepítésekor a Key Vaulthoz hozzáadott X. 509 kiszolgálói tanúsítvány. 
-   - A tanúsítványhoz tartozó **CN-** nek meg kell egyeznie a létrehozott Service Fabric-fürt teljes tartománynevével (FQDN). A teljes tartománynévvel kapcsolatos további útmutatásért tekintse meg [Azure App Service Azure stack éles környezetben történő üzembe helyezéséhez szükséges tanúsítványokat](../operator/azure-stack-app-service-before-you-get-started.md#certificates-required-for-azure-stack-production-deployment-of-azure-app-service).
+   - A tanúsítványhoz tartozó **CN-** nek meg kell egyeznie a létrehozott Service Fabric-fürt teljes tartománynevével (FQDN). 
    - A tanúsítvány formátumának PFX-nek kell lennie, mivel a nyilvános és a titkos kulcs is kötelező. 
      Lásd a kiszolgálóoldali tanúsítvány létrehozásához [szükséges követelményeket](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) .
 
@@ -124,7 +124,7 @@ További információ: [a Azure Stack Key Vault kezelése a PowerShell](azure-st
 
 ## <a name="deploy-the-marketplace-item"></a>A piactér-elemek üzembe helyezése
 
-1. A felhasználói portálon válassza a **+ erőforrás** > létrehozása**számítási** > **Service Fabric fürt**lehetőséget. 
+1. A felhasználói portálon válassza a **+ erőforrás létrehozása** > **számítási** > **Service Fabric-fürt**lehetőséget. 
 
    ![Service Fabric fürt kiválasztása](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
@@ -133,12 +133,12 @@ További információ: [a Azure Stack Key Vault kezelése a PowerShell](azure-st
     A leválasztott Azure Stack vagy a Service Fabric egy másik verziójának központi telepítéséhez töltse le a Service Fabric központi telepítési csomagot és a hozzá tartozó futtatókörnyezet-csomagot, és tárolja Azure Stack blobon. Adja meg ezeket az értékeket a **Service Fabric központi telepítési csomag URL-címéhez** és a **Service Fabric futtatókörnyezet-csomag URL-** mezőihez.
     > [!NOTE]  
     > A Service Fabric és a hozzá tartozó SDK legújabb kiadása között kompatibilitási problémák léptek fel. A probléma megoldása érdekében adja meg a következő paramétereket a központi telepítési csomag URL-címéhez és a futásidejű csomag URL-címéhez. A központi telepítések egyébként nem fognak működni.
-    > - Service Fabric központi telepítési csomag URL-címe:<https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
-    > - Service Fabric futásidejű csomag URL-címe:<https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    > - Service Fabric központi telepítési csomag URL-címe: <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - Service Fabric futtatókörnyezet-csomag URL-címe: <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
     > A leválasztott központi telepítések esetében töltse le ezeket a csomagokat a megadott helyről, és helyileg tárolja egy Azure Stack blobon.
 
-   ![Alapadatok](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+   ![Alapvető beállítások](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
     
 3. A *hálózati beállítások* lapon megadhatja az alkalmazásai számára megnyitható portokat:
@@ -149,14 +149,14 @@ További információ: [a Azure Stack Key Vault kezelése a PowerShell](azure-st
 
    A *rendszergazdai ügyféltanúsítvány ujjlenyomata*mezőben adja meg a *felügyeleti ügyféltanúsítvány*ujjlenyomatát. (Lásd az [előfeltételeket](#prerequisites).)
    
-   - Forrás Key Vault:  Adja meg `keyVault id` a teljes karakterláncot a parancsfájl eredményeiből. 
-   - Fürt tanúsítványának URL-címe: Adja meg a teljes URL- `Secret Id` címet a parancsfájl eredményei közül. 
-   - Fürt tanúsítványának ujjlenyomata: Adja meg a *fürt tanúsítványának ujjlenyomatát* a parancsfájl eredményei közül.
-   - Kiszolgálói tanúsítvány URL-címe: Ha a fürt tanúsítványának külön tanúsítványát kívánja használni, töltse fel a tanúsítványt egy kulcstartóba, és adja meg a titkos kulcs teljes URL-címét. 
-   - Kiszolgálói tanúsítvány ujjlenyomata: A kiszolgálói tanúsítvány ujjlenyomatának megadása
-   - Rendszergazdai ügyféltanúsítvány ujjlenyomatai megfelelnek: Itt adhatja meg az előfeltételekben létrehozott *rendszergazdai ügyféltanúsítvány ujjlenyomatát* . 
+   - Forrás Key Vault: adja meg a teljes `keyVault id` karakterláncot a parancsfájl eredményeiből. 
+   - Fürt tanúsítványának URL-címe: adja meg a `Secret Id` teljes URL-címét a parancsfájl eredményeiből. 
+   - Fürt tanúsítványának ujjlenyomata: adja meg a *fürt tanúsítványának ujjlenyomatát* a parancsfájl eredményeiből.
+   - Kiszolgáló tanúsítványának URL-címe: Ha a fürt tanúsítványának külön tanúsítványát kívánja használni, töltse fel a tanúsítványt egy kulcstartóba, és adja meg a titkos kulcs teljes URL-címét. 
+   - Kiszolgálói tanúsítvány ujjlenyomata: a kiszolgálói tanúsítvány ujjlenyomatának megadása
+   - Rendszergazdai ügyféltanúsítvány ujjlenyomatai megfelelnek: Itt adhatja meg az előfeltételek között létrehozott *rendszergazdai ügyféltanúsítvány ujjlenyomatát* . 
 
-   ![Parancsprogram kimenete](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
+   ![Parancsfájl kimenete](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
    ![Biztonság](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
@@ -171,7 +171,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 ### <a name="use-service-fabric-explorer"></a>Service Fabric Explorer használata
 1.  Győződjön meg arról, hogy a böngésző hozzáfér a rendszergazdai ügyféltanúsítványt, és képes hitelesíteni a Service Fabric-fürtöt.  
 
-    a. Nyissa meg az Internet Explorert, és lépjen az Internetbeállítások**tartalmi** > **tanúsítványok** **lehetőségre** > .
+    a. Nyissa meg az Internet Explorert, és lépjen az Internetbeállítások > **tartalom** > **tanúsítványok** **lehetőségre** .
   
     b. A tanúsítványok lapon válassza az **Importálás** lehetőséget a *tanúsítvány importálása varázsló*elindításához, majd kattintson a **tovább**gombra. Az *Importálandó fájl* lapon kattintson a **Tallózás**gombra, és válassza ki a Azure Resource Manager sablonhoz megadott **rendszergazdai ügyféltanúsítványt** .
         
@@ -183,7 +183,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
        ![Személyes információcsere](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
     d. A *tanúsítványtároló* lapon válassza a **személyes**lehetőséget, majd fejezze be a varázslót.  
-       ![Tanúsítványtároló](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
+       ![tanúsítványtároló](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. A Service Fabric-fürt teljes tartománynevének megkeresése:  
 
     a. Lépjen a Service Fabric-fürthöz társított erőforráscsoporthoz, és keresse meg a *nyilvános IP-cím* erőforrást. Válassza ki a nyilvános IP-címhez társított objektumot a *nyilvános IP-cím* panel megnyitásához.  
@@ -196,7 +196,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 1. A Service Fabric Explorer URL-címének és az ügyfél-kapcsolódási végpontnak a megkereséséhez tekintse át a Template deployment eredményét.
 
-1. A böngészőben nyissa <https://*FQDN*:19080>meg a következőt:. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
+1. A böngészőben nyissa meg a <https://*FQDN*:19080>. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
    Ha önaláírt tanúsítványt használt, a rendszer figyelmeztetést kap arról, hogy a kapcsolatok nem biztonságosak. A webhely folytatásához válassza a **További információk**lehetőséget, majd lépjen a **weblapra**. 
 
 1. A helyhez való hitelesítéshez ki kell választania a használni kívánt tanúsítványt. Válassza a **további lehetőségek**lehetőséget, válassza ki a megfelelő tanúsítványt, majd kattintson az **OK** gombra a Service Fabric Explorerhoz való kapcsolódáshoz. 
@@ -211,13 +211,13 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 1. A telepítés befejezése után konfigurálja a rendszerkörnyezeti változókat annak biztosítására, hogy a Service Fabric parancsmagok elérhetők legyenek a PowerShellből.  
     
-    a. Nyissa meg a **Vezérlőpult** > **rendszer és biztonsági** > **rendszer**elemét, majd válassza a **Speciális rendszerbeállítások**lehetőséget.  
+    a. Lépjen a **vezérlőpult** > **rendszer és biztonság** > **rendszer**elemre, majd válassza a **Speciális rendszerbeállítások**lehetőséget.  
     
       ![Vezérlőpult](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
     b. A *rendszer tulajdonságai párbeszédpanel* **speciális** lapján válassza a **környezeti változók**lehetőséget.  
 
-    c. A *rendszerváltozók*esetében szerkessze az **elérési utat** , és győződjön meg arról, hogy a **\\C:\\Program Files Microsoft Service Fabric\\bin\\Fabric\\Fabric. a kód** a lista elején található. környezeti változók.  
+    c. A *rendszerváltozók*esetében szerkessze az **elérési utat** , és győződjön meg arról, hogy **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric. a kód** a környezeti változók listájának tetején található.  
 
       ![Környezeti változók listája](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

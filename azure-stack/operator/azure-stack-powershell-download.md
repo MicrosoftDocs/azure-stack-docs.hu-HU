@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 89a31f6d7894ed9af710263298fef03604d1351b
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.lastreviewed: 09/19/2019
+ms.openlocfilehash: 9ca2e25217886d6b8a55bc394f4ee05df1bea2d6
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72813987"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298780"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Azure Stack Tools letöltése a GitHubról
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A **AzureStack-Tools** egy [GitHub-tárház](https://github.com/Azure/AzureStack-Tools) , amely PowerShell-modulokat tartalmaz az erőforrások Azure stack történő kezeléséhez és üzembe helyezéséhez. Ha VPN-kapcsolat létesítését tervezi, letöltheti ezeket a PowerShell-modulokat a Azure Stack Development Kitba (ASDK) vagy egy Windows-alapú külső ügyfélre. Az eszközök beszerzéséhez klónozott a GitHub-tárházat, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl futtatásával:
 
@@ -61,7 +61,7 @@ A **AzureStack-Tools** adattár PowerShell-modulokkal rendelkezik, amelyek támo
 | [Csatlakozás a Azure Stackhoz](azure-stack-powershell-install.md) | Ezzel a modullal konfigurálhatja a VPN-kapcsolatot Azure Stackhoz. | Felhőalapú operátorok és felhasználók |
 | [Sablon-érvényesítő](../user/azure-stack-validate-templates.md) | Ezzel a modullal ellenőrizheti, hogy van-e telepítve meglévő vagy új sablon Azure Stack. | Felhőalapú operátorok és felhasználók|
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Ismerkedés a PowerShell-lel Azure stackon](../user/azure-stack-powershell-overview.md).
 - [Konfigurálja a Azure stack felhasználó PowerShell-környezetét](../user/azure-stack-powershell-configure-user.md).

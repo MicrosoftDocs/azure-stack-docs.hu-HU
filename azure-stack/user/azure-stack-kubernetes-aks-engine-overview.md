@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: cb531570191216ea13a0b1a7a6d36738c0765cd3
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595125"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310251"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Mi a Azure Stack AK-motorja?
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Kubernetes-fürtök Azure Stack Azure-beli üzembe helyezéséhez és kezeléséhez használhatja az KABAi motor parancssori eszközét is. A Azure Resource Manager natív fürtök létrehozásához, frissítéséhez és méretezéséhez használja az AK motort. A motorral a csatlakoztatott és a leválasztott környezetekben is telepíthet fürtöt. Ez a cikk áttekintést nyújt az AK-motorról, a motor és a Azure Stack használatának támogatott forgatókönyveit, valamint az olyan műveletek bevezetését, mint például a telepítés, a frissítés és a skálázás.
-
-> [!IMPORTANT]
-> Az AK-motor jelenleg nyilvános előzetes verzióban érhető el.
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview-of-the-aks-engine"></a>Az AK-motor áttekintése
 

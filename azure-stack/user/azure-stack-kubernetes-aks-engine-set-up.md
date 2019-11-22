@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 9a1f25873512da735df4e098804bb474d9ce75ea
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aa60a2fec7cb8c06d855b070fb93cdf26a5481ba
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594936"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310179"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Az AK-motor előfeltételeinek beállítása Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
-Az AK-motort telepítheti egy virtuális gépre a környezetében, vagy bármely olyan ügyfélszámítógépet, amely hozzáféréssel rendelkezik a Azure Stack Resource Manager-végponthoz. A motor futtatása előtt a következőkre lesz szüksége: az AK Base Ubuntu Server és a Linux Custom script bővítmény elérhető az előfizetésben, egy egyszerű szolgáltatásnév, amely hozzá van rendelve egy közreműködő szerepkörhöz, valamint egy magán-vagy nyilvános kulcspár SSH-hozzáférés az Ubuntu-kiszolgálóhoz. Emellett, ha a Azure Stack Development Kit használja, akkor a számítógépnek meg kell bíznia a megfelelő tanúsítványokban.
+Az AK-motort telepítheti egy virtuális gépre a környezetében, vagy bármely olyan ügyfélszámítógépet, amely hozzáféréssel rendelkezik a Azure Stack Resource Manager-végponthoz. A motor futtatása előtt a következőkre lesz szüksége: az AK Base Ubuntu Server és a Linux Custom script bővítmény elérhető az előfizetésben, egy olyan egyszerű szolgáltatásnév, amely hozzá van rendelve egy közreműködő szerepkörhöz, valamint egy magán-és nyilvános kulcspár az Ubuntu-kiszolgálóhoz való SSH-hozzáféréshez. Emellett, ha a Azure Stack Development Kit használja, akkor a számítógépnek meg kell bíznia a megfelelő tanúsítványokban.
 
 Ha rendelkezik az előfeltételekkel, megkezdheti a [fürt definiálását](azure-stack-kubernetes-aks-engine-deploy-cluster.md).
 

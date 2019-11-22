@@ -11,24 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 823ea20bbddaceda970d95008e1214e77ca51f7c
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636882"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310114"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket a Azure Stackhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ.
-
-Az [AK-motor](https://github.com/Azure/aks-engine) egy létrehozott rendszerképet, az AK-alapú alapképet használja. Bármely AK-beli motor verziója egy adott rendszerkép-verziótól függ, amelyet a Azure Stack elérhetővé tehet. A [támogatott Kubernetes-verzióknál](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)keresse meg az AK-motor verzióját és a megfelelő Kubernetes-verziót felsoroló táblázatot.
 
 > [!IMPORTANT]
 > Az AK-motor jelenleg nyilvános előzetes verzióban érhető el.
@@ -58,7 +56,7 @@ Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való b
 
 Adja hozzá a következő elemeket a piactérhez:
 
-1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a [felügyeleti portálján](https://adminportal.local.azurestack.external).
 
 1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
 
@@ -97,7 +95,7 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Válassza a **Letöltés lehetőséget.**
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Mi a Azure Stack AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 

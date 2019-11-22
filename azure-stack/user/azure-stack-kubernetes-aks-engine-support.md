@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 8c83e0b006904482634e50bdf217ec5d236e4e5c
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594958"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310170"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Támogatási szabályzatok az AK motorhoz Azure Stack
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Ez a cikk részletesen ismerteti a technikai támogatási szabályzatokat és a Azure Stack-on található AK-motorra vonatkozó korlátozásokat. A cikk a Kubernetes Marketplace-elemek, a harmadik féltől származó nyílt forráskódú összetevők, valamint a biztonság vagy a javítások kezelését is ismerteti. 
-
-> [!IMPORTANT]
-> Az AK-motor jelenleg nyilvános előzetes verzióban érhető el.
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>Önfelügyelt Kubernetes-fürtök Azure Stack az AK-motorral
 
