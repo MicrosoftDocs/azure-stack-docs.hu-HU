@@ -1,6 +1,6 @@
 ---
-title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez | Microsoft Docs
-description: Megtudhatja, hogyan adhatja hozzá a Azure Stack Marketplace-re vonatkozó előfeltételeket a piactérhez.
+title: Add the Azure Kubernetes Services (AKS) engine prerequisites to the Azure Stack Marketplace | Microsoft Docs
+description: Learn how to add AKS engine prerequisites to the Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,88 +15,84 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 823ea20bbddaceda970d95008e1214e77ca51f7c
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: ee19c6ee32960c52bcf7a4918c3d1e48406129c3
+ms.sourcegitcommit: 31e04af4d405215ef200aba0b40d601fc5ca7662
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310114"
+ms.locfileid: "74391545"
 ---
-# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
+# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Add the Azure Kubernetes Services (AKS) engine prerequisites to the Azure Stack Marketplace
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket a Azure Stackhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ.
+You can enable your users to set up the Azure Kubernetes Services (AKS) Engine by adding the items described in this article to your Azure Stack. Your users can then deploy a Kubernetes cluster in a single, coordinated operation. This article walks you through the steps you need to make the AKS engine available to your users in both connected and disconnected environments. The AKS engine depends on a service principle identity, and in the marketplace, a Custom Script extension and the AKS Base Image.
 
-> [!IMPORTANT]
-> Az AK-motor jelenleg nyilvános előzetes verzióban érhető el.
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="check-your-users-service-offering"></a>Check your user's service offering
 
-## <a name="check-your-users-service-offering"></a>A felhasználó szolgáltatási ajánlatának megkeresése
+Your users will need a plan, offer, and subscription to Azure Stack with enough space. Users will often want to deploy clusters of up to six virtual machines, made of three masters and three worker nodes. You will want to make sure they have a large enough quota.
 
-A felhasználóknak egy csomagra, ajánlatra és előfizetésre van szükségük, hogy elegendő lemezterülettel Azure Stack. A felhasználók általában legfeljebb hat virtuális gépet telepíthetnek a három főkiszolgálóból és három feldolgozó csomópontból álló fürtökön. Érdemes meggyőződni arról, hogy elég nagy mennyiségű kvótával rendelkeznek.
+If you need more information about planning and setting up a service offering, see [Overview of offering services in Azure Stack](service-plan-offer-subscription-overview.md)
 
-Ha további információra van szüksége a szolgáltatási ajánlatok megtervezéséről és beállításáról, tekintse meg az [ajánlati szolgáltatások áttekintése Azure stack](service-plan-offer-subscription-overview.md)
+## <a name="create-a-service-principal-and-credentials"></a>Create a service principal and credentials
 
-## <a name="create-a-service-principal-and-credentials"></a>Egyszerű szolgáltatásnév és hitelesítő adatok létrehozása
+The Kubernetes cluster will need service principal (SPN) and role-based permissions in Azure Stack.
 
-A Kubernetes-fürtön az egyszerű szolgáltatásnév (SPN) és a szerepköralapú engedélyek szükségesek a Azure Stack.
+### <a name="create-an-spn-in-azure-ad"></a>Create an SPN in Azure AD
 
-### <a name="create-an-spn-in-azure-ad"></a>Egyszerű szolgáltatásnév létrehozása az Azure AD-ben
+If you use Azure Active Directory (Azure AD) for your identity management service, you will need to create a service principal for users deploying a Kubernetes cluster. Create a service principal using a client secret. For instructions, see [Create a service principal that uses a client secret credential](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-a-client-secret-credential).
 
-Ha Azure Active Directoryt (Azure AD-t) használ az Identity Management szolgáltatáshoz, létre kell hoznia egy egyszerű szolgáltatásnevet a Kubernetes-fürtöt telepítő felhasználók számára. Hozzon létre egy egyszerű szolgáltatást az ügyfél titkos kódjával. Útmutatásért tekintse meg az [ügyfél titkos hitelesítő adatait használó egyszerű szolgáltatás létrehozása](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-a-client-secret-credential)című témakört.
+### <a name="create-an-spn-in-ad-fs"></a>Create an SPN in AD FS
 
-### <a name="create-an-spn-in-ad-fs"></a>Egyszerű szolgáltatásnév létrehozása AD FSban
+If you use Active Directory Federated Services (AD FS) for your identity management service, you will need to create a service principal for users deploying a Kubernetes cluster. Create a service principal using a client secret. For instructions, see [Create a service principal using a client secret](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials).
 
-Ha Active Directory összevont szolgáltatásokat (AD FS) használ az Identitáskezelő szolgáltatáshoz, létre kell hoznia egy egyszerű szolgáltatásnevet a Kubernetes-fürtöt telepítő felhasználók számára. Hozzon létre egy egyszerű szolgáltatást az ügyfél titkos kódjával. Útmutatásért lásd: [egyszerű szolgáltatásnév létrehozása az ügyfél titkos](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)kódjával.
+## <a name="add-the-aks-base-image"></a>Add the AKS Base Image
 
-## <a name="add-the-aks-base-image"></a>Az AK-alapú alaprendszerkép hozzáadása
+You can add the AKS Base Image to the marketplace by getting the item from Azure. However, if your Azure Stack is disconnected, use these instructions [Download marketplace items from Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) to add the item. Add the item specified in step 5.
 
-Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban a Azure Stack le van választva, az alábbi utasításokat követve [töltheti le a Marketplace-elemeket az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
+Add the following item to the marketplace:
 
-Adja hozzá a következő elemeket a piactérhez:
+1. Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Jelentkezzen be a [felügyeleti portálján](https://adminportal.local.azurestack.external).
+1. Select **All services**, and then under the **ADMINISTRATION** category, select **Marketplace management**.
 
-1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
-
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Select **+ Add from Azure**.
 
 1. Írja be a `AKS Base` (igen) kifejezést.
 
-1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
+1. Select the image version that matches the version of the AKS engine. You can find listing of AKS Base Image to AKS engine version at [Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). 
 
-    A listában válassza a következőket:
-    - **Közzétevő**: Azure Kubernetes Service
-    - **Ajánlat**: AK
-    - **Verzió**: AK alaprendszerkép 16,04 – LTS rendszerkép-disztribúció, október 2019 (2019.10.24 vagy Version, amely az AK-motorhoz van leképezve)
+    In the list, select:
+    - **Publisher**: Azure Kubernetes Service
+    - **Offer**: aks
+    - **Version**: AKS Base Image 16.04-LTS Image Distro, October 2019 (2019.10.24 or version that maps to AKS engine)
 
-1. Válassza a **Letöltés lehetőséget.**
+1. Select **Download.**
 
-## <a name="add-a-custom-script-extension"></a>Egyéni parancsfájl-kiterjesztés hozzáadása
+## <a name="add-a-custom-script-extension"></a>Add a Custom Script extension
 
-Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban a Azure Stack le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
+You can add the custom script to the marketplace by getting the item from Azure. However, if your Azure Stack is disconnected, use the instructions [Download marketplace items from Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) to add the item.  Add the item specified in step 5.
 
-1. Nyissa meg a [felügyeleti portált](https://adminportal.local.azurestack.external).
+1. Open the [Administration portal](https://adminportal.local.azurestack.external).
 
-1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
+1. Select **ALL services** and then under the **ADMINISTRATION** category, select **Marketplace Management**.
 
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Select **+ Add from Azure**.
 
 1. Írja be a `Custom Script for Linux` (igen) kifejezést.
 
-1. Válassza ki a parancsfájlt a következő profillal:
-   - **Ajánlat**: egyéni parancsfájl a Linux 2,0-hez
-   - **Verzió**: 2.0.6 (vagy legújabb verzió)
-   - **Közzétevő**: Microsoft Corp
+1. Select the script with the following profile:
+   - **Offer**: Custom Script for Linux 2.0
+   - **Version**: 2.0.6 (or latest version)
+   - **Publisher**: Microsoft Corp
 
      > [!Note]  
-     > A Linux rendszerhez készült egyéni szkript több verziója is szerepelhet a felsorolásban. Hozzá kell adnia az elem utolsó verzióját is.
+     > More than one version of the Custom Script for Linux may be listed. You will need to add the last version of the item.
 
-1. Válassza a **Letöltés lehetőséget.**
+1. Select **Download.**
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Mi a Azure Stack AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
+[What is the AKS engine on Azure Stack?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[A Azure Stack szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md)
+[Overview of offering services in Azure Stack](service-plan-offer-subscription-overview.md)
