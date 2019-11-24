@@ -56,16 +56,16 @@ Az ebben a szakaszban ismertetett lépések segítségével hozzon létre egy eg
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Válassza a **\+** **erőforrás létrehozása** > **Egyéni**lehetőséget, majd **template Deployment**.
+2. Válassza ki **\+** **erőforrás létrehozása** **Egyéni** > , majd **template Deployment**.
 
    ![Egyéni sablon központi telepítése](media/app-service-deploy-ha/1.png)
 
 
-3. Az **Egyéni telepítés** panelen válassza a **Sablon szerkesztése**@no__t – 2 rövid útmutató**sablont** , majd az elérhető egyéni sablonok legördülő listáját választva válassza ki a **appservice-fájlmegosztás-SQLServer-ha** sablont. Kattintson **az OK**, majd a **Mentés**gombra.
+3. Az **Egyéni telepítés** panelen válassza a **Sablon szerkesztése** > gyorsindítási **sablon** elemet, majd az elérhető egyéni sablonok legördülő listájának használatával válassza ki a **appservice-fájlmegosztás-SQLServer-ha** sablont. Kattintson **az OK**, majd a **Mentés**gombra.
 
    ![Válassza ki a appservice-fájlmegosztás-SQLServer-ha Gyorsindítás sablont](media/app-service-deploy-ha/2.png)
 
-4. Az **Egyéni telepítés** panelen válassza a **Paraméterek szerkesztése** lehetőséget, és görgessen lefelé az alapértelmezett sablon értékeinek áttekintéséhez. Szükség szerint módosítsa ezeket az értékeket az összes kötelező paraméter információjának megadásához, majd kattintson **az OK**gombra.<br><br> A `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD` és `SQLLOGINPASSWORD` paraméterek esetében legalább összetett jelszavakat adjon meg.
+4. Az **Egyéni telepítés** panelen válassza a **Paraméterek szerkesztése** lehetőséget, és görgessen lefelé az alapértelmezett sablon értékeinek áttekintéséhez. Szükség szerint módosítsa ezeket az értékeket az összes kötelező paraméter információjának megadásához, majd kattintson **az OK**gombra.<br><br> A `ADMINPASSWORD`, `FILESHAREOWNERPASSWORD`, `FILESHAREUSERPASSWORD`, `SQLSERVERSERVICEACCOUNTPASSWORD`és `SQLLOGINPASSWORD` paraméterekhez legalább összetett jelszavakat kell megadni.
     
    ![Egyéni telepítési paraméterek szerkesztése](media/app-service-deploy-ha/3.png)
 
@@ -171,14 +171,14 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
     ![Várt hiba párbeszédpanel App Service](media/app-service-deploy-ha/08.png)
 
     Ha úgy dönt, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt. Ez a szabály engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
-    - Forrás: Any
+    - Forrás: bármely
     - Forrásoldali porttartomány: *
     - Cél: IP-címek
-    - Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+    - Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
     - Célport tartománya: 445
     - Protokoll: TCP
-    - Művelet: Allow
-    - Fontosság: 700
+    - Művelet: Engedélyezés
+    - Prioritás: 700
     - Név: Outbound_Allow_SMB445
 
 10. Adja meg az azonosító alkalmazás AZONOSÍTÓját, valamint az identitási tanúsítványok elérési útját és jelszavát, majd kattintson a **tovább**gombra:
@@ -198,13 +198,13 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![SQL Server a kapcsolatok adatai a App Service](media/app-service-deploy-ha/10.png)
 
-13. Mivel az App Service telepítéséhez használt gép nem ugyanazon a VNet található, mint a App Service-adatbázisok üzemeltetéséhez használt SQL Server, a név nem oldható fel.  **Ez a várt viselkedés**.<br><br>Győződjön meg arról, hogy a SQL Server neve és a fiókadatok adatai helyesek, és nyomja meg az **Igen** gombot a app Service telepítés folytatásához. Kattintson a **Tovább** gombra.
+13. Mivel az App Service telepítéséhez használt gép nem ugyanazon a VNet található, mint a App Service-adatbázisok üzemeltetéséhez használt SQL Server, a név nem oldható fel.  **Ez a várt viselkedés**.<br><br>Győződjön meg arról, hogy a SQL Server neve és a fiókadatok adatai helyesek, és nyomja meg az **Igen** gombot a app Service telepítés folytatásához. Kattintson a **Tovább**gombra.
 
     ![SQL Server a kapcsolatok adatai a App Service](media/app-service-deploy-ha/11.png)
 
 14. Fogadja el az alapértelmezett szerepkör-konfigurációs értékeket, vagy váltson az ajánlott értékekre, és kattintson a **tovább**gombra.<br><br>Azt javasoljuk, hogy az App Service infrastruktúra szerepkör-példányok alapértelmezett értékeit a következőképpen módosítsák a magasan elérhető konfigurációk esetén:
 
-    |Role|Alapértelmezett|Magasan elérhető javaslat|
+    |Szerepkör|Alapértelmezett|Magasan elérhető javaslat|
     |-----|-----|-----|
     |Vezérlő szerepkör|2|2|
     |Felügyeleti szerepkör|1|3|
@@ -236,7 +236,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
 ## <a name="next-steps"></a>További lépések
 
-[Adja hozzá a appservice_hosting és a appservice_metering-adatbázist egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , ha a app Service erőforrás-SZOLGÁLTATÓt SQL always on-példányon adta meg. Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén. [Parancsfájlt](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) is futtathat a AppServices-bejelentkezések az eredeti elsődleges kiszolgálóról a feladatátvételi kiszolgálóra való importálásához.
+Ha a App Service erőforrás-szolgáltatót SQL always on-példánnyal adta meg, [adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén. [Parancsfájlt](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) is futtathat a AppServices-bejelentkezések az eredeti elsődleges kiszolgálóról a feladatátvételi kiszolgálóra való importálásához.
 
 [App Service skálázása](azure-stack-app-service-add-worker-roles.md). Előfordulhat, hogy további App Service infrastruktúra-szerepkörrel rendelkező munkatársakat kell hozzáadnia, hogy megfeleljenek a környezetében várható alkalmazási igényeknek. Alapértelmezés szerint a App Service on Azure Stack támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 

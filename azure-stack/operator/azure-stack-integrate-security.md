@@ -61,7 +61,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 A *set-SyslogServer* parancsmag paraméterei:
 
-| Paraméter | Leírás | Type (Típus) | Szükséges |
+| Paraméter | Leírás | Típus | Kötelező |
 |---------|---------|---------|---------|
 |*ServerName* | A syslog-kiszolgáló teljes tartományneve vagy IP-címe. | Sztring | igen|
 |*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | Sztring | igen|
@@ -69,13 +69,13 @@ A *set-SyslogServer* parancsmag paraméterei:
 |*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | zászló | nem|
 |*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | zászló | nem|
 |*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |zászló | nem|
-|*Eltávolítása*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| zászló | nem|
+|*Remove*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| zászló | nem|
 
 A *set-SyslogClient* parancsmag paraméterei:
 
-| Paraméter | Leírás | Type (Típus) |
+| Paraméter | Leírás | Típus |
 |---------|---------| ---------|
-| *pfxBinary* | az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt tartalmazó pfx-fájl.  | Bájt [] |
+| *pfxBinary* | az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt tartalmazó pfx-fájl.  | Byte[] |
 | *CertPassword* |  A pfx-fájlhoz társított titkos kulcs importálására szolgáló jelszó. | SecureString |
 |*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | zászló|
 | *OutputSeverity* | A kimeneti naplózás szintje. Az értékek **alapértelmezettek** vagy **részletesek**. Az alapértelmezett érték a súlyossági szinteket tartalmazza: figyelmeztetés, kritikus vagy hiba. A részletes beállítás minden súlyossági szintet tartalmaz: részletes, tájékoztató, figyelmeztetés, kritikus vagy hiba.  | Sztring |
@@ -242,7 +242,7 @@ Prefix fields
 
 Az emelt szintű végpont eseményeinek táblázata:
 
-| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Súlyosság |
+| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Severity |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
@@ -259,9 +259,9 @@ Az emelt szintű végpont eseményeinek táblázata:
 
 A PEP súlyossági táblázata:
 
-| Súlyosság | Szint | Numerikus érték |
+| Severity | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
+|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -279,7 +279,7 @@ Prefix fields
 
 A helyreállítási végpont eseményeinek táblázata:
 
-| Esemény | REP-esemény azonosítója | REP-feladat neve | Súlyosság |
+| Esemény | REP-esemény azonosítója | REP-feladat neve | Severity |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -290,9 +290,9 @@ A helyreállítási végpont eseményeinek táblázata:
 
 REP súlyossági táblázat:
 
-| Súlyosság | Szint | Numerikus érték |
+| Severity | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
+|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -312,7 +312,7 @@ Windows-események súlyossági táblázata:
 
 | CEF súlyossági értéke | Windows-esemény szintje | Numerikus érték |
 |--------------------|---------------------| ----------------|
-|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
+|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -337,11 +337,11 @@ Egyéni bővítmények táblázata a Windows-eseményekhez a Azure Stackban:
 |MasKeywordName |Sikeres naplózás|
 |MasLevel |4|
 |MasOpcode |1|
-|MasOpcodeName |információ|
+|MasOpcodeName |info|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-csoportházirend|
-|MasSecurityUserId |\<Windows SID @ no__t-1 |
+|MasProviderName |Microsoft-Windows-GroupPolicy|
+|MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Folyamat létrehozása|
 |MasUserData|KB4093112!! 5112!! Telepítve!! 0x0!! WindowsUpdateAgent XPath:/Event/UserData/*|
@@ -358,9 +358,9 @@ Egyéni bővítmények táblázata a Windows-eseményekhez a Azure Stackban:
 
 Riasztások súlyossági táblázata:
 
-| Súlyosság | Szint |
+| Severity | Szint |
 |----------|-------|
-|0|Nem definiált|
+|0|Meghatározatlan|
 |10|Kritikus|
 |5|Figyelmeztetés|
 
@@ -368,7 +368,7 @@ Egyéni bővítmények táblázata a Azure Stackban létrehozott riasztásokhoz:
 
 | Egyéni bővítmény neve | Példa | 
 |-----------------------|---------|
-|MasEventDescription|Leírás: \<TestUser @ no__t-1 felhasználói fiók lett létrehozva a \<TestDomain @ no__t-3 számára. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfiles útmutatása alapján.
+|MasEventDescription|Leírás: \<tesztfelhasználó\> felhasználói fiók lett létrehozva \<TestDomain\>. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF lezárt riasztások leképezése
 
@@ -383,6 +383,6 @@ Az alábbi példa egy CEF adattartalommal rendelkező syslog-üzenetet mutat be:
 2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Karbantartási szabályzat](azure-stack-servicing-policy.md)

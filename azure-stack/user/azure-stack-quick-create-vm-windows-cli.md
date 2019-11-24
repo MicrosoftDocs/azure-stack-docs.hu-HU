@@ -24,7 +24,7 @@ ms.locfileid: "71824264"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack
 
-@no__t – 0Applies: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure stack integrált rendszerek és Azure stack Development Kit*
 
 Az Azure CLI használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet. A virtuális gép létrehozásához és használatához kövesse a cikkben ismertetett lépéseket. A cikk a következő lépéseket is biztosítja:
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuális gépet (VM) az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. A következő példa egy myVM nevű virtuális gépet hoz létre. Ez a példa egy rendszergazdai felhasználónévhez és a @no__t – 0 rendszergazdai jelszóhoz használja a demouser-t. Módosítsa ezeket az értékeket a környezetének megfelelő értékre.
+Hozzon létre egy virtuális gépet (VM) az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. A következő példa egy myVM nevű virtuális gépet hoz létre. Ez a példa egy rendszergazdai felhasználónevet használ, és a Demouser@123 rendszergazdai jelszóként. Módosítsa ezeket az értékeket a környezetének megfelelő értékre.
 
 ```cli
 az vm create \

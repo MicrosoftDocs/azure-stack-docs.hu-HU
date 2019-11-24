@@ -25,7 +25,7 @@ ms.locfileid: "71961666"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack"></a>A sablon-ellenőrzési eszköz használata a Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A sablon-ellenőrzési eszköz használatával győződjön meg arról, hogy a Azure Resource Manager [sablonjai](azure-stack-arm-templates.md) készen állnak-e a Azure stack üzembe helyezésére. A sablon-ellenőrzési eszköz a Azure Stack Tools GitHub-tárház részeként érhető el. Töltse le a Azure Stack-eszközöket az [eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md)című témakörben ismertetett lépések segítségével.
 
@@ -33,8 +33,8 @@ A sablon-ellenőrzési eszköz használatával győződjön meg arról, hogy a A
 
 A sablon érvényesítéséhez először létre kell majd adnia egy felhőalapú képesség-fájlt, majd futtatnia kell az ellenőrző eszközt. A következő PowerShell-modulokat használja Azure Stack eszközökről:
 
-- A **CloudCapabilities** mappában: A **AzureRM. CloudCapabilities. psm1** létrehoz egy FELHŐALAPÚ képességek JSON-fájlt, amely egy Azure stack-felhőben található szolgáltatásokat és verziókat jelképezi.
-- A **TemplateValidator** mappában: A **AzureRM. TemplateValidator. psm1** Felhőbeli képességekkel rendelkező JSON-fájlt használ a sablonok tesztelésére a Azure stack-ben való üzembe helyezéshez.
+- A **CloudCapabilities** mappában: **AzureRM. CloudCapabilities. psm1** létrehoz egy FELHŐALAPÚ képességeket tartalmazó JSON-fájlt, amely egy Azure stack-felhőben található szolgáltatásokat és verziókat jelképezi.
+- A **TemplateValidator** mappában: a **AzureRM. TemplateValidator. psm1** a Cloud képességek JSON-fájlját használja a sablonok teszteléséhez a Azure stack-ben való üzembe helyezéshez.
 
 ## <a name="build-the-cloud-capabilities-file"></a>A Cloud képességek fájljának összeállítása
 
@@ -50,7 +50,7 @@ A sablon-érvényesítő használata előtt futtassa a **AzureRM. CloudCapabilit
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. A **Get-CloudCapabilities** parancsmag használatával lekérheti a szolgáltatási verziókat, és létrehozhatja a FELHŐALAPÚ képességek JSON-fájlját. Ha nem ad meg `-OutputPath` értéket, a **AzureCloudCapabilities. JSON** fájl az aktuális könyvtárban jön létre. A tényleges Azure-beli hely használata:
+3. A **Get-CloudCapabilities** parancsmag használatával lekérheti a szolgáltatási verziókat, és létrehozhatja a FELHŐALAPÚ képességek JSON-fájlját. Ha nem ad meg `-OutputPath`, a **AzureCloudCapabilities. JSON** fájl az aktuális könyvtárban jön létre. A tényleges Azure-beli hely használata:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -83,7 +83,7 @@ A sablon-ellenőrzési figyelmeztetések vagy hibák a PowerShell-konzolon jelen
 
 A sablon-érvényesítő parancsmag a következő paramétereket támogatja.
 
-| Paraméter | Leírás | Szükséges |
+| Paraméter | Leírás | Kötelező |
 | ----- | -----| ----- |
 | `TemplatePath` | Megadja Azure Resource Manager sablonok rekurzív megkeresésének elérési útját. | Igen |
 | `TemplatePattern` | Megadja az egyeztetendő sablonfájlok nevét. | Nem |

@@ -24,7 +24,7 @@ ms.locfileid: "71961525"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack 
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Ez a cikk azt ismerteti, hogyan helyezhet üzembe egy Azure Stack virtuális gépet (VM) egy telepített Key Vault-tanúsítvánnyal.
 
@@ -125,7 +125,7 @@ Módosítsa a **azuredeploy. Parameters. JSON** fájlt a környezeti értékek a
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>A azuredeploy. Parameters. JSON fájl frissítése
 
-Frissítse az **azuredeploy. Parameters. JSON** fájlt a `vaultName`, titkos URI, `VmName` és egyéb paraméterekkel, a környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
+Frissítse az **azuredeploy. Parameters. JSON** fájlt a `vaultName`, a titkos URI, a `VmName`és egyéb paraméterekkel a környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
 
 ```json
 {
@@ -184,9 +184,9 @@ Azure Stack leküldi a tanúsítványt a virtuális gépre az üzembe helyezés 
 
 ## <a name="retire-certificates"></a>Tanúsítványok kivonása
 
-A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verziója nem törölhető, de a `Set-AzureKeyVaultSecretAttribute` parancsmag használatával letilthatja.
+A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verzióját nem lehet törölni, de a `Set-AzureKeyVaultSecretAttribute` parancsmag használatával letilthatja.
 
-Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. Használja a `VaultName`, `Name` és `Version` paraméterek saját értékeit.
+Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. Használja a `VaultName`, `Name`és `Version` paraméterek saját értékeit.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0

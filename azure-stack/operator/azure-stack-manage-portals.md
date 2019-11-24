@@ -25,7 +25,7 @@ ms.locfileid: "72283497"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack"></a>A Azure Stack felügyeleti portáljának használata
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Két portál található Azure Stackban: a felügyeleti Portálon és a felhasználói portálon. Azure Stack kezelőként a felügyeleti portálon használhatja a Azure Stack napi felügyeletét és műveleteit.
 
@@ -36,7 +36,7 @@ A felügyeleti portál eléréséhez keresse meg a portál URL-címét, és jele
 | Környezet | Felügyeleti portál URL-címe |   
 | -- | -- | 
 | AZURE STACK FEJLESZTŐI KÉSZLET (ASDK)| https://adminportal.local.azurestack.external  |
-| Integrált rendszerek | @no__t – 0; *régió*&gt;. &lt;*FQDN*&gt; | 
+| Integrált rendszerek | https://adminportal.&lt; *régió*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]
@@ -95,6 +95,6 @@ Ha a felügyeleti portál jobb felső sarkában található Súgó ikonra (kérd
 
 Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet**, megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja a **Azure stack** kifejezést a **Products (termékek** ) keresőmezőbe, megtekintheti az összes Azure stack-ütemterv frissítését.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Regisztrálja Azure stack az Azure](azure-stack-registration.md) -ban, és töltse fel [Azure stack Marketplace](azure-stack-marketplace.md) elemet a felhasználók számára.

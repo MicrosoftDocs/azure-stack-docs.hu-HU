@@ -22,10 +22,10 @@ Létrehozhat és üzembe helyezhet egy alapszintű linuxos virtuális gépet (VM
 
 A virtuális gép a következő használatával tud webalkalmazásokat üzemeltetni:
 
-- **Python**: Az általános Python webes keretrendszerek közé tartoznak a lombikok, a cumisüvegek és a Django.
-- **Ugrás**: A Common go keretrendszerek közé tartozik a mulatság, a Martini, a Gocraft/web és a Gorilla. 
-- **Ruby**: Állítsa be a Ruby on Rails keretrendszert a Ruby-webalkalmazások továbbítására szolgáló keretrendszerként. 
-- **Java**: A Java használatával olyan webalkalmazásokat fejleszthet, amelyeket egy Apache Tomcat-kiszolgálóra küld. A Tomcat telepíthető Linux rendszeren, majd a Java WAR-fájljait közvetlenül a kiszolgálóra helyezheti üzembe. 
+- **Python**: a közös Python webes keretrendszerek közé tartozik a lombik, a palack és a Django.
+- **Go**: a Common go keretrendszerek közé tartozik a mulatság, a Martini, a Gocraft/web és a Gorilla. 
+- **Ruby**: a Ruby on Rails beállítása keretrendszerként a Ruby-webalkalmazások kézbesítéséhez. 
+- **Java**: a Java használatával olyan webalkalmazásokat fejleszthet, amelyeket egy Apache Tomcat-kiszolgálóra küld. A Tomcat telepíthető Linux rendszeren, majd a Java WAR-fájljait közvetlenül a kiszolgálóra helyezheti üzembe. 
 
 A cikk utasításait követve megkezdheti a Linux operációs rendszert használó webalkalmazások, keretrendszerek és háttérrendszer-technológiák használatát. Ezután a Azure Stack segítségével kezelheti az infrastruktúrát, és használhatja a technológián belüli felügyeleti eszközöket az alkalmazás karbantartási feladatainak kezeléséhez.
 
@@ -46,11 +46,11 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 ### <a name="create-your-vm"></a>A virtuális gép létrehozása
 
 1. Hozzon létre egy Secure Shell (SSH) nyilvános kulcsot a kiszolgáló számára. További információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
-1. A Azure Stack portálon válassza az **erőforrás létrehozása** > **számítás** > **Ubuntu Server 16,04 LTS**lehetőséget.
+1. Az Azure Stack portálon válassza az **erőforrás létrehozása** > **számítási** > **Ubuntu Server 16,04 LTS**lehetőséget.
 
     ![Webalkalmazás üzembe helyezése Azure Stack virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
-4. A **virtuális gép létrehozása** panelen **1. Alapvető beállítások konfigurálása @ no__t-0:
+4. A **virtuális gép létrehozása** panelen **1. Alapszintű beállítások konfigurálása**:
 
     a. Adja meg a **virtuális gép nevét**.
 
@@ -60,7 +60,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     d. Válassza ki a **hitelesítési típust** **nyilvános SSH-kulcsként**.
 
-    e. Kérje le a létrehozott nyilvános SSH-kulcsot. Nyissa meg egy szövegszerkesztőben, másolja a kulcsot, majd illessze be az **SSH nyilvános kulcs** mezőbe. A szöveg @no__t – 0 és @no__t – 1 között legyen. Illessze be a teljes blokkot a mezőbe:
+    e. Kérje le a létrehozott nyilvános SSH-kulcsot. Nyissa meg egy szövegszerkesztőben, másolja a kulcsot, majd illessze be az **SSH nyilvános kulcs** mezőbe. `---- BEGIN SSH2 PUBLIC KEY ----` szövegének belefoglalása `---- END SSH2 PUBLIC KEY ----`ba. Illessze be a teljes blokkot a mezőbe:
 
     ```text  
     ---- BEGIN SSH2 PUBLIC KEY ----
@@ -74,7 +74,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
     g. Hozzon létre egy új erőforráscsoportot, vagy használjon egy meglévőt, attól függően, hogyan szeretné rendezni az alkalmazás erőforrásait.
 
     h. Válassza ki a tartózkodási helyét. A Azure Stack Development Kit (ASDK) általában egy *helyi* régióban található. A hely a Azure Stack-példánytól függ.
-1. @No__t – 02. Méret @ no__t – 0, típus:
+1. **2. Méret**, írja be a következőt:
     - Válassza ki az Azure Stack-példányban elérhető virtuális gép adatmennyiségét és a RAM-ot.
     - Böngészheti a listát, vagy szűrheti a virtuális gép méretét a **számítási típus**, a **processzorok**és a **tárolóhely**alapján.
     
@@ -83,7 +83,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
     > - Az ajánlott méreteket a kiválasztott rendszerkép közzétevője határozza meg, és a hardverre és a szoftverre vonatkozó követelmények alapján történik.
     > - A standard lemezek (HDD-k) prémium szintű lemezekkel (SSD) való használata hatással lehet az operációs rendszer teljesítményére.
 
-1. @No__t-03-ban. Adja meg a nem kötelező @ no__t-0 funkciókat, írja be a következőt:
+1. **3.** Adja meg a választható szolgáltatásokat, írja be a következőt:
 
     a. A **magas rendelkezésre állás** érdekében válassza ki a rendelkezésre állási készletet. Ha redundanciát szeretne biztosítani az alkalmazás számára, a két vagy több virtuális gépet egy rendelkezésre állási csoportban csoportosítva adja meg. Ez a konfiguráció biztosítja, hogy a tervezett vagy nem tervezett karbantartási események esetén legalább egy virtuális gép elérhető legyen, és teljesítse a 99,95%-os Azure-beli szolgáltatói szerződést (SLA). A virtuális gép rendelkezésre állási csoportja nem módosítható a létrehozása után.
 
@@ -110,7 +110,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     l. Kattintson az **OK** gombra.
 
-1. Tekintse át **4. Összefoglalás @ no__t-0:
+1. Tekintse át a **4. Összefoglalás**:
     - A portál ellenőrzi a beállításokat.
     - Ha Azure Resource Manager munkafolyamattal szeretné felhasználni a beállításokat, letöltheti a virtuális gép Azure Resource Manager sablonját.
     - Az ellenőrzés eltelte után kattintson **az OK gombra**. A virtuális gép üzembe helyezése néhány percet vesz igénybe.

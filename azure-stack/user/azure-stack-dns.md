@@ -23,7 +23,7 @@ ms.locfileid: "71961486"
 ---
 # <a name="use-dns-in-azure-stack"></a>DNS használata Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Azure Stack a következő Azure DNS funkciókat támogatja:
 
@@ -34,7 +34,7 @@ A Azure Stack a következő Azure DNS funkciókat támogatja:
 
 Megadhatja a nyilvános IP-erőforrásokhoz tartozó DNS-tartománynevek címkéjét. Azure Stack a **domainnamelabel értékkel. location. cloudapp. azurestack. external** nevet használja a címke nevéhez, és leképezi azt a Azure stack által FELÜGYELt DNS-KISZOLGÁLÓK nyilvános IP-címére.
 
-Ha például egy nyilvános IP-erőforrást hoz létre a **contoso** tartománynév-címkével a helyi Azure stack helyen, a **contoso. local. cloudapp. azurestack. external** [nevű teljes tartománynevet (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) a nyilvános IP-címhez. az erőforrás címe. Ezzel a teljes tartománynévvel létrehozhat egy egyéni tartományi CNAME rekordot, amely a Azure Stack nyilvános IP-címére mutat.
+Ha például egy nyilvános IP-erőforrást hoz létre a **contoso** névvel a helyi Azure stack helyen található tartománynév-címkével, akkor a [teljes tartománynév (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) **contoso. local. cloudapp. azurestack. external** az erőforrás nyilvános IP-címére kerül feloldásra. Ezzel a teljes tartománynévvel létrehozhat egy egyéni tartományi CNAME rekordot, amely a Azure Stack nyilvános IP-címére mutat.
 
 A névfeloldással kapcsolatos további tudnivalókért tekintse meg a [DNS-megoldással](/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) foglalkozó cikket.
 
@@ -61,15 +61,15 @@ Az Azure Stack DNS-infrastruktúra sokkal rugalmasabb, mint az Azure. Egy Azure 
 
 A Azure Stack DNS-ben hasonló a DNS az Azure-ban, de van néhány fontos kivétel:
 
-* A **nem támogatja az AAAA-rekordokat**: A Azure Stack nem támogatja az AAAA-rekordokat, mert az Azure Stack nem támogatja az IPv6-címeket. Ez az Azure-beli DNS-ben és a Azure Stackban megjelenő fő különbség.
+* Nem **támogatja az AAAA-rekordokat**: a Azure stack nem támogatja az AAAA-rekordokat, mert az Azure stack nem támogatja az IPv6-címeket. Ez az Azure-beli DNS-ben és a Azure Stackban megjelenő fő különbség.
 
-* **Nem több-bérlős**: A Azure Stack DNS szolgáltatása nem több-bérlős. A bérlők nem tudják létrehozni ugyanazt a DNS-zónát. Csak az első előfizetés, amely a zóna létrehozását kísérli meg, és a későbbi kérelmek sikertelenek lesznek. Ez az Azure és a Azure Stack DNS között egy másik fő különbség.
+* **Nem több-bérlős**: az Azure stack DNS szolgáltatása nem több-bérlős. A bérlők nem tudják létrehozni ugyanazt a DNS-zónát. Csak az első előfizetés, amely a zóna létrehozását kísérli meg, és a későbbi kérelmek sikertelenek lesznek. Ez az Azure és a Azure Stack DNS között egy másik fő különbség.
 
-* **Címkék, metaadatok és etagek**: A Azure Stack a címkék, a metaadatok, a Etagek és a korlátok kezelésével kapcsolatban kisebb különbségek vannak.
+* **Címkék, metaadatok és etagek**: kisebb eltérések vannak Azure stack a címkék, metaadatok, etagek és korlátok kezelése során.
 
 További információ a Azure DNSről: [DNS-zónák és-rekordok](/azure/dns/dns-zones-records).
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>Címkék
 
 Azure Stack DNS támogatja Azure Resource Manager címkék használatát a DNS-zónák erőforrásain. Nem támogatja a címkéket a DNS-rekordhalmazokon. Alternatív megoldásként a **metaadatokat** a DNS-rekordhalmazok támogatják, a következő szakaszban leírtak szerint.
 
@@ -98,7 +98,7 @@ A Azure Stack DNS-REST API szintjén a Etagek HTTP-fejlécek használatával van
 
 Azure Stack DNS használatakor a következő alapértelmezett korlátok érvényesek:
 
-| Resource| Alapértelmezett korlát|
+| Erőforrás| Alapértelmezett korlát|
 |---------|--------------|
 | Zónák/előfizetés| 100|
 | Rekordhalmazok száma zónában| 5000|

@@ -24,7 +24,7 @@ ms.locfileid: "72019373"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack"></a>Több-bérlő konfigurálása Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Azure Stack konfigurálható úgy, hogy támogassa a több Azure Active Directory (Azure AD) bérlők felhasználóit, így a Azure Stack szolgáltatásainak használatát is lehetővé teszi. Vegyük például a következő forgatókönyvet:
 
@@ -112,9 +112,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Közvetlen bejelentkezés a felhasználók számára
 
-Most, hogy Mary elvégezte a Mary címtár bevezetésének lépéseit, Mária a fabrikam-felhasználókat a bejelentkezéshez irányíthatja. A fabrikam felhasználói (a fabrikam.onmicrosoft.com utótaggal rendelkező felhasználók) a https @ no__t-0//Portal. local. azurestack. external címen jelentkezhetnek be.
+Most, hogy Mary elvégezte a Mary címtár bevezetésének lépéseit, Mária a fabrikam-felhasználókat a bejelentkezéshez irányíthatja. A fabrikam felhasználói (fabrikam.onmicrosoft.com utótaggal rendelkező felhasználók) bejelentkezhetnek a https\://Portal.local.azurestack.external.
 
-Mary a fabrikam címtárban (a fabrikam-címtárban [lévő felhasználókat](/azure/role-based-access-control/rbac-and-directory-admin-roles) a fabrikam.onmicrosoft.com utótag nélkül) irányítja a bejelentkezéshez a https @ no__t-1//Portal. local. azurestack. external/fabrikam. onmicrosoft. com használatával. Ha nem használják ezt az URL-címet, azokat a rendszer az alapértelmezett könyvtárba (Fabrikam) küldi, és hibaüzenetet kap, amely szerint a rendszergazda nem járult hozzá.
+Mary a fabrikam címtárban (a fabrikam-címtárban lévő felhasználók a fabrikam.onmicrosoft.com utótagja nélkül) minden [idegen rendszerbiztonsági tag](/azure/role-based-access-control/rbac-and-directory-admin-roles) számára a bejelentkezést a https\://Portal.local.azurestack.external/fabrikam.onmicrosoft.com. használatával. Ha nem használják ezt az URL-címet, azokat a rendszer az alapértelmezett könyvtárba (Fabrikam) küldi, és hibaüzenetet kap, amely szerint a rendszergazda nem járult hozzá.
 
 ## <a name="disable-multi-tenancy"></a>Több-bérlő letiltása
 

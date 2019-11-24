@@ -19,14 +19,14 @@ ms.locfileid: "71909604"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Ismerkedés a Azure Stack Storage fejlesztői eszközeivel
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 A Microsoft Azure Stack a blob-, tábla-és üzenetsor-tárolást tartalmazó tárolási szolgáltatások készletét nyújtja.
 
 Ez a cikk útmutatóként használható Azure Stack Storage fejlesztői eszközök használatának megkezdéséhez. Részletesebb információ és mintakód található a megfelelő Azure Storage-oktatóanyagokban.
 
 > [!NOTE]  
-> A Azure Stack Storage és az Azure Storage között különbségek vannak, beleértve az egyes platformokra vonatkozó konkrét követelményeket is. Előfordulhat például, hogy a Azure Stackhoz konkrét ügyféloldali kódtárak és végponti utótagok vonatkoznak. További információ: [Azure stack Storage: Különbségek és szempontok](azure-stack-acs-differences.md).
+> A Azure Stack Storage és az Azure Storage között különbségek vannak, beleértve az egyes platformokra vonatkozó konkrét követelményeket is. Előfordulhat például, hogy a Azure Stackhoz konkrét ügyféloldali kódtárak és végponti utótagok vonatkoznak. További információt a [Azure stack Storage: különbségek és megfontolások](azure-stack-acs-differences.md)című témakörben talál.
 
 ## <a name="azure-client-libraries"></a>Azure-ügyfél kódtárai
 
@@ -35,15 +35,15 @@ A Storage ügyféloldali kódtárai esetében vegye figyelembe a REST API kompat
 ::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>1811 frissítés vagy újabb verzió
 
-| Ügyfélkódtár | Azure Stack támogatott verzió | Összekapcsolás | Végpont specifikációja |
+| Ügyfélkódtár | Azure Stack támogatott verzió | Hivatkozás | Végpont specifikációja |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 9.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app.config file |
 | Java | 7.0.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | A kapcsolatok karakterláncának beállítása |
 | Node.js | 2.8.3 | NPM hivatkozása:<br><https://www.npmjs.com/package/azure-storage><br>(Futtatás: `npm install azure-storage@2.8.3`)<br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Szolgáltatási példány deklarációja |
 | C++ | 5.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.CPP.v140/5.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0> | A kapcsolatok karakterláncának beállítása |
-| PHP | 1.2.0 | GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>BLOB: @no__t – 0<br>Várólista<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Tábla: @no__t – 0<br> <br>Telepítés a Zeneszerzőn keresztül (további tudnivalókért [tekintse meg az alábbi részleteket](#install-php-client-via-composer---current).) | A kapcsolatok karakterláncának beállítása |
+| PHP | 1.2.0 | GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>BLOB: <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Várólista<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Tábla: <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Telepítés a Zeneszerzőn keresztül (további tudnivalókért [tekintse meg az alábbi részleteket](#install-php-client-via-composer---current).) | A kapcsolatok karakterláncának beállítása |
 | Python | 1.1.0 | GitHub-kiadás:<br>Közös<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-common><br>BLOB<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob><br>Várólista<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-queue> | Szolgáltatási példány deklarációja |
-| Ruby | 1.0.1 | RubyGems-csomag:<br>Közös<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>BLOB: @no__t – 0<br>Üzenetsor: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Tábla: @no__t – 0<br> <br>GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>BLOB: @no__t – 0<br>Üzenetsor: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Tábla: @no__t – 0 | A kapcsolatok karakterláncának beállítása |
+| Ruby | 1.0.1 | RubyGems-csomag:<br>Közös<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>BLOB: <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Üzenetsor: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Tábla: <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>BLOB: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Üzenetsor: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Tábla: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | A kapcsolatok karakterláncának beállítása |
 
 #### <a name="install-php-client-via-composer---current"></a>PHP-ügyfél telepítése a Zeneszerzőn keresztül – aktuális
 
@@ -66,15 +66,15 @@ Telepítés a zeneszerző használatával: (a blobot példaként kell megtennie)
 ::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>Korábbi verziók (1802 – 1809 frissítés)
 
-| Ügyfélkódtár | Azure Stack támogatott verzió | Összekapcsolás | Végpont specifikációja |
+| Ügyfélkódtár | Azure Stack támogatott verzió | Hivatkozás | Végpont specifikációja |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app.config file |
 | Java | 6.1.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | A kapcsolatok karakterláncának beállítása |
 | Node.js | 2.7.0 | NPM hivatkozása:<br><https://www.npmjs.com/package/azure-storage><br>(Futtatás: `npm install azure-storage@2.7.0`)<br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0> | Szolgáltatási példány deklarációja |
 | C++ | 3.1.0 | Nuget-csomag:<br><https://www.nuget.org/packages/wastorage.v140/3.1.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0> | A kapcsolatok karakterláncának beállítása |
-| PHP | 1.0.0 | GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common><br>BLOB: @no__t – 0<br>Várólista<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue><br>Tábla: @no__t – 0<br> <br>Telepítés a Zeneszerzőn keresztül (lásd az alábbi adatokat).) | A kapcsolatok karakterláncának beállítása |
+| PHP | 1.0.0 | GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common><br>BLOB: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob><br>Várólista<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue><br>Tábla: <https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table><br> <br>Telepítés a Zeneszerzőn keresztül (lásd az alábbi adatokat).) | A kapcsolatok karakterláncának beállítása |
 | Python | 1.0.0 | GitHub-kiadás:<br>Közös<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common><br>BLOB<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob><br>Várólista<br><https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue> | Szolgáltatási példány deklarációja |
-| Ruby | 1.0.1 | RubyGems-csomag:<br>Közös<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>BLOB: @no__t – 0<br>Üzenetsor: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Tábla: @no__t – 0<br> <br>GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>BLOB: @no__t – 0<br>Üzenetsor: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Tábla: @no__t – 0 | A kapcsolatok karakterláncának beállítása |
+| Ruby | 1.0.1 | RubyGems-csomag:<br>Közös<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>BLOB: <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Üzenetsor: <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Tábla: <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>GitHub-kiadás:<br>Gyakori: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>BLOB: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Üzenetsor: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Tábla: <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | A kapcsolatok karakterláncának beállítása |
 
 #### <a name="install-php-client-via-composer---previous"></a>PHP-ügyfél telepítése a Zeneszerzőn keresztül – előző
 
@@ -201,7 +201,7 @@ A következő Azure üzenetsor-tárolási oktatóanyagok a Azure Stackra vonatko
 * [How to use Queue storage from Python (A Queue Storage használata Pythonnal)](/azure/storage/queues/storage-python-how-to-use-queue-storage)
 * [How to use Queue storage from Ruby (A Queue Storage használata Rubyval)](/azure/storage/queues/storage-ruby-how-to-use-queue-storage)
 
-## <a name="table-storage"></a>Táblatároló
+## <a name="table-storage"></a>Table Storage
 
 A következő Azure Table Storage-oktatóanyagok a Azure Stackra vonatkoznak. Jegyezze fel az előző [példák](#examples) szakaszban ismertetett Azure Stackhoz megadott végpont-utótag követelményét.
 

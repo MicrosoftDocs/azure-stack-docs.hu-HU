@@ -56,16 +56,16 @@ Győződjön meg arról, hogy mindig letölti az **SQL IaaS-bővítmény** legú
 Az SQL-alapú virtuális gépek üzembe helyezéséhez más lehetőségek is rendelkezésre állnak, beleértve a [Azure stack Gyorsindítás galériájában](https://github.com/Azure/AzureStack-QuickStart-Templates)található sablonokat is.
 
 > [!NOTE]
-> A több csomópontos Azure Stack telepített üzemeltetési kiszolgálókat felhasználói előfizetésből kell létrehozni, nem az alapértelmezett szolgáltatói előfizetéshez. A felhasználókat a felhasználói portálról vagy egy megfelelő bejelentkezési azonosítóval rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és megfelelő SQL-licenccel kell rendelkeznie. A szolgáltatás rendszergazdája az előfizetés tulajdonosa lehet.
+> A több csomópontos Azure Stack telepített üzemeltetési kiszolgálókat felhasználói előfizetésből kell létrehozni, nem az alapértelmezett szolgáltatói előfizetéshez. A felhasználókat a felhasználói portálról vagy egy megfelelő bejelentkezési azonosítóval rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és megfelelő SQL-licenccel kell rendelkeznie. A _szolgáltatás rendszergazdája az előfizetés tulajdonosa lehet._
 
 ### <a name="required-privileges"></a>Szükséges jogosultságok
 
 Létrehozhat olyan rendszergazda felhasználót, amely alacsonyabb jogosultságokkal rendelkezik, mint az SQL sysadmin. A felhasználónak csak a következő műveletekhez szükséges engedélyekkel kell rendelkeznie:
 
-* Adatbázis Létrehozás, módosítás, tárolás (csak always on), drop, Backup
-* Rendelkezésre állási Csoport: Adatbázis módosítása, csatlakoztatása, hozzáadása/eltávolítása
-* Bejelentkezési Létrehozás, kijelölés, módosítás, eldobás, visszavonás
-* Válassza a műveletek: \[master @ no__t-1. \[sys @ no__t-3. \[availability_group_listeners @ no__t-5 (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[master @ no__t-7. \[sys @ no__t-9. \]0dm_os_ sys_memory @ no__t-11, SERVERPROPERTY, 2master @ no__t-13. 4sys @ no__t-15. 6availability_groups @ no__t-17 (AlwaysOn), sys. master_files
+* Adatbázis: létrehozás, módosítás, tárolás (csak always on), drop, Backup
+* Rendelkezésre állási Csoport: adatbázis módosítása, csatlakoztatása, hozzáadása/eltávolítása
+* Bejelentkezés: létrehozás, kijelölés, módosítás, eldobás, visszavonás
+* Válassza a műveletek: \[fő\]lehetőséget.\[sys\].\[availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[Master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[Master\].\[sys\].\[availability_groups\] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>További biztonsági információk
 
@@ -85,7 +85,7 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
 
 1. Jelentkezzen be az Azure Stack Operator portál szolgáltatás-rendszergazdaként.
 
-2. Válassza **a minden szolgáltatás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók**elemet.
+2. Válassza **a minden szolgáltatás** &gt; **felügyeleti erőforrások** &gt; **SQL-üzemeltetési kiszolgálók**elemet.
 
    ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
@@ -100,7 +100,7 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
     Megadhatja a példány nevét, és megadhatja a portszámot, ha a példány nincs az alapértelmezett 1433-as porthoz rendelve.
 
    > [!NOTE]
-   > Ha az SQL-példányt a felhasználó és a rendszergazda Azure Resource Manager is elérheti, akkor az erőforrás-szolgáltató irányítása alá helyezhető. Az SQL- példányt kizárólag az erőforrás-szolgáltató számára kell lefoglalni.
+   > Ha az SQL-példányt a felhasználó és a rendszergazda Azure Resource Manager is elérheti, akkor az erőforrás-szolgáltató irányítása alá helyezhető. Az SQL- __példányt kizárólag__ az erőforrás-szolgáltató számára kell lefoglalni.
 
 4. A kiszolgálók hozzáadásakor hozzá kell rendelnie őket egy meglévő SKU-hoz, vagy létre kell hoznia egy új SKU-t. Az **üzemeltetési kiszolgáló hozzáadása**területen válassza az **SKU**-ket.
 
@@ -121,7 +121,7 @@ Az SQL always on-példányok konfigurálása további lépéseket igényel, és 
 
 ### <a name="automatic-seeding"></a>Automatikus előkészítés
 
-Az egyes rendelkezésre állási csoportokon engedélyezni kell az [automatikus](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) kivetést SQL Server minden egyes példánya esetében.
+Az egyes rendelkezésre állási csoportokon engedélyezni kell az [automatikus Kivetést](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server minden egyes példánya esetében.
 
 Ha engedélyezni szeretné az automatikus betöltést az összes példányon, szerkessze és futtassa a következő SQL-parancsot az elsődleges replikán minden másodlagos példány esetében:
 
@@ -158,7 +158,7 @@ A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési k
 
 1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
 
-2. Válassza a **Tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **+ Hozzáadás**lehetőséget.
+2. Válassza a **tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **+ Hozzáadás**lehetőséget.
 
    Az **SQL üzemeltetési kiszolgálók**területen összekapcsolhatja a SQL Server erőforrás-szolgáltatót az erőforrás-szolgáltató háttereként szolgáló SQL Server tényleges példányaival.
 
@@ -178,7 +178,7 @@ Használjon olyan SKU-nevet, amely leírja az SKU-ban található kiszolgálók 
   
 * nagy kapacitás
 * nagy teljesítményű
-* Magas rendelkezésre állás
+* magas rendelkezésre állás
 
 Az ajánlott eljárás szerint az SKU-ban lévő összes üzemeltetési kiszolgálónak ugyanazzal az erőforrással és teljesítménnyel kapcsolatos tulajdonságokkal kell rendelkeznie.
 
@@ -186,9 +186,9 @@ A SKU-t nem lehet hozzárendelni meghatározott felhasználókhoz vagy csoportok
 
 A SKU akár egy órát is igénybe vehet, hogy megjelenjenek a portálon. A felhasználók nem tudnak adatbázist létrehozni, amíg az SKU teljesen létre nem jön.
 
-Az SKU szerkesztéséhez lépjen a **minden szolgáltatás** > **SQL** > -adapterek**SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
+Az SKU szerkesztéséhez lépjen a **minden szolgáltatás** > **SQL-adapter** > **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
 
-A már nem szükséges SKU törléséhez lépjen a **minden szolgáltatás** > **SQL** > -adapterek**SKU**-ra. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
+A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás** > **SQL-adapter** > **SKU**-t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
 
 > [!IMPORTANT]
 > Akár egy óráig is eltarthat, amíg az új SKU elérhetővé válik a felhasználói portálon.

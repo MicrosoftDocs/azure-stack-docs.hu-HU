@@ -24,7 +24,7 @@ ms.locfileid: "72019452"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack karbantartási szabályzat
 
-*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
 
 Ez a cikk a Azure Stack integrált rendszerek karbantartási szabályzatát ismerteti, ami szükséges ahhoz, hogy a rendszer támogatott állapotban maradjon, és hogyan kérhet támogatást.
 

@@ -23,7 +23,7 @@ ms.locfileid: "71814458"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Az API-verziók profiljainak használata a go in Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 ## <a name="go-and-version-profiles"></a>A Go és a Version profilok
 
@@ -107,7 +107,7 @@ Ha Azure Stackon szeretné futtatni a go Code mintát, kövesse az alábbi lép�
       vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
    ```
 
-   Állítsa a `<baseURI>` értéket a 2. lépésben használt **ResourceManagerUrl** értékre. Állítsa @no__t – 0 értéket a 3. lépésben mentett **SubscriptionID** értékre.
+   `<baseURI>` beállítása a 2. lépésben használt **ResourceManagerUrl** értékre. Állítsa `<subscriptionID>` értéket a 3. lépésből mentett **SubscriptionID** értékre.
 
    A jogkivonat létrehozásához tekintse meg a következő szakaszt.  
 
@@ -128,7 +128,7 @@ A virtuális hálózatok a go SDK-profillal való létrehozásával kapcsolatos 
 
 ## <a name="authentication"></a>Authentication
 
-Ha a go SDK-val szeretné beolvasni a Azure Active Directory engedélyező tulajdonságát, telepítse a **Go-autorest-** modulokat. Ezeket a modulokat már telepítve kell lennie a "Go SDK" telepítésének. Ha nem, telepítse a [hitelesítési csomagot a githubról](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
+Ha a go SDK-val szeretné beolvasni a Azure Active Directory **engedélyező** tulajdonságát, telepítse a **Go-autorest-** modulokat. Ezeket a modulokat már telepítve kell lennie a "Go SDK" telepítésének. Ha nem, telepítse a [hitelesítési csomagot a githubról](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
 Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseként. Az ügyfél hitelesítő adataival többféleképpen lehet beolvasni a Azure Stack hitelesítő jogkivonatait:
 
@@ -154,7 +154,7 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
    }
    ```
 
-   Állítsa a @no__t – 0 értéket a dokumentum előző szakaszában lekért `ResourceManagerUrl` metaadatok `loginEndpoint` tulajdonságának értékére. Állítsa a `<tenantID>` értéket a Azure Stack bérlői AZONOSÍTÓra.
+   Állítsa a `<activeDirectoryEndpoint>` értéket a dokumentum előző szakaszában lekért `ResourceManagerUrl` metaadatok `loginEndpoint` tulajdonságának értékére. Állítsa a `<tenantID>` értéket a Azure Stack bérlői AZONOSÍTÓra.
 
 4. Végül hozzon létre egy egyszerű szolgáltatásnevet a **adal** modul `NewServicePrincipalToken` metódusának használatával:
 
@@ -174,16 +174,16 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
        return token, err
    ```
 
-    Állítsa a `<activeDirectoryResourceID>` értéket a jelen cikk előző szakaszának "célközönség" listájának egyik értékére a **ResourceManagerUrl** metaadataiból.
-    Állítsa be a `<clientID>` értéket az egyszerű szolgáltatásnév alkalmazás-AZONOSÍTÓjának megadására, amikor a szolgáltatás a jelen cikk előző szakaszában lett létrehozva.
-    Állítsa a `<clientSecret>` értéket az egyszerű szolgáltatásnév alkalmazás titkos kódjára, amelyet a jelen cikk előző szakaszában hozott létre.
+    A jelen cikk előző szakaszában lekért **ResourceManagerUrl** metaadatok közül a "célközönség" listán szereplő értékek egyikére `<activeDirectoryResourceID>` beállítani.
+    `<clientID>` beállítása az egyszerű szolgáltatásnév alkalmazás-AZONOSÍTÓJÁRA, amelyet a jelen cikk előző szakaszában hoztak létre.
+    `<clientSecret>` beállítása az egyszerű szolgáltatásnév alkalmazás titkos kódjára, amelyet a jelen cikk előző szakaszában hoztak létre.
 
 ## <a name="example"></a>Példa
 
 Ez a példa egy olyan go-kódot mutat be, amely egy virtuális hálózatot hoz létre Azure Stackon. A go SDK-val kapcsolatos teljes példákért tekintse meg az [Azure go SDK Samples adattárát](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack minták a tárház szolgáltatási mappáiban található hibrid útvonalon érhetők el.
 
 > [!NOTE]  
-> Az ebben a példában szereplő kód futtatásához ellenőrizze, hogy a használt előfizetésben regisztrálva van-e a **hálózati** erőforrás-szolgáltató. Ha ellenőrizni szeretné, keresse meg az előfizetést a Azure Stack-portálon, és válassza az **erőforrás-szolgáltatók lehetőséget.**
+> Az ebben a példában szereplő kód futtatásához ellenőrizze, hogy a használt előfizetésben **regisztrálva**van-e a **hálózati** erőforrás-szolgáltató. Ha ellenőrizni szeretné, keresse meg az előfizetést a Azure Stack-portálon, és válassza az **erőforrás-szolgáltatók lehetőséget.**
 
 1. Importálja a szükséges csomagokat a kódban. A hálózati modul importálásához használja a Azure Stack legújabb elérhető profilját:
 

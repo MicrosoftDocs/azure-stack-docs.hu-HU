@@ -24,7 +24,7 @@ ms.locfileid: "71961876"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>A Azure Stack használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
-*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
 
 Ez a cikk bemutatja, hogyan regisztrálhat Azure Stack felhőalapú megoldás-szolgáltatóként (CSP), és hogyan adhat hozzá ügyfeleket.
 
@@ -47,7 +47,7 @@ Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típ
 
 Az Azure partner Shared Services (APSS) előfizetések használata ajánlott a regisztrációhoz, ha egy közvetlen CSP vagy egy CSP-terjesztő Azure Stack működik.
 
-A APSS-előfizetések egy megosztott szolgáltatásbeli bérlőhöz vannak társítva. Azure Stack regisztrálásakor meg kell adnia egy olyan fiók hitelesítő adatait, amely az előfizetés tulajdonosa. A Azure Stack regisztrálásához használt fiók eltérhet az üzembe helyezéshez használt rendszergazdai fióktól. Továbbá a két fióknak nem kell ugyanahhoz a tartományhoz tartoznia; az üzembe helyezést a már használt bérlő használatával végezheti el. Használhatja például a `ContosoCSP.onmicrosoft.com`, majd egy másik bérlő használatával történő regisztrálást. például `IURContosoCSP.onmicrosoft.com`. A napi Azure Stack felügyelet végrehajtásakor ne felejtse el bejelentkezni `ContosoCSP.onmicrosoft.com` használatával. Ha regisztrációs műveletet kell végrehajtania, akkor `IURContosoCSP.onmicrosoft.com` használatával kell bejelentkeznie az Azure-ba.
+A APSS-előfizetések egy megosztott szolgáltatásbeli bérlőhöz vannak társítva. Azure Stack regisztrálásakor meg kell adnia egy olyan fiók hitelesítő adatait, amely az előfizetés tulajdonosa. A Azure Stack regisztrálásához használt fiók eltérhet az üzembe helyezéshez használt rendszergazdai fióktól. Továbbá a két fióknak nem kell ugyanahhoz a tartományhoz tartoznia; az üzembe helyezést a már használt bérlő használatával végezheti el. Használhatja például `ContosoCSP.onmicrosoft.com`, majd regisztrálhat egy másik bérlő használatával; például `IURContosoCSP.onmicrosoft.com`. A napi Azure Stack felügyelet végrehajtásakor ne felejtse el bejelentkezni `ContosoCSP.onmicrosoft.com` használatával. Ha regisztrációs műveletet kell végrehajtania, akkor `IURContosoCSP.onmicrosoft.com` használatával bejelentkezhet az Azure-ba.
 
 A APSS-előfizetések és azok létrehozási módjának leírását az [Azure partner megosztott szolgáltatásainak hozzáadása](/partner-center/shared-services)című témakörben tekintheti meg.
 

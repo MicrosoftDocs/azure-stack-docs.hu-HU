@@ -25,7 +25,7 @@ ms.locfileid: "71974113"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack csatlakozás az Azure-hoz VPN használatával
 
-*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
 
 Ez a cikk azt ismerteti, hogyan lehet helyek közötti VPN-t létrehozni egy virtuális hálózat Azure Stack egy Azure-beli virtuális hálózatban való összekapcsolásához.
 
@@ -51,8 +51,8 @@ A hálózati konfigurációval kapcsolatos példák táblázat a cikkben szerepl
 |Virtuális hálózat neve     |Azs-VNet|AzureVNet |
 |Virtuális hálózati címtartomány |10.1.0.0/16|10.100.0.0/16|
 |Alhálózat neve     |Előtér|Előtér|
-|Alhálózat címtartománya|10.1.0.0/24 |10.100.0.0/24 |
-|Átjáróalhálózat     |10.1.1.0/24|10.100.1.0/24|
+|Alhálózati címtartomány|10.1.0.0/24 |10.100.0.0/24 |
+|Átjáró alhálózata     |10.1.1.0/24|10.100.1.0/24|
 
 ## <a name="create-the-network-resources-in-azure"></a>Hálózati erőforrások létrehozása az Azure-ban
 

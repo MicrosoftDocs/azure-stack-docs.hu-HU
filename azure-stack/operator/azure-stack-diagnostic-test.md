@@ -23,7 +23,7 @@ ms.locfileid: "71829172"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
 
 Azure Stack kezelőként elengedhetetlen, hogy az igény szerinti rendszer állapotát és állapotát meg lehessen határozni. A Azure Stack Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy a rendszer teszteket futtasson a rendszeren a hibák azonosítása érdekében, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
 
@@ -48,7 +48,7 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
 
    További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog` parancsot. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne gyűjtsön naplókat, és ne vegye fel a kapcsolatot a CSS-sel, ha a tesztek **figyelmeztetnek**
 
@@ -131,7 +131,7 @@ Az ellenőrzési eszköz a következő Felhőbeli forgatókönyveket teszteli:
 - A **DetailedResults** az egyes tesztekhez tartozó Pass/Fail/Warning információ beszerzésére, valamint a teljes futtatásra is használható. Ha nincs megadva, a **test-AzureStack** visszaadja **$true** , ha nincsenek hibák, és **$false** , ha hibák történtek.
 - A **TimeoutSeconds** egy adott idő megadására is használható az egyes csoportok befejezéséhez.
 
-- Az ellenőrző eszköz a gyakori PowerShell-paramétereket is támogatja: Részletes, hibakeresés, ErrorAction, ErrorVariable, WarningAction, WarningVariable, kiegyenlítő, PipelineVariable és túlváltozó. További információ: [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216).  
+- Az érvényesítési eszköz az általános PowerShell-paramétereket is támogatja: verbose, debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, kimenet, PipelineVariable és túlváltozó. További információ: [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216).  
 
 ## <a name="use-case-examples"></a>Példák használata
 
@@ -160,14 +160,14 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
 ```
 
-A Felhőbeli rendszergazda felhasználónevet az UPN formátumba kell írni: @no__t – 0 (Azure AD). Ha a rendszer kéri, írja be a jelszót a Felhőbeli rendszergazdai fiókba.
+A Felhőbeli rendszergazda felhasználónevet a következő UPN-formátumba kell beírni: serviceadmin@contoso.onmicrosoft.com (Azure AD). Ha a rendszer kéri, írja be a jelszót a Felhőbeli rendszergazdai fiókba.
 
 ### <a name="groups"></a>Csoportok
 
-A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **Alapértelmezett**, **UpdateReadiness**és **SecretRotationReadiness**.
+A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **default**, **UpdateReadiness**és **SecretRotationReadiness**.
 
-- **Alapértelmezett**: A **teszt-AzureStack**normál futtatásának számít. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
-- **UpdateReadiness**: Ellenőrizze, hogy a Azure Stack-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A következő kategóriák a **UpdateReadiness** csoport részét képezik:
+- **Alapértelmezett**: a **test-AzureStack**standard futtatásának tekintendő. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
+- **UpdateReadiness**: megtekintheti, hogy a Azure stack-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A következő kategóriák a **UpdateReadiness** csoport részét képezik:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -178,7 +178,7 @@ A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve 
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**: Ellenőrizze, hogy a Azure Stack példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
+- **SecretRotationReadiness**: Ellenőrizze, hogy a Azure stack példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**

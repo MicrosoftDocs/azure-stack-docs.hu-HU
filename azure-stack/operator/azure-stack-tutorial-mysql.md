@@ -18,7 +18,7 @@ ms.contentlocale: hu-HU
 ms.lasthandoff: 10/11/2019
 ms.locfileid: "72283406"
 ---
-# <a name="offer-highly-available-mysql-databases"></a>Kiválóan elérhető MySQL-adatbázisok
+# <a name="offer-highly-available-mysql-databases"></a>Magas rendelkezésre állású MySQL-adatbázisok ajánlat
 
 Azure Stack kezelőként beállíthatja a kiszolgálói virtuális gépeket a MySQL-kiszolgáló adatbázisainak üzemeltetésére. Miután a MySQL-fürtöt sikeresen létrehozta, és Azure Stack felügyelte, a MySQL-szolgáltatásra előfizetett felhasználók könnyen létrehozhatnak olyan, magasan elérhető MySQL-adatbázisokat.
 
@@ -55,7 +55,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
 
 - Egy virtuális hálózat
 - Egy hálózati biztonsági csoport
-- Egy Storage-fiók
+- egy Storage-fiók
 - Rendelkezésre állási csoport
 - Három hálózati adapter (egyet az egyes alapértelmezett virtuális gépek esetében)
 - Nyilvános IP-cím (az elsődleges MySQL-fürt virtuális géphez)
@@ -64,7 +64,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. Válassza a **\+** **erőforrás létrehozása** > **számítás**, majd **a MySQL replikációval**lehetőséget.
+2. Válassza ki **\+** **erőforrás létrehozása** > **számítás**, majd **a MySQL replikációval**lehetőséget.
 
    ![Egyéni sablon központi telepítése](media/azure-stack-tutorial-mysqlrp/1.png)
 
@@ -125,7 +125,7 @@ Ahhoz, hogy a MySQL-fürtöt Azure Stack MySQL-kiszolgáló gazdagépként lehes
 
    ![Szolgáltatás keresése](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. Hozzon létre egy távelérési felhasználói fiókot, amelyet a Azure Stack MySQL üzemeltetési kiszolgáló használ a MySQL-hez való kapcsolódáshoz, majd zárja be az SSH-ügyfelet.<br><br>A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként a korábban létrehozott root password használatával, és hozzon létre egy új rendszergazda felhasználót, és cserélje le a *\<username @ no__t-2* és *\<password @ no__t-5* parancsot a környezetéhez szükséges módon. Ebben a példában a létrehozandó felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
+3. Hozzon létre egy távelérési felhasználói fiókot, amelyet a Azure Stack MySQL üzemeltetési kiszolgáló használ a MySQL-hez való kapcsolódáshoz, majd zárja be az SSH-ügyfelet.<br><br>A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként, használja a korábban létrehozott legfelső szintű jelszót, és hozzon létre egy új rendszergazda felhasználót, cserélje le *\<username\>* és *\<Password\>* szükség szerint a környezetéhez. Ebben a példában a létrehozandó felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
 
    ```mysql
    mysql -u root -p
@@ -165,7 +165,7 @@ Miután a MySQL-fürtöt létrehozta, konfigurálta és hozzáadta Azure Stack M
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Válassza az **\+** **erőforrás létrehozása** > **adat\+ tároló**, majd a **MySQL-adatbázis**elemet.<br><br>Adja meg a szükséges adatbázis-tulajdonságok adatait, beleértve a nevet, a rendezést, a használandó előfizetést és a telepítéshez használandó helyet. 
+2. Válassza **a\+erőforrás létrehozása** > **az adat\+ Storage**, majd a **MySQL-adatbázis**elemet.<br><br>Adja meg a szükséges adatbázis-tulajdonságok adatait, beleértve a nevet, a rendezést, a használandó előfizetést és a telepítéshez használandó helyet. 
 
    ![MySQL-adatbázis létrehozása](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
@@ -173,7 +173,7 @@ Miután a MySQL-fürtöt létrehozta, konfigurálta és hozzáadta Azure Stack M
 
    ![SKU kiválasztása](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. Válassza a **login** > **új bejelentkezés létrehozása** lehetőséget, majd adja meg az új adatbázishoz használandó MySQL-hitelesítési hitelesítő adatokat. Ha elkészült, kattintson az **OK gombra** , majd **hozza létre** az adatbázis-telepítési folyamat megkezdéséhez.
+4. Válassza a **bejelentkezés** > **új bejelentkezés létrehozása** lehetőséget, majd adja meg az új adatbázishoz használandó MySQL-hitelesítési hitelesítő adatokat. Ha elkészült, kattintson az **OK gombra** , majd **hozza létre** az adatbázis-telepítési folyamat megkezdéséhez.
 
    ![Bejelentkezés hozzáadása](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 
@@ -181,6 +181,6 @@ Miután a MySQL-fürtöt létrehozta, konfigurálta és hozzáadta Azure Stack M
 
    ![A kapcsolatok karakterláncának megtekintése](./media/azure-stack-tutorial-mysqlrp/createdb4.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A MySQL típusú erőforrás-szolgáltató frissítése](azure-stack-mysql-resource-provider-update.md)

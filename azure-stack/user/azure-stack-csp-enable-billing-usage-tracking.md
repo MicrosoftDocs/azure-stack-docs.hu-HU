@@ -24,7 +24,7 @@ ms.locfileid: "71961634"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-subscription"></a>Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack-előfizetését
 
-*Vonatkozik: Azure Stack integrált rendszerek @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
 
 Ha a Azure Stackt felhőalapú megoldás-szolgáltatóval (CSP) használja, akkor dönthet úgy, hogy saját előfizetését felügyeli az Azure-ban és a Azure Stack található erőforrásokhoz való hozzáféréshez. Azt is engedélyezheti, hogy a szolgáltató kezelje az előfizetését. Ez a cikk bemutatja, hogyan végezheti el a következőket:
 

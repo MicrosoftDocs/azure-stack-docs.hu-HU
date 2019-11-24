@@ -22,7 +22,7 @@ ms.contentlocale: hu-HU
 ms.lasthandoff: 10/11/2019
 ms.locfileid: "72277040"
 ---
-# <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
+# <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
 
 Az erőforrások kezeléséhez kapcsolódnia kell a Azure Stack Development Kithoz. Ez a cikk a fejlesztői csomaghoz való kapcsolódáshoz szükséges lépéseket ismerteti. A következő kapcsolatok közül választhat:
 
@@ -36,7 +36,7 @@ Egy Távoli asztali kapcsolat egyetlen egyidejű felhasználó együttműködik 
 
 2. A fejlesztői készlet számítógépén nyissa meg a Kiszolgálókezelő eszközt, kattintson a **helyi kiszolgáló**elemre, kapcsolja ki az Internet Explorer fokozott biztonsági szolgáltatását, majd a Kiszolgálókezelő elemet.
 
-3. A portál megnyitásához nyissa meg a (https://portal.local.azurestack.external/), és jelentkezzen be felhasználói hitelesítő adatok használatával.
+3. A portál megnyitásához nyissa meg a (https://portal.local.azurestack.external/) és jelentkezzen be a felhasználói hitelesítő adatok használatával.
 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>Csatlakozás Azure Stack VPN-kapcsolattal
@@ -49,7 +49,7 @@ Létrehozhat egy megosztott bújtatási VPN-kapcsolatot egy Azure Stack Developm
 ### <a name="prerequisites"></a>Előfeltételek
 
 * Telepítse [Azure stack kompatibilis Azure PowerShell](../operator/azure-stack-powershell-install.md) a helyi számítógépre.  
-* Töltse le a [Azure stack használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md). 
+* Töltse le a [az Azure Stack működéséhez szükséges eszközök](../operator/azure-stack-powershell-download.md). 
 
 ### <a name="configure-vpn-connectivity"></a>VPN-kapcsolat konfigurálása
 
@@ -84,15 +84,15 @@ Add-AzsVpnConnection `
 
 ```
 
-Ha a telepítés sikeres, a VPN-kapcsolatok listájában `azurestack` jelenik meg.
+Ha a telepítés sikeres, a `azurestack` jelenik meg a VPN-kapcsolatok listájában.
 
 ![Hálózati kapcsolatok](media/azure-stack-connect-azure-stack/image3.png)  
 
-### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
+### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
 
 Kapcsolódjon a Azure Stack-példányhoz a következő két módszer valamelyikével:  
 
-* A `Connect-AzsVpn` parancs használatával: 
+* Az `Connect-AzsVpn` parancs használatával: 
     
   ```powershell
   Connect-AzsVpn `
@@ -101,13 +101,13 @@ Kapcsolódjon a Azure Stack-példányhoz a következő két módszer valamelyik�
 
   Ha a rendszer kéri, bízza a Azure Stack gazdagépre, és telepítse a tanúsítványt a **AzureStackCertificateAuthority** -ből a helyi számítógép tanúsítványtárolóba. Előfordulhat, hogy a parancssor a PowerShell-munkamenet ablaka mögött jelenik meg. 
 
-* A helyi számítógépen lépjen a **hálózati beállítások** > **VPN** > válassza a `azurestack` @ no__t-4**Csatlakozás**lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (AzureStack\AzureStackAdmin) és a jelszót.
+* A helyi számítógépen nyissa meg a **hálózati beállítások** > **VPN** > válassza a `azurestack` > **Kapcsolódás**lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (AzureStack\AzureStackAdmin) és a jelszót.
 
 ### <a name="test-the-vpn-connectivity"></a>A VPN-kapcsolat tesztelése
 
 A portál-kapcsolatok teszteléséhez nyisson meg egy böngészőt, és nyissa meg a felhasználói portált (https://portal.local.azurestack.external/), jelentkezzen be, majd hozzon létre erőforrásokat.  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 
 

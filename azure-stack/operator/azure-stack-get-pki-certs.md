@@ -28,7 +28,7 @@ A Azure Stack Readiness-ellenőrző eszköz használatával tanúsítvány-alá�
 A következő tanúsítványok igényléséhez használhatja a Azure Stack Readiness-ellenőrző eszközt (AzsReadinessChecker):
 
 - **Szabványos tanúsítványkérelmek** a [tanúsítvány-aláírási kérelem előállítása](azure-stack-get-pki-certs.md#generate-certificate-signing-requests)alapján.
-- **Platform-as-a-Service**: A tanúsítványokra vonatkozóan a [nyilvános kulcsokra épülő infrastruktúra tanúsítványára vonatkozó követelményekben Azure stack](azure-stack-pki-certs.md#optional-paas-certificates)megadott platform-szolgáltatásként (a-Service-szolgáltatások (Pásti) nevét is kérheti – opcionális Péter-tanúsítványok.
+- **Szolgáltatásként szolgáló platform**: a [nyilvános kulcsokra épülő infrastruktúra tanúsítványának követelményeiben (nem kötelezően](azure-stack-pki-certs.md#optional-paas-certificates)kitöltendő) tanúsítványokban Azure stack megadott platform-szolgáltatásként (a (z).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -38,7 +38,7 @@ A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt a PKI
 - Tanúsítvány attribútumai:
   - Régió neve
   - Külső teljesen minősített tartománynév (FQDN)
-  - Subject
+  - Tárgy
 - Windows 10 vagy Windows Server 2016 vagy újabb
 
   > [!NOTE]  
@@ -54,7 +54,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarálja a **tárgyat** rendezett szótárként. Példa:
+2. Deklarálja a **tárgyat** rendezett szótárként. Például:
 
     ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -63,7 +63,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     > [!note]  
     > Köznapi név (CN) megadása esetén a tanúsítványkérelem első DNS-neve felül lesz írva.
 
-3. Deklaráljon egy már létező kimeneti könyvtárat. Példa:
+3. Deklaráljon egy már létező kimeneti könyvtárat. Például:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -91,7 +91,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     ```
 
     > [!note]  
-    > @no__t – 0 – a Azure Stack összes külső DNS-nevének létrehozása, ebben a példában a portál `portal.east.azurestack.contoso.com`.  
+    > a `<regionName>.<externalFQDN>` a Azure Stack összes külső DNS-nevét létrehozzák, ebben a példában a portál `portal.east.azurestack.contoso.com`.  
 
 6. Tanúsítvány-aláírási kérelmek előállítása minden DNS-névhez:
 
@@ -99,7 +99,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    A Péter-szolgáltatások belefoglalásához adja meg a kapcsolót ```-IncludePaaS```.
+    A Pásti-szolgáltatások belefoglalásához adja meg a kapcsolót ```-IncludePaaS```.
 
 7. A fejlesztési és tesztelési környezetekben egyetlen, több tulajdonos alternatív névvel rendelkező **RequestType SingleCSR** paramétert és értéket (éles környezetekben**nem** ajánlott) hozhat létre.
 
@@ -107,7 +107,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    A Péter-szolgáltatások belefoglalásához adja meg a kapcsolót @no__t – 0
+    A Pásti-szolgáltatások belefoglalásához adja meg a kapcsolót ```-IncludePaaS```
 
 8. Tekintse át a kimenetet:
 

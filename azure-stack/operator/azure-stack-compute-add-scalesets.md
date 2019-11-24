@@ -20,7 +20,7 @@ ms.locfileid: "71974097"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>A virtuálisgép-méretezési csoportok elérhetővé tétele Azure Stack
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit @ no__t-0
+*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
   
 A virtuálisgép-méretezési csoportok egy Azure Stack számítási erőforrás. A velük azonos virtuális gépek (VM-EK) készletének üzembe helyezésére és kezelésére használható. A méretezési csoportok az összes azonos módon konfigurált virtuális géppel nem igénylik a virtuális gépek előzetes üzembe helyezését. A nagyméretű számítási, big data és tároló munkaterheléseket célzó nagy méretű szolgáltatások kiépítése egyszerűbb.
 
@@ -35,25 +35,25 @@ Azure Stack a virtuálisgép-méretezési csoportok nem támogatják az autoská
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* **Azure Stack Marketplace:** Azure Stack regisztrálása a globális Azure-ban, amely lehetővé teszi a Azure Stack piactéren található elemek rendelkezésre állását. Kövesse a [Azure stack regisztrálása az Azure](azure-stack-registration.md)-ban című témakör utasításait.
+* **Azure stack Marketplace:** Azure Stack regisztrálása a globális Azure-ban, amely lehetővé teszi a Azure Stack piactéren található elemek rendelkezésre állását. Kövesse a [Azure stack regisztrálása az Azure](azure-stack-registration.md)-ban című témakör utasításait.
 * **Operációs rendszer képe:** A virtuálisgép-méretezési csoport létrehozása előtt le kell töltenie a virtuálisgép-lemezképeket a méretezési csoportba a [Azure stack piactéren](azure-stack-download-azure-marketplace-item.md). A lemezképeknek már léteznie kell, mielőtt egy felhasználó létre tud hozni egy új méretezési készletet.
 
-## <a name="use-the-azure-stack-portal"></a>Az Azure Stack-portál használata
+## <a name="use-the-azure-stack-portal"></a>A Azure Stack portál használata
 
 >[!IMPORTANT]  
 > Az ebben a szakaszban szereplő információk a Azure Stack 1808-es vagy újabb verziójának használatakor érvényesek. Ha a verzió 1807-es vagy korábbi, tekintse meg [a virtuálisgép-méretezési csoport hozzáadása (a 1808 előtt)](#add-the-virtual-machine-scale-set-prior-to-version-1808)című témakört.
 
 1. Jelentkezzen be a Azure Stack portálra. Ezután nyissa meg a **minden szolgáltatás**, majd a **virtuálisgép-méretezési**csoportok elemet, majd a **számítás**területen válassza a **virtuálisgép-méretezési**csoportok lehetőséget.
-   @no__t – 0Select virtuálisgép-méretezési készletek @ no__t-1
+   ![válassza ki a virtuálisgép-méretezési csoportokat](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. Válassza a ***virtuálisgép-méretezési csoportok létrehozása***lehetőséget.
    ![Virtuálisgép-méretezési csoport létrehozása](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. Töltse ki az üres mezőket, válasszon a legördülő listából az **operációsrendszer-lemez lemezképének**, **előfizetésének**és **példányának méretétől**függően. A **felügyelt lemezek használatához**válassza az **Igen** lehetőséget. Kattintson a **létrehozás**.
-    @no__t – 0Configure és virtuálisgép-méretezési csoportok létrehozása @ no__t-1
+3. Töltse ki az üres mezőket, válasszon a legördülő listából az **operációsrendszer-lemez lemezképének**, **előfizetésének**és **példányának méretétől**függően. A **felügyelt lemezek használatához**válassza az **Igen** lehetőséget. Ezt követően kattintson a **Create** (Létrehozás) gombra.
+    ![konfigurálja és hozza létre a virtuálisgép-méretezési csoportokat](media/azure-stack-compute-add-scalesets/create.png)
 
 4. Az új virtuálisgép-méretezési csoport megjelenítéséhez nyissa meg az **összes erőforrást**, keresse meg a virtuálisgép-méretezési csoport nevét, majd válassza ki a kívánt nevet a keresésben.
-   @no__t – a virtuálisgép-méretezési csoport 0View a @ no__t-1
+   ![tekintse meg a virtuálisgép-méretezési csoport](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>A virtuálisgép-méretezési csoport hozzáadása (a 1808-es verzió előtt)
 
@@ -74,9 +74,9 @@ A virtuálisgép-méretezési csoport létrehozása után a felhasználók friss
 
 1. A virtuálisgép-méretezési csoport telepítési sablonja a **legújabb** **verziót**adja meg:  
 
-   Ha a `version` a méretezési csoport sablonjának `imageReference` szakaszában a **legújabb** értékre van állítva, akkor a méretezési csoport skálázási műveleteinél a lemezkép legújabb elérhető verziója használható a méretezési csoport példányaihoz. A méretezés befejezése után törölheti a régebbi virtuálisgép-méretezési csoportok példányait. A `publisher`, `offer` és `sku` értékek változatlanok maradnak.
+   Ha a méretezési csoport sablonjának `imageReference` szakaszában a `version` a **legújabb** értékre van állítva, a méretezési csoportban a méretezési csoportban lévő skálázási műveletek a lemezkép legújabb elérhető verzióját használják a méretezési csoport példányaihoz. A méretezés befejezése után törölheti a régebbi virtuálisgép-méretezési csoportok példányait. A `publisher`, `offer`és `sku` értékei változatlanok maradnak.
 
-   A következő JSON-példa a `latest` értéket adja meg:  
+   A következő JSON-példa a `latest`t adja meg:  
 
     ```json  
     "imageReference": {

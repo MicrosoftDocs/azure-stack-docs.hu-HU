@@ -105,9 +105,9 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1.  Másolja a `azurestack_plugin.py` beépülő modult a következő könyvtárba: `/usr/local/nagios/libexec`.
+1.  Másolja a beépülő modult `azurestack_plugin.py` a következő könyvtárba: `/usr/local/nagios/libexec`.
 
-2.  Másolja a `azurestack_handler.sh` kezelőt a következő könyvtárba: `/usr/local/nagios/libexec/eventhandlers`.
+2.  Másolja a kezelőt `azurestack_handler.sh` a következő könyvtárba: `/usr/local/nagios/libexec/eventhandlers`.
 
 3.  Győződjön meg arról, hogy a beépülő modul fájlja végrehajtható:
 
@@ -122,31 +122,31 @@ A következő paraméterek konfigurálhatók a azurestack. cfg fájlban. A félk
 
 Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
 
-| Paraméter | Leírás | Hitelesítés |
+| Paraméter | Leírás | Authentication |
 | --- | --- | --- |
 | **External_domain_fqdn ** | Külső tartomány teljes tartományneve |    |
-| \* * régió: * * | Régió neve |    |
-| **tenant_id: ** | Bérlő azonosítója @ no__t-0 |    |
+| \* * régió: * * | Régiónév |    |
+| **tenant_id: ** | Bérlői azonosító\* |    |
 | client_id: | Ügyfél-azonosító | SPN titkos kulccsal |
 | client_secret: | Ügyfél jelszava | SPN titkos kulccsal |
-| client_cert @ no__t-0 @ no__t-1: | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
-| client_cert_thumbprint @ no__t-0 @ no__t-1: | Tanúsítvány ujjlenyomata | SPN tanúsítvánnyal |
+| client_cert\*\*: | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
+| client_cert_thumbprint\*\*: | Tanúsítvány ujjlenyomata | SPN tanúsítvánnyal |
 
-\*Tenant-azonosító nem szükséges a (AD FS) Azure Stack üzemelő példányokhoz.
+\*bérlői azonosító nem szükséges a (AD FS) Azure Stack üzemelő példányokhoz.
 
-\* @ no__t-1 ügyfél titkos kulcsa és az ügyfél-tanúsítvány kölcsönösen kizárják egymást.
+\*\* ügyfél titkos kulcsa és az ügyfél-tanúsítvány kölcsönösen kizárják egymást.
 
 A többi konfigurációs fájl opcionális konfigurációs beállításokat tartalmaz, mivel azok a Nagios-ben is konfigurálhatók.
 
 > [!Note]  
-> Keresse meg a azurestack_hosts. cfg és a azurestack_services. cfg helyen található célhelyet.
+> Keresse meg a hely célhelyét azurestack_hosts. cfg és azurestack_services. cfg fájlon.
 
 | Konfiguráció | Leírás |
 | --- | --- |
-| azurestack_commands. cfg | A kezelő konfigurációjában nincs szükség módosításra |
-| azurestack_contacts. cfg | Értesítési beállítások |
-| azurestack_hosts. cfg | Azure Stack központi telepítés elnevezése |
-| azurestack_services. cfg | A szolgáltatás konfigurációja |
+| azurestack_commands.cfg | A kezelő konfigurációjában nincs szükség módosításra |
+| azurestack_contacts.cfg | Értesítési beállítások |
+| azurestack_hosts.cfg | Azure Stack központi telepítés elnevezése |
+| azurestack_services.cfg | A szolgáltatás konfigurációja |
 
 ### <a name="setup-steps"></a>Telepítési lépések
 
@@ -194,7 +194,7 @@ A riasztások a következő paranccsal is lezárhatók egy terminál használat�
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>Hibakeresés
+### <a name="troubleshooting"></a>Hibaelhárítás
 
 A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja meg a beépülő modult egy terminálon. Használja a következő módszert:
 
@@ -204,9 +204,9 @@ A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja me
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>Az állapot és a riasztások figyelése a PowerShell használatával
 
-Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a PowerShell használatával számos figyelési megoldással integrálhatja az Azure Stack.
+Ha nem használja az Operations Manager, Nagios, illetve a Nagios-alapú megoldás, a PowerShell használatával széles skálájával figyelési megoldásoknak integrálása az Azure-verem engedélyezése.
 
-1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack operátori környezethez. Telepítse a PowerShellt egy helyi számítógépen, amely elérheti a Resource Manager-(rendszergazda-) végpontot (https://adminmanagement. [ régió]. [External_FQDN]).
+1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack operátori környezethez. Telepítse a PowerShell helyi számítógépre, amely képes elérni az erőforrás-kezelő (rendszergazda) végpont (https://adminmanagement. [régió]. [External_FQDN]).
 
 2. Futtassa a következő parancsokat a Azure Stack-környezethez Azure Stack operátorként való kapcsolódáshoz:
 
@@ -240,10 +240,10 @@ Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a 
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>További információ
+## <a name="learn-more"></a>Részletek
 
 További információ a beépített állapot-figyelésről: [az állapot és a riasztások figyelése Azure Stackban](azure-stack-monitor-health.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Biztonsági integráció](azure-stack-integrate-security.md)

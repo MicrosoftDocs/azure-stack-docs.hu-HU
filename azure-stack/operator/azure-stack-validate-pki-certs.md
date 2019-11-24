@@ -58,7 +58,7 @@ A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt ellen
 
 - Microsoft Azure Stack Readiness-ellenőrző
 - Az [előkészítési útmutatást](azure-stack-prepare-pki-certs.md) követően exportált SSL-tanúsítvány (ok)
-- DeploymentData. JSON
+- DeploymentData.json
 - Windows 10 vagy Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Alapszintű szolgáltatások tanúsítványának ellenőrzése
@@ -71,7 +71,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja a `<c:\certificates>` értéket a választott új elérési útra.
+2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja a `<c:\certificates>`t az Ön által választott új könyvtár elérési útjára.
     ```powershell  
     New-Item C:\Certificates -ItemType Directory
     
@@ -83,13 +83,13 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     ```
     
     > [!Note]  
-    > A AD FS és a Graph használata akkor szükséges, ha az Ön identitási rendszereként AD FS használ. Példa:
+    > A AD FS és a Graph használata akkor szükséges, ha az Ön identitási rendszereként AD FS használ. Például:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Példa:  
+     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Például:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
@@ -102,7 +102,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-
     Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Győződjön meg arról, hogy a kimenet és az összes tanúsítvány megfelel az összes tesztnek. Példa:
+4. Győződjön meg arról, hogy a kimenet és az összes tanúsítvány megfelel az összes tesztnek. Például:
 
 ```powershell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.
@@ -252,19 +252,19 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack PKI
 
 ## <a name="certificates"></a>Tanúsítványok
 
-| Könyvtár | Tanúsítvány |
+| Címtár | Tanúsítvány |
 | ---    | ----        |
-| acsBlob | wildcard_blob_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| ACSQueue  |  wildcard_queue_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| ACSTable  |  wildcard_table_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Felügyeleti bővítmény gazdagépe  |  wildcard_adminhosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Felügyeleti portál  |  adminportal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| ARM-rendszergazda  |  adminmanagement_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| ARM nyilvános  |  management_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| KeyVault  |  wildcard_vault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Nyilvános kiterjesztésű gazdagép  |  wildcard_hosting_ @ no__t-0region > _ @ no__t-1externalFQDN > |
-| Nyilvános portál  |  portal_ @ no__t-0region > _ @ no__t-1externalFQDN > |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<régió > _\<externalFQDN > |
+| Felügyeleti bővítmény gazdagépe  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| Felügyeleti portál  |  adminportal_\<region>_\<externalFQDN> |
+| ARM-rendszergazda  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM nyilvános  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| Nyilvános kiterjesztésű gazdagép  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| Nyilvános portál  |  portal_\<régió > _\<externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Ellenőrzött tanúsítványok használata
 
@@ -274,6 +274,6 @@ Miután az AzsReadinessChecker hitelesítette a tanúsítványokat, készen áll
  - A Secret rotációs szolgáltatásban a tanúsítványok segítségével frissítheti Azure Stack környezete nyilvános infrastruktúra-végpontjának régi tanúsítványait a [Azure stack Secret rotációs dokumentációjának](azure-stack-rotate-secrets.md)követésével.
  - A Pásti-szolgáltatások esetében a tanúsítványokkal telepítheti az SQL, a MySQL és a App Services erőforrás-szolgáltatót Azure Stack az [Azure stack dokumentációjában elérhető szolgáltatások áttekintését](service-plan-offer-subscription-overview.md)követve.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Adatközpont identitásának integrációja](azure-stack-integrate-identity.md)
