@@ -60,15 +60,15 @@
   items:
     - name: Hibrid alkalmazások kialakításával kapcsolatos szempontok
       href: overview-app-design-considerations.md
-- name: Leírások
+- name: Referencia
   items:
     - name: Azure Stack hub PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
     - name: Azure Stack hub felügyeleti REST API
       href: /rest/api/azure-stack/
-    - name: Azure parancssori felület (CLI)
+    - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakörök
+- name: Kapcsolódó témakör
   items:
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
@@ -76,7 +76,7 @@
       href: /azure-stack/operator/
     - name: ASDK-dokumentáció
       href: /azure-stack/asdk/
-- name: Segédanyagok és eszközök
+- name: Erőforrások
   items:
     - name: Azure Stack hub frissítései
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

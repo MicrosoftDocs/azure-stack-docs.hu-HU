@@ -30,7 +30,7 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
 
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hibrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack hub az Azure kiterjesztése. Azure Stack hub a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
@@ -92,7 +92,7 @@ docker pull intelligentedge/mongodb-hadr:1.0.0
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
 
-4.  Írja be a `Y` értéket a NuGet-szolgáltató telepítésének engedélyezéséhez, amely elindítja a telepíteni kívánt "2018-03-01-Hybrid" modulok API-profilját.
+4.  Írja be `Y` a NuGet-szolgáltató telepítésének engedélyezéséhez, amely elindítja az "2018-03-01-Hybrid" API-profilt, amelyet telepíteni kell.
 
 5.  Először a HA-erőforrások lesznek telepítve. Figyelje a központi telepítést, és várjon, amíg befejeződik. Ha az üzenet arról tájékoztatja, hogy a HA a telepítés befejeződött, akkor az üzembe helyezett erőforrások megtekintéséhez tekintse meg a HA Azure Stack hub portálját. 
 

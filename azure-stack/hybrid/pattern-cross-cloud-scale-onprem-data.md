@@ -35,7 +35,7 @@ A megoldás üzembe helyezési útmutatója lehetővé teszi, hogy egy azonos we
 
 Ez a megoldás a következő összetevőket használja:
 
-| Réteg | Component (Összetevő) | Leírás |
+| Réteg | Összetevő | Leírás |
 |----------|-----------|-------------|
 | Azure | Azure App Service | [Azure app Service](/azure/app-service/) lehetővé teszi a webalkalmazások, a REST API-alkalmazások és a Azure functions kiépítését és üzemeltetését. Minden az Ön által választott programozási nyelven, az infrastruktúra kezelése nélkül. |
 | | Azure Virtual Network| Az [azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) az Azure-beli magánhálózatok alapvető építőeleme. A VNet lehetővé teszi több Azure-erőforrástípus, például Virtual Machines (VM) használatát az egymással, az internettel és a helyszíni hálózatokkal való biztonságos kommunikációhoz. A megoldás a további hálózatkezelési összetevők használatát is bemutatja:<br>-alkalmazás-és átjáró-alhálózatok<br>-helyszíni helyi hálózati átjáró<br>-egy virtuális hálózati átjáró, amely helyek közötti VPN Gateway-kapcsolatként működik<br>– nyilvános IP-cím<br>-pont – hely típusú VPN-kapcsolat<br>– Azure DNS a DNS-tartományok üzemeltetéséhez és névfeloldás biztosításához |
@@ -43,18 +43,18 @@ Ez a megoldás a következő összetevőket használja:
 | | Azure Application Insights | A [Application Insights](/azure/azure-monitor/app/app-insights-overview) egy bővíthető Application Performance Management szolgáltatás, amellyel a fejlesztők több platformon hozhatnak létre és kezelhetnek alkalmazásokat.|
 | | Azure Functions | [Azure functions](/azure/azure-functions/) lehetővé teszi a kód kiszolgáló nélküli környezetben történő végrehajtását anélkül, hogy először létre kellene hoznia egy virtuális gépet, vagy közzé kellene tennie egy webalkalmazást. |
 | | Az Azure automatikus méretezési funkciója | Az [autoscale](/azure/azure-monitor/platform/autoscale-overview) a Cloud Services, a Virtual Machines és a Web Apps beépített funkciója. A funkció lehetővé teszi, hogy az alkalmazások a lehető leghatékonyabban hajtsák végre a változtatásokat. Az alkalmazások a forgalmi csúcsokra változnak, és a mérőszámok változásakor értesítik, és igény szerint skálázást tesznek lehetővé. |
-| Azure Stack hub | IaaS számítás | Az Azure Stack hub lehetővé teszi, hogy ugyanazt az alkalmazás-modellt, önkiszolgáló portált és az Azure által engedélyezett API-kat használja. Az Azure Stack hub IaaS a nyílt forráskódú technológiák széles választékát teszi lehetővé a hibrid felhőalapú környezetek egységes környezetében. A megoldás példája egy Windows Server rendszerű virtuális gépet használ SQL Server, például:.|
+| Azure Stack Hub | IaaS számítás | Az Azure Stack hub lehetővé teszi, hogy ugyanazt az alkalmazás-modellt, önkiszolgáló portált és az Azure által engedélyezett API-kat használja. Az Azure Stack hub IaaS a nyílt forráskódú technológiák széles választékát teszi lehetővé a hibrid felhőalapú környezetek egységes környezetében. A megoldás példája egy Windows Server rendszerű virtuális gépet használ SQL Server, például:.|
 | | Azure App Service | Akárcsak az Azure-webalkalmazáshoz, a megoldás a [Azure app Service on Azure stack hub](/azure-stack/operator/azure-stack-app-service-overview) használatával futtatja a webalkalmazást. |
-| | Hálózatkezelés | Az Azure Stack hub Virtual Network, ugyanúgy működik, mint az Azure Virtual Network. Számos azonos hálózati összetevőt használ, beleértve az egyéni állomásnévket is. 
-| Azure DevOps Services | Feliratkozás | Gyorsan állíthatja be a létrehozás, a tesztelés és az üzembe helyezés folyamatos integrációját. További információ: [regisztráció, bejelentkezés az Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops). |
-| | Azure-beli folyamatok | [Azure-folyamatokat](/azure/devops/pipelines/agents/agents?view=azure-devops) használhat folyamatos integrációhoz és folyamatos teljesítéshez. Az Azure-folyamatok lehetővé teszik az üzemeltetett Build és Release ügynökök és definíciók kezelését. |
+| | Hálózat | Az Azure Stack hub Virtual Network, ugyanúgy működik, mint az Azure Virtual Network. Számos azonos hálózati összetevőt használ, beleértve az egyéni állomásnévket is. 
+| Azure DevOps Services | Feliratkozás | Gyorsan buildelési, tesztelési és üzembe helyezés a folyamatos integráció beállítása. További információ: [regisztráció, bejelentkezés az Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops). |
+| | Azure Pipelines | [Azure-folyamatokat](/azure/devops/pipelines/agents/agents?view=azure-devops) használhat folyamatos integrációhoz és folyamatos teljesítéshez. Az Azure-folyamatok lehetővé teszik az üzemeltetett Build és Release ügynökök és definíciók kezelését. |
 | | Kódtár | Több kódrészletet is kihasználhat a fejlesztési folyamat leegyszerűsítése érdekében. Meglévő kódrészletek használata a GitHub, a bitbucket, a Dropbox, a OneDrive és az Azure Reposban. |
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
 A megoldás megvalósításának eldöntése során vegye figyelembe a következő szempontokat:
 
-### <a name="scalability"></a>Skálázhatóság 
+### <a name="scalability"></a>Méretezhetőség 
 
 Az Azure és a Azure Stack hub egyedi módon alkalmas a mai globálisan elosztott üzleti igények kielégítésére.
 
@@ -78,7 +78,7 @@ A felhő kitörésének legfőbb előnye a gazdaságos megtakarítások. A tová
 A több felhőre kiterjedő skálázás felhasználható a terhelések feldolgozására. A Load elosztása az alapszintű alkalmazások nyilvános felhőbe való áthelyezésével történik, és a helyi erőforrások felszabadításával az üzleti szempontból kritikus fontosságú alkalmazások számára. Egy alkalmazás alkalmazható a privát felhőre, majd a nyilvános felhőre csak akkor lehet szükség, ha az igények kielégítése szükséges.
 
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 A globális üzembe helyezés saját kihívásokkal rendelkezik, mint például a változó kapcsolat és régiónként eltérő kormányzati rendeletek. A fejlesztők csak egy alkalmazást fejleszthet, majd különböző okok miatt üzembe helyezhetik őket.  Telepítse az alkalmazást az Azure nyilvános felhőbe, majd helyileg helyezzen üzembe további példányokat vagy összetevőket. Az Azure használatával kezelheti az összes példány közötti forgalmat.
 

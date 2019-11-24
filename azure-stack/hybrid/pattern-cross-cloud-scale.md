@@ -48,7 +48,7 @@ A diagramon ez a nyilvános felhőn kívül található, de a helyi adatközpont
 
 A tartománynévrendszer vagy a DNS a webhely vagy szolgáltatás nevének az IP-címére való fordítására (vagy feloldására) felelős.
 
-### <a name="cloud"></a>Felhőbeli
+### <a name="cloud"></a>Felhő
 
 **Üzemeltetett Build kiszolgáló**  
 Környezet a build-folyamat üzemeltetéséhez.
@@ -80,11 +80,11 @@ A nyilvános IP-címek használatával a bejövő forgalom átirányítható a T
 
 A minta megvalósítása során az alábbi pontokat vegye figyelembe:
 
-### <a name="scalability"></a>Skálázhatóság
+### <a name="scalability"></a>Méretezhetőség
 
 A többfelhős méretezés fő összetevője az igény szerinti skálázás lehetősége. A skálázásnak a nyilvános és a helyi felhőalapú infrastruktúra között kell történnie, és igény szerint egységes, megbízható szolgáltatást kell biztosítania.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 

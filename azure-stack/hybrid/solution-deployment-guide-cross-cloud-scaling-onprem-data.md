@@ -40,7 +40,7 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 > - Konfigurálja az automatikus forgalmat a globális Azure és az Azure Stack hub között.
 
 > [!Tip]  
-> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hibrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack hub az Azure kiterjesztése. Azure Stack hub a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
@@ -49,7 +49,7 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 
 Ez az oktatóanyag feltételezi, hogy rendelkezik a globális Azure és Azure Stack hub alapszintű ismeretével. Ha többet szeretne megtudni az oktatóanyag megkezdése előtt, tekintse át a következő cikkeket:
 
- - [Bevezetés az Azure-ba](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Bevezetés az Azure-bA](https://azure.microsoft.com/overview/what-is-azure/)
  - [Azure Stack hub főbb fogalmak](../operator/azure-stack-overview.md)
 
 Ez az oktatóanyag azt is feltételezi, hogy rendelkezik Azure-előfizetéssel. Ha nem rendelkezik előfizetéssel, a Kezdés előtt [létrehozhat egy ingyenes fiókot](https://azure.microsoft.com/free/) .
@@ -89,7 +89,7 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
     ![A virtuális gép alapszintű beállításainak konfigurálása](media/solution-deployment-guide-hybrid/image3.png)
 
-6. A **méret**területen válasszon egy méretet a virtuális géphez. Ebben az oktatóanyagban a A2_Standard vagy a DS2_V2_Standard használatát javasoljuk.
+6. A **méret**területen válasszon egy méretet a virtuális géphez. Ebben az oktatóanyagban A2_Standard vagy DS2_V2_Standard használatát javasoljuk.
 
 7. A **beállítások > a választható funkciók konfigurálása**területen adja meg a következő beállításokat:
 
@@ -210,7 +210,7 @@ A DNS Felhőbeli alkalmazások számára történő megfelelő konfigurálásáv
 
 Ez az oktatóanyag a Azure DNS használatával kezeli a DNS-t, mert App Service tartományok nem működnek.
 
-### <a name="create-subdomains"></a>Altartományok létrehozása
+### <a name="create-subdomains"></a>Create subdomains
 
 Mivel Traffic Manager DNS-CNAME-re támaszkodik, egy altartományra van szükség ahhoz, hogy megfelelően irányítsa a forgalmat a végpontokra. A DNS-rekordokkal és a tartomány-hozzárendeléssel kapcsolatos további információkért lásd: [tartományok leképezése Traffic Managerokkal](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 
@@ -378,7 +378,7 @@ Hozzon létre egy Traffic Manager-profilt az Azure-ban, majd konfigurálja a vé
 
 ### <a name="create-traffic-manager-profile"></a>Traffic Manager profil létrehozása
 
-1. Válassza **az erőforrás létrehozása**lehetőséget.
+1. Válassza ki **erőforrás létrehozása**.
 2. Válassza a **hálózatkezelés**lehetőséget.
 3. Válassza ki **Traffic Manager profilt** , és konfigurálja a következő beállításokat:
 
@@ -430,7 +430,7 @@ Ezután konfigurálja az Azure-végpontot.
 
 Mindkét végpont konfigurálása után **Traffic Manager profilban** szerepelnek a **végpontok**kiválasztása után. A következő képernyőfelvételen szereplő példa két végpontot mutat be, amelyek mindegyike állapota és konfigurációs adatai szerepelnek.
 
-![Endpoints (Végpontok)](media/solution-deployment-guide-hybrid/image20.png)
+![Végpontok](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Application Insights figyelésének és riasztásának beállítása
 
@@ -545,4 +545,4 @@ Az automatikus forgalmi váltás konfigurálásához kövesse az alábbi lépés
 
 ## <a name="next-steps"></a>Következő lépések
 
-- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).
+- Az Azure-minták Felhőkhöz kapcsolatos további információkért lásd: [tervezési minták Felhőkhöz](https://docs.microsoft.com/azure/architecture/patterns).

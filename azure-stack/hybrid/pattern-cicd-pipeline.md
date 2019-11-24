@@ -52,11 +52,11 @@ További információ: Azure Resource Manager- [sablonok fejlesztése a felhő k
 
 Emellett vegye figyelembe a következő szempontokat is a minta megvalósításának eldöntése során:
 
-### <a name="scalability"></a>Skálázhatóság
+### <a name="scalability"></a>Méretezhetőség
 
 A központi telepítési automatizálási rendszerek a DevOps-mintázatok kulcsfontosságú vezérlői pontja. A megvalósítások eltérőek lehetnek. A megfelelő kiszolgáló méretének kiválasztása a várt munkaterhelés méretétől függ. A virtuális gépek drágábbak, mint a tárolók. Ha azonban tárolókat használna a skálázáshoz, a build-folyamatoknak tárolókkal kell futnia.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 A DevPattern kontextusában a rendelkezésre állás azt jelenti, hogy képes helyreállítani a munkafolyamathoz társított állapotinformációkat, például a teszteredmények, a kódok függőségei vagy más összetevők számára. A rendelkezésre állásra vonatkozó követelmények felméréséhez két általános mérőszámot érdemes figyelembe vennie:
 
