@@ -1,6 +1,7 @@
 ---
-title: Egy regisztrációs szerepkör létrehozása az Azure Stackhez
-description: Hogyan lehet, kerülje a globális rendszergazda regisztrációs egyéni szerepkör létrehozása.
+title: Create a custom role for Azure Stack registration
+titleSuffix: Azure Stack
+description: Learn how to create a custom role to avoid using global administrator for Azure Stack registration.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,35 +16,35 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 50c15403ec4bf41f7513af30d2dca53310d45298
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 0cfbec17b2aef1f6a14615d4b69d8a5e9347e913
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828259"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465424"
 ---
-# <a name="create-a-custom-role-for-azure-stack-registration"></a>Azure Stack-regisztráció egyéni szerepkör létrehozása
+# <a name="create-a-custom-role-for-azure-stack-registration"></a>Create a custom role for Azure Stack registration
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!WARNING]
-> Ez nem egy biztonsági rendszer kialakításához funkció. Használhatja a forgatókönyvek, amelyre megkötések az Azure-előfizetéshez véletlen módosításainak elkerülés érdekében. Ha egy felhasználó az egyéni szerepkör delegált jogosultságokkal, a felhasználó rendelkezik szerkesztési jogosultságot, és a jogosultságok. Az egyéni szerepkör megbízható felhasználók csak hozzárendelése.
+> This isn't a security posture feature. Use it in scenarios where you want constraints to prevent accidental changes to the Azure Subscription. When a user is delegated rights to this custom role, the user has rights to edit permissions and elevate rights. Only assign users you trust to the custom role.
 
-Azure Stack-regisztráció során az Azure Active Directory-fiókkal kell bejelentkeznie. A fiókot a következő Azure Active Directory-engedélyek és az Azure-előfizetés engedélyek szükségesek:
+During Azure Stack registration, you must sign in with an Azure Active Directory (Azure AD) account. The account requires the following Azure AD permissions and Azure Subscription permissions:
 
-* **Az Azure Active Directory-bérlőben alkalmazás a regisztrációs engedélyeket:** Rendszergazdák rendelkeznek az alkalmazás regisztrációs engedélyeket. A felhasználóknak engedélyt egy globális beállítás, a bérlő összes felhasználója. Megtekintéséhez, vagy módosítsa a beállítást, lásd: [hozzon létre egy Azure AD alkalmazás és -szolgáltatásnév erőforrások eléréséhez](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+* **App registration permissions in your Azure AD tenant:** Admins have app registration permissions. The permission for users is a global setting for all users in the tenant. To view or change the setting, see [create an Azure AD app and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    A *felhasználók regisztrálhatnak alkalmazásokat* értékűre kell állítani **Igen** , hogy regisztrálja az Azure Stack felhasználói fiók engedélyezése. Ha az alkalmazásregisztrációk beállítás értéke **nem**, egy felhasználói fiók nem használható, és regisztrálja az Azure Stack egy globális rendszergazdai fiókot kell használnia.
+    The *user can register applications* setting must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account to register Azure Stack—you have to use a global admin account.
 
-* **Azure-előfizetés szükséges engedélyek egy készletét:** A tulajdonosi szerepkörhöz tartozó felhasználók rendelkezik megfelelő engedélyekkel. Egyéb fiókok esetében a következő szakaszokban ismertetett módon egy egyéni szerepkör hozzárendelésével arra az engedélycsoportra rendelhet.
+* **A set of sufficient Azure Subscription permissions:** Users that belong to the Owner role have sufficient permissions. For other accounts, you can assign the permission set by assigning a custom role as outlined in the following sections.
 
-Ahelyett, hogy az Azure-előfizetésben tulajdonosi engedélyekkel rendelkező fiókot használ, hozzon létre egy egyéni szerepkör engedélyek hozzárendelése egy kevésbé kiemelt jogosultságú felhasználói fiókhoz. Ezt a fiókot ezután regisztrálja az Azure Stack használható.
+Rather than using an account that has Owner permissions in the Azure subscription, you can create a custom role to assign permissions to a less-privileged user account. This account can then be used to register your Azure Stack.
 
-## <a name="create-a-custom-role-using-powershell"></a>Hozzon létre egy egyéni szerepkört, PowerShell-lel
+## <a name="create-a-custom-role-using-powershell"></a>Create a custom role using PowerShell
 
-Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/roleDefinitions/write` engedély az összes `AssignableScopes`, mint például [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator). A következő JSON-sablon segítségével egyszerűsítheti az egyéni szerepkör létrehozása. A sablon létrehoz egy egyéni biztonsági szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférés az Azure Stack-regisztráció.
+To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator). Use the following JSON template to simplify creation of the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
 
-1. Hozzon létre egy JSON-fájlt. Ha például  `C:\CustomRoles\registrationrole.json`
+1. Create a JSON file. Például:  `C:\CustomRoles\registrationrole.json`.
 2. Adja hozzá az alábbi JSON-kódot a fájlhoz. Cserélje le a `<SubscriptionID>` értékét a saját Azure-előfizetése azonosítójára.
 
     ```json
@@ -70,32 +71,32 @@ Egyéni szerepkör létrehozása, rendelkeznie kell a `Microsoft.Authorization/r
     }
     ```
 
-3. A PowerShell-lel csatlakozzon az Azure-bA az Azure Resource Manager használatára. Amikor a rendszer kéri, hitelesítést egy olyan fiókkal megfelelő engedélyekkel rendelkező például [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+3. In PowerShell, connect to Azure to use Azure Resource Manager. When prompted, authenticate using an account with sufficient permissions such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
     ```azurepowershell
     Connect-AzureRmAccount
     ```
 
-4. Az egyéni szerepkör létrehozásához használja **New-AzureRmRoleDefinition** adja meg a sablon JSON-fájlt.
+4. To create the custom role, use **New-AzureRmRoleDefinition** specifying the JSON template file.
 
     ``` azurepowershell
     New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
-## <a name="assign-a-user-to-registration-role"></a>Felhasználó hozzárendelése regisztrációs szerepkör
+## <a name="assign-a-user-to-registration-role"></a>Assign a user to registration role
 
-A regisztrációs egyéni szerepkör létrehozása után rendelje hozzá a szerepkört az Azure Stack regisztrálásához használt felhasználói fiók.
+After the registration custom role is created, assign the role to the user account that will be used for registering Azure Stack.
 
-1. Jelentkezzen be az Azure-előfizetés elegendő engedéllyel rendelkező fiók rights – például delegálása [tulajdonosa](/azure/role-based-access-control/built-in-roles#owner) vagy [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
-2. A **előfizetések**válassza **hozzáférés-vezérlés (IAM) > szerepkör-hozzárendelés hozzáadása**.
-3. A **szerepkör**, válassza ki a létrehozott egyéni szerepkört *Azure Stack-regisztráció szerepkör*.
-4. Válassza ki a felhasználók, rendelje hozzá a szerepkörhöz kíván.
-5. Válassza ki **mentése** hozzárendelése a kiválasztott felhasználók a szerepkörhöz.
+1. Sign in with the account with sufficient permission on the Azure subscription to delegate rights—such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+2. In **Subscriptions**, select **Access control (IAM) > Add role assignment**.
+3. In **Role**, choose the custom role you created: *Azure Stack registration role*.
+4. Select the users you want to assign to the role.
+5. Select **Save** to assign the selected users to the role.
 
-    ![Szerepkör hozzárendelése a kiválasztott felhasználók](media/azure-stack-registration-role/assign-role.png)
+    ![Select users to assign to custom role in Azure portal](media/azure-stack-registration-role/assign-role.png)
 
-Egyéni szerepkörök használatával kapcsolatos további információkért lásd: [rbac-RÓL és az Azure portal-hozzáférés kezelése](/azure/role-based-access-control/role-assignments-portal).
+For more information on using custom roles, see [manage access using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Az Azure Stack regisztrálása az Azure-ban](azure-stack-registration.md)

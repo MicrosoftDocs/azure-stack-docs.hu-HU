@@ -1,6 +1,7 @@
 ---
-title: Méretezési egység csomópontjának cseréje egy Azure Stack integrált rendszeren | Microsoft Docs
-description: Megtudhatja, hogyan helyettesíthet egy fizikai méretezési egység csomópontot egy Azure Stack integrált rendszeren.
+title: Replace a scale unit node on an Azure Stack integrated system
+titleSuffix: Azure Stack
+description: Learn how to replace a physical scale unit node on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,68 +16,67 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 0ac0a75e0986642020567ea554a4500cc051fd01
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 255802151183cc2b832aaa64f2110b9c9052a0ba
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955306"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465457"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Méretezési egység csomópontjának cseréje Azure Stack integrált rendszeren
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Replace a scale unit node on an Azure Stack integrated system
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*Applies to: Azure Stack integrated systems*
 
-Ez a cikk azt ismerteti, hogyan lehet lecserélni egy fizikai számítógépet (más néven a méretezési egység csomópontját) egy Azure Stack integrált rendszeren. A tényleges méretezési egység csomópontjának helyettesítő lépései az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
+This article describes the general process to replace a physical computer (also referred to as a scale unit node) on an Azure Stack integrated system. Actual scale unit node replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
 
 > [!CAUTION]  
-> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ez a lépés hiányzik a rendszer instabillá, a teljesítmény csökkenése, a biztonsági szálak vagy a Azure Stack Automation az operációs rendszer központi telepítésének megakadályozása érdekében. Mindig tekintse meg a hardveres partner dokumentációját, amikor lecseréli a hardvert, hogy az alkalmazott belső vezérlőprogram megfelel a [Azure stack felügyeleti portálon](azure-stack-updates.md)megjelenő OEM-verziónak.<br>
-További információt és a partneri dokumentációra mutató hivatkozásokat a [hardver-összetevők cseréje](azure-stack-replace-component.md)című témakörben talál.
+> Firmware leveling is critical for the success of the operation described in this article. Missing this step can lead to system instability, performance decrease, security threads, or prevent Azure Stack automation from deploying the operating system. Always consult your hardware partner's documentation when replacing hardware to ensure the applied firmware matches the OEM Version displayed in the [Azure Stack administrator portal](azure-stack-updates.md). For more information and links to partner documentation, see [Replace a hardware component](azure-stack-replace-component.md).
 
-A következő folyamatábra a teljes méretezési egység csomópontjának cseréjére szolgáló általános cserélhető folyamatot mutatja be.
+The following flow diagram shows the general FRU process to replace an entire scale unit node.
 
-![Folyamatábra a csomópontok cseréjéhez](media/azure-stack-replace-node/replacenodeflow.png)
+![Flow chart for replace node process](media/azure-stack-replace-node/replacenodeflow.png)
 
-\* Ez a művelet nem szükséges a hardver fizikai állapota alapján.
+*This action may not be required based on the physical condition of the hardware.
 
 > [!Note]  
-> Ha a leállítási művelet meghiúsul, javasolt a leállítási művelet, majd a Leállítás művelet használata. További részletek: elérhető csomópont-műveletek  
+> If the shutdown operation does fail, it's recommended to use the drain operation followed by the stop operation. For more information, see [Scale unit node actions in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
 
-## <a name="review-alert-information"></a>Riasztási információk áttekintése
+## <a name="review-alert-information"></a>Review alert information
 
-Ha a skálázási egység csomópontja nem érhető el, a következő kritikus riasztások jelennek meg:
+If a scale unit node is down, you'll receive the following critical alerts:
 
 - A csomópont nincs hálózati vezérlőhöz csatlakoztatva
 - A csomópont nem érhető el a virtuális gép elhelyezéséhez
 - A skálázásiegység-csomópont offline állapotban van
 
-![A skálázási egységre vonatkozó riasztások listája](media/azure-stack-replace-node/nodedownalerts.png)
+![List of alerts for scale unit down](media/azure-stack-replace-node/nodedownalerts.png)
 
-Ha megnyitja a **méretezési egység csomópontot offline** riasztás, a riasztás leírása a nem elérhető méretezési egység csomópontot tartalmazza. További riasztásokat is kaphat a hardveres életciklus-gazdagépen futó OEM-specifikus figyelési megoldásban.
+If you open the **Scale unit node is offline** alert, the alert description contains the scale unit node that's inaccessible. You may also receive additional alerts in the OEM-specific monitoring solution that's running on the hardware lifecycle host.
 
-![Csomópont kapcsolat nélküli riasztásának részletei](media/azure-stack-replace-node/nodeoffline.png)
+![Details of node offline alert](media/azure-stack-replace-node/nodeoffline.png)
 
-## <a name="scale-unit-node-replacement-process"></a>Méretezési egység csomópontjának helyettesítési folyamata
+## <a name="scale-unit-node-replacement-process"></a>Scale unit node replacement process
 
-Az alábbi lépések a méretezési egység csomópont-helyettesítési folyamatának magas szintű áttekintését nyújtanak. A rendszerre vonatkozó részletes lépésekért tekintse meg az OEM hardver gyártójának cserélhető szoftveres dokumentációját. Ne kövesse ezeket a lépéseket a SZÁMÍTÓGÉPGYÁRTÓ által biztosított dokumentációra való hivatkozás nélkül.
+The following steps are provided as a high-level overview of the scale unit node replacement process. See your OEM hardware vendor's FRU documentation for detailed steps that are specific to your system. Don't follow these steps without referring to your OEM-provided documentation.
 
-1. A **leállítási** művelettel könnyedén leállíthatja a skálázási egység csomópontját. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges. 
+1. Use the **Shutdown** action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
 
-2. Ha nem valószínű, hogy a leállítási művelet meghiúsul, a [kiürítési](azure-stack-node-actions.md#drain) művelettel állítsa be a méretezési egység csomópontját karbantartási módba. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
-
-   > [!NOTE]  
-   > Mindenesetre csak egy csomópontot lehet letiltani és kikapcsolni a S2D (Közvetlen tárolóhelyek) megszakítása nélkül.
-
-3. Miután a méretezési egység csomópontja karbantartási módban van, használja a [Leállítás](azure-stack-node-actions.md#stop) műveletet. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
+2. In the unlikely case the shutdown action fails, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
 
    > [!NOTE]  
-   > Ha nem valószínű, hogy a kikapcsolás művelet nem működik, használja helyette a alaplapi felügyeleti vezérlő (BMC) webes felületét.
+   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
 
-4. Cserélje le a fizikai számítógépet. Ezt általában az OEM-hardver gyártója végzi.
-5. Az új fizikai számítógép a méretezési egységhez való hozzáadásához használja a [javítási](azure-stack-node-actions.md#repair) műveletet.
-6. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
-7. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
+3. After the scale unit node is in maintenance mode, use the [Stop](azure-stack-node-actions.md#stop) action. This action may not be required based on the physical condition of the hardware.
+
+   > [!NOTE]  
+   > In the unlikely case that the Power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
+
+4. Replace the physical computer. Typically, this replacement is done by your OEM hardware vendor.
+5. Use the [Repair](azure-stack-node-actions.md#repair) action to add the new physical computer to the scale unit.
+6. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
+7. After the repair action has finished, validate that all active alerts have been automatically closed.
 
 ## <a name="next-steps"></a>Következő lépések
 
-- A fizikai lemezek a rendszer bekapcsolásakor történő cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md). 
-- További információ a rendszer kikapcsolását igénylő hardver-összetevők lecseréléséről: [hardver-összetevő cseréje](azure-stack-replace-component.md).
+- For information about replacing a physical disk while the system is powered on, see [Replace a disk](azure-stack-replace-disk.md). 
+- For information about replacing a hardware component that requires the system to be powered off, see [Replace a hardware component](azure-stack-replace-component.md).

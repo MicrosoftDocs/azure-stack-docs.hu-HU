@@ -1,6 +1,6 @@
 ---
-title: Azure Stack kezelése az Azure CLI-vel | Microsoft Docs
-description: Megtudhatja, hogyan használhatja a többplatformos parancssori felületet (CLI) a Azure Stack erőforrásainak kezeléséhez és üzembe helyezéséhez.
+title: Manage Azure Stack with Azure CLI | Microsoft Docs
+description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,51 +10,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/22/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824787"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465486"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack az Azure CLI-vel
+# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Manage and deploy resources to Azure Stack with Azure CLI
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-A jelen cikkben ismertetett lépéseket követve állíthatja be az Azure parancssori felületét (CLI) a Linux, Mac és Windows rendszerű ügyféloldali platformok Azure Stack Development Kit (ASDK) erőforrásainak kezeléséhez.
+Follow the steps in this article to set up the Azure Command-Line Interface (CLI) to manage Azure Stack Development Kit (ASDK) resources from Linux, Mac, and Windows client platforms.
 
-## <a name="prepare-for-azure-cli"></a>Felkészülés az Azure CLI-re
+## <a name="prepare-for-azure-cli"></a>Prepare for Azure CLI
 
-Ha a ASDK használja, szüksége lesz a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványra Azure Stack számára, hogy az Azure CLI-t használja a fejlesztői gépen. A tanúsítvány segítségével kezelheti az erőforrásokat a parancssori felületről.
+If you're using the ASDK, you need the CA root certificate for Azure Stack to use Azure CLI on your development machine. You use the certificate to manage resources through the CLI.
 
- - **A Azure stack hitelesítésszolgáltatói főtanúsítványra** akkor van szükség, ha a parancssori FELÜLETET a ASDK kívüli munkaállomásról használja.  
+ - **The Azure Stack CA root certificate** is required if you're using the CLI from a workstation outside the ASDK.  
 
- - **A virtuális gép aliasok végpontja** egy aliast (például "UbuntuLTS" vagy "Win2012Datacenter") biztosít. Ez az alias a virtuális gépek telepítésekor egyetlen paraméterként hivatkozik a lemezkép-közzétevőre, az ajánlatra, az SKU-ra és a verzióra.  
+ - **The virtual machine aliases endpoint** provides an alias, like "UbuntuLTS" or "Win2012Datacenter." This alias references an image publisher, offer, SKU, and version as a single parameter when deploying VMs.  
 
-Az alábbi szakaszok azt ismertetik, hogyan kérheti le ezeket az értékeket.
+The following sections describe how to get these values.
 
-### <a name="export-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának exportálása
+### <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
 
-Ha integrált rendszer használatával dolgozik, nem kell exportálnia a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Ha a ASDK használja, exportálja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt egy ASDK.
+If you're using an integrated system, you don't need to export the CA root certificate. If you're using the ASDK, export the CA root certificate on an ASDK.
 
-A ASDK legfelső szintű tanúsítványának exportálása PEM formátumban:
+To export the ASDK root certificate in PEM format:
 
-1. Szerezze be a Azure Stack legfelső szintű tanúsítványának nevét:
-    - Jelentkezzen be a Azure Stack felhasználói vagy felügyeleti portálra.
-    - A címsor közelében kattintson a **biztonságos** elemre.
-    - Az előugró ablakban kattintson az **érvényes**elemre.
-    - A tanúsítvány ablakban kattintson a tanúsítvány **elérési útja** fülre.
-    - Jegyezze fel Azure Stack legfelső szintű tanúsítványának nevét.
+1. Get the name of your Azure Stack Root Cert:
+    - Sign in to the Azure Stack User or Administrator portal.
+    - Click on **Secure** near the address bar.
+    - On the pop-up window, Click **Valid**.
+    - On the Certificate Window, click **Certification Path** tab.
+    - Note down the name of your Azure Stack Root Cert.
 
-    ![Főtanúsítvány Azure Stack](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+    ![Azure Stack Root Certificate](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
-2. [Hozzon létre egy Windows rendszerű virtuális gépet Azure stack](azure-stack-quick-windows-portal.md).
+2. [Create a Windows VM on Azure Stack](azure-stack-quick-windows-portal.md).
 
-3. Jelentkezzen be a virtuális gépre, nyisson meg egy rendszergazda jogú PowerShell-parancssort, majd futtassa a következő parancsfájlt:
+3. Sign in to the VM, open an elevated PowerShell prompt, and then run the following script:
 
     ```powershell  
       $label = "<the name of your azure stack root cert from Step 1>"
@@ -73,62 +73,62 @@ A ASDK legfelső szintű tanúsítványának exportálása PEM formátumban:
     certutil -encode root.cer root.pem
     ```
 
-4. Másolja a tanúsítványt a helyi gépre.
+4. Copy the certificate to your local machine.
 
 
-### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>A virtuális gép aliasnevei végpont beállítása
+### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
 
-Beállíthat egy nyilvánosan elérhető végpontot, amely egy virtuálisgép-alias fájlt üzemeltet. A VM-alias fájl egy olyan JSON-fájl, amely a rendszerkép köznapi nevét adja meg. A nevet akkor használja, ha a virtuális gépet Azure CLI-paraméterként telepíti.
+You can set up a publicly accessible endpoint that hosts a VM alias file. The VM alias file is a JSON file that provides a common name for an image. You use the name when you deploy a VM as an Azure CLI parameter.
 
-1. Ha egyéni rendszerképet tesz közzé, jegyezze fel a közzététel során megadott kiadói, ajánlati, SKU-és verziószám-információkat. Ha ez egy rendszerkép a piactéren, megtekintheti az információkat a ```Get-AzureVMImage``` parancsmag használatával.  
+1. If you publish a custom image, make note of the publisher, offer, SKU, and version information that you specified during publishing. If it's an image from the marketplace, you can view the information by using the ```Get-AzureVMImage``` cmdlet.  
 
-2. Töltse le a [mintát](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) a githubról.
+2. Download the [sample file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) from GitHub.
 
-3. Hozzon létre egy Storage-fiókot Azure Stack. Ha elkészült, hozzon létre egy BLOB-tárolót. Állítsa be a hozzáférési házirendet a "Public" értékre.  
+3. Create a storage account in Azure Stack. When that's done, create a blob container. Set the access policy to "public."  
 
-4. Töltse fel a JSON-fájlt az új tárolóba. Ha elkészült, megtekintheti a blob URL-címét. Jelölje ki a blob nevét, majd válassza ki az URL-címet a blob tulajdonságai között.
+4. Upload the JSON file to the new container. When that's done, you can view the URL of the blob. Select the blob name and then selecting the URL from the blob properties.
 
-### <a name="install-or-upgrade-cli"></a>PARANCSSORI felület telepítése vagy frissítése
+### <a name="install-or-upgrade-cli"></a>Install or upgrade CLI
 
-Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure Stack az Azure CLI 2,0-es vagy újabb verziójára van szükség. Az API-profilok legújabb verziójának a parancssori felület aktuális verzióját kell megadnia. A CLI-t az [Azure CLI telepítése](https://docs.microsoft.com/cli/azure/install-azure-cli) című cikkben ismertetett lépések segítségével telepítheti. 
+Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. The latest version of the API Profiles requires a current version of the CLI. You install the CLI by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. 
 
-1. Annak ellenőrzéséhez, hogy a telepítés sikeres volt-e, nyisson meg egy terminált vagy egy parancssorablakot, és futtassa a következő parancsot:
+1. To verify whether the installation was successful, open a terminal or command prompt window and run the following command:
 
     ```shell
     az --version
     ```
 
-    Ekkor meg kell jelennie az Azure CLI és a számítógépre telepített egyéb függő kódtárak verziójának.
+    You should see the version of Azure CLI and other dependent libraries that are installed on your computer.
 
-    ![Azure CLI Azure Stack Python-helyen](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
+    ![Azure CLI on Azure Stack Python location](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. Jegyezze fel a parancssori felület Python-helyét. Ha a ASDK futtatja, ezt a helyet kell használnia a tanúsítvány hozzáadásához.
+2. Make a note of the CLI's Python location. If you're running the ASDK, you need to use this location to add your certificate.
 
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
 
-Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD-t használja Identity Management szolgáltatásként, és a CLI-t használja a Windows rendszerű gépen.
+This section walks you through setting up CLI if you're using Azure AD as your identity management service, and are using CLI on a Windows machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt, fűzze hozzá a meglévő Python tanúsítványtárolóhoz az Azure CLI-vel telepített Python verzióhoz. Előfordulhat, hogy a Python saját példányát futtatja. Az Azure CLI a Python saját verzióját tartalmazza.
+To trust the Azure Stack CA root certificate, append it to the existing Python certificate store for the Python version installed with the Azure CLI. You may be running your own instance of Python. Azure CLI includes its own version of Python.
 
-1. Keresse meg a tanúsítványtároló helyét a gépen.  A helyet a `az --version`parancs futtatásával találja meg.
+1. Find the certificate store location on your machine.  You can find the location by running the command  `az --version`.
 
-2. Navigáljon ahhoz a mappához, amely a CLI Python-alkalmazást tartalmazza. Futtatni kívánja a Python ezen verzióját. Ha a Pythont a rendszerútvonalon állította be, a Python futtatása a Python saját verzióját fogja futtatni. Ehelyett futtatni kívánja a CLI által használt verziót, és hozzá kell adnia a tanúsítványt az adott verzióhoz. Előfordulhat például, hogy a CLI Python a következő helyen található: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+2. Navigate to the folder that contains your CLI Python app. You want to run this version of python. If you've set up Python in your system PATH, running Python will execute your own version of Python. Instead, you want to run the version used by CLI and add your certificate to that version. For example, your CLI Python may be at: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
-    Használja az alábbi parancsokat:
+    Use the following commands:
 
     ```powershell  
     cd "c:\pathtoyourcliversionofpython"
     .\python -c "import certifi; print(certifi.where())"
     ```
 
-    Jegyezze fel a tanúsítvány helyét. Például: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. A megadott elérési út az operációs rendszertől és a CLI-telepítéstől függ.
+    Make a note of the certificate location. Például: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Your particular path depends on your OS and your CLI installation.
 
-2. Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -159,96 +159,89 @@ Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítv�
     Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
     ```
 
-### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
+### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával.
+1. Register your Azure Stack environment by running the `az cloud register` command.
 
-    Bizonyos helyzetekben a közvetlen kimenő internetkapcsolatot egy proxyn vagy tűzfalon keresztül irányítjuk, amely kikényszeríti az SSL-elfogást. Ezekben az esetekben a `az cloud register` parancs sikertelen lehet, például "nem sikerült beolvasni a végpontokat a felhőből." A hiba megkerüléséhez állítsa be a következő környezeti változókat:
+2. Register your environment. Use the following parameters when running `az cloud register`:
 
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
-
-    | Érték | Példa | Leírás |
+    | Value (Díj) | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Környezet neve | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. Állítsa be az aktív környezetet az alábbi parancsok használatával.
+1. Set the active environment by using the following commands.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
  
-1. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Jelentkezzen be a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Sign in to your Azure Stack environment by using the `az login` command. Sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Bejelentkezés *felhasználóként*: 
+   - Sign in as a *user*: 
 
-     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancsban, vagy egy böngésző használatával végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
+     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
      ```azurecli
      az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
      ```
 
      > [!NOTE]
-     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, használja a `az login` parancsot a `-u` paraméter megadása nélkül. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+     > If your user account has multi-factor authentication enabled, use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
 
-   - Bejelentkezés *egyszerű szolgáltatásként*: 
+   - Sign in as a *service principal*: 
     
-     A bejelentkezés előtt [hozzon létre egy egyszerű szolgáltatásnevet a Azure Portal vagy a](azure-stack-create-service-principals.md) parancssori felület használatával, és rendeljen hozzá egy szerepkört. Most jelentkezzen be a következő parancs használatával:
+     Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
      ```azurecli  
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
 az group create -n MyResourceGroup -l local
 ```
 
-Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az újonnan létrehozott erőforrás következő tulajdonságait eredményezi:
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![Erőforráscsoport kimenet létrehozása](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="windows-ad-fs"></a>Windows (AD FS)
 
-Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Directory összevont szolgáltatásokat (AD FS) használja az Identitáskezelő szolgáltatásként, és a parancssori felületet használja a Windows rendszerű gépen.
+This section walks you through setting up CLI if you're using Active Directory Federated Services (AD FS) as your identity management service, and are using CLI on a Windows machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-1. Keresse meg a tanúsítvány helyét a gépen. A hely változhat attól függően, hogy hol telepítette a Pythont. Nyisson meg egy parancssort vagy egy rendszergazda jogú PowerShell-parancssort, és írja be a következő parancsot:
+1. Find the certificate location on your machine. The location may vary depending on where you've installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
     ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
-    Jegyezze fel a tanúsítvány helyét. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. A megadott elérési út az operációs rendszertől és a telepített Python-verziótól függ.
+    Make a note of the certificate location. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your particular path depends on your OS and the version of Python that you've installed.
 
-2. Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -279,68 +272,61 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
     Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
     ```
 
-### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
+### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával.
+1. Register your Azure Stack environment by running the `az cloud register` command.
 
-    Bizonyos helyzetekben a közvetlen kimenő internetkapcsolatot egy proxyn vagy tűzfalon keresztül irányítjuk, amely kikényszeríti az SSL-elfogást. Ezekben az esetekben a `az cloud register` parancs sikertelen lehet, például "nem sikerült beolvasni a végpontokat a felhőből." A hiba megkerüléséhez állítsa be a következő környezeti változókat:
+2. Register your environment. Use the following parameters when running `az cloud register`:
 
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
-
-    | Érték | Példa | Leírás |
+    | Value (Díj) | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Környezet neve | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an  integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. Állítsa be az aktív környezetet az alábbi parancsok használatával.
+1. Set the active environment by using the following commands.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
 
-1. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Bejelentkezés *felhasználóként*:
+   - Sign in as a *user*:
 
-     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancsban, vagy egy böngésző használatával végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
+     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
      ```azurecli
      az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
-     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, használja a `az login` parancsot a `-u` paraméter megadása nélkül. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+     > If your user account has multi-factor authentication enabled, use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
 
-   - Bejelentkezés *egyszerű szolgáltatásként*: 
+   - Sign in as a *service principal*: 
     
-     Készítse elő a. PEM-fájlt, amelyet a szolgáltatás egyszerű bejelentkezéséhez kíván használni.
+     Prepare the .pem file to be used for service principal login.
 
-     A rendszerbiztonsági tag létrejöttének ügyfélszámítógépén exportálja az egyszerű szolgáltatás tanúsítványát pfx-ként a `cert:\CurrentUser\My`található titkos kulccsal. A tanúsítvány neve megegyezik a rendszerbiztonsági tag nevével.
+     On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`. The cert name has the same name as the principal.
 
-     Alakítsa át a pfx-t PEM-ra (használja az OpenSSL segédprogramot).
+     Convert the pfx to pem (use the OpenSSL utility).
 
-     Jelentkezzen be a CLI-be:
+     Sign in to the CLI:
   
      ```azurecli  
      az login --service-principal \
@@ -350,96 +336,96 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
       --debug 
      ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
 az group create -n MyResourceGroup -l local
 ```
 
-Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az újonnan létrehozott erőforrás következő tulajdonságait eredményezi:
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![Erőforráscsoport kimenet létrehozása](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 
 ## <a name="linux-azure-ad"></a>Linux (Azure AD)
 
-Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD-t használja Identity Management szolgáltatásként, és egy Linux rendszerű számítógépen használja a CLI-t.
+This section walks you through setting up CLI if you're using Azure AD as your identity management service, and are using CLI on a Linux machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-1. Keresse meg a tanúsítvány helyét a gépen. A hely változhat attól függően, hogy hol telepítette a Pythont. Telepítenie kell a pip-et és az üzembe helyező kiépítés modult. Használja a következő Python-parancsot a bash-parancssorból:
+1. Find the certificate location on your machine. The location may vary depending on where you've installed Python. You need to have pip and the certifi module installed. Use the following Python command from the bash prompt:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    Jegyezze fel a tanúsítvány helyét. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. A megadott elérési út az operációs rendszertől és a telepített Python-verziótól függ.
+    Make a note of the certificate location. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your specific path depends on your operating system and the version of Python that you've installed.
 
-2. Futtassa a következő bash-parancsot a tanúsítvány elérési útjával.
+2. Run the following bash command with the path to your certificate.
 
-   - Távoli Linux rendszerű gépek esetén:
+   - For a remote Linux machine:
 
      ```bash  
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - A Azure Stack környezetben található Linux rendszerű gépek esetén:
+   - For a Linux machine within the Azure Stack environment:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
+### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
 
-A következő lépésekkel csatlakozhat a Azure Stackhoz:
+Use the following steps to connect to Azure Stack:
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával. Bizonyos helyzetekben a közvetlen kimenő internetkapcsolatot egy proxyn vagy tűzfalon keresztül irányítjuk, amely kikényszeríti az SSL-elfogást. Ezekben az esetekben a `az cloud register` parancs sikertelen lehet, például "nem sikerült beolvasni a végpontokat a felhőből." A hiba megkerüléséhez állítsa be a következő környezeti változókat:
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, set the following environment variables:
 
    ```shell
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
    export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
+2. Register your environment. Use the following parameters when running `az cloud register`:
 
-    | Érték | Példa | Leírás |
+    | Value (Díj) | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Környezet neve | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. Állítsa be az aktív környezetet. 
+3. Set the active environment. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
 
-5. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * Bejelentkezés *felhasználóként*:
+   * Sign in as a *user*:
 
-     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancsban, vagy egy böngésző használatával végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
+     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
      ```azurecli
      az login \
@@ -448,11 +434,11 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
      ```
 
      > [!NOTE]
-     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, használhatja a `az login` parancsot a `-u` paraméter megadása nélkül. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+     > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
    
-   * Bejelentkezés *egyszerű szolgáltatásként*
+   * Sign in as a *service principal*
     
-     A bejelentkezés előtt [hozzon létre egy egyszerű szolgáltatásnevet a Azure Portal vagy a](azure-stack-create-service-principals.md) parancssori felület használatával, és rendeljen hozzá egy szerepkört. Most jelentkezzen be a következő parancs használatával:
+     Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
      ```azurecli  
      az login \
@@ -462,112 +448,112 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
        -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
     az group create -n MyResourceGroup -l local
 ```
 
-Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az újonnan létrehozott erőforrás következő tulajdonságait eredményezi:
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![Erőforráscsoport kimenet létrehozása](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="linux-ad-fs"></a>Linux (AD FS)
 
-Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Directory összevont szolgáltatásokat (AD FS) használja felügyeleti szolgáltatásként, és a CLI-t használja egy Linux rendszerű gépen.
+This section walks you through setting up CLI if you're using Active Directory Federated Services (AD FS) as your management service, and are using CLI on a Linux machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-1. Keresse meg a tanúsítvány helyét a gépen. A hely változhat attól függően, hogy hol telepítette a Pythont. Telepítenie kell a pip-et és az üzembe helyező kiépítés modult. Használja a következő Python-parancsot a bash-parancssorból:
+1. Find the certificate location on your machine. The location may vary depending on where you've installed Python. You need to have pip and the certifi module installed. Use the following Python command from the bash prompt:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    Jegyezze fel a tanúsítvány helyét. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. A megadott elérési út az operációs rendszertől és a telepített Python-verziótól függ.
+    Make a note of the certificate location. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your specific path depends on your operating system and the version of Python that you've installed.
 
-2. Futtassa a következő bash-parancsot a tanúsítvány elérési útjával.
+2. Run the following bash command with the path to your certificate.
 
-   - Távoli Linux rendszerű gépek esetén:
+   - For a remote Linux machine:
 
      ```bash  
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - A Azure Stack környezetben található Linux rendszerű gépek esetén:
+   - For a Linux machine within the Azure Stack environment:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
+### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
 
-A következő lépésekkel csatlakozhat a Azure Stackhoz:
+Use the following steps to connect to Azure Stack:
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával. Bizonyos helyzetekben a közvetlen kimenő internetkapcsolatot egy proxyn vagy tűzfalon keresztül irányítjuk, amely kikényszeríti az SSL-elfogást. Ezekben az esetekben a `az cloud register` parancs sikertelen lehet, például "nem sikerült beolvasni a végpontokat a felhőből." A hiba megkerüléséhez állítsa be a következő környezeti változókat:
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, set the following environment variables:
 
    ```shell
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
    export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket.
+2. Register your environment. Use the following parameters when running `az cloud register`.
 
-    | Érték | Példa | Leírás |
+    | Value (Díj) | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Környezet neve | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. Állítsa be az aktív környezetet. 
+3. Set the active environment. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
 
-5. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-6. bejelentkezés: 
+6. Sign in: 
 
-   *  **Felhasználóként** egy, az eszköz kódját használó webböngésző használatával:  
+   *  As a **user** using a web browser with a device code:  
 
    ```azurecli  
     az login --use-device-code
    ```
 
    > [!NOTE]  
-   >A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+   >Running the command gives you a URL and a code that you must use to authenticate.
 
-   * Egyszerű szolgáltatásnév:
+   * As a service principal:
         
-     Készítse elő a. PEM-fájlt, amelyet a szolgáltatás egyszerű bejelentkezéséhez kíván használni.
+     Prepare the .pem file to be used for service principal login.
 
-      * A rendszerbiztonsági tag létrejöttének ügyfélszámítógépén exportálja az egyszerű szolgáltatás tanúsítványát pfx-ként a `cert:\CurrentUser\My`található titkos kulccsal. A tanúsítvány neve megegyezik a rendszerbiztonsági tag nevével.
+      * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`. The cert name has the same name as the principal.
   
-      * Alakítsa át a pfx-t PEM-ra (használja az OpenSSL segédprogramot).
+      * Convert the pfx to pem (use the OpenSSL utility).
 
-     Jelentkezzen be a CLI-be:
+     Sign in to the CLI:
 
       ```azurecli  
       az login --service-principal \
@@ -577,28 +563,28 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
         --debug 
       ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
   az group create -n MyResourceGroup -l local
 ```
 
-Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az újonnan létrehozott erőforrás következő tulajdonságait eredményezi:
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![Erőforráscsoport kimenet létrehozása](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>Ismert problémák
 
-Ismert problémák merültek fel a parancssori felület használatakor Azure Stackban:
+There are known issues when using CLI in Azure Stack:
 
- - A CLI interaktív mód. A `az interactive` parancs például a Azure Stackban még nem támogatott.
- - A Azure Stackban elérhető virtuálisgép-rendszerképek listájának lekéréséhez használja az `az vm image list` parancs helyett a `az vm image list --all` parancsot. A `--all` beállítás megadásával biztosíthatja, hogy a válasz csak azokat a lemezképeket adja vissza, amelyek elérhetők a Azure Stack környezetben.
- - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stackra. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie az `az vm images list` parancsból származtatott rendszerkép-specifikációkkal.
+ - The CLI interactive mode. For example, the `az interactive` command, isn't yet supported in Azure Stack.
+ - To get the list of VM images available in Azure Stack, use the `az vm image list --all` command instead of the `az vm image list` command. Specifying the `--all` option ensures that the response returns only the images that are available in your Azure Stack environment.
+ - VM image aliases that are available in Azure may not be applicable to Azure Stack. When using VM images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. This URN must match the image specifications as derived from the `az vm images list` command.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
-- [Az Azure CLI engedélyezése Azure Stack felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)
+- [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+- [Enable Azure CLI for Azure Stack users (Operator)](../operator/azure-stack-cli-admin.md)
 - [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md) 

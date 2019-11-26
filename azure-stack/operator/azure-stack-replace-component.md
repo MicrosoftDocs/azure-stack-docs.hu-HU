@@ -1,6 +1,7 @@
 ---
-title: Hardver-összetevő cseréje Azure Stack skálázási egység csomóponton | Microsoft Docs
-description: Megtudhatja, hogyan cserélhet le egy hardver-összetevőt egy Azure Stack integrált rendszeren.
+title: Replace a hardware component on an Azure Stack scale unit node
+titleSuffix: Azure Stack
+description: Learn how to replace a hardware component on an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,80 +15,80 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 4cb8da451743bc6a8e15c57aacf28f0aa83258c9
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.openlocfilehash: ff78409ecdbdec8b7a6860db18244a4835351ed8
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413145"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465289"
 ---
-# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Hardver-összetevő cseréje Azure Stack skálázási egység csomópontján
+# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Replace a hardware component on an Azure Stack scale unit node
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*Applies to: Azure Stack integrated systems*
 
-Ez a cikk az általános eljárást ismerteti a nem becserélhető hardver-összetevők cseréjére. A tényleges helyettesítési lépések az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. A Azure Stack integrált rendszerre vonatkozó részletes lépésekért tekintse meg a gyártó mezőjében található, cserélhető egységre vonatkozó dokumentációt.
+This article describes the general process to replace hardware components that are non hot-swappable. Actual replacement steps vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor's field replaceable unit (FRU) documentation for detailed steps that are specific to your Azure Stack integrated system.
 
 > [!CAUTION]  
-> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ez a lépés hiányzik a rendszer instabillá, a teljesítmény csökkenése, a biztonsági szálak vagy a Azure Stack Automation az operációs rendszer központi telepítésének megakadályozása érdekében. Mindig tekintse meg a hardveres partner dokumentációját, amikor lecseréli a hardvert, hogy az alkalmazott belső vezérlőprogram megfelel a [Azure stack felügyeleti portálon](azure-stack-updates.md)megjelenő OEM-verziónak.
+> Firmware leveling is critical for the success of the operation described in this article. Missing this step can lead to system instability, performance decrease, security threads, or prevent Azure Stack automation from deploying the operating system. Always consult your hardware partner's documentation when replacing hardware to ensure the applied firmware matches the OEM Version displayed in the [Azure Stack administrator portal](azure-stack-updates.md).
 
-| Hardveres partner | Régió | URL |
+| Hardware Partner | Region (Régió) | URL-cím |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Összes | [A Cisco integrált rendszer Microsoft Azure Stack üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Kibocsátási megjegyzések a Microsoft Azure Stack Cisco integrált rendszeréhez](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Összes | [Felhő Microsoft Azure Stack 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Felhő Microsoft Azure Stack 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
-| Fujitsu | JAPÁN | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | EURÓPA, KÖZEL-KELET ÉS AFRIKA | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  | EU | [Fujitsu MySupport (fiók és bejelentkezés szükséges)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | Összes | [Microsoft Azure Stack HPE ProLiant](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Összes | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[a Terra Azure Stack dokumentációja (beleértve a cserélhető adattartománnyal együtt)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| Cisco | Mind | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Mind | [Cloud for Microsoft Azure Stack 14G (account and sign-in required)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (account and sign-in required)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | JAPAN | [Fujitsu managed service support desk (account and sign-in required)](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | EURÓPA, KÖZEL-KELET ÉS AFRIKA | [Fujitsu support IT products and systems](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  | EU | [Fujitsu MySupport (account and sign-in required)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | Mind | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Mind | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| Wortmann |  | [OEM/firmware package](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack documentation (including FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
-A nem melegen cserélhető összetevők a következők:
+Non hot-swappable components include the following items:
 
 - CPU*
-- Memória
-- Alaplap/alaplapi felügyeleti vezérlő (BMC)/video kártya
-- Lemezvezérlő/gazdagép Bus-adapter (HBA)/Backplane
-- Hálózati adapter (NIC)
-- Operációs rendszer lemeze *
-- Adatmeghajtók (olyan meghajtók, amelyek nem támogatják a gyors cserét, például a PCI-e bővítmények kártyái) *
+- Memory*
+- Motherboard/baseboard management controller (BMC)/video card
+- Disk controller/host bus adapter (HBA)/backplane
+- Network adapter (NIC)
+- Operating system disk*
+- Data drives (drives that don't support hot swap, for example PCI-e add-in cards)*
 
-\* Ezek az összetevők támogatják a gyors cserét, de a szállítói implementációtól függően változhatnak. A részletes lépésekért tekintse meg az OEM gyártója a cserélhető szoftverrel kapcsolatos dokumentációját.
+*These components may support hot swap, but can vary based on vendor implementation. See your OEM vendor's FRU documentation for detailed steps.
 
-A következő folyamatábra a nem lecserélhető hardver-összetevők cseréjére szolgáló általános cserélhető folyamatokat mutatja be.
+The following flow diagram shows the general FRU process to replace a non hot-swappable hardware component.
 
-![Összetevő-helyettesítési folyamatot bemutató folyamatábra](media/azure-stack-replace-component/replacecomponentflow.PNG)
+![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-* Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
+* This action may not be required based on the physical condition of the hardware.
 
-\* * Függetlenül attól, hogy az OEM hardver szállítója végrehajtja-e az összetevő cseréjét, és a belső vezérlőprogram frissítése a támogatási szerződéstől függően változhat.
+** Whether your OEM hardware vendor does the component replacement and updates the firmware could vary based on your support contract.
 
-## <a name="review-alert-information"></a>Riasztási információk áttekintése
+## <a name="review-alert-information"></a>Review alert information
 
-A Azure Stack állapot-és figyelési rendszer a Közvetlen tárolóhelyek által vezérelt hálózati adapterek és adatmeghajtók állapotát követi nyomon. Nem követ más hardver-összetevőket. Minden más hardver-összetevő esetén a rendszer riasztásokat jelenít meg a hardveres életciklus-gazdagépen futó, szállítóspecifikus hardver-figyelési megoldásban.  
+The Azure Stack health and monitoring system tracks the health of network adapters and data drives controlled by Storage Spaces Direct. It doesn't track other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.  
 
-## <a name="component-replacement-process"></a>Összetevő-helyettesítési folyamat
+## <a name="component-replacement-process"></a>Component replacement process
 
-Az alábbi lépések áttekintést nyújtanak az összetevő-helyettesítési folyamatról. Ne hajtsa végre ezeket a lépéseket anélkül, hogy a SZÁMÍTÓGÉPGYÁRTÓ által megadott cserélhető adatszolgáltatói dokumentációra hivatkozik.
+The following steps provide a high-level overview of the component replacement process. Don't follow these steps without referring to your OEM-provided FRU documentation.
 
-1. A leállítási művelettel szabályosan állíthatja le a méretezési egység csomópontját. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
+1. Use the Shutdown action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
 
-2. Ha nem valószínű, hogy a leállítási művelet sikertelen, a [kiürítési](azure-stack-node-actions.md#drain) művelettel állítsa be a méretezési egység csomópontját karbantartási módba. Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
-
-   > [!NOTE]  
-   > Mindenesetre csak egy csomópontot lehet letiltani és kikapcsolni a S2D (Közvetlen tárolóhelyek) megszakítása nélkül.
-
-3. Miután a skálázási egység csomópontja karbantartási módban van, használja a kikapcsolás [műveletet.](azure-stack-node-actions.md#scale-unit-node-actions) Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
+2. In an unlikely case the shutdown action does fail, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
 
    > [!NOTE]  
-   > Ha nem valószínű, hogy a kikapcsolás művelet nem működik, használja helyette a alaplapi felügyeleti vezérlő (BMC) webes felületét.
+   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
 
-4. Cserélje le a sérült hardver összetevőt. Azt határozza meg, hogy az OEM hardver szállítója elvégzi-e az összetevők lecserélését a támogatási szerződéstől függően.  
-5. Frissítse a belső vezérlőprogramot. A hardveres életciklus-gazdagép használatával hajtsa végre a gyártó által megadott belső vezérlőprogram-frissítési folyamatot, hogy ellenőrizze, hogy a lecserélt hardver-összetevő rendelkezik-e a jóváhagyott belső vezérlőprogram- Azt határozza meg, hogy az OEM hardver szállítója elvégzi-e ezt a lépést a támogatási szerződéstől függően.  
-6. A [javítási](azure-stack-node-actions.md#scale-unit-node-actions) művelettel helyezze vissza a méretezési egység csomópontját a méretezési egységbe.
-7. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
-8. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
+3. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
 
-## <a name="next-steps"></a>További lépések
+   > [!NOTE]  
+   > In the unlikely case that the power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
 
-- A lecserélhető fizikai lemezek cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md).
-- A fizikai csomópontok cseréjével kapcsolatos információkért lásd: [méretezési egység csomópontjának cseréje](azure-stack-replace-node.md).
+4. Replace the damaged hardware component. Whether your OEM hardware vendor does the component replacement could vary based on your support contract.  
+5. Update the firmware. Follow your vendor-specific firmware update process using the hardware lifecycle host to make sure the replaced hardware component has the approved firmware level applied. Whether your OEM hardware vendor does this step could vary based on your support contract.  
+6. Use the [Repair](azure-stack-node-actions.md#scale-unit-node-actions) action to bring the scale unit node back into the scale unit.
+7. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
+8. After the repair action has finished, validate that all active alerts have been automatically closed.
+
+## <a name="next-steps"></a>Következő lépések
+
+- For information about replacing a hot-swappable physical disk, see [Replace a disk](azure-stack-replace-disk.md).
+- For information about replacing a physical node, see [Replace a scale unit node](azure-stack-replace-node.md).
