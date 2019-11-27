@@ -24,7 +24,7 @@ ms.locfileid: "74310170"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Támogatási szabályzatok az AK motorhoz Azure Stack
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk részletesen ismerteti a technikai támogatási szabályzatokat és a Azure Stack-on található AK-motorra vonatkozó korlátozásokat. A cikk a Kubernetes Marketplace-elemek, a harmadik féltől származó nyílt forráskódú összetevők, valamint a biztonság vagy a javítások kezelését is ismerteti. 
 
@@ -104,7 +104,7 @@ Ha a rendszer biztonsági hibát talál a Azure Stackhoz tartozó AK-motor vagy 
 
 A felhasználók letölthetik a Kubernetes Marketplace-elemeket, amelyek lehetővé teszik a felhasználók számára, hogy a Azure Stack felhasználói portálon keresztül közvetve központilag telepítsenek Kubernetes-fürtöket, így egyszerűbb, mint az AK-motor közvetlen használata. Ez egy hasznos eszköz, amellyel gyorsan beállíthatja a fürtöket a bemutatók, a tesztelés és a fejlesztés számára. Nem éles környezethez készült, mert nem szerepel a Microsoft által támogatott elemek készletében.
 
-## <a name="preview-features"></a>Előzetes verziójú funkciók
+## <a name="preview-features"></a>Előzetes verziók
 
 A kiterjesztett tesztelést és felhasználói visszajelzéseket igénylő funkciók és funkciók esetében a Microsoft új előzetes verziójú funkciókat vagy szolgáltatásokat bocsát ki a szolgáltatás jelölője mögött. Ezeket a funkciókat előzetes vagy bétaverziós funkciókként érdemes figyelembe venni. Az előzetes verziójú funkciók vagy a szolgáltatás-jelölő funkciók nem éles környezetben használhatók. A funkcionalitással kapcsolatos változások és viselkedés, hibajavítások és egyéb változások instabil fürtöket és állásidőt okozhatnak. A Microsoft nem támogatja ezeket a szolgáltatásokat.
 

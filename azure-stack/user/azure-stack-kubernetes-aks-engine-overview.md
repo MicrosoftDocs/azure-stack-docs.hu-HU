@@ -24,7 +24,7 @@ ms.locfileid: "74310251"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Mi a Azure Stack AK-motorja?
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 A Kubernetes-fürtök Azure Stack Azure-beli üzembe helyezéséhez és kezeléséhez használhatja az KABAi motor parancssori eszközét is. A Azure Resource Manager natív fürtök létrehozásához, frissítéséhez és méretezéséhez használja az AK motort. A motorral a csatlakoztatott és a leválasztott környezetekben is telepíthet fürtöt. Ez a cikk áttekintést nyújt az AK-motorról, a motor és a Azure Stack használatának támogatott forgatókönyveit, valamint az olyan műveletek bevezetését, mint például a telepítés, a frissítés és a skálázás.
 

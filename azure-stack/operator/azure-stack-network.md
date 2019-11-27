@@ -48,7 +48,7 @@ A következő táblázat azokat a logikai hálózatokat és IPv4-alhálózati ta
 | Nyilvános VIP | Azure Stack a hálózatból összesen 31 címet használ. A rendszer nyolc nyilvános IP-címet használ a Azure Stack szolgáltatások kis készletéhez, a többi pedig a bérlői virtuális gépeket használja. Ha App Service és az SQL Resource Providers használatát tervezi, 7 további címet használ a rendszer. A fennmaradó 15 IP-cím a jövőbeli Azure-szolgáltatások számára van fenntartva. | /26 (62 gazdagép) –/22 (1022 gazdagép)<br><br>Ajánlott =/24 (254 gazdagép) | 
 | Infrastruktúra váltása | Pont-pont típusú IP-címek útválasztási célokra, dedikált kapcsoló felügyeleti felületek és a kapcsolóhoz rendelt visszacsatolási címek. | /26 | 
 | Infrastruktúra | A Azure Stack belső összetevőinek kommunikációhoz használatos. | /24 |
-| Privát | A Storage Network, a privát VIP-címek, az infrastruktúra-tárolók és egyéb belső függvények esetében használatos. A 1910-től kezdődően az alhálózat mérete a/20 értékre változik. További információkért lásd a jelen cikk [magánhálózat](#private-network) című szakaszát. | /20 | 
+| Magánjellegű | A Storage Network, a privát VIP-címek, az infrastruktúra-tárolók és egyéb belső függvények esetében használatos. A 1910-től kezdődően az alhálózat mérete a/20 értékre változik. További információkért lásd a jelen cikk [magánhálózat](#private-network) című szakaszát. | /20 | 
 | BMC | A fizikai gazdagépeken található bmc való kommunikációhoz használatos. | /26 | 
 | | | |
 

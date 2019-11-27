@@ -25,7 +25,7 @@ ms.locfileid: "74299034"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack frissítési tevékenység ellenőrzőlistája
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Tekintse át ezt a feladatlistát egy Azure Stack frissítés előkészítéséhez. Ez a cikk a Azure Stack operátorok frissítéssel kapcsolatos tevékenységeinek listáját tartalmazza.
 

@@ -1,6 +1,6 @@
 ---
-title: Configure VPN gateway settings for Azure Stack | Microsoft Docs
-description: Learn about and configure VPN gateways settings for Azure Stack.
+title: A VPN-átjáró beállításainak konfigurálása a Azure Stackhoz | Microsoft Docs
+description: A VPN-átjárók beállításainak megismerése és konfigurálása Azure Stackhoz.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -22,21 +22,21 @@ ms.contentlocale: hu-HU
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74239308"
 ---
-# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Configure VPN gateway settings for Azure Stack
+# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network in Azure Stack and a remote VPN gateway. The remote VPN gateway can be in Azure, a device in your datacenter, or a device on another site. If there is network connectivity between the two endpoints, you can establish a secure Site-to-Site (S2S) VPN connection between the two networks.
+A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack és egy távoli VPN-átjáró között a virtuális hálózat között. A távoli VPN-átjáró lehet az Azure-ban, egy eszköz az adatközpontban vagy egy másik helyen lévő eszköz. Ha van hálózati kapcsolat a két végpont között, létrehozhat egy biztonságos helyek közötti (S2S) VPN-kapcsolatot a két hálózat között.
 
-A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. This article describes the resources and settings that relate to a VPN gateway for a virtual network that you create in the Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in [About VPN Gateway for Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. A [Azure stack a VPN Gatewayről](azure-stack-vpn-gateway-about-vpn-gateways.md)az egyes csatlakoztatási megoldásokhoz tartozó leírások és topológiai diagramok találhatók.
 
-## <a name="vpn-gateway-settings"></a>VPN gateway settings
+## <a name="vpn-gateway-settings"></a>A VPN gateway beállításairól
 
 ### <a name="gateway-types"></a>Átjárótípusok
 
-Each Azure Stack virtual network supports a single virtual network gateway, which must be of the type **Vpn**.  This support is different from Azure, which supports additional types.
+Minden Azure Stack virtuális hálózat egyetlen virtuális hálózati átjárót támogat, amelynek a **VPN**típusúnak kell lennie.  Ez a támogatás eltér az Azure-tól, amely támogatja a további típusokat.
 
-When you create a virtual network gateway, you must make sure that the gateway type is correct for your configuration. A VPN gateway requires the `-GatewayType Vpn` flag; for example:
+Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz a `-GatewayType Vpn` jelző szükséges; például:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -46,31 +46,31 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="gateway-skus"></a>Gateway termékváltozatok
 
-When you create a virtual network gateway, you must specify the gateway SKU that you want to use. Válassza ki a számítási feladatok, a teljesítmény, a funkciók és a szolgáltatói szerződés igényeinek megfelelő termékváltozatokat.
+Virtuális hálózati átjáró létrehozásakor meg kell adnia a használni kívánt átjáró-SKU-t. Válassza ki a számítási feladatok, a teljesítmény, a funkciók és a szolgáltatói szerződés igényeinek megfelelő termékváltozatokat.
 
-Azure Stack offers the VPN gateway SKUs shown in the following table:
+Azure Stack az alábbi táblázatban látható VPN Gateway SKU-ket kínálja:
 
-| | VPN gateway throughput |VPN gateway maximum IPsec tunnels |
+| | VPN Gateway átviteli sebesség |VPN-átjáró maximális IPsec-alagutak |
 |-------|-------|-------|
-|**Basic SKU**  | 100 Mb/s  | 20    |
-|**Standard SKU**   | 100 Mb/s  | 20 |
-|**High Performance SKU** | 200 Mb/s | 10 |
+|**Alapszintű SKU**  | 100 Mbps  | 20    |
+|**Szabványos SKU**   | 100 Mbps  | 20 |
+|**Nagy teljesítményű SKU** | 200 Mbps | 10 |
 
-### <a name="resizing-gateway-skus"></a>Resizing gateway SKUs
+### <a name="resizing-gateway-skus"></a>Átjárók átméretezése
 
-Azure Stack does not support a resize of SKUs between the supported legacy SKUs.
+A Azure Stack nem támogatja az SKU-i átméretezését a támogatott örökölt SKU-ból.
 
-Similarly, Azure Stack does not support a resize from a supported legacy SKU (**Basic**, **Standard**, and **HighPerformance**) to a newer SKU supported by Azure (**VpnGw1**, **VpnGw2**, and **VpnGw3**).
+Hasonlóképpen, Azure Stack nem támogatja az átméretezést egy támogatott örökölt SKU-ból (**Alapszintű**, **standard**és **HighPerformance**) az Azure által támogatott újabb SKU-ra (**VpnGw1**, **VpnGw2**és **VpnGw3**).
 
-### <a name="configure-the-gateway-sku"></a>Configure the gateway SKU
+### <a name="configure-the-gateway-sku"></a>Az átjáró SKU konfigurálása
 
-#### <a name="azure-stack-portal"></a>Azure Stack portal
+#### <a name="azure-stack-portal"></a>Azure Stack portál
 
-If you use the Azure Stack portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown list. The options correspond to the gateway type and VPN type that you select.
+Ha a Azure Stack portál használatával hoz létre Resource Manager virtuális hálózati átjárót, akkor a legördülő listából kiválaszthatja az átjáró SKU-t. A beállítások az átjáró típusa és a kiválasztott VPN-típusnak felelnek meg.
 
 #### <a name="powershell"></a>PowerShell
 
-The following PowerShell example specifies the `-GatewaySku` parameter as **Standard**:
+A következő PowerShell-példa a `-GatewaySku` paramétert adja meg **standardként**:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -80,9 +80,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="connection-types"></a>Kapcsolattípusok
 
-In the Resource Manager deployment model, each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are **IPsec**.
+A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. A `-ConnectionType` elérhető Resource Manager PowerShell-értékek az **IPSec**.
 
-In the following PowerShell example, a S2S connection is created that requires the IPsec connection type:
+A következő PowerShell-példában létrejön egy S2S-kapcsolat, amely az IPsec-kapcsolat típusát igényli:
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -92,21 +92,21 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 
 ### <a name="vpn-types"></a>VPN-típusok
 
-When you create the virtual network gateway for a VPN gateway configuration, you must specify a VPN type. The VPN type that you choose depends on the connection topology that you want to create. A VPN type can also depend on the hardware that you're using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
+Amikor létrehoz egy VPN Gateway-konfigurációhoz tartozó virtuális hálózati átjárót, meg kell adnia egy VPN-típust. A választott VPN-típus a létrehozni kívánt kapcsolati topológiától függ. A VPN-típus az Ön által használt hardvertől is függhet. A S2S-konfigurációkhoz VPN-eszköz szükséges. Egyes VPN-eszközök csak bizonyos VPN-típusokat támogatnak.
 
 > [!IMPORTANT]  
-> Currently, Azure Stack only supports the route-based VPN type. If your device only supports policy-based VPNs, then connections to those devices from Azure Stack are not supported.  
+> A Azure Stack jelenleg csak az Útválasztás-alapú VPN-típust támogatja. Ha az eszköz csak a házirend-alapú VPN-eket támogatja, akkor a Azure Stack nem támogatottak az eszközökhöz való csatlakozások.  
 >
-> In addition, Azure Stack does not support using policy-based traffic selectors for route-based gateways at this time, because custom IPSec/IKE policy configurations are not supported.
+> Emellett a Azure Stack nem támogatja a házirend-alapú forgalmi választókat az útvonal-alapú átjárók esetében, mert az egyéni IPSec/IKE-házirend-konfigurációk nem támogatottak.
 
-* **PolicyBased**: Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies that are configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy, or traffic selector, is usually an access list in the VPN device configuration.
+* **Házirendalapú**: a házirend-alapú VPN-ek az IPSec-alagutakon keresztül titkosítják és irányítják a csomagokat a helyszíni hálózat és a Azure stack VNet közötti címtartomány-kombinációkkal konfigurált IPSec-házirendek alapján. A házirend vagy a forgalmi választó általában egy hozzáférési lista a VPN-eszköz konfigurációjában.
 
   >[!NOTE]
-  >**PolicyBased** is supported in Azure, but not in Azure Stack.
+  >A **házirendalapú** az Azure-ban támogatott, de nem Azure stack.
 
-* **RouteBased**: Route-based VPNs use routes that are configured in the IP forwarding or routing table to direct packets to their corresponding tunnel interfaces. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. The policy, or traffic selector, for **RouteBased** VPNs are configured as any-to-any (or use wild cards). By default, they cannot be changed. The value for a **RouteBased** VPN type is **RouteBased**.
+* **Útvonalalapú**: az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használják a csomagok megfelelő bújtatási interfészekhez való közvetlen küldéséhez. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú** VPN-EK házirendje vagy forgalmi választója bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú** VPN-típus értéke **útvonalalapú**.
 
-The following PowerShell example specifies the `-VpnType` as **RouteBased**. When you create a gateway, you must make sure that the `-VpnType` is correct for your configuration.
+A következő PowerShell-példa a **útvonalalapú**`-VpnType` adja meg. Amikor létrehoz egy átjárót, meg kell győződnie arról, hogy a `-VpnType` helyesek a konfigurációhoz.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -116,59 +116,59 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="gateway-requirements"></a>Az átjáróra vonatkozó követelmények
 
-The following table lists the requirements for VPN gateways.
+A következő táblázat a VPN-átjárók követelményeit sorolja fel.
 
 | |Házirendalapú alapszintű VPN Gateway | Útválasztó-alapú alapszintű VPN Gateway | Útválasztó-alapú standard VPN Gateway | Útválasztó-alapú nagy teljesítményű VPN Gateway|
 |--|--|--|--|--|
-| **Site-to-Site connectivity (S2S connectivity)** | Nem támogatott | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció |
-| **Authentication method**  | Nem támogatott | Pre-shared key for S2S connectivity  | Pre-shared key for S2S connectivity  | Pre-shared key for S2S connectivity  |
-| **Maximum number of S2S connections**  | Nem támogatott | 20 | 20| 10|
-|**Active routing support (BGP)** | Nem támogatott | Nem támogatott | Támogatott | Támogatott |
+| **Helyek közötti kapcsolat (S2S-kapcsolat)** | Nem támogatott | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció |
+| **Hitelesítési módszer**  | Nem támogatott | Előmegosztott kulcs S2S-kapcsolathoz  | Előmegosztott kulcs S2S-kapcsolathoz  | Előmegosztott kulcs S2S-kapcsolathoz  |
+| **S2S-kapcsolatok maximális száma**  | Nem támogatott | 20 | 20| 10|
+|**Aktív Útválasztás támogatása (BGP)** | Nem támogatott | Nem támogatott | Támogatott | Támogatott |
 
 ### <a name="gateway-subnet"></a>Átjáró alhálózata
 
-Before you create a VPN gateway, you must create a gateway subnet. The gateway subnet has the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required VPN gateway settings. Don't deploy anything else (for example, additional VMs) to the gateway subnet.
+A VPN-átjáró létrehozása előtt létre kell hoznia egy átjáró-alhálózatot. Az átjáró-alhálózat azon IP-címekkel rendelkezik, amelyeket a Virtual Network Gateway-beli virtuális gépek és szolgáltatások használnak. A virtuális hálózati átjáró létrehozásakor az átjáróként működő virtuális gépek üzembe helyezése az átjáró alhálózatán történik, és a VPN-átjáró szükséges beállításaival van konfigurálva. Ne helyezzen üzembe mást (például további virtuális gépeket) az átjáró-alhálózatra.
 
 >[!IMPORTANT]
->A megfelelő működéshez az átjáró-alhálózat neve **GatewaySubnet** kell legyen. Azure Stack uses this name to identify the subnet to which to deploy the virtual network gateway VMs and services.
+>A megfelelő működéshez az átjáró-alhálózat neve **GatewaySubnet** kell legyen. Azure Stack ezzel a névvel azonosítja azt az alhálózatot, amelybe telepíteni kívánja a virtuális hálózati átjárót és a szolgáltatásokat.
 
-Az átjáróalhálózat létrehozásakor meg kell adnia, hogy hány IP-címet tartalmaz az alhálózat. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Egyes konfigurációknak a többinél nagyobb számú IP-címre van szükségük. Look at the instructions for the configuration that you want to create and verify that the gateway subnet you want to create meets those requirements.
+Az átjáróalhálózat létrehozásakor meg kell adnia, hogy hány IP-címet tartalmaz az alhálózat. Az átjáró-alhálózat IP-címei az átjáró virtuális gépei és az átjáró szolgáltatások számára vannak lefoglalva. Egyes konfigurációknak a többinél nagyobb számú IP-címre van szükségük. Tekintse meg a létrehozni kívánt konfiguráció utasításait, és ellenőrizze, hogy a létrehozni kívánt átjáró-alhálózat megfelel-e a követelményeknek.
 
-Additionally, you should make sure your gateway subnet has enough IP addresses to handle additional future configurations. Although you can create a gateway subnet as small as /29, we recommend you create a gateway subnet of /28 or larger (/28, /27, /26, and so on.) That way, if you add functionality in the future, you do not have to tear down your gateway, then delete and recreate the gateway subnet to allow for more IP addresses.
+Emellett győződjön meg arról, hogy az átjáró-alhálózat elegendő IP-címmel rendelkezik a további jövőbeli konfigurációk kezeléséhez. Bár létrehozhat egy átjáró-alhálózatot kisebb as/29-ként is, javasoljuk, hogy hozzon létre egy/28 vagy nagyobb (/28,/27,/26) átjáró-alhálózatot, és így tovább.) Így ha a jövőben új funkciókat ad hozzá, nem kell lebontania az átjárót, majd törölnie és újból létre kell hoznia az átjáró-alhálózatot, hogy több IP-címet engedélyezzen.
 
-The following Resource Manager PowerShell example shows a gateway subnet named **GatewaySubnet**. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
+A következő Resource Manager PowerShell-példa egy **GatewaySubnet**nevű átjáró-alhálózatot mutat be. Láthatja, hogy a CIDR jelölése egy/27, amely elegendő IP-címet biztosít a jelenleg létező konfigurációkhoz.
 
 ```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
-> Átjáróalhálózatokkal való munka esetén ne társítsa a hálózati biztonsági csoportot (NSG) az átjáróalhálózathoz. Associating a network security group to this subnet can cause your VPN gateway to stop functioning as expected. For more information about network security groups, see [What is a network security group?](/azure/virtual-network/virtual-networks-nsg).
+> Amikor átjáró-alhálózatokkal dolgozik, kerülje a hálózati biztonsági csoportok (NSG) társítását az átjáró-alhálózathoz. Ha hálózati biztonsági csoportot társít ehhez az alhálózathoz, akkor a VPN-átjáró a várt módon leállhat. A hálózati biztonsági csoportokkal kapcsolatos további információkért lásd: [Mi az a hálózati biztonsági csoport?](/azure/virtual-network/virtual-networks-nsg).
 
 ### <a name="local-network-gateways"></a>Helyi hálózati átjárók
 
-When creating a VPN gateway configuration in Azure, the local network gateway often represents your on-premises location. In Azure Stack, it represents any remote VPN device that sits outside Azure Stack. This device could be a VPN device in your datacenter (or a remote datacenter), or a VPN gateway in Azure.
+Amikor VPN Gateway-konfigurációt hoz létre az Azure-ban, a helyi hálózati átjáró gyakran a helyszíni helyet jelöli. A Azure Stack a Azure Stackn kívül található távoli VPN-eszközöket jelöli. Ez az eszköz lehet VPN-eszköz a saját adatközpontjában (vagy egy távoli adatközpontban) vagy egy Azure-beli VPN-átjárón.
 
-You give the local network gateway a name, the public IP address of the VPN device, and specify the address prefixes that are on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you've specified for your local network gateway, and routes packets accordingly.
+Adja meg a helyi hálózati átjáró nevét, a VPN-eszköz nyilvános IP-címét, és adja meg a helyszíni helyen található címek előtagjait. Az Azure a hálózati forgalomhoz tartozó célcím előtagjait tekinti át, a helyi hálózati átjáróhoz megadott konfigurációt, és ennek megfelelően irányítja a csomagokat.
 
-This PowerShell example creates a new local network gateway:
+Ez a PowerShell-példa egy új helyi hálózati átjárót hoz létre:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Sometimes you need to modify the local network gateway settings; for example, when you add or modify the address range, or if the IP address of the VPN device changes. For more info, see [Modify local network gateway settings using PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
+Előfordulhat, hogy módosítania kell a helyi hálózati átjáró beállításait; például a címtartomány hozzáadásakor vagy módosításakor, vagy a VPN-eszköz IP-címének megváltozásakor. További információ: [helyi hálózati átjáró beállításainak módosítása a PowerShell használatával](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
-## <a name="ipsecike-parameters"></a>IPsec/IKE parameters
+## <a name="ipsecike-parameters"></a>IPsec/IKE-paraméterek
 
-When you set up a VPN connection in Azure Stack, you must configure the connection at both ends. If you're configuring a VPN connection between Azure Stack and a hardware device such as a switch or router that is acting as a VPN gateway, that device might ask you for additional settings.
+Ha Azure Stackban VPN-kapcsolattal rendelkezik, mindkét végponton konfigurálnia kell a kapcsolódást. Ha VPN-kapcsolatot konfigurál Azure Stack és egy hardvereszköz, például egy olyan kapcsoló vagy útválasztó között, amely VPN-átjáróként működik, akkor az eszköz további beállítások megadását kéri.
 
-Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer by default. If you need to use different IPSec/IKE settings to work with your VPN device, there are more settings available to you to configure your connection manually. For more information, see [Configure IPsec/IKE policy for site-to-site VPN connections](azure-stack-vpn-s2s.md).
+Az Azure-val ellentétben, amely több ajánlatot is támogat kezdeményezőként és válaszadóként, Azure Stack alapértelmezés szerint csak egy ajánlatot támogat. Ha más IPSec/IKE-beállításokat kell használnia a VPN-eszköz használatához, több beállítás is elérhető a kapcsolat manuális konfigurálásához. További információ: [IPSec/IKE-szabályzat konfigurálása helyek közötti VPN-kapcsolatokhoz](azure-stack-vpn-s2s.md).
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Az IKE 1. fázis (Elsődleges mód) paraméterei
 
-| Tulajdonság              | Value (Díj)|
+| Tulajdonság              | Érték|
 |-|-|
 | IKE verziószám           | IKEv2 |
 |Diffie-Hellman Group   | ECP384 |
@@ -178,16 +178,16 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Az IKE 2. fázis (Gyors mód) paraméterei
 
-| Tulajdonság| Value (Díj)|
+| Tulajdonság| Érték|
 |-|-|
 |IKE verziószám |IKEv2 |
-|Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
-|Encryption & Hashing Algorithms (Authentication) | GCMAES256|
+|Titkosítási & kivonatoló algoritmusok (titkosítás)     | GCMAES256|
+|Titkosítási & kivonatolási algoritmusok (hitelesítés) | GCMAES256|
 |SA élettartama (Idő)  | 27 000 másodperc  |
-|SA Lifetime (Kilobytes) | 33,553,408     |
+|SA élettartama (kilobájt) | 33 553 408     |
 |Sérülés utáni titkosságvédelem (PFS) | ECP384 |
 |Kapcsolat megszakadásának észlelése | Támogatott|  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-* [Connect using ExpressRoute](../operator/azure-stack-connect-expressroute.md)
+* [Összekapcsolás a ExpressRoute használatával](../operator/azure-stack-connect-expressroute.md)

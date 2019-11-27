@@ -24,7 +24,7 @@ ms.locfileid: "74298871"
 ---
 # <a name="connect-to-azure-stack-with-powershell"></a>Kapcsolódás Azure Stack a PowerShell-lel
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 A Azure Stack konfigurálható úgy, hogy a PowerShell használatával olyan erőforrásokat kezeljen, mint az ajánlatok, a csomagok, a kvóták és a riasztások létrehozása. Ez a témakör segít az üzemeltető környezet konfigurálásához.
 
@@ -32,8 +32,8 @@ A Azure Stack konfigurálható úgy, hogy a PowerShell használatával olyan er�
 
 Futtassa a következő előfeltételeket a [Azure stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) vagy egy Windows-alapú külső ügyfélről, ha VPN- [kapcsolaton keresztül csatlakozik a ASDK](../asdk/asdk-connect.md#connect-with-vpn).
 
-- Telepítés [Azure Stack-kompatibilis Azure PowerShell-modulok](azure-stack-powershell-install.md).  
-- Töltse le a [az Azure Stack működéséhez szükséges eszközök](azure-stack-powershell-download.md).  
+- Telepítse [Azure stack-kompatibilis Azure PowerShell modulokat](azure-stack-powershell-install.md).  
+- Töltse le a [Azure stack használatához szükséges eszközöket](azure-stack-powershell-download.md).  
 
 ## <a name="connect-with-azure-ad"></a>Az Azure AD Connect
 
@@ -76,7 +76,7 @@ Csatlakozás az Azure Stack-üzemeltető környezet, a PowerShell-lel az Azure A
 
 ## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
-Most, hogy mindent beállítottunk beállításról, belül az Azure Stack-erőforrások létrehozása a PowerShell használatával. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. Az alábbi parancs segítségével hozzon létre egy erőforráscsoportot **MyResourceGroup**.
+Most, hogy mindent beállítottunk beállításról, belül az Azure Stack-erőforrások létrehozása a PowerShell használatával. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy **MyResourceGroup**nevű erőforráscsoportot.
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

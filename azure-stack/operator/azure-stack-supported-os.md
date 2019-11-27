@@ -25,7 +25,7 @@ ms.locfileid: "74298765"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack támogatott vendég operációs rendszerek
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
@@ -34,9 +34,9 @@ Azure Stack támogatja az alábbi táblázatban felsorolt Windows vendég operá
 | Operációs rendszer | Leírás | Elérhető a piactéren |
 | --- | --- | --- |
 | Windows Server, 1709-es verzió | 64 bites | Mag tárolókkal |
-| Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
+| A Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
 | Windows Server 2016 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
-| Windows Server 2012 R2 | 64 bites |  Adatközpont |
+| Windows Server 2012 R2 | 64 bites |  Adatközpont |
 | Windows Server 2012 | 64 bites |  Adatközpont |
 | Windows Server 2008 R2 SP1 | 64 bites |  Adatközpont |
 | Windows Server 2008 SP2 | 64 bites |  Saját rendszerkép használata |
@@ -58,7 +58,7 @@ A piactéren elérhető Linux-disztribúciók tartalmazzák a szükséges Window
 >
 > a [Cloud-init](https://cloud-init.io/) Azure stack 1910-es kiadáson és ezen az időponton túl támogatott.
 
-| Disztribúció | Leírás | Közzétevő | Piactér |
+| Disztribúció | Leírás | Kiadó | Piactér |
 | --- | --- | --- | --- |
 | CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |

@@ -24,7 +24,7 @@ ms.locfileid: "74310153"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Bérlő hozzáadása a használathoz és a számlázáshoz Azure Stack
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Ez a cikk bemutatja, hogyan adhat hozzá bérlőt egy felhőalapú megoldás-szolgáltató (CSP) által kezelt Azure Stack központi telepítéshez. Amikor az új bérlő erőforrásokat használ, Azure Stack a jelentések használatát a CSP-előfizetéséhez.
 
@@ -83,7 +83,7 @@ A következő szakasz a **New-AzureRmResource** parancsmag paramétereit ismerte
 | --- | --- |
 |registrationSubscriptionID | A Azure Stack első regisztrálásához használt Azure-előfizetés.|
 | customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést a Azure Stackba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés AZONOSÍTÓjának kisbetűs karaktereket kell használnia. |
-| resourceGroup | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
+| Erőforráscsoport | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
 | registrationName | A Azure Stack regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. 
 
 > [!NOTE]  

@@ -60,7 +60,7 @@ Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés 
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 Alkalmanként a Microsoft gyorsjavításokat biztosít a Azure Stack, amelyek gyakran megelőző vagy időérzékeny problémákra vonatkoznak.  Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti.
 

@@ -24,7 +24,7 @@ ms.locfileid: "74299005"
 ---
 # <a name="add-linux-images-to-azure-stack-marketplace"></a>Linux-lemezképek hozzáadása Azure Stack piactérhez
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Linux rendszerű virtuális gépeket (VM-ket) telepíthet Azure Stack egy Linux-alapú rendszerkép a Azure Stack piactéren való hozzáadásával. A leggyorsabban a Piactérkezelőn keresztül adhat hozzá Linux rendszerképet az Azure Stackhez. Ezek a rendszerképek elő lettek készítve az Azure Stackben történő használathoz, és ellenőrizve lett a kompatibilitásuk.
 

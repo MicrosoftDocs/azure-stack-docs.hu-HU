@@ -1,7 +1,7 @@
 ---
-title: Rotate secrets
+title: Titkos kódok elforgatása
 titleSuffix: Azure Stack
-description: Learn how to rotate your secrets in Azure Stack.
+description: Megtudhatja, hogyan forgathatja el a titkokat Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -24,117 +24,117 @@ ms.contentlocale: hu-HU
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465392"
 ---
-# <a name="rotate-secrets-in-azure-stack"></a>Rotate secrets in Azure Stack
+# <a name="rotate-secrets-in-azure-stack"></a>A titkok elforgatása Azure Stack
 
-*These instructions apply only to Azure Stack Integrated Systems version 1803 and Later. Don't attempt secret rotation on pre-1802 Azure Stack Versions*
+*Ezek az utasítások csak a 1803-es és újabb verziójú integrált rendszerek Azure Stack vonatkoznak. Ne kísérelje meg a titkos elforgatást a pre-1802 Azure Stack verzióknál*
 
-Secrets help you maintain secure communication between the Azure Stack infrastructure resources and services.
+A titkok segítenek a Azure Stack infrastruktúra-erőforrások és-szolgáltatások közötti biztonságos kommunikáció fenntartásában.
 
-## <a name="rotate-secrets-overview"></a>Rotate secrets overview
+## <a name="rotate-secrets-overview"></a>A titkok elforgatása – áttekintés
 
-1. Prepare the certificates which will be used for secret rotation.
-2. Review the Azure Stack [public key infrastructure certificate requirements](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
-3. [Use the privileged endpoint](azure-stack-privileged-endpoint.md) and run **Test-azurestack**  to confirm that everything is fine.  
-4. Review the [pre-steps for secret rotation](#pre-steps-for-secret-rotation).
-5. [Validate Azure Stack PKI certificates](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Make sure there are no special characters in the password, like `*` or `)`.
-6. Make sure the PFX encryption is **TripleDES-SHA1**. If you run into an issue, see [Fix common issues with Azure Stack PKI certificates](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
-7. Prepare the folder structure.  You can find an example in the [Rotating external secrets](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) section.
-8. [Start the secret rotation](#use-powershell-to-rotate-secrets).
+1. Készítse elő a titkos rotációhoz használni kívánt tanúsítványokat.
+2. Tekintse át a Azure Stack [nyilvános kulcsú infrastruktúra tanúsítványára vonatkozó követelményeket](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
+3. [Használja az emelt szintű végpontot](azure-stack-privileged-endpoint.md) , és futtassa a **test-azurestack** , és győződjön meg róla, hogy minden rendben van.  
+4. Tekintse át a [titkos rotációs folyamat előzetes lépéseit](#pre-steps-for-secret-rotation).
+5. [Ellenőrizze Azure stack PKI-tanúsítványokat](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Győződjön meg arról, hogy nincsenek speciális karakterek a jelszóban, például `*` vagy `)`.
+6. Győződjön meg arról, hogy a PFX **-titkosítás TripleDES-SHA1**. Ha problémába ütközik, tekintse meg [a Azure stack PKI-tanúsítványok gyakori problémáinak elhárítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption)című témakört.
+7. Készítse elő a mappa szerkezetét.  A [külső titkok elforgatása](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) részben talál példát.
+8. [A titkos kód elforgatásának elindítása](#use-powershell-to-rotate-secrets).
 
-## <a name="rotate-secrets"></a>Rotate secrets
+## <a name="rotate-secrets"></a>Titkos kódok elforgatása
 
-Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure resources and services.
+Azure Stack különböző titkokat használ a Azure Stack infrastruktúra-erőforrások és-szolgáltatások közötti biztonságos kommunikáció fenntartásához.
 
-- **Internal secrets**
+- **Belső titkok**
 
-    All the certificates, passwords, secure strings, and keys used by the Azure Stack infrastructure without intervention of the Azure Stack Operator.
+    Az Azure Stack infrastruktúra által a Azure Stack operátor beavatkozása nélkül használt összes tanúsítvány, jelszó, biztonságos karakterlánc és kulcs.
 
-- **External secrets**
+- **Külső titkok**
 
-    Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. External secrets include the certificates for the following services:
+    Infrastruktúra-szolgáltatási tanúsítványok a Azure Stack operátor által biztosított külső szolgáltatásokhoz. A külső titkok közé tartoznak a következő szolgáltatások tanúsítványainak:
 
-    - Administrator portal
-    - Public portal
-    - Administrator Azure Resource Manager
-    - Global Azure Resource Manager
-    - Administrator Key Vault
+    - Felügyeleti portál
+    - Nyilvános portál
+    - Rendszergazda Azure Resource Manager
+    - Globális Azure Resource Manager
+    - Rendszergazda Key Vault
     - Key Vault
-    - Admin Extension Host
-    - ACS (including blob, table, and queue storage)
-    - ADFS*
-    - Graph*
+    - Felügyeleti bővítmény gazdagépe
+    - ACS (blob-, tábla-és üzenetsor-tárolóval együtt)
+    - ADFS
+    - Graph
     
-    \* Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
+    \* csak akkor alkalmazható, ha a környezeti identitás szolgáltatója Active Directory összevont szolgáltatások (AD FS).
 
 > [!Note]
-> All other secure keys and strings, including BMC and switch passwords as well as user and administrator account passwords are still manually updated by the administrator.
+> A rendszergazda továbbra is manuálisan frissíti az összes többi biztonságos kulcsot és karakterláncot, beleértve a BMC-t és a kapcsoló jelszavát, valamint a felhasználói és rendszergazdai fiók jelszavát.
 
 > [!Important]
-> Starting with Azure Stack's 1811 release, secret rotation has been separated for internal and external certificates.
+> A Azure Stack 1811-es kiadásával kezdődően a titkos elforgatás el lett különítve a belső és külső tanúsítványokhoz.
 
-To maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure's secrets at frequencies that are consistent with their organization's security requirements.
+A Azure Stack infrastruktúra integritásának fenntartása érdekében a kezelőknek képesnek kell lenniük arra, hogy rendszeres időközönként elforgassák az infrastruktúra titkait a szervezet biztonsági követelményeinek megfelelő gyakorisággal.
 
-### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotating Secrets with external certificates from a new Certificate Authority
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Titkos kulcsok elforgatása új hitelesítésszolgáltatótól származó külső tanúsítványokkal
 
-Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
+A Azure Stack a következő kontextusokban támogatja a titkos elforgatást egy új hitelesítésszolgáltatótól (CA) származó külső tanúsítványokkal:
 
-|Installed Certificate CA|CA to Rotate To|Támogatott|Azure Stack versions supported|
+|Telepített HITELESÍTÉSSZOLGÁLTATÓ|HITELESÍTÉSSZOLGÁLTATÓ, amely elforgatható|Támogatott|Azure Stack támogatott verziók|
 |-----|-----|-----|-----|
-|From Self-Signed|To Enterprise|Támogatott|1903 & Later|
-|From Self-Signed|To Self-Signed|Nem támogatott||
-|From Self-Signed|To Public<sup>*</sup>|Támogatott|1803 & Later|
-|From Enterprise|To Enterprise|Támogatott. From 1803-1903: supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
-|From Enterprise|To Self-Signed|Nem támogatott||
-|From Enterprise|To Public<sup>*</sup>|Támogatott|1803 & Later|
-|From Public<sup>*</sup>|To Enterprise|Támogatott|1903 & Later|
-|From Public<sup>*</sup>|To Self-Signed|Nem támogatott||
-|From Public<sup>*</sup>|To Public<sup>*</sup>|Támogatott|1803 & Later|
+|Önaláírt|– Vállalati|Támogatott|1903 & később|
+|Önaláírt|Önaláírt|Nem támogatott||
+|Önaláírt|A nyilvános<sup>*</sup>|Támogatott|1803 & később|
+|Vállalattól|– Vállalati|Támogatott. 1803-1903: támogatott, amíg az ügyfelek ugyanazt a vállalati HITELESÍTÉSSZOLGÁLTATÓT használják, mint az üzembe helyezéskor|1803 & később|
+|Vállalattól|Önaláírt|Nem támogatott||
+|Vállalattól|A nyilvános<sup>*</sup>|Támogatott|1803 & később|
+|Nyilvános<sup>*</sup>|– Vállalati|Támogatott|1903 & később|
+|Nyilvános<sup>*</sup>|Önaláírt|Nem támogatott||
+|Nyilvános<sup>*</sup>|A nyilvános<sup>*</sup>|Támogatott|1803 & később|
 
-<sup>*</sup>Indicates that the Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list in the article [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup> Azt jelzi, hogy a nyilvános hitelesítésszolgáltatók olyanok, amelyek a Windows megbízható legfelső szintű program részét képezik. A teljes listát megtalálhatja a [Microsoft megbízható főtanúsítvány programja: résztvevők (2017. június 27.) című](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)cikkben.
 
-## <a name="fixing-alerts"></a>Fixing alerts
+## <a name="fixing-alerts"></a>Riasztások javítása
 
-When secrets are within 30 days of expiration, the following alerts are generated in the administrator portal:
+Ha a titkos kulcsok érvényessége 30 napon belül lejár, a következő riasztások jönnek létre a felügyeleti portálon:
 
-- Pending service account password expiration
-- Pending internal certificate expiration
+- A szolgáltatásfiók jelszavának lejárta folyamatban
+- Függőben lévő belső tanúsítvány lejárata
 - Külső tanúsítvány lejárata miatt függőben
 
-Running secret rotation using the instructions below will fix these alerts.
+Ha az alábbi utasítások segítségével futtatja a titkos kódot, a riasztások kijavítása megtörténik.
 
 > [!Note]
-> Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that's resolved in 1811. Internal secrets won't expire unless the environment has been active for two years.
+> Az 1811-es előtti verziókban Azure Stack környezetek riasztásokat láthatnak a függőben lévő belső tanúsítványokra vagy a titkos kódokra vonatkozóan. Ezek a riasztások pontatlanok, és figyelmen kívül kell hagyni a belső titkos rotáció futtatása nélkül. A belső titkos kulcs lejárati idejének pontatlan riasztásai a 1811-ben megoldott ismert problémák. A belső titkok nem járnak le, kivéve, ha a környezet két évig aktív.
 
-## <a name="pre-steps-for-secret-rotation"></a>Pre-steps for secret rotation
+## <a name="pre-steps-for-secret-rotation"></a>A titkos kód elforgatásának előzetes lépései
 
    > [!IMPORTANT]
-   > If secret rotation has already been performed on your Azure Stack environment then you must update the system to version 1811 or later before you execute secret rotation again. Secret Rotation must be executed via the [Privileged Endpoint](azure-stack-privileged-endpoint.md) and requires Azure Stack Operator credentials. If your environment Azure Stack Operator(s) don't know whether secret rotation has been run on your environment, update to 1811 before executing secret rotation again.
+   > Ha a titkos rotációt már elvégezték a Azure Stack-környezetben, akkor a titkos elforgatás újbóli végrehajtása előtt frissítenie kell a rendszer 1811-es vagy újabb verziójára. A titkos elforgatást a [Kiemelt végponton](azure-stack-privileged-endpoint.md) keresztül kell végrehajtani, és Azure stack kezelői hitelesítő adatokat kell megadnia. Ha a környezet Azure Stack operátor (k) nem tudja, hogy a titkos rotációt futtatták-e a környezetében, frissítsen a 1811-re, mielőtt végrehajtja a titkos elforgatást.
 
-1. It's highly recommended you update your Azure Stack instance to version 1811.
-
-    > [!Note]
-    > For pre-1811 versions, you don't need to rotate secrets to add extension host certificates. You should follow the instructions in the article [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md) to add extension host certificates.
-
-2. Az operátorok az Azure Stack titkos kulcsainak rotálása során észlelhetik és automatikusan lezárhatják a riasztásokat.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using System Center Operations Manager to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
-
-3. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
+1. Erősen ajánlott frissíteni a Azure Stack példányt a 1811-es verzióra.
 
     > [!Note]
-    > The next steps only apply when rotating Azure Stack external secrets.
+    > A 1811 előtti verziókban nem kell elforgatni a titkokat a bővítmény-gazdagép tanúsítványainak hozzáadásához. A bővítmény-gazdagép tanúsítványainak hozzáadásához kövesse a következő cikkben szereplő utasításokat: [felkészülés a bővítmény-gazdagépre Azure stack](azure-stack-extension-host-prepare.md) .
 
-4. Run **[Test-AzureStack](azure-stack-diagnostic-test.md)** and confirm all test outputs are healthy before rotating secrets.
-5. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](azure-stack-pki-certs.md). You can generate a certificate signing request (CSR) for purchasing or creating new certificates using the steps outlined in [Generate PKI Certificates](azure-stack-get-pki-certs.md) and prepare them for use in your Azure Stack environment using the steps in [Prepare Azure Stack PKI Certificates](azure-stack-prepare-pki-certs.md). Be sure to validate the certificates you prepare with the steps outlined in [Validate PKI Certificates](azure-stack-validate-pki-certs.md).
-6. Store a backup to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Keep backup copies in the secure backup location.
-7. Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
-8. Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare.
-9. Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+2. Az operátorok az Azure Stack titkos kulcsainak rotálása során észlelhetik és automatikusan lezárhatják a riasztásokat.  Ez a viselkedés várható, és a riasztások figyelmen kívül hagyhatók.  Az operátorok a **test-AzureStack**használatával ellenőrizhetik a riasztások érvényességét.  Azure Stack rendszerek figyelését System Center Operations Manager használó operátorok esetében a rendszer karbantartási módba helyezése megakadályozza, hogy ezek a riasztások elérjék ITSM rendszerüket, de továbbra is riasztást kapnak, ha az Azure Stack rendszer elérhetetlenné válik.
+
+3. Értesítse a felhasználókat minden karbantartási műveletről. A szokásos karbantartási időszakok a munkaidőn kívüli időpontokban ütemezhetők. A karbantartási műveletek befolyásolhatják a felhasználói munkaterheléseket és a portálon végzett műveleteket is.
+
+    > [!Note]
+    > A következő lépések csak akkor érvényesek, ha Azure Stack külső titkokat elforgatják.
+
+4. Futtassa a **[test-AzureStack](azure-stack-diagnostic-test.md)** , és győződjön meg róla, hogy az összes teszt kimenet kifogástalan állapotú a titkok elforgatása előtt.
+5. Készítse elő a helyettesítő külső tanúsítványok új készletét. Az új készlet megfelel a [PKI-tanúsítványokra vonatkozó követelmények Azure Stackban](azure-stack-pki-certs.md)leírt tanúsítvány-specifikációknak. Létrehozhat egy tanúsítvány-aláírási kérelmet (CSR) az új tanúsítványok megvásárlásához vagy létrehozásához a [PKI-tanúsítványok létrehozása](azure-stack-get-pki-certs.md) című témakörben leírtak szerint, valamint a Azure stack-környezetben való használatra való felkészülést a [pki-tanúsítványok Azure stack előkészítésének](azure-stack-prepare-pki-certs.md)lépései című témakörben leírtak alapján. Győződjön meg arról, hogy a felkészülő tanúsítványokat a [PKI-tanúsítványok ellenőrzése](azure-stack-validate-pki-certs.md)című témakörben ismertetett lépésekkel érvényesíti.
+6. Biztonsági másolat készítése a biztonságos biztonsági mentési helyen történő elforgatáshoz használt tanúsítványokról. Ha az elforgatás fut, majd a művelet meghiúsul, cserélje le a fájlmegosztás tanúsítványait a biztonsági másolatokra a elforgatás újrafuttatása előtt. Tárolja a biztonsági másolatokat a biztonságos biztonsági mentési helyen.
+7. Hozzon létre egy fájlmegosztás, amely a ERCS virtuális gépekről érhető el. A fájlmegosztás legyen olvasható és írható a **CloudAdmin** -identitáshoz.
+8. Nyisson meg egy PowerShell ISE-konzolt egy olyan számítógépről, amelyhez hozzáféréssel rendelkezik a fájlmegosztás. Navigáljon a fájlmegosztás.
+9. Futtassa a **[CertDirectoryMaker. ps1](https://www.aka.ms/azssecretrotationhelper)** parancsot a külső tanúsítványok számára szükséges könyvtárak létrehozásához.
 
 > [!IMPORTANT]
-> The CertDirectoryMaker script will create a folder structure that will adhere to:
+> A CertDirectoryMaker szkript létrehoz egy mappastruktúrát, amely betartja a következőket:
 >
-> **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Provider used for Azure Stack.
+> **.\Certificates\AAD** vagy ***.\Certificates\ADFS*** attól függően, hogy milyen a Azure stack használt identitás-szolgáltatója.
 >
-> It's of utmost importance that your folder structure ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotation** will come up with:
+> Rendkívül fontos, hogy a mappa szerkezete **HRE** vagy **ADFS** -mappákkal végződik, és az összes alkönyvtár ezen a struktúrán belül legyen; Ellenkező esetben a **Start-SecretRotation** a következőket eredményezi:
 >
 > ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
@@ -143,23 +143,23 @@ Running secret rotation using the instructions below will fix these alerts.
 > + PSComputerName        : xxx.xxx.xxx.xxx
 > ```
 >
-> The error massage indicates that there's a problem accessing your fileshare but in reality it's the folder structure that's being enforced here. More information can be found in the Microsoft AzureStack Readiness Checker - [PublicCertHelper module](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
+> A hiba masszázs azt jelzi, hogy probléma van a fájlmegosztás való hozzáféréssel, de a valóságban ez a mappa szerkezete, amelyet itt kényszerítenek ki. További információt a Microsoft AzureStack Readiness-ellenőrző- [PublicCertHelper moduljában](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)találhat.
 >
-> It's also important that your fileshare folder structure begins with **Certificates** folder, otherwise it will also fail on validation.
-> Fileshare mount should look like **\\\\\<IPAddress>\\\<ShareName>\\** and it should contain folder **Certificates\AAD** or **Certificates\ADFS** inside.
+> Fontos továbbá, hogy a fájlmegosztás-mappa szerkezete a **Certificates** mappában is megkezdődik, ellenkező esetben az érvényesítés sikertelen lesz.
+> A fájlmegosztás csatlakoztatásának úgy kell kinéznie, mint a **\\\\\<IP-cím >\\\<megosztásnév >\\** , és tartalmaznia kell a mappa **Certificates\AAD** vagy **Certificates\ADFS** a belsejében.
 >
-> Példa:
-> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
+> Például:
+> - Fájlmegosztás = **\\\\\<ip_cím >\\\<megosztásnév >\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
+> - FullPath = **\\\\\<ip_cím >\\\<megosztásnév > \Certificates\AAD**
 
-## <a name="rotating-external-secrets"></a>Rotating external secrets
+## <a name="rotating-external-secrets"></a>Külső titkok elforgatása
 
-To rotate external secrets:
+Külső titkok elforgatása:
 
-1. Within the newly created **\Certificates\\\<IdentityProvider>** directory created in the pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the **Mandatory certificates** section of the [Azure Stack PKI certificate requirements](azure-stack-pki-certs.md#mandatory-certificates).
+1. Az újonnan létrehozott **\Certificates\\\<IdentityProvider >** az előlépésekben létrehozott könyvtárat, a [Azure stack PKI-tanúsítvány követelményeinek](azure-stack-pki-certs.md#mandatory-certificates) **kötelező tanúsítványok** szakaszában szereplő formátumnak megfelelően helyezze el a külső tanúsítványok új készletét a címtár struktúrájában.
 
-    Example of folder structure for the Azure AD Identity Provider:
+    Példa a mappastruktúrát az Azure AD Identity Provider számára:
     ```powershell
         <ShareName>
         │   │
@@ -200,39 +200,39 @@ To rotate external secrets:
 
     ```
 
-2. Create a PowerShell Session with the [Privileged endpoint](azure-stack-privileged-endpoint.md) using the **CloudAdmin** account and store the sessions as a variable. You'll use this variable as the parameter in the next step.
+2. Hozzon létre egy PowerShell-munkamenetet a [privilegizált végponttal](azure-stack-privileged-endpoint.md) a **CloudAdmin** -fiók használatával, és tárolja a munkameneteket változóként. Ezt a változót paraméterként fogja használni a következő lépésben.
 
     > [!IMPORTANT]  
-    > Don't enter the session. Store the session as a variable.
+    > Ne adja meg a munkamenetet. A munkamenetet változóként tárolja.
 
-3. Run **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Pass your privileged endpoint PowerShell session variable as the **Session** parameter.
+3. Futtassa a **[meghívó parancsot](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Adja át az emelt szintű Endpoint PowerShell munkamenet-változót a **munkamenet** -paraméterként.
 
-4. Run **Start-SecretRotation** with the following parameters:
+4. Futtassa a **Start-SecretRotation** a következő paraméterekkel:
     - **PfxFilesPath**  
-    Specify the network path to your Certificates directory created earlier.  
+    Adja meg a korábban létrehozott tanúsítványok könyvtárának hálózati elérési útját.  
     - **PathAccessCredential**  
-    A PSCredential object for credentials to the share.
+    Egy PSCredential objektum a megosztás hitelesítő adataihoz.
     - **CertificatePassword**  
-    A secure string of the password used for all of the pfx certificate files created.
+    Az összes létrehozott pfx-tanúsítványfájl számára használt jelszó biztonságos karakterlánca.
 
-5. Wait while your secrets rotate. External secret rotation takes approximately one hour.
+5. Várjon, amíg a titkok elforgatása megtörtént. A külső titkos kód elforgatása körülbelül egy órát vesz igénybe.
 
-    When secret rotation successfully completes, your console will display **Overall action status: Success**.
+    Ha a titkos kód elforgatása sikeresen befejeződött, a konzolon a **teljes művelet állapota jelenik meg: sikeres**.
 
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and re-run **Start-SecretRotation** with the **-ReRun** parameter.
+    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, majd futtassa újra a **Start-SecretRotation** **paramétert** .
 
     ```powershell
     Start-SecretRotation -ReRun
     ```
 
-    Contact support if you experience repeated secret rotation failures.
+    Ha ismétlődő titkos rotációs hibát tapasztal, forduljon az ügyfélszolgálathoz.
 
-6. After successful completion of secret rotation, remove your certificates from the share created in the pre-step and store them in their secure backup location.
+6. A titkos elforgatás sikeres befejezése után távolítsa el a tanúsítványokat az előzetes lépésben létrehozott megosztásból, és tárolja őket a biztonságos biztonsági mentési helyükön.
 
-## <a name="use-powershell-to-rotate-secrets"></a>Use PowerShell to rotate secrets
+## <a name="use-powershell-to-rotate-secrets"></a>A titkok elforgatása a PowerShell használatával
 
-The following PowerShell example demonstrates the cmdlets and parameters to run in order to rotate your secrets.
+A következő PowerShell-példa azt mutatja be, hogy a parancsmagok és a paraméterek fussanak a titkok elforgatása érdekében.
 
 ```powershell
 # Create a PEP Session
@@ -250,54 +250,54 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-## <a name="rotating-only-internal-secrets"></a>Rotating only internal secrets
+## <a name="rotating-only-internal-secrets"></a>Csak belső titkok elforgatása
 
 > [!Note]
-> Internal secret rotation should only be done if you suspect an internal secret has been compromised by a malicious entity, or if you've received an alert (on build 1811 or later) indicating internal certificates are nearing expiration. Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that's resolved in 1811. Internal secrets won't expire unless the environment has been active for two years.
+> A belső titkos kód elforgatása csak akkor hajtható végre, ha a belső titkos kulcsot egy rosszindulatú entitás feltörte, vagy ha riasztást kapott (az 1811-es vagy újabb verzióban), amely jelzi a belső tanúsítványok közeledő érvényességét. Az 1811-es előtti verziókban Azure Stack környezetek riasztásokat láthatnak a függőben lévő belső tanúsítványokra vagy a titkos kódokra vonatkozóan. Ezek a riasztások pontatlanok, és figyelmen kívül kell hagyni a belső titkos rotáció futtatása nélkül. A belső titkos kulcs lejárati idejének pontatlan riasztásai a 1811-ben megoldott ismert problémák. A belső titkok nem járnak le, kivéve, ha a környezet két évig aktív.
 
-1. Create a PowerShell session with the [Privileged endpoint](azure-stack-privileged-endpoint.md).
-2. In the Privileged Endpoint session, run **Start-SecretRotation -Internal**.
+1. Hozzon létre egy PowerShell-munkamenetet a [privilegizált végponttal](azure-stack-privileged-endpoint.md).
+2. A Kiemelt végpont-munkamenetben futtassa a **Start-SecretRotation-Internal**parancsot.
 
     > [!Note]
-    > Azure Stack environments on pre-1811 versions won't require the **-Internal** flag. **Start-SecretRotation** will rotate only internal secrets.
+    > Az 1811 előtti verziókban Azure Stack környezetek nem igénylik a **-belső** jelzőt. A **Start-SecretRotation** csak a belső titkokat fogja forgatni.
 
-3. Wait while your secrets rotate.
+3. Várjon, amíg a titkok elforgatása megtörtént.
 
-   When secret rotation successfully completes, your console will display **Overall action status: Success**.
+   Ha a titkos kód elforgatása sikeresen befejeződött, a konzolon a **teljes művelet állapota jelenik meg: sikeres**.
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > Ha a titkos kód elforgatása meghiúsul, kövesse a hibaüzenet utasításait, és futtassa újra a **Start-SecretRotation** parancsot a **-Internal** és a **-újrafuttatási** paraméterekkel.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
-Contact support if you experience repeated secret rotation failures.
+Ha ismétlődő titkos rotációs hibát tapasztal, forduljon az ügyfélszolgálathoz.
 
-## <a name="start-secretrotation-reference"></a>Start-SecretRotation reference
+## <a name="start-secretrotation-reference"></a>Start – SecretRotation-hivatkozás
 
-Rotates the secrets of an Azure Stack System. Only executed against the Azure Stack privileged endpoint.
+Elforgatja egy Azure Stack rendszer titkait. Csak a Azure Stack privilegizált végponton hajtható végre.
 
 ### <a name="syntax"></a>Szintaxis
 
-#### <a name="for-external-secret-rotation"></a>For external secret rotation
+#### <a name="for-external-secret-rotation"></a>Külső titkos kód elforgatásához
 
 ```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
-#### <a name="for-internal-secret-rotation"></a>For internal secret rotation
+#### <a name="for-internal-secret-rotation"></a>Belső titkos kód elforgatásához
 
 ```powershell
 Start-SecretRotation [-Internal]  
 ```
 
-#### <a name="for-external-secret-rotation-rerun"></a>For external secret rotation rerun
+#### <a name="for-external-secret-rotation-rerun"></a>A külső titkos kód elforgatásának újrafuttatása
 
 ```powershell
 Start-SecretRotation [-ReRun]
 ```
 
-#### <a name="for-internal-secret-rotation-rerun"></a>For internal secret rotation rerun
+#### <a name="for-internal-secret-rotation-rerun"></a>A belső titok elforgatásának újrafuttatása
 
 ```powershell
 Start-SecretRotation [-ReRun] [-Internal]
@@ -305,31 +305,31 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="description"></a>Leírás
 
-The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azure Stack system. By default, it rotates only the certificates of all external network infrastructure endpoints. If used with the -Internal flag, internal infrastructure secrets will be rotated. When rotating external network infrastructure endpoints, **Start-SecretRotation** should be run with an **Invoke-Command** script block with the Azure Stack environment's privileged endpoint session passed in as the **Session** parameter.
+A **Start-SecretRotation** parancsmag egy Azure stack rendszer infrastruktúra-titkait elforgatja. Alapértelmezés szerint csak az összes külső hálózati infrastruktúra-végpont tanúsítványait forgatja. Ha a-belső jelzővel van használatban, a belső infrastruktúra titka el lesz forgatva. A külső hálózati infrastruktúra-végpontok elforgatásakor a **Start-SecretRotation** -t egy **meghívásos parancsfájl-** blokkolással kell futtatni, és a Azure stack környezet a **munkamenet** -paraméterként átadott privilegizált végponti munkamenetét.
 
 ### <a name="parameters"></a>Paraméterek
 
-| Paraméter | Type (Típus) | Szükséges | Position | Alapértelmezett | Leírás |
+| Paraméter | Típus | Szükséges | pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Sztring  | Hamis  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
-| `CertificatePassword` | SecureString | Hamis  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
-| `Internal` | Sztring | Hamis | Named | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
-| `PathAccessCredential` | PSCredential | Hamis  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
-| `ReRun` | SwitchParameter | Hamis  | Named  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
+| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
+| `CertificatePassword` | SecureString | Hamis  | Elemzi  | Nincsenek  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
+| `Internal` | Sztring | Hamis | Elemzi | Nincsenek | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | Nincsenek  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
+| `ReRun` | SwitchParameter | Hamis  | Elemzi  | Nincsenek  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
 
 ### <a name="examples"></a>Példák
 
-#### <a name="rotate-only-internal-infrastructure-secrets"></a>Rotate only internal infrastructure secrets
+#### <a name="rotate-only-internal-infrastructure-secrets"></a>Csak belső infrastruktúra-titkok elforgatása
 
-This command must be run via your Azure Stack [environment's privileged endpoint](azure-stack-privileged-endpoint.md).
+Ezt a parancsot a Azure Stack [környezetének privilegizált végpontján](azure-stack-privileged-endpoint.md)keresztül kell futtatni.
 
 ```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
-This command rotates all of the infrastructure secrets exposed to the Azure Stack internal network.
+Ez a parancs elforgatja a Azure Stack belső hálózatnak kitett összes infrastruktúra-titkot.
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>Rotate only external infrastructure secrets  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Csak a külső infrastruktúra titkainak elforgatása  
 
 ```powershell
 # Create a PEP Session
@@ -348,14 +348,14 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-This command rotates the TLS certificates used for Azure Stack's external network infrastructure endpoints.
+Ez a parancs elforgatja a Azure Stack külső hálózati infrastruktúra-végpontokhoz használt TLS-tanúsítványokat.
 
-#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Rotate internal and external infrastructure secrets (**pre-1811** only)
+#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Belső és külső infrastruktúra-titkok elforgatása (csak**előre 1811** )
 
 > [!IMPORTANT]
-> This command only applies to Azure Stack **pre-1811** as the rotation has been split for internal and external certificates.
+> Ez a parancs csak a 1811-es **előtti** Azure Stackre vonatkozik, mivel a belső és külső tanúsítványok esetében az elforgatás megszakadt.
 >
-> **From *1811+* you can't rotate both internal and external certificates anymore!**
+> **A *1811* -től kezdve a belső és a külső tanúsítványok már nem forgathatók el.**
 
 ```powershell
 # Create a PEP Session
@@ -374,22 +374,22 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack's external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
+Ez a parancs elforgatja Azure Stack belső hálózatnak kitett összes infrastruktúra-titkot, valamint a Azure Stack külső hálózati infrastruktúra-végpontokhoz használt TLS-tanúsítványokat. A Start-SecretRotation elforgatja az összes verem által generált titkot, és mivel vannak megadott tanúsítványok, a külső végponti tanúsítványok is el lesznek forgatva.  
 
-## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Update the baseboard management controller (BMC) credential
+## <a name="update-the-baseboard-management-controller-bmc-credential"></a>A alaplapi felügyeleti vezérlő (BMC) hitelesítő adatainak frissítése
 
-The baseboard management controller (BMC) monitors the physical state of your servers. Refer to your original equipment manufacturer (OEM) hardware vendor for instructions to update the user account name and password of the BMC.
+A alaplapi felügyeleti vezérlő (BMC) figyeli a kiszolgálók fizikai állapotát. A BMC felhasználói fiók nevének és jelszavának frissítéséhez tekintse meg az eredeti berendezésgyártó (OEM) hardver gyártójával kapcsolatos utasításokat.
 
 >[!NOTE]
-> Your OEM may provide additional management apps. Updating the user name or password for other management apps has no affect on the BMC user name or password.
+> A SZÁMÍTÓGÉPGYÁRTÓ további felügyeleti alkalmazásokat is biztosíthat. Más felügyeleti alkalmazások felhasználónevének vagy jelszavának frissítése nincs hatással a BMC-felhasználónévre vagy-jelszóra.
 
-1. **Versions earlier than 1910**: Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. The BMC user names can't exceed 16 characters.
+1. **1910-nál korábbi verziók**esetén: frissítse a bmc-t a Azure stack fizikai kiszolgálókon az OEM-utasítások követésével. A környezet minden egyes BMC-beli felhasználónevének és jelszavának azonosnak kell lennie. A BMC-felhasználónevek száma nem lehet hosszabb 16 karakternél.
 
-   **Version 1910 and later**: It's no longer required that you first update the BMC credentials on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. The BMC user names can't exceed 16 characters.
+   **1910-es és újabb verzió**: már nem szükséges, hogy először frissítse a bmc hitelesítő adatait a Azure stack fizikai kiszolgálókon az OEM-utasítások követésével. A környezet minden egyes BMC-beli felhasználónevének és jelszavának azonosnak kell lennie. A BMC-felhasználónevek száma nem lehet hosszabb 16 karakternél.
 
-2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
+2. Nyisson meg egy kiemelt jogosultságú végpontot Azure Stack munkamenetekben. Útmutatásért lásd: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
-3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>** , depending on the environment, run `Set-BmcCredential` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. Példa:
+3. Miután a PowerShell-kérés módosult **[IP-cím vagy ERCS virtuális gép neve]: ps >** vagy a (z) **[AZS-ERCS01]: PS >** , a környezettől függően futtassa `Set-BmcCredential` `Invoke-Command`futtatásával. Adja át a Kiemelt végponti munkamenet-változót paraméterként. Például:
 
     ```powershell
     # Interactive Version
@@ -407,7 +407,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     Remove-PSSession -Session $PEPSession
     ```
 
-    You can also use the static PowerShell version with the Passwords as code lines:
+    A statikus PowerShell-verziót a jelszavakkal is használhatja, a kódokat a következőképpen teheti meg:
 
     ```powershell
     # Static Version
@@ -427,6 +427,6 @@ The baseboard management controller (BMC) monitors the physical state of your se
     Remove-PSSession -Session $PEPSession
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [További tudnivalók az Azure Stack biztonságáról](azure-stack-security-foundations.md)

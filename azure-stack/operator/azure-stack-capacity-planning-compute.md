@@ -86,7 +86,7 @@ Ez a számítás azt eredményezi, hogy a bérlői virtuális gép elhelyezésé
 
   Rugalmassági tartalék = H + R * ((N-1) * H) + V * (N-2)
 
-> Az elemek magyarázata:
+> Helyszín:
 > - H = az egyetlen kiszolgáló memóriájának mérete
 > - N = a méretezési egység mérete (kiszolgálók száma)
 > - R = az operációsrendszer-terheléshez tartozó operációs rendszer tartaléka, amely a<sup>2</sup> . képletben .15

@@ -1,7 +1,7 @@
 ---
-title: Replace a physical disk
+title: Fizikai lemez cseréje
 titleSuffix: Azure Stack
-description: Learn how to replace a physical disk in Azure Stack.
+description: Megtudhatja, hogyan cserélhet le egy fizikai lemezt a Azure Stackban.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -24,41 +24,41 @@ ms.contentlocale: hu-HU
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465477"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Replace a physical disk in Azure Stack
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Fizikai lemez cseréje Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-This article describes the general process to replace a physical disk in Azure Stack. Ha egy fizikai lemez meghibásodik, minél hamarabb cserélje ki.
+Ez a cikk a fizikai lemezek Azure Stackban való cseréjének általános folyamatát ismerteti. Ha egy fizikai lemez meghibásodik, minél hamarabb cserélje ki.
 
-You can use this procedure for integrated systems, and for Azure Stack Development Kit (ASDK) deployments that have hot-swappable disks.
+Ezt az eljárást használhatja integrált rendszerekhez, valamint olyan Azure Stack Development Kit (ASDK) üzemelő példányokhoz, amelyek gyors lecserélhető lemezekkel rendelkeznek.
 
 A lemez cseréjének tényleges lépései a számítógépgyártó (OEM) hardverforgalmazójától függően eltérőek lehetnek. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
 
-## <a name="review-disk-alert-information"></a>Review disk alert information
+## <a name="review-disk-alert-information"></a>Lemez riasztási adatainak ellenőrzése
 Ha egy lemez meghibásodik, egy riasztást kap, miszerint megszakadt a kapcsolat egy fizikai lemezzel.
 
-![Alert showing connectivity lost to physical disk in Azure Stack administration](media/azure-stack-replace-disk/DiskAlert.png)
+![Riasztás a Azure Stack felügyeleti eszköz fizikai lemezének elvesztése miatti kapcsolatról](media/azure-stack-replace-disk/DiskAlert.png)
 
-If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
+Ha megnyitja a riasztást, a riasztás leírása tartalmazza a méretezési egység csomópontot és a lecserélni kívánt lemez pontos fizikai tárolóhelyének helyét. Azure Stack további segítséget nyújt a hibás lemez azonosításához a LED kijelző képességeinek használatával.
 
-## <a name="replace-the-physical-disk"></a>Replace the physical disk
+## <a name="replace-the-physical-disk"></a>A fizikai lemez cseréje
 
 Tekintse meg a számítógépgyártó hardverforgalmazójának a lemez cseréjére vonatkozó, helyszínen cserélhető egységekkel kapcsolatos útmutatóját.
 
 > [!note]
-> Replace disks for one scale unit node at a time. Wait for the virtual disk repair jobs to complete before moving on to the next scale unit node.
+> Lecseréli a lemezeket egyszerre egy méretezési egység csomópontjaira. Várjon, amíg a virtuális lemez javítási feladatai befejeződik, mielőtt továbblép a következő skálázási egység csomópontra.
 
-To prevent the use of an unsupported disk in an integrated system, the system blocks disks that aren't supported by your vendor. If you try to use an unsupported disk, a new alert tells you a disk has been quarantined because of an unsupported model or firmware.
+A nem támogatott lemezek integrált rendszeren való használatának megakadályozása érdekében a rendszer blokkolja a gyártó által nem támogatott lemezeket. Ha nem támogatott lemezt próbál használni, egy új riasztás jelzi, hogy egy lemez nem támogatott modell vagy belső vezérlőprogram miatt lett karanténba helyezve.
 
-After you replace the disk, Azure Stack automatically discovers the new disk and starts the virtual disk repair process.
+A lemez cseréje után Azure Stack automatikusan felfedi az új lemezt, és elindítja a virtuális lemez javítási folyamatát.
 
-## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Check the status of virtual disk repair using Azure Stack PowerShell
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>A virtuális lemezek javításának állapota a Azure Stack PowerShell használatával
 
-After you replace the disk, you can monitor the virtual disk health status and repair job progress by using Azure Stack PowerShell.
+A lemez cseréje után nyomon követheti a virtuális lemez állapotának állapotát, és javíthatja a feladatok előrehaladását Azure Stack PowerShell használatával.
 
-1. Check that you have Azure Stack PowerShell installed. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
-2. Connect to Azure Stack with PowerShell as an operator. For more information, see [Connect to Azure Stack with PowerShell as an operator](azure-stack-powershell-configure-admin.md).
-3. Run the following cmdlets to verify the virtual disk health and repair status:
+1. Győződjön meg arról, hogy telepítve van Azure Stack PowerShell. További információ: [a PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md).
+2. Kapcsolódjon Azure Stack a PowerShell-lel operátorként. További információ: [kapcsolódás Azure Stackhoz a PowerShell-lel kezelőként](azure-stack-powershell-configure-admin.md).
+3. Futtassa a következő parancsmagokat a virtuális lemez állapotának és javítási állapotának ellenőrzéséhez:
 
     ```powershell  
     $scaleunit=Get-AzsScaleUnit
@@ -66,10 +66,10 @@ After you replace the disk, you can monitor the virtual disk health status and r
     Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
     ```
 
-    ![Azure Stack volumes health in Powershell](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+    ![Azure Stack kötetek állapota a PowerShellben](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
 
-4. Validate Azure Stack system state. For instructions, see [Validate Azure Stack system state](azure-stack-diagnostic-test.md).
-5. Optionally, you can run the following command to verify the status of the replaced physical disk.
+4. Azure Stack rendszerállapotának ellenőrzése. Útmutatásért lásd: [Azure stack rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md).
+5. Igény szerint a következő parancs futtatásával ellenőrizheti a lecserélt fizikai lemez állapotát.
 
 ```powershell  
 $scaleunit=Get-AzsScaleUnit
@@ -78,37 +78,37 @@ $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
 ```
 
-![Replaced physical disks in Azure Stack with Powershell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+![Azure Stack fizikai lemezek cseréje a PowerShell-lel](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
-## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Check the status of virtual disk repair using the privileged endpoint
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>A virtuális lemez javításának állapota a privilegizált végpont használatával ellenőrizhető
 
-After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
+A lemez cseréje után nyomon követheti a virtuális lemez állapotának állapotát, és javíthatja a feladatok előrehaladását a Kiemelt végpont használatával. Kövesse az alábbi lépéseket bármely olyan számítógépről, amely hálózati kapcsolattal rendelkezik a Kiemelt végponthoz.
 
-1. Open a Windows PowerShell session and connect to the privileged endpoint.
+1. Nyisson meg egy Windows PowerShell-munkamenetet, és kapcsolódjon a privilegizált végponthoz.
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
   
-2. Run the following command to view virtual disk health:
+2. Futtassa a következő parancsot a virtuális lemez állapotának megtekintéséhez:
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
 
-   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![A Get-VirtualDisk parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. Run the following command to view current storage job status:
+3. Futtassa a következő parancsot a tárolási feladatok aktuális állapotának megtekintéséhez:
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![A Get-StorageJob parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-4. Validate the Azure Stack system state. For instructions, see [Validate Azure Stack system state](azure-stack-diagnostic-test.md).
+4. Ellenőrizze a Azure Stack rendszerállapotot. Útmutatásért lásd: [Azure stack rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md).
 
-## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Troubleshoot virtual disk repair using the privileged endpoint
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Virtuális lemezek javításának hibáinak megoldása a privilegizált végpont használatával
 
-If the virtual disk repair job appears stuck, run the following command to restart the job:
+Ha a virtuális lemez javítási feladata megakad, futtassa a következő parancsot a feladatok újraindításához:
   ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```
