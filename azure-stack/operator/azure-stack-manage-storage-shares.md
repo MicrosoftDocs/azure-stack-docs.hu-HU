@@ -56,7 +56,7 @@ Ha egy megosztás kevés a [szabad területtel](#reclaim-capacity) , és nem sik
 - További információ arról, hogy a bérlői felhasználók hogyan működnek a blob Storage-ban Azure Stackban: [Azure stack Storage Services](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
-### <a name="containers"></a>Tárolók
+### <a name="containers"></a>Containers
 A bérlői felhasználók a Blobok tárolására szolgáló tárolókat hoznak létre. Míg a felhasználó dönti el, hogy mely tárolót helyezi el a Blobok, a Storage szolgáltatás algoritmus használatával határozza meg, hogy melyik kötetre helyezi a tárolót. Az algoritmus általában kiválasztja a legnagyobb szabad területtel rendelkező kötetet.  
 
 Miután egy blobot elhelyez egy tárolóban, a blob több helyet is felhasználhat. Amikor új blobokat ad hozzá, és a meglévő Blobok növekednek, a köteten lévő szabad terület csökken.  
@@ -211,5 +211,5 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 
 A terület kezelésére legszélsőségesebb módszer a virtuálisgép-lemezek mozgatásával jár. Mivel egy csatolt tároló (amely egy virtuálisgép-lemezt tartalmaz) áthelyezése összetett, a művelet végrehajtásához forduljon Microsoft ügyfélszolgálatahoz.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 További információ a [virtuális gépek felhasználók számára történő felajánlásáról](azure-stack-tutorial-tenant-vm.md).

@@ -33,7 +33,7 @@ Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal olda
 
 ::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
-> Ez a csomag csak olyan Azure Stack integrált rendszerek. Ez a csomag nem vonatkoznak az Azure Stack Development Kit.
+> Ez a frissítési csomag csak Azure Stack integrált rendszerekhez használható. Ezt a frissítési csomagot ne alkalmazza a Azure Stack Development Kit.
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
@@ -80,7 +80,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Ha hiba történik, a Azure Stack állapot-és figyelési rendszer a különböző hardver-összetevőkre vonatkozó riasztásokat is képes létrehozni. Ehhez további konfigurálásra van szükség. További információ: [Azure stack hardver-összetevők figyelése](azure-stack-hardware-monitoring.md).
 
-- [Cloud-init támogatás a Azure Stackhoz](/azure/virtual-machines/linux/using-cloud-init): a Cloud-init egy széles körben használt módszer a Linux RENDSZERű virtuális gépek első indítására. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. A cloud-init nevezzük az első rendszerindítás során, mert nincsenek további lépéseket vagy szükséges ügynökök a alkalmazni a konfigurációt. A piactéren lévő Ubuntu-lemezképek frissítve lettek a Cloud-init támogatásához a kiépítés érdekében.
+- [Cloud-init támogatás a Azure Stackhoz](/azure/virtual-machines/linux/using-cloud-init): a Cloud-init egy széles körben használt módszer a Linux RENDSZERű virtuális gépek első indítására. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához. A piactéren lévő Ubuntu-lemezképek frissítve lettek a Cloud-init támogatásához a kiépítés érdekében.
 
 - A Azure Stack mostantól támogatja az összes Windows Azure Linux-ügynök verzióját az Azure-ban.
 
@@ -109,7 +109,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
    **IKE 1. fázis (fő módú) paraméterek**
 
-   | Tulajdonság              | Érték|
+   | Tulajdonság              | Value (Díj)|
    |-|-|
    | IKE verziószám           | IKEv2 |
    |Diffie-Hellman Group   | ECP384 |
@@ -119,7 +119,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
    **IKE 2. fázis (gyors mód) paraméterei**
 
-   | Tulajdonság| Érték|
+   | Tulajdonság| Value (Díj)|
    |-|-|
    |IKE verziószám |IKEv2 |
    |Titkosítási & kivonatoló algoritmusok (titkosítás)     | GCMAES256|
@@ -133,7 +133,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Az infrastruktúra-biztonsági mentési szolgáltatás javítja a szükséges szabad lemezterületet a biztonsági mentésekhez, nem rögzített küszöbértékre való támaszkodás helyett. A szolgáltatás a külső tárolási hely biztonsági mentési, adatmegőrzési szabályzatának, fenntartásának és aktuális kihasználtságának méretét fogja használni annak megállapítására, hogy a rendszer figyelmeztetést kell-e kiemelni a működtető számára. 
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - Ha a Piactéri elemeket az Azure-ból Azure Stackba tölti le, a rendszer új felhasználói felületet biztosít, amely lehetővé teszi az elem verziójának megadását, ha több verzió is létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack](azure-stack-download-azure-marketplace-item.md).  
 
@@ -157,7 +157,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
             – Támogatott új tulajdonságok `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`és `StoragePool` a **meghajtó** erőforrásaihoz. <br />
             – A **meghajtó** erőforrásainak `CanPool` és `CannotPoolReason` elavultak; Ehelyett használja a `OperationalStatus`.
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -239,11 +239,11 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - A Azure Stack Rest titkosítású adatainak fejlesztése a fizikai csomópontok hardveres platformmegbízhatósági modul (TPM) számára a titkok megőrzése érdekében.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - A hardveres szolgáltatók a 2,1-es vagy újabb verziójú OEM-bővítményt a 1908-es verzióval megegyező Azure Stack időben szabadítják fel. Az OEM-bővítmény 2,1-es vagy újabb verziója a 1908-es Azure Stack-verzió előfeltétele. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 - A jövőbeli Azure Stack OEM-frissítésekkel való kompatibilitással és az ügyfél felhasználói lemezképeit használó virtuálisgép-telepítéssel kapcsolatos probléma javítva. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
 - Kijavított egy problémát az OEM belső vezérlőprogram frissítésével, és javította a AzureStack a Fabric Ring Health szolgáltatásban. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
@@ -326,7 +326,7 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 
 - A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a felügyeleti műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a 6 hónaposnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítések esetében naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt [töltse le az](azure-stack-apply-updates.md) összes frissítési művelet összefoglalóját 6 hónapnál régebbi verzióra.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - Az 1907-es verzió olyan figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés előtt frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. Azure Stack Az Azure Stack OEM-frissítések alkalmazásával kapcsolatos további információkért lásd: [Azure stack eredeti berendezésgyártó frissítésének alkalmazása](azure-stack-update-oem.md).
 
@@ -340,7 +340,7 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 
 - A Kiemelt jogosultságú Endpoint parancs **set-BmcCredential** most frissíti a hitelesítő adatokat a alaplapi felügyeleti vezérlőben.
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 - Kijavított egy olyan problémát, amelyben a közzétevőt, az ajánlatot és az SKU-t egy Resource Manager-sablonban bizalmasként kezeli a rendszer: a rendszerkép nem lett beolvasva a központi telepítéshez, kivéve, ha a képparaméterek nem egyeznek meg a közzétevő, az ajánlat és az SKU esetében.
@@ -457,7 +457,7 @@ A Azure Stack 1906 frissítési Build típusa **expressz**. További informáci�
 
 - A **standard** SKU lehetőség el lett távolítva a terheléselosztó és a nyilvános IP-cím közül, mivel ez jelenleg nem támogatott.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - A Storage-fiókokkal kapcsolatos felhasználói élmény mostantól konzisztens az Azure-ban.
 
@@ -467,7 +467,7 @@ A Azure Stack 1906 frissítési Build típusa **expressz**. További informáci�
 
 - Frissített karakterláncok az infrastruktúra biztonsági mentési erőforrás-szolgáltatójában konzisztens terminológiához.
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
