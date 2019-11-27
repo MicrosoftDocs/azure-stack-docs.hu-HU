@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 88b92ce80475ba48b2570dc58082fa75983fdd9b
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876585"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540269"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
 
@@ -44,7 +44,7 @@ A legújabb Azure Stack PowerShell-modult internetkapcsolattal rendelkező vagy 
 > [!IMPORTANT]
 > A szükséges verzió telepítése előtt győződjön meg arról, hogy [eltávolította a meglévő Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **Internetkapcsolatot** a ASDK gazdagép számítógépén: Futtassa a következő PowerShell-szkriptet a modulok ASDK-telepítésre történő telepítéséhez:
+- **Internetkapcsolat** a ASDK gazdagépen: futtassa a következő PowerShell-szkriptet a modulok ASDK-telepítésre történő telepítéséhez:
 
 
   ```powershell  
@@ -56,12 +56,12 @@ A legújabb Azure Stack PowerShell-modult internetkapcsolattal rendelkező vagy 
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.7.2
+  Install-Module -Name AzureStack -RequiredVersion 1.8.0
   ```
 
   Ha a telepítés sikeres, a AzureRM és a AzureStack modulok megjelennek a kimenetben.
 
-- **Internetkapcsolat nélkül** a ASDK gazdagépen: Leválasztott forgatókönyv esetén először le kell töltenie a PowerShell-modulokat egy internetkapcsolattal rendelkező gépre az alábbi PowerShell-parancsok használatával:
+- **Nincs internetkapcsolat** a ASDK gazdagép számítógépén: a leválasztott forgatókönyvekben először le kell töltenie a PowerShell-modulokat egy internetkapcsolattal rendelkező gépre az alábbi PowerShell-parancsok használatával:
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -113,8 +113,8 @@ A ASDK üzembe helyezése sikerességének biztosításához használja a test-A
 
 1. Jelentkezzen be AzureStack\AzureStackAdmin-ként a ASDK-gazdaszámítógépen.
 2. Nyissa meg a PowerShellt rendszergazdaként (nem PowerShell ISE).
-3. Futtassa: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. Futtassa: `Test-AzureStack`
+3. Futtatás: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
+4. Futtatás: `Test-AzureStack`
 
 A tesztek végrehajtása eltarthat néhány percig. Ha a telepítés sikeres volt, a kimenet az alábbihoz hasonló módon fog kinézni:
 
@@ -127,8 +127,8 @@ Ha hiba történt, kövesse a hibaelhárítási lépéseket a Súgó beszerzés�
 Az Azure AD-t használó központi telepítések esetén [engedélyeznie kell a több-bérlős](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) telepítést a ASDK-telepítéshez.
 
 > [!NOTE]
-> Ha az Azure Stack regisztrálásához használt tartománytól eltérő rendszergazdai vagy felhasználói fiókok vannak használatban egy Azure Stack portálra való bejelentkezéshez, a Azure Stack regisztrálásához használt tartománynevet a portál URL-címéhez kell csatolni. Ha például Azure stack regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be admin@contoso.comvan jelentkezve, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő\:lesz: https//Portal.local.azurestack.external/ fabrikam.onmicrosoft.com.
+> Ha az Azure Stack regisztrálásához használt tartománytól eltérő rendszergazdai vagy felhasználói fiókok vannak használatban egy Azure Stack portálra való bejelentkezéshez, a Azure Stack regisztrálásához használt tartománynevet a portál URL-címéhez kell csatolni. Ha például Azure Stack regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiók bejelentkezve admin@contoso.com, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https\://Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A ASDK regisztrálása az Azure-ban](asdk-register.md)

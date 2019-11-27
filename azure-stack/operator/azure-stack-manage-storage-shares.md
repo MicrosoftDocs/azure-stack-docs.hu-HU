@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 73c4594672dea4a8bb8030a35c79f3d7e7cca04c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534175"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540318"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack tárolási kapacitásának kezelése
 
@@ -28,7 +28,7 @@ ms.locfileid: "72534175"
 
 Az ebben a cikkben található információk segítenek a felhő-kezelő Azure Stack a Azure Stack üzemelő példány tárolókapacitásának figyelését és kezelését. A Azure Stack Storage-infrastruktúra a **tárolási szolgáltatásokhoz**használt Azure stack üzemelő példány teljes tárolókapacitásának részhalmazát foglalja le. A tárolási szolgáltatások a környezet csomópontjainak megfelelő köteteken, megosztásokban tárolják a bérlői adatokat.
 
-Felhőbeli operátorként korlátozott mennyiségű tárterülettel dolgozhat a szolgáltatással. A tárterület mennyiségét az Ön által megvalósított megoldás határozza meg. Ha többcsomópontos megoldást használ, vagy a hardvert, amelyre telepíti a Azure Stack Development Kit (ASKD), a megoldást az OEM-szállító adja meg.
+Felhőbeli operátorként korlátozott mennyiségű tárterülettel dolgozhat a szolgáltatással. A tárterület mennyiségét az Ön által megvalósított megoldás határozza meg. Ha többcsomópontos megoldást használ, vagy a hardvert, amelyre telepíti a Azure Stack Development Kit (ASDK), a megoldást az OEM-szállító adja meg.
 
 Mivel Azure Stack nem támogatja a tárolókapacitás bővítését, fontos a rendelkezésre álló tár [figyelése](#monitor-shares) a hatékony műveletek fenntartása érdekében.
 
@@ -56,7 +56,7 @@ Ha egy megosztás kevés a [szabad területtel](#reclaim-capacity) , és nem sik
 - További információ arról, hogy a bérlői felhasználók hogyan működnek a blob Storage-ban Azure Stackban: [Azure stack Storage Services](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Tárolók
 A bérlői felhasználók a Blobok tárolására szolgáló tárolókat hoznak létre. Míg a felhasználó dönti el, hogy mely tárolót helyezi el a Blobok, a Storage szolgáltatás algoritmus használatával határozza meg, hogy melyik kötetre helyezi a tárolót. Az algoritmus általában kiválasztja a legnagyobb szabad területtel rendelkező kötetet.  
 
 Miután egy blobot elhelyez egy tárolóban, a blob több helyet is felhasználhat. Amikor új blobokat ad hozzá, és a meglévő Blobok növekednek, a köteten lévő szabad terület csökken.  
@@ -91,7 +91,7 @@ Felhőbeli kezelőként a PowerShell **Get-AzsStorageShare** parancsmag használ
 Felhőbeli operátorként a felügyeleti portálon megtekintheti az összes megosztás tárolási kapacitását.
 
 1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
-2. Válassza a **minden szolgáltatás**  > **Storage**  > **fájlmegosztás** elemet a fájlmegosztás listájának megnyitásához, ahol megtekintheti a használati adatokat.
+2. Válassza a **minden szolgáltatás** > **Storage** > **fájlmegosztás** elemet a fájlmegosztás listájának megnyitásához, ahol megtekintheti a használati adatokat.
 
     ![Példa: Storage file shares in Azure Stack Administrator Portal](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -112,7 +112,7 @@ A felügyeleti portál használata esetén riasztást kap a kevés lemezterület
 
 ![Példa: kritikus riasztás a Azure Stack felügyeleti portálon](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Részletek megtekintése**: a felügyeleti portálon megnyithatja a riasztások részleteit a kockázatcsökkentő beállítások megtekintéséhez: ![Example: riasztás részleteinek megtekintése a Azure stack felügyeleti portálon ](media/azure-stack-manage-storage-shares/alert-details.png)
+**Részletek megtekintése**: a felügyeleti portálon megnyithatja a riasztások részleteit a kockázatcsökkentő beállítások megtekintéséhez: ![példa: riasztás részleteinek megtekintése Azure stack felügyeleti portálon](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>Szabad terület kezelése
 Ha szükség van egy megosztás szabad területére, először a legkevésbé invazív metódusokat használja. Próbálja ki például, hogy a tároló átmigrálása előtt próbálkozzon a terület visszaigénylésével.  
@@ -211,5 +211,5 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 
 A terület kezelésére legszélsőségesebb módszer a virtuálisgép-lemezek mozgatásával jár. Mivel egy csatolt tároló (amely egy virtuálisgép-lemezt tartalmaz) áthelyezése összetett, a művelet végrehajtásához forduljon Microsoft ügyfélszolgálatahoz.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 További információ a [virtuális gépek felhasználók számára történő felajánlásáról](azure-stack-tutorial-tenant-vm.md).

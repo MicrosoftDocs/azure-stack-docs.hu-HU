@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 81a454fbe2db7d72d94eb499ad276ff28d33f048
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
-ms.translationtype: HT
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a0e925d0c7a8401ea6d3f14f82cdb01bba4b354f
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310086"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540339"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -137,15 +137,25 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Ha a Piactéri elemeket az Azure-ból Azure Stackba tölti le, a rendszer új felhasználói felületet biztosít, amely lehetővé teszi az elem verziójának megadását, ha több verzió is létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack](azure-stack-download-azure-marketplace-item.md).  
 
-- A 1910-es verziótól kezdődően a Azure Stack rendszernek további/20 magánhálózati belső IP-tárterületre van szüksége. Ez a hálózat a Azure Stack rendszer számára érhető el, és az adatközponton belül több Azure Stack rendszeren újra felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik a Azure Stack-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). A Azure Stack infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény növelése. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket az üzembe helyezés előtt csökkentse a szükséges irányítható IP-területet.
+- Az 1910-es kiadástól kezdve a Azure Stack rendszernek további/20 belső IP-tárterületre van szüksége. Ez a hálózat a Azure Stack rendszer számára érhető el, és az adatközponton belül több Azure Stack rendszeren újra felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik a Azure Stack-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). A Azure Stack infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény növelése. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket az üzembe helyezés előtt csökkentse a szükséges irányítható IP-területet.
 
-  - Vegye figyelembe, hogy a/20 bemenet előfeltételként szolgál a következő Azure Stack frissítéshez. Ha a következő Azure Stack frissítés megjelent, és megkísérli a telepítését, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint. A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket. 
+  - Vegye figyelembe, hogy a/20 bemenet a 1910 után a következő Azure Stack frissítés előtti előfeltételként szolgál. Ha a következő Azure Stack frissítést a 1910-es kiadás után, és kísérlet történt a telepítésére, a frissítés meghiúsul, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint. A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket. 
 
-  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20 méretű [belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot a PEP-munkamenetben a következő formátumban: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, a rendszer a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet fogja kapni. Ha a művelet sikeresen befejeződött, a riasztás bezáródik a felügyeleti portálon. A Azure Stack rendszer most már frissíthető lesz a következő verzióra.
+  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak a 1910-től kezdődően érhető el) a PEP-munkamenetben a következő formátumban: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, a rendszer a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet fogja kapni. Ha a művelet sikeresen befejeződött, a riasztás bezáródik a felügyeleti portálon. A Azure Stack rendszer most már frissíthető lesz a következő verzióra.
   
 - Az infrastruktúra-biztonsági mentési szolgáltatás törli a részlegesen feltöltött biztonsági mentési adatok mennyiségét, ha a külső tárolóhely a feltöltési eljárás során elfogy a kapacitáson.  
 
 - Az infrastruktúra-biztonsági mentési szolgáltatás a HRE üzemelő példányok biztonsági mentési hasznos adataihoz hozzáadja az Identity Service-t.  
+
+- A AzureStack PowerShell-modul a 1910-es verzióra frissült a 1.8.0-es verziójára.<br>A módosítások a következők:
+   - **Új DRP felügyeleti modul**: a telepítési erőforrás-szolgáltató (DRP) lehetővé teszi az erőforrás-szolgáltatók összehangolt központi telepítésének Azure stack. Ezek a parancsok a Azure Resource Manager réteget használják a DRP való kommunikációhoz.
+   - **Brp**: <br />
+           – Az Azure-beli verem-infrastruktúra biztonsági mentésének egyetlen szerepkör-visszaállítási funkciójának támogatása. <br />
+           -`RoleName` paraméter hozzáadása a parancsmag `Restore-AzsBackup`hoz.
+   - **FRP**: a **meghajtó** -és **kötet** -erőforrások a `2019-05-01`API-verzióval végzett módosításának megszakítása. A funkciókat a Azure Stack 1910-es és újabb verziói támogatják: <br />
+            – A `ID`, `Name`, `HealthStatus` és `OperationalStatus` értékének módosítása megtörtént. <br />
+            – Támogatott új tulajdonságok `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`és `StoragePool` a **meghajtó** erőforrásaihoz. <br />
+            – A **meghajtó** erőforrásainak `CanPool` és `CannotPoolReason` elavultak; Ehelyett használja a `OperationalStatus`.
 
 ### <a name="fixes"></a>Javítások
 
@@ -531,7 +541,7 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerek az **elérhet�
 
 Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure Stack Update Management áttekintését lásd: a [frissítések kezelése Azure stack áttekintés](azure-stack-updates.md).  
 - A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](azure-stack-apply-updates.md).

@@ -15,12 +15,12 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 813cfb72a2fad2b22dfce5baff8680b30d2c599d
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
-ms.translationtype: HT
+ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298816"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540298"
 ---
 # <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
@@ -94,7 +94,18 @@ A szükséges API-verzió profilja és Azure Stack PowerShell-modulok a futtatot
 
 Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomáson történő telepítéséhez:
 
-- Azure Stack 1904 vagy újabb verzió esetén:
+- Azure Stack 1910 vagy újabb verzió esetén:
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.0
+    ```
+
+- Azure Stack 1908 vagy 1903 után:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -115,7 +126,8 @@ Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomás
     ```
 
     > [!Note]  
-    > - A Azure Stack modul 1.7.1 verziója a feltörési változás kiadása. Azure Stack 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://aka.ms/azspshmigration171).
+    > - Azure Stack a modul 1.8.0-es verziója a feltörési változás kiadása. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md#changes) .
+    > - A Azure Stack modul 1.7.2 verziója a feltörési változás kiadása. Azure Stack 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://aka.ms/azspshmigration171).
     > - A AzureRM modul 2.4.0 verziója a Remove-AzureRmStorageAccount parancsmag megszakítási változásával jár. Ez a parancsmag arra vár, `-Force` paramétert kell megadni a Storage-fiók megerősítés nélküli eltávolításához.
     > - Nem kell telepítenie a **AzureRM. BootStrapper** modult a 1901-es vagy újabb verzióhoz Azure stack tartozó modulok telepítéséhez.
     > - Ne telepítse a 2018-03-01-Hybrid profilt a fenti AzureRM-modulok Azure Stack 1901-es vagy újabb verzióra való használata mellett.
@@ -147,7 +159,18 @@ A telepítésnek négy lépése van:
 
 ### <a name="install-azure-stack-powershell"></a>Az Azure Stack PowerShell telepítése
 
-- Azure Stack 1904 vagy újabb.
+- Azure Stack 1910 vagy újabb.
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+    ```
+
+- Azure Stack 1908 vagy 1903 után:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,6 +193,7 @@ A telepítésnek négy lépése van:
     ```
 
     > [!Note]  
+    > - Azure Stack a modul 1.8.0-es verziója a feltörési változás kiadása. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md#changes) .
     > A Azure Stack modul 1.7.1-verziója egy megszakítási változás. Azure Stack 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
@@ -228,7 +252,7 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack Tools letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack felhasználó PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

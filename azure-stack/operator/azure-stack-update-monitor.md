@@ -15,28 +15,28 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a49f2f5c6b06f3362e4cb85553b765ea9fea1a72
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: a724320bd066e6d46e33e6bdc9c80687cfb97736
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70010208"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540283"
 ---
 # <a name="monitor-updates-in-azure-stack-using-powershell"></a>Frissítések figyelése Azure Stack a PowerShell használatával
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
 A frissítések figyeléséhez és kezeléséhez használhatja a Azure Stack felügyeleti végpontokat. Elérhetők a PowerShell-lel. A Azure Stack PowerShell-lel való beállításával kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md).
 
 A frissítések kezeléséhez a következő PowerShell-parancsmagot használhatja:
 
-| A parancsmag | Leírás |
+| Parancsmag | Leírás |
 |------------------------------------------------------|-------------|
-| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.7.2) | Az elérhető frissítések listájának beolvasása. |
-| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.7.2)| A frissítési helyszínek listájának beolvasása. |
-| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.7.2) | A frissítési futtatások listájának beolvasása.  |
-| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.7.2) | Egy adott frissítés alkalmazása egy frissítési helyen. |
-| [Folytatás – AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.7.2) | Egy korábban elindított frissítési futtatást folytat, amely sikertelen volt. |
+| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Az elérhető frissítések listájának beolvasása. |
+| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| A frissítési helyszínek listájának beolvasása. |
+| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.8.0) | A frissítési futtatások listájának beolvasása.  |
+| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.8.0) | Egy adott frissítés alkalmazása egy frissítési helyen. |
+| [Folytatás – AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.8.0) | Egy korábban elindított frissítési futtatást folytat, amely sikertelen volt. |
 
 ## <a name="get-a-list-of-update-runs"></a>A frissítési futtatások listájának lekérése
 
@@ -54,6 +54,6 @@ Ha a frissítés sikertelen, akkor folytathatja a frissítés futtatását, ha a
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 -   [Frissítések kezelése Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
