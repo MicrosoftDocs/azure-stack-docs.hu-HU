@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a0e925d0c7a8401ea6d3f14f82cdb01bba4b354f
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540339"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557692"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -94,6 +94,16 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Hozzáadta a **Get-AzSDnsForwarder** parancsmagot a Kiemelt jogosultságú végponthoz (PEP) a Azure stack DNS-kiszolgálóinak továbbító beállításainak lekéréséhez. További információ a DNS-konfigurációról: [Azure stack Datacenter DNS-integráció](azure-stack-integrate-dns.md).
 
+- A **Kubernetes-fürtök** az [AK motorral](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)való felügyeletének támogatása. Ettől a frissítéstől kezdve az ügyfelek üzembe helyezhetik a termelési Kubernetes-fürtöket. Az AK-motor lehetővé teszi a felhasználók számára a következőket:
+   - Kezelheti a Kubernetes-fürtök életciklusát. Létrehozhatják, frissíthetik és méretezhetik a fürtöket.
+   - A fürtöket az AK és a Azure Stack csapatok által készített felügyelt rendszerképek használatával kezelheti.
+   - Kihasználhatja az olyan Azure Resource Manager integrált Kubernetes-szolgáltatót, amely az Azure natív erőforrásaival rendelkező fürtöket hoz létre.
+   - Fürtök üzembe helyezése és kezelése csatlakoztatott vagy leválasztott Azure Stack stampekben.
+   - Használja az Azure Hybrid-szolgáltatásokat:
+      * Integráció az Azure arc-nal (a privát előzetes verzió hamarosan elérhető)
+      * Integráció a Azure Monitor for containers szolgáltatással (nyilvános előzetes verzió)
+   - A Windows-tárolók használata az KABAi motorral (privát előzetes verzió).
+   - Fogadja a CSS-és PG-támogatást az üzemelő példányokhoz.
 
 ### <a name="improvements"></a>Fejlesztései
 

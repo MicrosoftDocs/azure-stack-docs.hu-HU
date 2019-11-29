@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682119"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557594"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack
 
@@ -46,10 +46,14 @@ A Azure Stack MySQL erőforrás-szolgáltató üzembe helyezése előtt több el
 
   |Minimális Azure Stack-verzió|MySQL RP-verzió|
   |-----|-----|
+  |1910-es verzió (1.1910.0.58)|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
   |1808-es verzió (1.1808.0.97)|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |1808-es verzió (1.1808.0.97)|[MySQL RP-verzió 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |1804-es verzió (1.0.180513.1)|[MySQL RP-verzió 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
+  
+> [!IMPORTANT]
+> A MySQL erőforrás-szolgáltató 1.1.47.0 verziójának telepítése előtt a Azure Stack rendszer frissítése a 1910-es vagy újabb verzióra. Az előző nem támogatott Azure Stack verziókon futó MySQL erőforrás-szolgáltató 1.1.47.0 verziója nem működik.
 
 * Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
@@ -106,7 +110,7 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>A MySQL erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
 
-Az erőforrás-szolgáltató üzembe helyezése során felmerülő manuális konfiguráció elkerülése érdekében testreszabhatja az alábbi parancsfájlt. Szükség szerint módosítsa az alapértelmezett fiók adatait és a jelszavakat a Azure Stack központi telepítéshez.
+Ha a MySQL erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióit telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack-modulok adott verzióját a PowerShellben. Ha a MySQL erőforrás-szolgáltató 1.1.47.0 verzióját telepíti, ez a lépés kihagyható.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -114,7 +118,11 @@ Az erőforrás-szolgáltató üzembe helyezése során felmerülő manuális kon
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Az erőforrás-szolgáltató üzembe helyezése során felmerülő manuális konfiguráció elkerülése érdekében testreszabhatja az alábbi parancsfájlt. Szükség szerint módosítsa az alapértelmezett fiók adatait és a jelszavakat a Azure Stack központi telepítéshez.
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
@@ -166,7 +174,7 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 
 1. Jelentkezzen be a felügyeleti portálra szolgáltatás-rendszergazdaként.
 2. Válassza az **erőforráscsoportok**lehetőséget.
-3. Válassza ki a **System. \<location \>. mysqladapter** erőforráscsoportot.
+3. Válassza ki a **System.\<helyet\>. mysqladapter** erőforráscsoportot.
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül válassza a **virtuális gépek** lehetőséget a felügyeleti portálon annak ellenőrzéséhez, hogy a MySQL erőforrás-szolgáltató virtuális gépe sikeresen létrejött-e, és fut-e.
 

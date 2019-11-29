@@ -33,11 +33,11 @@
       items:
         - name: Áttekintés
           href: azure-stack-capacity-planning-overview.md
-        - name: Compute
+        - name: Számítási szolgáltatások
           href: azure-stack-capacity-planning-compute.md
-        - name: Storage
+        - name: Adattárolás
           href: azure-stack-capacity-planning-storage.md
-        - name: Az Azure Stack Capacity Planner
+        - name: Azure Stack Capacity Planner
           href: azure-stack-capacity-planner.md
     - name: Adatközpont integrációja
       items:
@@ -51,15 +51,15 @@
           href: azure-stack-connected-deployment.md
         - name: Leválasztott központi telepítés
           href: azure-stack-disconnected-deployment.md
-        - name: Adatközpont hálózati integráció
+        - name: Datacenter hálózati integráció
           items:
-            - name: Hálózat-integráció
+            - name: Hálózati integráció
               href: azure-stack-network.md
-            - name: Szegély kapcsolat
+            - name: Szegélyek közötti kapcsolat
               href: azure-stack-border-connectivity.md
             - name: Konfiguráció váltása
               href: azure-stack-customer-defined.md
-            - name: A DNS-integráció
+            - name: DNS-integráció
               href: azure-stack-integrate-dns.md
             - name: DNS-továbbító konfigurálása
               href: azure-stack-configure-dns.md
@@ -70,63 +70,63 @@
               items:
                 - name: Végpontok közzététele
                   href: azure-stack-integrate-endpoints.md
-                - name: Bővítmény gazdagép
+                - name: Bővítmény gazdagépe
                   href: azure-stack-extension-host-prepare.md
         - name: Üzembe helyezési munkalap
           href: azure-stack-deployment-worksheet.md
-        - name: Identitásintegráció
+        - name: Identitás-integráció
           items:
-            - name: Az identitásszolgáltató kiválasztása
+            - name: Válasszon egy identitás-szolgáltatót
               href: azure-stack-integrate-identity.md
             - name: Regisztrációs szerepkör létrehozása
               href: azure-stack-registration-role.md
             - name: Azure-identitás ellenőrzése
               href: azure-stack-validate-identity.md
-            - name: Ellenőrizze az ADFS-integráció
+            - name: ADFS-integráció ellenőrzése
               href: azure-stack-validate-adfs.md
-            - name: Ellenőrizze a graph-integráció
+            - name: Gráf-integráció ellenőrzése
               href: azure-stack-validate-graph.md
         - name: Azure Stack üzembe helyezési PKI-követelmények
           href: azure-stack-pki-certs.md
           items:
-            - name: PKI-tanúsítványok létrehozása
+            - name: PKI-tanúsítványok előállítása
               href: azure-stack-get-pki-certs.md
-            - name: Készítse elő az Azure Stack PKI-tanúsítványok
+            - name: PKI-tanúsítványok Azure Stack előkészítése
               href: azure-stack-prepare-pki-certs.md
             - name: PKI-tanúsítványok ellenőrzése
               href: azure-stack-validate-pki-certs.md
-            - name: PKI-tanúsítványokat szervizelése
+            - name: PKI-tanúsítványok szervizelése
               href: azure-stack-remediate-certs.md
-        - name: Üzembe helyezési erőforrásokkal
+        - name: Üzembe helyezési erőforrások
           items:
-            - name: Üzembe helyezés hálózatokkal kapcsolatos
+            - name: Tudnivalók a központi telepítési hálózatkezelésről
               href: deployment-networking.md
         - name: Azure-regisztráció ellenőrzése
           href: azure-stack-validate-registration.md
           items:
-            - name: Start-AzsReadiness parancsmag-referencia
+            - name: A Start-AzsReadiness parancsmag referenciája
               href: azure-stack-azsreadiness-cmdlet.md
             - name: A készültségi jelentés megtekintése
               href: azure-stack-validation-report.md
-        - name: Külső figyelése
+        - name: Külső figyelés
           href: azure-stack-integrate-monitor.md
-        - name: Külső naplózása
+        - name: Külső naplózás
           items:
             - name: Syslog-továbbítás
               href: azure-stack-integrate-security.md
-            - name: Naplózási eszközök
+            - name: Eszköz naplózása
               href: azure-stack-integrate-physical-device-auditing.md
 - name: Útmutatók
   items:
-    - name: Az Azure Stack kezelése
+    - name: Azure Stack kezelése
       items:
         - name: Az adminisztráció alapjai
           href: azure-stack-manage-basics.md
         - name: Felhasználói adatok törlése a portálról
           href: azure-stack-portal-clear.md
-        - name: Telemetriai adatok gyűjtésének konfigurálása
+        - name: Telemetria-gyűjtemény konfigurálása
           href: azure-stack-telemetry.md
-        - name: Az Azure Stack regisztrálása
+        - name: Azure Stack regisztrálása
           href: azure-stack-registration.md
         - name: Régiók kezelése
           href: azure-stack-region-management.md
@@ -140,7 +140,7 @@
               href: azure-stack-powershell-install.md
             - name: Eszközök letöltése
               href: azure-stack-powershell-download.md
-            - name: Kapcsolódás a PowerShell-lel
+            - name: Kapcsolódás PowerShell-lel
               href: azure-stack-powershell-configure-admin.md
         - name: Hozzáférés a kiemelt végponthoz
           href: azure-stack-privileged-endpoint.md
@@ -160,7 +160,7 @@
                   href: azure-stack-apply-updates.md
                 - name: OEM-frissítések alkalmazása
                   href: azure-stack-update-oem.md
-            - name: A figyelő frissítési állapot
+            - name: Frissítési állapot figyelése
               href: azure-stack-update-monitor.md
             - name: Frissítések hibáinak megoldása
               href: azure-stack-updates-troubleshoot.md
@@ -170,9 +170,9 @@
           href: azure-stack-hardware-monitoring.md
         - name: Hálózati erőforrások kezelése
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Felhasználói előfizetés tulajdonos módosítása
+        - name: Felhasználói előfizetés tulajdonosának módosítása
           href: azure-stack-change-subscription-owner.md
-        - name: Elindítása és leállítása az Azure Stackben
+        - name: Azure Stack elindítása és leállítása
           href: azure-stack-start-and-stop.md
         - name: Kapacitás kezelése
           items:
@@ -182,9 +182,9 @@
               href: azure-stack-manage-storage-shares.md
             - name: Tárolási infrastruktúra kezelése
               href: azure-stack-storage-infrastructure-overview.md
-            - name: Fizikai memória-kapacitás kezelése
+            - name: Fizikai memória kapacitásának kezelése
               href: azure-stack-manage-storage-physical-memory-capacity.md
-            - name: Skálázási egység csomópontok hozzáadása
+            - name: Skálázási egység csomópontjainak hozzáadása
               href: azure-stack-add-scale-node.md
             - name: Nyilvános IP-címek hozzáadása
               href: azure-stack-add-ips.md
@@ -192,11 +192,11 @@
           items:
             - name: Csomópont-műveletek
               href: azure-stack-node-actions.md
-            - name: Cserélje le a csomópont
+            - name: Csomópont cseréje
               href: azure-stack-replace-node.md
             - name: A lemez cseréje
               href: azure-stack-replace-disk.md
-            - name: Cserélje le az összetevő
+            - name: Összetevő cseréje
               href: azure-stack-replace-component.md
     - name: 'Biztonság, megfelelőség és identitás'
       items:
@@ -204,9 +204,9 @@
           href: azure-stack-security-foundations.md
         - name: Biztonság konfigurálása
           href: azure-stack-security-configuration.md
-        - name: Identitás
+        - name: Identitáskezelés
           items:
-            - name: Az identitások áttekintése
+            - name: Az identitás áttekintése
               href: azure-stack-identity-overview.md
             - name: Identitás-architektúra
               href: azure-stack-identity-architecture.md
@@ -222,33 +222,33 @@
               href: azure-stack-enable-multitenancy.md
         - name: Inaktív adatok titkosítása
           href: azure-stack-security-bitlocker.md
-        - name: Titkos kódok elforgatása
+        - name: Titkok elforgatása
           href: azure-stack-rotate-secrets.md
-        - name: A víruskereső frissítése
+        - name: Víruskereső frissítése
           href: azure-stack-security-av.md
         - name: A naplók gyűjtése és az adatkezelés
           href: azure-stack-data-collection.md
     - name: A Marketplace feltöltése
       items:
-        - name: Piactér áttekintése
+        - name: A Piactér áttekintése
           href: azure-stack-marketplace.md
         - name: Marketplace-változások
           href: azure-stack-marketplace-changes.md
-        - name: Az Azure Stackhez az Azure Marketplace-elemek
+        - name: Azure Marketplace-elemek a Azure Stack
           href: azure-stack-marketplace-azure-items.md
         - name: Marketplace-elemek letöltése
           href: azure-stack-download-azure-marketplace-item.md
-        - name: Egyéni virtuálisgép-rendszerkép hozzáadása
+        - name: Egyéni virtuálisgép-lemezkép hozzáadása
           href: azure-stack-add-vm-image.md
         - name: Marketplace-elem létrehozása és közzététele
           href: azure-stack-create-and-publish-marketplace-item.md
-        - name: Támogatott vendég operációs rendszerek az Azure Stackhez
+        - name: A Azure Stack támogatott vendég operációs rendszerek
           href: azure-stack-supported-os.md
-        - name: Egy virtuálisgép-méretezési csoportot ajánlat
+        - name: Virtuálisgép-méretezési csoport ajánlása
           href: azure-stack-compute-add-scalesets.md
-        - name: A Windows Server a Marketplace-en – gyakori kérdések
+        - name: Windows Server a piactéren – gyakori kérdések
           href: azure-stack-windows-server-faq.md
-        - name: Linux rendszerű virtuális gépek biztosítása
+        - name: Linux rendszerű virtuális gépek ajánlata
           href: azure-stack-linux.md
         - name: Red Hat virtuális gép hozzáadása
           href: azure-stack-redhat-create-upload-vhd.md
@@ -264,11 +264,11 @@
       items:
         - name: 'Szolgáltatás, csomag, ajánlat, előfizetés áttekintése'
           href: service-plan-offer-subscription-overview.md
-        - name: Csomag létrehozása
+        - name: Terv létrehozása
           href: azure-stack-create-plan.md
         - name: Ajánlat létrehozása
           href: azure-stack-create-offer.md
-        - name: Hozzon létre egy kiegészítő csomag
+        - name: Kiegészítő csomag létrehozása
           href: create-add-on-plan.md
         - name: Előfizetés egy ajánlatra
           href: azure-stack-subscribe-plan-provision-vm.md
@@ -286,7 +286,7 @@
           items:
             - name: Áttekintés
               href: azure-stack-app-service-overview.md
-            - name: Az App Service-kapacitásának megtervezése
+            - name: App Service kapacitás megtervezése
               href: azure-stack-app-service-capacity-planning.md
             - name: A kezdés előtt
               href: azure-stack-app-service-before-you-get-started.md
@@ -296,9 +296,9 @@
               href: app-service-deploy-ha.md
             - name: App Service-szolgáltatások offline üzembe helyezése
               href: azure-stack-app-service-deploy-offline.md
-            - name: Az App Service frissítése
+            - name: App Service frissítése
               href: azure-stack-app-service-update.md
-            - name: Kapcsolat nélküli frissítése az App Service-ben
+            - name: App Service offline frissítése
               href: azure-stack-app-service-update-offline.md
             - name: Infrastruktúra-Szerepkörök hozzáadása App Service
               href: azure-stack-app-service-add-worker-roles.md
@@ -310,15 +310,15 @@
               href: app-service-recover.md
             - name: App Service számlázás – gyakori kérdések
               href: app-service-billing-faq.md
-            - name: App Service-ben az Azure Stack kibocsátási megjegyzései
+            - name: Azure Stack kibocsátási megjegyzések App Service
               items:
-                - name: App Service-ben az Azure Stack update 1 kibocsátási megjegyzései
+                - name: App Service Azure Stack Update 1 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-one.md
-                - name: App Service-ben az Azure Stack 2-es frissítés – kibocsátási megjegyzések
+                - name: App Service on Azure Stack Update 2 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service-ben az Azure Stack 3-as frissítés – kibocsátási megjegyzések
+                - name: App Service on Azure Stack Update 3 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service-ben az Azure Stack update 4 kibocsátási megjegyzései
+                - name: App Service on Azure Stack Update 4 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-four.md
                 - name: Azure Stack Update 5 kibocsátási megjegyzései App Service
                   href: azure-stack-app-service-release-notes-update-five.md
@@ -330,61 +330,61 @@
           items:
             - name: Áttekintés
               href: azure-stack-mysql-resource-provider.md
-            - name: A MySQL-kiszolgáló erőforrás-szolgáltató üzembe helyezése
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának üzembe helyezése
               href: azure-stack-mysql-resource-provider-deploy.md
-            - name: A MySQL üzemeltető kiszolgálók hozzáadása
+            - name: MySQL üzemeltetési kiszolgálók hozzáadása
               href: azure-stack-mysql-resource-provider-hosting-servers.md
             - name: MySQL-adatbázisok létrehozása
               href: azure-stack-mysql-resource-provider-databases.md
             - name: Magasan elérhető MySQL-adatbázisok üzembe helyezése
               href: azure-stack-tutorial-mysql.md
-            - name: A MySQL-kiszolgáló erőforrás-szolgáltató frissítése
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának frissítése
               href: azure-stack-mysql-resource-provider-update.md
-            - name: A MySQL-kiszolgáló erőforrás-szolgáltató kezelése
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának karbantartása
               href: azure-stack-mysql-resource-provider-maintain.md
-            - name: A MySQL-kiszolgáló erőforrás-szolgáltató eltávolítása
+            - name: A MySQL-kiszolgáló erőforrás-szolgáltatójának eltávolítása
               href: azure-stack-mysql-resource-provider-remove.md
-            - name: MySQL erőforrás-szolgáltató kibocsátási megjegyzései
+            - name: A MySQL erőforrás-szolgáltató kibocsátási megjegyzései
               items:
-                - name: MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
-                  href: azure-stack-mysql-resource-provider-11300.md
                 - name: MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
                   href: azure-stack-mysql-resource-provider-11330.md
+                - name: MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
+                  href: azure-stack-mysql-resource-provider-11300.md
         - name: SQL on Azure Stack
           items:
             - name: Áttekintés
               href: azure-stack-sql-resource-provider.md
-            - name: Az SQL Server erőforrás-szolgáltató üzembe helyezése
+            - name: A SQL Server erőforrás-szolgáltató üzembe helyezése
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Az SQL futtató kiszolgálók hozzáadása
+            - name: SQL-üzemeltetési kiszolgálók hozzáadása
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL-adatbázisok létrehozása
               href: azure-stack-sql-resource-provider-databases.md
             - name: Magasan elérhető SQL-adatbázisok üzembe helyezése
               href: azure-stack-tutorial-sql.md
-            - name: Az SQL Server erőforrás-szolgáltató frissítése
+            - name: A SQL Server erőforrás-szolgáltató frissítése
               href: azure-stack-sql-resource-provider-update.md
-            - name: Az SQL Server erőforrás-szolgáltató kezelése
+            - name: A SQL Server erőforrás-szolgáltató karbantartása
               href: azure-stack-sql-resource-provider-maintain.md
-            - name: Az SQL Server erőforrás-szolgáltató eltávolítása
+            - name: A SQL Server erőforrás-szolgáltató eltávolítása
               href: azure-stack-sql-resource-provider-remove.md
-            - name: SQL erőforrás-szolgáltató kibocsátási megjegyzései
+            - name: Az SQL erőforrás-szolgáltató kibocsátási megjegyzései
               items:
-                - name: SQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
-                  href: azure-stack-sql-resource-provider-11300.md
                 - name: SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
                   href: azure-stack-sql-resource-provider-11330.md
-    - name: Használat és számlázás
+                - name: SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései
+                  href: azure-stack-sql-resource-provider-11300.md
+    - name: Használat és elszámolás
       href: azure-stack-billing-and-chargeback.md
       items:
-        - name: Kezelése a használati és számlázási információkkal egy CSP-hez
+        - name: Használat és számlázás kezelése felhőszolgáltatóként
           href: azure-stack-add-manage-billing-as-a-csp.md
           items:
-            - name: Használat és számlázás a bérlők felvétele
+            - name: Bérlők hozzáadása a használathoz és a számlázáshoz
               href: azure-stack-csp-howto-register-tenants.md
             - name: Bérlői regisztráció kezelése
               href: azure-stack-csp-ref-operations.md
-        - name: Használati és számlázási referencia
+        - name: Használati és számlázási segédlet
           items:
             - name: Jelentéskészítés a használati adatokról
               href: azure-stack-usage-reporting.md
@@ -402,24 +402,24 @@
                   href: azure-stack-usage-issues.md
                 - name: Használati regisztrációs hibakódok
                   href: azure-stack-registration-errors.md
-    - name: Készítsen biztonsági másolatot az Azure Stackben
+    - name: Azure Stack biztonsági mentése
       href: azure-stack-backup-infrastructure-backup.md
       items:
-        - name: A felügyeleti konzolról az Azure Stack biztonsági mentés engedélyezése
+        - name: Azure Stack biztonsági mentésének engedélyezése a felügyeleti konzolról
           href: azure-stack-backup-enable-backup-console.md
-        - name: A PowerShell-lel az Azure Stack biztonsági mentés engedélyezése
+        - name: Azure Stack biztonsági mentésének engedélyezése a PowerShell-lel
           href: azure-stack-backup-enable-backup-powershell.md
-        - name: Készítsen biztonsági másolatot az Azure Stackben
+        - name: Azure Stack biztonsági mentése
           href: azure-stack-backup-back-up-azure-stack.md
-        - name: Fájlok és alkalmazások biztonsági mentése az Azure Stackben
+        - name: Fájlok és alkalmazások biztonsági mentése Azure Stack
           href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Az Azure Stack-alapú virtuális gépek replikálása az Azure-bA
+        - name: Azure Stack rendszerű virtuális gépek replikálása az Azure-ba
           href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Végzetes adatvesztés utáni helyreállítás
+        - name: Helyreállítás a katasztrofális adatvesztéstől
           href: azure-stack-backup-recover-data.md
-        - name: Ajánlott biztonsági eljárások
+        - name: Ajánlott eljárások a biztonsági mentéshez
           href: azure-stack-backup-best-practices.md
-        - name: Biztonsági mentési referencia
+        - name: Biztonsági mentés leírása
           href: azure-stack-backup-reference.md
     - name: Támogatás kérése
       items:
@@ -439,9 +439,9 @@
                       href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
                 - name: Igény szerinti gyűjtemény
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
-        - name: Az Azure Stack érvényesítése
+        - name: Azure Stack érvényesítése
           href: azure-stack-diagnostic-test.md
-        - name: Hibaelhárítás
+        - name: Hibakeresés
           href: azure-stack-troubleshooting.md
 - name: Leírások
   items:
@@ -453,15 +453,15 @@
       href: /azure-stack/user/
     - name: ASDK-dokumentáció
       href: /azure-stack/asdk/
-- name: További források
+- name: Segédanyagok és eszközök
   items:
-    - name: Képzés és tanúsítványok
+    - name: Képzési és minősítési lehetőségek
       href: azure-stack-train-and-cert.md
-    - name: Azure Stack-ütemterv
+    - name: Azure Stack ütemterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Az Azure Stack MSDN-fórum
+    - name: MSDN-fórum Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Az Azure Stack-dokumentáció visszajelzés
+    - name: Azure Stack dokumentációs visszajelzés
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

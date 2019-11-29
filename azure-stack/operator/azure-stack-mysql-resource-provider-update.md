@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0c37b61cf56b1b730ce36e0574fea5cea6e2e7ec
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682096"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557564"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Frissítse a MySQL erőforrás-szolgáltatót Azure Stack
 
@@ -64,10 +64,11 @@ A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a 
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Parancsfájl frissítése – példa
-Az alábbi példa azt a *UpdateMySQLProvider. ps1* parancsfájlt mutatja, amelyet egy emelt szintű PowerShell-konzolról lehet futtatni. Ügyeljen rá, hogy szükség szerint módosítsa a változó információit és jelszavát:
 
 > [!NOTE] 
 > A frissítési folyamat csak az integrált rendszerekre vonatkozik.
+
+Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack-modulok adott verzióját a PowerShellben. Ha frissíti a MySQL erőforrás-szolgáltatót a verzió 1.1.47.0, ezt a lépést kihagyhatja.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -75,7 +76,11 @@ Az alábbi példa azt a *UpdateMySQLProvider. ps1* parancsfájlt mutatja, amelye
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+Az alábbi példa azt a *UpdateMySQLProvider. ps1* parancsfájlt mutatja, amelyet egy emelt szintű PowerShell-konzolról lehet futtatni. Ügyeljen rá, hogy szükség szerint módosítsa a változó információit és jelszavát:
+
+```powershell 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 

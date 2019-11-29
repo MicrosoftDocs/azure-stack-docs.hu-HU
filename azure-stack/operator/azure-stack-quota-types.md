@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955304"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557549"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvóta típusai a Azure Stackban
 
@@ -55,7 +55,7 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 | A Storage-fiókok teljes száma |20 |Az előfizetés által az adott helyen létrehozható tárolási fiókok maximális száma. |
 
 > [!NOTE]
-> Ha egy előfizetésben túllépi a **maximális kapacitást (GB)** , nem hozhat létre új tárolási erőforrást ebben az előfizetésben. Az előfizetésben létrehozott nem felügyelt lemezek azonban továbbra is használhatók virtuális gépeken, ami a kvótán kívüli teljes kapacitást okozhatja.<br>A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
+> Ha egy előfizetésben túllépi a **maximális kapacitást (GB)** , nem hozhat létre új tárolási erőforrást ebben az előfizetésben. A virtuális gépeken ebben az előfizetésben létrehozott nem felügyelt lemezeket azonban folyamatosan használhatja, ami a kvótán kívüli teljes kapacitást is kihasználhatja.<br>A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
 
 ## <a name="network-quota-types"></a>Hálózati kvóták típusai
 

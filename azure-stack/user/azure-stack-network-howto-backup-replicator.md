@@ -9,18 +9,18 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e65943bd0b84d11e3696da206d360edc948c203f
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802265"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557688"
 ---
 # <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Erőforrások replikálása az Azure Stack előfizetés-replikációs szolgáltatással
 
 A Azure Stack előfizetés-replikációs PowerShell-parancsfájl segítségével átmásolhatja az erőforrásokat Azure Stack előfizetések között, Azure Stack stampek között, illetve Azure Stack és az Azure között. A replikátor parancsfájl beolvassa és újraépíti a Azure Resource Manager erőforrásokat a különböző Azure-és Azure Stack-előfizetésekkel. Ebből a cikkből megtudhatja, hogyan működik a parancsfájl, hogyan használhatja a parancsfájlt, és hogyan nyújt hivatkozást a parancsfájl-műveletekhez.
 
-Az ebben a cikkben használt parancsfájlokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A parancsfájlok az előfizetés- **replikációs** mappában találhatók.
+Az ebben a cikkben használt parancsfájlokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A parancsfájlok az előfizetés- [replikációs](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator) mappában találhatók.
 
 ## <a name="subscription-replicator-overview"></a>Az előfizetés-replikátor áttekintése
 
