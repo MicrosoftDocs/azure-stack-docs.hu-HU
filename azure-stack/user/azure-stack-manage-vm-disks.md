@@ -15,12 +15,12 @@ ms.date: 10/24/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b42f21a3225194cfe50b5ae7d39d8d1a7cffb6d0
-ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
+ms.openlocfilehash: a9c0016ef75040263acfe8400e9e04dce9eb744c
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72891266"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690233"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>VIRTUÁLIS gépek lemezes tárolásának létrehozása a Azure Stackban
 
@@ -38,7 +38,9 @@ A nem felügyelt lemezekhez szükség van egy Storage-fiók létrehozására a l
 
 ### <a name="best-practice-guidelines"></a>Ajánlott eljárási irányelvek
 
-A teljesítmény növelése és a teljes költségek csökkentése érdekében javasoljuk, hogy mindegyik virtuálisgép-lemezt külön tárolóban helyezze el. A tárolónak operációsrendszer-lemeznek vagy adatlemeznek kell lennie, de egyszerre nem. Ugyanakkor mindkét típusú lemezt is elhelyezheti ugyanabban a tárolóban.
+Ajánlott a virtuális gép Managed Disks használata a könnyebb kezelhetőség és a kapacitás elosztása érdekében. A felügyelt lemez használata előtt nem kell előkészítenie a Storage-fiókot és-tárolókat.  Több Managed Disks létrehozásakor a lemezek több kötetre lesznek elosztva, amelyek a kötetek kapacitásának kiegyensúlyozására szolgálnak.  
+
+A nem felügyelt lemezek esetében a teljesítmény javítása és a teljes költségek csökkentése érdekében javasoljuk, hogy mindegyik virtuálisgép-lemezt külön tárolóban helyezze el. Akár ugyanazon a tárolóban is elhelyezheti az operációsrendszer-lemezeket és az adatlemezeket, az ajánlott eljárás az, hogy az egyik tároló egy operációsrendszer-lemezt vagy egy adatlemezt is tároljon, de egyszerre nem. 
 
 Ha egy vagy több adatlemezt ad hozzá egy virtuális géphez, a lemezeket tároló helyként további tárolókat is használhat. A további virtuális gépek operációsrendszer-lemezének a saját tárolókban is szerepelnie kell.
 

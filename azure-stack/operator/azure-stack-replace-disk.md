@@ -13,22 +13,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2d4ebaf62a3a2e836df988ec510e21274040e68b
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/02/2019
+ms.openlocfilehash: 0700ca4caefbec2245f2303720a675aece6c21e6
+ms.sourcegitcommit: fd7d43738f275f36dacfa0786697e7c44d405abb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465477"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74694823"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Fizikai lemez cseréje Azure Stack
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk a fizikai lemezek Azure Stackban való cseréjének általános folyamatát ismerteti. Ha egy fizikai lemez meghibásodik, minél hamarabb cserélje ki.
+
+> [!Note]  
+> A fizikai adatmeghajtó cseréje nem igényli, hogy a méretezési egység csomópontja előre **ne** kerüljön karbantartási módba (Drain). Emellett a fizikai meghajtó cseréje után a méretezési egység csomópontot nem kell kijavítani a Azure Stack hub felügyeleti portál használatával. A következő cikk további információt tartalmaz, ha javításra van szükség egy [Azure stack skálázási egység csomópontján található hardver-összetevő cseréjéhez](azure-stack-replace-component.md).
 
 Ezt az eljárást használhatja integrált rendszerekhez, valamint olyan Azure Stack Development Kit (ASDK) üzemelő példányokhoz, amelyek gyors lecserélhető lemezekkel rendelkeznek.
 

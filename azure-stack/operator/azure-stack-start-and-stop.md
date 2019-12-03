@@ -16,14 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 5072c40f4e8eba787e0a18c7c73a51111d0c847b
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e0e23ca6d469e33adbcd47bc66125d6af92f0123
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829272"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689983"
 ---
-# <a name="start-and-stop-azure-stack"></a>Elindítása és leállítása az Azure Stackben
+# <a name="start-and-stop-azure-stack"></a>Azure Stack elindítása és leállítása
 A jelen cikkben ismertetett eljárásokkal Azure Stack szolgáltatások megfelelő leállítására és újraindítására van lehetőség. A Leállítás fizikailag kikapcsolja a teljes Azure Stack környezetet. A rendszer elindítja az összes infrastruktúra-szerepkörre vonatkozó hatásköröket, és visszaadja a bérlői erőforrásokat a leállításuk előtti állapotba.
 
 ## <a name="stop-azure-stack"></a>Azure Stack leállítása 
@@ -89,6 +89,6 @@ Hajtsa végre az alábbi lépéseket, ha az infrastruktúra és a bérlői szolg
 
 5. Ha a **Start-AzureStack** futtatása hibát eredményez, forduljon a Microsoft ügyfélszolgálatához. 
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 
-További információ a [Azure stack diagnosztikai eszközökről](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)
+További információ a [Azure stack diagnosztikai eszközökről](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

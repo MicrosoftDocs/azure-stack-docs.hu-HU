@@ -16,12 +16,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: b33ae5ce88cf05fb73e2519f7f697fca90f7f8bc
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e32fc6c58232e21eb6e7c087c2d95623209bc28d
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824758"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689852"
 ---
 # <a name="start-and-stop-the-asdk"></a>A ASDK elindítása és leállítása
 Nem ajánlott egyszerűen újraindítani a ASDK-gazdagépet. Ehelyett kövesse a cikkben ismertetett eljárásokat a ASDK-szolgáltatások megfelelő leállításához és újraindításához.
@@ -89,5 +89,5 @@ Kövesse az alábbi lépéseket, ha Azure Stack szolgáltatások a ASDK gazdagé
 
 Ha a **Start-AzureStack** futtatása hibát eredményez, látogasson el a [Azure stack támogatási fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) , ahol lekérdezheti a ASDK hibaelhárítási támogatását. 
 
-## <a name="next-steps"></a>További lépések 
-További információ a Azure Stack diagnosztikai eszközről és a naplózási problémákról: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
+## <a name="next-steps"></a>Következő lépések 
+További információ a Azure Stack diagnosztikai eszközről és a naplózási problémákról: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).

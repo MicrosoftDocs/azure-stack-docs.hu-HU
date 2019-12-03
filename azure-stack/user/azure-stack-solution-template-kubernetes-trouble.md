@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.openlocfilehash: 900ff88136d75759fdc3bc05bf351968f9c13654
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162973"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689932"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>A Kubernetes telepítésének hibája Azure Stack
 
@@ -93,10 +93,10 @@ A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttek
     - Lehetséges, hogy a virtuális gép létrehozása belső hibát váltott ki, vagy létrehozási hibát váltott ki. Számos tényező okozhat hibákat, beleértve a Azure Stack-előfizetés kapacitásának korlátozásait is.
     - Győződjön meg arról, hogy a virtuális gép teljes tartományneve (FQDN) ismétlődő előtaggal kezdődik.
 5.  Ha a virtuális gép **rendben**van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
-
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
-    - A Kiemelt végpontok használatával lépjen kapcsolatba a Azure Stack rendszergazdájával, és kérje le a Azure Stack naplóit. További információ: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs).
-6. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - A Kiemelt végpontok használatával lépjen kapcsolatba a Azure Stack rendszergazdájával, és kérje le a Azure Stack naplóit. További információ: [Azure stack diagnosztikai eszközök](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+5. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+
 
 ## <a name="review-deployment-status"></a>Központi telepítés állapotának áttekintése
 

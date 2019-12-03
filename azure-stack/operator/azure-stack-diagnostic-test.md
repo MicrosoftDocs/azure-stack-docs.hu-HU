@@ -14,16 +14,16 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 194af241480cce42273ff81d91213a63b1b9fd59
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 7d0d83c415b52f53e8e791e8c632c5ad2da6fe58
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829172"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690101"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack kezelőként elengedhetetlen, hogy az igény szerinti rendszer állapotát és állapotát meg lehessen határozni. A Azure Stack Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy a rendszer teszteket futtasson a rendszeren a hibák azonosítása érdekében, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
 
@@ -48,7 +48,7 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
 
    További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne gyűjtsön naplókat, és ne vegye fel a kapcsolatot a CSS-sel, ha a tesztek **figyelmeztetnek**
 
@@ -238,8 +238,8 @@ Adja meg a Debug paramétert a parancs részletes kimenetének lekéréséhez:
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ha többet szeretne megtudni Azure Stack diagnosztikai eszközökről és a naplózási problémákról, tekintse meg a [Azure stack diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)című témakört.
+Ha többet szeretne megtudni Azure Stack diagnosztikai eszközökről és a naplózási problémákról, tekintse meg a [Azure stack diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)című témakört.
 
 A hibaelhárítással kapcsolatos további tudnivalókért tekintse meg a [Microsoft Azure stack hibaelhárítást](azure-stack-troubleshooting.md)ismertető témakört.

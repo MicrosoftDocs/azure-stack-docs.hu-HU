@@ -16,12 +16,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: 28e067abef24fbc60cff629e5112ffacdf14b1ec
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659241"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689942"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
 
@@ -95,7 +95,7 @@ A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a 
 4. A Get-azurestacklog-filterbyrole seedring futtatása hívási parancs használatával
 5. Bontsa ki a seedring. zip fájlt, és szerezze be az ellenőrzési jelentést a ERCS mappából, amelyen a test-azurestack futott.
 
-További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems).
+További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 ## <a name="troubleshoot-virtual-machines"></a>Virtuális gépek hibáinak megoldása
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
