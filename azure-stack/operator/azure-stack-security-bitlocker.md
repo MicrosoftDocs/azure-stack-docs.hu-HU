@@ -1,6 +1,7 @@
 ---
-title: Az adatok inaktív adatok titkosítása az Azure Stackben
-description: Ismerje meg, hogyan lehet az Azure Stack védi az adatokat, a titkosítás inaktív állapotban
+title: Inaktív adatok titkosítása
+titleSuffix: Azure Stack
+description: Megtudhatja, hogyan védi a Azure Stack az adatok védelmét a REST-titkosítással.
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -10,52 +11,52 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
 keywords: ''
-ms.openlocfilehash: 0e21808ad82a61014b69cb26958a0c13518af13a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: 13455668330571e9190d37ea0abb4de2a7b88a5d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166503"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780711"
 ---
-# <a name="data-at-rest-encryption-in-azure-stack"></a>Az adatok inaktív adatok titkosítása az Azure Stackben
+# <a name="data-at-rest-encryption-in-azure-stack"></a>Inaktív adatok titkosítása Azure Stack
 
-Az Azure Stack védi a felhasználó- és infrastruktúra-adatok titkosítása inaktív állapotban tárolási alrendszer szinten. Az Azure Stack tárolóalrendszer 128 bites AES-titkosítással bitlockerrel van titkosítva. BitLocker-kulcsok megmaradnak, az egy belső titkoskód-tárolót.
+Azure Stack a tárolási alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a inaktív titkosítás használatával. Azure Stack Storage alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. A BitLocker-kulcsok belső titkos tárolóban maradnak.
 
-Inaktív adatok titkosítása adata általános követelmény a számos, a fő megfelelőségi szabványoknak (például a PCI-DSS, a FedRAMP, HIPAA). Az Azure Stack segítségével további munkát és a szükséges konfigurációk nélkül erőforrásigények kielégítéséhez. További információ az Azure Stack segítségével miként megfelelőségi szabványoknak megfelelő, tekintse meg a [Microsoft Szolgáltatásmegbízhatósági portált](https://aka.ms/AzureStackCompliance).
+Az inaktív adatok titkosítása a legfontosabb megfelelőségi szabványok (például a PCI-DSS, a FedRAMP, a HIPAA) gyakori követelménye. Azure Stack lehetővé teszi a követelmények teljesítését, és nem igényel további munkát vagy konfigurációkat. További információ arról, hogyan segíti a Azure Stack a megfelelőségi előírások teljesítését: a [Microsoft szolgáltatás megbízhatósági portálján](https://aka.ms/AzureStackCompliance).
 
 > [!NOTE]
-> Adatok inaktív adatok titkosítása a személy, aki legalább egy merevlemez-meghajtókat fizikailag ellopná által elért adatok védelme. Adatok inaktív adatok titkosítása nem nyújt védelmet a folyamatban van a hálózaton keresztül (az átvitt adatok), jelenleg használt (a memóriában) adatok vagy egyéb általában elfogott adatok exfiltrated folyamatban, amíg a rendszer működik és fut adatokat.
+> Az inaktív adatok titkosítása megvédi az adatait, és olyan személy fér hozzá, aki fizikailag ellopta egy vagy több merevlemezt. A REST-titkosításban tárolt adatok nem védik a hálózaton keresztül elfogott adatok (az átvitel során továbbított adatok), a jelenleg használatban lévő adatok (a memóriában tárolt adatok), vagy általánosságban az adatok exfiltrated, miközben a rendszer működik.
 
-## <a name="retrieving-bitlocker-recovery-keys"></a>A BitLocker helyreállítási kulcsok beolvasása
+## <a name="retrieving-bitlocker-recovery-keys"></a>BitLocker helyreállítási kulcsok beolvasása
 
-Inaktív adatok az Azure Stack BitLocker-kulcsok belsőleg kezelik. Nem kell megadnia őket a normál működést, vagy a rendszer indításakor. Támogatási esetek azonban a BitLocker helyreállítási kulcsok ahhoz, hogy a rendszer online lehet szükség.  
+Azure Stack BitLocker-kulcsok az inaktív adatok esetében belsőleg kezelhetők. Nem szükséges a normál működéshez vagy a rendszerindításhoz biztosítani őket. A támogatási forgatókönyvek esetében azonban szükség lehet a BitLocker helyreállítási kulcsokra, hogy a rendszer online állapotba kerüljön.  
 
 > [!WARNING]
-> A BitLocker helyreállítási kulcsok lekéréséhez, és az Azure Stack-en kívül egy biztonságos helyen tárolja őket. A helyreállítási kulcsok nem rendelkezik az egyes támogatási példák során adatvesztés, és szükséges biztonsági mentési rendszerképből egy rendszer-visszaállítás.
+> Kérje le a BitLocker helyreállítási kulcsait, és tárolja azokat biztonságos helyen Azure Stackon kívül. Bizonyos támogatási helyzetekben a helyreállítási kulcsok nem rendelkeznek adatvesztéssel, és a rendszer-visszaállítást igényelnek egy biztonsági mentési rendszerképből.
 
-A BitLocker helyreállítási kulcsok beolvasása hozzáférésre van szüksége a [kiemelt végponthoz](azure-stack-privileged-endpoint.md) (EGP). Egy EGP-munkamenetben futtassa a Get-AzsRecoveryKeys parancsmagot.
+A BitLocker helyreállítási kulcsainak beolvasásához hozzá kell férnie a [privilegizált végponthoz](azure-stack-privileged-endpoint.md) (PEP). A PEP-munkamenetből futtassa a Get-AzsRecoveryKeys parancsmagot.
 
 ```powershell
 ##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
 Get-AzsRecoveryKeys
 ```
 
-A választható paraméterek *Get-AzsRecoveryKeys* parancsmagot:
+Választható paraméterek a *Get-AzsRecoveryKeys* parancsmaghoz:
 
-| Paraméter | Leírás | Típus | Kötelező |
+| Paraméter | Leírás | Type (Típus) | Szükséges |
 |---------|---------|---------|---------|
-|*nyers* | leképezés nyers adatokat ad vissza a helyreállítási kulcsot, a számítógép nevét és a jelszó azonosító(k) az egyes titkosított kötetek között  | Kapcsoló | Nincs (Designed támogatási forgatókönyvek esetén)|
+|*nyers* | Az egyes titkosított kötetek helyreállítási kulcsa, számítógépneve és jelszavas azonosítója (i) közötti leképezés nyers adatokból való beolvasása.  | Kapcsoló | Nem (támogatási forgatókönyvekhez tervezve)|
 
 ## <a name="troubleshoot-issues"></a>Problémák elhárítása
 
-Rendkívüli körülmények között, a BitLocker feloldás kérelem is sikertelen, egy adott kötet nem rendszerindító eredményez. Az architektúra összetevői némelyikének függően ez vezethet állásidőt és az esetleges adatvesztés Ha nem rendelkezik a BitLocker helyreállítási kulcsok.
+Szélsőséges körülmények között a BitLocker feloldására irányuló kérelem meghiúsulhat, ami miatt egy adott kötet nem indítható el. Az architektúra egyes összetevőinek rendelkezésre állása alapján ez a hiba leállást eredményezhet, és esetleges adatvesztést okozhat, ha nem rendelkezik a BitLocker helyreállítási kulcsaival.
 
 > [!WARNING]
-> A BitLocker helyreállítási kulcsok lekéréséhez, és az Azure Stack-en kívül egy biztonságos helyen tárolja őket. A helyreállítási kulcsok nem rendelkezik az egyes támogatási példák során adatvesztés, és szükséges biztonsági mentési rendszerképből egy rendszer-visszaállítás.
+> Kérje le a BitLocker helyreállítási kulcsait, és tárolja azokat biztonságos helyen Azure Stackon kívül. Bizonyos támogatási helyzetekben a helyreállítási kulcsok nem rendelkeznek adatvesztéssel, és a rendszer-visszaállítást igényelnek egy biztonsági mentési rendszerképből.
 
-Ha azt gyanítja, hogy a rendszer hibásan bitlockerrel, például az Azure Stack sikertelen elindításához, forduljon az ügyfélszolgálathoz. Támogatás a BitLocker helyreállítási kulcsra van szükség. A BitLocker a legtöbb kapcsolatos problémákat orvosolni tudja egy adott virtuális gép/host/kötet FRU műveletet. Egyéb esetben a videókban rejlő információk manuális eljárás a BitLocker helyreállítási kulcs használatával végezheti el. A BitLocker helyreállítási kulcsok nem érhetők el, ha az egyetlen lehetőség a visszaállítandó biztonsági rendszerképre. Attól függően, amikor az utolsó biztonsági másolat fordulhatnak elő adatvesztés.
+Ha azt gyanítja, hogy a rendszer problémát észlelt a BitLockerben, például Azure Stack sikertelenül, forduljon az ügyfélszolgálathoz. A támogatáshoz a BitLocker helyreállítási kulcsai szükségesek. A BitLockerrel kapcsolatos problémák többsége az adott virtuális gép/gazdagép/kötet esetében egy cserélhető művelettel oldható fel. Más esetekben a BitLocker helyreállítási kulcsait használó manuális felszabadítási eljárás végezhető el. Ha a BitLocker helyreállítási kulcsai nem érhetők el, az egyetlen lehetőség a biztonsági mentési rendszerképből való visszaállítás. Attól függően, hogy mikor történt az utolsó biztonsági mentés, adatvesztést tapasztalhat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [További tudnivalók az Azure Stack biztonságáról](azure-stack-security-foundations.md)
-- Hogyan védje a BitLocker a CSV-k további információkért lásd: [védelméhez a fürt megosztott fürtkötetek és a tárolóhálózat bitlockerrel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).
+- [További információ a Azure stack biztonságról](azure-stack-security-foundations.md).
+- További információ arról, hogyan védi a BitLocker a CSV: a [fürt megosztott kötetei és a tárolóhelyek hálózatának védelme a BitLockerrel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).

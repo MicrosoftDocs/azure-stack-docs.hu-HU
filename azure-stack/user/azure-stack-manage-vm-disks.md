@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a9c0016ef75040263acfe8400e9e04dce9eb744c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690233"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780779"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>VIRTUÁLIS gépek lemezes tárolásának létrehozása a Azure Stackban
 
@@ -36,17 +36,17 @@ A [felügyelt lemezek](/azure/virtual-machines/windows/managed-disks-overview) l
 
 A nem felügyelt lemezekhez szükség van egy Storage-fiók létrehozására a lemezek tárolásához. A létrehozott lemezeket virtuálisgép-lemeznek nevezzük, és tárolókban tárolódnak a Storage-fiókban.
 
-### <a name="best-practice-guidelines"></a>Ajánlott eljárási irányelvek
+## <a name="best-practice-guidelines"></a>Ajánlott eljárási irányelvek
 
-Ajánlott a virtuális gép Managed Disks használata a könnyebb kezelhetőség és a kapacitás elosztása érdekében. A felügyelt lemez használata előtt nem kell előkészítenie a Storage-fiókot és-tárolókat.  Több Managed Disks létrehozásakor a lemezek több kötetre lesznek elosztva, amelyek a kötetek kapacitásának kiegyensúlyozására szolgálnak.  
+Javasoljuk, hogy a virtuális gépekhez Managed Disks használjon a könnyebb felügyelet és a kapacitás elosztása érdekében. A Managed Disks használata előtt nem kell előkészítenie a Storage-fiókot és-tárolókat. Több felügyelt lemez létrehozásakor a lemezek több kötetre oszlanak, ami segít a kötetek kapacitásának kiegyensúlyozásában.  
 
-A nem felügyelt lemezek esetében a teljesítmény javítása és a teljes költségek csökkentése érdekében javasoljuk, hogy mindegyik virtuálisgép-lemezt külön tárolóban helyezze el. Akár ugyanazon a tárolóban is elhelyezheti az operációsrendszer-lemezeket és az adatlemezeket, az ajánlott eljárás az, hogy az egyik tároló egy operációsrendszer-lemezt vagy egy adatlemezt is tároljon, de egyszerre nem. 
+A nem felügyelt lemezek esetében a teljesítmény javítása és a teljes költségek csökkentése érdekében javasoljuk, hogy mindegyik nem felügyelt lemezt egy külön tárolóban helyezze el. Bár az operációsrendszer-lemezeket és az adatlemezeket ugyanabban a tárolóban helyezheti el, az ajánlott eljárás az, hogy az egyik tárolóban legyen egy operációsrendszer-lemez vagy egy adatlemez, de egyszerre nem.
 
 Ha egy vagy több adatlemezt ad hozzá egy virtuális géphez, a lemezeket tároló helyként további tárolókat is használhat. A további virtuális gépek operációsrendszer-lemezének a saját tárolókban is szerepelnie kell.
 
 Virtuális gépek létrehozásakor ugyanazt a Storage-fiókot használhatja minden egyes új virtuális géphez. Csak a létrehozott tárolóknak egyedieknek kell lenniük.
 
-### <a name="adding-new-disks"></a>Új lemezek hozzáadása
+## <a name="adding-new-disks"></a>Új lemezek hozzáadása
 
 A következő táblázat összefoglalja, hogyan adhat hozzá lemezeket a portál használatával és a PowerShell használatával:
 

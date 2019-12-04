@@ -1,6 +1,7 @@
 ---
-title: SQL-adatbázisok használata a Azure Stackon | Microsoft Docs
-description: Ismerje meg, hogyan telepítheti az SQL-adatbázisokat Azure Stack szolgáltatásként, illetve az SQL Server erőforrás-szolgáltatói adapter üzembe helyezésének gyors lépéseit.
+title: SQL-adatbázisok használata
+titleSuffix: Azure Stack
+description: Megtudhatja, hogyan használhatja a SQL Server erőforrás-szolgáltatót az SQL-adatbázisok szolgáltatásként való használatára Azure Stackon.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,22 +16,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 210d8e074cd8c0d62567b33b70cd75984f72d149
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829283"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780728"
 ---
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-adatbázisok használata Microsoft Azure Stack
+# <a name="use-sql-databases-on-azure-stack"></a>SQL-adatbázisok használata Azure Stack
 
-Az SQL Server erőforrás-szolgáltató használatával [Azure stack](azure-stack-overview.md)szolgáltatásként kínál SQL-adatbázisokat. Miután telepítette az erőforrás-szolgáltatót, és csatlakoztatva van egy vagy több SQL Server példányhoz, Ön és a felhasználók a következőket hozhatják létre:
+A SQL Server erőforrás-szolgáltató használatával SQL-adatbázisokat biztosíthat szolgáltatásként [Azure stackon](azure-stack-overview.md). Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
 
 - Adatbázisok Felhőbeli natív alkalmazásokhoz.
 - SQL-t használó webhelyek.
 - SQL-t használó munkaterhelések.
 
-Az erőforrás-szolgáltató nem biztosítja a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)összes adatbázis-kezelési képességeit. Például az erőforrások automatikus kiosztására szolgáló rugalmas készletek nem támogatottak. Az erőforrás-szolgáltató azonban támogatja a hasonló létrehozási, olvasási, frissítési és törlési (szifilisz) műveleteket egy SQL Server adatbázison. 
+Az erőforrás-szolgáltató nem biztosítja a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)összes adatbázis-kezelési képességeit. Például az erőforrások automatikus kiosztására szolgáló rugalmas készletek nem támogatottak. Az erőforrás-szolgáltató azonban támogatja a hasonló létrehozási, olvasási, frissítési és törlési (szifilisz) műveleteket egy SQL Server adatbázison.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL Resource Provider-adapter architektúrája
 
@@ -43,8 +44,8 @@ Az erőforrás-szolgáltató a következő összetevőkből áll:
 Létre kell hoznia legalább egy SQL Server példányt, vagy hozzáférést kell biztosítania a külső SQL Server példányokhoz.
 
 > [!NOTE]
-> Azure Stack integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket létre kell hozni a bérlői portálról vagy a PowerShell használatával a megfelelő bejelentkezéssel. Minden üzemeltetési kiszolgáló számlázható virtuális gép, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
+> Azure Stack integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket létre kell hozni a bérlői portálról vagy a PowerShell használatával a megfelelő bejelentkezéssel. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Az SQL Server erőforrás-szolgáltató adapter üzembe helyezése](azure-stack-sql-resource-provider-deploy.md)

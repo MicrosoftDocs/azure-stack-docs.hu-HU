@@ -17,12 +17,12 @@ ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 0700ca4caefbec2245f2303720a675aece6c21e6
-ms.sourcegitcommit: fd7d43738f275f36dacfa0786697e7c44d405abb
+ms.openlocfilehash: 3c7808374621d3b60b1884df8ad44e27c244bfc5
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74694823"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780847"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Fizikai lemez cseréje Azure Stack
 
@@ -74,20 +74,21 @@ A lemez cseréje után nyomon követheti a virtuális lemez állapotának állap
 4. Azure Stack rendszerállapotának ellenőrzése. Útmutatásért lásd: [Azure stack rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md).
 5. Igény szerint a következő parancs futtatásával ellenőrizheti a lecserélt fizikai lemez állapotát.
 
-```powershell  
-$scaleunit=Get-AzsScaleUnit
-$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 
-Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
-```
+    Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+    ```
 
-![Azure Stack fizikai lemezek cseréje a PowerShell-lel](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![Azure Stack fizikai lemezek cseréje a PowerShell-lel](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>A virtuális lemez javításának állapota a privilegizált végpont használatával ellenőrizhető
 
 A lemez cseréje után nyomon követheti a virtuális lemez állapotának állapotát, és javíthatja a feladatok előrehaladását a Kiemelt végpont használatával. Kövesse az alábbi lépéseket bármely olyan számítógépről, amely hálózati kapcsolattal rendelkezik a Kiemelt végponthoz.
 
 1. Nyisson meg egy Windows PowerShell-munkamenetet, és kapcsolódjon a privilegizált végponthoz.
+
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
@@ -95,6 +96,7 @@ A lemez cseréje után nyomon követheti a virtuális lemez állapotának állap
     ```
   
 2. Futtassa a következő parancsot a virtuális lemez állapotának megtekintéséhez:
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
@@ -102,16 +104,19 @@ A lemez cseréje után nyomon követheti a virtuális lemez állapotának állap
    ![A Get-VirtualDisk parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Futtassa a következő parancsot a tárolási feladatok aktuális állapotának megtekintéséhez:
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![A Get-StorageJob parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+
+    ![A Get-StorageJob parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 4. Ellenőrizze a Azure Stack rendszerállapotot. Útmutatásért lásd: [Azure stack rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md).
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Virtuális lemezek javításának hibáinak megoldása a privilegizált végpont használatával
 
 Ha a virtuális lemez javítási feladata megakad, futtassa a következő parancsot a feladatok újraindításához:
-  ```powershell
-        Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```
+
+```powershell
+Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
+```

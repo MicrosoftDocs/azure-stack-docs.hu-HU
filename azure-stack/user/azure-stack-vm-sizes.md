@@ -9,23 +9,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/11/2019
+ms.topic: reference
+ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 3e91b4baae4dc844cedebb22ca323005ea0e76fa
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.lastreviewed: 12/3/2019
+ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
+ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955667"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784088"
 ---
 # <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack támogatott virtuálisgép-méretek
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk a Azure Stackben elérhető virtuális gépek (VM) méretét sorolja fel.
+Ez a cikk a Azure Stackben elérhető virtuális gépek (VM) méretét sorolja fel. Ebből a cikkből megtudhatja, hogyan választhatja ki a virtuális gépet a Azure Stack-megoldás támogatásához.
 
 A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) a Azure Stack a virtuálisgép-méret függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS határértékek (a lehető legnagyobb mértékben) a zajos szomszédok megelőzése érdekében. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
 

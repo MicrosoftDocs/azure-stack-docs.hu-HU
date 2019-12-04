@@ -17,12 +17,12 @@ ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: d777827e6c700167dff6f203045277353837beef
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 1ab0e33d894b1856e1769a0f6780f5d0b9df3474
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465446"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780762"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack regisztrálása az Azure-ban
 
@@ -272,11 +272,11 @@ A regisztrációs jogkivonat és egy egyedi jogkivonat neve szükséges.
 
 2. Ezután futtassa a következő PowerShell-parancsmagokat:  
 
-  ```powershell  
-  $RegistrationToken = "<Your Registration Token>"
-  $RegistrationName = "<unique-registration-name>"
-  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
-  ```
+    ```powershell  
+    $RegistrationToken = "<Your Registration Token>"
+    $RegistrationName = "<unique-registration-name>"
+    Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
+    ```
 
 Igény szerint a Get-Content parancsmaggal egy olyan fájlra is rámutathat, amely tartalmazza a regisztrációs tokent.
 
@@ -284,16 +284,16 @@ A regisztrációs jogkivonat és egy egyedi jogkivonat neve szükséges.
 
 1. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult:  
 
-  ```powershell  
-  Import-Module .\RegisterWithAzure.psm1
-  ```
+    ```powershell  
+    Import-Module .\RegisterWithAzure.psm1
+    ```
 
 2. Ezután futtassa a következő PowerShell-parancsmagokat:  
 
-  ```powershell  
-  $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
-  ```
+    ```powershell  
+    $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
+    Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
+    ```
 
   > [!Note]  
   > Mentse a regisztrációs erőforrás nevét és a regisztrációs jogkivonatot későbbi használatra.
@@ -477,7 +477,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Paraméter | Típus | Leírás |
+| Paraméter | Type (Típus) | Leírás |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring | Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
@@ -499,7 +499,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Paraméter | Típus | Leírás |
+| Paraméter | Type (Típus) | Leírás |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring |  Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
@@ -527,6 +527,6 @@ Amikor megpróbál hozzáférni a piactér-felügyelethez, hiba történik a ter
 A piactér-felügyelet továbbra is kéri a Azure Stack regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával.
 > Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a következő [lépésekkel](azure-stack-registration.md#verify-azure-stack-registration)ellenőrizheti. A piactér-kezelés használatához [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)kell használnia.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

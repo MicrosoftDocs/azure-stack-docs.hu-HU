@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 3cff638fa242e4d70230062e7d54eef0c9c66802
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 449a734f2b98328d0a5ed046f0c387e6cfdf8a97
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465402"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780864"
 ---
 # <a name="fix-common-issues-with-azure-stack-pki-certificates"></a>Azure Stack PKI-tanúsítványok gyakori problémáinak elhárítása
 
@@ -108,7 +108,7 @@ A **Repair-AzsPfxCertificate** nem tud segíteni, ha új CSR-t kell létrehoznia
 A következő előfeltételeket kell megadnia azon a számítógépen, amelyen az eszköz fut:
 
 - Windows 10 vagy Windows Server 2016, internetkapcsolattal.
-- PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, majd tekintse át a *főbb** és a **másodlagos** verziókat:
+- PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, majd tekintse át a **fő** **-és** alverziókat:
 
    ```powershell
    $PSVersionTable.PSVersion
@@ -153,6 +153,6 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [További tudnivalók az Azure Stack biztonságáról](azure-stack-rotate-secrets.md)
