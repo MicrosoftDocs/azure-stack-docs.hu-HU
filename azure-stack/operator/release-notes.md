@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2019
+ms.date: 12/04/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 1b8b0d8719a6456d7509bfacd3d996cd2a623368
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
-ms.translationtype: HT
+ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810199"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830973"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -108,6 +108,12 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 ### <a name="improvements"></a>Fejlesztései
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
+
+- A Azure Stack továbbfejlesztette a frissítési hibákat okozó javítási és frissítési hibák javítását, illetve megakadályozta, hogy a kezelők Azure Stack frissítést kezdeményezzenek. Ennek eredményeképpen a **test-AzureStack-UpdateReadiness** csoport kevesebb tesztet tartalmaz. További információ: [Azure stack rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md#groups). A következő három teszt marad a **UpdateReadiness** csoportban:
+
+  - **AzSInfraFileValidation**
+  - **AzSActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - Új naplózási szabály, amely akkor jelent jelentést, ha egy külső eszköz (például egy USB-kulcs) csatlakoztatva van a Azure Stack infrastruktúra egy csomópontjához. A napló a syslog használatával lett kibocsátva, és a **Microsoft-Windows-Security-audit: 6416 | Plug and Play események**. A syslog-ügyfél konfigurálásával kapcsolatos további információkért lásd: [syslog-továbbítás](azure-stack-integrate-security.md).
 
