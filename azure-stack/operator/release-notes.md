@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
-ms.translationtype: MT
+ms.openlocfilehash: 1b8b0d8719a6456d7509bfacd3d996cd2a623368
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.translationtype: HT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557692"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810199"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack frissítések: kibocsátási megjegyzések
 
@@ -147,11 +147,11 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Ha a Piactéri elemeket az Azure-ból Azure Stackba tölti le, a rendszer új felhasználói felületet biztosít, amely lehetővé teszi az elem verziójának megadását, ha több verzió is létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack](azure-stack-download-azure-marketplace-item.md).  
 
-- Az 1910-es kiadástól kezdve a Azure Stack rendszernek további/20 belső IP-tárterületre van szüksége. Ez a hálózat a Azure Stack rendszer számára érhető el, és az adatközponton belül több Azure Stack rendszeren újra felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik a Azure Stack-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). A Azure Stack infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény növelése. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket az üzembe helyezés előtt csökkentse a szükséges irányítható IP-területet.
+- Az 1910-es kiadástól kezdve a Azure Stack rendszernek további/20 belső IP-tárterületre **van szüksége** . Ez a hálózat a Azure Stack rendszer számára érhető el, és az adatközponton belül több Azure Stack rendszeren újra felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik a Azure Stack-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). A Azure Stack infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény növelése. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket az üzembe helyezés előtt csökkentse a szükséges irányítható IP-területet.
 
   - Vegye figyelembe, hogy a/20 bemenet a 1910 után a következő Azure Stack frissítés előtti előfeltételként szolgál. Ha a következő Azure Stack frissítést a 1910-es kiadás után, és kísérlet történt a telepítésére, a frissítés meghiúsul, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint. A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket. 
 
-  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak a 1910-től kezdődően érhető el) a PEP-munkamenetben a következő formátumban: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, a rendszer a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet fogja kapni. Ha a művelet sikeresen befejeződött, a riasztás bezáródik a felügyeleti portálon. A Azure Stack rendszer most már frissíthető lesz a következő verzióra.
+  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően érhető el) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, a rendszer a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet fogja kapni. Ha a művelet sikeresen befejeződött, a riasztás bezáródik a felügyeleti portálon. A Azure Stack rendszer most már frissíthető lesz a következő verzióra.
   
 - Az infrastruktúra-biztonsági mentési szolgáltatás törli a részlegesen feltöltött biztonsági mentési adatok mennyiségét, ha a külső tárolóhely a feltöltési eljárás során elfogy a kapacitáson.  
 
@@ -167,7 +167,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
             – Támogatott új tulajdonságok `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`és `StoragePool` a **meghajtó** erőforrásaihoz. <br />
             – A **meghajtó** erőforrásainak `CanPool` és `CannotPoolReason` elavultak; Ehelyett használja a `OperationalStatus`.
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -253,7 +253,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - A hardveres szolgáltatók a 2,1-es vagy újabb verziójú OEM-bővítményt a 1908-es verzióval megegyező Azure Stack időben szabadítják fel. Az OEM-bővítmény 2,1-es vagy újabb verziója a 1908-es Azure Stack-verzió előfeltétele. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 - A jövőbeli Azure Stack OEM-frissítésekkel való kompatibilitással és az ügyfél felhasználói lemezképeit használó virtuálisgép-telepítéssel kapcsolatos probléma javítva. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
 - Kijavított egy problémát az OEM belső vezérlőprogram frissítésével, és javította a AzureStack a Fabric Ring Health szolgáltatásban. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
@@ -350,7 +350,7 @@ A Azure Stack 1907 frissítési Build típusa **expressz**. További informáci�
 
 - A Kiemelt jogosultságú Endpoint parancs **set-BmcCredential** most frissíti a hitelesítő adatokat a alaplapi felügyeleti vezérlőben.
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 - Kijavított egy olyan problémát, amelyben a közzétevőt, az ajánlatot és az SKU-t egy Resource Manager-sablonban bizalmasként kezeli a rendszer: a rendszerkép nem lett beolvasva a központi telepítéshez, kivéve, ha a képparaméterek nem egyeznek meg a közzétevő, az ajánlat és az SKU esetében.
@@ -477,7 +477,7 @@ A Azure Stack 1906 frissítési Build típusa **expressz**. További informáci�
 
 - Frissített karakterláncok az infrastruktúra biztonsági mentési erőforrás-szolgáltatójában konzisztens terminológiához.
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 

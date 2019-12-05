@@ -16,12 +16,12 @@ ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 87afcdb3508f66c69477f0109c2c86d03a6b04e0
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298855"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810173"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>A Azure Stack hálózati integrációjának megtervezése
 
@@ -48,7 +48,7 @@ A következő táblázat azokat a logikai hálózatokat és IPv4-alhálózati ta
 | Nyilvános VIP | Azure Stack a hálózatból összesen 31 címet használ. A rendszer nyolc nyilvános IP-címet használ a Azure Stack szolgáltatások kis készletéhez, a többi pedig a bérlői virtuális gépeket használja. Ha App Service és az SQL Resource Providers használatát tervezi, 7 további címet használ a rendszer. A fennmaradó 15 IP-cím a jövőbeli Azure-szolgáltatások számára van fenntartva. | /26 (62 gazdagép) –/22 (1022 gazdagép)<br><br>Ajánlott =/24 (254 gazdagép) | 
 | Infrastruktúra váltása | Pont-pont típusú IP-címek útválasztási célokra, dedikált kapcsoló felügyeleti felületek és a kapcsolóhoz rendelt visszacsatolási címek. | /26 | 
 | Infrastruktúra | A Azure Stack belső összetevőinek kommunikációhoz használatos. | /24 |
-| Magánjellegű | A Storage Network, a privát VIP-címek, az infrastruktúra-tárolók és egyéb belső függvények esetében használatos. A 1910-től kezdődően az alhálózat mérete a/20 értékre változik. További információkért lásd a jelen cikk [magánhálózat](#private-network) című szakaszát. | /20 | 
+| Saját | A Storage Network, a privát VIP-címek, az infrastruktúra-tárolók és egyéb belső függvények esetében használatos. A 1910-től kezdődően az alhálózat mérete a/20 értékre változik. További információkért lásd a jelen cikk [magánhálózat](#private-network) című szakaszát. | /20 | 
 | BMC | A fizikai gazdagépeken található bmc való kommunikációhoz használatos. | /26 | 
 | | | |
 
@@ -75,7 +75,7 @@ Ez a/20 (4096 IP-cím) hálózat magán a Azure Stack régióban (nem a Azure St
 - **Belső virtuális IP-hálózat**: a szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
 - **Container Network**: a/23 (512 IP) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve.
 
-A 1910-től kezdődően a magánhálózat mérete a magánhálózati IP-címek egy/20 (4096-es IP-címei) értékre változik. Ez a hálózat a Azure Stack rendszer számára lesz privát (nem az Azure Stack rendszer szegély-kapcsoló eszközein kívülre), és az adatközponton belül több Azure Stack rendszeren is felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban lévő többi hálózattal. A magánhálózati IP-területtel kapcsolatos útmutatásért javasoljuk, hogy kövesse az [RFC 1918-es dokumentumot](https://tools.ietf.org/html/rfc1918).
+A 1910-től kezdődően a magánhálózat mérete a magánhálózati IP-címek egy/20 (4096-es IP-címei) értékre változik. Ez a hálózat a Azure Stack rendszer számára lesz privát (nem az Azure Stack rendszer szegély-kapcsoló eszközein kívülre), és az adatközponton belül több Azure Stack rendszeren is felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban lévő többi hálózattal. Átfedés esetén előfordulhat, hogy a Azure Stack nem irányítja kívül a vállalati hálózati forgalmat. A magánhálózati IP-területtel kapcsolatos útmutatásért javasoljuk, hogy kövesse az [RFC 1918-es dokumentumot](https://tools.ietf.org/html/rfc1918).
 
 Ez a/20 magánhálózati IP-terület több hálózatra lesz osztva, amely lehetővé teszi a Azure Stack rendszer belső infrastruktúrájának a későbbi kiadásokban lévő tárolókban való futtatását. További információ: [1910 kibocsátási megjegyzések](release-notes.md). Emellett ez az új magánhálózati IP-terület lehetővé teszi, hogy a telepítés előtt csökkentse a szükséges irányítható IP-területet.
 
@@ -101,6 +101,6 @@ Ez a/29 (hat gazda IP-cím) hálózat a kapcsolók felügyeleti portjainak csatl
 
 A 1910-es verziótól kezdődően az üzembe helyezési munkalap egy új mezővel fog rendelkezni, amely lehetővé teszi, hogy az operátor megváltoztasson bizonyos hozzáférés-vezérlési listákat (ACL-eket), hogy engedélyezze a hozzáférést a hálózati eszközök felügyeleti felületéhez és a hardver életciklus-gazdagépéhez (HLH A hozzáférés-vezérlési lista módosításakor az operátor engedélyezheti, hogy a felügyeleti Jumpbox egy adott hálózati tartományon belül, a HLH operációs rendszer és a HLH BMC használatával hozzáférhessenek. Az operátor egy vagy több alhálózatot is megadhat a listához, ha üresen hagyja, a rendszer alapértelmezés szerint megtagadja a hozzáférést. Ez az új funkció lecseréli az üzembe helyezés utáni manuális beavatkozás szükségességét, ahogy azt a [Azure stack kapcsoló konfigurációjának konkrét beállításainak módosítása](azure-stack-customer-defined.md#access-control-list-updates)című témakörben ismertette.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További tudnivalók a hálózati tervezésről: a [határok közötti kapcsolat](azure-stack-border-connectivity.md).

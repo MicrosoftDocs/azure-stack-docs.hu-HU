@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7d0d83c415b52f53e8e791e8c632c5ad2da6fe58
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690101"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830963"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
 
@@ -167,16 +167,11 @@ A Felhőbeli rendszergazda felhasználónevet a következő UPN-formátumba kell
 A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **default**, **UpdateReadiness**és **SecretRotationReadiness**.
 
 - **Alapértelmezett**: a **test-AzureStack**standard futtatásának tekintendő. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
-- **UpdateReadiness**: megtekintheti, hogy a Azure stack-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A következő kategóriák a **UpdateReadiness** csoport részét képezik:
+- **UpdateReadiness**: megtekintheti, hogy a Azure stack-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. Az 1910-es verziótól kezdve a következő kategóriák a **UpdateReadiness** csoport részét képezik: Azure stack
 
-  - **AzsAcsSummary**
-  - **AzsDefenderSummary**
-  - **AzsHostingInfraSummary**
-  - **AzsInfraCapacity**
-  - **AzsInfraRoleSummary**
-  - **AzsPortalAPISummary**
-  - **AzsSFRoleSummary**
-  - **AzsStoreSummary**
+  - **AzsInfraFileValidation**
+  - **AzsActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - **SecretRotationReadiness**: Ellenőrizze, hogy a Azure stack példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
 

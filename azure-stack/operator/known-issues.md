@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0621ca19f96e1c33a85ea5308346fafa2e4545f8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465366"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810225"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack ismert problémák
 
@@ -65,7 +65,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
@@ -147,7 +147,13 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Szervizelés: kövesse az erőforrás-szolgáltató frissítési folyamatát az SQL Resource Provider gyorsjavítási 1.1.47.0 alkalmazásához, miután a Azure Stack frissítve lett az 1910-es frissítésre (az[SQL RP verzió 1.1.47.0](https://aka.ms/azurestacksqlrp11470)). A MySQL erőforrás-szolgáltató esetén azt is javasoljuk, hogy a MySQL erőforrás-szolgáltató gyorsjavítási 1.1.47.0 alkalmazza a Azure Stack frissítése után 1910 frissítésre ([MySQL RP Version 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)).
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+### <a name="access-control-iam"></a>Hozzáférés-vezérlés (IAM)
+
+- Alkalmazható: Ez a probléma a 1903-es és újabb kiadásokra vonatkozik
+- Ok: a IAM kiterjesztés elavult. Ibiza a Azure Stack bevezetésével új viselkedést mutat be, amely a RBAC kiterjesztését okozza, ha a felhasználó olyan előfizetésből nyit meg RBAC-bővítményt, amely nincs kiválasztva a globális előfizetési választóban.
+- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a globális előfizetési választóban. 
+
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="load-balancer"></a>Load Balancer
 
@@ -155,7 +161,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Ok: Ha a rendelkezésre állási csoport virtuális gépeket egy terheléselosztó háttér-készletéhez adja hozzá, hibaüzenet jelenik meg a portálon, amely **nem tudta menteni**a terheléselosztó háttér-készletét. Ez egy kozmetikai probléma a portálon; a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttér-készlethez.
 - Előfordulás: gyakori
 
-### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
+### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
@@ -184,7 +190,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Riasztások
+#### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
@@ -213,7 +219,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Számítási szolgáltatások
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -282,28 +288,28 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
 - Előfordulás: gyakori
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
 - Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Terheléselosztó
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: amikor Avaiability ad hozzá virtuális gépekhez egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-készletét**. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
 - Előfordulás: gyakori
 
-### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
+### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
@@ -333,7 +339,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Riasztások
+#### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
@@ -362,7 +368,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Számítási szolgáltatások
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -446,28 +452,28 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
 - Előfordulás: gyakori
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
 - Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Terheléselosztó
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: amikor Avaiability ad hozzá virtuális gépekhez egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-készletét**. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
 - Előfordulás: gyakori
 
-### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
+### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
@@ -497,7 +503,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Riasztások
+#### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
@@ -515,7 +521,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stackban.
 - Előfordulás: gyakori
 
-### <a name="network-connection-type"></a>Hálózati kapcsolattípus
+### <a name="network-connection-type"></a>Hálózati kapcsolat típusa
 
 - Alkalmazható: a probléma bármely 1906-es vagy 1907-es környezetre érvényes. 
 - Ok: a felhasználói portálon a **AddConnection** panel egy lehetőséget mutat be a **VNet – VNet**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban. 
@@ -532,7 +538,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Számítási szolgáltatások
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -622,27 +628,27 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Szervizelés: ezeket az előfizetéseket az előfizetések áttekintése panel Essentials (alapvető erőforrások) paneljén tekintheti meg
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
 - Előfordulás: gyakori
 
-### <a name="upload-blob"></a>BLOB feltöltése
+### <a name="upload-blob"></a>Blob feltöltése
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
 - Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
 - Előfordulás: gyakori
 
-### <a name="update"></a>frissítés
+### <a name="update"></a>Frissítés
 
 - Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
 - Ok: a kezelő portálon a gyorsjavítás állapotának frissítése helytelen állapotot mutat a frissítéshez. A kezdeti állapot azt jelzi, hogy a frissítést nem sikerült telepíteni, még akkor is, ha még folyamatban van.
 - Szervizelés: frissítse a portált, és az állapota "folyamatban" állapotba kerül.
 - Előfordulás: időszakos
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="service-endpoints"></a>Szolgáltatásvégpontok
 
@@ -659,7 +665,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Riasztások
+#### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
@@ -690,7 +696,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 ### <a name="load-balancer"></a>Load Balancer
 
-#### <a name="add-backend-pool"></a>Háttér-készlet hozzáadása
+#### <a name="add-backend-pool"></a>Háttérkészlet hozzáadása
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon, ha **háttér-készletet** próbál hozzáadni egy **Load Balancerhoz**, a művelet meghiúsul, és a hibaüzenet **nem tudta frissíteni a Load Balancer.** ...
@@ -704,7 +710,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 - Szervizelés: használja a PowerShellt, a CLI-t vagy a Resource Manager-sablont a háttérbeli készlet terheléselosztó-erőforrással való hozzárendeléséhez.
 - Előfordulás: gyakori
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Számítási szolgáltatások
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -763,7 +769,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)
