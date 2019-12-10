@@ -1,6 +1,7 @@
 ---
-title: Az SQL-adapter erőforrás-szolgáltatója által biztosított adatbázisok használata a Azure Stackon | Microsoft Docs
-description: Az SQL-adapter erőforrás-szolgáltatójának használatával kiépített SQL-adatbázisok létrehozása és kezelése
+title: SQL-adatbázisok létrehozása
+titleSuffix: Azure Stack
+description: Ismerje meg, hogyan hozhat létre és kezelhet SQL-erőforrás-szolgáltatói adapter használatával kiépített SQL-adatbázisokat.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283393"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954536"
 ---
 # <a name="create-sql-databases"></a>SQL-adatbázisok létrehozása
 
@@ -39,25 +40,27 @@ ms.locfileid: "72283393"
 
 4. Az **adatbázis létrehozása**területen válassza az **SKU**lehetőséget. Az **SKU kiválasztása**területen válassza ki az adatbázishoz tartozó SKU-t.
 
-   ![Adatbázis létrehozása](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Adatbázis létrehozása Azure Stack felhasználói portálon.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
    >Mivel a szolgáltatói kiszolgálók hozzáadódnak a Azure Stackhoz, egy SKU-t kapnak hozzájuk. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
 
 5. Válassza a **Bejelentkezés**lehetőséget.
+
 6. A **Bejelentkezés kiválasztása**területen válasszon egy meglévő felhasználónevet, vagy válassza az **+ új bejelentkezés létrehozása**lehetőséget.
+
 7. Az **új bejelentkezés**területen adja meg az **adatbázis-bejelentkezés** és a **jelszó**nevét.
 
    >[!NOTE]
    >Ezek a beállítások az adatbázishoz való hozzáféréshez létrehozott SQL-hitelesítési hitelesítő adatok. A bejelentkezési felhasználónévnek globálisan egyedinek kell lennie. A bejelentkezési beállításokat felhasználhatja más olyan adatbázisok esetén, amelyek ugyanazt az SKU-t használják.
 
-   ![Új adatbázis-bejelentkezés létrehozása](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Új adatbázis-bejelentkezés létrehozása Azure Stack felhasználói portálon](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Az adatbázis központi telepítésének befejezéséhez kattintson **az OK gombra** .
 
-Jegyezze fel a **kapcsolatok sztringjét**az **alapok**területen, amely az adatbázis központi telepítése után jelenik meg. Ezt a sztringet bármely olyan alkalmazásban használhatja, amelynek hozzá kell férnie a SQL Server-adatbázishoz.
+Jegyezze fel a **kapcsolatok sztringjét**az **alapok**területen, amely az adatbázis központi telepítése után jelenik meg. Ezt a sztringet bármely olyan alkalmazásban használhatja, amelynek hozzá kell férnie az SQL Server-adatbázishoz.
 
-![A kapcsolatok karakterláncának beolvasása](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![A SQL Server adatbázishoz tartozó kapcsolatok karakterláncának beolvasása](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
 ## <a name="sql-always-on-databases"></a>SQL always on Databases
 
@@ -67,15 +70,15 @@ A tervezés szerint az Always On adatbázisokat a különálló kiszolgálói k�
 
 A következő képernyőfelvétel azt mutatja be, hogyan használható a SQL Server Management Studio az SQL always on adatbázis-állapotának megkereséséhez.
 
-![AlwaysOn-adatbázis állapota](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![AlwaysOn-adatbázis állapota SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
-A always on Databases-nek szinkronizált és elérhetőnek kell lennie az összes SQL-példányon, és megjelenik a rendelkezésre állási csoportokban. Az előző képernyőfelvétel során az adatbázis például newdb1, és az állapota **newdb1 (szinkronizálva)** .
+A always on Databases-nek **szinkronizált** és elérhetőnek kell lennie az összes SQL-példányon, és megjelenik a **rendelkezésre állási csoportokban**. Az előző képernyőképen az adatbázis például newdb1, és az állapota **newdb1 (szinkronizálva)** .
 
 ### <a name="delete-an-alwayson-database"></a>AlwaysOn-adatbázis törlése
 
-Amikor töröl egy SQL AlwaysOn-adatbázist az erőforrás-szolgáltatótól, az SQL törli az adatbázist az elsődleges replikából és a rendelkezésre állási csoportból.
+Ha SQL always on adatbázist töröl az erőforrás-szolgáltatóból, az SQL törli az adatbázist az **elsődleges** replikából és a rendelkezésre állási csoportból.
 
-Az SQL ezután visszaállítja az adatbázist a többi replikán lévő visszaállítási állapotba, és csak akkor dobja el az adatbázist, ha az aktiválva van. Ha az adatbázis nincs elvetve, a másodlagos replikák nem szinkronizálási állapotba kerülnek.
+Az SQL ezután visszaállítja az adatbázist a többi replikán lévő **visszaállítási** állapotba, és csak akkor dobja el az adatbázist, ha az aktiválva van. Ha az adatbázis nincs elvetve, a másodlagos replikák **nem szinkronizálási** állapotba kerülnek.
 
 ## <a name="next-steps"></a>Következő lépések
 

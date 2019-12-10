@@ -14,18 +14,33 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846239"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954468"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Ez a cikk a Azure Stack érvényesítésére szolgáló kibocsátási megjegyzésekkel szolgál.
+
+## <a name="version-4421"></a>4\.4.2.1 verziója
+
+2019 december 3
+
+- Tartalmi frissítések tesztelése
+  - A havi Azure Stack frissítési munkafolyamat online dokumentációja és az OEM-csomag érvényesítési munkafolyamata frissítve lett. Tekintse át a frissített dokumentációt, itt ellenőrizze az OEM-csomagokat, és itt ellenőrizheti a Microsofttól származó szoftverfrissítéseket.
+  - Az alaprendszer-csomag érvényesítési munkafolyamatának frissítése: az OEM-ellenőrzési munkafolyamat az egyetlen teszt, amely a havi Azure Stack frissítés ellenőrzése és az OEM-csomagok ellenőrzése során szükséges. A teszt frissíti a bélyegzőt a megadott AzureStack/OEM-csomagokkal, és futtatja a felhőalapú szimulációs motor ellenőrzési tesztjét.
+  - Az Varga PowerShell bővítmény frissítése: a csomag-ellenőrzési munkafolyamat automatizálása mostantól támogatott. A bővítmény használatára vonatkozó részletes információkért tekintse meg az Azure Stack az alapszolgáltatások automatizálása a PowerShell használatával című témakört.
+
+- Ismert problémák
+  - Vegye fel a kapcsolatot vaashelp@microsoft.com ha a következő tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
+
 
 ## <a name="version-4353"></a>4\.3.5.3 verziója
 
@@ -40,7 +55,7 @@ Ez a cikk a Azure Stack érvényesítésére szolgáló kibocsátási megjegyzé
   - Kijavítva a hiba, Azure Stack ahol a frissítés ellenőrzése sikertelen volt, ha az Update. zip speciális karaktereket tartalmaz.
 
 - Ismert problémák
-  - Az mstest. exe nem található. Workaround
+  - Az mstest. exe nem található. Megkerülő megoldás:
     1. CTRL + C az ügynök a PowerShell-ablakban.
     1. Írja be a mstest. exe fájlt annak ellenőrzéséhez, hogy a mstest. exe egy felismert program.
     1. Ha a mstest. exe nem ismerhető fel, akkor a jelenlegi PowerShell-ablak bezárásához.
@@ -66,7 +81,7 @@ Ez a cikk a Azure Stack érvényesítésére szolgáló kibocsátási megjegyzé
 - Az OEM-csomag érvényesítési munkafolyamatában és a Azure Stack frissítési munkafolyamatban (5.1.30.0-> 5.1.46.0) lévő felhőalapú szimulációs motor megköveteli a tesztek ütemezését a következő sorrendben: havi Azure Stack frissítés-ellenőrzési teszt, OEM-bővítmény csomag Ellenőrzési teszt, és végül a Cloud szimulációs motor.
 - Varga-ügynök frissítése: a frissített Varga ügynök mostantól a Azure Stack Cloud admin hitelesítő adatokkal kérdezi le a bélyegzőt, hogy lekérdezze a bélyegző adatait, hogy automatikusan feltöltse a munkafolyamatokat. 
 
-    Ehhez a frissítéshez az összes ügynök frissítése és újraindítása szükséges. Az alábbi útmutatást követve frissítheti az Varga-ügynököt: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+    Ehhez a frissítéshez az összes ügynök frissítése és újraindítása szükséges. Az alábbi útmutatást követve frissítheti az Varga-ügynököt: https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - Az Varga portál felhasználói felületének frissítése: az ügynök kiválasztása tábla a tesztek ütemezése ablaktábla fölé került, hogy megkönnyítse a tesztelést.
 
     A feladatok ütemezésekor a továbbiakban nem kell megadnia a Stamp-adatokat, ha az alaprendszer-ügynökök megfelelően frissültek.
@@ -97,7 +112,7 @@ Ha a Azure Stack havi frissítés-ellenőrzési munkafolyamatot futtatja, és az
 1. Futtassa az OEM-frissítést a szokásos módon.
 2. Tesztelje a AzureStack a csomag sikeres alkalmazása után, és mentse a kimenetet.
 3. A teszt megszakítása.
-4. Küldje el a mentett kimenetet VaaSHelp@microsoft.com értékre a futtatási eredmények fogadásához.
+4. Küldje el VaaSHelp@microsoft.com a mentett kimenetet, hogy megkapja a Futtatás eredményét.
 
 ## <a name="version-402"></a>4\.0.2 verziója
 
@@ -149,7 +164,7 @@ Ha a Azure Stack havi frissítés-ellenőrzési munkafolyamatot futtatja, és az
 
 - PowerShell Automation frissítése
 
-    Olyan `LaunchVaaSTests` PowerShell-parancsfájlok módosításai történtek, amelyek a parancsfájl-csomagok legújabb verzióját igénylik. A parancsfájl-kezelési csomag legújabb verziójának telepítésével kapcsolatos utasításokért tekintse meg [a test pass munkafolyamat elindítása](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow) című témakört.
+    Olyan `LaunchVaaSTests` PowerShell-parancsfájlok módosítása történt, amelyek a parancsfájl-csomagok legújabb verzióját igénylik. A parancsfájl-kezelési csomag legújabb verziójának telepítésével kapcsolatos utasításokért tekintse meg [a test pass munkafolyamat elindítása](azure-stack-vaas-automate-with-powershell.md) című témakört.
 
 - Érvényesítés szolgáltatás-portálként
 
@@ -163,7 +178,7 @@ Ha a Azure Stack havi frissítés-ellenőrzési munkafolyamatot futtatja, és az
 
   - Interaktív funkció ellenőrzése
 
-    Az egyes funkciókra vonatkozó célzott visszajelzések megadásának lehetősége már elérhető a test pass munkafolyamatban. A `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` teszt ellenőrzi, hogy vannak-e konkrét frissítések alkalmazva, majd visszajelzéseket gyűjt.
+    Az egyes funkciókra vonatkozó célzott visszajelzések megadásának lehetősége már elérhető a test pass munkafolyamatban. A `OEM Update on Azure Stack 1806 RC Validation 5.1.4.0` teszt ellenőrzi, hogy az adott frissítések megfelelően lettek-e alkalmazva, majd visszajelzéseket gyűjt.
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -10,86 +10,279 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 11/26/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 10/28/2019
+ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c6da84700c73e0976214bd999dfb3ca4ba0ee47
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 2f048ea1feb7a707c3c52b83fcf7c9e65a1ea58a
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167344"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954417"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack érvényesítésének automatizálása a PowerShell használatával
 
-A szolgáltatásként történő érvényesítés lehetővé teszi a tesztek automatizálását a **LaunchVaaSTests. ps1** parancsfájl használatával.
-
-> [!NOTE]  
-> Az Automation csak a test pass munkafolyamat esetében érhető el. A csomag-ellenőrzési és megoldás-ellenőrzési munkafolyamatok csak az alaprendszer-portálon keresztül támogatottak.
+A szolgáltatásként történő érvényesítés lehetővé teszi a tesztek automatizálását a **RunVaaSAutomation. ps1** parancsfájl használatával.
 
 Ez a szkript a következőket tudja használni:
 
 > [!div class="checklist"]
-> * Az előfeltételek telepítése
-> * A helyi ügynök telepítése és elindítása
-> * Elindíthat egy teszt kategóriát, például az *integrációt*, a *működést*, a *megbízhatóságot*
+> * Telepítse az előfeltételeket.
+> * Telepítse és indítsa el a helyi ügynököt.
+> * A tesztelési fázis, a megoldás-ellenőrzés és a csomag-ellenőrzési munkafolyamatok esetében az Varga teszteket indítsa el.
 > * Vizsgálati eredmények jelentése
 
-## <a name="launch-the-test-pass-workflow"></a>A test pass munkafolyamat elindítása
+Az alábbi hivatkozások azt ismertetik, hogy miként futtathatók a tesztek az az Varga-portálon keresztül. A szkript használata előtt meg kell ismernie a szükséges paramétereket és azok értékeit:
+
+* SolutionValidation-munkafolyamat: [új Azure stack megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md)
+* PackageValidation munkafolyamat: [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md)
+* TestPass munkafolyamat: [teszt ütemezése](azure-stack-vaas-schedule-test-pass.md)
+
+## <a name="download-the-automation-scripts"></a>Az Automation-parancsfájlok letöltése
 
 1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 
 2. Az Automation-szkript letöltéséhez futtassa a következő szkriptet:
 
-    ```powershell
-    New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
-    Set-Location <VaaSLaunchDirectory>
-    Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
-    Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
-    ```
+```powershell
+# Review and update the $RootFolder parameter
+$RootFolder = "c:\VaaS"
 
-3. Futtassa a következő parancsfájlt a megfelelő paraméterek értékeivel:
+if (-not(Test-Path($RootFolder))) {
+    mkdir $RootFolder
+}
+Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "$RootFolder\RunVaaSAutomation.zip"
+Expand-Archive -Path "$RootFolder\RunVaaSAutomation.zip" -DestinationPath "$RootFolder\RunVaaSAutomation" -Force
+Set-Location "$RootFolder\RunVaaSAutomation"
+```
 
-    ```powershell
-    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
-    .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
-                          -VaaSAccountTenantId <VaaSAccountTenantId> `
-                          -VaaSSolutionName <VaaSSolutionName> `
-                          -VaaSTestPassName <VaaSTestPassName> `
-                          -VaaSTestCategories Integration,Functional `
-                          -MaxScriptWaitTimeInHours 12 `
-                          -ServiceAdminUserName <AzSServiceAdminUser> `
-                          -ServiceAdminUserPassword <AzSServiceAdminPassword> `
-                          -TenantAdminUserName <AzSTenantAdminUser> `
-                          -TenantAdminUserPassword <AzSTenantAdminPassword> `
-                          -CloudAdminUserName <AzSCloudAdminUser> `
-                          -CloudAdminUserPassword <AzSCloudAdminPassword>
-    ```
+## <a name="launch-the-solution-validation-workflow"></a>A megoldás-ellenőrzési munkafolyamat elindítása
 
-    **Paraméterek**
+Ha szeretné megtudni, hogyan futtathatja a megoldás-ellenőrzési munkafolyamatot az alapmodul-portálon, lásd: [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md).
 
-    | Paraméter | Leírás |
-    | --- | --- |
-    | VaaSUserId | Az alaprendszer-azonosító. |
-    | VaaSUserPassword | Az Ön által használt Varga-jelszó. |
-    | VaaSAccountTenantId | Az Ön által használt Varga-bérlő GUID-azonosítója. |
-    | VaaSSolutionName | Annak az adatbázis-megoldásnak a neve, amely alatt a tesztelési fázis futni fog. |
-    | VaaSTestPassName | A létrehozandó, az Varga test pass munkafolyamat neve. |
-    | VaaSTestCategories | `Integration`, `Functional`vagy. `Reliability` kérdésre adott válaszban foglalt lépéseket. Ha több értéket használ, az egyes értékeket vesszővel válassza el egymástól.  |
-    | ServiceAdminUserName | A Azure Stack szolgáltatás-rendszergazdai fiókja.  |
-    | ServiceAdminPassword | A Azure Stack szolgáltatás jelszava.  |
-    | TenantAdminUserName | Az elsődleges bérlő rendszergazdája.  |
-    | TenantAdminPassword | Az elsődleges bérlő jelszava.  |
-    | CloudAdminUserName | A Felhőbeli rendszergazda felhasználóneve.  |
-    | CloudAdminPassword | A felhő rendszergazdájának jelszava.  |
+Futtassa a következő parancsfájlt a megfelelő paraméterek értékeivel:
 
-4. Tekintse át a teszt eredményét. További lehetőségekért lásd: [tesztek figyelése és kezelése az alapvizsgálati portálon](azure-stack-vaas-monitor-test.md).
+```powershell
+# Review and update the following parameters
+$VaaSAccountUserName = ""
+$VaaSAccountPassword = ""
+$VaaSAccountTenantId = ""
+$ServiceAdminUserName = ""
+$ServiceAdminPassword = ""
+$TenantAdminUserName  = ""
+$TenantAdminPassword  = ""
+$CloudAdminUserName   = ""
+$CloudAdminPassword   = ""
+$SolutionName   = ''
+$ProjectName    = ''
+$DiagnosticsStorageConnection=''
+$VaaSProject_SolutionValidation_Configuration='Min' # enter 'Min' or 'Max'
+
+# No need to modify the following lines
+Import-Module .\VaaSAutomation.psm1 -verbose -force
+$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outputFolder "."
+$AgentName = "$((Get-WmiObject win32_computersystem).DNSHostName).$((Get-WmiObject win32_computersystem).Domain)".ToLower()
+$VaaSAccountCredentail = New-Object System.Management.Automation.PSCredential ($VaaSAccountUserName, (ConvertTo-SecureString $VaaSAccountPassword -AsPlainText -Force))
+
+$testParameters = @{}
+$projectParameters = @{
+    "Configuration" = $VaaSProject_SolutionValidation_Configuration;
+}
+$scriptParameters = @{
+    'VaaSAccountCredentail' = $VaaSAccountCredentail;
+    'VaaSAccountTenantId' = $VaaSAccountTenantId;
+    'VaaSSolutionName' = $SolutionName;
+    'VaaSProjectType' = 'SolutionValidation';
+    'VaaSProjectName' = $ProjectName;
+    'VaaSProjectParameterHashTable'= $projectParameters;
+    'VaaSTestFilter' = 'Test';
+    'VaaSTestFilterValue' = '';
+    'VaaSTestParameterHashTable'= $testParameters;
+    'VaaSOnPremAgentName'= $AgentName;
+    'MaxScriptWaitTimeInHours'=48;
+    'ServiceAdminUserName' = $ServiceAdminUserName;
+    'ServiceAdminPassword' = $ServiceAdminPassword;
+    'TenantAdminUserName' = $TenantAdminUserName;
+    'TenantAdminPassword' = $TenantAdminPassword;
+    'CloudAdminUserName' = $CloudAdminUserName;
+    'CloudAdminPassword' = $CloudAdminPassword;
+    'DiagnosticsStorageConnection' = $DiagnosticsStorageConnection;
+}
+& .\RunVaaSAutomation.ps1 @scriptParameters
+```
+
+## <a name="launch-package-validation-workflow"></a>Csomag-ellenőrzési munkafolyamat elindítása
+
+Ha szeretné megtudni, hogyan futtathatja a csomag-ellenőrzési munkafolyamatot a következő helyen: [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md).
+
+Futtassa a következő parancsfájlt a megfelelő paraméterek értékeivel:
+
+```powershell
+# Review and update the following parameters
+$VaaSAccountUserName = ""
+$VaaSAccountPassword = ""
+$VaaSAccountTenantId = ""
+$ServiceAdminUserName = ""
+$ServiceAdminPassword = ""
+$TenantAdminUserName  = ""
+$TenantAdminPassword  = ""
+$CloudAdminUserName   = ""
+$CloudAdminPassword   = ""
+$SolutionName   = ''
+$ProjectName    = ''
+$DiagnosticsStorageConnection=''
+$VaaSProject_PackageValidation_PackageBlobUri=''
+$VaaSProject_PackageValidation_RequireDigitalSignature = "false" # enter 'true' or 'false' string
+$VaaSProject_PackageValidation_LocalPathtoAzureStackUpdatePkgs = ""
+$VaaSProject_PackageValidation_LocalPathtoOEMUpdatePkgs = ""
+
+# No need to modify the following lines
+Import-Module .\VaaSAutomation.psm1 -verbose -force
+$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outputFolder "."
+$AgentName = "$((Get-WmiObject win32_computersystem).DNSHostName).$((Get-WmiObject win32_computersystem).Domain)".ToLower()
+$VaaSAccountCredentail = New-Object System.Management.Automation.PSCredential ($VaaSAccountUserName, (ConvertTo-SecureString $VaaSAccountPassword -AsPlainText -Force))
+
+$testParameters = @{
+    "RequireDigitalSignature" = $VaaSProject_PackageValidation_RequireDigitalSignature;
+    "LocalPathtoAzureStackUpdatePkgs" = $VaaSProject_PackageValidation_LocalPathtoAzureStackUpdatePkgs;
+    "LocalPathtoOEMUpdatePkgs" = $VaaSProject_PackageValidation_LocalPathtoOEMUpdatePkgs;
+}
+
+$projectParameters = @{
+    "PackageBlobUri" = $VaaSProject_PackageValidation_PackageBlobUri;
+}
+$scriptParameters = @{
+    'VaaSAccountCredentail' = $VaaSAccountCredentail;
+    'VaaSAccountTenantId' = $VaaSAccountTenantId;
+    'VaaSSolutionName' = $SolutionName;
+    'VaaSProjectType' = 'PackageValidation';
+    'VaaSProjectName' = $ProjectName;
+    'VaaSProjectParameterHashTable' = $projectParameters;
+    'VaaSTestFilter' = 'Test';
+    'VaaSTestFilterValue' = '';
+    'VaaSTestParameterHashTable'= $testParameters;
+    'VaaSOnPremAgentName'= $AgentName;
+    'MaxScriptWaitTimeInHours'=96;
+    'ServiceAdminUserName' = $ServiceAdminUserName;
+    'ServiceAdminPassword' = $ServiceAdminPassword;
+    'TenantAdminUserName' = $TenantAdminUserName;
+    'TenantAdminPassword' = $TenantAdminPassword;
+    'CloudAdminUserName' = $CloudAdminUserName;
+    'CloudAdminPassword' = $CloudAdminPassword;
+    'DiagnosticsStorageConnection' = $DiagnosticsStorageConnection;
+}
+& .\RunVaaSAutomation.ps1 @scriptParameters
+```
+
+## <a name="launch-the-test-pass-workflow"></a>A test pass munkafolyamat elindítása
+
+Ha meg szeretné tudni, hogyan futtathatja a test pass-munkafolyamatot az Varga porton keresztül, olvassa el a [teszt ütemezése](azure-stack-vaas-schedule-test-pass.md)című témakört
+
+Futtassa a következő parancsfájlt a megfelelő paraméterek értékeivel:
+
+```powershell
+# Review and update the following parameters
+$VaaSAccountUserName = ""
+$VaaSAccountPassword = ""
+$VaaSAccountTenantId = ""
+$ServiceAdminUserName = ""
+$ServiceAdminPassword = ""
+$TenantAdminUserName  = ""
+$TenantAdminPassword  = ""
+$CloudAdminUserName   = ""
+$CloudAdminPassword   = ""
+$SolutionName   = ''
+$ProjectName    = ''
+$DiagnosticsStorageConnection=''
+
+# No need to modify the following lines
+# The following code is an example of running the "Cloud Simulation Engine" test
+Import-Module .\VaaSAutomation.psm1 -verbose -force
+$stampInfo = Get-StampInfo -cloudAdminUserName $CloudAdminUserName -cloudAdminPassword $CloudAdminPassword -retryCount 3 -retryPeriod 30 -outputFolder "."
+$AgentName = "$((Get-WmiObject win32_computersystem).DNSHostName).$((Get-WmiObject win32_computersystem).Domain)".ToLower()
+$VaaSAccountCredentail = New-Object System.Management.Automation.PSCredential ($VaaSAccountUserName, (ConvertTo-SecureString $VaaSAccountPassword -AsPlainText -Force))
+
+$VaaSTestFilter='Test'
+$VaaSTestFilterValue='cloudsimulation'
+$testParameters = @{
+    'ServiceAdminUser' = $ServiceAdminUserName;
+    'ServiceAdminPassword' = $ServiceAdminPassword;
+    'TenantAdminUser' = $TenantAdminUserName;
+    'TenantAdminPassword' = $TenantAdminPassword;
+    'CloudAdminUser' = $CloudAdminUserName;
+    'CloudAdminPassword' = $CloudAdminPassword;
+    'DomainFQDN' = "";
+    'DomainAdminUser' = "";
+    'DomainAdminPassword' = "";
+    'TenantId' = $stampInfo.AadTenantId;
+    'ExternalFqdn' = $stampInfo.ExternalDomainFQDN;
+    'NumberOfNodes' = "$($stampInfo.NumberOfNodes)";
+    'Region' = $stampInfo.RegionName;
+    'RunDurationInHours' = 24;
+    'EnableSuBR' = "false";
+    'Faults' = "";
+    'Resources' = "";
+    'FaultControllerSettings' = "default";
+    'DiagnosticsStorageConnection' = $diagnosticsStorageConnection;
+    'DiagnosticsContainerName' = "$(New-Guid).ToString().ToLower()";
+    'MaxFiddlerCaptureSizeInMB' = "0";
+    'PackageHashCode' = "";
+}
+
+$projectParameters = @{}
+
+$scriptParameters = @{
+    'VaaSAccountCredentail' = $VaaSAccountCredentail;
+    'VaaSAccountTenantId' = $VaaSAccountTenantId
+    'VaaSSolutionName' = $SolutionName;
+    'VaaSProjectType' = 'TestPass';
+    'VaaSProjectName' = $ProjectName;
+    'VaaSProjectParameterHashTable'= $projectParameters;
+    'VaaSTestFilter'= $VaaSTestFilter;
+    'VaaSTestFilterValue' = $VaaSTestFilterValue;
+    'VaaSTestParameterHashTable'= $testParameters;
+    'VaaSOnPremAgentName' = $AgentName;
+    'MaxScriptWaitTimeInHours' = 24;
+    'ServiceAdminUserName' = $ServiceAdminUserName;
+    'ServiceAdminPassword' = $ServiceAdminPassword;
+    'TenantAdminUserName' = $TenantAdminUserName;
+    'TenantAdminPassword' = $TenantAdminPassword;
+    'CloudAdminUserName' = $CloudAdminUserName;
+    'CloudAdminPassword' = $CloudAdminPassword;
+    'DiagnosticsStorageConnection' = $DiagnosticsStorageConnection;
+}
+& .\RunVaaSAutomation.ps1 @scriptParameters
+```
+
+## <a name="parameter-table"></a>Paraméter táblázata
+
+További információ: [gyakori munkafolyamat-paraméterek](azure-stack-vaas-parameters.md).
+
+| Paraméter | Leírás |
+| --- | --- |
+| VaaSAccountUserName | Az Ön által használt, az alaprendszerbeli felhasználói név |
+| VaaSAccountPassword | Az Ön által használt Varga-jelszó az alaprendszer-portálhoz |
+| VaaSAccountTenantId | Az Ön által használt Varga-bérlő GUID-azonosítója. |
+| ServiceAdminUserName | A Azure Stack szolgáltatás-rendszergazdai fiókja.  |
+| ServiceAdminPassword | A Azure Stack szolgáltatás jelszava.  |
+| TenantAdminUserName | Az elsődleges bérlő rendszergazdája.  |
+| TenantAdminPassword | Az elsődleges bérlő jelszava.  |
+| CloudAdminUserName | A Felhőbeli rendszergazda felhasználóneve.  |
+| CloudAdminPassword | A felhő rendszergazdájának jelszava.  |
+| SolutionName | Az alapszolgáltatási megoldás neve. |
+| Projektnév | Az az Varga-munkafolyamat neve. |
+| DiagnosticsStorageConnection | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](azure-stack-vaas-parameters.md). |
+
+## <a name="review-the-results"></a>Az eredmények áttekintése
+
+A rendszer a naplókat és a jelentéseket a jelenlegi munkamappa szerint menti. 
+
+További lehetőségekért lásd: [tesztek figyelése és kezelése az alapvizsgálati portálon](azure-stack-vaas-monitor-test.md).
 
 ## <a name="next-steps"></a>Következő lépések
 
 Ha többet szeretne megtudni a Azure Stack PowerShell-ről, tekintse át a legújabb modulokat.
 
-> [!div class="nextstepaction"]
-> [Azure Stack modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+- [Azure Stack modul](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 4aef28f0351a89f02dc4c00cd042d6bdd33ee957
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780728"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946801"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>SQL-adatbázisok használata Azure Stack
 
@@ -32,6 +32,8 @@ A SQL Server erőforrás-szolgáltató használatával SQL-adatbázisokat biztos
 - SQL-t használó munkaterhelések.
 
 Az erőforrás-szolgáltató nem biztosítja a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)összes adatbázis-kezelési képességeit. Például az erőforrások automatikus kiosztására szolgáló rugalmas készletek nem támogatottak. Az erőforrás-szolgáltató azonban támogatja a hasonló létrehozási, olvasási, frissítési és törlési (szifilisz) műveleteket egy SQL Server adatbázison.
+
+Azure Stack operátor feladata az adatbázis-kiszolgálói példányok telepítése, konfigurálása és karbantartása a biztonság, a HA, a biztonsági mentés, a javítás és a frissítés számára. Az adatbázis-kiszolgáló példányát különböző felhasználói adatbázisok osztják meg, beleértve az adatbázis-kiszolgáló nevét és a nyilvános IP-címet. Az adatbázis-használat nem jelent jelentést.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL Resource Provider-adapter architektúrája
 

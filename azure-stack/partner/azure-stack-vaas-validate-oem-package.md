@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcfd50c533558bff0bdac75dfa3231d5196039cc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955820"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954553"
 ---
 # <a name="validate-oem-packages"></a>OEM-csomagok ellenőrzése
 
@@ -148,30 +148,30 @@ Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára
 
 5. Adja meg az Azure Storage-blob URL-címét a Microsofttól származó aláírást igénylő teszt aláírt OEM-csomaghoz. Útmutatásért lásd: [csomag blob URL-címének előállítása az Varga számára](#generate-package-blob-url-for-vaas).
 
-6. Másolja a AzureStack-frissítési csomag mappáját egy helyi könyvtárba a DVM. Adja meg a szülő könyvtár elérési útját a "AzureStack frissítési csomag mappájának elérési útja"
+6. Másolja a AzureStack-frissítési csomag mappáját egy helyi könyvtárba a DVM. Adja meg annak a mappának az elérési útját, **amely a csomag zip-fájlját és metaadat-fájlját tartalmazza** a "AzureStack frissítési csomag elérési útja"
 
-7. Másolja a fent létrehozott OEM-csomag mappát a DVM egy helyi könyvtárába. Adja meg a szülő könyvtár elérési útját az "OEM-frissítési csomag mappájának elérési útja"
+7. Másolja a fent létrehozott OEM-csomag mappát a DVM egy helyi könyvtárába. Adja meg annak a mappának az elérési útját, **amely a csomag zip-fájlját és metaadat-fájlját tartalmazza** az "OEM frissítési csomag mappa elérési útja
 
     > [!NOTE]
-    > Másolja a AzureStack Update és az OEM Update-et **2 külön** szülő könyvtárba.
+    > Másolja a AzureStack Update és az OEM Update **két külön** könyvtárba.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+8. "RequireDigitalSignature" – **igaz** értéket ad meg, ha a csomagnak a Microsoft által aláírtnak kell lennie (OEM-ellenőrzési munkafolyamat futtatása). Ha a legújabb AzureStack-frissítéssel érvényesít egy Microsoft által aláírt csomagot, adja meg ezt az értéket hamisként (a havi AzureStack-frissítés ellenőrzésének futtatásakor).
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Munkafolyamat létrehozása után a környezeti paraméterek nem módosíthatók.
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+11. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     A rendszer átirányítja a tesztek összegzése lapra.
 
 ## <a name="required-tests"></a>Szükséges tesztek
 
-Az alábbi tesztek szükségesek a futtatásához a megadott sorrendben az OEM-csomagok érvényesítéséhez:
+Az OEM-csomagok érvényesítéséhez a következő tesztek szükségesek:
 
-- 1\. lépés – havi AzureStack-frissítés ellenőrzése
-- 2\. lépés – OEM-bővítményi csomag ellenőrzése
-- 3\. lépés – OEM – Cloud szimulációs motor
+- OEM-ellenőrzési munkafolyamat
 
 ## <a name="run-package-validation-tests"></a>Csomag-ellenőrzési tesztek futtatása
 
@@ -183,20 +183,13 @@ Az alábbi tesztek szükségesek a futtatásához a megadott sorrendben az OEM-c
     > Egy meglévő példányon egy érvényesítési teszt ütemezése egy új példányt hoz létre a régi példány helyett a portálon. A régi példány naplói megmaradnak, de nem érhetők el a portálról.  
     > Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva.
 
-2. A csomagok ellenőrzésekor a felsorolt sorrendben fogja futtatni a **szükséges teszteket**.
+2. Válassza ki azt az ügynököt, amely a tesztet futtatni fogja. A helyi tesztelési végrehajtó ügynökök hozzáadásával kapcsolatos információkért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-    > [!CAUTION]
-    > Az Varga a teszteket az ütemezett sorrendben futtatja. A teszteket a megadott sorrendben kell ütemezni.
+3. A teszt futtatásának ütemezéséhez válassza az **Ütemezés** lehetőséget a helyi menüben, és nyisson meg egy kérdést a tesztelési példány ütemezéséhez.
 
-3. Válassza ki azt az ügynököt, amely a tesztet futtatni fogja. A helyi tesztelési végrehajtó ügynökök hozzáadásával kapcsolatos információkért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
+4. Tekintse át a tesztelési paramétereket, majd válassza a **Submit (Küldés** ) lehetőséget a teszt elvégzéséhez.
 
-4. A teszt futtatásának ütemezéséhez válassza az **Ütemezés** lehetőséget a helyi menüben, és nyisson meg egy kérdést a tesztelési példány ütemezéséhez.
-
-5. Tekintse át a tesztelési paramétereket, majd válassza a **Submit (Küldés** ) lehetőséget a teszt elvégzéséhez.
-
-6. A következő teszt ütemezése előtt nem kell megvárnia, amíg a teszt be nem fejeződik. Az összes **kötelező** tesztet a fent megadott sorrendben ütemezze.
-
-7. Tekintse át a **szükséges** tesztek eredményét.
+5. Tekintse át a **szükséges** tesztek eredményét.
 
 A csomag-aláírási kérelem elküldéséhez küldje el [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) a futtatáshoz társított megoldás nevét és a csomag érvényesítési nevét.
 

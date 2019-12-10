@@ -1,6 +1,7 @@
 ---
-title: Az SQL-erőforrás szolgáltatójának eltávolítása Azure Stackon | Microsoft Docs
-description: Ismerje meg, hogyan távolíthatja el az SQL-erőforrás-szolgáltatót az Azure Stack-telepítésből.
+title: Az SQL erőforrás-szolgáltató eltávolítása
+titleSuffix: Azure Stack
+description: Ismerje meg, hogyan távolíthatja el az SQL-erőforrás szolgáltatóját a Azure Stack üzemelő példányáról.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a1b3dc51bbbd48ebe27ce9cafd9617ba7a1d07a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909489"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954451"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató eltávolítása
 
@@ -53,12 +54,12 @@ A Azure Stack operátor felelős a következő karbantartási feladatokért:
 
 4. Futtassa a DeploySqlProvider. ps1 parancsfájlt a következő paraméterek használatával:
 
-    * **Eltávolítás**. Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást.
-    * **PrivilegedEndpoint**. Az emelt szintű végpont IP-címe vagy DNS-neve.
-    * **AzureEnvironment**. A Azure Stack üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
-    * **CloudAdminCredential**. A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához.
-    * **AzCredential**. A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt.
+    * **Eltávolítás**: eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást.
+    * **PrivilegedEndpoint**: a privilegizált végpont IP-címe vagy DNS-neve.
+    * **AzureEnvironment**: a Azure stack üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
+    * **CloudAdminCredential**: a rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájának.
+    * **AzCredential**: a Azure stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Ajánlati App Services Péterként](azure-stack-app-service-overview.md)

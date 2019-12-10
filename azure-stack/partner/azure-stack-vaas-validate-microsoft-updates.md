@@ -15,18 +15,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167149"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954485"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Szoftverfrissítések érvényesítése a Microsofttól
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-A Microsoft rendszeres időközönként frissítéseket küld a Azure Stack szoftverhez. Ezek a frissítések a Azure Stack Engineering-partnerek számára érhetők el. A frissítések nyilvánosan elérhetők. A frissítéseket megtekintheti a megoldáson, és visszajelzést küldhet a Microsoftnak.
+A Microsoft rendszeres időközönként frissítéseket küld a Azure Stack szoftverhez. Ezeket a frissítéseket Azure Stack közös mérnöki partnereknek biztosítjuk. A frissítések nyilvánosan elérhetők. A frissítéseket megtekintheti a megoldáson, és visszajelzést küldhet a Microsoftnak.
 
 A Azure Stackra vonatkozó Microsoft-szoftverfrissítések elnevezési konvencióval vannak megjelölve, például az 1803-es frissítés a következőre mutat: március 2018. További információ a Azure Stack frissítési szabályzatáról: a lépésszám és a kibocsátási megjegyzések elérhetők [Azure stack karbantartási házirendben](../operator/azure-stack-servicing-policy.md).
 
@@ -35,15 +35,12 @@ A Azure Stackra vonatkozó Microsoft-szoftverfrissítések elnevezési konvenci�
 Mielőtt elvégezte a havi frissítési folyamatot az Varga-ban, ismernie kell a következő elemeket:
 
 - [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)
-- [Interaktív funkció-ellenőrzési teszt](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>Szükséges tesztek
 
 A következő teszteket kell végrehajtani a havi szoftveres ellenőrzéshez a következő sorrendben:
 
-- 1\. lépés – havi AzureStack-frissítés ellenőrzése
-- 2\. lépés – OEM-bővítményi csomag ellenőrzése
-- 3\. lépés – OEM – Cloud szimulációs motor
+- OEM-ellenőrzési munkafolyamat
 
 ## <a name="validating-software-updates"></a>Szoftverfrissítések ellenőrzése
 
