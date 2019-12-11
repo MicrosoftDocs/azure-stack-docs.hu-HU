@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d99e32b68011d34977eb73f9cff2f5ac91293527
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946767"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993774"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-adatbázisok használata Microsoft Azure Stack
 
@@ -31,7 +31,12 @@ Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolg
 * MySQL-adatbázisok létrehozása Azure Resource Manager telepítési sablonok használatával.
 * Adja meg a MySQL-adatbázisokat szolgáltatásként.  
 
-Azure Stack operátor feladata az adatbázis-kiszolgálói példányok telepítése, konfigurálása és karbantartása a biztonság, a HA, a biztonsági mentés, a javítás és a frissítés számára. Az adatbázis-kiszolgáló példányát különböző felhasználói adatbázisok osztják meg, beleértve az adatbázis-kiszolgáló nevét és a nyilvános IP-címet. Az adatbázis-használat nem jelent jelentést.
+A MySQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
+
+- A felhasználók csak egyéni adatbázisokat hozhatnak létre és kezelhetnek. Az adatbázis-kiszolgáló példánya nem érhető el a végfelhasználók számára. Ez korlátozhatja a kompatibilitást olyan helyszíni adatbázis-alkalmazásokkal, amelyek hozzáférést igényelnek a Master, a temp DB vagy az adatbázisok dinamikus kezeléséhez.
+- A Azure Stack operátor felelős a MySQL adatbázis-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
+- A különböző előfizetésekben lévő különböző felhasználók adatbázisai ugyanazon az adatbázis-kiszolgálói példányon találhatók. Az RP nem biztosít semmilyen mechanizmust az adatbázisok különböző gazdagépeken vagy adatbázis-kiszolgálói példányokon való elkülönítéséhez.
+- Az RP nem biztosít jelentéskészítést az adatbázisok bérlői használatára vonatkozóan.
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>MySQL erőforrás-szolgáltató adapter architektúrája
 

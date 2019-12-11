@@ -16,24 +16,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 4aef28f0351a89f02dc4c00cd042d6bdd33ee957
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946801"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993885"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>SQL-adatbázisok használata Azure Stack
 
-A SQL Server erőforrás-szolgáltató használatával SQL-adatbázisokat biztosíthat szolgáltatásként [Azure stackon](azure-stack-overview.md). Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
+Az SQL erőforrás-szolgáltató használatával szolgáltatásként kínálhatja az SQL-adatbázisokat [Azure stackon](azure-stack-overview.md). Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
 
 - Adatbázisok Felhőbeli natív alkalmazásokhoz.
 - SQL-t használó webhelyek.
 - SQL-t használó munkaterhelések.
 
-Az erőforrás-szolgáltató nem biztosítja a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)összes adatbázis-kezelési képességeit. Például az erőforrások automatikus kiosztására szolgáló rugalmas készletek nem támogatottak. Az erőforrás-szolgáltató azonban támogatja a hasonló létrehozási, olvasási, frissítési és törlési (szifilisz) műveleteket egy SQL Server adatbázison.
+A MySQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
 
-Azure Stack operátor feladata az adatbázis-kiszolgálói példányok telepítése, konfigurálása és karbantartása a biztonság, a HA, a biztonsági mentés, a javítás és a frissítés számára. Az adatbázis-kiszolgáló példányát különböző felhasználói adatbázisok osztják meg, beleértve az adatbázis-kiszolgáló nevét és a nyilvános IP-címet. Az adatbázis-használat nem jelent jelentést.
+- A felhasználók csak egyéni adatbázisokat hozhatnak létre és kezelhetnek. Az adatbázis-kiszolgáló példánya nem érhető el a végfelhasználók számára. Ez korlátozhatja a kompatibilitást olyan helyszíni adatbázis-alkalmazásokkal, amelyek hozzáférést igényelnek a Master, a temp DB vagy az adatbázisok dinamikus kezeléséhez.
+- A Azure Stack operátor felelős az SQL Database-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
+- A különböző előfizetésekben lévő különböző felhasználók adatbázisai ugyanazon az adatbázis-kiszolgálói példányon találhatók. Az RP nem biztosít semmilyen mechanizmust az adatbázisok különböző gazdagépeken vagy adatbázis-kiszolgálói példányokon való elkülönítéséhez.
+- Az RP nem biztosít jelentéskészítést az adatbázisok bérlői használatára vonatkozóan.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL Resource Provider-adapter architektúrája
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: e2daa9416c966966b3c7cff240ddeb72ac227a8c
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304051"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993766"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Resource Manager-sablonok használata a Azure Stack
 
@@ -35,9 +35,9 @@ A GitHubon a következő rövid útmutató-sablonok [érhetők el](https://aka.m
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>A SharePoint Server telepítése (nem magas rendelkezésre állású telepítés)
 
-A következő erőforrásokat tartalmazó [SharePoint Server 2013-Farm létrehozásához](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) használja a PowerShell [desired State Configuration](/powershell/dsc/overview/overview) (DSC) bővítményét:
+A következő erőforrásokat tartalmazó [SharePoint Server 2013-Farm létrehozásához](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) használja a PowerShell [desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) bővítményét:
 
-* Egy virtuális hálózat
+* Egy virtuális hálózatot
 * Három Storage-fiók
 * Két külső terheléselosztó
 * Egy virtuális gép (VM) tartományvezérlőként van konfigurálva egy új erdőhöz egyetlen tartománnyal
@@ -48,7 +48,7 @@ A következő erőforrásokat tartalmazó [SharePoint Server 2013-Farm létrehoz
 
 A PowerShell DSC bővítmény használatával [hozzon létre egy ad tartományvezérlő kiszolgálót](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha) , amely a következő erőforrásokat tartalmazza:
 
-* Egy virtuális hálózat
+* Egy virtuális hálózatot
 * Egy Storage-fiók
 * Egy külső Load Balancer
 * Egy virtuális gép (VM) tartományvezérlőként van konfigurálva egy új erdőhöz egyetlen tartománnyal
@@ -57,7 +57,7 @@ A PowerShell DSC bővítmény használatával [hozzon létre egy ad tartományve
 
 A PowerShell DSC bővítmény használatával [hozzon létre egy SQL Server 2014 önálló kiszolgálót](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha) , amely a következő erőforrásokat tartalmazza:
 
-* Egy virtuális hálózat
+* Egy virtuális hálózatot
 * Két Storage-fiók
 * Egy külső Load Balancer
 * Egy virtuális gép (VM) tartományvezérlőként van konfigurálva egy új erdőhöz egyetlen tartománnyal
@@ -77,7 +77,7 @@ A PowerShell DSC bővítmény használatával konfigurálhat egy meglévő virtu
 
 ## <a name="cancel-a-running-template-deployment"></a>Futó sablon központi telepítésének megszakítása
 
-Egy futó sablon központi telepítésének megszakításához használja a [stop-AzureRmResourceGroupDeployment PowerShell-](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) [parancsmagot](/powershell/developer/cmdlet/cmdlet-overview).
+Egy futó sablon központi telepítésének megszakításához használja a [stop-AzureRmResourceGroupDeployment PowerShell-](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) [parancsmagot](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 ## <a name="next-steps"></a>Következő lépések
 

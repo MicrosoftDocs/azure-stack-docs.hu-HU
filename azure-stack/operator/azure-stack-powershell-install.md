@@ -15,12 +15,12 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: e20012ce8ca397a9e74b97e380753b8f3ad33e45
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540298"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993830"
 ---
 # <a name="install-powershell-for-azure-stack"></a>A PowerShell telepítése az Azure Stackhez
 
@@ -39,7 +39,7 @@ Azure Stack kompatibilis PowerShell-modulokat az internethez csatlakoztatott, r�
 A Azure Stack és a PowerShell használatának megkezdése előtt a következő előfeltételeket kell megadnia:
 
 - **PowerShell 5,0-es verzió** <br>
-A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,0-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)című témakört.
+A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,0-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)című témakört.
 
   > [!Note]
   > A PowerShell 5,0 használatához Windows rendszerű gép szükséges.
@@ -126,7 +126,7 @@ Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomás
     ```
 
     > [!Note]  
-    > - Azure Stack a modul 1.8.0-es verziója a feltörési változás kiadása. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md#changes) .
+    > - Azure Stack a modul 1.8.0-es verziója a feltörési változás kiadása. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md) .
     > - A Azure Stack modul 1.7.2 verziója a feltörési változás kiadása. Azure Stack 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://aka.ms/azspshmigration171).
     > - A AzureRM modul 2.4.0 verziója a Remove-AzureRmStorageAccount parancsmag megszakítási változásával jár. Ez a parancsmag arra vár, `-Force` paramétert kell megadni a Storage-fiók megerősítés nélküli eltávolításához.
     > - Nem kell telepítenie a **AzureRM. BootStrapper** modult a 1901-es vagy újabb verzióhoz Azure stack tartozó modulok telepítéséhez.
@@ -193,7 +193,7 @@ A telepítésnek négy lépése van:
     ```
 
     > [!Note]  
-    > - Azure Stack a modul 1.8.0-es verziója a feltörési változás kiadása. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md#changes) .
+    > - Azure Stack a modul 1.8.0-es verziója a feltörési változás kiadása. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md) .
     > A Azure Stack modul 1.7.1-verziója egy megszakítási változás. Azure Stack 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
 
     > [!NOTE]
@@ -208,7 +208,7 @@ A telepítésnek négy lépése van:
 
 2. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
 
-3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
 4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a AzureRM és a `AzureStack` modult ebből a tárházból:
 

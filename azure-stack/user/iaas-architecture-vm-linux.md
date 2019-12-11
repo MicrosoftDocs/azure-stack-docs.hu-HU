@@ -9,12 +9,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e51f1bd10ad53671d4e3b60e448141207bf2f6e0
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569138"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993821"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack"></a>Linux rendszerű virtuális gép futtatása Azure Stack
 
@@ -38,7 +38,7 @@ A Azure Stack az Azure-tól eltérő virtuálisgép-méreteket biztosít. Továb
 
 A költség az üzembe helyezett lemez kapacitásától függően változik. A IOPS és az átviteli sebesség (vagyis az adatátviteli sebesség) a virtuális gép méretétől függ, így a lemez kiépítésekor mindhárom tényezőt (kapacitás, IOPS és átviteli sebesség) figyelembe kell venni.
 
-A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) a Azure Stack a virtuálisgép- [méret](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) függvénye a lemez típusa helyett. Ez azt jelenti, hogy a Standard_Fs sorozatú virtuális gépekhez, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS korlátja a zajos szomszédok megelőzése. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
+A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) a Azure Stack a virtuálisgép- [méret](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS korlátja a zajos szomszédok megelőzése. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
 
 Javasoljuk továbbá [Managed Disks](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations)használatát. A felügyelt lemezek egyszerűbbé teszik a lemezek kezelését a tárterület kezelésével. A felügyelt lemezek nem igényelnek tárfiókot. Egyszerűen adja meg a méretet és a lemez típusát, és az magas rendelkezésre állású erőforrásként lesz üzembe helyezve.
 
@@ -62,7 +62,7 @@ Adatlemez hozzáadásakor a rendszer hozzárendel egy logikaiegység-szám (LUN)
 
 A VM egy ideiglenes lemezzel jön létre. Ezt a lemezt a Azure Stack tárolási infrastruktúrájának ideiglenes kötetén tárolja a rendszer. Előfordulhat, hogy az újraindítások és más virtuálisgép-életciklusi események során törölve lett. Ez a lemez csak ideiglenes adatokat, például lapozófájlokat tárol. Linux rendszerű virtuális gépek esetén az ideiglenes lemez/dev/sdb1, és a/mnt/Resource vagy a/mnt. csatlakoztatása
 
-## <a name="network"></a>Hálózat
+## <a name="network"></a>Network (Hálózat)
 
 A hálózati összetevők a következő erőforrásokat tartalmazzák:
 
@@ -84,7 +84,7 @@ Minden NSG tartalmaz az [alapértelmezett szabályok](https://docs.microsoft.com
 
 **Diagnosztika**. A monitorozás és a diagnosztika engedélyezése, beleértve az alapszintű egészségügyi mérőszámokat, a diagnosztikai infrastruktúra naplóit és a [rendszerindítási diagnosztikát](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). A rendszerindítási diagnosztika segít diagnosztizálni a rendszerindítási hibát, ha a virtuális gép nem indítható állapotba kerül. Hozzon létre egy Azure Storage-fiókot a naplók tárolásához. Egy standard helyileg redundáns tárolási (LRS) fiók elegendő a diagnosztikai naplókhoz. További információ: a [monitorozás és a diagnosztika engedélyezése](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Rendelkezésre állás**. Előfordulhat, hogy a virtuális gép újraindítást igényel a Azure Stack operátor által ütemezett tervezett karbantartás miatt. A magasabb rendelkezésre állás érdekében helyezzen üzembe több virtuális gépet egy [rendelkezésre állási csoporton](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability)belül.
+**Rendelkezésre állás**. Előfordulhat, hogy a virtuális gép újraindítást igényel a Azure Stack operátor által ütemezett tervezett karbantartás miatt. A magasabb rendelkezésre állás érdekében helyezzen üzembe több virtuális gépet egy [rendelkezésre állási csoporton](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)belül.
 
 **Biztonsági másolatok** A Azure Stack IaaS virtuális gépek védelmére vonatkozó javaslatokért tekintse meg [ezt a](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) cikket.
 
@@ -109,7 +109,7 @@ Helyezze üzembe a virtuális gépeket [Azure Security Center](https://docs.micr
 
 **Adattitkosítás**. Azure Stack a tárolási alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a inaktív titkosítás használatával. Azure Stack Storage alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. További részletekért tekintse meg [ezt](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) a cikket.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Azure Stack virtuális gépekkel kapcsolatos további tudnivalókért lásd: Azure Stack virtuálisgép- [funkciók](azure-stack-vm-considerations.md).  
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

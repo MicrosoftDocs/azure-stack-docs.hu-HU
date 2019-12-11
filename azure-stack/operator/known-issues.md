@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995586"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack ismert problémák
 
@@ -43,6 +43,11 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 <!---------------------------------------------------------->
 
 ::: moniker range="azs-1910"
+## <a name="update"></a>Frissítés
+
+Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása az Azure stack hub-ban](azure-stack-updates-troubleshoot.md).
+
+
 ## <a name="portal"></a>Portál
 
 ### <a name="administrative-subscriptions"></a>Rendszergazdai előfizetések

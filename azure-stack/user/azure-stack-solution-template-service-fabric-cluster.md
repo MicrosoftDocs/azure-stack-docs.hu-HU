@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 1b6975490a876c0ff0b51fdf9f21ba010e14622d
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299139"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993843"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric-fürt üzembe helyezése Azure Stack
 
@@ -28,7 +28,7 @@ Az Azure Marketplace **Service Fabric-fürtjével** biztonságos Service Fabric-
 
 További információ a Service Fabric használatáról: az Azure- [Service Fabric áttekintése](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) és a [Service Fabric-fürtök biztonsági forgatókönyvei](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) az Azure dokumentációjában.
 
-A Azure Stack Service Fabric-fürt nem a Microsoft. ServiceFabric erőforrás-szolgáltatót használja. Ehelyett Azure Stack a Service Fabric-fürt egy virtuálisgép-méretezési csoport egy előre telepített szoftverrel a [kívánt állapot-konfiguráció (DSC)](https://docs.microsoft.com/powershell/dsc/overview/overview)használatával.
+A Azure Stack Service Fabric-fürt nem a Microsoft. ServiceFabric erőforrás-szolgáltatót használja. Ehelyett Azure Stack a Service Fabric-fürt egy virtuálisgép-méretezési csoport egy előre telepített szoftverrel a [kívánt állapot-konfiguráció (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)használatával.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -196,7 +196,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 1. A Service Fabric Explorer URL-címének és az ügyfél-kapcsolódási végpontnak a megkereséséhez tekintse át a Template deployment eredményét.
 
-1. A böngészőben nyissa meg a <https://*FQDN*:19080>. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
+1. Nyissa meg a <https://*FQDN*:19080> URL-címet a böngészőben. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
    Ha önaláírt tanúsítványt használt, a rendszer figyelmeztetést kap arról, hogy a kapcsolatok nem biztonságosak. A webhely folytatásához válassza a **További információk**lehetőséget, majd lépjen a **weblapra**. 
 
 1. A helyhez való hitelesítéshez ki kell választania a használni kívánt tanúsítványt. Válassza a **további lehetőségek**lehetőséget, válassza ki a megfelelő tanúsítványt, majd kattintson az **OK** gombra a Service Fabric Explorerhoz való kapcsolódáshoz. 
@@ -239,6 +239,6 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
    > [!NOTE]  
    > Nincs *https://* a fürt neve előtt a parancsfájlban. A 19000-es portot kötelező megadni.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Kubernetes üzembe helyezése Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
