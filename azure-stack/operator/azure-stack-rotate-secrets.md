@@ -1,5 +1,5 @@
 ---
-title: Titkos kódok elforgatása
+title: Titkok elforgatása
 titleSuffix: Azure Stack
 description: Megtudhatja, hogyan forgathatja el a titkokat Azure Stackban.
 services: azure-stack
@@ -17,12 +17,12 @@ ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 09/30/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: d00cbc5eaacd80ba67b339e11562dc516fcd0991
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 14c1d6ba96cd8c9671b28f435db90b7b3ce3ad34
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465392"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007979"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>A titkok elforgatása Azure Stack
 
@@ -41,7 +41,7 @@ A titkok segítenek a Azure Stack infrastruktúra-erőforrások és-szolgáltat�
 7. Készítse elő a mappa szerkezetét.  A [külső titkok elforgatása](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) részben talál példát.
 8. [A titkos kód elforgatásának elindítása](#use-powershell-to-rotate-secrets).
 
-## <a name="rotate-secrets"></a>Titkos kódok elforgatása
+## <a name="rotate-secrets"></a>Titkok elforgatása
 
 Azure Stack különböző titkokat használ a Azure Stack infrastruktúra-erőforrások és-szolgáltatások közötti biztonságos kommunikáció fenntartásához.
 
@@ -148,7 +148,7 @@ Ha az alábbi utasítások segítségével futtatja a titkos kódot, a riasztás
 > Fontos továbbá, hogy a fájlmegosztás-mappa szerkezete a **Certificates** mappában is megkezdődik, ellenkező esetben az érvényesítés sikertelen lesz.
 > A fájlmegosztás csatlakoztatásának úgy kell kinéznie, mint a **\\\\\<IP-cím >\\\<megosztásnév >\\** , és tartalmaznia kell a mappa **Certificates\AAD** vagy **Certificates\ADFS** a belsejében.
 >
-> Például:
+> Példa:
 > - Fájlmegosztás = **\\\\\<ip_cím >\\\<megosztásnév >\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<ip_cím >\\\<megosztásnév > \Certificates\AAD**
@@ -163,40 +163,40 @@ Külső titkok elforgatása:
     ```powershell
         <ShareName>
         │   │
-        │   ├───Certificates
-        │   └───AAD
-        │       ├───ACSBlob
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───ACSQueue
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───ACSTable
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───Admin Extension Host
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───Admin Portal
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───ARM Admin
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───ARM Public
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───KeyVault
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───KeyVaultInternal
-        │       │       <CertName>.pfx
-        │       │
-        │       ├───Public Extension Host
-        │       │       <CertName>.pfx
-        │       │
-        │       └───Public Portal
-        │               <CertName>.pfx
+        │   └───Certificates
+        │         └───AAD
+        │             ├───ACSBlob
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───ACSQueue
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───ACSTable
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───Admin Extension Host
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───Admin Portal
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───ARM Admin
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───ARM Public
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───KeyVault
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───KeyVaultInternal
+        │             │       <CertName>.pfx
+        │             │
+        │             ├───Public Extension Host
+        │             │       <CertName>.pfx
+        │             │
+        │             └───Public Portal
+        │                     <CertName>.pfx
 
     ```
 
@@ -309,13 +309,13 @@ A **Start-SecretRotation** parancsmag egy Azure stack rendszer infrastruktúra-t
 
 ### <a name="parameters"></a>Paraméterek
 
-| Paraméter | Típus | Szükséges | pozíció | Alapértelmezett | Leírás |
+| Paraméter | Type (Típus) | Szükséges | Pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
-| `CertificatePassword` | SecureString | Hamis  | Elemzi  | Nincsenek  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
-| `Internal` | Sztring | Hamis | Elemzi | Nincsenek | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
-| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | Nincsenek  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
-| `ReRun` | SwitchParameter | Hamis  | Elemzi  | Nincsenek  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
+| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | None  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
+| `CertificatePassword` | SecureString | Hamis  | Elemzi  | None  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
+| `Internal` | Sztring | Hamis | Elemzi | None | Belső jelzőt kell használni, amikor egy Azure Stack operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | None  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
+| `ReRun` | Kapcsolóparaméter | Hamis  | Elemzi  | None  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
 
 ### <a name="examples"></a>Példák
 
@@ -389,7 +389,7 @@ A alaplapi felügyeleti vezérlő (BMC) figyeli a kiszolgálók fizikai állapot
 
 2. Nyisson meg egy kiemelt jogosultságú végpontot Azure Stack munkamenetekben. Útmutatásért lásd: [a privilegizált végpont használata Azure Stackban](azure-stack-privileged-endpoint.md).
 
-3. Miután a PowerShell-kérés módosult **[IP-cím vagy ERCS virtuális gép neve]: ps >** vagy a (z) **[AZS-ERCS01]: PS >** , a környezettől függően futtassa `Set-BmcCredential` `Invoke-Command`futtatásával. Adja át a Kiemelt végponti munkamenet-változót paraméterként. Például:
+3. Miután a PowerShell-kérés módosult **[IP-cím vagy ERCS virtuális gép neve]: ps >** vagy a (z) **[AZS-ERCS01]: PS >** , a környezettől függően futtassa `Set-BmcCredential` `Invoke-Command`futtatásával. Adja át a Kiemelt végponti munkamenet-változót paraméterként. Példa:
 
     ```powershell
     # Interactive Version
@@ -427,6 +427,6 @@ A alaplapi felügyeleti vezérlő (BMC) figyeli a kiszolgálók fizikai állapot
     Remove-PSSession -Session $PEPSession
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [További tudnivalók az Azure Stack biztonságáról](azure-stack-security-foundations.md)

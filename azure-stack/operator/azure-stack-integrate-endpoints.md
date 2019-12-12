@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 4104698b8d615f1078573009a65bd26c361fb0f2
-ms.sourcegitcommit: b4de234174864659eb7e08aa5c10de59f5fa6f43
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478489"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007996"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>Azure Stack szolgáltatások közzététele az adatközpontban 
 
@@ -44,7 +44,7 @@ A belső infrastruktúra-VIP-címek nincsenek felsorolva, mert nem szükségesek
 
 A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásával a 12495-30015-es tartományba tartozó portok nem szükségesek.
 
-|Végpont (VIP)|DNS host A record|Protokoll|Portok|
+|Végpont (VIP)|Rekord DNS-állomása|Protocol (Protokoll)|Portok|
 |---------|---------|---------|---------|
 |AD FS|ADFS. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Portál (rendszergazda)|Adminportal. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
@@ -52,10 +52,10 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 |Azure Resource Manager (rendszergazda)|Adminmanagement. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Portál (felhasználó)|Portál. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Azure Resource Manager (felhasználó)|Felügyeleti. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
-|Graph|Graph. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
+|Gráf|Graph. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Tanúsítvány-visszavonási lista|CRL. *&lt;régió >.&lt;fqdn >*|HTTP|80|
 |DNS|&#42;. *&lt;régió >.&lt;fqdn >*|TCP & UDP|53|
-|Hosting | *. hosting.\<régió >.\<FQDN > | HTTPS | 443 |
+|Üzemeltetés | *. hosting.\<régió >.\<FQDN > | HTTPS | 443 |
 |Key Vault (felhasználó)|&#42;Vault. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Key Vault (rendszergazda)|&#42;.adminvault. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Tárolási üzenetsor|&#42;várólista. *&lt;régió >.&lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
@@ -79,11 +79,11 @@ Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-intercep
 > [!Note]  
 > Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra.
 
-|Cél|Destination URL|Protokoll|Portok|Forrásoldali hálózat|
+|Rendeltetés|Cél URL-címe|Protocol (Protokoll)|Portok|Forrásoldali hálózat|
 |---------|---------|---------|---------|---------|
-|Identitás|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>https:\//\*. msftauth.net<br>https:\//\*. msauth.net<br>https:\//\*. msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Germany**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
-|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
-|Javítás & frissítés|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
+|Identitáskezelés|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https:\//management.core.windows.net<br>ARMUri = https:\//management.azure.com<br>https:\//\*. msftauth.net<br>https:\//\*. msauth.net<br>https:\//\*. msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure China 21Vianet**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure Germany**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
+|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.Core.Windows.net<br>https://&#42;. azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.Core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.Core.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
+|Javítás & frissítés|https://&#42;. azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
 |Regisztráció|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https:\//management.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
 |Használat|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Nyilvános VIP-/27|
 |Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
@@ -102,6 +102,6 @@ A kimenő URL-címek terheléselosztása az Azure Traffic Managerrel történik,
 
 A kimenő DNS-t mindig kötelező megadni; a változó a külső DNS lekérdezési forrását, valamint az identitás-integráció típusát választotta. Egy csatlakoztatott forgatókönyv esetén a BMC-hálózaton található DVM kimenő hozzáférésre van szüksége. Az üzembe helyezést követően azonban a DNS szolgáltatás olyan belső összetevőre kerül, amely nyilvános VIP-en keresztül küld lekérdezéseket. Ekkor a BMC-hálózaton keresztüli kimenő DNS-hozzáférés el lehet távolítani, de a DNS-kiszolgálóhoz való nyilvános VIP-hozzáférésnek továbbra is meg kell maradnia, vagy más hitelesítés sikertelen lesz.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [PKI-követelmények Azure Stack](azure-stack-pki-certs.md)

@@ -14,16 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: mabrigg
-ms.reviewer: jeffgo
-ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.reviewer: kivenkat
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802289"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007962"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Red Hat-alapú virtuális gép előkészítése Azure Stackhoz
 
@@ -44,7 +44,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
 * Az univerzális lemezes formázású (UDF-) fájlrendszerek kernel-támogatása szükséges. Az első rendszerindítás során a vendéghez csatolt UDF formátumú adathordozó továbbítja a kiépítési konfigurációt a Linux rendszerű virtuális gépre. Az Azure Linux-ügynöknek csatlakoztatnia kell az UDF fájlrendszert a konfigurációjának olvasásához és a virtuális gép kiépítéséhez.
 * Ne állítson be swap partíciót az operációs rendszer lemezén. A Linux-ügynök úgy konfigurálható, hogy lapozófájlt hozzon létre az ideiglenes erőforrás lemezén. További információt a következő lépésekben talál.
 * Minden Azure-beli virtuális merevlemeznek 1 MB-ra igazított virtuális mérettel kell rendelkeznie. Nyers lemezről VHD-re való konvertáláskor győződjön meg arról, hogy a nyers lemez mérete 1 MB-nál több, az átalakítás előtt. További részleteket az alábbi lépésekben találhat.
-* A Azure Stack nem támogatja a Cloud-init használatát. A virtuális gépet a Windows Azure Linux Agent (WALA) támogatott verziójával kell konfigurálni.
+* Azure Stack támogatja a Cloud-init használatát. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához.
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>RHEL 7 virtuális gép előkészítése a Hyper-V kezelőjéből
 
