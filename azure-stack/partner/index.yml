@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Stack hub-partner dokumentációja
 metadata:
-  document_id: null
   title: 'Azure Stack hub partner D\documentation – oktatóanyagok, API-R\reference'
   description: 'Ismerje meg, hogyan érvényesítheti a hardvert a gazdagépek Azure Stack. A szolgáltatásként történő érvényesítés egy natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik közös mérnöki Azure Stack hub-ajánlatokat biztosítanak a Microsoft számára.'
   services: azure-stack

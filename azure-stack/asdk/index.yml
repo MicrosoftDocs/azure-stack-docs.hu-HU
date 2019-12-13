@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Stack hub fejlesztői csomag dokumentációja
 metadata:
-  document_id: null
   title: A Azure Stack hub Development Kit dokumentációja – oktatóanyagok és API-referenciák
   description: 'Megtudhatja, hogyan helyezheti üzembe és használhatja az Azure Stack hub fejlesztői készletet.'
   services: azure-stack
