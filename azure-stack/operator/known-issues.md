@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
-ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
+ms.openlocfilehash: 77163d12cd23e578bcc9ae7f30f5343fd106ee5b
+ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995586"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032355"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack ismert problémák
 
@@ -154,9 +154,9 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="access-control-iam"></a>Hozzáférés-vezérlés (IAM)
 
-- Alkalmazható: Ez a probléma a 1903-es és újabb kiadásokra vonatkozik
-- Ok: a IAM kiterjesztés elavult. Ibiza a Azure Stack bevezetésével új viselkedést mutat be, amely a RBAC kiterjesztését okozza, ha a felhasználó olyan előfizetésből nyit meg RBAC-bővítményt, amely nincs kiválasztva a globális előfizetési választóban.
-- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a globális előfizetési választóban. 
+- Alkalmazható: Ez a probléma a 1903-es vagy korábbi alaplemezképtel telepített bélyegzőket érinti.
+- Ok: a IAM kiterjesztés elavult. A Azure Stack által szállított Ibiza-portál új viselkedést eredményez, amely miatt a RBAC-bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a címtár és az**előfizetés** a felhasználói portálon). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
+- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál tetején, az értesítések gomb közelében, vagy a **minden erőforrás** **panelen** található parancsikonon keresztül érhető el, és nem jelenik meg az **előfizetés? Nyissa meg a könyvtár és előfizetés beállításait**. Az előfizetést ebben a menüben kell kiválasztani.
 
 ## <a name="networking"></a>Hálózatkezelés
 

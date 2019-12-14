@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a46630e7f1e55d248354639a35aa7a389effc353
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 0b30f95b1158df7a20d4c03f26ce0b9ce034f6d6
+ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955657"
+ms.lasthandoff: 12/13/2019
+ms.locfileid: "75031786"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
 
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Tárolási erőforrások létrehozása
+## <a name="create-storage-resources"></a>Tárerőforrások létrehozása
 
 Hozzon létre egy Storage-fiókot és egy Storage-tárolót a Windows Server 2016-rendszerkép tárolásához.
 
@@ -183,7 +183,7 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
-  -Credential $Credential
+  -Credential $Credential -ProvisionVMAgent
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
