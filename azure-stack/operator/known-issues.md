@@ -16,12 +16,12 @@ ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 77163d12cd23e578bcc9ae7f30f5343fd106ee5b
-ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
+ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2019
-ms.locfileid: "75032355"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033945"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack ismert problémák
 
@@ -46,7 +46,6 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 ## <a name="update"></a>Frissítés
 
 Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása az Azure stack hub-ban](azure-stack-updates-troubleshoot.md).
-
 
 ## <a name="portal"></a>Portál
 
@@ -236,8 +235,15 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="consumed-compute-quota"></a>Felhasznált számítási kvóta
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Új virtuális gép létrehozásakor előfordulhat, hogy **Ez az előfizetés az ezen a helyen lévő összes regionális vCPU kapacitását kapja. Ez az előfizetés az összes rendelkezésre álló, 50 teljes regionális vCPU használja.** Ez azt jelzi, hogy elérte az összes elérhető magok kvótáját.
+- Ok: új virtuális gép létrehozásakor előfordulhat, hogy az **előfizetés az ezen a helyen lévő összes regionális vCPU esetében egy hibaüzenetet kap. Ez az előfizetés az összes rendelkezésre álló, 50 teljes regionális vCPU használja.** Ez azt jelzi, hogy elérte az összes elérhető magok kvótáját.
 - Szervizelés: kérje meg az operátort, hogy adjon meg egy kiegészítő kvótával rendelkező kiegészítő csomagot. Az aktuális csomag kvótájának szerkesztése nem fog működni, vagy nagyobb kvóta jelenik meg.
+- Előfordulás: ritka
+
+### <a name="privileged-endpoint"></a>Emelt szintű végpont
+
+- Alkalmazható: Ez a probléma a 1910-es és korábbi kiadásokra vonatkozik.
+- Ok: nem lehet csatlakozni a rendszerjogosultságú végponthoz (ERC virtuális gépekhez) egy olyan számítógépről, amely a Windows nem angol nyelvű verzióját futtatja.
+- Szervizelés: ez egy ismert probléma, amelyet a 1910-nál későbbi kiadásokban rögzítettek. Megkerülő megoldásként futtathatja a **New-PSSession** és a **ENTER-PSSession** PowerShell-parancsmagokat az **en-us** kulturális környezet használatával. példaként állítsa be a kulturális környezetet a következő parancsfájl használatával: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
 - Előfordulás: ritka
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f306391451c4d04af3b5a37645f145fb732714f0
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: e9276d67c767ec6a08549be830c52bbbe03230ec
+ms.sourcegitcommit: 50b7974454e008724817cbb4416ce40368b31ef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72813996"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75035506"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>A nyilvános kulcsokra épülő infrastruktúra tanúsítványára vonatkozó követelmények Azure Stack
 
@@ -34,7 +34,7 @@ Azure Stack rendelkezik egy nyilvános infrastruktúra-hálózattal, amely küls
 > [!NOTE]
 > A Azure Stack alapértelmezés szerint a belső Active Directory integrált hitelesítésszolgáltatótól (CA) kibocsátott tanúsítványokat is használ a csomópontok közötti hitelesítéshez. A tanúsítvány érvényesítéséhez minden Azure Stack infrastruktúra-gép megbízhatónak tekinti a belső HITELESÍTÉSSZOLGÁLTATÓ főtanúsítványát azáltal, hogy hozzáadja ezt a tanúsítványt a helyi tanúsítványtárolóhoz. A Azure Stack nem rendelkezik tanúsítványok rögzítésével vagy engedélyezési listával. Az egyes kiszolgálói tanúsítványok SAN-ja a cél teljes tartománynevével van érvényesítve. A megbízhatósági láncot is érvényesíti a rendszer, valamint a tanúsítvány lejárati dátumát is (a szabványos TLS-kiszolgáló hitelesítése tanúsítvány-rögzítés nélkül).
 
-## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
+## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 A következő lista ismerteti a Azure Stack telepítéséhez szükséges tanúsítványokra vonatkozó követelményeket:
 
 - A tanúsítványokat a belső hitelesítésszolgáltatótól vagy egy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Ha nyilvános hitelesítésszolgáltató van használatban, azt a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát itt tekintheti meg [: Microsoft megbízható legfelső szintű tanúsítvány programja: résztvevők](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
@@ -53,10 +53,11 @@ A következő lista ismerteti a Azure Stack telepítéséhez szükséges tanús�
 - A tanúsítvány PFX-jelszavának összetett jelszónak kell lennie. Jegyezze fel ezt a jelszót, mert központi telepítési paraméterként fogja használni. A jelszónak meg kell felelnie az alábbi jelszó-összetettségi követelményeknek:
     - Legalább nyolc karakter hosszúnak kell lennie.
     - A következő karakterek legalább hármat tartalmazhatnak: nagybetűs, kisbetűk, 0-9, speciális karakterek, alfabetikus karakter, amely nem nagybetűs vagy kisbetűs.
-- Győződjön meg arról, hogy a tulajdonos alternatív neve bővítménnyel (x509v3_config) a tulajdonos neve és a tulajdonos alternatív neve egyezik. A tulajdonos alternatív neve mezőben további állomásnevek (webhelyek, IP-címek, köznapi nevek) adhatók meg, amelyeket egyetlen SSL-tanúsítvánnyal kell védeni.
+- Győződjön meg arról, hogy a tulajdonos alternatív neve bővítmény (x509v3_config) a tulajdonos neve és a tulajdonos alternatív neve egyezik. A tulajdonos alternatív neve mezőben további állomásnevek (webhelyek, IP-címek, köznapi nevek) adhatók meg, amelyeket egyetlen SSL-tanúsítvánnyal kell védeni.
 
 > [!NOTE]  
-> Az önaláírt tanúsítványok nem támogatottak.
+> Az önaláírt tanúsítványok nem támogatottak.  
+> Azure Stack hub leválasztott módban való telepítésekor javasolt a vállalati hitelesítésszolgáltató által kiadott tanúsítványok használata. Ez azért fontos, mert az Azure Stack-végpontokhoz hozzáférő ügyfeleknek képesnek kell lenniük a visszavont tanúsítványok listájához (CRL) való kapcsolatfelvételre.
 
 > [!NOTE]  
 > A tanúsítvány megbízhatósági láncában lévő közvetítő hitelesítésszolgáltatók jelenléte *támogatott.*
@@ -91,8 +92,8 @@ Ha az Azure AD-alapú üzembe helyezési mód használatával telepíti Azure St
 
 |Telepítési mappa|Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN)|Hatókör (régiónként)|Altartomány névtere|
 |-----|-----|-----|-----|
-|ADFS|ADFS. *&lt;region >. &lt;fqdn >*<br>(SSL-tanúsítvány)|ADFS|*&lt;régió >.&lt;FQDN >*|
-|Gráf|Graph. *&lt;region >. &lt;fqdn >*<br>(SSL-tanúsítvány)|Gráf|*&lt;régió >.&lt;FQDN >*|
+|ADFS|ADFS. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|ADFS|*&lt;régió >.&lt;FQDN >*|
+|Gráf|Graph. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|Gráf|*&lt;régió >.&lt;FQDN >*|
 |
 
 > [!IMPORTANT]
@@ -109,14 +110,14 @@ A következő táblázat ismerteti az SQL-és MySQL-adapterekhez szükséges vé
 |Hatókör (régiónként)|Tanúsítvány|Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SANs)|Altartomány névtere|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL és MySQL|&#42;.dbadapter. *&lt;régió >.&lt;fqdn >*<br>(Helyettesítő karakteres SSL-tanúsítvány)|dbadapter. *&lt;régió >.&lt;fqdn >*|
-|App Service|Webes forgalom alapértelmezett SSL-tanúsítványa|&#42;appservice. *&lt;region >. &lt;fqdn >*<br>&#42;. SCM. appservice. *&lt;region >. &lt;fqdn >*<br>&#42;. SSO. appservice. *&lt;régió >.&lt;fqdn >*<br>(Több tartományos helyettesítő karakteres SSL-tanúsítvány<sup>1</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
-|App Service|API|API. appservice. *&lt;region >. &lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
-|App Service|FTP|FTP. appservice. *&lt;region >. &lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
+|App Service|Webes forgalom alapértelmezett SSL-tanúsítványa|&#42;appservice. *&lt;régió >.&lt;fqdn >*<br>&#42;. SCM. appservice. *&lt;régió >.&lt;fqdn >*<br>&#42;. SSO. appservice. *&lt;régió >.&lt;fqdn >*<br>(Több tartományos helyettesítő karakteres SSL-tanúsítvány<sup>1</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
+|App Service|API|API. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
+|App Service|FTP|FTP. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
 |App Service|SSO|SSO. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
 
 <sup>1</sup> egy olyan tanúsítványt igényel, amelyben több helyettesítő karakteres alternatív név is szerepel. Előfordulhat, hogy az összes nyilvános hitelesítésszolgáltató nem támogatja több helyettesítő karaktert egyetlen tanúsítványon.
 
-<sup>2</sup> &#42;. appservice. *&lt;régió >.&lt;fqdn >* a helyettesítő karakterek nem használhatók a következő három tanúsítvány helyett (API. appservice. *&lt;régió >.&lt;FQDN >* , ftp. appservice. *&lt;régió >.&lt;FQDN >* és SSO. appservice. *&lt;régió >.&lt;fqdn >* . A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
+<sup>2</sup> &#42;. appservice. *&lt;régió >.&lt;fqdn >* a helyettesítő karakterek nem használhatók fel a három tanúsítvány helyett (API. appservice. *&lt;régió >.&lt;FQDN >* , ftp. appservice. *&lt;régió >.&lt;FQDN >* és sso. appservice. *&lt;régió >.&lt;FQDN >* . A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
 
 ## <a name="learn-more"></a>További információ
 Ismerje meg, hogyan [hozhatja Azure stack központi telepítéshez PKI-tanúsítványokat](azure-stack-get-pki-certs.md).

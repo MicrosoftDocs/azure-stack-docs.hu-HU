@@ -37,6 +37,8 @@
           items:
             - name: Fejlesztési környezet beállítása
               href: azure-stack-dev-start.md
+            - name: Engedélyezési adatok beolvasása
+              href: authenticate-azure-stack-hub.md
             - name: A PowerShell használata Azure Stack hub használatával
               items:
                 - name: Azure Stack hub PowerShell – áttekintés
@@ -198,7 +200,7 @@
                   items:
                     - name: AK-motor Azure Stack hub-on
                       href: azure-stack-kubernetes-aks-engine-overview.md
-                    - name: Támogatási szabályzat
+                    - name: Támogatási házirend
                       href: azure-stack-kubernetes-aks-engine-support.md
                     - name: Előfeltételek beállítása
                       href: azure-stack-kubernetes-aks-engine-set-up.md
