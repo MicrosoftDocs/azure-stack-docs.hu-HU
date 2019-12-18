@@ -254,30 +254,35 @@
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: Alapvető minták üzembe helyezése
       items:
-        - name: VNET-társítás
+        - name: Hálózati minták
           items:
-            - name: VNet-társítás a FortiGate
-              href: azure-stack-network-howto-vnet-to-vnet.md
             - name: VNet-társítás virtuális gépekkel
               href: azure-stack-network-howto-vnet-peering.md
-        - name: VPN beállítása helyszíni rendszerre
-          href: azure-stack-network-howto-vnet-to-onprem.md
-        - name: VNET – VNET-kapcsolatok
-          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: Az adatközpont kiterjesztése
-          href: azure-stack-network-howto-extend-datacenter.md
+            - name: Harmadik féltől származó NVA használata (Fortinet FortiGate NVA)
+              items:
+                - name: VNet-társítás a FortiGate
+                  href: azure-stack-network-howto-vnet-to-vnet.md
+                - name: VPN beállítása helyszíni rendszerre
+                  href: azure-stack-network-howto-vnet-to-onprem.md
+                - name: VNET – VNET-kapcsolatok
+                  href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+            - name: Az RRAS használata
+              items:
+                - name: Több helyek közötti VPN beállítása
+                  href: network-howto-vpn-tunnel.md
+                - name: VPN-alagút létrehozása (GRE)
+                  href: network-howto-vpn-tunnel-gre.md
+                - name: VPN-alagút (IPSEC) létrehozása
+                  href: network-howto-vpn-tunnel-ipsec.md
         - name: F5 Load Balancer
           href: network-howto-f5.md
-        - name: Kapcsolódás iSCSI-tárolóhoz
-          href: azure-stack-network-howto-iscsi-storage.md
-        - name: Alagutak beállítása
+        - name: Kapcsolódás külső tárolóhoz
           items:
-            - name: Több helyek közötti VPN beállítása
-              href: network-howto-vpn-tunnel.md
-            - name: VPN-alagút létrehozása (GRE)
-              href: network-howto-vpn-tunnel-gre.md
-            - name: VPN-alagút (IPSEC) létrehozása
-              href: network-howto-vpn-tunnel-ipsec.md
+            - name: Kapcsolódás iSCSI-tárolóhoz
+              href: azure-stack-network-howto-iscsi-storage.md
+            - name: Az adatközpont kiterjesztése
+              href: azure-stack-network-howto-extend-datacenter.md
+        - name: VNET-társítás
         - name: Biztonsági mentés és helyreállítás
           items:
             - name: A virtuális gép biztonsági mentése Azure Stack a CommVault

@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682178"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183443"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack
 
@@ -169,8 +169,8 @@ Ha Azure Stack integrált rendszerrel rendelkező SQL-és MySQL-erőforrás-szol
 **Probléma:**<br>
 A titkok rotációs naplója nem kerül automatikusan begyűjtésre, ha a titkos elforgatási parancsfájl futtatása meghiúsul.
 
-**Workaround**<br>
-A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack. DatabaseAdapter. SecretRotation. ps1 _*. log és a C:\Logs. mentett adatokat.
+**Áthidaló megoldás:**<br>
+A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, mentés a C:\Logs.-ben
 
 ## <a name="collect-diagnostic-logs"></a>Diagnosztikai naplók gyűjtése
 
@@ -225,6 +225,32 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>Azure Diagnostics bővítmény konfigurálása a MySQL erőforrás-szolgáltatóhoz
+
+A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL erőforrás-szolgáltatói adapter virtuális gépén. A következő lépések bemutatják, hogyan szabhatja testre a bővítményt a MySQL erőforrás-szolgáltató működési eseménynaplóinak és az IIS-naplóknak a hibaelhárítási és naplózási célokra való összegyűjtéséhez
+
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+
+2. A bal oldali ablaktáblán válassza a **virtuális gépek** lehetőséget, keresse meg a MySQL erőforrás-szolgáltatói adapter virtuális gépet, és válassza ki a virtuális gépet.
+
+3. A virtuális gép **diagnosztikai beállításainál** lépjen a **naplók** lapra, és az **Egyéni** elemre kattintva testreszabhatja az eseménynaplók gyűjtését.
+   
+   ![A diagnosztikai beállítások keresése](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
+
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/Operational!\*t** a MySQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
+
+   ![Eseménynaplók hozzáadása](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
+
+5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az **IIS-naplók** és a **Sikertelen kérelmek naplói**című témakört.
+
+   ![IIS-naplók hozzáadása](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
+
+6. Végül válassza a **Mentés** lehetőséget a diagnosztika összes beállításának mentéséhez.
+
+Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL erőforrás-szolgáltatóhoz, a naplók a **mysqladapterdiagaccount**nevű rendszertároló fiókban találhatók.
+
+Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
 ## <a name="next-steps"></a>Következő lépések
 

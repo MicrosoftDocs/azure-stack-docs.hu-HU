@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 8d8464c35b2aaa48c5611f7eac84ed6f9d80e866
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954502"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183517"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -231,6 +231,27 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató Azure Diagnostics-bővítményének konfigurálása
+A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van az SQL Resource Provider adapter virtuális gépén. A következő lépések bemutatják, hogyan szabhatja testre a bővítményt az SQL erőforrás-szolgáltató operatív eseménynaplóinak és az IIS-naplóknak a hibaelhárítás és a naplózás céljából történő összegyűjtéséhez.
+
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+
+2. A bal oldali ablaktáblán válassza a **virtuális gépek** lehetőséget, keresse meg az SQL Resource Provider adapter virtuális gépet, és válassza ki a virtuális gépet.
+
+3. A virtuális gép **diagnosztikai beállításainál** lépjen a **naplók** lapra, és az **Egyéni** elemre kattintva testreszabhatja az eseménynaplók gyűjtését.
+![lépjen a diagnosztikai beállítások](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
+
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** az SQL Resource Provider operatív eseménynaplóinak gyűjtéséhez.
+![eseménynaplók hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
+
+5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az **IIS-naplók** és a **Sikertelen kérelmek naplói**című témakört.
+IIS-naplók ![hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
+
+6. Végül válassza a **Mentés** lehetőséget a diagnosztika összes beállításának mentéséhez.
+
+Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az SQL-erőforrás-szolgáltatóhoz, a naplók a **sqladapterdiagaccount**nevű rendszertároló fiókban találhatók.
+
+Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
 ## <a name="next-steps"></a>Következő lépések
 
