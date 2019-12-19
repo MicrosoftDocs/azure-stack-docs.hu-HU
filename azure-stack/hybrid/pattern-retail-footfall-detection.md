@@ -8,12 +8,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: a7a7563db3c315c4913287e8f286f07abd633602
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638353"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187287"
 ---
 # <a name="footfall-detection-pattern"></a>Lépés hangja észlelési minta
 
@@ -37,8 +37,8 @@ Ez a kiskereskedelmi elemzési minta egy lépcsőzetes megközelítést használ
 2. Ha a modell egy személyt lát, egy képet helyez el, és feltölti Azure Stack hub blob Storage-ba. 
 3. A blob szolgáltatás elindít egy Azure-függvényt Azure Stack hub-on. 
 4. Az Azure-függvény egy tárolót hív meg a Face API, hogy demográfiai és érzelem-adatokhoz kapjon képet.
-5. Az adattárolást és az Azure Event hub-ba küldi a rendszer.
-6. Az Event hub leküldi az Stream Analyticsba az adatközpontot.
+5. Az adatküldés egy Azure Event Hubs-fürtbe történik.
+6. A Event Hubs-fürt leküldi az adatStream Analyticsba.
 7. Stream Analytics összesíti az adatokat, és leküldi Power BIre.
 
 ## <a name="components"></a>Összetevők
@@ -51,11 +51,11 @@ Ez a megoldás a következő összetevőket használja:
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Az Azure Event Hubs méretezhető platformot biztosít a Azure Stream Analyticshoz szépen integrálható, névtelenül tárolt adatmennyiségek betöltéséhez. |
 |  | [Azure Stream Analytics](/azure/stream-analytics/) | Az Azure Stream Analytics-feladatok összesítik a névtelen adatokat, és a vizualizációk 15 másodperces Windowsba csoportosítják azokat. |
 |  | [Microsoft Power BI](https://powerbi.microsoft.com/) | A Power BI egy könnyen használható irányítópult-felületet biztosít a Azure Stream Analytics kimenetének megtekintéséhez. |
-| Azure Stack hub | [APP SERVICE](../operator/azure-stack-app-service-overview.md) | A App Service erőforrás-szolgáltató (RP) az Edge-összetevők alapját biztosítja. Beleértve a Web Apps/API-k és a függvények üzemeltetési és felügyeleti funkcióit. |
+| Azure Stack Hub | [APP SERVICE](../operator/azure-stack-app-service-overview.md) | A App Service erőforrás-szolgáltató (RP) az Edge-összetevők alapját biztosítja. Beleértve a Web Apps/API-k és a függvények üzemeltetési és felügyeleti funkcióit. |
 | | Azure Kubernetes szolgáltatás [(ak) motorjának](https://github.com/Azure/aks-engine) fürtje | Az Azure Stack hub-ba helyezett, AK-motor-fürtöt tartalmazó AK RP méretezhető, rugalmas motort biztosít az Face API tároló futtatásához. |
 | | Azure Cognitive Services [Face API tárolók](/azure/cognitive-services/face/face-how-to-install-containers)| Az Azure Cognitive Services RP Face API tárolókkal biztosítja a demográfiai, érzelem-és egyedi látogatói észlelést a contoso magánhálózaton. |
 | | Blob Storage | Az AI fejlesztői csomagból rögzített rendszerképek fel lesznek töltve az Azure Stack hub blob Storage-tárolóba. |
-| | Azure Functions | Azure Stack hub-on futó Azure-függvény fogadja a blob Storage-ból érkező adatokat, és kezeli az interakciókat a Face API. A rendszer az Azure-ban található egyik Event hub-ba névtelenül küldi el az adattárolást.<br><br>|
+| | Azure Functions | Azure Stack hub-on futó Azure-függvény fogadja a blob Storage-ból érkező adatokat, és kezeli az interakciókat a Face API. A rendszer az Azure-ban található Event Hubs-fürtre küldi el a névtelenül való adatgyűjtést.<br><br>|
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
@@ -67,7 +67,7 @@ Ha engedélyezni szeretné, hogy a megoldás több kamera és hely között is m
 
 - Növelje Stream Analytics folyamatos átviteli egységek számát
 - A Face API központi telepítésének felskálázása
-- A Event Hubs átviteli sebesség növelése
+- A Event Hubs-fürt átviteli sebességének növelése
 - Szélsőséges esetekben szükség lehet a Azure Functionsról a virtuális gépre való Migrálás.
 
 ### <a name="availability"></a>Elérhetőség

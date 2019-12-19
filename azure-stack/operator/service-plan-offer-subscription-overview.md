@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 2242da61eaa457a8cc234fb3310787eb26b9148e
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814072"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187265"
 ---
 # <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Azure Stack szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
 
