@@ -15,18 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
+ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993774"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75190862"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-adatbázisok használata Microsoft Azure Stack
 
-A MySQL-adatbázisokat általában a webhelyekhez használják, és számos webhely-platformot támogatnak. Létrehozhat például WordPress-webhelyeket a App Services erőforrás-szolgáltató (Pásti) bővítmény használatával.
-
-Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolgálói példányhoz való kapcsolódása után a következőket teheti:
+Használja a MySQL erőforrás-szolgáltatót a MySQL-adatbázis szolgáltatás [Azure stackon](azure-stack-overview.md)való használatára. Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolgálói példányhoz való kapcsolódása után a következőket teheti:
 
 * MySQL-adatbázisok létrehozása Azure Resource Manager telepítési sablonok használatával.
 * Adja meg a MySQL-adatbázisokat szolgáltatásként.  

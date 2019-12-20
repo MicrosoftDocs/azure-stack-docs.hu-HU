@@ -1,6 +1,6 @@
 ---
-title: Azure Stack kibocsátási megjegyzések – 1910-es biztonsági frissítések | Microsoft Docs
-description: Ismerkedjen meg a Azure Stack 1909 biztonsági frissítéseivel.
+title: Azure Stack hub kibocsátási megjegyzései – 1910-es biztonsági frissítések | Microsoft Docs
+description: Az Azure Stack hub 1910 biztonsági frissítéseinek megismerése.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9294e0fad863345758527fb622fd5f3e753a29d1
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299083"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303682"
 ---
-# <a name="azure-stack-security-updates"></a>Azure Stack biztonsági frissítések
+# <a name="azure-stack-hub-security-updates"></a>Azure Stack hub biztonsági frissítései
 
-Ez a cikk felsorolja az összes biztonsági frissítést a Azure Stack utolsó négy frissítésében. Ez az információ csak referenciául szolgál.
+Ez a cikk az Azure Stack hub utolsó négy frissítésének összes biztonsági frissítését listázza. Ez az információ csak referenciául szolgál.
 
 ::: moniker range="azs-1910"
 ## <a name="1910-update"></a>1910 frissítés
 
-Azure Stack ezen frissítése nem tartalmazza a Azure Stack futtató operációs rendszer biztonsági frissítéseit. Ez a frissítés a Azure Stack infrastruktúra egy összetevőjének biztonsági frissítését tartalmazza:
+Az Azure Stack hub ezen frissítése nem tartalmazza a Azure Stack hub-t futtató mögöttes operációs rendszer biztonsági frissítéseit. Ez a frissítés az Azure Stack hub-infrastruktúra egy összetevőjének biztonsági frissítését tartalmazza:
 
 - [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 
@@ -252,7 +252,7 @@ Azure Stack ezen frissítése nem tartalmazza a Azure Stack futtató operációs
 Azure Stack ezen frissítése nem tartalmazza a Azure Stack futtató operációs rendszer biztonsági frissítéseit.
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Ismert problémák listájának áttekintése](known-issues.md)
