@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007962"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654899"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Red Hat-alapú virtuális gép előkészítése Azure Stackhoz
 
@@ -44,7 +44,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
 * Az univerzális lemezes formázású (UDF-) fájlrendszerek kernel-támogatása szükséges. Az első rendszerindítás során a vendéghez csatolt UDF formátumú adathordozó továbbítja a kiépítési konfigurációt a Linux rendszerű virtuális gépre. Az Azure Linux-ügynöknek csatlakoztatnia kell az UDF fájlrendszert a konfigurációjának olvasásához és a virtuális gép kiépítéséhez.
 * Ne állítson be swap partíciót az operációs rendszer lemezén. A Linux-ügynök úgy konfigurálható, hogy lapozófájlt hozzon létre az ideiglenes erőforrás lemezén. További információt a következő lépésekben talál.
 * Minden Azure-beli virtuális merevlemeznek 1 MB-ra igazított virtuális mérettel kell rendelkeznie. Nyers lemezről VHD-re való konvertáláskor győződjön meg arról, hogy a nyers lemez mérete 1 MB-nál több, az átalakítás előtt. További részleteket az alábbi lépésekben találhat.
-* Azure Stack támogatja a Cloud-init használatát. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához.
+* Azure Stack támogatja a Cloud-init használatát. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához. A Cloud-init rendszerképhez való hozzáadásával kapcsolatos útmutatásért lásd: [meglévő Linux Azure-beli virtuálisgép-rendszerkép előkészítése a Cloud-init használatával](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>RHEL 7 virtuális gép előkészítése a Hyper-V kezelőjéből
 
@@ -104,7 +104,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Cloud-init leállítása és eltávolítása:
+1. [Opcionális a 1910-es kiadás után] Cloud-init leállítása és eltávolítása:
 
     ```bash
     systemctl stop cloud-init
@@ -117,18 +117,59 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     ClientAliveInterval 180
     ```
 
-1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
+1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es vagy újabb kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
+
+    [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
+
+    1. Töltse le a setuptools.
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. Telepítse a setup.py.
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. Indítsa újra a waagent.
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
+
+    ```bash
+    waagent -version
+    ```
+    
+    [A 1910-es kiadás után] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
+    
+    1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
+    1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
 
     ```bash
     sudo yum install WALinuxAgent
     sudo systemctl enable waagent.service
     ```
+
 
 1. Ne hozzon létre lapozófájlt az operációs rendszer lemezén.
 
@@ -255,7 +296,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     dracut -f -v
     ```
 
-1. Cloud-init leállítása és eltávolítása:
+1. [Opcionális a 1910-es kiadás után] Cloud-init leállítása és eltávolítása:
 
     ```bash
     systemctl stop cloud-init
@@ -275,11 +316,11 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     ClientAliveInterval 180
     ```
 
-1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
+1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es vagy újabb kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
 
-    A WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
+    [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
 
-    a. Töltse le a setuptools.
+    1. Töltse le a setuptools.
 
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
@@ -287,7 +328,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     cd setuptools-7.0
     ```
 
-   b. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
+    1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -295,22 +336,37 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     cd WALinuxAgent-2.2.20
     ```
 
-    c. Telepítse a setup.py.
+    1. Telepítse a setup.py.
 
     ```bash
     sudo python setup.py install
     ```
 
-    d. Indítsa újra a waagent.
+    1. Indítsa újra a waagent.
 
     ```bash
     sudo systemctl restart waagent
     ```
 
-    e. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
+    1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
 
     ```bash
     waagent -version
+    ```
+    
+    [A 1910-es kiadás után] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
+    
+    1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
+
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
+
+    1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Ne hozzon létre lapozófájlt az operációs rendszer lemezén.
@@ -452,7 +508,7 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     dracut -f -v
     ```
 
-1. Cloud-init leállítása és eltávolítása:
+1. [Opcionális a 1910-es kiadás után] Cloud-init leállítása és eltávolítása:
 
     ```bash
     systemctl stop cloud-init
@@ -465,13 +521,53 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     ClientAliveInterval 180
     ```
 
-1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
+1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es vagy újabb kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
+
+    [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
+
+    1. Töltse le a setuptools.
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. Telepítse a setup.py.
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. Indítsa újra a waagent.
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
+
+    ```bash
+    waagent -version
+    ```
+    
+    [A 1910-es kiadás után] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
+    
+    1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
+    1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
 
     ```bash
     sudo yum install WALinuxAgent
@@ -541,7 +637,7 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Red Hat-alapú virtuális gép előkészítése ISO-fájlból egy Kickstart-fájl automatikus használatával
 
-1. Hozzon létre egy olyan Kickstart-fájlt, amely tartalmazza a következő tartalmat, és mentse a fájlt. A Kickstart telepítésével kapcsolatos részletekért tekintse meg a [Kickstart telepítési útmutatóját](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1. Hozzon létre egy olyan Kickstart-fájlt, amely tartalmazza a következő tartalmat, és mentse a fájlt. A Cloud-init leállítása és eltávolítása nem kötelező (a Cloud-init Azure Stack post 1910 kiadásban támogatott). Az ügynököt csak a 1910-es kiadás után telepítse a RedHat-tárházból. 1910 előtt az Azure-tárházat az előző szakaszban leírtak szerint használhatja. A Kickstart telepítésével kapcsolatos részletekért tekintse meg a [Kickstart telepítési útmutatóját](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM

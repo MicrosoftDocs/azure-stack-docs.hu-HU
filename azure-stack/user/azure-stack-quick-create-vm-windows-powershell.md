@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 0b30f95b1158df7a20d4c03f26ce0b9ce034f6d6
-ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
+ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/13/2019
-ms.locfileid: "75031786"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677688"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
 
@@ -63,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>Tárerőforrások létrehozása
 
-Hozzon létre egy Storage-fiókot és egy Storage-tárolót a Windows Server 2016-rendszerkép tárolásához.
+Hozzon létre egy Storage-fiókot a rendszerindítási diagnosztika kimenetének tárolásához.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057783"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654882"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Egyéni Azure Stack Marketplace-elemek létrehozása és közzététele
 
@@ -35,11 +35,11 @@ A jelen cikkben szereplő példák bemutatják, hogyan hozhat létre Windows vag
 ## <a name="create-a-marketplace-item"></a>Piactéri elem létrehozása
 
 > [!IMPORTANT]
-> A virtuálisgép-Piactéri elem létrehozása előtt töltse fel az egyéni virtuálisgép-rendszerképet a Azure Stack-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása a Azure Stackhoz](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)című részben leírtakat. Ezután kövesse a cikk utasításait a rendszerkép (. azpkg létrehozása) előkészítéséhez és a Azure Stack Marketplace-re való feltöltéséhez.
+> A virtuálisgép-Piactéri elem létrehozása előtt töltse fel az egyéni virtuálisgép-rendszerképet a Azure Stack-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása a Azure Stackhoz](azure-stack-add-vm-image.md)című részben leírtakat. Ezután kövesse a cikk utasításait a rendszerkép (. azpkg létrehozása) előkészítéséhez és a Azure Stack Marketplace-re való feltöltéséhez.
 
 Egyéni Piactéri elem létrehozásához tegye a következőket:
 
-1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és nevezze át a **SimpleVMTemplate** mappát annak az elemnek a nevére, amelyet meg fog jeleníteni a Azure stack-portálon.
+1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és az **Egyéni virtuális gépek**mappa alatt használhatja a Linux vagy az elérhető Windows-sablonokat. Dönthet úgy, hogy újból felhasználja az előre elkészített sablonokat, és módosítja a megfelelő paramétereket a Azure Stack-portálon megjelenő elem szorzatának adataival. Vagy egyszerűen újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
 
 2. Hozzon létre egy Azure Resource Manager sablont, vagy használja a Windows/Linux rendszerhez készült minta sablonokat. Ezek a sablonok az 1. lépésben letöltött csomagoló Tool. zip fájlban találhatók. Használhatja a sablont, és módosíthatja a szövegmezőket, vagy letöltheti az előre konfigurált sablont a GitHubról. Azure Resource Manager-sablonokkal kapcsolatos további információkért lásd: [Azure Resource Manager sablonok](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -51,7 +51,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
    ![Képernyőfelvétel a telepítési sablonok struktúrájáról](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. A manifest. JSON sablonban cserélje le a következő Kiemelt értékeket (a számokat), az [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)megadott értékkel.
+4. A manifest. JSON sablonban cserélje le a következő Kiemelt értékeket (a számokat), az [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md)megadott értékkel.
 
    > [!NOTE]  
    > A Azure Resource Manager sablonban soha ne végezzen semmilyen titkos kulcsot, például a termékkulcsot, a jelszót vagy az ügyfél által azonosítható adatokat. A sablon JSON-fájljai a katalógusban közzétett egyszeri hitelesítés nélkül érhetők el. Tárolja [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) összes titkát, és hívja meg őket a sablonból.
@@ -163,7 +163,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     ```
 
     > [!NOTE]
-    > A kimeneti elérési út bármely választott útvonal lehet, és nem kell a C: meghajtó alatt lennie. A manifest. JSON fájl és a kimeneti csomag teljes elérési útja azonban léteznie kell. Ha például a kimeneti elérési út `C:\<path>\galleryPackageName.azpkg`, akkor a `C:\<path>` mappának léteznie kell.
+    > A kimeneti elérési út bármely választott útvonal lehet, és nem kell a C: meghajtó alatt lennie. A manifest. JSON fájl és a kimeneti csomag teljes elérési útja azonban léteznie kell. Ha például a kimeneti elérési út `C:\<path>\galleryPackageName.azpkg`, akkor a mappának `C:\<path>` léteznie kell.
     >
     >
 
@@ -226,7 +226,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 | Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
+| Megjelenítendő név |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
 | Összefoglalás |X |Sztring |60 – 100 karakter | |
@@ -237,7 +237,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 A piactér a következő ikonokat használja:
 
-| Név | Szélessége | Magasság | Megjegyzések |
+| Név | Szélesség | Magasság | Megjegyzések |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
@@ -255,7 +255,7 @@ Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásoka
 
 | Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
+| Megjelenítendő név |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>További tulajdonságok
@@ -264,7 +264,7 @@ Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztos
 
 | Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
+| Megjelenítendő név |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Value (Díj) |X |Sztring |Legfeljebb 30 karakter. | |
 
 ### <a name="html-sanitization"></a>HTML-tisztítás

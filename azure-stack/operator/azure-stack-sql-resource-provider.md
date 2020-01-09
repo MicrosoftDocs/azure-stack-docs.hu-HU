@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
+ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993885"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492761"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>SQL-adatbázisok használata Azure Stack
 
@@ -31,7 +31,7 @@ Az SQL erőforrás-szolgáltató használatával szolgáltatásként kínálhatj
 - SQL-t használó webhelyek.
 - SQL-t használó munkaterhelések.
 
-A MySQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
+Az SQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
 
 - A felhasználók csak egyéni adatbázisokat hozhatnak létre és kezelhetnek. Az adatbázis-kiszolgáló példánya nem érhető el a végfelhasználók számára. Ez korlátozhatja a kompatibilitást olyan helyszíni adatbázis-alkalmazásokkal, amelyek hozzáférést igényelnek a Master, a temp DB vagy az adatbázisok dinamikus kezeléséhez.
 - A Azure Stack operátor felelős az SQL Database-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 

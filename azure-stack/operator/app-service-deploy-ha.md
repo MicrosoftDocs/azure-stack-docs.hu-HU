@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165011"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75655058"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
@@ -78,7 +78,7 @@ Az ebben a szakaszban ismertetett lépések segítségével hozzon létre egy eg
    > [!NOTE]
    > A sablon üzembe helyezése körülbelül egy órát vesz igénybe.
 
-   [![](media/app-service-deploy-ha/5-sm.png "Sablon központi telepítési állapotának áttekintése")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Review template deployment status")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
 ### <a name="record-template-outputs"></a>Sablon kimenetének rögzítése
@@ -162,7 +162,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![Vnet kiválasztása App Service](media/app-service-deploy-ha/06.png)
 
-8. Adja meg a korábban rögzített sablon kimeneteit a fájlmegosztás elérési útjának és a fájlmegosztás tulajdonosának paramétereinek. Ha elkészült, kattintson a **tovább**gombra.
+8. Adja meg a korábban rögzített sablon kimeneteit a fájlmegosztás elérési útjának és a fájlmegosztás tulajdonosának paramétereinek. Amikor végzett, kattintson a **Tovább**gombra.
 
     ![Fájlmegosztás kimeneti adatai App Service](media/app-service-deploy-ha/07.png)
 
@@ -198,7 +198,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![SQL Server a kapcsolatok adatai a App Service](media/app-service-deploy-ha/10.png)
 
-13. Mivel az App Service telepítéséhez használt gép nem ugyanazon a VNet található, mint a App Service-adatbázisok üzemeltetéséhez használt SQL Server, a név nem oldható fel.  **Ez a várt viselkedés**.<br><br>Győződjön meg arról, hogy a SQL Server neve és a fiókadatok adatai helyesek, és nyomja meg az **Igen** gombot a app Service telepítés folytatásához. Kattintson a **Tovább**gombra.
+13. Mivel az App Service telepítéséhez használt gép nem ugyanazon a VNet található, mint a App Service-adatbázisok üzemeltetéséhez használt SQL Server, a név nem oldható fel.  **Ez a várt viselkedés**.<br><br>Győződjön meg arról, hogy a SQL Server neve és a fiókadatok adatai helyesek, és nyomja meg az **Igen** gombot a app Service telepítés folytatásához. Kattintson a **Tovább** gombra.
 
     ![SQL Server a kapcsolatok adatai a App Service](media/app-service-deploy-ha/11.png)
 
@@ -210,13 +210,13 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
     |Felügyeleti szerepkör|1|3|
     |Közzétevői szerepkör|1|3|
     |Előtér-szerepkör|1|3|
-    |Megosztott feldolgozói szerepkör|1|10|
+    |Megosztott feldolgozói szerepkör|1|2|
     |     |     |     |
 
     ![Infrastruktúra-szerepkör példányának értékei App Service](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Az ebben az oktatóanyagban ajánlott értékekre való váltás a App Service telepítéséhez szükséges hardverkövetelmények megnövekedésével növekszik. Összesen 26 mag és 46 592 MB RAM szükséges az ajánlott 21 virtuális gépek támogatásához az alapértelmezett 18 maggal és a 32 256 MB RAM-mal a 15 virtuális gépen.
+    > Az ebben az oktatóanyagban ajánlott értékekre való váltás a App Service telepítéséhez szükséges hardverkövetelmények megnövekedésével növekszik. Összesen 18 mag és 32 256 MB RAM szükséges ahhoz, hogy támogassa az ajánlott 13 virtuális gépet az alapértelmezett 9 maggal és a 16 128 MB RAM-mal a 6 virtuális gépen.
 
 15. Válassza ki az App Service-infrastruktúra virtuális gépei telepítéséhez használni kívánt platformot, és kattintson a **tovább**gombra:
 
@@ -234,7 +234,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![A telepítés befejeződött App Service](media/app-service-deploy-ha/16.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a App Service erőforrás-szolgáltatót SQL always on-példánnyal adta meg, [adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén. [Parancsfájlt](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) is futtathat a AppServices-bejelentkezések az eredeti elsődleges kiszolgálóról a feladatátvételi kiszolgálóra való importálásához.
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143987"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503606"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server Azure Stack piactéren – gyakori kérdések
 
@@ -38,10 +38,10 @@ Ezután, ha bármelyik virtuálisgép-méretezési csoport egy adott verzióra h
 
 A Microsoft a Windows Server rendszerképeinek két verzióját kínálja a Azure Stack piactéren. A rendszerképnek csak egy verziója használható Azure Stack környezetben.  
 
-- **Fizetés a használat**során: Ezek a lemezképek a Windows teljes díjszabását futtatják.
-   Kinek kell használnia: Nagyvállalati Szerződés (EA) ügyfelek, akik a használati *Számlázási modellt*használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
-- **Saját licenc használata (BYOL)** : Ezek a képek alapszintű mérőórákat futtatnak.
-   Kinek kell használnia: Nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
+- **Fizetés a használat**során: ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
+   Kinek kell használnia a következőt: Nagyvállalati Szerződés (EA) ügyfelek, akik a *felhasználási számlázási modellt*használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
+- **Saját licenc használata (BYOL)** : ezek a képek alapszintű mérőórákat futtatnak.
+   Kinek kell használniuk: nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
 
 A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stackon. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
 
@@ -56,12 +56,12 @@ Ha a lemezkép mindkét verzióját letölti, a piactér-katalógusban csak a le
 A következő szkript futtatásával módosíthatja a licencelési modell attribútumot, hogy a saját licencét (BYOL) az utólagos elszámolású (TB) modellre váltson:
 
 ```powershell
-vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-A virtuális gép licencének típusát a következő parancsok futtatásával tekintheti meg. Ha a **Windows_Server**azt mondja, hogy a BYOL díját számítjuk fel, akkor a TB-modellben a Windows-mérőért kell fizetnie:
+A virtuális gép licencének típusát a következő parancsok futtatásával tekintheti meg. Ha a Licencprogram **Windows_Server**, akkor a BYOL díját kell megfizetnie, ellenkező esetben a Windows-mérőszámot a TB-modell alapján kell fizetnie:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -81,9 +81,11 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 Ezek a lemezképek a **licenseType** paramétert használják, így a használat során kell fizetniük. Ezt a paramétert beállíthatja (lásd az előző GYIK-választ). Ez csak a Windows Server szoftverre vonatkozik, nem pedig a rétegzett termékekre, például az SQL-re, amelyekhez saját licenc szükséges. A licenccel való fizetés nem vonatkozik a rétegzett szoftvertermékek használatára.
 
+Vegye figyelembe, hogy a piactéren csak akkor módosíthatja SQL Server lemezképek **licenseType** tulajdonságát, ha a verzió XX. X. 20190410 vagy újabb. Ha a piactéren a SQL Server rendszerképeinek egy régebbi verzióját futtatja, akkor a **licenseType** attribútum nem módosítható, és a piactéren a legújabb SQL Server rendszerképekkel újra üzembe kell helyeznie azokat.
+
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Van egy Nagyvállalati Szerződés (EA), és a saját EA Windows Server-licencem lesz; Hogyan gondoskodom arról, hogy a lemezképek számlázása helyesen történjen?
 
-LicenseType adhat hozzá **: Windows_Server** egy Azure Resource Manager sablonban. Ezt a beállítást minden egyes virtuálisgép-erőforrás blokkhoz hozzá kell adni.
+**LicenseType: Windows_Server** is hozzáadhat egy Azure Resource Manager sablonban. Ezt a beállítást minden egyes virtuálisgép-erőforrás blokkhoz hozzá kell adni.
 
 ## <a name="activation"></a>Aktiválás
 
@@ -94,27 +96,27 @@ A Windows Server rendszerű virtuális gépek Azure Stackon való aktiválásáh
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hogyan lehet ellenőrizni, hogy a virtuális gép aktiválva van-e?
 
-Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
+Futtassa a következő parancssort egy rendszergazda jogú parancssorból:
 
 ```shell
 slmgr /dlv
 ```
 
-Ha helyesen van aktiválva, a rendszer világosan jelezte, hogy az állomásnév megjelenik `slmgr` a kimenetben. Nem függnek a kijelzőn látható vízjelektől, mivel előfordulhat, hogy nem naprakészek, vagy egy másik, a tiéd mögötti virtuális gépről mutatnak.
+Ha helyesen van aktiválva, a rendszer világosan jelezte, hogy az állomásnév megjelenik a `slmgr` kimenetében. Nem függnek a kijelzőn látható vízjelektől, mivel előfordulhat, hogy nem naprakészek, vagy egy másik, a tiéd mögötti virtuális gépről mutatnak.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>A virtuális gép nincs beállítva a AVMA használatára, Hogyan javíthatom?
 
-Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
+Futtassa a következő parancssort egy rendszergazda jogú parancssorból:
 
 ```shell
 slmgr /ipk <AVMA key>
 ```
 
-A rendszerképhez használandó kulcsok [automatikus virtuálisgép](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) -aktiválásáról szóló cikkben talál.
+A rendszerképhez használandó kulcsok [automatikus virtuálisgép-aktiválásáról](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) szóló cikkben talál.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Létrehozom a saját Windows Server-lemezképeket, Hogyan biztosíthatom, hogy a AVMA használják?
 
-Javasoljuk, hogy `slmgr /ipk` a parancs `sysprep` futtatása előtt futtassa a parancssort a megfelelő kulccsal. Vagy adja meg a AVMA kulcsot az Unattend. exe telepítési fájljában.
+Javasoljuk, hogy a `sysprep` parancs futtatása előtt futtassa a `slmgr /ipk` parancssort a megfelelő kulccsal. Vagy adja meg a AVMA kulcsot az Unattend. exe telepítési fájljában.
 
 ### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-it-is-not-activating-or-using-kms-activation"></a>Megpróbálom használni az Azure-ban létrehozott Windows Server 2016-es rendszerképet, és nem aktiválja vagy nem használ KMS-aktiválást.
 
@@ -128,7 +130,7 @@ Lépjen kapcsolatba a hardver szállítójával, és ellenőrizze, hogy telepít
 
 A Windows Server korábbi verzióiban a [virtuális gépek automatikus aktiválása](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott. A virtuális gépeket manuálisan kell aktiválni.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információkért tekintse át a következő cikkeket:
 

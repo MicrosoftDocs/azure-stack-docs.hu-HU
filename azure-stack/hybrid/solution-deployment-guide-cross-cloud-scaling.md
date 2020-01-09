@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 54d79742ab39a2732a774401a1765b7a264e1fab
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638452"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654916"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Felhőben futó alkalmazások üzembe helyezése az Azure-ban és Azure Stack hub használatával
 
@@ -59,7 +59,7 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 
 -   A Windows Server 2016 rendszerű virtuális gépeket .NET 3,5-tel kell megadnia. Ez a virtuális gép az Azure Stack hub bérlői előfizetésében lesz felépítve, mint a privát Build ügynök.
 
--   A [Windows Server 2016 és az SQL 2017](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) virtuálisgép-rendszerkép a Azure stack hub piactéren érhető el. Ha ez a rendszerkép nem érhető el, működjön együtt egy Azure Stack hub-kezelővel, és győződjön meg arról, hogy hozzá van adva a környezethez.
+-   A [Windows Server 2016 és az SQL 2017](../operator/azure-stack-add-vm-image.md) virtuálisgép-rendszerkép a Azure stack hub piactéren érhető el. Ha ez a rendszerkép nem érhető el, működjön együtt egy Azure Stack hub-kezelővel, és győződjön meg arról, hogy hozzá van adva a környezethez.
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
@@ -110,7 +110,7 @@ Azure-beli adattárak
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza a `Runtimeidentifier` lehetőséget, és adja hozzá a `win10-x64` értéket. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.) 
+1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza a `Runtimeidentifier` lehetőséget, és vegyen fel `win10-x64`. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.) 
 
     ![Webalkalmazás-projektfájl szerkesztése](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -269,7 +269,7 @@ A felhőben való üzembe helyezéshez használjon [Azure Resource Manager sablo
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, majd adja hozzá a `win10-x64` elemet. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentáció.
+1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, majd vegyen fel `win10-x64`. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentáció.
 
 2.  Az Team Explorer segítségével keresse meg a kódot az Azure Reposban.
 
@@ -309,7 +309,7 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 6.  A **feladatok** lapon adja meg az Azure-t a **környezet neveként** , majd válassza a AzureCloud Traders-web EP elemet az **Azure-előfizetések** listájából.
 
-7.  Adja meg az **Azure app Service nevét**, amely a következő képernyőfelvételen `northwindtraders`.
+7.  Adja meg az **Azure app Service nevét**, amely `northwindtraders` a következő képernyőfelvételen.
 
 8.  Az ügynök fázisa esetében az **ügynök-várólista** listából válassza az **üzemeltetett VS2017** lehetőséget.
 
