@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283489"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333050"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack adminisztráció alapjai
 
@@ -68,8 +68,8 @@ Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, 
 Azure Stack továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg a [Azure stack: az Azure-tanulmány kiterjesztését](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) . Az új hirdetmények [Azure stack blogbejegyzéseit](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) is nyomon követheti.
 
 ## <a name="what-account-should-i-use"></a>Milyen fiókot használok?
-Az Azure Stack kezelésekor figyelembe kell vennie néhány fiókra vonatkozó szempontot. Különösen a Windows Server Active Directory összevonási szolgáltatások (AD FS) (AD FS) rendszerű központi telepítések identitás-szolgáltatóként való használata Azure Active Directory (Azure AD) helyett. A következő fiókokra vonatkozó megfontolások a Azure Stack integrált rendszerekre és a ASDK üzemelő példányokra egyaránt érvényesek:
 
+Az Azure Stack kezelésekor figyelembe kell vennie néhány fiókra vonatkozó szempontot. Különösen a Windows Server Active Directory összevonási szolgáltatások (AD FS) (AD FS) rendszerű központi telepítések identitás-szolgáltatóként való használata Azure Active Directory (Azure AD) helyett. A következő fiókokra vonatkozó megfontolások a Azure Stack integrált rendszerekre és a ASDK üzemelő példányokra egyaránt érvényesek:
 
 |Fiók|Azure AD|AD FS|
 |-----|-----|-----|
@@ -104,7 +104,7 @@ A szolgáltatások biztosítása mellett az operátorok rendszeres kötelessége
 
 ## <a name="what-to-tell-your-users"></a>Mit kell tudniuk a felhasználóknak
 
-Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak a Azure Stack szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes megadnia a felhasználók számára, a felhasználókat [Azure stack felhasználói dokumentációhoz](https://docs.microsoft.com/en-us/azure-stack/user/)irányíthatja.
+Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak a Azure Stack szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes megadnia a felhasználók számára, a felhasználókat [Azure stack felhasználói dokumentációhoz](/azure-stack/user/)irányíthatja.
 
 **Ismerje meg, hogyan dolgozhat a szolgáltatásokkal Azure Stack**
 

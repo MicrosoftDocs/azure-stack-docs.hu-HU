@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 4b2cbde2222e13b148072149d461ff4636b77d59
+ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557594"
+ms.lasthandoff: 12/21/2019
+ms.locfileid: "75325110"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack
 
@@ -95,13 +95,13 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 
 | Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
-| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához. | _Szükséges_ |
-| **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt. | _Szükséges_ |
-| **VMLocalCredential** | A MySQL erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Szükséges_ |
-| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Szükséges_ |
+| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához. | _Kötelező_ |
+| **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt. | _Kötelező_ |
+| **VMLocalCredential** | A MySQL erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ |
+| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ |
 | **AzureEnvironment** | A Azure Stack telepítéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
 | **DependencyFilesLocalPath** | Csak az integrált rendszerek esetében a tanúsítvány. pfx fájlját ebbe a könyvtárba kell helyezni. A leválasztott környezetekhez töltse le a [MySQL-Connector-Net-6.10.5. msi fájlt](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) erre a könyvtárba. Itt egy Windows Update MSU-csomagot is másolhat. | Nem _kötelező_ (az integrált rendszerekhez és a leválasztott környezetekhez_kötelező_ ) |
-| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Szükséges_ |
+| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **Maxretrycount csak** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
 | **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
@@ -148,10 +148,6 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
-# Clear the existing login information from the Azure PowerShell context.
-Clear-AzureRMContext -Scope CurrentUser -Force
-Clear-AzureRMContext -Scope Process -Force
-
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
@@ -173,7 +169,7 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>A központi telepítés ellenőrzése a Azure Stack portál használatával
 
 1. Jelentkezzen be a felügyeleti portálra szolgáltatás-rendszergazdaként.
-2. Válassza az **erőforráscsoportok**lehetőséget.
+2. Válassza az **Erőforráscsoportok** lehetőséget.
 3. Válassza ki a **System.\<helyet\>. mysqladapter** erőforráscsoportot.
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül válassza a **virtuális gépek** lehetőséget a felügyeleti portálon annak ellenőrzéséhez, hogy a MySQL erőforrás-szolgáltató virtuális gépe sikeresen létrejött-e, és fut-e.

@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: cb08b9c2480ab3858147669a1208ca54bc43343f
+ms.sourcegitcommit: 4789cd5d6f1e35774a17a1ddfcdf3f548b18965c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257772"
+ms.lasthandoff: 12/23/2019
+ms.locfileid: "75329908"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>Azure Stack üzembe helyezett virtuális gépek elleni védelem
 
@@ -162,7 +162,7 @@ Fontos szempontok a Azure Stack üzembe helyezéséhez:
 
 Ez a cikk általános iránymutatásokat ismertetett a Azure Stackon üzembe helyezett felhasználói virtuális gépek védelméhez. További információ az Azure-szolgáltatásoknak a felhasználói virtuális gépek számára történő használatáról:
 
-- [Az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások](http://aka.ms/azurestackbcdrconsiderationswp)
+- [A folyamatos üzletmenet és a vészhelyreállítás megfontolandó szempontjai](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure Backup Server
  - [Fájlok és alkalmazások biztonsági mentése a Azure Backup használatával Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
@@ -172,6 +172,6 @@ Ez a cikk általános iránymutatásokat ismertetett a Azure Stackon üzembe hel
  - [Azure Stack Azure Site Recovery támogatása](https://docs.microsoft.com/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>Partneri termékek
- - [Azure Stack Datacenter Integration partner ökoszisztémájának Adatlapja](http://aka.ms/azurestackbcdrpartners)
+ - [Azure Stack Datacenter Integration partner ökoszisztémájának Adatlapja](https://aka.ms/azurestackbcdrpartners)
 
 Ha többet szeretne megtudni azokról a partneri termékekről, amelyek a Azure Stack virtuálisgép-védelmet kínálnak, tekintse [meg az alkalmazások és az adatok védelme Azure stackon](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)című témakört

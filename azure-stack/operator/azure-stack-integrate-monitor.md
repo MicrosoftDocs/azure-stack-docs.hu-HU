@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: aa9b20b9ee80cfdb17dba3020c03718085d8b625
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 69522b0a32d2044ff334b91ea3142aadb11c89c8
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277176"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333087"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Külső figyelési megoldás integrálása a Azure Stack
 
@@ -81,9 +81,9 @@ A beépülő modul az 4x-es és a XI-as verzióval működik. A beépülő modul
 
 ### <a name="requirements-for-nagios"></a>A Nagios követelményei
 
-1.  A Nagios minimális verziója 4. x
+1. A Nagios minimális verziója 4. x
 
-2.  Microsoft Azure Active Directory Python-függvénytárat. Ezt a kódtárat a Python PIP használatával lehet telepíteni.
+2. Microsoft Azure Active Directory Python-függvénytárat. Ezt a kódtárat a Python PIP használatával lehet telepíteni.
 
     ```bash  
     sudo pip install adal pyyaml six
@@ -105,11 +105,11 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1.  Másolja a beépülő modult `azurestack_plugin.py` a következő könyvtárba: `/usr/local/nagios/libexec`.
+1. Másolja a beépülő modult `azurestack_plugin.py` a következő könyvtárba: `/usr/local/nagios/libexec`.
 
-2.  Másolja a kezelőt `azurestack_handler.sh` a következő könyvtárba: `/usr/local/nagios/libexec/eventhandlers`.
+2. Másolja a kezelőt `azurestack_handler.sh` a következő könyvtárba: `/usr/local/nagios/libexec/eventhandlers`.
 
-3.  Győződjön meg arról, hogy a beépülő modul fájlja végrehajtható:
+3. Győződjön meg arról, hogy a beépülő modul fájlja végrehajtható:
 
     ```bash
     sudo cp azurestack_plugin.py <PLUGINS_DIR>
@@ -120,13 +120,13 @@ samples/etc/azurestack_services.cfg
 
 A következő paraméterek konfigurálhatók a azurestack. cfg fájlban. A félkövérrel szedett paramétereket a kiválasztott hitelesítési modelltől függetlenül kell konfigurálni.
 
-Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](azure-stack-create-service-principals.md).
 
-| Paraméter | Leírás | Authentication |
+| Paraméter | Leírás | Hitelesítés |
 | --- | --- | --- |
-| **External_domain_fqdn ** | Külső tartomány teljes tartományneve |    |
-| \* * régió: * * | Régiónév |    |
-| **tenant_id: ** | Bérlői azonosító\* |    |
+| \* * External_domain_fqdn * * | Külső tartomány teljes tartományneve |    |
+| \* * régió: * * | Régió neve |    |
+| \* * tenant_id: * * | Bérlői azonosító\* |    |
 | client_id: | Ügyfél-azonosító | SPN titkos kulccsal |
 | client_secret: | Ügyfél jelszava | SPN titkos kulccsal |
 | client_cert\*\*: | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
@@ -143,42 +143,42 @@ A többi konfigurációs fájl opcionális konfigurációs beállításokat tart
 
 | Konfiguráció | Leírás |
 | --- | --- |
-| azurestack_commands.cfg | A kezelő konfigurációjában nincs szükség módosításra |
-| azurestack_contacts.cfg | Értesítési beállítások |
-| azurestack_hosts.cfg | Azure Stack központi telepítés elnevezése |
-| azurestack_services.cfg | A szolgáltatás konfigurációja |
+| azurestack_commands. cfg | A kezelő konfigurációjában nincs szükség módosításra |
+| azurestack_contacts. cfg | Értesítési beállítások |
+| azurestack_hosts. cfg | Azure Stack központi telepítés elnevezése |
+| azurestack_services. cfg | A szolgáltatás konfigurációja |
 
-### <a name="setup-steps"></a>Telepítési lépések
+### <a name="setup-steps"></a>A beállítás lépései
 
-1.  Módosítsa a konfigurációs fájlt.
+1. Módosítsa a konfigurációs fájlt.
 
-2.  Másolja a módosított konfigurációs fájlokat a következő mappába: `/usr/local/nagios/etc/objects`.
+2. Másolja a módosított konfigurációs fájlokat a következő mappába: `/usr/local/nagios/etc/objects`.
 
 ### <a name="update-nagios-configuration"></a>A Nagios konfigurációjának frissítése
 
 A Nagios konfigurációját frissíteni kell annak érdekében, hogy az Azure Stack – Nagios beépülő modul betöltődik.
 
-1.  Nyissa meg a következő fájlt:
+1. Nyissa meg a következő fájlt:
 
-```bash  
-/usr/local/nagios/etc/nagios.cfg
-```
+   ```bash  
+   /usr/local/nagios/etc/nagios.cfg
+   ```
 
-2.  Adja hozzá a következő bejegyzést:
+2. Adja hozzá a következő bejegyzést:
 
-```bash  
-# Load the Azure Stack Plugin Configuration
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
-```
+   ```bash  
+   # Load the Azure Stack Plugin Configuration
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+   ```
 
-3.  A Nagios újratöltése.
+3. A Nagios újratöltése.
 
-```bash  
-sudo service nagios reload
-```
+   ```bash  
+   sudo service nagios reload
+   ```
 
 ### <a name="manually-close-active-alerts"></a>Aktív riasztások manuális lezárása
 
@@ -204,9 +204,9 @@ A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja me
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>Az állapot és a riasztások figyelése a PowerShell használatával
 
-Ha nem használja az Operations Manager, Nagios, illetve a Nagios-alapú megoldás, a PowerShell használatával széles skálájával figyelési megoldásoknak integrálása az Azure-verem engedélyezése.
+Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a PowerShell használatával számos figyelési megoldással integrálhatja az Azure Stack.
 
-1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack operátori környezethez. Telepítse a PowerShell helyi számítógépre, amely képes elérni az erőforrás-kezelő (rendszergazda) végpont (https://adminmanagement. [régió]. [External_FQDN]).
+1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack operátori környezethez. Telepítse a PowerShellt egy helyi számítógépen, amely elérheti a Resource Manager-(rendszergazda-) végpontot (https://adminmanagement. [ régió]. [External_FQDN]).
 
 2. Futtassa a következő parancsokat a Azure Stack-környezethez Azure Stack operátorként való kapcsolódáshoz:
 
@@ -240,10 +240,10 @@ Ha nem használja az Operations Manager, Nagios, illetve a Nagios-alapú megold�
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>További információk
 
 További információ a beépített állapot-figyelésről: [az állapot és a riasztások figyelése Azure Stackban](azure-stack-monitor-health.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Biztonsági integráció](azure-stack-integrate-security.md)
