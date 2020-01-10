@@ -14,12 +14,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: eb676d914a345c5fe36e063ee08ea226cd1e3209
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954468"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755174"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
@@ -28,6 +28,17 @@ ms.locfileid: "74954468"
 Ez a cikk a Azure Stack érvényesítésére szolgáló kibocsátási megjegyzésekkel szolgál.
 
 ## <a name="version-4421"></a>4\.4.2.1 verziója
+
+2020 január 9
+
+- Tartalmi frissítések tesztelése
+  - OEM-ellenőrzési munkafolyamat (verzió: 5.1.52.0-> 5.1.53.0): a szükséges paraméterek számának csökkentése a teszt ütemterve ablaktáblán. 
+  - Hibajavítás a számítási teszthez – TestVMOperations
+    
+- Ismert problémák
+  - Vegye fel a kapcsolatot vaashelp@microsoft.com ha a következő tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
 
 2019 december 3
 
