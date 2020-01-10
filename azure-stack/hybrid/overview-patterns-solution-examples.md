@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 134171c85f91801f83965d376f79d09f6e8e3ac8
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638727"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718062"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Hibrid minták és megoldási példák az Azure-ra és a Azure Stack
 
@@ -25,7 +25,7 @@ A *hibrid felhő*engedélyezésével Azure stack a felhő-számítástechnika ru
 
 - Az Azure-ban és a helyszíni környezetekben konzisztens módon használhat programkódot, és a felhőben natív alkalmazásokat is futtathat.
 - Hagyományos virtualizált számítási feladatok futtatása az Azure-szolgáltatásokhoz való opcionális csatlakozással.
-- Adatok átvitele a felhőbe, vagy a megfelelőség megőrzése érdekében tartsa a szuverén adatközpontban.
+- Vigye át az adatait a felhőbe, vagy tartsa meg a szuverén adatközpontban a megfelelőség fenntartása érdekében.
 - Hardveres gyorsítású gépi tanulási, tárolós vagy virtualizált munkaterhelések futtatása az intelligens peremhálózat minden részén.
 
 A felhőkre kiterjedő alkalmazásokat *hibrid alkalmazásoknak*is nevezzük. Hibrid felhőalapú alkalmazásokat hozhat létre az Azure-ban, és üzembe helyezheti azokat a csatlakoztatott vagy leválasztott adatközpontban bárhol.

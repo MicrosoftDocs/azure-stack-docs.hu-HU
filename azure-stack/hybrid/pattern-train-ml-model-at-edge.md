@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f845aee01e4c87bc877eb77fb793b32472f9f222
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639255"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717977"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Machine Learning (ML) modell betanítása a peremhálózati mintán
 
@@ -21,7 +21,7 @@ Hordozható ML-modellek előállítása csak a helyszínen található adatokbó
 
 ## <a name="context-and-problem"></a>Kontextus és probléma
 
-Számos szervezet szeretné feloldani a helyszíni vagy örökölt adatokból származó elemzéseket az adatszakértők által megértett eszközök használatával. A [Azure Machine learning szolgáltatás](/azure/machine-learning/) Felhőbeli natív eszközöket biztosít az ml-és mély tanulási modellek betanításához, hangolásához és üzembe helyezéséhez.  
+Számos szervezet szeretné feloldani a helyszíni vagy örökölt adatokból származó elemzéseket az adatszakértők által megértett eszközök használatával. A [Azure Machine learning](/azure/machine-learning/) a felhőben natív eszközöket biztosít az ml-és mély tanulási modellek betanításához, finomhangolásához és üzembe helyezéséhez.  
 
 Bizonyos adatmennyiségek azonban túl nagy mennyiségű küldést biztosítanak a felhőbe, vagy nem küldhetők a felhőbe szabályozási okokból. Ennek a mintának a használatával az adatszakértők a Azure Machine Learning használatával betanítják a modelleket a helyszíni adatok és a számítások használatával. 
 
@@ -44,23 +44,23 @@ A megoldás működése:
 
 Ez a megoldás a következő összetevőket használja:
 
-| Réteg | Összetevő | Leírás |
+| Réteg | Component (Összetevő) | Leírás |
 |----------|-----------|-------------|
 | Azure | Azure Machine Learning | [Azure Machine learning](/azure/machine-learning/) összehangolja a ml modell betanítását. |
 | | Azure Container Registry | Az Azure ML becsomagolja a modellt egy tárolóba, és tárolja [Azure Container Registry](/azure/container-registry/) a telepítéshez.|
 | Azure Stack Hub | App Service | A [Azure stack hub és a app Service](/azure-stack/operator/azure-stack-app-service-overview) biztosítja az összetevők alapját az Edge-ben. |
-| | Számítás | Az Ubuntut és a Docker-t futtató Azure Stack hub-beli virtuális gép a ML modell betanítására szolgál. |
-| | Tárolás | A magánhálózati adattárak Azure Stack hub blob Storage-ban is tárolhatók. |
+| | Számítási szolgáltatások | Az Ubuntut és a Docker-t futtató Azure Stack hub-beli virtuális gép a ML modell betanítására szolgál. |
+| | Adattárolás | A magánhálózati adattárak Azure Stack hub blob Storage-ban is tárolhatók. |
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
 A megoldás megvalósításának eldöntése során vegye figyelembe a következő szempontokat:
 
-### <a name="scalability"></a>Méretezhetőség 
+### <a name="scalability"></a>Skálázhatóság 
 
 A megoldás méretezésének engedélyezéséhez létre kell hoznia egy megfelelő méretű virtuális gépet a Azure Stack hub-on a képzéshez.
 
-### <a name="availability"></a>Rendelkezésre állás
+### <a name="availability"></a>Elérhetőség
 
 Győződjön meg arról, hogy a betanítási szkriptek és a Azure Stack hub virtuális gép hozzáfér a betanításhoz használt helyszíni adatszolgáltatásokhoz.
 

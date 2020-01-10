@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ddc8218aadbf3940ea18ce80012441c5e43c7472
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638804"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718011"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Több felhőre kiterjedő skálázási minta
 
@@ -48,7 +48,7 @@ A diagramon ez a nyilvános felhőn kívül található, de a helyi adatközpont
 
 A tartománynévrendszer vagy a DNS a webhely vagy szolgáltatás nevének az IP-címére való fordítására (vagy feloldására) felelős.
 
-### <a name="cloud"></a>Felhő
+### <a name="cloud"></a>Felhőbeli
 
 **Üzemeltetett Build kiszolgáló**  
 Környezet a build-folyamat üzemeltetéséhez.
@@ -80,11 +80,11 @@ A nyilvános IP-címek használatával a bejövő forgalom átirányítható a T
 
 A minta megvalósítása során az alábbi pontokat vegye figyelembe:
 
-### <a name="scalability"></a>Méretezhetőség
+### <a name="scalability"></a>Skálázhatóság
 
 A többfelhős méretezés fő összetevője az igény szerinti skálázás lehetősége. A skálázásnak a nyilvános és a helyi felhőalapú infrastruktúra között kell történnie, és igény szerint egységes, megbízható szolgáltatást kell biztosítania.
 
-### <a name="availability"></a>Rendelkezésre állás
+### <a name="availability"></a>Elérhetőség
 
 Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 
