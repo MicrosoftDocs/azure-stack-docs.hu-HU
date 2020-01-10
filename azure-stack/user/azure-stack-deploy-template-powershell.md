@@ -1,6 +1,6 @@
 ---
-title: Sablon üzembe helyezése a PowerShell használatával Azure Stackban | Microsoft Docs
-description: Telepítsen egy sablont a PowerShell használatával Azure Stack.
+title: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban | Microsoft Docs
+description: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,29 +15,29 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: ecf6ab783beccd40a642733a586ada8411182e14
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304067"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820712"
 ---
-# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Sablon üzembe helyezése a PowerShell használatával Azure Stack
+# <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A PowerShell használatával Azure Resource Manager sablonokat telepíthet Azure Stack. Ez a cikk bemutatja, hogyan helyezhet üzembe egy sablont a PowerShell használatával.
+A PowerShell használatával Azure Resource Manager sablonokat telepíthet Azure Stack hubhoz. Ez a cikk bemutatja, hogyan helyezhet üzembe egy sablont a PowerShell használatával.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>AzureRM PowerShell-parancsmagok futtatása
 
 Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablont használ. A sablon egy Windows Server 2012 R2 Datacenter rendszerű virtuális gépet hoz létre.
 
 >[!NOTE]
-> A példa kipróbálása előtt győződjön meg arról, hogy egy Azure Stack felhasználóhoz [konfigurálta a PowerShellt](azure-stack-powershell-configure-user.md) .
+> A példa kipróbálása előtt ellenőrizze, hogy konfigurálta-e a [PowerShellt](azure-stack-powershell-configure-user.md) egy Azure stack hub-felhasználóhoz.
 
 1. Keresse meg a [AzureStack-Gyorsindítás-sablonok](https://aka.ms/AzureStackGitHub) tárházat, és keresse meg a **101-Simple-Windows-VM** sablont. Mentse a sablont erre a helyre: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
-2. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
-3. Cserélje le a `username` és a `password` értéket a következő parancsfájlban a felhasználónevével és jelszavával, majd futtassa a szkriptet:
+2. Nyisson meg egy emelt szintű PowerShell-parancssort.
+3. Cserélje le `username` és `password` a következő parancsfájlban a felhasználónevével és jelszavával, majd futtassa a szkriptet:
 
     ```powershell
     # Set deployment variables
@@ -58,9 +58,9 @@ Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablo
     ```
 
     >[!IMPORTANT]
-    > Minden alkalommal, amikor futtatja ezt a parancsfájlt, növelje a `$myNum` paraméter értékét, hogy megakadályozza a telepítés felülírását.
+    > Minden alkalommal, amikor futtatja ezt a parancsfájlt, növelje a `$myNum` paraméter értékét a telepítés felülírásának megakadályozása érdekében.
 
-4. Nyissa meg a Azure Stack portált, válassza a **Tallózás**lehetőséget, majd válassza a **virtuális gépek** lehetőséget az új virtuális gép (**myDeployment001**) megkereséséhez.
+4. Nyissa meg az Azure Stack hub portált, válassza a **Tallózás**lehetőséget, majd válassza a **virtuális gépek** lehetőséget az új virtuális gép (**myDeployment001**) megkereséséhez.
 
 ## <a name="cancel-a-running-template-deployment"></a>Futó sablon központi telepítésének megszakítása
 

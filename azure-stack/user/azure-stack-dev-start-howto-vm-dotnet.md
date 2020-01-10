@@ -1,6 +1,6 @@
 ---
-title: C# ASP.net-webalkalmazás üzembe helyezése egy virtuális gépen Azure Stackban | Microsoft Docs
-description: Helyezzen üzembe C# egy ASP.net-webalkalmazást egy Azure stack-alapú virtuális gépen.
+title: C# ASP.net-webalkalmazás üzembe helyezése egy virtuális gépen Azure stack hub-ban | Microsoft Docs
+description: C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2b2d1bccbe41e57b81492e0ba0b201fe03df2d7d
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 070a168b28296e03dfa5e559eb68c40d84afb939
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955777"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816139"
 ---
-# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack-beli virtuális gépen
+# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen
 
-Létrehozhat egy virtuális gépet (VM) a C# ASP.net-webalkalmazás üzemeltetéséhez Azure Stackban. Ez a cikk a kiszolgáló beállításakor követendő útmutatást ismerteti, konfigurálja a C# ASP.net-webalkalmazás üzemeltetéséhez, majd közvetlenül a Visual studióból helyezi üzembe az alkalmazást.
+Létrehozhat egy virtuális gépet (VM) a C# ASP.net-webalkalmazás üzemeltetéséhez Azure stack hub-ban. Ez a cikk a kiszolgáló beállításakor követendő útmutatást ismerteti, konfigurálja a C# ASP.net-webalkalmazás üzemeltetéséhez, majd közvetlenül a Visual studióból helyezi üzembe az alkalmazást.
 
 Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren futó ASP.net Core 2,2-et használja.
 
@@ -43,13 +43,13 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
 1. Telepítse a .NET Core 2,2 üzemeltetési csomagot a kiszolgálóra. Útmutatásért lásd: [.net Core Installer](https://dotnet.microsoft.com/download/dotnet-core/2.2). Győződjön meg arról, hogy a .NET Core azonos verzióját használja a fejlesztői gépen és a célkiszolgálón is.
 
-1. A Azure Stack portálon nyissa meg a virtuális gép hálózati beállításaiban felsorolt portokat.
+1. A Azure Stack hub portálon nyissa meg a virtuális gép hálózati beállításaiban felsorolt portokat.
 
-    a. Nyissa meg a Azure Stack portált a bérlő számára.
+    a. Nyissa meg a Azure Stack hub portált a bérlőhöz.
 
     b. Keresse meg a virtuális gépet. Lehet, hogy rögzítette a virtuális gépet az irányítópulton, vagy megkeresi az **erőforrások keresése** mezőben.
 
-    c. Válassza a **hálózatkezelés**lehetőséget.
+    c. Válassza a **Hálózat** lehetőséget.
 
     d. Válassza a **bejövő Port hozzáadása szabály** a virtuális gép alatt lehetőséget.
 
@@ -83,9 +83,9 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
     i. Válassza a **Hozzáadás** lehetőséget.
 
-1.  A Azure Stackben lévő virtuális gép **hálózati** beállításainál hozzon létre egy DNS-nevet a kiszolgáló számára. A felhasználók az URL-cím használatával csatlakozhatnak a webhelyhez.
+1.  A Azure Stack hub-beli virtuális gép **hálózati** beállításainál hozzon létre egy DNS-nevet a kiszolgáló számára. A felhasználók az URL-cím használatával csatlakozhatnak a webhelyhez.
 
-    a. Nyissa meg a Azure Stack portált a bérlő számára.
+    a. Nyissa meg a Azure Stack hub portált a bérlőhöz.
 
     b. Keresse meg a virtuális gépet. Lehet, hogy rögzítette a virtuális gépet az irányítópulton, vagy megkeresi az **erőforrások keresése** mezőben.
 
@@ -100,15 +100,15 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 ## <a name="create-an-app"></a>Alkalmazás létrehozása 
 
 A Visual Studióval használhatja a saját webalkalmazást, vagy [egy ASP.net Core alkalmazás közzétételét az Azure-](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-)ban. A cikk azt ismerteti, hogyan hozhat létre és tehet közzé egy ASP.NET-webalkalmazást egy Azure-beli virtuális gépen a Visual Studio 2017 Azure Virtual Machines Publishing funkciójának használatával. Miután telepítette és ellenőrizte, hogy az alkalmazás helyileg fut-e, frissítenie kell a közzétételi célt a Windows rendszerű virtuális gépre a Azure Stack-példányban.
+)ban. A cikk azt ismerteti, hogyan hozhat létre és tehet közzé egy ASP.NET-webalkalmazást egy Azure-beli virtuális gépen a Visual Studio 2017 Azure Virtual Machines Publishing funkciójának használatával. Miután telepítette és ellenőrizte, hogy az alkalmazás helyileg fut-e, frissítenie kell a közzétételi célt a Windows rendszerű virtuális gépre a Azure Stack hub-példányban.
 
 ## <a name="deploy-and-run-the-app"></a>Az alkalmazás üzembe helyezése és futtatása
 
-Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack-ben.
+Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack hub-ban.
 
 1. **Megoldáskezelő**kattintson a jobb gombbal a projektre, majd válassza a **Közzététel**lehetőséget.
 
-    ![ASP.NET-webalkalmazás üzembe helyezése Azure Stack közzétételhez](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
+    ![ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-közzétételi szolgáltatásban](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. A **közzétételi** ablakban válassza az **új profil**lehetőséget.
 1. Válassza **az IIS, FTP stb**. lehetőséget.
@@ -136,6 +136,6 @@ Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack-ben.
 
 ## <a name="next-steps"></a>Következő lépések
 
-- Ismerje meg, hogyan [állíthat be fejlesztési környezetet a Azure Stackban](azure-stack-dev-start.md).
-- Ismerkedjen meg a [Azure stack IaaS való gyakori központi telepítésekkel](azure-stack-dev-start-deploy-app.md).
+- Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).
+- Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).
 - A C# programozási nyelv megismeréséhez és a további erőforrásainak C#megkereséséhez [ C# ](https://docs.microsoft.com/dotnet/csharp/) tekintse meg a következő útmutatót:

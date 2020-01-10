@@ -4,7 +4,7 @@
   items:
     - name: Mi az Azure Stack hub?
       href: azure-stack-overview.md
-    - name: Mi az Azure Stack HCI?
+    - name: Mi az Azure Stack hub HCI?
       href: azure-stack-hci-overview.md
     - name: Az Azure-ökoszisztéma összehasonlítása
       href: compare-azure-azure-stack.md
@@ -37,7 +37,7 @@
           href: azure-stack-capacity-planning-compute.md
         - name: Adattárolás
           href: azure-stack-capacity-planning-storage.md
-        - name: Azure Stack Capacity Planner
+        - name: Azure Stack hub Capacity Planner
           href: azure-stack-capacity-planner.md
     - name: Adatközpont integrációja
       items:
@@ -86,12 +86,12 @@
               href: azure-stack-validate-adfs.md
             - name: Gráf-integráció ellenőrzése
               href: azure-stack-validate-graph.md
-        - name: Azure Stack üzembe helyezési PKI-követelmények
+        - name: Azure Stack hub üzembe helyezési INFRASTRUKTÚRÁjának követelményei
           href: azure-stack-pki-certs.md
           items:
             - name: PKI-tanúsítványok előállítása
               href: azure-stack-get-pki-certs.md
-            - name: PKI-tanúsítványok Azure Stack előkészítése
+            - name: Azure Stack hub PKI-tanúsítványok előkészítése
               href: azure-stack-prepare-pki-certs.md
             - name: PKI-tanúsítványok ellenőrzése
               href: azure-stack-validate-pki-certs.md
@@ -118,7 +118,7 @@
               href: azure-stack-integrate-physical-device-auditing.md
 - name: Útmutatók
   items:
-    - name: Azure Stack kezelése
+    - name: Azure Stack hub kezelése
       items:
         - name: Az adminisztráció alapjai
           href: azure-stack-manage-basics.md
@@ -126,7 +126,7 @@
           href: azure-stack-portal-clear.md
         - name: Telemetria-gyűjtemény konfigurálása
           href: azure-stack-telemetry.md
-        - name: Azure Stack regisztrálása
+        - name: Azure Stack hub regisztrálása
           href: azure-stack-registration.md
         - name: Régiók kezelése
           href: azure-stack-region-management.md
@@ -136,7 +136,7 @@
           href: azure-stack-cli-admin.md
         - name: Felügyeleti környezet beállítása
           items:
-            - name: Az Azure Stack PowerShell telepítése
+            - name: Azure Stack hub PowerShell telepítése
               href: azure-stack-powershell-install.md
             - name: Eszközök letöltése
               href: azure-stack-powershell-download.md
@@ -172,7 +172,7 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Felhasználói előfizetés tulajdonosának módosítása
           href: azure-stack-change-subscription-owner.md
-        - name: Azure Stack elindítása és leállítása
+        - name: Azure Stack hub elindítása és leállítása
           href: azure-stack-start-and-stop.md
         - name: Kapacitás kezelése
           items:
@@ -234,7 +234,7 @@
           href: azure-stack-marketplace.md
         - name: Marketplace-változások
           href: azure-stack-marketplace-changes.md
-        - name: Azure Marketplace-elemek a Azure Stack
+        - name: Azure Marketplace-elemek Azure Stack hub-hoz
           href: azure-stack-marketplace-azure-items.md
         - name: Marketplace-elemek letöltése
           href: azure-stack-download-azure-marketplace-item.md
@@ -242,7 +242,7 @@
           href: azure-stack-add-vm-image.md
         - name: Marketplace-elem létrehozása és közzététele
           href: azure-stack-create-and-publish-marketplace-item.md
-        - name: A Azure Stack támogatott vendég operációs rendszerek
+        - name: Azure Stack hub támogatott vendég operációs rendszerei
           href: azure-stack-supported-os.md
         - name: Virtuálisgép-méretezési csoport ajánlása
           href: azure-stack-compute-add-scalesets.md
@@ -274,15 +274,15 @@
           href: azure-stack-subscribe-plan-provision-vm.md
         - name: Ajánlatok törlése
           href: azure-stack-delete-offer.md
-        - name: Ajánlat delegálása az Azure Stackben
+        - name: Ajánlatok delegálása Azure Stack központban
           href: azure-stack-delegated-provider.md
         - name: Kvótatípusok
           href: azure-stack-quota-types.md
     - name: Hálózati megoldások ajánlása
       href: azure-stack-network-solutions-enable.md
-    - name: Bővítmény-szolgáltatás erőforrás-szolgáltatóinak kezelése
+    - name: Érték kezelése – erőforrás-szolgáltatók hozzáadása
       items:
-        - name: App Service on Azure Stack
+        - name: App Service Azure Stack központban
           items:
             - name: Áttekintés
               href: azure-stack-app-service-overview.md
@@ -310,23 +310,23 @@
               href: app-service-recover.md
             - name: App Service számlázás – gyakori kérdések
               href: app-service-billing-faq.md
-            - name: Azure Stack kibocsátási megjegyzések App Service
+            - name: App Service Azure Stack hub kibocsátási megjegyzései
               items:
-                - name: App Service Azure Stack Update 1 kibocsátási megjegyzései
+                - name: App Service Azure Stack hub Update 1 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-one.md
-                - name: App Service on Azure Stack Update 2 kibocsátási megjegyzései
+                - name: App Service Azure Stack hub Update 2 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service on Azure Stack Update 3 kibocsátási megjegyzései
+                - name: App Service Azure Stack hub Update 3 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service on Azure Stack Update 4 kibocsátási megjegyzései
+                - name: App Service Azure Stack hub Update 4 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-four.md
-                - name: Azure Stack Update 5 kibocsátási megjegyzései App Service
+                - name: App Service Azure Stack hub Update 5 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service on Azure Stack Update 6 kibocsátási megjegyzései
+                - name: App Service Azure Stack hub Update 6 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-six.md
-                - name: App Service on Azure Stack Update 7 kibocsátási megjegyzései
+                - name: App Service Azure Stack hub Update 7 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-seven.md
-        - name: MySQL on Azure Stack
+        - name: MySQL Azure Stack hub-on
           items:
             - name: Áttekintés
               href: azure-stack-mysql-resource-provider.md
@@ -352,7 +352,7 @@
                   href: azure-stack-mysql-resource-provider-11330.md
                 - name: MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
                   href: azure-stack-mysql-resource-provider-11300.md
-        - name: SQL on Azure Stack
+        - name: SQL Azure Stack hub-on
           items:
             - name: Áttekintés
               href: azure-stack-sql-resource-provider.md
@@ -406,19 +406,19 @@
                   href: azure-stack-usage-issues.md
                 - name: Használati regisztrációs hibakódok
                   href: azure-stack-registration-errors.md
-    - name: Azure Stack biztonsági mentése
+    - name: Azure Stack hub biztonsági mentése
       items:
-        - name: Azure Stack biztonsági mentésének engedélyezése a felügyeleti konzolról
+        - name: Biztonsági mentés engedélyezése Azure Stack hub számára a felügyeleti konzolról
           href: azure-stack-backup-enable-backup-console.md
-        - name: Azure Stack biztonsági mentésének engedélyezése a PowerShell-lel
+        - name: Azure Stack hub biztonsági mentésének engedélyezése a PowerShell-lel
           href: azure-stack-backup-enable-backup-powershell.md
-        - name: Azure Stack biztonsági mentése
+        - name: Azure Stack hub biztonsági mentése
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Adatok helyreállítása a Backup szolgáltatással
           href: azure-stack-backup-infrastructure-backup.md
-        - name: Fájlok és alkalmazások biztonsági mentése Azure Stack
+        - name: Fájlok és alkalmazások biztonsági mentése Azure Stack hub-on
           href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Azure Stack rendszerű virtuális gépek replikálása az Azure-ba
+        - name: Azure Stack hub-beli virtuális gépek replikálása az Azure-ba
           href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Helyreállítás a katasztrofális adatvesztéstől
           href: azure-stack-backup-recover-data.md
@@ -444,13 +444,13 @@
                       href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
                 - name: Igény szerinti gyűjtemény
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
-        - name: Azure Stack érvényesítése
+        - name: Azure Stack hub ellenőrzése
           href: azure-stack-diagnostic-test.md
-        - name: Hibakeresés
+        - name: Hibaelhárítás
           href: azure-stack-troubleshooting.md
 - name: Leírások
   items:
-    - name: Azure Stack PowerShell
+    - name: Azure Stack hub PowerShell
       href: /powershell/azure/azure-stack/overview
 - name: Kapcsolódó témakörök
   items:
@@ -462,11 +462,11 @@
   items:
     - name: Képzési és minősítési lehetőségek
       href: azure-stack-train-and-cert.md
-    - name: Azure Stack ütemterv
+    - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: MSDN-fórum Azure Stack
+    - name: Azure Stack hub MSDN fórum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure Stack dokumentációs visszajelzés
+    - name: Azure Stack hub dokumentációs visszajelzése
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

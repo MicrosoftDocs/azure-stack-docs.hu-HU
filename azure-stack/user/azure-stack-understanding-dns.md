@@ -1,6 +1,6 @@
 ---
-title: IDNS használata a Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan használhatja a iDNS szolgáltatásait és funkcióit Azure Stackban.
+title: IDNS használata Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan használhatja a iDNS szolgáltatásait és képességeit Azure Stack hub-ban.
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,26 +15,26 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 24dc5fc3ea57e1a849442fb02c118615bc8b60fa
-ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
+ms.openlocfilehash: 2ad223096601c31cf558e5557440d7d03065292e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71020836"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818927"
 ---
-# <a name="use-idns-in-azure-stack"></a>IDNS használata Azure Stack 
+# <a name="use-idns-in-azure-stack-hub"></a>IDNS használata Azure Stack központban 
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-a iDNS egy Azure stack hálózati szolgáltatás, amely lehetővé teszi a külső DNS-nevek (például https:\//www.Bing.com) feloldását. Lehetővé teszi a belső virtuális hálózatok nevének regisztrálását is. Ezzel az IP-cím helyett a virtuális gépeket (VM-ket) az ugyanazon a virtuális hálózaton lehet feloldani. Ez a megközelítés eltávolítja az egyéni DNS-kiszolgáló bejegyzéseinek megadásához szükséges adatokat. További információ a DNS-ről: [Azure DNS Overview (áttekintés](https://docs.microsoft.com/azure/dns/dns-overview)).
+a iDNS egy Azure Stack hub hálózati szolgáltatás, amely lehetővé teszi a külső DNS-nevek (például https:\//www.bing.com) feloldását. Lehetővé teszi a belső virtuális hálózatok nevének regisztrálását is. Ezzel az IP-cím helyett a virtuális gépeket (VM-ket) az ugyanazon a virtuális hálózaton lehet feloldani. Ez a megközelítés eltávolítja az egyéni DNS-kiszolgáló bejegyzéseinek megadásához szükséges adatokat. További információ a DNS-ről: [Azure DNS Overview (áttekintés](https://docs.microsoft.com/azure/dns/dns-overview)).
 
 ## <a name="what-does-idns-do"></a>Mit tesz a iDNS?
 
-A Azure Stackban a iDNS a következő képességeket kapja, anélkül, hogy egyéni DNS-kiszolgáló bejegyzéseket kellene megadnia:
+Az Azure Stack hub iDNS szolgáltatásában a következő képességeket kapja, anélkül, hogy egyéni DNS-kiszolgáló bejegyzéseket kellene megadnia:
 
 - Megosztott DNS-névfeloldási szolgáltatások bérlői számítási feladatokhoz.
 - Mérvadó DNS-szolgáltatás a névfeloldáshoz és a DNS-regisztrációhoz a bérlői virtuális hálózaton belül.
-- Rekurzív DNS szolgáltatás a bérlői virtuális gépek internetes neveinek feloldásához. A bérlőknek többé nem kell egyéni DNS-bejegyzéseket megadniuk az internetes nevek feloldásához (\.például www-Bing.com).
+- Rekurzív DNS szolgáltatás a bérlői virtuális gépek internetes neveinek feloldásához. A bérlőknek többé nem kell egyéni DNS-bejegyzéseket megadniuk az internetes nevek feloldásához (például: www\.bing.com.)
 
 Továbbra is használhatja a saját DNS-t, és használhat egyéni DNS-kiszolgálókat. A iDNS használatával azonban megoldhatók az internetes DNS-nevek, és az azonos virtuális hálózatban lévő más virtuális gépekhez is csatlakozhatnak anélkül, hogy egyéni DNS-bejegyzéseket kellene létrehoznia.
 
@@ -48,7 +48,7 @@ Az Azure-ban lehetősége van egy nyilvános IP-címhez társított DNS-név cí
 
 Ahogy az előző képen is látható, az Azure létrehoz egy "A" rekordot a DNS-ben a zóna **westus.cloudapp.Azure.com**megadott DNS-név címkéjén. Az előtag és az utótag össze van egyesítve egy [teljes tartománynevet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN), amely a nyilvános internetről bárhonnan oldható fel.
 
-Azure Stack csak a belső nevek regisztrálásához támogatja a iDNS-t, így a következő dolgok nem hajthatók végre:
+Azure Stack hub csak a belső nevek regisztrálására szolgáló iDNS-t támogatja, így a következő dolgok nem hajthatók végre:
 
 - DNS-rekord létrehozása meglévő üzemeltetett DNS-zónában (például local. azurestack. external)
 - Hozzon létre egy DNS-zónát (például Contoso.com.)
@@ -65,7 +65,7 @@ A következő egy egyszerű labor, amely bemutatja, hogyan működik ez a funkci
 
 <!--- Is DNS Label the right term? If so, we should define it. The column lists FQDNs, afaik. Where does the domain suffix come from? --->
  
-|VM    |VNet    |Magánhálózati IP   |Nyilvános IP-cím    | DNS-címke                                |
+|VM    |vNet    |Magánhálózati IP-cím   |Nyilvános IP-cím    | DNS-címke                                |
 |------|--------|-------------|-------------|------------------------------------------|
 |VM – A1 |Társviszonyban áll   | 10.0.0.5    |172.31.12.68 |VM-a1-Label. lnv1. cloudapp. azscss. external |
 |VM-A2 |Társviszonyban áll   | 10.0.0.6    |172.31.12.76 |VM-a2-Label. lnv1. cloudapp. azscss. external |
@@ -73,7 +73,7 @@ A következő egy egyszerű labor, amely bemutatja, hogyan működik ez a funkci
 |VIRTUÁLIS GÉP – B1 |B   | 10.0.0.4    |172.31.12.57 |VM-B1-Label. lnv1. cloudapp. azscss. external |
  
  
-|Virtuális hálózat  |GUID                                 |DNS-utótag karakterlánca                                                  |
+|VNet  |GUID                                 |DNS-utótag karakterlánca                                                  |
 |------|-------------------------------------|-------------------------------------------------------------------|
 |Társviszonyban áll |e71e1db5-0a38-460d-8539-705457a4cf75 |e71e1db5-0a38-460d-8539-705457a4cf75. internal. lnv1. azurestack. local|
 |B |e8a6e386-bc7a-43e1-a640-61591b5c76dd |e8a6e386-bc7a-43e1-a640-61591b5c76dd. internal. lnv1. azurestack. local|
@@ -83,7 +83,7 @@ Megteheti a névfeloldási teszteket, hogy jobban megértse, hogyan működik az
 
 <!--- why Linux?--->
 
-Virtuális gép – a1 (Linux rendszerű virtuális gép): A virtuális gép (a2) megkeresése. Láthatja, hogy a rendszer hozzáadja a Társviszonyban áll DNS-utótagját, és a nevet feloldja a magánhálózati IP-címhez:
+Virtuális gép – a1 (Linux rendszerű virtuális gép): a virtuális gép (a2) megkeresése. Láthatja, hogy a rendszer hozzáadja a Társviszonyban áll DNS-utótagját, és a nevet feloldja a magánhálózati IP-címhez:
  
 ```console
 carlos@VM-A1:~$ nslookup VM-A2
@@ -181,7 +181,7 @@ Address:  172.31.12.76
 Röviden, a fentiek közül a következőt láthatja:
  
 *   Mindegyik VNet saját zónával rendelkezik, amely minden magánhálózati IP-címhez tartalmaz egy rekordot, amely a virtuális gép nevét és a VNet DNS-utótagját (a GUID azonosítóját) tartalmazza.
-    *   \<vmname >. \<vnetGUID.internal\>.\< régió >. \<stackinternalFQDN >
+    *   \<vmname >.\<vnetGUID\>. internal.\<régió >.\<stackinternalFQDN >
     *   Ez automatikusan történik
 *   Ha nyilvános IP-címeket használ, létrehozhat DNS-címkéket is. Ezek a többi külső címnek hasonlóan oldhatók meg.
  
@@ -190,6 +190,6 @@ Röviden, a fentiek közül a következőt láthatja:
  
 Ahogy a labor eredményei közül láthatja, megadhatja, hogy milyen IP-címet használ. Ha a virtuális gép nevét használja, akkor megkapja a magánhálózati IP-címet, és ha a DNS-címkét használja, akkor a nyilvános IP-címet kapja meg.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[DNS használata az Azure Stackben](azure-stack-dns.md)
+[DNS használata Azure Stack központban](azure-stack-dns.md)

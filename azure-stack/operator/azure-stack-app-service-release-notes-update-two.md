@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack Update 2 kibocsátási megjegyzései | Microsoft Docs
-description: Ismerkedjen meg a javításokkal, javításokkal és a 2. frissítéssel kapcsolatos ismert problémákkal a Azure Stack App Service.
+title: App Service Azure Stack hub Update 2 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerkedjen meg a Azure Stack hub App Service a 2. frissítésében szereplő javításokkal, javításokkal és ismert problémákkal.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,38 +16,38 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: f427a31001f8f486fd231af7e59ef2bb30592661
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a73df75f5dd46a2b76218a29a1bdd6f16ced570f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974810"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816581"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service on Azure Stack Update 2 kibocsátási megjegyzései
+# <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service Azure Stack hub Update 2 kibocsátási megjegyzései
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack Update 2 verziójának javításait, javításait és ismert problémáit. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
+Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hub Update 2 verziójának javításait, javításait és ismert problémáit. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
 > [!IMPORTANT]
-> Alkalmazza a 1804-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a Azure App Service 1,2 üzembe helyezése előtt.
+> Alkalmazza az 1804-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,2 telepítése előtt.
 
-## <a name="build-reference"></a>Hivatkozás létrehozása
+## <a name="build-reference"></a>Build referenciája
 
-A (z) Azure Stack Update 2 Build számának App Service **72.0.13698.10**.
+A App Service Azure Stack hub Update 2 Build száma **72.0.13698.10**.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> A Azure App Service on Azure Stack új központi telepítései a következő [három tulajdonos helyettesítő karaktert](azure-stack-app-service-before-you-get-started.md#get-certificates) igénylik, mert a kudu-hez tartozó SSO-t a Azure app Service kezeli. Az új Tárgy:  **\*. SSO.\< appservice. régió\>.\< tartománynév\>.\< kiterjesztés\>**
+> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy [három tárgyú helyettesítő karaktert](azure-stack-app-service-before-you-get-started.md#get-certificates) igényelnek, mivel a kudu-hez tartozó SSO-t a Azure app Service-ben kezelik. Az új Tárgy: **\*. SSO. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\>**
 
-A telepítés megkezdése előtt tekintse át a [App Service Azure stack üzembe helyezésének előfeltételeit](azure-stack-app-service-before-you-get-started.md) .
+Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
 ### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
-A Azure App Service on Azure Stack Update 2 a következő javításokat és javításokat tartalmazza:
+A Azure App Service on Azure Stack hub Update 2 a következő javításokat és javításokat tartalmazza:
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
 
 - A **Azure functions Runtime** és a **v 1.0.11612**frissítése.
 
@@ -77,27 +77,27 @@ A Azure App Service on Azure Stack Update 2 a következő javításokat és jav�
   - Rendszer hitelesítő adatainak elforgatása
   - A kapcsolatok karakterláncának elforgatása
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el.
 
 Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
 
-* Forrás: Any
+* Forrás: bármely
 * Forrásoldali porttartomány: *
 * Cél: IP-címek
-* Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+* Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
 * Célport tartománya: 445
 * Protokoll: TCP
-* Művelet: Allow
-* Fontosság: 700
+* Művelet: Engedélyezés
+* Prioritás: 700
 * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg a dokumentációt a [Azure Stack 1804 kibocsátási megjegyzésekben](azure-stack-update-1903.md)
+Tekintse meg az [Azure stack Hub 1804 kibocsátási megjegyzései](azure-stack-update-1903.md) dokumentációját
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
-- A Azure Stack App Service telepítésének előkészítésével kapcsolatos további információkért lásd: [app Service üzembe helyezésének előfeltételei a Azure stack](azure-stack-app-service-before-you-get-started.md).
+- A Azure App Service áttekintését lásd: [Azure App Service Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
+- További információ a App Service telepítésének előkészítéséről Azure Stack hub-on: [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).

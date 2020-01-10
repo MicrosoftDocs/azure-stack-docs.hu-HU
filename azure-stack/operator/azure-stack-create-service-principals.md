@@ -7,16 +7,16 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1fc771f82820149b01b6d11d37ac9a8720483e51
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955386"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815306"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit (ASDK)*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit (ASDK)*
 
 Egy egyszerű szolgáltatásnak egy olyan alkalmazást kell képviselnie, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia. Ahogy a felhasználó egy egyszerű felhasználói tag, az egyszerű szolgáltatásnév olyan rendszerbiztonsági tag, amely egy alkalmazást jelöl. Az egyszerű szolgáltatás identitást biztosít az alkalmazás számára, amely lehetővé teszi, hogy csak az adott egyszerű szolgáltatáshoz szükséges engedélyeket delegálja.  
 
@@ -37,8 +37,8 @@ Az alkalmazás egy egyszerű szolgáltatásnév identitása alatt való futtatá
 
 Első lépésként hozzon létre egy új alkalmazást a címtárban, amely létrehoz egy társított [egyszerű objektumot](/azure/active-directory/develop/developer-glossary#service-principal-object) , amely az alkalmazás identitását jelöli a címtárban. Ez a dokumentum leírja, hogyan kell létrehozni és felügyelni egy egyszerű szolgáltatásnevet a Azure Stack hub-példányhoz választott könyvtártól függően:
 
-- Azure Active Directory (Azure AD). Az Azure AD egy több-bérlős, felhőalapú címtár-és Identitáskezelés-kezelő szolgáltatás. Az Azure AD-t egy csatlakoztatott Azure Stack hub-példánnyal is használhatja.
-- Active Directory összevonási szolgáltatások (AD FS) (AD FS). A AD FS egyszerűsített, biztonságos identitás-összevonást és webes egyszeri bejelentkezési (SSO) képességeket biztosít. AD FS a csatlakoztatott és a leválasztott Azure Stack hub-példányokkal is használható.
+- Azure Active Directory (Azure AD). Az Azure AD egy több-bérlős felhőalapú címtár- és identitáskezelési szolgáltatás. Az Azure AD-t egy csatlakoztatott Azure Stack hub-példánnyal is használhatja.
+- Active Directory összevonási szolgáltatások (AD FS). A AD FS egyszerűsített, biztonságos identitás-összevonást és webes egyszeri bejelentkezési (SSO) képességeket biztosít. AD FS a csatlakoztatott és a leválasztott Azure Stack hub-példányokkal is használható.
 
 Először megtudhatja, hogyan kezelheti a szolgáltatást, majd hogyan rendelheti hozzá az egyszerű szolgáltatást egy szerepkörhöz, és korlátozza az erőforrás-hozzáférését.
 
@@ -50,7 +50,7 @@ Ha az Azure AD-val telepített Azure Stack hubot az identitáskezelési szolgál
 
 Ebben a szakaszban a Azure Portal használatával regisztrálja az alkalmazást, amely létrehozza az egyszerű szolgáltatásnév objektumot az Azure AD-bérlőben. Ebben a példában az egyszerű szolgáltatás ügyfél-titkos hitelesítő adatokkal jön létre, de a portál támogatja a X509 hitelesítő adatait is.
 
-1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com) az Azure-fiók használatával.
+1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com) az Azure-fiókkal.
 2. Válassza a **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.
 3. Adja meg az alkalmazás **nevét** .
 4. Válassza ki a megfelelő **támogatott fióktípus-típusokat**.

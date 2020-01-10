@@ -1,6 +1,6 @@
 ---
 title: Üzemeltetési kiszolgálók hozzáadása az SQL erőforrás-szolgáltatóhoz
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan adhat hozzá üzemeltetési kiszolgálókat az SQL erőforrás-szolgáltatói adapteren keresztül történő üzembe helyezéshez.
 services: azure-stack
 documentationCenter: ''
@@ -16,16 +16,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6684e432180b0daee4cf69d524d3fa9bebe7b26b
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 7bdbe25e204ca00b31f1932c16aab6cdb815d5e1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954519"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814558"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Üzemeltetési kiszolgálók hozzáadása az SQL erőforrás-szolgáltatóhoz
 
-Létrehozhat SQL Server adatbázis-üzemeltetési kiszolgálókat [Azure stack](azure-stack-overview.md)vagy a Azure stack-környezeten kívüli virtuális gépen, feltéve, hogy az SQL erőforrás-szolgáltató csatlakozni tud a példányhoz.
+SQL Server adatbázis-kezelő kiszolgálókat hozhat létre [Azure stack hub](azure-stack-overview.md)virtuális gépre, vagy a Azure stack hub-környezeten kívüli virtuális gépre, feltéve, hogy az SQL erőforrás-szolgáltató csatlakozni tud a példányhoz.
 
 > [!NOTE]
 > Az SQL-erőforrás-szolgáltatót az alapértelmezett szolgáltatói előfizetésben kell létrehozni, míg az SQL üzemeltetési kiszolgálókat számlázható, felhasználói előfizetésben kell létrehozni. Az erőforrás-szolgáltatói kiszolgálót nem szabad használni a felhasználói adatbázisok üzemeltetéséhez.
@@ -37,7 +37,7 @@ SQL üzemeltetési kiszolgáló hozzáadása előtt tekintse át a következő k
 ### <a name="mandatory-requirements"></a>Kötelező követelmények
 
 * Engedélyezze az SQL-hitelesítést a SQL Server példányon. Mivel az SQL Resource Provider virtuális gép nincs tartományhoz csatlakoztatva, csak SQL-hitelesítéssel tud csatlakozni az üzemeltetési kiszolgálókhoz.
-* Konfigurálja az SQL-példányok IP-címeit nyilvánosként, ha Azure Stack telepítik. Az erőforrás-szolgáltató és a felhasználók, például a webalkalmazások, a felhasználói hálózaton keresztül kommunikálnak, így szükség van a hálózatban található SQL-példányhoz való kapcsolódásra.
+* Konfigurálja az SQL-példányok IP-címeit nyilvánosként Azure Stack hub-ra való telepítéskor. Az erőforrás-szolgáltató és a felhasználók, például a webalkalmazások, a felhasználói hálózaton keresztül kommunikálnak, így szükség van a hálózatban található SQL-példányhoz való kapcsolódásra.
 
 ### <a name="general-requirements"></a>Általános követelmények
 
@@ -54,10 +54,10 @@ Győződjön meg arról, hogy mindig letölti az **SQL IaaS-bővítmény** legú
 > [!NOTE]
 > Az SQL IaaS bővítmény _szükséges_ a piactéren található összes SQL-lemezképhez. Ha nem letöltötte a bővítményt, a virtuális gép üzembe helyezése sikertelen lesz. A Linux-alapú SQL VM-rendszerképekkel nem használható.
 
-Az SQL-alapú virtuális gépek üzembe helyezéséhez más lehetőségek is rendelkezésre állnak, beleértve a [Azure stack Gyorsindítás galériájában](https://github.com/Azure/AzureStack-QuickStart-Templates)található sablonokat is.
+Az SQL-alapú virtuális gépek üzembe helyezéséhez más lehetőségek is rendelkezésre állnak, beleértve a [Azure stack hub](https://github.com/Azure/AzureStack-QuickStart-Templates)rövid útmutatójában található sablonokat is.
 
 > [!NOTE]
-> A több csomópontos Azure Stack telepített üzemeltetési kiszolgálókat felhasználói előfizetésből kell létrehozni, nem az alapértelmezett szolgáltatói előfizetéshez. A felhasználókat a felhasználói portálról vagy egy megfelelő bejelentkezési azonosítóval rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és megfelelő SQL-licenccel kell rendelkeznie. A _szolgáltatás rendszergazdája az előfizetés tulajdonosa lehet._
+> A több csomópontos Azure Stack hubhoz telepített üzemeltetési kiszolgálókat felhasználói előfizetésből kell létrehozni, nem az alapértelmezett szolgáltatói előfizetéshez. A felhasználókat a felhasználói portálról vagy egy megfelelő bejelentkezési azonosítóval rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és megfelelő SQL-licenccel kell rendelkeznie. A _szolgáltatás rendszergazdája az előfizetés tulajdonosa lehet._
 
 ### <a name="required-privileges"></a>Szükséges jogosultságok
 
@@ -72,7 +72,7 @@ Létrehozhat olyan rendszergazdai felhasználót, amely alacsonyabb jogosultság
 
 A következő információk további biztonsági útmutatást nyújtanak:
 
-* Az összes Azure Stack tárterület titkosítása a BitLocker használatával történik, így a Azure Stack bármely SQL-példánya titkosított BLOB-tárolót fog használni.
+* Minden Azure Stack hub-tároló titkosítva van a BitLocker használatával, így a Azure Stack hub-on található bármely SQL-példány titkosított BLOB-tárolót fog használni.
 * Az SQL erőforrás-szolgáltató teljes mértékben támogatja a TLS 1,2-et. Győződjön meg arról, hogy az SQL RP-n keresztül felügyelt SQL Server _csak_ a TLS 1,2 használatára van konfigurálva, és az RP alapértelmezett értéke a következő lesz:. A SQL Server összes támogatott verziója támogatja a TLS 1,2-t. További információ: [TLS 1,2-támogatás Microsoft SQL Server számára](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 * A **ForceEncryption** beállítás megadásával biztosíthatja, hogy az összes SQL Server-alapú kommunikáció mindig titkosítva legyen a SQL Server konfigurációkezelő használatával. További információ: [a kiszolgáló konfigurálása titkosított kapcsolatok kényszerítésére](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Gondoskodjon arról, hogy minden ügyfélalkalmazás egy titkosított kapcsolaton keresztül is kommunikáljon.
@@ -84,19 +84,19 @@ A SQL Server 2014 vagy SQL Server 2016 bármely kiadásával önálló (nem HA) 
 
 Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack hub felügyeleti portálra szolgáltatás-rendszergazdaként.
 
 2. Válassza **a minden szolgáltatás** &gt; **felügyeleti erőforrások** &gt; **SQL-üzemeltetési kiszolgálók**elemet.
 
-   ![SQL-üzemeltetési kiszolgálók a Azure Stack felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![SQL-üzemeltetési kiszolgálók a Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Az **SQL üzemeltetési kiszolgálók**területen az SQL erőforrás-szolgáltatót az erőforrás-szolgáltatói háttérként szolgáló SQL Server-példányokhoz is összekapcsolhatja.
 
-   ![SQL-adapter irányítópultja Azure Stack felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![SQL-adapter irányítópultja Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
 3. Kattintson a **Hozzáadás** gombra, majd adja meg a SQL Server-példány kapcsolati adatait az **SQL üzemeltetési kiszolgáló hozzáadása** panelen.
 
-   ![SQL-üzemeltetési kiszolgáló hozzáadása a Azure Stack felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![SQL-üzemeltetési kiszolgáló hozzáadása a Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     Megadhatja a példány nevét, és megadhatja a portszámot, ha a példány nincs az alapértelmezett 1433-as porthoz rendelve.
 
@@ -108,7 +108,7 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
    * Meglévő SKU használatához válasszon egy elérhető SKU-t, majd válassza a **Létrehozás**lehetőséget.
    * SKU létrehozásához válassza az **+ új SKU létrehozása**elemet. A **SKU létrehozása**területen adja meg a szükséges információkat, majd kattintson **az OK gombra**.
 
-     ![SKU létrehozása Azure Stack felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![SKU létrehozása Azure Stack hub felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Magas rendelkezésre állás biztosítása az SQL always on rendelkezésre állási csoportok használatával
 
@@ -157,7 +157,7 @@ A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési k
 
 ### <a name="to-add-sql-always-on-hosting-servers"></a>SQL always on üzemeltetési kiszolgálók hozzáadása
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack hub felügyeleti portálra szolgáltatás-rendszergazdaként.
 
 2. Válassza a **tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **+ Hozzáadás**lehetőséget.
 
@@ -167,7 +167,7 @@ A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési k
 
 4. Az Always On rendelkezésre állási csoport jelölőnégyzet bejelölésével engedélyezheti az SQL always on rendelkezésre állási csoport példányainak támogatását.
 
-   ![AlwaysOn rendelkezésre állási csoport engedélyezése Azure Stack felügyeleti portálon](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![AlwaysOn rendelkezésre állási csoport engedélyezése Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. Adja hozzá az SQL always on-példányt egy SKU-hoz.
 

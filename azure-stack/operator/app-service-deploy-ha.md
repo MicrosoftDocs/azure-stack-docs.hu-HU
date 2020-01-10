@@ -1,6 +1,6 @@
 ---
-title: Azure Stack App Service üzembe helyezése egy magasan elérhető konfigurációban | Microsoft Docs
-description: Megtudhatja, hogyan helyezheti üzembe a App Service a Azure Stackban egy kiválóan elérhető konfiguráció használatával.
+title: Azure Stack hub App Service üzembe helyezése egy magasan elérhető konfigurációban | Microsoft Docs
+description: Megtudhatja, hogyan helyezheti üzembe a App Servicet a Azure Stack hub-ban egy magasan elérhető konfiguráció használatával.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,21 +16,21 @@ ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 34dd070fe0568daedd0ffd50132b43c801099f18
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75655058"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810035"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
-Ebből a cikkből megtudhatja, hogyan használhatók a Azure Stack Marketplace-elemek, ha a Azure Stack egy magasan elérhető konfigurációban helyezi üzembe a App Service. A piactéren elérhető elemek mellett ez a megoldás a [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack gyors üzembe helyezési sablont is használja. Ez a sablon automatizálja a App Service erőforrás-szolgáltató üzemeltetéséhez szükséges, magasan elérhető infrastruktúra létrehozását. Ezt követően a rendszer telepíti a App Service a rendelkezésre álló, magasan elérhető virtuálisgép-infrastruktúrára. 
+Ebből a cikkből megtudhatja, hogyan használhatók a Azure Stack hub Marketplace-elemek az Azure Stack hub-hoz való App Service központi telepítésére egy magasan elérhető konfigurációban. A piactéren elérhető elemek mellett ez a megoldás a [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack hub gyors üzembe helyezési sablont is használja. Ez a sablon automatizálja a App Service erőforrás-szolgáltató üzemeltetéséhez szükséges, magasan elérhető infrastruktúra létrehozását. Ezt követően a rendszer telepíti a App Service a rendelkezésre álló, magasan elérhető virtuálisgép-infrastruktúrára. 
 
 ## <a name="deploy-the-highly-available-app-service-infrastructure-vms"></a>A magasan elérhető App Service infrastruktúra-alapú virtuális gépek üzembe helyezése
-A [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack gyors üzembe helyezési sablonja leegyszerűsíti app Service központi telepítését magas rendelkezésre állású konfigurációban. Az alapértelmezett szolgáltatói előfizetésben kell központilag telepíteni. 
+A [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack hub gyors üzembe helyezési sablonja leegyszerűsíti app Service központi telepítését magas rendelkezésre állású konfigurációban. Az alapértelmezett szolgáltatói előfizetésben kell központilag telepíteni. 
 
-Ha Azure Stackban egyéni erőforrást hoz létre, a sablon a következőt hozza létre:
+Ha Azure Stack központban hoz létre egyéni erőforrást, a sablon a következőket hozza létre:
 - Egy virtuális hálózat és szükséges alhálózatok.
 - Fájlkiszolgáló, SQL Server és Active Directory tartományi szolgáltatások (AD DS) alhálózatok hálózati biztonsági csoportjai.
 - Storage-fiókok virtuálisgép-lemezekhez és a fürt Felhőbeli tanúja.
@@ -40,8 +40,8 @@ Ha Azure Stackban egyéni erőforrást hoz létre, a sablon a következőt hozza
 - Két csomópontos fájlkiszolgáló-fürt.
 - Két tartományvezérlő.
 
-### <a name="required-azure-stack-marketplace-items"></a>Szükséges Azure Stack Marketplace-elemek
-A sablon használata előtt győződjön meg arról, hogy az alábbi [Azure stack Marketplace-elemek](azure-stack-marketplace-azure-items.md) elérhetők a Azure stack-példányban:
+### <a name="required-azure-stack-hub-marketplace-items"></a>Szükséges Azure Stack hub Marketplace-elemek
+A sablon használata előtt győződjön meg arról, hogy az alábbi [Azure stack hub Marketplace-elemek](azure-stack-marketplace-azure-items.md) elérhetők a Azure stack hub-példányban:
 
 - Windows Server 2016 Datacenter Core rendszerkép (AD DS és fájlkiszolgáló virtuális gépekhez)
 - SQL Server 2016 SP2 Windows Server 2016 rendszeren (Enterprise)
@@ -52,7 +52,7 @@ A sablon használata előtt győződjön meg arról, hogy az alábbi [Azure stac
 > A sablonra vonatkozó követelményekkel és az alapértelmezett értékekkel kapcsolatos további részletekért tekintse meg [a sablonhoz tartozó Readme fájlt](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) a githubon. 
 
 ### <a name="deploy-the-app-service-infrastructure"></a>A App Service infrastruktúra üzembe helyezése
-Az ebben a szakaszban ismertetett lépések segítségével hozzon létre egy egyéni központi telepítést a **appservice-fájlmegosztás-SQLServer-ha** Azure stack rövid útmutatóval.
+Az ebben a szakaszban ismertetett lépéseket követve hozzon létre egy egyéni központi telepítést a **appservice-fájlmegosztás-SQLServer-ha** Azure stack hub gyorsindító sablonnal.
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
@@ -107,7 +107,7 @@ A sablon kimeneti értékeinek felderítéséhez kövesse az alábbi lépéseket
 
 
 ## <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
-Az ebben a szakaszban ismertetett lépéseket követve telepítse a App Service for Azure Stackt magas rendelkezésre állású konfigurációban a [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack gyors üzembe helyezési sablon alapján. 
+Kövesse az ebben a szakaszban ismertetett lépéseket a Azure Stack hub App Servicejának központi telepítéséhez magas rendelkezésre állású konfigurációban a [appservice-fájlmegosztás-SQLServer-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure stack hub rövid útmutatójának sablonja alapján. 
 
 A App Service erőforrás-szolgáltató telepítése után az ajánlatokat és a csomagokat is felveheti. A felhasználók ezután előfizethetnek a szolgáltatás beszerzésére és az alkalmazások létrehozásának megkezdésére.
 
@@ -115,28 +115,28 @@ A App Service erőforrás-szolgáltató telepítése után az ajánlatokat és a
 > Az erőforrás-szolgáltatói telepítő futtatása előtt ellenőrizze, hogy elolvasta-e az egyes App Service kiadásokhoz tartozó kibocsátási megjegyzéseket, hogy megismerje az új funkciókat, javításokat, valamint az üzembe helyezést befolyásoló ismert problémákat.
 
 ### <a name="prerequisites"></a>Előfeltételek
-A App Service telepítőjének futtatása előtt több lépésre van szükség, ahogy az [első lépések a App Service Azure stack cikkben](azure-stack-app-service-before-you-get-started.md)leírt módon:
+A App Service telepítőjének futtatása előtt több lépésre van szükség a következő témakörben leírtak szerint: az [első lépések a app Service a Azure stack hub](azure-stack-app-service-before-you-get-started.md)-ben című cikkben.
 
 > [!TIP]
 > A [app Service cikk](azure-stack-app-service-before-you-get-started.md) első lépéseinek megkezdése előtt leírt lépések nem szükségesek, mert a sablon központi telepítése konfigurálja az infrastruktúra-alapú virtuális gépeket.
 
 - [Töltse le a app Service telepítőjét és a segítő parancsfájlokat](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts).
-- [Elemek letöltése a Azure stack piactérről](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace).
+- [Elemek letöltése az Azure stack hub piactérről](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace).
 - A [szükséges tanúsítványok előállítása](azure-stack-app-service-before-you-get-started.md#get-certificates).
-- Hozza létre az azonosító alkalmazást a Azure Stack kiválasztott azonosító alapján. Egy azonosító alkalmazás az [Azure ad](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) -hez vagy a [Active Directory összevonási szolgáltatások (AD FS)hoz](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) , és rögzíti az alkalmazás azonosítóját.
-- Győződjön meg arról, hogy felvette a Windows Server 2016 Datacenter rendszerképet a Azure Stack piactéren. Ez a rendszerkép szükséges a App Service telepítéséhez.
+- Hozza létre az ID-alkalmazást az Azure Stack hub számára kiválasztott azonosítási szolgáltató alapján. Egy azonosító alkalmazás az [Azure ad](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) -hez vagy a [Active Directory összevonási szolgáltatások (AD FS)hoz](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) , és rögzíti az alkalmazás azonosítóját.
+- Győződjön meg arról, hogy felvette a Windows Server 2016 Datacenter rendszerképet a Azure Stack hub piactéren. Ez a rendszerkép szükséges a App Service telepítéséhez.
 
 ### <a name="steps-for-app-service-deployment"></a>App Service központi telepítésének lépései
 A App Service erőforrás-szolgáltató telepítése legalább egy órát vesz igénybe. A szükséges időtartam attól függ, hogy hány szerepkör-példányt telepít. A telepítés során a telepítő a következő feladatokat futtatja:
 
-- Hozzon létre egy BLOB-tárolót a megadott Azure Stack Storage-fiókban.
+- Hozzon létre egy BLOB-tárolót a megadott Azure Stack hub Storage-fiókban.
 - Hozzon létre egy DNS-zónát és-bejegyzéseket a App Servicehoz.
 - Regisztrálja a App Service erőforrás-szolgáltatót.
 - Regisztrálja a App Service gyűjtemény elemeit.
 
 A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi lépéseket:
 
-1. Futtassa a korábban letöltött App Service telepítőt (**appservice. exe**) rendszergazdaként egy olyan számítógépről, amely hozzáfér a Azure stack rendszergazdai Azure Resource Management-végponthoz.
+1. Futtassa a korábban letöltött App Service telepítőt (**appservice. exe**) rendszergazdaként egy olyan számítógépről, amely hozzáfér az Azure stack hub admin Azure Resource Management végponthoz.
 
 2. Válassza **a telepítés app Service vagy a frissítés a legújabb verzióra**lehetőséget.
 
@@ -150,13 +150,13 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![Nem a Microsofttól származó licencelési feltételek App Service](media/app-service-deploy-ha/03.png)
 
-5. Adja meg a Azure Stack-környezet App Service Felhőbeli végpontjának konfigurációját.
+5. Adja meg az Azure Stack hub-környezet App Service Felhőbeli végpontjának konfigurációját.
 
     ![App Service a Felhőbeli végpontok konfigurálása App Service](media/app-service-deploy-ha/04.png)
 
-6. **Kapcsolódjon** a telepítéshez használni kívánt Azure stack-előfizetéshez, és válassza ki a helyet. 
+6. **Kapcsolódjon** a telepítéshez használni kívánt Azure stack hub-előfizetéshez, és válassza ki a helyet. 
 
-    ![Kapcsolódás a Azure Stack-előfizetéshez App Service](media/app-service-deploy-ha/05.png)
+    ![Kapcsolódjon az Azure Stack hub-előfizetéshez App Service](media/app-service-deploy-ha/05.png)
 
 7. Válassza a **meglévő VNet és alhálózatok** és az **erőforráscsoport nevének** használata a magasan elérhető sablon üzembe helyezéséhez használt erőforráscsoport számára lehetőséget.<br><br>Ezután válassza ki a sablon központi telepítésének részeként létrehozott virtuális hálózatot, majd válassza ki a megfelelő szerepkör-alhálózatokat a legördülő lista beállításai közül. 
 
@@ -188,7 +188,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
     ![AZONOSÍTÓ alkalmazás tanúsítványa és főtanúsítványa App Service](media/app-service-deploy-ha/008.png)
 
 11. Ezután adja meg a fennmaradó szükséges információkat a következő tanúsítványokhoz, és kattintson a **tovább**gombra:
-    - Alapértelmezett Azure Stack SSL-tanúsítvány (a következő formátumban: **_. appservice. local. azurestack. external. pfx**)
+    - Alapértelmezett Azure Stack hub SSL-tanúsítvány (a következő formátumban: **_. appservice. local. azurestack. external. pfx**)
     - API SSL-tanúsítvány ( **API. appservice. local. azurestack. external. pfx**formátumban)
     - Közzétevői tanúsítvány ( **FTP. appservice. local. azurestack. external. pfx**formátumban) 
 
@@ -238,7 +238,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
 Ha a App Service erőforrás-szolgáltatót SQL always on-példánnyal adta meg, [adja hozzá a appservice_hosting és appservice_metering adatbázisokat egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) . Szinkronizálja az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén. [Parancsfájlt](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/) is futtathat a AppServices-bejelentkezések az eredeti elsődleges kiszolgálóról a feladatátvételi kiszolgálóra való importálásához.
 
-[App Service skálázása](azure-stack-app-service-add-worker-roles.md). Előfordulhat, hogy további App Service infrastruktúra-szerepkörrel rendelkező munkatársakat kell hozzáadnia, hogy megfeleljenek a környezetében várható alkalmazási igényeknek. Alapértelmezés szerint a App Service on Azure Stack támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
+[App Service skálázása](azure-stack-app-service-add-worker-roles.md). Előfordulhat, hogy további App Service infrastruktúra-szerepkörrel rendelkező munkatársakat kell hozzáadnia, hogy megfeleljenek a környezetében várható alkalmazási igényeknek. Alapértelmezés szerint a App Service on Azure Stack hub támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 
 [Konfigurálja a központi telepítési forrásokat](azure-stack-app-service-configure-deployment-sources.md). További konfigurálásra van szükség a több forrásból származó, például a GitHub, a BitBucket, a OneDrive és a DropBox eszközök igény szerinti telepítésének támogatásához.
 

@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 6487f3380f39d6e321771a23714e99d8f65dd836
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303682"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821018"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack hub biztonsági frissítései
 
@@ -243,13 +243,13 @@ A biztonsági rések részletes ismertetését az előző hivatkozásokra kattin
 ::: moniker range="azs-1907"
 ## <a name="1907-update"></a>1907 frissítés
 
-Azure Stack ezen frissítése nem tartalmazza a Azure Stack futtató operációs rendszer biztonsági frissítéseit.
+Az Azure Stack hub ezen frissítése nem tartalmazza a Azure Stack hub-t futtató mögöttes operációs rendszer biztonsági frissítéseit.
 ::: moniker-end
 
 ::: moniker range="azs-1906"
 ## <a name="1906-update"></a>1906 frissítés
 
-Azure Stack ezen frissítése nem tartalmazza a Azure Stack futtató operációs rendszer biztonsági frissítéseit.
+Az Azure Stack hub ezen frissítése nem tartalmazza a Azure Stack hub-t futtató mögöttes operációs rendszer biztonsági frissítéseit.
 ::: moniker-end
 
 ## <a name="next-steps"></a>Következő lépések

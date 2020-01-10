@@ -1,6 +1,6 @@
 ---
-title: Állapot és riasztások figyelése Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan figyelheti Azure Stack állapotát és riasztásait.
+title: Állapot és riasztások figyelése Azure Stack központban | Microsoft Docs
+description: Megtudhatja, hogyan figyelheti Azure Stack hub állapotát és riasztásait.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,34 +14,34 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5d7074997a42da9ca19006e3b597d2ba02613b28
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 609f40a7f0677c6505bd06b7de025ba6b491f462
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534119"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817057"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Állapot és riasztások figyelése Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Állapot és riasztások figyelése Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Azure Stack infrastruktúra-figyelési funkciókat is tartalmaz, amelyek segítségével megtekintheti egy Azure Stack régió állapotát és riasztásait. A **régió-felügyeleti** csempe a Azure stack összes telepített régióját listázza. Alapértelmezés szerint az alapértelmezett szolgáltatói előfizetéshez a felügyeleti portálon van rögzítve. A csempe az egyes régiókban az aktív kritikus és figyelmeztető riasztások számát jeleníti meg. A csempe a Azure Stack állapotának és riasztási funkciójának belépési pontja.
+Az Azure Stack hub infrastruktúra-figyelési funkciókat tartalmaz, amelyek segítségével megtekintheti az Azure Stack hub-régió állapotát és riasztásait. A **régió-felügyeleti** csempe felsorolja Azure stack hub összes telepített régióját. Alapértelmezés szerint az alapértelmezett szolgáltatói előfizetéshez a felügyeleti portálon van rögzítve. A csempe az egyes régiókban az aktív kritikus és figyelmeztető riasztások számát jeleníti meg. A csempe az Azure Stack hub állapot-és riasztási funkciójának belépési pontja.
 
-![A Azure Stack felügyeleti portál régió-felügyeleti csempéje](media/azure-stack-monitor-health/image1.png)
+![A régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-monitor-health/image1.png)
 
-## <a name="understand-health-in-azure-stack"></a>A Azure Stack állapotának megismerése
+## <a name="understand-health-in-azure-stack-hub"></a>Az Azure Stack hub állapotának megismerése
 
-Az állapot-erőforrás-szolgáltató kezeli az állapotot és a riasztásokat. Azure Stack infrastruktúra-összetevők regisztrálják az állapot-erőforrás-szolgáltatót Azure Stack telepítés és konfigurálás során. Ez a regisztráció lehetővé teszi az egyes összetevők állapotának és értesítéseinek megjelenítését. A Azure Stack állapota egyszerű fogalom. Ha egy összetevő regisztrált példányára vonatkozó riasztások léteznek, az adott összetevő állapota a legrosszabb aktív riasztás súlyosságát tükrözi: figyelmeztetés vagy kritikus.
+Az állapot-erőforrás-szolgáltató kezeli az állapotot és a riasztásokat. Azure Stack hub infrastruktúra-összetevői regisztrálják az állapotfigyelő erőforrás-szolgáltatót Azure Stack hub telepítése és konfigurálása során. Ez a regisztráció lehetővé teszi az egyes összetevők állapotának és értesítéseinek megjelenítését. Azure Stack hub állapota egyszerű fogalom. Ha egy összetevő regisztrált példányára vonatkozó riasztások léteznek, az adott összetevő állapota a legrosszabb aktív riasztás súlyosságát tükrözi: figyelmeztetés vagy kritikus.
 
 ## <a name="alert-severity-definition"></a>Riasztás súlyossági meghatározása
 
-Azure Stack a riasztásokat csak két megszakítással emeli ki: **Figyelmeztetés** és **kritikus**.
+Azure Stack hub csak két megszakítással rendelkező riasztást küld: **Figyelmeztetés** és **kritikus**.
 
 - **Figyelmeztetés**  
   Az operátorok a figyelmeztető riasztást ütemezett módon tudják kezelni. A riasztás általában nem érinti a felhasználói munkaterheléseket.
 
 - **Kritikus**  
-  Az operátornak sürgősen kell foglalkoznia a kritikus riasztással. Ezek a riasztások olyan problémákat jeleznek, amelyek jelenleg hatással vannak, vagy hamarosan hatással lesznek Azure Stack felhasználókra.
+  Az operátornak sürgősen kell foglalkoznia a kritikus riasztással. Ezek a riasztások olyan problémákat jeleznek, amelyek jelenleg hatással vannak, vagy hamarosan hatással lesznek Azure Stack hub-felhasználókra.
 
 
 ## <a name="view-and-manage-component-health-state"></a>Összetevő állapotának megtekintése és kezelése
@@ -55,14 +55,14 @@ Ha meg szeretné tekinteni az állapotot a portálon, kattintson arra a régiór
 Az erőforrás-szolgáltatóra vagy az infrastruktúra-szerepkörre kattintva részletesebb információkat jeleníthet meg.
 
 > [!WARNING]  
-> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás**vagy a **Leállítás**lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. Ezeket a beállításokat **ne használja Azure stack Development Kit** -(ASDK-) környezetben. Ezek a beállítások csak egy integrált rendszer-környezethez készültek, ahol infrastruktúra-szerepkör esetén több szerepkör-példány is található. Egy szerepkör-példány (különösen a AzS-Xrp01) újraindítása a ASDK a rendszer instabilitását okozza. A hibaelhárítással kapcsolatos segítségért tegye fel a problémát a [Azure stack fórumba](https://aka.ms/azurestackforum).
+> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás**vagy a **Leállítás**lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. Ezeket a beállításokat **ne használja Azure stack Development Kit** -(ASDK-) környezetben. Ezek a beállítások csak egy integrált rendszer-környezethez készültek, ahol infrastruktúra-szerepkör esetén több szerepkör-példány is található. Egy szerepkör-példány (különösen a AzS-Xrp01) újraindítása a ASDK a rendszer instabilitását okozza. A hibaelhárítással kapcsolatos segítségért tegye közzé a problémát az [Azure stack hub fórumán](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Riasztások megtekintése
 
-Az egyes Azure Stack régiók aktív riasztások listája közvetlenül a **régió-felügyeleti** panelen érhető el. Az alapértelmezett konfigurációban az első csempe a **riasztások** csempéje, amely a régió kritikus és figyelmeztető értesítéseinek összegzését jeleníti meg. Az irányítópulton rögzítheti a riasztások csempét, például a panel bármely más csempéjét a gyors eléréshez.
+Az egyes Azure Stack hub-régiók aktív riasztások listája közvetlenül a **régió-felügyeleti** panelen érhető el. Az alapértelmezett konfigurációban az első csempe a **riasztások** csempéje, amely a régió kritikus és figyelmeztető értesítéseinek összegzését jeleníti meg. Az irányítópulton rögzítheti a riasztások csempét, például a panel bármely más csempéjét a gyors eléréshez.
 
-![Riasztások csempe, amely a Azure Stack felügyeleti portálon figyelmeztetést jelenít meg](media/azure-stack-monitor-health/image3.png)
+![Riasztások csempe, amely a Azure Stack hub felügyeleti portálján figyelmeztetést jelenít meg](media/azure-stack-monitor-health/image3.png)
 
  Ha meg szeretné tekinteni a régió összes aktív riasztásának listáját, válassza ki a **riasztások** csempe felső részét. A riasztások szűrt listájának megtekintéséhez (kritikus vagy figyelmeztetés) válassza a csempe **kritikus** vagy **figyelmeztető** sora elemét.
 
@@ -71,13 +71,13 @@ A **riasztások** panel támogatja az állapot (aktív vagy lezárt) és a súly
 >[!Note]
 >Ha egy riasztás aktív marad, de egy nap alatt még nem frissült, futtathatja a [test-AzureStack](azure-stack-diagnostic-test.md) , és ha nem jelent problémát, akkor lezárhatja a riasztást.
 
-![Szűrés ablaktábla kritikus vagy figyelmeztetési állapot alapján történő szűréséhez Azure Stack felügyeleti portálon](media/azure-stack-monitor-health/alert-view.png)
+![Szűrés ablaktábla kritikus vagy figyelmeztetési állapot alapján történő szűréshez Azure Stack hub felügyeleti portálján](media/azure-stack-monitor-health/alert-view.png)
 
 A **View API** művelet megjeleníti a listanézet létrehozásához használt REST API. Ez a művelet gyors módszert biztosít a riasztások lekérdezéséhez használható REST API szintaxis megismerésére. Ezt az API-t használhatja automatizálás vagy a meglévő adatközpont-figyelési, jelentéskészítési és jegyeladási megoldásokkal való integrációhoz.
 
 Egy adott riasztásra kattintva megtekintheti a riasztás részleteit. A riasztás részletei megjelenítik a riasztáshoz társított összes mezőt, és lehetővé teszik a gyors navigálást a riasztás érintett összetevőjéhez és forrásához. A következő riasztás például akkor fordul elő, ha az infrastruktúra-szerepkörök egyik példánya offline állapotba kerül, vagy nem érhető el.  
 
-![A riasztás részletei panel Azure Stack felügyeleti portálon](media/azure-stack-monitor-health/alert-detail.png)
+![A riasztás részletei panel Azure Stack hub felügyeleti portálon](media/azure-stack-monitor-health/alert-detail.png)
 
 ## <a name="repair-alerts"></a>Riasztások javítása
 
@@ -91,10 +91,10 @@ A **javítási** művelet bejelenti a sikeres befejezést, vagy nem sikerül bef
 
 ![A javítási művelet sikeresen befejeződött.](media/azure-stack-monitor-health/repair-completed.png)
 
-Miután az infrastruktúra-szerepkör-példány ismét online állapotba került, a riasztás automatikusan bezáródik. Sok, de nem minden riasztás, automatikusan be lesz zárva, amikor az alapul szolgáló probléma megoldódik. Ha Azure Stack megoldja a problémát, a javítási művelet gomb megadására szolgáló riasztások automatikusan be lesznek zárva. Az összes többi riasztás esetében válassza a **riasztás lezárása** lehetőséget a szervizelés lépéseinek elvégzése után. Ha a probléma továbbra is fennáll, Azure Stack új riasztást hoz létre. Ha megoldja a problémát, a riasztás bezárul, és nem igényel további lépéseket.
+Miután az infrastruktúra-szerepkör-példány ismét online állapotba került, a riasztás automatikusan bezáródik. Sok, de nem minden riasztás, automatikusan be lesz zárva, amikor az alapul szolgáló probléma megoldódik. Ha Azure Stack hub feloldja a problémát, a javítási művelet gomb megadására szolgáló riasztások automatikusan be lesznek zárva. Az összes többi riasztás esetében válassza a **riasztás lezárása** lehetőséget a szervizelés lépéseinek elvégzése után. Ha a probléma továbbra is fennáll, Azure Stack hub új riasztást hoz létre. Ha megoldja a problémát, a riasztás bezárul, és nem igényel további lépéseket.
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Frissítések kezelése az Azure Stackben](azure-stack-updates.md)
+[Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
 
-[Területi felügyelet Azure Stack](azure-stack-region-management.md)
+[Területi felügyelet Azure Stack központban](azure-stack-region-management.md)

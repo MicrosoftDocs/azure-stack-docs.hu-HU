@@ -1,6 +1,6 @@
 ---
-title: Ebből a cikkből megtudhatja, hogyan frissítheti Azure Stack ajánlatait és csomagjait | Microsoft Docs
-description: Ez a cikk a meglévő Azure Stack ajánlatok és csomagok megtekintését és módosítását ismerteti.
+title: Ebből a cikkből megtudhatja, hogyan frissítheti Azure Stack hub ajánlatait és csomagjait | Microsoft Docs
+description: Ez a cikk a meglévő Azure Stack hub-ajánlatok és-csomagok megtekintését és módosítását ismerteti.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -17,16 +17,16 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 4b3fed8ee02739cf82b1446cc8c0a9b807763d49
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 4a215edbd9c7b2feed7e82331ae6a0287e35d54d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283290"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812484"
 ---
-# <a name="azure-stack-add-on-plans"></a>Azure Stack kiegészítő csomagok
+# <a name="azure-stack-hub-add-on-plans"></a>Azure Stack hub-bővítményi csomagok
 
-Azure Stack operátorként kiegészítő csomagokat hozhat létre az [alapcsomag módosításához, ha további](azure-stack-create-plan.md) szolgáltatásokat szeretne biztosítani, vagy a *számítógép*-, a *tárterület*-vagy a *hálózati* kvótákat az alapcsomag kezdeti ajánlatán kívül szeretné kiterjeszteni. A kiegészítő csomagok módosítják az alapcsomagot, és választható bővítmények, amelyeket a felhasználók az előfizetésük alapján választhatnak.
+Azure Stack hub-kezelőként kiegészítő csomagokat hozhat létre az [alapcsomag](azure-stack-create-plan.md) módosításához, ha további szolgáltatásokat szeretne biztosítani, vagy a *számítógép*-, a *tárterület*-vagy a *hálózati* kvótákat az alapcsomag kezdeti ajánlatán kívül szeretné kiterjeszteni. A kiegészítő csomagok módosítják az alapcsomagot, és választható bővítmények, amelyeket a felhasználók az előfizetésük alapján választhatnak.
 
 Minden alkalommal, amikor egyetlen csomagban egyesíti az összeset, optimálisnak kell lennie. Más esetekben érdemes lehet alapcsomagot használni, majd kiegészítő csomagokkal felkínálni a további szolgáltatásokat. Dönthet például úgy, hogy a IaaS-szolgáltatásokat egy alapcsomag részeként kínálja fel, és minden, a kiegészítő csomagként kezelt Pásti-szolgáltatással rendelkezik.
 
@@ -40,7 +40,7 @@ A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) t
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>Kiegészítő csomag létrehozása (1902 és újabb)
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra felhőalapú rendszergazdaként.
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálra felhőalapú rendszergazdaként.
 2. Kövesse ugyanezeket a lépéseket [egy új alapcsomag](azure-stack-create-plan.md) létrehozásához, amely a korábban nem kínált szolgáltatásokat kínáló új csomag létrehozására szolgál.
 3. A felügyeleti portálon kattintson az **ajánlatok** lehetőségre, majd válassza ki a kiegészítő csomaggal frissítendő ajánlatot.
 
@@ -56,13 +56,13 @@ A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) t
 
 6. Tekintse át az ajánlatban található kiegészítő csomagok listáját annak ellenőrzéséhez, hogy az új kiegészítő csomag szerepel-e a listában.
 
-    [![Kiegészítő csomag]létrehozási terv(media/create-add-on-plan/add-on4.png "létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Kiegészítő csomag létrehozása](media/create-add-on-plan/add-on4.png "Kiegészítő csomag létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>Kiegészítő csomag létrehozása (1901-es és korábbi verziók)
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra felhőalapú rendszergazdaként.
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálra felhőalapú rendszergazdaként.
 2. Kövesse ugyanezeket a lépéseket [egy új alapcsomag](azure-stack-create-plan.md) létrehozásához, amely a korábban nem kínált szolgáltatásokat kínáló új csomag létrehozására szolgál. Ebben a példában a Key Vault (**Microsoft.** kulcstartó) szolgáltatások szerepelni fognak az új tervben.
 3. A felügyeleti portálon kattintson az **ajánlatok** lehetőségre, majd válassza ki a kiegészítő csomaggal frissítendő ajánlatot.
 

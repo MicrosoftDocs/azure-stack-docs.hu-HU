@@ -1,6 +1,6 @@
 ---
-title: A Kubernetes telepítése Azure Stack tárolók használatára | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe Kubernetes a tárolók Azure Stack használatával történő használatához.
+title: A Kubernetes telepítése Azure Stack hub-tárolók használatára | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe Kubernetes a tárolók Azure Stack hubhoz való használatához.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,25 +15,25 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0fc45ae0413fb7e269d8d7347e2279895c234950
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 219c573588a9557a607ef31a4389872f5b33b3c1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047168"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819131"
 ---
-# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>A Kubernetes üzembe helyezése tárolók használatára Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
-A cikk lépéseit követve üzembe helyezheti és állíthatja be a Kubernetes erőforrásait egyetlen, koordinált műveletben. A lépések Azure Resource Manager megoldási sablont használnak. Össze kell gyűjtenie a szükséges információkat a Azure Stack telepítéséről, elő kell állítania a sablont, majd üzembe kell helyeznie a felhőben. A Azure Stack sablon nem ugyanazt a felügyelt AK-szolgáltatást használja, mint a globális Azure-ban.
+A cikk lépéseit követve üzembe helyezheti és állíthatja be a Kubernetes erőforrásait egyetlen, koordinált műveletben. A lépések Azure Resource Manager megoldási sablont használnak. Össze kell gyűjtenie az Azure Stack hub telepítésére vonatkozó szükséges információkat, elő kell állítania a sablont, majd üzembe kell helyeznie a felhőben. Az Azure Stack hub-sablon nem ugyanazt a felügyelt AK-szolgáltatást használja, mint a globális Azure-ban.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes és tárolók
 
-A Kubernetes a Azure Stack AK-motor által létrehozott Azure Resource Manager sablonok használatával telepítheti. A [Kubernetes](https://kubernetes.io) egy nyílt forráskódú rendszer a tárolókban lévő alkalmazások üzembe helyezésének, méretezésének és kezelésének automatizálására. Egy [tároló](https://www.docker.com/what-container) egy rendszerképben található. A tároló képe hasonló a virtuális géphez (VM), azonban a virtuális gépektől eltérően a tároló csak az alkalmazás futtatásához szükséges erőforrásokat tartalmazza, például a kódot, a futtatókörnyezetet, hogy végrehajtsa a kódot, adott könyvtárakat és beállításokat.
+A Kubernetes a Azure Stack hub-ban található AK-motor által generált Azure Resource Manager-sablonok használatával telepítheti. A [Kubernetes](https://kubernetes.io) egy nyílt forráskódú rendszer a tárolókban lévő alkalmazások üzembe helyezésének, méretezésének és kezelésének automatizálására. Egy [tároló](https://www.docker.com/what-container) egy rendszerképben található. A tároló képe hasonló a virtuális géphez (VM), azonban a virtuális gépektől eltérően a tároló csak az alkalmazás futtatásához szükséges erőforrásokat tartalmazza, például a kódot, a futtatókörnyezetet, hogy végrehajtsa a kódot, adott könyvtárakat és beállításokat.
 
 A Kubernetes a következőre használhatja:
 
@@ -41,17 +41,17 @@ A Kubernetes a következőre használhatja:
 - Egyszerűsítse az alkalmazás kialakítását, és javítsa a megbízhatóságát különböző Helm-alkalmazásokkal. A [Helm](https://github.com/kubernetes/helm) egy nyílt forráskódú csomagolási eszköz, amely segítséget nyújt a Kubernetes-alkalmazások életciklusának telepítéséhez és kezeléséhez.
 - Egyszerűen figyelheti és diagnosztizálhatja alkalmazásai állapotát.
 
-Csak a fürtöt támogató csomópontok által igényelt számítási használatért kell fizetnie. További információ: [használat és számlázás Azure Stackban](../operator/azure-stack-billing-and-chargeback.md).
+Csak a fürtöt támogató csomópontok által igényelt számítási használatért kell fizetnie. További információ: [használat és számlázás Azure stack központban](../operator/azure-stack-billing-and-chargeback.md).
 
 ## <a name="deploy-kubernetes-to-use-containers"></a>Kubernetes üzembe helyezése tárolók használatához
 
-A Kubernetes-fürtök Azure Stack-on való üzembe helyezésének lépései az Identity Management szolgáltatástól függenek. Győződjön meg arról, hogy a Azure Stack-példánya által használt Identitáskezelés-felügyeleti megoldás. Forduljon a Azure Stack rendszergazdájához, és ellenőrizze az Identity Management szolgáltatást.
+A Kubernetes-fürt Azure Stack hub-on való üzembe helyezésének lépései a személyazonosság-kezelési szolgáltatástól függenek. Ellenőrizze az Azure Stack hub telepítése által használt identitáskezelési megoldást. Forduljon az Azure Stack hub rendszergazdájához, és ellenőrizze az Identity Management szolgáltatást.
 
 - **Azure Active Directory (Azure AD)**  
-A fürt Azure AD-vel történő telepítésével kapcsolatos útmutatásért lásd: [Kubernetes telepítése Azure Stack Azure Active Directory (Azure ad) használatával](azure-stack-solution-template-kubernetes-azuread.md).
+A fürt Azure AD-vel történő telepítésével kapcsolatos útmutatásért lásd: [Kubernetes telepítése Azure stack hubhoz Azure Active Directory (Azure ad) használatával](azure-stack-solution-template-kubernetes-azuread.md).
 
 - **Active Directory összevont szolgáltatások (AD FS)**  
-A fürt AD FS használatával történő telepítésével kapcsolatos útmutatásért lásd: a [Kubernetes telepítése Azure Stack Active Directory összevont szolgáltatások (AD FS) használatával](azure-stack-solution-template-kubernetes-adfs.md).
+A fürt AD FS használatával történő telepítésével kapcsolatos útmutatásért lásd: a [Kubernetes telepítése Azure stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával](azure-stack-solution-template-kubernetes-adfs.md).
 
 ## <a name="connect-to-your-cluster"></a>Kapcsolódás a fürthöz
 
@@ -63,10 +63,10 @@ A **Helm** csomagkezelő is hasznos lehet az alkalmazások fürtön való telep�
 
 [A Kubernetes irányítópult engedélyezése](azure-stack-solution-template-kubernetes-dashboard.md)
 
-[Kubernetes hozzáadása a piactérhez (Azure Stack operátorhoz)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
+[Kubernetes hozzáadása a piactérhez (Azure Stack hub-kezelőhöz)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Kubernetes üzembe helyezése Azure Stack Azure Active Directory (Azure AD) használatával](azure-stack-solution-template-kubernetes-azuread.md)
+[Kubernetes üzembe helyezése Azure Stack hubhoz Azure Active Directory (Azure AD) használatával](azure-stack-solution-template-kubernetes-azuread.md)
 
-[Kubernetes üzembe helyezése Azure Stack Active Directory összevont szolgáltatások (AD FS) használatával](azure-stack-solution-template-kubernetes-adfs.md)
+[Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával](azure-stack-solution-template-kubernetes-adfs.md)
 
 [Kubernetes az Azure-ban](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

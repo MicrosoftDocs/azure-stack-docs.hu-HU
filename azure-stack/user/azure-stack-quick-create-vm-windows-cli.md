@@ -1,6 +1,6 @@
 ---
-title: Windows rendszerű virtuális gép létrehozása Azure Stack az Azure CLI használatával | Microsoft Docs
-description: Windows rendszerű virtuális gép létrehozása Azure Stack az Azure CLI-vel
+title: Windows rendszerű virtuális gép létrehozása az Azure Stack hub-ban az Azure CLI használatával | Microsoft Docs
+description: Windows rendszerű virtuális gép létrehozása Azure Stack hub-ban az Azure CLI használatával
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 4a55f50afdc6be63d327ae79ad397cfc1f95385f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824264"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819437"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure stack integrált rendszerek és Azure stack Development Kit*
+*A következőkre vonatkozik: Azure stack hub integrált rendszerek és Azure stack Development Kit*
 
 Az Azure CLI használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet. A virtuális gép létrehozásához és használatához kövesse a cikkben ismertetett lépéseket. A cikk a következő lépéseket is biztosítja:
 
@@ -34,13 +34,13 @@ Az Azure CLI használatával létrehozhat egy Windows Server 2016 rendszerű vir
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Győződjön meg arról, hogy a Azure Stack operátor a **Windows Server 2016** rendszerképet adta hozzá a Azure stack Marketplace-hez.
+* Győződjön meg arról, hogy a Azure Stack hub-kezelő a **Windows Server 2016** rendszerképet adta hozzá a Azure stack hub piactérhez.
 
-* Azure Stack az erőforrások létrehozásához és kezeléséhez az Azure CLI adott verziójára van szükség. Ha nem rendelkezik a Azure Stackhoz konfigurált Azure CLI-vel, kövesse az [Azure CLI telepítésének és konfigurálásának](azure-stack-version-profiles-azurecli2.md)lépéseit.
+* Azure Stack hub-nak az Azure CLI egy adott verziójára van szüksége az erőforrások létrehozásához és kezeléséhez. Ha nem rendelkezik az Azure CLI-vel Azure Stack hubhoz konfigurálva, kövesse az [Azure CLI telepítésének és konfigurálásának](azure-stack-version-profiles-azurecli2.md)lépéseit.
 
-## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
+## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
-Az erőforráscsoportok olyan logikai tárolók, amelyekben Azure Stack erőforrásokat lehet üzembe helyezni és felügyelni. Az Azure Stack-környezetből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
+Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Az Azure Stack hub-környezetből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
 
 > [!NOTE]
 >  Az értékek a kódban szereplő összes változóhoz vannak rendelve. Szükség esetén azonban új értékeket is hozzárendelhet.
@@ -107,6 +107,6 @@ Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Gro
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa a [Azure Stack Virtual Machinesével kapcsolatos szempontokat](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack hub virtuális gépekről, folytassa az [Azure stack hub Virtual Machinesével kapcsolatos szempontokat](azure-stack-vm-considerations.md).

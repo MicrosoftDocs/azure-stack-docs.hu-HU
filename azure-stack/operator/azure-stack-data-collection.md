@@ -1,6 +1,6 @@
 ---
-title: A naplók és az ügyfelek adatkezelésének Azure Stacka | Microsoft Docs
-description: Megtudhatja, hogyan gyűjti a Azure Stack az ügyféladatok és az információk gyűjtését.
+title: Azure Stack hub-napló és az ügyfelek adatkezelése | Microsoft Docs
+description: Ismerje meg, hogyan gyűjti a Azure Stack hub az ügyféladatokat és az információkat.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,22 +16,22 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 651ad93a457a14118c3182b980f90f5f73613eeb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690197"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811906"
 ---
-# <a name="azure-stack-log-and-customer-data-handling"></a>A naplók és az ügyfelek adatkezelésének Azure Stack 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
+# <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack hub-napló és az ügyfelek adatkezelése 
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
-Ahhoz, hogy a Microsoft a Azure Stack-mel kapcsolatos személyes adatfeldolgozót vagy alfeldolgozót is feldolgozza, a Microsoft a következő kötelezettségvállalásokkal rendelkezik az összes ügyfél számára, amely a 2018. május 25-én lép érvénybe:
+Ahhoz, hogy a Microsoft az Azure Stack hub-vel kapcsolatban a személyes adat processzora vagy alfolyamata legyen, a Microsoft minden ügyfelünk számára elérhetővé teszi a következő kötelezettségvállalásokat: 2018. május 25.
 
 - A személyes adatainak feldolgozása; GDPR "az [online szolgáltatások használati feltételei](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)" adatvédelmi feltételek "szakaszában.
 - Az Európai Unió Általános adatvédelmi rendelet az [online szolgáltatások használati feltételeinek](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)4. mellékletében foglalt feltételeket.
 
-Ahogy Azure Stack az ügyfél-adatközpontokban található, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
+Ahogy Azure Stack hub található az ügyfél-adatközpontokban, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
 
 ## <a name="data-access-controls"></a>Adathozzáférési vezérlők 
 Az adott támogatási eset kivizsgálásához hozzárendelt Microsoft-alkalmazottak csak olvasási hozzáférést kapnak a titkosított adathoz. A Microsoft alkalmazottai is hozzáférhetnek az adattörléshez használt eszközökhöz, ha szükségesek. A rendszer naplózza és naplózza az ügyféladatok összes hozzáférését.  
@@ -50,21 +50,21 @@ Az automatikus adattörlési művelethez (a kis-és nagybetűk után 90 nappal) 
 
 Az igény szerinti adattörlési művelethez a Microsoft támogatási szakemberei hozzáférhetnek az eszközhöz, amellyel igény szerint törölhetik az adatvesztést. Megerősítik a telefont az ügyféllel, ha elkészült.
 
-## <a name="diagnostic-data"></a>Diagnosztikai adatszolgáltatások
-A támogatási folyamat részeként Azure Stack operátorok [megoszthatják a diagnosztikai naplókat](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) Azure stack támogatási és mérnöki csapatokkal, hogy segítsenek a hibaelhárításban.
+## <a name="diagnostic-data"></a>Diagnosztikai adatok
+A támogatási folyamat részeként Azure Stack hub-operátorok [megoszthatják a diagnosztikai naplókat](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) a Azure stack hub támogatási és mérnöki csapatával, hogy segítséget nyújtson a hibaelhárításhoz.
 
 A Microsoft egy eszközt és parancsfájlt biztosít az ügyfeleknek a kért diagnosztikai naplófájlok gyűjtéséhez és feltöltéséhez. Az adatgyűjtés után a rendszer a naplófájlokat HTTPS-védelemmel ellátott, titkosított kapcsolaton keresztül továbbítja a Microsoftnak. Mivel a HTTPS biztosítja a titkosítást a hálózaton keresztül, nincs szükség jelszóra az átvitelhez szükséges titkosításhoz. A fogadást követően a rendszer titkosítja és tárolja a naplókat, amíg a támogatási eset bezárása után 90 nappal automatikusan törlődnek.
 
 ## <a name="telemetry-data"></a>Telemetria-adathalmazok
-[Azure stack a telemetria](azure-stack-telemetry.md) automatikusan feltölti a rendszeradatokat a Microsoftnak a csatlakoztatott felhasználói felületen keresztül. Azure Stack operátorok rendelkeznek a telemetria szolgáltatásainak és adatvédelmi beállításainak bármikori testreszabásához szükséges vezérlőkkel.
+[Azure stack hub telemetria](azure-stack-telemetry.md) automatikusan feltölti a rendszeradatokat a Microsoftnak a csatlakoztatott felhasználói felületen keresztül. Azure Stack hub-operátorok rendelkeznek a telemetria szolgáltatásainak és adatvédelmi beállításainak bármikori testreszabásához szükséges vezérlőkkel.
 
 A Microsoft nem szeretne bizalmas adatokat gyűjteni, például hitelkártyaszám, felhasználónevek és jelszavak, e-mail-címek és így tovább. Ha azt állapítjuk meg, hogy a bizalmas adatokat véletlenül fogadták, töröljük.
 
 ## <a name="billing-data"></a>Számlázási információk
-[Azure stack számlázás](azure-stack-usage-reporting.md) a globális Azure számlázási és használati folyamatát használja, ezért a Microsoft megfelelőségi irányelveinek megfelelően van összhangban.
+[Azure stack hub számlázása](azure-stack-usage-reporting.md) a globális Azure számlázási és használati folyamatát használja, ezért a Microsoft megfelelőségi irányelveinek megfelelően van összhangban.
 
-Azure Stack operátorok a használati információk Azure-ba történő továbbításához konfigurálhatják Azure Stack a számlázáshoz. Ez a konfiguráció szükséges az olyan Azure Stack integrált rendszerek ügyfelei számára, akik az Ön által használt fizetési számlázási modellt választják. A használati jelentések a telemetria függetlenül vannak szabályozva, és nem szükségesek az olyan integrált rendszerű ügyfelek számára, akik a kapacitás modellt vagy Azure Stack Development Kit felhasználókat választják. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl](azure-stack-usage-reporting.md)használatával.
+Azure Stack hub-operátorok a használati adatok Azure-ba való továbbításához konfigurálhatják Azure Stack hub-t a számlázáshoz. Ez a konfiguráció szükséges az olyan Azure Stack hub-beli integrált rendszerek ügyfelei számára, akik az Ön által használt fizetési számlázási modellt választják. A használati jelentések a telemetria függetlenül vannak szabályozva, és nem szükségesek az olyan integrált rendszerű ügyfelek számára, akik a kapacitás modellt vagy Azure Stack Development Kit felhasználókat választják. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl](azure-stack-usage-reporting.md)használatával.
 
 
 ## <a name="next-steps"></a>Következő lépések 
-[További tudnivalók az Azure Stack biztonságáról](azure-stack-security-foundations.md) 
+[További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md) 

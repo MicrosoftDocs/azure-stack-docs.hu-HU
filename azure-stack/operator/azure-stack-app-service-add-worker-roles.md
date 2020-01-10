@@ -1,6 +1,6 @@
 ---
-title: Feldolgozók és infrastruktúra hozzáadása a App Service Azure Stackban | Microsoft Docs
-description: Részletes útmutató a Azure Stack App Services skálázásához
+title: Feldolgozók és infrastruktúra hozzáadása a App Service Azure Stack hub-ban | Microsoft Docs
+description: Részletes útmutató az Azure Stack hub skálázásához App Services
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,31 +16,31 @@ ms.date: 05/06/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: b01199bfe96c39fe79aac65eca219a065f39375c
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 9f55ef2661efc4ea52112e8beb0e6db8508bc7d1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975008"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75803738"
 ---
-# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack
+# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack hub-ban
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
-Ez a dokumentum útmutatást nyújt az infrastruktúra és a feldolgozói szerepkörök méretezéséhez a Azure Stack App Serviceban. Részletesen ismertetjük mindazokat a lépéseket, amelyek szükségesek a további feldolgozói szerepkörök létrehozásához bármilyen méretű alkalmazások támogatásához.
+Ez a dokumentum útmutatást nyújt az infrastruktúra és a feldolgozói szerepkörök méretezéséhez App Service Azure Stack központban. Részletesen ismertetjük mindazokat a lépéseket, amelyek szükségesek a további feldolgozói szerepkörök létrehozásához bármilyen méretű alkalmazások támogatásához.
 
 > [!NOTE]
-> Ha a Azure Stack-környezet nem rendelkezik több mint 96 GB RAM-mal, lehetséges, hogy nehézségekbe ütközik a további kapacitás hozzáadásával.
+> Ha az Azure Stack hub-környezet nem rendelkezik több mint 96 GB RAM-mal, lehetséges, hogy nehézségekbe ütközik a további kapacitás hozzáadásával.
 
-A App Service on Azure Stack az ingyenes és a közös feldolgozói szintet is támogatja alapértelmezetten. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
+A App Service on Azure Stack hub alapértelmezés szerint támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 
-Ha nem biztos abban, hogy mi lett telepítve az alapértelmezett App Service Azure Stack telepítéskor, tekintse át a App Service további információit [Azure stack áttekintésében](azure-stack-app-service-overview.md).
+Ha nem biztos abban, hogy mi lett telepítve az alapértelmezett App Service Azure Stack hub telepítésekor, tekintse át a App Service további információit [Azure stack hub – áttekintés című témakörben](azure-stack-app-service-overview.md).
 
-A Azure App Service on Azure Stack az összes szerepkört a Virtual Machine Scale Sets használatával helyezi üzembe, és így kihasználja a munkaterhelés méretezési képességeit. Ezért a feldolgozói szintek minden skálázása a App Service-rendszergazda használatával történik.
+A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával helyezi üzembe az összes szerepkört, és így kihasználja a számítási feladatok skálázási képességeit. Ezért a feldolgozói szintek minden skálázása a App Service-rendszergazda használatával történik.
 
 ## <a name="add-additional-workers-with-powershell"></a>További feldolgozók hozzáadása a PowerShell-lel
 
-1. [A Azure Stack felügyeleti környezet beállítása a PowerShellben](azure-stack-powershell-configure-admin.md)
+1. [Az Azure Stack hub felügyeleti környezetének beállítása a PowerShellben](azure-stack-powershell-configure-admin.md)
 
 2. Ez a példa a méretezési csoport felskálázására használható:
    ```powershell
@@ -77,23 +77,23 @@ A Azure App Service on Azure Stack az összes szerepkört a Virtual Machine Scal
 
 ## <a name="add-additional-workers-using-the-administrator-portal"></a>További feldolgozók hozzáadása a felügyeleti portál használatával
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack hub felügyeleti portálján a szolgáltatás-rendszergazdaként.
 
 2. Tallózással keresse meg **app Services**.
 
-    ![App Service a Azure Stack felügyeleti portálon](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![App Service az Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. Kattintson a **szerepkörök**elemre. Itt láthatja az összes telepített App Service-szerepkör részletezését.
 
 4. Kattintson a jobb gombbal a méretezni kívánt típus sorára, majd kattintson a **méretezési csoport**elemre.
 
-    ![Méretezési csoport App Service szerepkörök a Azure Stack felügyeleti portálon](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![Méretezési csoport App Service szerepkörök a Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. Kattintson a **skálázás**elemre, válassza ki a méretezni kívánt példányok számát, majd kattintson a **Mentés**gombra.
 
-    ![A Azure Stack felügyeleti portálon App Service szerepkörökre méretezési példányok beállítása](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Példányok beállítása App Service szerepkörökre a Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. A App Service on Azure Stack mostantól hozzáadja a további virtuális gépeket, konfigurálja őket, telepíti az összes szükséges szoftvert, és készként jelöli meg őket a folyamat befejezésekor. Ez a folyamat körülbelül 80 percet is igénybe vehet.
+6. A App Service on Azure Stack hub mostantól hozzáadja a további virtuális gépeket, konfigurálja őket, telepíti az összes szükséges szoftvert, és készként jelöli meg őket a folyamat befejezésekor. Ez a folyamat körülbelül 80 percet is igénybe vehet.
 
 7. A **szerepkörök** panelen megtekintheti az új szerepkörök készültségének előrehaladását.
 
@@ -101,11 +101,11 @@ A Azure App Service on Azure Stack az összes szerepkört a Virtual Machine Scal
 
 Miután teljesen üzembe lettek és készen állnak, a dolgozók elérhetővé válnak a felhasználók számára a számítási feladatok üzembe helyezéséhez. Az alábbi képernyőképen egy példa látható a több, alapértelmezés szerint elérhető díjszabási rétegre. Ha egy adott feldolgozói szinten nem állnak rendelkezésre munkavégzők, a megfelelő árképzési csomag kiválasztásának lehetősége nem érhető el.
 
-![Az új App Service-csomag díjszabása Azure Stack felügyeleti portálon](media/azure-stack-app-service-add-worker-roles/image04.png)
+![A Azure Stack hub felügyeleti portál új App Service tervének díjszabása](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
 > A felügyeleti, az előtér-vagy a közzétevői szerepkörök felskálázásához kövesse ugyanezen lépéseket a megfelelő szerepkör típusának kiválasztásával. A vezérlők nem helyezhetők üzembe méretezési csoportként, ezért a telepítéskor a kettőt telepíteni kell az összes éles környezetben.
 
-### <a name="next-steps"></a>További lépések
+### <a name="next-steps"></a>Következő lépések
 
 [Központi telepítés forrásának konfigurálása](azure-stack-app-service-configure-deployment-sources.md)

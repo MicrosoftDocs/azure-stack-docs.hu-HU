@@ -1,6 +1,6 @@
 ---
-title: VPN-alagút létrehozása a GRE használatával Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan hozhat létre VPN-alagutat a GRE használatával Azure Stackban.
+title: VPN-alagút létrehozása a GRE használatával Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre VPN-alagutat a GRE használatával Azure Stack hub-ban.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: c9c599a7547b2000eb146a7e3b7783ba057d23b3
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 64ed6bf1ad196b2791cfcfd5240ac8de68fd7122
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167695"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815374"
 ---
-# <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack"></a>VPN-alagút létrehozása a GRE használatával Azure Stack
+# <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>VPN-alagút létrehozása a GRE használatával Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ebben a megoldásban a Azure Stack Resource Manager-sablonnal összekapcsolhat két Azure Stack virtuális hálózatok ugyanazon a Azure Stack környezetben. [Azure stack virtuális hálózatok nem csatlakoztatható](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) a beépített Virtual Network átjáró használatával. Egyelőre a Network Virtual Appliances (NVA) s használatával VPN-alagutat kell létrehoznia két Azure Stack virtuális hálózatok között. A megoldás sablonja két Windows Server 2016 virtuális gépet telepít, amelyeken az RRAS telepítve van. A megoldás úgy konfigurálja a két RRAS-kiszolgálót, hogy S2SVPN IKEv2 alagutat használjanak a két virtuális hálózatok között. A megfelelő NSG-és UDR-szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes, **belsőként** kijelölt VNET. 
+Ebben a megoldásban a Azure Stack hub Resource Manager-sablonnal csatlakoztathat két Azure Stack hub-virtuális hálózatok ugyanazon a Azure Stack hub-környezetben belül. [Azure stack hub-virtuális hálózatok nem csatlakoztatható](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) a beépített Virtual Network átjáró használatával. Egyelőre a Network Virtual Appliances (NVA) s használatával VPN-alagutat kell létrehoznia két Azure Stack hub-virtuális hálózatok között. A megoldás sablonja két Windows Server 2016 virtuális gépet telepít, amelyeken az RRAS telepítve van. A megoldás úgy konfigurálja a két RRAS-kiszolgálót, hogy S2SVPN IKEv2 alagutat használjanak a két virtuális hálózatok között. A megfelelő NSG-és UDR-szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes, **belsőként** kijelölt VNET. 
 
-Ez az üzembe helyezési minta az az alap, amely lehetővé teszi, hogy a VPN-alagutakat ne csak a Azure Stack-példányon belül hozza létre, hanem Azure Stack példányok és más erőforrások, például a helyszíni hálózatok és a Windows RRAS S2S VPN használatával is. Alagutak.
+Ez az üzembe helyezési minta az az alap, amely lehetővé teszi, hogy a VPN-alagutakat ne csak az Azure Stack hub-példányon belül hozza létre, hanem Azure Stack hub-példányok és más erőforrások, például a Windows RRAS S2S használó helyszíni hálózatok számára is. VPN-alagutak.
 
 A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A sablon az **RRAS-GRE-vnet-vnet** mappában található. 
 
@@ -30,8 +30,8 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 ## <a name="requirements"></a>Követelmények
 
-- ASDK vagy Azure Stack integrált rendszer a legújabb frissítésekkel. 
-- Szükséges Azure Stack Marketplace-elemek:
+- ASDK vagy Azure Stack hub integrált rendszer a legújabb frissítésekkel. 
+- Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter (a legújabb Build ajánlott)
     -  Custom Script Extension
 
@@ -49,7 +49,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 ## <a name="options"></a>Beállítások
 
-- A _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával saját blob Storage-fiókját és SAS-tokenjét is használhatja
+- A blob Storage-fiókját és az SAS-tokent a _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával is használhatja
 - Ennek a sablonnak két kimenete van a INTERNALSUBNETREFVNET1 és a INTERNALSUBNETREFVNET2, amely a belső alhálózatok erőforrás-azonosítói, ha ezt szeretné használni egy folyamat típusú telepítési mintában.
 
 Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tartalmazza. A rendszergazdának (rrasadmin) jelszót kell használnia, és a saját tárolási blobját is használhatja SAS-token használatával. Ügyeljen arra, hogy ezeket az értékeket a jogi tartományokon belül tárolja, mivel a telepítés sikertelen lehet. A PowerShell DSC-csomag minden RRAS virtuális gépen fut, és az Útválasztás és az összes szükséges függő szolgáltatás és szolgáltatás telepítése történik. Ezt a DSC-t szükség esetén tovább lehet testreszabni. Az egyéni szkriptek bővítménye a következő parancsfájlt futtatja, és a Add-Site2SiteGRE. ps1 a két RRAS-kiszolgáló között megosztott kulccsal konfigurálja a VPNS2S-alagutat. Az egyéni szkriptek bővítményének részletes kimenetét megtekintve megtekintheti a VPN-alagút konfigurációjának eredményét.
@@ -58,5 +58,5 @@ Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tart
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Több helyek közötti VPN-alagút beállítása](network-howto-vpn-tunnel.md)

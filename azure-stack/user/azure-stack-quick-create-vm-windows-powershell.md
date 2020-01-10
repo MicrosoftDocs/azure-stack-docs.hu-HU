@@ -1,6 +1,6 @@
 ---
-title: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stackban | Microsoft Docs
-description: Hozzon létre egy Windows Server rendszerű virtuális gépet a PowerShell használatával Azure Stack.
+title: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban | Microsoft Docs
+description: Hozzon létre egy Windows Server rendszerű virtuális gépet a PowerShell használatával Azure Stack hub-ban.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 6bb40ef1f10bcb0d4cadf6252d5e0dd5d8f268bc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677688"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815969"
 ---
-# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack PowerShell használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet (VM). A virtuális gép létrehozásához és használatához kövesse a cikk lépéseit. A cikk a következőket is ismerteti:
+Azure Stack hub PowerShell használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet (VM). A virtuális gép létrehozásához és használatához kövesse a cikk lépéseit. A cikk a következőket is ismerteti:
 
 * Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
 * Telepítse az IIS-webkiszolgálót, és tekintse meg az alapértelmezett kezdőlapot.
@@ -38,15 +38,15 @@ Azure Stack PowerShell használatával létrehozhat egy Windows Server 2016 rend
 
 ## <a name="prerequisites-for-windows-server-vm"></a>A Windows Server rendszerű virtuális gép előfeltételei
 
-* Győződjön meg arról, hogy a Azure Stack-kezelő felvette a **Windows Server 2016** rendszerképet a Azure stack Marketplace-re.
+* Győződjön meg arról, hogy az Azure Stack hub-operátor hozzáadta a **Windows Server 2016** rendszerképet a Azure stack hub piactérhez.
 
-* Azure Stack az erőforrások létrehozásához és kezeléséhez a Azure PowerShell adott verzióját kell megadnia. Ha nincs konfigurálva a PowerShell a Azure Stackhoz, kövesse a PowerShell [telepítésének](../operator/azure-stack-powershell-install.md) lépéseit.
+* Azure Stack hub az erőforrások létrehozásához és kezeléséhez a Azure PowerShell egy adott verzióját igényli. Ha nem rendelkezik Azure Stack hubhoz konfigurált PowerShell-lel, kövesse a PowerShell [telepítésének](../operator/azure-stack-powershell-install.md) lépéseit.
 
-* A Azure Stack PowerShell beállítása után csatlakoznia kell a Azure Stack-környezethez. Útmutatásért lásd: [Kapcsolódás a Azure Stackhoz a PowerShell felhasználóként](azure-stack-powershell-configure-user.md).
+* Az Azure Stack hub PowerShell beállítása után csatlakoznia kell az Azure Stack hub-környezethez. Útmutatásért lásd: [kapcsolódás Azure stack hubhoz felhasználóként a PowerShell-](azure-stack-powershell-configure-user.md)lel.
 
 ## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
-Az erőforráscsoport olyan logikai tároló, amelybe Azure Stack erőforrások üzembe helyezése és kezelése történik. A fejlesztői készletből vagy a Azure Stack integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
+Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi és kezeli Azure Stack hub-erőforrásokat. A fejlesztői készletből vagy az Azure Stack hub integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
 
 > [!NOTE]
 > Az értékek a kódban szereplő összes változóhoz vannak rendelve. Szükség esetén azonban új értékeket is hozzárendelhet.
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ebben a rövid útmutatóban egy egyszerű Windowsos virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa Azure Stack virtuálisgép- [funkciókkal](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy egyszerű Windowsos virtuális gépet telepített. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa [Azure stack hub virtuálisgép-szolgáltatásaival](azure-stack-vm-considerations.md).

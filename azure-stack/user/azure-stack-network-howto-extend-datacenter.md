@@ -1,6 +1,6 @@
 ---
 title: Az adatközpont kiterjesztése Azure Stack hub-on | Microsoft Docs
-description: Ismerje meg, hogyan bővítheti az adatközpontot Azure Stackon.
+description: Ismerje meg, hogyan bővítheti az adatközpontot Azure Stack hub-on.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,50 +9,50 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 949736f091b02ce3118725b9fd3cf6f34c1fc402
-ms.sourcegitcommit: 708c2eb0af3779517cebe8e3b1dc533c5d26561a
+ms.openlocfilehash: 21ee510182e5c2e8056f1d19373708df3ec9b273
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75184213"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816207"
 ---
-# <a name="extending-storage-to-azure-stack"></a>Tároló kiterjesztése Azure Stackra
+# <a name="extending-storage-to-azure-stack-hub"></a>Tároló kiterjesztése Azure Stack hubhoz
 
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk Azure Stack hub tárolási infrastruktúrájának adatait ismerteti, amelyek segítségével eldöntheti, hogyan integrálhatja Azure Stack a meglévő hálózati környezetbe. Az adatközpont kibővítésével kapcsolatos általános vitát követően a cikk két különböző forgatókönyvet mutat be. Csatlakozhat egy Windows file Storage-kiszolgálóhoz. Egy Windows iSCSI-kiszolgálóhoz is csatlakozhat.
+Ez a cikk Azure Stack hub tárolási infrastruktúrájának adatait ismerteti, amelyek segítségével eldöntheti, hogyan integrálhatja Azure Stack hub-t a meglévő hálózati környezetbe. Az adatközpont kibővítésével kapcsolatos általános vitát követően a cikk két különböző forgatókönyvet mutat be. Csatlakozhat egy Windows file Storage-kiszolgálóhoz. Egy Windows iSCSI-kiszolgálóhoz is csatlakozhat.
 
 ## <a name="overview-of-extending-storage-to-azure-stack-hub"></a>A Storage Azure Stack hub-ra való kiterjesztésének áttekintése
 
 Vannak olyan helyzetek, amikor a nyilvános felhőben található adatok nem elegendőek. Lehet, hogy van egy nagy számítási igényű virtualizált adatbázis-munkaterhelés, a késések és a nyilvános felhőbe való oda-és visszautazási idő befolyásolhatja az adatbázis számítási feladatának teljesítményét. Előfordulhat, hogy a helyszíni adatok egy fájlkiszolgálón, NAS-on vagy iSCSI Storage-tömbben vannak tárolva, amelyet a helyszíni munkaterhelések számára kell elérni, és a helyszíni rendszernek kell megfelelnie a szabályozási vagy megfelelőségi célok teljesítéséhez. Ez csupán két olyan forgatókönyv, amelyben az adatok a helyszínen találhatók, számos szervezet számára fontosak maradnak.
 
-Tehát miért nem csak a Storage-fiókokba tartozó Azure Stack vagy a virtualizált fájlkiszolgálók belsejében futnak a Azure Stack rendszeren? Az Azure-ban eltérően Azure Stack a tárterület véges. A használathoz rendelkezésre álló kapacitás a megvásárolt csomópontok számától függ, és az Ön által használt csomópontok száma mellett teljes mértékben kihasználható. Mivel Azure Stack egy Hyper-konvergens megoldás, érdemes növelni a tárolási kapacitást a használati igények kielégítése érdekében, a csomópontok hozzáadásával is növelnie kell a számítási lábnyomot. Ez potenciálisan költséges lehet, különösen abban az esetben, ha a felesleges kapacitásra van szükség, amely a Azure Stack rendszeren kívüli alacsony költségeket is felvehető.
+Tehát miért nem csak a Storage-fiókokban lévő, Azure Stack hub-beli vagy virtualizált fájlkiszolgálókba tartozó, Azure Stack hub rendszeren futó adattárakat tárolja? Az Azure-ban eltérően Azure Stack hub-tároló véges. A használathoz rendelkezésre álló kapacitás a megvásárolt csomópontok számától függ, és az Ön által használt csomópontok száma mellett teljes mértékben kihasználható. Mivel Azure Stack hub egy Hyper-konvergens megoldás, ezért a tárolási kapacitást szeretné növelni a használati igények kielégítése érdekében, a csomópontok hozzáadásával is növelnie kell a számítási lábnyomot. Ez potenciálisan költséges lehet, különösen abban az esetben, ha a további kapacitásra van szükség, amely a Azure Stack hub rendszeren kívüli alacsony költségeket eredményezheti.
 
-Ez az alábbi forgatókönyvhöz nyújt segítséget. Hogyan csatlakozhat Azure Stack rendszerekhez, a Azure Stackon futó virtualizált számítási feladatokhoz, amelyek egyszerűen és hatékonyan, a hálózaton keresztül elérhető, a Azure Stackon kívüli tárolási rendszerekhez.
+Ez az alábbi forgatókönyvhöz nyújt segítséget. Hogyan csatlakoztatható Azure Stack hub-rendszerek, az Azure Stack hub-on futó virtualizált munkaterhelések egyszerűen és hatékonyan, az Azure Stack hub-on kívüli, hálózaton keresztül elérhető tárolási rendszerekhez.
 
 ### <a name="design-for-extending-storage"></a>A tárterület bővítésének tervezése
 
-Az ábrán egy olyan forgatókönyv látható, amelyben egyetlen virtuális gép fut, amely a munkaterhelést, a csatlakozást és a külső (a virtuális gép, a Azure Stack saját maga) tárolót használja az adatok olvasására/írására stb. Ebben a cikkben a fájlok egyszerű lekérésére koncentrálhat, de ezt a példát kiterjesztheti összetettebb forgatókönyvek, például az adatbázisfájlok távoli tárolása érdekében.
+Az ábrán egy olyan forgatókönyv látható, amelyben egyetlen virtuális gép fut, amely a munkaterhelést, a csatlakozást és a külső (a virtuális gép és a Azure Stack hub) tárolót használja, és az adatok olvasását, írását stb. Ebben a cikkben a fájlok egyszerű lekérésére koncentrálhat, de ezt a példát kiterjesztheti összetettebb forgatókönyvek, például az adatbázisfájlok távoli tárolása érdekében.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
 
-A diagramon láthatja, hogy a Azure Stack rendszerű virtuális gép több hálózati adapterrel lett telepítve. Mind a redundancia, hanem a tárolási ajánlott eljárás is fontos, hogy a cél és a cél között több útvonal is legyen. Ahol a dolgok összetettebbek lesznek, a Azure Stackban lévő virtuális gépek nyilvános és magánhálózati IP-címekkel is rendelkeznek, ugyanúgy, mint az Azure-ban. Ha a külső tárterület szükséges a virtuális gép eléréséhez, akkor csak a nyilvános IP-címen keresztül végezhető el, mivel a magánhálózati IP-címek elsődlegesen a virtuális hálózatok és az alhálózatokon belüli Azure Stack rendszerekben vannak használatban. A külső tároló nem tud kommunikálni a virtuális gép magánhálózati IP-címével, kivéve, ha a helyről a VPN-re halad át, hogy a vNet magát. Ebben a példában a nyilvános IP-címen keresztül folytatjuk a kommunikációt. A diagramon a nyilvános IP-címmel kapcsolatban az egyik dolog, hogy két különböző nyilvános IP-címkészlet alhálózata van. Alapértelmezés szerint a Azure Stack csak egy készletet igényel a nyilvános IP-címekhez, de megfontolandó, hogy a redundáns útválasztáshoz egy másodpercet adjon hozzá. Jelenleg azonban nem lehet kijelölni egy adott készletből származó IP-címet, ezért előfordulhat, hogy az azonos készletben lévő virtuális gépeket a több virtuális hálózati kártyán is megtalálhatja.
+A diagramon láthatja, hogy a Azure Stack hub rendszerű virtuális gép több hálózati adapterrel lett telepítve. Mind a redundancia, hanem a tárolási ajánlott eljárás is fontos, hogy a cél és a cél között több útvonal is legyen. Ahol a dolgok összetettebbek lesznek, az Azure Stack hub-ban lévő virtuális gépek nyilvános és magánhálózati IP-címekkel is rendelkeznek, akárcsak az Azure-ban. Ha a külső tárterület szükséges a virtuális gép eléréséhez, csak a nyilvános IP-címen keresztül teheti meg, mivel a magánhálózati IP-címek elsődlegesen a virtuális hálózatok és az alhálózatokon belüli Azure Stack hub rendszerekben használatosak. A külső tároló nem tud kommunikálni a virtuális gép magánhálózati IP-címével, kivéve, ha a helyről a VPN-re halad át, hogy a vNet magát. Ebben a példában a nyilvános IP-címen keresztül folytatjuk a kommunikációt. A diagramon a nyilvános IP-címmel kapcsolatban az egyik dolog, hogy két különböző nyilvános IP-címkészlet alhálózata van. Alapértelmezés szerint az Azure Stack hub csak egy készletet igényel a nyilvános IP-címekhez, de megfontolandó, hogy a redundáns útválasztáshoz egy másodpercet kell hozzáadnia. Jelenleg azonban nem lehet kijelölni egy adott készletből származó IP-címet, ezért előfordulhat, hogy az azonos készletben lévő virtuális gépeket a több virtuális hálózati kártyán is megtalálhatja.
 
 Ebben a vitában feltételezzük, hogy a Border Devices és a külső tároló közötti útválasztás gondoskodik a hálózatról, és a forgalom megfelelő módon képes bejárni a hálózaton. Ebben a példában nem számít, hogy a gerinc 1 GbE, 10 GbE, 25 GbE vagy még gyorsabb, azonban érdemes figyelembe vennie az integráció megtervezését, hogy a külső tárolóhoz hozzáférő alkalmazások teljesítménybeli igényeit is kezelni lehessen.
 
 ## <a name="connect-to-a-windows-server-iscsi-target"></a>Kapcsolódás Windows Server iSCSI-tárolóhoz
 
-Ebben a forgatókönyvben egy Windows Server 2019 rendszerű virtuális gépet helyezünk üzembe és konfigurálunk Azure Stackon, és előkészítjük egy külső iSCSI-tárolóhoz való csatlakozásra, amely a Windows Server 2019-et is futtatja. Adott esetben a virtuális gép és a külső tároló közötti teljesítmény és kapcsolat optimalizálása érdekében a legfontosabb funkciókat, például az MPIO-t is engedélyezzük.
+Ebben a forgatókönyvben egy Windows Server 2019 rendszerű virtuális gépet helyezünk üzembe és konfigurálunk Azure Stack hub-on, és előkészítjük azt egy külső iSCSI-tárolóhoz való csatlakozásra, amely a Windows Server 2019-et is futtatja. Adott esetben a virtuális gép és a külső tároló közötti teljesítmény és kapcsolat optimalizálása érdekében a legfontosabb funkciókat, például az MPIO-t is engedélyezzük.
 
-### <a name="deploy-the-windows-server-2019-vm-on-azure-stack"></a>A Windows Server 2019 virtuális gép üzembe helyezése Azure Stack
+### <a name="deploy-the-windows-server-2019-vm-on-azure-stack-hub"></a>A Windows Server 2019 virtuális gép üzembe helyezése Azure Stack hub-on
 
-1.  A **Azure stack felügyeleti portálon**, feltéve, hogy a rendszer megfelelően van regisztrálva, és csatlakoztatva van a piactérhez, válassza a **piactér-kezelés** lehetőséget, és ha még nem rendelkezik Windows Server 2019-lemezképpel, válassza a Hozzáadás az **Azure-ból** lehetőséget, majd keressen rá a **Windows Server 2019**lehetőségre, és adja hozzá a **Windows Server 2019 Datacenter** -rendszerképet.
+1.  A **Azure stack hub felügyeleti portálján**, feltéve, hogy ez a rendszer megfelelően regisztrálva van, és csatlakoztatva van a piactérhez, válassza a **piactér-kezelés** lehetőséget, majd feltételezve, hogy még nem rendelkezik Windows Server 2019 lemezképpel, válassza a Hozzáadás az Azure- **ból** lehetőséget, majd keressen rá a **Windows Server 2019**lehetőségre, és adja hozzá a **Windows Server 2019 Datacenter** rendszerképet.
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image2.png)
 
     Egy Windows Server 2019-rendszerkép letöltése hosszabb időt is igénybe vehet.
 
-2.  Ha már rendelkezik Windows Server 2019 rendszerképpel a Azure Stack-környezetben, **Jelentkezzen be a Azure stack hub felhasználói portálra**.
+2.  Ha már rendelkezik Windows Server 2019 rendszerképpel a Azure Stack hub-környezetben, **Jelentkezzen be a Azure stack hub felhasználói portálra**.
 
 3.  Miután bejelentkezett az Azure Stack hub felhasználói portálra, ellenőrizze, hogy van-e [előfizetése az ajánlathoz](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-1908), amely lehetővé teszi a IaaS-erőforrások (számítási, tárolási és hálózati) kiépítését.
 
@@ -136,9 +136,9 @@ Ebben a forgatókönyvben egy Windows Server 2019 rendszerű virtuális gépet h
 
 27. A virtuális gépen való csatlakozás után nyissa meg a **cmd** (rendszergazda) lehetőséget, és írja be az **állomásnév** nevet az operációs rendszer számítógépnevét. Meg **kell egyeznie a VM001**. Jegyezze fel később ezt a megjegyzést.
 
-### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack"></a>A második hálózati adapter konfigurálása a Windows Server 2019 virtuális gépen Azure Stack
+### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack-hub"></a>A második hálózati adapter konfigurálása a Windows Server 2019 virtuális gépen Azure Stack hub-on
 
-Alapértelmezés szerint a Azure Stack hozzárendel egy alapértelmezett átjárót a virtuális géphez csatolt első (elsődleges) hálózati adapterhez. Azure Stack nem rendel hozzá alapértelmezett átjárót a virtuális géphez csatlakoztatott további (másodlagos) hálózati adapterekhez. Alapértelmezés szerint ezért nem lehetséges a kommunikáció olyan erőforrásokkal, amelyek a másodlagos hálózati adaptert tartalmazó alhálózaton kívül vannak. A másodlagos hálózati adapterek azonban az alhálózaton kívüli erőforrásokkal is kommunikálhatnak, bár a kommunikáció engedélyezésének lépései eltérőek a különböző operációs rendszereken.
+Alapértelmezés szerint a Azure Stack hub egy alapértelmezett átjárót rendel hozzá a virtuális géphez csatolt első (elsődleges) hálózati adapterhez. Azure Stack hub nem rendel hozzá alapértelmezett átjárót a virtuális géphez csatlakoztatott további (másodlagos) hálózati adapterekhez. Alapértelmezés szerint ezért nem lehetséges a kommunikáció olyan erőforrásokkal, amelyek a másodlagos hálózati adaptert tartalmazó alhálózaton kívül vannak. A másodlagos hálózati adapterek azonban az alhálózaton kívüli erőforrásokkal is kommunikálhatnak, bár a kommunikáció engedélyezésének lépései eltérőek a különböző operációs rendszereken.
 
 1.  Ha még nem rendelkezik nyitott kapcsolattal, hozzon létre egy RDP-kapcsolatot a **VM001**-ben.
 
@@ -172,11 +172,11 @@ Alapértelmezés szerint a Azure Stack hozzárendel egy alapértelmezett átjár
 
 ### <a name="configure-the-windows-server-2019-iscsi-target"></a>A Windows Server 2019 iSCSI-tároló konfigurálása
 
-Ebben a forgatókönyvben egy olyan konfigurációt kell érvényesíteni, amelyben a Windows Server 2019 iSCSI-tároló a Hyper-V-n futó virtuális gép a Azure Stack környezeten kívül. Ez a virtuális gép 8 virtuális processzorral, egyetlen VHDX-fájllal és a legfontosabb két virtuális hálózati adapterrel lesz konfigurálva. Ideális esetben ezek a hálózati adapterek eltérő irányítható alhálózatokkal rendelkezhetnek, azonban ebben az ellenőrzésben az azonos alhálózaton található hálózati adapterek lesznek.
+Ebben a forgatókönyvben egy olyan konfigurációt kell érvényesíteni, amelyben a Windows Server 2019 iSCSI-tároló a Hyper-V-n futó virtuális gép a Azure Stack hub-környezeten kívül. Ez a virtuális gép 8 virtuális processzorral, egyetlen VHDX-fájllal és a legfontosabb két virtuális hálózati adapterrel lesz konfigurálva. Ideális esetben ezek a hálózati adapterek eltérő irányítható alhálózatokkal rendelkezhetnek, azonban ebben az ellenőrzésben az azonos alhálózaton található hálózati adapterek lesznek.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-Az iSCSI-célkiszolgáló esetében ez lehet Windows Server 2016 vagy 2019, fizikai vagy virtuális, Hyper-V-n, VMware-en vagy egy tetszőleges alternatív berendezésen, például egy dedikált fizikai iSCSI SAN-gépen. A legfontosabb szempont, hogy a Azure Stack rendszerből való kapcsolat be-és kikerül, azonban a forrás és a cél között több elérési út is rendelkezésre áll, mivel ez további redundanciát biztosít, és lehetővé teszi a fejlettebb képességek növelését teljesítmény, például MPIO.
+Az iSCSI-célkiszolgáló esetében ez lehet Windows Server 2016 vagy 2019, fizikai vagy virtuális, Hyper-V-n, VMware-en vagy egy tetszőleges alternatív berendezésen, például egy dedikált fizikai iSCSI SAN-gépen. A legfontosabb szempont, hogy az Azure Stack hub rendszerhez való csatlakozással és onnan kifelé irányuló kapcsolat, de a forrás és a cél között több elérési út is rendelkezésre áll, mivel a szolgáltatás további redundanciát biztosít, és lehetővé teszi a fejlettebb képességek növelését teljesítmény, például MPIO.
 
 Azt javasoljuk, hogy frissítse a Windows Server 2019 iSCSI-tárolót a legújabb összesítő frissítésekkel és javításokkal, szükség esetén újraindítás után, mielőtt továbblépne a fájlmegosztás konfigurálására.
 
@@ -224,7 +224,7 @@ Miután frissítette és újraindította a kiszolgálót, mostantól iSCSI-táro
 
 ### <a name="configure-the-windows-server-2019-iscsi-initiator-and-mpio"></a>A Windows Server 2019 iSCSI-kezdeményező és az MPIO konfigurálása
 
-Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure stack hub felhasználói portálra** a **Azure stack** rendszeren, és lépjen a VM001 **Áttekintés** paneljére **.**
+Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure stack hub felhasználói portálra** az **Azure stack hub** rendszeren, és lépjen a VM001 **Áttekintés** paneljére **.**
 
 1.  Hozzon létre egy RDP-kapcsolatot a VM001. Csatlakozás után nyissa meg a **Kiszolgálókezelő alkalmazást**.
 
@@ -334,7 +334,7 @@ Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure s
 
 ### <a name="testing-external-storage-connectivity"></a>Külső tárterület kapcsolatának tesztelése
 
-A kommunikáció ellenőrzéséhez és a fájl-másolási teszt futtatásához először jelentkezzen be a **Azure stack hub felhasználói portálra** a **Azure stack** rendszeren, és navigáljon a **VM001** **Áttekintés** paneljére
+A kommunikáció ellenőrzéséhez és a fájl-másolási teszt futtatásához először jelentkezzen be az **Azure stack hub felhasználói portálra** az **Azure stack hub** rendszeren, és navigáljon a **VM001** **Áttekintés** paneljére
 
 1.  Válassza a **Kapcsolódás** lehetőséget RDP-kapcsolat létrehozásához a **VM001** -ben
 
@@ -365,8 +365,8 @@ A kommunikáció ellenőrzéséhez és a fájl-másolási teszt futtatásához e
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-Ennek a forgatókönyvnek a célja, hogy kiemelje a Azure Stackon futó munkaterhelés és egy külső tároló-tömb, ebben az esetben egy Windows Server-alapú iSCSI-tároló közötti kapcsolatot. Ez nem teljesítménytesztnek lett kialakítva, és nem tükrözheti azokat a lépéseket, amelyeket végre kell hajtania, ha alternatív iSCSI-alapú készüléket használ, azonban a számítási feladatok üzembe helyezéséhez szükséges alapvető szempontokat is kiemeli a Azure Stack, és csatlakoztassa őket a Azure Stack-környezeten kívüli tárolási rendszerekhez.
+Ennek a forgatókönyvnek a célja, hogy kiemelje az Azure Stack hub-on futó munkaterhelés és egy külső tárolási tömb, ebben az esetben egy Windows Server-alapú iSCSI-tároló közötti kapcsolatot. Ez nem teljesítménytesztnek lett kialakítva, és nem tükrözheti azokat a lépéseket, amelyeket végre kell hajtania, ha alternatív iSCSI-alapú készüléket használ, de a számítási feladatok üzembe helyezése során a Azure Stack hub-ra vonatkozó alapvető szempontokat is kiemeli. , és csatlakoztatja őket a Azure Stack hub-környezeten kívüli tárolási rendszerekhez.
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)

@@ -1,5 +1,5 @@
 ---
-title: Hálózati erőforrások kezelése a Azure Stackban | Microsoft Docs
+title: Hálózati erőforrások kezelése Azure Stack hub-ban | Microsoft Docs
 description: A rendszergazdák kezelhetik a hálózati erőforrásokat, beleértve a MAC-címkészletet és a nyilvános IP-címek felhasználását egy adott régióban.
 services: azure-stack
 documentationcenter: ''
@@ -15,33 +15,33 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 6dc64857b3fd421b7e6ca94fdf044b16b1b6a691
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070201"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812688"
 ---
 # <a name="manage-network-resources"></a>Hálózati erőforrások kezelése
 
 ## <a name="mac-address-pool"></a>MAC-címkészlet
 
-A Azure Stack statikus MAC-címkészletet használ a MAC-címek virtuális gépekhez való automatikus létrehozásához és hozzárendeléséhez.
+Azure Stack hub egy statikus MAC-címkészlet használatával automatikusan létrehozza és hozzárendeli a MAC-címeket a virtuális gépekhez.
 Az üzembe helyezés során a rendszer automatikusan létrehozza ezt a MAC-címkészletet, és a következő tartományt használja:
 
 - StartMacAddress: 00-1D-D8-B7-00-00
-- EndMacAddress : 00-1D-D8-F4-FF-FF
+- EndMacAddress: 00-1D-D8-F4-FF-FF
 
 > [!Note]  
-> Ez a MAC-címkészlet minden Azure Stack rendszeren azonos, és nem konfigurálható.
+> Ez a MAC-címkészlet minden Azure Stack hub-rendszeren azonos, és nem konfigurálható.
 
 Attól függően, hogy a virtuális hálózatok hogyan kapcsolódnak a meglévő vállalati hálózatokhoz, a virtuális gépek duplikált MAC-címei várhatók.
 
-További információ a MAC-címkészlet kihasználtságáról: a [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) parancsmag használata a Azure stack felügyeleti PowerShell-modulban.
+További információ a MAC-címkészlet kihasználtságáról: a [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) parancsmag használata a Azure stack hub Administrator PowerShell-modulban.
 
-## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Nyilvános IP-címek felhasználásának megtekintése Azure Stack
+## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Nyilvános IP-címek felhasználásának megtekintése Azure Stack központban
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A felhő rendszergazdája a következőket tekintheti meg:
  - A bérlők számára lefoglalt nyilvános IP-címek száma.
@@ -50,7 +50,7 @@ A felhő rendszergazdája a következőket tekintheti meg:
 
 A **nyilvános IP-készletek használati** csempe a nyilvános IP-címkészlet során felhasznált nyilvános IP-címek számát jeleníti meg. Az egyes IP-címek esetében a csempe a bérlői IaaS virtuálisgép-példányok, a háló infrastruktúra-szolgáltatások és a bérlők által explicit módon létrehozott nyilvános IP-címek használatát mutatja.
 
-A csempe célja, hogy Azure Stack operátorok számára az ezen a helyen használt nyilvános IP-címek számát adja meg. A szám segít a rendszergazdáknak megállapítani, hogy alacsonyan futnak-e az erőforráson.
+A csempe célja, hogy Azure Stack hub-operátorok számára az ezen a helyen használt nyilvános IP-címek számát adja meg. A szám segít a rendszergazdáknak megállapítani, hogy alacsonyan futnak-e az erőforráson.
 
 A **bérlői erőforrások** **nyilvános IP-címei** menüpontja csak azokat a nyilvános IP-címeket sorolja fel, amelyeket a *bérlők explicit módon hoztak létre*. A menüelem az **erőforrás-szolgáltatók**, a **hálózat** ablaktáblán található. A **nyilvános IP-készletek használati** csempe **használt** nyilvános IP-címeinek száma mindig eltér a **nyilvános IP-címek** csempén a **bérlői erőforrások**alatt lévő számtól (nagyobb, mint).
 
@@ -58,7 +58,7 @@ A **bérlői erőforrások** **nyilvános IP-címei** menüpontja csak azokat a 
 
 A régióban felhasznált nyilvános IP-címek teljes számának megtekintése:
 
-1. A Azure Stack felügyeleti portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **Adminisztráció** kategóriában válassza a **hálózat**lehetőséget.
+1. Az Azure Stack hub felügyeleti portálján válassza a **minden szolgáltatás**lehetőséget. Ezután az **Adminisztráció** kategóriában válassza a **hálózat**lehetőséget.
 1. A **hálózat** ablaktáblán a **nyilvános IP-készletek használati** csempe látható az **Áttekintés** szakaszban.
 
     ![Hálózati erőforrás-szolgáltató panel](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
@@ -87,6 +87,6 @@ Különböző esetekben a rendszer a nyilvános IP-címeket rendeli hozzá, amel
 | A háló infrastruktúra-szolgáltatási végponthoz rendelt statikus nyilvános IP-cím. |Igen |Nem |
 | A nyilvános IP-cím implicit módon lett létrehozva a IaaS virtuálisgép-példányokhoz, és a virtuális hálózaton kimenő NAT-hoz használatos. Ezek a színfalak mögött jönnek létre, amikor egy bérlő létrehoz egy virtuálisgép-példányt, hogy a virtuális gépek adatokat tudjanak küldeni az internetre. |Igen |Nem |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Storage-fiókok kezelése Azure Stackban](azure-stack-manage-storage-accounts.md)
+[Storage-fiókok kezelése Azure Stack központban](azure-stack-manage-storage-accounts.md)

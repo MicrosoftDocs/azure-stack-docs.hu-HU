@@ -1,6 +1,6 @@
 ---
-title: A Kubernetes üzembe helyezése Azure Stack Azure Active Directory (Azure AD) használatával | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe Kubernetes Azure Stack Azure Active Directory (Azure AD) használatával.
+title: Kubernetes üzembe helyezése Azure Stack hubhoz Azure Active Directory (Azure AD) használatával | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe Kubernetes az Azure Stack hub szolgáltatásban Azure Active Directory (Azure AD) használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 902645ffcb6fda4afad76a1a258b55f0ace2b189
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: c04b0191ec876d22af0115d1fff0acdd3a188992
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047249"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819284"
 ---
-# <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack a Azure Active Directory használatával
+# <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack hubhoz a Azure Active Directory használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
@@ -33,29 +33,29 @@ A cikk lépéseit követve üzembe helyezheti és beállíthatja a Kubernetes er
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Első lépésként győződjön meg arról, hogy rendelkezik a megfelelő engedélyekkel, és hogy a Azure Stack készen áll.
+Első lépésként győződjön meg arról, hogy rendelkezik a megfelelő engedélyekkel, és hogy az Azure Stack hub készen áll.
 
 1. Ellenőrizze, hogy létrehozhat-e alkalmazásokat a Azure Active Directory (Azure AD) bérlőben. Ezekre az engedélyekre szüksége lesz a Kubernetes telepítéséhez.
 
     Az engedélyek ellenőrzésével kapcsolatos utasításokért tekintse meg az [Azure Active Directory engedélyek ellenőrzése](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)című témakört.
 
-1. Nyilvános és titkos SSH-kulcspár létrehozása a Linux rendszerű virtuális gépre való bejelentkezéshez Azure Stackon. A fürt létrehozásakor szüksége lesz a nyilvános kulcsra.
+1. Nyilvános és titkos SSH-kulcspár létrehozása a Linux rendszerű virtuális gépre való bejelentkezéshez Azure Stack hub-on. A fürt létrehozásakor szüksége lesz a nyilvános kulcsra.
 
     A kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása](azure-stack-dev-start-howto-ssh-public-key.md).
 
-1. Győződjön meg arról, hogy érvényes előfizetése van a Azure Stack bérlői portálon, és hogy az új alkalmazások hozzáadásához elegendő nyilvános IP-cím áll rendelkezésre.
+1. Győződjön meg arról, hogy érvényes előfizetése van a Azure Stack hub bérlői portálon, és hogy az új alkalmazások hozzáadásához elegendő nyilvános IP-cím áll rendelkezésre.
 
-    A fürt nem telepíthető Azure Stack **rendszergazdai** előfizetésre. **Felhasználói** előfizetést kell használnia. 
+    A fürtöt nem lehet központilag telepíteni Azure Stack hub **rendszergazdai** előfizetésre. **Felhasználói** előfizetést kell használnia. 
 
-1. Ha nem rendelkezik Kubernetes-fürttel a piactéren, forduljon a Azure Stack rendszergazdájához.
+1. Ha nem rendelkezik Kubernetes-fürttel a piactéren, forduljon a Azure Stack hub rendszergazdájához.
 
 ## <a name="create-a-service-principal"></a>Egyszerű szolgáltatás létrehozása
 
-Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgáltatás hozzáférést biztosít az alkalmazáshoz Azure Stack erőforrásokhoz.
+Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgáltatás hozzáférést biztosít az alkalmazáshoz Azure Stack hub-erőforrásokhoz.
 
 1. Jelentkezzen be a globális [Azure Portalba](https://portal.azure.com).
 
-1. Győződjön meg arról, hogy a Azure Stack-példányhoz társított Azure AD-Bérlővel jelentkezett be. A bejelentkezést az Azure eszköztár szűrő ikonjára kattintva állíthatja be.
+1. Győződjön meg arról, hogy az Azure Stack hub-példánnyal társított Azure AD-Bérlővel jelentkezett be. A bejelentkezést az Azure eszköztár szűrő ikonjára kattintva állíthatja be.
 
     ![Válassza ki az AD-bérlőt](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
 
@@ -65,7 +65,7 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
     b. Válassza a **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.  
     c. Adja meg az alkalmazás nevét és URL-címét.  
     d. Válassza ki a **támogatott fióktípus-típusokat**.  
-    e.  Adja hozzá a `http://localhost` értéket az alkalmazás URI-ja számára. Válassza a **web** lehetőséget a létrehozni kívánt alkalmazás típusához. Az értékek beállítása után válassza a **regisztráció**lehetőséget.
+    e.  Adja hozzá `http://localhost` az alkalmazás URI azonosítóját. Válassza a **web** lehetőséget a létrehozni kívánt alkalmazás típusához. Az értékek beállítása után válassza a **regisztráció**lehetőséget.
 
 1. Jegyezze fel az **alkalmazás azonosítóját**. A fürt létrehozásakor szüksége lesz az AZONOSÍTÓra. Az azonosító az **egyszerű szolgáltatásnév ügyfél-azonosítójaként**van hivatkozva.
 
@@ -81,7 +81,7 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
 
 Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy a rendszerbiztonsági tag erőforrásokat hozzon létre.
 
-1.  Jelentkezzen be a [Azure stack portálra](https://portal.local.azurestack.external/).
+1.  Jelentkezzen be az [Azure stack hub portálra](https://portal.local.azurestack.external/).
 
 1. Válassza **a minden szolgáltatás** > **előfizetések**lehetőséget.
 
@@ -93,13 +93,13 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza ki az egyszerű szolgáltatásnév számára létrehozott alkalmazás nevét. Előfordulhat, hogy be kell írnia a nevet a keresőmezőbe.
 
-1. Kattintson a **Save** (Mentés) gombra.
+1. Kattintson a **Mentés** gombra.
 
 ## <a name="deploy-kubernetes"></a>Kubernetes üzembe helyezése
 
-1. Nyissa meg a [Azure stack portált](https://portal.local.azurestack.external).
+1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
 
-1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**elemet. Kattintson a  **Create** (Létrehozás) gombra.
+1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Create** (Létrehozás) gombra.
 
     ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -113,7 +113,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie.
 
-1. Válassza ki az erőforráscsoport **helyét** . Ez az a régió, amelyet a Azure Stack telepítéséhez választ.
+1. Válassza ki az erőforráscsoport **helyét** . Ez az a régió, amelyet a Azure Stack hub telepítéséhez választ.
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes-fürt beállításai
 
@@ -138,13 +138,13 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza ki a **Kubernetes-csomópont virtuális gépek VMSize**. Ez határozza meg a virtuális gépek Kubernetes-csomópontjának méretét. 
 
-1. Válassza ki az **Azure ad** -t a **Azure stack Identity rendszer** számára a Azure stack telepítéséhez.
+1. Válassza az **Azure ad** lehetőséget a Azure stack hub-telepítés **Azure stack hub Identity rendszeréhez** .
 
-1. Adja meg az **egyszerű szolgáltatásnév clientId** , amelyet a Kubernetes Azure Cloud Provider használ. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet.
+1. Adja meg az **egyszerű szolgáltatásnév clientId** , amelyet a Kubernetes Azure Cloud Provider használ. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet.
 
 1. Adja meg az **egyszerű szolgáltatásnév ügyfél titkát**. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs.
 
-1. Adja meg a **Kubernetes verzióját**. Ez az Azure-szolgáltató Kubernetes verziója. Azure Stack egy egyéni Kubernetes-buildet szabadít fel minden Azure Stack-verzióhoz.
+1. Adja meg a **Kubernetes verzióját**. Ez az Azure-szolgáltató Kubernetes verziója. Azure Stack hub az egyes Azure Stack hub-verziókhoz egyéni Kubernetes-buildet bocsát ki.
 
 ### <a name="3-summary"></a>3. Összefoglalás
 
@@ -157,7 +157,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 3. A fürt üzembe helyezéséhez kattintson **az OK gombra** .
 
 > [!TIP]  
->  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
+>  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 
 ## <a name="next-steps"></a>Következő lépések

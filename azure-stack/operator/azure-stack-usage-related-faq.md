@@ -1,6 +1,6 @@
 ---
 title: A használati API-val kapcsolatos gyakori kérdések | Microsoft Docs
-description: Azure Stack mérőszámok listája, összehasonlítás az Azure használati API-val, a használati idő és a jelentett idő, hibakódok.
+description: Azure Stack hub mérőszámok listája, az Azure használati API-val való összehasonlítás, a használati idő és a jelentett idő, hibakódok.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019320"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813062"
 ---
-# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Gyakori kérdések a Azure Stack használatáról
+# <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
-Ez a cikk a Azure Stack használattal és a Azure Stack használati API-val kapcsolatos gyakori kérdésekre ad választ.
+Ez a cikk az Azure Stack hub-használattal és a Azure Stack hub használati API-val kapcsolatos gyakori kérdésekre ad választ.
 
 ## <a name="what-meter-ids-can-i-see"></a>Milyen mérési azonosítókat láthatok?
 
@@ -42,7 +42,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: IP-címek  
 **Megjegyzések**: a használt IP-címek száma. Ha napi részletességgel hívja meg a használati API-t, a mérő az IP-címet adja vissza, szorozva az órák számával.  
   
-### <a name="storage"></a>Tárolás
+### <a name="storage"></a>Adattárolás
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Fogyasztásmérő neve**: TableCapacity  
@@ -109,7 +109,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: kimenő forgalom GB-ban  
 **Megjegyzések**: Queue szolgáltatás a kimenő adatforgalom GB-ban  
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Számítási szolgáltatások
   
 **FOGYASZTÁSMÉRŐ azonosítója**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Fogyasztásmérő neve**: alapszintű virtuális gép mérete (óra)  
@@ -126,7 +126,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: virtuális gép órája  
 **Megjegyzések**: az alapszintű és a Windows RENDSZERű virtuális gépeket is rögzíti. A nem igazodik a magokhoz.  
   
-### <a name="managed-disks"></a>Felügyelt lemezek
+### <a name="managed-disks"></a>Managed Disks
 
 **FOGYASZTÁSMÉRŐ azonosítója**: 380874f9-300c-48e0-95a0-d2d9a21ade8f   
 **Fogyasztásmérő neve**: S4   
@@ -178,7 +178,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: lemezek száma\*hónapban   
 **Megjegyzések**: prémium szintű felügyelt lemez – 256 GB 
 
-**Meter ID**: b9cb2d1a-84c2-4275-aa8b-70d2145d59aa   
+**FOGYASZTÁSMÉRŐ azonosítója**: b9cb2d1a-84c2-4275-aa8b-70d2145d59aa   
 **Fogyasztásmérő neve**: P20   
 **Egység**: lemezek száma\*hónapban   
 **Megjegyzések**: prémium szintű felügyelt lemez – 512 GB 
@@ -213,7 +213,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: lemezek darabszáma\*óra   
 **Megjegyzések**: standard szintű felügyelt lemez – 32 GB (elavult) 
 
-**Meter ID**: dc9fc6a9-0782-432a-b8dc-978130457494   
+**FOGYASZTÁSMÉRŐ azonosítója**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Mérőműszer neve**: S6   
 **Egység**: lemezek darabszáma\*óra   
 **Megjegyzések**: standard szintű felügyelt lemez – 64 GB (elavult) 
@@ -317,12 +317,12 @@ Mérőszám **azonosítója**: 5Ca1cbb9-6f14-4e76-8be8-1ca91547965e- **fogyaszt�
 **Egység**: 10k tranzakció  
 **Megjegyzések**: RSA 3K/4K, ECC-kulcs tranzakció. (előzetes verzió).  
   
-### <a name="app-service"></a>App Service-ben   
+### <a name="app-service"></a>App Service   
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Fogyasztásmérő neve**: app Service  
 **Egység**: virtuális mag órája  
-**Megjegyzések**: az App Service futtatásához használt virtuális magok száma. Megjegyzés: a Microsoft ezt a mérőszámot használja a App Service Azure Stackre való feltöltéséhez. A felhőalapú megoldások szolgáltatói a többi App Service mérőszámot használhatják a bérlők használatának kiszámításához.  
+**Megjegyzések**: az App Service futtatásához használt virtuális magok száma. Megjegyzés: a Microsoft ezt a mérőszámot használja a App Service Azure Stack hub-on való feltöltéséhez. A felhőalapú megoldások szolgáltatói a többi App Service mérőszámot használhatják a bérlők használatának kiszámításához.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **Mérőműszer neve**: functions-kérések  
@@ -386,18 +386,18 @@ Mérőszám **azonosítója**: 5Ca1cbb9-6f14-4e76-8be8-1ca91547965e- **fogyaszt�
 **Egység**: GB  
 **Megjegyzések**: összes bejövő kérelemre adott válasz bájtjai és összes kimenő kérelem bájtjainak száma + összes bejövő FTP-kérelemre adott válasz bájtjai és a teljes beérkező webes üzembe helyezési kérelmekre adott válasz bájtjai.  
   
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Hogyan hasonlítja össze a Azure Stack használati API-kat az [Azure használati API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) -val (jelenleg nyilvános előzetes verzióban)?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Hogyan hasonlítható össze az Azure Stack hub használati API-k az [Azure használati API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) -val (jelenleg nyilvános előzetes verzióban)?
 
-* A bérlői használati API konzisztens az Azure API-val, egyetlen kivétellel: a *showDetails* jelző jelenleg nem támogatott a Azure stack.
-* A szolgáltatói használati API csak Azure Stackre vonatkozik.
-* Az Azure-ban elérhető [RATECARD API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) jelenleg nem érhető el Azure Stackban.
+* A bérlői használati API konzisztens az Azure API-val, egyetlen kivétellel: az Azure Stack hub jelenleg nem támogatja a *showDetails* jelzőt.
+* A szolgáltatói használati API csak Azure Stack hubhoz vonatkozik.
+* Az Azure-ban elérhető [RATECARD API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) jelenleg nem érhető el Azure stack központban.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Mi a különbség a használati idő és a jelentett idő között?
 
 A használati adatok jelentéseinek két fő ideje van:
 
 * **Jelentett idő**. Az az idő, amikor a használati esemény bekerült a használati rendszerébe
-* **Használati idő**. Az Azure Stack erőforrás felhasználásának ideje
+* **Használati idő**. Az Azure Stack hub-erőforrás felhasználásának ideje
 
 Előfordulhat, hogy a használati idő és a jelentett idő egy adott használati eseménynél eltérést jelez. A késleltetés akár több órát is igénybe vehet bármilyen környezetben.
 
@@ -405,7 +405,7 @@ Jelenleg csak a *jelentett idő*szerint lehet lekérdezni.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Mit jelentenek ezek a használati API-hibakódok?
 
-| **HTTP-állapotkód** | **Hibakód:** | **Leírás** |
+| **HTTP-állapotkód** | **Hibakód** | **Leírás** |
 | --- | --- | --- |
 | 400/hibás kérelem |*NoApiVersion* |Hiányzik az *API-Version* lekérdezési paraméter. |
 | 400/hibás kérelem |*InvalidProperty* |Hiányzik egy tulajdonság, vagy az értéke érvénytelen. A válasz törzsében lévő hibakódban található üzenet azonosítja a hiányzó tulajdonságot. |
@@ -419,18 +419,18 @@ Jelenleg csak a *jelentett idő*szerint lehet lekérdezni.
 
 A virtuális gépek futtatása és leállítása a használati adatokat eredményezi. Az Azure-val konzisztensen a használati adatok kibocsátásának leállításához le kell állítani a felszabadítást. Abban az esetben, ha a portál nem érhető el, de a számítási erőforrás-szolgáltató még fut, a használatot a rendszer kibocsátja.
 
-## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Hogyan kinyerni a használati adatokat a Azure Stack használati API-ból?
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>Hogyan kinyerni a használati adatokat az Azure Stack hub használati API-kkal?
 
-A helyi használati API-k használati adatainak kinyerésének legegyszerűbb módja egy Azure Stack a [githubon a használati összefoglalás parancsfájl](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)használatával. A parancsfájlhoz a kezdő és a záró dátumnak bemeneti paramétereknek kell lennie.
+Azure Stack hub helyi használati API-jai használati adatainak kinyerésének legegyszerűbb módja a [githubon a használati összefoglalás parancsfájl](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)használatával. A parancsfájlhoz a kezdő és a záró dátumnak bemeneti paramétereknek kell lennie.
 
 Azt is megteheti, hogy a REST API-kat használja a [szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md) és a [bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md) cikkeiben leírtak szerint.
 
-## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Hogyan rendelhetek hozzá az Azure használati API-kból kinyert használatot egy adott Azure Stack felhasználói előfizetéshez?
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>Hogyan rendelhetek hozzá az Azure használati API-kból kinyert használati adatokat egy adott Azure Stack hub felhasználói előfizetéshez?
 
-A használati rekordok közé tartozik a **AdditionalInfo**nevű tulajdonság, amely tartalmazza a Azure stack előfizetés-azonosítóját. Ez a felhasználói előfizetés, amely a megfelelő használati rekordot bocsátja ki.
+A használati rekordok közé tartozik a **AdditionalInfo**nevű tulajdonság, amely tartalmazza az Azure stack hub előfizetés-azonosítóját. Ez a felhasználói előfizetés, amely a megfelelő használati rekordot bocsátja ki.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-* [Ügyfél számlázása és jóváírása Azure Stack](azure-stack-billing-and-chargeback.md)
+* [Ügyfél számlázása és jóváírása Azure Stack központban](azure-stack-billing-and-chargeback.md)
 * [Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)
 * [Bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)

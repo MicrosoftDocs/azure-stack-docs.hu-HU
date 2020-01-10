@@ -1,6 +1,6 @@
 ---
-title: MySQL-adatbázisok létrehozása a Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan hozhat létre és kezelhet olyan MySQL-adatbázisokat, amelyeket a Azure Stack a MySQL-adapter erőforrás-szolgáltatójának használatával kiépített.
+title: MySQL-adatbázisok létrehozása Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre és kezelhet MySQL-adatbázisokat az Azure Stack hub MySQL-adapter erőforrás-szolgáltatójának használatával.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 4bdbc8007be3aae0ec6313b02138eb043b5d393c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682234"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811379"
 ---
-# <a name="create-mysql-databases-in-azure-stack"></a>MySQL-adatbázisok létrehozása a Azure Stackban
-A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack felhasználó a felhasználói portálon hozhat létre és kezelhet önkiszolgáló MySQL-adatbázisokat.
+# <a name="create-mysql-databases-in-azure-stack-hub"></a>MySQL-adatbázisok létrehozása Azure Stack központban
+A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack hub-felhasználó önkiszolgáló MySQL-adatbázisokat hozhat létre és kezelhet a felhasználói portálon.
 
 ## <a name="create-a-mysql-database"></a>MySQL-adatbázisok létrehozása
 
-1. Jelentkezzen be a Azure Stack felhasználói portálra.
+1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
 2. Válassza az **+ erőforrás létrehozása** > **adattároló** > **MySQL-adatbázis** > **Hozzáadás**lehetőséget.
 3. A **MySQL-adatbázis létrehozása**területen adja meg az adatbázis nevét, és konfigurálja a környezetéhez szükséges egyéb beállításokat.
 
@@ -38,7 +38,7 @@ A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Sta
     ![MySQL SKU kiválasztása](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Mivel a szolgáltatói kiszolgálók hozzáadódnak a Azure Stackhoz, egy SKU-t kapnak hozzájuk. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
+    >Mivel az üzemeltetési kiszolgálókat Azure Stack hubhoz adja hozzá, a rendszer hozzárendel egy SKU-t. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
 
 5. A **Bejelentkezés**területen válassza a ***kötelező beállítások konfigurálása***elemet.
 6. A **Bejelentkezés kiválasztása**területen válasszon egy meglévő felhasználónevet, vagy válassza az **+ új bejelentkezés létrehozása** lehetőséget egy új bejelentkezés beállításához.  Adja meg az **adatbázis bejelentkezési** nevét és **jelszavát**, majd kattintson **az OK gombra**.
@@ -58,7 +58,7 @@ Az adatbázis üzembe helyezését követően jegyezze fel a **kapcsolatok karak
 
 A jelszót a MySQL-kiszolgáló példányán módosítva módosíthatja.
 
-1. Válassza a **felügyeleti erőforrások**  >  a**MySQL-üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
+1. Válassza a **felügyeleti erőforrások** > a **MySQL-üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
 2. A **Beállítások**területen válassza a **jelszó**lehetőséget.
 3. A **jelszó**területen adja meg az új jelszót, majd kattintson a **Mentés**gombra.
 

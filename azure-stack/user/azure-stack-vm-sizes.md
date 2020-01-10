@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack által támogatott virtuálisgép-méretek | Microsoft Docs
-description: A Azure Stack támogatott virtuálisgép-méretekre mutató hivatkozás.
+title: Azure Stack hub által támogatott virtuálisgép-méretek | Microsoft Docs
+description: A Azure Stack hub által támogatott virtuálisgép-méretek referenciája.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,20 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
-ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
+ms.openlocfilehash: 0e657293a23326bffb6ed6d7e5a2e581fbe3a1cb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784088"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815476"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack támogatott virtuálisgép-méretek
+# <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack hub által támogatott virtuálisgép-méretek
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk a Azure Stackben elérhető virtuális gépek (VM) méretét sorolja fel. Ebből a cikkből megtudhatja, hogyan választhatja ki a virtuális gépet a Azure Stack-megoldás támogatásához.
+Ez a cikk az Azure Stack hub-ban elérhető virtuális gépek (VM) méreteit sorolja fel. Ebből a cikkből megtudhatja, hogyan választhatja ki a virtuális gépeket az Azure Stack hub-megoldás támogatásához.
 
-A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) a Azure Stack a virtuálisgép-méret függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS határértékek (a lehető legnagyobb mértékben) a zajos szomszédok megelőzése érdekében. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
+A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) az Azure Stack hub-ban a virtuálisgép-méret függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS határértékek (a lehető legnagyobb mértékben) a zajos szomszédok megelőzése érdekében. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
 
 ## <a name="vm-general-purpose"></a>Általános célú virtuális gép
 
@@ -59,7 +59,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 |**Standard_A7** |8 |56    |605 |500 |500 |16x500 |4 |
 
 ### <a name="av2-series"></a>Av2-sorozat
-*A Azure Stack 1804-es vagy újabb verzióját igényli*
+*A Azure Stack hub 1804-es vagy újabb verziójára van szükség*
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-----------------|----|----|-----|-----|------|--------------|---------|
@@ -109,7 +109,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 
 ## <a name="compute-optimized"></a>Compute-optimalizált
 ### <a name="f-series"></a>F sorozat
-*A Azure Stack 1804-es vagy újabb verzióját igényli*
+*A Azure Stack hub 1804-es vagy újabb verziójára van szükség*
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -121,7 +121,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 
 
 ### <a name="fs-series"></a>Fs sorozat
-*A Azure Stack 1804-es vagy újabb verzióját igényli*  
+*A Azure Stack hub 1804-es vagy újabb verziójára van szükség*  
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |------------------|----|----|----|-----|------|-------------|---------|
@@ -133,7 +133,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 
 
 ### <a name="fsv2-series"></a>Fsv2 sorozat
-*A Azure Stack 1804-es vagy újabb verzióját igényli* 
+*A Azure Stack hub 1804-es vagy újabb verziójára van szükség* 
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
@@ -185,4 +185,4 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)
+[Azure Stack hub VM-funkciók](azure-stack-vm-considerations.md)

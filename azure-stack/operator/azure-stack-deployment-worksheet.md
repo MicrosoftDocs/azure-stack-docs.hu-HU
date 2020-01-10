@@ -1,6 +1,6 @@
 ---
-title: Üzembehelyezési munkalap az Azure Stack integrált rendszerek |} A Microsoft Docs
-description: Ismerje meg, hogyan telepítse, és a központi telepítési munkalap eszköz használatával az Azure Stack üzembe helyezése.
+title: Üzembe helyezési munkalap Azure Stack hub integrált rendszerekhez | Microsoft Docs
+description: Megtudhatja, hogyan telepítheti és használhatja az üzembe helyezési munkalap eszközt Azure Stack hub üzembe helyezéséhez.
 services: azure-stack
 documentationcenter: ''
 author: wamota
@@ -15,83 +15,83 @@ ms.date: 04/19/2019
 ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 0ec6f85e0df5bcc818f57410a442d532d024fc02
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172669"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804904"
 ---
-# <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>Az Azure Stack integrált rendszerek üzembehelyezési munkalap
+# <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Üzembe helyezési munkalap Azure Stack hub integrált rendszerekhez
 
-Az Azure Stack üzembehelyezési munkalap egy Windows Forms-alkalmazást, amely összefoglalja az összes szükséges telepítési információi és egy helyen döntéseket hozhat. Végezze el a központi telepítési munkalapot a tervezési folyamat során, és az üzembe helyezés megkezdése előtt tekintse át.
+Az Azure Stack hub üzembe helyezési munkalap egy Windows Forms alkalmazás, amely egy helyen összesíti az összes szükséges központi telepítési információt és döntést. A telepítési munkalapot a tervezési folyamat során végezheti el, és áttekintheti a telepítés megkezdése előtt.
 
-A munkalap által előírt információkat a hálózatkezelés, biztonság és identitás kapcsolatos információkat tartalmaz. Szükséges ismeretek számos különböző területein; előfordulhat, hogy igénylő fontos döntések ezért érdemes tekintse meg a következő területeken szakértelmet rendelkező annak érdekében, hogy végezze el a munkalap csapatok számára.
+A munkalapon megkövetelt információk a hálózatkezelési, a biztonsági és az identitási információkra terjednek ki. Fontos döntéseket igényel, amelyeknek számos különböző területen ismerete lehet. Ezért előfordulhat, hogy a munkalapra való betöltéshez érdemes megtekinteni az ezekben a területeken szaktudással rendelkező csapatokat.
 
-A munkalap kitöltésekor szüksége lehet a hálózati környezet egyes központi telepítés előtti konfigurációs módosításokat hajthat végre. Ez magában foglalhatja foglalása az IP-címterek, az Azure Stack megoldás, és az útválasztók, kapcsolók és tűzfalak fel a kapcsolatot az új Azure Stack-megoldás konfigurálása.
+A munkalap kitöltésekor előfordulhat, hogy a hálózati környezetbe be kell állítania a telepítés előtti konfigurációs módosításokat. Ebbe beletartozik az Azure Stack hub-megoldás IP-címeinek megőrzése, valamint az útválasztók, kapcsolók és tűzfalak konfigurálása az új Azure Stack hub-megoldáshoz való kapcsolódás előkészítéséhez.
 
 > [!NOTE]
-> Fejezze be a munkalap-telepítő eszköz kapcsolatos további információkért lásd: [Ez a cikk az Azure Stack dokumentáció](azure-stack-datacenter-integration.md).
+> Az üzembe helyezési munkalap eszközének végrehajtásával kapcsolatos további információkért tekintse meg [ezt a cikket a Azure stack hub dokumentációjában](azure-stack-datacenter-integration.md).
 
-[![Üzembehelyezési munkalap](media/azure-stack-deployment-worksheet/depworksheet.png "üzembehelyezési munkalap")](media/azure-stack-deployment-worksheet/depworksheet.png)
+[![Üzembe helyezési munkalap](media/azure-stack-deployment-worksheet/depworksheet.png "Üzembe helyezési munkalap")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
 ## <a name="installing-the-windows-powershell-module"></a>A Windows PowerShell-modul telepítése
 
-Az üzembehelyezési munkalap egyes kiadásainak egy egyszeri minden gép, amelyen a az üzembehelyezési munkalap használni kívánt Powershell-modul telepítését kell végrehajtania.
+Az üzembe helyezési munkalap minden egyes kiadásához végre kell hajtania egy PowerShell-modul egyszeri telepítését minden olyan gépen, amelyen használni szeretné a központi telepítési munkalapot.
 
 > [!NOTE]  
-> A számítógép kapcsolódnia kell az internethez a metódus.
+> Ennek a módszernek a működéséhez a számítógépnek csatlakoznia kell az internethez.
 
-1. Nyisson meg egy rendszergazda jogú PowerShell-parancssorban.
+1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 
-2. A PowerShell-ablakban, a modul telepítéséhez az [PowerShell-galériából](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
+2. A PowerShell-ablakban telepítse a modult a [PowerShell-galériából](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
 
    ```PowerShell
    Install-Module -Name Azs.Deployment.Worksheet -Repository PSGallery
    ```
 
-Ha egy nem megbízható tárházból telepítéséről szóló üzenetet kap, nyomja le az **Y** a telepítés folytatásához.
+Ha nem megbízható tárházból történő telepítésről kap üzenetet, a telepítés folytatásához nyomja le az **Y** billentyűt.
 
-## <a name="use-the-deployment-worksheet-tool"></a>A központi telepítési munkalap eszközzel
+## <a name="use-the-deployment-worksheet-tool"></a>Az üzembe helyezési munkalap eszköz használata
 
-Indítsa el, és használja az üzembehelyezési munkalap egy számítógépen, amelyen az üzembe helyezés munkalap PowerShell modult telepítette, hajtsa végre az alábbi lépéseket:
+Az üzembe helyezési munkalap elindításához és használatához olyan számítógépen, amelyen a központi telepítési munkalap PowerShell-modulját telepítette, hajtsa végre a következő lépéseket:
 
-1. Indítsa el a Windows Powershellt (ne használja a PowerShell ISE-ben, a nem várt eredmények akkor fordulhat elő,). Nem kell futtatnia a Powershellt rendszergazdaként.
+1. Indítsa el a Windows PowerShellt (ne használja a PowerShell ISE-t, mert nem várt eredmények merülhetnek fel). A PowerShellt rendszergazdaként nem kell futtatni.
 
-2. Importálás a **AzS.Deployment.Worksheet** PowerShell-modult:
+2. Importálja a **AzS. Deployment. munkalap** PowerShell-modult:
 
    ```PowerShell
    Import-Module AzS.Deployment.Worksheet
    ```
 
-3. A modul importálása után indítsa el a központi telepítési munkalap:
+3. A modul importálása után indítsa el a telepítési munkalapot:
 
    ```PowerShell
    Start-DeploymentWorksheet
    ```
 
-Az üzembehelyezési munkalap külön lapokra környezeti beállítások, például összegyűjtése áll **felhasználói beállításai**, **hálózati beállítások**, és **skálázási egység #**. Meg kell adnia az összes értéket (kivéve bármely megjelölt **nem kötelező**) minden lapon előtt minden konfigurációs adatfájlok generálhat. Amikor az összes szükséges értékeket tartozik az eszközt, akkor használhatja a **művelet** menü **importálás**, **exportálása**, és **Generate**. A telepítéshez szükséges JSON-fájlok a következők:
+Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállítások (például az **Ügyfél beállításai**, a **hálózati beállítások**és a **skálázási egység**) összegyűjtéséhez. A konfigurációs adatfájlok előállítása előtt minden lapon meg kell adnia az összes olyan értéket (kivéve a jelölést, amely nem **kötelező**). Miután az összes szükséges értéket beírta az eszközre, a **művelet** menüben **importálhatja**, **exportálhatja**és **létrehozhatja**a következőt:. A telepítéshez szükséges JSON-fájlok a következők:
 
-**Importálás**: Lehetővé teszi az Azure Stack konfigurációs adatfájlt (ConfigurationData.json), amely ezt az eszközt, vagy bármely korábbi verzióját az üzembehelyezési munkalap által létrehozott hozta importálását. Az importálás elvégzése alaphelyzetbe állítja a képernyők és töröl bármely korábban megadott beállítást vagy adatokat generált.
+**Importálás**: lehetővé teszi egy olyan Azure stack hub konfigurációs adatfájl (ConfigurationData. JSON) importálását, amelyet az eszköz hozott létre, vagy amelyeket a telepítési munkalap korábbi kiadásával hoztak létre. Az importálási művelet alaphelyzetbe állítja az űrlapokat, és törli a korábban megadott beállításokat vagy generált adatok.
 
-**Exportálás**: Jelenleg az űrlapokon megadott adatokat érvényesíti, állít elő, az IP-alhálózatok és -hozzárendelések, és ezután menti a tartalmat JSON formátumú konfigurációs fájlok. Ezután használhatja ezeket a fájlokat a hálózati konfiguráció létrehozása és telepítése az Azure Stack.
+**Exportálás**: érvényesíti az űrlapokra aktuálisan beírt adatokat, létrehozza az IP-alhálózatokat és a hozzárendeléseket, majd a tartalmat JSON formátumú konfigurációs fájlokként menti. Ezután ezeket a fájlokat használhatja a hálózati konfiguráció létrehozásához és Azure Stack hub telepítéséhez.
 
-**Hozzon létre**: Érvényesíti a jelenleg megadott adatokat, és a központi telepítési JSON-fájlok exportálása nélkül állít elő, a hálózati térkép létrehozásához. Két új lapok jönnek létre, ha **Generate** sikeres: **Alhálózat összefoglalás** és **IP-Címek hozzárendelése**. Elemezheti az adatokat a hálózati feladatok meg a várt módon ezeken a lapokon.
+**Létrehozás**: ellenőrzi az aktuálisan megadott adatforrásokat, és a telepítési JSON-fájlok exportálása nélkül hozza létre a hálózati térképet. Két új lap jön létre, ha a **Létrehozás** sikeres: **alhálózati összefoglalás** és **IP-hozzárendelések**. A lapokon található adatok elemzésével ellenőrizheti, hogy a hálózati hozzárendelések a várt módon működnek-e.
 
-**Összes törlése**: Az űrlapokon megadott jelenleg az összes adat törlése, és visszaállítja az alapértelmezett értékeket.
+**Összes törlése**: törli az űrlapon aktuálisan beírt összes adathalmazt, és visszaadja azokat az alapértelmezett értékekre.
 
-**A munka folyamatban megnyitni vagy menteni**: Mentheti, és nyissa meg a részben megadott adat, dolgozunk rajta, használja a **File -> Mentés** és **File -> Open** menün kellene végiglépkednie. Ez eltér a **importálás** és **exportálása** módon működik-e, ilyen esetekben a megadott és érvényesített minden adat. Nyissa meg/mentése nem ellenőrzi, és nem igényel minden mező a folyamatban lévő munka mentéséhez megadni.
+**Mentse vagy nyissa meg a folyamatban lévő munkát**: a **Fájl-> Mentés** és a **Fájl-> nyitott** menük használatával mentheti és megnyithatja a részben megadott adatait. Ez eltér az **importálási** és **exportálási** függvényektől, mivel az összes adat bevitele és érvényesítése szükséges. A Megnyitás/Mentés nem ellenőrzi az érvényességet, és nincs szükség az összes mező beírására a munka folyamatban lévő mentéséhez.
 
-**Naplózás és a figyelmeztető üzeneteket**: Miközben az űrlap használatban van, nem kritikus fontosságú, a PowerShell-ablakban megjelenő figyelmeztető üzenetek jelenhet meg. Kritikus hibák, egy előugró üzenet jelennek meg. Nem kötelező részletes naplózás, beleértve a naplót kell írni lemezre, is engedélyezhető, amelyek segítik a problémák megoldásában.
+**Naplózási és figyelmeztető üzenetek**: amíg az űrlap használatban van, előfordulhat, hogy a PowerShell-ablakban nem kritikus fontosságú figyelmeztető üzenetek jelennek meg. A kritikus hibák előugró üzenetként jelennek meg. A részletes naplózás, beleértve a lemezre írt naplót is, engedélyezhető, hogy segítséget nyújtson a hibaelhárítási problémák megoldásához.
 
-A részletes naplózást az eszköz indításához:
+Az eszköz elindítása részletes naplózással:
 
    ```PowerShell
    Start-DeploymentWorksheet -EnableLogging
    ```
 
-Az aktuális felhasználó találhatja meg a mentett naplóbeli **Temp** directory; például: **C:\Users\me\AppData\Local\Temp\Microsoft_AzureStack\DeploymentWorksheet_Log.txt**.
+A mentett napló az aktuális felhasználó **temp** könyvtárában található; például: **c:\users\me\appdata\local\temp\ Microsoft_AzureStack \ DeploymentWorksheet_Log. txt**.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-* [Azure Stack üzemelő példányainak kapcsolati modelljei](azure-stack-connection-models.md)
+* [Azure Stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md)

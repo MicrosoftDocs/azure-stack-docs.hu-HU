@@ -1,6 +1,6 @@
 ---
-title: Frissítések figyelése Azure Stack a PowerShell használatával | Microsoft Docs
-description: Tudnivalók a Azure Stack frissítéseinek figyeléséről a PowerShell használatával
+title: Frissítések figyelése Azure Stack központban a PowerShell használatával | Microsoft Docs
+description: Útmutató a Azure Stack hub frissítéseinek figyeléséhez a PowerShell használatával
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a724320bd066e6d46e33e6bdc9c80687cfb97736
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 91d5d0e7c63be8a192113d26818380983c668aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540283"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813572"
 ---
-# <a name="monitor-updates-in-azure-stack-using-powershell"></a>Frissítések figyelése Azure Stack a PowerShell használatával
+# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Frissítések figyelése Azure Stack központban a PowerShell használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-A frissítések figyeléséhez és kezeléséhez használhatja a Azure Stack felügyeleti végpontokat. Elérhetők a PowerShell-lel. A Azure Stack PowerShell-lel való beállításával kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md).
+A frissítések figyeléséhez és kezeléséhez használhatja a Azure Stack hub felügyeleti végpontokat. Elérhetők a PowerShell-lel. Az Azure Stack hub PowerShell-lel való beállításával kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](azure-stack-powershell-install.md).
 
 A frissítések kezeléséhez a következő PowerShell-parancsmagot használhatja:
 
@@ -56,4 +56,4 @@ Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsof
 
 ## <a name="next-steps"></a>Következő lépések
 
--   [Frissítések kezelése Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+-   [Frissítések kezelése Azure Stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

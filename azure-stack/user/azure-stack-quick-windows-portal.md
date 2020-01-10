@@ -1,6 +1,6 @@
 ---
-title: Windows rendszerű virtuális gép létrehozása Azure Stack portálon | Microsoft Docs
-description: Megtudhatja, hogyan hozhat létre Windows Server 2016 rendszerű virtuális gépet (VM) a Azure Stack-portálon.
+title: Windows rendszerű virtuális gép létrehozása Azure Stack hub Portalon | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az Azure Stack hub Portal használatával.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,33 +11,33 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 95fef782ca7efe09f7c93fbf0e28e81ed34d8166
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: bd90937d310b07c0d16497a3e00917f05b6ff0d1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71823925"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815884"
 ---
-# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a Azure Stack portálon
+# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Megtudhatja, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) a Azure Stack portál használatával.
+Ismerje meg, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az Azure Stack hub portál használatával.
 
 > [!NOTE]  
-> A cikkben szereplő Képernyőképek a Azure Stack 1808-es verziójában bevezetett felhasználói felülettel egyeznek meg. 1808 támogatja a *felügyelt lemezek* használatát a nem felügyelt lemezeken kívül. Ha egy korábbi verziót használ, néhány rendszerkép (például a lemez kiválasztása) nem fog megjelenni a cikkben.  
+> A cikkben található képernyőképek úgy frissülnek, hogy megfeleljenek a Azure Stack hub 1808-es verziójában bevezetett felhasználói felületnek. 1808 támogatja a *felügyelt lemezek* használatát a nem felügyelt lemezeken kívül. Ha egy korábbi verziót használ, néhány rendszerkép (például a lemez kiválasztása) nem fog megjelenni a cikkben.  
 
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Bejelentkezés a Azure Stack portálra
+## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Jelentkezzen be az Azure Stack hub portálra
 
-Jelentkezzen be a Azure Stack portálra. A Azure Stack-portál címe attól függ, hogy Azure Stack melyik termékhez csatlakozik:
+Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe attól függ, hogy melyik Azure Stack hub-termékhez csatlakozik:
 
 * A Azure Stack Development Kit (ASDK) esetében válassza a következőt: https://portal.local.azurestack.external.
-* Azure Stack integrált rendszer esetén keresse meg a Azure Stack operátor által megadott URL-címet.
+* Azure Stack hub integrált rendszer esetén keresse meg azt az URL-címet, amelyet a Azure Stack hub-operátor biztosít.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Kattintson **az + erőforrás létrehozása** > **számítás** > **Windows Server 2016 Datacenter – utólagos használatú** > **Létrehozás**lehetőségre. <br> Ha nem látja a **Windows server 2016 Datacenter – utólagos használatú** bejegyzést, forduljon a Azure stack operátorhoz, és kérje meg, hogy vegye fel a piactérre a [Windows Server 2016 virtuálisgép-rendszerkép hozzáadása a Azure stack Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) -re című cikkben leírtak szerint.
+1. Kattintson **az + erőforrás létrehozása** > **számítás** > **Windows Server 2016 Datacenter – utólagos használatú** > **Létrehozás**lehetőségre. <br> Ha nem látja a **Windows server 2016 Datacenter – utólagos használatú** bejegyzést, forduljon a Azure stack hub-kezelőhöz, és kérje meg, hogy vegye fel a piactérre a [Windows Server 2016 virtuálisgép-rendszerkép hozzáadása a Azure stack hub Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) -re című cikkben leírtak szerint.
 
     ![Windows rendszerű virtuális gép létrehozásának lépései a portálon](media/azure-stack-quick-windows-portal/image01.png)
 
@@ -50,7 +50,7 @@ Jelentkezzen be a Azure Stack portálra. A Azure Stack-portál címe attól füg
     ![Virtuális gép méretének kiválasztása](media/azure-stack-quick-windows-portal/image03.png)
 
 4. A **Beállítások** lapon végezze el a kívánt módosításokat az alapértelmezett értékeken.
-   - A Azure Stack 1808-es verziótól kezdődően konfigurálhatja a **tárolót** , ahol a *felügyelt lemezek*használatát is kiválaszthatja. A 1808 előtti verziókban csak a nem felügyelt lemezek használhatók.  
+   - A Azure Stack hub 1808-es verziójától kezdve konfigurálhatja a **tárolót** , ahol a *felügyelt lemezek*használatát is választhatja. A 1808 előtti verziókban csak a nem felügyelt lemezek használhatók.  
 
    ![Virtuális gép beállításainak konfigurálása](media/azure-stack-quick-windows-portal/image04.png)  
 
@@ -67,6 +67,6 @@ Jelentkezzen be a Azure Stack portálra. A Azure Stack-portál címe attól füg
 
 Ha végzett a virtuális gép használatával, törölje a virtuális gépet és annak erőforrásait. Ehhez válassza ki az erőforráscsoportot a virtuális gép lapon, és kattintson a **Törlés**gombra.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa a [Azure stack virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).

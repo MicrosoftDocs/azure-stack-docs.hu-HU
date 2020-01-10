@@ -1,6 +1,6 @@
 ---
-title: Azure Stack integrálása figyelési megoldásokkal a syslog forwarding használatával | Microsoft Docs
-description: Ismerje meg, hogyan integrálhatja a Azure Stackt a figyelési megoldásokkal a syslog forwarding használatával.
+title: Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával | Microsoft Docs
+description: Ismerje meg, hogyan integrálhatja Azure Stack hubot a figyelési megoldásokkal a syslog forwarding használatával.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,27 +11,27 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: bb5ece23c0e484dbc2fec7881ce3ef2e29ed2d4a
-ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
+ms.openlocfilehash: 0462d2cac78109ad76cf8c2b8c58958fc32e5d07
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72381412"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817363"
 ---
-# <a name="integrate-azure-stack-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack integrálása figyelési megoldásokkal a syslog forwarding használatával
+# <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
-Ez a cikk bemutatja, hogyan integrálhatja az adatközpontban már üzembe helyezett külső biztonsági megoldásokkal Azure Stack infrastruktúrát a syslog használatával. Például egy biztonsági információ-kezelő (SIEM) rendszer. A syslog-csatorna a Azure Stack infrastruktúra összes összetevőjéből naplózza a naplókat, a riasztásokat és a biztonsági naplókat. A syslog forwarding használatával integrálhatja a biztonsági figyelő megoldásait, és lekérheti az összes naplózási, riasztási és biztonsági naplót, hogy tárolja azokat az adatmegőrzéshez.
+Ez a cikk bemutatja, hogyan integrálhatja az adatközpontban már üzembe helyezett külső biztonsági megoldásokkal Azure Stack hub-infrastruktúrát a syslog használatával. Például egy biztonsági információ-kezelő (SIEM) rendszer. A syslog-csatorna a Azure Stack hub-infrastruktúra összes összetevőjéből naplózza a naplókat, a riasztásokat és a biztonsági naplókat. A syslog forwarding használatával integrálhatja a biztonsági figyelő megoldásait, és lekérheti az összes naplózási, riasztási és biztonsági naplót, hogy tárolja azokat az adatmegőrzéshez.
 
-Az 1809-es frissítéstől kezdve a Azure Stack rendelkezik egy integrált syslog-ügyféllel, amely a konfigurálást követően a gyakori esemény formátumában (CEF) elbocsátja a syslog-üzeneteket.
+Az 1809-es frissítéstől kezdve a Azure Stack hub egy integrált syslog-ügyféllel rendelkezik, amely a konfigurálást követően a gyakori esemény formátumában (CEF) elbocsátja a syslog-üzeneteket.
 
-Az alábbi ábra a Azure Stack külső SIEM-sel való integrálását ismerteti. Kétféle integrációs mintát kell figyelembe venni: az első (a kék) az a Azure Stack infrastruktúra, amely magában foglalja az infrastruktúra-alapú virtuális gépeket és a Hyper-V-csomópontokat. Ezekből az összetevőkből származó összes naplózási, biztonsági naplós és riasztás központilag össze van gyűjtve, és a syslog használatával CEF hasznos adattartalommal. Ez az integrációs minta a jelen dokumentum oldalán olvasható.
+Az alábbi ábra az Azure Stack hub külső SIEM-sel való integrálását ismerteti. Kétféle integrációs mintát kell figyelembe venni: az első (a kék) az a Azure Stack hub-infrastruktúra, amely magában foglalja az infrastruktúra-alapú virtuális gépeket és a Hyper-V-csomópontokat. Ezekből az összetevőkből származó összes naplózási, biztonsági naplós és riasztás központilag össze van gyűjtve, és a syslog használatával CEF hasznos adattartalommal. Ez az integrációs minta a jelen dokumentum oldalán olvasható.
 A második integrációs minta a narancssárga ábrán látható, amely a alaplapi-felügyeleti vezérlőket (bmc), a hardveres életciklus-gazdagépet (HLH), a hardvereszközöket és a hardvereket futtató virtuális gépeket, valamint a hardverprofil-figyelési és-felügyeleti szoftvert futtató virtuális készülékeket és a rack (TOR) kapcsolók. Mivel ezek az összetevők a hardveres partnerekkel kapcsolatosak, vegye fel a kapcsolatot a hardver-partnerével, hogy miként integrálhatja őket egy külső SIEM-mel.
 
 ![Syslog-továbbítási diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
 
 ## <a name="configuring-syslog-forwarding"></a>Syslog-továbbítás konfigurálása
 
-A Azure Stack syslog-ügyfele a következő konfigurációkat támogatja:
+Az Azure Stack hub syslog-ügyfele a következő konfigurációkat támogatja:
 
 1. **Syslog over TCP, kölcsönös hitelesítéssel (ügyfél és kiszolgáló) és TLS 1,2 titkosítással:** Ebben a konfigurációban a syslog-kiszolgáló és a syslog-ügyfél is ellenőrizheti egymás identitását a tanúsítványokon keresztül. Az üzenetek küldése TLS 1,2 titkosított csatornán történik.
 
@@ -61,27 +61,27 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 A *set-SyslogServer* parancsmag paraméterei:
 
-| Paraméter | Leírás | Típus | Kötelező |
+| Paraméter | Leírás | Type (Típus) | Szükséges |
 |---------|---------|---------|---------|
 |*ServerName* | A syslog-kiszolgáló teljes tartományneve vagy IP-címe. | Sztring | igen|
 |*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | Sztring | igen|
-|*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | zászló | nem|
-|*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | zászló | nem|
-|*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | zászló | nem|
-|*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |zászló | nem|
-|*Remove*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| zászló | nem|
+|*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | flag | nem|
+|*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | flag | nem|
+|*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | flag | nem|
+|*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |flag | nem|
+|*Eltávolítás*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| flag | nem|
 
 A *set-SyslogClient* parancsmag paraméterei:
 
-| Paraméter | Leírás | Típus |
+| Paraméter | Leírás | Type (Típus) |
 |---------|---------| ---------|
-| *pfxBinary* | az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt tartalmazó pfx-fájl.  | Byte[] |
+| *pfxBinary* | az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt tartalmazó pfx-fájl.  | Bájt [] |
 | *CertPassword* |  A pfx-fájlhoz társított titkos kulcs importálására szolgáló jelszó. | SecureString |
-|*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | zászló|
+|*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | flag|
 | *OutputSeverity* | A kimeneti naplózás szintje. Az értékek **alapértelmezettek** vagy **részletesek**. Az alapértelmezett érték a súlyossági szinteket tartalmazza: figyelmeztetés, kritikus vagy hiba. A részletes beállítás minden súlyossági szintet tartalmaz: részletes, tájékoztató, figyelmeztetés, kritikus vagy hiba.  | Sztring |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>A syslog továbbításának konfigurálása a TCP, a kölcsönös hitelesítés és a TLS 1,2 titkosítás használatával
 
-Ebben a konfigurációban a syslog-ügyfél a Azure Stack továbbítja az üzeneteket a syslog-kiszolgálónak TCP protokollon keresztül, TLS 1,2 titkosítással. A kezdeti kézfogás során az ügyfél ellenőrzi, hogy a kiszolgáló érvényes és megbízható tanúsítványt biztosít-e. Az ügyfél emellett tanúsítványt is biztosít a kiszolgálónak az identitásának igazolásához. Ez a legbiztonságosabb beállítás, mivel az ügyfél és a kiszolgáló identitásának teljes érvényesítését biztosítja, és titkosított csatornán keresztül küld üzeneteket.
+Ebben a konfigurációban az Azure Stack hub syslog-ügyfele továbbítja az üzeneteket a syslog-kiszolgálónak TCP protokollon keresztül, TLS 1,2 titkosítással. A kezdeti kézfogás során az ügyfél ellenőrzi, hogy a kiszolgáló érvényes és megbízható tanúsítványt biztosít-e. Az ügyfél emellett tanúsítványt is biztosít a kiszolgálónak az identitásának igazolásához. Ez a legbiztonságosabb beállítás, mivel az ügyfél és a kiszolgáló identitásának teljes érvényesítését biztosítja, és titkosított csatornán keresztül küld üzeneteket.
 
 > [!IMPORTANT]
 > A Microsoft határozottan javasolja ennek a konfigurációnak az éles környezetekben való használatát. 
@@ -96,7 +96,7 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
 ```
 
-Az ügyféltanúsítványt ugyanazzal a gyökérrel kell rendelkeznie, mint a Azure Stack üzembe helyezése során. Emellett titkos kulcsot is tartalmaznia kell.
+Az ügyféltanúsítvány-nek ugyanazzal a gyökérrel kell rendelkeznie, mint az Azure Stack hub üzembe helyezése során. Emellett titkos kulcsot is tartalmaznia kell.
 
 ```powershell
 ##Example on how to set your syslog client with the certificate for mutual authentication.
@@ -131,14 +131,14 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>A syslog továbbításának konfigurálása a TCP, a kiszolgálói hitelesítés és a TLS 1,2 titkosítás használatával
 
-Ebben a konfigurációban a syslog-ügyfél a Azure Stack továbbítja az üzeneteket a syslog-kiszolgálónak TCP protokollon keresztül, TLS 1,2 titkosítással. A kezdeti kézfogás során az ügyfél azt is ellenőrzi, hogy a kiszolgáló érvényes és megbízható tanúsítványt biztosít-e. Ez a konfiguráció megakadályozza, hogy az ügyfél üzeneteket küldjön nem megbízható célhelyekre.
+Ebben a konfigurációban az Azure Stack hub syslog-ügyfele továbbítja az üzeneteket a syslog-kiszolgálónak TCP protokollon keresztül, TLS 1,2 titkosítással. A kezdeti kézfogás során az ügyfél azt is ellenőrzi, hogy a kiszolgáló érvényes és megbízható tanúsítványt biztosít-e. Ez a konfiguráció megakadályozza, hogy az ügyfél üzeneteket küldjön nem megbízható célhelyekre.
 A hitelesítést és titkosítást használó TCP az alapértelmezett konfiguráció, amely a Microsoft által az éles környezethez javasolt minimális biztonsági szintet jelöli.
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
 ```
 
-Ha egy önaláírt vagy nem megbízható tanúsítvánnyal szeretné tesztelni a syslog-kiszolgáló integrációját a Azure Stack-ügyféllel, a jelzők használatával kihagyhatja az ügyfél által a kezdeti kézfogás során elvégzett érvényesítést.
+Ha egy önaláírt vagy nem megbízható tanúsítvánnyal szeretné tesztelni a syslog-kiszolgáló integrációját az Azure Stack hub-ügyféllel, a jelzők használatával kihagyhatja az ügyfél által a kezdeti kézfogás során elvégzett érvényesítést.
 
 ```powershell
  #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
@@ -155,7 +155,7 @@ Ha egy önaláírt vagy nem megbízható tanúsítvánnyal szeretné tesztelni a
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>A syslog-továbbítás konfigurálása TCP-vel és titkosítás nélkül
 
-Ebben a konfigurációban a syslog-ügyfél a Azure Stack továbbítja az üzeneteket a syslog-kiszolgálónak TCP protokollon keresztül, titkosítás nélkül. Az ügyfél nem ellenőrzi a kiszolgáló identitását, és nem biztosítja a saját identitását a kiszolgálónak ellenőrzés céljából.
+Ebben a konfigurációban az Azure Stack hub syslog-ügyfele továbbítja az üzeneteket a syslog-kiszolgálónak TCP protokollon keresztül, titkosítás nélkül. Az ügyfél nem ellenőrzi a kiszolgáló identitását, és nem biztosítja a saját identitását a kiszolgálónak ellenőrzés céljából.
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
@@ -167,7 +167,7 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 
 ### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>A syslog továbbításának konfigurálása UDP protokollal és titkosítás nélkül
 
-Ebben a konfigurációban a Azure Stack syslog-ügyfele UDP-n keresztül továbbítja az üzeneteket a syslog-kiszolgálónak, titkosítás nélkül. Az ügyfél nem ellenőrzi a kiszolgáló identitását, és nem biztosítja a saját identitását a kiszolgálónak ellenőrzés céljából.
+Ebben a konfigurációban az Azure Stack hub syslog-ügyfele továbbítja az üzeneteket a syslog-kiszolgálónak UDP-n keresztül, titkosítás nélkül. Az ügyfél nem ellenőrzi a kiszolgáló identitását, és nem biztosítja a saját identitását a kiszolgálónak ellenőrzés céljából.
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
@@ -213,7 +213,7 @@ Get-SyslogClient
 
 ## <a name="syslog-message-schema"></a>Syslog-üzenet sémája
 
-A Azure Stack infrastruktúra syslog-továbbítása a Common Event Format (CEF) formátumban formázott üzeneteket küld.
+Az Azure Stack hub-infrastruktúra syslog-továbbítása a Common Event Format (CEF) formátumban formázott üzeneteket küld.
 Minden syslog-üzenet strukturálva van a séma alapján:
 
 ```Syslog
@@ -227,7 +227,7 @@ Az CEF hasznos adatok az alábbi struktúrán alapulnak, de az egyes mezők lek�
 CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|<Name>|<Severity>|<Extensions>
 * Version: 0.0
 * Device Vendor: Microsoft
-* Device Product: Microsoft Azure Stack
+* Device Product: Microsoft Azure Stack Hub
 * Device Version: 1.0
 ```
 
@@ -242,7 +242,7 @@ Prefix fields
 
 Az emelt szintű végpont eseményeinek táblázata:
 
-| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Severity |
+| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Súlyosság |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
@@ -259,14 +259,14 @@ Az emelt szintű végpont eseményeinek táblázata:
 
 A PEP súlyossági táblázata:
 
-| Severity | Szint | Numerikus érték |
+| Súlyosság | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
+|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
 |2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
-|0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
+|0|Részletezés|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>CEF-megfeleltetés a helyreállítási végpont eseményeihez
 
@@ -279,7 +279,7 @@ Prefix fields
 
 A helyreállítási végpont eseményeinek táblázata:
 
-| Esemény | REP-esemény azonosítója | REP-feladat neve | Severity |
+| Esemény | REP-esemény azonosítója | REP-feladat neve | Súlyosság |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -290,14 +290,14 @@ A helyreállítási végpont eseményeinek táblázata:
 
 REP súlyossági táblázat:
 
-| Severity | Szint | Numerikus érték |
+| Súlyosság | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
+|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
 |2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
-|0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
+|0|Részletezés|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows-események CEF-leképezése
 
@@ -312,14 +312,14 @@ Windows-események súlyossági táblázata:
 
 | CEF súlyossági értéke | Windows-esemény szintje | Numerikus érték |
 |--------------------|---------------------| ----------------|
-|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
+|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
 |2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
-|0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
+|0|Részletezés|Érték: 5. A naplókat minden szinten jelzi|
 
-Egyéni bővítmények táblázata a Windows-eseményekhez a Azure Stackban:
+Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 
 | Egyéni bővítmény neve | Windows-esemény – példa | 
 |-----------------------|---------|
@@ -337,10 +337,10 @@ Egyéni bővítmények táblázata a Windows-eseményekhez a Azure Stackban:
 |MasKeywordName |Sikeres naplózás|
 |MasLevel |4|
 |MasOpcode |1|
-|MasOpcodeName |info|
+|MasOpcodeName |információ|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-GroupPolicy|
+|MasProviderName |Microsoft-Windows-csoportházirend|
 |MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Folyamat létrehozása|
@@ -350,7 +350,7 @@ Egyéni bővítmények táblázata a Windows-eseményekhez a Azure Stackban:
 ### <a name="cef-mapping-for-alerts-created"></a>CEF-megfeleltetés a létrehozott riasztásokhoz
 
 ```
-* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
+* Signature ID: Microsoft Azure Stack Hub Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
 * Severity: Alert Severity (for details, see alerts severity table below)
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
@@ -358,31 +358,31 @@ Egyéni bővítmények táblázata a Windows-eseményekhez a Azure Stackban:
 
 Riasztások súlyossági táblázata:
 
-| Severity | Szint |
+| Súlyosság | Szint |
 |----------|-------|
-|0|Meghatározatlan|
+|0|Nem definiált|
 |10|Kritikus|
 |5|Figyelmeztetés|
 
-Egyéni bővítmények táblázata a Azure Stackban létrehozott riasztásokhoz:
+Egyéni bővítmények táblázata Azure Stack központban létrehozott riasztásokhoz:
 
 | Egyéni bővítmény neve | Példa | 
 |-----------------------|---------|
-|MasEventDescription|Leírás: \<tesztfelhasználó\> felhasználói fiók lett létrehozva \<TestDomain\>. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján.
+|MasEventDescription|Leírás: \<tesztfelhasználó\> felhasználói fiók lett létrehozva \<TestDomain\>. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfiles útmutatása alapján.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF lezárt riasztások leképezése
 
 ```
-* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
+* Signature ID: Microsoft Azure Stack Hub Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
 * Severity: Information
 ```
 
 Az alábbi példa egy CEF adattartalommal rendelkező syslog-üzenetet mutat be:
 ```
-2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
+2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack Hub|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Karbantartási szabályzat](azure-stack-servicing-policy.md)

@@ -1,6 +1,6 @@
 ---
-title: Bérlők regisztrálása a használat nyomon követéséhez Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan regisztrálhat bérlőket, és hogyan követheti nyomon a bérlők használatát Azure Stackban.
+title: Bérlők regisztrálása a használat nyomon követéséhez Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan regisztrálhat bérlőket, és hogyan követheti nyomon a bérlők használatát Azure Stack központban.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
-ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
+ms.openlocfilehash: 26d0940814ec8b5d9527567154cd0dc6d83894b4
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72350180"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817924"
 ---
-# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack
+# <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk a regisztrációs műveletekkel kapcsolatos részleteket tartalmazza. A következő műveletekkel végezheti el a műveleteket:
 
@@ -41,25 +41,25 @@ Egyetlen Azure-előfizetést is hozzárendelhet egy bérlőhöz. Ha egy második
 
 ### <a name="use-api-profiles"></a>API-profilok használata
 
-A következő regisztrációs parancsmagokhoz meg kell adnia egy API-profilt a PowerShell futtatásakor. Az API-profilok Azure-erőforrás-szolgáltatókat és API-verziókat jelölnek. Segítségükkel az API megfelelő verzióját használhatja, ha több Azure-felhővel is működik. Ha például több felhővel dolgozik, amikor a globális Azure-t és Azure Stack-t dolgozik, az API-profilok olyan nevet határoznak meg, amely megfelel a kiadási dátumnak. Az **2017-09-03** profilt használja.
+A következő regisztrációs parancsmagokhoz meg kell adnia egy API-profilt a PowerShell futtatásakor. Az API-profilok Azure-erőforrás-szolgáltatókat és API-verziókat jelölnek. Segítségükkel az API megfelelő verzióját használhatja, ha több Azure-felhővel is működik. Ha például több felhővel dolgozik, amikor a globális Azure-t és Azure Stack hubot dolgozik, az API-profilok olyan nevet határoznak meg, amely megfelel a kiadási dátumnak. Az **2017-09-03** profilt használja.
 
-A Azure Stack-és API-profilokkal kapcsolatos további információkért lásd: [az API-verziók profiljainak kezelése a Azure stack](../user/azure-stack-version-profiles.md).
+Az Azure Stack hub-és API-profilokkal kapcsolatos további információkért lásd: [az API-verziók profiljainak kezelése Azure stack központban](../user/azure-stack-version-profiles.md).
 
 ### <a name="parameters"></a>Paraméterek
 
 | Paraméter                  | Leírás |
 |---                         | --- |
 | registrationSubscriptionID | A kezdeti regisztrációhoz használt Azure-előfizetés. |
-| customerSubscriptionID     | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack). A partner centeren keresztül kell létrehozni a Cloud Solution Provider (CSP) ajánlatban. Ha egy ügyfél több Bérlővel rendelkezik, hozzon létre egy előfizetést a bérlőnek Azure Stackba való bejelentkezéshez. |
+| customerSubscriptionID     | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). A partner centeren keresztül kell létrehozni a Cloud Solution Provider (CSP) ajánlatban. Ha egy ügyfél több Bérlővel rendelkezik, hozzon létre egy előfizetést a bérlőnek Azure Stack hubhoz való bejelentkezéshez. |
 | resourceGroup              | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
-| registrationName           | A Azure Stack regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. A név általában a **azurestack-CloudID**formában van, ahol a **CloudID** a Azure stack üzemelő példányának felhő-azonosítója. |
+| registrationName           | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. A név általában a **azurestack-CloudID**formában van, ahol a **CloudID** az Azure stack hub üzemelő példányának felhő-azonosítója. |
 
 > [!NOTE]  
-> A bérlőket regisztrálni kell az általuk használt összes Azure Stack-telepítéssel. Ha egy bérlő egynél több Azure Stack használ, frissítse az egyes központi telepítések kezdeti regisztrációját a bérlői előfizetéssel.
+> A bérlőknek regisztrálniuk kell az összes általuk használt Azure Stack hub-telepítéssel. Ha egy bérlő egynél több Azure Stack hubot használ, frissítse az egyes központi telepítések kezdeti regisztrációját a bérlői előfizetéssel.
 
 ### <a name="powershell"></a>PowerShell
 
-Bérlő hozzáadásához használja a **New-AzureRmResource** parancsmagot. [Kapcsolódjon Azure Stackhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból használja a következő parancsmagot:
+Bérlő hozzáadásához használja a **New-AzureRmResource** parancsmagot. [Kapcsolódjon Azure stack hubhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból használja a következő parancsmagot:
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -85,11 +85,11 @@ A regisztrációhoz hozzáadott összes bérlő listájának beolvasása.
 |---                         | ---                  |
 | registrationSubscriptionId | A kezdeti regisztrációhoz használt Azure-előfizetés.   |
 | resourceGroup              | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja.    |
-| registrationName           | A Azure Stack-telepítés regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. A név általában **azurestack-CloudID**, ahol a **CloudID** a Azure stack üzemelő példányának felhő-azonosítója.   |
+| registrationName           | Az Azure Stack hub-telepítés regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. A név általában **azurestack-CloudID**formában van, ahol a **CloudID** az Azure stack hub üzemelő példányának felhő-azonosítója.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Használja a **Get-AzureRmResource** parancsmagot az összes regisztrált bérlő listázásához. [Kapcsolódjon Azure Stackhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból futtassa a következő parancsmagot:
+Használja a **Get-AzureRmResource** parancsmagot az összes regisztrált bérlő listázásához. [Kapcsolódjon Azure stack hubhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból futtassa a következő parancsmagot:
 
 ```powershell
 Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -125,7 +125,7 @@ A lekérési művelettel lekérheti az összes bérlői hozzárendelés listáj�
 
 ## <a name="remove-a-tenant-mapping"></a>Bérlői leképezés eltávolítása
 
-Törölheti a regisztrációhoz hozzáadott bérlőket. Ha a bérlő továbbra is használja a Azure Stack erőforrásait, a használatuk a kezdeti Azure Stack regisztráció során használt előfizetésre lesz felszámítva.
+Törölheti a regisztrációhoz hozzáadott bérlőket. Ha a bérlő továbbra is az Azure Stack hub erőforrásait használja, a használatuk a kezdeti Azure Stack hub-regisztráció során használt előfizetésre lesz terhelve.
 
 ### <a name="parameters"></a>Paraméterek
 
@@ -134,11 +134,11 @@ Törölheti a regisztrációhoz hozzáadott bérlőket. Ha a bérlő továbbra i
 | registrationSubscriptionId | A regisztrációhoz tartozó előfizetés-azonosító.   |
 | resourceGroup              | A regisztrációhoz használt erőforráscsoport.   |
 | registrationName           | A regisztráció neve.  |
-| customerSubscriptionId     | Az ügyfél-előfizetés azonosítója.  |
+| CustomerSubscriptionId     | Az ügyfél-előfizetés azonosítója.  |
 
 ### <a name="powershell"></a>PowerShell
 
-Bérlő eltávolításához használja a **Remove-AzureRmResource** parancsmagot. [Kapcsolódjon Azure Stackhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból futtassa a következő parancsmagot:
+Bérlő eltávolításához használja a **Remove-AzureRmResource** parancsmagot. [Kapcsolódjon Azure stack hubhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból futtassa a következő parancsmagot:
 
 ```powershell
 Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -155,4 +155,4 @@ A TÖRLÉSi művelettel eltávolíthatja a bérlői leképezéseket.
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Erőforrás-használati adatok beolvasása a Azure Stackból](azure-stack-billing-and-chargeback.md)
+- [Erőforrás-használati adatok lekérése Azure Stack hub-ból](azure-stack-billing-and-chargeback.md)

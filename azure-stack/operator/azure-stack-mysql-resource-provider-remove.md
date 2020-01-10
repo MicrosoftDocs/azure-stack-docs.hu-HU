@@ -1,6 +1,6 @@
 ---
-title: A MySQL erőforrás-szolgáltató eltávolítása a Azure Stack-ben | Microsoft Docs
-description: Ismerje meg, hogyan távolíthatja el a MySQL erőforrás-szolgáltatót a Azure Stack üzemelő példányáról.
+title: A MySQL erőforrás-szolgáltató eltávolítása Azure Stack hub-ban | Microsoft Docs
+description: Ismerje meg, hogyan távolíthatja el a MySQL erőforrás-szolgáltatót az Azure Stack hub üzembe helyezéséről.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a2b55707bc05aecf8681cb866c58b0ed34fb87cd
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: c1551badd87ba55432ff416aae1230abf317e1b3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811039"
 ---
-# <a name="remove-the-mysql-resource-provider-in-azure-stack"></a>A MySQL erőforrás-szolgáltató eltávolítása Azure Stack
+# <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató eltávolítása Azure Stack központban
 
 A MySQL erőforrás-szolgáltató eltávolítása előtt el kell távolítania az összes szolgáltatói függőséget. Szüksége lesz az erőforrás-szolgáltató telepítéséhez használt központi telepítési csomag másolatára is.
 
@@ -35,7 +35,7 @@ A MySQL erőforrás-szolgáltató eltávolítása nem törli a bérlői adatbáz
 
 A DeployMySqlProvider. ps1 parancsfájl futtatása előtt több karbantartási feladatot is el kell végezni az erőforrás-szolgáltató eltávolításához.
 
-A Azure Stack operátor felelős a következő karbantartási feladatokért:
+A Azure Stack hub operátor felelős a következő karbantartási feladatokért:
 
 * Törölje a MySQL-adapterre hivatkozó terveket.
 * Törölje a MySQL-adapterhez társított kvótákat.
@@ -52,10 +52,10 @@ A Azure Stack operátor felelős a következő karbantartási feladatokért:
 4. Futtassa a DeployMySqlProvider. ps1 parancsfájlt a következő paraméterek használatával:
     - **Eltávolítás**: eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást.
     - **PrivilegedEndpoint**: a privilegizált végpont IP-címe vagy DNS-neve.
-    - **AzureEnvironment**: a Azure stack üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
+    - **AzureEnvironment**: Azure stack hub üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
     - **CloudAdminCredential**: a rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához.
     - **DirectoryTenantID**
-    - **AzCredential**: a Azure stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt.
+    - **AzCredential**: az Azure stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt.
 
 ## <a name="next-steps"></a>Következő lépések
 

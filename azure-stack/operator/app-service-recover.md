@@ -1,6 +1,6 @@
 ---
-title: App Service helyreállítás a Azure Stackon | Microsoft Docs
-description: További információ a Azure Stack App Service vész-helyreállításáról.
+title: App Service helyreállítás Azure Stack hub-on | Microsoft Docs
+description: További információ a Azure Stack hub App Serviceának vész-helyreállításáról.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,25 +16,25 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: b6c4ffabbcd9ead11103552a0a037c4783305f71
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579023"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809772"
 ---
-# <a name="app-service-recovery-on-azure-stack"></a>App Service helyreállítás Azure Stack
+# <a name="app-service-recovery-on-azure-stack-hub"></a>App Service helyreállítás Azure Stack hub-on
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
 Ez a témakör útmutatást nyújt a App Service vész-helyreállítással kapcsolatos műveletek elvégzéséhez.
 
-A következő műveleteket kell végrehajtani a biztonsági másolatból Azure Stack App Service helyreállításához:
+A következő műveleteket kell végrehajtani a Azure Stack hub biztonsági másolatból történő App Service helyreállításához:
 1. Állítsa vissza a App Service-adatbázisokat.
 2. A fájlkiszolgáló megosztási tartalmának visszaállítása.
 3. App Service szerepkörök és szolgáltatások visszaállítása.
 
-Ha Azure Stack tárterületet a Function apps-tárolóhoz, akkor a Function Apps szolgáltatás visszaállításához szükséges lépéseket is el kell végeznie.
+Ha Azure Stack hub Storage-t használtak a Function apps Storage szolgáltatáshoz, akkor a Function apps visszaállításának lépéseit is végre kell hajtania.
 
 ## <a name="restore-the-app-service-databases"></a>A App Service adatbázisok visszaállítása
 A App Service SQL Server-adatbázisokat egy éles használatra kész SQL Server példányon kell visszaállítani. 
@@ -71,7 +71,7 @@ A App Service-adatbázisok és a fájlmegosztás tartalmának visszaállítása 
 1. Jelentkezzen be a App Service Controller **CN0-VM** virtuális gépre **roleadmin** -ként a app Service telepítésekor megadott jelszó használatával. 
     > [!TIP]
     > Az RDP-kapcsolatok engedélyezéséhez módosítania kell a virtuális gép hálózati biztonsági csoportját. 
-2. Másolja a **SystemSecrets. JSON** fájlt helyileg a vezérlő virtuális gépre. A következő lépésben meg kell adnia a fájl `$pathToExportedSecretFile` elérési útját paraméterként.
+2. Másolja a **SystemSecrets. JSON** fájlt helyileg a vezérlő virtuális gépre. A következő lépésben meg kell adnia a fájl elérési útját `$pathToExportedSecretFile` paraméterként.
 3. A következő parancsok futtatásával emelt szintű PowerShell-konzol ablakban állíthatja vissza App Service szerepköröket és szolgáltatásokat:
 
     ```powershell
@@ -105,15 +105,15 @@ A App Service-adatbázisok és a fájlmegosztás tartalmának visszaállítása 
 > A parancs befejezésekor erősen ajánlott a PowerShell-munkamenet lezárása.
 
 ## <a name="restore-function-apps"></a>Function-alkalmazások visszaállítása 
-A Azure Stack App Service nem támogatja a bérlői felhasználói alkalmazások vagy a fájlmegosztás tartalmától eltérő adatokat visszaállítását. Az összes többi biztonsági mentést és helyreállítást App Service biztonsági mentési és visszaállítási műveleteken kívül kell végrehajtani. Ha Azure Stack tárolót használtak a Function apps-tárolóhoz, a következő lépéseket kell végrehajtani az elveszett adatok helyreállításához:
+Az Azure Stack hub App Service nem támogatja a bérlői felhasználói alkalmazások vagy a fájlmegosztás tartalmán kívüli más adatokat visszaállítását. Az összes többi biztonsági mentést és helyreállítást App Service biztonsági mentési és visszaállítási műveleteken kívül kell végrehajtani. Ha Azure Stack hub Storage-t használtak a Function apps-tárolóhoz, a következő lépéseket kell végrehajtani az elveszett adatok helyreállításához:
 
-1. Hozzon létre egy új, a függvényalkalmazás által használandó Storage-fiókot. Ez a tároló lehet Azure Stack tároló, Azure Storage vagy bármilyen kompatibilis tároló.
+1. Hozzon létre egy új, a függvényalkalmazás által használandó Storage-fiókot. Ez a tároló lehet Azure Stack hub Storage, Azure Storage vagy bármilyen kompatibilis tároló.
 2. A tárolóhoz tartozó kapcsolatok karakterláncának beolvasása.
 3. Nyissa meg a Function Portalt, és keresse meg a Function alkalmazást.
 4. Keresse meg a **platform szolgáltatásai** lapot, és kattintson az **Alkalmazásbeállítások**elemre.
 5. Módosítsa a **AzureWebJobsDashboard** és a **AzureWebJobsStorage** az új kapcsolódási karakterláncra, majd kattintson a **Mentés**gombra.
-6. Váltson átaz áttekintésre.
+6. Váltson át az **áttekintésre**.
 7. Indítsa újra az alkalmazást. Több próbálkozást is igénybe vehet az összes hiba törléséhez.
 
-## <a name="next-steps"></a>További lépések
-[Az Azure Stack App Service áttekintése](azure-stack-app-service-overview.md)
+## <a name="next-steps"></a>Következő lépések
+[Az Azure Stack hub App Service áttekintése](azure-stack-app-service-overview.md)

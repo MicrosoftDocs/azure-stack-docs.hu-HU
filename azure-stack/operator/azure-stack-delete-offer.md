@@ -1,6 +1,6 @@
 ---
 title: Kvóták, csomagok, ajánlatok és előfizetések törlése | Microsoft Docs
-description: További információ a Azure Stack kvóták, csomagok, ajánlatok és előfizetések törléséről.
+description: Útmutató Azure Stack hub-kvóták,-csomagok,-ajánlatok és-előfizetések törléséhez.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,16 +15,16 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c957997308c5b2aa0fb4e2cfb97f79860c04da82
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319128"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811736"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Kvóták, csomagok, ajánlatok és előfizetések törlése
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk a már nem szükséges kvóták, csomagok, ajánlatok és előfizetések törlését ismerteti. Általános alapelv, hogy csak a nem használt elemek törölhetők. Az ajánlat törlése például csak akkor lehetséges, ha nincsenek az ajánlathoz tartozó előfizetések.
 
@@ -76,7 +76,7 @@ Emellett a REST API-kkal is törölhet néhány kvótát:
 > [!NOTE]
 > A kvóta nem törölhető, ha vannak olyan aktuális csomagok, amelyek használják azt. Először törölnie kell a kvótára hivatkozó csomagot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Előfizetések létrehozása](azure-stack-subscribe-plan-provision-vm.md)
 - [Virtuális gép kiépítése](../user/azure-stack-create-vm-template.md)

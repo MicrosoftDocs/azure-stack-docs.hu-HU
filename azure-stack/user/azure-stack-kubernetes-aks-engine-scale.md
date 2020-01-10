@@ -1,6 +1,6 @@
 ---
-title: Kubernetes-fürt méretezése Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan méretezheti Azure Stack Kubernetes-fürtöt.
+title: Kubernetes-fürt méretezése Azure Stack hub-on | Microsoft Docs
+description: Megtudhatja, hogyan méretezheti a Kubernetes-fürtöt Azure Stack hub-on.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 078cacad88a0a7d055baef799c5785d5a06ce922
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 79eebcd464504a34ceaa25e0f54c15c7c22d271d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310100"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820151"
 ---
-# <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt méretezése Azure Stack
+# <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt méretezése Azure Stack hub-on
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A fürt az AK-motorral méretezhető a **Scale** parancs használatával. A **skálázási** parancs egy új Azure Resource Manager-telepítésre vonatkozó bemenetként újrahasznosítja a fürt konfigurációs fájlját (`apimodel.json`) a kimeneti könyvtáron belül. A motor végrehajtja a skálázási műveletet a megadott ügynök-készleten. A skálázási művelet elvégzése után a motor frissíti a fürt definícióját az adott `apimodel.json` fájlban az új csomópontok számának megjelenítéséhez, hogy tükrözze a frissített, aktuális fürtkonfiguráció.
 
@@ -38,8 +38,8 @@ A Scale parancs a következő paramétereket használja a fürt definíciós fá
 
 | Paraméter | Példa | Leírás |
 | --- | --- | --- | 
-| Azure – env | AzureStackCloud | Azure Stack használatakor a környezeti neveket `AzureStackCloud`értékre kell állítani. | 
-| location | helyi | Ez az Azure Stack-példány régiója. ASDK esetében a régió `local`értékre van állítva.  | 
+| Azure – env | AzureStackCloud | Azure Stack hub használatakor a környezeti neveket `AzureStackCloud`értékre kell állítani. | 
+| location | helyi | Ez az Azure Stack hub-példány régiója. ASDK esetében a régió `local`értékre van állítva.  | 
 | resource-group | Kube – RG | A fürtöt tartalmazó erőforráscsoport neve. | 
 | előfizetés-azonosító |  | Annak az előfizetésnek a GUID azonosítója, amely a fürt által használt erőforrásokat tartalmazza. Győződjön meg arról, hogy az előfizetéshez elegendő kvóta tartozik a skálázáshoz. | 
 | ügyfél-azonosító |  | A fürtnek az AK-motorból való létrehozásához használt szolgáltatásnév ügyfél-azonosítója. | 
@@ -47,9 +47,9 @@ A Scale parancs a következő paramétereket használja a fürt definíciós fá
 | API – modell | Kube-RG/apimodel. JSON | A fürt definíciós fájljának elérési útja (apimodel. JSON). Ez a következő lehet: _output/\<dnsPrefix >/apimodel.JSON | 
 | -új csomópontok száma | 9 | A csomópontok kívánt száma. | 
 | -Master-FQDN |  | Fő FQDN. Leskálázáskor szükséges. |
-| identitás-rendszerek | ADFS | Nem kötelező. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
+| identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
 
-A **--Azure-env** paramétert meg kell adnia a fürt Azure stack-ban való skálázásakor. A paraméterekkel és azok értékeivel kapcsolatos további információkért lásd : [Scale-parameters (méretezési paraméterek](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)).
+A **--Azure-env** paramétert kell megadnia a fürt Azure stack hub-ban való skálázásakor. A paraméterekkel és azok értékeivel kapcsolatos további információkért lásd : [Scale-parameters (méretezési paraméterek](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)).
 
 ### <a name="command-to-scale-your-cluster"></a>A fürt skálázására szolgáló parancs
 
@@ -69,7 +69,7 @@ aks-engine scale \
     --identity-system adfs # required if using AD FS
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
-- [Kubernetes-fürt frissítése az Azure Stackben](azure-stack-kubernetes-aks-engine-upgrade.md)
+- További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)
+- [Kubernetes-fürt frissítése Azure Stack hub-on](azure-stack-kubernetes-aks-engine-upgrade.md)

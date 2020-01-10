@@ -1,6 +1,6 @@
 ---
-title: Egyéni virtuálisgép-rendszerkép hozzáadása a Azure Stackhoz | Microsoft Docs
-description: Megtudhatja, hogyan adhat hozzá vagy távolíthat el egy egyéni virtuálisgép-rendszerképet a Azure Stackhoz.
+title: Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz | Microsoft Docs
+description: Ismerje meg, hogyan adhat hozzá vagy távolíthat el egy egyéni virtuálisgép-rendszerképet Azure Stack hubhoz.
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,18 +15,18 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 44bb9701e27bc98abbc1a353c8ada9fafddf0bbe
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 78137349b6bee964f86e6c77ce2f0dd346ab0f40
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654815"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812365"
 ---
-# <a name="add-a-custom-vm-image-to-azure-stack"></a>Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack
+# <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack a virtuális gép (VM) rendszerképét felveheti a piactérre, és elérhetővé teheti a felhasználók számára. A Azure Stack hub Marketplace-hez a felügyeleti portálon vagy a Windows PowerShellen keresztül adhat hozzá virtuálisgép-lemezképeket. A globális Azure Marketplace-ről származó rendszerképeket használhatja az egyéni rendszerkép alapjaként, vagy saját maga hozhat létre a Hyper-V használatával.
+Azure Stack hub-ban hozzáadhat egyéni virtuálisgép-rendszerképet a piactérhez, és elérhetővé teheti azt a felhasználók számára. A Azure Stack hub Marketplace-hez a felügyeleti portálon vagy a Windows PowerShellen keresztül adhat hozzá virtuálisgép-lemezképeket. A globális Azure Marketplace-ről származó rendszerképeket használhatja az egyéni rendszerkép alapjaként, vagy saját maga hozhat létre a Hyper-V használatával.
 
 ## <a name="step-1-create-the-custom-vm-image"></a>1\. lépés: az egyéni virtuálisgép-rendszerkép létrehozása
 
@@ -34,7 +34,7 @@ Azure Stack a virtuális gép (VM) rendszerképét felveheti a piactérre, és e
 
 Hozzon létre egy egyéni általánosított virtuális merevlemezt. Ha a VHD-t az Azure-on kívülről futtatja, kövesse az [általánosított virtuális merevlemez feltöltése](/azure/virtual-machines/windows/upload-generalized-managed) című témakör lépéseit, és használja az új virtuális gépek létrehozásához az Azure-ban, hogy a virtuális merevlemezt **helyesen** hozza létre, és általánosítsa.
 
-Ha a VHD-fájl az Azure-ból származik, kövesse a [jelen dokumentum](/azure/virtual-machines/windows/download-vhd) utasításait a virtuális merevlemez megfelelő általánosítása és letöltése előtt a Azure Stackához való csatlakozás előtt.
+Ha a virtuális merevlemez az Azure-ból származik, kövesse a [jelen dokumentum](/azure/virtual-machines/windows/download-vhd) utasításait a virtuális merevlemez megfelelő általánosítása és a Azure stack hub-ra való portolása előtt.
 
 ### <a name="linux"></a>Linux
 
@@ -56,7 +56,7 @@ Ha a VHD az Azure-ból származik, kövesse az alábbi utasításokat a virtuál
    logout
    ```
 
-   Tartsa szem előtt az Azure Linux-ügynök azon verzióit, amelyek az [itt leírt módon](azure-stack-linux.md#azure-linux-agent)működnek Azure stack. Győződjön meg arról, hogy a Sysprep használatával létrehozott-rendszerkép rendelkezik az Azure Linux-ügynök olyan verziójával, amely kompatibilis a Azure Stackával.
+   Tartsa szem előtt az Azure Linux-ügynök azon verzióit, amelyek a Azure Stack hub-ban is működnek az [itt dokumentált módon](azure-stack-linux.md#azure-linux-agent). Győződjön meg arról, hogy a Sysprep használatával létrehozott-rendszerkép rendelkezik az Azure Linux-ügynök olyan verziójával, amely kompatibilis az Azure Stack hubhoz.
 
 2. Állítsa le a virtuális gép felszabadítását.
 
@@ -82,21 +82,21 @@ Ha a VHD az Azure-ból származik, kövesse az alábbi utasításokat a virtuál
 
 A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
 
-- A Azure Stack csak az 1. generációs virtuális gépeket támogatja a rögzített lemezes VHD formátumban. A rögzített formátumú szerkezet a logikai lemezt lineárisan a fájlban tárolja, így az *x* lemez eltolása az *x*blob eltolása alatt tárolódik. A blob végén található kisméretű lábléc a virtuális merevlemez tulajdonságait írja le. Ha ellenőrizni szeretné, hogy a lemez kijavítva van-e, használja a **Get-VHD** PowerShell-parancsmagot.
+- Azure Stack hub csak az 1. generációs virtuális gépeket támogatja a rögzített lemezes VHD formátumban. A rögzített formátumú szerkezet a logikai lemezt lineárisan a fájlban tárolja, így az *x* lemez eltolása az *x*blob eltolása alatt tárolódik. A blob végén található kisméretű lábléc a virtuális merevlemez tulajdonságait írja le. Ha ellenőrizni szeretné, hogy a lemez kijavítva van-e, használja a **Get-VHD** PowerShell-parancsmagot.
 
-- A Azure Stack nem támogatja a dinamikus lemezes virtuális merevlemezeket. 
+- Azure Stack hub nem támogatja a dinamikus lemezes virtuális merevlemezeket. 
 
 ## <a name="step-2-upload-the-vm-image-to-a-storage-account"></a>2\. lépés: a virtuális gép rendszerképének feltöltése egy Storage-fiókba
 
-1. [Telepítse a powershellt Azure Stackhoz](azure-stack-powershell-install.md).  
+1. [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).  
 
-2. Jelentkezzen be Azure Stack operátorként. Útmutatásért lásd: [Bejelentkezés a Azure stack operátorként](azure-stack-powershell-configure-admin.md).
+2. Jelentkezzen be Azure Stack hubhoz operátorként. Útmutatásért lásd: [bejelentkezés Azure stack hubhoz operátorként](azure-stack-powershell-configure-admin.md).
 
-3. A lemezképeket blob Storage URI-azonosítóval kell tudni hivatkozni. Készítse elő a Windows vagy Linux operációs rendszer rendszerképét VHD formátumban (nem VHDX), majd töltse fel a rendszerképet egy Storage-fiókba Azure Stack.
+3. A lemezképeket blob Storage URI-azonosítóval kell tudni hivatkozni. Készítse elő a Windows vagy Linux operációs rendszer rendszerképét VHD formátumban (ne VHDX), majd töltse fel a rendszerképet egy Azure Stack hub-beli Storage-fiókba.
 
-   - Ha a VHD az Azure-ban található, a [Azcopy](/azure/storage/common/storage-use-azcopy) eszközzel közvetlenül átviheti a virtuális merevlemezt egy Azure és a Azure stack Storage-fiók között, ha csatlakoztatott Azure stackon fut.
+   - Ha a VHD az Azure-ban található, a [Azcopy](/azure/storage/common/storage-use-azcopy) eszközzel közvetlenül átviheti a virtuális merevlemezt egy Azure és az Azure stack hub Storage-fiók között, ha egy csatlakoztatott Azure stack központban fut.
 
-   - Leválasztott Azure Stack esetén, ha a VHD-je az Azure-ban van, le kell töltenie a virtuális merevlemezt egy olyan gépre, amely az Azure-hoz és a Azure Stackhoz is kapcsolódik. Ezután másolja a virtuális merevlemezt erre a gépre az Azure-ból, mielőtt a VHD-t átmásolja Azure Stack az Azure-ban és a Azure Stack-ban használható közös [Storage adatátviteli eszközök](../user/azure-stack-storage-transfer.md) bármelyikével.
+   - Ha a virtuális merevlemez az Azure-ban van leAzure Stack választva, akkor le kell töltenie a virtuális merevlemezt egy olyan gépre, amely az Azure-hoz és a Azure Stack hub-hoz is kapcsolódik. Ezután másolja a virtuális merevlemezt erre a gépre az Azure-ból, mielőtt a VHD-t átmásolja Azure Stack hubhoz az Azure-ban és Azure Stack hub-ban használható közös [Storage adatátviteli eszköz](../user/azure-stack-storage-transfer.md) használatával.
 
      A példában szereplő egyik ilyen eszköz az Add-AzureRmVHD parancs, amely egy virtuális merevlemezt tölt fel egy Storage-fiókba az Azure Stack hub felügyeleti portálján.  
 
@@ -115,9 +115,9 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
    ![BLOB-hozzáférés beállítása nyilvánoshoz](./media/azure-stack-add-vm-image/tca3.png)
    
 
-## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-operator-using-the-portal"></a>3\. lépés, 1. lehetőség: a virtuálisgép-rendszerkép hozzáadása Azure Stack operátorként a portál használatával
+## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>3\. lépés, 1. lehetőség: a virtuálisgép-rendszerkép hozzáadása Azure Stack hub-kezelőként a portál használatával
 
-1. Jelentkezzen be Azure Stack operátorként. A menüben válassza a **minden szolgáltatás** > a **számítási** virtuálisgép- **lemezképek** alatt > **Hozzáadás**elemet.
+1. Jelentkezzen be Azure Stack hub operátorként. A menüben válassza a **minden szolgáltatás** > a **számítási** virtuálisgép- **lemezképek** alatt > **Hozzáadás**elemet.
 
    ![Egyéni rendszerkép közvetlen telepítési felhasználói felülete](./media/azure-stack-add-vm-image/tca4.png)
 
@@ -129,11 +129,11 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
    
 3. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU**és a **Version** értékeket jegyezze fel. Szüksége lesz rájuk, amikor szerkeszti a Resource Manager-sablont és a manifest. JSON fájlt az egyéni. azpkg.
 
-## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-operator-using-powershell"></a>3\. lépés, 2. lehetőség: virtuálisgép-rendszerkép hozzáadása Azure Stack operátorként a PowerShell használatával
+## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>3\. lépés, 2. lehetőség: virtuálisgép-rendszerkép hozzáadása Azure Stack hub-kezelőként a PowerShell használatával
 
-1. [Telepítse a powershellt Azure Stackhoz](azure-stack-powershell-install.md).  
+1. [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).  
 
-2. Jelentkezzen be Azure Stack operátorként. Útmutatásért lásd: [Bejelentkezés a Azure stack operátorként](azure-stack-powershell-configure-admin.md).
+2. Jelentkezzen be Azure Stack hubhoz operátorként. Útmutatásért lásd: [bejelentkezés Azure stack hubhoz operátorként](azure-stack-powershell-configure-admin.md).
 
 3. Nyissa meg a PowerShellt egy emelt szintű parancssorral, és futtassa a következőket:
 
@@ -170,9 +170,9 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
      
 4. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU**és a **Version** értékeket jegyezze fel. Szüksége lesz rájuk, amikor szerkeszti a Resource Manager-sablont és a manifest. JSON fájlt az egyéni. azpkg.
 
-## <a name="remove-the-vm-image-as-an-azure-stack-operator-using-the-portal"></a>A virtuálisgép-rendszerkép eltávolítása Azure Stack operátor használatával a portálon
+## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>A virtuális gép rendszerképének eltávolítása Azure Stack hub-kezelőként a portál használatával
 
-1. Nyissa meg a Azure Stack [felügyeleti portált](https://adminportal.local.azurestack.external).
+1. Nyissa meg az Azure Stack hub [felügyeleti portált](https://adminportal.local.azurestack.external).
 
 2. Ha a virtuálisgép-rendszerképhez társított Piactéri elem tartozik, válassza a **piactér-kezelés**elemet, majd válassza ki a törölni kívánt virtuálisgép-Piactéri elemet.
 
@@ -180,13 +180,13 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
 
 4. Válassza a **Törlés** elemet.
 
-## <a name="remove-a-vm-image-as-an-azure-stack-operator-using-powershell"></a>Virtuálisgép-rendszerkép eltávolítása Azure Stack operátorként a PowerShell használatával
+## <a name="remove-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Virtuálisgép-rendszerkép eltávolítása Azure Stack hub-kezelőként a PowerShell használatával
 
 Ha már nincs szüksége a feltöltött virtuálisgép-rendszerképre, a következő parancsmag használatával törölheti azt a piactérről:
 
-1. [Telepítse a powershellt Azure Stackhoz](azure-stack-powershell-install.md).
+1. [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).
 
-2. Jelentkezzen be Azure Stack operátorként.
+2. Jelentkezzen be Azure Stack hubhoz operátorként.
 
 3. Nyissa meg a PowerShellt egy emelt szintű parancssorral, és futtassa a következőket:
 
@@ -212,9 +212,9 @@ Ha már nincs szüksége a feltöltött virtuálisgép-rendszerképre, a követk
      Például:`1.0.0`  
      Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ennek a verziónak a formátuma *\#.\#.\#* . Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
 
-     A **Remove-AzsPlatformImage** parancsmaggal kapcsolatos további információkért tekintse meg a Microsoft PowerShell [Azure stack kezelő moduljának dokumentációját](/powershell/module/).
+     A **Remove-AzsPlatformImage** parancsmaggal kapcsolatos további információkért tekintse meg a Microsoft PowerShell [Azure stack hub kezelő moduljának dokumentációját](/powershell/module/).
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Egyéni Azure Stack Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
+- [Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
 - [Virtuális gép kiépítése](../user/azure-stack-create-vm-template.md)

@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack időkiszolgálójának konfigurálása | Microsoft Docs
-description: Megtudhatja, hogyan konfigurálhatja a Azure Stack időkiszolgálóját.
+title: Az Azure Stack hub időkiszolgálójának konfigurálása | Microsoft Docs
+description: Megtudhatja, hogyan konfigurálhatja a Azure Stack hub időkiszolgálóját.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,25 +14,25 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: a70eaaf46988524f5323052a3f2ca90f5b7719e1
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: e7b0a946355e7ad5ddfc6eaaf3e8b867fa142c2d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636808"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817656"
 ---
-# <a name="configure-the-time-server-for-azure-stack"></a>A Azure Stack időkiszolgálójának konfigurálása
+# <a name="configure-the-time-server-for-azure-stack-hub"></a>Az Azure Stack hub időkiszolgálójának konfigurálása
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
-A rendszerjogosultságú végpont (PEP) használatával frissítheti Azure Stack időkiszolgálóját. Olyan állomásnevet használjon, amely két vagy több NTP-kiszolgáló IP-címére van feloldva.
+A Kiemelt végpont (PEP) segítségével frissítheti Azure Stack hub időkiszolgálóját. Olyan állomásnevet használjon, amely két vagy több NTP-kiszolgáló IP-címére van feloldva.
 
-A Azure Stack a Network Time Protocol (NTP) protokollt használja az internetes időkiszolgálókhoz való kapcsolódáshoz. Az NTP-kiszolgálók pontos rendszeridőt biztosítanak. Az idő Azure Stack fizikai hálózati kapcsolók, a hardver életciklus-gazdagép, az infrastruktúra-szolgáltatás és a virtuális gépek között használatos. Ha az óra nincs szinkronizálva, Azure Stack a hálózattal és a hitelesítéssel kapcsolatos súlyos problémák léphetnek fel. A naplófájlok, dokumentumok és egyéb fájlok helytelen időbélyegzővel hozhatók létre.
+Azure Stack hub a Network Time Protocol (NTP) protokollt használja az internetes időkiszolgálókhoz való kapcsolódáshoz. Az NTP-kiszolgálók pontos rendszeridőt biztosítanak. Az idő az Azure Stack hub fizikai hálózati kapcsolói, a hardver életciklus-gazdagép, az infrastruktúra-szolgáltatás és a virtuális gépek között használatos. Ha az óra nincs szinkronizálva, Azure Stack hub súlyos problémákat tapasztalhat a hálózattal és a hitelesítéssel kapcsolatban. A naplófájlok, dokumentumok és egyéb fájlok helytelen időbélyegzővel hozhatók létre.
 
-A szinkronizálás időpontjának Azure Stack egy időkiszolgáló (NTP) megadása szükséges. Azure Stack telepítésekor meg kell adnia egy NTP-kiszolgáló címeit. Az idő egy kritikus adatközpont-infrastruktúra szolgáltatás. Ha a szolgáltatás megváltozik, frissítenie kell az időt.
+A Azure Stack hub számára egy időkiszolgáló (NTP) megadása szükséges az idő szinkronizálásához. Azure Stack hub telepítésekor meg kell adnia egy NTP-kiszolgáló címeit. Az idő egy kritikus adatközpont-infrastruktúra szolgáltatás. Ha a szolgáltatás megváltozik, frissítenie kell az időt.
 
 > [!NOTE]
-> Azure Stack támogatja az idő szinkronizálását csak egyszeres kiszolgálóval (NTP). Nem adhat meg több NTPs a Azure Stack számára az idő szinkronizálásához.
+> Azure Stack hub csak egyszeres kiszolgálóval (NTP) történő szinkronizálást támogatja. Nem adhat meg több NTPs az Azure Stack hub számára az idő szinkronizálásához.
 
 ## <a name="configure-time"></a>Konfigurálás időpontja
 
@@ -46,7 +46,7 @@ A szinkronizálás időpontjának Azure Stack egy időkiszolgáló (NTP) megadá
     Get-AzsTimeSource
     ```
 
-3. A következő parancs futtatásával frissítse Azure Stack az új NTP-kiszolgáló használatára és az idő azonnali szinkronizálására.
+3. A következő parancs futtatásával frissítse Azure Stack hub-t az új NTP-kiszolgáló használatára, és azonnal szinkronizálja az időt.
 
     > [!Note]  
     > Ez az eljárás nem frissíti az időkiszolgálót a fizikai kapcsolókon.
@@ -61,4 +61,4 @@ A szinkronizálás időpontjának Azure Stack egy időkiszolgáló (NTP) megadá
 ## <a name="next-steps"></a>Következő lépések
 
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  
-[Általános Azure Stack integrációs megfontolások](azure-stack-datacenter-integration.md)  
+[Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)  

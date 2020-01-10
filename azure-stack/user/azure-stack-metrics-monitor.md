@@ -1,6 +1,6 @@
 ---
-title: Megfigyelési adatok felhasználása Azure Stackból | Microsoft Docs
-description: További információ a Azure Stack figyelési adatainak felhasználására vonatkozó beállításokról.
+title: Azure Stack hub megfigyelési adatainak felhasználása | Microsoft Docs
+description: További információ a Azure Stack hub megfigyelési adatainak felhasználására vonatkozó lehetőségekről.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 20e4f71480aa377e56115c499f96492e768010c3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 307f0db126048f53559f6f4e29681e650b27a375
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955738"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819828"
 ---
-# <a name="how-to-consume-monitoring-data-from-azure-stack"></a>A monitorozási adatok felhasználása Azure Stack
+# <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>Figyelési adatok felhasználása Azure Stack hub-ból
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamattal, akárcsak Azure Monitor a globális Azure-ban. A globális Azure-ban található összes figyelési érték azonban nem érhető el Azure Stackban. Ebben a cikkben összefoglaljuk, hogyan használhatók a monitorozási információk a Azure Stackban.
+A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamattal, akárcsak Azure Monitor a globális Azure-ban. A globális Azure-ban található összes figyelési érték azonban nem érhető el Azure Stack központban. Ebben a cikkben összefoglalást adunk a Azure Stack hub monitorozási adatainak felhasználásának különböző módjairól.
  
 ## <a name="options-for-data-consumption"></a>Adatfelhasználási beállítások
 
 | Data type | Kategória | Támogatott szolgáltatások | Hozzáférési módszerek |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Azure Monitor platform szintű mérőszámok | Metrikák | [Támogatott metrikák a Azure Monitor on Azure Stack](azure-stack-metrics-supported.md) | REST API |
+| Azure Monitor platform szintű mérőszámok | Metrikák | [Támogatott metrikák a Azure Stack hub Azure Monitor](azure-stack-metrics-supported.md) | REST API |
 | A vendég operációsrendszer-metrikák (például a Perfek száma) kiszámítása | Metrikák | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
 | Tárolási metrikák | Metrikák | Azure Storage | Storage-tábla:<br>Storage Analytics |
 | Tevékenységnapló | Események | Minden Azure-szolgáltatás | REST API:<br>Azure Monitor Event API |
@@ -40,4 +40,4 @@ A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamatt
 
 ## <a name="next-steps"></a>Következő lépések
 
-További információ az [Azure monitorról Azure Stackról](azure-stack-metrics-azure-data.md).
+További információ az [Azure monitor Azure stack hub](azure-stack-metrics-azure-data.md)-ról.

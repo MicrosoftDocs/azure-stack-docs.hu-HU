@@ -1,7 +1,7 @@
 ---
 title: A Windows Defender víruskereső frissítése
-titleSuffix: Azure Stack
-description: Ismerje meg, hogyan frissítheti a Windows Defender víruskeresőt Azure Stack
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan frissítheti a Windows Defender víruskeresőt Azure Stack hub-on
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,22 +11,22 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97a9fe73eb83df07a9b24dc130c8295218cda7ad
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: a631d700bc83e4fabeca4472f5d2a81c411ddc9b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74831032"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821086"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>A Windows Defender víruskereső frissítése Azure Stack hub-on
 
-A [Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) egy antimalware-megoldás, amely biztonságot és vírusvédelmet biztosít. Minden Azure Stack infrastruktúra-összetevőt (Hyper-V-gazdagépeket és virtuális gépeket) a Windows Defender víruskereső védi. A naprakész védelem érdekében rendszeres frissítések szükségesek a Windows Defender víruskereső-definíciók, a motor és a platform számára. A frissítések alkalmazása a konfigurációtól függ.
+A [Windows Defender Antivirus](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) egy antimalware-megoldás, amely biztonságot és vírusvédelmet biztosít. Minden Azure Stack hub infrastruktúra-összetevő (Hyper-V-gazdagépek és virtuális gépek) védett a Windows Defender víruskeresővel. A naprakész védelem érdekében rendszeres frissítések szükségesek a Windows Defender víruskereső-definíciók, a motor és a platform számára. A frissítések alkalmazása a konfigurációtól függ.
 
 ## <a name="connected-scenario"></a>Csatlakoztatott esetre vonatkozó forgatókönyv
 
-Az Azure Stack hub [Update erőforrás-szolgáltató](azure-stack-updates.md#the-update-resource-provider) naponta többször letölti a kártevő-definíciókat és a motor-frissítéseket. Minden Azure Stack infrastruktúra-összetevő lekéri a frissítést a frissítési erőforrás-szolgáltatótól, és automatikusan alkalmazza a frissítést.
+Az Azure Stack hub [Update erőforrás-szolgáltató](azure-stack-updates.md#the-update-resource-provider) naponta többször letölti a kártevő-definíciókat és a motor-frissítéseket. Minden Azure Stack hub infrastruktúra-összetevő beolvassa a frissítést a frissítési erőforrás-szolgáltatótól, és automatikusan alkalmazza a frissítést.
 
-A nyilvános internethez csatlakozó Azure Stack központi telepítések esetében alkalmazza a [havi Azure stack frissítést](azure-stack-apply-updates.md). A havi Azure Stack hub-frissítés tartalmazza a Windows Defender víruskereső platform frissítéseit a hónapra vonatkozóan.
+A nyilvános internethez csatlakozó Azure Stack központi telepítések esetében alkalmazza a [havi Azure stack hub-frissítést](azure-stack-apply-updates.md). A havi Azure Stack hub-frissítés tartalmazza a Windows Defender víruskereső platform frissítéseit a hónapra vonatkozóan.
 
 ## <a name="disconnected-scenario"></a>Leválasztott forgatókönyv
 

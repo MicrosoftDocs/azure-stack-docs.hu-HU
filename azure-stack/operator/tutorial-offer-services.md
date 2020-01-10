@@ -1,5 +1,5 @@
 ---
-title: Az előfizetés Azure Stack szolgáltatásokat kínál.
+title: Az előfizetéshez Azure Stack hub-szolgáltatásokat ajánlunk.
 description: Ismerje meg, hogyan hozhat létre szolgáltatást ajánlatokkal, csomagokkal és szolgáltatásokkal.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 331d76a61ec67165473702d47f35c02533dcd0b8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445355"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816564"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>Oktatóanyag: szolgáltatás nyújtása a felhasználóknak
 
@@ -37,14 +37,14 @@ Egy ajánlat egy vagy több csomagból áll. A csomag az egyes szolgáltatások 
 
 Az erőforrás-szolgáltató támogatja az erőforrások létrehozását, üzembe helyezését és felügyeletét szolgáltatásként. Gyakori példa a Microsoft. számítási erőforrás-szolgáltató, amely lehetővé teszi a virtuális gépek (VM-EK) létrehozását és üzembe helyezését. Az Azure erőforrás-kezelési modell áttekintését [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) tekintheti meg.
 
-Azure Stack az erőforrás-szolgáltatók két általános kategóriája van: ezek az erőforrások alapszolgáltatásként, illetve kiegészítő szolgáltatásként üzembe helyezhetők.
+Azure Stack központban az erőforrás-szolgáltatók két általános kategóriája létezik: az erőforrások központi szolgáltatásként való üzembe helyezése, valamint az érték-hozzáadási szolgáltatásként üzembe helyezett szolgáltatások.
 
 ### <a name="foundational-services"></a>Alapszolgáltatások
 
 >[!NOTE]
 > Ebből az oktatóanyagból megtudhatja, hogyan hozhat létre ajánlatokat az alapszolgáltatások alapján. 
 
-Az alapszolgáltatásokat a következő erőforrás-szolgáltatók támogatják, amelyek natív módon érhetők el Azure Stack minden telepítésekor:
+Az alapszolgáltatásokat a következő erőforrás-szolgáltatók támogatják, amelyek natív módon érhetők el Azure Stack hub minden telepítésekor:
 
 | Erőforrás-szolgáltató | Példa erőforrások |
 | ----------------- | ------------------|
@@ -53,12 +53,12 @@ Az alapszolgáltatásokat a következő erőforrás-szolgáltatók támogatják,
 | Microsoft.Network | Virtuális hálózatok, nyilvános IP-címek, terheléselosztó |
 | Microsoft.Storage | Storage-fiókok, blobok, várólisták, táblák |
 
-### <a name="add-on-services"></a>Kiegészítő szolgáltatások
+### <a name="value-add-services"></a>Érték – szolgáltatások hozzáadása
 
 >[!NOTE]
-> A kiegészítő szolgáltatás használatához először telepítenie kell a megfelelő erőforrás-szolgáltatót Azure Stack piactéren. A telepítés után az erőforrásai ugyanúgy elérhetők a felhasználók számára, mint az alapvető szolgáltatások. A kiegészítő szolgáltatásokat támogató erőforrás-szolgáltatók aktuális készletéhez tekintse meg a tartalomjegyzék **útmutató útmutatók** szakaszát.
+> Ha értéket szeretne hozzáadni a szolgáltatáshoz, először telepítenie kell a megfelelő erőforrás-szolgáltatót Azure Stack hub piactéren. A telepítés után az erőforrásai ugyanúgy elérhetők a felhasználók számára, mint az alapvető szolgáltatások. Tekintse meg a tartalomjegyzék **útmutatójának útmutatók** szakaszát, amely az értéknövelt szolgáltatások értékét támogató erőforrás-szolgáltatók aktuális készletét tartalmazza.
 
-A kiegészítő szolgáltatásokat a Azure Stack telepítése után telepített erőforrás-szolgáltatók támogatják. Példák:
+Az értéknövelt szolgáltatásokat a Azure Stack hub telepítése után telepített erőforrás-szolgáltatók támogatják. Példák:
 
 | Erőforrás-szolgáltató | Példa erőforrások |
 | ----------------- | ------------------------- |
@@ -73,10 +73,10 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 1. Jelentkezzen be a felügyeleti portálra egy Felhőbeli rendszergazdai fiókkal.
 
-   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, https://adminportal.&lt formátum használatával. *régió*&gt;. &lt;*FQDN*&gt;.
+   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a https://adminportal.&lt formátumot használva. *régió*&gt;.&lt;*FQDN*&gt;.
    - Ha a Azure Stack Development Kit használja, az URL-cím https://adminportal.local.azurestack.external.
 
-   Ezután válassza **a + erőforrás létrehozása** > **ajánlatok + csomagok** > **ajánlat**lehetőséget.
+   Ezután válassza **az + erőforrás létrehozása** > **ajánlatok + csomagok** > **ajánlat**lehetőséget.
 
    ![Új ajánlat](media/tutorial-offer-services/1-create-resource-offer.png)
 
@@ -129,10 +129,10 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 1. Jelentkezzen be a felügyeleti portálra egy Felhőbeli rendszergazdai fiókkal.
 
-   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, https://adminportal.&lt formátum használatával. *régió*&gt;. &lt;*FQDN*&gt;.
+   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a https://adminportal.&lt formátumot használva. *régió*&gt;.&lt;*FQDN*&gt;.
    - Ha a Azure Stack Development Kit használja, az URL-cím https://adminportal.local.azurestack.external.
    
-   Ezután válassza **a + erőforrás létrehozása** > **ajánlatok + csomagok** > **ajánlat**lehetőséget.
+   Ezután válassza **az + erőforrás létrehozása** > **ajánlatok + csomagok** > **ajánlat**lehetőséget.
 
    ![Új ajánlat](media/tutorial-offer-services/image01.png)
 

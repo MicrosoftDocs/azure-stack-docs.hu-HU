@@ -1,7 +1,7 @@
 ---
-title: Hardver-összetevő cseréje Azure Stack skálázási egység csomópontján
-titleSuffix: Azure Stack
-description: Megtudhatja, hogyan cserélhet le egy hardver-összetevőt egy Azure Stack integrált rendszeren.
+title: Hardver-összetevő cseréje Azure Stack hub méretezési egység csomópontján
+titleSuffix: Azure Stack Hub
+description: Megtudhatja, hogyan cserélhet le egy hardver-összetevőt egy Azure Stack hub integrált rendszeren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,36 +15,36 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: ff78409ecdbdec8b7a6860db18244a4835351ed8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 819f25af457cd48a9342852e189908073df7af8f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465289"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808430"
 ---
-# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Hardver-összetevő cseréje Azure Stack skálázási egység csomópontján
+# <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Hardver-összetevő cseréje Azure Stack hub méretezési egység csomópontján
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-Ez a cikk az általános eljárást ismerteti a nem becserélhető hardver-összetevők cseréjére. A tényleges helyettesítési lépések az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. A Azure Stack integrált rendszerre vonatkozó részletes lépésekért tekintse meg a gyártó mezőjében található, cserélhető egységre vonatkozó dokumentációt.
+Ez a cikk az általános eljárást ismerteti a nem becserélhető hardver-összetevők cseréjére. A tényleges helyettesítési lépések az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. A Azure Stack hub integrált rendszerével kapcsolatos részletes lépésekért tekintse meg a gyártó által kihelyezhető, cserélhető egységre vonatkozó dokumentációt.
 
 > [!CAUTION]  
-> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ez a lépés hiányzik a rendszer instabillá, a teljesítmény csökkenése, a biztonsági szálak vagy a Azure Stack Automation az operációs rendszer központi telepítésének megakadályozása érdekében. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel a [Azure stack felügyeleti portálon](azure-stack-updates.md)megjelenített OEM-verziónak.
+> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ez a lépés hiányzik a rendszer instabillá, a teljesítmény csökkenése, a biztonsági szálak vagy a Azure Stack hub Automation operációs rendszer központi telepítésének megakadályozása érdekében. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel az [Azure stack hub felügyeleti portálján](azure-stack-updates.md)megjelenő OEM-verziónak.
 
-| Hardveres partner | Régió | URL |
+| Hardveres partner | Region (Régió) | URL-cím |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Összes | [A Cisco integrált rendszer Microsoft Azure Stack üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Kibocsátási megjegyzések a Microsoft Azure Stack Cisco integrált rendszeréhez](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Összes | [Felhő Microsoft Azure Stack 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Felhő Microsoft Azure Stack 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Kibocsátási megjegyzések a Microsoft Azure Stack hub-hoz készült Cisco integrált rendszerhez](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Mind | [Felhő Microsoft Azure Stack hub-14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Felhő Microsoft Azure Stack hub-13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japán | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EURÓPA, KÖZEL-KELET ÉS AFRIKA | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 |  | EU | [Fujitsu MySupport (fiók és bejelentkezés szükséges)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | Összes | [Microsoft Azure Stack HPE ProLiant](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Összes | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[a Terra Azure Stack dokumentációja (beleértve a cserélhető adattartománnyal együtt)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| HPE | Mind | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Mind | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[a Terra Azure Stack hub dokumentációja (beleértve a cserélhető adatközpontot)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
 A nem lecserélhető összetevők az alábbi elemeket tartalmazzák:
 
-- CPU*
+- CPU
 - Memória
 - Alaplap/alaplapi felügyeleti vezérlő (BMC)/video kártya
 - Lemezvezérlő/gazdagép Bus-adapter (HBA)/Backplane
@@ -64,7 +64,7 @@ A következő folyamatábra a nem lecserélhető hardver-összetevők cseréjér
 
 ## <a name="review-alert-information"></a>Riasztási információk áttekintése
 
-A Azure Stack állapot-és figyelési rendszer a Közvetlen tárolóhelyek által vezérelt hálózati adapterek és adatmeghajtók állapotát követi nyomon. Nem követ más hardver-összetevőket. Minden más hardver-összetevő esetén a rendszer riasztásokat jelenít meg a hardveres életciklus-gazdagépen futó, szállítóspecifikus hardver-figyelési megoldásban.  
+Az Azure Stack hub állapot-és monitorozási rendszere nyomon követi a Közvetlen tárolóhelyek által vezérelt hálózati adapterek és adatmeghajtók állapotát. Nem követ más hardver-összetevőket. Minden más hardver-összetevő esetén a rendszer riasztásokat jelenít meg a hardveres életciklus-gazdagépen futó, szállítóspecifikus hardver-figyelési megoldásban.  
 
 ## <a name="component-replacement-process"></a>Összetevő-helyettesítési folyamat
 
@@ -88,7 +88,7 @@ Az alábbi lépések áttekintést nyújtanak az összetevő-helyettesítési fo
 7. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
 8. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A lecserélhető fizikai lemezek cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md).
 - A fizikai csomópontok cseréjével kapcsolatos információkért lásd: [méretezési egység csomópontjának cseréje](azure-stack-replace-node.md).

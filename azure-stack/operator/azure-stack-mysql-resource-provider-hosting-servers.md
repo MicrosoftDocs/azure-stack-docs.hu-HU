@@ -1,5 +1,5 @@
 ---
-title: MySQL üzemeltetési kiszolgálók hozzáadása a Azure Stack-ben | Microsoft Docs
+title: MySQL üzemeltetési kiszolgálók hozzáadása az Azure Stack hub-ban | Microsoft Docs
 description: Ismerje meg, hogyan adhat hozzá MySQL-üzemeltetési kiszolgálókat a MySQL-adapter erőforrás-szolgáltatóján keresztül történő üzembe helyezéshez.
 services: azure-stack
 documentationCenter: ''
@@ -15,16 +15,16 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: cf721c98b957d95e945d4979865c7d7b5aa169af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677875"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811209"
 ---
-# <a name="add-mysql-hosting-servers-in-azure-stack"></a>MySQL üzemeltetési kiszolgálók hozzáadása a Azure Stack
+# <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 
-A virtuális gépen (VM) üzemeltetheti a MySQL üzemeltetési kiszolgáló példányát [Azure stack](azure-stack-overview.md)vagy a Azure stack-környezeten kívüli virtuális gépen, ha a MySQL erőforrás-szolgáltató csatlakozni tud a példányhoz.
+A virtuális gépen (VM) üzemeltetheti a MySQL üzemeltetési kiszolgálói példányt [Azure stack hub](azure-stack-overview.md)-on vagy az Azure stack hub-környezeten kívüli virtuális gépen, feltéve, hogy a MySQL erőforrás-szolgáltató tud csatlakozni a példányhoz.
 
 > [!NOTE]
 > A MySQL erőforrás-szolgáltatót az alapértelmezett szolgáltatói előfizetésben kell létrehozni, míg a MySQL üzemeltetési kiszolgálókat számlázva, felhasználói előfizetésekben kell létrehozni. Az erőforrás-szolgáltatói kiszolgálót nem szabad használni a felhasználói adatbázisok üzemeltetéséhez.
@@ -40,7 +40,7 @@ Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező 
 
 Üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack hub felügyeleti portálra szolgáltatás-rendszergazdaként.
 2. Válassza az **Összes szolgáltatás** elemet.
 3. A **felügyeleti erőforrások** kategóriában válassza a **MySQL üzemeltetési kiszolgálók** >  **+ Hozzáadás**lehetőséget. Megnyílik a **MySQL üzemeltetési kiszolgáló hozzáadása** párbeszédpanel, amely az alábbi képernyőfelvételen látható.
 
@@ -49,7 +49,7 @@ Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező 
 4. Adja meg a MySQL-kiszolgáló példányának kapcsolati adatait.
 
    * A **MySQL üzemeltetési kiszolgáló neve mezőben**adja meg a teljes tartománynevet (FQDN) vagy egy érvényes IPv4-címeket. Ne használja a rövid virtuális gép nevét.
-   * A Azure Stack piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*.
+   * A Azure Stack hub piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*.
    * Ha nem ismeri a legfelső szintű **jelszót**, tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le.
    * Nincs megadva alapértelmezett MySQL-példány, ezért az **üzemeltetési kiszolgáló méretét GB-ban**kell megadnia. Adjon meg egy olyan méretet, amely az adatbázis-kiszolgáló kapacitásához közeledik.
    * Az **előfizetés**alapértelmezett beállításának megtartása.
@@ -82,7 +82,7 @@ Az alábbi információk az RP-és MySQL-üzemeltetési kiszolgálókra vonatkoz
 
 ## <a name="increase-backend-database-capacity"></a>Háttérbeli adatbázis kapacitásának bővítése
 
-A háttérbeli adatbázis kapacitása a Azure Stack portálon további MySQL-kiszolgálók üzembe helyezésével növelhető. Adja hozzá ezeket a kiszolgálókat egy új vagy egy meglévő SKU-hoz. Ha hozzáad egy kiszolgálót egy meglévő SKU-hoz, győződjön meg arról, hogy a kiszolgáló jellemzői ugyanazok, mint az SKU többi kiszolgálója.
+Az Azure Stack hub portálon további MySQL-kiszolgálók üzembe helyezésével növelheti a háttérbeli adatbázis kapacitását. Adja hozzá ezeket a kiszolgálókat egy új vagy egy meglévő SKU-hoz. Ha hozzáad egy kiszolgálót egy meglévő SKU-hoz, győződjön meg arról, hogy a kiszolgáló jellemzői ugyanazok, mint az SKU többi kiszolgálója.
 
 ## <a name="sku-notes"></a>SKU-megjegyzések
 Használjon olyan SKU-nevet, amely leírja az SKU-ban található kiszolgálók képességeit, például a kapacitást és a teljesítményt. A név segítséget nyújt arra, hogy a felhasználók a megfelelő SKU-ban telepíthessék az adatbázisaikat. Az alábbi jellemzőkkel rendelkezhet például az SKU-nevek használatával a szolgáltatási ajánlatok megkülönböztetéséhez:

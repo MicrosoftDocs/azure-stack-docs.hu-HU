@@ -1,6 +1,6 @@
 ---
-title: Java-háború üzembe helyezése virtuális gépen Azure Stackban | Microsoft Docs
-description: Java-háború üzembe helyezése Azure Stack-beli virtuális gépen.
+title: Java-háború üzembe helyezése egy virtuális gépen Azure Stack hub-ban | Microsoft Docs
+description: Java-háború üzembe helyezése Azure Stack hub virtuális gépén.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,29 +9,29 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 75633b7e695db3c6b1e48b7e5f98e9145b6b1fc9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824446"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820627"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Java-webalkalmazás üzembe helyezése egy virtuális gépen Azure Stack
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
-Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséhez Azure Stackban. Ebben a cikkben egy Apache Tomcat-kiszolgálót telepít és konfigurál egy Linux rendszerű virtuális gépen Azure Stackon. Ezután betölt egy Java webalkalmazás-erőforrást (WAR-fájlt) a-kiszolgálóra. A WAR-fájlok a Java Archive-(JAR-) fájlok, a Java-erőforrásokat (például osztályokat, szövegeket, képeket, XML-fájlokat és HTML-ket, valamint a webalkalmazások kézbesítéséhez használt egyéb erőforrásokat) tartalmazó tömörített fájlok terjesztésére szolgálnak.
+Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséhez Azure Stack központban. Ebben a cikkben egy Apache Tomcat-kiszolgálót telepít és konfigurál egy Linux rendszerű virtuális gépen Azure Stack hub-ban. Ezután betölt egy Java webalkalmazás-erőforrást (WAR-fájlt) a-kiszolgálóra. A WAR-fájlok a Java Archive-(JAR-) fájlok, a Java-erőforrásokat (például osztályokat, szövegeket, képeket, XML-fájlokat és HTML-ket, valamint a webalkalmazások kézbesítéséhez használt egyéb erőforrásokat) tartalmazó tömörített fájlok terjesztésére szolgálnak.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Állítsa be a virtuális gépet Azure Stack egy olyan [linuxos virtuális gép üzembe helyezése](azure-stack-dev-start-howto-deploy-linux.md)című témakör útmutatását követve, amely Azure stack a webalkalmazások üzemeltetésére.
+1. Állítsa be a virtuális gépet Azure Stack hub-ban a [Linux rendszerű virtuális gép üzembe helyezése című témakör útmutatását követve Azure stack hub webalkalmazásának üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol | Leírás |
+    | Port | Protocol (Protokoll) | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
     | 22 | SSH | A Secure Shell (SSH) egy titkosított hálózati protokoll a biztonságos kommunikációhoz. Ez a kapcsolódás egy SSH-ügyféllel a virtuális gép konfigurálásához és az alkalmazás üzembe helyezéséhez használható. |
-    | 3389 | RDP | Nem kötelező. A RDP protokoll (RDP) lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
+    | 3389 | RDP | Választható. A RDP protokoll (RDP) lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
     | 8080 | Egyéni | Az Apache Tomcat szolgáltatás alapértelmezett portja. Üzemi kiszolgálók esetében a 80-es és a 443-os adatforgalmat irányítja át. |
 
 ## <a name="install-java"></a>Java telepítése
@@ -95,9 +95,9 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
         sudo chmod g+x conf
     ```
 
-1. Hozzon létre egy *rendszerszolgáltatási* fájlt, hogy a Tomcat szolgáltatásként is futtatható legyen.
+1. Hozzon létre egy rendszerszolgáltatási fájlt, *hogy a Tomcat* szolgáltatásként is futtatható legyen.
 
-   a. A Tomcat-nek tudnia kell, hogy hol telepítette a javát. Ezt az elérési utat általában *JAVA_HOME*-ként nevezzük. Keresse meg a helyet a futtatásával:
+   a. A Tomcat-nek tudnia kell, hogy hol telepítette a javát. Ezt az elérési utat általában *JAVA_HOMEnek*nevezzük. Keresse meg a helyet a futtatásával:
 
     ```bash  
         sudo update-java-alternatives -l
@@ -110,7 +110,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
         java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
     ```
 
-    A *JAVA_HOME* változó értékét a kimenetből és a */JRE*hozzáadásával hozhatja létre. Például használja az előző példát, a */usr/lib/JVM/Java-1.8.0-OpenJDK-amd64/JRE*.
+    A *JAVA_HOME* változó értékét a kimenetből származó elérési út és a */JRE*hozzáadásával hozhatja létre. Például használja az előző példát, a */usr/lib/JVM/Java-1.8.0-OpenJDK-amd64/JRE*.
 
     b. Használja a kiszolgáló értékét a rendszerfájl létrehozásához:
 
@@ -118,7 +118,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
         sudo nano /etc/systemd/system/tomcat.service
     ```
 
-    c. Illessze be a következő tartalmakat a szolgáltatás fájljába. Szükség esetén módosítsa a *JAVA_HOME*értékét úgy, hogy az megfeleljen a rendszeren talált értéknek. Előfordulhat, hogy módosítani szeretné a CATALINA_OPTS megadott memória-foglalási beállításokat is:
+    c. Illessze be a következő tartalmakat a szolgáltatás fájljába. Szükség esetén módosítsa *JAVA_HOME*értékét, hogy az megfeleljen a rendszeren talált értéknek. Előfordulhat, hogy módosítani szeretné a CATALINA_OPTSban megadott memória-elosztási beállításokat is:
 
     ```Text  
         [Unit]
@@ -174,11 +174,11 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
         sudo ufw allow 8080
     ```
 
-    Ha nem adta hozzá a Azure Stack virtuális géphez tartozó *bejövő portszabályok* adatait, adja hozzá őket. További információ: [virtuális gép létrehozása](#create-a-vm).
+    Ha nem adta hozzá a Azure Stack hub virtuális géphez tartozó *bejövő portszabályok* adatait, adja hozzá őket. További információ: [virtuális gép létrehozása](#create-a-vm).
 
-1. Nyisson meg egy böngészőt ugyanabban a hálózatban, mint a Azure Stack, majd nyissa meg a kiszolgálót, a *yourmachine. local. cloudapp. azurestack. external: 8080*.
+1. Nyisson meg egy böngészőt ugyanabban a hálózatban, mint az Azure Stack hub, majd nyissa meg a kiszolgálót, *yourmachine. local. cloudapp. azurestack. external: 8080*.
 
-    ![Apache Tomcat Azure Stack virtuális gépen](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Apache Tomcat egy Azure Stack hub virtuális gépen](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     A kiszolgáló Apache Tomcat-lapja betöltődik. Ezután konfigurálja a kiszolgálót úgy, hogy a kiszolgáló állapotát, a Manager alkalmazást és a gazdagép-kezelőt is hozzáférhessen.
 
@@ -190,13 +190,13 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
 
 1. A Tomcat-kiszolgáló konfigurálása a webkezelési felület elérésének engedélyezéséhez. 
 
-   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználót a és `manager-gui` `admin-gui`a eléréséhez.
+   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználó számára a `manager-gui` és `admin-gui`elérését.
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b. Adja hozzá a következő elemeket `<tomcat-users>` a szakaszhoz:
+   b. Adja hozzá a következő elemeket a `<tomcat-users>` szakaszhoz:
 
     ```XML  
         <role rolename="tomcat"/>
@@ -217,7 +217,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
 
     c. Mentse és zárja be a fájlt.
 
-1. A Tomcat korlátozza a *kezelő* és a gazdagép- *kezelő* alkalmazásokhoz való hozzáférést a kiszolgálóról érkező kapcsolatokhoz. Mivel a Tomcat-t Azure Stack-beli virtuális gépen telepíti, el kell távolítania ezt a korlátozást. Módosítsa ezen alkalmazások IP-címének korlátozásait a megfelelő *Context. XML* fájlok szerkesztésével.
+1. A Tomcat korlátozza a *kezelő* és a gazdagép- *kezelő* alkalmazásokhoz való hozzáférést a kiszolgálóról érkező kapcsolatokhoz. Mivel Azure Stack hub-beli virtuális gépen telepíti a Tomcat-t, el kell távolítania ezt a korlátozást. Módosítsa ezen alkalmazások IP-címének korlátozásait a megfelelő *Context. XML* fájlok szerkesztésével.
 
     a. A *Context. XML* frissítése a Manager alkalmazásban:
 
@@ -250,13 +250,13 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
         sudo systemctl restart tomcat
     ```
 
-1. Nyisson meg egy böngészőt ugyanabban a hálózatban, mint a Azure Stack, majd nyissa meg a kiszolgálót: *yourmachine. local. cloudapp. azurestack. external: 8080*.
+1. Nyisson meg egy böngészőt ugyanabban a hálózatban, mint az Azure Stack hub, majd nyissa meg a kiszolgálót: *yourmachine. local. cloudapp. azurestack. external: 8080*.
 
     a. A Tomcat-kiszolgáló állapotának áttekintéséhez és annak ellenőrzéséhez, hogy van-e hozzáférése, válassza a **kiszolgáló állapota**lehetőséget.
 
     b. Jelentkezzen be a Tomcat hitelesítő adataival.
 
-    ![Apache Tomcat Azure Stack virtuális gépen](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Apache Tomcat egy Azure Stack hub virtuális gépen](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
 ## <a name="create-an-app"></a>Alkalmazás létrehozása
 
@@ -274,7 +274,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
         sudo systemctl stop tomcat
     ```
 
-1. Ahhoz, hogy írni lehessen a webapps mappába, adja hozzá az FTP-felhasználót a Tomcat-csoporthoz. Az FTP-felhasználó a virtuális gép Azure Stack való létrehozásakor megadott felhasználó.
+1. Ahhoz, hogy írni lehessen a webapps mappába, adja hozzá az FTP-felhasználót a Tomcat-csoporthoz. Az FTP-felhasználó a virtuális gép Azure Stack hub-ban való létrehozásakor meghatározott felhasználó.
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
@@ -284,7 +284,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
 
     a. *TOMCAT_HOME/webapps*törlése.
 
-    b. Vegye fel a HÁBORÚt a *TOMCAT_HOME/webapps* (például */opt/tomcat/webapps/* ).
+    b. Vegye fel a HÁBORÚt *TOMCAT_HOME/webapps* (például */opt/tomcat/webapps/* ).
 
 1.  A Tomcat automatikusan kibontja és üzembe helyezi az alkalmazást. A nevet a korábban létrehozott DNS-név használatával tekintheti meg. Példa:
 
@@ -292,8 +292,8 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
     ```
     
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- További információ a [Azure stack fejlesztéséről](azure-stack-dev-start.md).
-- Ismerkedjen meg a [Azure stack IaaS való gyakori központi telepítésekkel](azure-stack-dev-start-deploy-app.md).
+- További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
+- Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).
 - A Java programozási nyelv megismeréséhez és a Java további erőforrásainak megkereséséhez tekintse meg a következőt: [Java.com](https://www.java.com).

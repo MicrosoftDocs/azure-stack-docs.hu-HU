@@ -1,6 +1,6 @@
 ---
-title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez | Microsoft Docs
-description: Megtudhatja, hogyan adhatja hozzá a Azure Stack Marketplace-re vonatkozó előfeltételeket a piactérhez.
+title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez | Microsoft Docs
+description: Megtudhatja, hogyan adhatja hozzá az AK-motor előfeltételeit az Azure Stack hub Marketplace-hez.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,28 +15,28 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: ee19c6ee32960c52bcf7a4918c3d1e48406129c3
-ms.sourcegitcommit: 31e04af4d405215ef200aba0b40d601fc5ca7662
+ms.openlocfilehash: c03b945f9580d1d64bee2530d6a380613d266dab
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74391545"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75803755"
 ---
-# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit a Azure Stack Marketplace-hez
+# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket a Azure Stackhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ.
+Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket az Azure Stack hubhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ.
 
 ## <a name="check-your-users-service-offering"></a>A felhasználó szolgáltatási ajánlatának megkeresése
 
-A felhasználóknak egy csomagra, ajánlatra és előfizetésre van szükségük, hogy elegendő lemezterülettel Azure Stack. A felhasználók általában legfeljebb hat virtuális gépet telepíthetnek a három főkiszolgálóból és három feldolgozó csomópontból álló fürtökön. Érdemes meggyőződni arról, hogy elég nagy mennyiségű kvótával rendelkeznek.
+A felhasználóknak egy csomagra, ajánlatra és előfizetésre van szükségük Azure Stack hub számára, amely elegendő hellyel rendelkezik. A felhasználók általában legfeljebb hat virtuális gépet telepíthetnek a három főkiszolgálóból és három feldolgozó csomópontból álló fürtökön. Érdemes meggyőződni arról, hogy elég nagy mennyiségű kvótával rendelkeznek.
 
-Ha további információra van szüksége a szolgáltatási ajánlatok megtervezéséről és beállításáról, tekintse meg az [ajánlati szolgáltatások áttekintése Azure stack](service-plan-offer-subscription-overview.md)
+Ha további információra van szüksége a szolgáltatási ajánlatok megtervezéséről és beállításáról, tekintse meg az [Azure stack hub szolgáltatással foglalkozó témakör áttekintését](service-plan-offer-subscription-overview.md) .
 
 ## <a name="create-a-service-principal-and-credentials"></a>Egyszerű szolgáltatásnév és hitelesítő adatok létrehozása
 
-A Kubernetes-fürtön az egyszerű szolgáltatásnév (SPN) és a szerepköralapú engedélyek szükségesek a Azure Stack.
+A Kubernetes-fürtön az egyszerű szolgáltatásnév (SPN) és a szerepköralapú engedélyek szükségesek az Azure Stack központban.
 
 ### <a name="create-an-spn-in-azure-ad"></a>Egyszerű szolgáltatásnév létrehozása az Azure AD-ben
 
@@ -48,7 +48,7 @@ Ha Active Directory összevont szolgáltatásokat (AD FS) használ az Identitás
 
 ## <a name="add-the-aks-base-image"></a>Az AK-alapú alaprendszerkép hozzáadása
 
-Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban a Azure Stack le van választva, az alábbi utasításokat követve [töltheti le a Marketplace-elemeket az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
+Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban az Azure Stack hub le van választva, az alábbi utasításokat követve [töltheti le a piactér-elemeket az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
 
 Adja hozzá a következő elemeket a piactérhez:
 
@@ -71,7 +71,7 @@ Adja hozzá a következő elemeket a piactérhez:
 
 ## <a name="add-a-custom-script-extension"></a>Egyéni parancsfájl-kiterjesztés hozzáadása
 
-Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban a Azure Stack le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
+Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban az Azure Stack hub le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
 
 1. Nyissa meg a [felügyeleti portált](https://adminportal.local.azurestack.external).
 
@@ -91,8 +91,8 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Válassza a **Letöltés lehetőséget.**
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Mi a Azure Stack AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
+[Mi a Azure Stack hub AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[A Azure Stack szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md)
+[Az Azure Stack hub szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md)

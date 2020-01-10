@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Storage-fiókok kezelése | Microsoft Docs
-description: Megtudhatja, hogyan keresheti meg, kezelheti, helyreállíthatja és visszaigényelheti Azure Stack Storage-fiókokat.
+title: Azure Stack hub Storage-fiókok kezelése | Microsoft Docs
+description: Ismerje meg, hogyan lehet megkeresni, felügyelni, helyreállítani és visszaigényelni Azure Stack hub Storage-fiókokat.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,26 +15,26 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 9af79442a0fb56e4d6a9cef99741b0180e84304c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 888d34441af672dfcfa27e8f48237c41105ce629
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534187"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817125"
 ---
-# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack Storage-fiókok kezelése
+# <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
 
-Ismerje meg, hogyan kezelheti Azure Stack Storage-fiókokat. Az üzleti igények alapján megkeresheti, helyreállíthatja és visszaigényelheti a tárolási kapacitást.
+Ismerje meg, hogyan kezelheti Azure Stack hub Storage-fiókokat. Az üzleti igények alapján megkeresheti, helyreállíthatja és visszaigényelheti a tárolási kapacitást.
 
 ## <a name="find-a-storage-account"></a>Storage-fiók keresése
 
-A régióban található Storage-fiókok listáját Azure Stack tekintheti meg a következő lépések végrehajtásával:
+A régióban található Storage-fiókok listáját Azure Stack központban tekintheti meg a következő lépésekkel:
 
 1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
 
-2. Válassza **a minden szolgáltatás**  > **Storage** - > **Storage-fiókok**lehetőséget.
+2. Válassza **a minden szolgáltatás** > **Storage** - > **Storage-fiókok**lehetőséget.
 
-   ![Azure Stack Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack hub Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
 
 Alapértelmezés szerint az első 10 fiók jelenik meg. A lista alján található **további terhelés** hivatkozásra kattintva további részleteket is megadhat.
 
@@ -48,7 +48,7 @@ Ha érdekli egy adott Storage-fiók, akkor csak **a megfelelő fiókokat szűrhe
 2. A szűrő panelen megadhatja a **fiók nevét**, az **előfizetés azonosítóját**vagy az **állapotot** a megjelenítendő Storage-fiókok listájának finomhangolásához. Szükség szerint használja őket.
 3. A gépelés során a lista automatikusan alkalmazza a szűrőt.
 
-    ![Azure Stack Storage-fiókok szűrése](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Azure Stack hub Storage-fiókok szűrése](media/azure-stack-manage-storage-accounts/image5.png)
 
 4. A szűrő alaphelyzetbe állításához: válassza a **szűrő**lehetőséget, törölje a beállításokat és a frissítést.
 
@@ -56,7 +56,7 @@ A keresési szövegmező (a Storage-fiókok listája ablaktábla tetején) lehet
 
 Az itt található ingyenes szöveg segítségével megtalálhatja a kívánt fiókot.
 
-![Azure Stack Storage-fiókok keresése](media/azure-stack-manage-storage-accounts/image6.png)
+![Azure Stack hub Storage-fiókok keresése](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Tekintse meg a fiók részleteit
 Miután megtalálta a megtekinteni kívánt fiókokat, kiválaszthatja az adott fiókot az egyes részletek megtekintéséhez. Megnyílik egy új ablaktábla a fiók részleteivel. Ezen adatok közé tartozik a fiók, a létrehozás időpontja, a hely stb.
@@ -66,7 +66,7 @@ Miután megtalálta a megtekinteni kívánt fiókokat, kiválaszthatja az adott 
 ## <a name="recover-a-deleted-account"></a>Törölt fiók helyreállítása
 Előfordulhat, hogy olyan helyzetben van, ahol egy törölt fiókot kell helyreállítani.
 
-Azure Stack egy egyszerű módja van ennek:
+Azure Stack központban van egy egyszerű módja:
 
 1. Tallózással keresse meg a Storage-fiókok listáját. További információ: Storage- [fiók keresése](azure-stack-manage-storage-accounts.md) a cikk elején.
 2. Keresse meg az adott fiókot a listában. Előfordulhat, hogy szűrnie kell.
@@ -98,8 +98,8 @@ Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzem
 **A megőrzési időtartam módosítása:**
 
 1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
-2. Válassza a **minden szolgáltatás**  > **régió** felügyelete az **Adminisztráció**alatt lehetőséget.
-3. Válassza az **erőforrás-szolgáltatók**  > **Storage**  > **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
+2. Válassza a **minden szolgáltatás** > **régió** felügyelete az **Adminisztráció**alatt lehetőséget.
+3. Válassza az **erőforrás-szolgáltatók** > **Storage** > **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
 4. Válassza a **konfiguráció** lehetőséget, majd szerkessze a megőrzési időszak értékét.
 
    Állítsa be a napok számát, majd mentse.
@@ -143,10 +143,10 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-További információ: [Azure stack PowerShell-dokumentáció](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+További információ: [Azure stack hub PowerShell dokumentációja](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Következő lépések
 
  - Az engedélyek kezelésével kapcsolatos információkért lásd: [hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával](azure-stack-manage-permissions.md).
- - További információ a Azure Stack tárolási kapacitásának kezeléséről: a [Azure stack tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).
+ - Az Azure Stack hub tárolási kapacitásának kezelésével kapcsolatos információkért lásd: [Azure stack hub tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).

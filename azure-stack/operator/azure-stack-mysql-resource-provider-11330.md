@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései | Microsoft Docs
-description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg a Azure Stack MySQL erőforrás-szolgáltató 1.1.33.0 frissítésének újdonságait.
+title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései | Microsoft Docs
+description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 frissítésének újdonságait.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,34 +16,34 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 8317aad40de699737ffb494465752decd0e1e7d4
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682149"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816870"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik a MySQL erőforrás-szolgáltató 1.1.33.0-verziójának újdonságait és ismert problémáit.
 
 ## <a name="build-reference"></a>Build referenciája
-Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbiakban látható:
+Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub kiadási verzió az alábbi listában látható:
 
-> |Minimális Azure Stack-verzió|MySQL erőforrás-szolgáltató verziója|
+> |Azure Stack hub minimális verziója|MySQL erőforrás-szolgáltató verziója|
 > |-----|-----|
 > |1808-es verzió (1.1808.0.97)|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> Alkalmazza a minimális támogatott Azure Stack frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a MySQL erőforrás-szolgáltató legújabb verziójának telepítése előtt.
+> Alkalmazza a minimális támogatott Azure Stack hub-frissítést a Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a MySQL erőforrás-szolgáltató legújabb verziójának üzembe helyezése előtt.
 
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
-A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
+Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 - **Előfordulhat, hogy a MySQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. A MySQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ az első olyan szolgáltatás-rendszergazdai előfizetés meghatározásához, amely nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, a MySQL erőforrás-szolgáltató nem működik megfelelően.
 
@@ -57,7 +57,7 @@ A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javí
 
 - **A MySQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy órát is igénybe vehet, hogy az újonnan létrehozott SKU-i megjelenjenek az új MySQL-adatbázisok létrehozásakor. 
 
-    **Áthidaló megoldás**: nincs.
+    **Megkerülő megoldás**: Nincs.
 
 - A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 
@@ -68,8 +68,8 @@ A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javí
     **Megkerülő megoldás**: az azonos előfizetéshez tartozó különböző adatbázisokhoz mindig használjon eltérő bejelentkezéseket.
 
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
-Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure Stack hubhoz
+Tekintse meg az [Azure stack hub kibocsátási megjegyzései](azure-stack-servicing-policy.md)dokumentációját.
 
 ## <a name="next-steps"></a>Következő lépések
 [További információ a MySQL erőforrás-szolgáltatóról](azure-stack-mysql-resource-provider.md).

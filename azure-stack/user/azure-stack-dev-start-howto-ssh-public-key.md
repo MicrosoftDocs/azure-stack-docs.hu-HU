@@ -1,5 +1,5 @@
 ---
-title: Nyilvános SSH-kulcs használata a Azure Stack használatával | Microsoft Docs
+title: Nyilvános SSH-kulcs használata Azure Stack hub használatával | Microsoft Docs
 description: Nyilvános SSH-kulcs használata
 services: azure-stack
 author: mattbriggs
@@ -9,22 +9,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b40fb92eefa696369ed57aabefb4e8298dad3eea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824506"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820695"
 ---
 # <a name="use-an-ssh-public-key"></a>Nyilvános SSH-kulcs használata
 
-Ha a fejlesztői gépről nyitott SSH-kapcsolattal szeretné használni a webalkalmazást futtató Azure Stack-példányban található kiszolgálói virtuális gépet, akkor előfordulhat, hogy létre kell hoznia egy Secure Shell (SSH) nyilvános és titkos kulcspárt. 
+Ha a fejlesztői gépről nyitott SSH-kapcsolattal szeretné használni a webalkalmazást futtató Azure Stack hub-példányban található kiszolgálói virtuális gépet, akkor lehet, hogy létre kell hoznia egy Secure Shell (SSH) nyilvános és titkos kulcspárt. 
 
 Ebben a cikkben létrehozza a kulcsokat, majd a használatával csatlakozhat a kiszolgálóhoz. Egy SSH-ügyféllel beszerezhet egy bash-kérést a Linux-kiszolgálón, vagy használhat biztonságos FTP-(SFTP-) ügyfelet, hogy fájlokat helyezzen át a kiszolgálóra és a kiszolgálóról.
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Nyilvános SSH-kulcs létrehozása Windows rendszeren
 
-Ebben a szakaszban a PuTTY Key Generator használatával hozzon létre egy nyilvános SSH-kulcsot és egy titkos kulcspárt, amelyet akkor használhat, amikor biztonságos csatlakozást hoz létre a Linux rendszerű gépekhez a Azure Stack-példányban. A PuTTY egy ingyenes terminál-emulátor, amely lehetővé teszi, hogy SSH-n és telneten keresztül csatlakozhasson a kiszolgálókhoz.
+Ebben a szakaszban a PuTTY Key Generator használatával hozzon létre egy nyilvános SSH-kulcsot és egy titkos kulcspárt, amelyet akkor kell használni, amikor biztonságos kapcsolódást hoz létre a Linux rendszerű gépekhez az Azure Stack hub-példányban. A PuTTY egy ingyenes terminál-emulátor, amely lehetővé teszi, hogy SSH-n és telneten keresztül csatlakozhasson a kiszolgálókhoz.
 
 1. [Töltse le és telepítse a PuTTY-t a gépén.](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -66,14 +66,14 @@ Amikor egy alkalmazás kéri a kulcsot, másolja és illessze be a szövegfájl 
 
 ## <a name="connect-with-ssh-by-using-putty"></a>Az SSH-val való kapcsolat a PuTTY használatával
 
-A PuTTY telepítésekor a PuTTY Key Generator és egy SSH-ügyfél is van. Ebben a szakaszban megnyithatja az SSH-ügyfelet, a PuTTY-t, és konfigurálhatja a kapcsolatok értékeit és az SSH-kulcsot. Ha a Azure Stack-példánnyal azonos hálózaton van, akkor a virtuális géphez csatlakozik.
+A PuTTY telepítésekor a PuTTY Key Generator és egy SSH-ügyfél is van. Ebben a szakaszban megnyithatja az SSH-ügyfelet, a PuTTY-t, és konfigurálhatja a kapcsolatok értékeit és az SSH-kulcsot. Ha a Azure Stack hub-példánnyal azonos hálózaton van, akkor a virtuális géphez csatlakozik.
 
 A kapcsolat előtt a következőkre lesz szüksége:
 - PuTTY
-- A Azure Stack példányban található Linux-gép IP-címe és felhasználóneve, amely egy nyilvános SSH-kulcsot használ hitelesítési típusként.
+- Az Azure Stack hub-példányban található Linux-gép IP-címe és felhasználóneve, amely egy nyilvános SSH-kulcsot használ hitelesítési típusként.
 - A 22-es port nyitva van a gépen.
 - A számítógép létrehozásakor használt nyilvános SSH-kulcs.
-- A PuTTY-t futtató ügyfélszámítógépnek ugyanazon a hálózaton kell lennie, mint az Azure Stack-példánnyal.
+- A PuTTY-t futtató ügyfélszámítógépnek ugyanazon a hálózaton kell lennie, mint az Azure Stack hub-példánnyal.
 
 1. Nyissa meg a PuTTY eszközt.
 
@@ -85,7 +85,7 @@ A kapcsolat előtt a következőkre lesz szüksége:
 
     ![A PuTTY konfigurációs paneljének-SSH titkos kulcsa](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. A **titkos kulcs fájlja a hitelesítéshez** mezőben válassza a **Tallózás**lehetőséget, majd keresse meg a nyilvános és titkos kulcspár titkos kulcsának fájlját ( *\<filename >. PPK*).
+5. A **hitelesítő titkos kulcs fájlja** mellett válassza a **Tallózás**elemet, majd keresse meg a nyilvános és titkos kulcspár ( *\<filename >. PPK*) titkos kulcs fájlját.
 6. A **Kategória** fában válassza a **munkamenet**elemet.
 
     ![A PuTTY konfigurációs ablaktábla "mentett munkamenetek" mezője](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -109,9 +109,9 @@ A fájlok a Linux rendszerű számítógépekre való áthelyezéséhez a FileZi
 1. A **protokoll** legördülő listában válassza az **SFTP-SSH File Transfer Protocol**elemet.
 1. A **gazdagép** mezőben adja meg a számítógép nyilvános IP-címét.
 1. A **Bejelentkezés típusa** mezőben válassza a **normál**elemet.
-1. Adja meg a felhasználónevét és a jelszavát.
+1. Adja meg felhasználónevét és jelszavát.
 1. Kattintson az **OK** gombra.
-1. Válassza az  > **Beállítások** **szerkesztése**lehetőséget.
+1. Válassza a > **Beállítások** **szerkesztése** lehetőséget.
 
     ![A FileZilla beállítások panel](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
@@ -125,6 +125,6 @@ A fájlok a Linux rendszerű számítógépekre való áthelyezéséhez a FileZi
 1. Válassza a **fájl** > **Site Manager**lehetőséget.
 1. Válassza ki a webhely nevét, majd válassza a **kapcsolat**lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ismerje meg, hogyan [állíthat be fejlesztési környezetet a Azure Stackban](azure-stack-dev-start.md).
+Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).

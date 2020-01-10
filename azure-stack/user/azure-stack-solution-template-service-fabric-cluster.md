@@ -1,6 +1,6 @@
 ---
-title: Biztonságos Service Fabric-fürt üzembe helyezése Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe biztonságos Service Fabric-fürtöt a Azure Stack
+title: Biztonságos Service Fabric-fürt üzembe helyezése Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe biztonságos Service Fabric-fürtöt Azure Stack hub-ban
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: bb0e9fdb3e1ce1c3778d1167ca76cddae3d67aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993843"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819199"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric-fürt üzembe helyezése Azure Stack
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric-fürt üzembe helyezése Azure Stack központban
 
-Az Azure Marketplace **Service Fabric-fürtjével** biztonságos Service Fabric-fürtöt helyezhet üzembe a Azure Stackban. 
+Az Azure Marketplace **Service Fabric-fürtjével** biztonságos Service Fabric-fürtöt helyezhet üzembe az Azure stack hub szolgáltatásban. 
 
 További információ a Service Fabric használatáról: az Azure- [Service Fabric áttekintése](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) és a [Service Fabric-fürtök biztonsági forgatókönyvei](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) az Azure dokumentációjában.
 
-A Azure Stack Service Fabric-fürt nem a Microsoft. ServiceFabric erőforrás-szolgáltatót használja. Ehelyett Azure Stack a Service Fabric-fürt egy virtuálisgép-méretezési csoport egy előre telepített szoftverrel a [kívánt állapot-konfiguráció (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)használatával.
+Az Azure Stack hub Service Fabric-fürtje nem a Microsoft. ServiceFabric erőforrás-szolgáltatót használja. Ehelyett Azure Stack központban a Service Fabric-fürt egy virtuálisgép-méretezési csoport egy előre telepített szoftverrel a [kívánt állapot-konfiguráció (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)használatával.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -45,7 +45,7 @@ A Service Fabric-fürt telepítéséhez a következők szükségesek:
 1. **Rendszergazdai ügyféltanúsítvány**  
    Ez az a tanúsítvány, amelyet az ügyfél a Service Fabric-fürt hitelesítésére használ, amely önaláírt lehet. Tekintse meg az ügyfél-tanúsítvány létrehozásához [szükséges követelményeket](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) .
 
-1. **A következő elemeknek elérhetőknek kell lenniük a Azure Stack piactéren:**
+1. **A következő elemeknek elérhetőknek kell lenniük az Azure Stack hub piactéren:**
     - **Windows server 2016** – a sablon a windows Server 2016 rendszerképet használja a fürt létrehozásához.  
     - **Egyéni szkriptek bővítménye** – virtuálisgép-bővítmény a Microsofttól.  
     - A **PowerShell kívánt fázisának konfigurálása** – virtuálisgép-bővítmény a Microsofttól.
@@ -120,7 +120,7 @@ A következő szkripttel hozza létre a Key Vault, és adja hozzá a *fürt tan�
    ``` 
 
 
-További információ: [a Azure Stack Key Vault kezelése a PowerShell](azure-stack-key-vault-manage-powershell.md)-lel.
+További információ: [a Azure stack Hub Key Vault kezelése a PowerShell](azure-stack-key-vault-manage-powershell.md)-lel.
 
 ## <a name="deploy-the-marketplace-item"></a>A piactér-elemek üzembe helyezése
 
@@ -130,13 +130,13 @@ További információ: [a Azure Stack Key Vault kezelése a PowerShell](azure-st
 
 2. Az egyes lapokhoz, *például az*alapszintekhez, töltse ki a központi telepítési űrlapot. Használja az alapértelmezett értékeket, ha nem biztos benne, hogy egy értéket.
 
-    A leválasztott Azure Stack vagy a Service Fabric egy másik verziójának központi telepítéséhez töltse le a Service Fabric központi telepítési csomagot és a hozzá tartozó futtatókörnyezet-csomagot, és tárolja Azure Stack blobon. Adja meg ezeket az értékeket a **Service Fabric központi telepítési csomag URL-címéhez** és a **Service Fabric futtatókörnyezet-csomag URL-** mezőihez.
+    A leválasztott Azure Stack hubhoz való központi telepítéshez vagy a Service Fabric egy másik verziójának telepítéséhez töltse le a Service Fabric központi telepítési csomagot és a hozzá tartozó futtatókörnyezet-csomagot, és működtesse egy Azure Stack hub-blobon. Adja meg ezeket az értékeket a **Service Fabric központi telepítési csomag URL-címéhez** és a **Service Fabric futtatókörnyezet-csomag URL-** mezőihez.
     > [!NOTE]  
     > A Service Fabric és a hozzá tartozó SDK legújabb kiadása között kompatibilitási problémák léptek fel. A probléma megoldása érdekében adja meg a következő paramétereket a központi telepítési csomag URL-címéhez és a futásidejű csomag URL-címéhez. A központi telepítések egyébként nem fognak működni.
     > - Service Fabric központi telepítési csomag URL-címe: <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
     > - Service Fabric futtatókörnyezet-csomag URL-címe: <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
-    > A leválasztott központi telepítések esetében töltse le ezeket a csomagokat a megadott helyről, és helyileg tárolja egy Azure Stack blobon.
+    > A leválasztott központi telepítések esetében töltse le ezeket a csomagokat a megadott helyről, és helyileg tárolja egy Azure Stack hub-blobon.
 
    ![Alapvető beállítások](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -241,4 +241,4 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 ## <a name="next-steps"></a>Következő lépések
 
-[A Kubernetes üzembe helyezése Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
+[Kubernetes üzembe helyezése Azure Stack hubhoz](azure-stack-solution-template-kubernetes-deploy.md)

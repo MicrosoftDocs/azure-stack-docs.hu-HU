@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack Storage bemutatása | Microsoft Docs
-description: Ismerkedjen meg Azure Stack Storage-szolgáltatásokkal.
+title: Az Azure Stack hub Storage bemutatása | Microsoft Docs
+description: Ismerkedjen meg Azure Stack hub tárolási szolgáltatásaival.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: dfa9666387093f60dfd41e371707dff23119dc9a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 462213c5564967c08961c0277f54bfafbaa59a4a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909592"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815799"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>A Azure Stack Storage bemutatása
+# <a name="introduction-to-azure-stack-hub-storage"></a>Az Azure Stack hub Storage bemutatása
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="overview"></a>Áttekintés
 
-Azure Stack Storage az Azure Storage által biztosított szolgáltatásokkal konzisztens felhőalapú tárolási szolgáltatások készlete. Ezek a szolgáltatások blobokat, táblákat és várólistákat tartalmaznak.
+Az Azure Stack hub Storage az Azure Storage által biztosított szolgáltatásokkal konzisztens felhőalapú tárolási szolgáltatások készlete. Ezek a szolgáltatások blobokat, táblákat és várólistákat tartalmaznak.
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage-szolgáltatások
+## <a name="azure-stack-hub-storage-services"></a>Azure Stack hub Storage Services
 
-Azure Stack Storage a következő három szolgáltatást biztosítja:
+Azure Stack hub Storage a következő három szolgáltatást nyújtja:
 
 - **Blob Storage**
 
@@ -45,11 +45,11 @@ Azure Stack Storage a következő három szolgáltatást biztosítja:
 
     A üzenetsor-tárolás megbízható üzenetküldést biztosít a munkafolyamat-feldolgozáshoz és a Cloud Services összetevői közötti kommunikációhoz.
 
-Az Azure Stack Storage-fiók egy biztonságos fiók, amely hozzáférést biztosít a Azure Stack-tárolóban található szolgáltatásokhoz. A tárfiók biztosítja az egyedi névteret a tárterület erőforrásainak. A következő ábrán a Storage-fiók Azure Stack tárolási erőforrásai közötti kapcsolatok láthatók:
+Az Azure Stack hub Storage-fiók egy biztonságos fiók, amely hozzáférést biztosít a Azure Stack hub Storage szolgáltatásaihoz. A tárfiók biztosítja az egyedi névteret a tárterület erőforrásainak. A következő ábra a Azure Stack hub tárolási erőforrásai közötti kapcsolatokat mutatja be egy Storage-fiókban:
 
-![Azure Stack Storage – áttekintés](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Azure Stack hub Storage – áttekintés](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
-### <a name="blob-storage"></a>Blob Storage
+### <a name="blob-storage"></a>Blobtároló
 
 Az olyan felhasználók számára, akik nagy mennyiségű strukturálatlan objektumot tárolnak a felhőben, a blob Storage hatékony és méretezhető megoldást kínál. A blob Storage a következő tartalmak tárolására használható:
 
@@ -64,19 +64,19 @@ Minden blob egy tárolóba van rendezve. A tárolók nagy előnye, hogy az objek
 
 A blob Storage háromféle blobot kínál:
 
-- **Blobok letiltása**
+- **Blokkblobok**
 
     A blokkos Blobok a Felhőbeli objektumok folyamatos átvitelére és tárolására vannak optimalizálva. A dokumentumok, médiafájlok, biztonsági másolatok és más hasonló fájlok tárolására jó választás.
 
-- **Blobok hozzáfűzése**
+- **Hozzáfűző blobok**
 
     A hozzáfűző blobok a blokkblobokhoz hasonló, de a műveletek hozzáfűzésére optimalizált blobok. A naplóíró blobok csak a végükhöz hozzáadott új blokkal frissíthetők. A naplóíró blobok olyan forgatókönyvekhez felelnek meg leginkább, mint például a naplózás, ahol az új adatokat csak a blob végéhez kell hozzáírni.
 
-- **Oldal Blobok**
+- **Lapblobok**
 
-    Az oldal Blobok a IaaS-lemezek ábrázolására vannak optimalizálva, és a véletlenszerű írásokat legfeljebb 1 TB méretűre támogatják. Az Azure Stack virtuális gép csatolt IaaS lemeze egy lapozófájlként tárolt VHD.
+    Az oldal Blobok a IaaS-lemezek ábrázolására vannak optimalizálva, és a véletlenszerű írásokat legfeljebb 1 TB méretűre támogatják. Az Azure Stack hub virtuális géphez csatolt IaaS lemez egy blobként tárolt VHD.
 
-### <a name="table-storage"></a>Táblatároló
+### <a name="table-storage"></a>Table Storage
 
 A modern alkalmazások gyakran olyan adattárakat igényelnek, amelyek nagyobb skálázhatóságot és rugalmasságot igényelnek, mint a szoftver korábbi generációja. A Table Storage a nagy rendelkezésre állású, nagy mértékben méretezhető tárolást biztosít, így az alkalmazás automatikusan méretezhető a felhasználói igények kielégítése érdekében. A Table Storage a Microsoft NoSQL kulcs-és attribútum-tárolója, amely séma nélküli kialakítással rendelkezik, így eltér a hagyományos és a hagyományos kapcsolatok adatbázisaitól. A séma nélküli adattárral egyszerűen alkalmazkodhat az adataihoz az alkalmazás igényeinek megfelelően. A Table Storage egyszerűen használható, így a fejlesztők gyorsan hozhatnak létre alkalmazásokat.
 
@@ -92,7 +92,7 @@ A méretezhető alkalmazások tervezésekor az alkalmazás-összetevők gyakran 
 
 A Storage-fiókok tetszőleges számú várólistát tartalmazhatnak, és a várólista tetszőleges számú üzenetet tartalmazhat (a Storage-fiók kapacitási korlátja alapján). Az egyes üzenetek akár a 64 KB-os méretet is elérhetik.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure-konzisztens tárolás: különbségek és megfontolások](azure-stack-acs-differences.md)
 

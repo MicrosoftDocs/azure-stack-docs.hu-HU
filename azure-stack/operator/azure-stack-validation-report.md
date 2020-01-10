@@ -1,6 +1,6 @@
 ---
-title: Azure Stack ellenőrzési jelentés | Microsoft Docs
-description: Az ellenőrzési eredmények áttekintéséhez használja a Azure Stack Readiness-ellenőrző jelentését.
+title: Azure Stack hub ellenőrzési jelentése | Microsoft Docs
+description: Az ellenőrzési eredmények áttekintéséhez használja az Azure Stack hub Readiness-ellenőrző jelentését.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,37 +12,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 426c7d9070fd0e1b7d194ae27cd9f0b9ab91e4cc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991724"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812790"
 ---
-# <a name="azure-stack-validation-report"></a>Azure Stack ellenőrzési jelentés
+# <a name="azure-stack-hub-validation-report"></a>Azure Stack hub ellenőrzési jelentés
 
-Használja a *Azure stack Readiness-ellenőrző* eszközt olyan érvényesítések futtatására, amelyek támogatják egy Azure stack-környezet telepítését és karbantartását. Az eszköz az eredményeket egy. JSON-jelentési fájlba írja. A jelentés részletes és összegzett információkat jelenít meg az Azure Stack telepítéséhez szükséges előfeltételek állapotáról. A jelentés a meglévő Azure Stack központi telepítések titkainak rotációs adatait is megjeleníti.  
+Az *Azure stack hub Readiness-ellenőrző* eszköz használatával olyan érvényesítéseket futtathat, amelyek támogatják egy Azure stack hub-környezet telepítését és karbantartását. Az eszköz az eredményeket egy. JSON-jelentési fájlba írja. A jelentés részletes és összegzett információkat jelenít meg az Azure Stack hub üzembe helyezéséhez szükséges előfeltételek állapotáról. A jelentés a meglévő Azure Stack hub-telepítések titkainak rotációs adatait is megjeleníti.  
 
 ## <a name="where-to-find-the-report"></a>Hol található a jelentés
 
 Az eszköz futtatásakor a naplózza az eredményeket a **AzsReadinessCheckerReport. JSON**fájlban. Az eszköz egy **AzsReadinessChecker. log**nevű naplót is létrehoz. A fájlok helye a PowerShell érvényesítési eredményeivel együtt jelenik meg:
 
-![run-validation](./media/azure-stack-validation-report/validation.png)
+![Futtatás – ellenőrzés](./media/azure-stack-validation-report/validation.png)
 
 Mindkét fájl megőrzi a további ellenőrzési ellenőrzések eredményét, ha ugyanazon a számítógépen futnak. Például az eszköz futtatható a tanúsítványok érvényesítéséhez, újra futtatva az Azure Identity érvényesítéséhez, majd egy harmadik alkalommal a regisztráció érvényesítéséhez. Mindhárom érvényesítés eredménye elérhető a létrejövő. JSON-jelentésben.  
 
 Alapértelmezés szerint mindkét fájl a **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**-be van írva.  
 
-- Egy másik jelentés helyének megadásához használja a parancssor végén található paramétert.`-OutputPath <path>`
-- A parancssor végén található paraméterreltörölhetiazeszközelőzőfuttatásávalkapcsolatosinformációkataAzsReadinessCheckerReport.JSONfájlból`-CleanReport` .
+- Egy másik jelentés helyének megadásához használja a parancssor végén található `-OutputPath <path>` paramétert.
+- A parancssor végén található `-CleanReport` paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
-## <a name="view-the-report"></a>A jelentés megtekintése
+## <a name="view-the-report"></a>A jelentés elolvasása
 
-Ha a jelentést a PowerShellben szeretné megtekinteni, adja meg a jelentés elérési `-ReportPath`útját a következő értékként:. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja azokat az érvényességeket, amelyek még nem rendelkeznek eredménnyel.
+Ha a jelentést a PowerShellben szeretné megtekinteni, adja meg a jelentés elérési útját `-ReportPath`értékként. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja azokat az érvényességeket, amelyek még nem rendelkeznek eredménnyel.
 
 Ha például a jelentést egy olyan PowerShell-parancssorból szeretné megtekinteni, amely a jelentés helyét tartalmazó helyre van nyitva, futtassa a következő parancsot:
 
@@ -76,13 +76,13 @@ Error Details                 :
 
 Azure Identity Validation found no errors or warnings.
 
-############### Azure Stack Graph Validation Summary ###############
+############### Azure Stack Hub Graph Validation Summary ###############
 
-Azure Stack Graph Validation results not available.
+Azure Stack Hub Graph Validation results not available.
 
-############### Azure Stack ADFS Validation Summary ###############
+############### Azure Stack Hub ADFS Validation Summary ###############
 
-Azure Stack ADFS Validation results not available.
+Azure Stack Hub ADFS Validation results not available.
 
 ############### AzsReadiness Job Summary ###############
 
@@ -96,7 +96,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>A jelentés összegzésének megtekintése
 
-A jelentés összegzésének megtekintéséhez adja hozzá a `-summary` paramétert a PowerShell-parancs végéhez. Példa:
+A jelentés összegzésének megtekintéséhez hozzáadhatja a `-summary` paramétert a PowerShell-parancs végéhez. Példa:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
@@ -119,13 +119,13 @@ Registration Validation found no errors or warnings.
 
 Azure Identity Validation found no errors or warnings.
 
-############### Azure Stack Graph Validation Summary ###############
+############### Azure Stack Hub Graph Validation Summary ###############
 
-Azure Stack Graph Validation results not available.
+Azure Stack Hub Graph Validation results not available.
 
-############### Azure Stack ADFS Validation Summary ###############
+############### Azure Stack Hub ADFS Validation Summary ###############
 
-Azure Stack ADFS Validation results not available.
+Azure Stack Hub ADFS Validation results not available.
 ```
 
 ## <a name="view-a-filtered-report"></a>Szűrt jelentés megtekintése
@@ -135,10 +135,10 @@ Ha egy olyan jelentést szeretne megtekinteni, amely egyetlen ellenőrzési típ
 - Tanúsítvány
 - AzureRegistration
 - AzureIdentity
-- Graph
+- Gráf
 - ADFS
 - Feladatok
-- Összes  
+- Mind  
 
 Ha például csak a tanúsítványok jelentésének összegzését szeretné megtekinteni, használja a következő PowerShell-parancssort:
 

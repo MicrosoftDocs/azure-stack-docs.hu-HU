@@ -17,29 +17,29 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 3efa4da68a5149f78c21c9bd3e8416371f03eb77
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961710"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820814"
 ---
-# <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: Virtuális gép létrehozása közösségi sablon használatával
+# <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: virtuális gép létrehozása közösségi sablon használatával
 
-Azure Stack kezelőként vagy felhasználóként létrehozhat egy virtuális gépet (VM) egyéni GitHub-gyorsindítási [sablonokkal](https://github.com/Azure/AzureStack-QuickStart-Templates) ahelyett, hogy manuálisan telepítené a sablont a Azure stack Piactérről.
+Azure Stack hub-kezelőként vagy felhasználóként létrehozhat egy virtuális gépet (VM) [Egyéni GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates) -gyorsindítási sablonok használatával ahelyett, hogy manuálisan telepítené a sablont az Azure stack hub Piactérről.
 
 Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 > [!div class="checklist"]
-> * Azure Stack Gyorsindítás sablonok használata
+> * Azure Stack hub gyors üzembe helyezési sablonjainak használata
 > * Virtuális gép létrehozása egyéni GitHub-sablonnal
 > * Minikube elindítása és alkalmazások telepítése
 
-## <a name="azure-stack-quickstart-templates"></a>Azure Stack gyorsindítási sablonok
+## <a name="azure-stack-hub-quickstart-templates"></a>Azure Stack hub gyors üzembe helyezési sablonjai
 
-Azure Stack a gyors üzembe helyezési sablonokat a GitHub [global Azure stack rövid útmutató sablonok tárházában](https://github.com/Azure/AzureStack-QuickStart-Templates)tárolja. Ez a tárház Azure Resource Manager telepítési sablonokat tartalmaz, amelyeket teszteltek a Microsoft Azure Stack Development Kit (ASDK) szolgáltatással. Használhatja őket, hogy megkönnyítse a Azure Stack kiértékelését és a ASDK-környezet használatát.
+Azure Stack hub rövid útmutató sablonjait a GitHub globális Azure Stack hub gyors üzembe helyezési [sablonok tárházában](https://github.com/Azure/AzureStack-QuickStart-Templates)tárolja. Ez a tárház Azure Resource Manager telepítési sablonokat tartalmaz, amelyeket teszteltek a Microsoft Azure Stack Development Kit (ASDK) szolgáltatással. A segítségével könnyebben kiértékelheti Azure Stack hubot, és használhatja a ASDK környezetet.
 
-Az idő múlásával számos GitHub-felhasználó járult hozzá a tárházhoz, így több mint 400 üzembe helyezési sablonból álló gyűjteményt eredményezett. Ez a tárház jó kiindulópont annak megértéséhez, hogy a különböző típusú környezetek hogyan helyezhetők üzembe Azure Stack.
+Az idő múlásával számos GitHub-felhasználó járult hozzá a tárházhoz, így több mint 400 üzembe helyezési sablonból álló gyűjteményt eredményezett. Ez a tárház jó kiindulópont annak megértéséhez, hogyan helyezhet üzembe különböző környezeteket Azure Stack hubhoz.
 
 >[!IMPORTANT]
 > A sablonok némelyikét a Közösség tagjai hozzák létre, és nem a Microsoft. Az egyes sablonok licence a tulajdonosa, nem pedig a Microsoft. A Microsoft nem felelős ezekre a sablonokra, és nem biztonsági, kompatibilitási vagy teljesítménybeli képernyő. A közösségi sablonok bármely Microsoft-támogatási program vagy szolgáltatás esetében nem támogatottak, és az "adott állapotban" elérhetővé válnak, mindennemű garancia nélkül.
@@ -48,7 +48,7 @@ Ha hozzá szeretne járulni Azure Resource Manager-sablonokhoz a GitHubhoz, tegy
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Virtuális gép létrehozása egyéni GitHub-sablonnal
 
-Ebben a példában a [101-VM-Linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) Azure stack gyors üzembe helyezési sablon egy Ubuntu 16,04 virtuális gép telepítésére használható a minikube-t futtató Azure stack a Kubernetes-fürt felügyeletéhez.
+Ebben a példában a [101-VM-Linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) Azure stack hub gyors üzembe helyezési sablonja egy Ubuntu 16,04 virtuális gép telepítésére használható a minikube-t futtató Azure stack hubhoz egy Kubernetes-fürt kezeléséhez.
 
 A Minikube egy olyan eszköz, amely megkönnyíti a Kubernetes helyi futtatását. A Minikube egy virtuális gépen belül egy egycsomópontos Kubernetes-fürtöt futtat, így kipróbálhatja a Kubernetes, vagy fejlesztheti azt napról napra. Támogatja a Linux rendszerű virtuális gépeken futó egyszerű, egycsomópontos Kubernetes-fürtöt. A Minikube a leggyorsabb és legegyszerűbb módja annak, hogy teljesen működőképes Kubernetes-fürtöt futtasson. Lehetővé teszi a fejlesztők számára a Kubernetes-alapú alkalmazások helyi gépeken való fejlesztését és tesztelését. A Minikube virtuális gép a fő-és az ügynök-csomópont-összetevőket is helyileg futtatja:
 
@@ -58,14 +58,14 @@ A Minikube egy olyan eszköz, amely megkönnyíti a Kubernetes helyi futtatásá
 Ez a sablon a következő összetevőket telepíti:
 
 * Ubuntu 16,04 LTS virtuális gép
-* [Docker-CE](https://download.docker.com/linux/ubuntu)
+* [Docker – CE](https://download.docker.com/linux/ubuntu)
 * [Kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/linux/amd64/kubectl)
 * [Minikube](https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64)
 * xFCE4
 * xRDP
 
 > [!IMPORTANT]
-> A lépések végrehajtása előtt az Ubuntu VM-rendszerkép (Ubuntu Server 16,04 LTS, ebben a példában) már hozzá lett adva a Azure Stack Marketplace-hez.
+> Ezen lépések végrehajtása előtt az Ubuntu VM-rendszerkép (Ubuntu Server 16,04 LTS, ebben a példában) már hozzá lett adva a Azure Stack hub Marketplace-hez.
 
 1. Válassza **az + erőforrás létrehozása**, majd az **Egyéni**, majd a **template Deployment**lehetőséget.
 
@@ -77,7 +77,7 @@ Ez a sablon a következő összetevőket telepíti:
 
 3. Válassza ki a **Gyorsindítás sablont**.
 
-    ![Gyorssablon](media/azure-stack-create-vm-template/3.PNG)
+    ![Gyorsindítási sablon](media/azure-stack-create-vm-template/3.PNG)
 
 4. Válassza a **101-VM-Linux-minikube** lehetőséget az elérhető sablonok közül a **sablon kiválasztása** legördülő listából, majd kattintson az **OK**gombra.
 
@@ -112,7 +112,7 @@ Most, hogy sikeresen létrejött a Linux rendszerű virtuális gép, bejelentkez
 
 2. Egy rendszergazda jogú parancssorból futtassa az **mstsc. exe fájlt** a távoli asztali kapcsolat megnyitásához, majd kapcsolódjon az előző lépésben felderített LINUXOS virtuális gép nyilvános IP-címéhez. Amikor a rendszer felszólítja, hogy jelentkezzen be a xRDP-be, használja a virtuális gép létrehozásakor megadott hitelesítő adatokat.
 
-    ![távoli](media/azure-stack-create-vm-template/10.PNG)
+    ![Távoli](media/azure-stack-create-vm-template/10.PNG)
 
 3. Nyissa meg a Terminal Emulatort, és adja meg a következő parancsokat a Minikube indításához:
 
@@ -130,11 +130,11 @@ Most, hogy sikeresen létrejött a Linux rendszerű virtuális gép, bejelentkez
 
 5. Egy minta alkalmazás üzembe helyezéséhez látogasson el a hivatalos Kubernetes dokumentációs oldalára, és hagyja ki a "Minikube-fürt létrehozása" szakaszt, ahogy már létrehozott egyet. Ugorjon a "Node. js-alkalmazás létrehozása" szakaszra a következő helyen: https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 
 > [!div class="checklist"]
-> * Ismerkedjen meg Azure Stack gyors üzembe helyezési sablonokkal
+> * Tudnivalók a Azure Stack hub gyors üzembe helyezési sablonjairól
 > * Virtuális gép létrehozása egyéni GitHub-sablonnal
 > * Minikube elindítása és alkalmazások telepítése

@@ -1,7 +1,7 @@
 ---
-title: PKI-tanúsítványok Azure Stack előkészítése üzembe helyezéshez vagy rotációhoz | Microsoft Docs
-titleSuffix: Azure Stack
-description: Ismerje meg, hogyan készítheti elő a PKI-tanúsítványokat Azure Stack integrált rendszerek központi telepítésére, illetve a titkok egy meglévő Azure Stack-környezetben történő elforgatására.
+title: Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy rotációhoz | Microsoft Docs
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan készítheti elő a PKI-tanúsítványokat Azure Stack hub integrált rendszerek üzembe helyezéséhez vagy a titkok megforgatásához egy meglévő Azure Stack hub-környezetben.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: a63e0e3a2246cc3c3c659f9671afdf4be0cc93cd
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 9031f81909a5bfe44882aabce47488ba6ca40edf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802372"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810350"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment-or-rotation"></a>Azure Stack PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
+# <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 
-Az [Ön által választott hitelesítésszolgáltatótól (CA) kapott](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack tanúsítványával egyező tulajdonságokkal.
+Az [Ön által választott hitelesítésszolgáltatótól (CA) kapott](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack hub tanúsítványára vonatkozó követelményeknek megfelelő tulajdonságokkal.
 
 ## <a name="prepare-certificates-for-deployment"></a>Tanúsítványok előkészítése központi telepítéshez
 
-A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack PKI-tanúsítványokat, amelyeket egy új Azure Stack-környezet telepítéséhez vagy a titkok egy meglévő Azure Stack környezetben való elforgatásához fog használni.
+A következő lépések végrehajtásával előkészítheti és érvényesítheti az Azure Stack hub PKI-tanúsítványait, amelyeket egy új Azure Stack hub-környezet telepítéséhez vagy a titkok egy meglévő Azure Stack hub-környezetben való elforgatásához fog használni.
 
 ### <a name="import-the-certificate"></a>A tanúsítvány importálása
 
@@ -54,7 +54,7 @@ A következő lépésekkel előkészítheti és érvényesítheti a Azure Stack 
 1. Az importálás befejezéséhez kattintson a **Befejezés** gombra.
 
 > [!NOTE]
-> Miután importált egy tanúsítványt a Azure Stackhoz, a rendszer a tanúsítvány titkos kulcsát PKCS 12 fájlként (PFX) tárolja a fürtözött tárolón.
+> Azure Stack hub tanúsítványának importálása után a rendszer a tanúsítvány titkos kulcsát PKCS 12 fájlként (PFX) tárolja a fürtözött tárolón.
 
 ### <a name="export-the-certificate"></a>A tanúsítvány exportálása
 
@@ -75,7 +75,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek** > az **összes feladat** > **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
 
    > [!NOTE]
-   > Attól függően, hogy hány Azure Stack tanúsítvány van, előfordulhat, hogy a folyamatot többször kell végrehajtania.
+   > Attól függően, hogy hány Azure Stack hub-tanúsítvány van, előfordulhat, hogy a folyamatot többször kell végrehajtania.
 
 6. Válassza **az igen, a titkos kulcs exportálása**lehetőséget, majd kattintson a **tovább**gombra.
 

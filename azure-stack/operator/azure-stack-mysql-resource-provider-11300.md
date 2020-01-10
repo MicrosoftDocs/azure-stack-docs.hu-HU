@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
-description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg a Azure Stack MySQL erőforrás-szolgáltató 1.1.30.0 frissítésének újdonságait.
+title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
+description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 frissítésének újdonságait.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,40 +16,40 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: fa21bb641589bb6da143696e0c925a0bfe51c1d0
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: cc98aaaf25c752b6d606734b5933144874cd91ca
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682207"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816972"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik a MySQL erőforrás-szolgáltató 1.1.30.0-verziójának újdonságait és ismert problémáit.
 
 ## <a name="build-reference"></a>Build referenciája
-Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbiakban látható:
+Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub kiadási verzió az alábbi listában látható:
 
-> |Minimális Azure Stack-verzió|MySQL erőforrás-szolgáltató verziója|
+> |Azure Stack hub minimális verziója|MySQL erőforrás-szolgáltató verziója|
 > |-----|-----|
-> |Azure Stack 1808 frissítés (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+> |Azure Stack hub 1808 frissítés (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> Alkalmazza a minimális támogatott Azure Stack frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a MySQL erőforrás-szolgáltató legújabb verziójának telepítése előtt.
+> Alkalmazza a minimális támogatott Azure Stack hub-frissítést a Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a MySQL erőforrás-szolgáltató legújabb verziójának üzembe helyezése előtt.
 
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
-A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
+Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
 - **A telemetria engedélyezve van a MySQL erőforrás-szolgáltató üzembe helyezéséhez**. A telemetria-gyűjtemény engedélyezve lett a MySQL erőforrás-szolgáltató üzembe helyezéséhez. A gyűjtött telemetria magában foglalja az erőforrás-szolgáltató üzembe helyezését, az indítási és leállítási időt, a kilépési állapotot, a kilépési üzeneteket és a hibák részleteit
 
-- **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack-összetevőkkel. 
+- **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack hub-összetevőkkel. 
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
-- **MySQL erőforrás-szolgáltató Azure stack PowerShell-kompatibilitás**. A MySQL erőforrás-szolgáltató frissítve lett a Azure Stack 2018-03-01 hibrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
+- **MySQL erőforrás-szolgáltató Azure stack hub PowerShell-kompatibilitás**. A MySQL erőforrás-szolgáltató frissítve lett az Azure Stack hub 2018-03-01-Hybrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
 
 - **MySQL bejelentkezési jelszó módosítása**panel. Kijavított egy hibát, ha a jelszó módosítása panelen nem lehet módosítani a jelszót. Eltávolított hivatkozások a jelszó-módosítási értesítésekről.
 
@@ -57,7 +57,7 @@ A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javí
 
 - **A MySQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy órát is igénybe vehet, hogy az újonnan létrehozott SKU-i megjelenjenek az új MySQL-adatbázisok létrehozásakor.
 
-    **Áthidaló megoldás**: nincs.
+    **Megkerülő megoldás**: Nincs.
 
 - A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 
@@ -77,8 +77,8 @@ A Azure Stack MySQL erőforrás-szolgáltató ezen verziója a következő javí
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
  
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
-Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure Stack hubhoz
+Tekintse meg az [Azure stack hub kibocsátási megjegyzései](azure-stack-servicing-policy.md)dokumentációját.
 
 ## <a name="next-steps"></a>Következő lépések
 [További információ a MySQL erőforrás-szolgáltatóról](azure-stack-mysql-resource-provider.md).

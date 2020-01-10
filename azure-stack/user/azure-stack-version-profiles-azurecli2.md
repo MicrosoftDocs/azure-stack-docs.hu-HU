@@ -1,6 +1,6 @@
 ---
-title: Azure Stack kezelése az Azure CLI-vel | Microsoft Docs
-description: Megtudhatja, hogyan használhatja a többplatformos parancssori felületet (CLI) a Azure Stack erőforrásainak kezeléséhez és üzembe helyezéséhez.
+title: Azure Stack hub kezelése az Azure CLI-vel | Microsoft Docs
+description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon a platformfüggetlen parancssori felületen (CLI).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,50 +14,50 @@ ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: f8acc74aed978b3672dacd65524a8f1dbb5e6909
-ms.sourcegitcommit: 3c40e6df2447531a69e33b2fd0f2365b7dcf8892
+ms.openlocfilehash: 8d6d02da1768f6cbcdaaecdfe9a1cf03d47ce0d6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2019
-ms.locfileid: "75005381"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818859"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack az Azure CLI-vel
+# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack hubhoz az Azure CLI-vel
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A jelen cikkben ismertetett lépéseket követve állíthatja be az Azure parancssori felületét (CLI) a Linux, Mac és Windows rendszerű ügyféloldali platformok Azure Stack Development Kit (ASDK) erőforrásainak kezeléséhez.
 
 ## <a name="prepare-for-azure-cli"></a>Felkészülés az Azure CLI-re
 
-Ha a ASDK használja, szüksége lesz a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványra Azure Stack számára, hogy az Azure CLI-t használja a fejlesztői gépen. A tanúsítvány segítségével kezelheti az erőforrásokat a parancssori felületről.
+Ha a ASDK használja, szüksége lesz az Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványára, hogy az Azure CLI-t használja a fejlesztői gépen. A tanúsítvány segítségével kezelheti az erőforrásokat a parancssori felületről.
 
- - **A Azure stack hitelesítésszolgáltatói főtanúsítványra** akkor van szükség, ha a parancssori FELÜLETET a ASDK kívüli munkaállomásról használja.  
+ - **Az Azure stack hub hitelesítésszolgáltatói főtanúsítványra** akkor van szükség, ha a parancssori FELÜLETET a ASDK kívüli munkaállomásról használja.  
 
  - **A virtuális gép aliasok végpontja** egy aliast (például "UbuntuLTS" vagy "Win2012Datacenter") biztosít. Ez az alias a virtuális gépek telepítésekor egyetlen paraméterként hivatkozik a lemezkép-közzétevőre, az ajánlatra, az SKU-ra és a verzióra.  
 
 Az alábbi szakaszok azt ismertetik, hogyan kérheti le ezeket az értékeket.
 
-### <a name="export-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának exportálása
+### <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Az Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának exportálása
 
 Ha integrált rendszer használatával dolgozik, nem kell exportálnia a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Ha a ASDK használja, exportálja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt egy ASDK.
 
 A ASDK legfelső szintű tanúsítványának exportálása PEM formátumban:
 
-1. Szerezze be a Azure Stack legfelső szintű tanúsítványának nevét:
-    - Jelentkezzen be a Azure Stack felhasználói vagy felügyeleti portálra.
+1. Adja meg az Azure Stack hub legfelső szintű tanúsítványának nevét:
+    - Jelentkezzen be az Azure Stack hub felhasználói vagy felügyeleti portálján.
     - A címsor közelében kattintson a **biztonságos** elemre.
     - Az előugró ablakban kattintson az **érvényes**elemre.
     - A tanúsítvány ablakban kattintson a tanúsítvány **elérési útja** fülre.
-    - Jegyezze fel Azure Stack legfelső szintű tanúsítványának nevét.
+    - Jegyezze fel az Azure Stack hub legfelső szintű tanúsítványának nevét.
 
-    ![Főtanúsítvány Azure Stack](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+    ![Azure Stack hub főtanúsítványa](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
-2. [Hozzon létre egy Windows rendszerű virtuális gépet Azure stack](azure-stack-quick-windows-portal.md).
+2. [Hozzon létre egy Windows rendszerű virtuális gépet Azure stack hub-on](azure-stack-quick-windows-portal.md).
 
 3. Jelentkezzen be a virtuális gépre, nyisson meg egy rendszergazda jogú PowerShell-parancssort, majd futtassa a következő parancsfájlt:
 
     ```powershell  
-      $label = "<the name of your azure stack root cert from Step 1>"
+      $label = "<the name of your Azure Stack Hub root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -84,13 +84,13 @@ Beállíthat egy nyilvánosan elérhető végpontot, amely egy virtuálisgép-al
 
 2. Töltse le a [mintát](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) a githubról.
 
-3. Hozzon létre egy Storage-fiókot Azure Stack. Ha elkészült, hozzon létre egy BLOB-tárolót. Állítsa be a hozzáférési házirendet a "Public" értékre.  
+3. Hozzon létre egy Storage-fiókot Azure Stack központban. Ha elkészült, hozzon létre egy BLOB-tárolót. Állítsa be a hozzáférési házirendet a "Public" értékre.  
 
 4. Töltse fel a JSON-fájlt az új tárolóba. Ha elkészült, megtekintheti a blob URL-címét. Jelölje ki a blob nevét, majd válassza ki az URL-címet a blob tulajdonságai között.
 
 ### <a name="install-or-upgrade-cli"></a>PARANCSSORI felület telepítése vagy frissítése
 
-Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure Stack az Azure CLI 2,0-es vagy újabb verziójára van szükség. Az API-profilok legújabb verziójának a parancssori felület aktuális verzióját kell megadnia. A CLI-t az [Azure CLI telepítése](https://docs.microsoft.com/cli/azure/install-azure-cli) című cikkben ismertetett lépések segítségével telepítheti. 
+Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure Stack hub esetében az Azure CLI 2,0-es vagy újabb verziójára van szükség. Az API-profilok legújabb verziójának a parancssori felület aktuális verzióját kell megadnia. A CLI-t az [Azure CLI telepítése](https://docs.microsoft.com/cli/azure/install-azure-cli) című cikkben ismertetett lépések segítségével telepítheti. 
 
 1. Annak ellenőrzéséhez, hogy a telepítés sikeres volt-e, nyisson meg egy terminált vagy egy parancssorablakot, és futtassa a következő parancsot:
 
@@ -100,7 +100,7 @@ Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure St
 
     Ekkor meg kell jelennie az Azure CLI és a számítógépre telepített egyéb függő kódtárak verziójának.
 
-    ![Azure CLI Azure Stack Python-helyen](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
+    ![Azure CLI Azure Stack hub Python-helyen](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
 2. Jegyezze fel a parancssori felület Python-helyét. Ha a ASDK futtatja, ezt a helyet kell használnia a tanúsítvány hozzáadásához.
 
@@ -109,11 +109,11 @@ Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure St
 
 Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD-t használja Identity Management szolgáltatásként, és a CLI-t használja a Windows rendszerű gépen.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Az Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának megbízhatósága
 
 Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
 
-Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt, fűzze hozzá a meglévő Python tanúsítványtárolóhoz az Azure CLI-vel telepített Python verzióhoz. Előfordulhat, hogy a Python saját példányát futtatja. Az Azure CLI a Python saját verzióját tartalmazza.
+Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát, fűzze hozzá a meglévő Python-tanúsítványtárolóhoz az Azure CLI-vel telepített Python-verzióhoz. Előfordulhat, hogy a Python saját példányát futtatja. Az Azure CLI a Python saját verzióját tartalmazza.
 
 1. Keresse meg a tanúsítványtároló helyét a gépen.  A helyet a `az --version`parancs futtatásával találja meg.
 
@@ -128,7 +128,7 @@ Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítv�
 
     Jegyezze fel a tanúsítvány helyét. Például: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. A megadott elérési út az operációs rendszertől és a CLI-telepítéstől függ.
 
-2. Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+2. A meglévő Python-tanúsítványhoz való hozzáfűzéssel bízza meg a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -156,12 +156,12 @@ Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítv�
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
+### <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával.
+1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
 2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
 
@@ -183,16 +183,16 @@ Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítv�
       az cloud set -n <environmentname>
       ```
 
-1. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+1. Frissítse környezeti konfigurációját az Azure Stack Hub-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
  
-1. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Jelentkezzen be a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Jelentkezzen be az Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    - Bejelentkezés *felhasználóként*: 
 
@@ -215,7 +215,7 @@ Ha meg szeretné bízni a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítv�
 
 ### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -229,7 +229,7 @@ Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az �
 
 Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Directory összevont szolgáltatásokat (AD FS) használja az Identitáskezelő szolgáltatásként, és a parancssori felületet használja a Windows rendszerű gépen.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Az Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának megbízhatósága
 
 Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
 
@@ -241,7 +241,7 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
 
     Jegyezze fel a tanúsítvány helyét. Például: `~/lib/python3.5/site-packages/certifi/cacert.pem`. A megadott elérési út az operációs rendszertől és a telepített Python-verziótól függ.
 
-2. Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+2. A meglévő Python-tanúsítványhoz való hozzáfűzéssel bízza meg a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -269,12 +269,12 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
+### <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával.
+1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
 2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
 
@@ -296,16 +296,16 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
       az cloud set -n <environmentname>
       ```
 
-1. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+1. Frissítse környezeti konfigurációját az Azure Stack Hub-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
 
-1. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    - Bejelentkezés *felhasználóként*:
 
@@ -338,7 +338,7 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
 
 ### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -353,11 +353,11 @@ Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az �
 
 Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD-t használja Identity Management szolgáltatásként, és egy Linux rendszerű számítógépen használja a CLI-t.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Az Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának megbízhatósága
 
 Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
 
-Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+A meglévő Python-tanúsítványhoz való hozzáfűzéssel bízza meg a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát.
 
 1. Keresse meg a tanúsítvány helyét a gépen. A hely változhat attól függően, hogy hol telepítette a Pythont. Telepítenie kell a pip-et és az üzembe helyező kiépítés modult. Használja a következő Python-parancsot a bash-parancssorból:
 
@@ -375,17 +375,17 @@ Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - A Azure Stack környezetben található Linux rendszerű gépek esetén:
+   - A Azure Stack hub-környezetben található Linux rendszerű gépek esetén:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
+### <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 
-A következő lépésekkel csatlakozhat a Azure Stackhoz:
+A következő lépésekkel csatlakozhat Azure Stack hubhoz:
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával.
+1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
 2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
 
@@ -407,16 +407,16 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
         az cloud set -n <environmentname>
       ```
 
-4. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+4. Frissítse környezeti konfigurációját az Azure Stack Hub-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
 
-5. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    * Bejelentkezés *felhasználóként*:
 
@@ -445,7 +445,7 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
 
 ### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
 ```azurecli
     az group create -n MyResourceGroup -l local
@@ -459,11 +459,11 @@ Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az �
 
 Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Directory összevont szolgáltatásokat (AD FS) használja felügyeleti szolgáltatásként, és a CLI-t használja egy Linux rendszerű gépen.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>A Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány megbízhatóságának megtartása
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Az Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványának megbízhatósága
 
 Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványban. Ez a lépés nem szükséges az integrált rendszerekhez.
 
-Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy hozzáfűzi a meglévő Python-tanúsítványhoz.
+A meglévő Python-tanúsítványhoz való hozzáfűzéssel bízza meg a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát.
 
 1. Keresse meg a tanúsítvány helyét a gépen. A hely változhat attól függően, hogy hol telepítette a Pythont. Telepítenie kell a pip-et és az üzembe helyező kiépítés modult. Használja a következő Python-parancsot a bash-parancssorból:
 
@@ -481,17 +481,17 @@ Bízza a Azure Stack HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát úgy, hogy
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - A Azure Stack környezetben található Linux rendszerű gépek esetén:
+   - A Azure Stack hub-környezetben található Linux rendszerű gépek esetén:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
+### <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 
-A következő lépésekkel csatlakozhat a Azure Stackhoz:
+A következő lépésekkel csatlakozhat Azure Stack hubhoz:
 
-1. Regisztrálja Azure Stack-környezetét a `az cloud register` parancs futtatásával.
+1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
 2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket.
 
@@ -513,16 +513,16 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
         az cloud set -n <environmentname>
       ```
 
-4. Frissítse környezeti konfigurációját a Azure Stack-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
+4. Frissítse környezeti konfigurációját az Azure Stack Hub-specifikus API-verzió profiljának használatára. A konfiguráció frissítéséhez futtassa a következő parancsot:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack verzióját, akkor az API-verzió Profile **2017-03-09-profilt** kell használnia, és nem a **2019-03-01-Hybrid API-** profilt. Az Azure CLI legújabb verzióját is használni kell.
+    >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
 
-5. Jelentkezzen be a Azure Stack-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
 6. bejelentkezés: 
 
@@ -555,7 +555,7 @@ A következő lépésekkel csatlakozhat a Azure Stackhoz:
 
 ### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stackon belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
+Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
 ```azurecli
   az group create -n MyResourceGroup -l local
@@ -567,14 +567,14 @@ Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az �
 
 ## <a name="known-issues"></a>Ismert problémák
 
-Ismert problémák merültek fel a parancssori felület használatakor Azure Stackban:
+Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
 
- - A CLI interaktív mód. A `az interactive` parancs például a Azure Stackban még nem támogatott.
- - A Azure Stackban elérhető virtuálisgép-rendszerképek listájának lekéréséhez használja az `az vm image list` parancs helyett a `az vm image list --all` parancsot. A `--all` beállítás megadásával biztosíthatja, hogy a válasz csak azokat a lemezképeket adja vissza, amelyek elérhetők a Azure Stack környezetben.
- - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stackra. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie az `az vm images list` parancsból származtatott rendszerkép-specifikációkkal.
+ - A CLI interaktív mód. A `az interactive` parancs például még nem támogatott az Azure Stack hub-ban.
+ - Azure Stack hub-ban elérhető virtuálisgép-rendszerképek listájának lekéréséhez használja az `az vm image list` parancs helyett a `az vm image list --all` parancsot. A `--all` beállítás megadásával biztosíthatja, hogy a válasz csak az Azure Stack hub-környezetben elérhető lemezképeket adja vissza.
+ - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stack hubhoz. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie az `az vm images list` parancsból származtatott rendszerkép-specifikációkkal.
 
 ## <a name="next-steps"></a>Következő lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
-- [Az Azure CLI engedélyezése Azure Stack felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)
+- [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)
 - [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md) 

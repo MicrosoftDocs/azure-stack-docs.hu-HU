@@ -1,7 +1,7 @@
 ---
-title: Méretezési egység csomópontjának cseréje Azure Stack integrált rendszeren
-titleSuffix: Azure Stack
-description: Megtudhatja, hogyan helyettesíthet egy fizikai méretezési egység csomópontot egy Azure Stack integrált rendszeren.
+title: Méretezési egység csomópontjának cseréje egy Azure Stack hub integrált rendszeren
+titleSuffix: Azure Stack Hub
+description: Megtudhatja, hogyan helyettesíthet egy fizikai méretezési egység csomópontot egy Azure Stack hub integrált rendszeren.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,21 +16,21 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 255802151183cc2b832aaa64f2110b9c9052a0ba
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 1a64e0b8ea2774146bac410a38c6b8c09d8be741
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465457"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808362"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Méretezési egység csomópontjának cseréje Azure Stack integrált rendszeren
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Méretezési egység csomópontjának cseréje egy Azure Stack hub integrált rendszeren
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-Ez a cikk azt ismerteti, hogyan lehet lecserélni egy fizikai számítógépet (más néven a méretezési egység csomópontját) egy Azure Stack integrált rendszeren. A tényleges méretezési egység csomópontjának helyettesítő lépései az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
+Ez a cikk azt ismerteti, hogyan lehet lecserélni egy fizikai számítógépet (más néven a méretezési egység csomópontját) egy Azure Stack hub integrált rendszeren. A tényleges méretezési egység csomópontjának helyettesítő lépései az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
 
 > [!CAUTION]  
-> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ez a lépés hiányzik a rendszer instabillá, a teljesítmény csökkenése, a biztonsági szálak vagy a Azure Stack Automation az operációs rendszer központi telepítésének megakadályozása érdekében. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel a [Azure stack felügyeleti portálon](azure-stack-updates.md)megjelenített OEM-verziónak. További információt és a partneri dokumentációra mutató hivatkozásokat a [hardver-összetevők cseréje](azure-stack-replace-component.md)című témakörben talál.
+> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ez a lépés hiányzik a rendszer instabillá, a teljesítmény csökkenése, a biztonsági szálak vagy a Azure Stack hub Automation operációs rendszer központi telepítésének megakadályozása érdekében. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel az [Azure stack hub felügyeleti portálján](azure-stack-updates.md)megjelenő OEM-verziónak. További információt és a partneri dokumentációra mutató hivatkozásokat a [hardver-összetevők cseréje](azure-stack-replace-component.md)című témakörben talál.
 
 A következő folyamatábra a teljes méretezési egység csomópontjának cseréjére szolgáló általános cserélhető folyamatot mutatja be.
 
@@ -39,7 +39,7 @@ A következő folyamatábra a teljes méretezési egység csomópontjának cser�
 \* Ez a művelet nem szükséges a hardver fizikai állapota alapján.
 
 > [!Note]  
-> Ha a leállítási művelet meghiúsul, javasolt a leállítási művelet, majd a Leállítás művelet használata. További információ: [skálázási egység csomópontjainak műveletei Azure Stackban](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Ha a leállítási művelet meghiúsul, javasolt a leállítási művelet, majd a Leállítás művelet használata. További információ: [skálázási egység csomópontjainak műveletei Azure stack hub-ban](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
 
 ## <a name="review-alert-information"></a>Riasztási információk áttekintése
 
@@ -76,7 +76,7 @@ Az alábbi lépések a méretezési egység csomópont-helyettesítési folyamat
 6. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
 7. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A fizikai lemezek a rendszer bekapcsolásakor történő cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md). 
 - További információ a rendszer kikapcsolását igénylő hardver-összetevők lecseréléséről: [hardver-összetevő cseréje](azure-stack-replace-component.md).

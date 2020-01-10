@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor használata a Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan használhatja a Azure Monitort a Azure Stack.
+title: Azure Monitor használata Azure Stack hub-on | Microsoft Docs
+description: Ismerje meg, hogyan használhatja a Azure Monitort Azure Stack hub-on.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,49 +14,49 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.openlocfilehash: 71daa893ae3c69ff29632f37eb366913b33adf18
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71225000"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819896"
 ---
-# <a name="use-azure-monitor-on-azure-stack"></a>Azure Monitor használata Azure Stack
+# <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-Ez a cikk a Azure Stack Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor a Azure Stack használatával kapcsolatos további információkat. 
+Ez a cikk az Azure Stack hub Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor Azure Stack hub-beli használatáról szóló további információkat. 
 
-A Azure Monitor áttekintését lásd: a globális Azure-cikk első [lépései Azure monitor on Azure stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+A Azure Monitor áttekintését lásd: a globális Azure-cikk első [lépései Azure monitor on Azure stack hub](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
-![Azure Stack monitor panel](./media/azure-stack-metrics-azure-data/azs-monitor.png)
+![Azure Stack hub monitor panel](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-A Azure Monitor egy olyan platform-szolgáltatás, amely egyetlen forrást biztosít az Azure-erőforrások monitorozásához. Azure Monitor lehetővé teszi az Azure-ban lévő erőforrásokból származó mérőszámokkal és naplókkal kapcsolatos egyéb műveletek megjelenítését, lekérdezését, továbbítását, archiválását és elvégzését. Ezekkel az adatokkal a Azure Stack felügyeleti portálon, a PowerShell-parancsmagok, a platformfüggetlen CLI vagy a Azure Monitor REST API-k használatával is dolgozhat. A Azure Stack által támogatott adott kapcsolathoz tekintse meg a [figyelési adatok felhasználása Azure stackből](azure-stack-metrics-monitor.md)című témakört.
+A Azure Monitor egy olyan platform-szolgáltatás, amely egyetlen forrást biztosít az Azure-erőforrások monitorozásához. Azure Monitor lehetővé teszi az Azure-ban lévő erőforrásokból származó mérőszámokkal és naplókkal kapcsolatos egyéb műveletek megjelenítését, lekérdezését, továbbítását, archiválását és elvégzését. Ezekkel az adatokkal a Azure Stack hub felügyeleti portálján, a PowerShell-parancsmagok, a platformfüggetlen CLI vagy a Azure Monitor REST API-k használatával is dolgozhat. Az Azure Stack hub által támogatott adott kapcsolathoz lásd: [figyelési adatok felhasználása Azure stack hub-ból](azure-stack-metrics-monitor.md).
 
 > [!Note]
 > A metrikák és diagnosztikai naplók nem érhetők el a Azure Stack Development Kit számára.
 
-## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>A Azure Stack Azure Monitor előfeltételei
+## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Az Azure Stack hub Azure Monitor előfeltételei
 
-Regisztrálja a **Microsoft.** reinsights erőforrás-szolgáltatót az előfizetéshez tartozó ajánlat erőforrás-szolgáltatói beállításainál. Ellenőrizze, hogy az erőforrás-szolgáltató elérhető-e az előfizetéséhez tartozó ajánlatban:
+Regisztrálja a **Microsoft. reinsights** erőforrás-szolgáltatót az előfizetéshez tartozó ajánlat erőforrás-szolgáltatói beállításainál. Ellenőrizze, hogy az erőforrás-szolgáltató elérhető-e az előfizetéséhez tartozó ajánlatban:
 
-1. Nyissa meg a Azure Stack felhasználói portált.
+1. Nyissa meg az Azure Stack hub felhasználói portált.
 2. Válassza az **Előfizetések** lehetőséget.
 3. Válassza ki a regisztrálni kívánt előfizetést.
 4. Válassza az **erőforrás-szolgáltatók** lehetőséget a beállítások területen **.** 
-5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy azállapot regisztrálva van-e.
+5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy az állapot **regisztrálva**van-e.
 
-## <a name="overview-of-azure-monitor-on-azure-stack"></a>A Azure Stack Azure Monitor áttekintése
+## <a name="overview-of-azure-monitor-on-azure-stack-hub"></a>Az Azure Stack hub Azure Monitor áttekintése
 
-Azure Monitor az Azure-ban, mint például az Azure Monitor az Azure Stacken biztosít a legtöbb szolgáltatás alapszinten – infrastruktúra-metrikák és naplók.
+Az Azure-ban az Azure Monitorhoz hasonlóan a Azure Monitor a Azure Stack hub alapszintű infrastruktúra-mérőszámokat és naplókat biztosít a legtöbb szolgáltatáshoz.
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor források: számítási részhalmaz
 
-![Azure Monitor Azure Stack forrásokon – számítási részhalmaz](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor Azure Stack hub-forrásokon – számítási részhalmaz](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
-A (z **) Azure stack Microsoft. számítási** erőforrás-szolgáltatója a következőket tartalmazza:
- - Virtual machines (Virtuális gépek) 
- - virtuálisgép-méretezési csoportok
+A Azure Stack hub **Microsoft. számítási** erőforrás-szolgáltatója a következőket tartalmazza:
+ - Virtuális gépek 
+ - Virtual Machine Scale Sets
 
 ### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Alkalmazás-diagnosztikai naplók, alkalmazás-naplók és metrikák
 
@@ -69,28 +69,28 @@ A mértékek típusai a következők:
  - .NET-esemény forrása
  - IIS-naplók
  - jegyzékalapú ETW.
- - Összeomlási memóriaképek
+ - összeomlási memóriaképek,
  - Felhasználói hibák naplói
 
 > [!Note]  
-> A Linux diagnosztikai bővítmény Azure Stackon nem támogatott.
+> Azure Stack hub Linux Diagnostics bővítménye nem támogatott.
 
 ### <a name="host-and-guest-vm-metrics"></a>Gazda és vendég virtuális gépek metrikái
 
-A korábban felsorolt számítási erőforrások dedikált gazda virtuális géppel és vendég operációs rendszerrel rendelkeznek. A gazdagép virtuális gépe és a vendég operációs rendszer a Hyper-V hypervisorban található legfelső szintű virtuális gép és vendég virtuális gép megfelelője. A virtuális gép és a vendég operációs rendszer mérőszámait is összegyűjtheti. A vendég operációs rendszer diagnosztikai naplóit is gyűjtheti. A gazdagépek és a vendég virtuális gépek metrikáinak Azure Stack-ra vonatkozó gyűjthető metrikáinak listája a [Azure monitor on Azure stack címen támogatott mérőszámokban](azure-stack-metrics-supported.md)érhető el. 
+A korábban felsorolt számítási erőforrások dedikált gazda virtuális géppel és vendég operációs rendszerrel rendelkeznek. A gazdagép virtuális gépe és a vendég operációs rendszer a Hyper-V hypervisorban található legfelső szintű virtuális gép és vendég virtuális gép megfelelője. A virtuális gép és a vendég operációs rendszer mérőszámait is összegyűjtheti. A vendég operációs rendszer diagnosztikai naplóit is gyűjtheti. A gazdagépek és a vendég virtuálisgép-metrikák Azure Stack hub-on való begyűjtői metrikáinak listája az [Azure stack hub Azure monitor által támogatott mérőszámokban](azure-stack-metrics-supported.md)érhető el. 
 
 ### <a name="activity-log"></a>Tevékenységnapló
 
-A Azure Stack infrastruktúra által látott számítási erőforrásokra vonatkozó információkat a tevékenység naplóiban keresheti meg. A napló például az erőforrások létrehozási és megszüntetési időpontjaival kapcsolatos információkat tartalmaz. A Azure Stack a tevékenység naplói konzisztensek az Azure-ban. További információ: a [műveletnapló áttekintése az Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)-ban. 
+A Azure Stack hub-infrastruktúra által látott számítási erőforrásokra vonatkozó információkat a tevékenység naplóiban keresheti meg. A napló például az erőforrások létrehozási és megszüntetési időpontjaival kapcsolatos információkat tartalmaz. Az Azure Stack hub tevékenység-naplói konzisztensek az Azure-ban. További információ: a [műveletnapló áttekintése az Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)-ban. 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure monitor-források: minden más
 
-![Azure Stack-források Azure Monitor – minden más](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor Azure Stack hub-forrásokon – minden más](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Erőforrások – mérőszámok és diagnosztikai naplók
 
-A gyűjthető metrikák és diagnosztikai naplók az erőforrástípus alapján változnak. A Azure Stackon lévő erőforrások gyűjthető metrikáinak listája támogatott mérőszámokon érhető el. További információ: [támogatott mérőszámok Azure monitor on Azure stack](azure-stack-metrics-supported.md).
+A gyűjthető metrikák és diagnosztikai naplók az erőforrástípus alapján változnak. Az Azure Stack hub egyes erőforrásaihoz tartozó gyűjthető metrikák listája támogatott mérőszámokon érhető el. További információ: [támogatott mérőszámok Azure Monitor Azure stack hub-on](azure-stack-metrics-supported.md).
 
 ### <a name="activity-log"></a>Tevékenységnapló
 
@@ -115,15 +115,15 @@ Használhatja a Azure Monitor REST API, platformfüggetlen parancssori felületi
 A monitorozási adatok ábrákon és diagramokon való megjelenítésével a trendek könnyebben megfigyelhetőek, mint maguknak az adatoknak a vizsgálatával. 
 
 Néhány vizualizációs módszer:
- - Használja a Azure Stack felhasználói és felügyeleti portált.
+ - Használja az Azure Stack hub felhasználói és felügyeleti portált.
  - Továbbítsa az adattovábbítást a Microsoft Power BIba.
  - Az adatok továbbítása harmadik féltől származó vizualizációs eszközre élő közvetítés vagy az eszköz egy Azure Storage-beli archívumból való beolvasása használatával.
 
-## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Az Azure monitor Azure Stackhoz való hozzáférésének módszerei
+## <a name="methods-of-accessing-azure-monitor-on-azure-stack-hub"></a>Az Azure monitor Azure Stack hub szolgáltatáshoz való hozzáférésének módszerei
 
 Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztással és a lekéréssel. Nem mindegyik módszer érhető el mindegyik művelet és adattípus esetében. 
 
- - [Felhasználói portál Azure Stack](azure-stack-use-portal.md)
+ - [Azure Stack hub felhasználói portál](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Platformfüggetlen parancssori felület (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
@@ -132,6 +132,6 @@ Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztá
 > [!Important]  
 > Ha egy virtuális gép teljesítményének megtekintésekor **nem talál** hibát, akkor ellenőrizze, hogy regisztrálta-e a Microsoft. bepillantást a virtuális géphez társított előfizetésre.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ az adatfelhasználás figyeléséről a Azure Stack cikkben, amely a [Azure stack figyelési adatait használja](azure-stack-metrics-monitor.md)fel.
+További információ a Azure Stack hub adatfelhasználásának figyeléséről a [Azure stack hub megfigyelési adatainak felhasználása](azure-stack-metrics-monitor.md)című cikkben olvasható.

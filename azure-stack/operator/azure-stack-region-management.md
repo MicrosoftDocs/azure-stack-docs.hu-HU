@@ -1,7 +1,7 @@
 ---
-title: Régiók kezelése Azure Stackban | Microsoft Docs
-titleSuffix: Azure Stack
-description: A Azure Stack régióinak felügyeletének áttekintése.
+title: Régiók kezelése Azure Stack hub-ban | Microsoft Docs
+titleSuffix: Azure Stack Hub
+description: Az Azure Stack hub régió-felügyeletének áttekintése.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,44 +17,44 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 38004b88f43ef59448ca99c3eb2762e5ca63e89c
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 1e7127647ef4b0653e759c7008c9874e9a5d2be2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802279"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809746"
 ---
-# <a name="region-management-in-azure-stack"></a>Területi felügyelet Azure Stack
+# <a name="region-management-in-azure-stack-hub"></a>Területi felügyelet Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack a *régiók*fogalmát használja, amelyek logikai entitások, amelyek az Azure stack infrastruktúrát alkotó hardveres erőforrásokból állnak. A területi felügyeletben megtalálhatja az összes olyan erőforrást, amely a Azure Stack infrastruktúra sikeres üzemeltetéséhez szükséges.
+Azure Stack hub a *régiók*fogalmát használja, amelyek logikai entitások, amelyek az Azure stack hub-infrastruktúrát alkotó hardveres erőforrásokból állnak. A régiók kezelése területen megtalálhatja az Azure Stack hub-infrastruktúra sikeres üzemeltetéséhez szükséges összes erőforrást.
 
-Az egyik integrált Rendszertelepítési környezet (más néven *Azure stack felhő*) egyetlen régiót tesz elérhetővé. Minden Azure Stack Development Kit (ASDK) egy **helyi**nevű régióval rendelkezik. Ha egy második Azure Stack integrált rendszer üzembe helyezését végzi, vagy ha különálló hardveren állítja be a ASDK egy másik példányát, akkor ez a Azure Stack a felhő egy másik régió.
+Egy integrált rendszertelepítés (más néven *Azure stack hub-felhő*) egyetlen régiót tesz elérhetővé. Minden Azure Stack Development Kit (ASDK) egy **helyi**nevű régióval rendelkezik. Ha egy második Azure Stack hub integrált rendszer üzembe helyezését végzi, vagy ha különálló hardveren állítja be a ASDK egy másik példányát, akkor ez a Azure Stack hub-felhő egy másik régió.
 
 ## <a name="information-available-through-the-region-management-tile"></a>A régió-felügyeleti csempén keresztül elérhető információk
 
-A Azure Stack régió-felügyeleti lehetőségek állnak rendelkezésre a régió- **felügyeleti** csempén. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján lévő Azure Stack operátor számára érhető el. Ezen a csempén keresztül nyomon követheti és frissítheti Azure Stack régióját és összetevőit, amelyek régiónként jellemzőek.
+Azure Stack hub **a régió-felügyeleti csempén** belül elérhető régió-felügyeleti képességekkel rendelkezik. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján lévő Azure Stack hub-operátor számára érhető el. Ezen a csempén keresztül nyomon követheti és frissítheti Azure Stack hub-régióját és összetevőit, amelyek régiónként jellemzőek.
 
-![A Azure Stack felügyeleti portál régió-felügyeleti csempéje](media/azure-stack-region-management/image1.png)
+![A régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-region-management/image1.png)
 
 Ha egy régióra kattint a **régió kezelése** csempén, akkor a következő információkhoz férhet hozzá:
 
-[![Az ablaktáblák leírása a Azure Stack felügyeleti portál régió-kezelés paneljén](media/azure-stack-region-management/regionssm.png "Területi felügyelet panel Azure Stack felügyeleti portálon")](media/azure-stack-region-management/regions.png#lightbox)
+[![A Azure Stack hub felügyeleti portál régió-kezelés paneljén található ablaktáblák leírása](media/azure-stack-region-management/regionssm.png "Területi felügyelet panel Azure Stack hub felügyeleti portálon")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Az erőforrás menü**: hozzáférés különböző infrastruktúra-felügyeleti területekhez, valamint felhasználói erőforrások, például a Storage-fiókok és a virtuális hálózatok megtekintése és kezelése.
 
 2. **Riasztások**: a rendszerszintű riasztások listázása és az egyes riasztások részleteinek megadása.
 
-3. **Frissítések**: megtekintheti a Azure stack-infrastruktúra aktuális verzióját, az elérhető frissítéseket és a frissítési előzményeket. Az integrált rendszer frissítését is végezheti.
+3. **Frissítések**: megtekintheti az Azure stack hub-infrastruktúra aktuális verzióját, az elérhető frissítéseket és a frissítési előzményeket. Az integrált rendszer frissítését is végezheti.
 
-4. **Erőforrás-szolgáltatók**: a Azure stack futtatásához szükséges összetevők által kínált felhasználói funkciók kezelése. Minden erőforrás-szolgáltató felügyeleti felülettel rendelkezik. Ez a felhasználói élmény tartalmazhat riasztásokat az erőforrás-szolgáltatóra jellemző konkrét szolgáltatóhoz, metrikához és egyéb felügyeleti képességekhez.
+4. **Erőforrás-szolgáltatók**: kezelheti az Azure stack hub futtatásához szükséges összetevők által kínált felhasználói funkciókat. Minden erőforrás-szolgáltató felügyeleti felülettel rendelkezik. Ez a felhasználói élmény tartalmazhat riasztásokat az erőforrás-szolgáltatóra jellemző konkrét szolgáltatóhoz, metrikához és egyéb felügyeleti képességekhez.
 
-5. **Infrastruktúra-szerepkörök**: a Azure stack futtatásához szükséges összetevők. Csak a riasztásokat jelentéssel rendelkező infrastruktúra-szerepkörök szerepelnek a felsorolásban. Egy szerepkör kiválasztásával megtekintheti a szerepkörhöz társított riasztásokat, valamint azokat a szerepkör-példányokat, ahol ez a szerepkör fut.
+5. **Infrastruktúra-szerepkörök**: Azure stack hub futtatásához szükséges összetevők. Csak a riasztásokat jelentéssel rendelkező infrastruktúra-szerepkörök szerepelnek a felsorolásban. Egy szerepkör kiválasztásával megtekintheti a szerepkörhöz társított riasztásokat, valamint azokat a szerepkör-példányokat, ahol ez a szerepkör fut.
 
-6. **Properties (Tulajdonságok**): a környezet regisztrációjának állapota és adatai a régió kezelése panelen. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**. Ha regisztrálva van, megjeleníti a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját, valamint a regisztrációs erőforráscsoportot és a nevet is.
+6. **Properties (Tulajdonságok**): a környezet regisztrációjának állapota és adatai a régió kezelése panelen. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**. Ha regisztrálva van, akkor az Azure Stack hub regisztrálásához használt Azure-előfizetés AZONOSÍTÓját is megjeleníti a regisztrációs erőforráscsoport és a név mellett.
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Állapot- és riasztásmonitorozás az Azure Stackben](azure-stack-monitor-health.md)
-- [Frissítések kezelése az Azure Stackben](azure-stack-updates.md)
+- [Állapot és riasztások figyelése Azure Stack központban](azure-stack-monitor-health.md)
+- [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)

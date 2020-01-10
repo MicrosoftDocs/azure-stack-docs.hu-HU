@@ -1,6 +1,6 @@
 ---
-title: Linux rendszerű virtuális gép futtatása a Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan futtathat Linux rendszerű virtuális gépet Azure Stackon.
+title: Linux rendszerű virtuális gép futtatása Azure Stack hub-on | Microsoft Docs
+description: Megtudhatja, hogyan futtathat Linux rendszerű virtuális gépet Azure Stack hub-on.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,40 +9,40 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: f95732868730665a91fc90d91af1601bf2b2e8cc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993821"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815408"
 ---
-# <a name="run-a-linux-virtual-machine-on-azure-stack"></a>Linux rendszerű virtuális gép futtatása Azure Stack
+# <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 
-A virtuális gép (VM) Azure Stackban (például az Azure-ban) való kiépítéséhez néhány további összetevőre van szükség a virtuális gép mellett, beleértve a hálózatkezelési és tárolási erőforrásokat is. Ez a cikk a Linux rendszerű virtuális gépek Azure Stack-on való futtatásának ajánlott eljárásait ismerteti.
+A virtuális gép (VM) üzembe helyezése Azure Stack hub-ban (például az Azure-ban) további összetevőket igényel, a virtuális gép mellett, beleértve a hálózatkezelési és tárolási erőforrásokat is. Ez a cikk a Linux rendszerű virtuális gépek Azure Stack hub-on való futtatásának ajánlott eljárásait ismerteti.
 
-![Linux rendszerű virtuális gép architektúrája Azure Stack](./media/iaas-architecture-vm-linux/image1.png)
+![Linux rendszerű virtuális gép architektúrája Azure Stack hub-on](./media/iaas-architecture-vm-linux/image1.png)
 
 ## <a name="resource-group"></a>Erőforráscsoport
 
-Az [erőforráscsoport](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olyan logikai tároló, amely a kapcsolódó Azure stack erőforrásokat tárolja. Általánosságban elmondható, hogy az erőforrások élettartamuk alapján csoportosítják az erőforrásokat, és ki fogják kezelni őket.
+Az [erőforráscsoport](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olyan logikai tároló, amely a kapcsolódó Azure stack hub-erőforrásokat tárolja. Általánosságban elmondható, hogy az erőforrások élettartamuk alapján csoportosítják az erőforrásokat, és ki fogják kezelni őket.
 
 Olyan szorosan társított erőforrásokat helyezzen el, amelyek ugyanazt az életciklust használják ugyanabba az [erőforráscsoporthoz](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Az erőforráscsoportok segítségével csoportosan helyezhet üzembe és monitorozhat erőforrásokat, és a számlázási költségeket erőforráscsoportonként követheti. Az erőforrásokat készletként is törölheti, ami hasznos lehet a tesztelési környezetekben való üzembe helyezéshez. Jelentéssel bíró erőforrásneveket adjon meg, hogy egyszerűbben megkereshesse és azonosíthassa az egyes erőforrásokat és azok szerepkörét. További információ: [Az Azure-erőforrások ajánlott elnevezési konvenciói](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="virtual-machine"></a>Virtuális gép
 
-Kiépítheti a virtuális gépet a közzétett lemezképek listájából, vagy egy, az Azure Stack blob Storage-ba feltöltött egyéni felügyelt lemezképből vagy virtuális merevlemezből (VHD-fájlból). Azure Stack támogatja a különböző népszerű Linux-disztribúciók, például a CentOS, a Debian, a Red Hat Enterprise, az Ubuntu és a SUSE futtatását. További információ: [Linux on Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Azt is megteheti, hogy a Azure Stack piactéren elérhető, közzétett Linux-rendszerképek egyikét is kijelöli.
+Kiépítheti a virtuális gépet a közzétett lemezképek listájából, vagy egy, a Azure Stack hub blob Storage-ba feltöltött egyéni felügyelt lemezképből vagy virtuális merevlemezből (VHD-fájlból). Azure Stack hub támogatja a különböző népszerű Linux-disztribúciók, például a CentOS, a Debian, a Red Hat Enterprise, az Ubuntu és a SUSE futtatását. További információ: [Linux on Azure stack hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux). Azt is megteheti, hogy az Azure Stack hub piactéren elérhető, közzétett Linux-rendszerképek egyikét is kijelöli.
 
-A Azure Stack az Azure-tól eltérő virtuálisgép-méreteket biztosít. További információ: [Azure stack virtuális gépek méretei](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Ha Azure Stackra helyez át egy meglévő munkaterhelést, először a helyi kiszolgálókhoz/Azure-hoz legközelebb lévő virtuálisgép-mérettel kell kezdődnie. Ezután mérjük meg a tényleges számítási feladatok teljesítményét a processzor, a memória és a lemezes bemeneti/kimeneti műveletek (IOPS) alapján, és szükség szerint állítsa be a méretet.
+Az Azure Stack hub különböző virtuálisgép-méreteket kínál az Azure-ból. További információ: [Azure stack hub virtuális gépei méretei](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes). Ha egy meglévő munkaterhelést Azure Stack hubhoz helyez át, kezdje a helyi kiszolgálók/Azure-hoz legközelebb lévő virtuálisgép-mérettel. Ezután mérjük meg a tényleges számítási feladatok teljesítményét a processzor, a memória és a lemezes bemeneti/kimeneti műveletek (IOPS) alapján, és szükség szerint állítsa be a méretet.
 
 ## <a name="disks"></a>Lemezek
 
 A költség az üzembe helyezett lemez kapacitásától függően változik. A IOPS és az átviteli sebesség (vagyis az adatátviteli sebesség) a virtuális gép méretétől függ, így a lemez kiépítésekor mindhárom tényezőt (kapacitás, IOPS és átviteli sebesség) figyelembe kell venni.
 
-A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) a Azure Stack a virtuálisgép- [méret](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS korlátja a zajos szomszédok megelőzése. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
+A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) az Azure Stack hub-ban a virtuálisgép- [méret](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS korlátja a zajos szomszédok megelőzése. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
 
 Javasoljuk továbbá [Managed Disks](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations)használatát. A felügyelt lemezek egyszerűbbé teszik a lemezek kezelését a tárterület kezelésével. A felügyelt lemezek nem igényelnek tárfiókot. Egyszerűen adja meg a méretet és a lemez típusát, és az magas rendelkezésre állású erőforrásként lesz üzembe helyezve.
 
-Az operációsrendszer-lemez [Azure stack tárolóban](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview)tárolt VHD, így akkor is megmarad, ha a gazdagép nem működik. Linux rendszerű virtuális gépek esetén az operációsrendszer-lemez/dev/sda1. Azt javasoljuk, hogy hozzon létre egy vagy több [adatlemezt](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)is, amelyek az alkalmazásadatok által használt állandó VHD-k.
+Az operációsrendszer-lemez [Azure stack hub-tárolóban](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview)tárolt VHD, így akkor is megmarad, ha a gazdagép nem működik. Linux rendszerű virtuális gépek esetén az operációsrendszer-lemez/dev/sda1. Azt javasoljuk, hogy hozzon létre egy vagy több [adatlemezt](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)is, amelyek az alkalmazásadatok által használt állandó VHD-k.
 
 A létrehozott VHD-k nincsenek formázva. A lemez formázásához jelentkezzen be a virtuális gépre. A Linux-rendszerhéjban az adatlemezek/dev/SDC,/dev/SDD és így tovább jelennek meg. A lsblk futtatásával listázhatja a blokkoló eszközöket, beleértve a lemezeket is. Adatlemez használatához hozzon létre egy partíciót és egy fájlrendszert, majd csatlakoztassa a lemezt. Példa:
 
@@ -60,7 +60,7 @@ sudo mount /dev/sdc1 /data1
 
 Adatlemez hozzáadásakor a rendszer hozzárendel egy logikaiegység-szám (LUN) azonosítót a lemezhez. Megadhatja a logikai egység AZONOSÍTÓját is – például egy lemez cseréjét, és meg szeretné őrizni a logikai egység AZONOSÍTÓját, vagy ha van olyan alkalmazás, amely egy adott LUN-azonosítót keres. Ne feledje azonban, hogy az egyes lemezek LUN azonosítóinak egyedinek kell lenniük.
 
-A VM egy ideiglenes lemezzel jön létre. Ezt a lemezt a Azure Stack tárolási infrastruktúrájának ideiglenes kötetén tárolja a rendszer. Előfordulhat, hogy az újraindítások és más virtuálisgép-életciklusi események során törölve lett. Ez a lemez csak ideiglenes adatokat, például lapozófájlokat tárol. Linux rendszerű virtuális gépek esetén az ideiglenes lemez/dev/sdb1, és a/mnt/Resource vagy a/mnt. csatlakoztatása
+A VM egy ideiglenes lemezzel jön létre. Ezt a lemezt a Azure Stack hub tárolási infrastruktúrájának ideiglenes kötetén tárolja a rendszer. Előfordulhat, hogy az újraindítások és más virtuálisgép-életciklusi események során törölve lett. Ez a lemez csak ideiglenes adatokat, például lapozófájlokat tárol. Linux rendszerű virtuális gépek esetén az ideiglenes lemez/dev/sdb1, és a/mnt/Resource vagy a/mnt. csatlakoztatása
 
 ## <a name="network"></a>Network (Hálózat)
 
@@ -84,11 +84,11 @@ Minden NSG tartalmaz az [alapértelmezett szabályok](https://docs.microsoft.com
 
 **Diagnosztika**. A monitorozás és a diagnosztika engedélyezése, beleértve az alapszintű egészségügyi mérőszámokat, a diagnosztikai infrastruktúra naplóit és a [rendszerindítási diagnosztikát](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). A rendszerindítási diagnosztika segít diagnosztizálni a rendszerindítási hibát, ha a virtuális gép nem indítható állapotba kerül. Hozzon létre egy Azure Storage-fiókot a naplók tárolásához. Egy standard helyileg redundáns tárolási (LRS) fiók elegendő a diagnosztikai naplókhoz. További információ: a [monitorozás és a diagnosztika engedélyezése](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data).
 
-**Rendelkezésre állás**. Előfordulhat, hogy a virtuális gép újraindítást igényel a Azure Stack operátor által ütemezett tervezett karbantartás miatt. A magasabb rendelkezésre állás érdekében helyezzen üzembe több virtuális gépet egy [rendelkezésre állási csoporton](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)belül.
+**Rendelkezésre állás**. Előfordulhat, hogy a virtuális gép újraindítást igényel az Azure Stack hub-kezelő által ütemezett tervezett karbantartás miatt. A magasabb rendelkezésre állás érdekében helyezzen üzembe több virtuális gépet egy [rendelkezésre állási csoporton](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)belül.
 
-**Biztonsági másolatok** A Azure Stack IaaS virtuális gépek védelmére vonatkozó javaslatokért tekintse meg [ezt a](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) cikket.
+**Biztonsági másolatok** Az Azure Stack hub IaaS virtuális gépek védelmére vonatkozó javaslatokért tekintse meg [ezt a](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect) cikket.
 
-**Virtuális gép leállítása**. Az Azure különbséget tesz a „leállított” és a „felszabadított” állapot között. A leállított virtuális gépek után fizetni kell, a felszabadítottak után azonban nem. A Azure Stack portálon a **Leállítás** gomb felszabadítja a virtuális gépet. Ha az operációs rendszerből állítja le, amikor be van jelentkezve, azzal a virtuális gépet leállítja, de **nem** szabadítja fel, tehát továbbra is fizetnie kell a díját.
+**Virtuális gép leállítása**. Az Azure különbséget tesz a „leállított” és a „felszabadított” állapot között. A leállított virtuális gépek után fizetni kell, a felszabadítottak után azonban nem. A Azure Stack hub portálon a **Leállítás** gomb felszabadítja a virtuális gépet. Ha az operációs rendszerből állítja le, amikor be van jelentkezve, azzal a virtuális gépet leállítja, de **nem** szabadítja fel, tehát továbbra is fizetnie kell a díját.
 
 **Virtuális gép törlése**. Ha töröl egy virtuális gépet, a rendszer nem törli a virtuális gépek lemezeit. Ez azt jelenti, hogy biztonságosan törölheti a virtuális gépet anélkül, hogy adatot vesztene. A tárolásért azonban továbbra is díjat kell fizetnie. A virtuális gép lemezének törléséhez törölje a felügyelt lemez objektumot. A véletlen törlés megelőzése érdekében használjon erőforrás- [zárolást](https://docs.microsoft.com/azure/resource-group-lock-resources) a teljes erőforráscsoport zárolásához vagy az egyes erőforrások, például a virtuális gépek zárolásához.
 
@@ -107,9 +107,9 @@ Helyezze üzembe a virtuális gépeket [Azure Security Center](https://docs.micr
 
 **Naplókat**. A [tevékenység-naplók](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log) segítségével megtekintheti a kiépítési műveleteket és az egyéb virtuálisgép-eseményeket.
 
-**Adattitkosítás**. Azure Stack a tárolási alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a inaktív titkosítás használatával. Azure Stack Storage alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. További részletekért tekintse meg [ezt](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) a cikket.
+**Adattitkosítás**. Azure Stack hub a tárolás alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a REST titkosítás használatával. Azure Stack hub tárolási alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. További részletekért tekintse meg [ezt](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker) a cikket.
 
 ## <a name="next-steps"></a>Következő lépések
 
-- Azure Stack virtuális gépekkel kapcsolatos további tudnivalókért lásd: Azure Stack virtuálisgép- [funkciók](azure-stack-vm-considerations.md).  
+- Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért lásd: [Azure stack hub](azure-stack-vm-considerations.md)virtuálisgép-funkciók.  
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

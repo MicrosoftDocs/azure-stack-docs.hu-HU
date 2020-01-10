@@ -1,6 +1,6 @@
 ---
-title: Kapacitás megtervezése az Azure Stack áttekintése |} A Microsoft Docs
-description: További információ az Azure Stack üzemelő példányok kapacitástervezése.
+title: Az Azure Stack hub kapacitásának megtervezése – áttekintés | Microsoft Docs
+description: További információ a Azure Stack hub üzemelő példányok kapacitásának megtervezéséről.
 services: azure-stack
 documentationcenter: ''
 author: prchint
@@ -16,28 +16,28 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 335e92fcdb2eadd8bebfbfd3fb2e3b31edd00734
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 22226425adf17ef031a300c65e6d5fc1c173dfda
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131337"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817550"
 ---
-# <a name="overview-of-azure-stack-capacity-planning"></a>Azure Stack-kapacitástervezés – áttekintés
+# <a name="overview-of-azure-stack-hub-capacity-planning"></a>Az Azure Stack hub kapacitás-tervezésének áttekintése
 
-Az Azure Stack megoldás mérlegeli, vegye figyelembe a hardver konfigurációs lehetőségek, amelyek közvetlen hatással vannak az Azure Stack-felhő összesített kapacitását. 
+Azure Stack hub-megoldás kiértékelése során vegye figyelembe a hardveres konfigurációs döntéseket, amelyek közvetlen hatással vannak az Azure Stack hub-felhő teljes kapacitására. 
 
-Ha például szeretne a CPU, memória sűrűség, tárolási konfigurációt, és a teljes megoldás méretezési vagy kiszolgálók száma kapcsolatos döntéseket. Ellentétben a hagyományos virtualizálási megoldás az egyszerű számtani felhasználható kapacitás meghatározásához ezeket az összetevőket nem vonatkozik. Az Azure Stack üzemeltetéséhez maga a megoldáson belül a infrastruktúrát vagy felügyeleti összetevők épül. Emellett néhány, a megoldás a kapacitás foglalt támogatásához a rugalmasság, a megoldás szoftverek oly módon, hogy bérlői számítási feladatok frissítése. 
+Például döntéseket kell hoznia a CPU-ra, a memória sűrűségére, a tárolási konfigurációra, valamint az általános megoldási méretre vagy a kiszolgálók számára vonatkozóan. A hagyományos virtualizációs megoldástól eltérően az összetevők egyszerű aritmetikaa nem alkalmazható a felhasználható kapacitás meghatározására. Azure Stack hub a megoldás infrastruktúrájának vagy felügyeleti összetevőinek üzemeltetésére készült. Emellett a megoldás bizonyos kapacitása a rugalmasság támogatásához van fenntartva, a megoldás szoftverének frissítése pedig a bérlői számítási feladatok megszakításának minimalizálására szolgál. 
 
 > [!IMPORTANT]
-> Ebben a kapacitástervezéssel információkat és a [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) egy kiindulási pont, az Azure Stack tervezési és konfigurációs döntéseket hozhat. Ezt az információt nem terjesztésre készült saját vizsgálati és elemzési helyettesíti. Microsoft nem vállal értük felelősséget vagy rájuk kifejezett vagy törvényi garanciát az itt megjelenő információért.
+> Ez a kapacitás-tervezési információ és a [Azure stack hub Capacity Planner](https://aka.ms/azstackcapacityplanner) a Azure stack hub tervezési és konfigurációs döntéseinek kiindulási pontja. Ez az információ nem helyettesíti a saját vizsgálatát és elemzését. A Microsoft nem vállal semmilyen kifejezett vagy vélelmezett szavatosságot az itt megadott információra vonatkozóan.
  
-Az Azure Stack megoldás számítási és tárolási fürtként hiperkonvergens épül. Az átszervezés lehetővé teszi, hogy a hardver kapacitás megosztási néven a fürt egy *skálázási egység*. Az Azure Stackben a méretezési egység biztosít a rendelkezésre állás és méretezhetőség az erőforrások. Azure Stack-kiszolgálók, a továbbiakban egy csoportja áll egy skálázási egység *gazdagépek*. Az infrastruktúra szoftver belüli virtuális gépekről (VM) üzemel, és oszt meg, a bérlői virtuális gépeknek ugyanazon fizikai kiszolgálók. Az összes Azure Stack virtuális gépek majd kezeli a skálázási egység a Windows Server fürtözési technológiái és az egyes Hyper-V-példányok. 
+Az Azure Stack hub-megoldások számítási és tárolási hiperkonvergens-fürtökként készültek. A konvergencia lehetővé teszi a hardver kapacitása megosztását a fürtben, az úgynevezett *méretezési egységként*. Azure Stack központban a méretezési egység biztosítja az erőforrások rendelkezésre állását és méretezhetőségét. A skálázási egység olyan Azure Stack hub-kiszolgálók készletét tartalmazza, amelyeket *gazdagépeknek*nevezünk. Az infrastruktúra szoftvere virtuális gépeken (VM) belül található, és ugyanazokkal a fizikai kiszolgálókkal rendelkezik, mint a bérlő virtuális gépei. Ezt követően az összes Azure Stack hub-beli virtuális gépet felügyeli a skálázási egység Windows Server-fürtszolgáltatási technológiái és az egyes Hyper-V-példányok. 
 
-A skálázási egység egyszerűsíti a beszerzés és kezelése az Azure Stack. A skálázási egység is lehetővé teszi az adatátviteli és méretezhetőségét, az all Services (bérlői és infrastruktúra) az Azure Stack. 
+A skálázási egység leegyszerűsíti a beszerzési és felügyeleti Azure Stack hubot. A skálázási egység lehetővé teszi az összes szolgáltatás (bérlő és infrastruktúra) áthelyezését és méretezhetőségét Azure Stack központon keresztül. 
 
-A következő témakörök nyújtanak további információt az egyes összetevők:
+A következő témakörök további információkat nyújtanak az egyes összetevőkről:
 
-- [Azure Stack-számítás](azure-stack-capacity-planning-compute.md)
-- [Az Azure Stack-tároló](azure-stack-capacity-planning-storage.md)
-- [Azure Stack Capacity Planner](azure-stack-capacity-planner.md)
+- [Azure Stack hub-számítás](azure-stack-capacity-planning-compute.md)
+- [Azure Stack hub Storage](azure-stack-capacity-planning-storage.md)
+- [Azure Stack hub Capacity Planner](azure-stack-capacity-planner.md)

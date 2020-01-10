@@ -1,5 +1,5 @@
 ---
-title: Új Azure Stack bérlői fiók hozzáadása a Azure Active Directoryban | Microsoft Docs
+title: Új Azure Stack hub-bérlői fiók hozzáadása a Azure Active Directoryban | Microsoft Docs
 description: Megtudhatja, hogyan hozhat létre bérlői fiókot a ASDK, így megismerheti a bérlői portált.
 services: azure-stack
 documentationcenter: ''
@@ -16,50 +16,50 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 46bb8fc18453da5775ff0b9a3b1df12cdc21ebfc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143992"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812314"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Új Azure Stack bérlői fiók hozzáadása a Azure Active Directory
+# <a name="add-a-new-azure-stack-hub-tenant-account-in-azure-active-directory"></a>Új Azure Stack hub-bérlői fiók hozzáadása a Azure Active Directory
 
 
 [A Azure stack Development Kit üzembe helyezése](../asdk/asdk-install.md)után szüksége lesz egy bérlői felhasználói fiókra, amellyel felfedezheti a bérlői portált, és tesztelheti ajánlatait és csomagjait. Bérlői fiókot a Azure Portal vagy a PowerShell használatával hozhat létre.
 
 
 
-## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Azure Stack bérlői fiók létrehozása a Azure Portal használatával
+## <a name="create-an-azure-stack-hub-tenant-account-by-using-the-azure-portal"></a>Azure Stack hub-bérlői fiók létrehozása a Azure Portal használatával
 
 Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
 1. Jelentkezzen be az [Azure](https://portal.azure.com)-ba.
-2. A bal oldali navigációs sávon válassza a **Active Directory** lehetőséget, majd váltson arra a könyvtárra, amelyet a Azure stack kíván használni (vagy hozzon létre újat).
-3. Válassza **Azure Active Directory** > felhasználókúj > **felhasználó**elemet.
+2. A bal oldali navigációs sávon válassza a **Active Directory** lehetőséget, majd váltson arra a könyvtárra, amelyet az Azure stack hub számára kíván használni (vagy hozzon létre újat).
+3. Válassza **Azure Active Directory** > **felhasználók** > **új felhasználó**lehetőséget.
 
-    ![Felhasználók – minden felhasználó oldalon kiemelve az új felhasználóval](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+    ![Felhasználók – minden felhasználó lap új felhasználóval kiemelve](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
 4. A **felhasználó** lapon adja meg a szükséges adatokat.
 
-    ![Új felhasználó, a felhasználó oldalon a felhasználói adatok hozzáadása](media/azure-stack-add-new-user-aad/new-user-user.png)
+    ![Új felhasználó, felhasználói oldal hozzáadása a felhasználói adatokhoz](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Név (kötelező)** : Az első és utolsó az új felhasználó neve. Ha például Anna Parker.
-   - **Felhasználónév (kötelező)** : Az új felhasználó felhasználóneve. Például: mary@contoso.com.
-       A felhasználó nevét tartomány része kell használnia a vagy a kezdeti alapértelmezett tartománynévnek, <_saját_tartománynév_>. onmicrosoft.com, vagy egy egyéni tartománynevet, például contoso.com. Az Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [Egyéni tartománynév hozzáadása az Azure ad](/azure/active-directory/fundamentals/add-custom-domain)-hez.
-   - **Profil**: Igény szerint további információkat is hozzáadhat a felhasználóról. Emellett később is hozzáadhat felhasználói adatokat. A felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [felhasználói profil adatainak hozzáadása vagy módosítása](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
+   - **Név (kötelező)** : az új felhasználó vezetékneve és utóneve. Például: Mary Parker.
+   - **Felhasználónév (kötelező)** : az új felhasználó felhasználóneve. Például: mary@contoso.com.
+       A Felhasználónév tartomány részének a kezdeti alapértelmezett tartománynevet kell használnia, <_yourdomainname_>. onmicrosoft. com vagy egy egyéni tartománynevet, például contoso.com. Az Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [Egyéni tartománynév hozzáadása az Azure ad](/azure/active-directory/fundamentals/add-custom-domain)-hez.
+   - **Profil**: igény szerint további információkat is hozzáadhat a felhasználóról. Emellett később is hozzáadhat felhasználói adatokat. A felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [felhasználói profil adatainak hozzáadása vagy módosítása](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
    - **Címtárbeli szerepkör**: válassza a **felhasználó**lehetőséget.
 
 5. Jelölje be a **jelszó megjelenítése** jelölőnégyzetet, és másolja ki a **jelszó** mezőben megadott automatikusan generált jelszót. Erre a jelszóra lesz szüksége a kezdeti bejelentkezési folyamathoz.
 
 6. Kattintson a **Létrehozás** gombra.
 
-    A felhasználó létrehozása és az Azure AD-bérlőhöz hozzáadni.
+    A rendszer létrehozza és hozzáadja a felhasználót az Azure AD-bérlőhöz.
 
 7. Jelentkezzen be a Azure Portalba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-8. `https://portal.local.azurestack.external` A bérlői portál megtekintéséhez jelentkezzen be az új fiókkal.
+8. A bérlői portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>Azure Stack felhasználói fiók létrehozása a PowerShell használatával
+## <a name="create-an-azure-stack-hub-user-account-using-powershell"></a>Azure Stack hub felhasználói fiók létrehozása a PowerShell használatával
 
 Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérlői felhasználói fiók hozzáadásához. Ebben az esetben a Windows PowerShellhez készült Azure AD-modult használhatja helyette.
 
@@ -91,8 +91,8 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
     ```
 
 1. Jelentkezzen be az Azure-ba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-2. `https://portal.local.azurestack.external` A bérlői portál megtekintéséhez jelentkezzen be az új fiókkal.
+2. A bérlői portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Azure Stack-felhasználók hozzáadása az AD FS-ben](azure-stack-add-users-adfs.md)
+[Azure Stack hub-felhasználók hozzáadása a AD FS](azure-stack-add-users-adfs.md)

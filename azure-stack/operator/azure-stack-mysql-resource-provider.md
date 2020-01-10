@@ -1,6 +1,6 @@
 ---
-title: MySQL-adatbázisok használata a (z) Azure Stackban lévő Pástiként | Microsoft Docs
-description: Megtudhatja, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatót, és hogyan biztosíthat szolgáltatásként MySQL-adatbázisokat Azure Stack.
+title: MySQL-adatbázisok használata Pástiként Azure Stack hub-on | Microsoft Docs
+description: Ismerje meg, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatót, és hogyan biztosíthat MySQL-adatbázisokat Azure Stack hub szolgáltatásként.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
-ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
+ms.openlocfilehash: 170cd65d05971bb29eada4cd220513994c9eadd7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/19/2019
-ms.locfileid: "75190862"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810988"
 ---
-# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-adatbázisok használata Microsoft Azure Stack
+# <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>MySQL-adatbázisok használata Microsoft Azure Stack központban
 
-Használja a MySQL erőforrás-szolgáltatót a MySQL-adatbázis szolgáltatás [Azure stackon](azure-stack-overview.md)való használatára. Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolgálói példányhoz való kapcsolódása után a következőket teheti:
+Használja a MySQL erőforrás-szolgáltatót a MySQL-adatbázis szolgáltatás [Azure stack hub](azure-stack-overview.md)-on való használatára. Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolgálói példányhoz való kapcsolódása után a következőket teheti:
 
 * MySQL-adatbázisok létrehozása Azure Resource Manager telepítési sablonok használatával.
 * Adja meg a MySQL-adatbázisokat szolgáltatásként.  
@@ -32,7 +32,7 @@ Használja a MySQL erőforrás-szolgáltatót a MySQL-adatbázis szolgáltatás 
 A MySQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
 
 - A felhasználók csak egyéni adatbázisokat hozhatnak létre és kezelhetnek. Az adatbázis-kiszolgáló példánya nem érhető el a végfelhasználók számára. Ez korlátozhatja a kompatibilitást olyan helyszíni adatbázis-alkalmazásokkal, amelyek hozzáférést igényelnek a Master, a temp DB vagy az adatbázisok dinamikus kezeléséhez.
-- A Azure Stack operátor felelős a MySQL adatbázis-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
+- A Azure Stack hub-operátor felelős a MySQL adatbázis-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
 - A különböző előfizetésekben lévő különböző felhasználók adatbázisai ugyanazon az adatbázis-kiszolgálói példányon találhatók. Az RP nem biztosít semmilyen mechanizmust az adatbázisok különböző gazdagépeken vagy adatbázis-kiszolgálói példányokon való elkülönítéséhez.
 - Az RP nem biztosít jelentéskészítést az adatbázisok bérlői használatára vonatkozóan.
 
@@ -42,13 +42,13 @@ Az erőforrás-szolgáltató a következő összetevőket biztosítja:
 
 * **A MySQL erőforrás-szolgáltatói adapter virtuális gépe (VM)** , amely a szolgáltatói szolgáltatásokat futtató Windows Server rendszerű virtuális gép.
 * **Az erőforrás-szolgáltató**, amely feldolgozza a kérelmeket, és hozzáfér az adatbázis-erőforrásokhoz.
-* A **MySQL-kiszolgálót működtető kiszolgálók**, amelyek kapacitást biztosítanak az olyan adatbázisok számára, amelyek neve üzemeltetési kiszolgáló. Saját maga is létrehozhat MySQL-példányokat, vagy hozzáférést biztosíthat a külső MySQL-példányokhoz. A [Azure stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) rövid útmutatóban egy példa sablon látható, amely a következőhöz használható:
+* A **MySQL-kiszolgálót működtető kiszolgálók**, amelyek kapacitást biztosítanak az olyan adatbázisok számára, amelyek neve üzemeltetési kiszolgáló. Saját maga is létrehozhat MySQL-példányokat, vagy hozzáférést biztosíthat a külső MySQL-példányokhoz. Az [Azure stack hub](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) rövid útmutatója egy példa sablonnal rendelkezik, amelyet a következőhöz használhat:
 
   * Hozzon létre egy MySQL-kiszolgálót.
   * MySQL-kiszolgáló letöltése és üzembe helyezése az Azure Marketplace-en.
 
 > [!NOTE]
-> Azure Stack integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket a bérlői portálról vagy egy megfelelő bejelentkezéssel rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
+> Azure Stack hub integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket a bérlői portálról vagy egy megfelelő bejelentkezéssel rendelkező PowerShell-munkamenetből kell létrehozni. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
 
 ### <a name="required-privileges"></a>Szükséges jogosultságok
 

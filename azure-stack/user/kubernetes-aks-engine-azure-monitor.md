@@ -15,16 +15,16 @@ ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: a3941a3ada52a8588b504884a2d03cb00dd2c850
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: cd0a5425fc072fa056030fb0be0c5ce5f6cc0225
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310313"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815425"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Monitor használata a tárolók számára Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) for containers használatával figyelheti a tárolókat egy Kubernetes-fürtben a Azure stack hub-ban. 
 
@@ -66,7 +66,7 @@ Az Azure Stack hub-fürt támogatott API-definíciói a következő példában t
        }
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)  
+- További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - További információ a [tárolók Azure monitoráról – áttekintés](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)

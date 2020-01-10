@@ -1,6 +1,6 @@
 ---
-title: Az Azure App Service-ben az Azure Stack számlázási áttekintése és gyakori kérdések |} A Microsoft Docs
-description: Azure App Service az Azure Stacken mérése és számlázása részletei.
+title: Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések | Microsoft Docs
+description: Az Azure Stack hub Azure App Serviceának mérése és számlázása.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -16,88 +16,88 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 8b17020419183067793309055a6487f31da51246
-ms.sourcegitcommit: d67ae2877e3b049bf70b2567b917e55394fb8984
+ms.openlocfilehash: c67b2be49babda140b1440356d63af5abbbbfdfb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67712683"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808464"
 ---
-# <a name="azure-app-service-on-azure-stack-billing-overview-and-faq"></a>Az Azure App Service-ben az Azure Stack számlázási áttekintése és gyakori kérdések
+# <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 
-*Vonatkozik: Az Azure Stack integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk bemutatja, hogyan történik a felhő üzemeltetői az ajánlat az Azure App Service az Azure Stack számlázása, és hogyan azok bill használata során a szolgáltatás a bérlőik számára.
+Ez a cikk azt mutatja be, hogyan történik a Felhőbeli operátorok kiszámlázása az Azure Stack hub-beli Azure App Service, valamint arról, hogy a szolgáltatás használatáért hogyan számlázzák fel a bérlőket.
 
-## <a name="billing-overview"></a>Számlázás áttekintése
+## <a name="billing-overview"></a>Számlázási áttekintés
 
-Az Azure Stack-felhő üzemeltetői váltani, üzembe helyezése az Azure App Service az Azure Stack az Azure App Service és az Azure Functions bérlői képességeit nyújtani az ügyfeleknek az Azure Stack stamp alakzatot. Az Azure App Service erőforrás-szolgáltató infrastruktúra és a feldolgozói rétegek közötti oszthatók szerepkörök többféle típusú áll.
+Azure Stack hub Cloud operátorok úgy döntenek, hogy a Azure App Service a Azure Stack hub-ra helyezik üzembe az Azure Stack hub-bélyegzőn, hogy Azure App Service és Azure Functions bérlői képességeit is felkínálják ügyfeleiknek. A Azure App Service erőforrás-szolgáltató több típusú szerepkörből áll, amelyek az infrastruktúra és a munkavégző rétegek között oszthatók fel.
 
-Infrastruktúra-szerepkörök nem számolunk fel, mert a szolgáltatás alapvető működéséhez szükséges. Infrastruktúra-szerepkörök kiterjeszthető, a felhő üzemeltetője bérlők igényeinek támogatásához szükséges. Az infrastruktúra-szerepkörök a következők:
+Az infrastruktúra-szerepkörök számlázása nem történik meg, mert a szolgáltatás alapvető működéséhez szükségesek. Az infrastruktúra szerepkörei igény szerint méretezhetők a Felhőbeli operátor bérlői igényeinek kielégítése érdekében. Az infrastruktúra-szerepkörök a következők:
 
 - Vezérlők
 - Felügyeleti szerepkörök
 - Kiadók
-- A kezelőfelületek
+- Elülső végek
 
-Feldolgozói rétegek állnak, amelyek két fő típusba sorolhatók: közös és a dedikált. Feldolgozó, a felhő üzemeltetője a következő feltételek szerint lesz számlázva.
+A feldolgozói rétegek két fő típusból állnak: megosztott és dedikált. A feldolgozó általi használatot a következő feltételek szerint kell kiszámlázni a felhőben.
 
-## <a name="shared-workers"></a>Megosztott feldolgozó
+## <a name="shared-workers"></a>Megosztott feldolgozók
 
-Megosztott feldolgozó olyan több-bérlős és gazdagép ingyenes és közös App Service-csomagok és az Azure functions fogyasztásalapú több bérlő számára. Megosztott feldolgozó gridre bocsáthatja ki, amikor készként jelöli az Azure App Service erőforrás-szolgáltató a használati mérőszámok.
+A közös feldolgozók több-bérlős gépek, és számos bérlő számára ingyenes és közös App Service csomagok és fogyasztáson alapuló Azure-függvények. A megosztott munkavégzők a használati mérőszámokat a Azure App Service erőforrás-szolgáltatón készként jelölik ki.
 
-## <a name="dedicated-workers"></a>Dedikált feldolgozó
+## <a name="dedicated-workers"></a>Dedikált feldolgozók
 
-Dedikált feldolgozó a bérlők létrehozása App Service-csomagok vannak társítva. Ha például az S1 termékváltozat bérlők méretezheti 10 példányra alapértelmezés szerint. Ha egy bérlőt egy S1 szintű App Service-csomagot hoz létre, az Azure App Service foglal le egy App Service-csomag a bérlőt a kis méretű feldolgozói réteg méretezési példányt. A hozzárendelt feldolgozó már majd nem rendelhető hozzá semmilyen más bérlők számára elérhető. Ha a bérlő az App Service-csomag 10 példányra skálázható, kilenc további feldolgozóra törlődnek a rendelkezésre álló készlet, és vannak hozzárendelve a bérlő App Service-csomag.
+A dedikált feldolgozók a bérlők által létrehozott App Service-csomagokhoz kötődnek. Az S1 SKU-ban például a bérlők alapértelmezés szerint 10 példányra méretezhetők. Ha egy bérlő S1 App Service csomagot hoz létre, Azure App Service a kisméretű feldolgozó rétegben lévő példányok egyikét rendeli hozzá a bérlő App Service tervéhez. A hozzárendelt feldolgozót ezután már nem lehet más bérlőhöz rendelni. Ha a bérlő úgy dönt, hogy 10 példányra méretezi a App Service tervet, a rendszer kilenc feldolgozót távolít el a rendelkezésre álló készletből, és hozzárendeli a bérlő App Service tervéhez.
 
-Mérőszámok dedikált dolgozó vannak kibocsátva, ha:
+A mérőórák a dedikált feldolgozók számára vannak kibocsátva, amikor:
 
-- Készként jelöli az Azure App Service erőforrás-szolgáltatón.
-- App Service-csomag rendelve.
+- Készként van megjelölve a Azure App Service erőforrás-szolgáltatóban.
+- App Service-csomaghoz rendelve.
 
-Ez a számlázási modell lehetővé teszi, hogy a felhő üzemeltetői az készen áll az ügyfelek számára anélkül, hogy a dolgozók kellene fizetnie, amíg hatékonyan a bérlőjének App Service-csomag által használt fenntartott dedikált feldolgozók készletét hozza létre. 
+Ez a számlázási modell lehetővé teszi, hogy a Felhőbeli operátorok olyan dedikált feldolgozók készletét használják fel, amelyek az ügyfelek számára a munkahelyen való fizetés nélkül használhatók, amíg a bérlő App Service terve ténylegesen nem áll fenn. 
 
-Tegyük fel például, a kis méretű feldolgozói réteg 20 feldolgozók rendelkezik. Majd ha öt, hozzon létre két S1 szintű App Service-csomagot minden ügyfele van, és ezek mindegyike méretezése App Service-csomag legfeljebb két példányt, azok nem feldolgozó is rendelkezésre áll. Ennek eredményeképpen nincs bármely ügyfél vagy az új ügyfeleket horizontális felskálázás, vagy hozzon létre új App Service-csomagok nem kapacitását. 
+Tegyük fel például, hogy 20 feldolgozója van a kisméretű munkavégző szinten. Ezután, ha öt olyan ügyfele van, amely két S1 App Service tervet hoz létre, és mindegyik méretezéssel a App Service két példányra, akkor nem állnak rendelkezésre munkavégzők. Ennek eredményeképpen az ügyfelek vagy az új ügyfelek nem képesek felskálázásra vagy új App Servicei csomagok létrehozására. 
 
-Felhő üzemeltetői / feldolgozói réteg rendelkezésre álló feldolgozók jelenlegi száma megtekintéséhez az Azure App Service a konfigurációban az Azure Stack felügyeleti a feldolgozói rétegek Hibaoldal.
+A Felhőbeli operátorok megtekinthetik a rendelkezésre álló munkavégző rétegek aktuális számát az Azure Stack hub felügyelet Azure App Service konfigurációjának munkavégző szintjeinek megtekintésével.
 
-![Az App Service - feldolgozói rétegek képernyő][1]
+![App Service – feldolgozói rétegek képernyő][1]
 
-## <a name="see-customer-usage-by-using-the-azure-stack-usage-service"></a>Tekintse meg az ügyfelek általi használatot az Azure Stack használatának használatával
+## <a name="see-customer-usage-by-using-the-azure-stack-hub-usage-service"></a>Az Azure Stack hub használati szolgáltatásának használatával kapcsolatban lásd az ügyfelek használatát
 
-Lekérdezheti a felhő üzemeltetői az [Azure Stack bérlő erőforrás-használati API](azure-stack-tenant-resource-usage-api.md) ügyfelek használati adatainak beolvasása. Összes a egyéni mérőszámok, amelyek az App Service-ben írja le a bérlői használat bocsát ki a [használat – gyakori kérdések](azure-stack-usage-related-faq.md). Ezeket a mérőszámok majd rendszer kiszámítja a használatot biztosít ügyfél-előfizetés költségek kiszámításához.
+A Felhőbeli operátorok lekérhetik az [Azure stack hub-bérlő erőforrás-használati API](azure-stack-tenant-resource-usage-api.md) -ját az ügyfelek használati adatainak lekérésére. Megtalálhatja az összes olyan mérőszámot, amelyet a App Service bocsát ki a bérlők használatának leírására a [használati gyakori kérdések](azure-stack-usage-related-faq.md)között. Ezeket a mérőszámokat ezután a használati díjak kiszámítására használják a költségek kiszámításához.
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
-### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>Hogyan hajthatom végre licenc az SQL Server és az előfeltételeket szükséges kiszolgálói infrastruktúrát?
+### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>Hogyan licenc az előfeltételekhez szükséges SQL Server és fájlkiszolgáló infrastruktúra?
 
-Az SQL Server és a kiszolgálói infrastruktúra és az Azure App Service erőforrás-szolgáltató által igényelt licencelési foglalkozik az Azure App Service az Azure Stacken [használatának megkezdése előtt](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server) cikk.
+A Azure App Service erőforrás-szolgáltató által megkövetelt SQL Server-és fájlkiszolgáló-infrastruktúra licencelése az [első lépések megkezdése előtt](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server) a Azure app Service Azure stack hub-on.
 
-### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>A használat – gyakori kérdések a bérlő mérőszámok, de nem az adott mérőszámok árak sorolja fel. Hol találhatok őket?
+### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>A használattal kapcsolatos gyakori kérdések felsorolják a bérlői mérőszámokat, de nem a mérőórák árait. Hol találhatom meg őket?
 
-Felhő-felelősként Ön azonban a alkalmazni a saját díjszabási modell az ügyfelek számára. A használatmérő szolgáltatást nyújt a használatmérés. Ezután használhatja a mérőszám-mennyiség, az ügyfelek alapján meghatározhatja, hogy a díjszabási modell díja szerint számítjuk fel. Megadhatja a díjszabás lehetővé teszi, hogy az operátorok és az egyéb Azure Stack-operátorok megkülönböztetése érdekében.
+Felhőbeli operátorként ingyenesen alkalmazhatja saját díjszabási modelljét az ügyfeleknek. A használati szolgáltatás biztosítja a használat mérését. Ezt követően az Ön által meghatározott díjszabási modell alapján felszámíthatja az ügyfelek felszámolására szolgáló mérési mennyiséget. A díjszabás beállítása lehetővé teszi a kezelők számára a más Azure Stack hub-operátorok megkülönböztetését.
 
-### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Egy CSP-hez, hogyan tudom kínálnak ingyenes és közös SKU-k, az ügyfelek számára a szolgáltatás kipróbálásához?
+### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Hogyan biztosíthatok ingyenes és megosztott SKU-ket az ügyfeleknek, hogy kipróbálják a szolgáltatást?
 
-Felhő-felelősként az ajánlat ingyenes és közös SKU-k, mivel azokat már a megosztott feldolgozók költségek számítunk fel. A költségek minimalizálása érdekében választhat a legalább a megosztott feldolgozói réteg leskálázása. 
+A Felhőbeli üzemeltetők az ingyenes és a közös SKU-k nyújtásával járó költségekkel járnak, mert megosztott feldolgozók üzemeltetik őket. Ennek a lehetőségnek a minimálisra csökkentése érdekében dönthet úgy, hogy a megosztott feldolgozói szintet lekicsinyíti minimálisra. 
 
-Például az ajánlat ingyenes és közös App Service-csomag SKU-k és fogyasztásalapú funkciókat kínáló kell legalább egy a1-es példány érhető el. Megosztott feldolgozó több-bérlős, így több ügyfél alkalmazások esetében minden egyes külön-külön elkülönített, és az App Service tesztkörnyezetben által védett üzemeltethető. Ezzel a módszerrel a megosztott feldolgozói réteg felskálázásával korlátozhatja a költségek és a költség az egy vCPU / hó.
+Ha például az ingyenes és a közös App Service csomagokra van szüksége, és a felhasználáson alapuló függvények is rendelkezésre állnak, akkor legalább egy a1-es példányra van szükség. A közös munkavégzők a több-bérlős alkalmazások, így több, egyenként elkülönített és a App Service sandbox által védett ügyfél-alkalmazást tárolhatnak. A közös feldolgozói réteg ily módon történő skálázásával havi egy vCPU költségét korlátozhatja.
 
-Ezután kiválaszthatja kvóta, egy terv, amely csak az ingyenes és közös termékváltozatok kínál, és korlátozza az ingyenes és közös App Service-csomagok az ügyfél hozhat létre a használatra.
+Ezután dönthet úgy, hogy létrehoz egy kvótát egy csomagban való használatra, amely csak az ingyenes és a közös SKU-t kínál, és korlátozza az ügyfél által létrehozott ingyenes és közös App Service csomagok számát.
 
-## <a name="sample-scripts-to-assist-with-billing"></a>Mintaszkriptek, amelyek segítik a számlázás
+## <a name="sample-scripts-to-assist-with-billing"></a>Példák a számlázást segítő parancsfájlokra
 
-Az Azure App Service csapata létrehozott minta PowerShell-parancsfájlok, amelyek segítik a lekérdezése az Azure Stack használatmérő szolgáltatást. Felhő üzemeltetői a mintaszkriptek használatával saját számlázás a bérlők előkészítése. A minta parancsprogramok vannak a [Azure Stack eszközök tárház](https://github.com/Azure/AzureStack-tools) a Githubon. Az App Service-parancsprogramok vannak a [AppService mappához tartozó használati](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService).
+A Azure App Service csapat létrehozott egy PowerShell-parancsfájlokat, amelyek segítséget nyújtanak a Azure Stack hub használati szolgáltatás lekérdezéséhez. A Felhőbeli operátorok ezeket a szkripteket használhatják a saját bérlőik saját számlázási felkészítésére. A minta szkriptek a GitHub [Azure stack hub Tools adattárában](https://github.com/Azure/AzureStack-tools) találhatók. A App Service szkriptek a [AppService mappában találhatók a használat alatt](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService).
 
-Elérhető a következők:
+A rendelkezésre álló minta szkriptek a következők:
 
-- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1): Ez a minta olvas be az Azure App Service-ben a számlázási rekordok az Azure Stack az Azure Stack-használati API.
-- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1): Ez a példa az Azure App Service-ben az Azure Stack használatának összegek előfizetésenként számítja ki. Ez a szkript kiszámítja a használati összeget, és a Usage API-t és az árak a felhő üzemeltetője mérni / biztosítják.
-- [Suspend-UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1): Ez a minta felfüggeszti, vagy lehetővé teszi, hogy az előfizetések a felhő üzemeltetője által meghatározott használati korlátok alapján.
+- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1): Ez a minta a Azure stack hub használati API-ból Azure stack hub számlázási rekordok Azure app Service beolvasása.
+- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1): Ez a minta kiszámítja Azure app Service Azure stack hub használati összegének előfizetését. Ez a parancsfájl a használati API adatai alapján számítja ki a használati összegeket, valamint a Cloud operátor által mért mérőszámok árait.
+- [Felfüggesztés – UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1): Ez a minta felfüggeszti vagy engedélyezi az előfizetéseket a Felhőbeli operátor által megadott használati korlátok alapján.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Az Azure Stack bérlő erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)
+- [Azure Stack hub-bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)
 
 <!--Image references-->
 [1]: ./media/app-service-billing-faq/app-service-worker-tiers.png

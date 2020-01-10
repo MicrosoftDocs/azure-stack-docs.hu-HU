@@ -1,7 +1,7 @@
 ---
 title: SQL erőforrás-szolgáltató karbantartási műveletei
-titleSuffix: Azure Stack
-description: Ismerje meg az SQL erőforrás-szolgáltató karbantartási műveleteit Azure Stackon.
+titleSuffix: Azure Stack Hub
+description: Ismerje meg az SQL erőforrás-szolgáltató karbantartási műveleteit Azure Stack hub-on.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: 609d0d77af4f11630616567d36fd5ffc35a24a8d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183517"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814473"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -29,7 +29,7 @@ Az SQL erőforrás-szolgáltató zárolt virtuális gépen (VM) fut. A karbantar
 
 ## <a name="patching-and-updating"></a>Javítás és frissítés
 
-Az SQL-erőforrás-szolgáltató nincs kiszolgálva Azure Stack részeként, mert ez egy bővítmény összetevő. A Microsoft szükség szerint frissítéseket biztosít az SQL erőforrás-szolgáltatónak. Amikor megjelent egy frissített SQL-adapter, a rendszer parancsfájlt biztosít a frissítés alkalmazásához. Ez a szkript létrehoz egy új erőforrás-szolgáltató virtuális gépet, áttelepíti a régi szolgáltató virtuális gép állapotát az új virtuális gépre. További információ: [az SQL-erőforrás szolgáltatójának frissítése](azure-stack-sql-resource-provider-update.md).
+Az SQL-erőforrás-szolgáltató nincs kiszolgálva Azure Stack hub részeként, mert ez egy kiegészítő összetevő. A Microsoft szükség szerint frissítéseket biztosít az SQL erőforrás-szolgáltatónak. Amikor megjelent egy frissített SQL-adapter, a rendszer parancsfájlt biztosít a frissítés alkalmazásához. Ez a szkript létrehoz egy új erőforrás-szolgáltató virtuális gépet, áttelepíti a régi szolgáltató virtuális gép állapotát az új virtuális gépre. További információ: [az SQL-erőforrás szolgáltatójának frissítése](azure-stack-sql-resource-provider-update.md).
 
 ### <a name="provider-vm"></a>Szolgáltató virtuális gép
 
@@ -37,7 +37,7 @@ Mivel az erőforrás-szolgáltató egy *felhasználói* virtuális gépen fut, a
 
 ## <a name="updating-sql-credentials"></a>SQL-hitelesítő adatok frissítése
 
-Ön felelős a sysadmin fiókok létrehozásához és karbantartásához az SQL-kiszolgálókon. Az erőforrás-szolgáltatónak olyan fiókkal kell rendelkeznie, amely rendelkezik ezekkel a jogosultságokkal a felhasználók adatbázisainak kezeléséhez, de nincs szükség a felhasználói adatforrásokhoz való hozzáférésre. Ha frissítenie kell a sysadmin (rendszergazda) jelszavait az SQL-kiszolgálókon, az erőforrás-szolgáltató rendszergazdai felületén módosíthatja a tárolt jelszavakat. Ezeket a jelszavakat a Azure Stack-példány egy Key Vault tárolja.
+Ön felelős a sysadmin fiókok létrehozásához és karbantartásához az SQL-kiszolgálókon. Az erőforrás-szolgáltatónak olyan fiókkal kell rendelkeznie, amely rendelkezik ezekkel a jogosultságokkal a felhasználók adatbázisainak kezeléséhez, de nincs szükség a felhasználói adatforrásokhoz való hozzáférésre. Ha frissítenie kell a sysadmin (rendszergazda) jelszavait az SQL-kiszolgálókon, az erőforrás-szolgáltató rendszergazdai felületén módosíthatja a tárolt jelszavakat. Ezeket a jelszavakat a Azure Stack hub-példány egy Key Vault tárolja.
 
 A beállítások módosításához válassza a **tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL-üzemeltetési kiszolgálók** &gt; **SQL-bejelentkezések** lehetőséget, és válasszon egy felhasználónevet. A változást az SQL-példányon kell végrehajtani (és szükség esetén a replikákat is). A **Beállítások**területen válassza a **jelszó**lehetőséget.
 
@@ -45,9 +45,9 @@ A beállítások módosításához válassza a **tallózás** &gt; **felügyelet
 
 ## <a name="secrets-rotation"></a>Titkok rotációja
 
-*Ezek az utasítások csak Azure Stack integrált rendszerekre vonatkoznak.*
+*Ezek az utasítások csak Azure Stack hub integrált rendszerekre vonatkoznak.*
 
-Ha Azure Stack integrált rendszerrel rendelkező SQL-és MySQL-erőforrás-szolgáltatót használ, a Azure Stack operátor feladata a következő erőforrás-szolgáltatói infrastruktúra-titkok elforgatása annak biztosítása érdekében, hogy ne járjanak le:
+Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rendszerekkel használja, az Azure Stack hub-operátor felelős a következő erőforrás-szolgáltatói infrastruktúra titkainak elforgatása érdekében, hogy azok ne járjanak le:
 
 - Az [üzembe helyezés során megadott](azure-stack-pki-certs.md)külső SSL-tanúsítvány.
 - Az erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának jelszava az üzembe helyezés során.
@@ -103,8 +103,8 @@ Ha Azure Stack integrált rendszerrel rendelkező SQL-és MySQL-erőforrás-szol
 
 |Paraméter|Leírás|
 |-----|-----|
-|AzCredential|Azure Stack a szolgáltatás-rendszergazdai fiók hitelesítő adatait.|
-|CloudAdminCredential|Azure Stack a Felhőbeli rendszergazdai tartományi fiók hitelesítő adatait.|
+|AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|
+|CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|
 |PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|
 |DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|
 |VMLocalCredential|Helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|
@@ -251,7 +251,7 @@ IIS-naplók ![hozzáadása](media/azure-stack-sql-resource-provider-maintain/sql
 
 Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az SQL-erőforrás-szolgáltatóhoz, a naplók a **sqladapterdiagaccount**nevű rendszertároló fiókban találhatók.
 
-Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure-monitor/platform/diagnostics-extension-overview)című témakört.
+Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
 ## <a name="next-steps"></a>Következő lépések
 

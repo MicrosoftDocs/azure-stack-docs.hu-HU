@@ -1,6 +1,6 @@
 ---
-title: Marketplace-elemek létrehozása és közzététele Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack Marketplace-elemeket.
+title: Marketplace-elemek létrehozása és közzététele Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 69d25b9a7eafa1dbf71384e2e82bef9bc87bd5af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654882"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817788"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Egyéni Azure Stack Marketplace-elemek létrehozása és közzététele
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Azure Stack piactéren közzétett minden elem az Azure Gallery-csomag (. azpkg) formátumát használja. A *Azure Gallery Packager* eszköz lehetővé teszi, hogy egyéni Azure Gallery-csomagot hozzon létre, amelyet feltöltheti a Azure stack Marketplace-re, amelyet aztán a felhasználók is letölthetnek. Az üzembe helyezési folyamat egy Azure Resource Manager sablont használ.
+Az Azure Stack hub piactéren közzétett minden elem az Azure Gallery-csomag (. azpkg) formátumát használja. Az *Azure Gallery Packager* eszköz lehetővé teszi, hogy egyéni Azure Gallery-csomagot hozzon létre, amelyet feltöltheti a Azure stack hub piactérre, amelyet aztán a felhasználók is letölthetnek. Az üzembe helyezési folyamat egy Azure Resource Manager sablont használ.
 
 ## <a name="marketplace-items"></a>Marketplace-elemek
 
@@ -35,11 +35,11 @@ A jelen cikkben szereplő példák bemutatják, hogyan hozhat létre Windows vag
 ## <a name="create-a-marketplace-item"></a>Piactéri elem létrehozása
 
 > [!IMPORTANT]
-> A virtuálisgép-Piactéri elem létrehozása előtt töltse fel az egyéni virtuálisgép-rendszerképet a Azure Stack-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása a Azure Stackhoz](azure-stack-add-vm-image.md)című részben leírtakat. Ezután kövesse a cikk utasításait a rendszerkép (. azpkg létrehozása) előkészítéséhez és a Azure Stack Marketplace-re való feltöltéséhez.
+> A virtuálisgép-Piactéri elem létrehozása előtt töltse fel az egyéni virtuálisgép-rendszerképet az Azure Stack hub-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása Azure stack hub-hoz](azure-stack-add-vm-image.md)című témakör útmutatását. Ezután kövesse a cikk utasításait a rendszerkép (. azpkg létrehozása) becsomagolásához, majd töltse fel az Azure Stack hub piactérre.
 
 Egyéni Piactéri elem létrehozásához tegye a következőket:
 
-1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és az **Egyéni virtuális gépek**mappa alatt használhatja a Linux vagy az elérhető Windows-sablonokat. Dönthet úgy, hogy újból felhasználja az előre elkészített sablonokat, és módosítja a megfelelő paramétereket a Azure Stack-portálon megjelenő elem szorzatának adataival. Vagy egyszerűen újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
+1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack hub Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és az **Egyéni virtuális gépek**mappa alatt használhatja a Linux vagy az elérhető Windows-sablonokat. Dönthet úgy, hogy újra felhasználja az előre elkészített sablonokat, és módosítja a megfelelő paramétereket az Azure Stack hub-portálon megjelenő elem termék adataival. Vagy egyszerűen újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
 
 2. Hozzon létre egy Azure Resource Manager sablont, vagy használja a Windows/Linux rendszerhez készült minta sablonokat. Ezek a sablonok az 1. lépésben letöltött csomagoló Tool. zip fájlban találhatók. Használhatja a sablont, és módosíthatja a szövegmezőket, vagy letöltheti az előre konfigurált sablont a GitHubról. Azure Resource Manager-sablonokkal kapcsolatos további információkért lásd: [Azure Resource Manager sablonok](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -143,9 +143,9 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
     ![csomag megjeleníti](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![csomag megjelenítését](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont a [Azure stack API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
+6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont az [Azure stack hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
 
-7. Ha a sablon egy virtuálisgép-(VM-) rendszerképre támaszkodik, kövesse az utasításokat, és [adjon hozzá egy VM-rendszerképet a Azure Stackhoz](azure-stack-add-vm-image.md).
+7. Ha a sablon egy virtuálisgép-(VM-) rendszerképre támaszkodik, kövesse az utasításokat, és [adjon hozzá egy VM-rendszerképet Azure stack hubhoz](azure-stack-add-vm-image.md).
 
 8. Mentse a Azure Resource Manager sablont a **/contoso.TodoList/DeploymentTemplates/** mappába.
 
@@ -169,9 +169,9 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ## <a name="publish-a-marketplace-item"></a>Piactéri elem közzététele
 
-1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack tárolóba, vagy feltöltheti az Azure Storage-ba, amely a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
+1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack hub tárolóba, vagy feltöltheti az Azure Storage-ba, amely a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
 
-2. Ha a katalógus-csomagot Azure Stackba szeretné importálni, az első lépés az ügyfél virtuális géphez való távoli kapcsolódás (RDP), hogy az imént létrehozott fájlt átmásolja a Azure Stackba.
+2. Ha a katalógus-csomagot Azure Stack hubhoz szeretné importálni, az első lépés az ügyfél virtuális géphez való távoli kapcsolódás (RDP), hogy az imént létrehozott fájlt a Azure Stack hubhoz másolja.
 
 3. Környezet hozzáadása:
 
@@ -188,7 +188,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. A `GalleryItemURI` értéket a Azure Stack felügyeleti portálról kérheti le. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
+5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. A `GalleryItemURI` értéket a Azure Stack hub felügyeleti portálról kérheti le. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
 
    A katalógus-csomag befejezése és az **Add-AzsGalleryItem**használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
 
@@ -230,7 +230,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
 | Összefoglalás |X |Sztring |60 – 100 karakter | |
-| LongSummary |X |Sztring |140 – 256 karakter |Azure Stackban még nem alkalmazható. |
+| LongSummary |X |Sztring |140 – 256 karakter |Azure Stack központban még nem alkalmazható. |
 | Leírás |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
 
 ### <a name="images"></a>Lemezképek
@@ -247,7 +247,7 @@ A piactér a következő ikonokat használja:
 
 ### <a name="categories"></a>Kategóriák
 
-Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja a meglévő kategóriák egyikét Azure Stack (**számítás**, **adatok + tárolás**stb.), vagy választhat egy újat.
+Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja Azure Stack hub egyik meglévő kategóriáját (**számítás**, **adatok + tárolás**stb.), vagy választhat egy újat is.
 
 ### <a name="links"></a>Hivatkozások
 
@@ -275,18 +275,18 @@ A HTML-t engedélyező mezők esetében a következő [elemek és attribútumok 
 
 ## <a name="reference-marketplace-item-ui"></a>Hivatkozás: Marketplace-elemek felhasználói felülete
 
-A Marketplace-elemek ikonjai és szövege a Azure Stack-portálon látható módon történik.
+A Marketplace-elemek ikonjai és szövege a Azure Stack hub-portálon látható módon történik.
 
 ### <a name="create-blade"></a>A Create (Létrehozás) panel
 
-![Panel létrehozása – Azure Stack Marketplace-elemek](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![Panel létrehozása – Azure Stack hub Marketplace-elemek](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Marketplace-elemek részletei panel
 
-![Azure Stack Marketplace-elemek részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack hub Marketplace-elemek részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Azure Stack Marketplace – áttekintés](azure-stack-marketplace.md)
+- [Azure Stack hub Marketplace – áttekintés](azure-stack-marketplace.md)
 - [Marketplace-elemek letöltése](azure-stack-download-azure-marketplace-item.md)
 - [Azure Resource Manager sablonok formázása és szerkezete](/azure/azure-resource-manager/resource-group-authoring-templates)

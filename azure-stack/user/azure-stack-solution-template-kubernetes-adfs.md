@@ -1,6 +1,6 @@
 ---
-title: Kubernetes üzembe helyezése Azure Stack Active Directory összevont szolgáltatások (AD FS) használatával | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe Kubernetes Azure Stack Active Directory összevont szolgáltatások (AD FS) használatával.
+title: Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe Kubernetes az Azure Stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: a57d1d1520eb09e52e651d65c92314723c3aee4f
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 98af13e9d4b79162ecdfb4163f8a221d9075fb77
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047222"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815816"
 ---
-# <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes üzembe helyezése Azure Stack Active Directory összevont szolgáltatások használatával
+# <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
@@ -33,23 +33,23 @@ A cikk lépéseit követve üzembe helyezheti és beállíthatja a Kubernetes er
 
 ## <a name="prerequisites"></a>Előfeltételek 
 
-Első lépésként győződjön meg arról, hogy rendelkezik a megfelelő engedélyekkel, és hogy a Azure Stack készen áll.
+Első lépésként győződjön meg arról, hogy rendelkezik a megfelelő engedélyekkel, és hogy az Azure Stack hub készen áll.
 
-1. Nyilvános és titkos SSH-kulcspár létrehozása a Linux rendszerű virtuális gépre való bejelentkezéshez Azure Stackon. A fürt létrehozásakor szükség van a nyilvános kulcsra.
+1. Nyilvános és titkos SSH-kulcspár létrehozása a Linux rendszerű virtuális gépre való bejelentkezéshez Azure Stack hub-on. A fürt létrehozásakor szükség van a nyilvános kulcsra.
 
     A kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása](azure-stack-dev-start-howto-ssh-public-key.md).
 
-1. Győződjön meg arról, hogy érvényes előfizetése van a Azure Stack bérlői portálon, és hogy az új alkalmazások hozzáadásához elegendő nyilvános IP-cím áll rendelkezésre.
+1. Győződjön meg arról, hogy érvényes előfizetése van a Azure Stack hub bérlői portálon, és hogy az új alkalmazások hozzáadásához elegendő nyilvános IP-cím áll rendelkezésre.
 
-    A fürt nem telepíthető Azure Stack **rendszergazdai** előfizetésre. **Felhasználói** előfizetést kell használnia. 
+    A fürtöt nem lehet központilag telepíteni Azure Stack hub **rendszergazdai** előfizetésre. **Felhasználói** előfizetést kell használnia. 
 
-1. Ha nem rendelkezik Kubernetes-fürttel a piactéren, forduljon a Azure Stack rendszergazdájához.
+1. Ha nem rendelkezik Kubernetes-fürttel a piactéren, forduljon a Azure Stack hub rendszergazdájához.
 
 ## <a name="create-a-service-principal"></a>Egyszerű szolgáltatás létrehozása
 
-Az Azure Stack rendszergazdájával kell dolgoznia, hogy beállítsa a szolgáltatásnevet, amikor a AD FS használja az identitási megoldásként. Az egyszerű szolgáltatás hozzáférést biztosít az alkalmazáshoz Azure Stack erőforrásokhoz.
+Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolgáltatásnevet, amikor a AD FS használja az identitási megoldásként. Az egyszerű szolgáltatás hozzáférést biztosít az alkalmazáshoz Azure Stack hub-erőforrásokhoz.
 
-1. A Azure Stack rendszergazdája az egyszerű szolgáltatásnév adatait tartalmazza. Az egyszerű szolgáltatás információinak a következőhöz hasonlóan kell kinézniük:
+1. Az Azure Stack hub rendszergazdája megadja az egyszerű szolgáltatásnév adatait. Az egyszerű szolgáltatás információinak a következőhöz hasonlóan kell kinézniük:
 
      ```Text  
        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -65,9 +65,9 @@ Az Azure Stack rendszergazdájával kell dolgoznia, hogy beállítsa a szolgált
 
 ## <a name="deploy-kubernetes"></a>Kubernetes üzembe helyezése
 
-1. Nyissa meg a [Azure stack portált](https://portal.local.azurestack.external).
+1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
 
-1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**elemet. Kattintson a **Létrehozás** gombra.
+1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
 
     ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -81,7 +81,7 @@ Az Azure Stack rendszergazdájával kell dolgoznia, hogy beállítsa a szolgált
 
 1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie.
 
-1. Válassza ki az erőforráscsoport **helyét** . Ez az a régió, amelyet a Azure Stack telepítéséhez választ.
+1. Válassza ki az erőforráscsoport **helyét** . Ez az a régió, amelyet a Azure Stack hub telepítéséhez választ.
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes-fürt beállításai
 
@@ -106,13 +106,13 @@ Az Azure Stack rendszergazdájával kell dolgoznia, hogy beállítsa a szolgált
 
 1. Válassza ki a **Kubernetes-csomópont virtuális gépek VMSize**. Ez határozza meg a virtuális gépek Kubernetes-csomópontjának méretét. 
 
-1. Válassza az **ADFS** lehetőséget a Azure stack telepítésének **Azure stack Identity rendszeréhez** .
+1. Válassza az **ADFS** lehetőséget az Azure stack hub-telepítés **Azure stack hub Identity rendszeréhez** .
 
-1. Adja meg az **egyszerű szolgáltatásnév clientId** , amelyet a Kubernetes Azure Cloud Provider használ. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet.
+1. Adja meg az **egyszerű szolgáltatásnév clientId** , amelyet a Kubernetes Azure Cloud Provider használ. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet.
 
-1. Adja meg az **egyszerű szolgáltatásnév ügyfél titkát**. Ez az ügyfél titkos kulcsa, amelyet a Azure Stack rendszergazdájától kapott AD FS szolgáltatási elv számára.
+1. Adja meg az **egyszerű szolgáltatásnév ügyfél titkát**. Ez az ügyfél titkos kulcsa, amelyet a Azure Stack hub-rendszergazdától kapott AD FS szolgáltatási elv számára.
 
-1. Adja meg a **Kubernetes verzióját**. Ez az Azure-szolgáltató Kubernetes verziója. Azure Stack egy egyéni Kubernetes-buildet szabadít fel minden Azure Stack-verzióhoz.
+1. Adja meg a **Kubernetes verzióját**. Ez az Azure-szolgáltató Kubernetes verziója. Azure Stack hub az egyes Azure Stack hub-verziókhoz egyéni Kubernetes-buildet bocsát ki.
 
 ### <a name="3-summary"></a>3. Összefoglalás
 
@@ -125,7 +125,7 @@ Az Azure Stack rendszergazdájával kell dolgoznia, hogy beállítsa a szolgált
 3. A fürt üzembe helyezéséhez kattintson **az OK gombra** .
 
 > [!TIP]  
->  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést a [Azure stack fórumban](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+>  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack Update 6 kibocsátási megjegyzései | Microsoft Docs
-description: Ismerje meg, hogy mi a 6. frissítés a App Service Azure Stack, az ismert problémák és a frissítés letöltésének helye.
+title: App Service Azure Stack hub Update 6 kibocsátási megjegyzései | Microsoft Docs
+description: Ismerje meg, hogy mi a hatodik frissítés a App Service Azure Stack hub-on, az ismert problémákkal és a frissítés letöltésének módjával kapcsolatban.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,34 +15,34 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 93ec7faec82fad101c7bab2d2cec2783c8a060da
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 3d11184844078f2d888156f6bf4b1a436f345ccd
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101021"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815272"
 ---
-# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack Update 6 kibocsátási megjegyzései
+# <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service Azure Stack hub Update 6 kibocsátási megjegyzései
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack Update 6 és bármely ismert probléma javításait és javításait. Az ismert problémák az üzembe helyezéssel, a frissítési folyamattal és a buildtel (a telepítés után) kapcsolatos problémákkal közvetlenül kapcsolatos problémákra vannak osztva.
+Ezek a kibocsátási megjegyzések a Azure Stack hub Update 6 és bármely ismert probléma esetén Azure App Service javításait és javításait ismertetik. Az ismert problémák az üzembe helyezéssel, a frissítési folyamattal és a buildtel (a telepítés után) kapcsolatos problémákkal közvetlenül kapcsolatos problémákra vannak osztva.
 
 > [!IMPORTANT]
-> Alkalmazza a 1904-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack fejlesztői csomagot a Azure App Service 1,6 üzembe helyezése előtt.
+> Alkalmazza az 1904-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack fejlesztői csomagot a Azure App Service 1,6 üzembe helyezése előtt.
 
 
-## <a name="build-reference"></a>Hivatkozás létrehozása
+## <a name="build-reference"></a>Build referenciája
 
-A App Service Azure Stack Update 6 Build száma **82.0.1.50**
+A App Service Azure Stack hub Update 6 Build száma **82.0.1.50**
 
 ### <a name="prerequisites"></a>Előfeltételek
 
 Az üzembe helyezés megkezdése előtt tekintse át az [első lépések dokumentációját](azure-stack-app-service-before-you-get-started.md) .
 
-Mielőtt megkezdené a Azure App Service frissítését Azure Stack 1,6-re:
+Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,6-re:
 
-- Győződjön meg arról, hogy az összes szerepkör készen áll a Azure App Service adminisztráció Azure Stack felügyeleti portálon
+- Győződjön meg arról, hogy az összes szerepkör készen áll a Azure App Service adminisztráció Azure Stack hub felügyeleti portálon
 
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
@@ -55,9 +55,9 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack 1,6-re:
 
 ### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
-A Azure Stack Update 6 Azure App Service a következő javításokat és javításokat tartalmazza:
+A Azure Stack hub Update 6 Azure App Service a következő javításokat és javításokat tartalmazza:
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
 
 - A **Azure functions Runtime** és a **v 1.0.12299**frissítése.
 
@@ -82,28 +82,28 @@ A Azure Stack Update 6 Azure App Service a következő javításokat és javít�
 ### <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]
-> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on-példánnyal, [hozzá kell adnia a appservice_hosting-és appservice_metering-adatbázisokat egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy elkerülje a szolgáltatás elvesztését a következő esetekben: egy adatbázis-feladatátvétel.
+> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
-- A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack üzembe helyezési dokumentációban is szerepel.
+- A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack hub telepítési dokumentációjában szerepel.
 
 Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
- * Forrás: Any
+ * Forrás: bármely
  * Forrásoldali porttartomány: *
  * Cél: IP-címek
- * Cél IP-címtartomány: A fájlkiszolgáló IP-címeinek tartománya
+ * Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
  * Célport tartománya: 445
  * Protokoll: TCP
- * Művelet: Allow
- * Fontosság: 700
+ * Művelet: Engedélyezés
+ * Prioritás: 700
  * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg a dokumentációt a [Azure Stack 1908 kibocsátási megjegyzésekben](/azure-stack/operator/release-notes?view=azs-1908)
+Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](/azure-stack/operator/release-notes?view=azs-1908) dokumentációját
 
-### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Ismert problémák a bérlők számára az alkalmazások Azure App Serviceon való üzembe helyezéséhez Azure Stack
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a bérlők számára a Azure Stack hub-on Azure App Service alkalmazások üzembe helyezése során
 
 - A központi telepítési központ szürkén jelenik meg
 
@@ -111,13 +111,13 @@ A bérlők még nem használhatják az üzembe helyezési központot, amely a ny
 
 - Központi telepítési beállítások (klasszikus) UX és központi telepítési hitelesítő adatok portál beállításai nem érhetők el
 
-Az üzembe helyezési lehetőségek és az üzembe helyezési hitelesítő adatok felhasználói élményének elérése érdekében Azure Stack a bérlőknek az URL-cím formátuma alapján https://portal.&lt kell elérniük a portált –; *régió.* &gt;&lt; *Teljes tartománynév* /? websitesExtension_oldvsts = True – a ASDK [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) esetében, majd a szokásos módon navigáljon az alkalmazásaihoz. &gt;
+Az üzembe helyezési lehetőségek és az üzembe helyezési hitelesítő adatok felhasználói élményének eléréséhez az Azure Stack hub központi telepítésében a bérlőknek ezen az URL-formátumban kell elérniük a portált – https://portal.&lt ; *régió*&gt;.&lt;*FQDN*&gt; /? websitesExtension_oldvsts = True – ami a ASDK [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd a szokásos módon navigáljon az alkalmazásaihoz.
 
 - Az Azure Function monitoring folyamatosan megjeleníti a betöltést a portálon
 
 Amikor megkísérli figyelni az egyes függvényeket, a bérlői portálon nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma.  A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók**menüpontra, és válassza az **Alkalmazásbeállítások**lehetőséget.  Adjon hozzá egy új Alkalmazásbeállítás- **AzureWebJobsDashboard** nevet, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre.  Ezután nyissa meg a figyelés nézetet a függvényben, és látni fogja a figyelési adatokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
-- További információ a Azure Stack App Service telepítésének előkészítéséről: [mielőtt megkezdi a Azure Stack app Serviceének](azure-stack-app-service-before-you-get-started.md)megkezdését.
+- A Azure App Service áttekintését lásd: [Azure App Service Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
+- A App Service Azure Stack hub-on való telepítésének előkészítésével kapcsolatos további információkért lásd: [az Azure stack hub-beli app Service első lépéseinek](azure-stack-app-service-before-you-get-started.md)megkezdése.

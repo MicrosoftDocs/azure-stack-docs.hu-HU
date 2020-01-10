@@ -1,6 +1,6 @@
 ---
-title: A rendszerállapot ellenőrzése a Azure Stack ellenőrzési eszköz használatával | Microsoft Docs
-description: Megtudhatja, hogyan ellenőrizheti a rendszerállapotot a Azure Stack ellenőrzési eszköz használatával.
+title: A rendszerállapot ellenőrzéséhez használja a Azure Stack hub érvényesítési eszközét | Microsoft Docs
+description: Megtudhatja, hogyan ellenőrizheti a rendszerállapotot az Azure Stack hub érvényesítési eszközével.
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,18 +14,18 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: f362fb5dfc47dca23bf7076ecfe0d347a9c789d0
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830963"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817397"
 ---
-# <a name="validate-azure-stack-system-state"></a>Azure Stack rendszerállapotának ellenőrzése
+# <a name="validate-azure-stack-hub-system-state"></a>Azure Stack hub rendszerállapotának ellenőrzése
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack kezelőként elengedhetetlen, hogy az igény szerinti rendszer állapotát és állapotát meg lehessen határozni. A Azure Stack Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy a rendszer teszteket futtasson a rendszeren a hibák azonosítása érdekében, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
+Azure Stack hub-kezelőként elengedhetetlen az igény szerinti rendszer állapotának és állapotának megállapítása. Az Azure Stack hub Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy teszteket futtasson a rendszeren a hibák azonosítására, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Az érvényesítési eszköz futtatása és az eredmények elérése
 
@@ -48,7 +48,7 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
 
    További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne gyűjtsön naplókat, és ne vegye fel a kapcsolatot a CSS-sel, ha a tesztek **figyelmeztetnek**
 
@@ -64,32 +64,32 @@ Ezek az alacsony hatású tesztek infrastrukturális szinten működnek, és inf
 
 | Teszt kategóriája                                        | Argumentum – belefoglalási és-Mellőzés |
 | :--------------------------------------------------- | :-------------------------------- |
-| Azure Stack ACS összegzése                              | AzsAcsSummary                     |
-| Azure Stack Active Directory Összefoglaló                 | AzsAdSummary                      |
-| Azure Stack riasztások összegzése                            | AzsAlertSummary                   |
-| Azure Stack alkalmazás összeomlásának összegzése                | AzsApplicationCrashSummary        |
-| Azure Stack biztonsági mentési megosztás kisegítő lehetőségeinek összefoglalása       | AzsBackupShareAccessibility       |
-| Azure Stack BMC összegzése                              | AzsStampBMCSummary                |
-| Azure Stack Cloud hosting infrastruktúra összegzése     | AzsHostingInfraSummary            |
-| Azure Stack Cloud hosting infrastruktúra kihasználtsága | AzsHostingInfraUtilization        |
-| Azure Stack vezérlő síkja – összefoglalás                    | AzsControlPlane                   |
-| Azure Stack Defender összegzése                         | AzsDefenderSummary                |
-| Azure Stack üzemeltetési infrastruktúra belső vezérlőprogram-összefoglalója  | AzsHostingInfraFWSummary          |
-| Azure Stack infrastruktúra kapacitása                  | AzsInfraCapacity                  |
-| Infrastruktúra-teljesítmény Azure Stack               | AzsInfraPerformance               |
-| Infrastruktúra-szerepkör összefoglalása Azure Stack              | AzsInfraRoleSummary               |
-| Azure Stack Network infra                            | AzsNetworkInfra                   |
-| Azure Stack portál és API-összefoglalás                   | AzsPortalAPISummary               |
-| Azure Stack méretezési egység VM-eseményei                     | AzsScaleUnitEvents                |
-| Azure Stack méretezési egység virtuálisgép-erőforrásai                  | AzsScaleUnitResources             |
-| Azure Stack forgatókönyvek                                | AzsScenarios                      |
-| Azure Stack SDN-érvényesítés összegzése                   | AzsSDNValidation                  |
-| Azure Stack Service Fabric szerepkör összefoglalása              | AzsSFRoleSummary                  |
-| Azure Stack Storage-adatsíkon                       | AzsStorageDataPlane               |
-| Azure Stack Storage szolgáltatások összegzése                 | AzsStorageSvcsSummary             |
-| Azure Stack SQL-tároló összefoglalása                        | AzsStoreSummary                   |
-| Azure Stack frissítés összegzése                           | AzsInfraUpdateSummary             |
-| Azure Stack virtuális gép elhelyezésének összegzése                     | AzsVmPlacement                    |
+| Azure Stack hub ACS összegzése                              | AzsAcsSummary                     |
+| Azure Stack hub Active Directory Összefoglaló                 | AzsAdSummary                      |
+| Azure Stack hub riasztások összegzése                            | AzsAlertSummary                   |
+| Azure Stack hub-alkalmazás összeomlásának összegzése                | AzsApplicationCrashSummary        |
+| Azure Stack hub biztonsági mentési megosztás kisegítő információk összegzése       | AzsBackupShareAccessibility       |
+| Azure Stack hub BMC – összefoglalás                              | AzsStampBMCSummary                |
+| Azure Stack hub Cloud üzemeltetési infrastruktúra összegzése     | AzsHostingInfraSummary            |
+| Azure Stack hub Cloud hosting infrastruktúra kihasználtsága | AzsHostingInfraUtilization        |
+| Azure Stack hub vezérlőelem síkja – összefoglalás                    | AzsControlPlane                   |
+| Azure Stack hub Defender összegzése                         | AzsDefenderSummary                |
+| Az infrastruktúra belső vezérlőprogram-összefoglalását üzemeltető Azure Stack hub  | AzsHostingInfraFWSummary          |
+| Azure Stack hub infrastruktúra kapacitása                  | AzsInfraCapacity                  |
+| Azure Stack hub-infrastruktúra teljesítménye               | AzsInfraPerformance               |
+| Azure Stack hub infrastruktúra-szerepkör összefoglalása              | AzsInfraRoleSummary               |
+| Azure Stack hub Network infra                            | AzsNetworkInfra                   |
+| Azure Stack hub-portál és API-összefoglalás                   | AzsPortalAPISummary               |
+| Azure Stack hub méretezési egység VM-eseményei                     | AzsScaleUnitEvents                |
+| Azure Stack hub méretezési egység VM-erőforrásai                  | AzsScaleUnitResources             |
+| Azure Stack hub-forgatókönyvek                                | AzsScenarios                      |
+| Azure Stack hub SDN érvényesítési összegzése                   | AzsSDNValidation                  |
+| Azure Stack hub Service Fabric szerepkör összefoglalása              | AzsSFRoleSummary                  |
+| Azure Stack hub Storage-adatsíkon                       | AzsStorageDataPlane               |
+| Azure Stack hub Storage Services – összefoglalás                 | AzsStorageSvcsSummary             |
+| Azure Stack hub SQL Store-összefoglalás                        | AzsStoreSummary                   |
+| Azure Stack hub frissítésének összegzése                           | AzsInfraUpdateSummary             |
+| Azure Stack hub virtuális gép elhelyezésének összegzése                     | AzsVmPlacement                    |
 
 ### <a name="cloud-scenario-tests"></a>Felhőbeli forgatókönyvek tesztelése
 
@@ -167,13 +167,13 @@ A Felhőbeli rendszergazda felhasználónevet a következő UPN-formátumba kell
 A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **default**, **UpdateReadiness**és **SecretRotationReadiness**.
 
 - **Alapértelmezett**: a **test-AzureStack**standard futtatásának tekintendő. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
-- **UpdateReadiness**: megtekintheti, hogy a Azure stack-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. Az 1910-es verziótól kezdve a következő kategóriák a **UpdateReadiness** csoport részét képezik: Azure stack
+- **UpdateReadiness**: megtekintheti, hogy az Azure stack hub-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A Azure Stack hub 1910-es verziójától kezdve a következő kategóriák a **UpdateReadiness** -csoport részét képezik:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**: Ellenőrizze, hogy a Azure stack példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
+- **SecretRotationReadiness**: Ellenőrizze, hogy az Azure stack hub-példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -187,13 +187,13 @@ A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve 
 
 #### <a name="group-parameter-example"></a>Példa a Group paraméterre
 
-Az alábbi példa a **test-AzureStack** tesztelésével teszteli a rendszer készültségét, mielőtt telepítené egy frissítést vagy gyorsjavítást a **csoport**használatával. A frissítés vagy gyorsjavítás telepítésének megkezdése előtt futtassa a **test-AzureStack** eszközt a Azure stack állapotának ellenőrzéséhez:
+Az alábbi példa a **test-AzureStack** tesztelésével teszteli a rendszer készültségét, mielőtt telepítené egy frissítést vagy gyorsjavítást a **csoport**használatával. A frissítés vagy gyorsjavítás telepítésének megkezdése előtt futtassa a **test-AzureStack** eszközt az Azure stack hub állapotának ellenőrzéséhez:
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Ha a Azure Stack a 1811 előtti verziót futtatja, akkor a következő PowerShell-parancsokkal futtassa a **test-AzureStack**:
+Ha az Azure Stack hub 1811 előtti verziót futtat, használja a következő PowerShell-parancsokat a **test-AzureStack**futtatásához:
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -225,7 +225,7 @@ Ha új hitelesítő adatokat szeretne tesztelni a beállított biztonsági ment�
 
 ### <a name="run-validation-tool-to-test-network-infrastructure"></a>Ellenőrző eszköz futtatása a hálózati infrastruktúra teszteléséhez
 
-Ez a teszt ellenőrzi a hálózati infrastruktúra azon kapcsolatát, amely megkerüli a Azure Stack szoftver által meghatározott hálózatot (SDN). Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és a hitelesítési végpontokkal. Ez magában foglalja az Azure-hoz való kapcsolódást is, ha az Azure AD-t identitás-szolgáltatóként vagy az összevont kiszolgálóként használja AD FS identitás-szolgáltatóként
+Ez a teszt ellenőrzi a hálózati infrastruktúra azon kapcsolatát, amely megkerüli az Azure Stack hub szoftver által meghatározott hálózatot (SDN). Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és a hitelesítési végpontokkal. Ez magában foglalja az Azure-hoz való kapcsolódást is, ha az Azure AD-t identitás-szolgáltatóként vagy az összevont kiszolgálóként használja AD FS identitás-szolgáltatóként
 
 Adja meg a Debug paramétert a parancs részletes kimenetének lekéréséhez:
 
@@ -235,6 +235,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ha többet szeretne megtudni Azure Stack diagnosztikai eszközökről és a naplózási problémákról, tekintse meg a [Azure stack diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)című témakört.
+Ha többet szeretne megtudni az Azure Stack hub diagnosztikai eszközeiről és a naplózási problémákról, tekintse meg a [Azure stack hub diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)című témakört.
 
-A hibaelhárítással kapcsolatos további tudnivalókért tekintse meg a [Microsoft Azure stack hibaelhárítást](azure-stack-troubleshooting.md)ismertető témakört.
+További információ a hibaelhárításról: [Microsoft Azure stack hub hibaelhárítása](azure-stack-troubleshooting.md).

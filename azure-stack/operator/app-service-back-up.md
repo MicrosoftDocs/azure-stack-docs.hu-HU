@@ -1,6 +1,6 @@
 ---
-title: App Service biztonsági mentése Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan készíthet biztonsági mentést a Azure Stack App Servicesról.
+title: App Service biztonsági mentése Azure Stack hub-on | Microsoft Docs
+description: Megtudhatja, hogyan készíthet biztonsági másolatot a App Servicesról Azure Stack hub-on.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,23 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a0a1d2b1025e814152b2a9b643683c5ed68bf5ff
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975025"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804537"
 ---
-# <a name="back-up-app-service-on-azure-stack"></a>App Service biztonsági mentése Azure Stack
+# <a name="back-up-app-service-on-azure-stack-hub"></a>App Service biztonsági mentése Azure Stack központban
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*  
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
-Ez a dokumentum útmutatást nyújt a Azure Stack App Service biztonsági mentéséről.
+Ez a dokumentum útmutatást nyújt a App Service Azure Stack hub-beli biztonsági mentéséről.
 
 > [!IMPORTANT]
-> A Azure Stack App Service nem készül biztonsági mentés [Azure stack infrastruktúra biztonsági mentésének](azure-stack-backup-infrastructure-backup.md)részeként. Azure Stack kezelőként el kell végeznie a lépéseket, hogy a App Service sikeresen helyreállítható legyen, ha szükséges.
+> A Azure Stack hub App Service nem készül biztonsági másolat a [Azure stack hub-infrastruktúra biztonsági mentésének](azure-stack-backup-infrastructure-backup.md)részeként. Azure Stack hub-kezelőként el kell végeznie a lépéseket, hogy a App Service sikeresen helyreállítható legyen, ha szükséges.
 
-A Azure App Service on Azure Stack a vész-helyreállítás tervezésekor a következő négy fő összetevőt veszi figyelembe:
+A Azure App Service on Azure Stack hub a vész-helyreállítás tervezése során négy fő összetevőből áll:
 1. Az erőforrás-szolgáltatói infrastruktúra; kiszolgálói szerepkörök, feldolgozói szintek stb. 
 2. A App Service titkot.
 3. A App Service SQL Server az adatbázisok üzemeltetését és mérését.
@@ -43,17 +43,17 @@ App Service biztonsági másolatból való helyreállításakor meg kell adnia a
 
 Az App Service-titkok biztonsági mentését az adminisztrációs portálon végezheti el a következő lépésekkel: 
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra szolgáltatás-rendszergazdaként.
+1. Jelentkezzen be a Azure Stack hub felügyeleti portálján a szolgáltatás-rendszergazdaként.
 
-2. Keresse meg **app Service** -> **titkokat**. 
+2. Tallózással keresse meg **App Service** -> **titkokat**. 
 
 3. Válassza a **titkos kulcsok letöltése**lehetőséget.
 
-   ![A titkok letöltése Azure Stack felügyeleti portálon](./media/app-service-back-up/download-secrets.png)
+   ![A titkok letöltése Azure Stack hub felügyeleti portálján](./media/app-service-back-up/download-secrets.png)
 
 4. Ha a titkok készen állnak a letöltésre, kattintson a **Save (Mentés** ) gombra, és tárolja a app Service Secrets (**SystemSecrets. JSON**) fájlt biztonságos helyen. 
 
-   ![Titkok mentése Azure Stack felügyeleti portálon](./media/app-service-back-up/save-secrets.png)
+   ![Titkok mentése Azure Stack hub felügyeleti portálján](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > Ismételje meg ezeket a lépéseket a App Service titkainak minden elforgatásakor.
@@ -91,5 +91,5 @@ robocopy $source $destination
 net use $destination /delete
 ```
 
-## <a name="next-steps"></a>További lépések
-[App Service visszaállítása Azure Stack](app-service-recover.md)
+## <a name="next-steps"></a>Következő lépések
+[App Service visszaállítása Azure Stack központban](app-service-recover.md)

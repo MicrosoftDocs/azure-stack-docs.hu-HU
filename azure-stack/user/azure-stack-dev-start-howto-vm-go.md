@@ -1,6 +1,6 @@
 ---
-title: Go-webalkalmazás üzembe helyezése egy virtuális gépen Azure Stackban | Microsoft Docs
-description: Go-webalkalmazás üzembe helyezése virtuális gépen Azure Stack
+title: Go-webalkalmazás üzembe helyezése egy virtuális gépen Azure Stack hub-ban | Microsoft Docs
+description: Go-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,29 +9,29 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b3db83ca42c25503be4ddd2053a011a85ffd7034
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1f05b147af4ddd72e9d70eab69150ce442b7b458
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824433"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820644"
 ---
-# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Go-webalkalmazás üzembe helyezése Azure Stack-beli virtuális gépen
+# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Go-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
-Létrehozhat egy virtuális gépet (VM) egy go-webalkalmazás üzemeltetéséhez Azure Stackban. Ebben a cikkben egy kiszolgálót állít be, konfigurálja a kiszolgálót a go-webalkalmazás üzemeltetéséhez, majd az alkalmazást Azure Stack.
+Létrehozhat egy virtuális gépet (VM) egy go-webalkalmazás üzemeltetéséhez Azure Stack központban. Ebben a cikkben egy kiszolgálót állít be, konfigurálja a kiszolgálót a go-webalkalmazás üzemeltetéséhez, majd telepítse az alkalmazást Azure Stack hubhoz.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Állítsa be a virtuális gépet Azure Stack egy olyan [linuxos virtuális gép üzembe helyezése](azure-stack-dev-start-howto-deploy-linux.md)című témakör útmutatását követve, amely Azure stack a webalkalmazások üzemeltetésére.
+1. Állítsa be a virtuális gépet Azure Stack hub-ban a [Linux rendszerű virtuális gép üzembe helyezése című témakör útmutatását követve Azure stack hub webalkalmazásának üzemeltetéséhez](azure-stack-dev-start-howto-deploy-linux.md).
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol | Leírás |
+    | Port | Protocol (Protokoll) | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
     | 22 | SSH | A Secure Shell (SSH) egy titkosított hálózati protokoll a biztonságos kommunikációhoz. Ez a kapcsolódás egy SSH-ügyféllel a virtuális gép konfigurálásához és az alkalmazás üzembe helyezéséhez használható. |
-    | 3389 | RDP | Nem kötelező. A RDP protokoll (RDP) lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
+    | 3389 | RDP | Választható. A RDP protokoll (RDP) lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
     | 3000 | Egyéni | Az 3000-es portot a go web Framework használja a fejlesztéshez. Üzemi kiszolgálók esetében a 80-es és a 443-os adatforgalmat irányítja át. |
 
 ## <a name="install-go"></a>Telepítés menete
@@ -91,8 +91,8 @@ Létrehozhat egy virtuális gépet (VM) egy go-webalkalmazás üzemeltetéséhez
        http://yourhostname.cloudapp.net:3000
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- További információ a [Azure stack fejlesztéséről](azure-stack-dev-start.md).
-- Ismerkedjen meg a [Azure stack IaaS való gyakori központi telepítésekkel](azure-stack-dev-start-deploy-app.md).
+- További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
+- Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).
 - A go programozási nyelvének megismeréséhez és a go további erőforrásainak megkereséséhez tekintse meg a következőt: [Golang.org](https://golang.org).

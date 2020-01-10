@@ -1,6 +1,6 @@
 ---
-title: MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan tarthatja karban a MySQL erőforrás-szolgáltató szolgáltatást a Azure Stackban.
+title: MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan tarthatja karban a MySQL erőforrás-szolgáltató szolgáltatást Azure Stack hub-ban.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: aaa352dedeed36335302a990b6a3bc3f37851f47
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183443"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811090"
 ---
-# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
 
 A MySQL erőforrás-szolgáltató zárolt virtuális gépen (VM) fut. A karbantartási műveletek engedélyezéséhez frissítenie kell a virtuális gép biztonságát. Ha ezt a legalacsonyabb jogosultsági szintű (POLP) elv alapján szeretné elvégezni, akkor a PowerShell elég adminisztrációs (JEA) végpont DBAdapterMaintenance használhatja. Az erőforrás-szolgáltató telepítési csomagja tartalmaz egy parancsfájlt ehhez a művelethez.
 
@@ -93,9 +93,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>Titkok rotációja
 
-*Ezek az utasítások csak Azure Stack integrált rendszerekre vonatkoznak.*
+*Ezek az utasítások csak Azure Stack hub integrált rendszerekre vonatkoznak.*
 
-Ha Azure Stack integrált rendszerrel rendelkező SQL-és MySQL-erőforrás-szolgáltatót használ, a Azure Stack operátor feladata a következő erőforrás-szolgáltatói infrastruktúra-titkok elforgatása annak biztosítása érdekében, hogy ne járjanak le:
+Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rendszerekkel használja, az Azure Stack hub-operátor felelős a következő erőforrás-szolgáltatói infrastruktúra titkainak elforgatása érdekében, hogy azok ne járjanak le:
 
 - Az [üzembe helyezés során megadott](azure-stack-pki-certs.md)külső SSL-tanúsítvány.
 - Az erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának jelszava az üzembe helyezés során.
@@ -155,8 +155,8 @@ Ha Azure Stack integrált rendszerrel rendelkező SQL-és MySQL-erőforrás-szol
 
 |Paraméter|Leírás|
 |-----|-----|
-|AzCredential|Azure Stack a szolgáltatás-rendszergazdai fiók hitelesítő adatait.|
-|CloudAdminCredential|Azure Stack a Felhőbeli rendszergazdai tartományi fiók hitelesítő adatait.|
+|AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|
+|CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|
 |PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|
 |DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|
 |VMLocalCredential|A helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|
@@ -250,7 +250,7 @@ A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL
 
 Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL erőforrás-szolgáltatóhoz, a naplók a **mysqladapterdiagaccount**nevű rendszertároló fiókban találhatók.
 
-Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure-monitor/platform/diagnostics-extension-overview)című témakört.
+Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
 ## <a name="next-steps"></a>Következő lépések
 

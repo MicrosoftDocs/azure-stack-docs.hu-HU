@@ -1,6 +1,6 @@
 ---
-title: Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet, és hogyan küldhet el egy tanúsítványt a Azure Stack található kulcstartó használatával
+title: Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet, és hogyan küldhet rá tanúsítványokat Azure Stack hub kulcstartójának használatával
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e393f0142f403e175427de87738db1a2bf64233a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961525"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820321"
 ---
-# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack 
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on 
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk azt ismerteti, hogyan helyezhet üzembe egy Azure Stack virtuális gépet (VM) egy telepített Key Vault-tanúsítvánnyal.
+Ez a cikk azt ismerteti, hogyan helyezhet üzembe egy Azure Stack hub rendszerű virtuális gépet (VM) egy telepített Key Vault-tanúsítvánnyal.
 
 ## <a name="overview"></a>Áttekintés
 
-A tanúsítványokat számos esetben használják, például a hitelesítés Active Directory vagy a webes forgalom titkosítása. A tanúsítványokat a Azure Stack Key vaultban titkos kulcsként is tárolhatja. A Azure Stack Key Vault használatának előnyei a következők:
+A tanúsítványokat számos esetben használják, például a hitelesítés Active Directory vagy a webes forgalom titkosítása. A tanúsítványokat a Azure Stack hub Key vaultban található titkos kulcsként tárolhatja. Az Azure Stack hub Key Vault használatának előnyei a következők:
 
 * A tanúsítványok nem jelennek meg parancsfájlokban, parancssori előzményekben vagy sablonban.
 * A Tanúsítványkezelő folyamata egyszerűsítve van.
@@ -50,8 +50,8 @@ A következő lépések azt írják le, hogy milyen folyamat szükséges a tanú
 ## <a name="prerequisites"></a>Előfeltételek
 
 * Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Key Vault szolgáltatást.
-* [Telepítse a powershellt Azure Stackhoz](../operator/azure-stack-powershell-install.md).
-* [Konfigurálja a Azure stack felhasználó PowerShell-környezetét](azure-stack-powershell-configure-user.md).
+* [Telepítse a powershellt Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
+* [Konfigurálja a Azure stack hub felhasználói PowerShell-környezetét](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Key Vault-titok létrehozása
 
@@ -177,7 +177,7 @@ A sablon sikeres központi telepítésekor a következő kimenet jelenik meg:
 
 ![Template deployment eredmények](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-Azure Stack leküldi a tanúsítványt a virtuális gépre az üzembe helyezés során. A tanúsítvány helye a virtuális gép operációs rendszertől függ:
+Azure Stack hub az üzembe helyezés során leküldi a tanúsítványt a virtuális gépre. A tanúsítvány helye a virtuális gép operációs rendszertől függ:
 
 * A Windows rendszerben a tanúsítvány a **LocalMachine** -tanúsítvány helyére kerül, a felhasználó által megadott tanúsítványtárolóval együtt.
 * A Linux rendszerben a tanúsítvány a **/var/lib/waagent** könyvtár alá kerül, és a **UppercaseThumbprint. CRT** fájlnevet adja meg a X509-tanúsítványfájl és a **UppercaseThumbprint. prv** fájl számára a titkos kulcshoz.
@@ -192,7 +192,7 @@ Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. Használj
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép üzembe helyezése Key Vault-jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault elérésének engedélyezése az alkalmazás számára](azure-stack-key-vault-sample-app.md)

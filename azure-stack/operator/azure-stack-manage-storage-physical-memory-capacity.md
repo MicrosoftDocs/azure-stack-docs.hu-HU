@@ -1,6 +1,6 @@
 ---
-title: A fizikai memória kapacitásának kezelése a Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan figyelheti és kezelheti Azure Stack a fizikai memóriát és a kapacitást.
+title: Fizikai memória kapacitásának kezelése Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan figyelheti és kezelheti Azure Stack hub fizikai memóriáját és kapacitását.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f72ad1b86bf8ef84e64f79603c27d14571b00838
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 83b9383b8afe0363d9a7bc436dde73dcbab54547
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534153"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817074"
 ---
-# <a name="manage-physical-memory-capacity-in-azure-stack"></a>Fizikai memória kapacitásának kezelése a Azure Stackban
+# <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Fizikai memória kapacitásának kezelése Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-A rendelkezésre álló memória teljes kapacitásának növeléséhez Azure Stack több memóriát is hozzáadhat. Azure Stack a fizikai kiszolgálót a *méretezési egység csomópontjának*is nevezzük. Az egyetlen méretezési egységhez tartozó összes skálázási egység csomópontjainak azonos mennyiségű memóriával kell rendelkezniük.
+Azure Stack hub teljes rendelkezésre álló memória-kapacitásának növeléséhez további memóriát adhat hozzá. Azure Stack hub-ban a fizikai kiszolgálót a *skálázási egység csomópontjának*is nevezzük. Az egyetlen méretezési egységhez tartozó összes skálázási egység csomópontjainak azonos mennyiségű memóriával kell rendelkezniük.
 
 > [!note]  
 > A folytatás előtt tekintse meg a hardver gyártójától származó dokumentációt, és ellenőrizze, hogy a gyártója támogatja-e a fizikai memória frissítését. Előfordulhat, hogy az OEM hardveres gyártó támogatási szerződése megköveteli, hogy a szállító végrehajtsa a fizikai kiszolgáló rack elhelyezését és az eszköz belső vezérlőprogram-frissítését.
@@ -45,11 +45,11 @@ A következő lépések áttekintést nyújtanak a memória hozzáadásának fol
 > [!Warning]
 > A teljes méretezési egységet le kell állítani, mivel a működés közbeni memória frissítése nem támogatott.
 
-1. Azure Stack leállítása a [Azure stack elindítása és leállítása](azure-stack-start-and-stop.md) című cikkben ismertetett lépések segítségével.
+1. Állítsa le Azure Stack hubot az [Azure stack hub elindítása és leállítása](azure-stack-start-and-stop.md) című cikkben ismertetett lépések alapján.
 2. Frissítse a memóriát az egyes fizikai számítógépeken a hardver gyártójától származó dokumentáció használatával.
-3. Indítsa el Azure Stack a [Azure stack elindítása és leállítása](azure-stack-start-and-stop.md) című cikkben ismertetett lépések alapján.
+3. Indítsa el Azure Stack hubot az [Azure stack hub elindítása és leállítása](azure-stack-start-and-stop.md) című cikk lépéseivel.
 
 ## <a name="next-steps"></a>Következő lépések
 
- - A Azure Stack lévő Storage-fiókok kezelésével kapcsolatos további információkért lásd: [a Storage-fiókok kezelése a Azure Stackban](azure-stack-manage-storage-accounts.md).
- - A Azure Stack üzemelő példány tárolási kapacitásának figyelésével és kezelésével kapcsolatos további információkért lásd: [Azure stack tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).
+ - A Azure Stack hub Storage-fiókjainak kezelésével kapcsolatos további információkért lásd: [Storage-fiókok kezelése Azure stack hub-ban](azure-stack-manage-storage-accounts.md).
+ - Az Azure Stack hub üzemelő példányának tárolási kapacitásának figyeléséről és kezeléséről további információt a [Azure stack hub tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md)című témakörben talál.

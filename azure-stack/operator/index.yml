@@ -16,7 +16,7 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: 'Az Microsoft Azure Stack hub egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások biztosítását az adatközpontból. Ismerje meg, hogyan kezelheti az Azure Stack hub integrált rendszer-infrastruktúráját, és hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.<br/><br/>Ha Ön Azure Stack hub-felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat épít Azure Stack hub-hoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.<br/><br/>Ha Ön egy Azure Stack hub-operátor érdekli az Azure Stack hub Development Kit (ASDK) szolgáltatásban, a Azure Stack hub egycsomópontos üzembe helyezése, amelyet ingyenesen tölthet le és használhat fel, tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentációját</a>.'
+  description: 'Az Microsoft Azure Stack hub egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások biztosítását az adatközpontból. Ismerje meg, hogyan kezelheti az Azure Stack hub integrált rendszer-infrastruktúráját, és hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.<br/><br/>Ha Ön Azure Stack hub-felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat épít Azure Stack hub-hoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.<br/><br/>Ha Ön Azure Stack hub-operátor érdekli a Azure Stack Development Kit (ASDK), az Azure Stack hub egycsomópontos üzembe helyezését, amelyet ingyenesen tölthet le és használhat fel, tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentációját</a>.'
 sections:
   - title: Azure Stack hub – első lépések
     items:
@@ -32,7 +32,7 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure stack PowerShell</b> -</a>
+              <br><b>Azure stack hub PowerShell</b></a>
               <p>Egyszerűen kezelheti Azure Stack hub-erőforrásait a PowerShellből.</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">

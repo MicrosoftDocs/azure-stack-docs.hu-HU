@@ -1,6 +1,6 @@
 ---
-title: Kubernetes-fürt frissítése Azure Stackon | Microsoft Docs
-description: Megtudhatja, hogyan frissíthet egy Kubernetes-fürtöt Azure Stackon.
+title: Kubernetes-fürt frissítése Azure Stack hub-on | Microsoft Docs
+description: Ismerje meg, hogyan frissíthet egy Kubernetes-fürtöt Azure Stack hub-on.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
-ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
+ms.openlocfilehash: f1bc42e757bb53f0a9fc7d9c879b64380a4f468e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75605874"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819998"
 ---
-# <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Kubernetes-fürt frissítése Azure Stack
+# <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="upgrade-a-cluster"></a>Fürt frissítése
 
@@ -37,7 +37,7 @@ A Microsoft nem kezeli a fürtöt. A Microsoft azonban biztosítja a fürt felü
 Az üzembe helyezett fürtök frissítéseinek fedele:
 
 -   Kubernetes
--   Azure Stack Kubernetes-szolgáltató
+-   Azure Stack hub Kubernetes-szolgáltató
 -   Alap operációs rendszer
 
 Üzemi fürt frissítésekor vegye figyelembe a következőket:
@@ -45,7 +45,7 @@ Az üzembe helyezett fürtök frissítéseinek fedele:
 -   A megfelelő fürt-specifikációt (`apimodel.json`) és erőforráscsoportot használja a célként megadott fürthöz?
 -   Megbízható gépet használ az ügyfélszámítógép számára az AK-motor futtatásához és a frissítési műveletek végrehajtásához?
 -   Ellenőrizze, hogy rendelkezik-e biztonsági mentési fürttel, és hogy működőképes-e.
--   Ha lehetséges, futtassa a parancsot a Azure Stack környezetben található virtuális gépről a hálózati ugrások és a lehetséges csatlakozási hibák csökkentése érdekében.
+-   Ha lehetséges, futtassa a parancsot a Azure Stack hub-környezetben található virtuális gépről a hálózati ugrások és a lehetséges csatlakozási hibák csökkentése érdekében.
 -   Győződjön meg arról, hogy az előfizetése elegendő lemezterülettel rendelkezik a teljes folyamathoz. A folyamat új virtuális gépeket foglal le a folyamat során.
 -   A rendszer nem tervez frissítéseket vagy ütemezett feladatokat.
 -   Állítson be egy szakaszos frissítést egy olyan fürtön, amely pontosan úgy van konfigurálva, mint a termelési fürt, majd tesztelje a frissítést az üzemi fürtön.
@@ -86,12 +86,12 @@ Az alábbi utasítások a frissítés végrehajtásához szükséges minimális 
 
     | Paraméter | Példa | Leírás |
     | --- | --- | --- |
-    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack használja `AzureStackCloud`. |
-    | location | helyi | A Azure Stack régiójának neve. A ASDK a régió `local`értékre van állítva. |
+    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platformot Azure Stack hub használja `AzureStackCloud`. |
+    | location | helyi | Az Azure Stack hub régiójának neve. A ASDK a régió `local`értékre van állítva. |
     | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
     | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
-    | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet. |
+    | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
     | ügyfél – titok | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
     | identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
 
@@ -116,7 +116,7 @@ Az alábbi utasítások a frissítés végrehajtásához szükséges minimális 
 
 1. Tekintse át [a támogatott kubernetes-verziók táblát](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) , és állapítsa meg, hogy rendelkezik-e a frissítéshez tervezett AK-motor és AK-alapú alaprendszerkép verziószámával. Az AK-motor futtatási verziójának megtekintése: `aks-engine version`.
 2. Frissítse az AK-motort ennek megfelelően, azon a gépen, amelyen telepítette az AK-motor futtatását: `./get-akse.sh --version vx.xx.x` az **x. xx. x** helyett a célként megadott verziót.
-3. Kérje meg Azure Stack kezelőjét, hogy adja hozzá a használni kívánt Azure Stack piactéren a szükséges AK-alapú alapképfájl verzióját.
+3. Kérje meg az Azure Stack hub-kezelőt, hogy adja hozzá a használni kívánt Azure Stack hub-piactérhez szükséges AK-alapú alaprendszerkép verzióját.
 4. Futtassa a `aks-engine upgrade` parancsot ugyanazzal a Kubernetes-verzióval, amelyet már használ, de adja hozzá a `--force`. A [frissítés kényszerítését](#forcing-an-upgrade)bemutató példát láthat.
 
 
@@ -141,5 +141,5 @@ aks-engine upgrade \
 
 ## <a name="next-steps"></a>Következő lépések
 
-- További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
-- [Kubernetes-fürt méretezése Azure Stack](azure-stack-kubernetes-aks-engine-scale.md)
+- További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)
+- [Kubernetes-fürt méretezése Azure Stack hub-on](azure-stack-kubernetes-aks-engine-scale.md)

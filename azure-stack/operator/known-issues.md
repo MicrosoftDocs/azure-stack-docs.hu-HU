@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503623"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812399"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -278,7 +278,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ## <a name="1908-update-process"></a>1908 frissítési folyamat
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: amikor a Azure Stack frissítés telepítését kísérli meg, a frissítés állapota meghiúsulhat, és az állapot **PreparationFailed**értékre vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
+- Ok: az Azure Stack hub frissítésének telepítésére tett kísérlet során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
 - Szervizelés: a 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti a problémát, ha a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése szakaszt](azure-stack-apply-updates.md#install-updates-and-monitor-progress)követve manuálisan töltse fel a frissítési csomagot.
 - Előfordulás: gyakori
 
@@ -307,14 +307,14 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack portálok használatával.
+- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack hub-portálon keresztül.
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
 ### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="upload-blob"></a>Blob feltöltése
@@ -347,7 +347,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="service-endpoints"></a>Szolgáltatásvégpontok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="network-interface"></a>Hálózati illesztő
@@ -371,29 +371,29 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 #### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="active-active"></a>Aktív-aktív
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="vpn-troubleshooter"></a>VPN-hibakereső
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="documentation"></a>Dokumentáció
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a Virtual Network Gateway áttekintő lapján található dokumentációs hivatkozások Azure Stack helyett az Azure-specifikus dokumentációra mutatnak. Használja az alábbi hivatkozásokat az Azure Stack dokumentációhoz:
+- Ok: a dokumentáció a Virtual Network Gateway áttekintő oldalán, az Azure Stack hub helyett az Azure-specifikus dokumentációra mutató hivatkozást tartalmaz. Használja az alábbi hivatkozásokat az Azure Stack hub dokumentációjában:
 
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [A BGP konfigurálása Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -408,11 +408,11 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack környezetekben
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack hub-környezetekben
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a virtuális gépek létrehozása 3 tartalék tartományból álló rendelkezésre állási csoportba, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack-környezet frissítési folyamata során.
-- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack frissítési folyamata során.
+- Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
+- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub frissítési folyamata során.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 
@@ -424,21 +424,21 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó kérése panel, de Azure Stack nem támogatja a jelszó alaphelyzetbe állítását egy méretezési csoporton.
+- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de az Azure Stack hub még nem támogatja a jelszó visszaállítását egy méretezési csoporton.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, amely nem támogatott a jelenlegi Azure Stack buildben.
+- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, és nem támogatott a jelenlegi Azure Stack hub-buildben.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.    
-- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
+- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stack hub-ban még nem támogatott.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
@@ -454,7 +454,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ## <a name="1907-update-process"></a>1907 frissítési folyamat
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a 1907 Azure Stack frissítés telepítésére tett kísérlet során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
+- Ok: amikor a 1907 Azure Stack hub frissítésének telepítését kísérli meg, a frissítés állapota meghiúsulhat, és az állapot **PreparationFailed**értékre vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz.
 - Szervizelés: a 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti a problémát, ha a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md)alapján.
 - Előfordulás: gyakori
 
@@ -477,14 +477,14 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack portálok használatával.
+- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack hub-portálon keresztül.
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
 ### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="upload-blob"></a>Blob feltöltése
@@ -511,7 +511,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="service-endpoints"></a>Szolgáltatásvégpontok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="network-interface"></a>Hálózati illesztő
@@ -535,35 +535,35 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 #### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="active-active"></a>Aktív-aktív
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="vpn-troubleshooter"></a>VPN-hibakereső
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="network-connection-type"></a>Hálózati kapcsolat típusa
 
 - Alkalmazható: a probléma bármely 1906-es vagy 1907-es környezetre érvényes. 
-- Ok: a felhasználói portálon a **AddConnection** panel egy lehetőséget mutat be a **VNet – VNet**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban. 
+- Ok: a felhasználói portálon a **AddConnection** panel egy lehetőséget mutat be a **VNet – VNet**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban. 
 - Előfordulás: gyakori 
 
 #### <a name="documentation"></a>Dokumentáció
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a Virtual Network Gateway áttekintő lapján található dokumentációs hivatkozások Azure Stack helyett az Azure-specifikus dokumentációra mutatnak. Használja az alábbi hivatkozásokat az Azure Stack dokumentációhoz:
+- Ok: a dokumentáció a Virtual Network Gateway áttekintő oldalán, az Azure Stack hub helyett az Azure-specifikus dokumentációra mutató hivatkozást tartalmaz. Használja az alábbi hivatkozásokat az Azure Stack hub dokumentációjában:
 
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [A BGP konfigurálása Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -578,11 +578,11 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack környezetekben
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack hub-környezetekben
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a virtuális gépek létrehozása 3 tartalék tartományból álló rendelkezésre állási csoportba, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack-környezet frissítési folyamata során.
-- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack frissítési folyamata során.
+- Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
+- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub frissítési folyamata során.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 
@@ -594,21 +594,21 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
 
 - Alkalmazható: Ez a probléma a 1906-es és a 1907-as kiadásra vonatkozik.
-- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó kérése panel, de Azure Stack nem támogatja a jelszó alaphelyzetbe állítását egy méretezési csoporton.
+- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de az Azure Stack hub még nem támogatja a jelszó visszaállítását egy méretezési csoporton.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
 
 - Alkalmazható: Ez a probléma a 1906-es és a 1907-as kiadásra vonatkozik.
-- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, amely nem támogatott a jelenlegi Azure Stack buildben.
+- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, és nem támogatott a jelenlegi Azure Stack hub-buildben.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható: Ez a probléma a 1906-es és a 1907-as kiadásra vonatkozik.    
-- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
+- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stack hub-ban még nem támogatott.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
@@ -624,7 +624,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ## <a name="1906-update-process"></a>1906 frissítési folyamat
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a 1906 Azure Stack frissítés telepítésére tett kísérlet során előfordulhat, hogy a frissítés állapota meghiúsul, és a **PreparationFailed**állapotra vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz. 
+- Ok: amikor a 1906 Azure Stack hub frissítésének telepítését kísérli meg, a frissítés állapota meghiúsulhat, és az állapot **PreparationFailed**értékre vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz. 
 - Szervizelés: a 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti a problémát, ha a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md)alapján.
 - Előfordulás: gyakori
 
@@ -647,7 +647,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack portálok használatával.
+- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack hub-portálon keresztül.
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
@@ -660,7 +660,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="upload-blob"></a>Blob feltöltése
@@ -682,7 +682,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="service-endpoints"></a>Szolgáltatásvégpontok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="network-interface"></a>Hálózati illesztő
@@ -697,29 +697,29 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 #### <a name="alerts"></a>Értesítések
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="active-active"></a>Aktív-aktív
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="vpn-troubleshooter"></a>VPN-hibakereső
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stackban.
+- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="documentation"></a>Dokumentáció
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a Virtual Network Gateway áttekintő lapján található dokumentációs hivatkozások Azure Stack helyett az Azure-specifikus dokumentációra mutatnak. Használja az alábbi hivatkozásokat az Azure Stack dokumentációhoz:
+- Ok: a dokumentáció a Virtual Network Gateway áttekintő oldalán, az Azure Stack hub helyett az Azure-specifikus dokumentációra mutató hivatkozást tartalmaz. Használja az alábbi hivatkozásokat az Azure Stack hub dokumentációjának megtekintéséhez:
 
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [A BGP konfigurálása Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -751,11 +751,11 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
 
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack környezetekben
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack hub-környezetekben
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a virtuális gépek létrehozása 3 tartalék tartományból álló rendelkezésre állási csoportba, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack-környezet frissítési folyamata során.
-- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack frissítési folyamata során.
+- Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
+- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub frissítési folyamata során.
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
 
@@ -767,21 +767,21 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
 
 - Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó kérése panel, de Azure Stack nem támogatja a jelszó alaphelyzetbe állítását egy méretezési csoporton.
+- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de az Azure Stack hub még nem támogatja a jelszó visszaállítását egy méretezési csoporton.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
 
 - Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, amely nem támogatott a jelenlegi Azure Stack buildben.
+- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, és nem támogatott a jelenlegi Azure Stack hub-buildben.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stackban még nem támogatott.
+- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stack hub-ban még nem támogatott.
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
@@ -848,5 +848,5 @@ Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-[Azure stack ismert problémák régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ a Azure Stack támogatásáról: [Azure stack karbantartási szabályzat](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
+[A Azure stack hub ismert problémáinak régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 ::: moniker-end

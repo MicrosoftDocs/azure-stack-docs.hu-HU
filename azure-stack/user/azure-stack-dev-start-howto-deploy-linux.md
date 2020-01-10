@@ -1,6 +1,6 @@
 ---
-title: Linux rendszerű virtuális gép üzembe helyezése Azure Stack | Microsoft Docs
-description: Alkalmazás üzembe helyezése Azure Stack.
+title: Linux rendszerű virtuális gép üzembe helyezése Azure Stack hubhoz | Microsoft Docs
+description: Alkalmazás üzembe helyezése Azure Stack hubhoz.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,14 +9,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: d1fae6caf6ac37f29382f4d24ce0d8b2299aa1d7
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: cda7f90154f9a5731eaa34bd1256f60ef76de193
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824829"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816156"
 ---
-# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Linuxos virtuális gép üzembe helyezése a webalkalmazások üzemeltetéséhez Azure Stack
+# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Linux rendszerű virtuális gép üzembe helyezése Azure Stack hub webalkalmazásának üzemeltetéséhez
 
 Létrehozhat és üzembe helyezhet egy alapszintű linuxos virtuális gépet (VM) az Azure Marketplace-en található Ubuntu-rendszerkép használatával, amely egy webes keretrendszerrel létrehozott webalkalmazást üzemeltet. 
 
@@ -27,17 +27,17 @@ A virtuális gép a következő használatával tud webalkalmazásokat üzemelte
 - **Ruby**: a Ruby on Rails beállítása keretrendszerként a Ruby-webalkalmazások kézbesítéséhez. 
 - **Java**: a Java használatával olyan webalkalmazásokat fejleszthet, amelyeket egy Apache Tomcat-kiszolgálóra küld. A Tomcat telepíthető Linux rendszeren, majd a Java WAR-fájljait közvetlenül a kiszolgálóra helyezheti üzembe. 
 
-A cikk utasításait követve megkezdheti a Linux operációs rendszert használó webalkalmazások, keretrendszerek és háttérrendszer-technológiák használatát. Ezután a Azure Stack segítségével kezelheti az infrastruktúrát, és használhatja a technológián belüli felügyeleti eszközöket az alkalmazás karbantartási feladatainak kezeléséhez.
+A cikk utasításait követve megkezdheti a Linux operációs rendszert használó webalkalmazások, keretrendszerek és háttérrendszer-technológiák használatát. Ezután a Azure Stack hub használatával kezelheti az infrastruktúrát, és a technológián belüli felügyeleti eszközök segítségével kezelheti az alkalmazás karbantartási feladatait.
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Linux rendszerű virtuális gép üzembe helyezése egy webalkalmazáshoz
 
-Ebben a folyamatban egy titkos kulcsot hoz létre, a linuxos virtuális gép alapképét használva adja meg a virtuális gép adott attribútumait, majd hozza létre a virtuális gépet. A virtuális gép létrehozása után megnyithatja a virtuális géppel való munkához szükséges portokat, valamint a virtuális gép számára az alkalmazás üzemeltetését. Ezután hozza létre a DNS-nevet. Végezetül pedig a virtuális géphez csatlakozik, és az apt-get segédprogram használatával frissítse a gépet. A folyamat elvégzése után egy virtuális gép fog rendelkezni a Azure Stack-példányban, amely készen áll a webalkalmazás üzemeltetésére.
+Ebben a folyamatban egy titkos kulcsot hoz létre, a linuxos virtuális gép alapképét használva adja meg a virtuális gép adott attribútumait, majd hozza létre a virtuális gépet. A virtuális gép létrehozása után megnyithatja a virtuális géppel való munkához szükséges portokat, valamint a virtuális gép számára az alkalmazás üzemeltetését. Ezután hozza létre a DNS-nevet. Végezetül pedig a virtuális géphez csatlakozik, és az apt-get segédprogram használatával frissítse a gépet. A folyamat elvégzése után egy virtuális gép fog rendelkezni a Azure Stack hub-példányon, amely készen áll a webalkalmazás üzemeltetésére.
 
 Mielőtt elkezdené, ellenőrizze, hogy van-e minden, amire szüksége van.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-- Egy Azure Stack előfizetés, amely az Ubuntu Server 16,04 LTS-rendszerkép elérésére szolgál. Használhatja a rendszerkép újabb verzióját, de ezeket az utasításokat a 16,04 LTS-nek kell megírnia. Ha nem rendelkezik ezzel a képpel, lépjen kapcsolatba a felhőalapú szolgáltatójával, és kérje le a rendszerképet a Azure Stack piactérre.
+- Egy Azure Stack hub-előfizetés, amely hozzáférést biztosít az Ubuntu Server 16,04 LTS-rendszerképhez. Használhatja a rendszerkép újabb verzióját, de ezeket az utasításokat a 16,04 LTS-nek kell megírnia. Ha nem rendelkezik ezzel a képpel, forduljon a felhőalapú kezelőhöz, és kérje le a rendszerképet a Azure Stack hub piactérre.
 
 ## <a name="deploy-the-vm-by-using-the-portal"></a>A virtuális gép üzembe helyezése a portál használatával
 
@@ -46,9 +46,9 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 ### <a name="create-your-vm"></a>A virtuális gép létrehozása
 
 1. Hozzon létre egy Secure Shell (SSH) nyilvános kulcsot a kiszolgáló számára. További információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Az Azure Stack portálon válassza az **erőforrás létrehozása** > **számítási** > **Ubuntu Server 16,04 LTS**lehetőséget.
+1. Az Azure Stack hub portálon válassza az **erőforrás létrehozása** > **számítási** > **Ubuntu Server 16,04 LTS**lehetőséget.
 
-    ![Webalkalmazás üzembe helyezése Azure Stack virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
 4. A **virtuális gép létrehozása** panelen **1. Alapszintű beállítások konfigurálása**:
 
@@ -69,13 +69,13 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
     ---- END SSH2 PUBLIC KEY ----
     ```
 
-    f. Válassza ki az előfizetést Azure Stack példányához.
+    f. Válassza ki az Azure Stack hub-példány előfizetését.
 
     g. Hozzon létre egy új erőforráscsoportot, vagy használjon egy meglévőt, attól függően, hogyan szeretné rendezni az alkalmazás erőforrásait.
 
-    h. Válassza ki a tartózkodási helyét. A Azure Stack Development Kit (ASDK) általában egy *helyi* régióban található. A hely a Azure Stack-példánytól függ.
+    h. Válassza ki a tartózkodási helyét. A Azure Stack Development Kit (ASDK) általában egy *helyi* régióban található. A hely a Azure Stack hub-példánytól függ.
 1. **2. Méret**, írja be a következőt:
-    - Válassza ki az Azure Stack-példányban elérhető virtuális gép adatmennyiségét és a RAM-ot.
+    - Válassza ki az Azure Stack hub-példányban elérhető virtuális gép adatmennyiségét és a RAM-ot.
     - Böngészheti a listát, vagy szűrheti a virtuális gép méretét a **számítási típus**, a **processzorok**és a **tárolóhely**alapján.
     
     > [!NOTE]
@@ -123,7 +123,7 @@ Annak érdekében, hogy a webalkalmazás elérhető legyen a hálózaton lévő 
 
 Egy előre definiált szolgáltatás (például RDP vagy SSH) esetében módosíthatja a célként megadott protokollt és a porttartomány, vagy egyéni porttartomány is megadható. Előfordulhat például, hogy a webes keretrendszer porttartomány alapján szeretne dolgozni. LÉPJEN kapcsolatba például a 3000-es porton.
 
-1. Nyissa meg a Azure Stack portált a bérlő számára.
+1. Nyissa meg a Azure Stack hub portált a bérlőhöz.
 
 1. Keresse meg a virtuális gépet. Lehet, hogy rögzítette a virtuális gépet az irányítópulton, vagy megkeresi az **erőforrások keresése** mezőben.
 
@@ -151,7 +151,7 @@ Egy előre definiált szolgáltatás (például RDP vagy SSH) esetében módosí
 
 Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók URL-cím használatával csatlakozhatnak a webhelyhez.
 
-1. Nyissa meg a Azure Stack portált a bérlő számára.
+1. Nyissa meg a Azure Stack hub portált a bérlőhöz.
 
 1. Keresse meg a virtuális gépet. Lehet, hogy rögzítette a virtuális gépet az irányítópulton, vagy megkeresi az **erőforrások keresése** mezőben.
 
@@ -165,7 +165,7 @@ Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók 
 
 ### <a name="connect-via-ssh-to-update-your-vm"></a>Kapcsolódás SSH-n keresztül a virtuális gép frissítéséhez
 
-1. Az Azure Stack-példánnyal azonos hálózaton nyissa meg az SSH-ügyfelet. További információ: [nyilvános SSH-kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
+1. Az Azure Stack hub-példánnyal azonos hálózaton nyissa meg az SSH-ügyfelet. További információ: [nyilvános SSH-kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
 1. Adja meg a következő parancsokat:
 
@@ -174,6 +174,6 @@ Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók 
         sudo apt-get -y upgrade
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ismerje meg, hogyan [állíthat be fejlesztési környezetet a Azure Stackban](azure-stack-dev-start.md).
+Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).

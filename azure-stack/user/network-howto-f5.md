@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 360bd0fee975aaa1eb7f7dd02948493862f6105d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780881"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815391"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Az F5 telepítése két Azure Stack hub-példány között
 
@@ -24,21 +24,21 @@ A Azure Resource Manager sablonokat az [F5-azurestack-gslb GitHub-](https://gith
 
 ## <a name="overview-of-load-balancing-with-f5"></a>A terheléselosztás áttekintése az F5 billentyűvel
 
-Az F5 hardver, a terheléselosztó, a Azure Stackon kívül, valamint a Azure Stack üzemeltető adatközponton belül lehet. Azure Stack nem rendelkezik olyan natív képességgel, amely a számítási feladatok terheléselosztását két különálló Azure Stack üzemelő példányon keresztül végzi. A F5's BIG-IP virtuális kiadása (VE) mindkét platformon fut. Ez a beállítás támogatja az Azure és a Azure Stack architektúrák közötti paritást a támogató alkalmazás-szolgáltatások replikálásával. Létrehozhat egy alkalmazást egy környezetben, és áthelyezheti azt egy másikba. A teljes éles használatra kész Azure Stack is tükrözheti, beleértve a nagy IP-konfigurációkat, a szabályzatokat és az alkalmazások szolgáltatásait is. A módszer szükségtelenné teszi az alkalmazások újrabontását és tesztelését, és lehetővé teszi a beszerzését a kód írásához.
+Az F5 hardver, a terheléselosztó a Azure Stack hub és az Azure Stack hub-t futtató adatközponton kívül is lehet. Azure Stack hub nem rendelkezik natív képességgel a számítási feladatok terheléselosztásához két különálló Azure Stack hub-telepítés között. A F5's BIG-IP virtuális kiadása (VE) mindkét platformon fut. Ez a beállítás támogatja az Azure és a Azure Stack hub-architektúrák közötti paritást a támogató alkalmazás-szolgáltatások replikálásával. Létrehozhat egy alkalmazást egy környezetben, és áthelyezheti azt egy másikba. A teljes éles használatra kész Azure Stack hub is tükrözhető, beleértve a nagy IP-konfigurációkat, a szabályzatokat és az alkalmazás-szolgáltatásokat is. A módszer szükségtelenné teszi az alkalmazások újrabontását és tesztelését, és lehetővé teszi a beszerzését a kód írásához.
 
-Az alkalmazások és az azokhoz kapcsolódó adatvédelmek gyakran érintik a fejlesztők számára az alkalmazások nyilvános felhőbe való áthelyezését. Erre nincs szükség. Létrehozhat egy alkalmazást Azure Stack környezetében, míg a biztonsági építész konfigurálja a szükséges beállításokat a F5's webalkalmazási tűzfalon (WAF). A teljes verem replikálható Azure Stackban azzal az ismerettel, hogy az alkalmazást ugyanazon piacvezető WAF fogja védeni. Azonos szabályzatokkal és szabályrendszerek nem lesznek olyan biztonsági rések vagy sebezhetőségek, amelyek más WAF eltérő módon hozhatók létre.
+Az alkalmazások és az azokhoz kapcsolódó adatvédelmek gyakran érintik a fejlesztők számára az alkalmazások nyilvános felhőbe való áthelyezését. Erre nincs szükség. Létrehozhat egy alkalmazást Azure Stack hub-környezetében, míg a biztonsági építész konfigurálja a szükséges beállításokat a F5's webalkalmazási tűzfalon (WAF). A teljes verem replikálható Azure Stack központba azzal az ismerettel, hogy az alkalmazást azonos piacvezető WAF fogja védeni. Azonos szabályzatokkal és szabályrendszerek nem lesznek olyan biztonsági rések vagy sebezhetőségek, amelyek más WAF eltérő módon hozhatók létre.
 
-Azure Stack az Azure-ból külön piactér található. Csak bizonyos elemek lesznek hozzáadva. Ebben az esetben, ha új erőforráscsoportot szeretne létrehozni az egyes Azure-Veremekben, és üzembe helyezi a már elérhető F5 virtuális készüléket. Itt láthatja, hogy a Azure Stack példányok közötti hálózati kapcsolat engedélyezéséhez **nyilvános IP-** cím szükséges. Lényegében mind a szigetek, mind a **nyilvános IP-cím** lehetővé teszi, hogy mindkét helyen beszéljenek.
+Azure Stack hub külön piactéren az Azure-ban található. Csak bizonyos elemek lesznek hozzáadva. Ebben az esetben, ha új erőforráscsoportot szeretne létrehozni az egyes Azure Stack hubokon, és üzembe helyezi a már elérhető F5 virtuális készüléket. Itt láthatja, hogy a Azure Stack hub-példányok közötti hálózati kapcsolat engedélyezéséhez **nyilvános IP-** cím szükséges. Lényegében mind a szigetek, mind a **nyilvános IP-cím** lehetővé teszi, hogy mindkét helyen beszéljenek.
 
 ## <a name="prerequisites-for-big-ip-ve"></a>A BIG-IP VE használatának előfeltételei
 
--  Az **F5 Big-IP ve-all (BYOL, 2 boot locations)** letöltése minden Azure stack piactéren. Ha nem áll rendelkezésre a portálon, lépjen kapcsolatba a felhőalapú szolgáltatójával.
+-  Töltse le az **F5 Big-IP ve-all (BYOL, 2 rendszerindítási hely) címet** minden Azure stack hub piactéren. Ha nem áll rendelkezésre a portálon, lépjen kapcsolatba a felhőalapú szolgáltatójával.
 
 -  A Azure Resource Manager sablont a következő GitHub-tárházban találja: https://github.com/Mikej81/f5-azurestack-gslb.
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>Az F5 BIG-IP VE üzembe helyezése minden példányon
 
-Üzembe helyezés az A és A "B" példány Azure Stack.
+Központi telepítés Azure Stack hub A és A B példánya.
 
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
 
@@ -69,20 +69,20 @@ Azure Stack az Azure-ból külön piactér található. Csak bizonyos elemek les
 
 ## <a name="configure-big-ip-appliances"></a>NAGYMÉRETŰ IP-készülékek konfigurálása
 
-Kövesse az alábbi lépéseket az A és A B Azure Stack is.
+Kövesse az alábbi lépéseket mind a Azure Stack, mind A B hubhoz.
 
-1. Jelentkezzen be az Azure Stack hub felhasználói portálra az A Azure Stack-példányon, és tekintse át a BIG-IP sablon üzembe helyezésével létrehozott erőforrásokat.
+1. Jelentkezzen be az Azure Stack hub felhasználói portálra az A Azure Stack hub-példányon, és tekintse át a BIG-IP sablon üzembe helyezésével létrehozott erőforrásokat.
 
     ![](./media/network-howto-f5/image18.png)
 
 2. A [Big-IP-konfigurációs elemek](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html)esetében kövesse az F5 billentyűt. 
 
-3. Konfigurálja a BIG IP Wide IP-listát, hogy az A és B Azure Stack példányon üzembe helyezett mindkét készüléken figyeljen. Útmutatásért lásd: [Big-IP GTM-konfiguráció](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
+3. A BIG-IP Wide IP-lista konfigurálásával figyelheti az Azure Stack hub-ba és A B-re telepített összes készüléket. Útmutatásért lásd: [Big-IP GTM-konfiguráció](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html).
 
 
 4. A BIG-IP-készülékek feladatátvételének ellenőrzése. Tesztelési rendszeren konfigurálja a DNS-kiszolgálókat a következők használatára:
-    - Azure Stack A példány = `f5stack1-ext` nyilvános IP-cím
-    - Azure Stack-példány: B = `f5stack1-ext` nyilvános IP-cím
+    - Azure Stack hub-példány A = `f5stack1-ext` nyilvános IP-cím
+    - Azure Stack hub-példány B = `f5stack1-ext` nyilvános IP-címe
 
 5. Tallózással keresse meg `www.contoso.com`, és a böngésző betölti az NGINX alapértelmezett oldalát.
 
@@ -103,7 +103,7 @@ Kövesse az alábbi lépéseket az A és A B Azure Stack is.
 
 ## <a name="post-install-configurations"></a>Telepítés utáni konfigurációk
 
-A telepítése után konfigurálnia kell a Azure Stack NSG, és le kell zárnia a forrás IP-címeit.
+A telepítése után konfigurálnia kell az Azure Stack hub-NSG, és le kell zárnia a forrás IP-címeit.
 
 1. A megbízhatóság létrehozása után tiltsa le a 22-es portot.
 
@@ -113,12 +113,12 @@ A telepítése után konfigurálnia kell a Azure Stack NSG, és le kell zárnia 
 
     ![](./media/network-howto-f5/image7.png)
 
-4. Helyezzen üzembe egy alapszintű webalkalmazási munkaterhelést a Azure Stack-környezetben a BIG-IP-címek közötti terheléselosztáshoz. A NGNIX-kiszolgáló használatára például a [Nginx és a Nginx, valamint a Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)használatával lehet telepíteni.
+4. Helyezzen üzembe egy alapszintű webalkalmazási munkaterhelést az Azure Stack hub-környezetben a BIG-IP-címek közötti terheléselosztáshoz. A NGNIX-kiszolgáló használatára például a [Nginx és a Nginx, valamint a Docker](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)használatával lehet telepíteni.
 
     > [!Note]  
-    > Helyezzen üzembe egy NGNIX-példányt az A és A Azure Stack B Azure Stack is.
+    > Helyezzen üzembe egy NGNIX-példányt az A Azure Stack hub A és A B Azure Stack hub szolgáltatásban.
 
-5. Miután az NGINX üzembe lett helyezve egy Docker-tárolóban egy Ubuntu virtuális gépen a Azure Stack példányain belül, ellenőrizze, hogy elérhető-e az alapértelmezett weblapon a kiszolgálókon.
+5. Miután az NGINX üzembe lett helyezve egy Docker-tárolóban egy Ubuntu virtuális gépen az Azure Stack hub-példányokon belül, ellenőrizze, hogy elérhető-e az alapértelmezett weblapon a kiszolgálókon.
 
     ![](./media/network-howto-f5/image8.png)
 
@@ -189,10 +189,10 @@ A telepítése után konfigurálnia kell a Azure Stack NSG, és le kell zárnia 
 
 Az F5 használatával kapcsolatos további tudnivalók:
 
-- [Az adatközpont rendelkezésre állási szolgáltatásai BIG-IP DNS használatával](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
+- [Adatközpont rendelkezésre állási szolgáltatásai BIG-IP DNS használatával](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
 - [A BIG-IP rendszer üzembe helyezése HTTP-alkalmazásokkal](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
 - [Széles körű IP-cím létrehozása a GSLB számára](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md) 
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md) 

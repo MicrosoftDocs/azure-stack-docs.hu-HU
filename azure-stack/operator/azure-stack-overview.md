@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dee0d3164f0c521b657f9b8f26377e062ee1e536
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: ffd96cb9c99fcce60f4f90df3324c744da984caa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690043"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810554"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
 
@@ -50,13 +50,13 @@ Az Azure Stack hub architektúrája lehetővé teszi, hogy az Azure-szolgáltat�
 
 ## <a name="deployment-options"></a>Üzembe helyezési lehetőségek
 
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is azure stack managed with role description, rbac, reporting, high availability take out.--->
+<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is Azure Stack Hub managed with role description, rbac, reporting, high availability take out.--->
 
 A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével. 
 
 Az Azure Stack hub integrált rendszerének mérete 4-16-kiszolgálókról, *méretezési egységnek*nevezzük. Az integrált rendszereket a hardveres partner és a Microsoft közösen támogatja. Az alábbi ábrán egy méretezési egység látható. 
 
-![Azure Stack integrált rendszerét bemutató ábra](./media/azure-stack-overview/azure-stack-integrated-system.png). 
+![Azure Stack hub integrált rendszerét bemutató ábra](./media/azure-stack-overview/azure-stack-integrated-system.png). 
 
 <!---add info and image on regions, etc--->
 
@@ -75,9 +75,9 @@ Azure Stack hub leválasztott központi telepítéséhez AD FS kell használnia.
 
 ## <a name="how-is-azure-stack-hub-managed"></a>Hogyan történik a Azure Stack hub kezelése?
 
-Azure Stack ugyanazt az operatív modellt használja, mint az Azure. Egy Azure Stack hub-operátor számos szolgáltatást és alkalmazást biztosíthat a bérlői felhasználók számára, hasonlóan ahhoz, ahogyan a Microsoft Azure-szolgáltatásokat nyújt a bérlői felhasználók számára. 
+Azure Stack hub ugyanazt az operatív modellt használja, mint az Azure. Egy Azure Stack hub-operátor számos szolgáltatást és alkalmazást biztosíthat a bérlői felhasználók számára, hasonlóan ahhoz, ahogyan a Microsoft Azure-szolgáltatásokat nyújt a bérlői felhasználók számára. 
 
-![Azure Stack feladatok szerepkörét bemutató ábra](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Azure Stack hub-feladatok szerepköreit bemutató diagram](./media/azure-stack-overview/azure-stack-job-roles.png)
 
 Azure Stack hub a felügyeleti portál, a felhasználói portál vagy a [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)segítségével kezelhető. Az Azure Stack hub-portálok mindegyike Azure Resource Manager különálló példányaival támogatott. Az **Azure stack hub-operátor** a felügyeleti portál használatával felügyeli az Azure stack hub-t, és olyan műveleteket hajthat végre, mint például a bérlői ajánlatok létrehozása és az integrált rendszer állapotának és figyelésének állapota. A felhasználói portál önkiszolgáló élményt biztosít a felhőalapú erőforrások, például a virtuális gépek, a Storage-fiókok és a webalkalmazások felhasználásához.
 
@@ -113,7 +113,7 @@ A Azure Stack hub szolgáltatásban három opcionális, a (z) rendszerbe telepí
 
 ## <a name="next-steps"></a>Következő lépések
 
-[A Azure Stack-portfólió összehasonlítása](compare-azure-azure-stack.md)
+[Az Azure Stack hub-portfólió összehasonlítása](compare-azure-azure-stack.md)
 
 [Adminisztráció alapjai](azure-stack-manage-basics.md)
 

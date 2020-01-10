@@ -1,6 +1,6 @@
 ---
-title: Két Azure stack összekötése a VNET-társításon keresztül | Microsoft Docs
-description: Ismerje meg, hogyan csatlakoztatható két Azure-verem a VNET-társításon keresztül.
+title: Két Azure Stack hub összekötése a VNET-társításon keresztül | Microsoft Docs
+description: Ismerje meg, hogyan csatlakoztatható két Azure Stack hub a VNET-társításon keresztül.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: e1cb999e6c7bc740f890efffccb1c80ec4575457
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845838"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816071"
 ---
-# <a name="vnet-peering-in-azure-stack-with-vms"></a>virtuális társhálózatok létesítése virtuális gépekkel Azure Stack
+# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>virtuális társhálózatok létesítése a Azure Stack hub virtuális gépekkel
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ugyanahhoz a Azure Stack-környezethez két Azure Stack virtuális hálózatok is csatlakozhat egymáshoz. Jelenleg nem lehet csatlakozni Azure Stack virtuális hálózatok a beépített [Virtual Network átjáró](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)használatával. A két Azure Stack virtuális hálózatok közötti VPN-alagút létrehozásához NVA-készülékeket kell használnia. Ebben a cikkben a sablonra vonatkozó hivatkozásokban két Windows Server 2016 virtuális gép van telepítve az RRAS szolgáltatással. A két RRAS-kiszolgáló úgy van konfigurálva, hogy S2SVPN IKEv2-alagutat hozzon létre két virtuális hálózatok között. A megfelelő NSG és UDR szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes **belső**VNET. 
+Ugyanahhoz a Azure Stack hub-környezethez két Azure Stack hub-virtuális hálózatok is csatlakoztathat egymáshoz. Jelenleg nem lehet csatlakoztatni Azure Stack hub-virtuális hálózatok a beépített [Virtual Network átjáró](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)használatával. A két Azure Stack hub-virtuális hálózatok közötti VPN-alagút létrehozásához NVA-készülékeket kell használnia. Ebben a cikkben a sablonra vonatkozó hivatkozásokban két Windows Server 2016 virtuális gép van telepítve az RRAS szolgáltatással. A két RRAS-kiszolgáló úgy van konfigurálva, hogy S2SVPN IKEv2-alagutat hozzon létre két virtuális hálózatok között. A megfelelő NSG és UDR szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes **belső**VNET. 
 
-Ez az üzembe helyezési minta az alapja, amely lehetővé teszi, hogy a VPN-alagutak ne csak Azure Stack példányon belül jöjjenek létre, hanem Azure Stack példányok és más erőforrások, például a Windows RRAS S2S VPN-alagutak használatát használó helyszíni hálózatok számára is. 
+Ez a telepítési minta az az alap, amely lehetővé teszi, hogy a VPN-alagutak ne csak Azure Stack hub-példányon belül jöjjenek létre, hanem Azure Stack hub-példányok és más erőforrások, például a Windows RRAS S2S VPN-alagutak használatát használó helyszíni hálózatok számára is. . 
 
 A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) -tárházában találja. A sablon a **S2SVPNTunnel** mappában található.
@@ -31,8 +31,8 @@ A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/Azure
 
 ## <a name="requirements"></a>Követelmények
 
-- ASDK vagy Azure Stack integrált rendszer a legújabb frissítésekkel. 
-- Szükséges Azure Stack Marketplace-elemek:
+- ASDK vagy Azure Stack hub integrált rendszer a legújabb frissítésekkel. 
+- Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter (a legújabb Build ajánlott)
     -  Custom Script Extension
 
@@ -59,4 +59,4 @@ A sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit biztos�
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

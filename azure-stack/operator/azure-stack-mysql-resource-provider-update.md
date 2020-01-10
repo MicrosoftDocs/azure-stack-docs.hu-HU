@@ -1,6 +1,6 @@
 ---
-title: A MySQL erőforrás-szolgáltató frissítése Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan frissítheti a Azure Stack MySQL erőforrás-szolgáltatót a Azure Stackban.
+title: A MySQL erőforrás-szolgáltató frissítése Azure Stack hub-ban | Microsoft Docs
+description: Ismerje meg, hogyan frissítheti az Azure Stack hub MySQL erőforrás-szolgáltatót az Azure Stack hub-ban.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 6b0c849a6550ecae8d2127be0be3fbdbc8708f0b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557564"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810971"
 ---
-# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Frissítse a MySQL erőforrás-szolgáltatót Azure Stack
+# <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató frissítése Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek.*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek.*
 
-A Azure Stack-buildek frissítésekor új MySQL erőforrás-szolgáltatói adaptert lehet felszabadítani. Míg a meglévő adapter továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
+Előfordulhat, hogy a Azure Stack hub-buildek frissítésekor új MySQL erőforrás-szolgáltatói adapter jelenik meg. Míg a meglévő adapter továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
-A MySQL erőforrás-szolgáltató 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például a MySQL erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0-verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint a támogatott Azure Stack verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek üzembe helyezése](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)című témakörben.
+A MySQL erőforrás-szolgáltató 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például a MySQL erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0-verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)című cikkben.
 
 Az erőforrás-szolgáltató frissítéséhez használja a **UpdateMySQLProvider. ps1** parancsfájlt. A folyamat hasonló az erőforrás-szolgáltató telepítéséhez használt folyamathoz, a jelen cikk erőforrás-szolgáltató üzembe helyezése című szakaszában leírtak szerint. A parancsfájl az erőforrás-szolgáltató letöltését tartalmazza. 
 
@@ -50,13 +50,13 @@ A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a 
 
 | Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték | 
 | --- | --- | --- | 
-| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Szükséges_ | 
-| **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Ugyanazokat a hitelesítő adatokat használja, mint amelyeket a Azure Stack telepítéséhez használt. | _Szükséges_ | 
-| **VMLocalCredential** |Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Szükséges_ | 
-| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Szükséges_ | 
-| **AzureEnvironment** | A Azure Stack telepítéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
+| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Kötelező_ | 
+| **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Ugyanazokat a hitelesítő adatokat használja, mint amelyeket az Azure Stack hub telepítéséhez használt. | _Kötelező_ | 
+| **VMLocalCredential** |Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ | 
+| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ | 
+| **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
 | **DependencyFilesLocalPath** | A Certificate. pfx fájlt is ebbe a könyvtárba kell helyezni. | Nem _kötelező_ (több csomópont esetében_kötelező_ ) | 
-| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Szükséges_ | 
+| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ | 
 | **Maxretrycount csak** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 | 
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 | 
 | **Eltávolítás** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem | 
@@ -68,11 +68,11 @@ A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a 
 > [!NOTE] 
 > A frissítési folyamat csak az integrált rendszerekre vonatkozik.
 
-Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack-modulok adott verzióját a PowerShellben. Ha frissíti a MySQL erőforrás-szolgáltatót a verzió 1.1.47.0, ezt a lépést kihagyhatja.
+Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha frissíti a MySQL erőforrás-szolgáltatót a verzió 1.1.47.0, ezt a lépést kihagyhatja.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
@@ -81,13 +81,13 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 Az alábbi példa azt a *UpdateMySQLProvider. ps1* parancsfájlt mutatja, amelyet egy emelt szintű PowerShell-konzolról lehet futtatni. Ügyeljen rá, hogy szükség szerint módosítsa a változó információit és jelszavát:
 
 ```powershell 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 

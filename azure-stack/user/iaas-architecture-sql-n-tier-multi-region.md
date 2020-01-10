@@ -1,6 +1,6 @@
 ---
-title: N szintű alkalmazás futtatása több Azure Stack régióban a magas rendelkezésre állás érdekében | Microsoft Docs
-description: Ismerje meg, hogyan futtathat N szintű alkalmazást több Azure Stack régióban a magas rendelkezésre állás érdekében.
+title: N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében | Microsoft Docs
+description: Ismerje meg, hogyan futtathat egy N szintű alkalmazást több Azure Stack hub-régióban a magas rendelkezésre állás érdekében.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: acfeebe626d7745fe200724c8c53c632bada1466
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: fc3b9d3e620bfd017f7d5870a8e334c1d9ace579
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569149"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818502"
 ---
-# <a name="run-an-n-tier-application-in-multiple-azure-stack-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack régióban a magas rendelkezésre állás érdekében
+# <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 
-Ez a hivatkozási architektúra bevált eljárásokat mutat be az N szintű alkalmazások több Azure Stack régióban való futtatásához, a rendelkezésre állás és a robusztus vész-helyreállítási infrastruktúra biztosítása érdekében. Ebben a dokumentumban Traffic Manager a magas rendelkezésre állás eléréséhez, de ha Traffic Manager nem az Ön környezetének előnyben részesített döntése, akkor egy magas rendelkezésre állású terheléselosztó is behelyettesíthető a alkalmazásba.
+Ez a hivatkozási architektúra bevált eljárásokat mutat be az N szintű alkalmazások több Azure Stack hub-régióban való futtatásához a rendelkezésre állás és a robusztus vész-helyreállítási infrastruktúra biztosítása érdekében. Ebben a dokumentumban Traffic Manager a magas rendelkezésre állás eléréséhez, de ha Traffic Manager nem az Ön környezetének előnyben részesített döntése, akkor egy magas rendelkezésre állású terheléselosztó is behelyettesíthető a alkalmazásba.
 
 > [!Note]  
 > Vegye figyelembe, hogy az alábbi architektúrában használt Traffic Manager konfigurálni kell az Azure-ban, és a Traffic Manager profil konfigurálásához használt végpontokat nyilvánosan irányítható IP-címekre kell beállítani.
@@ -39,7 +39,7 @@ Ez az architektúra az [N szintű alkalmazásban SQL Server](iaas-architecture-w
 
 -   **SQL Server Always On rendelkezésre állási csoport**. Ha SQL Server használ, a magas rendelkezésre állás érdekében ajánlott az [SQL always on rendelkezésre állási csoportok](https://msdn.microsoft.com/library/hh510230.aspx) használata. Hozzon létre egyetlen rendelkezésre állási csoportot, amely mindkét régióban tartalmazza az SQL Server-példányokat.
 
--   **VNET a VNET VPN-kapcsolathoz**. Mivel a virtuális társhálózatok létesítése még nem érhető el Azure Stackon, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
+-   **VNET a VNET VPN-kapcsolathoz**. Mivel virtuális társhálózatok létesítése még nem érhető el Azure Stack hub-on, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
 
 ## <a name="recommendations"></a>Ajánlatok
 
@@ -171,6 +171,6 @@ Tesztelje a rendszer meghibásodásokkal szembeni rugalmasságát. Alább talál
 
 Mérje meg a helyreállítási időtartamokat, és győződjön meg róla, hogy azok megfelelnek az üzleti követelményeinek. Több hibaállapot kombinációját is tesztelje.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

@@ -1,6 +1,6 @@
 ---
-title: A DNS-továbbító frissítése a Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan frissítheti a DNS-továbbítót a Azure Stackban.
+title: A DNS-továbbító frissítése Azure Stack hub-ban | Microsoft Docs
+description: Ismerje meg, hogyan frissítheti a DNS-továbbítót Azure Stack hub-ban.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,20 +14,20 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 22e49f28dee6b4aa97b9e84cf52950dd678450e4
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: b16eade221c51664205e865d1680e7f048fbfc7a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308201"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817584"
 ---
-# <a name="update-the-dns-forwarder-in-azure-stack"></a>A DNS-továbbító frissítése Azure Stack
+# <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>A DNS-továbbító frissítése Azure Stack központban
 
-Legalább egy elérhető DNS-továbbító szükséges ahhoz, hogy a Azure Stack-infrastruktúra fel tudja oldani a külső neveket. Azure Stack telepítéséhez meg kell adni egy DNS-továbbítót. Ez a bemenet a Azure Stack belső DNS-kiszolgálóinak továbbítóként való használata, valamint a külső névfeloldás engedélyezése olyan szolgáltatások esetében, mint a hitelesítés, a piactér kezelése vagy a használat.
+Legalább egy elérhető DNS-továbbító szükséges ahhoz, hogy a Azure Stack hub-infrastruktúra fel tudja oldani a külső neveket. Azure Stack hub üzembe helyezéséhez meg kell adni egy DNS-továbbítót. Ezt a bemenetet használja a Azure Stack hub belső DNS-kiszolgálóihoz továbbítóként, és lehetővé teszi a külső névfeloldást olyan szolgáltatások esetében, mint a hitelesítés, a piactér kezelése vagy a használat.
 
-A DNS egy kritikus adatközpont-infrastruktúra szolgáltatás, amely megváltoztathatja, és ha igen, Azure Stack frissítenie kell.
+A DNS egy kritikus adatközpont-infrastruktúra szolgáltatás, amely megváltoztatható, és ha igen, akkor Azure Stack hub-t frissíteni kell.
 
-Ez a cikk a rendszerjogosultságú végpont (PEP) használatával frissíti a DNS-továbbítót a Azure Stackban. Javasoljuk, hogy két megbízható DNS-továbbító IP-címet használjon.
+Ez a cikk a rendszerjogosultságú végpont (PEP) használatát ismerteti Azure Stack hub DNS-továbbítójának frissítéséhez. Javasoljuk, hogy két megbízható DNS-továbbító IP-címet használjon.
 
 1. Kapcsolódjon a [Kiemelt végponthoz](azure-stack-privileged-endpoint.md). Vegye figyelembe, hogy egy támogatási jegy megnyitásával nem szükséges feloldani a Kiemelt végpontot.
 
@@ -37,7 +37,7 @@ Ez a cikk a rendszerjogosultságú végpont (PEP) használatával frissíti a DN
    Get-AzsDnsForwarder
    ```
 
-3. Futtassa a következő parancsot a Azure Stack frissítéséhez az új DNS-továbbító használatára:
+3. A következő parancs futtatásával frissítse Azure Stack hub-t az új DNS-továbbító használatára:
 
    ```powershell
     Set-AzsDnsForwarder -IPAddress "IPAddress 1","IPAddress 2"
@@ -45,6 +45,6 @@ Ez a cikk a rendszerjogosultságú végpont (PEP) használatával frissíti a DN
 
 4. Az esetleges hibákért tekintse át a parancs kimenetét.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Tűzfal-integráció](azure-stack-firewall.md)

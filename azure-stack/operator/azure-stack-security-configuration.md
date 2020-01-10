@@ -1,6 +1,6 @@
 ---
-title: Azure Stack biztonsági vezérlő konfigurálása
-description: Biztonsági vezérlők konfigurálása az Azure Stackben
+title: Azure Stack hub biztonsági vezérlőinek konfigurálása
+description: Megtudhatja, hogyan konfigurálhat biztonsági vezérlőket Azure Stack hub-ban
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -9,33 +9,33 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 1423b21de6236bf316e426aa175ddb2b95c70199
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557850"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814932"
 ---
-# <a name="configure-azure-stack-security-controls"></a>Azure Stack biztonsági vezérlő konfigurálása
+# <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack hub biztonsági vezérlőinek konfigurálása
 
-*Vonatkozik: Az Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
-Ez a cikk azt ismerteti, hogy a biztonsági ellenőrzéseket, amelyeket az Azure Stackben is módosítható, és kiemeli a kompromisszumot kínál a, ha vannak ilyenek.
+Ez a cikk ismerteti az Azure Stack hub-ban módosítható biztonsági ellenőrzéseket, és kiemeli a kompromisszumokat, ahol lehetséges.
 
-Az Azure Stack-architektúra két biztonsági alapelv alappillérét épül: feltételezése és a megerősített alapértelmezés szerint. További információ az Azure Stack biztonsági: [Azure Stack infrastruktúrájának biztonsági állapotáról](azure-stack-security-foundations.md). Bár az alapértelmezett biztonsági állapotát az Azure Stack éles használatra kész, vannak bizonyos központi telepítési forgatókönyvek, amelyek további megerősítés igényelnek.
+Azure Stack hub-architektúra két biztonsági elv pillérére épül: a rendszer alapértelmezés szerint megsérti és megerősíti a problémákat. További információ Azure Stack hub biztonságáról: [Azure stack hub-infrastruktúra biztonsági helyzete](azure-stack-security-foundations.md). Míg Azure Stack hub alapértelmezett biztonsági állapota éles használatra kész, néhány üzembe helyezési forgatókönyv további megerősítést igényel.
 
-## <a name="tls-version-policy"></a>A TLS-verzió szabályzat
+## <a name="tls-version-policy"></a>TLS-verzió házirendje
 
-A Transport Layer Security (TLS) protokoll egy olyan széles körben elfogadott titkosítási protokoll segítségével kapcsolatot hozhat létre egy titkosított a hálózaton keresztül. TLS alakult idővel, és több verzió adtak ki. Az Azure Stack-infrastruktúra a TLS 1.2 kizárólag használja a kommunikációhoz. Külső kapcsolatok az Azure Stack jelenleg alapértelmezés szerint a TLS 1.2 használatára. Azonban a visszamenőleges kompatibilitás érdekében is támogatja a TLS 1.1 le egyeztetése. és 1.0-t. Amikor a TLS ügyfél való kommunikációhoz a TLS 1.1 és TLS 1.0, az Azure Stack által egyeztetett TLS alacsonyabb verzióra figyelembe veszi a kérelmet. Ha az ügyfél kéri a TLS 1.2, Azure Stack a TLS 1.2 használatával TLS kapcsolatot fog létesíteni.
+A Transport Layer Security (TLS) protokoll egy széles körben elfogadott titkosítási protokoll a hálózaton keresztüli titkosított kommunikáció létrehozásához. A TLS idővel bővült, és több verzió is megjelent. Az Azure Stack hub-infrastruktúra kizárólag TLS 1,2-et használ az összes kommunikációhoz. Külső felületek esetén a Azure Stack hub jelenleg alapértelmezés szerint a TLS 1,2-et használja. A visszamenőleges kompatibilitás érdekében azonban támogatja a TLS 1,1-re való egyeztetést is. és 1,0. Ha egy TLS-ügyfél a TLS 1,1 vagy a TLS 1,0 protokollal kommunikálva küldi a kommunikációt, Azure Stack hub egy alacsonyabb TLS-verzióra való egyeztetéssel fogadja el a kérést. Ha az ügyfél TLS 1,2-t kér, Azure Stack hub TLS-kapcsolatot létesít a TLS 1,2 használatával.
 
-Mivel a TLS 1.0 és 1.1 növekményes elavulttá válnak, vagy a szervezetek és megfelelőségi szabványoknak tiltja, a 1906 frissítéstől kezdődően most konfigurálhatja a TLS-szabályzat az Azure Stackben. A TLS 1.2 egyetlen házirend ahol bármilyen kísérlet egy TLS-munkamenet az alacsonyabb, mint az 1.2-es verzióval megadása nem engedélyezett, elutasított kényszeríthető.
+Mivel a TLS 1,0 és a 1,1 Növekményesen elavult vagy tiltott a szervezetek és a megfelelőségi szabványok alapján, a 1906-es frissítéstől kezdve a TLS-házirendet Azure Stack hub-ban is konfigurálhatja. Csak a TLS 1,2 házirendet kényszerítheti ki, ahol a TLS-munkamenetek 1,2-nél alacsonyabb verzióval való létesítésére tett kísérlet nem engedélyezett és nem utasítható el.
 
 > [!IMPORTANT]
-> A Microsoft javasolja, hogy a TLS 1.2 csak csoportházirend használatával az Azure Stack éles környezetekhez.
+> A Microsoft azt javasolja, hogy a TLS 1,2 csak Azure Stack hub éles környezetekre vonatkozó házirendet használjon.
 
-## <a name="get-tls-policy"></a>A TLS-szabályzat lekérése
+## <a name="get-tls-policy"></a>TLS-szabályzat beolvasása
 
-Használja a [kiemelt végponthoz (EGP)](azure-stack-privileged-endpoint.md) a TLS-szabályzat az összes Azure Stack-végpontok megtekintése:
+Az összes Azure Stack hub-végponthoz tartozó TLS-házirend megtekintéséhez használja a [Kiemelt jogosultságú végpontot (PEP)](azure-stack-privileged-endpoint.md) :
 
 ```powershell
 Get-TLSPolicy
@@ -45,32 +45,32 @@ Példa a kimenetre:
 
     TLS_1.2
 
-## <a name="set-tls-policy"></a>A TLS-szabály beállítása
+## <a name="set-tls-policy"></a>TLS-házirend beállítása
 
-Használja a [kiemelt végponthoz (EGP)](azure-stack-privileged-endpoint.md) TLS házirend az összes Azure Stack-végpontok beállítása:
+Az összes Azure Stack hub-végponthoz tartozó TLS-házirend beállításához használja a [Kiemelt jogosultságú végpontot (PEP)](azure-stack-privileged-endpoint.md) :
 
 ```powershell
 Set-TLSPolicy -Version <String>
 ```
 
-A paraméterek *Set-TLSPolicy* parancsmagot:
+A *set-TLSPolicy* parancsmag paraméterei:
 
-| Paraméter | Leírás | Típus | Kötelező |
+| Paraméter | Leírás | Type (Típus) | Szükséges |
 |---------|---------|---------|---------|
-| *Verzió* | A TLS verzióinak engedélyezett az Azure Stackben | String | igen|
+| *Verzió* | A TLS engedélyezett verziója (i) Azure Stack hub-ban | Sztring | igen|
 
-Használja az engedélyezett TLS-verziók az összes Azure Stack-végpontok konfigurálása a következő értékek egyikét:
+A következő értékek egyikének használatával konfigurálhatja az összes Azure Stack hub-végponthoz engedélyezett TLS-verziót:
 
-| Version értéke | Leírás |
+| Verzió értéke | Leírás |
 |---------|---------|
-| *TLS_All* | Azure Stack TLS-végpontok támogatja a TLS 1.2-es, de egyeztetést a TLS 1.1 le, és a TLS 1.0 engedélyezve van. |
-| *TLS_1.2* | Azure Stack TLS-végpontok csak támogatja a TLS 1.2. | 
+| *TLS_All* | Azure Stack hub TLS-végpontok támogatják a TLS 1,2-et, de a TLS 1,1 és a TLS 1,0 egyeztetése engedélyezett. |
+| *TLS_1.2* | Azure Stack hub TLS-végpontok csak a TLS 1,2-et támogatják. | 
 
-A TLS-házirend frissítése néhány percet vesz igénybe.
+A TLS-házirend frissítése néhány percet is igénybe vehet.
 
-### <a name="enforce-tls-12-configuration-example"></a>A TLS 1.2 példakonfigurációt kényszerítése
+### <a name="enforce-tls-12-configuration-example"></a>A TLS 1,2 konfiguráció kikényszerített példája
 
-Ebben a példában csak a TLS 1.2 kényszerítése a TLS szabályzat beállítása.
+Ebben a példában a TLS-házirendet úgy állítja be, hogy csak a TLS 1,2-et alkalmazza.
 
 ```powershell
 Set-TLSPolicy -Version TLS_1.2
@@ -93,9 +93,9 @@ Példa a kimenetre:
     VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
     VERBOSE: TLS 1.2 is enforced
 
-### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>Engedélyezze a TLS (1.2-es, 1.1-es és 1.0) példakonfigurációt összes verziója
+### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>A TLS összes verziójának (1,2, 1,1 és 1,0) engedélyezése – példa
 
-Ebben a példában, hogy a TLS (1.2-es, 1.1-es és 1.0) összes verzióját a TLS szabályzat beállítása.
+Ez a példa beállítja a TLS-házirendet, hogy engedélyezze a TLS összes verzióját (1,2, 1,1 és 1,0).
 
 ```powershell
 Set-TLSPolicy -Version TLS_All
@@ -118,8 +118,8 @@ Példa a kimenetre:
     VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
     VERBOSE: TLS 1.2 is not enforced
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [További tudnivalók az Azure Stack infrastruktúrájának biztonsági rendszer kialakításához](azure-stack-security-foundations.md)
-- [Ismerje meg, az Azure Stack titkos kulcsainak rotálása](azure-stack-rotate-secrets.md)
-- [Frissítés a Windows Defender víruskereső az Azure Stackben](azure-stack-security-av.md)
+- [Tudnivalók a Azure Stack hub-infrastruktúra biztonsági helyzetéről](azure-stack-security-foundations.md)
+- [Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban](azure-stack-rotate-secrets.md)
+- [A Windows Defender víruskereső frissítése Azure Stack hub-on](azure-stack-security-av.md)

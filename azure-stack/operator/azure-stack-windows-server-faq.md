@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Windows Serverrel kapcsolatos gyakori kérdések | Microsoft Docs
-description: A Windows Serverhez készült Azure Stack Marketplace – gyakori kérdések listája
+title: Azure Stack hub Windows Server kapcsolódó GYIK | Microsoft Docs
+description: A Windows Serverhez készült Azure Stack hub Marketplace-re vonatkozó gyakori kérdések listája
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 145aa748121aad65478902ca110d5bf0e5ee68c9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503606"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812620"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server Azure Stack piactéren – gyakori kérdések
+# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Windows Server Azure Stack hub piactér – gyakori kérdések
 
-Ez a cikk a [Azure stack piactéren](azure-stack-marketplace.md)elérhető Windows Server-rendszerképekkel kapcsolatos gyakori kérdésekre ad választ.
+Ez a cikk az [Azure stack hub piactéren](azure-stack-marketplace.md)elérhető Windows Server-rendszerképekkel kapcsolatos gyakori kérdésekre ad választ.
 
 ## <a name="marketplace-items"></a>Marketplace-elemek
 
@@ -34,16 +34,16 @@ Először határozza meg, hogy a Azure Resource Manager-sablonok adott verzióra
 
 Ezután, ha bármelyik virtuálisgép-méretezési csoport egy adott verzióra hivatkozik, gondolja át, hogy a méretezés később történik-e, és döntse el, hogy megtartja-e a régebbi verziókat. Ha egyik feltétel sem érvényes, törölje a régebbi lemezképeket a piactéren az újabb verziók letöltése előtt. A piactér-kezelés használatával törölje azokat, ha az eredeti Letöltés módja. Ezután töltse le az újabb verziót.
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Mik a Windows Server Marketplace rendszerképeinek licencelési lehetőségei a Azure Stack-on?
+### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Mik a Windows Server Marketplace rendszerképeinek licencelési lehetőségei Azure Stack hub-on?
 
-A Microsoft a Windows Server rendszerképeinek két verzióját kínálja a Azure Stack piactéren. A rendszerképnek csak egy verziója használható Azure Stack környezetben.  
+A Microsoft a Windows Server rendszerképeinek két verzióját kínálja a Azure Stack hub piactéren. A rendszerképnek csak egy verziója használható Azure Stack hub-környezetben.  
 
 - **Fizetés a használat**során: ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
    Kinek kell használnia a következőt: Nagyvállalati Szerződés (EA) ügyfelek, akik a *felhasználási számlázási modellt*használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
 - **Saját licenc használata (BYOL)** : ezek a képek alapszintű mérőórákat futtatnak.
    Kinek kell használniuk: nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
 
-A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stackon. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
+A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stack hub-on. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>Mi a teendő, ha nem megfelelő verziót Letöltöttem a bérlők/felhasználók számára?
 
@@ -89,10 +89,10 @@ Vegye figyelembe, hogy a piactéren csak akkor módosíthatja SQL Server lemezk�
 
 ## <a name="activation"></a>Aktiválás
 
-A Windows Server rendszerű virtuális gépek Azure Stackon való aktiválásához a következő feltételeknek kell teljesülnie:
+A Windows Server rendszerű virtuális gépek Azure Stack hubhoz való aktiválásához a következő feltételeknek kell teljesülnie:
 
-- Az OEM a Azure Stack összes gazdagépén beállítja a megfelelő BIOS-jelölőt.
-- A Windows Server 2012 R2 és a Windows Server 2016 rendszernek a [virtuális gépek automatikus aktiválását](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))kell használnia. A kulcskezelő szolgáltatás (KMS) és más aktiválási szolgáltatások nem támogatottak Azure Stackon.
+- Az OEM a Azure Stack hub minden gazdagépén beállítja a megfelelő BIOS-jelölőt.
+- A Windows Server 2012 R2 és a Windows Server 2016 rendszernek a [virtuális gépek automatikus aktiválását](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))kell használnia. A kulcskezelő szolgáltatás (KMS) és más aktiválási szolgáltatások nem támogatottak Azure Stack központban.
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hogyan lehet ellenőrizni, hogy a virtuális gép aktiválva van-e?
 
@@ -134,5 +134,5 @@ A Windows Server korábbi verzióiban a [virtuális gépek automatikus aktivál�
 
 További információkért tekintse át a következő cikkeket:
 
-- [A Azure Stack Marketplace áttekintése](azure-stack-marketplace.md)
-- [Azure Marketplace-elemek letöltése az Azure-ból az Azure Stackbe](azure-stack-download-azure-marketplace-item.md)
+- [Az Azure Stack hub Marketplace áttekintése](azure-stack-marketplace.md)
+- [Marketplace-elemek letöltése az Azure-ból Azure Stack hubhoz](azure-stack-download-azure-marketplace-item.md)

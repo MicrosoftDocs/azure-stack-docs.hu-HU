@@ -1,6 +1,6 @@
 ---
-title: Az adatközpontban Azure Stack szolgáltatások közzététele | Microsoft Docs
-description: Ismerje meg, hogyan tehet közzé Azure Stack-szolgáltatásokat az adatközpontban.
+title: Azure Stack hub-szolgáltatások közzététele az adatközpontban | Microsoft Docs
+description: Ismerje meg, hogyan tehet közzé Azure Stack hub-szolgáltatásokat az adatközpontjában.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007996"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818009"
 ---
-# <a name="publish-azure-stack-services-in-your-datacenter"></a>Azure Stack szolgáltatások közzététele az adatközpontban 
+# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban 
 
-Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés idején van megadva. A felhasználói portál például a portál DNS-gazdagépének bejegyzéséhez van rendelve. *&lt;régió >.&lt;fqdn >* .
+Azure Stack hub beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés idején van megadva. A felhasználói portál például a portál DNS-gazdagépének bejegyzéséhez van rendelve. *&lt;régió >.&lt;fqdn >* .
 
 A következő építészeti ábrán a különböző hálózati rétegek és ACL-ek láthatók:
 
@@ -27,7 +27,7 @@ A következő építészeti ábrán a különböző hálózati rétegek és ACL-
 
 ### <a name="ports-and-urls"></a>Portok és URL-címek
 
-Ahhoz, hogy Azure Stack szolgáltatásokat (például a portálok, a Azure Resource Manager, a DNS stb.) elérhetővé kell tenni a külső hálózatok számára, engedélyeznie kell a bejövő forgalmat a végpontok számára adott URL-címek, portok és protokollok esetén.
+Ahhoz, hogy a külső hálózatok számára elérhetővé váljon Azure Stack hub-szolgáltatások (például a portálok, a Azure Resource Manager, a DNS stb.), engedélyeznie kell a bejövő forgalmat a végpontok számára adott URL-címek, portok és protokollok esetén.
  
 Egy olyan üzemelő példányban, ahol egy transzparens proxy egy hagyományos proxykiszolgálóhoz vagy egy tűzfallal védi a megoldást, engedélyeznie kell a [bejövő](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) és a [kimenő](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) kommunikációhoz megadott portokat és URL-címeket. Ezek közé tartoznak az identitáshoz tartozó portok és URL-címek, a piactér, a javítások és a frissítés, a regisztrálás és a használati adatok.
 
@@ -35,9 +35,9 @@ Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-intercep
 
 ## <a name="ports-and-protocols-inbound"></a>Portok és protokollok (bejövő)
 
-Azure Stack-végpontok külső hálózatokra való közzétételéhez infrastruktúra-VIP-készlet szükséges. A *végpont (VIP)* tábla megjeleníti az egyes végpontokat, a szükséges portot és a protokollt. A további erőforrás-szolgáltatókat, például az SQL-erőforrás-szolgáltatót igénylő végpontok esetében tekintse meg a konkrét erőforrás-szolgáltató telepítési dokumentációját.
+A Azure Stack hub-végpontok külső hálózatokra való közzétételéhez infrastruktúra-VIP-készlet szükséges. A *végpont (VIP)* tábla megjeleníti az egyes végpontokat, a szükséges portot és a protokollt. A további erőforrás-szolgáltatókat, például az SQL-erőforrás-szolgáltatót igénylő végpontok esetében tekintse meg a konkrét erőforrás-szolgáltató telepítési dokumentációját.
 
-A belső infrastruktúra-VIP-címek nincsenek felsorolva, mert nem szükségesek a közzétételi Azure Stack. A felhasználói VIP-EK dinamikusak, és a felhasználók maguk határozzák meg, és nem szabályozzák a Azure Stack operátort.
+A belső infrastruktúra VIP-címei nem szerepelnek a felsorolásban, mert nem szükségesek az Azure Stack hub közzétételéhez. A felhasználói VIP-EK dinamikusak, és a felhasználók maguk határozzák meg, és nem szabályozzák az Azure Stack hub-kezelőt.
 
 > [!Note]  
 > A IKEv2 VPN egy szabványos IPsec VPN-megoldás, amely az 500-es és 4500-as UDP-portot, valamint a 50-as TCP-portot használja. A tűzfalak nem mindig nyitják meg ezeket a portokat, így előfordulhat, hogy az IKEv2 VPN nem tud áthaladni a proxykat és a tűzfalakat.
@@ -72,12 +72,12 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 
 ## <a name="ports-and-urls-outbound"></a>Portok és URL-címek (kimenő)
 
-A Azure Stack csak transzparens proxykiszolgálók használatát támogatja. Egy transzparens proxyval rendelkező üzemelő példányban, amely egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a portok és URL-címek használatát a következő táblázatban a kimenő kommunikációhoz.
+Azure Stack hub csak transzparens proxykiszolgálók használatát támogatja. Egy transzparens proxyval rendelkező üzemelő példányban, amely egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a portok és URL-címek használatát a következő táblázatban a kimenő kommunikációhoz.
 
 Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-interception) , és a végpontok elérésekor a szolgáltatás meghibásodásához vezethet. Az identitáshoz szükséges végpontokkal folytatott kommunikáció maximális támogatott időtúllépése 60-as.
 
 > [!Note]  
-> Azure Stack nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra.
+> Azure Stack hub nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra.
 
 |Rendeltetés|Cél URL-címe|Protocol (Protokoll)|Portok|Forrásoldali hálózat|
 |---------|---------|---------|---------|---------|
@@ -104,4 +104,4 @@ A kimenő DNS-t mindig kötelező megadni; a változó a külső DNS lekérdezé
 
 ## <a name="next-steps"></a>Következő lépések
 
-[PKI-követelmények Azure Stack](azure-stack-pki-certs.md)
+[Azure Stack hub PKI-követelményei](azure-stack-pki-certs.md)

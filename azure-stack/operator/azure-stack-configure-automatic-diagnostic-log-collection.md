@@ -1,6 +1,6 @@
 ---
-title: Automatikus Azure Stack naplózási gyűjtemény konfigurálása | Microsoft Docs
-description: Az automatikus naplók konfigurálása a Azure Stack Súgó és támogatás szolgáltatásban.
+title: Automatikus Azure Stack hub-naplózási gyűjtemény konfigurálása | Microsoft Docs
+description: Az Azure Stack hub Súgó és támogatás szolgáltatásának automatikus naplózási szolgáltatásának konfigurálása.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,28 +16,28 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 087698b4f12c646422fda05cc4c707ad135b150a
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: f494cca70ebef782fcde08356e02e3b1213d80a1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310597"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815289"
 ---
-# <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>A diagnosztikai naplók automatikus Azure Stackának konfigurálása
+# <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Automatikus Azure Stack hub diagnosztikai naplók gyűjtésének konfigurálása
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Javasoljuk, hogy az automatikus diagnosztikai napló gyűjtési funkciójának konfigurálásával egyszerűsítse a naplók gyűjtését és az ügyfél-támogatási élményt. Ha a rendszerállapot-feltételek kivizsgálására van szükség, a rendszer automatikusan feltöltheti a naplókat a Microsoft Customer Support Services (CSS) által végzett elemzéshez. 
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Azure Blob Container SAS URL-cím létrehozása 
 
-Az automatikus naplók konfigurálása előtt meg kell kapnia egy közös hozzáférési aláírást (SAS) a blob-tárolóhoz. Az SAS lehetővé teszi, hogy a fiók kulcsainak megosztása nélkül hozzáférést biztosítson a Storage-fiók erőforrásaihoz. Azure Stack naplófájlokat a blob-tárolóba mentheti az Azure-ban, majd megadhatja a SAS URL-címét, ahol a CSS képes gyűjteni a naplókat. 
+Az automatikus naplók konfigurálása előtt meg kell kapnia egy közös hozzáférési aláírást (SAS) a blob-tárolóhoz. Az SAS lehetővé teszi, hogy a fiók kulcsainak megosztása nélkül hozzáférést biztosítson a Storage-fiók erőforrásaihoz. Azure Stack hub-naplófájlokat a blob-tárolóba mentheti az Azure-ban, majd megadhatja a SAS URL-címét, ahol a CSS képes gyűjteni a naplókat. 
 
 ### <a name="prerequisites"></a>Előfeltételek
 
 Új vagy meglévő BLOB-tárolót használhat az Azure-ban. BLOB-tárolónak az Azure-ban való létrehozásához legalább a [Storage blob közreműködő szerepkörre](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) vagy a [megadott engedélyre](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)van szükség. A globális rendszergazdák is rendelkeznek a szükséges engedélyekkel. 
 
-Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával kapcsolatos ajánlott eljárásokért tekintse meg az [ajánlott eljárások az automatikus Azure stack a naplók gyűjtéséhez](azure-stack-best-practices-automatic-diagnostic-log-collection.md)című témakört. További információ a Storage-fiókok típusairól: az [Azure Storage-fiók áttekintése](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
+Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával kapcsolatos ajánlott eljárásokért tekintse meg az [ajánlott eljárások az automatikus Azure stack hub-napló gyűjtéséhez](azure-stack-best-practices-automatic-diagnostic-log-collection.md)című témakört. További információ a Storage-fiókok típusairól: az [Azure Storage-fiók áttekintése](https://docs.microsoft.com/azure/storage/common/storage-account-overview)
 
 ### <a name="create-a-blob-storage-account"></a>BLOB Storage-fiók létrehozása
  
@@ -55,7 +55,7 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 
    ![A blob-tároló tulajdonságait ábrázoló képernyőkép](media/azure-stack-automatic-log-collection/azure-stack-log-collection-create-storage-account.png)
 
-1. Kattintson a **felülvizsgálat + létrehozás** , majd a **Létrehozás**elemre.  
+1. Kattintson az **Áttekintés + létrehozás**, majd a **Létrehozás** lehetőségre.  
 
 ### <a name="create-a-blob-container"></a>Blobtároló létrehozása 
 
@@ -77,7 +77,7 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 
    ![A megosztott hozzáférési aláírás tulajdonságait bemutató képernyőfelvétel](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
-1. Kattintson a  **Create** (Létrehozás) gombra.  
+1. Kattintson a **Create** (Létrehozás) gombra.  
 
 Másolja az URL-címet, és adja meg az [automatikus napló-gyűjtemény konfigurálásakor](azure-stack-configure-automatic-diagnostic-log-collection.md). A SAS URL-címekkel kapcsolatos további információkért lásd: [közös hozzáférésű aláírások (SAS) használata](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
@@ -86,7 +86,7 @@ Másolja az URL-címet, és adja meg az [automatikus napló-gyűjtemény konfigu
 
 Az alábbi lépéseket követve adja hozzá az SAS URL-címet a log Collection felhasználói felületéhez: 
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra.
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
 1. Nyissa meg **a Súgó és támogatás áttekintést**.
 1. Kattintson az **automatikus gyűjtési beállítások**elemre.
 
@@ -102,7 +102,7 @@ Az alábbi lépéseket követve adja hozzá az SAS URL-címet a log Collection f
 
 ## <a name="view-log-collection"></a>Napló-gyűjtemény megtekintése
 
-A Azure Stack gyűjtött naplók előzményei a Súgó és támogatás **napló gyűjtemény** lapján jelennek meg a következő dátumokkal és időpontokkal:
+A Azure Stack hub-ból gyűjtött naplók előzményei a Súgó és támogatás **napló gyűjtemény** lapján jelennek meg a következő dátumokkal és időpontokkal:
 
 - **Gyűjtés időpontja**: a naplózási művelet megkezdése után 
 - Kezdő **dátum**: annak az időszaknak a kezdete, amelynek a gyűjtését el szeretné indítani
@@ -151,11 +151,11 @@ A **frissítés sikertelen volt** például egy olyan riasztás, amely elindítj
 
 ## <a name="see-also"></a>Lásd még:
 
-[A naplók és az ügyfelek adatkezelésének Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Azure Stack hub-napló és az ügyfelek adatkezelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [Közös hozzáférésű jogosultságkódok (SAS) használata](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[Ajánlott eljárások az automatikus Azure Stack naplók gyűjtéséhez](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Ajánlott eljárások az automatikus Azure Stack hub-naplók gyűjtéséhez](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 
 
 

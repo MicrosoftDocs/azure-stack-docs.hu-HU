@@ -1,6 +1,6 @@
 ---
-title: Bevezetés a Azure Stack hálózatkezelésbe | Microsoft Docs
-description: Tudnivalók a Azure Stack hálózatkezelésről
+title: Az Azure Stack hub hálózatkezelésének bemutatása | Microsoft Docs
+description: Tudnivalók a Azure Stack hub hálózatkezeléséről
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,37 +10,37 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e47079b100487331434a201a05bbcae7645de4f1
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 0def34d0eb7209cdeb7d13e0e84529862a0ae71d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816037"
 ---
-# <a name="introduction-to-azure-stack-networking"></a>Az Azure Stack-hálózat bemutatása
+# <a name="introduction-to-azure-stack-hub-networking"></a>Az Azure Stack hub hálózatkezelésének bemutatása
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Azure Stack különböző típusú hálózati képességeket biztosít, amelyek együtt vagy külön is használhatók:
+Azure Stack hub különböző típusú hálózati képességeket biztosít, amelyek együtt vagy külön is használhatók:
 
-- **Azure Stack erőforrások közötti kapcsolat**  
+- **Azure Stack hub-erőforrások közötti kapcsolat**  
     Azure-erőforrások összekapcsolása egy biztonságos és privát virtuális hálózaton a felhőben.
 - **Internetkapcsolat**  
-    Azure Stack-erőforrásokkal kommunikálhat az interneten keresztül.
+    Kommunikáció Azure Stack hub-erőforrásokkal az interneten keresztül.
 - **Helyszíni kapcsolatok**  
-    Helyszíni hálózat csatlakoztatása az erőforrások virtuális magánhálózaton (VPN) keresztül, vagy a Azure Stackhoz való dedikált kapcsolaton keresztüli Azure Stackához.
+    Helyszíni hálózat csatlakoztatása Azure Stack hub-erőforrásokhoz virtuális magánhálózati (VPN) kapcsolaton keresztül az interneten keresztül, vagy az Azure Stack hub-hoz való dedikált kapcsolaton keresztül.
 - **Terheléselosztás és forgalom iránya**  
     A forgalom terheléselosztása ugyanazon a helyen található kiszolgálókra, és a különböző helyekre irányuló kiszolgálók közötti közvetlen forgalom.
 - **Biztonság**  
     A hálózati alhálózat vagy az egyes virtuális gépek közötti hálózati forgalom szűrése.
 - **Útválasztás**  
-    Használja az alapértelmezett útválasztást vagy az Útválasztás teljes vezérlését a Azure Stack és a helyszíni erőforrások között.
+    Használja az alapértelmezett útválasztást vagy az Útválasztás teljes vezérlését az Azure Stack hub és a helyszíni erőforrások között.
 - **Kezelhetőség**  
-    Azure Stack hálózati erőforrások monitorozása és kezelése.
+    Felügyelheti és kezelheti Azure Stack hub hálózati erőforrásait.
 - **Üzembe helyezési és konfigurációs eszközök**  
     A hálózati erőforrások üzembe helyezéséhez és konfigurálásához használjon webalapú portált vagy platformfüggetlen parancssori eszközöket.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-* [Az Azure Stack-hálózatkezelés szempontjai](azure-stack-network-differences.md)
+* [A Azure Stack hub hálózatkezelésével kapcsolatos megfontolások](azure-stack-network-differences.md)

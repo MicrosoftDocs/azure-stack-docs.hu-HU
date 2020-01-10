@@ -43,7 +43,7 @@
               items:
                 - name: Azure Stack hub PowerShell – áttekintés
                   href: azure-stack-powershell-overview.md
-                - name: Az Azure Stack PowerShell telepítése
+                - name: Azure Stack hub PowerShell telepítése
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Kapcsolódás PowerShell-lel
@@ -285,9 +285,9 @@
         - name: VNET-társítás
         - name: Biztonsági mentés és helyreállítás
           items:
-            - name: A virtuális gép biztonsági mentése Azure Stack a CommVault
+            - name: A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
               href: azure-stack-network-howto-backup-commvault.md
-            - name: A Storage-fiókok biztonsági mentése Azure Stack
+            - name: A Storage-fiókok biztonsági mentése Azure Stack hub-on
               href: azure-stack-network-howto-backup-storage.md
             - name: Előfizetés-erőforrások másolása
               href: azure-stack-network-howto-backup-replicator.md
@@ -307,7 +307,7 @@
           href: iaas-architecture-nva-architecture.md
 - name: Leírások
   items:
-    - name: Azure Stack PowerShell
+    - name: Azure Stack hub PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
     - name: Azure Stack hub REST API böngésző
       href: /rest/api/
@@ -321,11 +321,11 @@
       href: /azure-stack/asdk/
 - name: Segédanyagok és eszközök
   items:
-    - name: Azure Stack ütemterv
+    - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: MSDN-fórum Azure Stack
+    - name: Azure Stack hub MSDN fórum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure Stack dokumentációs visszajelzés
+    - name: Azure Stack hub dokumentációs visszajelzése
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

@@ -1,7 +1,7 @@
 ---
-title: A Azure Stack SQL erőforrás-szolgáltató frissítése
-titleSuffix: Azure Stack
-description: Ismerje meg, hogyan frissítheti a Azure Stack SQL erőforrás-szolgáltatót.
+title: Az Azure Stack hub SQL erőforrás-szolgáltatójának frissítése
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan frissítheti az Azure Stack hub SQL erőforrás-szolgáltatóját.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,20 +16,20 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2669ed87e46307bb84aa9639d42b100cdc0cfd46
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: e7436c6a96dfbe5bdfd392b915d0206bf969130e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954434"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814303"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL-erőforrás szolgáltatójának frissítése
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek.*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek.*
 
-Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha a Azure Stack új buildre frissül. Bár a meglévő erőforrás-szolgáltató továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
+Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hub új buildre frissül. Bár a meglévő erőforrás-szolgáltató továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
-Az SQL Resource Provider 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például az SQL-erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0 verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint a támogatott Azure Stack verziójának áttekintéséhez tekintse meg az erőforrás- [szolgáltató előfeltételeinek telepítése](./azure-stack-sql-resource-provider-deploy.md#prerequisites)című cikk verziók listáját.
+Az SQL Resource Provider 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például az SQL-erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0 verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-sql-resource-provider-deploy.md#prerequisites)című részben.
 
 Az erőforrás-szolgáltató frissítéséhez használja a *UpdateSQLProvider. ps1* parancsfájlt. Ez a szkript az új SQL-erőforrás-szolgáltató letöltését tartalmazza. A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-sql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeploySqlProvider. ps1 parancsfájl, és meg kell adnia a tanúsítvány adatait.
 
@@ -45,7 +45,7 @@ A *UpdateSQLProvider. ps1* szkript létrehoz egy új virtuális GÉPET (VM) a le
 
 Miután a *UpdateSQLProvider. ps1* parancsfájl létrehoz egy új virtuális gépet, a parancsfájl áttelepíti a következő beállításokat a régi szolgáltató virtuális gépről:
 
-* adatbázis-információk
+* Adatbázis-információk
 * üzemeltetési kiszolgáló adatai
 * szükséges DNS-rekord
 
@@ -56,10 +56,10 @@ A **UpdateSQLProvider. ps1** PowerShell-parancsfájl futtatásakor a parancssorb
 | Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Kötelező_ |
-| **AzCredential** | A Azure Stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt. | _Kötelező_ |
+| **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. | _Kötelező_ |
 | **VMLocalCredential** | Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ |
 | **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ |
-| **AzureEnvironment** | Az Azure Stack telepítéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
+| **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
 | **DependencyFilesLocalPath** | A Certificate. pfx fájlt is ebbe a könyvtárba kell helyeznie. | _Egyetlen csomópont esetében nem kötelező, de a többcsomópontos használatra kötelező_ |
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **Maxretrycount csak** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
@@ -69,13 +69,13 @@ A **UpdateSQLProvider. ps1** PowerShell-parancsfájl futtatásakor a parancssorb
 
 ## <a name="update-script-powershell-example"></a>Parancsfájl PowerShell-példa frissítése
 > [!NOTE]
-> Ez a frissítési folyamat csak Azure Stack integrált rendszerekre vonatkozik.
+> Ez a frissítési folyamat csak Azure Stack hub integrált rendszerekre vonatkozik.
 
-Ha az SQL-erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack-modulok adott verzióját a PowerShellben. Ha frissíti az SQL Resource Provider 1.1.47.0 verzióját, ez a lépés kihagyható.
+Ha az SQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha frissíti az SQL Resource Provider 1.1.47.0 verzióját, ez a lépés kihagyható.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
@@ -84,13 +84,13 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 A következő példa egy emelt szintű PowerShell-konzolról futtatható *UpdateSQLProvider. ps1* parancsfájl használatára mutat be példát. Ügyeljen rá, hogy szükség szerint módosítsa a változó információit és jelszavát:  
 
 ```powershell
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.

@@ -1,6 +1,6 @@
 ---
-title: VPN Gateway beállítása a Azure Stackhoz | Microsoft Docs
-description: Megtudhatja, hogyan állíthatja be a VPN-átjárót Azure Stackhoz.
+title: VPN Gateway beállítása Azure Stack hubhoz | Microsoft Docs
+description: Megtudhatja, hogyan állíthatja be a VPN-átjárót Azure Stack hubhoz.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,36 +9,36 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: eb11ca672be20b59275974074b4ff17f36f446c8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167291"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819726"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack FortiGate NVA használatával
+# <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack hubhoz a FortiGate NVA használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk azt ismerteti, hogyan hozható létre VPN-kapcsolat a Azure Stackhoz. A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack és egy távoli VPN-átjáró között a virtuális hálózat között. Az alábbi eljárás az egyik VNET üzembe helyezi egy FortiGate-NVA, egy hálózati virtuális berendezéssel, egy erőforráscsoporton belül. Emellett útmutatást nyújt az IPSec VPN beállításához a FortiGate-NVA.
+Ez a cikk azt ismerteti, hogyan hozható létre VPN-kapcsolat az Azure Stack hub-hoz. A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack hub és egy távoli VPN-átjáró között a virtuális hálózat között. Az alábbi eljárás az egyik VNET üzembe helyezi egy FortiGate-NVA, egy hálózati virtuális berendezéssel, egy erőforráscsoporton belül. Emellett útmutatást nyújt az IPSec VPN beállításához a FortiGate-NVA.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
--  A megoldáshoz szükséges számítási, hálózati és erőforrás-követelmények üzembe helyezéséhez elérhető kapacitással rendelkező Azure Stack integrált rendszerek elérése. 
+-  Hozzáférés a megoldáshoz szükséges számítási, hálózati és erőforrás-követelmények üzembe helyezéséhez rendelkezésre álló kapacitással rendelkező Azure Stack hub integrált rendszerekhez. 
 
     > [!Note]  
     > Ezek az utasítások a ASDK hálózati korlátozásai miatt **nem** fognak működni Azure stack Development Kit (ASDK). További információ: [ASDK-követelmények és szempontok](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations).
 
--  Hozzáférés egy VPN-eszközhöz a helyszíni hálózaton, amely a Azure Stack integrált rendszerét üzemelteti. Az eszköznek létre kell hoznia egy IPSec-alagutat, amely megfelel a [központi telepítési paraméterekben](#deployment-parameters)leírt paramétereknek.
+-  Hozzáférés az Azure Stack hub integrált rendszerét futtató helyszíni hálózatban található VPN-eszközhöz. Az eszköznek létre kell hoznia egy IPSec-alagutat, amely megfelel a [központi telepítési paraméterekben](#deployment-parameters)leírt paramétereknek.
 
--  A Azure Stack piactéren elérhető hálózati virtuális berendezés (NVA) megoldás. Az NVA vezérli a peremhálózat hálózati forgalmának áramlását más hálózatokra vagy alhálózatokra. Ez az eljárás a [Fortinet FortiGate következő generációs tűzfalának egyetlen virtuálisgép-megoldását](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)használja.
+-  A Azure Stack hub piactéren elérhető hálózati virtuális berendezés (NVA) megoldás. Az NVA vezérli a peremhálózat hálózati forgalmának áramlását más hálózatokra vagy alhálózatokra. Ez az eljárás a [Fortinet FortiGate következő generációs tűzfalának egyetlen virtuálisgép-megoldását](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)használja.
 
     > [!Note]  
-    > Ha nem rendelkezik a **Fortinet FortiGate-VM for Azure BYOL** és **FortiGate NGFW – egyetlen virtuálisgép-telepítés (BYOL)** a Azure stack piactéren, lépjen kapcsolatba a felhőalapú szolgáltatójával.
+    > Ha nem rendelkezik a **Fortinet FortiGate-VM for Azure BYOL** és **FortiGate NGFW – egyetlen virtuálisgép-telepítés (BYOL)** a Azure stack hub piactéren, forduljon a felhő üzemeltetőjéhez.
 
 -  A FortiGate-NVA aktiválásához szüksége lesz legalább egy elérhető FortiGate-fájlra. A licencek beszerzésével kapcsolatos információkat lásd: a Fortinet-dokumentum [regisztrálása és a licenc letöltése](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license).
 
-    Ez az eljárás az [egyetlen FortiGate-VM-telepítést](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)használja. A FortiGate-NVA a helyszíni hálózatban lévő, a Azure Stack VNET való összekapcsolásával kapcsolatban talál további lépéseket.
+    Ez az eljárás az [egyetlen FortiGate-VM-telepítést](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)használja. A FortiGate-NVA a helyszíni hálózatban lévő, a Azure Stack hub VNET való összekapcsolásával kapcsolatban talál további lépéseket.
 
     A FortiGate-megoldás aktív-passzív (HA) beállítással történő üzembe helyezésével kapcsolatos további információkért tekintse meg az [Azure-beli FortiGate-VM](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure)Fortinet dokumentációjában található részleteket.
 
@@ -48,7 +48,7 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
 | Paraméter | Value (Díj) |
 |-----------------------------------|---------------------------|
-| FortiGate-példány neve | forti1 |
+| FortiGate-példány neve | Forti1 |
 | BYOL-licenc/-verzió | 6.0.3 |
 | FortiGate rendszergazdai Felhasználónév | fortiadmin |
 | Erőforráscsoport neve | forti1-rg1 |
@@ -58,20 +58,20 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 | Nyilvános VNET-címek előtagja | 172.16.0.0/24 * |
 | VNET alhálózatának neve | forti1-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.16.1.0/24 * |
-| FortiGate NVA virtuális gép mérete | Szabványos F2s_v2 |
-| Nyilvános IP-cím neve | forti1-publicip1 |
+| FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
+| Nyilvános IP-cím | forti1-publicip1 |
 | Nyilvános IP-cím típusa | Statikus |
 
 > [!Note]
-> \* válasszon másik címtartományt és alhálózati előtagokat, ha `172.16.0.0/16` átfedésben van a helyszíni hálózattal vagy a Azure Stack VIP-készlettel.
+> \* válasszon másik címtartományt és alhálózati előtagokat, ha `172.16.0.0/16` átfedésben van a helyszíni hálózattal vagy a Azure Stack hub VIP-készlettel.
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>A FortiGate NGFW Marketplace-elemek üzembe helyezése
 
-1. Nyissa meg a Azure Stack felhasználói portált.
+1. Nyissa meg az Azure Stack hub felhasználói portált.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
-1. Válassza az **erőforrás létrehozása** és a `FortiGate` keresése lehetőséget.
+1. Válassza az **erőforrás létrehozása** és a `FortiGate`keresése lehetőséget.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
@@ -102,7 +102,7 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
 ## <a name="configure-routes-udr-for-the-vnet"></a>Útvonalak konfigurálása (UDR) a VNET
 
-1. Nyissa meg a Azure Stack felhasználói portált.
+1. Nyissa meg az Azure Stack hub felhasználói portált.
 
 2. Válassza az erőforráscsoportok lehetőséget. Írja be a `forti1-rg1` értéket a szűrőben, majd kattintson duplán a forti1-rg1 erőforráscsoport elemre.
 
@@ -126,7 +126,7 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
 8. Adja meg az IP-hálózati tartományt, amely meghatározza annak a helyszíni hálózatnak a hálózati tartományát, amelyhez a VPN csatlakozni fog.
 
-9. Válassza a **következő ugrás típusa** és a `172.16.1.4` **virtuális berendezés** lehetőséget. Ha más IP-címtartományt használ, használja az IP-címtartományt.
+9. Válassza a **következő ugrás típusa** és a `172.16.1.4`**virtuális berendezés** lehetőséget. Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
@@ -140,7 +140,7 @@ Az egyes FortiGate-NVA aktiválásához érvényes licencfájl szükséges a For
 
 Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
-1. Nyissa meg a Azure Stack felhasználói portált.
+1. Nyissa meg az Azure Stack hub felhasználói portált.
 
 2. Válassza az erőforráscsoportok lehetőséget. Adja meg `forti1` a szűrőben, majd kattintson duplán a forti1-erőforráscsoport elemre.
 
@@ -154,17 +154,17 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
 
-6. Válassza ki a **System**  > **belső vezérlőprogram**elemet.
+6. Válassza ki a **System** > **belső vezérlőprogram**elemet.
 
 7. Jelölje be a legújabb belső vezérlőprogram (például `FortiOS v6.2.0 build0866`) jelölőnégyzetet.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image15.png)
 
-8. Válassza **a biztonsági mentési konfiguráció és frissítés**  > **Folytatás**lehetőséget.
+8. Válassza **a biztonsági mentési konfiguráció és frissítés** > **Folytatás**lehetőséget.
 
 9. A NVA frissíti a belső vezérlőprogramot a legújabb buildekre és újraindításokra. A folyamat körülbelül öt percet vesz igénybe. Jelentkezzen be újra a FortiGate webkonzolra.
 
-10. Kattintson a **VPN**  > **IPSec varázsló**elemre.
+10. Kattintson a **VPN** > **IPSec varázsló**elemre.
 
 11. Adja meg a VPN nevét, például `conn1` a **VPN-létrehozási varázslóban**.
 
@@ -201,7 +201,7 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
 21. Kattintson a **Létrehozás** elemre.
 
-22. Válassza a **hálózati**  > **adapterek**lehetőséget.
+22. Válassza a **hálózati** > **adapterek**lehetőséget.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image19.png)
 
@@ -231,11 +231,11 @@ A helyszíni VPN-eszköz megfelelő konfigurálását követően a VPN-alagút m
 
 A FortiGate NVA:
 
-1. A forti1 FortiGate webkonzolon válassza a **figyelés**  > **IPSec-figyelő**lehetőséget.
+1. A forti1 FortiGate webkonzolon válassza a **figyelés** > **IPSec-figyelő**lehetőséget.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image20.png)
 
-2. Jelölje ki a **conn1** , és válassza **ki a  >  az** **összes fázis 2 választók**közül.
+2. Jelölje ki a **conn1** , és válassza **ki a > az** **összes fázis 2 választók**közül.
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image21.png)
 
@@ -245,19 +245,19 @@ A helyszíni VPN-eszköz használatával átirányíthatja a VNET hálózatot é
 
 A kapcsolódás ellenőrzése:
 
-1. Hozzon létre egy virtuális gépet a Azure Stack virtuális hálózatok és egy rendszer a helyszíni hálózaton. A virtuális gép létrehozásával kapcsolatos útmutatást a gyors üzembe helyezési útmutató [: Windows Server rendszerű virtuális gép létrehozása a Azure stack-portálon](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)című témakörben követheti.
+1. Hozzon létre egy virtuális gépet a Azure Stack hub virtuális hálózatok és egy rendszer a helyszíni hálózaton. A virtuális gép létrehozásával kapcsolatos útmutatást a következő témakörben találja [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub Portalon](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
 
-2. A Azure Stack virtuális gép létrehozásakor és a helyszíni rendszer előkészítésekor a következőt kell ellenőriznie:
+2. Az Azure Stack hub-beli virtuális gép létrehozásakor és a helyszíni rendszer előkészítésekor a következőt kell ellenőriznie:
 
--  A Azure Stack virtuális gép a VNET **InsideSubnet** kerül.
+-  Az Azure Stack hub virtuális gép a VNET **InsideSubnet** kerül.
 
--  A helyszíni rendszer a megadott IP-tartományon belüli helyszíni hálózatra kerül, az IPSec-konfigurációban meghatározottak szerint. Győződjön meg arról is, hogy a helyszíni VPN-eszköz helyi adapterének IP-címe a helyszíni rendszer számára olyan útvonalként van megadva, amely eléri a Azure Stack VNET-hálózatot, például `172.16.0.0/16`.
+-  A helyszíni rendszer a megadott IP-tartományon belüli helyszíni hálózatra kerül, az IPSec-konfigurációban meghatározottak szerint. Győződjön meg arról is, hogy a helyszíni VPN-eszköz helyi adapterének IP-címe a helyszíni rendszer számára olyan útvonalként van megadva, amely elérheti az Azure Stack hub VNET-hálózatot, például `172.16.0.0/16`.
 
--  A létrehozáskor **ne** alkalmazzon nsg a Azure stack virtuális gépre. Előfordulhat, hogy el kell távolítania a NSG, amely alapértelmezés szerint fel lesz véve, ha a virtuális gépet a portálról hozza létre.
+-  A létrehozáskor **ne** alkalmazzon nsg az Azure stack hub virtuális gépre. Előfordulhat, hogy el kell távolítania a NSG, amely alapértelmezés szerint fel lesz véve, ha a virtuális gépet a portálról hozza létre.
 
--  Győződjön meg arról, hogy a helyszíni rendszeroperációs rendszer és a Azure Stack VM operációs rendszer nem rendelkezik olyan operációsrendszer-tűzfalszabály-szabályokkal, amelyek tiltják a kapcsolat teszteléséhez használni kívánt kommunikációt. Tesztelési célból javasoljuk, hogy a tűzfalat teljes mértékben tiltsa le mindkét rendszer operációs rendszerén belül.
+-  Győződjön meg arról, hogy a helyszíni rendszeroperációs rendszer és a Azure Stack hub VM operációs rendszer nem rendelkezik olyan operációsrendszer-tűzfalszabályok, amelyek tiltják a kapcsolat teszteléséhez használni kívánt kommunikációt. Tesztelési célból javasoljuk, hogy a tűzfalat teljes mértékben tiltsa le mindkét rendszer operációs rendszerén belül.
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
-[Hálózati megoldás nyújtása Azure Stack Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
+[Hálózati megoldás nyújtása Azure Stack központban a Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  

@@ -1,6 +1,6 @@
 ---
-title: Kapcsolódás a Azure Stackhoz a PowerShell használatával | Microsoft Docs
-description: Megtudhatja, hogyan csatlakozhat a Azure Stackhoz a PowerShell használatával.
+title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával | Microsoft Docs
+description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,34 +15,34 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 988d2e75dfecd499293576bff3d9722e7ff2c96f
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: f738d16f31e5ef3fc07c0fe06325fce7bac73cb2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298871"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810256"
 ---
-# <a name="connect-to-azure-stack-with-powershell"></a>Kapcsolódás Azure Stack a PowerShell-lel
+# <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Azure Stack konfigurálható úgy, hogy a PowerShell használatával olyan erőforrásokat kezeljen, mint az ajánlatok, a csomagok, a kvóták és a riasztások létrehozása. Ez a témakör segít az üzemeltető környezet konfigurálásához.
+Az Azure Stack hub a PowerShell használatával is konfigurálható olyan erőforrások kezeléséhez, mint az ajánlatok, a csomagok, a kvóták és a riasztások létrehozása. Ez a témakör segítséget nyújt az operátori környezet konfigurálásához.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
 Futtassa a következő előfeltételeket a [Azure stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) vagy egy Windows-alapú külső ügyfélről, ha VPN- [kapcsolaton keresztül csatlakozik a ASDK](../asdk/asdk-connect.md#connect-with-vpn).
 
-- Telepítse [Azure stack-kompatibilis Azure PowerShell modulokat](azure-stack-powershell-install.md).  
-- Töltse le a [Azure stack használatához szükséges eszközöket](azure-stack-powershell-download.md).  
+- Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](azure-stack-powershell-install.md).  
+- Töltse le az [Azure stack hub használatához szükséges eszközöket](azure-stack-powershell-download.md).  
 
-## <a name="connect-with-azure-ad"></a>Az Azure AD Connect
+## <a name="connect-with-azure-ad"></a>Az Azure AD-vel való kapcsolat
 
-A Azure Stack operátori környezet PowerShell-lel való konfigurálásához futtassa az alábbi parancsfájlok egyikét. Cserélje le a Azure Active Directory (Azure AD) tenantName, és Azure Resource Manager a végpontok értékeit a saját környezeti konfigurációjával.
+Az Azure Stack hub-kezelő környezet PowerShell-lel való konfigurálásához futtassa az alábbi parancsfájlok egyikét. Cserélje le a Azure Active Directory (Azure AD) tenantName, és Azure Resource Manager a végpontok értékeit a saját környezeti konfigurációjával.
 
 [!include[Remove Account](../../includes/remove-account.md)]
 
 ```powershell  
-    # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+    # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
@@ -52,17 +52,17 @@ A Azure Stack operátori környezet PowerShell-lel való konfigurálásához fut
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
-    # After signing in to your environment, Azure Stack cmdlets
-    # can be easily targeted at your Azure Stack instance.
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 
-## <a name="connect-with-ad-fs"></a>Csatlakozás az AD FS-sel
+## <a name="connect-with-ad-fs"></a>Kapcsolat AD FS
 
-Csatlakozás az Azure Stack-üzemeltető környezet, a PowerShell-lel az Azure Active Directory összevont szolgáltatások (Azure AD FS). A ASDK esetében ez az Azure Resource Manager-végpont `https://adminmanagement.local.azurestack.external`ra van beállítva. Az Azure Stack integrált rendszerek az Azure Resource Manager-végpont beszerzéséhez forduljon a szolgáltatójához.
+Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure Active Directory összevont szolgáltatásokkal (Azure AD FS). A ASDK esetében ez az Azure Resource Manager-végpont `https://adminmanagement.local.azurestack.external`ra van beállítva. Azure Stack hub integrált rendszerek Azure Resource Manager végpontjának lekéréséhez forduljon a szolgáltatóhoz.
 
   ```powershell  
-  # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+  # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
@@ -72,18 +72,18 @@ Csatlakozás az Azure Stack-üzemeltető környezet, a PowerShell-lel az Azure A
   ```
 
 > [!Note]  
-> AD FS csak a felhasználói identitásokkal való interaktív hitelesítést támogatja. Ha egy hitelesítőadat-objektumra van szükség, akkor egy egyszerű szolgáltatásnevet (SPN) kell használnia. Az Azure Stack és a AD FS identitás-kezelési szolgáltatásként való létrehozásával kapcsolatos további információkért lásd: [AD FS egyszerű szolgáltatás kezelése](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
+> AD FS csak a felhasználói identitásokkal való interaktív hitelesítést támogatja. Ha egy hitelesítőadat-objektumra van szükség, akkor egy egyszerű szolgáltatásnevet (SPN) kell használnia. További információ az Azure Stack hub és a AD FS identitás-kezelési szolgáltatásként való beállításáról: [AD FS egyszerű szolgáltatásnév kezelése](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
-## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Most, hogy mindent beállítottunk beállításról, belül az Azure Stack-erőforrások létrehozása a PowerShell használatával. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy **MyResourceGroup**nevű erőforráscsoportot.
+Most, hogy mindent beállított, a PowerShell használatával hozzon létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy **MyResourceGroup**nevű erőforráscsoportot.
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Sablonok fejlesztése a Azure Stackhoz](../user/azure-stack-develop-templates.md).
+- [Sablonok fejlesztése Azure stack hub számára](../user/azure-stack-develop-templates.md).
 - [Sablonok üzembe helyezése a PowerShell](../user/azure-stack-deploy-template-powershell.md)-lel.
-  - [Azure stack modul-hivatkozás](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+  - [Azure stack hub-modul referenciája](https://docs.microsoft.com/powershell/azure/azure-stack/overview).

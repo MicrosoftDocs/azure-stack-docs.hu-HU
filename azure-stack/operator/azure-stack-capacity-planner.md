@@ -1,6 +1,6 @@
 ---
-title: Az Azure Stack Capacity Planner |} A Microsoft Docs
-description: További információ az Azure Stack üzemelő példányok kapacitástervezése.
+title: Azure Stack hub Capacity Planner | Microsoft Docs
+description: További információ a Azure Stack hub üzemelő példányok kapacitásának megtervezéséről.
 services: azure-stack
 documentationcenter: ''
 author: prchint
@@ -16,73 +16,73 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 98dafb9df568e5e14e5f1890103d0261e07beb98
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: deff6d15374105b56e504da4edf89eecc8f6a640
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131358"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816853"
 ---
-# <a name="azure-stack-capacity-planner"></a>Az Azure Stack Capacity Planner
+# <a name="azure-stack-hub-capacity-planner"></a>Azure Stack hub Capacity Planner
 
-Az Azure Stack Capacity Planner egy táblázatot, amely megjeleníti a számítási erőforrások különböző hozzárendelések helyezze egy kijelölt hardverek között. 
+Az Azure Stack hub Capacity Planner egy táblázat, amely azt mutatja be, hogy a számítástechnikai erőforrások különböző kiosztásai hogyan illeszkednek egymáshoz a hardveres ajánlatok között. 
 
-## <a name="worksheet-descriptions"></a>Munkalap leírása
-A következő táblázat ismerteti az Azure Stack Capacity Planner, amely letölthető az egyes munkalap [ https://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner). 
+## <a name="worksheet-descriptions"></a>A munkalap leírása
+A következő táblázat az Azure Stack hub Capacity Planner összes munkalapját ismerteti, amelyek a [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner)tölthetők le. 
 
 |Munkalap neve|Leírás|
 |-----|-----|
-|Verzió-jogi nyilatkozat|A kalkulátor, a verziószámot és a kiadási dátum célja.|
-|Utasítások|Részletes utasításokat követve modell kapacitás megtervezése a virtuális gépek (VM) gyűjteménye.|
-|DefinedSolutionSKUs|Legfeljebb öt hardver definíciók tartalmazó tábla. A bejegyzések példák. A részleteket a szóban forgó rendszerkonfigurációk megfelelően módosítsa.|
-|DefineByVMFootprint|Keresse meg a megfelelő hardver SKU összehasonlítja a különböző méretekre és virtuális gépek mennyiségét konfigurációkat.|
-|DefineByWorkloadFootprint|Keresse meg a megfelelő hardver SKU hoz létre az Azure Stack-munkaterhelések gyűjteménye.|
+|Verzió – jogi nyilatkozat|A számológép, a verziószám és a kiadási dátum célja.|
+|Utasítások|Részletes útmutató a kapacitás megtervezéséhez a virtuális gépek (VM-EK) gyűjteményének modellezéséhez.|
+|DefinedSolutionSKUs|Legfeljebb öt hardveres definícióval rendelkező tábla. A bejegyzések példák. Módosítsa a részleteket úgy, hogy azok megfeleljenek az érintett rendszerkonfigurációknak.|
+|DefineByVMFootprint|Keresse meg a megfelelő hardveres SKU-t úgy, hogy összehasonlítja a különböző méretű és mennyiségű virtuális gépet.|
+|DefineByWorkloadFootprint|Keresse meg a megfelelő hardveres SKU-t Azure Stack hub számítási feladatok gyűjteményének létrehozásával.|
 |  |  |
 
-## <a name="definedsolutionskus-instructions"></a>DefinedSolutionSKUs utasításokat
-Ezen a munkalapon legfeljebb öt hardver definíció példákat tartalmaz. Módosítsa megfelelően a rendszer konfigurációját a szóban forgó részleteit.
+## <a name="definedsolutionskus-instructions"></a>DefinedSolutionSKUs utasítások
+Ez a munkalap legfeljebb öt hardver-definíciós példát tartalmaz. Módosítsa a részleteket úgy, hogy azok megfeleljenek a figyelembe vett rendszerkonfigurációknak.
 
-### <a name="hardware-selections-provided-by-authorized-hardware-partners"></a>Hitelesített hardveren partnerek által biztosított hardver beállításokat
-Az Azure Stack egy integrált rendszer megoldási partnerei által telepített szoftverekkel rendelkező érkeznek. Megoldáspartnerek adja meg a saját Azure Stack kapacitástervező eszközök mérvadó verzióit. Használja ezeket az eszközöket a végső discussions megoldás kapacitás.
+### <a name="hardware-selections-provided-by-authorized-hardware-partners"></a>Az engedélyezett hardveres partnerek által biztosított hardver-beállítások
+Azure Stack hub a megoldás partnerei által telepített szoftverekkel integrált rendszerként érhető el. A megoldás partnerei a Azure Stack hub kapacitás-tervezési eszközeinek saját mérvadó verzióját nyújtják. Ezeket az eszközöket a megoldási kapacitás végső megvitatására használhatja.
 
-### <a name="multiple-ways-to-model-computing-resources"></a>Több lehetőség is modell számítási erőforrások
-Az Azure Stack Capacity Planner belül modellezési erőforrás attól függ, hogy a különböző méretű Azure Stack-beli virtuális. A legkisebb, alapvető 0, akár a legnagyobb, Standard_Fsv2 méretű virtuális gépek tartománya. Két különböző módon modellezheti számítási erőforrás-hozzárendelések:
+### <a name="multiple-ways-to-model-computing-resources"></a>Több módszer a számítási erőforrások modellezésére
+Az Azure Stack hub erőforrás-modellezése Capacity Planner a Azure Stack hub-alapú virtuális gépek különböző méreteitől függ. A virtuális gépek tartománya a legkisebb, alapszintű 0, legfeljebb a legnagyobb Standard_Fsv2. A számítási erőforrások kiosztásának modellezése kétféleképpen lehetséges:
 
-- Válassza ki a adott hardverekhez, ajánlat, és tekintse meg a különböző erőforrások mely kombinációit illeszkednek. 
+- Válasszon ki egy adott hardveres ajánlatot, és nézze meg, hogy a különböző erőforrások mely kombinációi illeszkednek. 
 
-- Hozzon létre egy virtuális gép hozzárendelések egyedi kombinációja, és lehetővé teszik az Azure-erőforrás Díjkalkulátorunkkal megjelenítése, amely rendelkezésre álló termékváltozatok a következők támogathatja a Virtuálisgép-konfiguráció.
+- Hozzon létre egy adott virtuálisgép-kiosztást, és engedje, hogy az Azure Resource Calculator megjelenjen a virtuális gép konfigurációjának támogatásához rendelkezésre álló hardveres SKU-ban.
 
-Ez az eszköz a Virtuálisgép-erőforrások kiosztásával kétféle módszert biztosít: virtuális gép erőforrás-hozzárendelések egy egyetlen gyűjteményként, vagy akár hat válaszolhat a különböző számítási feladatok konfigurációk gyűjteménye. Minden egyes számítási feladatok konfigurációjának tartalmazhat egy másik elérhető Virtuálisgép-erőforrások lefoglalását. A következő szakaszokban részletesen hozhat létre, és lefoglalási modellek az egyes rendelkezik. Csak érték, vagy belül Termékváltozat legördülő listák a munkalap nem háttér árnyékolt cellák szereplő módosítani kell. Árnyékolt cellák belül végrehajtott módosítások erőforrás számítások meghiúsulhat.
+Ez az eszköz két módszert biztosít a virtuálisgép-erőforrások lefoglalásához: akár egyetlen virtuálisgép-erőforrás-foglalást, akár akár hat eltérő munkaterhelés-konfigurációt tartalmazó gyűjteményt. Minden munkaterhelés-konfiguráció tartalmazhatja a rendelkezésre álló virtuálisgép-erőforrások különböző kiosztását. A következő szakaszokban részletes útmutatást talál az egyes felosztási modellek létrehozásához és használatához. Csak a nem háttérben árnyékolt cellákban található, illetve a munkalapon lévő SKU legördülő listában szereplő értékeket kell módosítani. Az árnyékolt cellákon belüli módosítások megszakítják az erőforrás-számításokat.
 
 
-## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint utasításokat
-A különböző méretű és virtuális gépek mennyiségét egy gyűjteményt egy modell létrehozásához válassza a **DefineByVMFootprint** lapra, és kövesse az alábbi lépéseket:
+## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint utasítások
+Ha a modellt különböző méretű virtuális gépek és mennyiségek egyetlen gyűjteményével szeretné létrehozni, válassza a **DefineByVMFootprint** lapot, és kövesse az alábbi lépéseket:
 
-1. Ez a munkalap jobb felső sarkában a legördülő listában szerepelnek vezérlők használatával válassza ki a használni kívánt minden egyes hardver rendszeren (Termékváltozat) telepített kiszolgálón (4 és 16) között egy kezdeti száma. A kiszolgálók számának megtekintéséhez, hogyan befolyásolja ez összességében a modellezési folyamat során bármikor módosíthatók az erőforrás-elosztási modellt számára elérhető erőforrások.
-2. Ha azt szeretné, a modellek különböző virtuális gépek erőforrás-hozzárendelések szemben egy adott hardverkonfiguráción, keresse meg a kék legördülő lista közvetlenül az alábbi a **aktuális Termékváltozat** címkét az oldal jobb felső sarokban. Kérje le a lista, és válassza ki a kívánt hardver SKU.
-3. Most már készen áll a modell különböző méretű virtuális gépeket ad hozzá a kezdéshez. Adja meg egy adott virtuális gép típusát, írjon be egy mennyiség értéket, a kék bekeretezett bal oldalán, a virtuális gép bejegyzést.
+1. A munkalap jobb felső sarkában található legördülő lista vezérlőelemekkel kiválaszthatja az egyes hardverrendszer (SKU) által telepíteni kívánt kiszolgálók kezdeti számát (4 és 16 között). Ez a számú kiszolgáló bármikor módosítható a modellezési folyamat során, hogy megtudja, hogy ez milyen hatással van az erőforrás-kiosztási modell teljes rendelkezésre állási erőforrásaira.
+2. Ha a különböző virtuálisgép-erőforrások kiosztásait egy adott hardverkonfiguráció alapján szeretné modellezni, akkor a lap jobb felső sarkában található kék legördülő listát közvetlenül az **aktuális SKU** -címke alatt találja. Húzza le ezt a listát, és válassza ki a kívánt hardveres SKU-t.
+3. Most már készen áll arra, hogy megkezdje a különböző méretű virtuális gépek hozzáadását a modellhez. Egy adott virtuálisgép-típus belefoglalásához adjon meg egy mennyiségi értéket a virtuális gép bejegyzésének bal oldalán található kék színnel megadott mezőbe.
 
    > [!NOTE]
-   > Virtuális gép tárterületének teljes kapacitását az adatlemezt a virtuális gép (az [1 TB-os] egyetlen lemez maximális kapacitása megszorozza támogatott lemezek száma) hivatkozik. A konfigurációs mutatók alapján, hogy feltöltötte a rendelkezésre álló tárolási konfigurációk tábla így kiválaszthatja a kívánt szint tárolási erőforrás minden egyes Azure Stack virtuális gép. Azonban fontos megjegyezni, hogy adja hozzá, vagy a rendelkezésre álló tárolási konfigurációk tábla szükség szerint módosítsa.<br><br>Minden virtuális gép egy kezdetben hozzárendelt helyi ideiglenes tárhely kezdődik. Ideiglenes tárterület kiosztás tükrözéséhez módosíthatja a helyi-temp számot szeletének a legördülő menüből, beleértve a maximális megengedett ideiglenes tárterület keletkezett.
+   > A teljes virtuálisgép-tárterület a virtuális gép adatlemezének teljes kapacitására utal (a támogatott lemezek száma megszorozva az egyetlen lemez maximális kapacitásával [1 TB]). A konfigurációs mutatók alapján kitöltöttük a rendelkezésre álló tárolási konfigurációk táblázatát, így kiválaszthatja az egyes Azure Stack hub-alapú virtuális gépek kívánt tárolási erőforrását. Fontos azonban megjegyezni, hogy szükség szerint hozzáadhatja vagy módosíthatja a rendelkezésre álló tárolási konfigurációk táblázatát.<br><br>Minden virtuális gép egy eredetileg hozzárendelt helyi ideiglenes tárolóval kezdődik. A temp Storage dinamikus kiosztásának megjelenítéséhez a legördülő menüben tetszőleges értékre módosíthatja a helyi-Temp számot, beleértve a maximálisan engedélyezett Temp Storage-mennyiséget.
 
-4. Virtuális gépek hozzáadásakor, látni fogja a diagramok, amelyek megmutatják a rendelkezésre álló SKU-erőforrások módosítása. Ez lehetővé teszi különböző méretű és tranzakciómennyiségek, amelyek virtuális gépek hozzáadása a modellezési folyamat során a hatásukat. Változások megtekintése másik módja, és tekintse meg a **Consumed** és **továbbra is elérhető** számok, közvetlenül a rendelkezésre álló virtuális gépek listája alább felsorolt. Ezek a számok az aktuálisan kiválasztott hardver SKU alapuló becsült értékek tükrözik.
-5. Amikor létrehozta a virtuális gépek csoportját, annak a javasolt hardver SKU kiválasztásával **javasolt Termékváltozat**, az oldal jobb felső sarokban a közvetlenül az alábbi a **aktuális Termékváltozat** címkét. Ez a gomb használata esetén, módosíthatja a Virtuálisgép-konfigurációk és hardver támogatja-e az egyes konfigurációkhoz.
+4. A virtuális gépek hozzáadásakor megjelennek az elérhető SKU-erőforrások megjelenítését bemutató diagramok. Ez lehetővé teszi, hogy megtekintse a különböző méretek és mennyiségű virtuális gép hozzáadásának hatását a modellezési folyamat során. A változtatások hatásának megtekintéséhez a másik lehetőség, hogy megtekintse a **felhasznált** és **még elérhető** számokat, amelyek közvetlenül a rendelkezésre álló virtuális gépek listáján szerepelnek. Ezek a számok a jelenleg kiválasztott hardveres SKU alapján becsült értékeket tükrözik.
+5. Ha létrehozta a virtuális gépek készletét, a javasolt hardver SKU a **javasolt SKU**lehetőség kiválasztásával az oldal jobb felső sarkában található, közvetlenül az **aktuális SKU** -címke alatt. Ezen gomb használatával módosíthatja a virtuálisgép-konfigurációkat, és megtekintheti, hogy melyik hardver támogatja az egyes konfigurációkat.
 
 
-## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint instructions
-Modell létrehozása az Azure Stack-munkaterhelések gyűjteménye, jelölje be a **DefineByWorkloadFootprint** lapra, és kövesse a feladatütemezési lépéseket. Elérhető Virtuálisgép-erőforrások használatával hoz létre az Azure Stack számítási feladatokhoz.   
+## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint utasítások
+Ha Azure Stack hub-munkaterhelések gyűjteményével szeretne modellt létrehozni, válassza a **DefineByWorkloadFootprint** lapot, és kövesse az alábbi lépéseket. Azure Stack hub számítási feladatait elérhető virtuálisgép-erőforrások használatával hozhatja létre.   
 
 > [!TIP]
-> Egy Azure Stack-beli virtuális gép a megadott tárfiók méretének módosításához tekintse meg a megjegyzést. az előző szakaszban három lépésben.
+> Azure Stack hub-beli virtuális gép megadott tárolási méretének módosításához tekintse meg az előző szakasz harmadik lépésének megjegyzését.
 
-1. Ez a munkalap jobb felső sarkában a legördülő listában szerepelnek vezérlők használatával válassza ki a használni kívánt minden egyes hardver rendszeren (Termékváltozat) telepített kiszolgálón (4 és 16) között egy kezdeti száma.
-2. Ha azt szeretné, a modellek különböző virtuális gépek erőforrás-hozzárendelések szemben egy adott hardverkonfiguráción, keresse meg a kék legördülő lista közvetlenül az alábbi a **aktuális Termékváltozat** címkét az oldal jobb felső sarokban. Kérje le a lista, és válassza ki a kívánt hardver SKU.
-3. Válassza ki a megfelelő tárolási mérete az egyes Azure Stack kívánt virtuális gépeken a a **DefineByVMFootprint** lapon, a harmadik lépése az előző szakaszban leírtak szerint. A tárhelyméretet a virtuális gép a DefineByVMFootprint lap van definiálva.
-4. A bal felső indítása a **DefineByWorkloadFootprint** hozza létre a konfiguráció legfeljebb hat különböző számítási feladatok esetében. Adja meg minden egyes VM-típus található, hogy a számítási feladatok mennyisége. Ehhez elhelyezését a numerikus értékek az oszlop közvetlenül az adott számítási feladat neve alatt. Módosíthatja a számítási feladat nevét, hogy milyen típusú számítási feladatok, amelyek ezt a konfigurációt támogat.
-5. Minden egyes számításifeladat-típust adott mennyiségű hozzáadhatja a közvetlenül alá egy adott oszlop alján érték megadásával a **mennyiség** címkét.
-6. Amikor létrehozta a számítási feladatok típusa és a mennyiségek, válassza ki **javasolt Termékváltozat** az oldal jobb felső sarokban a közvetlenül az alábbi a **aktuális Termékváltozat** címkét. Ez megjeleníti a legkisebb Termékváltozat elegendő erőforrással rendelkező számítási feladatok a teljes konfiguráció támogatásához.
-7. További modellezési hardveres Termékváltozat, a kiválasztott kiszolgálók számának módosításával elvégezheti a virtuális gép kiosztásokhoz és mennyiségek belül a munkaterhelés-konfigurációk módosítása vagy. A társított grafikonok azonnali visszajelzést ad arról, hogy a a végrehajtott módosítások miként befolyásolják a teljes erőforrás-felhasználásának megjelenítő jelennek meg.
-8. Ha már elégedett a módosításokkal, válassza ki a **javasolt Termékváltozat** újra az új konfigurációhoz javasolt Termékváltozat megjeleníthető. Választhatja a legördülő menüben válassza ki a kívánt Termékváltozatát.
+1. A munkalap jobb felső sarkában található legördülő lista vezérlőelemekkel kiválaszthatja az egyes hardverrendszer (SKU) által telepíteni kívánt kiszolgálók kezdeti számát (4 és 16 között).
+2. Ha a különböző virtuálisgép-erőforrások kiosztásait egy adott hardverkonfiguráció alapján szeretné modellezni, akkor a lap jobb felső sarkában található kék legördülő listát közvetlenül az **aktuális SKU** -címke alatt találja. Húzza le ezt a listát, és válassza ki a kívánt hardveres SKU-t.
+3. A **DefineByVMFootprint** lapon válassza ki a megfelelő tárolási méretet a kívánt Azure stack hub-beli virtuális gépek számára az előző szakasz 3. lépésében leírtak szerint. A virtuális gépenként megadott tárterület a DefineByVMFootprint lapon van definiálva.
+4. A **DefineByWorkloadFootprint** lap bal felső sarkában a konfigurációk legfeljebb hat különböző számítási feladathoz hozhatók létre. Adja meg az adott számítási feladatban található egyes virtuálisgép-típusok mennyiségét. Ezt úgy teheti meg, hogy numerikus értékeket helyez el az oszlopba közvetlenül a munkaterhelés neve alatt. A munkaterhelések neve módosítható úgy, hogy az adott konfiguráció által támogatott számítási feladatok típusát tükrözze.
+5. Az egyes számítási feladatok típusának bizonyos mennyiségét megadhatja az oszlop alján található érték megadásával közvetlenül a **mennyiség** felirat alatt.
+6. Amikor létrehozta a számítási feladatok típusát és mennyiségét, válassza a **javasolt SKU** lehetőséget az oldal jobb felső sarkában, közvetlenül az **aktuális SKU** -címke alatt. Ez megjeleníti a minimális SKU-t, amely elegendő erőforrással rendelkezik a számítási feladatok általános konfigurációjának támogatásához.
+7. A további modellezést a hardver SKU-ra kiválasztott kiszolgálók számának módosításával, illetve a virtuális gépek kiosztásának vagy a munkaterhelés-konfigurációkon belüli mennyiségének a módosításával végezheti el. A társított gráfok azonnali visszajelzést jelenítenek meg, amely bemutatja, hogyan befolyásolja a módosítások a teljes erőforrás-felhasználást.
+8. Ha elégedett a módosításaival, válassza a **javasolt SKU** újra lehetőséget az új konfigurációhoz javasolt SKU megjelenítéséhez. Kiválaszthatja a legördülő menüt is a kívánt SKU kiválasztásához.
 
-## <a name="next-steps"></a>További lépések
-Ismerje meg [adatközpont integrációja szempontok az Azure Stack](azure-stack-datacenter-integration.md).
+## <a name="next-steps"></a>Következő lépések
+[A Azure stack hub Datacenter integrációs szempontjainak](azure-stack-datacenter-integration.md)megismerése.

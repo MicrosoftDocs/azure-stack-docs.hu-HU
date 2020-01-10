@@ -1,6 +1,6 @@
 ---
-title: Az AK-motor hibáinak megoldása a Azure Stackon | Microsoft Docs
-description: Ez a cikk a Azure Stack AK-beli motorjának hibaelhárítási lépéseit ismerteti.
+title: Az AK-motor hibáinak megoldása Azure Stack hub-on | Microsoft Docs
+description: Ez a cikk a Azure Stack hub AK-motorjának hibaelhárítási lépéseit ismerteti.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 229d066438cbdad52c167706c4b77b0c425f137b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310342"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820032"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Az AK-motor hibáinak megoldása Azure Stack
+# <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Előfordulhat, hogy a Azure Stack-on lévő AK-motor telepítésekor vagy használatakor problémába ütközik. Ez a cikk az AK-motor üzembe helyezésével kapcsolatos hibaelhárítási lépéseket ismerteti, adatokat gyűjt az AK-motorról, gyűjti össze a Kubernetes-naplókat, áttekinti az egyéni szkriptek bővítményének hibakódait, valamint útmutatást nyújt a GitHub-probléma megmegnyitásához
+Probléma merülhet fel a Azure Stack hub-beli alrendszeri motor telepítésekor vagy használatakor. Ez a cikk az AK-motor üzembe helyezésével kapcsolatos hibaelhárítási lépéseket ismerteti, adatokat gyűjt az AK-motorról, gyűjti össze a Kubernetes-naplókat, áttekinti az egyéni szkriptek bővítményének hibakódait, valamint útmutatást nyújt a GitHub-probléma megmegnyitásához
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>Az KABAi motor telepítésének hibája
 
@@ -72,9 +72,9 @@ Telepítse a GoFish a [telepítés](https://gofi.sh/#install) lapról.
 Ha a Kubernetes-fürt az KABAi motor használatával történő telepítésekor hibákat észlel, a következőket végezheti el:
 
 1.  A megfelelő egyszerű szolgáltatás hitelesítő adatait (SPN) használja?
-2.  Az SPN "közreműködői" szerepkörrel rendelkezik a Azure Stack-előfizetéshez?
-3. Nagy mennyiségű kvóta van a Azure Stack tervében?
-4.  A Azure Stack példányon van a javítás vagy a frissítés alkalmazása?
+2.  Az SPN "közreműködői" szerepkörrel rendelkezik az Azure Stack hub-előfizetés számára?
+3. Van elég nagy mennyiségű kvóta az Azure Stack hub-tervben?
+4.  Van-e a Azure Stack hub-példány, amelyen javítás vagy frissítés van alkalmazva?
 
 További információ: az **Azure/AK-Engine GitHub-** tárház [hibaelhárítási](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md) cikke.
 
@@ -113,7 +113,7 @@ Követelmények:
 
  - Linux rendszerű virtuális gép, git bash vagy bash Windows rendszeren.
  - Az [Azure CLI](azure-stack-version-profiles-azurecli2.md) telepítve van a gépen, ahonnan a szkript futni fog.
- - Az egyszerű szolgáltatás identitása egy Azure CLI-munkamenetbe jelentkezett be Azure Stackba. Mivel a szkript képes az ARM-erőforrások felfedésére és létrehozására, hogy elvégezze a munkáját, az Azure CLI és egy egyszerű szolgáltatásnév szükséges.
+ - Az egyszerű szolgáltatás identitása egy Azure CLI-munkamenetbe jelentkezett be Azure Stack hubhoz. Mivel a szkript képes az ARM-erőforrások felfedésére és létrehozására, hogy elvégezze a munkáját, az Azure CLI és egy egyszerű szolgáltatásnév szükséges.
  - Felhasználói fiók (előfizetés), amelyben a Kubernetes-fürt már ki van választva a környezetben. 
 1. Töltse le a szkript tar-fájljának legújabb kiadását az ügyfél virtuális gépére, egy olyan gépre, amely hozzáfér a Kubernetes-fürthöz, vagy ugyanaz a gép, amelyet a fürt az AK-motorral való üzembe helyezéséhez használt.
 
@@ -133,11 +133,11 @@ Követelmények:
     | -h,-– Súgó | A parancs használatának nyomtatása. | nem | 
     -u,--felhasználó | A fürt virtuális gépei rendszergazdai felhasználóneve | igen | azureuser<br>(alapértelmezett érték) |
     | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (más néven "id_rsa")  | igen | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
-    |   -g, --resource-group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
+    |   -g,--Resource-Group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
     |   -n,--User-Namespace               | Naplók gyűjtése a tárolókban a megadott névterekben (a Kube-rendszernaplókat mindig gyűjti a rendszer) | nem |   figyelés |
-    |       --API-Model                    | Megőrzi a apimodel. JSON fájlt egy Azure Stack Storage-fiókban. Töltse fel a apimodel. JSON fájlt a Storage-fiókba, ha a--upload-logs paraméter is meg van adni. | nem | `./apimodel.json` |
+    |       --API-Model                    | Megőrzi a apimodel. JSON fájlt egy Azure Stack hub Storage-fiókban. Töltse fel a apimodel. JSON fájlt a Storage-fiókba, ha a--upload-logs paraméter is meg van adni. | nem | `./apimodel.json` |
     | – az összes névtér               | Naplók gyűjtése a tárolókban az összes névtérben. Felülbírálja a--User-Namespace | nem | |
-    | – naplók feltöltése                  | Beolvasott naplókat tart fenn egy Azure Stack Storage-fiókban. A naplók a KubernetesLogs erőforráscsoporthoz találhatók | nem | |
+    | – naplók feltöltése                  | Beolvasott naplókat tart fenn egy Azure Stack hub Storage-fiókban. A naplók a KubernetesLogs erőforráscsoporthoz találhatók | nem | |
     --host-key-Check letiltása    | Az SSH StrictHostKeyChecking beállítását "nem" értékre állítja a parancsfájl végrehajtása közben. Csak biztonságos környezetben használható. | nem | |
 
 3. Futtassa az alábbi parancsok bármelyikét az adataival:
@@ -158,9 +158,9 @@ A fürt futtatásához tekintse meg az egyéni szkriptek bővítménye (CSE) ál
 
 Ha a naplók összegyűjtését és vizsgálatát követően továbbra sem tudja megoldani a problémát, érdemes elindítani a támogatási jegy létrehozásának folyamatát, és meg kell adnia a `getkuberneteslogs.sh` futtatásával gyűjtött naplókat a `--upload-logs` paraméterrel. 
 
-Forduljon a Azure Stack-kezelőhöz. A támogatási eset létrehozásához az operátor a naplókhoz tartozó információkat használja.
+Forduljon Azure Stack hub-kezelőhöz. A támogatási eset létrehozásához az operátor a naplókhoz tartozó információkat használja.
 
-A támogatási problémák kezelésének folyamata során a Microsoft támogatási szakembere kérheti, hogy a Azure Stack-kezelő összegyűjtse a Azure Stack rendszernaplókat. Előfordulhat, hogy meg kell adnia a kezelője számára a Storage-fiók adatait, ahol a `getkuberneteslogs.sh`futtatásával töltötte fel a Kubernetes-naplókat.
+A támogatási problémák kezelésének folyamata során a Microsoft támogatási szakembere kérheti, hogy az Azure Stack hub-kezelő begyűjtse az Azure Stack hub rendszernaplóit. Előfordulhat, hogy meg kell adnia a kezelője számára a Storage-fiók adatait, ahol a `getkuberneteslogs.sh`futtatásával töltötte fel a Kubernetes-naplókat.
 
 Az operátor futtathatja a **Get-AzureStackLog PowerShell-** parancsmagot. Ez a parancs egy paramétert (`-InputSaSUri`) használ, amely megadja azt a Storage-fiókot, ahol a Kubernetes-naplókat tárolta.
 
@@ -178,6 +178,6 @@ Ha nem tudja feloldani a telepítési hibát, megnyithatja a GitHub-problémát.
      - A következő **kubectl** -parancs kimenete `get nodes`.  
      - `/var/log/azure/cluster-provision.log` és `/var/log/cloud-init-output.log` tartalma
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- További információ a [Azure stack AK-beli motorról](azure-stack-kubernetes-aks-engine-overview.md)
+- További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)

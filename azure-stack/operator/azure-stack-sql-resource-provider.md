@@ -1,7 +1,7 @@
 ---
 title: SQL-adatbázisok használata
-titleSuffix: Azure Stack
-description: Megtudhatja, hogyan használhatja a SQL Server erőforrás-szolgáltatót az SQL-adatbázisok szolgáltatásként való használatára Azure Stackon.
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan használhatja a SQL Server erőforrás-szolgáltatót az SQL-adatbázisok szolgáltatásként való használatára Azure Stack hub-ban.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,16 +16,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.openlocfilehash: cc8a5e11c6cc4b01b76b9a8fd94f97227ae8388c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492761"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814354"
 ---
-# <a name="use-sql-databases-on-azure-stack"></a>SQL-adatbázisok használata Azure Stack
+# <a name="use-sql-databases-on-azure-stack-hub"></a>SQL-adatbázisok használata Azure Stack hub-on
 
-Az SQL erőforrás-szolgáltató használatával szolgáltatásként kínálhatja az SQL-adatbázisokat [Azure stackon](azure-stack-overview.md). Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
+Az SQL erőforrás-szolgáltató használatával az SQL-adatbázisokat [Azure stack hub](azure-stack-overview.md)szolgáltatásként kínáljuk. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
 
 - Adatbázisok Felhőbeli natív alkalmazásokhoz.
 - SQL-t használó webhelyek.
@@ -34,7 +34,7 @@ Az SQL erőforrás-szolgáltató használatával szolgáltatásként kínálhatj
 Az SQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
 
 - A felhasználók csak egyéni adatbázisokat hozhatnak létre és kezelhetnek. Az adatbázis-kiszolgáló példánya nem érhető el a végfelhasználók számára. Ez korlátozhatja a kompatibilitást olyan helyszíni adatbázis-alkalmazásokkal, amelyek hozzáférést igényelnek a Master, a temp DB vagy az adatbázisok dinamikus kezeléséhez.
-- A Azure Stack operátor felelős az SQL Database-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
+- Az Azure Stack hub-operátor felelős az SQL Database-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
 - A különböző előfizetésekben lévő különböző felhasználók adatbázisai ugyanazon az adatbázis-kiszolgálói példányon találhatók. Az RP nem biztosít semmilyen mechanizmust az adatbázisok különböző gazdagépeken vagy adatbázis-kiszolgálói példányokon való elkülönítéséhez.
 - Az RP nem biztosít jelentéskészítést az adatbázisok bérlői használatára vonatkozóan.
 
@@ -49,7 +49,7 @@ Az erőforrás-szolgáltató a következő összetevőkből áll:
 Létre kell hoznia legalább egy SQL Server példányt, vagy hozzáférést kell biztosítania a külső SQL Server példányokhoz.
 
 > [!NOTE]
-> Azure Stack integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket létre kell hozni a bérlői portálról vagy a PowerShell használatával a megfelelő bejelentkezéssel. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
+> Azure Stack hub integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. Ezeket létre kell hozni a bérlői portálról vagy a PowerShell használatával a megfelelő bejelentkezéssel. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
 
 ## <a name="next-steps"></a>Következő lépések
 

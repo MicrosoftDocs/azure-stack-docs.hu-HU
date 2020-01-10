@@ -1,6 +1,6 @@
 ---
-title: Méretezési egység csomópontjának műveletei Azure Stackban | Microsoft Docs
-description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack integrált rendszerekben.
+title: Skálázási egység csomópontjainak műveletei Azure Stack központban | Microsoft Docs
+description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5bc65418c1dd098dc8784cb9bf306676a1cd79ed
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 13dcb779297eddd1d75d3de1b6e47bd882f2126c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955275"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810597"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack"></a>Méretezési egység csomópontjának műveletei Azure Stack
+# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Az egység csomópont-műveleteinek méretezése Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk azt ismerteti, hogyan lehet megtekinteni egy méretezési egység állapotát. Megtekintheti az egység csomópontjait. Futtathat olyan csomópont-műveleteket, mint a bekapcsolás, a kikapcsolás, a Leállítás, a kiürítés, a folytatás és a javítás. Ezeket a csomópontokat jellemzően a részek cseréjekor, vagy a csomópontok helyreállításához használhatja.
 
@@ -61,7 +61,7 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 | Fut | A csomópont aktívan részt vesz a skálázási egységben. |
 | Leállítva | A csomópont nem érhető el. |
 | Hozzáadása | A csomópontot aktívan felveszik a méretezési egységbe. |
-| Javítása | A csomópont aktívan javítás alatt áll. |
+| Javítás | A csomópont aktívan javítás alatt áll. |
 | Karbantartás | A csomópont szüneteltetve van, és nem fut aktív felhasználói munkaterhelés. |
 | Szervizelést igényel | Hiba észlelhető, amely megköveteli a csomópont javítását. |
 
@@ -76,7 +76,7 @@ Ha a méretezési egység csomópontjának adatait tekinti meg, olyan csomópont
 
 A csomópont működési állapota határozza meg, hogy mely lehetőségek érhetők el.
 
-Azure Stack PowerShell-modulokat kell telepítenie. Ezek a parancsmagok a **AZS. Fabric. admin** modulban találhatók. Az Azure Stack PowerShell telepítésének telepítéséhez vagy ellenőrzéséhez tekintse meg a [PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md)című témakört.
+Telepítenie kell Azure Stack hub PowerShell-modulokat. Ezek a parancsmagok a **AZS. Fabric. admin** modulban találhatók. Az Azure Stack hub PowerShell-telepítésének telepítéséhez vagy ellenőrzéséhez tekintse meg a [PowerShell telepítése Azure stack hub](azure-stack-powershell-install.md)-hoz című témakört.
 
 ## <a name="stop"></a>Leállítás
 
@@ -140,17 +140,17 @@ További információ: [enable-AzsScaleUnitNode](https://docs.microsoft.com/powe
 ## <a name="repair"></a>Javítás
 
 > [!CAUTION]  
-> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ha ez a lépés hiányzik, a rendszer instabillá válhat, ami csökkenti a teljesítményt, a biztonsági szálakat vagy a hibát, amikor Azure Stack Automation telepíti az operációs rendszert. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel a [Azure stack felügyeleti portálon](azure-stack-updates.md)megjelenített OEM-verziónak.<br><br>
+> A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ha ez a lépés hiányzik, a rendszer instabillá válhat, ami csökkenti a teljesítményt, a biztonsági szálakat vagy a hibát, amikor Azure Stack hub Automation üzembe helyezi az operációs rendszert. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel az [Azure stack hub felügyeleti portálján](azure-stack-updates.md)megjelenő OEM-verziónak.<br><br>
 További információt és a partneri dokumentációra mutató hivatkozásokat a [hardver-összetevők cseréje](azure-stack-replace-component.md)című témakörben talál.
 
 | Hardveres partner | Region (Régió) | URL-cím |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Mind | [A Cisco integrált rendszer Microsoft Azure Stack üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Kibocsátási megjegyzések a Microsoft Azure Stack Cisco integrált rendszeréhez](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | Mind | [Felhő Microsoft Azure Stack 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Felhő Microsoft Azure Stack 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Kibocsátási megjegyzések a Microsoft Azure Stack hub-hoz készült Cisco integrált rendszerhez](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | Mind | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japán | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EURÓPA, KÖZEL-KELET ÉS AFRIKA | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 |  |  | [Fujitsu MySupport (fiók és bejelentkezés szükséges)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | Mind | [Microsoft Azure Stack HPE ProLiant](http://www.hpe.com/info/MASupdates) |
+| HPE | Mind | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Mind | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 A **javítási** művelet kijavítja a csomópontot. Csak a következő esetekben használható:
@@ -185,4 +185,4 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
 
 ## <a name="next-steps"></a>Következő lépések
 
-[További tudnivalók a Azure stack Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+Tudnivalók [a Azure stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

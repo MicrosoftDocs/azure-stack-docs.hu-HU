@@ -1,6 +1,6 @@
 ---
-title: Kapcsolódás iSCSI-tárolóhoz Azure Stack használatával | Microsoft Docs
-description: Megtudhatja, hogyan csatlakozhat az iSCSI-tárolóhoz Azure Stack használatával.
+title: Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával | Microsoft Docs
+description: Megtudhatja, hogyan csatlakozhat az iSCSI-tárolóhoz Azure Stack hub használatával.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,31 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bed928bdd8ed7c521bd95ec005baafd42eb93047
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: a8cb3ad8e45f6effc593b8c5b2cc9e59dd176f5f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064800"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819692"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack használatával
+# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A cikkben szereplő sablonnal egy Azure Stack virtuális gép (VM) egy helyszíni iSCSI-tárolóhoz való összekapcsolásához beállíthatja, hogy a virtuális gép a Azure Stack és más adatközponton kívül üzemeltetett tároló használatára legyen beállítva. Ez a cikk a Windows rendszerű gépek iSCSI-célként való használatát tekinti át.
+A cikkben szereplő sablonnal egy Azure Stack hub virtuális gépet (VM) csatlakoztathat egy helyszíni iSCSI-tárolóhoz úgy, hogy a virtuális gépet a Azure Stack hub és az adatközpont más részein kívül üzemeltetett tároló használatára állítsa be. Ez a cikk a Windows rendszerű gépek iSCSI-célként való használatát tekinti át.
 
-A sablont az [Azure intelligens Edge Pattern](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) GitHub-tárház **lucidqdreams** villájában találja. A sablon a **Storage-iSCSI** mappában található. A sablon úgy lett kialakítva, hogy az iSCSI-tárolóhoz való kapcsolódáshoz a Azure Stack oldalon szükséges infrastruktúrát állítsa be. Ebbe beletartozik egy virtuális gép, amely iSCSI-kezdeményezőként fog működni, valamint a hozzá tartozó VNet, NSG, PIP és Storage szolgáltatással. A sablon üzembe helyezését követően két PowerShell-parancsfájlt kell futtatni a konfigurálás befejezéséhez. A rendszer egy parancsfájlt futtat a helyszíni virtuális gépen (cél), és az egyiket a Azure Stack virtuális gépen (kezdeményezőn) futtatja. A befejezést követően a rendszer a Azure Stack virtuális géphez hozzáadja a helyszíni tárterületet. 
+A sablont az [Azure intelligens Edge Pattern](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) GitHub-tárház **lucidqdreams** villájában találja. A sablon a **Storage-iSCSI** mappában található. A sablon úgy lett kialakítva, hogy beállítsa az Azure Stack hub oldalán szükséges infrastruktúrát egy iSCSI-tárolóhoz való kapcsolódáshoz. Ebbe beletartozik egy virtuális gép, amely iSCSI-kezdeményezőként fog működni, valamint a hozzá tartozó VNet, NSG, PIP és Storage szolgáltatással. A sablon üzembe helyezését követően két PowerShell-parancsfájlt kell futtatni a konfigurálás befejezéséhez. A rendszer egy parancsfájlt futtat a helyszíni virtuális gépen (cél), és az egyiket a Azure Stack hub virtuális gépen (kezdeményezőn) futtatja. Ha ezek befejeződik, a helyszíni tárterületet a Azure Stack hub virtuális géphez is hozzáadhatja. 
 
 ## <a name="overview"></a>Áttekintés
 
-Az ábrán egy Azure Stack üzemeltetett virtuális gép látható, amely iSCSI-csatlakoztatott lemezzel rendelkezik egy helyszíni Windows-gépről (fizikai vagy virtuális), amely lehetővé teszi, hogy a Azure Stack külső tárolók a Azure Stack üzemeltetett virtuális gépen az iSCSI protokollon keresztül csatlakoztathatók legyenek.
+Az ábrán egy Azure Stack hub-ban üzemeltetett virtuális gép látható egy iSCSI-csatlakoztatott lemezzel egy helyszíni Windows-gépről (fizikai vagy virtuális gépen), amely lehetővé teszi, hogy az Azure Stack hub-on kívüli tárolás az iSCSI protokollon keresztül az Azure Stack hub által üzemeltetett virtuális gépen legyen.
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
 ### <a name="requirements"></a>Követelmények
 
 - Egy helyszíni (fizikai vagy virtuális) számítógép, amelyen Windows Server 2016 Datacenter vagy Windows Server 2019 Datacenter fut.
-- Szükséges Azure Stack Marketplace-elemek:
+- Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter vagy Windows Server 2019 Datacenter (a legújabb Build ajánlott).
     -  PowerShell DSC-bővítmény.
     -  Egyéni szkriptek bővítménye.
@@ -51,7 +51,7 @@ Az ábrán egy Azure Stack üzemeltetett virtuális gép látható, amely iSCSI-
 
 ### <a name="options"></a>Beállítások
 
-- A **_artifactsLocation** és a **_artifactsLocationSasToken** paraméterek használatával saját blob Storage-fiókját és Sas-tokenjét használhatja a saját Storage-Blobok sas-jogkivonattal való használatára.
+- A saját blob Storage-fiókját és SAS-tokenjét a **_artifactsLocation** és a **_artifactsLocationSasToken** paraméterek használatával saját tároló-blobot használhat sas-jogkivonattal.
 - Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tartalmazza.
 - Ennek a konfigurációnak csak egy iSCSI-hálózati adaptere van, amely az iSCSI-ügyfélről származik. Számos konfigurációt Teszteltünk a különálló alhálózatok és hálózati adapterek kihasználása érdekében, azonban több átjáróval kapcsolatos problémákba ütközött, és egy különálló tárolási alhálózatot próbáltak létrehozni a forgalom elkülönítéséhez, és ténylegesen valóban redundánsnak kell lennie. 
 - Ügyeljen arra, hogy ezeket az értékeket a jogi alhálózaton és a címtartományból is megőrizze, mivel a telepítés sikertelen lehet. 
@@ -65,10 +65,10 @@ A diagramon a sablon alapján központilag telepített erőforrások láthatók 
 
 ### <a name="the-deployment-process"></a>Az üzembe helyezési folyamat
 
-Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés bemenetének a célja. Elsősorban a kiszolgáló nevére és a Azure Stack nyilvános IP-címére összpontosít, ahol az iSCSI-forgalom származik. Ehhez a példához:
+Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés bemenetének a célja. Elsősorban a kiszolgáló nevére és a Azure Stack hub nyilvános IP-címére összpontosít, ahol az iSCSI-forgalom származik. Ehhez a példához:
 
 1. Telepítse az infrastruktúra-sablont.
-2. Azure Stack virtuális gép üzembe helyezése az adatközpontban máshol üzemeltetett virtuális gépeken. 
+2. Helyezzen üzembe egy Azure Stack hub virtuális gépet egy, az adatközpontban máshol üzemeltetett virtuális gépre. 
 3. Futtassa a `Create-iSCSITarget.ps1` az IP-cím és a kiszolgálónév kimenetek használatával a sablonból az iSCSI-tároló parancsfájljának kijelentkezési paramétereként, amely lehet virtuális gép vagy fizikai kiszolgáló.
 4. A `Connect-toiSCSITarget.ps1` parancsfájl futtatásához használja az iSCSI-célkiszolgáló külső IP-címét vagy címét bemenetként. 
 
@@ -143,4 +143,4 @@ A `Connect-toiSCSITarget.ps1` a végső parancsfájl, amely az iSCSI-ügyfélen 
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

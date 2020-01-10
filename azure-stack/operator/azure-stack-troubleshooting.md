@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack hibaelhárítás | Microsoft Docs
-description: Azure Stack hibaelhárítás.
+title: Microsoft Azure Stack hub hibaelhárítása | Microsoft Docs
+description: Azure Stack hub hibaelhárítása.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 28e067abef24fbc60cff629e5112ffacdf14b1ec
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: b8b4bc6a608ee6cae373f2ab3cb83dd3e9f544df
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689942"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813674"
 ---
-# <a name="microsoft-azure-stack-troubleshooting"></a>Hibaelhárítás Microsoft Azure Stack
+# <a name="microsoft-azure-stack-hub-troubleshooting"></a>Microsoft Azure Stack hub hibaelhárítása
 
-Ez a dokumentum a Azure Stack integrált környezetek hibaelhárítási információit tartalmazza. Ha segítségre van a Azure Stack Development Kit kapcsolatban, tekintse meg a [ASDK-hibaelhárítást](../asdk/asdk-troubleshooting.md) ismertető témakört, vagy kérjen segítséget a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
+Ez a dokumentum a Azure Stack hub integrált környezetek hibaelhárítási információit tartalmazza. A Azure Stack Development Kit kapcsolatos segítségért lásd: [ASDK-hibaelhárítás](../asdk/asdk-troubleshooting.md) vagy Segítség kérése szakértőktől az [Azure stack hub MSDN fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
@@ -34,28 +34,28 @@ Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljutt
 ### <a name="purchase-considerations"></a>Vásárlási szempontok
 
 * [A vásárlás menete](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
-* [Azure Stack áttekintése](azure-stack-overview.md)
+* [Azure Stack hub áttekintése](azure-stack-overview.md)
 
 ### <a name="updates-and-diagnostics"></a>Frissítések és diagnosztika
 
-* [Diagnosztikai eszközök használata a Azure Stackban](azure-stack-diagnostics.md)
-* [A Azure Stack rendszerállapotának ellenőrzése](azure-stack-diagnostic-test.md)
+* [Diagnosztikai eszközök használata az Azure Stack hub-ban](azure-stack-diagnostics.md)
+* [Azure Stack hub rendszerállapotának ellenőrzése](azure-stack-diagnostic-test.md)
 * [A csomag kiadási ritmusának frissítése](azure-stack-servicing-policy.md#update-package-release-cadence)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>A vendég virtuális gépek által támogatott operációs rendszerek és méretek
 
-* [Az Azure Stack által támogatott vendég operációs rendszerek](azure-stack-supported-os.md)
-* [Az Azure Stackben támogatott virtuálisgép-méretek](../user/azure-stack-vm-sizes.md)
+* [Azure Stack hub által támogatott vendég operációs rendszerek](azure-stack-supported-os.md)
+* [Azure Stack hub által támogatott virtuálisgép-méretek](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure Piactér
 
-* [Az Azure Stackhez elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
+* [Azure Stack hub számára elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
 
 ### <a name="manage-capacity"></a>Kapacitás kezelése
 
 #### <a name="memory"></a>Memória
 
-További memória hozzáadásával megnövelheti az Azure Stack számára rendelkezésre álló teljes memóriakapacitást. Az Azure Stackben a fizikai kiszolgálót skálázásiegység-csomópontnak is nevezik. Az ugyanahhoz a skálázási egységhez tartozó skálázásiegység-csomópontokhoz [azonos mennyiségű memóriát](azure-stack-manage-storage-physical-memory-capacity.md) kell hozzárendelni.
+Azure Stack hub teljes rendelkezésre álló memória-kapacitásának növeléséhez további memóriát adhat hozzá. Azure Stack hub-ban a fizikai kiszolgálót a skálázási egység csomópontjának is nevezzük. Az ugyanahhoz a skálázási egységhez tartozó skálázásiegység-csomópontokhoz [azonos mennyiségű memóriát](azure-stack-manage-storage-physical-memory-capacity.md) kell hozzárendelni.
 
 #### <a name="retention-period"></a>Megőrzési idő
 
@@ -67,9 +67,9 @@ Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzem
 
 #### <a name="manage-rbac"></a>Az RBAC kezelése
 
-Az Azure Stack-felhasználók az előfizetés, erőforráscsoport vagy szolgáltatás minden egyes példányánál rendelkezhetnek olvasó, tulajdonos vagy közreműködő szerepkörrel.
+Azure Stack hub egyik felhasználója lehet olvasó, tulajdonos vagy közreműködő az előfizetés, az erőforráscsoport vagy a szolgáltatás minden példánya számára.
 
-* [Azure Stack RBAC kezelése](azure-stack-manage-permissions.md)
+* [Azure Stack hub RBAC kezelése](azure-stack-manage-permissions.md)
 
 Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet igényeinek, saját egyéni szerepköröket is létrehozhat. Ebben az oktatóanyagban egy Reader Support Tickets (Olvasó – Támogatási jegyek) nevű egyéni szerepkört fog létrehozni az Azure PowerShell-lel.
 
@@ -80,7 +80,7 @@ Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet 
 * [Használat és számlázás kezelése felhőszolgáltatóként](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 * [CSP-vagy APSS-előfizetés létrehozása](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 
-Válassza ki az Azure Stackhez használandó megosztott szolgáltatásfiók típusát. Az alábbi előfizetés-típusokkal lehet regisztrálni egy több-bérlős Azure Stacket:
+Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók típusát. A több-bérlős Azure Stack központ regisztrálásához használható előfizetések típusai a következők:
 
 * Cloud Solution Provider program
 * Partner Shared Services-előfizetés
@@ -95,11 +95,11 @@ A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a 
 4. A Get-azurestacklog-filterbyrole seedring futtatása hívási parancs használatával
 5. Bontsa ki a seedring. zip fájlt, és szerezze be az ellenőrzési jelentést a ERCS mappából, amelyen a test-azurestack futott.
 
-További információ: [Azure stack diagnosztika](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+További információ: [Azure stack hub Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
 ## <a name="troubleshoot-virtual-machines"></a>Virtuális gépek hibáinak megoldása
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
-A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
+A virtuális gépek Azure Stack központban való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk"></a>Töröltem néhány virtuális gépet, de a lemezen továbbra is láthatók a VHD-fájlok
@@ -116,13 +116,13 @@ További információk az adatmegőrzési küszöbérték és az igény szerinti
 ### <a name="storage-reclamation"></a>Tárhely-visszanyerés
 Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való megjelenítéséhez. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyit töröl az adatmennyiség, a rendszer nem garantálja, hogy mennyi helyet szabadít fel a rendszer a Garbage Collector futtatásakor.
 
-### <a name="azure-storage-explorer-not-working-with-azure-stack"></a>Azure Storage Explorer nem működik Azure Stack 
+### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage Explorer nem működik Azure Stack hub-vel 
  
-Ha egy integrált rendszer leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltatót (CA) használni. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet ("/") az ARM-végpontból. További információ: [felkészülés a Azure Stackhoz való csatlakozásra](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+Ha egy integrált rendszer leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltatót (CA) használni. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet ("/") az ARM-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
  
 
 ## <a name="troubleshooting-app-service"></a>Hibaelhárítási App Service
 ### <a name="create-aadidentityappps1-script-fails"></a>A Create-AADIdentityApp. ps1 parancsfájl végrehajtása sikertelen
 
-Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor vegye fel a szükséges-AzureStackAdminCredential paramétert. További információ: a [app Service telepítésének Előfeltételei Azure stack](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
+Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor vegye fel a szükséges-AzureStackAdminCredential paramétert. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
 

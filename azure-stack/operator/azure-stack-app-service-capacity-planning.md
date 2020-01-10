@@ -1,6 +1,6 @@
 ---
-title: Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stackban | Microsoft Docs
-description: További információ a Azure Stack App Service kiszolgálói szerepköreinek kapacitásának megtervezéséről.
+title: Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stack hub-ban | Microsoft Docs
+description: További információ a Azure Stack hub App Service kiszolgálói szerepköreinek kapacitásának megtervezéséről.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,18 +16,18 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: d03a7a848213be2f57556616e9fdbf4cd3a0f3e2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975204"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809066"
 ---
-# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stack
+# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stack hub-ban
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Azure App Service Azure Stackon történő éles használatra kész telepítésének beállításához meg kell terveznie azt a kapacitást, amelyre a rendszer támogatást vár.  
+Az Azure App Service Azure Stack hub-on történő éles használatra kész központi telepítésének beállításához meg kell terveznie a rendszer által támogatott kapacitást.  
 
 Ez a cikk útmutatást nyújt az éles üzembe helyezéshez használni kívánt számítási példányok és számítási egységek minimális számához.
 
@@ -35,40 +35,40 @@ Ezen irányelvek alapján megtervezheti a App Service kapacitási stratégiát.
 
 | App Service kiszolgálói szerepkör | A példányok minimálisan ajánlott száma | Ajánlott számítási SKU|
 | --- | --- | --- |
-| Vezérlő | 2 | A1 |
+| Tartományvezérlő | 2 | A1 |
 | Előtér | 2 | A1 |
-| Kezelés | 2 | A3 |
-| Kiadó | 2 | A1 |
+| Felügyelet | 2 | A3 |
+| Gyártó/kiadó | 2 | A1 |
 | Webes feldolgozók – közös | 2 | A1 |
 | Webes feldolgozók – dedikált | 2/szintenként | A1 |
 
 ## <a name="controller-role"></a>Vezérlő szerepkör
 
-**Ajánlott minimum**: Az a1 standard két példánya
+**Ajánlott minimum**: az a1 standard két példánya
 
 A Azure App Service vezérlő általában a processzor, a memória és a hálózati erőforrások alacsony felhasználását tapasztalja. A magas rendelkezésre állás érdekében azonban két vezérlővel kell rendelkeznie. Két vezérlő is engedélyezett a maximálisan megengedett vezérlők számára. A második webhely-vezérlőt közvetlenül a telepítőből is létrehozhatja a telepítés során.
 
 ## <a name="front-end-role"></a>Előtér-szerepkör
 
-**Ajánlott minimum**: Az a1 standard két példánya
+**Ajánlott minimum**: az a1 standard két példánya
 
 Az előtér-útvonalak a webes feldolgozók rendelkezésre állása alapján a webes feldolgozóknak küldött kérelmeket. A magas rendelkezésre állás érdekében több előtérrel kell rendelkeznie, és kettőnél több is lehet. A kapacitás megtervezése érdekében vegye figyelembe, hogy minden mag másodpercenként körülbelül 100 kérelmet képes kezelni.
 
 ## <a name="management-role"></a>Felügyeleti szerepkör
 
-**Ajánlott minimum**: Az a3 standard két példánya
+**Ajánlott minimum**: az a3 standard két példánya
 
 Az Azure-alkalmazás klasszikus üzembe helyezési modellének feladata a App Service Azure Resource Manager és az API-végpontok, a portál-bővítmények (rendszergazda, bérlő, functions portál) és az adatszolgáltatás felelőse. A felügyeleti kiszolgálói szerepkörhöz általában csak 4 GB RAM-ra van szükség éles környezetben. Előfordulhat azonban, hogy magas CPU-szintet tapasztal, ha sok felügyeleti feladat (például webhely létrehozása) van végrehajtva. A magas rendelkezésre állás érdekében több kiszolgálót kell hozzárendelni ehhez a szerepkörhöz, és kiszolgálónként legalább két magot kell megadnia.
 
 ## <a name="publisher-role"></a>Közzétevői szerepkör
 
-**Ajánlott minimum**: Az a1 standard két példánya
+**Ajánlott minimum**: az a1 standard két példánya
 
 Ha sok felhasználó egyszerre tesz közzé egyidejű közzétételt, a kiadói szerepkör nagy CPU-használatot tapasztalhatnak. A magas rendelkezésre állás érdekében győződjön meg arról, hogy egynél több közzétevői szerepkör érhető el. A közzétevő csak az FTP-/FTPS-forgalmat kezeli.
 
 ## <a name="web-worker-role"></a>Webes feldolgozói szerepkör
 
-**Ajánlott minimum**: Az a1 standard két példánya
+**Ajánlott minimum**: az a1 standard két példánya
 
 A magas rendelkezésre állás érdekében legalább négy webes feldolgozói szerepkörrel kell rendelkeznie: kettőt a közös webhely üzemmódhoz, és kettőt minden olyan dedikált feldolgozói réteghez, amelyet kínál. A megosztott és dedikált számítási módok különböző szolgáltatási szinteket biztosítanak a bérlőknek. Ha sok ügyfelünk van, több webes feldolgozóra lehet szüksége:
 
@@ -81,9 +81,9 @@ Ha Azure Functions szeretne biztosítani a felhasználók számára a használat
 
 A használni kívánt megosztott webes feldolgozói szerepkörök számának meghatározásakor tekintse át a következő szempontokat:
 
-- **Memória**: A memória a webes feldolgozói szerepkör legkritikusabb erőforrása. Nincs elég memória a webhely teljesítményére, ha a virtuális memóriát a lemezről cseréli a rendszer. Az egyes kiszolgálók 1,2 GB RAM memóriát igényelnek az operációs rendszerhez. A küszöbérték feletti RAM a webhelyek futtatására használható.
-- **Aktív webhelyek százalékos aránya**: Általában az alkalmazások 5 százalékát kell megmutatni egy Azure App Service Azure Stack üzemelő példányon. Az adott pillanatban aktív alkalmazások százalékos aránya azonban magasabb vagy alacsonyabb lehet. Az 5%-os aktív alkalmazási arányban az Azure Stack üzemelő példányon egy Azure App Serviceba helyezendő alkalmazások maximális száma kevesebb, mint 20 alkalommal az aktív webhelyek száma (5 x 20 = 100).
-- **Memória átlagos helyigénye**: Az éles környezetekben megfigyelt alkalmazások átlagos memória-lábnyoma körülbelül 70 MB. Ennek a lábnyomnak a használatával a rendszer az összes webes feldolgozói szerepkörű számítógép vagy virtuális gép számára lefoglalt memóriát a következőképpen számítja ki:
+- **Memória**: a memória a webes feldolgozói szerepkör legkritikusabb erőforrása. Nincs elég memória a webhely teljesítményére, ha a virtuális memóriát a lemezről cseréli a rendszer. Az egyes kiszolgálók 1,2 GB RAM memóriát igényelnek az operációs rendszerhez. A küszöbérték feletti RAM a webhelyek futtatására használható.
+- **Az aktív webhelyek százalékos aránya**: általában az alkalmazások 5%-a az Azure stack hub-telepítés Azure app Service. Az adott pillanatban aktív alkalmazások százalékos aránya azonban magasabb vagy alacsonyabb lehet. Az 5%-os aktív alkalmazási arány esetében az Azure Stack hub-telepítésben a Azure App Serviceba helyezendő alkalmazások maximális száma kevesebb, mint 20 alkalommal az aktív webhelyek száma (5 x 20 = 100).
+- **Átlagos memória-lábnyom**: az éles környezetekben megfigyelt alkalmazások átlagos memória-lábnyoma körülbelül 70 MB. Ennek a lábnyomnak a használatával a rendszer az összes webes feldolgozói szerepkörű számítógép vagy virtuális gép számára lefoglalt memóriát a következőképpen számítja ki:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 
@@ -95,11 +95,11 @@ A használni kívánt megosztott webes feldolgozói szerepkörök számának meg
 
 ### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>További szempontok a dedikált feldolgozók számára a frissítés és a karbantartás során
 
-A feldolgozók frissítése és karbantartása során a Azure App Service on Azure Stack az egyes munkavégző rétegek 20%-ában végez karbantartást egyszerre.  Ezért a Felhőbeli rendszergazdáknak mindig 20%-os készletet kell fenntartaniuk a nem lefoglalt feldolgozók számára a munkavégző szinten, hogy a bérlők ne tapasztalják a szolgáltatás elvesztését a frissítés és a karbantartás során.  Ha például 10 feldolgozója van egy feldolgozói szinten, akkor győződjön meg arról, hogy a frissítés és a karbantartás lehetővé teszi a 2 lefoglalását. Ha a teljes 10 feldolgozót kiosztják, a feldolgozói szintet fel kell mérnie, hogy fenntartsa a nem lefoglalt feldolgozók készletét. 
+A feldolgozók frissítése és karbantartása során a Azure App Service on Azure Stack hub minden munkavégző réteg 20%-ában karbantartást végez egyszerre.  Ezért a Felhőbeli rendszergazdáknak mindig 20%-os készletet kell fenntartaniuk a nem lefoglalt feldolgozók számára a munkavégző szinten, hogy a bérlők ne tapasztalják a szolgáltatás elvesztését a frissítés és a karbantartás során.  Ha például 10 feldolgozója van egy feldolgozói szinten, akkor győződjön meg arról, hogy a frissítés és a karbantartás lehetővé teszi a 2 lefoglalását. Ha a teljes 10 feldolgozót kiosztják, a feldolgozói szintet fel kell mérnie, hogy fenntartsa a nem lefoglalt feldolgozók készletét. 
 
 A frissítés és a karbantartás során Azure App Service áthelyezi a munkaterheléseket a nem lefoglalt feldolgozók számára, hogy a munkaterhelések továbbra is működőképesek legyenek. Ha azonban a frissítés során nem érhető el nem lefoglalt feldolgozók, akkor lehetséges, hogy a bérlői számítási feladatok leállása is fennáll. A megosztott feldolgozók tekintetében az ügyfeleknek nem kell további dolgozókat kiépíteniük, mivel a szolgáltatás automatikusan kiosztja a bérlői alkalmazásokat a rendelkezésre álló feldolgozókon belül. A magas rendelkezésre állás érdekében ebben a szinten két feldolgozóra van szükség.
 
-A Felhőbeli rendszergazdák a Azure Stack felügyeleti portál App Service felügyeleti területén tudják figyelni a munkavégző rétegek kiosztását. Navigáljon App Service, majd válassza a feldolgozói rétegek elemet a bal oldali ablaktáblán. A feldolgozói rétegek táblázat a feldolgozói rétegek nevét, méretét, a felhasznált képeket, a rendelkezésre álló feldolgozók számát (nem lefoglalt), az egyes rétegek feldolgozóinak teljes számát és a feldolgozói szintek általános állapotát jeleníti meg.
+A Felhőbeli rendszergazdák a Azure Stack hub felügyeleti portál App Service felügyeleti területén tudják figyelni a munkavégző rétegek kiosztását. Navigáljon App Service, majd válassza a feldolgozói rétegek elemet a bal oldali ablaktáblán. A feldolgozói rétegek táblázat a feldolgozói rétegek nevét, méretét, a felhasznált képeket, a rendelkezésre álló feldolgozók számát (nem lefoglalt), az egyes rétegek feldolgozóinak teljes számát és a feldolgozói szintek általános állapotát jeleníti meg.
 
 ![App Service adminisztráció – feldolgozói rétegek][1]
 
@@ -117,9 +117,9 @@ A fájlkiszolgáló szerepkörhöz önálló fájlkiszolgáló használható fej
 
 További információ: [fájlkiszolgáló kiépítése](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[A App Service telepítésének előfeltételei a Azure Stack](azure-stack-app-service-before-you-get-started.md)
+[Az App Service Azure Stack hub-beli üzembe helyezésének előfeltételei](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

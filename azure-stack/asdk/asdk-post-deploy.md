@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 88b92ce80475ba48b2570dc58082fa75983fdd9b
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 9408fb5ba7ffa181acc28e78576c9eda2262dc81
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540269"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804554"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
 
@@ -42,7 +42,7 @@ Az API-verziók profiljaival Azure Stack kompatibilis AzureRM-modulokat lehet me
 A legújabb Azure Stack PowerShell-modult internetkapcsolattal rendelkező vagy anélkül is telepítheti a ASDK gazdagéphez:
 
 > [!IMPORTANT]
-> A szükséges verzió telepítése előtt győződjön meg arról, hogy [eltávolította a meglévő Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> A szükséges verzió telepítése előtt győződjön meg arról, hogy [eltávolította a meglévő Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 
 - **Internetkapcsolat** a ASDK gazdagépen: futtassa a következő PowerShell-szkriptet a modulok ASDK-telepítésre történő telepítéséhez:
 

@@ -1,6 +1,6 @@
 ---
-title: App Service üzembe helyezése offline környezetben Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan helyezhet üzembe App Service a AD FS által védett offline Azure Stack környezetben.
+title: App Service üzembe helyezése offline környezetben Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan helyezhet üzembe App Service a AD FS által védett offline Azure Stack hub-környezetben.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,29 +16,29 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 25cb846b8e3a2200636dff0f2acfc25244a5e3d4
-ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.openlocfilehash: 3e86bf066cd48f804ba40497333e3e317ce0213a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709003"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75805013"
 ---
-# <a name="deploy-app-service-in-an-offline-environment-in-azure-stack"></a>App Service üzembe helyezése offline környezetben Azure Stack
+# <a name="deploy-app-service-in-an-offline-environment-in-azure-stack-hub"></a>App Service üzembe helyezése offline környezetben Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Alkalmazza a 1907-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a Azure App Service 1,7 üzembe helyezése előtt.
+> Alkalmazza az 1907-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,7 telepítése előtt.
 
-A cikkben található utasításokat követve telepítheti a [app Service erőforrás-szolgáltatót](azure-stack-app-service-overview.md) egy olyan Azure stack-környezetbe, amely a következő:
+A cikkben található utasításokat követve telepítheti a [app Service erőforrás-szolgáltatót](azure-stack-app-service-overview.md) egy Azure stack hub-környezetbe, amely a következő:
 
 - Nem kapcsolódik az internethez.
 - Active Directory összevonási szolgáltatások (AD FS) (AD FS) védi.
 
 > [!IMPORTANT]
-> Az erőforrás-szolgáltató telepítőjének futtatása előtt győződjön meg arról, hogy végrehajtotta a [app Service telepítésének előfeltételei](azure-stack-app-service-before-you-get-started.md)című témakör lépéseit Azure stack. Emellett olvassa el a 1,7-es kiadáshoz mellékelt [kibocsátási megjegyzéseket](azure-stack-app-service-release-notes-update-seven.md) , amelyekkel megismerheti az új funkciókat, javításokat és az üzembe helyezést befolyásoló ismert problémákat.
+> Az erőforrás-szolgáltatói telepítő futtatása előtt ellenőrizze, hogy végrehajtotta-e a [App Service Azure stack hub-on való üzembe helyezésének előfeltételei](azure-stack-app-service-before-you-get-started.md)című témakör lépéseit. Emellett olvassa el a 1,7-es kiadáshoz mellékelt [kibocsátási megjegyzéseket](azure-stack-app-service-release-notes-update-seven.md) , amelyekkel megismerheti az új funkciókat, javításokat és az üzembe helyezést befolyásoló ismert problémákat.
 
-Ha a App Service erőforrás-szolgáltatót a kapcsolat nélküli Azure Stack üzembe helyezéshez szeretné adni, el kell végeznie ezeket a legfelső szintű feladatokat:
+Ha a App Service erőforrás-szolgáltatót a kapcsolat nélküli Azure Stack hub-telepítéshez szeretné hozzáadni, el kell végeznie ezeket a legfelső szintű feladatokat:
 
 1. Hajtsa végre az [előfeltételként szükséges lépéseket](azure-stack-app-service-before-you-get-started.md) (például a tanúsítványok megvásárlása, amely igénybe vehet néhány napot).
 2. [Töltse le és csomagolja ki a telepítési és a segítő fájlokat](azure-stack-app-service-before-you-get-started.md) egy internethez csatlakozó gépre.
@@ -59,11 +59,11 @@ A App Service offline környezetben történő telepítéséhez először hozzon
 
     ![Az offline telepítési csomag sikeresen létrejött App Service telepítőben](media/azure-stack-app-service-deploy-offline/image02.png)
 
-4. Másolja a telepítőt (AppService. exe) és az offline telepítőcsomagot a Azure Stack gazdagépre.
+4. Másolja a telepítőt (AppService. exe) és az offline telepítőcsomagot a Azure Stack hub-gazdagépre.
 
-## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>App Service offline telepítésének befejezése Azure Stack
+## <a name="complete-the-offline-installation-of-app-service-on-azure-stack-hub"></a>App Service offline telepítésének befejezése Azure Stack hub-on
 
-1. Futtassa a appservice. exe fájlt rendszergazdaként egy olyan számítógépről, amely elérheti a Azure Stack felügyeleti Azure erőforrás-kezelési végpontját.
+1. Futtassa a appservice. exe fájlt rendszergazdaként egy olyan számítógépről, amely elérheti az Azure Stack hub rendszergazdai Azure Resource Management végpontját.
 
 1. Válassza a **speciális** > az **Offline telepítés befejezése**lehetőséget.
 
@@ -77,25 +77,25 @@ A App Service offline környezetben történő telepítéséhez először hozzon
 
 1. Tekintse át és fogadja el a harmadik féltől származó licencfeltételeket, majd kattintson a **tovább**gombra.
 
-1. Győződjön meg arról, hogy a App Service felhő konfigurációs adatai helyesek. Ha a ASDK telepítése során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack telepítésekor vagy egy integrált rendszeren való üzembe helyezéskor testreszabta a beállításokat, akkor az ebben az ablakban található értékeket kell szerkesztenie, hogy azok tükrözzék ezeket a módosításokat. Ha például a mycloud.com tartományi utótagot használja, akkor a Azure Stack bérlő Azure Resource Manager végpontjának `management.<region>.mycloud.com`re kell váltania. Az adatok megerősítése után válassza a **tovább**lehetőséget.
+1. Győződjön meg arról, hogy a App Service felhő konfigurációs adatai helyesek. Ha a ASDK telepítése során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor vagy egy integrált rendszeren való üzembe helyezéskor testreszabta a beállításokat, akkor az ebben az ablakban található értékeket kell szerkesztenie, hogy azok tükrözzék ezeket a módosításokat. Ha például a mycloud.com tartományi utótagot használja, akkor a Azure Stack hub-bérlő Azure Resource Manager végpontjának `management.<region>.mycloud.com`re kell váltania. Az adatok megerősítése után válassza a **tovább**lehetőséget.
 
     ![Azure App Service-felhő konfigurálása App Service telepítőben][3]
 
 1. A következő oldalon:
 
-   a. Kattintson a **Azure stack-előfizetések** mező melletti **Kapcsolódás** gombra. 
+   a. Kattintson az **Azure stack hub-előfizetések** mező melletti **Kapcsolódás** gombra. 
 
    b. Adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszavát, majd válassza a **Bejelentkezés**lehetőséget.
 
-   c. Az **Azure stack-előfizetések** mezőben válassza az **alapértelmezett szolgáltatói előfizetés**lehetőséget.
+   c. Az **Azure stack hub-előfizetések** mezőben válassza az **alapértelmezett szolgáltatói előfizetés**lehetőséget.
    > [!NOTE]
    > App Service csak az **alapértelmezett szolgáltatói előfizetésbe**helyezhető üzembe.
 
-   d. A **Azure stack helyek** mezőben válassza ki azt a helyet, amely a központilag üzembe helyezett régiónak felel meg. Ha például üzembe helyezi a ASDK, válassza a **helyi**lehetőséget.
+   d. Az **Azure stack hub-helyek** mezőben válassza ki azt a helyet, amely a központilag üzembe helyezett régiónak felel meg. Ha például üzembe helyezi a ASDK, válassza a **helyi**lehetőséget.
 
    e. Kattintson a **Tovább** gombra.
 
-      ![Azure Stack-előfizetések és-helyszínek a App Service telepítőben][4]
+      ![Azure Stack hub-előfizetések és-telephelyek App Service telepítőben][4]
 
 1. Lehetővé teheti, hogy a App Service telepítőjének virtuális hálózatot és társított alhálózatokat hozzon létre. Vagy egy meglévő virtuális hálózatba is telepítheti [ezeket a lépéseket](azure-stack-app-service-before-you-get-started.md#virtual-network).
    - A App Service telepítő módszer használatához válassza a **VNet létrehozása alapértelmezett beállításokkal**lehetőséget, fogadja el az alapértelmezett beállításokat, majd kattintson a **tovább**gombra.
@@ -127,9 +127,9 @@ A App Service offline környezetben történő telepítéséhez először hozzon
 
     | Box | Példa tanúsítványfájl-fájlnévre |
     | --- | --- |
-    | **Alapértelmezett SSL-tanúsítványfájl App Service** | \_.appservice.local.AzureStack.external.pfx |
-    | **App Service API SSL-tanúsítványfájl** | api.appservice.local.AzureStack.external.pfx |
-    | **App Service közzétevő SSL-tanúsítványfájl** | ftp.appservice.local.AzureStack.external.pfx |
+    | **Alapértelmezett SSL-tanúsítványfájl App Service** | \_. appservice. local. AzureStack. external. pfx |
+    | **App Service API SSL-tanúsítványfájl** | API. appservice. local. AzureStack. external. pfx |
+    | **App Service közzétevő SSL-tanúsítványfájl** | FTP. appservice. local. AzureStack. external. pfx |
 
     Ha a tanúsítványok létrehozásakor eltérő tartományi utótagot használt, a tanúsítványfájl neve nem a helyi nevet használja *. AzureStack. external*. Ehelyett használja az egyéni tartomány adatait.
 
@@ -140,7 +140,7 @@ A App Service offline környezetben történő telepítéséhez először hozzon
     > [!NOTE]
     > A telepítő megkísérli a SQL Server rendszert futtató számítógép kapcsolatának tesztelését a továbblépés előtt. Ha azonban egy meglévő virtuális hálózatba helyezi üzembe a telepítést, előfordulhat, hogy a telepítő nem tud csatlakozni a SQL Server rendszerű számítógéphez, és figyelmeztetést jelenít meg arról, hogy folytatni kívánja-e a telepítést. Ellenőrizze a SQL Server információt, és ha helyes, folytassa a művelettel.
     >
-    > A Azure App Service Azure Stack 1,3-től kezdve a telepítő ellenőrzi, hogy a SQL Server futtató számítógép SQL Server szinten engedélyezve van-e az adatbázis-tárolás. Ha nem, a rendszer a következő kivételt kéri:
+    > A Azure App Service Azure Stack hub 1,3-as és újabb verziójában a telepítő ellenőrzi, hogy a SQL Server futtató számítógép SQL Server szinten engedélyezve van-e az adatbázis-tárolás. Ha nem, a rendszer a következő kivételt kéri:
     > ```sql
     >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
     >    ***********************************************************
@@ -150,29 +150,29 @@ A App Service offline környezetben történő telepítéséhez először hozzon
     >    GO
     >    ***********************************************************
     > ```
-    > További részletekért tekintse [meg a Azure App Service Azure Stack 1,3 kibocsátási megjegyzéseit](azure-stack-app-service-release-notes-update-three.md).
+    > További részletekért tekintse [meg a Azure stack Hub 1,3-es verziójának Azure app Service kibocsátási megjegyzéseit](azure-stack-app-service-release-notes-update-three.md).
 
     ![Adja meg SQL Server info App Service telepítőben][12]
 
 1. Tekintse át a szerepkör-példány és az SKU beállításait. Az alapértelmezett érték a példányok minimális száma, valamint az egyes szerepkörök minimális SKU-jának ASDK-telepítésben való feltöltése. A vCPU és a memória követelményeinek összefoglalása az üzemelő példány megtervezéséhez nyújt segítséget. A kijelölések után válassza a **tovább**lehetőséget.
 
      > [!NOTE]
-     > Éles üzembe helyezés esetén kövesse a [Azure Stack Azure app Service kiszolgálói szerepkörök kapacitásának megtervezése](azure-stack-app-service-capacity-planning.md)című témakör útmutatását.
+     > Éles üzembe helyezések esetén kövesse az [Azure stack Hub Azure app Service kiszolgálói szerepkörök kapacitásának megtervezése](azure-stack-app-service-capacity-planning.md)című témakör útmutatását.
      >
      >
 
     | Szerepkör | Minimális példányszám | Minimális SKU | Megjegyzések |
     | --- | --- | --- | --- |
     | Tartományvezérlő | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Felügyeli és karbantartja a App Service felhő állapotát. |
-    | Kezelés | 1 | Standard_A2 – (2 vCPU, 3584 MB) | A App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelje az ajánlott példányokat 2-ra. |
-    | Közzétevő | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
+    | Felügyelet | 1 | Standard_A2 – (2 vCPU, 3584 MB) | A App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelje az ajánlott példányokat 2-ra. |
+    | Gyártó/kiadó | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
     | Előtér | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Átirányítja a kérelmeket App Service alkalmazásokba. |
     | Megosztott feldolgozók | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Webes vagy API-alkalmazásokat, valamint Azure Functions alkalmazásokat üzemeltet. Előfordulhat, hogy további példányokat szeretne hozzáadni. Operátorként megadhatja az ajánlatát, és kiválaszthatja az SKU-szintet. A rétegeknek legalább egy vCPU kell rendelkezniük. |
 
     ![Szerepkörök szintjeinek és SKU-beállításainak megadása App Service telepítőben][14]
 
     > [!NOTE]
-    > A Windows Server 2016 Core *nem* támogatott platform-rendszerkép, amellyel a Azure app Service Azure stack.  Éles környezetben ne használjon próbaverziókat. A Azure App Service on Azure Stack megköveteli, hogy a Microsoft .NET 3.5.1 SP1 legyen aktiválva az üzembe helyezéshez használt rendszerképben. Piactér – a Windows Server 2016-lemezképek nem rendelkeznek ezzel a szolgáltatással. Ezért egy Windows Server 2016 rendszerképet kell létrehoznia és használnia ezzel a szolgáltatással előre engedélyezve.
+    > A Windows Server 2016 Core *nem* támogatott platform-rendszerkép a Azure app Service Azure stack hub-ban való használatához.  Éles környezetben ne használjon próbaverziókat. A Azure App Service on Azure Stack hub megköveteli, hogy a Microsoft .NET 3.5.1 SP1 legyen aktiválva az üzembe helyezéshez használt rendszerképben. Piactér – a Windows Server 2016-lemezképek nem rendelkeznek ezzel a szolgáltatással. Ezért egy Windows Server 2016 rendszerképet kell létrehoznia és használnia ezzel a szolgáltatással előre engedélyezve.
 
 1. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a app Service felhő számítási erőforrás-szolgáltatóján elérhető rendszerképekből. Kattintson a **Tovább** gombra.
 
@@ -191,7 +191,7 @@ A App Service offline környezetben történő telepítéséhez először hozzon
     ![A App Service-telepítőben végrehajtott Kijelölések összegzése][17]
 
 1. A következő oldalon:
-    1. A telepítési folyamat nyomon követése. A App Service on Azure Stack az alapértelmezett beállítások alapján körülbelül 60 percet vesz igénybe.
+    1. A telepítési folyamat nyomon követése. A App Service on Azure Stack hub az alapértelmezett beállítások alapján körülbelül 60 percet vesz igénybe.
     2. Miután a telepítő befejezte a futtatást, válassza a **Kilépés**lehetőséget.
 
     ![App Service telepítőjének telepítési folyamatának követése][18]
@@ -213,26 +213,26 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 - Prioritás: 700
 - Név: Outbound_Allow_SMB445
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>Azure Stack telepítés App Service ellenőrzése
+## <a name="validate-the-app-service-on-azure-stack-hub-installation"></a>Azure Stack hub-telepítés App Service ellenőrzése
 
-1. A Azure Stack felügyeleti portálon lépjen a **felügyelet-app Service**elemre.
+1. Az Azure Stack hub felügyeleti portálján lépjen a **felügyelet – app Service**elemre.
 
 1. Az Áttekintés területen az állapot alatt ellenőrizze, hogy az **állapot** megjeleníti-e az **összes szerepkört**.
 
     ![Az App Service felügyeletének áttekintése](media/azure-stack-app-service-deploy/image12.png)
 
-## <a name="test-drive-app-service-on-azure-stack"></a>App Service tesztelése Azure Stack
+## <a name="test-drive-app-service-on-azure-stack-hub"></a>App Service tesztelése Azure Stack központban
 
 A App Service erőforrás-szolgáltató üzembe helyezése és regisztrálása után ellenőrizze, hogy a felhasználók telepíthetnek-e webes és API-alkalmazásokat.
 
 > [!NOTE]
 > Létre kell hoznia egy ajánlatot, amely a csomagon belül a Microsoft. Web névtérrel rendelkezik. Ezután egy bérlői előfizetéssel kell rendelkeznie, amely Előfizet erre az ajánlatra. További információért lásd az [ajánlat létrehozása](azure-stack-create-offer.md) és a [terv létrehozása](azure-stack-create-plan.md)című témakört.
 >
-> A App Servicet Azure Stack használó alkalmazások létrehozásához bérlői előfizetéssel *kell* rendelkeznie. A szolgáltatás-rendszergazda által a felügyeleti portálon elvégezhető képességek a App Service erőforrás-szolgáltatói felügyeletéhez kapcsolódnak. Ezek a képességek többek között a kapacitás hozzáadását, a telepítési források konfigurálását, valamint a feldolgozói rétegek és az SKU-ket adja
+> A App Service Azure Stack hub-on használó alkalmazások létrehozásához bérlői előfizetéssel *kell* rendelkeznie. A szolgáltatás-rendszergazda által a felügyeleti portálon elvégezhető képességek a App Service erőforrás-szolgáltatói felügyeletéhez kapcsolódnak. Ezek a képességek többek között a kapacitás hozzáadását, a telepítési források konfigurálását, valamint a feldolgozói rétegek és az SKU-ket adja
 >
 > A harmadik technikai előzetes verziótól kezdve a webes, API-és Azure Functions alkalmazások létrehozásához a bérlői portált kell használnia, és bérlői előfizetéssel kell rendelkeznie.
 
-1. A Azure Stack bérlői portálon válassza az **+ erőforrás létrehozása** > **web és mobil** > **webalkalmazás**lehetőséget.
+1. Az Azure Stack hub-bérlői portálon válassza az **+ erőforrás létrehozása** > **web és mobil** > **webalkalmazás**lehetőséget.
 
 1. A **Web App (webalkalmazás** ) panelen írja be a kívánt nevet a **Web App (webalkalmazás** ) mezőbe.
 
@@ -250,15 +250,15 @@ A App Service erőforrás-szolgáltató üzembe helyezése és regisztrálása u
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress-, DNN-vagy Django-webhely üzembe helyezése (opcionális)
 
-1. A Azure Stack bérlői portálon válassza a **+** lehetőséget, lépjen az Azure Marketplace webhelyre, helyezzen üzembe egy Django-webhelyet, és várja meg a sikeres befejezést. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
+1. Az Azure Stack hub-bérlői portálon válassza a **+** lehetőséget, lépjen az Azure Marketplace webhelyre, helyezzen üzembe egy Django-webhelyet, és várjon a sikeres befejezésre. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
 
 1. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a WordPress-webhelyet üzembe helyezheti az Azure piactéren. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
 
 1. Ha SQL Server erőforrás-szolgáltatót is üzembe helyezett, üzembe helyezhet egy DNN-webhelyet az Azure piactéren. Ha a rendszer az adatbázis paramétereinek megadását kéri, válasszon egy adatbázist az erőforrás-szolgáltatóhoz csatlakoztatott SQL Servert futtató számítógépen.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További rendszergazdai műveletek előkészítése a Azure Stack App Serviceához:
+Felkészülés további rendszergazdai műveletekre Azure Stack hub App Service:
 
 - [Kapacitástervezés](azure-stack-app-service-capacity-planning.md)
 - [Központi telepítés forrásának konfigurálása](azure-stack-app-service-configure-deployment-sources.md)

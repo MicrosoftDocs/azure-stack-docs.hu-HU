@@ -1,6 +1,6 @@
 ---
-title: Alkalmazás üzembe helyezése a Azure Stackban | Microsoft Docs
-description: Alkalmazás üzembe helyezése Azure Stack.
+title: Alkalmazás üzembe helyezése Azure Stack hub-ban | Microsoft Docs
+description: Alkalmazás üzembe helyezése Azure Stack hubhoz.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4d8dbc22a69c204b8d6a755d2a8402ba7185d03e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5f29fd7a0d2ab8df9d713927b7e9bada38d0e249
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824734"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820678"
 ---
-# <a name="common-deployments-for-azure-stack"></a>A Azure Stack gyakori központi telepítései
+# <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack hub általános telepítései
 
-Azure Stack támogatja a szolgáltatásként szolgáló infrastruktúra (IaaS) és a szolgáltatásként szolgáló platform (Pásti) használatát. Ez a cikk a virtuális gép (VM) beállításához és a Azure Stack való üzembe helyezéséhez szükséges erőforrásokat sorolja fel.
+A Azure Stack hub a szolgáltatásként szolgáló infrastruktúra (IaaS) és a szolgáltatásként szolgáló platform (Péter) használatát is támogatja. Ez a cikk a virtuális gép (VM) beállításához és a Azure Stack hubhoz való üzembe helyezéséhez szükséges erőforrásokat sorolja fel.
 
-## <a name="before-you-begin"></a>Előkészületek
+## <a name="before-you-begin"></a>Előzetes teendők
 
-Mielőtt elkezdené az alkalmazás üzembe helyezését a Azure Stackban, állítsa be a fejlesztői gépet. A Azure Stack fejlesztőknek való együttműködésre való felkészüléssel kapcsolatos utasításokért tekintse meg [a fejlesztési környezet beállítása Azure stack-ben](azure-stack-dev-start.md)című témakört.
+Mielőtt elkezdené az alkalmazás központi telepítését Azure Stack hubhoz, állítsa be a fejlesztői gépet. Az Azure Stack hub fejlesztőként való működésének előkészítésével kapcsolatos útmutatásért lásd: [fejlesztési környezet beállítása Azure stack hub-ban](azure-stack-dev-start.md).
 
 ## <a name="deploy-an-app-to-a-vm"></a>Alkalmazás üzembe helyezése egy virtuális gépen
 
-A következő útmutató cikkeiben virtuális gépet (VM) állít be Azure Stack, majd üzembe helyezheti az alkalmazást a fejlesztői munkaállomásról a Azure Stack.
+A következő útmutató cikkeiben virtuális gépet (VM) állít be Azure Stack hub-ban, majd üzembe helyezheti az alkalmazást a fejlesztői munkaállomásról Azure Stack hubhoz.
 
 - [.NET Core (C#)](azure-stack-dev-start-howto-vm-dotnet.md)
 - [Java](azure-stack-dev-start-howto-vm-java.md)
@@ -35,7 +35,7 @@ A következő útmutató cikkeiben virtuális gépet (VM) állít be Azure Stack
 - [Python](azure-stack-dev-start-howto-vm-python.md)
 - [NodeJS](azure-stack-dev-start-howto-vm-nodejs.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Fejlesztési környezet beállítása Azure Stackban](azure-stack-dev-start.md).
-- [Folyamatos integrációs és folyamatos teljesítési (CI/CD) folyamat beállítása Azure Stackban](azure-stack-solution-pipeline.md).
+- [Fejlesztési környezet beállítása Azure stack központban](azure-stack-dev-start.md).
+- [Folyamatos integrációs/folyamatos szállítási (CI/CD) folyamat beállítása Azure stack hub-ban](azure-stack-solution-pipeline.md).

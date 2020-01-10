@@ -1,6 +1,6 @@
 ---
 title: SQL-adatbázisok létrehozása
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan hozhat létre és kezelhet SQL-erőforrás-szolgáltatói adapter használatával kiépített SQL-adatbázisokat.
 services: azure-stack
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: f6c030767ba64aa3c8acd47d5b358a4b385785ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954536"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814541"
 ---
 # <a name="create-sql-databases"></a>SQL-adatbázisok létrehozása
 
-Önkiszolgáló adatbázisokat a felhasználói portálon hozhat létre és kezelhet. Az Azure Stack felhasználóknak olyan előfizetésre van szükségük, amely tartalmazza az SQL Database szolgáltatást.
+Önkiszolgáló adatbázisokat a felhasználói portálon hozhat létre és kezelhet. Az Azure Stack hub-felhasználóknak olyan előfizetésre van szükségük, amely tartalmazza az SQL Database szolgáltatást.
 
-1. Jelentkezzen be a [Azure stack](azure-stack-overview.md) felhasználói portálra.
+1. Jelentkezzen be az [Azure stack hub](azure-stack-overview.md) felhasználói portálra.
 
 2. Válassza az **+ új** &gt;**adattároló** &gt; **SQL Server adatbázis** &gt; **Hozzáadás**lehetőséget.
 
@@ -40,10 +40,10 @@ ms.locfileid: "74954536"
 
 4. Az **adatbázis létrehozása**területen válassza az **SKU**lehetőséget. Az **SKU kiválasztása**területen válassza ki az adatbázishoz tartozó SKU-t.
 
-   ![Adatbázis létrehozása Azure Stack felhasználói portálon.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Adatbázis létrehozása Azure Stack hub felhasználói portálon.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >Mivel a szolgáltatói kiszolgálók hozzáadódnak a Azure Stackhoz, egy SKU-t kapnak hozzájuk. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
+   >Mivel az üzemeltetési kiszolgálókat Azure Stack hubhoz adja hozzá, a rendszer hozzárendel egy SKU-t. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
 
 5. Válassza a **Bejelentkezés**lehetőséget.
 
@@ -54,7 +54,7 @@ ms.locfileid: "74954536"
    >[!NOTE]
    >Ezek a beállítások az adatbázishoz való hozzáféréshez létrehozott SQL-hitelesítési hitelesítő adatok. A bejelentkezési felhasználónévnek globálisan egyedinek kell lennie. A bejelentkezési beállításokat felhasználhatja más olyan adatbázisok esetén, amelyek ugyanazt az SKU-t használják.
 
-   ![Új adatbázis-bejelentkezés létrehozása Azure Stack felhasználói portálon](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Új adatbázis-bejelentkezés létrehozása Azure Stack hub felhasználói portálon](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. Az adatbázis központi telepítésének befejezéséhez kattintson **az OK gombra** .
 

@@ -1,6 +1,6 @@
 ---
-title: Bővítmény-gazdagép előkészítése Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan készítheti elő a bővítmény-gazdagépet a Azure Stackban, amely automatikusan engedélyezve van egy Azure Stack frissítési csomagban a 1808-es verzió után.
+title: Felkészülés a bővítmény gazdagépére Azure Stack hub-ban | Microsoft Docs
+description: Megtudhatja, hogyan készítheti elő a bővítmények gazdagépét Azure Stack hub-ban, amely a 1808-es verzió után automatikusan engedélyezve van egy Azure Stack hub-frissítési csomagon keresztül.
 services: azure-stack
 keywords: ''
 author: mattbriggs
@@ -11,18 +11,18 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 45a26354edb7939a5fbc241bb5bcaf5d9db8edf3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019274"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818389"
 ---
-# <a name="prepare-for-extension-host-in-azure-stack"></a>Bővítmény-gazdagép előkészítése Azure Stackban
+# <a name="prepare-for-extension-host-in-azure-stack-hub"></a>A bővítmény-gazdagép előkészítése Azure Stack központban
 
-A bővítmény-gazdagép a szükséges TCP/IP-portok számának csökkentésével biztonságossá teszi Azure Stack. Ez a cikk a 1808-es frissítés után a Azure Stack frissítési csomagban automatikusan engedélyezett bővítmény-gazdagép Azure Stack előkészítését vizsgálja. Ez a cikk a 1808, 1809 és 1811 Azure Stack frissítésekre vonatkozik.
+A bővítmény-gazdagép a szükséges TCP/IP-portok számának csökkentésével biztonságossá teszi Azure Stack hubot. Ez a cikk az 1808-es frissítés után az Azure Stack hub-frissítési csomagon keresztül automatikusan engedélyezett bővítmény-gazdagépre vonatkozó Azure Stack hub előkészítését vizsgálja. Ez a cikk a 1808-es, 1809-as és 1811-es Azure Stack hub-frissítésekre vonatkozik.
 
-## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
+## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 
 A bővítmény-gazdagép két új tartományi névteret valósít meg az egyes portál-bővítmények egyedi gazdagép-bejegyzéseinek biztosításához. Az új tartományi névtereknek két további helyettesítő tanúsítványra van szükségük a biztonságos kommunikáció biztosításához.
 
@@ -30,22 +30,22 @@ A tábla az új névtereket és a hozzájuk tartozó tanúsítványokat jelenít
 
 | Telepítési mappa | Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN) | Hatókör (régiónként) | Altartomány névtere |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Felügyeleti bővítmény gazdagépe | *. adminhosting. \<region >. \<fqdn > (helyettesítő SSL-tanúsítványok) | Felügyeleti bővítmény gazdagépe | adminhosting.\<region>.\<fqdn> |
-| Nyilvános kiterjesztésű gazdagép | *. hosting. \<region >. \<fqdn > (helyettesítő karakteres SSL-tanúsítványok) | Nyilvános kiterjesztésű gazdagép | hosting.\<region>.\<fqdn> |
+| Felügyeleti bővítmény gazdagépe | *.adminhosting.\<régió >.\<FQDN > (helyettesítő karakteres SSL-tanúsítványok) | Felügyeleti bővítmény gazdagépe | adminhosting.\<régió >.\<FQDN > |
+| Nyilvános kiterjesztésű gazdagép | *. hosting.\<régió >.\<FQDN > (helyettesítő karakteres SSL-tanúsítványok) | Nyilvános kiterjesztésű gazdagép | üzemeltetési.\<régió >.\<FQDN > |
 
-A tanúsítványokra vonatkozó részletes követelményekért lásd: [Azure stack a nyilvános kulcsokra épülő infrastruktúra tanúsítványára vonatkozó követelmények](azure-stack-pki-certs.md).
+A tanúsítványokra vonatkozó részletes követelményekért lásd: [Azure stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények](azure-stack-pki-certs.md).
 
 ## <a name="create-certificate-signing-request"></a>Tanúsítvány-aláírási kérelem létrehozása
 
-A Azure Stack készültség-ellenőrző eszköz lehetővé teszi tanúsítvány-aláírási kérelem létrehozását a két új és szükséges SSL-tanúsítványhoz. Kövesse a következő cikkben ismertetett lépéseket: [Azure stack tanúsítvány-aláírási kérelem létrehozása](azure-stack-get-pki-certs.md).
+Az Azure Stack hub Readiness-ellenőrző eszköz lehetővé teszi tanúsítvány-aláírási kérelem létrehozását a két új és szükséges SSL-tanúsítványhoz. Kövesse az [Azure stack hub-tanúsítványok aláírási kérelmének létrehozása](azure-stack-get-pki-certs.md)című cikkben ismertetett lépéseket.
 
 > [!Note]  
 > Ezt a lépést az SSL-tanúsítványok igénylésének módjától függően kihagyhatja.
 
 ## <a name="validate-new-certificates"></a>Új tanúsítványok ellenőrzése
 
-1. Nyissa meg a PowerShellt emelt szintű engedélyekkel a hardver életciklus-gazdagépen vagy a Azure Stack felügyeleti munkaállomáson.
-2. Futtassa a következő parancsmagot a Azure Stack Readiness-ellenőrző eszköz telepítéséhez:
+1. Nyissa meg a PowerShellt emelt szintű engedélyekkel a hardver életciklus-gazdagépen vagy az Azure Stack hub felügyeleti munkaállomáson.
+2. Futtassa a következő parancsmagot az Azure Stack hub Readiness-ellenőrző eszköz telepítéséhez:
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -66,7 +66,7 @@ A Azure Stack készültség-ellenőrző eszköz lehetővé teszi tanúsítvány-
     > [!Note]  
     > Ha Azure Active Directory összevont szolgáltatásokkal (AD FS) végzi a telepítést, a következő könyvtárakat hozzá kell adni a **$directorieshoz** a parancsfájlban: `ADFS`, `Graph`.
 
-4. Helyezze el a meglévő tanúsítványokat, amelyeket jelenleg a Azure Stack a megfelelő címtárakban használ. Tegyük fel például, hogy a **rendszergazda ARM** -tanúsítvány a `Arm Admin` mappában található. Ezután helyezze az újonnan létrehozott üzemeltetési tanúsítványokat a `Admin extension host` és a `Public extension host` könyvtárakba.
+4. Helyezze el a meglévő tanúsítványokat, amelyeket jelenleg a Azure Stack hub-ban használ a megfelelő címtárakban. Tegyük fel például, hogy a **rendszergazda ARM** -tanúsítvány a `Arm Admin` mappában található. Ezután helyezze az újonnan létrehozott üzemeltetési tanúsítványokat a `Admin extension host` és `Public extension host` címtárakba.
 5. A tanúsítvány-ellenőrzési elindításához futtassa a következő parancsmagot:
 
     ```powershell  
@@ -80,9 +80,9 @@ A Azure Stack készültség-ellenőrző eszköz lehetővé teszi tanúsítvány-
 
 ## <a name="import-extension-host-certificates"></a>Extension Host-tanúsítványok importálása
 
-A következő lépésekhez használjon olyan számítógépet, amely képes csatlakozni a Azure Stack privilegizált végponthoz. Győződjön meg arról, hogy van hozzáférése az új tanúsítványfájl-fájlokhoz a számítógépről.
+A következő lépésekhez használjon olyan számítógépet, amely csatlakozhat a Azure Stack hub privilegizált végponthoz. Győződjön meg arról, hogy van hozzáférése az új tanúsítványfájl-fájlokhoz a számítógépről.
 
-1. A következő lépésekhez használjon olyan számítógépet, amely képes csatlakozni a Azure Stack privilegizált végponthoz. Győződjön meg arról, hogy az adott számítógépről fér hozzá az új tanúsítványfájl-fájlokhoz.
+1. A következő lépésekhez használjon olyan számítógépet, amely csatlakozhat a Azure Stack hub privilegizált végponthoz. Győződjön meg arról, hogy az adott számítógépről fér hozzá az új tanúsítványfájl-fájlokhoz.
 2. Nyissa meg a PowerShell ISE-t a következő parancsfájl-blokkok végrehajtásához.
 3. Importálja a tanúsítványt a rendszergazdai üzemeltetési végpont számára.
 
@@ -125,22 +125,22 @@ A következő lépésekhez használjon olyan számítógépet, amely képes csat
 
 > [!Note]  
 > Erre a lépésre nincs szükség, ha DNS-zónák delegálását használta a DNS-integrációhoz.
-Ha az egyes gazdagépeken rekordok vannak konfigurálva Azure Stack végpontok közzétételére, két további gazdagépet kell létrehoznia:
+Ha az egyes gazdagépeken rekordok vannak konfigurálva Azure Stack hub-végpontok közzétételére, két további gazdagépet kell létrehoznia:
 
-| IP | Gazdagépnév | Type |
+| IP | Gazdanév | Type (Típus) |
 |----|------------------------------|------|
-| \<IP> | *. Adminhosting. \<Region >. \<FQDN > | A |
-| \<IP> | *. Hosting. \<Region >. \<FQDN > | A |
+| \<IP-> | *. Adminhosting.\<régió >.\<FQDN > | A |
+| \<IP-> | *. Üzemeltetési.\<régió >.\<FQDN > | A |
 
 A lefoglalt IP-címeket a **Get-AzureStackStampInformation**parancsmag futtatásával kérheti le a privilegizált végpont használatával.
 
 ### <a name="ports-and-protocols"></a>Portok és protokollok
 
-A [Azure stack adatközpont-integráció – közzétételi végpontok azokat](azure-stack-integrate-endpoints.md) a portokat és protokollokat fedik le, amelyeken bejövő kommunikáció szükséges a Azure stack közzétételéhez a bővítmény gazdagépének bevezetése előtt.
+A [Azure stack hub Datacenter-integráció – közzétételi végpontok azokat](azure-stack-integrate-endpoints.md) a portokat és protokollokat fedik le, amelyeken bejövő Azure stack kommunikációra van szükség a bővítmény gazdagépének bevezetéséhez.
 
 ### <a name="publish-new-endpoints"></a>Új végpontok közzététele
 
-Két új végpont szükséges a tűzfalon keresztül történő közzétételhez. A nyilvános VIP-készletből kiosztott IP-címek a következő kóddal olvashatók be, amelyet a Azure Stack-környezet emelt [szintű végpontján](azure-stack-privileged-endpoint.md)kell futtatni.
+Két új végpont szükséges a tűzfalon keresztül történő közzétételhez. A nyilvános VIP-készletből lefoglalt IP-címek a következő kóddal olvashatók be, amelyet az Azure Stack hub-környezet emelt [szintű végpontján](azure-stack-privileged-endpoint.md)kell futtatni.
 
 ```powershell
 # Create a PEP Session
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Hub Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -171,7 +171,7 @@ Else {
 Remove-PSSession -Session $PEPSession
 ```
 
-#### <a name="sample-output"></a>Minta kimenete
+#### <a name="sample-output"></a>Minta kimenet
 
 ```powershell
 Can access AZS DNS
@@ -182,31 +182,31 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ```
 
 > [!Note]  
-> Ezt a módosítást a bővítmény gazdagépének engedélyezése előtt végezze el. Ez lehetővé teszi, hogy a Azure Stack portálok folyamatosan elérhetők legyenek.
+> Ezt a módosítást a bővítmény gazdagépének engedélyezése előtt végezze el. Ez lehetővé teszi, hogy az Azure Stack hub-portálok folyamatosan elérhetők legyenek.
 
-| Végpont (VIP) | Protocol | Portok |
+| Végpont (VIP) | Protocol (Protokoll) | Portok |
 |----------------|----------|-------|
-| Admin Hosting | HTTPS | 443 |
-| Hosting | HTTPS | 443 |
+| Rendszergazdai üzemeltetés | HTTPS | 443 |
+| Üzemeltetés | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Meglévő közzétételi szabályok frissítése (a bővítmény gazdagépének engedélyezése után)
 
 > [!Note]  
-> Az 1808 Azure Stack frissítési csomag még **nem** engedélyezi a bővítmény gazdagépét. Lehetővé teszi a bővítmények gazdagépének előkészítését a szükséges tanúsítványok importálásával. Ne zárjunk be minden portot, mielőtt az 1808-es frissítés után automatikusan engedélyezve van a bővítmény állomása egy Azure Stack frissítési csomagon keresztül.
+> Az 1808 Azure Stack hub frissítési csomagja még **nem** engedélyezi a bővítmény gazdagépét. Lehetővé teszi a bővítmények gazdagépének előkészítését a szükséges tanúsítványok importálásával. Ne zárjunk be minden portot, mielőtt az 1808-es frissítés után automatikusan engedélyezve van a bővítmény állomása egy Azure Stack hub-frissítési csomagon keresztül.
 
 A meglévő tűzfalszabályok következő meglévő végpont-portjait be kell zárni.
 
 > [!Note]  
 > A sikeres ellenőrzés után a portok bezárását javasoljuk.
 
-| Végpont (VIP) | Protocol | Portok |
+| Végpont (VIP) | Protocol (Protokoll) | Portok |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Portál (rendszergazda) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | Portál (felhasználó) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | Azure Resource Manager (rendszergazda) | HTTPS | 30024 |
 | Azure Resource Manager (felhasználó) | HTTPS | 30024 |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a [tűzfal-integrációról](azure-stack-firewall.md).
-- Tudnivalók a [Azure stack tanúsítvány-aláírási kérelmek létrehozásáról](azure-stack-get-pki-certs.md).
+- Tudnivalók a [Azure stack hub-tanúsítványok aláírási kérelmének létrehozásáról](azure-stack-get-pki-certs.md).

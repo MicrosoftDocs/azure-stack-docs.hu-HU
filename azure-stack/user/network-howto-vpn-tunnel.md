@@ -1,6 +1,6 @@
 ---
-title: Több helyek közötti VPN-alagút beállítása Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan állíthat be több helyek közötti VPN-alagutat Azure Stack-ben.
+title: Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban | Microsoft Docs
+description: Ismerje meg, hogyan állíthat be több helyek közötti VPN-alagutat Azure Stack hub-ban.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,18 +9,18 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: d85de1892e2e6620249ff3a95ee2debb01b81981
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: fc3a49e5e65952ebc687b1e83218e7f497b1d7b7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167662"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815357"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack"></a>Több helyek közötti VPN-alagút beállítása Azure Stack
+# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk bemutatja, hogyan használható Azure Stack Resource Manager-sablon a megoldás üzembe helyezéséhez. A megoldás több, társított virtuális hálózattal rendelkező erőforráscsoportot hoz létre, és hogyan lehet ezeket a rendszereket összekapcsolni.
+Ez a cikk bemutatja, hogyan használható a megoldás a Azure Stack hub Resource Manager-sablonnal. A megoldás több, társított virtuális hálózattal rendelkező erőforráscsoportot hoz létre, és hogyan lehet ezeket a rendszereket összekapcsolni.
 
 A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A sablon az **RRAS-GRE-vnet-vnet** mappában található. 
 
@@ -34,7 +34,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 -  Helyezzen üzembe egy háromrétegű alkalmazást, web, app és DB adatbázist.
 
--  Telepítse az első két sablont külön Azure Stack példányokra.
+-  Telepítse az első két sablont külön Azure Stack hub-példányokon.
 
 -  A **Webplatformot** a rendszer a PPE1-on telepíti, és a **AppTier** a PPE2-on lesz telepítve.
 
@@ -44,15 +44,15 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 ## <a name="steps-to-deploy-multiple-vpns"></a>Több virtuális magánhálózatok üzembe helyezésének lépései
 
-Ez egy több lépésből álló folyamat. Ehhez a megoldáshoz a Azure Stack portált fogja használni. Azonban használhatja a PowerShellt, az Azure CLI-t vagy más infrastruktúra-kóddal rendelkező eszközöket a kimenetek rögzítéséhez és bemenetként való felhasználásához.
+Ez egy több lépésből álló folyamat. Ebben a megoldásban az Azure Stack hub portált fogja használni. Azonban használhatja a PowerShellt, az Azure CLI-t vagy más infrastruktúra-kóddal rendelkező eszközöket a kimenetek rögzítéséhez és bemenetként való felhasználásához.
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
 
 ## <a name="walkthrough"></a>Útmutatás
 
-### <a name="deploy-web-tier-to-azure-stack-instances-ppe1"></a>Webes rétegek üzembe helyezése Azure Stack példányok PPE1
+### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Webes rétegek üzembe helyezése Azure Stack hub-példányok PPE1
 
-1.  Nyissa meg a Azure Stack felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1.  Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
 
 2.  Válassza a **sablon központi telepítése**lehetőséget.
 
@@ -69,7 +69,7 @@ Ez egy több lépésből álló folyamat. Ehhez a megoldáshoz a Azure Stack por
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
-### <a name="deploy-app-tier-to-the-second-azure-stack-instances"></a>Az alkalmazás szintjeinek üzembe helyezése a második Azure Stack példányon
+### <a name="deploy-app-tier-to-the-second-azure-stack-hub-instances"></a>Az alkalmazás szintjeinek üzembe helyezése a második Azure Stack hub-példányon
 
 Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látható különböző paramétereket:
 
@@ -80,7 +80,7 @@ Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látha
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Tekintse át a webes és az alkalmazási rétegek központi telepítéseit és a rögzítési kimeneteket
 
-1.  Ellenőrizze, hogy az üzemelő példány sikeresen befejeződött-e. Válassza a **kimenetek**lehetőséget.
+1.  Ellenőrizze, hogy az üzemelő példány sikeresen befejeződött-e. Válassza a **Kimenetek** lehetőséget.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 
@@ -96,7 +96,7 @@ Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látha
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Alagút létrehozása webes rétegekből az alkalmazás szintjéig
 
-1.  Nyissa meg a Azure Stack felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1.  Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
 
 2.  Válassza a **sablon központi telepítése**lehetőséget.
 
@@ -108,7 +108,7 @@ Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látha
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>Alagút létrehozása az alkalmazás szintjéről a webes szintjére
 
-1.  Nyissa meg a Azure Stack felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1.  Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
 
 2.  Válassza a **Template deployment** lehetőséget.
 
@@ -163,7 +163,7 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
 ### <a name="configure-app-tier-to-db-tier"></a>Az alkalmazási rétegek konfigurálása az adatbázis-szinten
 
-1.  Nyissa meg a Azure Stack felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1.  Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
 
 2.  Válassza a **Template deployment** lehetőséget.
 
@@ -201,7 +201,7 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
     > Az RDP-t az egyik gépről a másodikra is tesztelheti, a másodiktól az elsőig.
 
     > [!Note]  
-    > A megoldás helyszíni megvalósításához a Azure Stack távoli hálózatra útvonalakat kell telepítenie az infrastruktúra vagy a minimálisan meghatározott virtuális gépek esetében.
+    > A megoldás helyszíni megvalósításához a Azure Stack hub távoli hálózatára útvonalakat kell telepítenie az infrastruktúra vagy a minimálisan meghatározott virtuális gépek esetében.
 
 ### <a name="deploying-a-gre-tunnel"></a>GRE-alagút üzembe helyezése
 
@@ -213,6 +213,6 @@ A folyamat majdnem azonos. Ha azonban az alagút sablonját a meglévő infrastr
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [VPN-alagút létrehozása a GRE használatával](network-howto-vpn-tunnel-gre.md)  
 [VPN-alagút létrehozása az IPSEC használatával](network-howto-vpn-tunnel-ipsec.md)

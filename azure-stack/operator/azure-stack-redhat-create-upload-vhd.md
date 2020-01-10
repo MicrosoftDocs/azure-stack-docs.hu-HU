@@ -1,6 +1,6 @@
 ---
-title: Red Hat-alapú virtuális gép előkészítése Azure Stackhoz | Microsoft Docs
-titleSuffix: Azure Stack
+title: Red Hat-alapú virtuális gép előkészítése Azure Stack hubhoz | Microsoft Docs
+titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan hozhat létre és tölthet fel egy Red Hat Linux operációs rendszert tartalmazó Azure-beli virtuális merevlemezt (VHD-t).
 services: azure-stack
 documentationcenter: ''
@@ -18,18 +18,18 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 4a3b79a8b1b58ad3da4abf9d5a59d750aaeae0ec
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654899"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809763"
 ---
-# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Red Hat-alapú virtuális gép előkészítése Azure Stackhoz
+# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Red Hat-alapú virtuális gép előkészítése Azure Stack hubhoz
 
-Ebből a cikkből megtudhatja, hogyan készítheti elő Red Hat Enterprise Linux (RHEL) virtuális gépet (VM) a Azure Stack való használatra. A cikkben tárgyalt RHEL-verziók 7.1-es és újabb verziói. A cikkben tárgyalt, a Hyper-V, a kernel-alapú virtuális gép (KVM) és a VMware.
+Ebből a cikkből megtudhatja, hogyan készítheti elő Red Hat Enterprise Linux (RHEL) virtuális gépet (VM) Azure Stack hub-ban való használatra. A cikkben tárgyalt RHEL-verziók 7.1-es és újabb verziói. A cikkben tárgyalt, a Hyper-V, a kernel-alapú virtuális gép (KVM) és a VMware.
 
-Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
+Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack hub: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Red Hat-alapú virtuális gép előkészítése a Hyper-V kezelőjéből
 
@@ -37,14 +37,14 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
 
 ### <a name="rhel-installation-notes"></a>RHEL-telepítési megjegyzések
 
-* A Azure Stack nem támogatja a VHDX formátumot. Az Azure csak a rögzített VHD-t támogatja. A Hyper-V kezelőjével átalakíthatja a lemezt VHD formátumba, vagy használhatja a convert-VHD parancsmagot is. Ha VirtualBox-t használ, a lemez létrehozásakor válassza a **rögzített méret** lehetőséget a dinamikusan lefoglalt alapértelmezett beállítással szemben.
-* A Azure Stack csak az 1. generációs virtuális gépeket támogatja. Az 1. generációs virtuális gépeket átalakíthatja a VHDX-ből a VHD-fájlformátumba, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: [hozzon létre egy 1. vagy 2. generációs virtuális gépet a Hyper-V-ben?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure Stack hub nem támogatja a VHDX formátumot. Az Azure csak a rögzített VHD-t támogatja. A Hyper-V kezelőjével átalakíthatja a lemezt VHD formátumba, vagy használhatja a convert-VHD parancsmagot is. Ha VirtualBox-t használ, a lemez létrehozásakor válassza a **rögzített méret** lehetőséget a dinamikusan lefoglalt alapértelmezett beállítással szemben.
+* Azure Stack hub csak az 1. generációs virtuális gépeket támogatja. Az 1. generációs virtuális gépeket átalakíthatja a VHDX-ből a VHD-fájlformátumba, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: [hozzon létre egy 1. vagy 2. generációs virtuális gépet a Hyper-V-ben?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * A VHD számára engedélyezett maximális méret 1 023 GB.
 * A Linux operációs rendszer telepítésekor azt javasoljuk, hogy a logikai kötet-kezelő (LVM) helyett használjon standard partíciókat, ami gyakran az alapértelmezett a sok telepítésnél. Ezzel a gyakorlattal elkerülhető, hogy az LVM neve ütközik a klónozott virtuális gépekkel, különösen akkor, ha az operációs rendszer lemezét egy másik, azonos virtuális géphez kell csatlakoztatnia a hibaelhárításhoz.
 * Az univerzális lemezes formázású (UDF-) fájlrendszerek kernel-támogatása szükséges. Az első rendszerindítás során a vendéghez csatolt UDF formátumú adathordozó továbbítja a kiépítési konfigurációt a Linux rendszerű virtuális gépre. Az Azure Linux-ügynöknek csatlakoztatnia kell az UDF fájlrendszert a konfigurációjának olvasásához és a virtuális gép kiépítéséhez.
 * Ne állítson be swap partíciót az operációs rendszer lemezén. A Linux-ügynök úgy konfigurálható, hogy lapozófájlt hozzon létre az ideiglenes erőforrás lemezén. További információt a következő lépésekben talál.
 * Minden Azure-beli virtuális merevlemeznek 1 MB-ra igazított virtuális mérettel kell rendelkeznie. Nyers lemezről VHD-re való konvertáláskor győződjön meg arról, hogy a nyers lemez mérete 1 MB-nál több, az átalakítás előtt. További részleteket az alábbi lépésekben találhat.
-* Azure Stack támogatja a Cloud-init használatát. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához. A Cloud-init rendszerképhez való hozzáadásával kapcsolatos útmutatásért lásd: [meglévő Linux Azure-beli virtuálisgép-rendszerkép előkészítése a Cloud-init használatával](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
+* Azure Stack hub támogatja a Cloud-init-t. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához. A Cloud-init rendszerképhez való hozzáadásával kapcsolatos útmutatásért lásd: [meglévő Linux Azure-beli virtuálisgép-rendszerkép előkészítése a Cloud-init használatával](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>RHEL 7 virtuális gép előkészítése a Hyper-V kezelőjéből
 
@@ -117,7 +117,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     ClientAliveInterval 180
     ```
 
-1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es vagy újabb kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
+1. Azure Stack hub egyéni virtuális merevlemezének létrehozásakor vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack hub-környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack hubot 1903-es kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
 
     [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
 
@@ -189,7 +189,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     sudo subscription-manager unregister
     ```
 
-1. Ha vállalati hitelesítésszolgáltató használatával telepített rendszereket használ, a RHEL virtuális gép nem bízik meg a Azure Stack főtanúsítványban. Ezt a megbízható legfelső szintű tárolóba kell helyeznie. További információ: [megbízható legfelső szintű tanúsítványok hozzáadása a kiszolgálóhoz](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Ha vállalati hitelesítésszolgáltató használatával üzembe helyezett rendszereket használ, a RHEL virtuális gép nem bízik meg az Azure Stack hub főtanúsítványában. Ezt a megbízható legfelső szintű tárolóba kell helyeznie. További információ: [megbízható legfelső szintű tanúsítványok hozzáadása a kiszolgálóhoz](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Futtassa a következő parancsokat a virtuális gép megszüntetéséhez, és készítse elő az Azure-beli üzembe helyezéshez:
 
@@ -316,7 +316,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     ClientAliveInterval 180
     ```
 
-1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es vagy újabb kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
+1. Azure Stack hub egyéni virtuális merevlemezének létrehozásakor vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack hub-környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack hubot 1903-es kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
 
     [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
 
@@ -387,7 +387,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     subscription-manager unregister
     ```
 
-1. Ha vállalati hitelesítésszolgáltató használatával telepített rendszereket használ, a RHEL virtuális gép nem bízik meg a Azure Stack főtanúsítványban. Ezt a megbízható legfelső szintű tárolóba kell helyeznie. További információ: [megbízható legfelső szintű tanúsítványok hozzáadása a kiszolgálóhoz](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Ha vállalati hitelesítésszolgáltató használatával üzembe helyezett rendszereket használ, a RHEL virtuális gép nem bízik meg az Azure Stack hub főtanúsítványában. Ezt a megbízható legfelső szintű tárolóba kell helyeznie. További információ: [megbízható legfelső szintű tanúsítványok hozzáadása a kiszolgálóhoz](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Futtassa a következő parancsokat a virtuális gép megszüntetéséhez, és készítse elő az Azure-beli üzembe helyezéshez:
 
@@ -521,7 +521,7 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     ClientAliveInterval 180
     ```
 
-1. Ha Azure Stackhez egyéni virtuális merevlemezt hoz létre, vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack 1903-es vagy újabb kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
+1. Azure Stack hub egyéni virtuális merevlemezének létrehozásakor vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack hub-környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack hubot 1903-es kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
 
     [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
 
@@ -592,7 +592,7 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     sudo subscription-manager unregister
     ```
 
-1. Ha vállalati hitelesítésszolgáltató használatával telepített rendszereket használ, a RHEL virtuális gép nem bízik meg a Azure Stack főtanúsítványban. Ezt a megbízható legfelső szintű tárolóba kell helyeznie. További információ: [megbízható legfelső szintű tanúsítványok hozzáadása a kiszolgálóhoz](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Ha vállalati hitelesítésszolgáltató használatával üzembe helyezett rendszereket használ, a RHEL virtuális gép nem bízik meg az Azure Stack hub főtanúsítványában. Ezt a megbízható legfelső szintű tárolóba kell helyeznie. További információ: [megbízható legfelső szintű tanúsítványok hozzáadása a kiszolgálóhoz](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Futtassa a következő parancsokat a virtuális gép megszüntetéséhez, és készítse elő az Azure-beli üzembe helyezéshez:
 
@@ -637,7 +637,7 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Red Hat-alapú virtuális gép előkészítése ISO-fájlból egy Kickstart-fájl automatikus használatával
 
-1. Hozzon létre egy olyan Kickstart-fájlt, amely tartalmazza a következő tartalmat, és mentse a fájlt. A Cloud-init leállítása és eltávolítása nem kötelező (a Cloud-init Azure Stack post 1910 kiadásban támogatott). Az ügynököt csak a 1910-es kiadás után telepítse a RedHat-tárházból. 1910 előtt az Azure-tárházat az előző szakaszban leírtak szerint használhatja. A Kickstart telepítésével kapcsolatos részletekért tekintse meg a [Kickstart telepítési útmutatóját](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1. Hozzon létre egy olyan Kickstart-fájlt, amely tartalmazza a következő tartalmat, és mentse a fájlt. A Cloud-init leállítása és eltávolítása nem kötelező (a Cloud-init használata a Azure Stack hub 1910-es kiadásának kiadása után támogatott). Az ügynököt csak a 1910-es kiadás után telepítse a RedHat-tárházból. 1910 előtt az Azure-tárházat az előző szakaszban leírtak szerint használhatja. A Kickstart telepítésével kapcsolatos részletekért tekintse meg a [Kickstart telepítési útmutatóját](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -808,6 +808,6 @@ További információ: a [initramfs újraépítése](https://access.redhat.com/s
 
 ## <a name="next-steps"></a>Következő lépések
 
-Most már készen áll arra, hogy a Red Hat Enterprise Linux virtuális merevlemezt új virtuális gépeket hozzon létre a Azure Stack. Ha első alkalommal tölti fel a VHD-fájlt a Azure Stackba, tekintse meg a [Marketplace-elem létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című témakört.
+Most már készen áll arra, hogy a Red Hat Enterprise Linux virtuális merevlemezt új virtuális gépeket hozzon létre Azure Stack hub-ban. Ha első alkalommal tölti fel a VHD-fájlt Azure Stack hubhoz, tekintse meg a Marketplace- [elem létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című témakört.
 
 További információ a Red Hat Enterprise Linux futtatására hitelesített hypervisorokról: [Red Hat webhely](https://access.redhat.com/certified-hypervisors).

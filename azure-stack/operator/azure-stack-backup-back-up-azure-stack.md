@@ -1,6 +1,6 @@
 ---
-title: Azure Stack biztonsági mentése | Microsoft Docs
-description: Megtudhatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack.
+title: Azure Stack hub biztonsági mentése | Microsoft Docs
+description: Ismerje meg, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 2e956d6fc9d646d33442eee21c74bea791babcb4
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974733"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816717"
 ---
-# <a name="back-up-azure-stack"></a>Készítsen biztonsági másolatot az Azure Stackben
+# <a name="back-up-azure-stack-hub"></a>Azure Stack hub biztonsági mentése
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Ez a cikk bemutatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack. A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure Stackhoz](azure-stack-powershell-install.md). A Azure Stackba való bejelentkezéshez lásd: [a felügyeleti portál használata a Azure stack](azure-stack-manage-portals.md).
+Ez a cikk bemutatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on. A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure stack hubhoz](azure-stack-powershell-install.md). Azure Stack hubhoz való bejelentkezéshez lásd: [a felügyeleti portál használata Azure stack hub-ban](azure-stack-manage-portals.md).
 
-## <a name="start-azure-stack-backup"></a>Azure Stack biztonsági mentés indítása
+## <a name="start-azure-stack-hub-backup"></a>Azure Stack hub biztonsági másolatának elindítása
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>Új biztonsági mentés indítása a feladatok előrehaladásának nyomon követése nélkül
 A Start-AzSBackup használatával azonnal elindíthat egy új biztonsági mentést, és nem végezheti el a feladatok nyomon követését.
@@ -38,7 +38,7 @@ A Start-AzSBackup használatával azonnal elindíthat egy új biztonsági menté
    Start-AzsBackup -Force
 ```
 
-### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Azure Stack biztonsági mentés indítása a feladatok előrehaladásának nyomon követésével
+### <a name="start-azure-stack-hub-backup-with-job-progress-tracking"></a>Azure Stack hub biztonsági mentésének elindítása a feladatok előrehaladásának nyomon követésével
 A Start-AzSBackup használatával indítson el egy új biztonsági mentést a **-AsJob** paraméterrel, és mentse változóként a biztonsági mentési feladatok előrehaladásának nyomon követéséhez.
 
 > [!NOTE]
@@ -112,13 +112,13 @@ Az eredménynek a következő kimenethez hasonlóan kell kinéznie:
 ```
 
 ### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>A biztonsági mentés megerősítése befejeződött a felügyeleti portálon
-A Azure Stack felügyeleti portál segítségével ellenőrizze, hogy a biztonsági mentés sikeresen befejeződött-e a következő lépésekkel:
+A következő lépésekkel ellenőrizheti, hogy a biztonsági mentés sikeresen befejeződött-e a Azure Stack hub felügyeleti portálján:
 
-1. Nyissa meg a [Azure stack felügyeleti portált](azure-stack-manage-portals.md).
+1. Nyissa meg az [Azure stack hub felügyeleti portált](azure-stack-manage-portals.md).
 2. Válassza a **minden szolgáltatás**lehetőséget, majd az **adminisztráció** kategóriában válassza > **infrastruktúra biztonsági mentése**lehetőséget. Válassza a **konfiguráció** lehetőséget az **infrastruktúra biztonsági mentése** panelen.
 3. Keresse meg a biztonsági mentés **nevét** és **dátumát** a **rendelkezésre álló biztonsági másolatok** listájában.
 4. Ellenőrizze, hogy az **állapot** **sikeres**-e.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ az [adatvesztési eseményről történő helyreállítás](azure-stack-backup-recover-data.md)munkafolyamatáról.

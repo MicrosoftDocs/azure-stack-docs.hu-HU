@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault kezelése a portál használatával | Microsoft Docs
-description: Megtudhatja, hogyan kezelheti a Azure Stack Key Vault a Azure Stack portál használatával.
+title: Key Vault kezelése Azure Stack hub-ban a portál használatával | Microsoft Docs
+description: Megtudhatja, hogyan kezelheti Key Vault a Azure Stack hub-ban az Azure Stack hub portál használatával.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 69052164c3f32f77d8ccf3c5216e821700907928
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961505"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820338"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Azure Stack Key Vault kezelése a portál használatával
+# <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Key Vault kezelése Azure Stack hub-ban a portál használatával
 
-Ez a cikk bemutatja, hogyan hozhat létre és kezelhet egy kulcstartót Azure Stack a Azure Stack portál használatával.
+Ez a cikk bemutatja, hogyan hozhat létre és kezelhet egy kulcstartót Azure Stack hub-ban az Azure Stack hub portál használatával.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -76,7 +76,7 @@ A kulcs sikeres létrehozása után kiválaszthatja a **kulcsok** területen, é
 
 ![URI-kulcs](media/azure-stack-key-vault-manage-portal/image4.png)
 
-### <a name="create-a-secret"></a>Titkos kód létrehozása
+### <a name="create-a-secret"></a>Titkos kulcs létrehozása
 
 1. Jelentkezzen be a [felhasználói portálra](https://portal.local.azurestack.external).
 
@@ -96,7 +96,7 @@ A titkos kód sikeres létrehozása után kiválaszthatja a **titkok** szakaszba
 
 ![URI-titok](media/azure-stack-key-vault-manage-portal/image5.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép üzembe helyezése a Key Vaultban tárolt jelszó beolvasásával](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault-ben tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése](azure-stack-key-vault-push-secret-into-vm.md)

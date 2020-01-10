@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef0fd3aef095dc0ee2865e7f1fb2a8821d378e70
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780523"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817907"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben
 
 ## <a name="overview"></a>Áttekintés
 
-Ez a cikk két különálló Azure Stack Development Kit (ASDK) környezetben két virtuális hálózat közötti helyek közötti VPN-kapcsolat létrehozását ismerteti. A kapcsolatok konfigurálásakor megismerheti, hogyan működik a VPN-átjárók Azure Stack.
+Ez a cikk két különálló Azure Stack Development Kit (ASDK) környezetben két virtuális hálózat közötti helyek közötti VPN-kapcsolat létrehozását ismerteti. A kapcsolatok konfigurálásakor megtudhatja, hogyan működik a VPN-átjárók Azure Stack hub-ban.
 
 ### <a name="connection"></a>Kapcsolat
 
@@ -52,7 +52,7 @@ A kapcsolódási konfiguráció befejezéséhez két ASDK környezetet kell tele
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Ajánlat előkészítése a POC1 és a POC2
 
-A POC1 és a POC2 egyaránt előkészíti az ajánlatot, így a felhasználók előfizethetnek az ajánlatra, és üzembe helyezhetik a virtuális gépeket (VM). Az ajánlatok létrehozásával kapcsolatos információkért lásd: [virtuális gépek elérhetővé tétele a Azure stack felhasználók](azure-stack-tutorial-tenant-vm.md)számára.
+A POC1 és a POC2 egyaránt előkészíti az ajánlatot, így a felhasználók előfizethetnek az ajánlatra, és üzembe helyezhetik a virtuális gépeket (VM). Az ajánlatok létrehozásával kapcsolatos információkért lásd: [virtuális gépek elérhetővé tétele a Azure stack hub-felhasználók](azure-stack-tutorial-tenant-vm.md)számára.
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>A hálózati konfigurációs táblázat áttekintése és befejezése
 
@@ -63,7 +63,7 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 |   |POC1|POC2|
 |---------|---------|---------|
 |Virtuális hálózat neve     |VNET-01|VNET – 02 |
-|Virtuális hálózati címtartomány |10.0.10.0/23|10.0.20.0/23|
+|Virtuális hálózat címtartománya |10.0.10.0/23|10.0.20.0/23|
 |Alhálózat neve     |Alhálózat – 01|Alhálózat – 02|
 |Alhálózati címtartomány|10.0.10.0/24 |10.0.20.0/24 |
 |Átjáró alhálózata     |10.0.11.0/24|10.0.21.0/24|
@@ -74,7 +74,7 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Az IP-cím beszerzése a NAT virtuális gépének külső adapteréről
 
-1. Jelentkezzen be a Azure Stack fizikai gépre a POC1.
+1. Jelentkezzen be a POC1 Azure Stack hub fizikai gépére.
 2. Szerkessze a következő PowerShell-kódot a rendszergazdai jelszavának hozzáadásához, majd futtassa a kódot a POC-gazdagépen:
 
    ```powershell
@@ -94,7 +94,7 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 
 ## <a name="create-the-network-resources-in-poc1"></a>Hálózati erőforrások létrehozása a POC1-ben
 
-Most létrehozhatja az átjárók beállításához szükséges POC1-hálózati erőforrásokat. Az alábbi utasítások azt ismertetik, hogyan hozhatja létre az erőforrásokat a Azure Stack felhasználói portál használatával. Az erőforrások létrehozásához PowerShell-kód is használható.
+Most létrehozhatja az átjárók beállításához szükséges POC1-hálózati erőforrásokat. Az alábbi utasítások azt ismertetik, hogyan hozhatók létre az erőforrások az Azure Stack hub felhasználói portál használatával. Az erőforrások létrehozásához PowerShell-kód is használható.
 
 ![Erőforrások létrehozására szolgáló munkafolyamat](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
@@ -129,7 +129,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
 4. A **név**mezőben adja meg a **GW1**.
@@ -141,15 +141,15 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
-A *helyi hálózati átjárók* megvalósítása ebben az Azure Stack értékelési telepítésben kissé eltér egy tényleges Azure-telepítéstől.
+A *helyi hálózati átjáró* implementációja ebben az Azure stack hub-próbaverzióban egy kicsit eltér a tényleges Azure-telepítéstől.
 
-Az Azure-környezetekben a helyi hálózati átjáró egy helyszíni (bérlői) fizikai eszköz, amelyet az Azure-beli virtuális hálózati átjáróhoz való kapcsolódáshoz használ. Ebben a Azure Stack kiértékelési környezetben a kapcsolódás mindkét végpontja virtuális hálózati átjáró.
+Az Azure-környezetekben a helyi hálózati átjáró egy helyszíni (bérlői) fizikai eszköz, amelyet az Azure-beli virtuális hálózati átjáróhoz való kapcsolódáshoz használ. Ebben az Azure Stack hub próbaverziójának üzembe helyezése esetén a kapcsolódás mindkét végpontja virtuális hálózati átjáró.
 
 Erre általánosságban úgy gondolhat, hogy a helyi hálózati átjáró erőforrás mindig a távoli átjárót jelzi a Kapcsolódás másik végén. A ASDK tervezésekor a helyi hálózati átjáró nyilvános IP-címének kell megadnia a külső hálózati adapter IP-címét a másik ASDK hálózati címfordítási (NAT-) virtuális gépén. Ezután NAT-hozzárendeléseket hozhat létre a NAT virtuális gépen, hogy mindkét végpont megfelelően legyen csatlakoztatva.
 
 ### <a name="create-the-local-network-gateway-resource"></a>A helyi hálózati átjáró erőforrásának létrehozása
 
-1. Jelentkezzen be a Azure Stack fizikai gépre a POC1.
+1. Jelentkezzen be a POC1 Azure Stack hub fizikai gépére.
 2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 4. Az erőforrások listájából válassza a **helyi hálózati átjáró**elemet.
@@ -175,7 +175,7 @@ Erre általánosságban úgy gondolhat, hogy a helyi hálózati átjáró erőfo
 
 A VPN-kapcsolaton keresztül áthaladó adatellenőrzéshez szüksége lesz a virtuális gépekre az egyes ASDK való adatküldéshez és fogadáshoz. Hozzon létre egy virtuális GÉPET a POC1-ben, majd a virtuális hálózatán helyezze el a virtuálisgép-alhálózatán:
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapvető beállítások** panelen, a **név**mezőben adja meg a **VM01**nevet.
@@ -217,7 +217,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.  
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.  
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
 4. A **név**mezőben adja meg a **GW2**.
@@ -254,7 +254,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 Most hozzon létre egy virtuális GÉPET a POC2-ben, és helyezze a virtuális hálózata virtuálisgép-alhálózatára:
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapvető beállítások** panelen, a **név**mezőbe írja be a következőt: **VM02**.
@@ -284,7 +284,7 @@ A VPN-kapcsolat konfigurálásához létre kell hoznia egy statikus NAT-leképez
 
    ![Belső IP-cím](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
-2. Jelentkezzen be a Azure Stack fizikai gépre a POC1.
+2. Jelentkezzen be a POC1 Azure Stack hub fizikai gépére.
 3. Másolja és szerkessze a következő PowerShell-szkriptet. A NAT minden ASDK való konfigurálásához futtassa a parancsfájlt egy emelt szintű Windows PowerShell integrált parancsprogram-kezelési környezetban. A parancsfájlban adja hozzá az értékeket a `External BGPNAT address` és a `Internal IP address` helyőrzőhöz:
 
    ```powershell
@@ -337,12 +337,12 @@ Annak érdekében, hogy a forgalmat a helyek közötti kapcsolaton keresztül k�
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Jelentkezzen be a bérlői virtuális gépre a POC1-ben
 
-1. Jelentkezzen be a Azure Stack fizikai gépre a POC1, majd egy bérlői fiók használatával jelentkezzen be a felhasználói portálra.
+1. Jelentkezzen be az Azure Stack hub fizikai gépére a POC1, majd egy bérlői fiók használatával jelentkezzen be a felhasználói portálra.
 2. A bal oldali navigációs sávon válassza a **számítás**lehetőséget.
 3. A virtuális gépek listájában keresse meg a korábban létrehozott **VM01** , majd jelölje ki.
 4. A virtuális gép paneljén kattintson a **kapcsolat**elemre, majd nyissa meg a VM01. rdp fájlt.
 
-     ![Csatlakozási gomb](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![Csatlakozás gomb](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. Jelentkezzen be azzal a fiókkal, amelyet a virtuális gép létrehozásakor konfigurált.
 6. Nyisson meg egy emelt szintű **Windows PowerShell** -ablakot.
@@ -358,7 +358,7 @@ Annak érdekében, hogy a forgalmat a helyek közötti kapcsolaton keresztül k�
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Jelentkezzen be a bérlői virtuális gépre a POC2-ben
 
-1. Jelentkezzen be a Azure Stack fizikai gépre a POC2, majd egy bérlői fiók használatával jelentkezzen be a felhasználói portálra.
+1. Jelentkezzen be az Azure Stack hub fizikai gépére a POC2, majd egy bérlői fiók használatával jelentkezzen be a felhasználói portálra.
 2. A bal oldali navigációs sávon kattintson a **számítás**elemre.
 3. A virtuális gépek listájából keresse meg a korábban létrehozott **VM02** , majd jelölje ki.
 4. A virtuális gép paneljén kattintson a **kapcsolat**elemre.

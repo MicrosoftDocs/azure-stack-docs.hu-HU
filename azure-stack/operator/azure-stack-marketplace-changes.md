@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack Marketplace újdonságai | Microsoft Docs
-description: Változások és frissítések a Azure Stack piactéren.
+title: Az Azure Stack hub piactér újdonságai | Microsoft Docs
+description: Változások és frissítések a Azure Stack hub piactéren.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 49b3ac4123a385b468d5eb995ac00bb768347d5d
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: a5d0a50765a44a677ad2c5c1b0795296b57b7b0e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534069"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817040"
 ---
-# <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace-változások
+# <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
-Ez a cikk a [Azure stack Marketplace-elemek](azure-stack-marketplace-azure-items.md) legutóbbi hozzáadásait, frissítéseit, módosításait és eltávolítását ismerteti körülbelül az elmúlt 3 hónapban. Az ebben a szakaszban található információk gyakran frissülnek, ezért a változásokhoz gyakran térjen vissza.
+Ez a cikk a [Azure stack hub Marketplace-elemek](azure-stack-marketplace-azure-items.md) legutóbbi hozzáadásait, frissítéseit, módosításait és eltávolítását ismerteti körülbelül az elmúlt 3 hónapban. Az ebben a szakaszban található információk gyakran frissülnek, ezért a változásokhoz gyakran térjen vissza.
 
-A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk mindig tartalmazza az elérhető Azure stack Marketplace-elemek legfrissebb listáját.
+Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) cikke mindig tartalmazza az elérhető Azure stack hub Marketplace-elemek legfrissebb listáját.
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
@@ -105,7 +105,7 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 - 07/30/2019: SQLIaaSExtension – 1.3.20180 verzió
 - 08/08/2019: CloudLink SecureVM-bővítmény a Linux rendszerhez – 6,8-es verzió
 - 08/08/2019: CloudLink SecureVM-bővítmény a Windows-verzió 6,8-es verziójához
-- 08/30/2019: Azure Stack Kubernetes-fürt verziója 0.5.1
+- 08/30/2019: Azure Stack hub Kubernetes-fürt verziója 0.5.1
 - 09/02/2019: AK-alapú alaprendszerkép – Version 2019.08.09 és 2019.08.21 verzió
 - 09/12/2019: Service Fabric-Version 1.0.3
 - 09/24/2019: F5 – Networks Big-IP Virtual Edition – Version 14.1.200000
@@ -115,8 +115,8 @@ A [Azure stack Marketplace Items](azure-stack-marketplace-azure-items.md) cikk m
 
 ## <a name="next-steps"></a>Következő lépések
 
-A Azure Stack Marketplace-ről további információt a következő cikkekben talál:
+Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
 - [Az Azure Marketplace áttekintése](azure-stack-marketplace.md)
-- [Az Azure Stackhez elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
-- [Azure Stack Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
+- [Azure Stack hub számára elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
+- [Azure Stack hub Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

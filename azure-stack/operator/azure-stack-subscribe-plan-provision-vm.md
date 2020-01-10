@@ -1,6 +1,6 @@
 ---
-title: Előfizetés Azure Stack-ajánlatra
-description: Előfizetések létrehozása a Azure Stack ajánlatokhoz
+title: Előfizetés Azure Stack hub ajánlatára
+description: Előfizetések létrehozása a Azure Stack hub ajánlatai számára
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 3d5203481eea68c9f4dbc231f346bef845622ba2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283372"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814116"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Előfizetések létrehozása a Azure Stack ajánlatokhoz
+# <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Előfizetések létrehozása a Azure Stack hub ajánlatai számára
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhasználóknak elő kell fizetniük rá, hogy használhassák. A felhasználók kétféleképpen fizethetnek elő egy ajánlatra:
 
@@ -30,7 +30,7 @@ Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhaszná
 
 A Felhőbeli operátorok a felügyeleti portál használatával előfizetést hozhatnak létre egy felhasználónak szóló ajánlathoz. Előfizetések hozhatók létre a saját címtár-bérlő tagjai számára. Ha engedélyezve van a [többszörös](azure-stack-enable-multitenancy.md) kisegítő lehetőség, létrehozhat előfizetéseket is a felhasználók számára további címtár-bérlők esetében.
 
-Ha nem szeretné, hogy a bérlők saját előfizetéseket hozzanak létre, tegye a saját ajánlatait, majd hozzon létre előfizetéseket a bérlők számára. Ez a megközelítés gyakori a Azure Stack külső számlázási vagy Service Catalog rendszerekkel való integrálásakor.
+Ha nem szeretné, hogy a bérlők saját előfizetéseket hozzanak létre, tegye a saját ajánlatait, majd hozzon létre előfizetéseket a bérlők számára. Ez a megközelítés gyakori a Azure Stack hub külső számlázási vagy Service Catalog rendszerekkel való integrálásakor.
 
 Miután létrehozott egy előfizetést egy felhasználóhoz, bejelentkezhet a felhasználói portálra, és láthatja, hogy előfizetett az ajánlatra.  
 
@@ -67,11 +67,11 @@ A Felhőbeli operátorok bármikor hozzáadhatnak egy csomagot egy korábban lé
 Felhasználóként bejelentkezhet a felhasználói portálra, ahol megkeresheti és előfizethet nyilvános ajánlatokat és kiegészítő csomagokat a címtár-bérlő (szervezet) számára.
 
 >[!NOTE]
->Ha a Azure Stack-környezet támogatja a [több-](azure-stack-enable-multitenancy.md)bérlős szolgáltatást, előfizethet a távoli címtár-bérlői ajánlatokra is.
+>Ha a Azure Stack hub-környezet támogatja a [több-](azure-stack-enable-multitenancy.md)bérlős szolgáltatást, előfizethet a távoli címtár-bérlői ajánlatokra is.
 
 ### <a name="to-subscribe-to-an-offer"></a>Előfizetés egy ajánlatra
 
-1. [Jelentkezzen](../asdk/asdk-connect.md) be a [Azure stack felhasználói portálra](https://portal.local.azurestack.external) , és válassza az **előfizetés beszerzése**lehetőséget.
+1. [Jelentkezzen](../asdk/asdk-connect.md) be az [Azure stack hub felhasználói portálra](https://portal.local.azurestack.external) , és válassza az **előfizetés beszerzése**lehetőséget.
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   

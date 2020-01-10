@@ -1,6 +1,6 @@
 ---
 title: Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával | Microsoft Docs
-description: Megtudhatja, hogyan állíthat be hozzáférési engedélyeket szerepköralapú hozzáférés-vezérléssel (RBAC) Azure Stackban.
+description: Megtudhatja, hogyan állíthat be hozzáférési engedélyeket szerepköralapú hozzáférés-vezérléssel (RBAC) az Azure Stack hub-ban.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,18 +15,18 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: ae5b167ca807fc1e28c13c553e13ea89c7e6fe49
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.openlocfilehash: 0c565ae93acfe8b4540af2db288b8b5327e85355
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492780"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817193"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Az Azure Stack-felhasználók az előfizetés, erőforráscsoport vagy szolgáltatás minden egyes példányánál rendelkezhetnek olvasó, tulajdonos vagy közreműködő szerepkörrel. Előfordulhat például, hogy az A felhasználó rendelkezik olvasói engedéllyel az előfizetéshez, de a tulajdonosi engedélyekkel rendelkezik a hét virtuális géphez.
+Azure Stack hub egyik felhasználója lehet olvasó, tulajdonos vagy közreműködő az előfizetés, az erőforráscsoport vagy a szolgáltatás minden példánya számára. Előfordulhat például, hogy az A felhasználó rendelkezik olvasói engedéllyel az előfizetéshez, de a tulajdonosi engedélyekkel rendelkezik a hét virtuális géphez.
 
  - Olvasó: a felhasználó mindent megtekinthet, de nem végezhet módosításokat.
  - Közreműködő: a felhasználó mindent kezelhet, kivéve az erőforrásokhoz való hozzáférést.
@@ -54,4 +54,4 @@ Az Azure Stack-felhasználók az előfizetés, erőforráscsoport vagy szolgált
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Azure Stack-bérlő hozzáadása](azure-stack-add-new-user-aad.md)
+[Azure Stack hub-bérlő hozzáadása](azure-stack-add-new-user-aad.md)

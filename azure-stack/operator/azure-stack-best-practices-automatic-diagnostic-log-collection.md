@@ -1,6 +1,6 @@
 ---
-title: Ajánlott eljárások az automatikus Azure Stack naplók gyűjtéséhez | Microsoft Docs
-description: Ajánlott eljárások az automatikus naplók gyűjtéséhez Azure Stack Súgó és támogatás szolgáltatásban
+title: Ajánlott eljárások az automatikus Azure Stack hub-naplók gyűjtéséhez | Microsoft Docs
+description: Ajánlott eljárások az automatikus naplók gyűjtéséhez Azure Stack hub Súgó és támogatás szolgáltatásban
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,25 +16,25 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 03fb0550bfaa41a3336ff17dd1c44e03bcea1402
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: d541605472c2c5dda41ec7c54b7ebdff2223cc25
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522050"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804520"
 ---
-# <a name="best-practices-for-automatic-azure-stack-log-collection"></a>Ajánlott eljárások az automatikus Azure Stack naplók gyűjtéséhez 
+# <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>Ajánlott eljárások az automatikus Azure Stack hub-naplók gyűjtéséhez 
 
-*Vonatkozik: Integrált rendszerek Azure Stack*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 
-Ez a témakör a Azure Stack automatikus diagnosztikai naplóinak kezeléséhez ajánlott eljárásokat ismerteti. 
+Ez a témakör az Azure Stack hub automatikus diagnosztikai naplóinak kezeléséhez ajánlott eljárásokat ismerteti. 
 
-## <a name="collecting-logs-from-multiple-azure-stack-systems"></a>Naplók gyűjtése több Azure Stack rendszerből
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Naplók gyűjtése több Azure Stack hub-rendszerből
 
-Állítson be egy BLOB-tárolót minden olyan Azure Stack skálázási egységhez, amelyhez naplókat kíván gyűjteni. A blob-tároló konfigurálásával kapcsolatos további információkért lásd: [automatikus Azure stack diagnosztikai naplók konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection.md). Ajánlott eljárásként csak a diagnosztikai naplókat mentse ugyanabból a Azure Stack skálázási egységből egyetlen blob-tárolón belül. 
+Állítson be egy BLOB-tárolót minden olyan Azure Stack hub-méretezési egységhez, amelyhez naplókat kíván gyűjteni. A blob-tároló konfigurálásával kapcsolatos további információkért lásd: az [automatikus Azure stack hub diagnosztikai naplójának konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection.md). Ajánlott eljárásként csak a diagnosztikai naplókat mentse ugyanabból a Azure Stack hub-méretezési egységből egyetlen blob-tárolón belül. 
 
-## <a name="retention-policy"></a>Adatmegőrzési szabály
+## <a name="retention-policy"></a>Adatmegőrzési házirend
 
 Hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályt](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) a napló adatmegőrzési házirendjének kezeléséhez. Javasoljuk, hogy 30 napig őrizze meg a diagnosztikai naplókat. Életciklus-kezelési szabály létrehozásához az Azure Storage-ban jelentkezzen be a Azure Portalba, kattintson a **Storage-fiókok**elemre, kattintson a blob-tárolóra, majd a **blob Service**területen kattintson az **életciklus-kezelés**elemre.
 
@@ -61,7 +61,7 @@ Az egészséges rendszerekben a naplók egyáltalán nem lesznek összegyűjtve.
 
 Az alábbi táblázat az Azure-ba korlátozott vagy mért kapcsolatokkal rendelkező környezeteket segíthet figyelembe venni az automatikus napló-gyűjtés engedélyezésének következményeit.
 
-| Hálózati kapcsolatok | Hatás |
+| Hálózati kapcsolat | Hatás |
 |--------------------|--------|
 | Alacsony sávszélességű/nagy késleltetésű kapcsolat | A napló feltöltése hosszabb időt vesz igénybe | 
 | Megosztott kapcsolatok | A feltöltés hatással lehet más alkalmazásokra, illetve a hálózati kapcsolatokat megosztó felhasználókra is. |
@@ -72,9 +72,9 @@ Az alábbi táblázat az Azure-ba korlátozott vagy mért kapcsolatokkal rendelk
 
 Az Azure [blob Storage díjai](https://azure.microsoft.com/pricing/details/storage/blobs/) attól függnek, hogy a havonta hány adatmentést és egyéb tényezőket, például az adatredundanciát. Ha nem rendelkezik meglévő Storage-fiókkal, jelentkezzen be a Azure Portalba, kattintson a **Storage-fiókok**lehetőségre, és kövesse az [Azure Blob Container sas URL-címének létrehozásához](azure-stack-configure-automatic-diagnostic-log-collection.md)szükséges lépéseket.
 
-Ajánlott eljárásként hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályzatot](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) a folyamatos tárolási költségek csökkentése érdekében. A Storage-fiók beállításával kapcsolatos további információkért lásd: [automatikus Azure stack diagnosztikai naplók konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection.md)
+Ajánlott eljárásként hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályzatot](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) a folyamatos tárolási költségek csökkentése érdekében. A Storage-fiók beállításával kapcsolatos további információkért lásd: az [automatikus Azure stack hub diagnosztikai naplójának konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection.md)
 
-## <a name="see-also"></a>Lásd még
+## <a name="see-also"></a>Lásd még:
 
-[Automatikus Azure Stack naplózási gyűjtemény konfigurálása](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[Az automatikus Azure Stack hub-napló gyűjteményének konfigurálása](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

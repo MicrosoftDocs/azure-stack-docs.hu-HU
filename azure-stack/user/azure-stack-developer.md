@@ -1,6 +1,6 @@
 ---
-title: Alkalmazások fejlesztése a Azure Stackhoz | Microsoft Docs
-description: Fejlesztési szempontok a Azure Stack az Azure-szolgáltatások használatával történő prototípusok készítéséhez.
+title: Alkalmazások fejlesztése Azure Stack hub-hoz | Microsoft Docs
+description: Fejlesztési szempontok a Azure Stack hub-beli alkalmazások Azure-szolgáltatásokkal történő prototípusának fejlesztéséhez.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,30 +16,30 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0f1450ff7ce6d7e4cffee3d31f80b046f07f9ac1
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: ca4102e53d06b8f7c4876fd6cd0fd9e6d9ade42e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714773"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820457"
 ---
-# <a name="develop-for-azure-stack"></a>Fejlesztés az Azure Stackhez
+# <a name="develop-for-azure-stack-hub"></a>Fejlesztés Azure Stack hub-hoz
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-Megkezdheti az alkalmazások fejlesztését még akkor is, ha nem fér hozzá egy Azure Stack-környezethez. A Azure Stack az adatközpontban futó Microsoft Azure-szolgáltatásokat biztosítja, ami azt jelenti, hogy ugyanazokat az Azure-eszközöket és-folyamatokat használhatja a Azure Stack fejlesztéséhez.
+Megkezdheti az alkalmazások fejlesztését még akkor is, ha nem fér hozzá egy Azure Stack hub-környezethez. Az Azure Stack hub biztosítja az adatközpontban futó Microsoft Azure-szolgáltatásokat, ami azt jelenti, hogy ugyanazokat az Azure-eszközöket és-folyamatokat használja az Azure Stack hub fejlesztéséhez.
 
 ## <a name="development-considerations"></a>Fejlesztési szempontok
 
-Néhány előkészítéssel és az alábbi témakörökben található útmutatás használatával az Azure-ban Emulálhatja Azure Stack környezetét.
+Néhány előkészítéssel és az alábbi témakörökben található útmutatás használatával az Azure egy Azure Stack hub-környezet emulálása céljából használható.
 
-* Az Azure-ban létrehozhat Azure Resource Manager sablonokat, amelyek Azure Stack telepíthetők. A [](azure-stack-develop-templates.md) hordozhatóság biztosításához tekintse meg a sablonok kialakításával kapcsolatos útmutatást.
-* A szolgáltatás rendelkezésre állása és az Azure és Azure Stack közötti szolgáltatások verziószámozása eltérő lehet. Az [Azure stack házirend modul](azure-stack-policy-module.md) segítségével korlátozhatja az Azure-szolgáltatások rendelkezésre állását és az erőforrás típusát a Azure Stackban elérhetővé tételekhez. A korlátozási szolgáltatások biztosítják, hogy alkalmazásai a Azure Stack számára elérhető szolgáltatásokat használják.
-* A [Azure stack](https://github.com/Azure/AzureStack-QuickStart-Templates) rövid útmutatók gyakori példái példákat mutatnak be, amelyek bemutatják, hogyan fejleszthet az Azure-hoz és a Azure stack-hoz egyaránt telepíthető sablonokat.
+* Az Azure-ban létrehozhat olyan Azure Resource Manager sablonokat, amelyek üzembe helyezhetők Azure Stack hubhoz. A hordozhatóság biztosításához [tekintse meg a sablonok](azure-stack-develop-templates.md) kialakításával kapcsolatos útmutatást.
+* A szolgáltatás rendelkezésre állása és az Azure és a Azure Stack hub között a szolgáltatások verziószámozása eltérő lehet. Az [Azure stack hub házirend moduljának](azure-stack-policy-module.md) használatával korlátozhatja az Azure-szolgáltatások rendelkezésre állását és az erőforrás típusát az Azure stack hub-ban elérhetővé tételekhez. A korlátozási szolgáltatások biztosítják, hogy az alkalmazások a Azure Stack hub számára elérhető szolgáltatásokra támaszkodnak.
+* Az [Azure stack hub](https://github.com/Azure/AzureStack-QuickStart-Templates) gyors üzembe helyezési sablonjai olyan gyakori forgatókönyvek, amelyek bemutatják, hogyan lehet az Azure-hoz és az Azure stack hub-hoz egyaránt telepíthető sablonokat fejleszteni.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A Azure Stack fejlesztésével kapcsolatos további információkért tekintse meg a következő cikkeket:
 
 * [Ajánlott eljárások az Azure Resource Manager-sablonokhoz](azure-stack-develop-templates.md)
-* [A GitHubon Azure Stack a gyors üzembe helyezési sablonok](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Azure Stack hub rövid útmutató sablonok a GitHubon](https://github.com/Azure/AzureStack-QuickStart-Templates)

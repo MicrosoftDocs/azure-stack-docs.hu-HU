@@ -1,6 +1,6 @@
 ---
-title: Windows N szintű alkalmazás on Azure Stack on SQL Server | Microsoft Docs
-description: Megtudhatja, hogyan futtathat Windows N szintű alkalmazást a Azure Stackon a SQL Server használatával.
+title: Windows N szintű alkalmazás Azure Stack hub-on SQL Server | Microsoft Docs
+description: Megtudhatja, hogyan futtathat egy Windows N szintű alkalmazást Azure Stack hubhoz a SQL Server használatával.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,14 +9,14 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: ced042ac48017a8191d02e48de12e107677051fc
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 2c8eb46ecf53ba0bcab5d38ebe6a7e9aac79708e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569105"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815442"
 ---
-# <a name="windows-n-tier-application-on-azure-stack-with-sql-server"></a>Windows N szintű alkalmazás a Azure Stackon SQL Server
+# <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 
 Ez a hivatkozási architektúra bemutatja, hogyan helyezhet üzembe virtuális gépeket (VM) és egy [N szintű](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier) alkalmazáshoz konfigurált virtuális hálózatot az adatrétegen a Windows SQL Server használatával. 
 
@@ -26,23 +26,23 @@ Az architektúra a következő összetevőket tartalmazza.
 
 ![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
-## <a name="general"></a>Általános kérdések
+## <a name="general"></a>Általános
 
 -   **Erőforráscsoport**. Az [erőforráscsoportok](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) az Azure-erőforrások csoportosítására használhatók, így élettartamuk, tulajdonosuk vagy egyéb feltételek szerint kezelhetők.
 
--   **Rendelkezésre állási csoport.** A rendelkezésre állási csoport egy adatközpont-konfiguráció, amely a virtuális gépek redundanciát és rendelkezésre állását biztosítja. A Azure Stack bélyegzőn belüli konfiguráció biztosítja, hogy a tervezett vagy nem tervezett karbantartási események során legalább egy virtuális gép elérhető legyen. A virtuális gépek olyan rendelkezésre állási csoportba kerülnek, amely több tartalék tartományba (Azure Stack gazdagépekre) terjed ki.
+-   **Rendelkezésre állási csoport.** A rendelkezésre állási csoport egy adatközpont-konfiguráció, amely a virtuális gépek redundanciát és rendelkezésre állását biztosítja. A Azure Stack hub-bélyegzőn belüli konfiguráció biztosítja, hogy a tervezett vagy nem tervezett karbantartási események során legalább egy virtuális gép elérhető legyen. A virtuális gépek olyan rendelkezésre állási csoportba kerülnek, amely több tartalék tartományba (Azure Stack hub gazdagépre) terjed ki.
 
 ## <a name="networking-and-load-balancing"></a>Hálózatkezelés és terheléselosztás
 
 -   **Virtuális hálózat és alhálózatok**. Minden Azure-beli virtuális gép üzembe helyezése egy, az alhálózatokra szegmentált virtuális hálózatba történik. Hozzon létre egy külön alhálózatot minden egyes szinthez.
 
--   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el Azure Stackon, a [Azure stack piacon](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) elérhető alternatívák vannak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure Stack hub-on, elérhetők a [Azure stack hub piacán](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) elérhető alternatívák, például: [Kemp Loadmaster Load Balancer adc Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   **Terheléselosztók**. A [Azure Load Balancer ](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
 
 -   **Hálózati biztonsági csoportok** (NSG). A NSG használata a virtuális hálózaton belüli hálózati forgalom korlátozására. Az itt látható háromrétegű architektúrában például az adatbázis-réteg nem fogadja el a webes kezelőfelületről érkező forgalmat, csak az üzleti rétegből és a felügyeleti alhálózatból.
 
--   **DNS**. A Azure Stack nem biztosítja a saját DNS-üzemeltetési szolgáltatását, ezért használja a DNS-kiszolgálót a HOZZÁADÁShoz.
+-   **DNS**. Azure Stack hub nem biztosítja a saját DNS-üzemeltetési szolgáltatását, ezért használja a DNS-kiszolgálót a HOZZÁADÁShoz.
 
 **Virtuális gépek**
 
@@ -50,14 +50,14 @@ Az architektúra a következő összetevőket tartalmazza.
 
 -   **(AD DS) Active Directory Domain Services-kiszolgálók** A feladatátvevő fürt és a hozzá tartozó fürtözött szerepkörök számítógép-objektumai a Active Directory tartományi szolgáltatásokban (AD DS) jönnek létre. Az azonos virtuális hálózatban lévő virtuális gépeken AD DS-kiszolgálók beállítása előnyben részesített módszer a más virtuális gépekhez való csatlakozásra AD DS. A virtuális gépeket a meglévő vállalati AD DShoz is csatlakoztathatja, ha VPN-kapcsolattal csatlakozik a vállalati hálózathoz. Mindkét módszer esetében módosítania kell a virtuális hálózat DNS-jét a AD DS DNS-kiszolgálóra (virtuális hálózaton vagy meglévő vállalati hálózatban) a AD DS tartomány teljes tartománynevének feloldásához.
 
--   **Felhőbeli tanúsító**. A feladatátvevő fürtök több mint felet igényelnek a csomópontok futtatásához, amely kvórumnak ismert. Ha a fürt csak két csomóponttal rendelkezik, a hálózati partíciók az egyes csomópontok esetében úgy gondolják, hogy ez a fő csomópont. Ebben az esetben szükség van egy *tanúra* a kapcsolatok megszakításához és a kvórum létrehozásához. A tanúsító egy olyan erőforrás, például egy megosztott lemez, amely döntetlen-MEGSZAKÍTÓKÉNT működhet kvórum létrehozásához. A Felhőbeli tanúsító olyan tanúsító típus, amely az Azure Blob Storage-t használja. A kvórum fogalmával kapcsolatos további tudnivalókért tekintse meg a [fürt és a készlet Kvórumának ismertetése](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)című témakört. A Felhőbeli tanúsító szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). Azure Stack a Felhőbeli tanúsító végpont különbözik a globális Azure-tól. 
+-   **Felhőbeli tanúsító**. A feladatátvevő fürtök több mint felet igényelnek a csomópontok futtatásához, amely kvórumnak ismert. Ha a fürt csak két csomóponttal rendelkezik, a hálózati partíciók az egyes csomópontok esetében úgy gondolják, hogy ez a fő csomópont. Ebben az esetben szükség van egy *tanúra* a kapcsolatok megszakításához és a kvórum létrehozásához. A tanúsító egy olyan erőforrás, például egy megosztott lemez, amely döntetlen-MEGSZAKÍTÓKÉNT működhet kvórum létrehozásához. A Felhőbeli tanúsító olyan tanúsító típus, amely az Azure Blob Storage-t használja. A kvórum fogalmával kapcsolatos további tudnivalókért tekintse meg a [fürt és a készlet Kvórumának ismertetése](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)című témakört. A Felhőbeli tanúsító szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). Azure Stack központban a Felhőbeli tanúsító végpont különbözik a globális Azure-tól. 
 
 A következőhöz hasonló lehet:
 
 - Globális Azure esetén:  
   `https://mywitness.blob.core.windows.net/`
 
-- Azure Stack esetén:  
+- Azure Stack hub esetében:  
   `https://mywitness.blob.<region>.<FQDN>`
 
 -   **Jumpbox**. Más néven [bástyagazdagép](https://en.wikipedia.org/wiki/Bastion_host). A hálózaton található biztonságos virtuális gép, amelyet a rendszergazdák a többi virtuális géphez való kapcsolódásra használnak. A jumpbox olyan NSG-vel rendelkezik, amely csak a biztonságos elemek listáján szereplő nyilvános IP-címekről érkező távoli forgalmat engedélyezi. Az NSG-nek engedélyeznie kell a távoli asztali (RDP) forgalmat.
@@ -66,9 +66,9 @@ A következőhöz hasonló lehet:
 
 Az Ön követelményei eltérhetnek az itt leírt architektúrától. Ezeket a javaslatokat tekintse kiindulópontnak.
 
-### <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+### <a name="virtual-machines"></a>Virtuális gépek
 
-A virtuális gépek konfigurálásával kapcsolatos javaslatokért lásd: [Windows rendszerű virtuális gép futtatása Azure stackon](iaas-architecture-vm-windows.md).
+A virtuális gépek konfigurálásával kapcsolatos javaslatokért lásd: [Windows rendszerű virtuális gép futtatása Azure stack hub-on](iaas-architecture-vm-windows.md).
 
 ### <a name="virtual-network"></a>Virtuális hálózat
 
@@ -82,13 +82,13 @@ Az alhálózatokat a funkciók és a biztonsági követelmények szem előtt tar
 
 Ne tegye elérhetővé a virtuális gépeket közvetlenül az internethez, hanem adjon hozzá minden virtuális gépet egy magánhálózati IP-címhez. Az ügyfelek a 7. rétegbeli Load Balancerhoz társított nyilvános IP-cím használatával csatlakoznak.
 
-Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérést küld az 80-es portra, a terheléselosztó a forrás IP-címet tartalmazó [kivonatoló algoritmus](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features) használatával kiválasztja a HÁTTÉRbeli IP-címet. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
+Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérést küld az 80-es portra, a terheléselosztó a forrás IP-címet tartalmazó [kivonatoló algoritmus](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts) használatával kiválasztja a HÁTTÉRbeli IP-címet. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
 
 ### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
 
 A szintek közötti forgalmat NSG-szabályokkal korlátozhatja. A fentiekben bemutatott háromrétegű architektúrában a webes réteg nem kommunikál közvetlenül az adatbázis szintjével. A szabály betartatásához az adatbázis-szinten le kell tiltani a webes szintű alhálózatról érkező bejövő forgalmat.
 
-1.  A virtuális hálózatról érkező összes bejövő forgalom megtagadása. (Használja a VIRTUAL_NETWORK címkét a szabályban.)
+1.  A virtuális hálózatról érkező összes bejövő forgalom megtagadása. (Használja a szabály VIRTUAL_NETWORK címkéjét.)
 
 2.  Az üzleti szintű alhálózatról érkező bejövő forgalom engedélyezése.
 
@@ -127,7 +127,7 @@ Ha az alkalmazás több olvasási műveletet tesz lehetővé, mint az írás, a 
 
 Tesztelje az üzemelő példányt a rendelkezésre állási csoport [manuális feladatátvételének kikényszerítésével](https://msdn.microsoft.com/library/ff877957.aspx) .
 
-Az SQL teljesítményének optimalizálása [érdekében a Azure stack teljesítményének optimalizálásához tekintse meg az SQL Server ajánlott eljárásait](https://docs.microsoft.com/azure-stack/user/azure-stack-sql-server-vm-considerations)ismertető cikket is.
+Az SQL-teljesítmény optimalizálása [érdekében a Azure stack hub teljesítményének optimalizálásához az SQL Server ajánlott eljárásait](https://docs.microsoft.com/azure-stack/user/azure-stack-sql-server-vm-considerations)is megtekintheti.
 
 **Jumpbox**
 
@@ -149,19 +149,19 @@ A méretezési csoportokban üzembe helyezett virtuális gépek konfigurálásá
 
 -   Üzembe helyezhet egy [felügyelt lemezt](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations) egy egyéni rendszerképpel. Ez a módszer gyorsabban kivitelezhető. Azonban a rendszerképek naprakészen tartása szükséges.
 
-További információ: [tervezési szempontok a méretezési csoportokhoz](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview). Ez a kialakítási szempont általában a Azure Stack esetében igaz, de vannak bizonyos kikötések:
+További információ: [tervezési szempontok a méretezési csoportokhoz](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview). Ez a kialakítási szempont általában a Azure Stack hub esetében igaz, de vannak bizonyos figyelmeztetések:
 
--   A Azure Stack lévő virtuálisgép-méretezési csoportok nem támogatják a túlzott kiépítést vagy a működés közbeni frissítést.
+-   A Azure Stack hub virtuálisgép-méretezési csoportjai nem támogatják a túlzott kiépítést vagy a működés közbeni frissítést.
 
--   A virtuálisgép-méretezési csoportok nem méretezhetők át Azure Stackon.
+-   Azure Stack hub-beli virtuálisgép-méretezési csoportok nem méretezhetők át.
 
--   Javasoljuk, hogy felügyelt lemezeket használjon a Azure Stack nem felügyelt lemezek helyett a virtuálisgép-méretezési csoportokhoz
+-   Javasoljuk, hogy felügyelt lemezeket használjon Azure Stack hub-on a virtuálisgép-méretezési csoport nem felügyelt lemezei helyett
 
--   Jelenleg 700 virtuális gép korlátja van Azure Stack, amely az összes Azure Stack infrastruktúra-virtuális gép, az egyes virtuális gépek és a méretezési csoport példányaihoz tartozó fiókok.
+-   Jelenleg egy 700 virtuális gép korlátja van Azure Stack hub-ra, amely az összes Azure Stack hub-infrastruktúra, az egyes virtuális gépek és a méretezési csoport példányainak fiókja.
 
 ## <a name="subscription-limits"></a>Előfizetés korlátai
 
-Minden Azure Stack bérlői előfizetés alapértelmezett korláttal rendelkezik, beleértve a Azure Stack operátor által konfigurált régiónként engedélyezett maximális számú virtuális gépet. További információ: [Azure stack Services, csomagok, ajánlatok, előfizetések áttekintése](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview). Tekintse meg a [Azure Stackban található kvóták típusait](https://docs.microsoft.com/azure-stack/operator/azure-stack-quota-types)is.
+Minden Azure Stack hub-bérlői előfizetés alapértelmezett korláttal rendelkezik, beleértve az Azure Stack hub-operátor által konfigurált régiónként engedélyezett maximális számú virtuális gépet. További információ: [Azure stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview). Tekintse meg az [Azure stack hub kvótáinak típusait](https://docs.microsoft.com/azure-stack/operator/azure-stack-quota-types)is.
 
 ## <a name="security-considerations"></a>Biztonsági szempontok
 
@@ -171,8 +171,8 @@ A virtuális hálózatok forgalomelkülönítési határok az Azure-ban. Alapér
 
 **DMZ**. Érdemes lehet hozzáadnia egy hálózati virtuális berendezést (network virtual appliance, NVA), hogy DMZ-t lehessen létrehozni az internet és az Azure-beli virtuális hálózat között. Az NVA egy általános kifejezés egy olyan virtuális berendezésre, amely hálózatokhoz kapcsolódó feladatokat lát el, például gondoskodik a tűzfalról, a csomagvizsgálatról, a naplózásról és az egyéni útválasztásról.
 
-**Titkosítás**. Bizalmas adatok titkosítása, és a [Azure Stack Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) használata az adatbázis-titkosítási kulcsok kezeléséhez. További információkért lásd: [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault) Az Azure Key Vault-integráció konfigurálása az SQL Serverhez Azure virtuális gépeken. Javasoljuk továbbá, hogy az alkalmazás-titkokat, például az adatbázis-kapcsolódási karakterláncokat a Key Vault tárolja.
+**Titkosítás**. Titkosítsa a bizalmas adatokat, és a [Azure stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) használatával kezelheti az adatbázis-titkosítási kulcsokat. További információkért lásd: [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault) Az Azure Key Vault-integráció konfigurálása az SQL Serverhez Azure virtuális gépeken. Javasoljuk továbbá, hogy az alkalmazás-titkokat, például az adatbázis-kapcsolódási karakterláncokat a Key Vault tárolja.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

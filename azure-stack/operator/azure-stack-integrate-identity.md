@@ -1,6 +1,6 @@
 ---
-title: AD FS identitás integrálása az Azure Stack adatközpontba | Microsoft Docs
-description: Ismerje meg, hogyan integrálhatja Azure Stack AD FS Identity providert az adatközpont AD FS.
+title: AD FS identitás integrálása az Azure Stack hub Datacenter szolgáltatással | Microsoft Docs
+description: Megtudhatja, hogyan integrálhatja Azure Stack hub AD FS Identity providert az adatközpont AD FS.
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,37 +10,37 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 4d1ca3a04e838743983a7ed9d68fde5b1b189ff6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167166"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817380"
 ---
-# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>AD FS identitás integrálása az Azure Stack adatközpontba
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
-Azure Stack az Azure Active Directory (Azure AD) vagy a Active Directory összevonási szolgáltatások (AD FS) (AD FS) használatával is üzembe helyezhető az identitás-szolgáltatóként. A Azure Stack telepítése előtt el kell végeznie a választást. Egy csatlakoztatott forgatókönyvben kiválaszthatja az Azure AD-t vagy a AD FS. A leválasztott forgatókönyvek esetében csak AD FS támogatott. Ez a cikk bemutatja, hogyan integrálható Azure Stack AD FS az adatközpont AD FS.
+Azure Stack hub a Azure Active Directory (Azure AD) vagy a Active Directory összevonási szolgáltatások (AD FS) (AD FS) használatával is üzembe helyezhető az identitás-szolgáltatóként. Azure Stack hub üzembe helyezése előtt el kell végeznie a választást. Egy csatlakoztatott forgatókönyvben kiválaszthatja az Azure AD-t vagy a AD FS. A leválasztott forgatókönyvek esetében csak AD FS támogatott. Ez a cikk bemutatja, hogyan integrálható Azure Stack hub-AD FS az adatközpont AD FS.
 
 > [!IMPORTANT]
-> Az identitás-szolgáltatót nem lehet átváltani a teljes Azure Stack megoldás újbóli üzembe helyezése nélkül.
+> Az identitás-szolgáltatót nem lehet átváltani a teljes Azure Stack hub-megoldás újbóli üzembe helyezése nélkül.
 
 ## <a name="active-directory-federation-services-and-graph"></a>Active Directory összevonási szolgáltatások (AD FS) és gráf
 
-A AD FS-ben való üzembe helyezése lehetővé teszi egy meglévő Active Directory erdőben lévő identitások hitelesítését a Azure Stack erőforrásaival. A meglévő Active Directory erdőben a AD FS központi telepítése szükséges, hogy lehetővé váljon AD FS összevonási megbízhatósági kapcsolat létrehozása.
+A AD FS-ben való üzembe helyezése lehetővé teszi egy meglévő Active Directory erdőben lévő identitások hitelesítését Azure Stack hub erőforrásaival. A meglévő Active Directory erdőben a AD FS központi telepítése szükséges, hogy lehetővé váljon AD FS összevonási megbízhatósági kapcsolat létrehozása.
 
-A hitelesítés az identitás egyik része. A szerepköralapú hozzáférés-vezérlés (RBAC) Azure Stack-ben való kezeléséhez konfigurálni kell a Graph összetevőt. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
+A hitelesítés az identitás egyik része. A szerepköralapú hozzáférés-vezérlés (RBAC) Azure Stack hub-ban való kezeléséhez konfigurálni kell a Graph összetevőt. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
 
-![Azure Stack AD FS architektúra](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack hub AD FS architektúra](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
-A meglévő AD FS a fiók biztonsági jogkivonat-szolgáltatása (STS), amely jogcímeket küld a Azure Stack AD FS (az erőforrás STS) számára. Azure Stack az Automation létrehozza a jogcím-szolgáltatói megbízhatóságot a meglévő AD FS metaadat-végpontján.
+A meglévő AD FS a fiók biztonsági jogkivonat-szolgáltatása (STS), amely jogcímeket küld az Azure Stack hub AD FS (az erőforrás STS) számára. Azure Stack központban az Automation létrehozza a jogcím-szolgáltatói megbízhatóságot a meglévő AD FS metaadat-végpontján.
 
-A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack VIP-végpontja az `https://adfs.<Region>.<ExternalFQDN>/` minta használatával hozható létre.
+A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack hub VIP-végpontját a következő minta használatával lehet létrehozni: `https://adfs.<Region>.<ExternalFQDN>/`.
 
 A függő entitás megbízhatóságának konfigurációjában a Microsoft által biztosított jogcím-átalakítási szabályok konfigurálására is szükség van.
 
 A Graph-konfigurációhoz meg kell adni egy olyan szolgáltatásfiókot, amely olvasási engedéllyel rendelkezik a meglévő Active Directory. Erre a fiókra a RBAC-forgatókönyvek engedélyezéséhez bemenetként kell megadni az Automation számára.
 
-Az utolsó lépésben új tulajdonos van konfigurálva az alapértelmezett szolgáltatói előfizetéshez. Ennek a fióknak teljes hozzáférése van az összes erőforráshoz a Azure Stack felügyeleti portálra való bejelentkezéskor.
+Az utolsó lépésben új tulajdonos van konfigurálva az alapértelmezett szolgáltatói előfizetéshez. Ennek a fióknak teljes hozzáférése van az összes erőforráshoz az Azure Stack hub felügyeleti portálra való bejelentkezéskor.
 
 Követelmények:
 
@@ -62,14 +62,14 @@ A következő információk szükségesek az Automation-paraméterek bemenetei s
 
 ### <a name="configure-active-directory-sites"></a>Active Directory helyek konfigurálása
 
-Active Directory több hellyel rendelkező üzemelő példányokhoz konfigurálja a legközelebbi Active Directory helyet a Azure Stack központi telepítéshez. A konfiguráció elkerüli, hogy a Azure Stack Graph szolgáltatás a távoli helyről származó globáliskatalógus-kiszolgáló használatával oldja fel a lekérdezéseket.
+Active Directory több hellyel rendelkező üzemelő példányok esetében konfigurálja a legközelebbi Active Directory helyet az Azure Stack hub központi telepítésére. A konfiguráció elkerüli, hogy a Azure Stack hub Graph szolgáltatás a távoli helyről származó globáliskatalógus-kiszolgáló használatával oldja meg a lekérdezéseket.
 
-Adja hozzá a Azure Stack [nyilvános VIP hálózati](azure-stack-network.md#public-vip-network) alhálózatot a Azure Stackhoz legközelebb lévő Active Directory-helyhez. Tegyük fel például, hogy a Active Directory két hellyel rendelkezik: Seattle és Redmond. Ha Azure Stack van telepítve a Seattle-beli helyen, a Azure Stack nyilvános VIP hálózati alhálózatot a Seattle Active Directory-webhelyéhez adja hozzá.
+Adja hozzá az Azure Stack hub [nyilvános VIP hálózati](azure-stack-network.md#public-vip-network) alhálózatát az Azure stack hub-hoz legközelebb lévő Active Directory-helyhez. Tegyük fel például, hogy a Active Directory két hellyel rendelkezik: Seattle és Redmond. Ha Azure Stack hub üzembe helyezése a Seattle-beli helyen történik, az Azure Stack hub nyilvános VIP hálózati alhálózatát a Seattle Active Directory webhelyére kell felvennie.
 
 Active Directory-helyekkel kapcsolatos további információkért lásd: [a hely topológiájának megtervezése](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
-> Ha a Active Directory egyetlen helyből áll, akkor kihagyhatja ezt a lépést. Ha rendelkezik egy Catch-alhálózattal, ellenőrizze, hogy a Azure Stack nyilvános VIP hálózati alhálózat nem része-e.
+> Ha a Active Directory egyetlen helyből áll, akkor kihagyhatja ezt a lépést. Ha rendelkezik egy Catch-alhálózattal, ellenőrizze, hogy az Azure Stack hub nyilvános VIP-alhálózata nem része-e.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Felhasználói fiók létrehozása a meglévő Active Directoryban (nem kötelező)
 
@@ -83,7 +83,7 @@ Igény szerint létrehozhat egy fiókot a Graph szolgáltatáshoz a meglévő Ac
 
 #### <a name="trigger-automation-to-configure-graph"></a>Automatizálás elindítása a gráf konfigurálásához
 
-Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálózaton, amely képes kommunikálni a rendszerjogosultságú végponttal Azure Stack.
+Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálózaton, amely képes kommunikálni az Azure Stack hub privilegizált végpontján.
 
 1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), és kapcsolódjon a privilegizált végpont IP-címéhez. A hitelesítéshez használja a **CloudAdmin** hitelesítő adatait.
 
@@ -112,9 +112,9 @@ Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálóz
 
 #### <a name="graph-protocols-and-ports"></a>Graph protokollok és portok
 
-A Azure Stack gráf szolgáltatása a következő protokollokat és portokat használja egy írható globáliskatalógus-kiszolgálóval (GC) és kulcsszolgáltató (KDC) való kommunikációhoz, amely képes feldolgozni a bejelentkezési kérelmeket a cél Active Directory erdőben.
+Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portokat használja egy írható globáliskatalógus-kiszolgálóval (GC) és kulcsszolgáltató (KDC) való kommunikációhoz, amely képes feldolgozni a bejelentkezési kérelmeket a cél Active Directory erdőben.
 
-A Azure Stack gráf szolgáltatása a következő protokollokat és portokat használja a célként megadott Active Directory való kommunikációhoz:
+Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portokat használja a célként megadott Active Directory való kommunikációhoz:
 
 |Type (Típus)|Port|Protocol (Protokoll)|
 |---------|---------|---------|
@@ -130,13 +130,13 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |Paraméter|Üzembe helyezési munkalap paramétere|Leírás|Példa|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https: \//AD01. contoso. com/federationmetadata/2007-06/federationmetadata. XML |
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 |SigningCertificateRevocationCheck|n/a|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|None|
 
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
 
-Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni a rendszerjogosultságú végponttal Azure Stack. A rendszer azt várta, hogy a fiók **STS AD FS** által használt tanúsítványa Azure stack megbízható.
+Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni a rendszerjogosultságú végponttal Azure Stack központban. A rendszer azt várta, hogy a fiók **STS AD FS** által használt tanúsítványát Azure stack hub megbízhatónak tekinti.
 
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és kapcsolódjon a privilegizált végponthoz.
 
@@ -161,8 +161,8 @@ Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunik�
 
 Az 1807-es verziótól kezdődően ezt a módszert használja, ha az alábbi feltételek bármelyike igaz:
 
-- A tanúsítványlánc különbözik a AD FS a Azure Stack többi végpontjának összehasonlítva.
-- Nincs hálózati kapcsolat a meglévő AD FS-kiszolgáló Azure Stack AD FS példányával.
+- A tanúsítványlánc különbözik a AD FS az Azure Stack hub összes többi végpontjának összehasonlítva.
+- Nincs hálózati kapcsolat a meglévő AD FS-kiszolgálóval Azure Stack hub AD FS példányáról.
 
 A következő információk szükségesek az Automation-paraméterek bemenetéhez:
 
@@ -188,9 +188,9 @@ A következő eljáráshoz olyan számítógépet kell használnia, amely háló
 
 2. Másolja a metaadat-fájlt egy olyan számítógépre, amely képes kommunikálni a Kiemelt végponttal.
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
 
-Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni a Azure Stack rendszerjogosultságú végponttal, és hozzáfér az előző lépésben létrehozott metaadat-fájlhoz.
+Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni az Azure Stack hub rendszerjogosultságú végpontjának használatával, és hozzáfér az előző lépésben létrehozott metaadat-fájlhoz.
 
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és kapcsolódjon a privilegizált végponthoz.
 
@@ -219,7 +219,7 @@ Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunik�
 
 A Microsoft olyan parancsfájlt biztosít, amely konfigurálja a függő entitás megbízhatóságát, beleértve a jogcím-átalakítási szabályokat is. A szkript használata nem kötelező, mert manuálisan is futtathatja a parancsokat.
 
-A segítő parancsfájlt letöltheti [Azure stack eszközökről](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) a githubon.
+A Súgó parancsfájlt a GitHubon [Azure stack Hub-eszközökről](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) töltheti le.
 
 Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lépéseket:
 
@@ -282,7 +282,7 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
    > [!IMPORTANT]  
    > A Windows Server 2012 vagy 2012 R2 AD FS használatakor a kiállítási engedélyezési szabályok konfigurálásához a AD FS MMC beépülő modult kell használnia.
 
-4. Ha az Internet Explorer vagy a Microsoft Edge böngésző használatával fér hozzá a Azure Stackhoz, figyelmen kívül hagyhatja a jogkivonat-kötéseket. Ellenkező esetben a bejelentkezési kísérletek sikertelenek lesznek. A AD FS-példányon vagy egy farmon, futtassa a következő parancsot:
+4. Ha az Internet Explorert vagy a Microsoft Edge böngészőt használja Azure Stack hub eléréséhez, figyelmen kívül hagyhatja a jogkivonat-kötéseket. Ellenkező esetben a bejelentkezési kísérletek sikertelenek lesznek. A AD FS-példányon vagy egy farmon, futtassa a következő parancsot:
 
    > [!note]  
    > Ez a lépés nem alkalmazható Windows Server 2012 vagy 2012 R2 AD FS használata esetén. Ebben az esetben nyugodtan kihagyhatja ezt a parancsot, és folytathatja az integrációt.
@@ -295,9 +295,9 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
 
 Az egyszerű szolgáltatásnév (SPN) használatának megkövetelése számos esetben szükséges a hitelesítéshez. Az alábbiakban néhány példát láthat:
 
-- A CLI használata a Azure Stack AD FS üzembe helyezésével.
-- A System Center felügyeleti csomagja a Azure Stack AD FSsal történő telepítésekor.
-- A Azure Stack erőforrás-szolgáltatója AD FSsal való üzembe helyezéskor.
+- A CLI használata AD FS Azure Stack hub üzembe helyezésével.
+- A Azure Stack hub System Center felügyeleti csomagja AD FS-vel való üzembe helyezéskor.
+- Azure Stack hub erőforrás-szolgáltatója AD FS-vel való üzembe helyezéskor.
 - Különböző alkalmazások.
 - Nem interaktív bejelentkezésre van szükség.
 
@@ -307,7 +307,7 @@ Az egyszerű szolgáltatásnév (SPN) használatának megkövetelése számos es
 Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [egyszerű szolgáltatásnév létrehozása ad FShoz](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Hibakeresés
+## <a name="troubleshooting"></a>Hibaelhárítás
 
 ### <a name="configuration-rollback"></a>Konfiguráció visszaállítása
 
@@ -337,7 +337,7 @@ Ha olyan hiba történik, amely egy olyan állapotban hagyja a környezetet, aho
 
 ### <a name="collecting-additional-logs"></a>További naplók gyűjtése
 
-Ha a parancsmagok bármelyike meghibásodik, a `Get-Azurestacklogs` parancsmag használatával további naplókat is gyűjthet.
+Ha a parancsmagok bármelyike meghibásodik, további naplókat is gyűjthet a `Get-Azurestacklogs` parancsmag használatával.
 
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsokat:
 

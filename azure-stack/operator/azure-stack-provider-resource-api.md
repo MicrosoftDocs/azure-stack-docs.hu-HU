@@ -1,7 +1,6 @@
 ---
-title: Szolgáltatói erőforrás-használati API | Microsoft Docs
-titleSuffix: Azure Stack
-description: Az erőforrás-használati API-ra vonatkozó hivatkozás, amely lekéri Azure Stack használati adatokat.
+title: Azure Stack hub-szolgáltató erőforrás-használati API | Microsoft Docs
+description: Az erőforrás-használati API-ra vonatkozó hivatkozás, amely lekéri Azure Stack hub használati adatait.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: f7d39ce1c2a33a6a693a56a6c5c86b7e1275993d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802387"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810069"
 ---
 # <a name="provider-resource-usage-api"></a>Szolgáltató erőforrás-használat API
 
-A *szolgáltató* kifejezés a szolgáltatás-rendszergazdára és a delegált szolgáltatókra is érvényes. Azure Stack operátorok és a delegált szolgáltatók használhatják a szolgáltatói használati API-t a közvetlen bérlők használatának megtekintéséhez. Például az alábbi ábrán látható módon a P0 meghívhatja a szolgáltatói API-t a közvetlen használati adatok lekérésére a P1 és P2 címen, a P1 pedig a P3-as és a P4-es használati adatokat hívhatja meg.
+A *szolgáltató* kifejezés a szolgáltatás-rendszergazdára és a delegált szolgáltatókra is érvényes. Azure Stack hub-operátorok és a delegált szolgáltatók használhatják a szolgáltatói használati API-t a közvetlen bérlők használatának megtekintésére. Például az alábbi ábrán látható módon a P0 meghívhatja a szolgáltatói API-t a közvetlen használati adatok lekérésére a P1 és P2 címen, a P1 pedig a P3-as és a P4-es használati adatokat hívhatja meg.
 
 ![A szolgáltatói hierarchia fogalmi modellje](media/azure-stack-provider-resource-api/image1.png)
 
@@ -45,7 +44,7 @@ Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendel
 
 | Argumentum | Leírás |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager a Azure Stack-környezet végpontját. A Azure Stack konvenció szerint a Azure Resource Manager végpont neve `https://adminmanagement.{domain-name}`. Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve `https://adminmanagement.{domain-name}`formátumú. Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont `https://adminmanagement.local.azurestack.external`. |
 | `subId` |Annak a felhasználónak az előfizetés-azonosítója, aki a hívást kezdeményezi. |
 | `reportedStartTime` |A lekérdezés kezdési időpontja. `DateTime` értékének az egyezményes világidő (UTC) és az óra elején kell lennie. például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például `2015-06-16T18%3a53%3a11%2b00%3a00Z`, ahol a kettőspont megmenekült a `%3a`, és a plusz megmenekül a `%2b`, hogy URI-barát legyen. |
 | `reportedEndTime` |A lekérdezés befejezési időpontja. A `reportedStartTime` vonatkozó korlátozások erre az argumentumra is érvényesek. `reportedEndTime` értéke nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
@@ -94,7 +93,7 @@ meterID1",
 |`id` |A használati összesítés egyedi azonosítója. |
 |`name` |A használati összesítés neve. |
 |`type` |Erőforrás-definíció. |
-|`subscriptionId` |A Azure Stack felhasználó előfizetés-azonosítója. |
+|`subscriptionId` |Az Azure Stack hub-felhasználó előfizetés-azonosítója. |
 |`usageStartTime`|Annak a használati gyűjtőnek az UTC szerinti kezdési időpontja, amelyhez ez a használati összesítés tartozik.|
 |`usageEndTime`|Azon használati gyűjtő UTC-befejezési időpontja, amelyhez ez a használati összesítés tartozik. |
 |`instanceData` |Példány részleteinek kulcs-érték párok (új formátumban):<br> `resourceUri`: teljes erőforrás-azonosító, amely magában foglalja az erőforráscsoportot és a példánynév nevét. <br> `location`: az a régió, amelyben a szolgáltatást futtatták. <br> `tags`: a felhasználó által megadott erőforrás-címkék. <br> `additionalInfo`: További információ a felhasznált erőforrásról; például az operációs rendszer verziója vagy a rendszerkép típusa. |
@@ -105,10 +104,10 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-A használati adatok létrehozásához a rendszert futtató és aktívan használt erőforrásokkal kell rendelkeznie. például egy aktív virtuális gép (VM) vagy egy bizonyos adathalmazt tartalmazó Storage-fiók. Ha nem biztos abban, hogy rendelkezik-e olyan erőforrásokkal, amelyek a Azure Stack piactéren futnak, helyezzen üzembe egy virtuális gépet, és ellenőrizze, hogy fut-e a virtuális gép figyelése panel. Használja a következő PowerShell-parancsmagokat a használati adatok megtekintéséhez:
+A használati adatok létrehozásához a rendszert futtató és aktívan használt erőforrásokkal kell rendelkeznie. például egy aktív virtuális gép (VM) vagy egy bizonyos adathalmazt tartalmazó Storage-fiók. Ha nem biztos abban, hogy rendelkezik-e a Azure Stack hub piactéren futó erőforrásokkal, helyezzen üzembe egy virtuális gépet, és ellenőrizze, hogy fut-e a virtuális gép figyelése panel. Használja a következő PowerShell-parancsmagokat a használati adatok megtekintéséhez:
 
-1. [Telepítse a powershellt Azure Stackhoz](azure-stack-powershell-install.md).
-2. [Konfigurálja a Azure stack felhasználót](../user/azure-stack-powershell-configure-user.md) vagy a [Azure stack kezelő](azure-stack-powershell-configure-admin.md) PowerShell-környezetet.
+1. [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).
+2. [Konfigurálja a Azure stack hub-felhasználót](../user/azure-stack-powershell-configure-user.md) vagy a [Azure stack hub-kezelő](azure-stack-powershell-configure-admin.md) PowerShell-környezetét.
 3. A használati adatok lekéréséhez hívja meg a [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell-parancsmagot:
 
    ```powershell
@@ -117,7 +116,7 @@ A használati adatok létrehozásához a rendszert futtató és aktívan haszná
 
 ### <a name="rest-api"></a>REST API
 
-A törölt előfizetésekre vonatkozó használati adatokat a Microsoft. Commerce. admin szolgáltatás meghívásával gyűjthet.
+A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Commerce. admin** szolgáltatás meghívásával gyűjthet.
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Az összes bérlői használat visszaküldése aktív felhasználók számára
 

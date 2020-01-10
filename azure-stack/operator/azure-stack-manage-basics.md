@@ -1,6 +1,6 @@
 ---
-title: Azure Stack adminisztráció alapjai | Microsoft Docs
-description: Ismerkedjen meg Azure Stack adminisztráció alapjaival.
+title: Azure Stack hub adminisztrációs alapjai | Microsoft Docs
+description: Megismerheti Azure Stack hub felügyeletének alapjait.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
-ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
+ms.openlocfilehash: 0954a318092e075e621c76ba4219030bc37e7ca3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/24/2019
-ms.locfileid: "75333050"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817329"
 ---
-# <a name="azure-stack-administration-basics"></a>Azure Stack adminisztráció alapjai
+# <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
-Ha most ismerkedik a Azure Stack adminisztrációval, több dolgot kell tudnia. Ez a cikk áttekintést nyújt a szerepköréről Azure Stack operátorként, valamint arról, hogy mit kell tudnia a felhasználóknak a hatékony munkához.
+Ha most ismerkedik a Azure Stack hub felügyeletével, több dolgot kell tudnia. Ez a cikk áttekintést nyújt a szerepkörről Azure Stack hub-kezelőként, és azt, hogy mit kell tudnia a felhasználóknak a hatékony munkához.
 
 ## <a name="understand-the-builds"></a>A buildek ismertetése
 
 ### <a name="integrated-systems"></a>Integrált rendszerek
 
-Azure Stack integrált rendszer használata esetén a frissítési csomagok a Azure Stack frissített verzióit terjesztik. Ezeket a csomagokat importálhatja, és a felügyeleti portál **frissítések** csempéje használatával is alkalmazhatja.
+Azure Stack hub integrált rendszer használata esetén a frissítési csomagok a Azure Stack hub frissített verzióit terjesztik. Ezeket a csomagokat importálhatja, és a felügyeleti portál **frissítések** csempéje használatával is alkalmazhatja.
  
 ### <a name="development-kit"></a>Fejlesztői csomag
 
-Ha a Azure Stack Development Kit (ASDK) használja, tekintse át a [Mi az Azure stack?](../asdk/asdk-what-is.md) a ASDK céljának és korlátozásának megismeréséhez. Használhatja a ASDK *homokozóban*, ahol kiértékelheti az alkalmazásokat, és nem éles környezetben fejlesztheti és tesztelheti Azure Stackeit. A központi telepítéssel kapcsolatos információkért lásd: [Azure stack Development Kit központi telepítés](../asdk/asdk-install.md).
+Ha a Azure Stack Development Kit (ASDK) használja, tekintse át a [Mi az Azure stack hub?](../asdk/asdk-what-is.md) című témakört, amelyből MEGISMERHETI a ASDK célját és korlátozásait. A ASDK *homokozóban*is használható, ahol kiértékelheti Azure stack hubot, és nem éles környezetben fejlesztheti és tesztelheti alkalmazásait. A központi telepítéssel kapcsolatos információkért lásd: [Azure stack Development Kit központi telepítés](../asdk/asdk-install.md).
 
-Az Azure-hoz hasonlóan a gyors innováció is. Rendszeresen kiadjuk az új buildeket. Ha a ASDK futtatja, és a legújabb buildre szeretne áttérni, újra kell [telepítenie Azure stack](../asdk/asdk-redeploy.md). A frissítési csomagok nem alkalmazhatók. Ez a folyamat időt vesz igénybe, de az előnye, hogy kipróbálhatja a legújabb funkciókat. A webhelye ASDK dokumentációja a legújabb kiadás-összeállítást mutatja be.
+Az Azure-hoz hasonlóan a gyors innováció is. Rendszeresen kiadjuk az új buildeket. Ha a ASDK futtatja, és a legújabb buildre szeretne áttérni, újra kell [telepítenie Azure stack hubot](../asdk/asdk-redeploy.md). A frissítési csomagok nem alkalmazhatók. Ez a folyamat időt vesz igénybe, de az előnye, hogy kipróbálhatja a legújabb funkciókat. A webhelye ASDK dokumentációja a legújabb kiadás-összeállítást mutatja be.
 
 ## <a name="learn-about-available-services"></a>Az elérhető szolgáltatások ismertetése
 
-A felhasználók számára elérhetővé tenni kívánt szolgáltatások ismerete szükséges. Azure Stack támogatja az Azure-szolgáltatások egy részhalmazát. A támogatott szolgáltatások listája továbbra is fejlődik.
+A felhasználók számára elérhetővé tenni kívánt szolgáltatások ismerete szükséges. Azure Stack hub az Azure-szolgáltatások egy részhalmazát támogatja. A támogatott szolgáltatások listája továbbra is fejlődik.
 
 **Alapszolgáltatások**
 
-Alapértelmezés szerint a Azure Stack a következő "alapszolgáltatásokat" tartalmazza Azure Stack telepítésekor:
+Alapértelmezés szerint a Azure Stack hub a következő "alapszolgáltatásokat" tartalmazza a Azure Stack hub telepítésekor:
 
 - Számítási szolgáltatások
 - Adattárolás
@@ -61,40 +61,40 @@ Jelenleg a következő, platform-szolgáltatásként nyújtott szolgáltatásokk
 - SQL-és MySQL-adatbázisok
 - Kubernetes (előzetes verzió)
 
-Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információkért tekintse meg a Azure Stack-kezelő dokumentációjának "oktatóanyagok" és "útmutató guides\Offer Services" részeit.
+Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információkért tekintse meg az Azure Stack hub-kezelő dokumentációjának "oktatóanyagok" és "útmutató guides\Offer szolgáltatások" részeit.
 
 **Szolgáltatási ütemterv**
 
-Azure Stack továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg a [Azure stack: az Azure-tanulmány kiterjesztését](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) . Az új hirdetmények [Azure stack blogbejegyzéseit](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) is nyomon követheti.
+Azure Stack hub továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg az [Azure stack hub: az Azure-tanulmány bővítményét](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) . Az új hirdetmények [Azure stack hub-blogbejegyzéseit](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) is figyelheti.
 
 ## <a name="what-account-should-i-use"></a>Milyen fiókot használok?
 
-Az Azure Stack kezelésekor figyelembe kell vennie néhány fiókra vonatkozó szempontot. Különösen a Windows Server Active Directory összevonási szolgáltatások (AD FS) (AD FS) rendszerű központi telepítések identitás-szolgáltatóként való használata Azure Active Directory (Azure AD) helyett. A következő fiókokra vonatkozó megfontolások a Azure Stack integrált rendszerekre és a ASDK üzemelő példányokra egyaránt érvényesek:
+Az Azure Stack hub kezelésekor figyelembe kell venni néhány fiókra vonatkozó szempontot. Különösen a Windows Server Active Directory összevonási szolgáltatások (AD FS) (AD FS) rendszerű központi telepítések identitás-szolgáltatóként való használata Azure Active Directory (Azure AD) helyett. A következő fiókokra vonatkozó megfontolások a Azure Stack hub integrált rendszereire és a ASDK üzemelő példányokra is érvényesek:
 
 |Fiók|Azure AD|AD FS|
 |-----|-----|-----|
 |Helyi rendszergazda (.\Rendszergazda)|ASDK-gazda rendszergazdája.|ASDK-gazda rendszergazdája.|
-|AzureStack\AzureStackAdmin|ASDK-gazda rendszergazdája.<br><br>A Azure Stack felügyeleti portálra való bejelentkezéshez használható.<br><br>Hozzáférés a Service Fabric gyűrűk megtekintéséhez és felügyeletéhez.|ASDK-gazda rendszergazdája.<br><br>Nincs hozzáférése a Azure Stack felügyeleti portálhoz.<br><br>Hozzáférés a Service Fabric gyűrűk megtekintéséhez és felügyeletéhez.<br><br>Az alapértelmezett szolgáltatói előfizetés (DPS) már nem tulajdonosa.|
+|AzureStack\AzureStackAdmin|ASDK-gazda rendszergazdája.<br><br>A Azure Stack hub felügyeleti portálra való bejelentkezéshez használható.<br><br>Hozzáférés a Service Fabric gyűrűk megtekintéséhez és felügyeletéhez.|ASDK-gazda rendszergazdája.<br><br>Nincs hozzáférése az Azure Stack hub felügyeleti portálján.<br><br>Hozzáférés a Service Fabric gyűrűk megtekintéséhez és felügyeletéhez.<br><br>Az alapértelmezett szolgáltatói előfizetés (DPS) már nem tulajdonosa.|
 |AzureStack\CloudAdmin|A jogosultsági szintű végponton belül elérheti és futtathatja az engedélyezett parancsokat.|A jogosultsági szintű végponton belül elérheti és futtathatja az engedélyezett parancsokat.<br><br>Nem lehet bejelentkezni a ASDK gazdagépre.<br><br>Az alapértelmezett szolgáltatói előfizetés (DPS) tulajdonosa.|
 |Az Azure AD globális rendszergazdája|A telepítés során használatban van.<br><br>Az alapértelmezett szolgáltatói előfizetés (DPS) tulajdonosa.|Nem alkalmazható.|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Milyen eszközöket használhatok a felügyelethez?
  
-A Azure Stack kezeléséhez használhatja a [felügyeleti portált](azure-stack-manage-portals.md) vagy a PowerShellt. Az alapvető fogalmak megismerésének legegyszerűbb módja a portálon keresztül. Ha a PowerShellt szeretné használni, előkészítési lépések szükségesek. Az első lépések előtt érdemes megismerni, hogyan használják a PowerShellt a Azure Stack. További információ: Ismerkedés [a PowerShell-lel a Azure stackon](../user/azure-stack-powershell-overview.md).
+Azure Stack hub felügyeletéhez használhatja a [felügyeleti portált](azure-stack-manage-portals.md) vagy a PowerShellt. Az alapvető fogalmak megismerésének legegyszerűbb módja a portálon keresztül. Ha a PowerShellt szeretné használni, előkészítési lépések szükségesek. Mielőtt elkezdené, érdemes megismernie, hogyan használják a PowerShellt Azure Stack hub-on. További információ: Ismerkedés [a PowerShell-lel Azure stack hub-on](../user/azure-stack-powershell-overview.md).
 
-A Azure Stack a Azure Resource Manager használja a mögöttes üzembe helyezési, felügyeleti és szervezeti mechanizmusként. Ha Azure Stack fogja kezelni a felhasználókat, és segítségre van szüksége a felhasználók támogatásához, megismerheti a Resource Managert. Tekintse meg a [Első lépések Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) tanulmányt.
+Azure Stack hub az alapul szolgáló üzembe helyezési, felügyeleti és szervezeti mechanizmusként Azure Resource Manager használ. Ha Azure Stack hub felügyeletét végzi, és segítségre van szüksége a felhasználók támogatásához, megismerheti a Resource Managert. Tekintse meg a [Első lépések Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) tanulmányt.
 
 ## <a name="your-typical-responsibilities"></a>Tipikus feladatai
 
-A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. Döntse el, hogy mely szolgáltatásokat szeretné felkínálni, és tegye elérhetővé ezeket a szolgáltatásokat csomagok, ajánlatok és kvóták létrehozásával. További információkért lásd: [az Azure stack ajánlati szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md). 
+A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. Döntse el, hogy mely szolgáltatásokat szeretné felkínálni, és tegye elérhetővé ezeket a szolgáltatásokat csomagok, ajánlatok és kvóták létrehozásával. További információ: [az Azure stack hub szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md). 
 
-Emellett elemeket is fel kell vennie [Azure stack Marketplace](azure-stack-marketplace.md)-re. A legegyszerűbb módszer, ha a [Piactéri elemeket az Azure-ból Azure Stackba tölti le](azure-stack-download-azure-marketplace-item.md).
+Emellett elemeket is hozzá kell adnia [Azure stack hub Marketplace](azure-stack-marketplace.md)-hez. A legegyszerűbb módszer, ha az [Azure-ból Azure stack központba tölti le a Piactéri elemeket](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
 > Ha tesztelni szeretné a csomagjait, ajánlatait és szolgáltatásait, használhatja a [felhasználói portált](azure-stack-manage-portals.md); nem a felügyeleti portálon.
 
-A szolgáltatások biztosítása mellett az operátorok rendszeres kötelességeit is meg kell tennie, hogy Azure Stack a működés fenntartásához. Ezek a feladatok a következő feladatokat foglalják magukban:
+A szolgáltatások biztosítása mellett az operátorok rendszeres kötelességeit is meg kell tennie, hogy Azure Stack hubot. Ezek a feladatok a következő feladatokat foglalják magukban:
 
 - Felhasználói fiókok hozzáadása ( [Azure ad](azure-stack-add-new-user-aad.md) -telepítéshez vagy [AD FS](azure-stack-add-users-adfs.md) központi telepítéshez).
 - [Szerepköralapú hozzáférés-vezérlési (RBAC) szerepkörök hozzárendeléséhez](azure-stack-manage-permissions.md) (ez a feladat nem korlátozódik a rendszergazdákra.)
@@ -104,21 +104,21 @@ A szolgáltatások biztosítása mellett az operátorok rendszeres kötelessége
 
 ## <a name="what-to-tell-your-users"></a>Mit kell tudniuk a felhasználóknak
 
-Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak a Azure Stack szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes megadnia a felhasználók számára, a felhasználókat [Azure stack felhasználói dokumentációhoz](/azure-stack/user/)irányíthatja.
+Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak Azure Stack hub szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes lehet biztosítani a felhasználók számára, [Azure stack hub felhasználói dokumentációra](/azure-stack/user/)irányíthatja a felhasználókat.
 
-**Ismerje meg, hogyan dolgozhat a szolgáltatásokkal Azure Stack**
+**Ismerje meg, hogyan dolgozhat a szolgáltatásokkal Azure Stack központban**
 
-A felhasználóknak meg kell érteniük az adatokat, mielőtt a szolgáltatásokat használják, és alkalmazásokat építhetnek ki Azure Stackban. A PowerShell-és API-verzióra vonatkozó követelmények például bizonyosak. Az Azure szolgáltatásban és az azzal egyenértékű szolgáltatásban található szolgáltatások közötti eltérések is léteznek Azure Stackban. Győződjön meg arról, hogy a felhasználók a következő cikkeket tekintik át:
+A felhasználóknak meg kell érteniük az adatokat, mielőtt a szolgáltatásokat használják, és alkalmazásokat építhetnek ki Azure Stack központban. A PowerShell-és API-verzióra vonatkozó követelmények például bizonyosak. Az Azure szolgáltatásban és a Azure Stack hub-ban ezzel egyenértékű szolgáltatásban is vannak szolgáltatások. Győződjön meg arról, hogy a felhasználók a következő cikkeket tekintik át:
 
-- [Főbb szempontok: szolgáltatások használata vagy alkalmazások készítése Azure Stackhoz](../user/azure-stack-considerations.md)
-- [A Azure Stack Virtual Machines szempontjai](../user/azure-stack-vm-considerations.md)
+- [Főbb szempontok: szolgáltatások használata vagy alkalmazások készítése Azure Stack hubhoz](../user/azure-stack-considerations.md)
+- [Az Azure Stack hub Virtual Machines szempontjai](../user/azure-stack-vm-considerations.md)
 - [Tárolás: különbségek és megfontolások](../user/azure-stack-acs-differences.md)
 
-A cikkben szereplő információk összefoglalják az Azure-beli szolgáltatás és a Azure Stack közötti különbségeket. Kiegészíti az Azure-szolgáltatásokhoz elérhető információkat a globális Azure-dokumentációban.
+Az ezekben a cikkekben található információk összefoglalják az Azure-beli szolgáltatás és a Azure Stack hub közötti különbségeket. Kiegészíti az Azure-szolgáltatásokhoz elérhető információkat a globális Azure-dokumentációban.
 
-**Kapcsolódás Azure Stack felhasználóként**
+**Kapcsolódás Azure Stack hubhoz felhasználóként**
 
-ASDK-környezetben, ha a felhasználó nem használ Távoli asztalt a ASDK-gazdagéphez való csatlakozáshoz, konfigurálhat virtuális magánhálózati (VPN) kapcsolatot a Azure Stackhoz való csatlakozáshoz. Lásd: [kapcsolódás Azure Stackhoz](../asdk/asdk-connect.md).
+ASDK-környezetben, ha a felhasználó nem használja Távoli asztal a ASDK-gazdagéphez való csatlakozáshoz, konfigurálhat virtuális magánhálózati (VPN) kapcsolatot Azure Stack hubhoz való csatlakozáshoz. Lásd: [kapcsolódás Azure stack hubhoz](../asdk/asdk-connect.md).
 
 A felhasználók tudni szeretnék, hogyan [érheti el a felhasználói portált](../user/azure-stack-use-portal.md) , vagy hogyan csatlakozhat a PowerShell-lel. Az integrált rendszerkörnyezetek esetében a felhasználói portál címe az üzemelő példányok számától függ. A megfelelő URL-címmel kell megadnia a felhasználóknak.
 
@@ -131,7 +131,7 @@ Ahhoz, hogy a felhasználók használhassanak szolgáltatásokat, [elő kell fiz
 ## <a name="where-to-get-support"></a>Honnan kaphat támogatást?
 
 > [!Note]  
-> A Azure Stack korábbi kiadásaival kapcsolatos támogatási információk megkereséséhez (pre-1905) tekintse meg a [korábbi kiadásokkal kapcsolatos súgó és támogatás Azure stack (pre-1905)](azure-stack-servicing-policy.md)című témakört.
+> Az Azure Stack 1905 hub korábbi kiadásaival kapcsolatos támogatási információk megkereséséhez lásd: [Súgó és támogatás a korábbi kiadásokhoz Azure stack hub (pre-1905)](azure-stack-servicing-policy.md).
 
 ### <a name="integrated-systems"></a>Integrált rendszerek
 
@@ -149,4 +149,4 @@ A ASDK a támogatással kapcsolatos kérdéseket is megteheti a [Microsoft fóru
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Területi felügyelet Azure Stack](azure-stack-region-management.md)
+[Területi felügyelet Azure Stack központban](azure-stack-region-management.md)

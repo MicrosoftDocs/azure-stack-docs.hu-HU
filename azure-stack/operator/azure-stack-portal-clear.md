@@ -1,6 +1,6 @@
 ---
-title: A portál felhasználói adatainak törlése a Azure Stacktól igény szerint. | Microsoft Docs
-description: Azure Stack operátorként megtudhatja, hogyan törölheti a portál felhasználói információit, ha Azure Stack felhasználó kéri.
+title: A portál felhasználói adatainak törlése Azure Stack hub által igény szerint. | Microsoft Docs
+description: Azure Stack hub-kezelőként megtudhatja, hogyan törölheti a portál felhasználói információit, ha Azure Stack hub-felhasználó kéri.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,18 +17,18 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: ebc3371983dce4c74e3a7c48d5fa3b17bac557a8
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019115"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810320"
 ---
-# <a name="clear-portal-user-data-from-azure-stack"></a>A portál felhasználói adatainak törlése Azure Stack
+# <a name="clear-portal-user-data-from-azure-stack-hub"></a>A portál felhasználói adatainak törlése Azure Stack hub-ból
 
-Azure Stack operátorok igény szerint törölhetik a portál felhasználói adatfájljait, amikor Azure Stack felhasználó kéri. Azure Stack felhasználóként a portál testreszabható a csempék rögzítésével és az irányítópult elrendezésének módosításával. A felhasználók emellett módosíthatják a témát, és a személyes beállításoknak megfelelően módosíthatják az alapértelmezett nyelvet. 
+Azure Stack hub-operátorok igény szerint törölhetik a portál felhasználói adatfájljait, amikor Azure Stack hub-felhasználó kéri azt. Azure Stack hub-felhasználóként a portál testreszabható a csempék rögzítésével és az irányítópult elrendezésének módosításával. A felhasználók emellett módosíthatják a témát, és a személyes beállításoknak megfelelően módosíthatják az alapértelmezett nyelvet. 
 
-A portál felhasználói információi közé tartoznak a kedvencek és a nemrégiben elért erőforrások a Azure Stack felhasználói portálon. Ez a cikk bemutatja, hogyan törölheti a portál felhasználói információit.
+A portál felhasználói információi közé tartoznak a kedvencek és a nemrégiben elért erőforrások a Azure Stack hub felhasználói portálon. Ez a cikk bemutatja, hogyan törölheti a portál felhasználói információit.
 
 A portál felhasználói beállításainak eltávolítása csak a felhasználói előfizetés törlése után hajtható végre.
 
@@ -37,10 +37,10 @@ A portál felhasználói beállításainak eltávolítása csak a felhasználói
 
 ## <a name="requirements"></a>Követelmények
 
-- [Telepítse a powershellt Azure Stackhoz](azure-stack-powershell-install.md).
-- [Töltse le a legújabb Azure stack eszközöket](azure-stack-powershell-download.md) a githubról.
+- [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).
+- [Töltse le a legújabb Azure stack hub-eszközöket](azure-stack-powershell-download.md) a githubról.
 - A felhasználói fióknak továbbra is léteznie kell a címtárban.
-- Azure Stack rendszergazdai hitelesítő adatokat a felügyeleti erőforrás-kezelő végpont eléréséhez.
+- Azure Stack hub rendszergazdai hitelesítő adatai a rendszergazdai erőforrás-kezelő végpont eléréséhez.
 
 > [!NOTE]
 > Ha olyan felhasználótól kísérli meg törölni a portál felhasználói adatait, amely egy vendég címtárból érkezett (több-bérlős), akkor olvasási engedéllyel kell rendelkeznie a címtárban. További információ a [jelen cikk a CSP-forgatókönyvben című szakaszában található](#clear-portal-user-data-in-guest-directory).
@@ -49,9 +49,9 @@ A portál felhasználói beállításainak eltávolítása csak a felhasználói
 
 Ez a forgatókönyv feltételezi, hogy az alapértelmezett szolgáltatói előfizetés, a felhasználó pedig ugyanahhoz a címtárhoz tartozik, vagy ha olvasási jogosultsággal rendelkezik ahhoz a címtárhoz, amelyben a felhasználó található.
 
-A folytatás előtt [töltse le a Azure stack Tools legújabb verzióját](azure-stack-powershell-download.md) a githubról.
+A folytatás előtt győződjön meg arról, hogy az [Azure stack hub Tools legújabb verzióját szeretné letölteni](azure-stack-powershell-download.md) a githubról.
 
-Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni Azure Stack felügyeleti erőforrás-kezelői végpontjának használatával.
+Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni Azure Stack hub felügyeleti erőforrás-kezelői végpontjának használatával.
 
 1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-Master** könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult:
 
@@ -66,7 +66,7 @@ Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunik�
 
    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $azureStackDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
 
    ## Replace the following value with the user directory tenant ID.
@@ -82,15 +82,15 @@ Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunik�
    ```
 
    > [!NOTE]
-   > A(z) `azureStackDirectoryTenantId` nem kötelező. Ha nem adja meg ezt az értéket, a parancsfájl a Azure Stackban regisztrált összes bérlői könyvtárban megkeresi az egyszerű felhasználónevet, majd törli a portálon tárolt összes felhasználót.
+   > A(z) `azureStackDirectoryTenantId` nem kötelező. Ha nem adja meg ezt az értéket, a parancsfájl megkeresi az egyszerű felhasználónevet az Azure Stack hub-ban regisztrált összes bérlői könyvtárban, majd törli a portálon tárolt összes felhasználót.
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>A portál felhasználói adatfájljainak törlése a vendég címtárban
 
-Ebben az esetben a Azure Stack operátor nem fér hozzá a vendég címtárhoz, amelyben a felhasználó található. Ez egy gyakori forgatókönyv, ha egy felhőalapú megoldás-szolgáltató (CSP).
+Ebben az esetben az Azure Stack hub operátor nem fér hozzá a vendég címtárhoz, amelyben a felhasználó található. Ez egy gyakori forgatókönyv, ha egy felhőalapú megoldás-szolgáltató (CSP).
 
-Ahhoz, hogy egy Azure Stack operátor eltávolítsa a portál felhasználói azonosítóit, legalább a felhasználói objektum azonosítóját kötelező megadni.
+Ahhoz, hogy egy Azure Stack hub operátor el lehessen távolítani a portál felhasználói adatszolgáltatásait, legalább a felhasználói objektum AZONOSÍTÓját kötelező megadni.
 
-A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia a Azure Stack operátornak. Az operátor nem fér hozzá a címtárhoz, amelyben a felhasználó található.
+A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia az Azure Stack hub-kezelőnek. Az operátor nem fér hozzá a címtárhoz, amelyben a felhasználó található.
 
 ### <a name="user-retrieves-the-user-object-id"></a>A felhasználó lekéri a felhasználói objektum AZONOSÍTÓját
 
@@ -118,11 +118,11 @@ A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia
    ```
 
    > [!NOTE]
-   > Felhasználóként meg kell adnia a felhasználói objektum AZONOSÍTÓját, amely az előző parancsfájl kimenete a Azure Stack operátornak.
+   > Felhasználóként meg kell adnia a felhasználói objektum AZONOSÍTÓját, amely az előző szkript kimenete az Azure Stack hub operátornak.
 
-## <a name="azure-stack-operator-removes-the-portal-user-data"></a>Azure Stack operátor eltávolítja a portál felhasználói adatfájljait
+## <a name="azure-stack-hub-operator-removes-the-portal-user-data"></a>Azure Stack hub-kezelő eltávolítja a portál felhasználói adatfájljait
 
-Miután a felhasználói objektum AZONOSÍTÓját Azure Stack operátorként kapta, futtassa a következő parancsokat a portál felhasználói adatértékének eltávolításához:
+A felhasználói objektum AZONOSÍTÓjának Azure Stack hub-kezelőként való fogadása után futtassa a következő parancsokat a portál felhasználói adatértékének eltávolításához:
 
 1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), keresse meg a gyökérkönyvtárat a **AzureStack-Tools-Master** könyvtárban, majd importálja a szükséges PowerShell-modult.
 
@@ -136,7 +136,7 @@ Miután a felhasználói objektum AZONOSÍTÓját Azure Stack operátorként kap
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
    $AzsAdminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
    
    ## Replace the following value with the directory tenant ID of the user to clear.
@@ -150,6 +150,6 @@ Miután a felhasználói objektum AZONOSÍTÓját Azure Stack operátorként kap
     -UserObjectID $userObjectID `
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Regisztrálja Azure stack az Azure](azure-stack-registration.md) -ban, és töltse fel a [Azure stack Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.
+- [Regisztrálja Azure stack hubot az Azure](azure-stack-registration.md) -ban, és töltse fel az [Azure stack hub Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.

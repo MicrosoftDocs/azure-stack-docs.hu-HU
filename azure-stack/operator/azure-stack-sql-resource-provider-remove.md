@@ -1,7 +1,7 @@
 ---
 title: Az SQL erőforrás-szolgáltató eltávolítása
-titleSuffix: Azure Stack
-description: Ismerje meg, hogyan távolíthatja el az SQL-erőforrás szolgáltatóját a Azure Stack üzemelő példányáról.
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan távolíthatja el az SQL-erőforrás-szolgáltatót az Azure Stack hub üzembe helyezéséről.
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 15178627cbc58cd466a09f7ef534e7ec115d9c1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954451"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814405"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató eltávolítása
 
@@ -36,7 +36,7 @@ Az SQL-erőforrás-szolgáltató eltávolítása nem törli a bérlői adatbázi
 
 A DeploySqlProvider. ps1 parancsfájl futtatása előtt több karbantartási feladatot is el kell végezni az erőforrás-szolgáltató eltávolításához.
 
-A Azure Stack operátor felelős a következő karbantartási feladatokért:
+A Azure Stack hub operátor felelős a következő karbantartási feladatokért:
 
 * Törölje az SQL-adapterre hivatkozó terveket.
 * Törölje az SQL-adapterhez társított kvótákat.
@@ -56,9 +56,9 @@ A Azure Stack operátor felelős a következő karbantartási feladatokért:
 
     * **Eltávolítás**: eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást.
     * **PrivilegedEndpoint**: a privilegizált végpont IP-címe vagy DNS-neve.
-    * **AzureEnvironment**: a Azure stack üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
+    * **AzureEnvironment**: Azure stack hub üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
     * **CloudAdminCredential**: a rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájának.
-    * **AzCredential**: a Azure stack szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket a Azure Stack telepítéséhez használt.
+    * **AzCredential**: az Azure stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt.
 
 ## <a name="next-steps"></a>Következő lépések
 

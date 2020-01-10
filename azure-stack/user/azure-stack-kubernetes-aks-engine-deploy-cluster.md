@@ -1,6 +1,6 @@
 ---
-title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stackon | Microsoft Docs
-description: Kubernetes-fürt üzembe helyezése Azure Stack rendszerű ügyfélről az AK-motort futtató virtuális gépről.
+title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on | Microsoft Docs
+description: Kubernetes-fürt üzembe helyezése Azure Stack hub-on az AK-motort futtató ügyfél virtuális gépről.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: da1b38df17904042ade28575f1f919708d845252
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310305"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820253"
 ---
-# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack
+# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Kubernetes-fürtöt Azure Stack is telepítheti egy olyan ügyfél virtuális gépről, amely az AK-motort futtatja. Ebben a cikkben bemutatjuk a fürt specifikációjának írását, a fürt üzembe helyezését a `apimodel.json` fájllal, valamint a fürt ellenőrzésével, amely a MySQL-t a Helm használatával helyezi üzembe.
+A Kubernetes-fürtöt Azure Stack hubhoz telepítheti egy olyan ügyfél virtuális gépről, amely az AK-motort futtatja. Ebben a cikkben bemutatjuk a fürt specifikációjának írását, a fürt üzembe helyezését a `apimodel.json` fájllal, valamint a fürt ellenőrzésével, amely a MySQL-t a Helm használatával helyezi üzembe.
 
 ## <a name="define-a-cluster-specification"></a>Fürt specifikációjának megadása
 
@@ -36,7 +36,7 @@ A fürt specifikációját megadhatja egy dokumentum-fájlban az [API-modell](ht
 
 Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 
-1.  Kezdje egy Azure Stack [példa](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API-modellel, és készítsen helyi másolatot a telepítéshez. A gépről telepítette az AK motort:
+1.  Kezdje egy Azure Stack hub [példa](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API-modellel, és készítsen helyi másolatot a telepítéshez. A gépről telepítette az AK motort:
 
     ```bash
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
@@ -82,7 +82,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | --- | --- |
     | dnsPrefix | Adjon meg egy egyedi karakterláncot, amely a virtuális gépek állomásneve azonosítására szolgál majd. Például egy név az erőforráscsoport neve alapján. |
     | count |  Adja meg a központi telepítéshez használni kívánt főkiszolgálók számát. HA egy HA üzemelő példány esetében a minimum a 3, az 1 érték nem lehet üzemelő példányokhoz. |
-    | vmSize |  Adja meg [Azure stack által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), például `Standard_D2_v2`. |
+    | vmSize |  Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
 8.  A tömb `agentPoolProfiles` frissítésében:
@@ -90,7 +90,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | Mező | Leírás |
     | --- | --- |
     | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. |
-    | vmSize | Adja meg [Azure stack által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), például `Standard_D2_v2`. |
+    | vmSize | Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
 9.  A tömb `linuxProfile` frissítésében:
@@ -98,18 +98,18 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | Mező | Leírás |
     | --- | --- |
     | adminUsername | Adja meg a virtuális gép rendszergazdájának felhasználónevét. |
-    | ssh | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. |
+    | SSH | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. |
 
 ### <a name="more-information-about-the-api-model"></a>További információ az API-modellről
 
 - Az API-modell összes elérhető beállításának teljes hivatkozását a [fürt definíciói](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md)című témakörben találja.  
-- A Azure Stack adott lehetőségeinek kiemeléséhez tekintse meg a [Azure stack-fürt definíciójának sajátosságait](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model).  
+- Az Azure Stack hub adott lehetőségeinek kiemeléséhez tekintse meg a [Azure stack hub-fürt definíciójának sajátosságait](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model).  
 
 ## <a name="deploy-a-kubernetes-cluster"></a>Kubernetes-fürt üzembe helyezése
 
 Miután összegyűjtötte az összes szükséges értéket az API-modellben, létrehozhat egy fürtöt. Ezen a ponton a következőket kell tennie:
 
-Kérdezze meg Azure Stack kezelőjét a következőre:
+Kérdezze meg a Azure Stack hub operátort a következőre:
 
 - Ellenőrizze a rendszer állapotát, és futtassa a `Test-AzureStack` és az OEM-gyártó hardver-figyelési eszközét.
 - Ellenőrizze a rendszerkapacitást, beleértve az erőforrásokat, például a memóriát, a tárterületet és a nyilvános IP-címeket.
@@ -117,19 +117,19 @@ Kérdezze meg Azure Stack kezelőjét a következőre:
 
 Fürt üzembe helyezésének folytatása:
 
-1.  Tekintse át az AK-motorhoz elérhető paramétereket Azure Stack [CLI-jelzők](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)esetében.
+1.  Tekintse át a Azure Stack hub [CLI-jelzők](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)számára elérhető paramétereket az AK-motor számára.
 
     | Paraméter | Példa | Leírás |
     | --- | --- | --- |
-    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack használja `AzureStackCloud`. |
-    | identitás-rendszerek | ADFS | Nem kötelező. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
-    | location | helyi | A Azure Stack régiójának neve. A ASDK a régió `local`értékre van állítva. |
-    | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket. |
+    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platformot Azure Stack hub használja `AzureStackCloud`. |
+    | identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
+    | location | helyi | Az Azure Stack hub régiójának neve. A ASDK a régió `local`értékre van állítva. |
+    | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
     | kimenet – könyvtár | Kube – RG | Adja meg annak a könyvtárnak a nevét, amely a kimeneti fájlt `apimodel.json` és egyéb létrehozott fájlokat is tartalmaz. |
-    | ügyfél-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás-AZONOSÍTÓként van azonosítva, amikor a Azure Stack rendszergazdája létrehozta a szolgáltatásnevet. |
-    | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
-    | előfizetés-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés az ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
+    | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
+    | ügyfél – titok | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
+    | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés az ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
     Például:
 
@@ -160,9 +160,9 @@ Fürt üzembe helyezésének folytatása:
 
 Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySQL-t a Helm használatával.
 
-1. Szerezze be az egyik főcsomópont nyilvános IP-címét a Azure Stack-portál használatával.
+1. Szerezze be az egyik főcsomópont nyilvános IP-címét az Azure Stack hub portál használatával.
 
-2. Egy olyan számítógépről, amely hozzáféréssel rendelkezik a Azure Stack-példányhoz, csatlakozzon SSH-n keresztül az új fő csomóponthoz egy ügyfél, például a PuTTY vagy a MobaXterm használatával. 
+2. Egy olyan számítógépről, amely hozzáféréssel rendelkezik a Azure Stack hub-példányhoz, csatlakozzon SSH-n keresztül az új fő csomóponthoz egy ügyfél, például a PuTTY vagy a MobaXterm használatával. 
 
 3. Az SSH-felhasználónévhez használja az "azureuser" nevet, valamint a fürt üzembe helyezéséhez megadott kulcspár titkos kulcsát.
 
@@ -193,7 +193,7 @@ Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySQL-
     release "wintering-rodent" deleted
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
-> [Az AK-motor hibáinak megoldása Azure Stack](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Az AK-motor hibáinak megoldása Azure Stack hub-on](azure-stack-kubernetes-aks-engine-troubleshoot.md)

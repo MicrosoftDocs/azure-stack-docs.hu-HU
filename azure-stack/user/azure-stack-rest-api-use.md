@@ -1,6 +1,6 @@
 ---
-title: API-kérelmek készítése Azure Stack | Microsoft Docs
-description: Megtudhatja, hogyan kérhet le hitelesítést az Azure-ból, hogy API-kérelmeket Azure Stack.
+title: API-kérelmek készítése Azure Stack hubhoz | Microsoft Docs
+description: Megtudhatja, hogyan kérhet le hitelesítést az Azure-ból, hogy API-kérelmeket Azure Stack hub-ra hozzon.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,32 +14,32 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 8ee6cfbae5557a2f90c25effe57891b1541867d2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714651"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815833"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="make-api-requests-to-azure-stack"></a>API-kérelmek Azure Stackának elvégzése
+# <a name="make-api-requests-to-azure-stack-hub"></a>API-kérelmek készítése Azure Stack hubhoz
 
-*Vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Azure Stack REST API-k segítségével automatizálhat olyan műveleteket, mint például a virtuális gép (VM) hozzáadása a Azure Stack-felhőhöz.
+Az Azure Stack hub REST API-k segítségével automatizálhat olyan műveleteket, mint például a virtuális gép (VM) hozzáadása a Azure Stack hub-felhőhöz.
 
-Az API-k megkövetelik, hogy az ügyfél hitelesítse magát a Microsoft Azure bejelentkezési végpontján. A végpont visszaadja a Azure Stack API-khoz elküldett kérelmek fejlécében használandó tokent. Microsoft Azure a 2,0 OAuth használja.
+Az API-k megkövetelik, hogy az ügyfél hitelesítse magát a Microsoft Azure bejelentkezési végpontján. A végpont visszaadja az Azure Stack hub API-khoz eljuttatott minden kérelem fejlécében használandó tokent. Microsoft Azure a 2,0 OAuth használja.
 
-Ez a cikk olyan példákat tartalmaz, amelyek a **curl** segédprogramot használják Azure stack kérelmek létrehozásához. a cURL egy olyan parancssori eszköz, amely az adatátvitelre szolgáló függvénytárat biztosít. Ezek a példák végigvezetik a token lekérésének folyamatán a Azure Stack API-k eléréséhez. A legtöbb programozási nyelv olyan OAuth 2,0 kódtárakat biztosít, amelyek robusztus jogkivonat-felügyelettel rendelkeznek, és olyan feladatokat kezelnek, mint például a jogkivonat frissítése.
+Ez a cikk olyan példákat tartalmaz, amelyek a **curl** segédprogramot használják Azure stack hub-kérelmek létrehozásához. a cURL egy olyan parancssori eszköz, amely az adatátvitelre szolgáló függvénytárat biztosít. Ezek a példák végigvezetik a tokenek lekérésének folyamatán az Azure Stack hub API-k eléréséhez. A legtöbb programozási nyelv olyan OAuth 2,0 kódtárakat biztosít, amelyek robusztus jogkivonat-felügyelettel rendelkeznek, és olyan feladatokat kezelnek, mint például a jogkivonat frissítése.
 
-Tekintse át a Azure Stack REST API-k használatának teljes folyamatát egy általános REST-ügyféllel, például a **fürtökkel**, hogy segítsen megérteni a mögöttes kérelmeket, és hogy mit várhat a válasz hasznos adataiban.
+Tekintse át az Azure Stack hub REST API-k teljes folyamatát egy általános REST-ügyféllel, például a **curltel**, hogy könnyebben megértse a mögöttes kérelmeket, és hogy mit várhat a válasz hasznos adataiban.
 
 Ez a cikk nem vizsgálja meg a jogkivonatok beolvasásához rendelkezésre álló összes lehetőséget, például az interaktív bejelentkezést vagy a dedikált alkalmazás-azonosítók létrehozását. A témakörökkel kapcsolatos információkért tekintse meg az [Azure REST API referenciát](/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Token beszerzése az Azure-ból
 
-Hozzáférési jogkivonat beszerzéséhez hozzon létre egy `x-www-form-urlencoded` tartalomtípus használatával formázott kérelem törzsét. Küldje el a kérését az Azure REST-hitelesítésre és a bejelentkezési végpontra.
+Hozzáférési jogkivonat beszerzéséhez hozzon létre egy kérelem törzsét, amely a `x-www-form-urlencoded` tartalomtípus használatával van formázva. Küldje el a kérését az Azure REST-hitelesítésre és a bejelentkezési végpontra.
 
 ### <a name="uri"></a>URI
 
@@ -49,9 +49,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 A **bérlő azonosítója** a következők egyike:
 
-- A bérlő tartománya, például`fabrikam.onmicrosoft.com`
-- A bérlő azonosítója, például`8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- Alapértelmezett érték a bérlői független kulcsok esetében:`common`
+- A bérlői tartomány, például `fabrikam.onmicrosoft.com`
+- A bérlő azonosítója, például `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- A bérlőtől független kulcsok alapértelmezett értéke: `common`
 
 ### <a name="post-body"></a>Post törzs
 
@@ -67,19 +67,19 @@ grant_type=password
 Minden értéknél:
 
 - **grant_type**:  
-   A használni kívánt hitelesítési séma típusa. Ebben a példában a érték `password`a következő:.
+   A használni kívánt hitelesítési séma típusa. Ebben a példában az érték `password`.
 
 - **erőforrás**:  
-   A jogkivonathoz hozzáférő erőforrás. Az erőforrást a Azure Stack felügyeleti metaadatok végpontjának lekérdezésével keresheti meg. Tekintse meg a **célközönségek** szakaszt.
+   A jogkivonathoz hozzáférő erőforrás. Az erőforrást az Azure Stack hub felügyeleti metaadatok végpontjának lekérdezésével keresheti meg. Tekintse meg a **célközönségek** szakaszt.
 
-- **Azure stack felügyeleti végpont**:
+- **Azure stack hub felügyeleti végpontja**:
 
    ```bash
-   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   https://management.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > Ha egy rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlői végpontot használja; például `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Ha egy rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlői végpontot használja; például `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
 
   Például a Azure Stack Development Kit végpontként:
 
@@ -117,17 +117,17 @@ Minden értéknél:
 
   Az alternatív lehetőségek az adott forgatókönyvekhez érhetők el:
 
-  | Alkalmazás | ApplicationID |
+  | Jelentkezés | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
-  | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
+  | LegacyPowerShell | 0a7bdc5c-7b57-40BE-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
-  | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
+  | WindowsAzureActiveDirectory | 00000002-0000-0000 – C000 – 000000000000 |
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-- **felhasználónév**
+- **username**
 
-  Például a Azure Stack Azure AD-fiók:
+  Például az Azure Stack hub Azure AD-fiók:
 
   ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -135,7 +135,7 @@ Minden értéknél:
 
 - **jelszó**
 
-  Az Azure AD rendszergazdai jelszavának Azure Stack.
+  Az Azure Stack hub Azure AD-rendszergazdai jelszava.
 
 ### <a name="example"></a>Példa
 
@@ -190,18 +190,18 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL-struktúra és lekérdezési szintaxis
 
-Általános kérelem URI-ja, a következőkből áll:`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+Általános kérelem URI-ja, a következőkből áll: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI-séma**:  
-Az URI a kérelem küldéséhez használt protokollt jelzi. Ha például `http` vagy `https`.
+Az URI a kérelem küldéséhez használt protokollt jelzi. Például `http` vagy `https`.
 - **URI-gazdagép**:  
-A gazdagép megadja annak a kiszolgálónak a tartománynevét vagy IP-címét, amelyen a REST szolgáltatás végpontja üzemel, `graph.microsoft.com` például `adminmanagement.local.azurestack.external`vagy.
+A gazdagép megadja annak a kiszolgálónak a tartománynevét vagy IP-címét, amelyen a REST szolgáltatási végpont található, például `graph.microsoft.com` vagy `adminmanagement.local.azurestack.external`.
 - **Erőforrás elérési útja**:  
-Az elérési út meghatározza az erőforrást vagy az erőforrás-gyűjteményt, amely magában foglalhatja a szolgáltatás által az erőforrások kiválasztásának meghatározásához használt több szegmenst is. Például: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` a (z) segítségével lekérdezheti egy adott alkalmazás tulajdonosának listáját az alkalmazások gyűjteményén belül.
+Az elérési út meghatározza az erőforrást vagy az erőforrás-gyűjteményt, amely magában foglalhatja a szolgáltatás által az erőforrások kiválasztásának meghatározásához használt több szegmenst is. Például: a `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` segítségével lekérdezheti a listát egy adott alkalmazás tulajdonosainak az alkalmazások gyűjteményén belül.
 - **Lekérdezési karakterlánc**:  
 A karakterlánc további egyszerű paramétereket tartalmaz, például az API-verziót vagy az erőforrás-kiválasztási feltételeket.
 
-## <a name="azure-stack-request-uri-construct"></a>Azure Stack kérelem URI-építése
+## <a name="azure-stack-hub-request-uri-construct"></a>Azure Stack hub-kérelem URI-építése
 
 ```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
@@ -219,6 +219,6 @@ https://adminmanagement.local.azurestack.external/{subscription id}/resourcegrou
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure REST-végpontok használatával kapcsolatos további információkért lásd az [azure REST API referenciáját](/rest/api/).

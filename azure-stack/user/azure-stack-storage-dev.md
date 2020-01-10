@@ -1,6 +1,6 @@
 ---
-title: Ismerkedés a Azure Stack Storage fejlesztői eszközeivel | Microsoft Docs
-description: Útmutató a Azure Stack Storage fejlesztői eszközök használatának megkezdéséhez
+title: Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel | Microsoft Docs
+description: Útmutató az Azure Stack hub Storage fejlesztői eszközök használatának megkezdéséhez
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
@@ -10,34 +10,34 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 407d8167fcc359531496397dda00e51d59f49d7c
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: ae32a0cf0142499a13474ecd7d2f422b01820eaa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909604"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819012"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Ismerkedés a Azure Stack Storage fejlesztői eszközeivel
+# <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel
 
-*A következőkre vonatkozik: Azure Stackkel integrált rendszerek és az Azure Stack fejlesztői készlete*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A Microsoft Azure Stack a blob-, tábla-és üzenetsor-tárolást tartalmazó tárolási szolgáltatások készletét nyújtja.
+Microsoft Azure Stack hub olyan tárolási szolgáltatásokat biztosít, amelyek blob, Table és üzenetsor-tárolót tartalmaznak.
 
-Ez a cikk útmutatóként használható Azure Stack Storage fejlesztői eszközök használatának megkezdéséhez. Részletesebb információ és mintakód található a megfelelő Azure Storage-oktatóanyagokban.
+Ez a cikk útmutatóként szolgál az Azure Stack hub Storage Fejlesztőeszközök használatának megkezdéséhez. Részletesebb információ és mintakód található a megfelelő Azure Storage-oktatóanyagokban.
 
 > [!NOTE]  
-> A Azure Stack Storage és az Azure Storage között különbségek vannak, beleértve az egyes platformokra vonatkozó konkrét követelményeket is. Előfordulhat például, hogy a Azure Stackhoz konkrét ügyféloldali kódtárak és végponti utótagok vonatkoznak. További információt a [Azure stack Storage: különbségek és megfontolások](azure-stack-acs-differences.md)című témakörben talál.
+> A Azure Stack hub Storage és az Azure Storage között különbségek vannak, beleértve az egyes platformokra vonatkozó egyedi követelményeket is. Előfordulhat például, hogy az Azure Stack hub esetében egyediek az ügyféloldali kódtárak és a végponti utótagok. További információ [: Azure stack hub Storage: különbségek és megfontolások](azure-stack-acs-differences.md).
 
-## <a name="azure-client-libraries"></a>Azure-ügyfél kódtárai
+## <a name="azure-client-libraries"></a>Azure-ügyfélkódtárak
 
-A Storage ügyféloldali kódtárai esetében vegye figyelembe a REST API kompatibilis verziót. Az Azure Stack végpontot is meg kell adnia a kódban.
+A Storage ügyféloldali kódtárai esetében vegye figyelembe a REST API kompatibilis verziót. Az Azure Stack hub-végpontot is meg kell adnia a kódban.
 
 ::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>1811 frissítés vagy újabb verzió
 
-| Ügyfélkódtár | Azure Stack támogatott verzió | Hivatkozás | Végpont specifikációja |
+| Ügyfélkódtár | Azure Stack hub támogatott verziója | Hivatkozás | Végpont specifikációja |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 9.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app.config file |
+| .NET | 9.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app. config fájl |
 | Java | 7.0.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | A kapcsolatok karakterláncának beállítása |
 | Node.js | 2.8.3 | NPM hivatkozása:<br><https://www.npmjs.com/package/azure-storage><br>(Futtatás: `npm install azure-storage@2.8.3`)<br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Szolgáltatási példány deklarációja |
 | C++ | 5.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.CPP.v140/5.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0> | A kapcsolatok karakterláncának beállítása |
@@ -60,15 +60,15 @@ Telepítés a zeneszerző használatával: (a blobot példaként kell megtennie)
     ```
 
 2. A [zeneszerző. farmakovigilancia](https://getcomposer.org/composer.phar) letöltése a projekt gyökerébe.
-3. Futtatás: `php composer.phar install`.
+3. Adja ki a következő parancsot: `php composer.phar install`.
 ::: moniker-end
 
 ::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>Korábbi verziók (1802 – 1809 frissítés)
 
-| Ügyfélkódtár | Azure Stack támogatott verzió | Hivatkozás | Végpont specifikációja |
+| Ügyfélkódtár | Azure Stack hub támogatott verziója | Hivatkozás | Végpont specifikációja |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 8.7.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app.config file |
+| .NET | 8.7.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app. config fájl |
 | Java | 6.1.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | A kapcsolatok karakterláncának beállítása |
 | Node.js | 2.7.0 | NPM hivatkozása:<br><https://www.npmjs.com/package/azure-storage><br>(Futtatás: `npm install azure-storage@2.7.0`)<br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0> | Szolgáltatási példány deklarációja |
 | C++ | 3.1.0 | Nuget-csomag:<br><https://www.nuget.org/packages/wastorage.v140/3.1.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0> | A kapcsolatok karakterláncának beállítása |
@@ -91,12 +91,12 @@ A következőn keresztül történő telepítéshez: (blob készítése példak�
    ```
 
 2. A [zeneszerző. farmakovigilancia](https://getcomposer.org/composer.phar) letöltése a projekt gyökerébe.
-3. Futtatás: `php composer.phar install`.
+3. Adja ki a következő parancsot: `php composer.phar install`.
 :::moniker-end
 
 ## <a name="endpoint-declaration"></a>Végpont deklarációja
 
-Egy Azure Stack végpont két részből áll: a régió és a Azure Stack tartomány neve.
+Azure Stack hub-végpont két részből áll: egy régió és a Azure Stack hub tartományának nevével.
 A Azure Stack Development Kit az alapértelmezett végpont **helyi. azurestack. external**.
 Ha nem biztos benne, hogy a végpontról van szó, forduljon a felhő rendszergazdájához.
 
@@ -104,7 +104,7 @@ Ha nem biztos benne, hogy a végpontról van szó, forduljon a felhő rendszerga
 
 ### <a name="net"></a>.NET
 
-Azure Stack esetén a végpont utótagja az app. config fájlban van megadva:
+Azure Stack hub esetében a végpont utótagja az app. config fájlban van megadva:
 
 ```xml
 <add key="StorageConnectionString"
@@ -114,7 +114,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 ### <a name="java"></a>Java
 
-Azure Stack esetén a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
+Azure Stack hub esetében a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
 
 ```java
 public static final String storageConnectionString =
@@ -126,7 +126,7 @@ public static final String storageConnectionString =
 
 ### <a name="nodejs"></a>Node.js
 
-Azure Stack esetében a végpont utótagja meg van adva a deklarációs példányban:
+Azure Stack hub esetében a végpont utótagja a deklarációs példányban van megadva:
 
 ```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
@@ -135,7 +135,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 ### <a name="c"></a>C++
 
-Azure Stack esetén a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
+Azure Stack hub esetében a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
 
 ```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
@@ -146,7 +146,7 @@ EndpointSuffix=local.azurestack.external"));
 
 ### <a name="php"></a>PHP
 
-Azure Stack esetén a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
+Azure Stack hub esetében a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
 
 ```php
 $connectionString = 'BlobEndpoint=https://<storage account name>.blob.local.azurestack.external/;
@@ -157,7 +157,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 ### <a name="python"></a>Python
 
-Azure Stack esetében a végpont utótagja meg van adva a deklarációs példányban:
+Azure Stack hub esetében a végpont utótagja a deklarációs példányban van megadva:
 
 ```python
 block_blob_service = BlockBlobService(account_name='myaccount',
@@ -167,7 +167,7 @@ endpoint_suffix='local.azurestack.external')
 
 ### <a name="ruby"></a>Ruby
 
-Azure Stack esetén a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
+Azure Stack hub esetében a végpont utótagját a rendszer a kapcsolatok karakterláncának beállításában adja meg:
 
 ```ruby
 set
@@ -177,9 +177,9 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobtároló
 
-A következő Azure Blob Storage-oktatóanyagok a Azure Stackra vonatkoznak. Jegyezze fel az előző [példák](#examples) szakaszban ismertetett Azure Stackhoz megadott végpont-utótag követelményét.
+A következő Azure Blob Storage-oktatóanyagok a Azure Stack hub-ra vonatkoznak. Figyelje meg, hogy az előző [példák](#examples) részben ismertetett Azure stack hub adott végponti utótagra vonatkozó követelménye.
 
 * [Az Azure Blob Storage használatának első lépései a .NET-keretrendszerrel](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 * [How to use Blob storage from Java (A Blob Storage használata Javával)](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
@@ -191,7 +191,7 @@ A következő Azure Blob Storage-oktatóanyagok a Azure Stackra vonatkoznak. Jeg
 
 ## <a name="queue-storage"></a>Queue Storage
 
-A következő Azure üzenetsor-tárolási oktatóanyagok a Azure Stackra vonatkoznak. Jegyezze fel az előző [példák](#examples) szakaszban ismertetett Azure Stackhoz megadott végpont-utótag követelményét.
+A következő Azure üzenetsor-tárolási oktatóanyagok a Azure Stack hub-ra vonatkoznak. Figyelje meg, hogy az előző [példák](#examples) részben ismertetett Azure stack hub adott végponti utótagra vonatkozó követelménye.
 
 * [Az Azure Queue Storage használatának első lépései a .NET-keretrendszerrel](/azure/storage/queues/storage-dotnet-how-to-use-queues)
 * [How to use Queue Storage from Java (A Queue Storage használata Javával)](/azure/storage/queues/storage-java-how-to-use-queue-storage)
@@ -203,7 +203,7 @@ A következő Azure üzenetsor-tárolási oktatóanyagok a Azure Stackra vonatko
 
 ## <a name="table-storage"></a>Table Storage
 
-A következő Azure Table Storage-oktatóanyagok a Azure Stackra vonatkoznak. Jegyezze fel az előző [példák](#examples) szakaszban ismertetett Azure Stackhoz megadott végpont-utótag követelményét.
+A következő Azure Table Storage-oktatóanyagok a Azure Stack hub-ra vonatkoznak. Figyelje meg, hogy az előző [példák](#examples) részben ismertetett Azure stack hub adott végponti utótagra vonatkozó követelménye.
 
 * [Az Azure Table Storage használatának első lépései a .NET-keretrendszerrel](/azure/cosmos-db/table-storage-how-to-use-dotnet)
 * [How to use Table storage from Java (A Table Storage használata Javával)](/azure/cosmos-db/table-storage-how-to-use-java)
@@ -213,6 +213,6 @@ A következő Azure Table Storage-oktatóanyagok a Azure Stackra vonatkoznak. Je
 * [A Table Storage használata a Pythonban](/azure/cosmos-db/table-storage-how-to-use-python)
 * [How to use Table storage from Ruby (A Table Storage használata Rubyval)](/azure/cosmos-db/table-storage-how-to-use-ruby)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [A Microsoft Azure Storage bemutatása](/azure/storage/common/storage-introduction)

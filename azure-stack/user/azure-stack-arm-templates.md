@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager-sablonok használata a Azure Stackban | Microsoft Docs
-description: Ismerje meg, hogyan hozhat létre erőforrásokat a Azure Stack Azure Resource Manager sablonjaival.
+title: Azure Resource Manager-sablonok használata Azure Stack hub-ban | Microsoft Docs
+description: Ismerje meg, hogyan hozhat létre erőforrásokat a Azure Stack hub Azure Resource Manager sablonjaival.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,20 +16,20 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 3ae09f31a0dc1b99a0ec5b18a0e653c02c098ae7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993766"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816462"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Resource Manager-sablonok használata a Azure Stack
+# <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Resource Manager-sablonok használata Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az alkalmazás összes erőforrását egyetlen, koordinált műveletben használhatja Azure Resource Manager sablonokkal. Az erőforráscsoportok erőforrásainak módosítására is lehetősége van a sablonok újbóli üzembe helyezésére.
 
-Ezek a sablonok a Microsoft Azure Stack portál, a PowerShell, a parancssor és a Visual Studio használatával telepíthetők.
+Ezek a sablonok a Microsoft Azure Stack hub portál, a PowerShell, a parancssor és a Visual Studio használatával telepíthetők.
 
 A GitHubon a következő rövid útmutató-sablonok [érhetők el](https://aka.ms/azurestackgithub):
 

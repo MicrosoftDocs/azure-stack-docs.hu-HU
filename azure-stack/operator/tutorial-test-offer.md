@@ -1,5 +1,5 @@
 ---
-title: Azure Stack szolgáltatási ajánlat tesztelése.
+title: Azure Stack hub szolgáltatási ajánlat tesztelése.
 description: Megtudhatja, hogyan tesztelheti a szolgáltatási ajánlatokat az előfizetés létrehozásával és az erőforrások üzembe helyezésével.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 63c8e37c19b46f5cabe197dd55875e9bcbd5cb12
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286992"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820933"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Oktatóanyag: szolgáltatási ajánlat tesztelése
 
@@ -31,13 +31,13 @@ Az oktatóanyag megkezdése előtt végre kell hajtania a következő előfelté
 
 - Fejezze be a [szolgáltatás nyújtása a felhasználók számára](tutorial-offer-services.md) oktatóanyagot. Ez a témakör bemutatja, hogyan hozhatja létre az oktatóanyag által használt ajánlatot.
 
-- Az ebben az oktatóanyagban előfizetett ajánlat lehetővé teszi a virtuális gép (VM) erőforrásának üzembe helyezését. Ha a virtuális gépek üzembe helyezését szeretné tesztelni, akkor az Azure Marketplace-ről letöltve Azure Stack piactéren is elérhetővé kell tennie egy virtuálisgép-rendszerképet. Útmutatásért lásd: [Marketplace-elemek letöltése az Azure-ból Azure stack](azure-stack-download-azure-marketplace-item.md) . 
+- Az ebben az oktatóanyagban előfizetett ajánlat lehetővé teszi a virtuális gép (VM) erőforrásának üzembe helyezését. Ha tesztelni szeretné a virtuális gépek üzembe helyezését, először a Azure Stack hub piactéren kell elérhetővé tenni egy virtuálisgép-rendszerképet az Azure Marketplace-ről való letöltéssel. Útmutatásért lásd: [Marketplace-elemek letöltése az Azure-ból a Azure stack hub-](azure-stack-download-azure-marketplace-item.md) ba. 
 
 ## <a name="subscribe-to-the-offer"></a>Előfizetés az ajánlatra
 
 1. Bejelentkezés a felhasználói portálra felhasználói fiókkal 
 
-   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a https://portal.&ltformátumot használva. *régió*&gt;.&lt;*FQDN*&gt;.
+   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a https://portal.&lt formátumot használva. *régió*&gt;.&lt;*FQDN*&gt;.
    - Ha a Azure Stack Development Kit használja, a portál címe https://portal.local.azurestack.external.
 
 1. Válassza az **előfizetés beszerzése** csempét.
@@ -80,7 +80,7 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az előző sza
 1. Válassza az **+ erőforrás létrehozása** > **számítási** > **\<rendszerkép-név\>** lehetőséget, ahol a "rendszerkép-Name" az előfeltételek között letöltött virtuális gép neve.
 1. A **virtuális gép létrehozása** / **alapjai**területen adja meg a következő információkat:
   
-   - Adja meg a virtuális gép **nevét** .
+   - Adja meg a virtuális gép **nevét**.
    - Adja meg a rendszergazdai fiók **felhasználónevét** .
    - Linux rendszerű virtuális gépek esetén válassza a "jelszó" lehetőséget a **hitelesítési típushoz**.
    - A rendszergazdai fiókhoz adja meg a **jelszót** és a **jelszó megerősítését**.
@@ -131,7 +131,7 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az új előfiz
 1. Az új virtuális gép megjelenítéséhez válassza az **összes erőforrás**lehetőséget. Keresse meg a virtuális gépet, és válassza ki a nevét a keresési eredmények közül.
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 
@@ -139,8 +139,8 @@ Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 > * Előfizetés létrehozása
 > * Erőforrások létrehozása és üzembe helyezése 
 
-Ezután megismerheti az erőforrás-szolgáltatók üzembe helyezését a kiegészítő szolgáltatásokhoz. Lehetővé teszik, hogy még több szolgáltatást nyújtson a csomagok felhasználói számára:
+A következő lépés az erőforrás-szolgáltatók üzembe helyezése érték-hozzáadási szolgáltatásokhoz című témakörben olvasható. Lehetővé teszik, hogy még több szolgáltatást nyújtson a csomagok felhasználói számára:
 
-- [SQL-ajánlat Azure Stack](azure-stack-sql-resource-provider.md)
-- [MySQL-ajánlat Azure Stack](azure-stack-mysql-resource-provider.md)
-- [Ajánlat App Service Azure Stack](azure-stack-app-service-overview.md)
+- [SQL-ajánlat Azure Stack hub-on](azure-stack-sql-resource-provider.md)
+- [MySQL-ajánlat Azure Stack hub-on](azure-stack-mysql-resource-provider.md)
+- [Ajánlat App Service Azure Stack hub-on](azure-stack-app-service-overview.md)

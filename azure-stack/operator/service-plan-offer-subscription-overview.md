@@ -1,6 +1,6 @@
 ---
-title: Azure Stack szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése | Microsoft Docs
-description: Azure Stack szolgáltatások, csomagok, ajánlatok és előfizetések áttekintése.
+title: Azure Stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése | Microsoft Docs
+description: Azure Stack hub szolgáltatások, csomagok, ajánlatok és előfizetések áttekintése.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,22 +12,22 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a228e20de1786529374e5e2431ca7bb79a9c14bf
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 630c3b13248895091f425190cc00ad019ee0df1f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187265"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820967"
 ---
-# <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Azure Stack szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
+# <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
-A [Microsoft Azure stack](azure-stack-overview.md) egy hibrid felhőalapú platform, amely lehetővé teszi szolgáltatások nyújtását az adatközpontból. A szolgáltatások közé tartoznak a virtuális gépek (VM-EK), SQL Server adatbázisok, a SharePoint, az Exchange és még az [Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md). Szolgáltatóként szolgáltatásokat biztosíthat a bérlőknek. Az üzleti vagy kormányzati szerveken belül helyszíni szolgáltatásokat is biztosíthat az alkalmazottak számára.
+Az [Microsoft Azure stack hub](azure-stack-overview.md) egy hibrid felhőalapú platform, amely lehetővé teszi szolgáltatások nyújtását az adatközpontból. A szolgáltatások közé tartoznak a virtuális gépek (VM-EK), SQL Server adatbázisok, a SharePoint, az Exchange és még az [Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md). Szolgáltatóként szolgáltatásokat biztosíthat a bérlőknek. Az üzleti vagy kormányzati szerveken belül helyszíni szolgáltatásokat is biztosíthat az alkalmazottak számára.
 
 ## <a name="overview"></a>Áttekintés
 
-Azure Stack kezelőként az ajánlatokat, csomagokat és előfizetéseket használó szolgáltatásokat konfigurálhatja és kézbesítheti. Az ajánlatok egy vagy több csomagot tartalmaznak, és minden csomag egy vagy több szolgáltatást tartalmaz, amelyek mindegyike kvótával van konfigurálva. A csomagok létrehozásával és különböző ajánlatokban való kombinálásával a felhasználók előfizethetnek az ajánlatokra, és üzembe helyezhetik az erőforrásokat. Ez a struktúra lehetővé teszi a következők kezelését:
+Azure Stack hub-kezelőként az ajánlatokat, csomagokat és előfizetéseket használva konfigurálhatja és kézbesítheti a szolgáltatásokat. Az ajánlatok egy vagy több csomagot tartalmaznak, és minden csomag egy vagy több szolgáltatást tartalmaz, amelyek mindegyike kvótával van konfigurálva. A csomagok létrehozásával és különböző ajánlatokban való kombinálásával a felhasználók előfizethetnek az ajánlatokra, és üzembe helyezhetik az erőforrásokat. Ez a struktúra lehetővé teszi a következők kezelését:
 
 - Mely szolgáltatások és erőforrások férhetnek hozzá a felhasználókhoz.
 - A felhasználók által felhasznált erőforrások mennyisége.
@@ -38,7 +38,7 @@ A szolgáltatás nyújtásához kövesse az alábbi magas szintű lépéseket:
 1. Tervezze meg a szolgáltatás ajánlatát a használatával:
 
    - Olyan alapszolgáltatások, mint a számítás, a tárolás, a hálózatkezelés vagy a Key Vault.
-   - Kiegészítő szolgáltatások, például App Service, SQL Server vagy MySQL-kiszolgáló.
+   - Value-szolgáltatások hozzáadása, például App Service, SQL Server vagy MySQL-kiszolgáló.
 
 2. Hozzon létre egy csomagot, amely egy vagy több szolgáltatást tartalmaz. A csomag létrehozásakor válasszon ki vagy hozzon létre kvótákat, amelyek meghatározzák a csomagban lévő egyes szolgáltatások erőforrás-korlátozásait.
 3. Hozzon létre egy ajánlatot, amely egy vagy több csomaggal rendelkezik. Az ajánlat tartalmazhat alapcsomagokat és opcionális kiegészítő csomagokat.
@@ -49,9 +49,9 @@ Az ajánlat létrehozása után a felhasználók előfizethetnek rá a szolgált
 
 ## <a name="services"></a>Szolgáltatások
 
-Olyan infrastruktúra- [szolgáltatási](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) szolgáltatásokat biztosíthat, amelyek lehetővé teszik a felhasználók számára, hogy igény szerinti számítástechnikai infrastruktúrát hozzanak létre, amelyet a Azure stack felhasználói portálon üzembe kell helyezni és felügyelni.
+Olyan infrastruktúra- [szolgáltatási](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) szolgáltatásokat biztosíthat, amelyek lehetővé teszik a felhasználók számára, hogy igény szerinti számítástechnikai infrastruktúrát hozzanak létre, amelyet az Azure stack hub felhasználói portálján üzembe kell helyezni és felügyelni.
 
-A Microsofttól és más külső szolgáltatóktól származó Azure Stack platformként is üzembe helyezheti a [szolgáltatásként](https://azure.microsoft.com/overview/what-is-paas/) nyújtott szolgáltatások (Pásti) szolgáltatásait. A megadható Pásti-szolgáltatások közé tartoznak a következők:
+A Microsofttól és más külső szolgáltatóktól származó Azure Stack hubhoz is üzembe helyezheti a [platform szolgáltatásként](https://azure.microsoft.com/overview/what-is-paas/) nyújtott szolgáltatásokat. A megadható Pásti-szolgáltatások közé tartoznak a következők:
 
 - [APP SERVICE](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
@@ -71,11 +71,11 @@ A kvótákat régiónként is beállíthatja. Például egy olyan csomag, amely 
 >[!NOTE]
 >A Azure Stack Development Kit (ASDK) esetében csak egy régió ( *helyi*) érhető el.
 
-További információ a [Azure Stackban található kvóták típusairól](azure-stack-quota-types.md).
+További információ a [Azure stack hub kvótáinak típusairól](azure-stack-quota-types.md).
 
 ## <a name="plans"></a>Csomagok
 
-A Csomagok egy vagy több szolgáltatás csoportjai. Azure Stack operátorként a felhasználók számára ajánlatos [terveket hozhat létre](azure-stack-create-plan.md) . A felhasználói előfizethetnek az ajánlataira, hogy használhassák a bennük foglalt csomagokat és szolgáltatásokat. A csomagok létrehozásakor ügyeljen arra, hogy beállítja a kvótákat, definiálja az alapterveket, és vegye figyelembe a választható kiegészítő csomagokat is.
+A Csomagok egy vagy több szolgáltatás csoportjai. Azure Stack hub-kezelőként létre kell [hoznia](azure-stack-create-plan.md) a felhasználóknak kínált terveket. A felhasználói előfizethetnek az ajánlataira, hogy használhassák a bennük foglalt csomagokat és szolgáltatásokat. A csomagok létrehozásakor ügyeljen arra, hogy beállítja a kvótákat, definiálja az alapterveket, és vegye figyelembe a választható kiegészítő csomagokat is.
 
 ### <a name="base-plan"></a>Alapcsomag
 
@@ -101,13 +101,13 @@ Az ajánlatok megtervezése során tartsa szem előtt a következő szempontokat
 
 ## <a name="subscriptions"></a>Előfizetések
 
-Az előfizetések lehetővé teszik a felhasználóknak az ajánlatok elérését. Ha Ön Azure Stack szolgáltató, a felhasználók (bérlők) vásárolják meg a szolgáltatásait az ajánlatokra való feliratkozással. Ha Ön egy szervezet Azure Stack operátora, a felhasználók (alkalmazottak) előfizethetnek az Ön által kínált szolgáltatásokra a fizetés nélkül.
+Az előfizetések lehetővé teszik a felhasználóknak az ajánlatok elérését. Ha Ön a szolgáltató Azure Stack hub operátora, akkor a felhasználók (bérlők) megvásárolhatják szolgáltatásait az ajánlatokra való feliratkozással. Ha Ön egy szervezet Azure Stack hub-operátora, akkor a felhasználók (alkalmazottak) fizethetnek az Ön által kínált szolgáltatásokra a fizetés nélkül.
 
-A felhasználók új előfizetéseket hoznak létre, és hozzáférést kapnak a meglévő előfizetésekhez, ha bejelentkeznek a Azure Stackba. Az egyes előfizetések egyetlen ajánlattal való társítást jelölnek. Az egyik előfizetéshez rendelt ajánlat (és annak csomagjai és kvótái) nem oszthatók meg más előfizetésekkel. A felhasználó által létrehozott összes erőforrás egy előfizetéshez van társítva.
+A felhasználók új előfizetéseket hoznak létre, és hozzáférést kapnak a meglévő előfizetésekhez Azure Stack hubhoz való bejelentkezéssel. Az egyes előfizetések egyetlen ajánlattal való társítást jelölnek. Az egyik előfizetéshez rendelt ajánlat (és annak csomagjai és kvótái) nem oszthatók meg más előfizetésekkel. A felhasználó által létrehozott összes erőforrás egy előfizetéshez van társítva.
 
 ### <a name="default-provider-subscription"></a>Alapértelmezett szolgáltatói előfizetés
 
-A ASDK telepítésekor a rendszer automatikusan létrehozza az alapértelmezett szolgáltatói előfizetést. Ez az előfizetés a Azure Stack kezelésére, további erőforrás-szolgáltatók üzembe helyezésére, valamint csomagok és ajánlatok létrehozására használható a felhasználók számára. Biztonsági és licencelési okokból nem használható az ügyfél-munkaterhelések és alkalmazások futtatására. Az alapértelmezett szolgáltatói előfizetés kvótája nem módosítható.
+A ASDK telepítésekor a rendszer automatikusan létrehozza az alapértelmezett szolgáltatói előfizetést. Ez az előfizetés használható Azure Stack hub kezelésére, további erőforrás-szolgáltatók üzembe helyezésére, valamint csomagok és ajánlatok létrehozására a felhasználók számára. Biztonsági és licencelési okokból nem használható az ügyfél-munkaterhelések és alkalmazások futtatására. Az alapértelmezett szolgáltatói előfizetés kvótája nem módosítható.
 
 ## <a name="next-steps"></a>Következő lépések
 

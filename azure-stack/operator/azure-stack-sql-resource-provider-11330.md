@@ -1,7 +1,7 @@
 ---
-title: Azure Stack SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
-titleSuffix: Azure Stack
-description: Tekintse meg a Azure Stack SQL Resource Provider 1.1.33.0 frissítésének kiadási megjegyzéseit.
+title: Azure Stack hub SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
+titleSuffix: Azure Stack Hub
+description: Tekintse meg az Azure Stack hub SQL Resource Provider 1.1.33.0 frissítésének kiadási megjegyzéseit.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,34 +17,34 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 03a2ec5a0485f184e34c2837d8bc55edaed39f1d
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 1920e699704c9c5343885b86a38b589ddc6e13a5
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780694"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814643"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik az SQL Resource Provider 1.1.33.0 verziójának frissítéseit és ismert problémáit.
 
 ## <a name="build-reference"></a>Build referenciája
-Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack kiadási verzió az alábbi listában látható:
+Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub-verzió az alábbi listában látható:
 
-> |Minimális Azure Stack-verzió|SQL erőforrás-szolgáltató verziója|
+> |Azure Stack hub minimális verziója|SQL erőforrás-szolgáltató verziója|
 > |-----|-----|
 > |1808-es verzió (1.1808.0.97)|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> Alkalmazza a minimális támogatott Azure Stack frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) az SQL Resource Provider legújabb verziójának telepítése előtt.
+> Alkalmazza a minimális támogatott Azure Stack hub-frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) az SQL Resource Provider legújabb verziójának telepítése előtt.
 
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
-A Azure Stack SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
+Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 - **Előfordulhat, hogy az SQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. Az SQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ a használni kívánt szolgáltatás-felügyeleti előfizetés meghatározásához, ami esetleg nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, az SQL-erőforrás-szolgáltató nem működik megfelelően.
 
@@ -58,7 +58,7 @@ A Azure Stack SQL erőforrás-szolgáltató ezen verziója a következő javít�
 
 - **Az SQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy óráig is eltarthat, amíg az újonnan létrehozott SKU-t új SQL-adatbázisok létrehozásakor használni szeretné.
 
-    **Áthidaló megoldás**: nincs.
+    **Megkerülő megoldás**: Nincs.
 
 - Az **SQL-bejelentkezések újra felhasználva**. Ha egy olyan új SQL-bejelentkezést próbál létrehozni ugyanazzal a felhasználónévvel, amely ugyanazzal az előfizetéssel rendelkezik, akkor ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 
@@ -72,8 +72,8 @@ A Azure Stack SQL erőforrás-szolgáltató ezen verziója a következő javít�
 
     **Áthidaló megoldás**: Győződjön meg arról, hogy a DNS megfelelően működik a figyelő IP-címének a figyelő állomásneve általi feloldásához.
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>A Cloud adminok operációs Azure Stack ismert problémái
-Tekintse át a [Azure stack kibocsátási megjegyzések](azure-stack-servicing-policy.md)dokumentációját.
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure Stack hubhoz
+Tekintse meg az [Azure stack hub kibocsátási megjegyzései](azure-stack-servicing-policy.md)dokumentációját.
 
 ## <a name="next-steps"></a>Következő lépések
 [További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).

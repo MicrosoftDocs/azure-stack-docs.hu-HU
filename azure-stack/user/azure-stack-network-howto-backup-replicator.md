@@ -1,6 +1,6 @@
 ---
-title: Erőforrások replikálása több Azure Stack-előfizetésen keresztül | Microsoft Docs
-description: Megtudhatja, hogyan replikálhat erőforrásokat az Azure Stack előfizetés-replikációs készlettel.
+title: Erőforrások replikálása több Azure Stack hub-előfizetésen keresztül | Microsoft Docs
+description: Ismerje meg, hogyan replikálhatja az erőforrásokat az Azure Stack hub-előfizetés replikátor-készletének használatával.
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557688"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816122"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Erőforrások replikálása az Azure Stack előfizetés-replikációs szolgáltatással
+# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
-A Azure Stack előfizetés-replikációs PowerShell-parancsfájl segítségével átmásolhatja az erőforrásokat Azure Stack előfizetések között, Azure Stack stampek között, illetve Azure Stack és az Azure között. A replikátor parancsfájl beolvassa és újraépíti a Azure Resource Manager erőforrásokat a különböző Azure-és Azure Stack-előfizetésekkel. Ebből a cikkből megtudhatja, hogyan működik a parancsfájl, hogyan használhatja a parancsfájlt, és hogyan nyújt hivatkozást a parancsfájl-műveletekhez.
+Az Azure Stack hub előfizetés-replikációs PowerShell-szkripttel Azure Stack hub-előfizetések, Azure Stack hub-bélyegek, illetve Azure Stack hub és az Azure közötti erőforrások másolására használható. A replikátor parancsfájl beolvassa és újraépíti a Azure Resource Manager erőforrásokat a különböző Azure-és Azure Stack hub-előfizetésekben. Ebből a cikkből megtudhatja, hogyan működik a parancsfájl, hogyan használhatja a parancsfájlt, és hogyan nyújt hivatkozást a parancsfájl-műveletekhez.
 
 Az ebben a cikkben használt parancsfájlokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A parancsfájlok az előfizetés- [replikációs](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator) mappában találhatók.
 
@@ -70,7 +70,7 @@ Azonban előfordulhat, hogy a cél-előfizetés erőforrás-szolgáltatójának 
 
 ### <a name="parallel-deployments"></a>Párhuzamos üzembe helyezések
 
-Az eszközhöz a **Parallel**nevű paraméter szükséges. Ez a paraméter egy logikai értéket vesz fel, amely meghatározza, hogy a beolvasott erőforrásokat párhuzamosan kell-e telepíteni. Ha az érték **true (igaz),** akkor a **New-AzureRmResourceGroupDeployment** minden hívása a **-asJob** jelzővel és a kód azon blokkokkal fog bővülni, amelyek a párhuzamos feladatok befejezésére várnak, az erőforrás alapján típusú. Gondoskodik arról, hogy az egyik típus összes erőforrása telepítve legyen a következő típusú erőforrás üzembe helyezése előtt. Ha a **Parallel** paraméter értéke **false (hamis**), akkor a rendszer az erőforrásokat a soros módon telepíti.
+Az eszközhöz a **Parallel**nevű paraméter szükséges. Ez a paraméter egy logikai értéket vesz fel, amely meghatározza, hogy a beolvasott erőforrásokat párhuzamosan kell-e telepíteni. Ha az érték **true (igaz),** akkor a **New-AzureRmResourceGroupDeployment** minden hívása a **-asJob** jelzővel és a kód azon blokkokkal fog bővülni, amelyek a párhuzamos feladatok befejezésére várnak, az erőforrástípusok alapján. Gondoskodik arról, hogy az egyik típus összes erőforrása telepítve legyen a következő típusú erőforrás üzembe helyezése előtt. Ha a **Parallel** paraméter értéke **false (hamis**), akkor a rendszer az erőforrásokat a soros módon telepíti.
 
 ## <a name="add-additional-resource-types"></a>További erőforrástípusok hozzáadása
 
@@ -83,9 +83,9 @@ Az Azure-előfizetési replikátor (v3) eszköz futtatásához el kell indítani
 Ha a parancsfájl végrehajtása befejeződött, három új mappa, **Deployment_Files**, **Parameter_Files**és **Custom_ARM_Templates**jelenik meg.
 
  > [!Note]  
- > A generált szkriptek bármelyikének futtatása előtt be kell állítania a megfelelő környezetet, és be kell jelentkeznie a cél előfizetésbe (az új Azure Stack ex esetében), és a munkakönyvtárat a **Deployment_Files** mappába kell beállítania.
+ > A generált parancsfájlok bármelyikének futtatása előtt be kell állítania a megfelelő környezetet, és be kell jelentkeznie a cél előfizetésbe (az új Azure Stack hub for ex esetében), és a munkakönyvtárat a **Deployment_Files** mappába kell beállítania.
 
-Deployment_Files két, **DeployResourceGroups. ps1** és **DeployResources. ps1**fájlt fog tárolni. A DeployResourceGroups. ps1 futtatása az erőforráscsoportok telepítését végzi. A DeployResources. ps1 futtatása a feldolgozott összes erőforrást üzembe helyezi. Abban az esetben, ha az eszköz az **összes** vagy a **Microsoft. számítás/virtualMachines** erőforrás-típussal lett végrehajtva, a DeployResources. ps1 megkéri a felhasználót, hogy adjon meg egy virtuálisgép-rendszergazdai jelszót, amelyet az összes virtuális gép létrehozásához fog használni. .
+Deployment_Files két, **DeployResourceGroups. ps1** és **DeployResources. ps1**fájlt fog tárolni. A DeployResourceGroups. ps1 futtatása az erőforráscsoportok telepítését végzi. A DeployResources. ps1 futtatása a feldolgozott összes erőforrást üzembe helyezi. Abban az esetben, ha az eszköz az **összes** vagy a **Microsoft. számítás/virtualMachines** erőforrás-típussal lett végrehajtva, a DeployResources. ps1 megkéri a felhasználót, hogy adjon meg egy virtuálisgép-rendszergazdai jelszót, amelyet az összes virtuális gép létrehozásához használni fog.
 
 ### <a name="example"></a>Példa
 
@@ -181,10 +181,10 @@ Az eszköz replikálhatja az erőforrásokat az egyik előfizetésből a másikb
 
 A sikeres replikálás érdekében a (z) biztos, hogy a cél-előfizetés erőforrás-szolgáltatójának verziószáma megegyezik a forrás előfizetésével.
 
-Ha Azure Stack a kereskedelmi Azure-ból a kereskedelmi Azure-ba vagy egy előfizetésből Azure Stackon belül egy másik előfizetésbe replikál, akkor a Storage-fiókok replikálásakor problémákba ütközik. Ennek oka, hogy a Storage-fiók elnevezési követelménye, hogy az összes Storage-fióknév egyedi legyen az összes kereskedelmi Azure-ban, vagy egy Azure Stack régióban/példányon lévő összes előfizetésen keresztül. A tárolási fiókok különböző Azure Stack példányokban való replikálása sikeres lesz, mivel a halmok különálló régiók/példányok.
+Ha Azure Stack a kereskedelmi Azure-ból a kereskedelmi Azure-ba vagy egy előfizetésből Azure Stack központon belül egy másik előfizetésbe replikál, akkor a Storage-fiókok replikálásakor problémákba ütközik. Ennek oka, hogy a Storage-fiók elnevezési követelménye, hogy az összes Storage-fióknév egyedi legyen az összes kereskedelmi Azure-ban, vagy egy Azure Stack hub-régió/-példányon lévő összes előfizetés között. A Storage-fiókok különböző Azure Stack hub-példányok között történő replikálása sikeres lesz, mivel a halmok különálló régiók/példányok.
 
 
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Különbségek és szempontok Azure Stack hálózatkezeléshez](azure-stack-network-differences.md)  
+[A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

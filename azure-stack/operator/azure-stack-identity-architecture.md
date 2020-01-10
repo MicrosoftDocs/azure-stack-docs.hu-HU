@@ -1,6 +1,6 @@
 ---
-title: A Azure Stack identitás-architektúrája | Microsoft Docs
-description: Ismerje meg a Azure Stack identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
+title: Azure Stack hub identitás-architektúrája | Microsoft Docs
+description: Ismerje meg az Azure Stack hub identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,16 +16,16 @@ ms.date: 05/09/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 364028183445df7e74828605439bfd7b3784f01f
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 952dd9d6333b917a986ce444355f3b9b694976ef
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019406"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818077"
 ---
-# <a name="identity-architecture-for-azure-stack"></a>Azure Stack identitás-architektúrája
+# <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack hub identitás-architektúrája
 
-Ha a Azure Stackhoz használandó identitás-szolgáltatót választ, meg kell ismernie az Azure Active Directory (Azure AD) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) lehetőségei közötti lényeges különbségeket.
+Azure Stack hub-hoz használandó identitás-szolgáltató kiválasztásakor ismernie kell az Azure Active Directory (Azure AD) és a Active Directory összevonási szolgáltatások (AD FS) (AD FS) lehetőségei közötti lényeges különbségeket.
 
 ## <a name="capabilities-and-limitations"></a>Képességek és korlátozások
 
@@ -50,30 +50,30 @@ A következő fejezetek a különböző identitás-topológiákat tárgyalják.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: egybérlős topológia
 
-Alapértelmezés szerint a Azure Stack telepítésekor és az Azure AD használatakor a Azure Stack egyetlen bérlős topológiát használ.
+Alapértelmezés szerint a Azure Stack hub telepítésekor és az Azure AD használatakor a Azure Stack hub egy egybérlős topológiát használ.
 
 Az egybérlős topológia akkor hasznos, ha:
 - Minden felhasználó ugyanahhoz a bérlőhöz tartozik.
-- A szolgáltató Azure Stack példányt üzemeltet a szervezet számára.
+- A szolgáltató Azure Stack hub-példányt üzemeltet a szervezet számára.
 
-![Egybérlős topológia Azure Stack az Azure AD-vel](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure Stack hub egybérlős topológiája az Azure AD-vel](media/azure-stack-identity-architecture/single-tenant.png)
 
 Ez a topológia a következő jellemzőkkel rendelkezik:
 
-- Azure Stack regisztrálja az összes alkalmazást és szolgáltatást ugyanahhoz az Azure AD-bérlői címtárhoz.
-- Azure Stack csak a címtárban lévő felhasználókat és alkalmazásokat hitelesíti, beleértve a jogkivonatokat is.
+- Azure Stack hub az összes alkalmazást és szolgáltatást ugyanahhoz az Azure AD-bérlői címtárhoz regisztrálja.
+- Azure Stack hub csak az adott könyvtárból származó felhasználókat és alkalmazásokat hitelesíti, beleértve a jogkivonatokat is.
 - A rendszergazdák (felhőalapú operátorok) és a bérlői felhasználók identitása ugyanabban a címtár-bérlőben található.
-- Ha engedélyezni szeretné, hogy egy felhasználó egy másik címtárból hozzáférhessen ehhez a Azure Stack-környezethez, meg kell [hívnia a felhasználót vendégként](azure-stack-identity-overview.md#guest-users) a bérlői címtárba.
+- Ha engedélyezni szeretné, hogy egy másik címtár felhasználója hozzáférhessen ehhez az Azure Stack hub-környezethez, meg kell [hívnia a felhasználót vendégként](azure-stack-identity-overview.md#guest-users) a bérlői címtárba.
 
 ### <a name="azure-ad-multi-tenant-topology"></a>Azure AD: több-bérlős topológia
 
-A Felhőbeli operátorok úgy konfigurálhatják Azure Stack, hogy a bérlők egy vagy több szervezettől hozzáférjenek az alkalmazásokhoz. A felhasználók a Azure Stack felhasználói portálon keresztül férhetnek hozzá az alkalmazásokhoz. Ebben a konfigurációban a felügyeleti portál (amelyet a felhőalapú operátor használ) egyetlen címtárban lévő felhasználókra korlátozódik.
+A Felhőbeli operátorok úgy konfigurálhatják Azure Stack hubot, hogy a bérlők egy vagy több szervezettől hozzáférjenek az alkalmazásokhoz. A felhasználók az Azure Stack hub felhasználói portálon keresztül férhetnek hozzá az alkalmazásokhoz. Ebben a konfigurációban a felügyeleti portál (amelyet a felhőalapú operátor használ) egyetlen címtárban lévő felhasználókra korlátozódik.
 
 A több-bérlős topológia akkor hasznos, ha:
 
-- A szolgáltató lehetővé szeretné tenni, hogy több szervezet felhasználói hozzáférhessenek Azure Stackhoz.
+- A szolgáltató engedélyezni szeretné, hogy több szervezet felhasználói hozzáférhessenek Azure Stack hubhoz.
 
-![Több-bérlős topológia Azure Stack az Azure AD-vel](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure Stack hub több-bérlős topológiája az Azure AD-vel](media/azure-stack-identity-architecture/multi-tenant.png)
 
 Ez a topológia a következő jellemzőkkel rendelkezik:
 
@@ -85,15 +85,15 @@ Ez a topológia a következő jellemzőkkel rendelkezik:
 
 A AD FS topológiára akkor van szükség, ha az alábbi feltételek bármelyike teljesül:
 
-- Azure Stack nem csatlakozik az internethez.
-- Azure Stack csatlakozhat az internethez, de Ön úgy dönt, hogy a AD FS használja az identitás-szolgáltatóhoz.
+- Azure Stack hub nem csatlakozik az internethez.
+- Azure Stack hub csatlakozni tud az internethez, de Ön úgy dönt, hogy a AD FS használja az identitás-szolgáltatóhoz.
   
-![Topológia Azure Stack AD FS használatával](media/azure-stack-identity-architecture/adfs.png)
+![Azure Stack hub-topológia AD FS használatával](media/azure-stack-identity-architecture/adfs.png)
 
 Ez a topológia a következő jellemzőkkel rendelkezik:
 
-- A topológia éles környezetben való használatának támogatásához integrálnia kell a beépített Azure Stack AD FS példányt egy olyan meglévő AD FS-példánnyal, amelyet Active Directory egy összevonási megbízhatósági kapcsolaton keresztül támogat.
-- A Graph szolgáltatást Azure Stack a meglévő Active Directory-példánnyal integrálhatja. Használhatja a OData-alapú Graph API szolgáltatást is, amely támogatja az Azure AD-Graph API konzisztens API-kat.
+- Ahhoz, hogy támogassa ennek a topológiának a használatát az éles környezetben, integrálnia kell a beépített Azure Stack hub AD FS példányt egy olyan meglévő AD FS-példánnyal, amelyet Active Directory egy összevonási megbízhatósági kapcsolaton keresztül támogat.
+- A Graph szolgáltatást Azure Stack hubhoz integrálhatja meglévő Active Directory-példánnyal. Használhatja a OData-alapú Graph API szolgáltatást is, amely támogatja az Azure AD-Graph API konzisztens API-kat.
 
   A Active Directory-példánnyal való kommunikációhoz a Graph API felhasználói hitelesítő adatokat igényel az Active Directory-példánytól, amely csak olvasási jogosultsággal rendelkezik.
   - A beépített AD FS példány a Windows Server 2016-es verzióján alapul.
@@ -103,7 +103,7 @@ Ez a topológia a következő jellemzőkkel rendelkezik:
   - A felhasználói fiókok létrehozása és kezelése a helyszíni Active Directory-példányban történik.
   - Az alkalmazások egyszerű szolgáltatásait és regisztrációit a beépített Active Directory-példány kezeli.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az identitás áttekintése](azure-stack-identity-overview.md)
 - [Adatközpont-integráció – identitás](azure-stack-integrate-identity.md)

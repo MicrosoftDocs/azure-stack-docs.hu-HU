@@ -1,7 +1,7 @@
 ---
-title: Egyéni szerepkör létrehozása Azure Stack regisztrációhoz
-titleSuffix: Azure Stack
-description: Megtudhatja, hogyan hozhat létre egyéni szerepkört a globális rendszergazda használatának elkerüléséhez Azure Stack regisztrációhoz.
+title: Egyéni szerepkör létrehozása Azure Stack hub-regisztrációhoz
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan hozhat létre egyéni szerepkört a globális rendszergazda Azure Stack hub-regisztrációhoz való használatának elkerüléséhez.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,43 +16,43 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 0cfbec17b2aef1f6a14615d4b69d8a5e9347e913
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: d678332e10f219d4e37783668154098da2c2a8b5
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465424"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809810"
 ---
-# <a name="create-a-custom-role-for-azure-stack-registration"></a>Egyéni szerepkör létrehozása Azure Stack regisztrációhoz
+# <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Egyéni szerepkör létrehozása Azure Stack hub-regisztrációhoz
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!WARNING]
 > Ez nem egy biztonsági testtartási funkció. Olyan helyzetekben érdemes használni, ahol meg szeretné akadályozni az Azure-előfizetés véletlen módosításait. Ha a felhasználó jogosultságokat delegál az egyéni szerepkörhöz, a felhasználónak jogosultsága van az engedélyek szerkesztésére és a jogosultságszint-emelésre. Csak a megbízhatónak ítélt felhasználókat rendelje hozzá az egyéni szerepkörhöz.
 
-Azure Stack regisztráció során Azure Active Directory (Azure AD-) fiókkal kell bejelentkeznie. A fiókhoz a következő Azure AD-engedélyek és Azure-előfizetési engedélyek szükségesek:
+Azure Stack hub-regisztráció során Azure Active Directory (Azure AD-) fiókkal kell bejelentkeznie. A fiókhoz a következő Azure AD-engedélyek és Azure-előfizetési engedélyek szükségesek:
 
 * **Alkalmazás-regisztrációs engedélyek az Azure ad-bérlőben:** A rendszergazdák az alkalmazás regisztrációs engedélyeivel rendelkeznek. A felhasználókra vonatkozó engedély a bérlő összes felhasználója számára globális beállítás. A beállítás megtekintéséhez vagy módosításához tekintse meg az [erőforrásokhoz hozzáférő Azure ad-alkalmazás és egyszerű szolgáltatás létrehozása](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)című témakört.
 
-    A *felhasználó regisztrálhatja az alkalmazások* beállítást **Igen** értékre kell állítani, ha engedélyezni szeretné a felhasználói fiók számára a Azure stack regisztrálását. Ha az alkalmazás regisztrációja **nem**értékre van állítva, nem használhat felhasználói fiókot Azure stack regisztrálásához – globális rendszergazdai fiókot kell használnia.
+    A *felhasználó regisztrálhatja az alkalmazások* beállítást **Igen** értékre kell állítani ahhoz, hogy egy felhasználói fiók regisztrálja Azure stack hubot. Ha az alkalmazás regisztrációja **nem**értékre van állítva, nem használhat felhasználói fiókot Azure stack hub regisztrálásához – globális rendszergazdai fiókot kell használnia.
 
 * **Megfelelő Azure-előfizetési engedélyek készlete:** A tulajdonosi szerepkörhöz tartozó felhasználók rendelkeznek a megfelelő engedélyekkel. Más fiókok esetében az engedélyeket a következő részekben leírtak szerint rendelheti hozzá egy egyéni szerepkör hozzárendelésével.
 
-Az Azure-előfizetéshez tartozó tulajdonosi engedélyekkel rendelkező fiók használata helyett létrehozhat egy egyéni szerepkört, amellyel engedélyeket rendelhet egy kevésbé Kiemelt felhasználói fiókhoz. Ezt a fiókot ezután a Azure Stack regisztrálására használhatja.
+Az Azure-előfizetéshez tartozó tulajdonosi engedélyekkel rendelkező fiók használata helyett létrehozhat egy egyéni szerepkört, amellyel engedélyeket rendelhet egy kevésbé Kiemelt felhasználói fiókhoz. Ezt a fiókot ezután a Azure Stack hub regisztrálására használhatja.
 
 ## <a name="create-a-custom-role-using-powershell"></a>Egyéni szerepkör létrehozása a PowerShell használatával
 
-Egyéni szerepkör létrehozásához a `Microsoft.Authorization/roleDefinitions/write` engedéllyel kell rendelkeznie minden `AssignableScopes`, például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdájának](/azure/role-based-access-control/built-in-roles#user-access-administrator). Az alábbi JSON-sablon használatával egyszerűsítheti az egyéni szerepkör létrehozását. A sablon létrehoz egy egyéni szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférést a Azure Stack regisztrációhoz.
+Egyéni szerepkör létrehozásához a `Microsoft.Authorization/roleDefinitions/write` engedéllyel kell rendelkeznie minden `AssignableScopes`, például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdájának](/azure/role-based-access-control/built-in-roles#user-access-administrator). Az alábbi JSON-sablon használatával egyszerűsítheti az egyéni szerepkör létrehozását. A sablon létrehoz egy egyéni szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférést Azure Stack hub-regisztrációhoz.
 
 1. Hozzon létre egy JSON-fájlt. Például:  `C:\CustomRoles\registrationrole.json`.
 2. Adja hozzá az alábbi JSON-kódot a fájlhoz. Cserélje le a `<SubscriptionID>` értékét a saját Azure-előfizetése azonosítójára.
 
     ```json
     {
-      "Name": "Azure Stack registration role",
+      "Name": "Azure Stack Hub registration role",
       "Id": null,
       "IsCustom": true,
-      "Description": "Allows access to register Azure Stack",
+      "Description": "Allows access to register Azure Stack Hub",
       "Actions": [
         "Microsoft.Resources/subscriptions/resourceGroups/write",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
@@ -85,11 +85,11 @@ Egyéni szerepkör létrehozásához a `Microsoft.Authorization/roleDefinitions/
 
 ## <a name="assign-a-user-to-registration-role"></a>Felhasználó társítása a regisztrációs szerepkörhöz
 
-A regisztráció egyéni szerepkör létrehozása után rendelje hozzá a szerepkört ahhoz a felhasználói fiókhoz, amelyet a Azure Stack regisztrálásához fog használni.
+A regisztráció egyéni szerepkör létrehozása után rendelje hozzá a szerepkört az Azure Stack hub regisztrálásához használt felhasználói fiókhoz.
 
 1. Jelentkezzen be az Azure-előfizetéshez megfelelő jogosultsággal rendelkező fiókkal a jogosultságok delegálásához – például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator)számára.
 2. Az **előfizetések**területen válassza a **hozzáférés-vezérlés (iam) > szerepkör-hozzárendelés hozzáadása**elemet.
-3. A **szerepkör**területen válassza ki a létrehozott egyéni szerepkört: *Azure stack regisztrációs szerepkört*.
+3. A **szerepkör**területen válassza ki a létrehozott egyéni szerepkört: *Azure stack hub regisztrációs szerepkört*.
 4. Válassza ki a szerepkörhöz hozzárendelni kívánt felhasználókat.
 5. Válassza a **Mentés** lehetőséget a kijelölt felhasználók szerepkörhöz való hozzárendeléséhez.
 
@@ -97,6 +97,6 @@ A regisztráció egyéni szerepkör létrehozása után rendelje hozzá a szerep
 
 További információ az egyéni szerepkörök használatáról: [a hozzáférés kezelése a RBAC és a Azure Portal használatával](/azure/role-based-access-control/role-assignments-portal).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Az Azure Stack regisztrálása az Azure-ban](azure-stack-registration.md)
+[Azure Stack hub regisztrálása az Azure-ban](azure-stack-registration.md)

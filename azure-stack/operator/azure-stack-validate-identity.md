@@ -1,6 +1,6 @@
 ---
-title: Azure-identitás ellenőrzése az Azure Stackhez |} A Microsoft Docs
-description: Az Azure Stack-készültségi ellenőrző használatával Azure-identitás ellenőrzése.
+title: Azure Stack hub Azure-identitásának ellenőrzése | Microsoft Docs
+description: Az Azure Identity ellenőrzéséhez használja a Azure Stack hub Readiness-ellenőrzőt.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,74 +16,74 @@ ms.date: 06/24/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9f455d6614917c0365b2143f0523ff2a44b3c05d
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: e38e0462bc9b30783ff0932a16e2e997f64df0fd
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334419"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812892"
 ---
 # <a name="validate-azure-identity"></a>Azure-identitás ellenőrzése
 
-Az Azure Stack Readiness-ellenőrző eszközt (**AzsReadinessChecker**) ellenőrzése, hogy az Azure Stack használatra készen áll-e az Azure Active Directory (Azure AD). Ellenőrizze az Azure identitáskezelési megoldás, az Azure Stack központi telepítésének megkezdése előtt.  
+Az Azure Stack hub Readiness-ellenőrző eszköz (**AzsReadinessChecker**) segítségével ellenőrizze, hogy az Azure Active Directory (Azure ad) készen áll-e a Azure stack hub használatára. Az Azure Stack hub üzembe helyezésének megkezdése előtt ellenőrizze az Azure Identity-megoldást.  
 
-A készenléti ellenőrző ellenőrzi:
+A készültség-ellenőrző ellenőrzi a következőket:
 
-- Az Azure Active Directory (Azure AD) identitás-szolgáltatóként az Azure Stackhez.
-- Az Azure AD-fiókot, amelyet használni szeretne az Azure Active Directory globális rendszergazdájaként jelentkezhetnek be.
+- Azure Active Directory (Azure AD) Azure Stack hub identitás-szolgáltatóként.
+- A használni kívánt Azure AD-fiók bejelentkezhet a Azure Active Directory globális rendszergazdájaként.
 
-Az érvényesítés biztosítja, hogy a környezet készen áll a felhasználók, alkalmazások, csoportok és az Azure Stack szolgáltatásnevek kapcsolatos információk tárolására az Azure AD-ben az Azure Stack.
+Az érvényesítés biztosítja, hogy a környezet készen áll a Azure Stack hub számára az Azure AD-beli Azure Stack hub-beli felhasználókra, alkalmazásokra, csoportokra és egyszerű szolgáltatásokra vonatkozó információk tárolására.
 
-## <a name="get-the-readiness-checker-tool"></a>A készenléti-ellenőrző eszköz beolvasása
+## <a name="get-the-readiness-checker-tool"></a>A Readiness-ellenőrző eszköz beszerzése
 
-Az Azure Stack készültségi ellenőrző eszköz (AzsReadinessChecker) legújabb verziójának letöltése a [PowerShell-galériából](https://aka.ms/AzsReadinessChecker).  
+Töltse le az Azure Stack hub Readiness-ellenőrző eszközének (AzsReadinessChecker) legújabb verzióját a [PowerShell-Galéria](https://aka.ms/AzsReadinessChecker).  
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-A következő előfeltételek teljesülésére szükség:
+A következő előfeltételek szükségesek:
 
-**A számítógép, amelyen az eszköz fut:**
+**Az a számítógép, amelyen az eszköz fut:**
 
-- Windows 10-es vagy Windows Server 2016, az internetkapcsolattal rendelkező.
-- A PowerShell 5.1-es vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsot, és tekintse át a **fő** verzió és **kisebb** verziók:  
+- Windows 10 vagy Windows Server 2016, internetkapcsolattal.
+- PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő **PowerShell-parancsot** , majd tekintse át a főverziót **és az alverziókat** :  
 
   ```powershell
   $PSVersionTable.PSVersion
   ```
 
-- [Konfigurált az Azure Stack PowerShell](azure-stack-powershell-install.md).
-- A legújabb [a Microsoft Azure Stack készültségi ellenőrző](https://aka.ms/AzsReadinessChecker) eszközt.
+- [Azure stack hubhoz konfigurált PowerShell](azure-stack-powershell-install.md).
+- [Microsoft Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.
 
-**Az Azure Active Directory-környezetet:**
+**Azure Active Directory környezet:**
 
-- Azonosítsa az Azure AD-fiókot az Azure Stack használatának és az, hogy egy Azure Active Directory globális rendszergazdájaként.
-- Azonosítsa az Azure AD-bérlő neve. A bérlő neve az Azure Active Directory; elsődleges tartomány nevének kell lennie. Ha például **contoso.onmicrosoft.com**.
-- Azonosítsa az Azure-környezetet fogja használni. A környezet neve paraméter támogatott értékei a következők **AzureCloud**, **AzureChinaCloud**, vagy **AzureUSGovernment**, attól függően, melyik Azure-előfizetést használ.
+- Azonosítsa az Azure Stack hub számára használandó Azure AD-fiókot, és gondoskodjon arról, hogy az Azure Active Directory globális rendszergazda legyen.
+- Azonosítsa az Azure AD-bérlő nevét. A bérlő nevének a Azure Active Directory elsődleges tartománynevének kell lennie; például: **contoso.onmicrosoft.com**.
+- Azonosítsa a használni kívánt Azure-környezetet. A környezeti név paraméter támogatott értékei a **AzureCloud**, a **AzureChinaCloud**vagy a **AzureUSGovernment**, attól függően, hogy melyik Azure-előfizetést használja.
 
-## <a name="steps-to-validate-azure-identity"></a>Azure-identitás ellenőrzésének lépéseit
+## <a name="steps-to-validate-azure-identity"></a>Az Azure-identitás érvényesítésének lépései
 
-1. A számítógépen, amely megfelel az előfeltételeknek, nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő paranccsal telepíthető **AzsReadinessChecker**:  
+1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort egy olyan számítógépen, amely megfelel az előfeltételeknek, majd futtassa a következő parancsot a **AzsReadinessChecker**telepítéséhez:  
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell használatával futtassa a következő parancsban **$serviceAdminCredential** a szolgáltatás-rendszergazdaként az Azure AD-bérlője számára.  Cserélje le **serviceadmin\@contoso.onmicrosoft.com** a fiók és a bérlő neve:
+2. A PowerShell-parancssorból futtassa a következő parancsot a **$serviceAdminCredential** beállításaként az Azure ad-bérlő szolgáltatás-rendszergazdájaként.  Cserélje le a **serviceadmin\@contoso.onmicrosoft.com** a fiókjára és a bérlő nevére:
 
    ```powershell
    $serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter credentials for service administrator of Azure Active Directory tenant"
    ```
 
-3. A PowerShell használatával futtassa a következő parancsot az Azure AD-ellenőrzés:
+3. A PowerShell-parancssorból futtassa a következő parancsot az Azure AD érvényesítésének megkezdéséhez:
 
-   - Adja meg a környezet neve értéke **AzureEnvironment**. A környezet neve paraméter támogatott értékei a következők **AzureCloud**, **AzureChinaCloud**, vagy **AzureUSGovernment**, attól függően, melyik Azure-előfizetést használ.
-   - Cserélje le **contoso.onmicrosoft.com** együtt az Azure Active Directory-bérlő neve.
+   - Adja meg a környezet neve értéket a **AzureEnvironment**. A környezeti név paraméter támogatott értékei a **AzureCloud**, a **AzureChinaCloud**vagy a **AzureUSGovernment**, attól függően, hogy melyik Azure-előfizetést használja.
+   - Cserélje le a **contoso.onmicrosoft.com** -t a Azure Active Directory bérlő nevére.
 
    ```powershell
    Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com
    ```
 
-4. Az eszköz futtatása után tekintse át a kimenetet. Az állapot megerősítéséhez **OK** a telepítési követelményeknek. Sikeres ellenőrzés a következő képhez hasonlóan jelenik meg:
+4. Az eszköz futtatása után tekintse át a kimenetet. Győződjön meg arról, hogy az **OK** érték van a telepítési követelményeknél. A sikeres ellenőrzés az alábbi képhez hasonlóan jelenik meg:
 
    ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
@@ -98,24 +98,24 @@ A következő előfeltételek teljesülésére szükség:
    Invoke-AzsAzureIdentityValidation Completed
    ```
 
-## <a name="report-and-log-file"></a>A jelentés és-naplófájl
+## <a name="report-and-log-file"></a>Jelentés és naplófájl
 
-Minden egyes alkalommal érvényesítési fut, az eredmények naplózza **AzsReadinessChecker.log** és **AzsReadinessCheckerReport.json**. Ezek a fájlok helyét jeleníti meg az ellenőrzés eredményét a PowerShellben.
+A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. log** és a **AzsReadinessCheckerReport. JSON**fájlban. A fájlok helye a PowerShell érvényesítési eredményeivel jelenik meg.
 
-Ezek a fájlok segítségével megoszthatja érvényesítési állapot érvényesítési problémák vizsgálatához vagy az Azure Stack üzembe helyezése előtt. Mindkét fájlt megmarad, egyes további ellenőrzés eredményeit. A jelentés tartalmazza a telepítési csapat megerősítés az identitás-konfiguráció. A naplófájl segíthet a telepítés vagy a támogatási csapat érvényesítési problémák kivizsgálásában.
+Ezek a fájlok segíthetnek az érvényesítési állapot megosztásában az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés az identitás konfigurációjának megerősítését biztosítja az üzembe helyezési csoport számára. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
-Alapértelmezés szerint mindkét fájlt írt **C:\Users\<username > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**.  
+Alapértelmezés szerint mindkét fájl a **C:\Users\<username > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**.  
 
-- Használja a **- OutputPath** ***&lt;elérési&gt;*** végén található egy másik jelentés helyét adja meg a futtatási parancssori paraméter.
-- Használja a **- CleanReport** parancs futtatásával törölje az eszköz az előző futtatásokat információ végén paraméter **AzsReadinessCheckerReport.json**.
+- Egy másik jelentés helyének megadásához használja a Run parancssor végén található **-OutputPath** ***&lt;Path&gt;*** paramétert.
+- A Run parancs végén a **-CleanReport** paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
-További információkért lásd: [Azure Stack érvényesítési jelentés](azure-stack-validation-report.md).
+További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
-Ha egy ellenőrzés nem sikerül, a hibával kapcsolatos részleteket a PowerShell-ablakban jeleníti meg. Az eszköz is naplózza az információkat a AzsReadinessChecker.log fájl.
+Ha egy érvényesítési ellenőrzés sikertelen, a PowerShell-ablakban megjelenő hiba részletei láthatók. Az eszköz az AzsReadinessChecker. log fájlba is naplózza az adatokat.
 
-Az alábbi példák gyakori ellenőrzési hibákat ad útmutatást.
+Az alábbi példák útmutatást nyújtanak a gyakori ellenőrzési hibákról.
 
 ### <a name="expired-or-temporary-password"></a>Lejárt vagy ideiglenes jelszó
 
@@ -137,15 +137,15 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **OK** – a fiók nem tud bejelentkezni, mert a jelszó vagy lejárt, vagy ideiglenes.
 
-**Feloldási** – és a PowerShellben futtassa a következő parancsot, majd kövesse az utasításokat a jelszó alaphelyzetbe állítása:
+**Megoldás** – a PowerShellben futtassa a következő parancsot, majd kövesse az utasításokat a jelszó alaphelyzetbe állításához:
 
 ```powershell
 Login-AzureRMAccount
 ```
 
-Azt is megteheti, hogy jelentkezzen be a [az Azure portal](https://portal.azure.com) , a fiók tulajdonosa, és a felhasználó kényszeríti a jelszó módosítására.
+Azt is megteheti, hogy a fiók tulajdonosaként bejelentkezik a [Azure Portalba](https://portal.azure.com) , és a felhasználó kénytelen lesz megváltoztatni a jelszót.
 
-### <a name="unknown-user-type"></a>Ismeretlen felhasználó típusa 
+### <a name="unknown-user-type"></a>Ismeretlen felhasználói típus 
  
 ```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
@@ -163,15 +163,15 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**OK** – a fiók nem tud bejelentkezni a megadott Azure Active Directory (**AADDirectoryTenantName**). Ebben a példában **AzureChinaCloud** a következőként van megadva a **AzureEnvironment**.
+**OK** – a fiók nem tud bejelentkezni a megadott Azure Active Directoryba (**AADDirectoryTenantName**). Ebben a példában a **AzureChinaCloud** a **AzureEnvironment**adja meg.
 
-**Feloldási** – győződjön meg arról, hogy a fiók érvényességét a megadott Azure-környezetében. A PowerShell, a következő parancs futtatásával ellenőrizze a fiók érvényességét, egy adott környezetben:
+**Megoldás** – ellenőrizze, hogy a fiók érvényes-e a megadott Azure-környezetben. A PowerShellben futtassa a következő parancsot annak ellenőrzéséhez, hogy a fiók érvényes-e egy adott környezetben:
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-### <a name="account-is-not-an-administrator"></a>Fiók nem áll a rendszergazda
+### <a name="account-is-not-an-administrator"></a>A fiók nem rendszergazda
 
 ```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
@@ -189,14 +189,14 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**OK** – Bár a fiók sikeresen jelentkezhetnek be, a fiók nem áll-e az Azure Active Directory-rendszergazda (**AADDirectoryTenantName**).  
+**OK** – bár a fiók sikeresen be tud jelentkezni, a fiók nem a Azure Active Directory (**AADDirectoryTenantName**) rendszergazdája.  
 
-**Feloldási** -jelentkezzen be a [az Azure portal](https://portal.azure.com) lépjen a fiók tulajdonosa **Azure Active Directory**, majd **felhasználók**, majd **válassza ki a Felhasználói**, majd **címtárbeli szerepkör**, és ezután ellenőrizze, hogy a felhasználó egy **globális rendszergazdai**. Ha a fiók egy **felhasználói**, lépjen a **Azure Active Directory** > **egyéni tartománynevek**, és győződjön meg arról, hogy a név, megadott  **AADDirectoryTenantName** van megjelölve, a címtárhoz tartozó elsődleges tartomány nevét. Ebben a példában ez **contoso.onmicrosoft.com**.
+**Megoldás** – jelentkezzen be a [Azure Portalba](https://portal.azure.com) a fiók tulajdonosaként, lépjen a **Azure Active Directory**, majd a **felhasználók**pontra, **válassza ki a felhasználót**, majd a **címtárbeli szerepkört**, és győződjön meg arról, hogy a felhasználó **globális rendszergazda**. Ha a fiók egy **felhasználó**, lépjen **Azure Active Directory** > **Egyéni tartománynevek**elemre, és győződjön meg arról, hogy a **AADDirectoryTenantName** megadott név a könyvtár elsődleges tartományneveként van megjelölve. Ebben a példában ez a **contoso.onmicrosoft.com**.
 
-Az Azure Stack kell lennie, hogy a tartomány nevét az elsődleges tartomány nevét.
+Azure Stack hub megköveteli, hogy a tartománynév legyen az elsődleges tartomány neve.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure-regisztráció ellenőrzése](azure-stack-validate-registration.md)  
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  
-[Általános Azure Stack-integráció szempontok](azure-stack-datacenter-integration.md)  
+[Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)  

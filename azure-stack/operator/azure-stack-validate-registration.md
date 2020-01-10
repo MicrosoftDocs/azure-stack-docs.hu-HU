@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Azure-regisztrációjának ellenőrzése | Microsoft Docs
-description: Az Azure-regisztráció ellenőrzéséhez használja a Azure Stack Readiness-ellenőrzőt.
+title: Az Azure-regisztráció ellenőrzése Azure Stack hub esetében | Microsoft Docs
+description: Az Azure-regisztráció ellenőrzéséhez használja az Azure Stack hub Readiness-ellenőrzőt.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: a1ac34b39bc1628314c1ba2f05202c4a1454c189
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961864"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812841"
 ---
 # <a name="validate-azure-registration"></a>Azure-regisztráció ellenőrzése
 
-Használja az Azure Stack Readiness-ellenőrző eszközt (**AzsReadinessChecker**) annak ellenőrzéséhez, hogy az Azure-előfizetése készen áll-e a Azure stack használatára a Azure stack központi telepítésének megkezdése előtt. A készültség-ellenőrző ellenőrzi, hogy:
+Az Azure Stack hub Readiness-ellenőrző eszköz (**AzsReadinessChecker**) használatával ellenőrizze, hogy az Azure-előfizetése készen áll-e a Azure stack hub használatára, mielőtt megkezdené az Azure stack hub központi telepítését. A készültség-ellenőrző ellenőrzi, hogy:
 
 - A használt Azure-előfizetés támogatott típusú. Az előfizetésnek felhőalapú megoldás-szolgáltatónak (CSP) vagy Nagyvállalati Szerződés (EA) kell lennie.
 - Az előfizetés az Azure-ban való regisztrálásához használt fiók bejelentkezhet az Azure-ba, és az előfizetés tulajdonosa.
 
-Azure Stack regisztrációval kapcsolatos további információkért lásd: [Azure stack regisztrálása az Azure](azure-stack-registration.md)-ban.
+Az Azure Stack hub regisztrálásával kapcsolatos további információkért lásd: [Azure stack hub regisztrálása az Azure](azure-stack-registration.md)-ban.
 
 ## <a name="get-the-readiness-checker-tool"></a>A Readiness-ellenőrző eszköz beszerzése
 
@@ -49,12 +49,12 @@ A következő előfeltételek szükségesek:
   $PSVersionTable.PSVersion
   ```
 
-- [Azure Stackhoz konfigurált PowerShell](azure-stack-powershell-install.md).
-- Az [Microsoft Azure stack Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.  
+- [Azure stack hubhoz konfigurált PowerShell](azure-stack-powershell-install.md).
+- Az [Microsoft Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory környezet
 
-- Azonosítsa egy olyan fiók felhasználónevét és jelszavát, amely a Azure Stack használatával használni kívánt Azure-előfizetés tulajdonosa.  
+- Azonosítsa egy olyan fiók felhasználónevét és jelszavát, amely az Azure Stack hub-ban használni kívánt Azure-előfizetés tulajdonosa.  
 - Azonosítsa a használni kívánt Azure-előfizetés előfizetés-AZONOSÍTÓját.
 - Azonosítsa a használni kívánt **AzureEnvironment** . A környezeti név paraméter támogatott értékei **AzureCloud**, **AzureChinaCloud**vagy **AzureUSGovernment**, attól függően, hogy melyik Azure-előfizetést használja.
 
@@ -66,16 +66,16 @@ A következő előfeltételek szükségesek:
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell-parancssorból futtassa a következő parancsot a `$registrationCredential` beállításához az előfizetés tulajdonosaként használt fiókhoz. Cserélje le a `subscriptionowner@contoso.onmicrosoft.com` értéket a fiókjával és a bérlő nevével:
+2. A PowerShell-parancssorból futtassa a következő parancsot a `$registrationCredential` beállításaként az előfizetés tulajdonosaként. Cserélje le a `subscriptionowner@contoso.onmicrosoft.com`t a fiókjával és a bérlő nevével:
 
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
 
    > [!NOTE]
-   > Ha megosztott szolgáltatásokat vagy – belső használatra-előfizetést használ, meg kell adnia egy felhasználó hitelesítő adatait az adott Azure AD-ből. Ez általában a következőhöz hasonló lesz: `subscriptionowner@iurcontoso.onmicrosoft.com`. A felhasználónak rendelkeznie kell a megfelelő hitelesítő adatokkal az előző lépésben leírtak szerint.
+   > Ha megosztott szolgáltatásokat vagy – belső használatra-előfizetést használ, meg kell adnia egy felhasználó hitelesítő adatait az adott Azure AD-ből. Ez általában a `subscriptionowner@iurcontoso.onmicrosoft.com`hoz hasonló lesz. A felhasználónak rendelkeznie kell a megfelelő hitelesítő adatokkal az előző lépésben leírtak szerint.
 
-3. A PowerShell-parancssorból futtassa a következő parancsot a használni kívánt Azure-előfizetéshez `$subscriptionID` beállításához. Cserélje le a `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` értéket a saját előfizetés-azonosítójával:
+3. A PowerShell-parancssorból futtassa a következő parancsot a használni kívánt Azure-előfizetéshez `$subscriptionID` beállításához. Cserélje le a `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`t a saját előfizetés-azonosítójával:
 
    ```powershell
    $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -104,14 +104,14 @@ A következő előfeltételek szükségesek:
 
 A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. log** és a **AzsReadinessCheckerReport. JSON**fájlban. A fájlok helye a PowerShell érvényesítési eredményeivel együtt jelenik meg.
 
-Ezek a fájlok segíthetnek az érvényesítési állapot megosztásában a Azure Stack üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés az identitás konfigurációjának megerősítését biztosítja az üzembe helyezési csoport számára. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
+Ezek a fájlok segíthetnek az érvényesítési állapot megosztásában az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés az identitás konfigurációjának megerősítését biztosítja az üzembe helyezési csoport számára. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
 Alapértelmezés szerint mindkét fájl a **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**-be van írva.  
 
 - Egy másik jelentés helyének megadásához használja a Run parancssor végén található `-OutputPath <path>` paramétert.
 - A futtatási parancs végén található `-CleanReport` paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
-További információ: [Azure stack ellenőrzési jelentés](azure-stack-validation-report.md).
+További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
@@ -135,7 +135,7 @@ Invoke-AzsRegistrationValidation Completed
 
 **OK** – a fiók nem az Azure-előfizetés rendszergazdája.
 
-**Megoldás** – használjon olyan fiókot, amely az Azure-előfizetés rendszergazdája, amely a Azure stack üzemelő példány használatáról lesz kiszámlázva.
+**Megoldás** – használjon olyan fiókot, amely az Azure-előfizetés rendszergazdája, amely az Azure stack hub üzembe helyezésével kapcsolatos díjat számít fel.
 
 ### <a name="expired-or-temporary-password"></a>Lejárt vagy ideiglenes jelszó
 
@@ -184,8 +184,8 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure-identitás ellenőrzése](azure-stack-validate-identity.md)
 - [A készültségi jelentés megtekintése](azure-stack-validation-report.md)
-- [Általános Azure Stack integrációs megfontolások](azure-stack-datacenter-integration.md)
+- [Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)

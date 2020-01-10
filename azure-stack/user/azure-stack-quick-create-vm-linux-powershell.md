@@ -1,6 +1,6 @@
 ---
-title: Linux rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stackban | Microsoft Docs
-description: Hozzon létre egy Linux virtuális gépet a PowerShell használatával Azure Stackban.
+title: Linux rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban | Microsoft Docs
+description: Hozzon létre egy linuxos virtuális gépet Azure Stack hub PowerShell használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 4d846734c609485532da4534231a7b94c0514f21
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677671"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816020"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>Gyors útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rövid útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és a Azure Stack Development Kit*
 
-A Azure Stack PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
+A Azure Stack hub PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
 * Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
 * Telepítsen egy NGINX-webkiszolgálót, és tekintse meg az alapértelmezett kezdőlapot.
@@ -34,17 +34,17 @@ A Azure Stack PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LT
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Linux-rendszerkép a Azure Stack piactéren. A Azure Stack piactér alapértelmezés szerint nem rendelkezik Linux-rendszerképpel. A Azure Stack operátorral adja meg a szükséges Ubuntu Server 16,04 LTS-rendszerképet. Az operátor a [Marketplace-elemek Azure-ból Azure stack történő letöltésére](../operator/azure-stack-download-azure-marketplace-item.md)vonatkozó utasításokat is használhatja.
+* Linux-rendszerkép a Azure Stack hub piactéren. A Azure Stack hub piactér alapértelmezés szerint nem rendelkezik Linux-rendszerképpel. Az Azure Stack hub operátorral adja meg a szükséges Ubuntu Server 16,04 LTS-rendszerképet. Az operátor a [Marketplace-elemek Azure-ból Azure stack hubhoz való letöltésének](../operator/azure-stack-download-azure-marketplace-item.md)utasításait is használhatja.
 
-* Azure Stack az Azure CLI egy adott verzióját igényli az erőforrások létrehozásához és kezeléséhez. 
-  * Ha nincs konfigurálva a PowerShell a Azure Stackhoz, tekintse meg [a PowerShell telepítése Azure Stackhoz](../operator/azure-stack-powershell-install.md)című témakört. 
-  * Azure Stack PowerShell beállítása után csatlakozni fog a Azure Stack-környezethez. Útmutatásért lásd: [Kapcsolódás a Azure Stackhoz a PowerShell felhasználóként](azure-stack-powershell-configure-user.md).
+* Azure Stack hub-nak az Azure CLI egy adott verziójára van szüksége az erőforrások létrehozásához és kezeléséhez. 
+  * Ha nem rendelkezik Azure Stack hubhoz konfigurált PowerShell-lel, tekintse meg a [PowerShell telepítése Azure stack hub](../operator/azure-stack-powershell-install.md)-hoz című témakört. 
+  * Azure Stack hub PowerShell beállítása után csatlakozni fog az Azure Stack hub-környezethez. Útmutatásért lásd: [kapcsolódás Azure stack hubhoz a PowerShell-lel felhasználóként](azure-stack-powershell-configure-user.md).
 
 * A (z) *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
 ## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
-Az erőforráscsoportok olyan logikai tárolók, amelyekben Azure Stack erőforrásokat lehet üzembe helyezni és felügyelni. Erőforráscsoport létrehozásához a Azure Stack Development Kit (ASDK) vagy a Azure Stack integrált rendszerből futtassa a következő kódrészletet: 
+Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Erőforráscsoport létrehozásához a Azure Stack Development Kit (ASDK) vagy az Azure Stack hub integrált rendszerből futtassa a következő kódrészletet: 
 
 > [!NOTE]
 > A következő példákban az összes változóhoz rendeltünk értékeket. Azonban a saját értékeit is hozzárendelheti.
@@ -212,7 +212,7 @@ New-AzureRmVM `
 ## Create a resource group
 
 <#
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
+A resource group is a logical container where you can deploy and manage Azure Stack Hub resources. From your development kit or the Azure Stack Hub integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
 #>
 
 # Edit your variables, if required
@@ -418,4 +418,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített. Azure Stack virtuális gépekkel kapcsolatos további tudnivalókért tekintse meg a [Azure stack virtuális gépek szempontjait](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített. Az Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért tekintse meg a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).

@@ -1,6 +1,6 @@
 ---
-title: Linuxos virtuális gép létrehozása Azure Stack használatával | Microsoft Docs
-description: Hozzon létre egy Linux-alapú virtuális gépet Azure Stack használatával.
+title: Linuxos virtuális gép létrehozása Azure Stack hub használatával | Microsoft Docs
+description: Hozzon létre egy Linux-alapú virtuális gépet Azure Stack hub használatával.
 services: azure-stack
 cloud: azure-stack
 author: mattbriggs
@@ -12,31 +12,31 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 5c3b8d85f5dca0eeb439ca475d4396848d316366
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 1edfff9f684bb5ca9ed46ee06e98685f026b5bea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047268"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819352"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>Gyors útmutató: linuxos kiszolgálói virtuális gép létrehozása a Azure Stack portál használatával
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Gyors útmutató: linuxos kiszolgálói virtuális gép létrehozása az Azure Stack hub portál használatával
 
-*A következőkre vonatkozik: Azure Stack integrált rendszerek és a Azure Stack Development Kit*
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és a Azure Stack Development Kit*
 
-A Azure Stack portál használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
+Az Azure Stack hub portál használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
 * Kapcsolódjon a virtuális géphez egy távoli ügyféllel.
 * Telepítsen egy NGINX-webkiszolgálót.
 * Távolítsa el az erőforrásokat.
 
 > [!NOTE]  
-> A cikkben szereplő rendszerképek a Azure Stack 1808-es verziójában bevezetett változásoknak megfelelően frissülnek. Az 1808-es verzió támogatja a nem felügyelt lemezeken kívül a *felügyelt lemezek* használatát. Ha korábbi verziót használ, bizonyos feladatokhoz (például a lemez kiválasztásához) tartozó képek eltérhetnek a felhasználói felületen megjelenített adatoktól.  
+> A cikkben szereplő rendszerképek megfelelnek a Azure Stack hub 1808-es verziójában bevezetett változásoknak. Az 1808-es verzió támogatja a nem felügyelt lemezeken kívül a *felügyelt lemezek* használatát. Ha korábbi verziót használ, bizonyos feladatokhoz (például a lemez kiválasztásához) tartozó képek eltérhetnek a felhasználói felületen megjelenített adatoktól.  
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-* Linux-rendszerkép a Azure Stack piactéren
+* Linux-rendszerkép a Azure Stack hub piactéren
 
-   A Azure Stack piactér alapértelmezés szerint nem rendelkezik Linux-rendszerképpel. A Azure Stack operátorral adja meg a szükséges Ubuntu Server 16,04 LTS-rendszerképet. Az operátor a [Marketplace-elemek Azure-ból Azure stack történő letöltésére](../operator/azure-stack-download-azure-marketplace-item.md)vonatkozó utasításokat is használhatja.
+   A Azure Stack hub piactér alapértelmezés szerint nem rendelkezik Linux-rendszerképpel. Az Azure Stack hub operátorral adja meg a szükséges Ubuntu Server 16,04 LTS-rendszerképet. Az operátor a [Marketplace-elemek Azure-ból Azure stack hubhoz való letöltésének](../operator/azure-stack-download-azure-marketplace-item.md)utasításait is használhatja.
 
 * Hozzáférés egy SSH-ügyfélhez
 
@@ -66,17 +66,17 @@ SSH kulcspár létrehozása:
 
    ![A PuTTY Key Generator eredményei](media/azure-stack-quick-linux-portal/Putty02.PNG)
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Bejelentkezés a Azure Stack portálra
+## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Jelentkezzen be az Azure Stack hub portálra
 
-A Azure Stack-portál címe attól függ, hogy Azure Stack melyik termékhez csatlakozik:
+Az Azure Stack hub-portál címe attól függ, hogy melyik Azure Stack hub-termékhez csatlakozik:
 
 * A ASDK nyissa meg a https://portal.local.azurestack.external.
 
-* Azure Stack integrált rendszer esetén keresse meg a Azure Stack operátor által megadott URL-címet.
+* Azure Stack hub integrált rendszer esetén keresse meg azt az URL-címet, amelyet a Azure Stack hub-operátor biztosít.
 
 ## <a name="create-the-vm"></a>Virtuális gép létrehozása
 
-1. Az Azure Stack-portál bal felső sarkában válassza az **erőforrás létrehozása**lehetőséget.
+1. Az Azure Stack hub portál bal felső sarkában válassza az **erőforrás létrehozása**lehetőséget.
 
 1. Válassza a **Számítás**, majd az **Ubuntu Server 16.04 LTS** elemet.
    
@@ -97,7 +97,7 @@ A Azure Stack-portál címe attól függ, hogy Azure Stack melyik termékhez csa
 
 1. A **Beállítások** lapon módosítsa az alapértelmezett értékeket.
    
-   A Azure Stack 1808-es verziótól kezdődően konfigurálhatja a **tárolót** , és kiválaszthatja a *felügyelt lemezek*használatát. A 1808-nál korábbi verziók esetében csak a nem felügyelt lemezeket lehet használni.
+   A Azure Stack hub 1808-es verziójától kezdve konfigurálhatja a **tárolót** , és a *felügyelt lemezek*használatát is választhatja. A 1808-nál korábbi verziók esetében csak a nem felügyelt lemezeket lehet használni.
 
    ![Tároló konfigurálása felügyelt lemezekhez](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
@@ -119,7 +119,7 @@ A Azure Stack-portál címe attól függ, hogy Azure Stack melyik termékhez csa
 
 1. A **Kategória** panelen görgessen felfelé, és válassza a **munkamenet**lehetőséget.
 
-1. Az **állomásnév (vagy IP-cím)** mezőben illessze be a Azure stack-portálon megjelenített kapcsolatok karakterláncát. Ebben a példában a sztring *asadmin@192.168.102.34* .
+1. Az **állomásnév (vagy IP-cím)** mezőbe illessze be az Azure stack hub portálon megjelenített kapcsolatok karakterláncát. Ebben a példában a sztring *asadmin@192.168.102.34* .
 
 1. Válassza a **Megnyitás** lehetőséget a virtuális gép munkamenetének megnyitásához.
 
@@ -139,11 +139,11 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-Amikor befejezte az NGINX telepítését, akkor az SSH-munkamenetet, és a Azure Stack portálon nyissa meg a virtuális gép **áttekintése** lapot.
+Amikor befejezte az NGINX telepítését, akkor a Azure Stack hub portálon nyissa meg az SSH-munkamenetet, és nyissa meg a virtuális gép **áttekintése** lapot.
 
 ## <a name="open-port-80-for-web-traffic"></a>A 80-as port megnyitása a webes adatforgalom számára
 
-A hálózati biztonsági csoport (NSG) biztosítja A bejövő és a kimenő forgalmat. Amikor létrejön egy virtuális gép a Azure Stack-portálon, a 22-es porton létrejön egy bejövő szabály az SSH-kapcsolatokhoz. Mivel ez a virtuális gép egy webkiszolgálót üzemeltet, létre kell hoznia egy NSG-szabályt, amely engedélyezi a webes forgalmat a 80-es porton.
+A hálózati biztonsági csoport (NSG) biztosítja A bejövő és a kimenő forgalmat. Amikor létrehoznak egy virtuális gépet az Azure Stack hub portálon, a 22-es porton létrejön egy bejövő szabály az SSH-kapcsolatokhoz. Mivel ez a virtuális gép egy webkiszolgálót üzemeltet, létre kell hoznia egy NSG-szabályt, amely engedélyezi a webes forgalmat a 80-es porton.
 
 1. A virtuális gép **áttekintése** lapon válassza ki az **erőforráscsoport**nevét.
 
@@ -173,4 +173,4 @@ Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. A virtuál
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített egy webkiszolgálóval. Ha többet szeretne megtudni a Azure Stack virtuális gépekről, folytassa a [Azure stack virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).
+Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített egy webkiszolgálóval. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).
