@@ -9,16 +9,16 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 624f0fb87b84ee06284185a521a68bebeb695362
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: d10fbc7ad009456459a8719fbc6e6c8ce51529f1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033976"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816479"
 ---
 # <a name="how-to-get-authentication-information-for-azure-stack-hub"></a>Azure Stack hub hitelesítési adatainak beolvasása
 
-Azure Stack hub hitelesítéséhez előfizetés-azonosítót, bérlői azonosítót és helyet kell megadnia, valamint Azure Stack hub Resource Manager-végpontot. Ezek az értékek a Azure Stack hub [Azure stack hub Resource Manager-végpontján](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-resource-manager-endpoint) szerezhetők be. Vagy a cikkben ismertetett lépésekkel kérheti le őket.
+Azure Stack hub hitelesítéséhez előfizetés-azonosítót, bérlői azonosítót és helyet kell megadnia, valamint Azure Stack hub Resource Manager-végpontot. Ezek az értékek a Azure Stack hub [Azure stack hub Resource Manager-végpontján](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) szerezhetők be. Vagy a cikkben ismertetett lépésekkel kérheti le őket.
 
 ## <a name="values-needed-to-authenticate"></a>A hitelesítéshez szükséges értékek
 
@@ -26,7 +26,7 @@ A következő adatokra lesz szüksége:
 
 -   **Előfizetés azonosítója**  
 
-    Az előfizetés-AZONOSÍTÓval érheti el az ajánlatokat a Azure Stackban.
+    Az előfizetés-AZONOSÍTÓval érheti el az ajánlatokat az Azure Stack hub szolgáltatásban.
 
 -   **Bérlő azonosítója**
 
@@ -76,4 +76,4 @@ A metaadatok végpontja, amely olyan tulajdonságokra mutat, mint a katalógus v
 
 ## <a name="next-steps"></a>Következő lépések
 
-További információ a [Azure stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) Azure stack hub használatával történő használatáról.
+További információ az [Azure stack hub Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) Azure stack hub használatával történő használatáról.
