@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a38a7541d4184e89cb0a821db04a2fcb8c267a31
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 813dbe66b2b2c1850430dbe167f0a14227856aee
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638298"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881484"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Hibrid Felhőbeli identitás konfigurálása az Azure-hoz és Azure Stack hub-alkalmazásokhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 Megtudhatja, hogyan konfigurálhat hibrid Felhőbeli identitást Azure-és Azure Stack hub-alkalmazásaihoz.
 

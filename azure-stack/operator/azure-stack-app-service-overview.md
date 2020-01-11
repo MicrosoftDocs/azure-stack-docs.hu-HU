@@ -15,16 +15,14 @@ ms.date: 03/11/2019
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 71f194e49f0e852c3975bae61222fb2d94875af2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 19903ac8c3e2692dbf07569e1c7bc8b9661fe190
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811957"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880617"
 ---
 # <a name="app-service-on-azure-stack-hub-overview"></a>Az Azure Stack hub App Service áttekintése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Azure App Service on Azure Stack hub az Azure Stack hub-on Microsoft Azure elérhető platform-szolgáltatásként nyújtott szolgáltatások. A szolgáltatás lehetővé teszi, hogy a belső vagy külső ügyfelei webes, API-és Azure Functions alkalmazásokat hozzanak létre bármely platformra vagy eszközre. Integrálhatja az alkalmazásokat a helyszíni alkalmazásokkal, és automatizálhatja az üzleti folyamatait. Azure Stack hub felhőalapú operátorai a teljes körűen felügyelt virtuális gépeken (VM-EK) futtathatják az ügyfélalkalmazások számára a megosztott virtuálisgép-erőforrásokat vagy a dedikált virtuális gépeket.
 

@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 09b4dc1f436621737521abfb60e500f6208402b0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 84c9854276fbffdcdc4b9c893aacc248780f4d2e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811226"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882249"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -34,7 +34,7 @@ A MySQL-kiszolgáló erőforrás-szolgáltató használatával Azure Stack hub-s
 Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt több előfeltételt is meg kell hoznia. A követelmények teljesítése érdekében hajtsa végre a jelen cikkben ismertetett lépéseket egy olyan számítógépen, amely hozzáfér az emelt szintű végpont virtuális géphez.
 
 * Ha még nem tette meg, [regisztráljon Azure stack hubot](./azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
-* Telepítse az Azure-és Azure Stack hub PowerShell-modulokat azon a rendszeren, amelyen a telepítést futtatni fogja. A rendszernek Windows 10 vagy Windows Server 2016 lemezképnek kell lennie a .NET-futtatókörnyezet legújabb verziójával. Lásd: [a PowerShell telepítése Azure stack hubhoz](./azure-stack-powershell-install.md).
+
 * A **Windows server 2016 Datacenter-Server Core** rendszerkép letöltésével adja hozzá a szükséges Windows Server Core virtuális gépet Azure stack hub Marketplace-hez.
 
 * Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához.
@@ -63,6 +63,40 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt tö
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack hub Datacenter-integráció – végpontok közzététele](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
     |A PKI-tanúsítvány tárgya és SAN beállítása helyesen van beállítva.|[Azure stack hub üzembe helyezése kötelező PKI-előfeltételek](azure-stack-pki-certs.md#mandatory-certificates)[Azure stack hub üzembe helyezése – a tanúsítvány előfeltételei](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
+
+Leválasztott forgatókönyv esetén végezze el a következő lépéseket a szükséges PowerShell-modulok letöltéséhez és az adattár manuális regisztrálásához.
+
+1. Jelentkezzen be egy internetkapcsolattal rendelkező számítógépre, és használja a következő parancsfájlokat a PowerShell-modulok letöltéséhez.
+
+```powershell
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop
+
+# path to save the packages, c:\temp\azs1.6.0 as an example here
+$Path = "c:\temp\azs1.6.0"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
+
+2. Ezután másolja a letöltött csomagokat egy USB-eszközre.
+
+3. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
+
+4. Helyi tárházként regisztrálja ezt a helyet.
+
+```powershell
+# requires -Version 5
+# requires -RunAsAdministrator
+# requires -Module PowerShellGet
+# requires -Module PackageManagement
+
+$SourceLocation = "C:\temp\azs1.6.0"
+$RepoName = "azs1.6.0"
+
+Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+
+New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory" 
+```
 
 ### <a name="certificates"></a>Tanúsítványok
 
@@ -110,7 +144,7 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>A MySQL erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
 
-Ha a MySQL erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióit telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha a MySQL erőforrás-szolgáltató 1.1.47.0 verzióját telepíti, ez a lépés kihagyható.
+Ha a MySQL erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióit telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha a MySQL erőforrás-szolgáltató 1.1.47.0 verzióját telepíti, a telepítési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -119,6 +153,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> A leválasztott forgatókönyvben le kell töltenie a szükséges PowerShell-modulokat, és manuálisan kell regisztrálnia az adattárat előfeltételként.
 
 Az erőforrás-szolgáltató üzembe helyezése során felmerülő manuális konfiguráció elkerülése érdekében testreszabhatja az alábbi parancsfájlt. Az Azure Stack hub telepítéséhez szükség szerint módosítsa az alapértelmezett fiók adatait és a jelszavakat.
 
@@ -151,6 +188,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
@@ -164,7 +206,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ```
 
-Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése után frissítse a böngészőt, és győződjön meg arról, hogy a legújabb frissítések láthatók.
+Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése után frissítse a böngészőt, és győződjön meg arról, hogy a legújabb frissítések láthatók, és hogy az aktuális PowerShell-munkamenetet lezárta.
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-hub-portal"></a>A központi telepítés ellenőrzése a Azure Stack hub portál használatával
 

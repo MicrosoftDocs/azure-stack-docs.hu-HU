@@ -16,16 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0767c1bf9a24dc22ed68e786872b69f47bd5497f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 167a230a8e098e0ea4087050a9a5bd36ceae3078
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813946"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882657"
 ---
 # <a name="azure-stack-hub-telemetry"></a>Azure Stack hub telemetria
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub telemetria automatikusan feltölti a rendszeradatokat a Microsoftnak a csatlakoztatott felhasználói felületen keresztül. A Microsoft Teams azokat az adatokat használja, amelyeket Azure Stack hub telemetria gyűjt, hogy javítsa az ügyfelek élményét. Ezek az adat a biztonság, az állapot, a minőség és a teljesítmény elemzéséhez is használatos.
 

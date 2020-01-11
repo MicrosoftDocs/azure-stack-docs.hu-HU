@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 8591bf95bd60060de76f7a9da99ed9af9fc1bdf6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 65df51ea6420d751238309ece9c134a9e7aa7374
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820474"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879223"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Sablonok fejlesztése Azure Stack hubhoz Azure Resource Manager
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az alkalmazás fejlesztése során fontos, hogy az Azure és a Azure Stack hub között a sablon hordozhatósága is megtörténjen. Ez a cikk a Azure Resource Manager- [sablonok](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)fejlesztésének szempontjait ismerteti. Ezekkel a sablonokkal az alkalmazás prototípusát és tesztelési célú üzembe helyezését az Azure-ban Azure Stack hub-környezethez való hozzáférés nélkül végezheti el.
 

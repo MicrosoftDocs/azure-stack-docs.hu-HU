@@ -10,16 +10,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: b5f6e3f1658dd74104905b5516b8145f0123cd20
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8dfbb81b9696aeb939455906700f8194e6f5e0a8
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813709"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882810"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack hub betanítása és minősítése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 A következő képzések és minősítési lehetőségek segítik az Azure Stack hub megismerését és a Azure Stack hub-szakértelmének bemutatását.
 

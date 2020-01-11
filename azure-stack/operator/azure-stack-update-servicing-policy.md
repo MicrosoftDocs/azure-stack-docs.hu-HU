@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f3beee51b6971a62ac24a2787426de235c879792
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 889c26089ed6d26adccec200b19191e8ab13c5a7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813402"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882623"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk az Azure Stack hub integrált rendszereinek karbantartási szabályzatát ismerteti, ami szükséges ahhoz, hogy a rendszer támogatott állapotban maradjon, és hogyan kérhet támogatást.
 

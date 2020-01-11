@@ -16,16 +16,14 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fbc11f6aebb0d513d96dc46cac77ae6202961a44
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 84ec5659bef23012a8d9ba48879b4b3ebafe29c2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804962"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882963"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Helyreállítás a katasztrofális adatvesztéstől
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek.*
 
 Azure Stack hub az Azure-szolgáltatásokat futtatja az adatközpontban, és a környezetekben akár négy, egyetlen állványra telepített csomópontként is futtatható. Ezzel szemben az Azure több mint 40 régióban fut több adatközpontban, és az egyes régiókban több zóna is működik. A felhasználói erőforrások több kiszolgálóra, állványra, adatközpontra és régióra is kiterjedhetnek. Azure Stack hub esetében jelenleg csak a teljes felhő üzembe helyezésére van lehetősége egyetlen állványon. Ez a korlátozás teszi lehetővé a felhő számára az adatközpontban fellépő katasztrofális események kockázatát, vagy a súlyos termék hibái miatti hibákat. Katasztrófa esetén a Azure Stack hub-példány offline állapotba kerül. Az összes adatok valószínűleg nem állíthatók helyre.
 

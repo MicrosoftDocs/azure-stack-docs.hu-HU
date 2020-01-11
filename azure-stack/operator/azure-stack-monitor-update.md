@@ -14,16 +14,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 0ae83367559c51a415253e13b68df2409c107789
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: b2faf490b54fc7096c43b58864009bdee6117fe6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817023"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882266"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Az emelt [szintű végpont](azure-stack-privileged-endpoint.md) használatával figyelheti az Azure stack hub frissítési futtatásának állapotát. A rendszerjogosultságú végpontot is használhatja a sikertelen frissítés futtatásának folytatásához az utolsó sikeres lépés után, ha az Azure Stack hub-portál elérhetetlenné válik. Az Azure Stack hub portál használata ajánlott módszer a frissítések Azure Stack hub-ban való kezeléséhez.
 

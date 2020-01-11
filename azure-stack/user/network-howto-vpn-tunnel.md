@@ -9,16 +9,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: fc3a49e5e65952ebc687b1e83218e7f497b1d7b7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815357"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883048"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk bemutatja, hogyan használható a megoldás a Azure Stack hub Resource Manager-sablonnal. A megoldás több, társított virtuális hálózattal rendelkező erőforráscsoportot hoz létre, és hogyan lehet ezeket a rendszereket összekapcsolni.
 

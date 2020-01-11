@@ -10,26 +10,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f362fb5dfc47dca23bf7076ecfe0d347a9c789d0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 778f38f0ed3d1b1801b162624daa365ed6d1f09c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817397"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882504"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Azure Stack hub rendszerállapotának ellenőrzése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub-kezelőként elengedhetetlen az igény szerinti rendszer állapotának és állapotának megállapítása. Az Azure Stack hub Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy teszteket futtasson a rendszeren a hibák azonosítására, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Az érvényesítési eszköz futtatása és az eredmények elérése
 
 A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Minden teszt a PowerShell-ablakban a **Pass/Fail** állapotot adja vissza. Itt látható a végpontok közötti érvényesítés tesztelési folyamatának vázlata:
+
+1. Hozza létre a bizalmi kapcsolatot. Egy integrált rendszeren futtassa a következő parancsot egy emelt szintű Windows PowerShell-munkamenetből, hogy hozzáadja a PEP-t megbízható gazdagépként a hardver életciklus-gazdagépén vagy a privilegizált elérésű munkaállomáson futó megerősített virtuális gépen.
+
+   ```powershell
+   winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+   ```
+
+   Ha a Azure Stack Development Kit (ASDK) futtatja, jelentkezzen be a fejlesztői csomag gazdagépére.
 
 1. Hozzáférés a PEP-hez. A következő parancsok futtatásával hozzon létre egy PEP-munkamenetet:
 
@@ -40,7 +46,7 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
    > [!TIP]
    > A PEP Azure Stack Development Kit (ASDK) gazdagépen való eléréséhez használja a következőt: AzS-ERCS01 for-számítógépnév.
 
-2. A PEP futtatása után futtassa a következőket:
+1. A PEP futtatása után futtassa a következőket:
 
    ```powershell
    Test-AzureStack
@@ -48,11 +54,11 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
 
    További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-3. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+1. Ha a tesztek jelentése **sikertelen**, futtassa a `Get-AzureStackLog`. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)vagy a ASDK: a [Get-AzureStackLog futtatása ASDK rendszeren](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
    A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne gyűjtsön naplókat, és ne vegye fel a kapcsolatot a CSS-sel, ha a tesztek **figyelmeztetnek**
 
-4. Ha arra utasítja az ellenőrző eszközt, hogy a CSS-t futtatja, a CSS-képviselő az összegyűjtött naplókat fogja kérni a probléma megoldásának folytatásához.
+1. Ha arra utasítja az ellenőrző eszközt, hogy a CSS-t futtatja, a CSS-képviselő az összegyűjtött naplókat fogja kérni a probléma megoldásának folytatásához.
 
 ## <a name="tests-available"></a>Elérhető tesztek
 

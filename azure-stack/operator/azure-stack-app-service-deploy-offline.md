@@ -16,16 +16,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 3e86bf066cd48f804ba40497333e3e317ce0213a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0c557b371525c11a869eb6e076bf2076fca3e984
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805013"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882827"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack-hub"></a>App Service üzembe helyezése offline környezetben Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!IMPORTANT]
 > Alkalmazza az 1907-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,7 telepítése előtt.
@@ -230,9 +228,9 @@ A App Service erőforrás-szolgáltató üzembe helyezése és regisztrálása u
 >
 > A App Service Azure Stack hub-on használó alkalmazások létrehozásához bérlői előfizetéssel *kell* rendelkeznie. A szolgáltatás-rendszergazda által a felügyeleti portálon elvégezhető képességek a App Service erőforrás-szolgáltatói felügyeletéhez kapcsolódnak. Ezek a képességek többek között a kapacitás hozzáadását, a telepítési források konfigurálását, valamint a feldolgozói rétegek és az SKU-ket adja
 >
-> A harmadik technikai előzetes verziótól kezdve a webes, API-és Azure Functions alkalmazások létrehozásához a bérlői portált kell használnia, és bérlői előfizetéssel kell rendelkeznie.
+> A harmadik technikai előzetes verziótól kezdve a webes, API-és Azure Functions alkalmazások létrehozásához a felhasználói portált kell használnia, és bérlői előfizetéssel kell rendelkeznie.
 
-1. Az Azure Stack hub-bérlői portálon válassza az **+ erőforrás létrehozása** > **web és mobil** > **webalkalmazás**lehetőséget.
+1. Az Azure Stack hub felhasználói portálon válassza az **+ erőforrás létrehozása** > **web és mobil** > **webalkalmazás**lehetőséget.
 
 1. A **Web App (webalkalmazás** ) panelen írja be a kívánt nevet a **Web App (webalkalmazás** ) mezőbe.
 
@@ -250,7 +248,7 @@ A App Service erőforrás-szolgáltató üzembe helyezése és regisztrálása u
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress-, DNN-vagy Django-webhely üzembe helyezése (opcionális)
 
-1. Az Azure Stack hub-bérlői portálon válassza a **+** lehetőséget, lépjen az Azure Marketplace webhelyre, helyezzen üzembe egy Django-webhelyet, és várjon a sikeres befejezésre. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
+1. Az Azure Stack hub felhasználói portálon válassza a **+** lehetőséget, lépjen az Azure Marketplace webhelyre, helyezzen üzembe egy Django-webhelyet, és várja meg a sikeres befejezést. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
 
 1. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a WordPress-webhelyet üzembe helyezheti az Azure piactéren. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
 

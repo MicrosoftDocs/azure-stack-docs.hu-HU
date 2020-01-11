@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6dc64857b3fd421b7e6ca94fdf044b16b1b6a691
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d651405fad55501bf655b8b38970a882a8e5dc91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812688"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881671"
 ---
 # <a name="manage-network-resources"></a>Hálózati erőforrások kezelése
 
@@ -40,8 +40,6 @@ Attól függően, hogy a virtuális hálózatok hogyan kapcsolódnak a meglévő
 További információ a MAC-címkészlet kihasználtságáról: a [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) parancsmag használata a Azure stack hub Administrator PowerShell-modulban.
 
 ## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Nyilvános IP-címek felhasználásának megtekintése Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A felhő rendszergazdája a következőket tekintheti meg:
  - A bérlők számára lefoglalt nyilvános IP-címek száma.

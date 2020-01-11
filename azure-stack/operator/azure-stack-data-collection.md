@@ -16,15 +16,14 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 651ad93a457a14118c3182b980f90f5f73613eeb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ed092ccf0a7eb3773b0514bc2f96f50bfdff7830
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811906"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882521"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack hub-napló és az ügyfelek adatkezelése 
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
 Ahhoz, hogy a Microsoft az Azure Stack hub-vel kapcsolatban a személyes adat processzora vagy alfolyamata legyen, a Microsoft minden ügyfelünk számára elérhetővé teszi a következő kötelezettségvállalásokat: 2018. május 25.
 

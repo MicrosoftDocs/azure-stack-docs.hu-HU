@@ -16,16 +16,14 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: c67b2be49babda140b1440356d63af5abbbbfdfb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6b2383ada3a4de1d5c33db07d847b5ca2c5c5948
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808464"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881348"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk azt mutatja be, hogyan történik a Felhőbeli operátorok kiszámlázása az Azure Stack hub-beli Azure App Service, valamint arról, hogy a szolgáltatás használatáért hogyan számlázzák fel a bérlőket.
 

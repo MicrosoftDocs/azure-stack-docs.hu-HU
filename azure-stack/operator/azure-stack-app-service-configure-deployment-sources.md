@@ -16,16 +16,14 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c8b8be6797821ae3527275293f02dee490f0c278
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0115e726e8922b94eae437cb76e23f4e77199d97
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815204"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880906"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Központi telepítési források konfigurálása App Serviceshoz Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A App Service on Azure Stack hub több forrásoldali vezérlő szolgáltatótól is támogatja az igény szerinti telepítést. Ez a funkció lehetővé teszi, hogy az alkalmazások fejlesztői közvetlenül a forrásoldali vezérlő tárházból telepítsenek. Ha a felhasználók App Servicet szeretnének konfigurálni a tárházhoz való csatlakozáshoz, akkor a Felhőbeli operátornak először konfigurálnia kell az integrációt az Azure Stack hub és a forrásoldali vezérlő szolgáltatója App Service között.  
 

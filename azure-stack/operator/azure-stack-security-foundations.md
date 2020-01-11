@@ -16,20 +16,18 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 9d7807dce064cad87a4cae1b01420efbf59433a0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814864"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882878"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
-
 A biztonsági szempontok és a megfelelőségi szabályozások a hibrid felhők használatának elsődleges okai között vannak. Az Azure Stack hub ezeket a forgatókönyveket hivatott kialakítani. Ez a cikk a Azure Stack hub biztonsági ellenőrzéseit ismerteti.
 
-Azure Stack központban két biztonsági testhelyzeti réteg létezik. Az első réteg a Azure Stack hub-infrastruktúra, amely magában foglalja a Azure Resource Managerhoz tartozó hardver-összetevőket is. Az első réteg tartalmazza a rendszergazdát és a bérlői portálokat. A második rétegből a bérlők által létrehozott, telepített és kezelt munkaterhelések állnak. A második réteg olyan elemeket tartalmaz, mint a virtuális gépek és a App Services webhelyek.
+Azure Stack központban két biztonsági testhelyzeti réteg létezik. Az első réteg a Azure Stack hub-infrastruktúra, amely magában foglalja a Azure Resource Managerhoz tartozó hardver-összetevőket is. Az első réteg tartalmazza a rendszergazdát és a felhasználói portálokat. A második rétegből a bérlők által létrehozott, telepített és kezelt munkaterhelések állnak. A második réteg olyan elemeket tartalmaz, mint a virtuális gépek és a App Services webhelyek.
 
 ## <a name="security-approach"></a>Biztonsági megközelítés
 

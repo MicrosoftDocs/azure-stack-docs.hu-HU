@@ -2,21 +2,21 @@
 title: Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával | Microsoft Docs
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot a figyelési megoldásokkal a syslog forwarding használatával.
 services: azure-stack
-author: PatAltimore
+author: justinha
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/23/2019
-ms.author: patricka
+ms.date: 01/10/2020
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 04/23/2019
+ms.lastreviewed: 01/10/2020
 keywords: ''
-ms.openlocfilehash: 0462d2cac78109ad76cf8c2b8c58958fc32e5d07
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bc484919227fe08293db9ac987bee4d18313d802
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817363"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882419"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -51,7 +51,7 @@ A syslog-továbbítás konfigurálásához hozzá kell férnie a privilegizált 
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-ServerPort <UInt16>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -64,7 +64,7 @@ A *set-SyslogServer* parancsmag paraméterei:
 | Paraméter | Leírás | Type (Típus) | Szükséges |
 |---------|---------|---------|---------|
 |*ServerName* | A syslog-kiszolgáló teljes tartományneve vagy IP-címe. | Sztring | igen|
-|*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | Sztring | igen|
+|*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | UInt16 | igen|
 |*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | flag | nem|
 |*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | flag | nem|
 |*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | flag | nem|
@@ -75,7 +75,7 @@ A *set-SyslogClient* parancsmag paraméterei:
 
 | Paraméter | Leírás | Type (Típus) |
 |---------|---------| ---------|
-| *pfxBinary* | az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt tartalmazó pfx-fájl.  | Bájt [] |
+| *pfxBinary* | A pfx-fájl tartalma, amely egy bájt [] értékre van átirányítva, amely tartalmazza az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt.  | Bájt [] |
 | *CertPassword* |  A pfx-fájlhoz társított titkos kulcs importálására szolgáló jelszó. | SecureString |
 |*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | flag|
 | *OutputSeverity* | A kimeneti naplózás szintje. Az értékek **alapértelmezettek** vagy **részletesek**. Az alapértelmezett érték a súlyossági szinteket tartalmazza: figyelmeztetés, kritikus vagy hiba. A részletes beállítás minden súlyossági szintet tartalmaz: részletes, tájékoztató, figyelmeztetés, kritikus vagy hiba.  | Sztring |

@@ -15,16 +15,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 76a4a64c5077447adb4a1283dcb6042c3c1fedef
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9338a8d8b088f17c9f150e21959f78306108303f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810920"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882164"
 ---
 # <a name="add-commvault-to-the-azure-stack-hub-marketplace"></a>CommVault hozzáadása az Azure Stack hub piactérhez
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk bemutatja, hogyan CommVault élő szinkronizálást egy különálló Azure Stack hub méretezési egységen található helyreállítási virtuális gép frissítéséhez. A felhasználók számára biztonsági mentési és replikációs megoldásként letöltheti és CommVault is kínálhat. 
 

@@ -15,16 +15,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 0835b81387c83560183763ff5604da5c279a0851
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0a068bfa326de0d5146f8e76156acd285fa3f1d1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810188"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882079"
 ---
 # <a name="install-powershell-for-azure-stack-hub"></a>A PowerShell telepítése Azure Stack hubhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják az Azure Stack hub-erőforrások kezeléséhez.
 

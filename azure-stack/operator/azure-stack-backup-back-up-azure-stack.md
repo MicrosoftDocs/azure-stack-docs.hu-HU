@@ -16,16 +16,14 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 2e956d6fc9d646d33442eee21c74bea791babcb4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 04f07af2860518174bf1f2e65ed17e85c34b4692
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816717"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882674"
 ---
 # <a name="back-up-azure-stack-hub"></a>Azure Stack hub biztonsági mentése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk bemutatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on. A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure stack hubhoz](azure-stack-powershell-install.md). Azure Stack hubhoz való bejelentkezéshez lásd: [a felügyeleti portál használata Azure stack hub-ban](azure-stack-manage-portals.md).
 

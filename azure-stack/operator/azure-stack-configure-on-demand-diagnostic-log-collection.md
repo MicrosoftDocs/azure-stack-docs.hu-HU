@@ -16,16 +16,14 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 906215478ba9828464de6cc760db30491bf445c9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817666"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883082"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack hub diagnosztikai naplók gyűjtése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 A hibaelhárítás részeként előfordulhat, hogy a Microsoft ügyfél-támogatási szolgálatának (CSS) elemezni kell a diagnosztikai naplókat. Az 1907-es kiadástól kezdve Azure Stack hub-operátorok a **Súgó és támogatás**segítségével feltölthetik a diagnosztikai naplókat az Azure-beli blob-tárolóba. A **Súgó és támogatás** használata ajánlott a PowerShell használatának korábbi módszere miatt, mivel az egyszerűbb. Ha azonban a portál nem érhető el, a kezelők továbbra is gyűjthetnek naplókat a **Get-AzureStackLog** használatával a rendszerjogosultságú végponton (PEP) keresztül a korábbi kiadásokban. Ez a témakör a diagnosztikai naplók igény szerinti gyűjtésének mindkét módját ismerteti.
 

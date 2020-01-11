@@ -16,16 +16,14 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 3c546d34369211a091f63eaec6efe4e5dc9c42ec
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5fa55edd4c9e089b023cef8b8d0a2adec1606098
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817992"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882980"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Terv létrehozása Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 [Azure stack hub-csomagok](azure-stack-overview.md) egy vagy több szolgáltatás és a kvótáik csoportjai. Szolgáltatóként létrehozhat terveket a felhasználók számára. A felhasználók előfizethetnek az ajánlatokra a csomagok, szolgáltatások és kvóták használatára. Ebből a példából megtudhatja, hogyan hozhat létre olyan csomagot, amely tartalmazza a számítási, hálózati és tárolási erőforrás-szolgáltatókat. Ez a csomag lehetővé teszi, hogy az előfizetők virtuális gépeket építsenek ki.
 

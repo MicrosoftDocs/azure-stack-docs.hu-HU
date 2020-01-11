@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 229d066438cbdad52c167706c4b77b0c425f137b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 14f3cd2cef05b9514680dabd6849c5e60521ef86
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820032"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878815"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Probléma merülhet fel a Azure Stack hub-beli alrendszeri motor telepítésekor vagy használatakor. Ez a cikk az AK-motor üzembe helyezésével kapcsolatos hibaelhárítási lépéseket ismerteti, adatokat gyűjt az AK-motorról, gyűjti össze a Kubernetes-naplókat, áttekinti az egyéni szkriptek bővítményének hibakódait, valamint útmutatást nyújt a GitHub-probléma megmegnyitásához
 

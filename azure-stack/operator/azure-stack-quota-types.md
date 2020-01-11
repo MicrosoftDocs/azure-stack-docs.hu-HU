@@ -16,16 +16,15 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 2ce9d539d68c64a2a57976ee8b4b6af2b99f6af7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5f4d29a95ab56ee4728109f5b74494c39d8b1c98
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809831"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882062"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kvóta típusai Azure Stack központban
 
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta például lehetővé teheti, hogy egy felhasználó legfeljebb öt virtuális gépet hozzon létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
 

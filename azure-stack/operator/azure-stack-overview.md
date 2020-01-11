@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: ffd96cb9c99fcce60f4f90df3324c744da984caa
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1d4b3a3dc094adaac0bc7cfc48d3a7aa54166dc6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810554"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882147"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
 
@@ -49,8 +49,6 @@ Az Azure Stack hub az iparági szabványoknak megfelelő hardverre épül, és u
 Az Azure Stack hub architektúrája lehetővé teszi, hogy az Azure-szolgáltatásokat a távoli helyekhez vagy időszakos kapcsolatokhoz, az internetről leválasztva biztosítson. Olyan hibrid megoldásokat hozhat létre, amelyek helyileg dolgozzák fel az adatokat Azure Stack hub-ban, majd az Azure-ban összesítve további feldolgozást és elemzést végeznek. Végezetül, mivel Azure Stack hub a helyszínen van telepítve, az egyes szabályozási vagy házirend-követelmények kielégítésével a felhőalapú alkalmazások helyszíni üzembe helyezése a kód módosítása nélkül is megváltoztatható.
 
 ## <a name="deployment-options"></a>Üzembe helyezési lehetőségek
-
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is Azure Stack Hub managed with role description, rbac, reporting, high availability take out.--->
 
 A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével. 
 

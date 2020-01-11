@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6b0c849a6550ecae8d2127be0be3fbdbc8708f0b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3c184b581233e8bdb9ccade4af73401fe1907527
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810971"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882198"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató frissítése Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek.*
 
 Előfordulhat, hogy a Azure Stack hub-buildek frissítésekor új MySQL erőforrás-szolgáltatói adapter jelenik meg. Míg a meglévő adapter továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
@@ -68,7 +66,7 @@ A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a 
 > [!NOTE] 
 > A frissítési folyamat csak az integrált rendszerekre vonatkozik.
 
-Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha frissíti a MySQL erőforrás-szolgáltatót a verzió 1.1.47.0, ezt a lépést kihagyhatja.
+Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha a MySQL erőforrás-szolgáltatót a 1.1.47.0 verzióra frissíti, a telepítési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -77,6 +75,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> A leválasztott forgatókönyvben le kell töltenie a szükséges PowerShell-modulokat, és manuálisan kell regisztrálnia az adattárat előfeltételként. További információt a [MySQL erőforrás-szolgáltató üzembe helyezése című](azure-stack-mysql-resource-provider-deploy.md) témakörben találhat.
 
 Az alábbi példa azt a *UpdateMySQLProvider. ps1* parancsfájlt mutatja, amelyet egy emelt szintű PowerShell-konzolról lehet futtatni. Ügyeljen rá, hogy szükség szerint módosítsa a változó információit és jelszavát:
 
@@ -108,7 +109,12 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
- 
+
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 .$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
@@ -120,6 +126,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
 ```  
+
+Az erőforrás-szolgáltató frissítési parancsfájljának befejeződése után zárd be a jelenlegi PowerShell-munkamenetet.
 
 ## <a name="next-steps"></a>Következő lépések
 [A MySQL erőforrás-szolgáltató fenntartása](azure-stack-mysql-resource-provider-maintain.md)

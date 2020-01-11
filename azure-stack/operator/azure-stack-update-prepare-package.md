@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b01c9dd9449ac7a67dc338a4385884cbcdf05001
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5b2af5e18eb4f616055ff1adc4b40f7ff29c9ea1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813453"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882691"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack hub-frissítési csomag előkészítése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk áttekintést nyújt Azure Stack hub frissítési csomagjainak előkészítéséről, hogy azok a Azure Stack hub-környezet frissítéséhez is használhatók legyenek. Ez a folyamat a következőkből áll:
 

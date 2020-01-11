@@ -7,16 +7,14 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1fc771f82820149b01b6d11d37ac9a8720483e51
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815306"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883099"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit (ASDK)*
 
 Egy egyszerű szolgáltatásnak egy olyan alkalmazást kell képviselnie, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia. Ahogy a felhasználó egy egyszerű felhasználói tag, az egyszerű szolgáltatásnév olyan rendszerbiztonsági tag, amely egy alkalmazást jelöl. Az egyszerű szolgáltatás identitást biztosít az alkalmazás számára, amely lehetővé teszi, hogy csak az adott egyszerű szolgáltatáshoz szükséges engedélyeket delegálja.  
 

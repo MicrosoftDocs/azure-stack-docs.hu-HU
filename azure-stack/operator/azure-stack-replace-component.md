@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 819f25af457cd48a9342852e189908073df7af8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 17155ab45678158fc669a77d63074748c867e7f3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808430"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882011"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Hardver-összetevő cseréje Azure Stack hub méretezési egység csomópontján
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk az általános eljárást ismerteti a nem becserélhető hardver-összetevők cseréjére. A tényleges helyettesítési lépések az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. A Azure Stack hub integrált rendszerével kapcsolatos részletes lépésekért tekintse meg a gyártó által kihelyezhető, cserélhető egységre vonatkozó dokumentációt.
 

@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: c782806bfcf9a2750c29a790a14e5016d52031dc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f36a94bbc442913826571fdacd1303b010212d4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815255"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880362"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service Azure Stack hub Update 1 kibocsátási megjegyzései
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hub Update 1 verziójának javításait, javításait és ismert problémáit. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
@@ -83,7 +81,7 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
     - Frissített **git a Windows** to v 2.14.1
     - Frissítve a **Mercurial** -től a v 4.5.0
 
-  - A **csak HTTPS** funkció támogatása a app Service bérlői portál egyéni tartomány funkcióján belül.
+  - A **csak HTTPS** funkció támogatása a app Service felhasználói portál egyéni tartomány funkciója területén.
 
   - A Storage-kapcsolatok ellenőrzése a Azure Functions egyéni tároló-választójában.
 
@@ -91,7 +89,7 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
 
 - Kapcsolat nélküli központi telepítési csomag létrehozásakor az ügyfelek többé nem kapnak hozzáférési megtagadási hibaüzenetet, amikor megnyitja a mappát a App Service telepítőből.
 
-- Megoldott problémák a App Service bérlői portál egyéni tartományok funkciójának használatakor.
+- Megoldott problémák a App Service felhasználói portál egyéni tartományok funkciójának használatakor.
 
 - A fenntartott rendszergazdai nevek használatának megakadályozása az ügyfelek számára a telepítés során.
 

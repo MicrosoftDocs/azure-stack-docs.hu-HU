@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bc0467113ffc1446d4f1bd72f831e050491ae48f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 01bee6f4f82938c078e22d0587b3f34c2e9f76c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820389"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883660"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Azure Stack hub virtuális gép üzembe helyezése Key Vault tárolt jelszó használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk a Windows Server rendszerű virtuális gépek (VM) központi telepítésének lépéseit ismerteti Azure Stack hub Key Vaultban tárolt jelszó használatával. A Key Vault-jelszó használata biztonságosabb, mint az egyszerű szöveges jelszó átadása.
 

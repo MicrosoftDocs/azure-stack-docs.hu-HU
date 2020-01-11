@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 432681002831ec204e6f2fb3552fd67a4c1670f1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817346"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882402"
 ---
 # <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>Linuxos rendszerképek hozzáadása Azure Stack hub Marketplace-hez
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Linux rendszerű virtuális gépeket (VM-ket) telepítheti Azure Stack hubhoz egy Linux-alapú rendszerkép hozzáadásával Azure Stack hub piactéren. A Linux-rendszerképek Azure Stack hubhoz való hozzáadásának legegyszerűbb módja a Piactéri felügyelet. Ezeket a lemezképeket az Azure Stack hub-vel való kompatibilitás érdekében előkészített és tesztelték.
 

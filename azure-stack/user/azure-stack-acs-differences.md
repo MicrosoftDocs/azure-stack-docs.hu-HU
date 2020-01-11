@@ -15,16 +15,14 @@ ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: cef2b4f801ee6b088b0b187cc798c71ad302f1ce
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820882"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883864"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Azure Stack hub Storage a Storage Cloud Services készlete Microsoft Azure Stack központban. Az Azure Stack hub Storage blob-, tábla-, üzenetsor-és fiókkezelés-funkciókat biztosít az Azure-konzisztens szemantikai funkciókhoz.
 

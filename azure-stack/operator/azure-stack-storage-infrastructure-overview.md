@@ -15,16 +15,14 @@ ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 2fc96f1c5749ddd28ece1a8eefd476556ab557a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 947fe93117909b3f258b4d6a6fb7272b0835fad9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814167"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882946"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack hub tárolási infrastruktúrájának kezelése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk az Azure Stack hub tárolási infrastruktúra erőforrásainak állapotát és működési állapotát ismerteti. Ezek az erőforrások a tárolóeszközöket és a köteteket tartalmazzák. Az ebben a témakörben található információk felbecsülhetetlen értékűek a különböző problémák elhárítására tett kísérlet során, például egy meghajtó nem adható hozzá a készlethez.
 

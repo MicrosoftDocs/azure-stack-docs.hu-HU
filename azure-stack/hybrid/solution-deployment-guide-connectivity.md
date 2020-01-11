@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88355951ea5cffc147ef9644a6e35b78bb80a02c
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638441"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881637"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Hibrid felhőalapú kapcsolat konfigurálása az Azure és az Azure Stack hub használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 A hibrid kapcsolati mintával hozzáférhet az erőforrásokhoz a globális Azure-ban és Azure Stack hub-ban.
 
@@ -56,7 +54,7 @@ A megoldás példája feltételezi, hogy rendelkezik az Azure és az Azure Stack
  - Ha nem rendelkezik Azure-előfizetéssel, mindössze néhány perc alatt létrehozhat egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a virtuális gép létrehozásának megkezdése előtt.
  - Hozzon létre egy [webalkalmazást](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) az Azure-ban. Jegyezze fel a webalkalmazás URL-címét, mert szüksége lesz rá a megoldásban.
 
-### <a name="azure-stack-hub"></a>Azure Stack hub
+### <a name="azure-stack-hub"></a>Azure Stack Hub
 
  - Használja az éles Azure Stack hub-t, vagy telepítse a Azure Stack hub fejlesztői készletet https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
@@ -73,7 +71,7 @@ A hibrid felhőalapú kapcsolatok konfigurálásának megkezdése előtt győző
  - A VPN-eszközhöz külsőleg megtekinthető nyilvános IPv4-címnek kell lennie. Ez az IP-cím nem helyezhető el NAT mögött (hálózati címfordítás).
  - Minden erőforrás üzembe helyezése ugyanabban a régióban/helyen történik.
 
-#### <a name="solution-example-values"></a>megoldási példa értékei
+#### <a name="solution-example-values"></a>Megoldási példa értékei
 
 A megoldás példái a következő értékeket használják. Ezekkel az értékekkel létrehozhat egy tesztkörnyezetben, vagy megtekintheti őket a példák jobb megismeréséhez. A VPN Gateway beállításaival kapcsolatos további információkért lásd: [Tudnivalók a VPN Gateway beállításairól](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings).
 
@@ -113,7 +111,7 @@ A következő lépésekkel hozhat létre virtuális hálózatot a portál haszn�
 VNet létrehozása az Azure-ban:
 
 1. A böngészőjével csatlakozhat a [Azure Portalhoz](https://portal.azure.com/) , és bejelentkezhet az Azure-fiókjával.
-2. Válassza **az erőforrás létrehozása**lehetőséget. A **Keresés a piactéren** mezőbe írja be a "virtuális hálózat" kifejezést. Válassza ki a **virtuális hálózatot** az eredmények közül.
+2. Válassza az **Erőforrás létrehozása** lehetőséget. A **Keresés a piactéren** mezőbe írja be a "virtuális hálózat" kifejezést. Válassza ki a **virtuális hálózatot** az eredmények közül.
 3. A **telepítési modell kiválasztása** listában válassza ki a **Resource Manager**elemet, majd válassza a **Létrehozás**lehetőséget.
 4. A **virtuális hálózat létrehozása**területen konfigurálja a VNet beállításait. A kötelező mezők nevei vörös csillaggal vannak ellátva.  Ha érvényes értéket ad meg, a csillag zöld pipa jelre változik.
 

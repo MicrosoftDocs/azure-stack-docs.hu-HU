@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 32ad63180e1386f5daea8dac46379a4ad749fa8c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 337f5bfccc7deccf7214d452546c1e0ba3296555
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816734"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882895"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack hub frissítéseinek telepítése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 A frissítési csomagokat a Azure Stack hub **frissítés** paneljén telepítheti. Ez a cikk végigvezeti a frissítési folyamat frissítésének, figyelésének és hibaelhárításának lépésein. A frissítés panel használatával megtekintheti a frissítési adatokat, telepítheti a frissítéseket, figyelheti a frissítések állapotát, áttekintheti az előzményeket, és megtekintheti az aktuális Azure Stack hub és OEM csomag verzióját.
 

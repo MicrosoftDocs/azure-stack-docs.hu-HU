@@ -15,16 +15,14 @@ ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 26d0940814ec8b5d9527567154cd0dc6d83894b4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817924"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882572"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk a regisztrációs műveletekkel kapcsolatos részleteket tartalmazza. A következő műveletekkel végezheti el a műveleteket:
 

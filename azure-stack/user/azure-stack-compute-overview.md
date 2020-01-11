@@ -10,16 +10,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 83c45caf8e1006cc55195f30f6ad62da8c63932d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7b072b95cae7148080ee0c9b1195960a3df041fc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820848"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883796"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure Stack hub a virtuális gépeket igény szerinti és méretezhető számítási erőforrásként kínálja. Kiválaszthat egy virtuális gépet, ha több vezérlésre van szüksége a számítástechnikai környezetben. Ez a cikk az első virtuális gép létrehozása előtt tartalmaz részleteket.
 

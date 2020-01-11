@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3c30a3c848111da10c736602f2932e1fe7e7a7c4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f8c5fdaa638c7ab5fa0669ffee57611e89c192ff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818060"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882555"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Az Azure Stack hub identitás-szolgáltatóinak áttekintése
 
@@ -65,7 +65,7 @@ Azure Stack hub felhasználói fiókjai:
 - Csak arra a könyvtárra korlátozódik, amelyre először regisztrálnak, amely a szervezet címtára.
 - A helyszíni címtárakból is importálható. További információ: a [helyszíni címtárak integrálása Azure Active Directorysal](/azure/active-directory/connect/active-directory-aadconnect).
 
-Amikor bejelentkezik a szervezet bérlői portálján, a *https:\//Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiók bejelentkezve admin@contoso.com, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Amikor bejelentkezik a szervezet felhasználói portálján, a *https:\//Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiók bejelentkezve admin@contoso.com, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Vendégfelhasználók
 

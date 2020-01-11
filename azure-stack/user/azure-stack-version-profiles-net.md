@@ -16,16 +16,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 21d9149de4ebe467ecffa6c00d3b6386cb69eb24
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818672"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878492"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Azure Stack hub Resource Managerhez készült .NET SDK olyan eszközöket biztosít, amelyek segítenek az infrastruktúra kiépítésében és kezelésében. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, a App Services és a [Key Vault](/azure/key-vault/key-vault-whatis). A .NET SDK 14 NuGet-csomagot tartalmaz. Ezeket a csomagokat a projekt minden egyes fordításakor le kell töltenie a megoldásba. Azonban pontosan letöltheti a **2019-03-01 hibrid** vagy **2018-03-01-hibrid** verzióhoz használni kívánt erőforrás-szolgáltatót, hogy optimalizálja a memóriát az alkalmazás számára. Minden csomag egy erőforrás-szolgáltatóból, a megfelelő API-verzióból és az API-profilból áll, amelyhez tartozik. A .NET SDK-ban található API-profilok lehetővé teszik a hibrid felhőalapú fejlesztést azáltal, hogy a Azure Stack hub globális Azure-erőforrásai és-erőforrásai közötti váltást segítik.
 

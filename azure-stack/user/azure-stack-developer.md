@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ca4102e53d06b8f7c4876fd6cd0fd9e6d9ade42e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ba5aefa61db489f5f7063ebc4785785ba2f26f4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820457"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883728"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Fejlesztés Azure Stack hub-hoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Megkezdheti az alkalmazások fejlesztését még akkor is, ha nem fér hozzá egy Azure Stack hub-környezethez. Az Azure Stack hub biztosítja az adatközpontban futó Microsoft Azure-szolgáltatásokat, ami azt jelenti, hogy ugyanazokat az Azure-eszközöket és-folyamatokat használja az Azure Stack hub fejlesztéséhez.
 

@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 3d11184844078f2d888156f6bf4b1a436f345ccd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815272"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880107"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service Azure Stack hub Update 6 kibocsátási megjegyzései
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések a Azure Stack hub Update 6 és bármely ismert probléma esetén Azure App Service javításait és javításait ismertetik. Az ismert problémák az üzembe helyezéssel, a frissítési folyamattal és a buildtel (a telepítés után) kapcsolatos problémákkal közvetlenül kapcsolatos problémákra vannak osztva.
 
@@ -115,7 +113,7 @@ Az üzembe helyezési lehetőségek és az üzembe helyezési hitelesítő adato
 
 - Az Azure Function monitoring folyamatosan megjeleníti a betöltést a portálon
 
-Amikor megkísérli figyelni az egyes függvényeket, a bérlői portálon nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma.  A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók**menüpontra, és válassza az **Alkalmazásbeállítások**lehetőséget.  Adjon hozzá egy új Alkalmazásbeállítás- **AzureWebJobsDashboard** nevet, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre.  Ezután nyissa meg a figyelés nézetet a függvényben, és látni fogja a figyelési adatokat.
+Amikor megkísérli figyelni az egyes függvényeket, a felhasználói portálon nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma.  A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók**menüpontra, és válassza az **Alkalmazásbeállítások**lehetőséget.  Adjon hozzá egy új Alkalmazásbeállítás- **AzureWebJobsDashboard** nevet, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre.  Ezután nyissa meg a figyelés nézetet a függvényben, és látni fogja a figyelési adatokat.
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 64ff69f87daa2451ab61fd2e950c5688903a955e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727598"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883677"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Azure Stack hub Key Vault kezelése a PowerShell használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk bemutatja, hogyan hozhat létre és kezelhet egy kulcstartót Azure Stack hub-ban a PowerShell használatával. Megtudhatja, hogyan használhatja Key Vault PowerShell-parancsmagokat a következőkre:
 

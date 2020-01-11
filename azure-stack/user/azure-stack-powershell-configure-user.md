@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 80a9adc5aca5f3a2abc54009d40209e957f78a6f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8a2687a628180564cf7f71042fd50129da23c610
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819539"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883439"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure Stack hub-erőforrások kezeléséhez a PowerShell használatával csatlakozhat Azure Stack hubhoz. A PowerShell használatával például előfizethet az ajánlatokra, virtuális gépeket hozhat létre, és Azure Resource Manager sablonokat telepíthet.
 

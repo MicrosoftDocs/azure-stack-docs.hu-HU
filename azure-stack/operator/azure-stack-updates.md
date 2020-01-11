@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c8deaaca94270b5904f7d1f25d640086639373d9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9fff0249c2a1c43d7742236f64492173c501eeec
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813164"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881722"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>Frissítések kezelése Azure Stack hub-ban – áttekintés
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 A teljes és expressz frissítések, gyorsjavítások, valamint az eredeti berendezésgyártó (OEM) illesztőprogram-és belső vezérlőprogram-frissítései a Azure Stack hub naprakészen tartanak. Ez a cikk ismerteti a frissítések különböző típusait, a megjelenésük időpontját, valamint azt, hogy hol talál további információkat a jelenlegi kiadásról.
 

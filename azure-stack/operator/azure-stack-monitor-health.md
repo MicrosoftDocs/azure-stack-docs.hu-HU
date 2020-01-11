@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 609f40a7f0677c6505bd06b7de025ba6b491f462
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d539ea7c2be9cbd124ce3286adda2eff8cd1a7ca
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817057"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882300"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Állapot és riasztások figyelése Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure Stack hub infrastruktúra-figyelési funkciókat tartalmaz, amelyek segítségével megtekintheti az Azure Stack hub-régió állapotát és riasztásait. A **régió-felügyeleti** csempe felsorolja Azure stack hub összes telepített régióját. Alapértelmezés szerint az alapértelmezett szolgáltatói előfizetéshez a felügyeleti portálon van rögzítve. A csempe az egyes régiókban az aktív kritikus és figyelmeztető riasztások számát jeleníti meg. A csempe az Azure Stack hub állapot-és riasztási funkciójának belépési pontja.
 

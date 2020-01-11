@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 41166490ef2a79bc61375479d8c83e0205ab44a6
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c2e043630e601098e0b2abbb1bacbffe44808495
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638331"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881450"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>AI-alapú lépés hangja-észlelési megoldás üzembe helyezése az Azure és Azure Stack hub használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 Ez a cikk azt ismerteti, hogyan helyezhet üzembe olyan megoldást, amely az Azure, az Azure Stack hub és a Custom Vision AI fejlesztői csomag használatával bepillantást nyerhet a valós világbeli műveletekkel.
 

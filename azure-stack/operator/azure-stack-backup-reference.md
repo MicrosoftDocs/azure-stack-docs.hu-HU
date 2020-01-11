@@ -16,18 +16,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b1a62edc088cbe73475a88f8303e28d71d2dc63f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e54ae96cec4fff9a50c541bab4ea8e60323ca22
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816751"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882929"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
 
 ## <a name="azure-backup-infrastructure"></a>Azure Backup-infrastruktúra
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub számos olyan szolgáltatást tartalmaz, amelyek a portált (Azure Resource Manager) és a teljes infrastruktúra-kezelési élményt alkotják. Azure Stack hub alkalmazások közötti felügyeleti tapasztalata a megoldás kezelője számára elérhető bonyolultság csökkentését összpontosítja.
 

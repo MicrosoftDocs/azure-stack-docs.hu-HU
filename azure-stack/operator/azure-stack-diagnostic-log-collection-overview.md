@@ -16,16 +16,14 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 197d39feb91edc8c93d747471f30aff8f56b03ac
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cd74be55195975238e9c8454badeab26593811b5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811668"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882470"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack hub diagnosztikai naplók gyűjteményének áttekintése 
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Az Azure Stack hub az összetevők nagy gyűjteménye, amely együttműködik egymással, és interakciót végez. Ezek az összetevők saját egyedi naplókat hoznak. Ez kihívást jelenthet a problémák diagnosztizálásában, különösen a több, egymással kapcsolatban álló Azure Stack hub-összetevőktől érkező hibák esetén. A probléma megoldása érdekében diagnosztikai napló-gyűjtési élményt alakítottunk ki. 
 

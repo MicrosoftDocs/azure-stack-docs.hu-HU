@@ -4,7 +4,6 @@ description: Ismerje meg, hogyan végezheti el az alapszintű rendszergazdai fel
 services: azure-stack
 documentationcenter: ''
 author: justinha
-manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -16,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 1074f359063855ef5f80ef6f1e3807b87184a4ca
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 785b787702f173fe3f30b53f29f8770f9f039b1b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974878"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881620"
 ---
 # <a name="asdk-admin-basics"></a>ASDK-adminisztrátor alapjai
 Több dolgot kell tudnia, ha még nem ismeri a Azure Stack Development Kit (ASDK) felügyeletét. Ez az útmutató áttekintést nyújt a szerepkörről Azure Stack operátorként a kiértékelési környezetben. Az adatok megismerésével biztosíthatja, hogy a felhasználók a lehető leggyorsabban hatékonyak legyenek.
@@ -67,6 +66,6 @@ A fórumokat a felügyeleti portál jobb felső sarkában található **Súgó**
 > [!IMPORTANT]
 > Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfélszolgálati szolgálatai (CSS) nem kínálunk hivatalos támogatást.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [A ASDK üzembe helyezése](asdk-install.md)
 

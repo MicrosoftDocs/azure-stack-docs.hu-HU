@@ -14,16 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 64628dbd3369a59917f6aaa81130068ea169bac8
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e6e65ebf39ae08b56f02fca437369f4861613ade
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815663"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878305"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Node. js szoftverfejlesztői készlettel (SDK) Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="nodejs-and-api-version-profiles"></a>Node. js-és API-verziók profiljai
 

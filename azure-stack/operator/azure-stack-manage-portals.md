@@ -16,16 +16,14 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 388590d9cef3c6eb7a685c5bb910cf14b058e97e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cb4db9d5034aead74a92b8d6d4b896f54460701b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817159"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882385"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>A Azure Stack hub felügyeleti portáljának használata
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub két portálon érhető el: a felügyeleti Portálon és a felhasználói portálon. Azure Stack hub-kezelőként a felügyeleti portálon használhatja Azure Stack hub napi felügyeletét és műveleteit.
 

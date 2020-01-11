@@ -9,16 +9,14 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21ee510182e5c2e8056f1d19373708df3ec9b273
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 292f210d8145bdac64e2f50f4c8ef85dc79d1a77
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816207"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883643"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Tároló kiterjesztése Azure Stack hubhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk Azure Stack hub tárolási infrastruktúrájának adatait ismerteti, amelyek segítségével eldöntheti, hogyan integrálhatja Azure Stack hub-t a meglévő hálózati környezetbe. Az adatközpont kibővítésével kapcsolatos általános vitát követően a cikk két különböző forgatókönyvet mutat be. Csatlakozhat egy Windows file Storage-kiszolgálóhoz. Egy Windows iSCSI-kiszolgálóhoz is csatlakozhat.
 

@@ -16,16 +16,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e7436c6a96dfbe5bdfd392b915d0206bf969130e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5ae8a125521689a1e07e1207e03df4d981b74704
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814303"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881807"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL-erőforrás szolgáltatójának frissítése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek.*
 
 Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hub új buildre frissül. Bár a meglévő erőforrás-szolgáltató továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
@@ -71,7 +69,7 @@ A **UpdateSQLProvider. ps1** PowerShell-parancsfájl futtatásakor a parancssorb
 > [!NOTE]
 > Ez a frissítési folyamat csak Azure Stack hub integrált rendszerekre vonatkozik.
 
-Ha az SQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha frissíti az SQL Resource Provider 1.1.47.0 verzióját, ez a lépés kihagyható.
+Ha az SQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha az SQL Resource Provider verzió 1.1.47.0 frissíti, az üzembe helyezési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat az elérési út C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
@@ -80,6 +78,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> A leválasztott forgatókönyvben le kell töltenie a szükséges PowerShell-modulokat, és manuálisan kell regisztrálnia az adattárat előfeltételként. További információt az [SQL erőforrás-szolgáltató üzembe helyezése című](azure-stack-sql-resource-provider-deploy.md) témakörben találhat.
 
 A következő példa egy emelt szintű PowerShell-konzolról futtatható *UpdateSQLProvider. ps1* parancsfájl használatára mutat be példát. Ügyeljen rá, hogy szükség szerint módosítsa a változó információit és jelszavát:  
 
@@ -112,6 +113,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 . $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
@@ -123,6 +129,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
 
  ```
+
+Az erőforrás-szolgáltató frissítési parancsfájljának befejeződése után zárd be a jelenlegi PowerShell-munkamenetet.
 
 ## <a name="next-steps"></a>Következő lépések
 

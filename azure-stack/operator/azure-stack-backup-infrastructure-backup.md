@@ -14,16 +14,14 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 8abc94abe921a492cd029f01156efa597626f7c0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 101b463f10684e40be5d4e3864c235290713c518
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804486"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882776"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Azure Stack hub adatainak helyreállítása a Infrastructure Backup szolgáltatással
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A konfigurációs és a szolgáltatási adatai biztonsági mentését és visszaállítását az Azure Stack hub Infrastructure Backup szolgáltatás használatával végezheti el. Minden Azure Stack hub-telepítés a szolgáltatás egy példányát tartalmazza. A szolgáltatás által létrehozott biztonsági másolatokat a Azure Stack hub-felhő újratelepítésére használhatja az identitás-, biztonsági és Azure Resource Manager adatok visszaállításához.
 

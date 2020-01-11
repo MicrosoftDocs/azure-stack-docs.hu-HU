@@ -16,16 +16,14 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d678332e10f219d4e37783668154098da2c2a8b5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dff7f2dd043a7df3749ec3cdc4b7560e6cd7bd06
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809810"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882028"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Egyéni szerepkör létrehozása Azure Stack hub-regisztrációhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!WARNING]
 > Ez nem egy biztonsági testtartási funkció. Olyan helyzetekben érdemes használni, ahol meg szeretné akadályozni az Azure-előfizetés véletlen módosításait. Ha a felhasználó jogosultságokat delegál az egyéni szerepkörhöz, a felhasználónak jogosultsága van az engedélyek szerkesztésére és a jogosultságszint-emelésre. Csak a megbízhatónak ítélt felhasználókat rendelje hozzá az egyéni szerepkörhöz.

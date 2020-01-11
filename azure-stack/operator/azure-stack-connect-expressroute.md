@@ -14,16 +14,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 1e476f29909d3057deaf9331d11b780c1a887e6c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804979"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75877557"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure Stack hub összekötése az Azure-ba az Azure ExpressRoute
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk azt ismerteti, hogyan csatlakoztathat egy Azure Stack hub virtuális hálózatot egy Azure-beli virtuális hálózathoz egy [Microsoft Azure ExpressRoute](/azure/expressroute/) közvetlen kapcsolat használatával.
 
@@ -83,7 +81,7 @@ Az Azure Stack hub-környezet első bérlőhöz való beállításához kövesse
 
 Az Azure Stack hub konfigurálásának megkezdése előtt a következőkre lesz szüksége:
 
-* Azure Stack hub integrált rendszer központi telepítése vagy Azure Stack Development Kit (ASDK) telepítése. További információ a ASDK telepítéséről: [Azure stack Development Kit üzembe helyezési](../asdk/asdk-download.md)útmutató.
+* Egy Azure Stack hub üzembe helyezése. 
 * Az Azure Stack hub azon ajánlata, amelyhez a felhasználók előfizethetnek. További információ: [szolgáltatás, csomag, ajánlat, előfizetés áttekintése](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>Hálózati erőforrások létrehozása Azure Stack központban

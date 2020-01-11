@@ -15,16 +15,14 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 7850c24a281a91f6797074778e72efdc281f6958
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e9ad6917a6f8db571fc41b88fb9ef29e25d247c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811838"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882640"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Ajánlatok delegálása Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub-kezelőként előfordulhat, hogy más személyeket is fel kell vennie a felhasználók regisztrálására és előfizetések létrehozására. Ha például Ön szolgáltató, érdemes lehet viszonteladókat regisztrálni az ügyfelek regisztrálásához és az Ön nevében történő felügyeletéhez. Ha a vállalatnál egy központi informatikai csoport tagja, akkor érdemes lehet delegálást végezni a felhasználók más informatikai személyzetének.
 

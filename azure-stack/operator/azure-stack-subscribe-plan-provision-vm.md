@@ -10,16 +10,14 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 3d5203481eea68c9f4dbc231f346bef845622ba2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3a9798b82729a88b2ca3cf8ed2cf403a9dab34c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814116"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882861"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Előfizetések létrehozása a Azure Stack hub ajánlatai számára
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhasználóknak elő kell fizetniük rá, hogy használhassák. A felhasználók kétféleképpen fizethetnek elő egy ajánlatra:
 
@@ -71,7 +69,7 @@ Felhasználóként bejelentkezhet a felhasználói portálra, ahol megkeresheti 
 
 ### <a name="to-subscribe-to-an-offer"></a>Előfizetés egy ajánlatra
 
-1. [Jelentkezzen](../asdk/asdk-connect.md) be az [Azure stack hub felhasználói portálra](https://portal.local.azurestack.external) , és válassza az **előfizetés beszerzése**lehetőséget.
+1. Jelentkezzen be az Azure Stack hub felhasználói portálra, és válassza az **előfizetés beszerzése**lehetőséget.
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   

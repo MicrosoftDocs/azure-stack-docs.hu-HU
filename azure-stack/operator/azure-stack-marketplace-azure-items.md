@@ -16,16 +16,14 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 0a28ece2040b0c0404fde5ce0d7ced75a5e310f2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6cb2421deef1ea0b3c741c1c068e9452bfb2af5f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817635"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882725"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack hub számára elérhető Azure Marketplace-elemek
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit.*
 
 ## <a name="virtual-machine-extensions"></a>Virtuálisgép-bővítmények
 

@@ -15,16 +15,14 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 00edf73d49db990987737bbde1d63735d7d7cf66
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 21d91b9cb14fa46fbd92e033c59f7b78fbc64354
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813419"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882793"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Az eredeti berendezésgyártó (OEM) frissítéseit alkalmazhatja az Azure Stack hub hardveres összetevőire, hogy az illesztőprogram-és belső vezérlőprogram-javításokat, valamint a biztonsági javításokat is alkalmazza, miközben minimalizálja a felhasználókra gyakorolt hatást. Ebből a cikkből megtudhatja, hogyan telepítheti az OEM-frissítéseket, az OEM kapcsolattartási adatokat, és hogyan alkalmazhat egy OEM-frissítést.
 

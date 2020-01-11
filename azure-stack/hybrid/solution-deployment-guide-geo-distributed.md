@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 11da2f86bcfce1473e5fabe3712281fa3e9e68b2
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639178"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881858"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Földrajzilag elosztott alkalmazás-megoldás létrehozása az Azure-val és Azure Stack hub-vel való közvetlen forgalomhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 Megtudhatja, hogyan irányíthatja át a forgalmat adott végpontokra különböző mérőszámok alapján a földrajzilag elosztott alkalmazások mintájának használatával. A Traffic Manager-profilok földrajzi alapú útválasztási és végponti konfigurációval való létrehozása biztosítja az információk átirányítását a végpontok számára a regionális követelmények, a vállalati és a nemzetközi szabályozás, valamint az adatok igényei alapján.
 
@@ -321,7 +319,7 @@ A CNAME hozzáadása után a DNS-rekordok oldal a következő példához hasonl�
 
    a.  egy **A** rekordra, amelyet leképezhet az alkalmazás IP-címére.
 
-   b.  Egy **txt** -rekord, amely az alkalmazás alapértelmezett állomásneve < APP_NAME >. azurewebsites. net. App Service ezt a rekordot csak a konfiguráció idejére használja az egyéni tartomány tulajdonjogának ellenőrzéséhez. Az ellenőrzés után törölje a TXT-rekordot.
+   b.  Egy TXT-rekord, amely az alkalmazás alapértelmezett állomásneve < app_name >. azurewebsites. net **fájlra** van leképezve. App Service ezt a rekordot csak a konfiguráció idejére használja az egyéni tartomány tulajdonjogának ellenőrzéséhez. Az ellenőrzés után törölje a TXT-rekordot.
 
 9. Hajtsa végre ezt a feladatot a tartományregisztráló lapon, majd az **állomásnév hozzáadása** gomb aktiválása után ellenőrizze újra a műveletet.
 
@@ -413,7 +411,7 @@ Az egyéni SSL nem támogatott az **ingyenes** vagy a **közös** szinten. A fel
 
 1.  Válassza az **Alapszintű**, a **Standard** vagy a **Prémium** szintet.
 
-2.  Válassza a **kiválasztás**lehetőséget.
+2.  Válassza a **Kiválasztás** lehetőséget.
 
 ![Tarifacsomag kiválasztása](media/solution-deployment-guide-geo-distributed/image36.png)
 
@@ -486,7 +484,7 @@ Ha az IIS vagy a **CertReq. exe** a tanúsítványkérelem előállítására sz
 
 Amikor App Service befejezi a tanúsítvány feltöltését, az SSL- **Beállítások** lapon jelenik meg.
 
-![SSL-beállítások](media/solution-deployment-guide-geo-distributed/image39.png)
+![SSL Settings (SSL-beállítások)](media/solution-deployment-guide-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Az SSL-tanúsítvány kötése
 
@@ -540,7 +538,7 @@ A Web App (webalkalmazás) lapon válassza az **SL-beállítások**elemet. Ezut�
 
 Ha a művelet befejeződött, navigáljon az alkalmazásra mutató HTTP URL-címek bármelyikéhez. Példa:
 
--   https://< APP_NAME >. azurewebsites. net
+-   https://< app_name >. azurewebsites. net
 -   https://northwindcloud.com
 -   <https://www.northwindcloud.com>
 

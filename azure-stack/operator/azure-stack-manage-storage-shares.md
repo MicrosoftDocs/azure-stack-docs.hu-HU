@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ddd24e1fce75d99608b406f99e7ab8648c34c73c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 612a49649b66b6f7324ea3973a4ec3b02adf2ddb
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817091"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882317"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az ebben a cikkben található információk segítenek a Azure Stack hub felhő-kezelője számára a Azure Stack hub-telepítés tárolókapacitásának monitorozásában és kezelésében. Az Azure Stack hub tárolási infrastruktúrája a Azure Stack hub üzemelő példányának a **tárolási szolgáltatásokhoz**használt teljes tárolókapacitásának részhalmazát foglalja le. A tárolási szolgáltatások a környezet csomópontjainak megfelelő köteteken, megosztásokban tárolják a bérlői adatokat.
 

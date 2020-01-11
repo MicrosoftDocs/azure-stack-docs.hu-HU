@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 58e7b4ab6904fa93374dadd6b8e4a55eb44789af
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d27dcc7314b89ed5d5a88eafac125cb72e33e170
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814847"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881926"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -60,8 +60,6 @@ Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés 
 - [Azure Stack hub 1906 frissítése](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>Gyorsjavítások
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Alkalmanként a Microsoft gyorsjavításokat biztosít Azure Stack hubhoz, amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti.
 

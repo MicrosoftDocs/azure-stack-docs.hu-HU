@@ -15,16 +15,14 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 69d25b9a7eafa1dbf71384e2e82bef9bc87bd5af
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817788"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882759"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure Stack hub piactéren közzétett minden elem az Azure Gallery-csomag (. azpkg) formátumát használja. Az *Azure Gallery Packager* eszköz lehetővé teszi, hogy egyéni Azure Gallery-csomagot hozzon létre, amelyet feltöltheti a Azure stack hub piactérre, amelyet aztán a felhasználók is letölthetnek. Az üzembe helyezési folyamat egy Azure Resource Manager sablont használ.
 

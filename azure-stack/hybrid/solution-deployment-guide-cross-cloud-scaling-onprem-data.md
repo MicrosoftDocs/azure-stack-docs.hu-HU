@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d74d2f70ec172ecc2dc640958cb01143ec80af31
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 1b21766561c39cf795665e8229eb1763acb89465
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639321"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881790"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 Ebből a megoldási útmutatóból megtudhatja, hogyan helyezhet üzembe egy hibrid alkalmazást, amely az Azure-t és Azure Stack hub-t is felöleli, és egyetlen helyszíni adatforrást használ.
 
@@ -40,7 +38,7 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 > - Konfigurálja az automatikus forgalmat a globális Azure és az Azure Stack hub között.
 
 > [!Tip]  
-> ![hibrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack hub az Azure kiterjesztése. Azure Stack hub a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
 > A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
@@ -49,7 +47,7 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 
 Ez az oktatóanyag feltételezi, hogy rendelkezik a globális Azure és Azure Stack hub alapszintű ismeretével. Ha többet szeretne megtudni az oktatóanyag megkezdése előtt, tekintse át a következő cikkeket:
 
- - [Bevezetés az Azure-bA](https://azure.microsoft.com/overview/what-is-azure/)
+ - [Bevezetés az Azure-ba](https://azure.microsoft.com/overview/what-is-azure/)
  - [Azure Stack hub főbb fogalmak](../operator/azure-stack-overview.md)
 
 Ez az oktatóanyag azt is feltételezi, hogy rendelkezik Azure-előfizetéssel. Ha nem rendelkezik előfizetéssel, a Kezdés előtt [létrehozhat egy ingyenes fiókot](https://azure.microsoft.com/free/) .
@@ -125,7 +123,7 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
 10. Némi időbe telik az új virtuális gép létrehozása. A **virtuális gépek állapota a Virtual Machines**szolgáltatásban tekinthető meg.
 
-    ![Virtual machines (Virtuális gépek)](media/solution-deployment-guide-hybrid/image7.png)
+    ![Virtuális gépek](media/solution-deployment-guide-hybrid/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack-hub"></a>Webalkalmazások létrehozása az Azure-ban és Azure Stack hub
 
@@ -210,7 +208,7 @@ A DNS Felhőbeli alkalmazások számára történő megfelelő konfigurálásáv
 
 Ez az oktatóanyag a Azure DNS használatával kezeli a DNS-t, mert App Service tartományok nem működnek.
 
-### <a name="create-subdomains"></a>Create subdomains
+### <a name="create-subdomains"></a>Altartományok létrehozása
 
 Mivel Traffic Manager DNS-CNAME-re támaszkodik, egy altartományra van szükség ahhoz, hogy megfelelően irányítsa a forgalmat a végpontokra. A DNS-rekordokkal és a tartomány-hozzárendeléssel kapcsolatos további információkért lásd: [tartományok leképezése Traffic Managerokkal](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 
@@ -308,7 +306,7 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
 
 2. Válassza az **autoskálázás engedélyezése**lehetőséget.
 
-    ![Az autoskálázás engedélyezése](media/solution-deployment-guide-hybrid/image17.png)
+    ![Automatikus skálázás engedélyezése](media/solution-deployment-guide-hybrid/image17.png)
 
 3. Adja meg az **autoskálázási beállítás nevének**nevét. Az **alapértelmezett** automatikus skálázási szabálynál válassza a **skála mérőszám alapján**lehetőséget. A **példányokra vonatkozó korlátokat** állítsa **minimumra: 1**, **maximum: 10**, **alapértelmezett érték: 1**.
 
@@ -378,8 +376,8 @@ Hozzon létre egy Traffic Manager-profilt az Azure-ban, majd konfigurálja a vé
 
 ### <a name="create-traffic-manager-profile"></a>Traffic Manager profil létrehozása
 
-1. Válassza ki **erőforrás létrehozása**.
-2. Válassza a **hálózatkezelés**lehetőséget.
+1. Válassza az **Erőforrás létrehozása** lehetőséget.
+2. Válassza a **Hálózat** lehetőséget.
 3. Válassza ki **Traffic Manager profilt** , és konfigurálja a következő beállításokat:
 
    - A **név**mezőben adja meg a profil nevét. Ennek a **névnek egyedinek kell** lennie az trafficmanager.net zónában, és egy új DNS-név (például northwindstore.trafficmanager.net) létrehozására szolgál.
@@ -430,7 +428,7 @@ Ezután konfigurálja az Azure-végpontot.
 
 Mindkét végpont konfigurálása után **Traffic Manager profilban** szerepelnek a **végpontok**kiválasztása után. A következő képernyőfelvételen szereplő példa két végpontot mutat be, amelyek mindegyike állapota és konfigurációs adatai szerepelnek.
 
-![Végpontok](media/solution-deployment-guide-hybrid/image20.png)
+![Endpoints (Végpontok)](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Application Insights figyelésének és riasztásának beállítása
 
@@ -545,4 +543,4 @@ Az automatikus forgalmi váltás konfigurálásához kövesse az alábbi lépés
 
 ## <a name="next-steps"></a>Következő lépések
 
-- Az Azure-minták Felhőkhöz kapcsolatos további információkért lásd: [tervezési minták Felhőkhöz](https://docs.microsoft.com/azure/architecture/patterns).
+- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 51dbef18134c3a5441808c698193fc11f00b223e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c4bec9ed2984154d2dde6880f0bf56629aff3070
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812178"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882997"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Megadhatja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt Azure Stack hub felhasználói számára, hogy az Azure CLI-t a fejlesztői számítógépükön is engedélyezzék. A felhasználóknak szükségük van a tanúsítványra az erőforrások CLI-n keresztüli kezeléséhez.
 

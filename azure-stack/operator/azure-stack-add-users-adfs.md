@@ -1,37 +1,34 @@
 ---
-title: Azure Stack hub-felhasználók hozzáadása a AD FSban | Microsoft Docs
+title: Azure Stack hub-felhasználók hozzáadása a AD FS
 description: Megtudhatja, hogyan adhat hozzá Azure Stack hub-felhasználókat Active Directory összevonási szolgáltatások (AD FS) (AD FS) központi telepítésekhez.
-services: azure-stack
-documentationcenter: ''
 author: PatAltimore
 manager: femila
-editor: ''
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 93e2e60e235ae26016f52a94916f429c38286511
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2c81d8ccceb4fa2f1e05b006232e3b6513ace469
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804877"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880957"
 ---
-# <a name="add-azure-stack-hub-users-in-ad-fs"></a>Azure Stack hub-felhasználók hozzáadása a AD FS
-A **Active Directory felhasználók és számítógépek** beépülő modullal további felhasználókat adhat hozzá egy Azure stack hub-környezethez Active Directory összevonási szolgáltatások (AD FS) (AD FS) identitás-szolgáltató használatával.
+# <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>Új Azure Stack hub felhasználói fiók hozzáadása Active Directory összevonási szolgáltatások (AD FS) (AD FS)
+
+A **Active Directory felhasználók és számítógépek** beépülő modullal további felhasználókat adhat hozzá egy Azure stack hub-környezethez, AD FS identitás-szolgáltatóként használva.
 
 ## <a name="add-windows-server-active-directory-users"></a>Windows Server Active Directory-felhasználók hozzáadása
-> [!TIP]
-> Ez a példa az alapértelmezett azurestack. local ASDK Active Directoryt használja. 
 
 1. Jelentkezzen be a számítógépre egy olyan fiókkal, amely hozzáférést biztosít a Windows felügyeleti eszközökhöz, és nyisson meg egy új Microsoft Management Console (MMC) eszközt.
 2. Válassza a **fájl > beépülő modul hozzáadása vagy eltávolítása**lehetőséget.
-3. Válassza **Active Directory felhasználók és számítógépek** > **AzureStack. local** > **felhasználókat**.
+
+   > [!TIP]
+   > Cserélje le a *könyvtárat a tartományra* a címtárral egyező tartományra. 
+
+3. Válassza **Active Directory felhasználók és számítógépek** > *Directory-tartomány* > **felhasználók**lehetőséget.
 4. Válassza a **művelet** > **új** > **felhasználó**lehetőséget.
 5. Az új objektum – felhasználó területen adja meg a felhasználói adatokat. Kattintson a **Tovább** gombra.
 6. Adja meg és erősítse meg a jelszót.
@@ -39,4 +36,5 @@ A **Active Directory felhasználók és számítógépek** beépülő modullal t
 
 
 ## <a name="next-steps"></a>Következő lépések
-[Egyszerű szolgáltatások létrehozása](azure-stack-create-service-principals.md)
+
+[Alkalmazás identitásának létrehozása Azure Stack hub-erőforrások eléréséhez](azure-stack-create-service-principals.md)

@@ -15,16 +15,14 @@ ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: f1bc42e757bb53f0a9fc7d9c879b64380a4f468e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: de2774a9cdbdbc8461b05db5dbf1f80b0854fbc7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819998"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883609"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="upgrade-a-cluster"></a>Fürt frissítése
 

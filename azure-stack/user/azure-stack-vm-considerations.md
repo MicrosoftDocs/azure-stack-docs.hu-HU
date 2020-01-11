@@ -15,16 +15,14 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 7333d008345061601230a3fff0a11c2d5995f53f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 01c72ba8ead974613d42472e6e3b29b34ff2b9d2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818621"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878645"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számítási erőforrásokat biztosítanak. A virtuális gépek üzembe helyezése előtt megismerheti a Azure Stack hub-ban és Microsoft Azure elérhető virtuálisgép-funkciók közötti különbségeket. Ez a cikk ismerteti ezeket a különbségeket, és azonosítja a virtuális gépek központi telepítésének megtervezésével kapcsolatos legfontosabb szempontokat. Az Azure Stack hub és az Azure közötti magas szintű különbségek megismeréséhez tekintse meg a [legfontosabb szempontokat](azure-stack-considerations.md) ismertető cikket.
 

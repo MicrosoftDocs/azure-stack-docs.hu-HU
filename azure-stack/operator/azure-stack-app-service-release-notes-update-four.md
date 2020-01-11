@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: aa38f168c6cf56e86fa0605ee7f004c480f94088
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 761d9ca8268664786fadc8c47c7269a346954d8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804571"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880464"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>App Service Azure Stack hub Update 4 kibocsátási megjegyzései
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hub Update 4-ös verziójának javításait, javításait és ismert problémáit. Az ismert problémák három szakaszra oszlanak: az üzembe helyezéshez közvetlenül kapcsolódó problémák, a frissítési folyamattal kapcsolatos problémák és a build (telepítés utáni) problémák.
 
@@ -90,7 +88,7 @@ A Azure App Service on Azure Stack hub Update 4 a következő javításokat és 
 
 - Megoldott konfigurációs probléma, ha Azure Stack hub elforgatja az Azure Resource Manager ügyféltanúsítványt.
 
-- Visszaállított funkciók a App Service bérlői portálon a több eredetű erőforrás-megosztási beállítások között.
+- Visszaállított funkciók a App Service felhasználói portálon a több eredetű erőforrás-megosztási beállítások között.
 
 - Hibaüzenet jelenik meg App Service felügyeleti portálon, ha az erőforrás-szolgáltató vezérlő síkja nem tud csatlakozni a konfigurált SQL Server példányhoz.
 

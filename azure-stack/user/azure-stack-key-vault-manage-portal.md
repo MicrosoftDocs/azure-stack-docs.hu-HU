@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/10/2020
 ms.author: sethm
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 69052164c3f32f77d8ccf3c5216e821700907928
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1ba2be2d37cfa0b0d850f67124440fb9de13a23f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820338"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879155"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Key Vault kezelése Azure Stack hub-ban a portál használatával
 
@@ -58,11 +58,11 @@ A kulcstároló létrehozása után a következő eljárással hozhat létre és
 
 ### <a name="create-a-key"></a>Kulcs létrehozása
 
-1. Jelentkezzen be a [felhasználói portálra](https://portal.local.azurestack.external).
+1. Jelentkezzen be az Azure Stack hub [felhasználói portálra](https://portal.local.azurestack.external).
 
 2. Az irányítópulton válassza a **minden erőforrás**lehetőséget, válassza ki a korábban létrehozott kulcstartót, majd válassza a **kulcsok** csempét.
 
-3. A **kulcsok** ablaktáblán válassza a **Hozzáadás**lehetőséget.
+3. A **kulcsok** ablaktáblán válassza a **készítés/importálás**lehetőséget.
 
 4. A **kulcs létrehozása** ablaktáblán a **Beállítások**listájából válassza ki a kulcs létrehozásához használni kívánt módszert. **Létrehozhat egy új** kulcsot, **feltöltheti** a meglévő kulcsot, vagy használhatja a **visszaállítás biztonsági mentést** a kulcsok biztonsági másolatának kiválasztásához.
 

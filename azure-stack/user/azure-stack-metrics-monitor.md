@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 307f0db126048f53559f6f4e29681e650b27a375
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 066a179df94d9a61b89e5f6679968db7e4dea314
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819828"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883541"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>Figyelési adatok felhasználása Azure Stack hub-ból
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamattal, akárcsak Azure Monitor a globális Azure-ban. A globális Azure-ban található összes figyelési érték azonban nem érhető el Azure Stack központban. Ebben a cikkben összefoglalást adunk a Azure Stack hub monitorozási adatainak felhasználásának különböző módjairól.
  

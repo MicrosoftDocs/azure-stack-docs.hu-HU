@@ -17,16 +17,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b639f1511f5a633e60f9d37d974e4a8389582c76
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2aa7d6be221ad9c877290dc87d98ceec5483c6a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816275"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883711"
 ---
 # <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>Sablonok üzembe helyezése Azure Stack hub-ban a Visual Studióval
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Visual Studióval Azure Resource Manager sablonokat telepíthet Azure Stack hubhoz.
 

@@ -16,16 +16,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1a64e0b8ea2774146bac410a38c6b8c09d8be741
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9e289420d10cace3c466c0b1ff18c4d84cf97800
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808362"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881977"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Méretezési egység csomópontjának cseréje egy Azure Stack hub integrált rendszeren
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk azt ismerteti, hogyan lehet lecserélni egy fizikai számítógépet (más néven a méretezési egység csomópontját) egy Azure Stack hub integrált rendszeren. A tényleges méretezési egység csomópontjának helyettesítő lépései az eredeti berendezésgyártó (OEM) hardvergyártó alapján változnak. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
 

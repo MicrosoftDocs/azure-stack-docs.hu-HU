@@ -17,23 +17,21 @@ ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 6fdf88d24c36e8782b880d4ddea43dee96516034
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ca16ffe2f3a72cbdd9a3cc22ee9b5f3acdf2c119
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808498"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881994"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Azure Stack hub fizikai lemezének cseréje
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk a fizikai lemez Azure Stack hub-ban való cseréjének általános folyamatát ismerteti. Ha egy fizikai lemez meghibásodik, minél hamarabb cserélje ki.
 
 > [!Note]  
 > A fizikai adatmeghajtó cseréje nem igényli, hogy a méretezési egység csomópontja előre **ne** kerüljön karbantartási módba (Drain). Emellett a fizikai meghajtó cseréje után a méretezési egység csomópontot nem kell kijavítani a Azure Stack hub felügyeleti portál használatával. A következő cikk további információkat tartalmaz, ha javításra van szükség egy [Azure stack hub skálázási egység csomópontján található hardver-összetevő cseréjéhez](azure-stack-replace-component.md).
 
-Ezt az eljárást használhatja integrált rendszerekhez, valamint olyan Azure Stack Development Kit (ASDK) üzemelő példányokhoz, amelyek gyors lecserélhető lemezekkel rendelkeznek.
+Ezt az eljárást használhatja olyan központi telepítések esetén, amelyek gyors lecserélhető lemezekkel rendelkeznek.
 
 A lemez cseréjének tényleges lépései a számítógépgyártó (OEM) hardverforgalmazójától függően eltérőek lehetnek. Az Ön rendszerére vonatkozó részletes lépésekért tekintse meg a forgalmazó helyszínen cserélhető egységekkel (FRU-k) kapcsolatos dokumentációját.
 

@@ -11,16 +11,14 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 854c249ff6ef5d44f6e8b3451f50b90b296ae997
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 49266e22652b73c9af8ff2e3c08a0604f43760af
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816088"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883490"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub hálózatkezelésének számos funkciója van az Azure hálózatkezelésében. Az Azure Stack hub-hálózat üzembe helyezése előtt azonban néhány fontos eltérést meg kell értenie.
 

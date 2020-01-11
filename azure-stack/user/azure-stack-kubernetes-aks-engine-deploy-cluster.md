@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: da1b38df17904042ade28575f1f919708d845252
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820253"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883566"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Kubernetes-fürtöt Azure Stack hubhoz telepítheti egy olyan ügyfél virtuális gépről, amely az AK-motort futtatja. Ebben a cikkben bemutatjuk a fürt specifikációjának írását, a fürt üzembe helyezését a `apimodel.json` fájllal, valamint a fürt ellenőrzésével, amely a MySQL-t a Helm használatával helyezi üzembe.
 
@@ -98,7 +96,9 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | Mező | Leírás |
     | --- | --- |
     | adminUsername | Adja meg a virtuális gép rendszergazdájának felhasználónevét. |
-    | SSH | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. |
+    | SSH | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. Ha a PuTTY-t használja, nyissa meg a PuTTY Key Generatort a PuTTY titkos kulcs és a nyilvános kulcs betöltéséhez, amely az SSH-RSA-val kezdődik az alábbi példában látható módon. A Linux-ügyfél létrehozásakor generált kulcsot használhatja, de **a nyilvános kulcsot is át kell másolnia, hogy az egyetlen sor szöveg legyen a példában látható módon**.|
+
+    ![Putty Key Generator](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
 
 ### <a name="more-information-about-the-api-model"></a>További információ az API-modellről
 

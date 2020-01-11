@@ -14,16 +14,14 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 462213c5564967c08961c0277f54bfafbaa59a4a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ca47c66e31417378e5088bf6c0c9f7cb406cc1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815799"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878323"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Az Azure Stack hub Storage bemutatása
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="overview"></a>Áttekintés
 
