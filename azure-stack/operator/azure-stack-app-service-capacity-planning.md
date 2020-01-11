@@ -16,16 +16,14 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: d03a7a848213be2f57556616e9fdbf4cd3a0f3e2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d0273a1d8bca100f09254804919ba0061b6c7bd3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809066"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880685"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure App Service Azure Stack hub-on történő éles használatra kész központi telepítésének beállításához meg kell terveznie a rendszer által támogatott kapacitást.  
 

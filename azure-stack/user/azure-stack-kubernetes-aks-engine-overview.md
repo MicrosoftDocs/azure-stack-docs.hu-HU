@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1071bd3a1bda2b5a50f5ba963ff8927cf92734e5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c783771d730010e459b444b537175f683f188bb7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820168"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883847"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Mi a Azure Stack hub AK-motorja?
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Kubernetes-fürtök Azure-beli és Azure Stack hub-ban való üzembe helyezéséhez és kezeléséhez használhatja az AK motor parancssori eszközét. A Azure Resource Manager natív fürtök létrehozásához, frissítéséhez és méretezéséhez használja az AK motort. A motorral a csatlakoztatott és a leválasztott környezetekben is telepíthet fürtöt. Ez a cikk áttekintést nyújt az AK-motorról, a motor és a Azure Stack hub használatának támogatott forgatókönyveit, valamint az olyan műveletek bevezetését, mint például a telepítés, a frissítés és a skálázás.
 

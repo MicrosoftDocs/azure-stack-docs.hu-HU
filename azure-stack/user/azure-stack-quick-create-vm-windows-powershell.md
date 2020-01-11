@@ -16,16 +16,14 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 6bb40ef1f10bcb0d4cadf6252d5e0dd5d8f268bc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d849917f5f552a57f9c435be9bbfaa1a1a6f4fc3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815969"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878543"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub PowerShell használatával létrehozhat egy Windows Server 2016 rendszerű virtuális gépet (VM). A virtuális gép létrehozásához és használatához kövesse a cikk lépéseit. A cikk a következőket is ismerteti:
 

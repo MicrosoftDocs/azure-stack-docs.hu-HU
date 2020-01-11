@@ -15,16 +15,14 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 219c573588a9557a607ef31a4389872f5b33b3c1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c19cf8a97fa92e0084a5b494fe79a7e45a519cad
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819131"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878390"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).

@@ -9,16 +9,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 35ad11479fc3697828e0013b849af7ffc2621819
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a0716d4997a49c2146d64c23defdd6b2f36c0b95
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815340"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878458"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ebben a megoldásban a Azure Stack hub Resource Manager-sablonnal csatlakoztathat két Azure Stack hub-virtuális hálózatok ugyanazon a Azure Stack hub-környezetben belül. [Azure stack hub-virtuális hálózatok nem csatlakoztatható](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) a beépített Virtual Network átjáró használatával. Egyelőre a Network Virtual Appliances (NVA) s használatával VPN-alagutat kell létrehoznia két Azure Stack hub-virtuális hálózatok között. A megoldás sablonja két Windows Server 2016 virtuális gépet telepít, amelyeken az RRAS telepítve van. A megoldás úgy konfigurálja a két RRAS-kiszolgálót, hogy S2SVPN IKEv2 alagutat használjanak a két virtuális hálózatok között. A megfelelő NSG-és UDR-szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes, **belsőként** kijelölt VNET. 
 
@@ -30,7 +28,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 ## <a name="requirements"></a>Követelmények
 
-- ASDK vagy Azure Stack hub integrált rendszer a legújabb frissítésekkel. 
+- A legújabb frissítések alkalmazásával telepített rendszer. 
 - Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter vagy Windows Server 2019 Datacenter (a legújabb Build ajánlott)
     -  Custom Script Extension

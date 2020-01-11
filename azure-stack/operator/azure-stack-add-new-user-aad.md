@@ -1,36 +1,26 @@
 ---
-title: Új Azure Stack hub-bérlői fiók hozzáadása a Azure Active Directoryban | Microsoft Docs
-description: Megtudhatja, hogyan hozhat létre bérlői fiókot a ASDK, így megismerheti a bérlői portált.
-services: azure-stack
-documentationcenter: ''
+title: Új Azure Stack hub felhasználói fiók hozzáadása a Azure Active Directory
+description: Megtudhatja, hogyan hozhat létre felhasználói fiókot Azure Active Directoryban, így a felhasználói portálon is megismerheti.
 author: PatAltimore
 manager: femila
-editor: ''
-ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 46bb8fc18453da5775ff0b9a3b1df12cdc21ebfc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812314"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880991"
 ---
-# <a name="add-a-new-azure-stack-hub-tenant-account-in-azure-active-directory"></a>Új Azure Stack hub-bérlői fiók hozzáadása a Azure Active Directory
+# <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Új Azure Stack hub felhasználói fiók hozzáadása Azure Active Directory (Azure AD)
 
+Az ajánlatok és csomagok teszteléséhez és az erőforrások létrehozásához felhasználói fiókra van szükség. Hozzon létre egy felhasználói fiókot az Azure AD-bérlőben a Azure Portal vagy a PowerShell használatával.
 
-[A Azure stack Development Kit üzembe helyezése](../asdk/asdk-install.md)után szüksége lesz egy bérlői felhasználói fiókra, amellyel felfedezheti a bérlői portált, és tesztelheti ajánlatait és csomagjait. Bérlői fiókot a Azure Portal vagy a PowerShell használatával hozhat létre.
-
-
-
-## <a name="create-an-azure-stack-hub-tenant-account-by-using-the-azure-portal"></a>Azure Stack hub-bérlői fiók létrehozása a Azure Portal használatával
+## <a name="create-user-account-using-the-azure-portal"></a>Felhasználói fiók létrehozása a Azure Portal használatával
 
 Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
@@ -57,9 +47,9 @@ Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
     A rendszer létrehozza és hozzáadja a felhasználót az Azure AD-bérlőhöz.
 
 7. Jelentkezzen be a Azure Portalba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-8. A bérlői portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
+8. A felhasználói portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
 
-## <a name="create-an-azure-stack-hub-user-account-using-powershell"></a>Azure Stack hub felhasználói fiók létrehozása a PowerShell használatával
+## <a name="create-a-user-account-using-powershell"></a>Felhasználói fiók létrehozása a PowerShell használatával
 
 Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérlői felhasználói fiók hozzáadásához. Ebben az esetben a Windows PowerShellhez készült Azure AD-modult használhatja helyette.
 
@@ -82,7 +72,7 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
 
             $msolcred = get-credential
 
-    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    # Add a user account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
 
             connect-msolservice -credential $msolcred
             $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
@@ -91,7 +81,7 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
     ```
 
 1. Jelentkezzen be az Azure-ba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-2. A bérlői portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
+2. A felhasználói portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
 
 ## <a name="next-steps"></a>Következő lépések
 

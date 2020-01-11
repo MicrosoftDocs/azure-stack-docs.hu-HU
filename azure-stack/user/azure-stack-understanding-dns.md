@@ -15,16 +15,14 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2ad223096601c31cf558e5557440d7d03065292e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8bdadb4e0cd36c6e650b001585aa3519293a9247
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818927"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883252"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>IDNS használata Azure Stack központban 
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 a iDNS egy Azure Stack hub hálózati szolgáltatás, amely lehetővé teszi a külső DNS-nevek (például https:\//www.bing.com) feloldását. Lehetővé teszi a belső virtuális hálózatok nevének regisztrálását is. Ezzel az IP-cím helyett a virtuális gépeket (VM-ket) az ugyanazon a virtuális hálózaton lehet feloldani. Ez a megközelítés eltávolítja az egyéni DNS-kiszolgáló bejegyzéseinek megadásához szükséges adatokat. További információ a DNS-ről: [Azure DNS Overview (áttekintés](https://docs.microsoft.com/azure/dns/dns-overview)).
 

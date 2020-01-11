@@ -16,16 +16,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 28f1f4e8c5b20dec6ee9a022cdb59dfcbc8ab3c0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1099d605949b8ce05b2a2c5d4c8b1b233a5ac940
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815238"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880770"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>App Service üzembe helyezése Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk azt ismerteti, hogyan telepítheti App Service a Azure Stack hub-ban.
 
@@ -215,7 +213,7 @@ A App Service erőforrás-szolgáltató üzembe helyezése és regisztrálása u
 >
 >A App Service Azure Stack hub-on használó alkalmazások létrehozásához bérlői előfizetéssel *kell* rendelkeznie. A szolgáltatás-rendszergazda által a felügyeleti portálon elvégezhető feladatok a App Service erőforrás-szolgáltatói felügyeletéhez kapcsolódnak. Ez magában foglalja a kapacitás hozzáadását, a telepítési források konfigurálását, valamint a feldolgozói szintek és SKU-ket hozzáadását.
 >
->Webes, API-és Azure Functions-alkalmazások létrehozásához a bérlői portált kell használnia, és bérlői előfizetéssel kell rendelkeznie.
+>Webes, API-és Azure Functions-alkalmazások létrehozásához a felhasználói portált kell használnia, és bérlői előfizetéssel kell rendelkeznie.
 >
 
 A teszt webalkalmazás létrehozásához kövesse az alábbi lépéseket:
@@ -238,7 +236,7 @@ A teszt webalkalmazás létrehozásához kövesse az alábbi lépéseket:
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress-, DNN-vagy Django-webhely üzembe helyezése (opcionális)
 
-1. Az Azure Stack hub-bérlői portálon válassza a **+** lehetőséget, nyissa meg az Azure Marketplace-t, telepítsen egy Django-webhelyet, és várjon, amíg a telepítés befejeződik. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
+1. Az Azure Stack hub felhasználói portálon válassza a **+** lehetőséget, nyissa meg az Azure Marketplace-t, telepítsen egy Django-webhelyet, és várjon, amíg a telepítés befejeződik. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
 
 2. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a piactéren telepítheti a WordPress-webhelyeket is. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
 

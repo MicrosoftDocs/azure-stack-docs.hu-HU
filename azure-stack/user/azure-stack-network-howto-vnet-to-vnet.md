@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3750088fbf29611c97db1e3ba504997914706587
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819675"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878777"
 ---
 # <a name="how-to-connect-two-vnets-through-peering"></a>Két virtuális hálózatok összekapcsolásának módja a peering használatával
 
@@ -22,7 +22,7 @@ Ez a cikk azt ismerteti, hogyan hozható létre kapcsolat két virtuális háló
 
 ## <a name="prerequisites"></a>Előfeltételek
 
--   Az ehhez a megoldáshoz szükséges számítási, hálózati és erőforrás-követelmények telepítéséhez elérhető kapacitással rendelkező Azure Stack hub integrált rendszer-vagy ASDK férhet hozzá.
+-   Hozzáférés a rendelkezésre álló kapacitással rendelkező rendszerekhez a megoldáshoz szükséges számítási, hálózati és erőforrás-követelmények telepítéséhez.
 
 -  Egy hálózati virtuális berendezés (NVA) megoldást töltöttek le és tesznek közzé az Azure Stack hub piactéren. Az NVA vezérli a peremhálózat hálózati forgalmának áramlását más hálózatokra vagy alhálózatokra. Ez az eljárás a [Fortinet FortiGate következő generációs tűzfalának egyetlen virtuálisgép-megoldását](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)használja.
 

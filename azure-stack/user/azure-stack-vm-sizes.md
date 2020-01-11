@@ -14,16 +14,14 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: 0e657293a23326bffb6ed6d7e5a2e581fbe3a1cb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c7f09296b68df31892952675bac8086c8b483f6d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815476"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883150"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack hub által támogatott virtuálisgép-méretek
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk az Azure Stack hub-ban elérhető virtuális gépek (VM) méreteit sorolja fel. Ebből a cikkből megtudhatja, hogyan választhatja ki a virtuális gépeket az Azure Stack hub-megoldás támogatásához.
 

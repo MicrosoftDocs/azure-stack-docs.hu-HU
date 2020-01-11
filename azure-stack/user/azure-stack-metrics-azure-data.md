@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71daa893ae3c69ff29632f37eb366913b33adf18
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e78b8ead05fbb4a95488c077935277429a34e018
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819896"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878798"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk az Azure Stack hub Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor Azure Stack hub-beli használatáról szóló további információkat. 
 

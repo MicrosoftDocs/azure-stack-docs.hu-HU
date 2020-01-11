@@ -16,15 +16,14 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: d7af0896c4008ffe814050fbe353a5929caadec3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 214fed4c87c6c36b5e290c084efe43032b1407e0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809789"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881144"
 ---
 # <a name="add-public-ip-addresses"></a>Nyilvános IP-címek hozzáadása
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*  
 
 Ebben a cikkben a külső címekre a nyilvános IP-címekre hivatkozunk. Azure Stack hub kontextusában a nyilvános IP-cím olyan IP-cím, amely a Azure Stack hub-on kívülről érhető el. Azt határozza meg, hogy a külső hálózat nyilvános internetre irányítható-e, vagy intraneten van-e, és a saját címtartomány használata nem számít a jelen cikk céljaira – a lépések ugyanazok.
 

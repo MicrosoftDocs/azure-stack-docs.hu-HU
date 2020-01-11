@@ -9,16 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e1cb999e6c7bc740f890efffccb1c80ec4575457
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f2d737f9048760b9c2b1561ba44f36379bfd3f00
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816071"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883405"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>virtuális társhálózatok létesítése a Azure Stack hub virtuális gépekkel
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ugyanahhoz a Azure Stack hub-környezethez két Azure Stack hub-virtuális hálózatok is csatlakoztathat egymáshoz. Jelenleg nem lehet csatlakoztatni Azure Stack hub-virtuális hálózatok a beépített [Virtual Network átjáró](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)használatával. A két Azure Stack hub-virtuális hálózatok közötti VPN-alagút létrehozásához NVA-készülékeket kell használnia. Ebben a cikkben a sablonra vonatkozó hivatkozásokban két Windows Server 2016 virtuális gép van telepítve az RRAS szolgáltatással. A két RRAS-kiszolgáló úgy van konfigurálva, hogy S2SVPN IKEv2-alagutat hozzon létre két virtuális hálózatok között. A megfelelő NSG és UDR szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes **belső**VNET. 
 
@@ -31,7 +29,7 @@ A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/Azure
 
 ## <a name="requirements"></a>Követelmények
 
-- ASDK vagy Azure Stack hub integrált rendszer a legújabb frissítésekkel. 
+- Központi telepítés a legújabb frissítésekkel. 
 - Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter (a legújabb Build ajánlott)
     -  Custom Script Extension

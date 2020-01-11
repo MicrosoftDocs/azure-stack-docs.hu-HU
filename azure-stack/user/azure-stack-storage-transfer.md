@@ -14,16 +14,14 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: f93fdcae55ca4407e7caec2cf0d403a25d2a3bf3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 90d57d01ec718772af45c0de3a15bac5995f5051
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818944"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883235"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Adatátviteli eszközök használata Azure Stack hub Storage-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Az Azure Stack hub tárolási szolgáltatásokat biztosít a lemezek, a Blobok, a táblák, a várólisták és a számlavezetés függvények számára. Egyes Azure Storage-eszközök akkor érhetők el, ha Azure Stack hub-tárolóból vagy onnan szeretne felügyelni vagy áthelyezni adatátvitelt. Ez a cikk áttekintést nyújt az elérhető eszközökről.
 

@@ -16,16 +16,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e8f9387c2b1d20c61e69cddd40d13601c5d6c41b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e3fff62f204ca3903a08ebb8ff0450e2fa4fe7d5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818876"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883218"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Az Azure Stack hub sablon-ellenőrzési eszközének használata
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A sablon-ellenőrzési eszköz használatával győződjön meg arról, hogy a Azure Resource Manager [sablonjai](azure-stack-arm-templates.md) készen állnak-e a Azure stack hubhoz való üzembe helyezésre. A sablon-ellenőrzési eszköz az Azure Stack hub-eszközök GitHub-tárházának részeként érhető el. Töltse le az Azure Stack hub-eszközöket az [eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md)című témakörben ismertetett lépések segítségével.
 

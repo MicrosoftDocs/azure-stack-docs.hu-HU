@@ -14,16 +14,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 0ae8d2e9b91a06cdd88541f2b6922c66847e8593
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 543279763592fe482ea7e18c74a7e51ce8b92146
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815612"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878271"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="go-and-version-profiles"></a>A Go és a Version profilok
 

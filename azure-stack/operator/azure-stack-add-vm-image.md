@@ -15,16 +15,14 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 78137349b6bee964f86e6c77ce2f0dd346ab0f40
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812365"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880889"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Azure Stack hub-ban hozzáadhat egyéni virtuálisgép-rendszerképet a piactérhez, és elérhetővé teheti azt a felhasználók számára. A Azure Stack hub Marketplace-hez a felügyeleti portálon vagy a Windows PowerShellen keresztül adhat hozzá virtuálisgép-lemezképeket. A globális Azure Marketplace-ről származó rendszerképeket használhatja az egyéni rendszerkép alapjaként, vagy saját maga hozhat létre a Hyper-V használatával.
 

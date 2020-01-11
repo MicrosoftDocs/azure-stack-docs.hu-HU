@@ -14,16 +14,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c04642ea6037813773e8c724c94fa2153bfa8a45
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 556933545af27b1fc22241ced3c83389072b3c8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818655"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883201"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Python SDK támogatja az API-verziók profiljait különböző felhőalapú platformok, például az Azure Stack hub és a globális Azure megcélzásához. Az API-profilok használatával megoldásokat hozhat létre hibrid felhőhöz.
 

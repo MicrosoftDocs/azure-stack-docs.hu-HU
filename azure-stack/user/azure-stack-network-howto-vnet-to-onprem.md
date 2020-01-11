@@ -9,16 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: eb11ca672be20b59275974074b4ff17f36f446c8
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819726"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879121"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack hubhoz a FortiGate NVA használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk azt ismerteti, hogyan hozható létre VPN-kapcsolat az Azure Stack hub-hoz. A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack hub és egy távoli VPN-átjáró között a virtuális hálózat között. Az alábbi eljárás az egyik VNET üzembe helyezi egy FortiGate-NVA, egy hálózati virtuális berendezéssel, egy erőforráscsoporton belül. Emellett útmutatást nyújt az IPSec VPN beállításához a FortiGate-NVA.
 

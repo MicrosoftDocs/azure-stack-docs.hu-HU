@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 3c329217ae6b8331c2b74fb46d4082069b011429
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 280ecbe7c02d3eb9bdc14ba29cfb0b6642a7144c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820202"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883524"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez használhatja a Azure Stack hub egyik Windows rendszerű számítógépét. Ebből a cikkből megtudhatja, hogyan készítheti elő az ügyfél virtuális gépet a fürt kezeléséhez a csatlakoztatott és a leválasztott Azure Stack hub-példányok esetében, ellenőrizze a telepítést, és állítsa be az ügyfél virtuális gépet a ASDK.
 

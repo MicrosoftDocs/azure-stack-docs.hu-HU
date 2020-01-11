@@ -15,16 +15,14 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 1b55e92e292ff8bda45f040fa97b4ac97ab557ce
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 06f20168bb3960eccab5b29b8538382dcd9a0ce3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815221"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75877659"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Azure Stack hub biztonsági mentésének engedélyezése a PowerShell-lel
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Engedélyezze a Infrastructure Backup szolgáltatást a Windows PowerShell használatával a következő időszakos biztonsági mentések elvégzéséhez:
  - Belső identitás szolgáltatás és főtanúsítvány.

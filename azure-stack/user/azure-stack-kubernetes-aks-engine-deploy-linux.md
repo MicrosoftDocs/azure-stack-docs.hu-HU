@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bdefabc59cc6d9d3e4ed52bebe64219230b88e80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820219"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878951"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez a Azure Stack hub egyik Linux rendszerű számítógépét használhatja az AK-motor üzemeltetéséhez. Ebből a cikkből megtudhatja, hogyan készítheti elő az ügyfél virtuális gépet a fürt kezeléséhez a csatlakoztatott és a leválasztott Azure Stack hub-példányok esetében, ellenőrizze a telepítést, és állítsa be az ügyfél virtuális gépet a ASDK.
 
@@ -83,9 +81,16 @@ Ha az ügyfél virtuális gépe be van állítva, győződjön meg arról, hogy 
 1. Kapcsolódjon az ügyfél virtuális géphez.
 2. Futtassa az alábbi parancsot:
 
-    ```bash  
-    aks-engine version
-    ```
+   ```bash  
+   aks-engine version
+   ```
+
+3. Ha Azure Resource Manager végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia a főtanúsítványt a számítógép megbízható tanúsítványtárolóhoz. A főtanúsítvány a virtuális gépen található a következő könyvtárban:/var/lib/waagent/Certificates.pem. Másolja a tanúsítványfájl a következő paranccsal: 
+
+   ```bash
+   sudo cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azurestackca.crt 
+   sudo update-ca-certificates
+   ```
 
 Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuális gépén, tekintse meg a következő témakört: az [AK-motor telepítésének](azure-stack-kubernetes-aks-engine-troubleshoot.md)
 

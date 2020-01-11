@@ -14,16 +14,14 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: df0ab63cfda336eab7f8a34a5ca7b6064b586ab9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 93c7972cef394ad86f2619f1ac06781c2dedb3e0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815765"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883337"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Az Azure Stack hub Kubernetes-telepítésének hibáinak megoldása
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
 > A fürtök Kubernetes való üzembe helyezéséhez csak az Azure Stack hub Marketplace-elemmel használható. Azure Stack hub támogatott Kubernetes-fürtök esetén használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).

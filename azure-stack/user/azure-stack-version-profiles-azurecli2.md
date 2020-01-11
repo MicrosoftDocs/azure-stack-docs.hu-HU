@@ -14,16 +14,14 @@ ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 8d6d02da1768f6cbcdaaecdfe9a1cf03d47ce0d6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d35e254a17c1b79347e7d13f866e1163bf049a08
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818859"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883371"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack hubhoz az Azure CLI-vel
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A jelen cikkben ismertetett lépéseket követve állíthatja be az Azure parancssori felületét (CLI) a Linux, Mac és Windows rendszerű ügyféloldali platformok Azure Stack Development Kit (ASDK) erőforrásainak kezeléséhez.
 

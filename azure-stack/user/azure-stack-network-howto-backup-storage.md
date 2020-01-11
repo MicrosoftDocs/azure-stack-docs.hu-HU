@@ -9,16 +9,14 @@ ms.date: 10/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: ae128588b095d23f0c6e99c61946f6ea62a327fe
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 52337b06cc28706b895a2fd19812859b3dc43fa2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819709"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878679"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ez a cikk a Storage-fiókok védelmét és helyreállítását vizsgálja egy Azure Storage-fiókon belül Azure Stack központban.
 

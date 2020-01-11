@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 8b97636d8d0dfce09b17c54e52b0fcda1990151e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812127"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881093"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk azt ismerteti, hogyan regisztrálhatók a Azure Stack hub felhőalapú megoldás-szolgáltatóként (CSP), és hogyan adhatók hozzá ügyfelek.
 

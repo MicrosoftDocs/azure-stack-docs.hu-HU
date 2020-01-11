@@ -14,16 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: dede201ba01fd58b05be1dc71ede04c1bdb33218
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819046"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878407"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>A Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Ebből a cikkből megtudhatja, hogyan csatlakozhat a Azure Stack hub-előfizetésekhez és a Storage-fiókokhoz a [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)használatával. A Storage Explorer egy önálló alkalmazás, amely lehetővé teszi, hogy könnyedén működjön együtt a Azure Stack hub Storage-szolgáltatással a Windows, macOS és Linux rendszereken.
 

@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 47bf9b1fb54dbc120be42a97f3dc9d3140927cd9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818689"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878340"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 ## <a name="ruby-and-api-version-profiles"></a>Ruby és API-verziók profiljai
 

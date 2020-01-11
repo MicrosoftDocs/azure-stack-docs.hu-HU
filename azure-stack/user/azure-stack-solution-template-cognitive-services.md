@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b08f86a7cc239b2e39a4fd47ce5ac9d1aab8e355
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d9e98e4d6f8bd1ba2bc2450f91d510da9bfe7d36
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819250"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878441"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 > [!Note]  
 > Az Azure Cognitive Services on Azure Stack hub előzetes verzióban érhető el.

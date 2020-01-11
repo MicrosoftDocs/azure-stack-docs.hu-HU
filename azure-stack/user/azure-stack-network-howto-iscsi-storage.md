@@ -9,16 +9,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: a8cb3ad8e45f6effc593b8c5b2cc9e59dd176f5f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819692"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879037"
 ---
 # <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A cikkben szereplő sablonnal egy Azure Stack hub virtuális gépet (VM) csatlakoztathat egy helyszíni iSCSI-tárolóhoz úgy, hogy a virtuális gépet a Azure Stack hub és az adatközpont más részein kívül üzemeltetett tároló használatára állítsa be. Ez a cikk a Windows rendszerű gépek iSCSI-célként való használatát tekinti át.
 

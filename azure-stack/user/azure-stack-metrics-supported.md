@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: df3644be6384bd264dc78ec80f8119c9cd2ff630
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 321b0c6137b29fd9edea2a6ae05237e0210a8ad2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819743"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878662"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack hub Azure Monitor támogatott mérőszámai
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Az Azure monitor Azure Stack hub-on lévő mérőszámait ugyanúgy kell lekérni, mint a globális Azure-ban. Létrehozhat mértékeket a portálon, beolvashatja őket a REST API, vagy lekérdezheti őket a PowerShell vagy a parancssori felület használatával.
 

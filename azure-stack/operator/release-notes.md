@@ -16,16 +16,14 @@ ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: d06156cd88e4ece939c1cb81c0d92f8a0cd21bf1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: da89dbe1cfb03e7e1970852b5742c4d9290ba93c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816513"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879971"
 ---
 # <a name="azure-stack-hub-updates-release-notes"></a>Azure Stack hub frissítései: kibocsátási megjegyzések
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 Ez a cikk Azure Stack hub frissítési csomagjainak tartalmát ismerteti. A frissítés a Azure Stack hub ezen kiadásának újdonságait és javításait tartalmazza.
 

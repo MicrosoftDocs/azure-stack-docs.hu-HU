@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4d846734c609485532da4534231a7b94c0514f21
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 77075e5fa481773e2ed2a2e5fa31fb24774bb0ef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816020"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878560"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rövid útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és a Azure Stack Development Kit*
 
 A Azure Stack hub PowerShell használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális gépet (VM). Ebben a cikkben egy virtuális gépet hoz létre és használ. A cikk azt is bemutatja, hogyan végezheti el a következőket:
 
@@ -44,7 +42,7 @@ A Azure Stack hub PowerShell használatával létrehozhat egy Ubuntu Server 16,0
 
 ## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
-Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Erőforráscsoport létrehozásához a Azure Stack Development Kit (ASDK) vagy az Azure Stack hub integrált rendszerből futtassa a következő kódrészletet: 
+Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Erőforráscsoport létrehozásához futtassa a következő kódrészletet: 
 
 > [!NOTE]
 > A következő példákban az összes változóhoz rendeltünk értékeket. Azonban a saját értékeit is hozzárendelheti.

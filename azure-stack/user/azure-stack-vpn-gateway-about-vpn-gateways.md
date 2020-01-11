@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: f12cf32a3269a850b7dacda5ed97e0a4c886828b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9bb66da69f76cd7cc1c64eb7ac3894ebd1d71c9d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818604"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878594"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>VPN-átjárók létrehozása Azure Stack hubhoz
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 Mielőtt hálózati forgalmat küldene az Azure-beli virtuális hálózat és a helyszíni hely között, létre kell hoznia egy virtuális hálózati (VPN-) átjárót a virtuális hálózathoz.
 

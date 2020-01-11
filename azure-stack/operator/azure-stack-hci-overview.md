@@ -1,23 +1,19 @@
 ---
 title: Azure Stack hub HCI – áttekintés
 description: Azure Stack hub HCI egy olyan Hyper-konvergált Windows Server 2019-fürt, amely ellenőrzött hardvert használ a virtualizált számítási feladatok futtatásához a helyszínen. Igény szerint kapcsolódhat az Azure-szolgáltatásokhoz a felhőalapú biztonsági mentéshez, a helyek helyreállításához és egyebekhez is. Azure Stack hub HCI-megoldások a Microsoft által érvényesített hardverekkel biztosítják az optimális teljesítményt és megbízhatóságot, és támogatják az olyan technológiák támogatását, mint például a NVMe-meghajtók, az állandó memória és a távoli közvetlen memória-hozzáférés (RDMA) hálózatkezelés.
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
 ms.date: 11/04/2019
-ms.openlocfilehash: 2a7e01fbaa9b36db96271bc191e7b13bc7e52f58
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d35c38ab40543556d31af443f45c0c249ae76e2c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818230"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882487"
 ---
 # <a name="azure-stack-hub-hci-overview"></a>Azure Stack hub HCI – áttekintés
-
->A következőkre vonatkozik: Windows Server 2019
 
 Azure Stack hub HCI egy hiperkonvergens Windows Server 2019-fürt, amely érvényesített hardvert használ a virtualizált munkaterhelések helyszíni futtatásához. Igény szerint kapcsolódhat az Azure-szolgáltatásokhoz a felhőalapú biztonsági mentéshez, a helyek helyreállításához és egyebekhez is. Azure Stack hub HCI-megoldások a Microsoft által érvényesített hardverekkel biztosítják az optimális teljesítményt és megbízhatóságot, és támogatják az olyan technológiák támogatását, mint például a NVMe-meghajtók, az állandó memória és a távoli közvetlen memória-hozzáférés (RDMA) hálózatkezelés.
 

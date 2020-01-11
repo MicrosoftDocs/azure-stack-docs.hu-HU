@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c8619dd89a2aab79066539a299c5a58237ac51a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 37481cee1e7bc5b9bee0e68878077e084369ca39
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818791"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883184"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Javával Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack Development Kit*
 
 A Azure Stack hub Resource Managerhez készült Java SDK eszközöket biztosít az infrastruktúra kiépítéséhez és kezeléséhez. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, a App Services és a [Key Vault](/azure/key-vault/key-vault-whatis).
 

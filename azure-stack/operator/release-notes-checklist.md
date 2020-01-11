@@ -16,16 +16,14 @@ ms.date: 12/10/2019
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: a626b50a742d3219d7934e4cc3f77cd890ea1b93
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 8fe3a2ac7685eeb3e9bb116cdb5754cc7b567e28
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303721"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880243"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack hub frissítési tevékenységének ellenőrzőlista
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
 A Azure Stack hub frissítésének előkészítéséhez tekintse át ezt a feladatlistát. Ez a cikk a Azure Stack hub-operátorok frissítéssel kapcsolatos tevékenységeinek ellenőrzőlista-listáját tartalmazza.
 

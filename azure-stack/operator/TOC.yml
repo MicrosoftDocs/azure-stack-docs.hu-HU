@@ -304,6 +304,8 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Központi telepítés forrásának konfigurálása
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: App Service titkok és tanúsítványok elforgatása
+              href: app-service-rotate-certificates.md
             - name: App Service biztonsági mentése
               href: app-service-back-up.md
             - name: App Service helyreállítása
