@@ -1,6 +1,6 @@
 ---
-title: A App Service üzembe helyezésének előfeltételei az Azure Stack hub-on | Microsoft Docs
-description: Ismerkedjen meg az előfeltételként elvégzendő lépésekkel, mielőtt telepíti a App Servicet Azure Stack hub-on.
+title: A Azure App Service üzembe helyezésének előfeltételei az Azure Stack hub-on | Microsoft Docs
+description: Ismerkedjen meg az előfeltételként elvégzendő lépésekkel, mielőtt telepíti a Azure App Servicet Azure Stack hub-on.
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,23 +12,25 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/08/2020
-ms.openlocfilehash: 7f0c928cfaf01296b15986e3eb768f48cab54554
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: e5dffbfd82ab8c23aa3862763f02ae759cf4de08
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880668"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924215"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Az App Service Azure Stack hub-beli üzembe helyezésének előfeltételei
+
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 A Azure App Service Azure Stack hub-on való üzembe helyezése előtt végre kell hajtania a jelen cikkben ismertetett előfeltételeket.
 
 > [!IMPORTANT]
-> Alkalmazza az 1904-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,6 telepítése előtt.
+> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub Development Kit (ASDK) csomagot a Azure App Service 1,8 üzembe helyezése előtt.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>A telepítő és a segítő parancsfájlok letöltése
 
@@ -150,7 +152,7 @@ Az identitás tanúsítványának tartalmaznia kell egy tulajdonost, amely megfe
 
 ### <a name="validate-certificates"></a>Tanúsítványok ellenőrzése
 
-A App Service erőforrás-szolgáltató üzembe helyezése előtt ellenőrizze [a használni kívánt tanúsítványokat](azure-stack-validate-pki-certs.md#using-validated-certificates) a [PowerShell-Galéria](https://aka.ms/AzsReadinessChecker)elérhető Azure stack hub Readiness-ellenőrző eszköz használatával. Az Azure Stack hub Readiness-ellenőrző eszköz ellenőrzi, hogy a generált PKI-tanúsítványok megfelelőek-e App Service központi telepítéshez.
+A App Service erőforrás-szolgáltató üzembe helyezése előtt ellenőrizze [a használni kívánt tanúsítványokat](azure-stack-validate-pki-certs.md) a [PowerShell-Galéria](https://aka.ms/AzsReadinessChecker)elérhető Azure stack hub Readiness-ellenőrző eszköz használatával. Az Azure Stack hub Readiness-ellenőrző eszköz ellenőrzi, hogy a generált PKI-tanúsítványok megfelelőek-e App Service központi telepítéshez.
 
 Az ajánlott eljárás az, ha a szükséges [Azure stack hub PKI-tanúsítványokkal](azure-stack-pki-certs.md)dolgozik, érdemes megterveznie a szükséges időt a tanúsítványok teszteléséhez és kikiadásához.
 

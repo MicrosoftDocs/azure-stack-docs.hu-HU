@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6b2383ada3a4de1d5c33db07d847b5ca2c5c5948
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 6c409577c73389bb53008ae03cbaf938c61d363f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881348"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924133"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 
@@ -85,13 +85,13 @@ Ezután dönthet úgy, hogy létrehoz egy kvótát egy csomagban való használa
 
 ## <a name="sample-scripts-to-assist-with-billing"></a>Példák a számlázást segítő parancsfájlokra
 
-A Azure App Service csapat létrehozott egy PowerShell-parancsfájlokat, amelyek segítséget nyújtanak a Azure Stack hub használati szolgáltatás lekérdezéséhez. A Felhőbeli operátorok ezeket a szkripteket használhatják a saját bérlőik saját számlázási felkészítésére. A minta szkriptek a GitHub [Azure stack hub Tools adattárában](https://github.com/Azure/AzureStack-tools) találhatók. A App Service szkriptek a [AppService mappában találhatók a használat alatt](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService).
+A Azure App Service csapat létrehozott egy PowerShell-parancsfájlokat, amelyek segítséget nyújtanak a Azure Stack hub használati szolgáltatás lekérdezéséhez. A Felhőbeli operátorok ezeket a szkripteket használhatják a saját bérlőik saját számlázási felkészítésére. A minta szkriptek a GitHub [Azure stack hub Tools adattárában](https://github.com/Azure/AzureStack-tools) találhatók. A App Service szkriptek a [AppService mappában találhatók a használat alatt](https://aka.ms/aa6zku8).
 
 A rendelkezésre álló minta szkriptek a következők:
 
-- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1): Ez a minta a Azure stack hub használati API-ból Azure stack hub számlázási rekordok Azure app Service beolvasása.
-- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1): Ez a minta kiszámítja Azure app Service Azure stack hub használati összegének előfizetését. Ez a parancsfájl a használati API adatai alapján számítja ki a használati összegeket, valamint a Cloud operátor által mért mérőszámok árait.
-- [Felfüggesztés – UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1): Ez a minta felfüggeszti vagy engedélyezi az előfizetéseket a Felhőbeli operátor által megadott használati korlátok alapján.
+- [Get-AppServiceBillingRecords](https://aka.ms/aa6zku2): Ez a minta a Azure stack hub használati API-ból Azure stack hub számlázási rekordok Azure app Service beolvasása.
+- [Get-AppServiceSubscriptionUsage](https://aka.ms/aa6zku6): Ez a minta kiszámítja Azure app Service Azure stack hub használati összegének előfizetését. Ez a parancsfájl a használati API adatai alapján számítja ki a használati összegeket, valamint a Cloud operátor által mért mérőszámok árait.
+- [Felfüggesztés – UserSubscriptions](https://aka.ms/aa6zku7): Ez a minta felfüggeszti vagy engedélyezi az előfizetéseket a Felhőbeli operátor által megadott használati korlátok alapján.
 
 ## <a name="next-steps"></a>Következő lépések
 

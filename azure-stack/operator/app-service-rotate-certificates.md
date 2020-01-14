@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 01/10/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/03/2020
-ms.openlocfilehash: 00db45d05f92b946fa1b493911363142f0dc32e1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 079be062ee45e012abf3ec1bc869409ec4ee03a5
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75886199"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914569"
 ---
-# <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>App Service elforgatása Azure Stack hub-Titkokon és-tanúsítványokon
+# <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>App Service elforgatása Azure Stack hub-titkokon és-tanúsítványokon
 
 Ezek az utasítások csak az Azure Stack hub Azure App Serviceére vonatkoznak.  A Azure App Service Azure Stack hub-titkokon való elforgatása nem része a Azure Stack hub központi titkos elforgatási eljárásának.  A kezelők a rendszeren belüli titkos kódok érvényességét, a legutóbbi frissítés dátumát és a titkok lejárta előtt hátralévő időt tudják figyelni.
 
@@ -65,7 +65,7 @@ A App Service üzemeltetési és mérési adatbázisokhoz tartozó adatbázis-ka
 
 1. A hitelesítő adatokat a rendszer a Azure App Service szerepkör példányaiban fogja elforgatni. A kezelők az **állapot** gomb használatával tudják figyelni az eljárás állapotát.
 
-## <a name="rotate-certificates"></a>Tanúsítványok elforgatása
+## <a name="rotate-certificates"></a>Tanúsítványok váltása
 
 A Azure Stack hub Azure App Serviceon belül használt tanúsítványok elforgatásához hajtsa végre a következő lépéseket:
 

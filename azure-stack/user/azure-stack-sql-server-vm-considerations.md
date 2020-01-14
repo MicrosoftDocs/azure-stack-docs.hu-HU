@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e68293f3d1ef64e10eb0eeff74cbd7b6f170f77c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8cd440c67f8f192cb6ed1d0010ddc3f83fbdc281
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819114"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914844"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Az SQL Server ajánlott eljárásai Azure Stack hub teljesítményének optimalizálásához
 
@@ -31,6 +31,8 @@ SQL Server lemezképek létrehozásakor [érdemes lehet virtuális gépeket kié
 
 > [!NOTE]  
 > Míg a cikk leírja, hogyan kell kiépíteni egy SQL Server VMt a globális Azure Portal használatával, az útmutató az Azure Stack hub-ra is vonatkozik a következő eltérésekkel: az SSD nem érhető el az operációs rendszer lemezéhez, és kisebb különbségek vannak a tárolóban. Configuration.
+
+A virtuálisgép-lemezképekben a SQL Server csak a saját licenc használata (BYOL) használatával használható. A Windows Server esetében az alapértelmezett licencelési modell az utólagos elszámolású (TB). A virtuális gépen futó Windows Server-licencelési modell részletes ismertetését a [Windows server Azure stack hub Marketplace-en – gyakori kérdések](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server)című cikkben találja.  
 
 A Azure Stack hub-beli virtuális gépek SQL Server *legjobb* teljesítményének beszerzése a cikk középpontjában áll. Ha a számítási feladat kevésbé igényes, előfordulhat, hogy nem igényel minden javasolt optimalizálást. A javaslatok kiértékelése során vegye figyelembe a teljesítményre vonatkozó igényeket és a számítási feladatok mintáit.
 

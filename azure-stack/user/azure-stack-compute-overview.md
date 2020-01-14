@@ -10,12 +10,12 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7b072b95cae7148080ee0c9b1195960a3df041fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883796"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923987"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
 
@@ -103,7 +103,7 @@ Több lehetőség közül választhat egy virtuális gép létrehozásához. Az 
 |Módszer|Cikk|
 |---------|---------|
 |Azure Stack hub-portál|Windows rendszerű virtuális gép létrehozása az Azure Stack hub portálon<br>[Linuxos virtuális gép létrehozása az Azure Stack hub portál használatával](azure-stack-quick-linux-portal.md)|
-|Sablonok|Azure Stack hub gyors üzembe helyezési sablonjai a következő helyen találhatók:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
+|Sablonok|Azure Stack hub gyors üzembe helyezési sablonjai a következő helyen találhatók:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[Windows rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-powershell.md)<br>[Linuxos virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Windows rendszerű virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-cli.md)<br>[Linuxos virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-cli.md)|
 

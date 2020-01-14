@@ -1,6 +1,7 @@
 ---
-title: Microsoft Azure Stack hub hibaelhárítása | Microsoft Docs
-description: Azure Stack hub hibaelhárítása.
+title: Azure Stack hub hibáinak megoldása
+titleSuffix: Azure Stack
+description: Megtudhatja, hogyan lehet elhárítani a Azure Stack hubot, beleértve a virtuális gépekkel, a tárolással és a App Serviceekkel kapcsolatos problémákat.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +17,16 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8b4bc6a608ee6cae373f2ab3cb83dd3e9f544df
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 72f5643f58e369ab341628bebc7195f2056cd8b8
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813674"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914657"
 ---
-# <a name="microsoft-azure-stack-hub-troubleshooting"></a>Microsoft Azure Stack hub hibaelhárítása
+# <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
-Ez a dokumentum a Azure Stack hub integrált környezetek hibaelhárítási információit tartalmazza. A Azure Stack Development Kit kapcsolatos segítségért lásd: [ASDK-hibaelhárítás](../asdk/asdk-troubleshooting.md) vagy Segítség kérése szakértőktől az [Azure stack hub MSDN fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+Ez a dokumentum a Azure Stack hub integrált környezetek hibaelhárítási információit tartalmazza. A Azure Stack Development Kit kapcsolatos segítségért lásd: [ASDK-hibaelhárítás](../asdk/asdk-troubleshooting.md) vagy Segítség kérése szakértőktől az [Azure stack hub MSDN fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
@@ -59,7 +60,7 @@ Azure Stack hub teljes rendelkezésre álló memória-kapacitásának növelés�
 
 #### <a name="retention-period"></a>Megőrzési idő
 
-Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzemeltető napokban (0–9999 nap) meghatározza azt az időszakot, amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett megőrzési időtartam **0** napra van állítva. Ha a **0** értéket állítja be, az azt jelenti, hogy a törölt fiókok azonnal megmaradnak, és meg vannak jelölve az időszakos szemét-gyűjtéshez.
+A megőrzési időtartam beállítás lehetővé teszi, hogy a felhő operátora napokban határozzon meg egy időszakot (0 és 9999 nap között), amely alatt a törölt fiókok esetleg visszaállíthatók. Az alapértelmezett megőrzési időtartam **0** napra van állítva. Ha a **0** értéket állítja be, az azt jelenti, hogy a törölt fiókok azonnal megmaradnak, és meg vannak jelölve az időszakos szemét-gyűjtéshez.
 
 * [Az adatmegőrzési időszak beállítása](azure-stack-manage-storage-accounts.md#set-the-retention-period)
 
@@ -87,42 +88,45 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 
 ### <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
 
-A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a CSS súgója nélkül. A bélyegző kihasználtságának beszerzése: 
+A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a CSS súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
-1. PEP-munkamenet létrehozása
-2. Teszt futtatása – azurestack
-3. A PEP-munkamenet bezárása
-4. A Get-azurestacklog-filterbyrole seedring futtatása hívási parancs használatával
-5. Bontsa ki a seedring. zip fájlt, és szerezze be az ellenőrzési jelentést a ERCS mappából, amelyen a test-azurestack futott.
+1. Hozzon létre egy PEP-munkamenetet.
+2. Futtassa az `test-azurestack` parancsot.
+3. Lépjen ki a PEP-munkamenetből.
+4. `get-azurestacklog -filterbyrole seedring` futtatása hívási parancs használatával.
+5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a `test-azurestack`futtatott ERCS mappából szerezheti be.
 
 További információ: [Azure stack hub Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
 
-## <a name="troubleshoot-virtual-machines"></a>Virtuális gépek hibáinak megoldása
+## <a name="troubleshoot-virtual-machines-vms"></a>Virtuális gépek (VM-EK) hibáinak megoldása
+
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
+
 A virtuális gépek Azure Stack központban való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>Töröltem néhány virtuális gépet, de továbbra is láthatók a lemezen lévő VHD-fájlok
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk"></a>Töröltem néhány virtuális gépet, de a lemezen továbbra is láthatók a VHD-fájlok
 Ennek a viselkedésnek a kialakítása a következő:
 
 * Ha töröl egy virtuális gépet, a VHD-k nem törlődnek. A lemezek különálló erőforrások az erőforráscsoporthoz.
-* Ha a Storage-fiók törölve lesz, a törlés azonnal látható Azure Resource Manageron keresztül, de az esetlegesen tartalmazott lemezek továbbra is tárolás alatt maradnak a tárolóban, amíg a rendszer a szemetet nem fut.
+* Ha a Storage-fiók törölve lesz, a törlés azonnal látható Azure Resource Manageron keresztül. Az esetlegesen tartalmazható lemezek azonban továbbra is a tárolóban maradnak, amíg a rendszer begyűjti a szemetet.
 
-Ha "árva" virtuális merevlemezeket lát, fontos tudni, hogy a mappa részét képezik-e a törölt Storage-fiók mappájának. Ha a Storage-fiók nem lett törölve, akkor azok normálisak maradnak.
+Ha "árva" virtuális merevlemezeket lát, fontos tisztában lennie azzal, hogy egy törölt Storage-fiók mappájában vannak-e. Ha a Storage-fiók nem lett törölve, akkor az normális, hogy még mindig ott vannak.
 
 További információk az adatmegőrzési küszöbérték és az igény szerinti, a [Storage-fiókok kezelése](azure-stack-manage-storage-accounts.md)című témakörben olvashatók.
 
 ## <a name="troubleshoot-storage"></a>A tárolás hibaelhárítása
-### <a name="storage-reclamation"></a>Tárhely-visszanyerés
-Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való megjelenítéséhez. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyit töröl az adatmennyiség, a rendszer nem garantálja, hogy mennyi helyet szabadít fel a rendszer a Garbage Collector futtatásakor.
 
-### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage Explorer nem működik Azure Stack hub-vel 
- 
-Ha egy integrált rendszer leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltatót (CA) használni. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet ("/") az ARM-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
- 
+### <a name="storage-reclamation"></a>Tárhely-visszanyerés
+
+Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való megjelenítéséhez. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyi adattal törli a rendszer, nem garantálható, hogy a rendszer mennyi helyet szabadít fel a Garbage Collector futtatásakor.
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage Explorer nem működik Azure Stack hub-vel
+
+Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet (`/`) a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
 
 ## <a name="troubleshooting-app-service"></a>Hibaelhárítási App Service
+
 ### <a name="create-aadidentityappps1-script-fails"></a>A Create-AADIdentityApp. ps1 parancsfájl végrehajtása sikertelen
 
-Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor vegye fel a szükséges-AzureStackAdminCredential paramétert. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
-
+Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor a szükséges `-AzureStackAdminCredential` paramétert is tartalmazza. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).

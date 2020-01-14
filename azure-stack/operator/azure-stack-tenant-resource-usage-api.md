@@ -1,5 +1,6 @@
 ---
-title: Bérlői erőforrás-használati API-k | Microsoft Docs
+title: Bérlői erőforrás-használati API-k leírása
+titleSuffix: Azure Stack
 description: Az erőforrás-használati API-k referenciája Azure Stack hub használati adatainak beolvasása.
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 86c96cece5d8c492beb6e881841ec24246d50d6f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5e6fd1042edcf59955a6e766d2ffb215c49c2949
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813878"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914720"
 ---
-# <a name="tenant-resource-usage-api"></a>Bérlő erőforrás-használat API
+# <a name="tenant-resource-usage-api-reference"></a>Bérlői erőforrás-használati API-referenciák
 
 A bérlő a bérlői API-k használatával megtekintheti a bérlő saját erőforrás-használati adatait. Ezek az API-k konzisztensek az Azure használati API-kkal.
 
-Használhatja a [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) Windows PowerShell-parancsmagot az Azure-hoz hasonló használati adatok lekéréséhez.
+Használhatja a [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) Windows PowerShell-parancsmagot a használati adatok lekéréséhez, akárcsak az Azure-ban.
 
 ## <a name="api-call"></a>API-hívás
 
@@ -91,7 +92,7 @@ GET
 | subscriptionId |Az Azure-felhasználó előfizetés-azonosítója. |
 | usageStartTime |Annak a használati gyűjtőnek az UTC szerinti kezdési időpontja, amelyhez ez a használati összesítés tartozik. |
 | usageEndTime |Azon használati gyűjtő UTC-befejezési időpontja, amelyhez ez a használati összesítés tartozik. |
-| instanceData |Példány részleteinek kulcs-érték párok (új formátumban):<br>  *resourceUri*: teljes erőforrás-azonosító, beleértve az erőforráscsoportok és a példánynév nevét. <br>  *hely*: az a régió, amelyben a szolgáltatást futtatták. <br>  *címkék*: a felhasználó által megadott erőforrás-címkék. <br>  *AdditionalInfo*: a felhasznált erőforrással kapcsolatos további részletek, például az operációs rendszer verziója vagy a rendszerkép típusa. |
+| instanceData |Példány részleteinek kulcs-érték párok (új formátumban):<br>  *resourceUri*: teljes erőforrás-azonosító, beleértve az erőforráscsoportok és a példánynév nevét. <br>  *hely*: az a régió, amelyben a szolgáltatást futtatták. <br>  *címkék*: a felhasználó által megadott erőforrás-címkék. <br>  *AdditionalInfo*: További információ a felhasznált erőforrásról. Például operációs rendszer verziója vagy rendszerkép típusa. |
 | quantity |Az adott időkeretben bekövetkezett erőforrás-felhasználás mennyisége. |
 | meterId |A felhasznált erőforrás egyedi azonosítója (más néven **ResourceId**). |
 

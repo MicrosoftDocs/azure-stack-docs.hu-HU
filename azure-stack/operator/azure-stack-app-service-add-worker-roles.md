@@ -1,6 +1,6 @@
 ---
 title: Feldolgozók és infrastruktúra hozzáadása a App Service Azure Stack hub-ban | Microsoft Docs
-description: Részletes útmutató az Azure Stack hub skálázásához App Services
+description: Részletes útmutató a Azure Stack hub Azure App Service méretezéséhez
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -12,27 +12,29 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: a972606825822f40a39138b6af6839bf2e0b7559
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880838"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924205"
 ---
-# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack hub-ban
+# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása Azure App Service Azure Stack hub-ban
 
-Ez a dokumentum útmutatást nyújt az infrastruktúra és a feldolgozói szerepkörök méretezéséhez App Service Azure Stack központban. Részletesen ismertetjük mindazokat a lépéseket, amelyek szükségesek a további feldolgozói szerepkörök létrehozásához bármilyen méretű alkalmazások támogatásához.
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*  
+
+Ez a dokumentum útmutatást nyújt az infrastruktúra és a feldolgozói szerepkörök méretezéséhez Azure App Service Azure Stack központban. Részletesen ismertetjük mindazokat a lépéseket, amelyek szükségesek a további feldolgozói szerepkörök létrehozásához bármilyen méretű alkalmazások támogatásához.
 
 > [!NOTE]
 > Ha az Azure Stack hub-környezet nem rendelkezik több mint 96 GB RAM-mal, lehetséges, hogy nehézségekbe ütközik a további kapacitás hozzáadásával.
 
-A App Service on Azure Stack hub alapértelmezés szerint támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
+A Azure App Service on Azure Stack hub alapértelmezés szerint támogatja az ingyenes és a közös feldolgozói szintet. Más munkavégző rétegek hozzáadásához további feldolgozói szerepköröket kell hozzáadnia.
 
-Ha nem biztos abban, hogy mi lett telepítve az alapértelmezett App Service Azure Stack hub telepítésekor, tekintse át a App Service további információit [Azure stack hub – áttekintés című témakörben](azure-stack-app-service-overview.md).
+Ha nem biztos abban, hogy mi lett telepítve az alapértelmezett Azure App Service Azure Stack hub telepítésekor, tekintse át a App Service további információit [Azure stack hub – áttekintés című témakörben](azure-stack-app-service-overview.md).
 
 A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával helyezi üzembe az összes szerepkört, és így kihasználja a számítási feladatok skálázási képességeit. Ezért a feldolgozói szintek minden skálázása a App Service-rendszergazda használatával történik.
 
@@ -91,7 +93,7 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
 
     ![Példányok beállítása App Service szerepkörökre a Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. A App Service on Azure Stack hub mostantól hozzáadja a további virtuális gépeket, konfigurálja őket, telepíti az összes szükséges szoftvert, és készként jelöli meg őket a folyamat befejezésekor. Ez a folyamat körülbelül 80 percet is igénybe vehet.
+6. A Azure App Service on Azure Stack hub mostantól hozzáadja a további virtuális gépeket, konfigurálja őket, telepíti az összes szükséges szoftvert, és készként jelöli meg őket a folyamat befejezésekor. Ez a folyamat körülbelül 80 percet is igénybe vehet.
 
 7. A **szerepkörök** panelen megtekintheti az új szerepkörök készültségének előrehaladását.
 

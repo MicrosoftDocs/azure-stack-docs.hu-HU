@@ -1,6 +1,7 @@
 ---
-title: Előfizetés Azure Stack hub ajánlatára
-description: Előfizetések létrehozása a Azure Stack hub ajánlatai számára
+title: Előfizetéseket hozhat létre Azure Stack hub-ajánlatokhoz.
+titleSuffix: Azure Stack
+description: Megtudhatja, hogyan hozhat létre előfizetéseket Azure Stack hub-ajánlatokhoz.
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,16 +11,16 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 3a9798b82729a88b2ca3cf8ed2cf403a9dab34c7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 357b44e5a9860f8626c7b17e215ee773e4e4ebca
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882861"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914793"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Előfizetések létrehozása a Azure Stack hub ajánlatai számára
 
-Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhasználóknak elő kell fizetniük rá, hogy használhassák. A felhasználók kétféleképpen fizethetnek elő egy ajánlatra:
+Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhasználóknak elő kell fizetniük rá, hogy használhassák. A felhasználók kétféleképpen fizethetnek elő az ajánlatra:
 
 - Felhőüzemeltetőként létrehozhat egy előfizetést egy felhasználó számára a felügyeleti portálon. A létrehozott előfizetések nyilvános és személyes ajánlatok részét is képezhetik.
 - Bérlői felhasználóként a felhasználói portál használatakor feliratkozhat egy nyilvános ajánlatra.  
@@ -71,11 +72,11 @@ Felhasználóként bejelentkezhet a felhasználói portálra, ahol megkeresheti 
 
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra, és válassza az **előfizetés beszerzése**lehetőséget.
 
-   ![Előfizetés beszerzése](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Előfizetés beszerzése Azure Stack hub felhasználói portálon](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
 2. Az **előfizetés beolvasása**területen adja meg az előfizetés rövid nevét a **megjelenítendő névben**. Válassza az **ajánlat** lehetőséget, majd az **ajánlat választása**területen válasszon ajánlatot. Válassza a **Létrehozás** lehetőséget az előfizetés létrehozásához.
 
-   ![Ajánlat létrehozása](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Ajánlat választása Azure Stack hub felhasználói portálon](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Az ajánlatra való feliratkozás után frissítse a portált, hogy megtekintse, mely szolgáltatások tartoznak az új előfizetéshez.
 
@@ -87,12 +88,13 @@ Ha az előfizetett ajánlat egy kiegészítő csomaggal rendelkezik, akkor bárm
 
 1. A felhasználói portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **általános** kategóriában válassza az **előfizetések**lehetőséget, majd válassza ki a módosítani kívánt előfizetést. Ha elérhetők kiegészítő csomagok, a **+ csomag hozzáadása** aktív, és a **kiegészítő csomagok**csempéjét jeleníti meg.
 
-   Ha a **+ hozzáadási terv** nem aktív, akkor az adott előfizetéshez társított ajánlathoz nem tartoznak kiegészítő csomagok.
+   Ha a **+ csomag hozzáadása** nem aktív, akkor az ehhez az előfizetéshez társított ajánlathoz nem tartoznak kiegészítő csomagok.
 
 1. Válassza a **+ csomag hozzáadása** vagy a **kiegészítő csomagok** csempét. A **kiegészítő csomagok**területen válassza ki a hozzáadni kívánt csomagot.
 
 ## <a name="next-steps"></a>Következő lépések
 
-További információ arról, hogy a felhasználók hogyan telepíthetnek erőforrásokat az előfizetésbe: 
-  - [Számos felhasználói](../user/azure-stack-quick-windows-portal.md) útmutató bemutatja, hogyan lehet Windows és Linux rendszerű virtuális gépeket kiépíteni a PowerShell, az Azure CLI és a felhasználói portál használatával. 
-  - [Egy Azure Resource Manager sablont használó oktatóanyag](../user/azure-stack-create-vm-template.md) bemutatja, hogyan helyezhet üzembe egy Minikube-t futtató Ubuntu 16,04 virtuális gépet a kubenetes-fürt felügyeletéhez. 
+További információ arról, hogy a felhasználók hogyan telepíthetnek erőforrásokat az előfizetésbe:
+
+- [Számos felhasználói](../user/azure-stack-quick-windows-portal.md) útmutató bemutatja, hogyan lehet Windows és Linux rendszerű virtuális gépeket kiépíteni a PowerShell, az Azure CLI és a felhasználói portál használatával.
+- [Egy Azure Resource Manager sablont használó oktatóanyag](../user/azure-stack-create-vm-template.md) bemutatja, hogyan helyezhet üzembe egy Minikube-t futtató Ubuntu 16,04 virtuális gépet a Kubernetes-fürt felügyeletéhez.

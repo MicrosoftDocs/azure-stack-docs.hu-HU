@@ -1,6 +1,7 @@
 ---
-title: Azure Stack hub telemetria | Microsoft Docs
-description: Útmutató Azure Stack hub telemetria beállításainak konfigurálásához a PowerShell használatával.
+title: Azure Stack hub-telemetria konfigurálása
+titleSuffix: Azure Stack
+description: Ismerkedjen meg Azure Stack hub telemetria, és hogyan konfigurálhatja a telemetria-beállításokat a PowerShell használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +17,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 167a230a8e098e0ea4087050a9a5bd36ceae3078
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882657"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914763"
 ---
-# <a name="azure-stack-hub-telemetry"></a>Azure Stack hub telemetria
+# <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack hub-telemetria konfigurálása
 
 Azure Stack hub telemetria automatikusan feltölti a rendszeradatokat a Microsoftnak a csatlakoztatott felhasználói felületen keresztül. A Microsoft Teams azokat az adatokat használja, amelyeket Azure Stack hub telemetria gyűjt, hogy javítsa az ügyfelek élményét. Ezek az adat a biztonság, az állapot, a minőség és a teljesítmény elemzéséhez is használatos.
 
@@ -32,7 +33,7 @@ Az Azure Stack hub-operátorok esetében a telemetria értékes betekintést ny�
 > [!NOTE]
 > Azure Stack hub-t úgy is konfigurálhat, hogy a használati adatokat továbbítsa az Azure-nak a számlázáshoz. Ez a többcsomópontos Azure Stack hub-ügyfelek esetében szükséges, akik fizetési díjas számlázást választanak. A használati jelentéseket a telemetria-től függetlenül kell vezérelni, és nem szükséges a több csomópontot használó ügyfelek számára, akik kiválasztják a kapacitás modellt vagy Azure Stack Development Kit felhasználók számára. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl használatával](azure-stack-usage-reporting.md).
 
-Azure Stack hub telemetria a Windows Server 2016 csatlakoztatott felhasználói felületén és a telemetria összetevőn alapul, amely a [Windows esemény-nyomkövetés (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technológiát használja az események és adatok összegyűjtésére és tárolására. Azure Stack hub-összetevők ugyanazt a technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Ilyen Azure Stack hub-összetevők például a következő szolgáltatók: hálózati erőforrás, tárolási erőforrás, figyelési erőforrás és frissítési erőforrás. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL protokollal titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja az adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
+Azure Stack hub telemetria a Windows Server 2016 csatlakoztatott felhasználói felületén és a telemetria összetevőn alapul. Ez az összetevő a [Windows esemény-nyomkövetés (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technológiát használja az események és adatok összegyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Ilyen Azure Stack hub-összetevők például a következő szolgáltatók: hálózati erőforrás, tárolási erőforrás, figyelési erőforrás és frissítési erőforrás. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL protokollal titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja az adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
 
 > [!IMPORTANT]
 > A telemetria-adatfolyam engedélyezéséhez a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz csatlakozik a https://v10.vortex-win.data.microsoft.com címen. A csatlakoztatott felhasználói élmény és a telemetria összetevő a konfigurációs adatok letöltéséhez is kapcsolódik https://settings-win.data.microsoft.com hoz.
@@ -51,11 +52,11 @@ Tisztában vagyunk azzal, hogy fontos az ügyféladatok védelme és biztonsága
 - Transzparensek vagyunk a telemetria-adatfelhasználással kapcsolatban.
 - A felhasználói élmény fokozása érdekében a telemetria-adatgyűjtést használjuk.
 
-A Microsoft nem szeretne bizalmas adatokat gyűjteni, például hitelkártyaszám, felhasználónevek és jelszavak, e-mail-címek vagy hasonló bizalmas információk gyűjtésére. Ha azt állapítjuk meg, hogy a bizalmas adatokat véletlenül fogadták, töröljük.
+A Microsoft nem kíván bizalmas adatokat gyűjteni, például hitelkártyaszám, felhasználónevek és jelszavak, e-mail-címek vagy hasonló bizalmas információk gyűjtésére. Ha azt állapítjuk meg, hogy a bizalmas adatokat véletlenül fogadták, töröljük.
 
 ## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Példák arra, hogyan használja a Microsoft a telemetria-adatmennyiséget
 
-A telemetria fontos szerepet játszik a kritikus fontosságú megbízhatósági problémák gyors azonosításában és javításában az ügyfelek központi telepítésében és konfigurációjában. A telemetria adatokkal kapcsolatos megállapítások segíthetnek azonosítani a szolgáltatásokkal vagy a hardveres konfigurációkkal kapcsolatos problémákat. A Microsoft azon képessége, hogy az ügyfelektől és az ökoszisztémához képest javuljon az adatok, a mércét az integrált Azure Stack hub-megoldások minőségére emeli.
+A telemetria fontos szerepet játszik a kritikus fontosságú megbízhatósági problémák gyors azonosításában és javításában az ügyfelek központi telepítésében és konfigurációjában. A telemetria adatokkal kapcsolatos megállapítások segíthetnek azonosítani a szolgáltatásokkal vagy a hardveres konfigurációkkal kapcsolatos problémákat. A Microsoft ezen adatoknak az ügyfelektől való beszerzésére, valamint az ökoszisztémák fejlesztésére való képességével az integrált Azure Stack hub-megoldások minőségét is kiválthatja.
 
 A telemetria azt is segíti a Microsoftot, hogy jobban megértse, hogyan telepítik az ügyfelek az összetevőket, hogyan használhatják a szolgáltatásokat, és hogyan használják az üzleti célokat. Ezek az ismeretek segítenek rangsorolni a mérnöki beruházásokat olyan területeken, amelyek közvetlenül befolyásolhatják az ügyfelek élményeit és munkaterheléseit.
 
@@ -63,7 +64,7 @@ Ilyenek például a tárolók, a tárolók és a Azure Stack hub-szerepkörökh�
 
 ## <a name="manage-telemetry-collection"></a>Telemetria-gyűjtemény kezelése
 
-Nem javasoljuk, hogy kapcsolja ki a telemetria a szervezetben. Bizonyos esetekben azonban szükség lehet erre.
+Nem javasoljuk, hogy kapcsolja ki a telemetria a szervezetben. Bizonyos helyzetekben azonban szükség lehet rá.
 
 Ezekben a forgatókönyvekben a Azure Stack hub telepítése előtt, vagy az Azure Stack hub üzembe helyezése után az telemetria-végpontok használatával konfigurálhatja a Microsoft számára elküldett telemetria-szintet a beállításjegyzék beállításaival.
 
@@ -88,7 +89,7 @@ Biztonsági adatok és alapvető állapot-és minőségi adatok. Alapvető eszk�
 
 - *Telemetria funkció*, beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és az utolsó adatfeltöltési időt.
 - A *minőséggel kapcsolatos információk* , amelyek segítenek a Microsoft számára az Azure stack hub működésének alapvető megismerésében. Például egy adott hardverkonfiguráció kritikus értesítéseinek száma.
-- *Kompatibilitási információk* , amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális gépekre. Ez azonosítja a lehetséges kompatibilitási problémákat.
+- *Kompatibilitási információk* , amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális GÉPRE (VM). Ez azonosítja a lehetséges kompatibilitási problémákat.
 
 **2 (bővített)**</br>
 További elemzések, többek között a következők: az operációs rendszer és az Azure Stack központ szolgáltatásainak használata, hogyan működnek ezek a szolgáltatások, a speciális megbízhatósági adatok, valamint a **biztonsági** **és alapszintű** adatok.
@@ -108,7 +109,7 @@ A Windows és Azure Stack hub telemetria kikapcsolása letiltja az SQL-telemetri
 
 Az Azure Stack hub üzembe helyezése előtt a Windows Rendszerleíróadatbázis-szerkesztővel manuálisan állíthatja be a telemetria szintjét a fizikai gazdaszámítógépen. Ha már létezik felügyeleti házirend, például Csoportházirend, akkor felülbírálja ezt a beállításjegyzék-beállítást.
 
-Mielőtt telepítené Azure Stack hubot a fejlesztői készlet gazdagépén, indítsa el a CloudBuilder. vhdx, és futtassa a következő parancsfájlt egy emelt szintű PowerShell-ablakban:
+Mielőtt telepítené Azure Stack hubot a fejlesztői csomag gazdagépén, indítsa el a CloudBuilder. vhdx parancsot, és futtassa a következő parancsfájlt egy emelt szintű PowerShell-ablakban:
 
 ```powershell
 ### Get current AllowTelemetry value on DVM Host
@@ -125,12 +126,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Az üzembe helyezést követően a telemetria engedélyezéséhez vagy letiltásához hozzáféréssel kell rendelkeznie a ERCS virtuális gépeken elérhető privilegizált végponthoz (PEP).
 
-1. Engedélyezés: `Set-Telemetry -Enable`
-2. A letiltáshoz: `Set-Telemetry -Disable`
+- Engedélyezés: `Set-Telemetry -Enable`
+- A letiltáshoz: `Set-Telemetry -Disable`
 
 PARAMÉTER részletei:
-> . PARAMÉTER engedélyezése – a telemetria-adatok feltöltésének bekapcsolása</br>
-> . PARAMÉTER letiltása – a telemetria-adatok feltöltésének kikapcsolása  
+- `.PARAMETER Enable` – a telemetria-adatok feltöltésének bekapcsolása
+- `.PARAMETER Disable` – a telemetria-adatfeltöltés kikapcsolása  
 
 **Parancsfájl a telemetria engedélyezéséhez:**
 

@@ -12,23 +12,25 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1099d605949b8ce05b2a2c5d4c8b1b233a5ac940
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: eb38d3f237b872e552bd135cbe6b93c905115e30
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880770"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924259"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>App Service üzembe helyezése Azure Stack központban
+
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 Ez a cikk azt ismerteti, hogyan telepítheti App Service a Azure Stack hub-ban.
 
 > [!IMPORTANT]
-> Alkalmazza az 1907-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,7 telepítése előtt.
+> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub Development Kit (ASDK) csomagot a Azure App Service 1,8 üzembe helyezése előtt.
 
 Lehetővé teheti, hogy a felhasználók webes és API-alkalmazásokat hozzanak létre. Ahhoz, hogy a felhasználók létre lehessen hozni ezeket az alkalmazásokat, a következőket kell tennie:
 
@@ -36,7 +38,7 @@ Lehetővé teheti, hogy a felhasználók webes és API-alkalmazásokat hozzanak 
 - A App Service erőforrás-szolgáltató telepítése után az ajánlatokat és a csomagokat is felveheti. A felhasználók ezután előfizethetnek a szolgáltatás beszerzésére és az alkalmazások létrehozásának megkezdésére.
 
 > [!IMPORTANT]
-> Az erőforrás-szolgáltató telepítőjének futtatása előtt győződjön meg arról, hogy az [első lépések előtt](azure-stack-app-service-before-you-get-started.md) követte a útmutatást, és olvassa el a 1,7-es kiadáshoz tartozó [kibocsátási megjegyzéseket](azure-stack-app-service-release-notes-update-seven.md) . A tartalom olvasásával megismerheti az új funkciókat, javításokat és az üzembe helyezést befolyásoló ismert problémákat.
+> Az erőforrás-szolgáltató telepítőjének futtatása előtt győződjön meg arról, hogy az [első lépések előtt](azure-stack-app-service-before-you-get-started.md) követte a útmutatást, és olvassa el a 1,8-es kiadáshoz tartozó [kibocsátási megjegyzéseket](azure-stack-app-service-release-notes-update-eight.md) . A tartalom olvasásával megismerheti az új funkciókat, javításokat és az üzembe helyezést befolyásoló ismert problémákat.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>A App Service erőforrás-szolgáltató telepítőjének futtatása
 
@@ -65,19 +67,21 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 
    ![App Service telepítő][2]
 
-6. A következő App Service telepítő lapon kövesse az alábbi lépéseket:
+6. A következő App Service telepítő oldalon csatlakozni fog az Azure Stack hub-hoz:
 
-    a. Válassza az **Azure stack hub-előfizetések**melletti **Kapcsolódás** lehetőséget.
+    1. Válassza ki azt a kapcsolódási módszert, amelyet használni szeretne – **hitelesítő adat** vagy **szolgáltatásnév**
+ 
+        - **Hitelesítőadat**
+            - Ha Azure Active Directoryt (Azure AD) használ, adja meg az Azure AD-rendszergazda fiókját és jelszavát, amelyet az Azure Stack hub telepítésekor adott meg. Kattintson a **Csatlakozás** gombra.
+            - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **kapcsolat**lehetőséget.
 
-   - Ha Azure Active Directoryt (Azure AD) használ, adja meg az Azure AD-rendszergazda fiókját és jelszavát, amelyet az Azure Stack hub telepítésekor adott meg. Válassza a **Bejelentkezés** lehetőséget.
-   - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **Bejelentkezés**lehetőséget.
+        - **Egyszerű szolgáltatásnév**
+            - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
+            - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat**lehetőséget.
 
-   b. **Azure stack hub-előfizetések**területen válassza ki az **alapértelmezett szolgáltatói előfizetést**.
+    1. **Azure stack hub-előfizetések**területen válassza ki az **alapértelmezett szolgáltatói előfizetést**.  A **Azure stack Hub Azure app Service** az **alapértelmezett szolgáltatói előfizetésben**kell központilag telepíteni.
 
-     > [!IMPORTANT]
-     > App Service **az** **alapértelmezett szolgáltatói előfizetéshez**kell központilag telepíteni.
-
-   c. A **Azure stack hub helyein**válassza ki azt a helyet, amely a központilag üzembe helyezett régiónak felel meg. Válassza például a **Local (helyi** ) lehetőséget, ha üzembe helyezi a ASDK.
+    1. A **Azure stack hub helyein**válassza ki azt a helyet, amely a központilag üzembe helyezett régiónak felel meg. Válassza például a **Local (helyi** ) lehetőséget, ha üzembe helyezi a ASDK.
 
     ![App Service telepítő][3]
 
@@ -173,7 +177,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 
 16. A következő App Service telepítő lapon kövesse az alábbi lépéseket:
 
-    a. A telepítési folyamat nyomon követése. A App Service on Azure Stack hub az alapértelmezett beállítások alapján körülbelül 60 percet vesz igénybe.
+    a. A telepítési folyamat nyomon követése. A App Service on Azure Stack hub az alapszintű Windows 2016 Datacenter-rendszerkép alapértelmezett kiválasztása és kora alapján akár 240 percet is igénybe vehet.
 
     b. A telepítő sikeres befejeződése után válassza a **Kilépés**lehetőséget.
 

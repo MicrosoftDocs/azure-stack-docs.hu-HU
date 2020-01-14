@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3efa4da68a5149f78c21c9bd3e8416371f03eb77
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dcf506ec301ed9e912ef07ee43f211c748d8e936
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820814"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924162"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: virtuális gép létrehozása közösségi sablon használatával
 
@@ -44,7 +44,7 @@ Az idő múlásával számos GitHub-felhasználó járult hozzá a tárházhoz, 
 >[!IMPORTANT]
 > A sablonok némelyikét a Közösség tagjai hozzák létre, és nem a Microsoft. Az egyes sablonok licence a tulajdonosa, nem pedig a Microsoft. A Microsoft nem felelős ezekre a sablonokra, és nem biztonsági, kompatibilitási vagy teljesítménybeli képernyő. A közösségi sablonok bármely Microsoft-támogatási program vagy szolgáltatás esetében nem támogatottak, és az "adott állapotban" elérhetővé válnak, mindennemű garancia nélkül.
 
-Ha hozzá szeretne járulni Azure Resource Manager-sablonokhoz a GitHubhoz, tegye a hozzájárulását a [AzureStack-Gyorsindítás-templates](https://github.com/Azure/AzureStack-QuickStart-Templates) tárházhoz. Ha többet szeretne megtudni erről a tárházról, és arról, hogy miként járulhat hozzá, tekintse meg a [Readme fájlt](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md).
+Ha hozzá szeretne járulni Azure Resource Manager-sablonokhoz a GitHubhoz, tegye a hozzájárulását a [AzureStack-Gyorsindítás-templates](https://github.com/Azure/AzureStack-QuickStart-Templates) tárházhoz. Ha többet szeretne megtudni erről a tárházról, és arról, hogy miként járulhat hozzá, tekintse meg a [Readme fájlt](https://aka.ms/aa6zktg).
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>Virtuális gép létrehozása egyéni GitHub-sablonnal
 

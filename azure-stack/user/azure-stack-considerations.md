@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2e44c0e70e44d628d32fdf8d15e9d60b78a4ce14
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 82b1826831ffd9c5d28f56dab25c6f02b49edca8
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883813"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924011"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -65,7 +65,7 @@ A Microsoft olyan eszközöket és útmutatást biztosít, amelyek segítenek az
 | -------- | ------------- |
 | Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - a [PowerShell telepítése](../operator/azure-stack-powershell-install.md)<br>- [eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- a [PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- a [Visual Studio telepítése](azure-stack-install-visual-studio.md)
 | Tekintse át a következő elemekre vonatkozó információkat:<br>– Azure Resource Manager a sablon szempontjait.<br>– Útmutató a Gyorsindítás sablonokhoz.<br>– Az Azure-ban Azure Stack hub fejlesztéséhez használható irányelvmodul segítségével. | [Fejlesztés Azure Stack hub-hoz](azure-stack-developer.md) |
-| Tekintse át és kövesse a sablonok ajánlott eljárásait. | [Resource Manager gyorsindítási sablonok](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
+| Tekintse át és kövesse a sablonok ajánlott eljárásait. | [Resource Manager gyorsindítási sablonok](https://aka.ms/aa6yz42)
 | | |
 
 ## <a name="version-requirements"></a>A verzióra vonatkozó követelmények

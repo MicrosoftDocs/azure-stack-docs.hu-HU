@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 734a77692f8f505e84090ee882eaa570ccd897ec
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 130a4f31f608368df99ec3f98fc2e2763a0fbd1a
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879257"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923997"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Resource Manager-sablonok használata Azure Stack hub-ban
 
@@ -71,7 +71,7 @@ A PowerShell DSC bővítmény használatával konfigurálhat egy meglévő virtu
 
 ## <a name="basic-virtual-machine"></a>Alapszintű virtuális gép
 
-[Helyezzen üzembe egy olyan Windows rendszerű virtuális gépet](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) , amely tartalmaz egy virtuális hálózatot (DNS), egy nyilvános IP-címet és egy hálózati adaptert.
+[Helyezzen üzembe egy olyan Windows rendszerű virtuális gépet](https://aka.ms/aa6zdzx) , amely tartalmaz egy virtuális hálózatot (DNS), egy nyilvános IP-címet és egy hálózati adaptert.
 
 ## <a name="cancel-a-running-template-deployment"></a>Futó sablon központi telepítésének megszakítása
 
