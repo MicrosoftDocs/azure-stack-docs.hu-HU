@@ -15,12 +15,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 145aa748121aad65478902ca110d5bf0e5ee68c9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ae3a1d602347a4cb4dcb6199075cd1e3dce9cb29
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812620"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023222"
 ---
 # <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Windows Server Azure Stack hub piactér – gyakori kérdések
 

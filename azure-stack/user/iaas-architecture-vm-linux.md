@@ -9,12 +9,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f95732868730665a91fc90d91af1601bf2b2e8cc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8667274e6684af407ca503c25b2e2348a7649134
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815408"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023151"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 

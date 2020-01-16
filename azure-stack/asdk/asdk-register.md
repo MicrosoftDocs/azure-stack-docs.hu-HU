@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: c12882ea5f26589c18abaf016ba09b17d02bdcab
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974628"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022937"
 ---
 # <a name="register-the-asdk-with-azure"></a>A ASDK regisztrálása az Azure-ban
 
@@ -79,7 +79,7 @@ A ASDK az Azure-ban való regisztrálásához kövesse az alábbi lépéseket.
     -UsageReportingEnabled:$true
     ```
 
-3. A szkript befejezésekor a következő üzenetnek kell megjelennie: **A környezet most már regisztrálva van és aktiválva van a megadott paraméterek használatával.**
+3. Ha a parancsfájl befejeződik, a következő üzenetnek kell megjelennie: **a környezete most már regisztrálva van és aktiválva van a megadott paraméterek használatával.**
 
     ![A környezet már regisztrálva van](media/asdk-register/1.PNG)
 
@@ -88,7 +88,7 @@ A ASDK az Azure-ban való regisztrálásához kövesse az alábbi lépéseket.
 Ha Azure Stackt regisztrál egy leválasztott környezetben (internetkapcsolat nélkül), akkor regisztrálnia kell egy regisztrációs jogkivonatot a Azure Stack-környezetből, majd ezt a tokent kell használnia egy olyan számítógépen, amely csatlakozhat az Azure-hoz a regisztráláshoz és az aktiválás létrehozásához. a ASDK-környezet erőforrása.
 
  > [!IMPORTANT]
- > Mielőtt felhasználja ezeket az utasításokat a Azure Stack regisztrálásához, győződjön meg arról, hogy telepítette a PowerShellt a Azure Stackhoz, és letöltötte a Azure Stack eszközöket a [Telepítés utáni konfigurációs](asdk-post-deploy.md) cikkben leírt módon a ASDK gazdagépen és a Az Azure-hoz való kapcsolódáshoz és a regisztráláshoz használt internet-hozzáféréssel rendelkező számítógép.
+ > Mielőtt felhasználja ezeket az utasításokat a Azure Stack regisztrálásához, győződjön meg arról, hogy telepítette a PowerShellt a Azure Stackhoz, és letöltötte a Azure Stack eszközöket a [Telepítés utáni konfiguráció](asdk-post-deploy.md) című cikkben leírtak szerint mind a ASDK gazdagépen, mind pedig az Azure-hoz való kapcsolódáshoz és a regisztráláshoz használt internet-hozzáféréssel.
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Regisztrációs jogkivonat beszerzése a Azure Stack-környezetből
 
@@ -110,11 +110,11 @@ A ASDK gazdaszámítógépen indítsa el a PowerShellt rendszergazdaként, és n
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A (z) `$FilePathForRegistrationToken` paraméterrel létrehozott fájlból vagy szövegből is másolhatja a fájlt.
+Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A fájlt vagy a szöveget a `$FilePathForRegistrationToken` paraméter által létrehozott fájlból másolhatja.
 
 ### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
-Az internethez csatlakoztatott számítógépen a következő PowerShell-parancsokkal importálja a **RegisterWithAzure. psm1** modult, majd a **Register-AzsEnvironment** parancsmag használatával regisztrálja az Azure-t az imént létrehozott regisztrációs jogkivonat használatával. egy egyedi regisztrációs név:  
+Az internethez csatlakoztatott számítógépen a következő PowerShell-parancsokkal importálja a **RegisterWithAzure. psm1** modult, majd a **Register-AzsEnvironment** parancsmag használatával regisztrálja az Azure-t az imént létrehozott regisztrációs jogkivonat és egy egyedi regisztrációs név használatával:  
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -161,7 +161,7 @@ Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, 
   -RegistrationName $RegistrationName
   ```
 
-A regisztráció befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **Az Azure Stack-környezet már regisztrálva van az Azure-ban.**
+A regisztráció befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **a Azure stack-környezet már regisztrálva van az Azure** -ban.
 
 > [!IMPORTANT]
 > Ne **zárjuk be** a PowerShell ablakot.
@@ -211,7 +211,7 @@ Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, 
   -ActivationKey $ActivationKey
   ```
 
-Az aktiválás befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **A környezet befejezte a regisztrációs és aktiválási folyamatot.**
+Az aktiválás befejezésekor a következőhöz hasonló üzenetnek kell megjelennie: **a környezet befejezte a regisztrációs és aktiválási folyamatot.**
 
 ## <a name="verify-the-registration-was-successful"></a>Ellenőrizze, hogy a regisztráció sikeres volt-e
 
@@ -221,14 +221,14 @@ A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrá
 
 2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
 
-    [![Régió-felügyeleti csempe Azure stack felügyeleti portálon](media/asdk-register/admin1sm.png "Régió-felügyeleti csempe")](media/asdk-register/admin1.png#lightbox)
+    [![Régió-felügyeleti csempe Azure Stack felügyeleti portálon](media/asdk-register/admin1sm.png "Régió-felügyeleti csempe")](media/asdk-register/admin1.png#lightbox)
 
-3. Válassza ki **tulajdonságok**. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot regisztrálható vagy **nem regisztrálható**. Ha regisztrálva van, megjeleníti a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját, valamint a regisztrációs erőforráscsoportot és a nevet is.
+3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható** vagy **nem regisztrálható**. Ha regisztrálva van, megjeleníti a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját, valamint a regisztrációs erőforráscsoportot és a nevet is.
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
-Az ugyanahhoz az előfizetéshez tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Az **ugyanahhoz az előfizetéshez** tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Azure Stack Marketplace-elem hozzáadása](../operator/azure-stack-marketplace.md)
+- [Azure Stack hub Marketplace-elem hozzáadása](../operator/azure-stack-marketplace.md)

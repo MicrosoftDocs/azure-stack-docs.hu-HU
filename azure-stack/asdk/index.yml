@@ -24,7 +24,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure-stack/asdk/asdk-install">A ASDK üzembe helyezése</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Azure Stack Marketplace-elem hozzáadása</a>
+          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Azure Stack hub Marketplace-elem hozzáadása</a>
           - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">IaaS-szolgáltatások ajánlata</a>
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">Előfizetés egy ajánlatra</a>
           - html: <a href="/azure-stack/operator/create-add-on-plan">Ajánlatok és csomagok frissítése</a>

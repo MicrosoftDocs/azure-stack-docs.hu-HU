@@ -16,12 +16,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 72b49bfec350c5216c1856096489705dc0adb486
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914736"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023314"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack hub által támogatott vendég operációs rendszerek
 
@@ -29,7 +29,7 @@ ms.locfileid: "75914736"
 
 Azure Stack hub az alábbi táblázatban felsorolt Windows vendég operációs rendszereket támogatja:
 
-| Operációs rendszer | Leírás | Elérhető Azure Stack piactéren |
+| Operációs rendszer | Leírás | Elérhető a Azure Stack hub piactéren |
 | --- | --- | --- |
 | A Windows Server 1709-es verziója. | 64 bites | Mag tárolókkal |
 | Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
@@ -45,18 +45,18 @@ Azure Stack hub az alábbi táblázatban felsorolt Windows vendég operációs r
 
 A piactéren elérhető rendszerképek a használaton kívüli vagy BYOL (EA/SPLA) licenceléshez érhetők el. A mindkettő egyetlen Azure Stack hub-példányon való használata nem támogatott. Az üzembe helyezés során Azure Stack hub a vendég ügynök megfelelő verzióját adja a rendszerképbe.
 
-Az adatközpont kiadásai Azure Stack piactéren érhetők el Letöltés céljából. az ügyfelek saját kiszolgálói lemezképeket is létrehozhatnak, beleértve a többi kiadást is. A Windows-ügyfelek lemezképei nem érhetők el Azure Stack piactéren.
+Az adatközpont kiadásai a Azure Stack hub piactéren érhetők el Letöltés céljából. az ügyfelek saját kiszolgálói lemezképeket is létrehozhatnak, beleértve a többi kiadást is. A Windows-ügyfelek lemezképei nem érhetők el Azure Stack hub piactéren.
 
 ## <a name="linux"></a>Linux
 
-Azure Stack piactéren elérhető Linux-disztribúciók közé tartoznak a szükséges Windows Azure Linux-ügynök (WALA). Ha a saját lemezképét Azure Stackja, kövesse a [Linux-rendszerképek hozzáadása a Azure Stackhoz](azure-stack-linux.md)című témakör útmutatását.
+A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók közé tartozik a szükséges Windows Azure Linux-ügynök (WALA). Ha a saját lemezképét Azure Stackja, kövesse a [Linux-rendszerképek hozzáadása a Azure Stackhoz](azure-stack-linux.md)című témakör útmutatását.
 
 > [!NOTE]
 > Az egyéni lemezképeket a legújabb nyilvános WALA-verzióval kell létrehozni (az 1903 Azure Stack hub Build és újabb verziójában, vagy a 1901/1902 gyorsjavítással), vagy a 2.2.20 verzióval. Előfordulhat, hogy a 2.2.20 és a 2.2.21 és a 2.2.34 (beleértve) közötti verziók nem működnek megfelelően az Azure Stack központban. Azure Stack hub 1910-es és újabb verzióiban az Azure WALA-ügynök összes verziója együttműködik Azure Stack hub-val.
 >
 > a [Cloud-init](https://cloud-init.io/) a Azure Stack hub 1910-es vagy újabb verziójában támogatott.
 
-| Terjesztés | Leírás | Gyártó/kiadó | Azure Stack Marketplace |
+| Terjesztés | Leírás | Gyártó/kiadó | Azure Stack hub piactér |
 | --- | --- | --- | --- |
 | CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
@@ -77,7 +77,7 @@ Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure sta
 
 ## <a name="next-steps"></a>Következő lépések
 
-A Azure Stack Marketplace-ről további információt a következő cikkekben talál:
+Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
 - [Piactéri termékek letöltése](azure-stack-download-azure-marketplace-item.md)  
 - [Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

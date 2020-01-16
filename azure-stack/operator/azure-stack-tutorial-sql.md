@@ -11,12 +11,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 849704881c3da209892b2da1b21b55b9516f7d43
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 408508119a7535467756b0b45fbfeb59fba7fbf1
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813776"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023005"
 ---
 # <a name="offer-highly-available-sql-databases"></a>Kiválóan elérhető SQL-adatbázisok
 

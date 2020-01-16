@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 01c72ba8ead974613d42472e6e3b29b34ff2b9d2
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4f89f4869ae87bafa23d7a8579785483fe6cc4da
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878645"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023057"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 

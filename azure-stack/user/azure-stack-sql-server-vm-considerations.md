@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8cd440c67f8f192cb6ed1d0010ddc3f83fbdc281
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 63fbc121aea2fe83b2ffda860f505fe069a4a5f1
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914844"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023079"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Az SQL Server ajánlott eljárásai Azure Stack hub teljesítményének optimalizálásához
 

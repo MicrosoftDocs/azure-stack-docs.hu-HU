@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9fff0249c2a1c43d7742236f64492173c501eeec
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e7f1b45a561d49ffbefd9376308473b225b99fad
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881722"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022474"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>Frissítések kezelése Azure Stack hub-ban – áttekintés
 
@@ -79,7 +79,7 @@ Ha már tudja, hogy rendelkezik frissítéssel, alkalmazza a következő lépés
 
 1. **Tervezze meg a frissítést**.
 
-    Készítse elő a Azure Stack hub-t, hogy a lehető legzökkenőmentesebb legyen a frissítési folyamat, hogy a felhasználók csak minimális hatással legyenek. Értesítse a felhasználókat a lehetséges szolgáltatások leállásáról, majd kövesse a példány frissítésre való előkészítésének lépéseit. A frissítés megtervezésének további lépéseiért lásd: [Azure stack hub Update Activity ellenőrzőlista](release-notes-checklist.md).
+    Készítse elő a Azure Stack hub-t, hogy a lehető legzökkenőmentesebb legyen a frissítési folyamat, hogy a felhasználók csak minimális hatással legyenek. Értesítse a felhasználókat a lehetséges szolgáltatások leállásáról, majd kövesse a példány frissítésre való előkészítésének lépéseit. Győződjön meg arról, hogy az [Azure stack hub frissítés előtti ellenőrzőlistájának](release-notes-checklist.md) **összes** lépését követve ellenőrizze, hogy elvégezte-e a frissítés alkalmazásához szükséges lépéseket, és ütemezte a megfelelő karbantartási időszakot az alkalmazott frissítési típushoz.
 
 2. **Töltse fel és készítse elő a frissítési csomagot**.
 
