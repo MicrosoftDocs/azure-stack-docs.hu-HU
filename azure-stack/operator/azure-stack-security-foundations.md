@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/16/2020
+ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882878"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145801"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -105,7 +105,7 @@ A hálózati ACL-ek három rétegben vannak kikényszerítve:
 
 ## <a name="regulatory-compliance"></a>Jogszabályi megfelelés
 
-Azure Stack hub egy harmadik féltől származó független könyvvizsgáló cég által készített formális értékelésen ment keresztül. Ennek eredményeképpen a Azure Stack hub-infrastruktúra megfelel a számos jelentős megfelelőségi szabványnak megfelelő ellenőrzéseknek. A dokumentáció nem Azure Stack hub minősítése, mert a szabványok több, a személyzettel kapcsolatos és folyamattal kapcsolatos vezérlőt tartalmaznak. Az ügyfelek Ehelyett ezt a dokumentációt használhatják a minősítési folyamat megkezdéséhez.
+Az Azure Stack hub egy harmadik féltől származó, független könyvvizsgáló cég által készített formális képesség-felmérésen ment keresztül. Ennek eredményeképpen a Azure Stack hub-infrastruktúra megfelel a számos jelentős megfelelőségi szabványnak megfelelő ellenőrzéseknek. A dokumentáció nem Azure Stack hub minősítése, mert a szabványok több, a személyzettel kapcsolatos és folyamattal kapcsolatos vezérlőt tartalmaznak. Az ügyfelek Ehelyett ezt a dokumentációt használhatják a minősítési folyamat megkezdéséhez.
 
 Az értékelések a következő szabványokat tartalmazzák:
 

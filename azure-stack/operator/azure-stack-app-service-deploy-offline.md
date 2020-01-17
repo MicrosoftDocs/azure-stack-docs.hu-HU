@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 2902b3ab06c3fb85d3b535d3ae241f66db352658
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 147759d9c885d796195a3c581953f8b115587eb1
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924192"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124854"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Azure App Service üzembe helyezése offline környezetben Azure Stack hub-ban
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 > [!IMPORTANT]
 > Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub Development Kit (ASDK) csomagot a Azure App Service 1,8 üzembe helyezése előtt.

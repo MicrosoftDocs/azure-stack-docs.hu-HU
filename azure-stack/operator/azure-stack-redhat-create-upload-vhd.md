@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 381cc82bcade8196f6e65a9c82bfef9b9093724d
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924399"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145818"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Red Hat-alapú virtuális gép előkészítése Azure Stack hubhoz
 
@@ -118,58 +118,58 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     ```
 
 1. Azure Stack hub egyéni virtuális merevlemezének létrehozásakor vegye figyelembe, hogy a 2.2.20 és a 2.2.35 közötti WALinuxAgent-verzió (mindkettő kizárólagos) nem működik Azure Stack hub-környezetekben az 1910-es kiadás előtt. A 2.2.20/2.2.35 verziók segítségével előkészítheti a rendszerképet. Ha az egyéni rendszerkép előkészítéséhez a 2.2.35 fenti verzióit szeretné használni, frissítse a Azure Stack hubot 1903-es kiadásra, vagy alkalmazza a 1901/1902-es gyorsjavítást.
-
+    
     [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
-
+    
     1. Töltse le a setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+    
     1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
 
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
 
     1. Telepítse a setup.py.
 
-    ```bash
-    sudo python setup.py install
-    ```
+        ```bash
+        sudo python setup.py install
+        ```
 
     1. Indítsa újra a waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
+    
+        ```bash
+        sudo systemctl restart waagent
+        ```
 
     1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
 
-    ```bash
-    waagent -version
-    ```
-    
+        ```bash
+        waagent -version
+        ```
+
     [A 1910-es kiadás után] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
     
     1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
     1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+    
 
 1. Ne hozzon létre lapozófájlt az operációs rendszer lemezén.
 
@@ -321,53 +321,53 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
 
     1. Töltse le a setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
     1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
     1. Telepítse a setup.py.
-
-    ```bash
-    sudo python setup.py install
-    ```
-
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
     1. Indítsa újra a waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
     1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
-
-    ```bash
-    waagent -version
-    ```
-    
+        
+        ```bash
+        waagent -version
+        ```
+        
     [A 1910-es kiadás után] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
     
     1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
+        1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
+            ```bash
+            sudo yum install WALinuxAgent
+            sudo systemctl enable waagent.service
+            ```
 
 1. Ne hozzon létre lapozófájlt az operációs rendszer lemezén.
 
@@ -526,39 +526,39 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     [A 1910-as kiadás előtt] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
 
     1. Töltse le a setuptools.
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
-    1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
-    1. Telepítse a setup.py.
-
-    ```bash
-    sudo python setup.py install
-    ```
-
-    1. Indítsa újra a waagent.
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
-    1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
-
-    ```bash
-    waagent -version
-    ```
     
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
+    1. Töltse le és csomagolja ki az ügynök 2.2.20 verzióját a GitHubról.
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
+    1. Telepítse a setup.py.
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
+    1. Indítsa újra a waagent.
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
+    1. Ellenőrizze, hogy az ügynök verziója megfelel-e a letöltöttnek. Ebben a példában 2.2.20 kell lennie.
+        
+        ```bash
+        waagent -version
+        ```
+        
     [A 1910-es kiadás után] A kompatibilis WALinuxAgent letöltéséhez kövesse az alábbi utasításokat:
     
     1. A WALinuxAgent-csomagot (`WALinuxAgent-<version>`) leküldte a Red Hat extrák tárházba. Engedélyezze az extrák tárházát a következő parancs futtatásával:
@@ -568,12 +568,12 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     ```
 
     1. Telepítse az Azure Linux-ügynököt a következő parancs futtatásával:
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+        
 1. Ne hozzon létre lapozófájlt az operációs rendszer lemezén.
 
     Az Azure Linux-ügynök a virtuális gép Azure-beli üzembe helyezése után automatikusan konfigurálhatja a swap-helyet a virtuális géphez csatolt helyi erőforrás-lemez használatával. Vegye figyelembe, hogy a helyi erőforrás lemeze egy ideiglenes lemez, és a virtuális gép kiépítésekor kiüríthető. Miután telepítette az Azure Linux-ügynököt az előző lépésben, `/etc/waagent.conf` megfelelő módon módosítsa a következő paramétereket:

@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: e36e9d7504f956475c1cf1e66daac0d2d4c4bcb3
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: d0cfc906030355dac78da3561da2b746a9a0dc92
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924289"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124820"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure App Service offline frissítése Azure Stack hub-on
-
-*A következőkre vonatkozik: Azure Stack hub integrált rendszerek és Azure Stack hub Development Kit*
 
 > [!IMPORTANT]
 > Alkalmazza az 1910-es vagy újabb frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub fejlesztői csomagot a Azure App Service 1,8 üzembe helyezése előtt.

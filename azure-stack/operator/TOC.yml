@@ -161,7 +161,11 @@
                 - name: OEM-frissítések alkalmazása
                   href: azure-stack-update-oem.md
             - name: Frissítési állapot figyelése
-              href: azure-stack-update-monitor.md
+              items:
+                - name: A PowerShell használata
+                  href: azure-stack-update-monitor.md
+                - name: Kiemelt végpont használata
+                  href: azure-stack-monitor-update.md
             - name: Frissítések hibáinak megoldása
               href: azure-stack-updates-troubleshoot.md
         - name: Állapot és riasztások monitorozása
