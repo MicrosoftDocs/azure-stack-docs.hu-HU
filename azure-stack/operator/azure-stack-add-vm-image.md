@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880889"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259817"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
 
@@ -30,13 +30,22 @@ Azure Stack hub-ban hozzáadhat egyéni virtuálisgép-rendszerképet a piactér
 
 ### <a name="windows"></a>Windows
 
-Hozzon létre egy egyéni általánosított virtuális merevlemezt. Ha a VHD-t az Azure-on kívülről futtatja, kövesse az [általánosított virtuális merevlemez feltöltése](/azure/virtual-machines/windows/upload-generalized-managed) című témakör lépéseit, és használja az új virtuális gépek létrehozásához az Azure-ban, hogy a virtuális merevlemezt **helyesen** hozza létre, és általánosítsa.
+Hozzon létre egy egyéni általánosított virtuális merevlemezt. 
 
-Ha a virtuális merevlemez az Azure-ból származik, kövesse a [jelen dokumentum](/azure/virtual-machines/windows/download-vhd) utasításait a virtuális merevlemez megfelelő általánosítása és a Azure stack hub-ra való portolása előtt.
+**Ha a VHD**-t az Azure-on kívülről futtatja, kövesse az [általánosított virtuális merevlemez feltöltése](/azure/virtual-machines/windows/upload-generalized-managed) című témakör lépéseit, és használja az új virtuális gépek létrehozásához az Azure-ban, hogy a virtuális merevlemezt **helyesen** hozza létre, és általánosítsa.
+
+**Ha a virtuális merevlemez az Azure-ból származik**, a virtuális gép általánosítása előtt ügyeljen a következőkre:
+1) Amikor kiépíti a virtuális gépet az Azure-ban, használja a PowerShellt, és kiépítse a `-ProvisionVMAgent` jelző nélkül 
+2) Az Azure-beli virtuális gép általánosítása előtt távolítsa el az összes virtuálisgép-bővítményt a **Remove-azurermvmextension paranccsal** parancsmag használatával a virtuális gépről. A Windows (C:) segítségével megtalálhatja, hogy mely virtuálisgép-bővítmények legyenek telepítve. > WindowsAzure > Naplók > beépülő modulokat.
+
+```Powershell
+Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```                       
+A fentiek elvégzése után kövesse a [jelen dokumentum](/azure/virtual-machines/windows/download-vhd) utasításait a virtuális merevlemez megfelelő általánosítása és letöltése előtt a Azure stack hubhoz való csatlakozás előtt.
 
 ### <a name="linux"></a>Linux
 
-Ha a virtuális merevlemez az Azure-on kívülről van, kövesse a megfelelő utasításokat a virtuális merevlemez általánosításához:
+**Ha a virtuális merevlemez az Azure-on kívülről van**, kövesse a megfelelő utasításokat a virtuális merevlemez általánosításához:
 
 - [CentOS-alapú disztribúciók](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -44,7 +53,7 @@ Ha a virtuális merevlemez az Azure-on kívülről van, kövesse a megfelelő ut
 - [SLES vagy openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Ha a VHD az Azure-ból származik, kövesse az alábbi utasításokat a virtuális merevlemez általánosításához és letöltéséhez:
+**Ha a VHD az Azure-ból származik**, kövesse az alábbi utasításokat a virtuális merevlemez általánosításához és letöltéséhez:
 
 1. A **waagent** szolgáltatás leállítása:
 

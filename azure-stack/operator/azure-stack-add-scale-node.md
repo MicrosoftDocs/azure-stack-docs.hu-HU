@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805064"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256376"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
@@ -34,7 +34,7 @@ A következő folyamatábra a méretezési egység csomópontjának általános 
 ![méretezési egység folyamatának hozzáadása](media/azure-stack-add-scale-node/add-node-flow.png)
 <br> *Azt határozza meg, hogy az OEM hardver szállítója a fizikai kiszolgáló állványának elhelyezését és a belső vezérlőprogram frissítését a támogatási szerződés alapján változik-e.*
 
-Az új csomópont hozzáadásának művelete több órát vagy napot is igénybe vehet.
+Az új csomópont hozzáadásának művelete több órát vagy napot is igénybe vehet. A rendszeren futó munkaterhelések egyike sem befolyásolja a további méretezési egység csomópont hozzáadását.
 
 > [!Note]  
 > Ne kísérelje meg a következő műveletek egyikét sem, amíg egy méretezési egység hozzáadása csomópont-művelet már folyamatban van:

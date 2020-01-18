@@ -9,12 +9,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1898b4415519dd8b1e6bf901c69cf67d6a607308
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 5ef1fe95f91c0ceb343bb796c4c31cdefad65e36
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923862"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256223"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 
@@ -65,7 +65,7 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
     
     A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi az Azure-erőforrások üzembe helyezését, kezelését és figyelését.
     - A Azure Stack Development Kit (ASDK) Resource Manager URL-címe a következő: `https://management.local.azurestack.external/` 
-    - Az integrált rendszer Resource Manager URL-címe a következő: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+    - Az integrált rendszer Resource Manager URL-címe a következő: `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.
     - Adja hozzá a következő szöveget az URL-címhez a metaadatok eléréséhez: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
     Például az Azure Resource Manager-végpont metaadatainak beolvasására szolgáló URL-cím az alábbihoz hasonló lehet: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`

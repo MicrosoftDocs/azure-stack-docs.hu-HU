@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 27feb4689380d0e1c70f66e38d144056d4c72d13
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a6ca83e68fa7e682fa9fdca4ba38ade91ff78b0f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883422"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259885"
 ---
-# <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>VNET létrehozása VNET-kapcsolathoz Azure Stack hub-ban Fortinet FortiGate NVA
+# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Hozzon létre egy VNET a VNET-kapcsolathoz a Fortinet FortiGate NVA használatával Azure Stack központban.
 
 Ebben a cikkben egy VNET csatlakoztat egy Azure Stack hubhoz egy másik Azure Stack hub egyik VNET a Fortinet FortiGate NVA, egy hálózati virtuális berendezés használatával.
 

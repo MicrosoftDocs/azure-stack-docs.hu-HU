@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 37481cee1e7bc5b9bee0e68878077e084369ca39
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 06def59e2ec66f8a3260aaeb008eb05cabb6781e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883184"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256257"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 
@@ -144,7 +144,7 @@ Vegye figyelembe az alábbi szempontokat:
 
 - A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`.
 
-- Az integrált rendszerek **ResourceManagerUrl** : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
+- Az integrált rendszerek **ResourceManagerUrl** : `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.
 
 A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 

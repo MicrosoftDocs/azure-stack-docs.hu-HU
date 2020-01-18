@@ -1,6 +1,6 @@
 ---
 title: Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal | Microsoft Docs
-description: Megtudhatja, hogyan csatlakoztathatja a Storage Explorert egy Azure Stack hub-előfizetéshez
+description: Ismerje meg, hogyan csatlakozhat Storage Explorer egy Azure Stack hub-előfizetéshez
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878407"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259834"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>A Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
+# <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
 
 Ebből a cikkből megtudhatja, hogyan csatlakozhat a Azure Stack hub-előfizetésekhez és a Storage-fiókokhoz a [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)használatával. A Storage Explorer egy önálló alkalmazás, amely lehetővé teszi, hogy könnyedén működjön együtt a Azure Stack hub Storage-szolgáltatással a Windows, macOS és Linux rendszereken.
 
@@ -65,7 +65,7 @@ Exportálja és importálja Azure Stack hub-tanúsítványt a leválasztott inte
 
     A tanúsítvány importálása után a rendszer felszólítja Storage Explorer újraindítására.
 
-    ![A tanúsítvány importálása a Storage Explorerben](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+    ![A tanúsítvány importálása a Storage Explorerba](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
 8. Storage Explorer újraindítása után kattintson a **Szerkesztés** menüre, és ellenőrizze, hogy a **cél Azure stack hub API** -k van-e kiválasztva. Ha nem, válassza a **cél Azure stack hub**lehetőséget, majd indítsa újra Storage Explorer a módosítás érvénybe léptetéséhez. Ez a konfiguráció az Azure Stack hub-környezettel való kompatibilitáshoz szükséges.
 
@@ -159,6 +159,6 @@ A Storage-fiók neve és a kulcspár használatával is csatlakozhat egy Azure S
 
 ## <a name="next-steps"></a>Következő lépések
 
-* [Ismerkedés a Storage Explorerrel](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Ismerkedés a Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack hub Storage: különbségek és megfontolások](azure-stack-acs-differences.md)
 * Az Azure Storage szolgáltatással kapcsolatos további információkért lásd: [a Microsoft Azure Storage bemutatása](/azure/storage/common/storage-introduction)

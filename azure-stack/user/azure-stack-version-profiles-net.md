@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878492"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256393"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 
@@ -106,7 +106,7 @@ Vegye figyelembe az alábbi szempontokat:
 
 - A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: https://management.local.azurestack.external/.
 
-- Az integrált rendszerek **ResourceManagerUrl** : `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
+- Az integrált rendszerek **ResourceManagerUrl** : `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.
 A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 Példa JSON-fájlra:

@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ec8c03536cb005de84f35ae7dc534d33f7223354
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878340"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256291"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 
@@ -106,7 +106,7 @@ A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehető
 A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpont egy JSON-fájlt ad vissza, amely a kód futtatásához szükséges adatokkal rendelkezik.
 
  > [!NOTE]  
- > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+ > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.  
  > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
  Példa JSON-fájlra:

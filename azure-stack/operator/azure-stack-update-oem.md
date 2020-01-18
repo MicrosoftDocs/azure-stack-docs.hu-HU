@@ -15,12 +15,12 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ca1d375e5d819e93813c9f6d0fa9baf5619f563
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924379"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259919"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -42,7 +42,7 @@ Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segéd
 
 | Hardveres partner | Region (Régió) | URL-cím |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[FKR C sorozatú rack-Mount FKR – felügyelt kiszolgáló szoftver](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
+| Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozatú rack-Mount FKR – felügyelt kiszolgáló szoftver](https://aka.ms/aa700rq) |
 | Dell EMC | Mind | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japán | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA & Egyesült Államok | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
@@ -54,10 +54,13 @@ Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segéd
 
 Alkalmazza az OEM-csomagokat a következő lépésekkel:
 
+> [!IMPORTANT]
+> Az Azure Stack hub frissítéseinek alkalmazása előtt győződjön meg róla, hogy végrehajtotta a [frissítés előtti ellenőrzőlista](release-notes-checklist.md) **összes** lépését, és ütemezte a megfelelő karbantartási időszakot az alkalmazott frissítési típushoz.
+
 1. A következőkre kell felvennie a kapcsolatot az OEM-vel:
       - Határozza meg az OEM-csomag aktuális verzióját.  
       - Az OEM-csomag letöltésére szolgáló legjobb módszer megkeresése.  
-2. Az OEM-csomagok frissítésének alkalmazása előtt mindig alkalmazza a rendszer aktuális Azure Stack hub-verziójában elérhető legújabb Azure Stack hub gyorsjavítást. További információ a gyorsjavításokról: [Azure stack hub-gyorsjavítások](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy).
+2. Az OEM-csomagok frissítésének alkalmazása előtt mindig alkalmazza a rendszer aktuális Azure Stack hub-verziójában elérhető legújabb Azure Stack hub gyorsjavítást. További információ a gyorsjavításokról: [Azure stack hub-gyorsjavítások](azure-stack-servicing-policy.md).
 3. Készítse elő az OEM-csomagot az [integrált rendszerek frissítési csomagjainak letöltése](azure-stack-servicing-policy.md)című témakörben leírtak szerint.
 4. Alkalmazza a frissítéseket az [Azure stack hub frissítések alkalmazása](azure-stack-apply-updates.md)című témakörében ismertetett lépésekkel.
 

@@ -21,14 +21,14 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: Oktatóanyagok
   items:
+    - name: Előfizetés egy ajánlatra
+      href: azure-stack-subscribe-services.md
     - name: Virtuális gép létrehozása sablonból
       href: azure-stack-create-vm-template.md
 - name: Útmutatók
   items:
     - name: A hibrid felhőhöz kapcsolódó megoldások létrehozásának első lépései
       items:
-        - name: Előfizetés egy ajánlatra
-          href: azure-stack-subscribe-services.md
         - name: Felhőalapú megoldások szolgáltatójának engedélyezése
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Az Azure Stack hub portál használata

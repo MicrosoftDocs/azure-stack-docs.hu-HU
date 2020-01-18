@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914763"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256359"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack hub-telemetria konfigurálása
 
@@ -36,7 +36,7 @@ Az Azure Stack hub-operátorok esetében a telemetria értékes betekintést ny�
 Azure Stack hub telemetria a Windows Server 2016 csatlakoztatott felhasználói felületén és a telemetria összetevőn alapul. Ez az összetevő a [Windows esemény-nyomkövetés (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technológiát használja az események és adatok összegyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Ilyen Azure Stack hub-összetevők például a következő szolgáltatók: hálózati erőforrás, tárolási erőforrás, figyelési erőforrás és frissítési erőforrás. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL protokollal titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja az adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
 
 > [!IMPORTANT]
-> A telemetria-adatfolyam engedélyezéséhez a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz csatlakozik a https://v10.vortex-win.data.microsoft.com címen. A csatlakoztatott felhasználói élmény és a telemetria összetevő a konfigurációs adatok letöltéséhez is kapcsolódik https://settings-win.data.microsoft.com hoz.
+> A telemetria-adatfolyam engedélyezéséhez a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz csatlakozik a `https://v10.events.data.microsoft.com`címen. A csatlakoztatott felhasználói élmény és a telemetria összetevő a konfigurációs adatok letöltéséhez is kapcsolódik `https://settings-win.data.microsoft.com`hoz. Egyéb diagnosztikai adatszolgáltatások csatlakozási `https://watson.telemetry.microsoft.com` a hibajelentéshez.
 
 ## <a name="privacy-considerations"></a>Adatvédelmi megfontolások
 

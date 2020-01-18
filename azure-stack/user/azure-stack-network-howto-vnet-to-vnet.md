@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b37677b10aaddb92b0f840900ac846b1a6478bc5
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878777"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259860"
 ---
-# <a name="how-to-connect-two-vnets-through-peering"></a>Két virtuális hálózatok összekapcsolásának módja a peering használatával
+# <a name="connect-two-vnets-through-peering"></a>Két virtuális hálózatok összekötése a peering használatával
 
 Ez a cikk azt ismerteti, hogyan hozható létre kapcsolat két virtuális hálózat között ugyanabban a környezetben. A kapcsolatok beállításakor megtudhatja, hogyan működik a VPN-átjárók Azure Stack hub-ban. Két virtuális hálózatok összekötése ugyanazon a Azure Stack hub-környezeten belül a Fortinet FortiGate használatával. Ez az eljárás két virtuális hálózatok helyez üzembe egy FortiGate NVA, egy hálózati virtuális berendezéssel, mindegyik VNET külön erőforráscsoporthoz. Emellett részletesen ismerteti a két virtuális hálózatok közötti IPSec VPN beállításához szükséges módosításokat is. Ismételje meg a cikkben ismertetett lépéseket az egyes VNET-telepítések esetében.
 
