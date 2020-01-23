@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/2/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dc50320941ab12fbd3f8b6b43f44e5ef9ddc7c45
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883864"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535807"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -42,7 +42,7 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 |BLOB maximális méretének letiltása|4,75 TB (100 MB X 50 000 blokk)|4,75 TB (100 MB x 50 000 blokk) az 1802 frissítéshez vagy újabb verzióhoz. 50 000 X 4 MB (körülbelül 195 GB) a korábbi verziókhoz.
 |Oldal blob-pillanatképének másolata|Azure-beli nem felügyelt virtuálisgép-lemezek biztonsági mentése támogatott futó virtuális gépekhez|Még nem támogatott.
 |Oldal blob növekményes pillanatképének másolása|Támogatott prémium és standard Azure-oldal Blobok|Még nem támogatott.
-|Oldal blob-számlázása|Az egyedi lapokra vonatkozó díjak a blobban vagy a pillanatképben vannak felszámítva. Nem számít fel további díjat a blobokhoz társított Pillanatképek esetében, amíg az alap blob nem frissül.|Az alap blob-és assiociated-Pillanatképek esetében díjat számítunk fel. Az egyes Pillanatképek esetében további díjakat számítunk fel.
+|Oldal blob-számlázása|Az egyedi lapokra vonatkozó díjak a blobban vagy a pillanatképben vannak felszámítva. Nem számít fel további díjat a blobokhoz társított Pillanatképek esetében, amíg az alap blob nem frissül.|Az alap blobok és a hozzájuk tartozó Pillanatképek esetében díjat számítunk fel. Az egyes Pillanatképek esetében további díjakat számítunk fel.
 |A blob Storage tárolási szintjei|Gyakori, ritka elérésű és archív tárolási szintek.|Még nem támogatott.
 |A blob Storage-hoz készült Soft delete|Általánosan elérhető|Még nem támogatott.
 |Oldal blobjának maximális mérete|8 TB|1 TB

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 6a5a389082fa89162023205a2784457b15ccca6b
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 1943c4d8e7c50830ffe35744ba09b743c37206d4
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023084"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535977"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 
@@ -36,7 +36,7 @@ Az Azure CLI használatával létrehozhat egy Windows Server 2016 rendszerű vir
 
 * Azure Stack hub-nak az Azure CLI egy adott verziójára van szüksége az erőforrások létrehozásához és kezeléséhez. Ha nem rendelkezik az Azure CLI-vel Azure Stack hubhoz konfigurálva, kövesse az [Azure CLI telepítésének és konfigurálásának](azure-stack-version-profiles-azurecli2.md)lépéseit.
 
-## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
+## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
 Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Az Azure Stack hub-környezetből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
 

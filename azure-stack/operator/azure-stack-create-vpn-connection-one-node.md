@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 01/22/2020
 ms.author: justinha
-ms.reviewer: tbd
-ms.lastreviewed: 09/12/2018
+ms.reviewer: misainat
+ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817907"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516725"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben
 
@@ -75,21 +75,13 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Az IP-cím beszerzése a NAT virtuális gépének külső adapteréről
 
 1. Jelentkezzen be a POC1 Azure Stack hub fizikai gépére.
-2. Szerkessze a következő PowerShell-kódot a rendszergazdai jelszavának hozzáadásához, majd futtassa a kódot a POC-gazdagépen:
+2. Nyissa meg a PowerShellt rendszergazdaként, és futtassa a következő parancsmagot:
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "AzS-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 3. Adja hozzá az IP-címet az előző szakaszban megjelenő hálózati konfigurációs táblához.
-
 4. Ismételje meg ezt az eljárást a POC2.
 
 ## <a name="create-the-network-resources-in-poc1"></a>Hálózati erőforrások létrehozása a POC1-ben

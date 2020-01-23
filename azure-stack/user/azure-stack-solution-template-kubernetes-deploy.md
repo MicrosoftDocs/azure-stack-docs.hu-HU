@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c19cf8a97fa92e0084a5b494fe79a7e45a519cad
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 17d9c16a6ee95672450dcfed1dee66e21390e022
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878390"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536436"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
 
 > [!Note]  
-> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
+> A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A cikk lépéseit követve üzembe helyezheti és állíthatja be a Kubernetes erőforrásait egyetlen, koordinált műveletben. A lépések Azure Resource Manager megoldási sablont használnak. Össze kell gyűjtenie az Azure Stack hub telepítésére vonatkozó szükséges információkat, elő kell állítania a sablont, majd üzembe kell helyeznie a felhőben. Az Azure Stack hub-sablon nem ugyanazt a felügyelt AK-szolgáltatást használja, mint a globális Azure-ban.
 

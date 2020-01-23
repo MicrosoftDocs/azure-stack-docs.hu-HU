@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618242"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535909"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
@@ -48,7 +48,7 @@ Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga s
 
     A következő szerepkörök egyikének hozzárendelésével engedélyezheti a bérlőben lévő felhasználók számára a műveletek futtatását az Varga-ban:
 
-    | Szerepkör neve | Leírás |
+    | Szerepkörnév | Leírás |
     |---------------------|------------------------------------------|
     | Tulajdonos | Teljes hozzáféréssel rendelkezik az összes erőforráshoz. |
     | Olvasó | Megtekintheti az összes erőforrást, de nem hozható létre és nem kezelhető. |
@@ -98,7 +98,7 @@ Az Azure Storage-fiók az Azure nyilvános felhőben, nem pedig a Azure Stack-k�
 
 2. Válassza ki azt az előfizetést, amelyben létre kívánja hozni a tárfiókot.
 
-3. Az **erőforráscsoport**területen válassza az **új létrehozása**lehetőséget. Adja meg az új erőforráscsoport nevét.
+3. Az **Erőforráscsoport** területen válassza az **Új létrehozása** lehetőséget. Adja meg az új erőforráscsoport nevét.
 
 4. Tekintse át az Azure Storage-fiókok [elnevezési konvencióit](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) . Adja meg a tárfiók nevét.
 

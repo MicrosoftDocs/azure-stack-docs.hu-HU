@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 20ddb23e188ae10a5bb83f3d9f084cb36db6d42a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 07ec33de275d46dbdcab3d54c9baa69be8a1e3f2
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811755"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535484"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -85,7 +85,7 @@ Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, külön
 
 A következő táblázat összefoglalja ezeket a tartománynév-elnevezési döntéseket.
 
-| Név | Leírás | 
+| Name (Név) | Leírás | 
 | -------- | ------------- | 
 |Régió neve | Az első Azure Stack hub-régió neve. Ez a név a Azure Stack hub által felügyelt nyilvános virtuális IP-címek (VIP) teljes tartománynevének részeként használatos. A régió neve általában egy fizikai hely azonosítója, például egy adatközpont helye.<br><br>A régió neve csak betűkből és számokból állhat, 0-9 között. Nem használhatók speciális karakterek (például `-`, `#`stb.).| 
 | Külső tartomány neve | A külső virtuális IP-címekkel rendelkező végpontokhoz tartozó tartománynévrendszer (DNS) zóna neve. A nyilvános VIP-címek teljes tartománynevében használatos. | 

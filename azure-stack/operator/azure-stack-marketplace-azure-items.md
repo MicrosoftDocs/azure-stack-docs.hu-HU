@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 6cb2421deef1ea0b3c741c1c068e9452bfb2af5f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/21/2020
+ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882725"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516766"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack hub számára elérhető Azure Marketplace-elemek
 
@@ -259,6 +259,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 | ![Quest – gyors helyreállítás](media/azure-stack-marketplace-azure-items/quest.png) | [Gyors helyreállítási mag Quest](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | A gyors helyreállítás speciális adatvédelme egységesíti a biztonsági mentést, a replikálást és a helyreállítást egy könnyen használható szoftveres megoldásban. | Quest szoftver |
 | ![SIOS DataKeeper-fürt kiadása](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper-fürt kiadása](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | A SIOS DataKeeper magas rendelkezésre állást (HA) és vész-helyreállítást (DR) biztosít Azure Stack központban. Egyszerűen adja hozzá a SIOS DataKeeper szoftvert összetevőként a Windows Server feladatátvételi fürtszolgáltatás (WSFC) környezetéhez egy Azure Stack központi telepítésben, hogy elkerülje a megosztott tárolók szükségességét. | SIOS Technology Corp. |
 | ![SUSE Manager 3,1 proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3,1 proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | Legjobb színvonalú, nyílt forráskódú infrastruktúra-kezelés. | SUSE |
+| ![Teradici felhőalapú hozzáférési szoftver](media/azure-stack-marketplace-azure-items/teradici.png) | [Teradici felhőalapú hozzáférési szoftver](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | A PCoIP® Technology által működtetett felhőalapú hozzáférési szoftverek távoli asztalokat és munkaállomásokat biztosítanak a Azure Stack bárhonnan bármely eszközre. Összevonhatja az adattárolást, fejlesztheti az együttműködést, biztonságossá teheti az adatvédelmet, egyszerűsítheti az asztali felügyeletet, és így tovább. | Teradici |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | A Microsoft Azure és más felhőalapú Bring Your Own Key (BYOK) API-k kihasználása révén a CipherTrust Cloud Key Manager csökkenti a kulcsfontosságú kezelési bonyolultságot és a működési költségeket azáltal, hogy a titkosítási kulcsok többfelhős életciklus-vezérlését a központosított felügyelet és láthatóság. | Thales eSecurity |
 | ![Veeam biztonsági mentési & replikációja](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam biztonsági mentési & replikációja](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | A Veeam® Backup & replikációs™ segítségével a vállalatok átfogó adatvédelmet érhetnek el minden munkaterheléshez – virtuális, fizikai és felhőalapú. Egyetlen konzollal gyors, rugalmas és megbízható biztonsági mentést, helyreállítást és replikálást érhet el az összes alkalmazás és szolgáltatás számára. | Veeam szoftver |
 | ![ZeroDown szoftver BCaa-i](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown a szoftveres üzletmenet folytonossága szolgáltatásként](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | A ZeroDown® a szoftverek folyamatos hozzáférést biztosítanak a vállalati adatokhoz az üzletmenet-folytonossági szolgáltatás (BCaa)™ architektúrája, az alkalmazások és a tranzakciók védelme révén, ha olyan hálózati megszakítások történnek, amelyek általában a Enterprise. | ZeroDown szoftver |

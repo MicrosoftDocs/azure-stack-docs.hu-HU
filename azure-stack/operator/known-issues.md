@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812399"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516742"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -776,6 +776,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
 - Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, és nem támogatott a jelenlegi Azure Stack hub-buildben.
 - Szervizelés: nincs.
+- Előfordulás: gyakori
+
+### <a name="issues-creating-resources"></a>Erőforrások létrehozásával kapcsolatos problémák
+
+- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
+- Ok: a 1906-es ismert probléma az egyéni szerepkörökkel és az erőforrások létrehozásához szükséges engedélyek kiosztásával. Előfordulhat, hogy az erőforrások létrehozásakor problémák lépnek fel, még akkor is, ha rendelkezik a megfelelő engedélyekkel.
+- Szervizelés: frissítsen a 1907-es verzióra a probléma enyhítése érdekében.
 - Előfordulás: gyakori
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
