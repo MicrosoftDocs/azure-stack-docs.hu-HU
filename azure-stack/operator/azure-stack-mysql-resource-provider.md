@@ -15,19 +15,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9351ce5b2dde1fc7e2dfeddc2d3520a4f5d1fe2b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 39ab41c9852dce6508adf3f3d18e06f8bcc6e228
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534617"
+ms.locfileid: "76706626"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>MySQL-adatbázisok használata Microsoft Azure Stack központban
 
-Használja a MySQL erőforrás-szolgáltatót a MySQL-adatbázis szolgáltatás [Azure stack hub](azure-stack-overview.md)-on való használatára. Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolgálói példányhoz való kapcsolódása után a következőket teheti:
+A MySQL erőforrás-szolgáltató használatával MySQL-adatbázisokat biztosíthat [Azure stack központban](azure-stack-overview.md). Az erőforrás-szolgáltató üzembe helyezése és egy vagy több MySQL-kiszolgálói példányhoz való kapcsolódása után a következőket hozhatja létre:
 
-* MySQL-adatbázisok létrehozása Azure Resource Manager telepítési sablonok használatával.
-* Adja meg a MySQL-adatbázisokat szolgáltatásként.  
+* MySQL-adatbázisok Felhőbeli natív alkalmazásokhoz.
+* MySQL-adatbázisok webes alkalmazásokhoz.  
 
 A MySQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
 

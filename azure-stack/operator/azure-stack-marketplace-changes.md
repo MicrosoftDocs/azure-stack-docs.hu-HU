@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3dbd177f080067283ba22d661e08d54c23e642ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: a487d8d333ec46f552cefa4c39bda9951f02deb9
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022789"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706677"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -31,51 +31,33 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
 - 06/27/2019: SIOS Datakeeper-fürt kiadása
-
 - 06/27/2019: Veeam biztonsági mentési & replikációja
-
 - 06/27/2019: a Windows Server 2019 Datacenter Server Core with containers szolgáltatás használata
-
 - 06/27/2019: Windows Server 2019 Datacenter Server Core with containers BYOL
-
 - 06/27/2019: a Windows Server 2019 Datacenter használata
-
 - 06/27/2019: Windows Server 2019 Datacenter BYOL
-
 - 06/27/2019: a Windows Server 2019 Datacenter Server Core utólagos használat
-
 - 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
-
 - 06/27/2019: a Windows Server 2019 Datacenter és a tárolók használati díja
-
 - 06/27/2019: Windows Server 2019 Datacenter tárolók BYOL
-
 - 08/05/2019: Bitnami Drupal
-
 - 08/05/2019: Bitnami etcd
-
 - 08/05/2019: Bitnami Grafana
-
 - 08/05/2019: Bitnami Neo4j
-
 - 08/05/2019: Bitnami-elemzési kiszolgáló
-
 - 08/05/2019: Bitnami WordPress többhelyes
-
 - 08/05/2019: Bitnami ZooKeeper
-
 - 08/05/2019: Bitnami TensorFlow-kiszolgáló
-
 - 08/05/2019: Bitnami NAT
-
 - 08/05/2019: Bitnami felülvizsgálati Tanács
-
 - 08/05/2019: Bitnami-alkotó
-
 - 08/09/2019: Oracle Linux
-
 - 08/19/2019: Iguazio adatelemzési platform
-
+- 10/16/2019: SIOS DataKeeper-fürt kiadása
+- 12/26/2019: a CloudGuard IaaS magas rendelkezésre állása
+- 12/26/2019: ellenőrzési pont CloudGuard IaaS biztonsági felügyelete
+- 12/26/2019: ellenőrzési pont CloudGuard IaaS egyetlen átjáróval
+- 01/21/2020: Teradici felhőalapú hozzáférési szoftver
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
@@ -84,7 +66,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - Bitnami cukornád
 - Bitnami Node. js magas rendelkezésre állású fürt
 - A10 vThunder: L4 – L7 Application Delivery Controller, globális kiszolgáló terheléselosztása (GSLB), SSL-betekintés
-
+- Az ellenőrzési pont vSEC biztonságának kezelése
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 

@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 574d6bcd7b86f026a6c7f078e06fa92a3e0d4581
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6dfb744b4e8a91036a16c4461ccbe584305af384
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809712"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706813"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára
 
-Azure Stack hub magában foglalja a használat nyomon követéséhez és az Azure-ba való továbbításához szükséges infrastruktúrát. Az Azure-ban az Azure kereskedelmi feldolgozza a használati adatokat és a díjakat a megfelelő Azure-előfizetésekben. Ez a folyamat ugyanúgy működik, mint a globális Azure-felhőben a használat nyomon követése.
+Azure Stack hub magában foglalja a használat nyomon követéséhez és az Azure-ba való továbbításához szükséges infrastruktúrát. Az Azure-ban az Azure kereskedelmi feldolgozza a [használati adatokat és a díjakat](azure-stack-billing-and-chargeback.md) a megfelelő Azure-előfizetésekben. Ez a folyamat ugyanúgy működik, mint a globális Azure-felhőben a használat nyomon követése.
 
 Bizonyos fogalmak konzisztensek a globális Azure és a Azure Stack hub között. Azure Stack hub helyi előfizetésekkel rendelkezik, amelyek egy Azure-előfizetéshez hasonló szerepkört teljesítenek. A helyi előfizetések csak helyileg érvényesek. A helyi előfizetések az Azure-előfizetésekhez vannak leképezve, amikor a használatot az Azure-ba továbbítja
 
@@ -34,7 +34,7 @@ A szolgáltatások díjszabása a Azure Stack hub és az Azure területén is fe
 
 A kereskedelemben használt Azure Stack hub-mérőszámokról és azok árairól a partner Centerben talál további információt. A folyamat ugyanaz, mint az Azure-szolgáltatásokhoz:
 
-1. A partner Centerben lépjen az **irányítópult menüre**, majd válassza az **értékesítés**, majd a **díjszabás és ajánlatok**lehetőséget.
+1. A partner Centerben lépjen az **irányítópult** menüre, majd válassza az **értékesítés**, majd a **díjszabás és ajánlatok**lehetőséget.
 2. A **használati alapú szolgáltatások**területen válassza az **aktuális**lehetőséget.
 3. Nyissa meg az **Azure-t a globális CSP árlista-** számolótáblában.
 4. Szűrés a **régión = Azure stack hub**.

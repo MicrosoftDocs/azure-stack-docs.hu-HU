@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 5ad2f6b3b66e2c01cbae91a42a2b2a1bb0b59a26
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8be16900ce6e83c866334fe4e6f594c57e6f85dc
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813011"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706745"
 ---
 # <a name="usage-connectivity-errors"></a>Használati csatlakozási hibák
 
-Azure Stack hub használati adatait a rendszer az Azure-ba küldi az Azure Stack hub [ *Azure Bridge* összetevőjében](azure-stack-usage-reporting.md) . Ha a Azure Stack hub-n belüli híd nem tud csatlakozni az Azure-beli használati szolgáltatáshoz, a következő hibaüzenet jelenik meg:
+Azure Stack hub használati adatait a rendszer az Azure-ba küldi az Azure Stack hub [*Azure Bridge*](azure-stack-usage-reporting.md) összetevőjében. Ha a Azure Stack hub-n belüli híd nem tud csatlakozni az Azure-beli használati szolgáltatáshoz, a következő hibaüzenet jelenik meg:
 
 ![használati híd hibája](media/azure-stack-usage-issues/usageerror2.png)
 

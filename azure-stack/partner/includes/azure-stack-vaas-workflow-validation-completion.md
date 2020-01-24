@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4d7a9698fc9c4310ded2cdebbde9ccbd61065911
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: b2f592aa290614540a2a1b8e30eab74147619c27
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909636"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694390"
 ---
-A megoldás akkor tekinthető érvényesített, ha az összes teszt **sikeres**eredménnyel zárult. Ha bármelyik teszt **sikertelen**eredménnyel zárult, a [Microsoft a Microsofttal együttműködve](https://aka.ms/collaborate) és a Microsoftnak küldött e-mailben értesíti a Microsoftot a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címre.
+A megoldás akkor tekinthető érvényesített, ha az összes teszt **sikeres**eredménnyel zárult. Ha bármelyik teszt **sikertelen**eredménnyel zárult, a [Microsoft közösen](https://aka.ms/collaborate) értesíti a Microsoftot, és értesítést küld a Microsoftnak a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)e-mailben.

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4e696f3e50f3f61f4b4f73387cf6e62b6ae88e6c
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881093"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706558"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
@@ -67,7 +67,7 @@ Azure Stack hub a *regisztráció*nevű szolgáltatást használja. A regisztrá
 
 A regisztráció használatával a Azure Stack hub a következőket teheti:
 
-- Továbbítsa Azure Stack hub használati adatait az Azure Commerce szolgáltatásba, és számlázjon egy Azure-előfizetést.
+- Továbbítsa [Azure stack hub használati adatait](azure-stack-billing-and-chargeback.md) az Azure Commerce szolgáltatásba, és számlázjon egy Azure-előfizetést.
 - A több-bérlős Azure Stack hub-alapú telepítéssel egy másik előfizetésen keresztül jelentést készít az egyes ügyfelek használatáról. A több-bérlő lehetővé teszi, hogy Azure Stack hub különböző szervezeteket támogassanak ugyanazon a Azure Stack hub-példányon.
 
 Minden Azure Stack hub esetében van egy alapértelmezett előfizetés és számos bérlői előfizetés. Az alapértelmezett előfizetés egy olyan Azure-előfizetés, amelyért díjat számítunk fel, ha nincs bérlőre vonatkozó előfizetés. Regisztrálni kell az első regisztrációt. A több-bérlős használat jelentésének működéséhez az előfizetés csak CSP vagy APSS előfizetés lehet.

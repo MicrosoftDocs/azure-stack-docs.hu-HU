@@ -15,12 +15,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aecc96bc9e96c39ad1df1111b57bf17ca0d9b59a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ab90c149094fe62452199cc346ebe1c260ff260f
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534957"
+ms.locfileid: "76706762"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -104,7 +104,7 @@ _Csak az integrált rendszerek telepítéséhez_. Meg kell adnia az SQL Péter P
 
 ## <a name="deploy-the-resource-provider"></a>Az erőforrás-szolgáltató üzembe helyezése
 
-Miután telepítette az összes előfeltételt, futtathatja a **DeployMySqlProvider. ps1** parancsfájlt a MySQL erőforrás-szolgáltató üzembe helyezéséhez. A DeployMySqlProvider. ps1 parancsfájl a MySQL erőforrás-szolgáltató telepítési fájljainak részeként lett kibontva, amelyet a Azure Stack hub-verziójának a letöltött.
+Miután telepítette az összes előfeltételt, futtathatja a **DeployMySqlProvider. ps1** parancsfájlt egy olyan számítógépről, amely a Azure stack hub rendszergazdai Azure Resource Management végpontját és a privilegizált végpontot is elérheti a MySQL erőforrás-szolgáltató üzembe helyezéséhez. A DeployMySqlProvider. ps1 parancsfájl a MySQL erőforrás-szolgáltató telepítési fájljainak részeként lett kibontva, amelyet a Azure Stack hub-verziójának a letöltött.
 
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató üzembe helyezése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
@@ -121,7 +121,7 @@ Futtassa a **DeployMySqlProvider. ps1** parancsfájlt, amely a következő felad
 * Regisztrálja az erőforrás-szolgáltatót a kezelő fiók helyi Azure Resource Manager.
 
 > [!NOTE]
-> Amikor elindul a MySQL erőforrás-szolgáltató üzembe helyezése, létrejön a **System. local. mysqladapter** erőforráscsoport. Akár 75 percet is igénybe vehet, hogy elvégezze az ehhez az erőforráscsoporthoz szükséges központi telepítéseket.
+> Amikor elindul a MySQL erőforrás-szolgáltató üzembe helyezése, létrejön a **System. local. mysqladapter** erőforráscsoport. Akár 75 percet is igénybe vehet, hogy elvégezze az ehhez az erőforráscsoporthoz szükséges központi telepítéseket. Ne helyezzen más erőforrásokat a **System. local. mysqladapter** erőforráscsoporthoz.
 
 ### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider. ps1 paraméterek
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c77a9a02a49672a120a0b1099784098e38fb515a
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882572"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706694"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
 
@@ -33,7 +33,7 @@ Ez a cikk a regisztrációs műveletekkel kapcsolatos részleteket tartalmazza. 
 
 Ezt a műveletet akkor használhatja, ha új bérlőt szeretne hozzáadni a regisztrációhoz. A bérlői használatot a Azure Active Directory (Azure AD) bérlőhöz kapcsolódó Azure-előfizetések jelentik.
 
-Ezzel a művelettel a bérlőhöz társított előfizetést is módosíthatja. Hívja a PUT vagy a **New-AzureRMResource** az előző leképezés felülírásához.
+Ezzel a művelettel a bérlőhöz társított előfizetést is módosíthatja. Hívja a PUT vagy a **New-AzureRMResource PowerShell-** parancsmagot az előző leképezés felülírásához.
 
 Egyetlen Azure-előfizetést is hozzárendelhet egy bérlőhöz. Ha egy második előfizetést próbál hozzáadni egy meglévő bérlőhöz, a rendszer felülírja az első előfizetést.
 

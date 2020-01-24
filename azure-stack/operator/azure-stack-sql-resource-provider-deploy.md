@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a8978c5ceb9e54577ff2347671568122751f4715
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c84649853d77b2f56fc1192d0bb302996deb8a60
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881841"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706728"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -100,7 +100,7 @@ _Csak az integrált rendszerek telepítéséhez_. Meg kell adnia az SQL Péter P
 
 ## <a name="deploy-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató üzembe helyezése
 
-Miután telepítette az összes előfeltételt, futtassa az **DeploySqlProvider. ps1** parancsfájlt az SQL-erőforrás-szolgáltató üzembe helyezéséhez. A DeploySqlProvider. ps1 parancsfájlt a rendszer az SQL-erőforrás-szolgáltató bináris fájljának részeként kibontja, amelyet a Azure Stack hub-verziójához töltött le.
+Miután telepítette az összes előfeltételt, futtassa a **DeploySqlProvider. ps1** parancsfájlt egy olyan számítógépről, amely a Azure stack hub rendszergazdai Azure Resource Management végpontját és a privilegizált végpontot is elérheti az SQL-erőforrás-szolgáltató üzembe helyezéséhez. A DeploySqlProvider. ps1 parancsfájlt a rendszer az SQL-erőforrás-szolgáltató bináris fájljának részeként kibontja, amelyet a Azure Stack hub-verziójához töltött le.
 
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató üzembe helyezése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
@@ -117,7 +117,7 @@ Futtassa a DeploySqlProvider. ps1 parancsfájlt, amely a következő feladatokat
 - Regisztrálja az erőforrás-szolgáltatót a kezelő fiók helyi Azure Resource Manager.
 
 > [!NOTE]
-> Az SQL erőforrás-szolgáltató központi telepítésének indításakor létrejön a **System. local. sqladapter** erőforráscsoport. A szükséges központi telepítések elvégzése akár 75 percet is igénybe vehet.
+> Az SQL erőforrás-szolgáltató központi telepítésének indításakor létrejön a **System. local. sqladapter** erőforráscsoport. A szükséges központi telepítések elvégzése akár 75 percet is igénybe vehet. Ne helyezzen más erőforrásokat a **System. local. sqladapter** erőforráscsoporthoz.
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider. ps1 paraméterek
 

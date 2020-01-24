@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9497fb4404b9328929e1b4639bfd1e2fa9ed20fe
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819879"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706864"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
-Ez a cikk a [felügyelt lemezek Azure stack hub](azure-stack-manage-vm-disks.md) és [Az Azure-beli felügyelt lemezek](/azure/virtual-machines/windows/managed-disks-overview)közötti különbségeit összegzi. Az Azure Stack hub és az Azure közötti magas szintű különbségek megismeréséhez tekintse meg a [legfontosabb szempontokat](azure-stack-considerations.md) ismertető cikket.
+Ez a cikk a [ *felügyelt lemezek* Azure stack hub](azure-stack-manage-vm-disks.md) és [Az Azure-beli felügyelt lemezek](/azure/virtual-machines/windows/managed-disks-overview)közötti különbségeit összegzi. Az Azure Stack hub és az Azure közötti magas szintű különbségek megismeréséhez tekintse meg a [legfontosabb szempontokat](azure-stack-considerations.md) ismertető cikket.
 
 A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemezes kezelését a virtuálisgép-lemezekhez társított [Storage-fiókok](../operator/azure-stack-manage-storage-accounts.md) kezelésével.
 
@@ -147,7 +147,7 @@ Azure Stack hub támogatja a *felügyelt*lemezképeket, amelyek lehetővé teszi
 Windows esetén kövesse a [Windows rendszerű virtuális gép általánosítása a Sysprep használatával](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) című szakaszt. Linux esetén kövesse [az 1.](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)lépést.
 
 > [!NOTE]
-> Győződjön meg arról, hogy általánosítja a virtuális gépet. A nem megfelelően általánosított rendszerképből létrehozott virtuális gépek **VMProvisioningTimeout** hibához vezethetnek.
+> Győződjön meg arról, hogy általánosítja a virtuális gépet. A nem megfelelően általánosított rendszerképből létrehozott virtuális gépek **VMProvisioningTimeout** hibát okozhatnak.
 
 ### <a name="step-2-create-the-managed-image"></a>2\. lépés: a felügyelt rendszerkép létrehozása
 
@@ -232,4 +232,4 @@ Az 1808-es vagy újabb frissítés alkalmazása után a következő konfiguráci
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Tudnivalók a Azure Stack hub virtuális gépekről](azure-stack-compute-overview.md)
+- Ismerkedjen meg [Azure stack hub virtuális gépekkel](azure-stack-compute-overview.md).

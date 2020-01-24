@@ -16,20 +16,19 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 58aa2bc05625c031fe78c3b4e5aeeec8d6001c8a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a88b68df43bb71c24a3d066f67bd8281765c60f
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881773"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706592"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>SQL-adatbázisok használata Azure Stack hub-on
 
-Az SQL erőforrás-szolgáltató használatával az SQL-adatbázisokat [Azure stack hub](azure-stack-overview.md)szolgáltatásként kínáljuk. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
+Az SQL erőforrás-szolgáltató használatával SQL-adatbázisokat biztosíthat [Azure stack központban](azure-stack-overview.md). Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server-példánnyal, Ön és felhasználói a következőket hozhatják létre:
 
-- Adatbázisok Felhőbeli natív alkalmazásokhoz.
-- SQL-t használó webhelyek.
-- SQL-t használó munkaterhelések.
+- SQL-adatbázisok Felhőbeli natív alkalmazásokhoz.
+- Webalkalmazásokhoz használható SQL-adatbázisok.
 
 Az SQL erőforrás-szolgáltató telepítése előtt több korlátozást is figyelembe kell venni:
 
@@ -37,6 +36,8 @@ Az SQL erőforrás-szolgáltató telepítése előtt több korlátozást is figy
 - Az Azure Stack hub-operátor felelős az SQL Database-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit. 
 - A különböző előfizetésekben lévő különböző felhasználók adatbázisai ugyanazon az adatbázis-kiszolgálói példányon találhatók. Az RP nem biztosít semmilyen mechanizmust az adatbázisok különböző gazdagépeken vagy adatbázis-kiszolgálói példányokon való elkülönítéséhez.
 - Az RP nem biztosít jelentéskészítést az adatbázisok bérlői használatára vonatkozóan.
+
+A helyi környezetekben a hagyományos SQL Server számítási feladatokhoz a Azure Stack hub-beli virtuális gép SQL Server használata javasolt.
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL Resource Provider-adapter architektúrája
 

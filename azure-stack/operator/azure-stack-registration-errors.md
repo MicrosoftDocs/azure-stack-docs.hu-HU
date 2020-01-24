@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 508a35d0e52f88cba3aa93db6cc965cba7b05de6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1e0f684f1ee7aefc8d6d9cd5ee5847a4b543b90f
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809729"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706643"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Használati és számlázási regisztrációs hibakódok
 
