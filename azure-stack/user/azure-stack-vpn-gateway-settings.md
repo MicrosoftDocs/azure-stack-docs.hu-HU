@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 20ebbe3a33a18a6ec4f847ef722203bc37885685
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883133"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750388"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
@@ -32,7 +32,7 @@ A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelye
 
 ### <a name="gateway-types"></a>Átjárótípusok
 
-Minden Azure Stack hub virtuális hálózat egyetlen virtuális hálózati átjárót támogat, amelynek a **VPN**típusúnak kell lennie.  Ez a támogatás eltér az Azure-tól, amely támogatja a további típusokat.
+Minden Azure Stack hub virtuális hálózat egyetlen virtuális hálózati átjárót támogat, amelynek a **VPN**típusúnak kell lennie. Ez a támogatás eltér az Azure-tól, amely támogatja a további típusokat.
 
 Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz a `-GatewayType Vpn` jelző szükséges; például:
 

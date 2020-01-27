@@ -9,12 +9,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c5d254351fab0bb89023dad8928ac32958f63404
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 9361b2db39a667da71d125cac496a47386726bb0
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536215"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750456"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Node. js-alapú webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -47,7 +47,7 @@ Létrehozhat egy virtuális gépet (VM), amely egy Node. js-webalkalmazást futt
 2. [Telepítse a NPM](https://www.npmjs.com/), a Node. js-csomagok vagy-modulok csomagkezelő-kezelőjét. Az SSH-munkamenetben továbbra is csatlakozik a virtuális géphez, írja be a következő parancsot:
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. [Telepítse a git](https://git-scm.com)-t, amely egy széles körben elosztott verzió-ellenőrző és forráskód-kezelési (SCM) rendszer. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsot:

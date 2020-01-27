@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d9947738cbe86d0483d20204e9c0e346656fd583
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75877557"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750524"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure Stack hub összekötése az Azure-ba az Azure ExpressRoute
 
@@ -81,7 +81,7 @@ Az Azure Stack hub-környezet első bérlőhöz való beállításához kövesse
 
 Az Azure Stack hub konfigurálásának megkezdése előtt a következőkre lesz szüksége:
 
-* Egy Azure Stack hub üzembe helyezése. 
+* Egy Azure Stack hub üzembe helyezése.
 * Az Azure Stack hub azon ajánlata, amelyhez a felhasználók előfizethetnek. További információ: [szolgáltatás, csomag, ajánlat, előfizetés áttekintése](service-plan-offer-subscription-overview.md).
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>Hálózati erőforrások létrehozása Azure Stack központban
@@ -197,7 +197,7 @@ A VPN-kapcsolaton keresztüli adatforgalom teszteléséhez a virtuális gépekne
    * A virtuális hálózat **Tenant1VNet1**.
    * Az alhálózat beállítása **10.1.1.0/24**.
 
-   Használja az alapértelmezett beállításokat, és kattintson az **OK** gombra.
+   Használja az alapértelmezett beállításokat, majd kattintson **az OK gombra**.
 
 1. Az **Összefoglalás**alatt tekintse át a virtuális gép konfigurációját, majd kattintson **az OK**gombra.
 

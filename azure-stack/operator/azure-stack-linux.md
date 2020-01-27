@@ -1,6 +1,6 @@
 ---
-title: Linuxos rendszerképek hozzáadása a Azure Stack hub Marketplace-hez | Microsoft Docs
-description: Ismerje meg, hogyan adhat hozzá linuxos lemezképeket Azure Stack hub Marketplace-hez.
+title: Linuxos rendszerképek hozzáadása az Azure Stack hub Marketplace-hez | Microsoft Docs
+description: Ismerje meg, hogyan adhat hozzá linuxos lemezképeket az Azure Stack hub Marketplace-hez.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 93b69057d70d12dda92186819731ee707032601a
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882402"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750473"
 ---
-# <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>Linuxos rendszerképek hozzáadása Azure Stack hub Marketplace-hez
+# <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux-lemezképek hozzáadása az Azure Stack hub piactérhez
 
 A Linux rendszerű virtuális gépeket (VM-ket) telepítheti Azure Stack hubhoz egy Linux-alapú rendszerkép hozzáadásával Azure Stack hub piactéren. A Linux-rendszerképek Azure Stack hubhoz való hozzáadásának legegyszerűbb módja a Piactéri felügyelet. Ezeket a lemezképeket az Azure Stack hub-vel való kompatibilitás érdekében előkészített és tesztelték.
 
@@ -61,7 +61,7 @@ Készítse elő saját linuxos rendszerképét a következő utasítások haszn�
 
 ## <a name="cloud-init"></a>Cloud-init
 
-A [Cloud-init](https://cloud-init.io/) a 1910-nál újabb verziókban Azure stack hub-kiadásokon is támogatott. A Linux rendszerű virtuális gép testreszabásához a Cloud-init használatával a következő PowerShell-utasításokat használhatja: 
+A [Cloud-init](https://cloud-init.io/) a 1910-nál újabb verziókban Azure stack hub-kiadásokon is támogatott. A Linux rendszerű virtuális gép testreszabásához a Cloud-init használatával a következő PowerShell-utasításokat használhatja.
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>1\. lépés: hozzon létre egy Cloud-init. txt fájlt a Cloud-config
 
