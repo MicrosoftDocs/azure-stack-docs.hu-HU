@@ -1,26 +1,18 @@
 ---
-title: Külső figyelési megoldás integrálása az Azure Stack hub-nal | Microsoft Docs
+title: Külső figyelési megoldás integrálása Azure Stack hubhoz
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot egy külső figyelési megoldással az adatközpontjában.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
+author: ihenkel
 ms.topic: article
 ms.date: 06/05/2019
-ms.author: jeffgilb
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e9e66908cd42a72629caa12163c0c56790cae82f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811362"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882115"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -122,7 +114,7 @@ A következő paraméterek konfigurálhatók a azurestack. cfg fájlban. A félk
 
 Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](azure-stack-create-service-principals.md).
 
-| Paraméter | Leírás | Hitelesítés |
+| Paraméter | Leírás | Authentication |
 | --- | --- | --- |
 | \* * External_domain_fqdn * * | Külső tartomány teljes tartományneve |    |
 | \* * régió: * * | Régió neve |    |
@@ -148,7 +140,7 @@ A többi konfigurációs fájl opcionális konfigurációs beállításokat tart
 | azurestack_hosts. cfg | Azure Stack hub központi telepítésének elnevezése |
 | azurestack_services. cfg | A szolgáltatás konfigurációja |
 
-### <a name="setup-steps"></a>A beállítás lépései
+### <a name="setup-steps"></a>Telepítési lépések
 
 1. Módosítsa a konfigurációs fájlt.
 

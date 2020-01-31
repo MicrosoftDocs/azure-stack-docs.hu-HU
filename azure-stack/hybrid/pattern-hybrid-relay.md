@@ -2,18 +2,17 @@
 title: Hibrid továbbító megoldás implementálása az Azure és Azure Stack hub használatával.
 description: Ismerje meg, hogyan használhatja az Azure-t és Azure Stack hub-szolgáltatásokat a tűzfalak által védett peremhálózati erőforrásokhoz vagy eszközökhöz való kapcsolódáshoz.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9b9defd4a6aec6dab3511425089e7395649d8087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638584"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890068"
 ---
 # <a name="hybrid-relay-pattern"></a>Hibrid továbbítási minta
 
@@ -44,7 +43,7 @@ Ez a megoldás a következő összetevőket használja:
 |----------|-----------|-------------|
 | Azure | Azure VM | Az Azure-beli virtuális gépek nyilvánosan elérhető végpontot biztosítanak a helyszíni erőforráshoz. |
 | | Azure Service Bus Relay | Az [Azure Service Bus Relay](/azure/service-bus-relay/) biztosítja az infrastruktúra fenntartásához szükséges infrastruktúrát és az Azure-beli virtuális gép és a Azure stack hub virtuális gép közötti kapcsolatot.|
-| Azure Stack hub | Számítási szolgáltatások | Az Azure Stack hub-alapú virtuális gép a hibrid továbbító alagút kiszolgálóoldali részét biztosítja. |
+| Azure Stack Hub | Számítási szolgáltatások | Az Azure Stack hub-alapú virtuális gép a hibrid továbbító alagút kiszolgálóoldali részét biztosítja. |
 | | Adattárolás | Azure Stack hubhoz üzembe helyezett AK-motor-fürt méretezhető, rugalmas motort biztosít az Face API tároló futtatásához.|
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok

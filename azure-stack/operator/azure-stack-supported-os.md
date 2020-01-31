@@ -2,26 +2,18 @@
 title: Azure Stack hub által támogatott vendég operációs rendszerek
 titleSuffix: Azure Stack
 description: Ismerje meg, hogy mely vendég operációs rendszerek használhatók Azure Stack központban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023314"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890204"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack hub által támogatott vendég operációs rendszerek
 
@@ -31,7 +23,7 @@ Azure Stack hub az alábbi táblázatban felsorolt Windows vendég operációs r
 
 | Operációs rendszer | Leírás | Elérhető a Azure Stack hub piactéren |
 | --- | --- | --- |
-| A Windows Server 1709-es verziója. | 64 bites | Mag tárolókkal |
+| Windows Server, 1709-es verzió | 64 bites | Mag tárolókkal |
 | Windows Server 2019 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
 | Windows Server 2016 | 64 bites |  Datacenter, Datacenter Core, adatközpont tárolókkal |
 | Windows Server 2012 R2 | 64 bites |  Adatközpont |

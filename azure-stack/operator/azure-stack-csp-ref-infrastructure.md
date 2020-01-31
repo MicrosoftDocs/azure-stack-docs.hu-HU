@@ -1,26 +1,18 @@
 ---
-title: Használati jelentéskészítési infrastruktúra a Cloud Solution Providers for Azure Stack hub szolgáltatáshoz | Microsoft Docs
+title: A Azure Stack hub felhőalapú megoldás-szolgáltatóinak használati jelentési infrastruktúrája
 description: A felhőalapú megoldás-szolgáltató (CSP) által kiszolgált bérlők használatának nyomon követésére használt használati jelentési infrastruktúra ismertetése.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 6dfb744b4e8a91036a16c4461ccbe584305af384
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706813"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882540"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára
 

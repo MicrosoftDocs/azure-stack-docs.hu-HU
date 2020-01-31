@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub-napló és az ügyfelek adatkezelése | Microsoft Docs
+title: Azure Stack hub-napló és az ügyfelek adatkezelése
 description: Ismerje meg, hogyan gyűjti a Azure Stack hub az ügyféladatokat és az információkat.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: JustinHall
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: justinha
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ed092ccf0a7eb3773b0514bc2f96f50bfdff7830
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ae7e2b092625168718d1d0914e1765006c17659b
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882521"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890357"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack hub-napló és az ügyfelek adatkezelése 
 
@@ -49,7 +40,7 @@ Az automatikus adattörlési művelethez (a kis-és nagybetűk után 90 nappal) 
 
 Az igény szerinti adattörlési művelethez a Microsoft támogatási szakemberei hozzáférhetnek az eszközhöz, amellyel igény szerint törölhetik az adatvesztést. Megerősítik a telefont az ügyféllel, ha elkészült.
 
-## <a name="diagnostic-data"></a>Diagnosztikai adatok
+## <a name="diagnostic-data"></a>Diagnosztikai adatszolgáltatások
 A támogatási folyamat részeként Azure Stack hub-operátorok [megoszthatják a diagnosztikai naplókat](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) a Azure stack hub támogatási és mérnöki csapatával, hogy segítséget nyújtson a hibaelhárításhoz.
 
 A Microsoft egy eszközt és parancsfájlt biztosít az ügyfeleknek a kért diagnosztikai naplófájlok gyűjtéséhez és feltöltéséhez. Az adatgyűjtés után a rendszer a naplófájlokat HTTPS-védelemmel ellátott, titkosított kapcsolaton keresztül továbbítja a Microsoftnak. Mivel a HTTPS biztosítja a titkosítást a hálózaton keresztül, nincs szükség jelszóra az átvitelhez szükséges titkosításhoz. A fogadást követően a rendszer titkosítja és tárolja a naplókat, amíg a támogatási eset bezárása után 90 nappal automatikusan törlődnek.

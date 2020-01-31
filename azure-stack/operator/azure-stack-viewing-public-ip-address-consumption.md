@@ -1,26 +1,18 @@
 ---
-title: Hálózati erőforrások kezelése Azure Stack hub-ban | Microsoft Docs
+title: Hálózati erőforrások kezelése Azure Stack központban
 description: A rendszergazdák kezelhetik a hálózati erőforrásokat, beleértve a MAC-címkészletet és a nyilvános IP-címek felhasználását egy adott régióban.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6e68ede1c384c0b1689740f7178c1308aadb0b7a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 949c00edfbe7e5daff8c1cd17c20681c3a7d9265
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535518"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880213"
 ---
 # <a name="manage-network-resources"></a>Hálózati erőforrások kezelése
 

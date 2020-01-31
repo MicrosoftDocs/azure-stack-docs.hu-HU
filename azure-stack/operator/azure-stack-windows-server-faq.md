@@ -1,26 +1,18 @@
 ---
-title: Azure Stack hub Windows Server kapcsolódó GYIK | Microsoft Docs
+title: Azure Stack hub Windows Server kapcsolódó gyakori kérdések
 description: A Windows Serverhez készült Azure Stack hub Marketplace-re vonatkozó gyakori kérdések listája
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: ae3a1d602347a4cb4dcb6199075cd1e3dce9cb29
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 5a0c02737610a663448286b16afbf1504102a8a6
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023222"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890136"
 ---
 # <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Windows Server Azure Stack hub piactér – gyakori kérdések
 
@@ -96,7 +88,7 @@ A Windows Server rendszerű virtuális gépek Azure Stack hubhoz való aktivál�
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Hogyan lehet ellenőrizni, hogy a virtuális gép aktiválva van-e?
 
-Futtassa a következő parancssort egy rendszergazda jogú parancssorból:
+Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 
 ```shell
 slmgr /dlv
@@ -106,7 +98,7 @@ Ha helyesen van aktiválva, a rendszer világosan jelezte, hogy az állomásnév
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>A virtuális gép nincs beállítva a AVMA használatára, Hogyan javíthatom?
 
-Futtassa a következő parancssort egy rendszergazda jogú parancssorból:
+Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
 
 ```shell
 slmgr /ipk <AVMA key>

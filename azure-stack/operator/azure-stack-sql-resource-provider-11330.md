@@ -2,27 +2,18 @@
 title: Azure Stack hub SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
 titleSuffix: Azure Stack Hub
 description: Tekintse meg az Azure Stack hub SQL Resource Provider 1.1.33.0 frissítésének kiadási megjegyzéseit.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 27ead61bb1fbb5bdebab439a1deecf3d6f70d861
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 024632c7dd80a7c028271ded7aea6a2b4ef46be0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535773"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882886"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
 
@@ -39,10 +30,10 @@ Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az
 > [!IMPORTANT]
 > Az SQL-erőforrás-szolgáltató legújabb verziójának telepítése előtt alkalmazza a minimális támogatott Azure Stack hub-frissítést az Azure Stack hub integrált rendszerére.
 
-## <a name="new-features-and-fixes"></a>Új funkciók és javítások
+## <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
 Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 - **Előfordulhat, hogy az SQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. Az SQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ a használni kívánt szolgáltatás-felügyeleti előfizetés meghatározásához, ami esetleg nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, az SQL-erőforrás-szolgáltató nem működik megfelelően.
 
@@ -56,7 +47,7 @@ Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő ja
 
 - **Az SQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy óráig is eltarthat, amíg az újonnan létrehozott SKU-t új SQL-adatbázisok létrehozásakor használni szeretné.
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: nincs.
 
 - Az **SQL-bejelentkezések újra felhasználva**. Ha egy olyan új SQL-bejelentkezést próbál létrehozni ugyanazzal a felhasználónévvel, amely ugyanazzal az előfizetéssel rendelkezik, akkor ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 

@@ -200,7 +200,7 @@
                   items:
                     - name: AK-motor Azure Stack hub-on
                       href: azure-stack-kubernetes-aks-engine-overview.md
-                    - name: Támogatási házirend
+                    - name: Támogatási szabályzat
                       href: azure-stack-kubernetes-aks-engine-support.md
                     - name: Előfeltételek beállítása
                       href: azure-stack-kubernetes-aks-engine-set-up.md

@@ -1,21 +1,18 @@
 ---
-title: Windows rendszerű virtuális gép létrehozása Azure Stack hub Portalon | Microsoft Docs
+title: Windows rendszerű virtuális gép létrehozása Azure Stack hub-portálon
 description: Megtudhatja, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az Azure Stack hub Portal használatával.
-services: azure-stack
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 1b7ea35da7234fde1517b59101205a92075b9016
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 0792d0dffa8a61194b0f6725aba9222d69c8634e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914924"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883289"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 

@@ -1,25 +1,18 @@
 ---
-title: API-verziók profiljainak használata a Python használatával Azure Stack hub-ban | Microsoft Docs
+title: Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Python használatával Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 99446d0968c07155578cabc47e08cf5fac677dd2
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750408"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884227"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
 

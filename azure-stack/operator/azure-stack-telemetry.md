@@ -2,27 +2,18 @@
 title: Azure Stack hub-telemetria konfigurálása
 titleSuffix: Azure Stack
 description: Ismerkedjen meg Azure Stack hub telemetria, és hogyan konfigurálhatja a telemetria-beállításokat a PowerShell használatával.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: cc4122424f990fd0c218899956e9ea32a695fe99
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256359"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880944"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack hub-telemetria konfigurálása
 

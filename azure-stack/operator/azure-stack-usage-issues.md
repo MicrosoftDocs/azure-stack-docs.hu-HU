@@ -1,26 +1,18 @@
 ---
-title: Kapcsolódási problémák és hibák a Azure Stack hub-ban | Microsoft Docs
+title: Kapcsolódási problémák és hibák a Azure Stack központban
 description: Azure Stack hub-használati problémák és hibák elhárítása.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 8be16900ce6e83c866334fe4e6f594c57e6f85dc
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 4a4b34c6aeaac3bd484c0a954af0f3a456cbfe85
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706745"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882683"
 ---
 # <a name="usage-connectivity-errors"></a>Használati csatlakozási hibák
 
@@ -46,7 +38,7 @@ A probléma megoldásához próbálkozzon a következő lépésekkel:
 
 Ez a szakasz a használati hibakódokat ismerteti.
 
-| Hibakód                 | Probléma                                                                                                                                             | Szervizelés                                                                                                                                                                                                                                                                                        |
+| Hibakód                 | Probléma                                                                                                                                             | Szervizkiszolgáló                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NetworkError               | Azure Stack hub-híd nem tud elküldeni egy kérést a használati szolgáltatási végpontnak az Azure-ban.                                                            | Ellenőrizze, hogy a proxy blokkolja-e vagy elfogja-e a használati szolgáltatás végpontjának elérését.                                                                                                                                                                                                             |
 | RequestTimedOut            | A rendszer elküldte a kérelmet a Azure Bridge, de az Azure-beli használati szolgáltatás nem válaszolt az időtúllépési időszakon belül.                             | Ellenőrizze, hogy a proxy blokkolja-e vagy elfogja-e a használati szolgáltatás végpontjának elérését.                                                                                                                                                                                                                        |

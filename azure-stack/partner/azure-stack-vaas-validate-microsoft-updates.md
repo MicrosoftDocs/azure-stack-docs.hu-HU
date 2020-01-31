@@ -1,26 +1,19 @@
 ---
-title: A Microsoft frissítéseinek érvényesítése Azure Stack érvényesítés szolgáltatásként | Microsoft Docs
+title: A Microsoft frissítéseinek érvényesítése Azure Stack érvényesítés szolgáltatásként
 description: Ismerje meg, hogy miként érvényesítheti a Microsoft-szoftverfrissítéseket szolgáltatásként történő érvényesítéssel.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5e4438f0c3a95b2254422a428741a28b685cb9f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954485"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884008"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Szoftverfrissítések érvényesítése a Microsofttól
 

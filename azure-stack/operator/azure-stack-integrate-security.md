@@ -1,22 +1,18 @@
 ---
-title: Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával | Microsoft Docs
+title: Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot a figyelési megoldásokkal a syslog forwarding használatával.
-services: azure-stack
-author: justinha
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-keywords: ''
-ms.openlocfilehash: bc484919227fe08293db9ac987bee4d18313d802
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882419"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882088"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -65,11 +61,11 @@ A *set-SyslogServer* parancsmag paraméterei:
 |---------|---------|---------|---------|
 |*ServerName* | A syslog-kiszolgáló teljes tartományneve vagy IP-címe. | Sztring | igen|
 |*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | UInt16 | igen|
-|*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | flag | nem|
-|*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | flag | nem|
-|*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | flag | nem|
-|*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |flag | nem|
-|*Eltávolítás*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| flag | nem|
+|*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | zászló | nem|
+|*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | zászló | nem|
+|*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | zászló | nem|
+|*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |zászló | nem|
+|*Eltávolítása*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| zászló | nem|
 
 A *set-SyslogClient* parancsmag paraméterei:
 
@@ -77,7 +73,7 @@ A *set-SyslogClient* parancsmag paraméterei:
 |---------|---------| ---------|
 | *pfxBinary* | A pfx-fájl tartalma, amely egy bájt [] értékre van átirányítva, amely tartalmazza az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt.  | Bájt [] |
 | *CertPassword* |  A pfx-fájlhoz társított titkos kulcs importálására szolgáló jelszó. | SecureString |
-|*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | flag|
+|*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | zászló|
 | *OutputSeverity* | A kimeneti naplózás szintje. Az értékek **alapértelmezettek** vagy **részletesek**. Az alapértelmezett érték a súlyossági szinteket tartalmazza: figyelmeztetés, kritikus vagy hiba. A részletes beállítás minden súlyossági szintet tartalmaz: részletes, tájékoztató, figyelmeztetés, kritikus vagy hiba.  | Sztring |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>A syslog továbbításának konfigurálása a TCP, a kölcsönös hitelesítés és a TLS 1,2 titkosítás használatával
 
@@ -266,7 +262,7 @@ A PEP súlyossági táblázata:
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
 |2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
-|0|Részletezés|Érték: 5. A naplókat minden szinten jelzi|
+|0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>CEF-megfeleltetés a helyreállítási végpont eseményeihez
 
@@ -297,7 +293,7 @@ REP súlyossági táblázat:
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
 |2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
-|0|Részletezés|Érték: 5. A naplókat minden szinten jelzi|
+|0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows-események CEF-leképezése
 
@@ -317,7 +313,7 @@ Windows-események súlyossági táblázata:
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
 |2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
-|0|Részletezés|Érték: 5. A naplókat minden szinten jelzi|
+|0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 

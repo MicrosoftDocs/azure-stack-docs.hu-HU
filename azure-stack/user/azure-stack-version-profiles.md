@@ -1,25 +1,18 @@
 ---
-title: API-verziók profiljainak kezelése Azure Stack hub-ban | Microsoft Docs
+title: API-verziók profiljainak kezelése Azure Stack hub-ban
 description: Az API-verziók profiljainak megismerése Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 21686d1f7e61013c22d37b974111e0d6a57f1b88
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 65f28a4de02bf8d52a15e19a1e5ea6a28ad7dce3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883167"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884189"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>API-verziók profiljainak kezelése Azure Stack hub-ban
 
@@ -27,7 +20,7 @@ Az API-profilok megadják az Azure erőforrás-szolgáltatót és az API-verzió
 
 Létrehozhat egy alkalmazást az Azure-erőforrás-szolgáltatókkal való együttműködéshez anélkül, hogy rendeznie kellene, hogy az egyes erőforrás-szolgáltatói API melyik verziója kompatibilis az Azure Stack hubhoz. Egyszerűen igazítsa az alkalmazást egy profilhoz, és az SDK visszaállít a megfelelő API-verzióra.
 
-Ez a témakör a következőkben nyújt segítséget:
+Ez a témakör a következőket segíti elő:
 
 - Az Azure Stack hub API-profiljainak megismerése.
 - Ismerje meg, hogyan fejlesztheti a megoldásait az API-profilok használatával.
