@@ -2,18 +2,17 @@
 title: Földrajzilag elosztott alkalmazási minta az intelligens peremhálózat számára az Azure és a Azure Stack hub használatával.
 description: Ismerje meg az Azure-t és Azure Stack hubot használó, földrajzilag elosztott alkalmazási mintát az intelligens peremhálózat számára.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 46044559e400e77098bdae038c87df88f1866127
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 37d4b517eec69ebab72aa3d82733829466b44fda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75717994"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875674"
 ---
 # <a name="geo-distributed-pattern"></a>Földrajzilag elosztott minta
 

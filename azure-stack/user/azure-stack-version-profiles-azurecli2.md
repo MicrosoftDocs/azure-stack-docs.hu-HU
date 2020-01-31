@@ -1,25 +1,18 @@
 ---
-title: Azure Stack hub kezelése az Azure CLI-vel | Microsoft Docs
+title: Azure Stack hub kezelése az Azure CLI-vel
 description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon a platformfüggetlen parancssori felületen (CLI).
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: d35e254a17c1b79347e7d13f866e1163bf049a08
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 72f0e04d03a4304c4ed74f54dcd96f16e247f2a3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883371"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884263"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack hubhoz az Azure CLI-vel
 
@@ -117,7 +110,7 @@ Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanús�
 
 2. Navigáljon ahhoz a mappához, amely a CLI Python-alkalmazást tartalmazza. Futtatni kívánja a Python ezen verzióját. Ha a Pythont a rendszerútvonalon állította be, a Python futtatása a Python saját verzióját fogja futtatni. Ehelyett futtatni kívánja a CLI által használt verziót, és hozzá kell adnia a tanúsítványt az adott verzióhoz. Előfordulhat például, hogy a CLI Python a következő helyen található: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
-    Az alábbi parancsokat használja:
+    Használja az alábbi parancsokat:
 
     ```powershell  
     cd "c:\pathtoyourcliversionofpython"
@@ -211,7 +204,7 @@ Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanús�
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -334,7 +327,7 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
       --debug 
      ```
 
-### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -441,7 +434,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
        -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -551,7 +544,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
         --debug 
       ```
 
-### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 

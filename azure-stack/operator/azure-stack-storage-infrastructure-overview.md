@@ -2,26 +2,18 @@
 title: Azure Stack hub tárolási infrastruktúrájának kezelése
 titleSuffix: Azure Stack
 description: Ismerje meg, hogyan kezelheti Azure Stack hub tárolási infrastruktúráját.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: dfc073c87b1e6c8b1696b4d052e89c4ef786bc4d
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535739"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882760"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack hub tárolási infrastruktúrájának kezelése
 
@@ -35,7 +27,7 @@ A Windows Server szoftverrel működő Azure Stack hub Közvetlen tárolóhelyek
 
 Azure Stack hub integrált rendszerpartnerei számos megoldási variációt kínálnak, beleértve a tárolási rugalmasság széles körét. A következő három típusú meghajtó kombinációját választhatja ki: NVMe (nem felejtő memória expressz), SATA/SAS SSD (SSD-meghajtó), HDD (merevlemez-meghajtó).
 
-Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Egy vagy több típusú meghajtóval rendelkező Azure Stack hub-berendezésben Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD &gt; HDD) összes meghajtóját használja a gyorsítótárazáshoz. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
+Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Egy vagy több típusú meghajtóval rendelkező Azure Stack hub-berendezésben Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD &gt; HDD) összes meghajtóját használja a gyorsítótárazáshoz. A fennmaradó meghajtók a kapacitáshoz használatosak. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
 
 ![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -118,8 +110,8 @@ Ha a kötet figyelmeztetési állapotba kerül, az azt jelenti, hogy az adatai k
 
 | Működési állapot | Leírás |
 |---|---|
-| Működik | Azure Stack hub kijavítja a kötetet, például egy meghajtó hozzáadásával vagy eltávolításával. A javítás befejezésekor a kötetnek vissza kell térnie az OK állapotára.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a kötet javítását, majd utána az állapotot. |
-| Befejezetlen | A kötet rugalmassága csökken, mert egy vagy több meghajtó meghiúsult vagy hiányzik. A hiányzó meghajtók azonban az adatok naprakész másolatát tartalmazzák.<br> <br>**Művelet:** Csatlakoztassa újra a hiányzó meghajtókat, cserélje le a meghibásodott meghajtókat, és kapcsolja online állapotba az összes olyan kiszolgálót, amely offline állapotú. |
+| A szolgáltatásban | Azure Stack hub kijavítja a kötetet, például egy meghajtó hozzáadásával vagy eltávolításával. A javítás befejezésekor a kötetnek vissza kell térnie az OK állapotára.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a kötet javítását, majd utána az állapotot. |
+| Hiányos | A kötet rugalmassága csökken, mert egy vagy több meghajtó meghiúsult vagy hiányzik. A hiányzó meghajtók azonban az adatok naprakész másolatát tartalmazzák.<br> <br>**Művelet:** Csatlakoztassa újra a hiányzó meghajtókat, cserélje le a meghibásodott meghajtókat, és kapcsolja online állapotba az összes olyan kiszolgálót, amely offline állapotú. |
 | Csökkentett teljesítményű | A kötet rugalmassága egy vagy több meghibásodott vagy hiányzó meghajtó, valamint a meghajtókon tárolt elavult adatmásolatok miatt csökken.<br> <br>**Művelet:** Csatlakoztassa újra a hiányzó meghajtókat, cserélje le a meghibásodott meghajtókat, és kapcsolja online állapotba az összes olyan kiszolgálót, amely offline állapotú. |
 
 ### <a name="volume-health-state-unhealthy"></a>Kötet állapotának állapota: sérült
@@ -157,7 +149,7 @@ A következő szakaszok ismertetik a meghajtó állapotának állapotát:
 | Működési állapot | Leírás |
 |---|---|
 | OK | A kötet kifogástalan. |
-| Működik | A meghajtó egy belső takarítási műveletet hajt végre. Ha a művelet befejeződött, a meghajtónak vissza kell térnie az OK állapotára. |
+| A szolgáltatásban | A meghajtó egy belső takarítási műveletet hajt végre. Ha a művelet befejeződött, a meghajtónak vissza kell térnie az OK állapotára. |
 
 ### <a name="drive-health-state-healthy"></a>Meghajtó állapota: kifogástalan
 
@@ -187,7 +179,7 @@ A sérült állapotú meghajtók jelenleg nem írhatók vagy nem érhetők el.
 | Ismeretlen metaadatok | Ismeretlen metaadatok találhatók a meghajtón, ami általában azt jelenti, hogy a meghajtón található metaadatok egy másik készletből származnak.<br> <br>**Művelet:** Cserélje le a meghajtót egy új lemezre. Ha ezt a lemezt kell használnia, távolítsa el a lemezt a rendszerből, ügyeljen arra, hogy ne legyen hasznos adat a lemezen, törölje a lemezt, majd helyezze át a lemezt. |
 | Sikertelen adathordozó | A meghajtó nem sikerült, és a tárolóhelyek már nem használják.<br> <br>**Művelet:** A lehető leghamarabb cserélje le a meghajtót a teljes rugalmasság biztosításához. |
 | Hardverhiba az eszközön | Hardverhiba történt a meghajtón. <br> <br>**Művelet:** A lehető leghamarabb cserélje le a meghajtót a teljes rugalmasság biztosításához. |
-| A belső vezérlőprogram frissítése | Azure Stack hub frissíti a belső vezérlőprogramot a meghajtón. Ez az állapot ideiglenes, és általában kevesebb mint egy percet tart, és amikor a készletben lévő többi meghajtó kezeli az összes olvasást és írást.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a frissítést, és utána kérdezze le az állapotot. |
+| Belső vezérlőprogram frissítése | Azure Stack hub frissíti a belső vezérlőprogramot a meghajtón. Ez az állapot ideiglenes, és általában kevesebb mint egy percet tart, és amikor a készletben lévő többi meghajtó kezeli az összes olvasást és írást.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a frissítést, és utána kérdezze le az állapotot. |
 | Indulás alatt | A meghajtó készen áll a műveletre. Ennek az állapotnak ideiglenesnek kell lennie – Ha elkészült, a meghajtónak egy másik működési állapotba kell térnie.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a műveletet, és utána kérdezze le az állapotot. |
 
 ## <a name="reasons-a-drive-cant-be-pooled"></a>A meghajtó nem egyesíthető.
@@ -204,7 +196,7 @@ Egyes meghajtók egyszerűen nem állnak készen Azure Stack hub Storage-készle
 | Nincs elegendő kapacitás | A meghajtón vannak partíciók a szabad területtel.<br> <br>**Művelet:** Cserélje le a meghajtót egy új lemezre. Ha ezt a lemezt kell használnia, távolítsa el a lemezt a rendszerből, ügyeljen arra, hogy ne legyen hasznos adat a lemezen, törölje a lemezt, majd helyezze át a lemezt. |
 | Ellenőrzés folyamatban | A Állapotfigyelő szolgáltatás ellenőrzi, hogy a meghajtó vagy a belső vezérlőprogram engedélyezett-e a használatra.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a folyamatot, majd utána az állapotot. |
 | Az ellenőrzés nem sikerült | A Állapotfigyelő szolgáltatás nem tudta megtekinteni, hogy a meghajtó vagy a belső vezérlőprogram engedélyezett-e a használatra.<br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfiles útmutatása alapján. |
-| Kapcsolat nélkül | A meghajtó offline állapotban van. <br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfiles útmutatása alapján. |
+| Offline | A meghajtó offline állapotban van. <br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfiles útmutatása alapján. |
 
 ## <a name="next-step"></a>Következő lépés
 

@@ -1,27 +1,18 @@
 ---
-title: Azure Marketplace-elemek érhetők el Azure Stack hub számára | Microsoft Docs
+title: Azure Stack hub számára elérhető Azure Marketplace-elemek
 description: Megtudhatja, hogy mely Azure Marketplace-elemek használhatók Azure Stack központban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2020
-ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 64618cb3f1840db5472023902c58fc3fa771e6a5
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516766"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890391"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack hub számára elérhető Azure Marketplace-elemek
 
@@ -78,7 +69,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 | ![Microsoft Machine Learning Server 9.3.0 Ubuntu 16,04](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 Ubuntu 16,04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 Ubuntu 16,04. | Microsoft + Canonical |
 | ![Microsoft Machine Learning Server 9.3.0 a CentOS Linux 7,2](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 a CentOS Linux 7,2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 a CentOS Linux 7,2. | Microsoft + Rogue Wave |
 
-## <a name="linux-distributions"></a>Linux terjesztések
+## <a name="linux-distributions"></a>Linux-disztribúciók
 
 |  | Elemnév | Leírás | Gyártó/kiadó |
 | --- | --- | --- | --- |

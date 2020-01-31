@@ -1,26 +1,18 @@
 ---
-title: Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként | Microsoft Docs
+title: Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 description: Megtudhatja, hogyan regisztrálhat Azure Stack hub-t felhőalapú megoldás-szolgáltatóként (CSP), és hogyan veheti fel az ügyfeleket a számlázáshoz.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 4e696f3e50f3f61f4b4f73387cf6e62b6ae88e6c
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706558"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876558"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 

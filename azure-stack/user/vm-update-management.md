@@ -1,27 +1,18 @@
 ---
-title: Virtuálisgép-frissítés és-kezelés automatizálása Azure Stack hub-ban | Microsoft Docs
+title: VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 description: Megtudhatja, hogyan használhatja a Azure Automation Azure Monitor for VMs, Update Management, Change Tracking és leltározási megoldásait az Azure Stack hub-ban üzembe helyezett Windows-és Linux-alapú virtuális gépek kezeléséhez.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 580e1e724a1d03183091ce4e59b779fc30cfb92c
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023123"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885233"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú virtuális gépek (VM-EK) kezeléséhez használja az alábbi Azure Automation megoldás-szolgáltatásokat:
@@ -40,7 +31,7 @@ Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú vi
 ## <a name="prerequisites"></a>Előfeltételek
 Ezeknek a szolgáltatásoknak a használata előtt több előfeltételnek kell teljesülnie a Azure Stack hub virtuális gépek frissítéséhez és kezeléséhez. Ezek közé tartoznak a Azure Portal és az Azure Stack hub felügyeleti portálon elvégzendő lépések is.
 
-### <a name="in-the-azure-portal"></a>Az Azure Portalon
+### <a name="in-the-azure-portal"></a>A Azure Portal
 Az Azure Stack hub-beli virtuális gépek Azure Monitor for VMs, leltár, Change Tracking és Update Management Azure Automation funkcióinak használatához először engedélyeznie kell ezeket a megoldásokat az Azure-ban.
 
 > [!TIP]
@@ -112,7 +103,7 @@ A virtuális gépek beolvasása után a Update Management megoldásban megjelenn
    [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
-> 30 perctől akár 6 óráig is eltarthat, amíg megjelennek a felügyelt számítógépekből származó frissített adatok az irányítópulton.
+> A felügyelt számítógépekről származó frissített adatok megjelenítéséhez az irányítópult 30 perc és 6 óra között is eltarthat.
 
 Az Azure Stack hub virtuális gépek mostantól az Azure-beli virtuális gépekkel együtt is szerepelhetnek az ütemezett frissítések telepítése során.
 

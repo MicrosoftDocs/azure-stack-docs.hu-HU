@@ -1,28 +1,18 @@
 ---
-title: Virtuális gép létrehozása közösségi sablon használatával | Microsoft Docs
+title: Virtuális gép létrehozása közösségi sablon használatával
 description: Megtudhatja, hogyan hozhat létre egy virtuális gépet egy előre definiált sablonnal és egy GitHub egyéni sablonnal a Azure Stack Development Kit (ASDK) használatával.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 962751cbe933963c6bed1be861897f618f841e34
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: ab2a177c9e2edc1b0362b03023148072fb885fb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750541"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883883"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: virtuális gép létrehozása közösségi sablon használatával
 

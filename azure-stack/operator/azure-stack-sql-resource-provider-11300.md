@@ -2,27 +2,18 @@
 title: Azure Stack hub SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései
 titleSuffix: Azure Stack Hub
 description: Tekintse meg az Azure Stack hub SQL Resource Provider 1.1.30.0 frissítésének kiadási megjegyzéseit.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: e6baccbd3ae7f2fe01c1ace47ff809d2d1006158
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 07abcb71715c3078887e00c89f5eac53f5f98def
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534209"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882868"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL Resource Provider 1.1.30.0 kibocsátási megjegyzései
 
@@ -39,14 +30,14 @@ Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az
 > [!IMPORTANT]
 > Az SQL-erőforrás-szolgáltató legújabb verziójának telepítése előtt alkalmazza a minimális támogatott Azure Stack hub-frissítést az Azure Stack hub integrált rendszerére.
 
-## <a name="new-features-and-fixes"></a>Új funkciók és javítások
+## <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
 Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
 - **Telemetria engedélyezve az SQL erőforrás-szolgáltató üzembe helyezéséhez**. A telemetria-gyűjtemény engedélyezve van az SQL erőforrás-szolgáltató üzembe helyezéséhez. A gyűjtött telemetria magában foglalja az erőforrás-szolgáltató üzembe helyezését, az indítási és leállítási időt, a kilépési állapotot, a kilépési üzeneteket és a hibák részleteit
 
 - **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack hub-összetevőkkel. 
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 - **SQL erőforrás-szolgáltató Azure stack hub PowerShell-kompatibilitás**. Az SQL erőforrás-szolgáltató frissítve lett az Azure Stack hub 2018-03-01-Hybrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
 
@@ -58,7 +49,7 @@ Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő ja
 
 - **Az SQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy óráig is eltarthat, amíg az újonnan létrehozott SKU-t új SQL-adatbázisok létrehozásakor használni szeretné.
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: nincs.
 
 - Az **SQL-bejelentkezések újra felhasználva**. Ha egy olyan új SQL-bejelentkezést próbál létrehozni ugyanazzal a felhasználónévvel, amely ugyanazzal az előfizetéssel rendelkezik, akkor ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 

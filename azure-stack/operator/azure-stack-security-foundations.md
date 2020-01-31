@@ -2,26 +2,18 @@
 title: Azure Stack hub biztonsági vezérlők
 titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub-ra alkalmazott biztonsági helyzeteket és vezérlőket.
-services: azure-stack
-documentationcenter: ''
 author: JustinHall
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145801"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881298"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -62,7 +54,7 @@ A nem gMSA megmaradó titkokat manuálisan, a privilegizált végponton lévő p
 
 Azure Stack hub-infrastruktúra 4096 bites RSA-kulcsokat használ az összes belső tanúsítványához. A külső végpontokhoz ugyanaz a kulcs hosszúságú tanúsítvány is használható. A titkokkal és a tanúsítvány elforgatásával kapcsolatos további információkért tekintse meg a [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)című témakört.
 
-## <a name="windows-defender-application-control"></a>Windows Defender Alkalmazásvezérlés
+## <a name="windows-defender-application-control"></a>Windows Defender-alkalmazás vezérlése
 
 Azure Stack hub a Windows Server legújabb biztonsági funkcióit használja. Ezek közül az egyik a Windows Defender Application Control (WDAC, korábbi nevén Code Integrity), amely végrehajtható fájlok engedélyezését teszi lehetővé, és biztosítja, hogy csak az engedélyezett kódok fussanak az Azure Stack hub-infrastruktúrán belül.
 
@@ -71,7 +63,7 @@ A hitelesített kódot a Microsoft vagy az OEM-partner aláírja. Az aláírt hi
 A WDAC szabályzat emellett megakadályozza, hogy a harmadik féltől származó ügynökök vagy szoftverek fussanak az Azure Stack hub-infrastruktúrában.
 A WDAC kapcsolatos további információkért tekintse meg a [Windows Defender alkalmazás-vezérlés és a kód integritásának virtualizálás-alapú védelme](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)című témakört.
 
-## <a name="credential-guard"></a>Credential Guard
+## <a name="credential-guard"></a>Hitelesítőadat-őr
 
 Az Azure Stack hub egy másik Windows Server biztonsági funkciója a Windows Defender hitelesítő adatai, amely a pass-The-hash és a pass-The-Ticket típusú támadásokkal szemben Azure Stack hub-infrastruktúra hitelesítő adatainak védelmére szolgál.
 

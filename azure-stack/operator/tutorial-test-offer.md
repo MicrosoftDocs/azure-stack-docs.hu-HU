@@ -3,17 +3,16 @@ title: Azure Stack hub szolgáltatási ajánlat tesztelése.
 description: Megtudhatja, hogyan tesztelheti a szolgáltatási ajánlatokat az előfizetés létrehozásával és az erőforrások üzembe helyezésével.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820933"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885086"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Oktatóanyag: szolgáltatási ajánlat tesztelése
 
@@ -80,7 +79,7 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az előző sza
 1. Válassza az **+ erőforrás létrehozása** > **számítási** > **\<rendszerkép-név\>** lehetőséget, ahol a "rendszerkép-Name" az előfeltételek között letöltött virtuális gép neve.
 1. A **virtuális gép létrehozása** / **alapjai**területen adja meg a következő információkat:
   
-   - Adja meg a virtuális gép **nevét**.
+   - Adja meg a virtuális gép **nevét** .
    - Adja meg a rendszergazdai fiók **felhasználónevét** .
    - Linux rendszerű virtuális gépek esetén válassza a "jelszó" lehetőséget a **hitelesítési típushoz**.
    - A rendszergazdai fiókhoz adja meg a **jelszót** és a **jelszó megerősítését**.

@@ -1,25 +1,17 @@
 ---
-title: Az Azure Stack hub Storage bemutatása | Microsoft Docs
+title: Az Azure Stack hub Storage bemutatása
 description: Ismerkedjen meg Azure Stack hub tárolási szolgáltatásaival.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: cb58b2edc8a7a9ec96317a902ad79b8bacce89ec
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 288dfd077d7f41bf5bb82a122c11a747c7054f91
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536419"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884353"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Az Azure Stack hub Storage bemutatása
 
@@ -62,15 +54,15 @@ Minden blob egy tárolóba van rendezve. A tárolók nagy előnye, hogy az objek
 
 A blob Storage háromféle blobot kínál:
 
-- **Blokkblobok**
+- **Blobok letiltása**
 
     A blokkos Blobok a Felhőbeli objektumok folyamatos átvitelére és tárolására vannak optimalizálva. A dokumentumok, médiafájlok, biztonsági másolatok és más hasonló fájlok tárolására jó választás.
 
-- **Hozzáfűző blobok**
+- **Blobok hozzáfűzése**
 
     A hozzáfűző blobok a blokkblobokhoz hasonló, de a műveletek hozzáfűzésére optimalizált blobok. A naplóíró blobok csak a végükhöz hozzáadott új blokkal frissíthetők. A naplóíró blobok olyan forgatókönyvekhez felelnek meg leginkább, mint például a naplózás, ahol az új adatokat csak a blob végéhez kell hozzáírni.
 
-- **Lapblobok**
+- **Oldal Blobok**
 
     Az oldal Blobok a IaaS-lemezek ábrázolására vannak optimalizálva, és a véletlenszerű írásokat legfeljebb 1 TB méretűre támogatják. Az Azure Stack hub virtuális géphez csatolt IaaS lemez egy blobként tárolt VHD.
 

@@ -1,25 +1,17 @@
 ---
-title: IPsec/IKE-helyek közötti VPN-kapcsolatok konfigurálása | Microsoft Docs
+title: IPsec/IKE-helyek közötti VPN-kapcsolatok konfigurálása
 description: Ismerje meg és konfigurálja az IPsec/IKE-házirendet a két hálózat közötti pont-pont típusú VPN-vagy VNet-VNet kapcsolatok számára Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b4d99d44fa1cd5b2c6232bf0d2938f37a4bf662c
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 262d0714c8a0d5979a1313dcff48947f676109ce
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727547"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883010"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>IPsec/IKE-szabályzat konfigurálása két hálózat közötti pont-pont típusú VPN-kapcsolatokhoz
 
@@ -102,7 +94,7 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 
 A következő táblázat felsorolja az egyéni házirend által támogatott megfelelő Diffie-Hellman csoportokat:
 
-| Diffie-Hellman Group | DHGroup   | PFSGroup      | A kulcs hossza    |
+| Diffie-Hellman Group | DHGroup   | PFSGroup      | Kulcs hossza    |
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768 bites MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 bites MODP |

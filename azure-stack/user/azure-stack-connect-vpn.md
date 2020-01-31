@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub csatlakozása az Azure-hoz VPN használatával | Microsoft Docs
+title: Azure Stack hub csatlakozása az Azure-hoz VPN használatával
 description: Virtuális hálózatok összekapcsolhatók az Azure-beli virtuális hálózatokkal a VPN használatával a Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 75d6143d3ae1ce0eaf114bd537e0a4983f99e53c
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: c0a03b453a574b04e6b4a8654e3375d552acc5f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706898"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883915"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Azure Stack hub csatlakozása az Azure-hoz VPN használatával
 
@@ -47,7 +38,7 @@ A hálózati konfigurációval kapcsolatos példák táblázat a cikkben szerepl
 |   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Virtuális hálózat neve     |AZS – VNet|AzureVNet |
-|Virtuális hálózat címtartománya |10.1.0.0/16|10.100.0.0/16|
+|Virtuális hálózati címtartomány |10.1.0.0/16|10.100.0.0/16|
 |Alhálózat neve     |Előtér|Előtér|
 |Alhálózati címtartomány|10.1.0.0/24 |10.100.0.0/24 |
 |Átjáró alhálózata     |10.1.1.0/24|10.100.1.0/24|
@@ -58,7 +49,7 @@ Először hozza létre az Azure hálózati erőforrásait. Az alábbi utasítás
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>A virtuális hálózat és a virtuális gép (VM) alhálózatának létrehozása
 
-1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com/) az Azure-fiókkal.
+1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com/) az Azure-fiók használatával.
 
 2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
@@ -84,7 +75,7 @@ Először hozza létre az Azure hálózati erőforrásait. Az alábbi utasítás
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
@@ -96,7 +87,7 @@ Először hozza létre az Azure hálózati erőforrásait. Az alábbi utasítás
 
 ### <a name="create-the-local-network-gateway-resource"></a>A helyi hálózati átjáró erőforrásának létrehozása
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. Az erőforrások listájából válassza a **helyi hálózati átjáró**elemet.
@@ -126,7 +117,7 @@ Először hozza létre az Azure hálózati erőforrásait. Az alábbi utasítás
 
 Most hozzon létre egy virtuális GÉPET az Azure-ban, és helyezze a virtuális hálózata virtuálisgép-alhálózatára.
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapismeretek** szakaszban a **név**mezőbe írja be a következőt: **AzureVM**.
@@ -229,7 +220,7 @@ A további általános leírás szerint a helyi hálózati átjáró erőforrás
 
 A VPN-kapcsolat vizsgálatához hozzon létre két virtuális gépet: egy az Azure-ban, egy pedig Azure Stack hub-ban. Miután létrehozta ezeket a virtuális gépeket, használhatja őket a VPN-alagúton keresztüli adatküldésre és fogadásra.
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapok** szakaszban, a **név**mezőbe írja be a következőt: **AZS-VM**.
@@ -257,7 +248,7 @@ A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irá
 3. A virtuális gépek listájában keresse meg a korábban létrehozott **AZS-VM** elemet, majd jelölje ki.
 4. A virtuális gép szakaszban válassza a **kapcsolat**lehetőséget, majd nyissa meg a AZS-VM. rdp fájlt.
 
-     ![Csatlakozás gomb](media/azure-stack-connect-vpn/image17.png)
+     ![Csatlakozási gomb](media/azure-stack-connect-vpn/image17.png)
 
 5. Jelentkezzen be azzal a fiókkal, amelyet a virtuális gép létrehozásakor konfigurált.
 6. Nyisson meg egy rendszergazda jogú Windows PowerShell-parancssort.

@@ -1,22 +1,18 @@
 ---
-title: Fizikai eszközök naplózásának integrálása az Azure Stack hub Datacenter szolgáltatással | Microsoft Docs
+title: Fizikai eszközök naplózásának integrálása az Azure Stack hub-adatközponttal
 description: Ismerje meg, hogyan integrálhatja a fizikai eszközök hozzáférésének naplózását az Azure Stack hub adatközpontjában.
-services: azure-stack
-author: PatAltimore
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
-keywords: ''
-ms.openlocfilehash: 48d81975457587bd9c18122d891f8e9e08fbc6eb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0ebf71cc6ba794169965fb17181ae497913bf30b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817890"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882104"
 ---
 # <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>Fizikai eszközök naplózásának integrálása az Azure Stack hub-adatközponttal
 

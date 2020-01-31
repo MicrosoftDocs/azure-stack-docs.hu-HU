@@ -1,27 +1,18 @@
 ---
-title: A Start-AzsReadinessChecker parancsmag referenciája | Microsoft Docs
+title: A Start-AzsReadinessChecker parancsmag referenciája
 description: PowerShell-parancsmag Súgó az Azure Stack hub Readiness-ellenőrző modulhoz.
-services: azure-stack
-documentationcenter: ''
-author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: sethm
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727445"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877765"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>A Start-AzsReadinessChecker parancsmag referenciája
 
@@ -534,7 +525,7 @@ Megadja, hogy a rendszer felveszi-e a Pásti-szolgáltatások/állomásnevek nev
 
 |  |  |
 |----------------------------|------------------|
-|Típus:                       |Kapcsolóparaméter   |
+|Típus:                       |SwitchParameter   |
 |Pozíció                   |Elemzi             |
 |Alapértelmezett érték:              |Hamis             |
 |Adatcsatorna bemenetének elfogadása:      |Hamis             |
@@ -559,7 +550,7 @@ Megadja, hogy csak a jelentés összegzése jelenjen-e meg, kihagyja a részlete
 
 |  |  |
 |----------------------------|------------------|
-|Típus:                       |Kapcsolóparaméter   |
+|Típus:                       |SwitchParameter   |
 |Pozíció                   |Elemzi             |
 |Alapértelmezett érték:              |Hamis             |
 |Adatcsatorna bemenetének elfogadása:      |Hamis             |
@@ -571,7 +562,7 @@ Eltávolítja az előző végrehajtást és az érvényesítési előzményeket,
 
 |  |  |
 |----------------------------|------------------|
-|Típus:                       |Kapcsolóparaméter   |
+|Típus:                       |SwitchParameter   |
 |Aliasok                    |CF                |
 |Pozíció                   |Elemzi             |
 |Alapértelmezett érték:              |Hamis             |
@@ -590,13 +581,13 @@ Meghatározza a készültségi JSON-jelentés és a részletes naplófájl ment�
 |Adatcsatorna bemenetének elfogadása:      |Hamis             |
 |Helyettesítő karakterek elfogadása: |Hamis             |
 
-### <a name="-confirm"></a>-Confirm
+### <a name="-confirm"></a>– Megerősítés
 
 A parancsmag futtatása előtt megerősítést kér.
 
 |  |  |
 |----------------------------|------------------|
-|Típus:                       |Kapcsolóparaméter   |
+|Típus:                       |SwitchParameter   |
 |Aliasok                    |CF                |
 |Pozíció                   |Elemzi             |
 |Alapértelmezett érték:              |Hamis             |
@@ -605,11 +596,11 @@ A parancsmag futtatása előtt megerősítést kér.
 
 ### <a name="-whatif"></a>– WhatIf
 
-Bemutatja, mi történne a parancsmag futtatásakor. A parancsmag nem fut.
+Azt mutatja, hogy mi történne a parancsmag futtatásakor. A parancsmag nem fut.
 
 |  |  |
 |----------------------------|------------------|
-|Típus:                       |Kapcsolóparaméter   |
+|Típus:                       |SwitchParameter   |
 |Aliasok                    |Wi                |
 |Pozíció                   |Elemzi             |
 |Alapértelmezett érték:              |Hamis             |

@@ -1,27 +1,18 @@
 ---
-title: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban | Microsoft Docs
+title: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 description: Hozzon létre egy Windows Server rendszerű virtuális gépet a PowerShell használatával Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
-ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a6b051245821f3def20c20af41301d584b10eb0d
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 091a14961c82dcf43a2b64b946a7c96ec5ee1164
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023173"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883252"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -59,7 +50,7 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Tárerőforrások létrehozása
+## <a name="create-storage-resources"></a>Tárolási erőforrások létrehozása
 
 Hozzon létre egy Storage-fiókot a rendszerindítási diagnosztika kimenetének tárolásához.
 

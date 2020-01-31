@@ -1,26 +1,18 @@
 ---
-title: Marketplace-elemek letöltése az Azure-ból és közzététel az Azure Stack hub-ban | Microsoft Docs
+title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stack hubhoz
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 80cf9d192be07f951ee959c7a83419bb16bd2bbb
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 0df8b4e85aea2a194061da523e66385389b38bb1
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022951"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890323"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
 

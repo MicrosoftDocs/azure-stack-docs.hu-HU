@@ -1,26 +1,18 @@
 ---
-title: Az Azure Stack hub piactér újdonságai | Microsoft Docs
+title: Az Azure Stack hub piactér újdonságai
 description: Változások és frissítések a Azure Stack hub piactéren.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a487d8d333ec46f552cefa4c39bda9951f02deb9
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: b398c1dde1f9d7b6033ab4aed115ae45546190c1
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706677"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890170"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 

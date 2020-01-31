@@ -1,26 +1,18 @@
 ---
-title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával | Microsoft Docs
+title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: fb229a3959341feb1a1c1fb35d2bda86b3879680
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 1c894dbb431d1f171457ac0300d214cc2e2b7c0f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534600"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881611"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
@@ -72,7 +64,7 @@ Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure 
 > [!Note]  
 > AD FS csak a felhasználói identitásokkal való interaktív hitelesítést támogatja. Ha egy hitelesítőadat-objektumra van szükség, akkor egy egyszerű szolgáltatásnevet (SPN) kell használnia. További információ az Azure Stack hub és a AD FS identitás-kezelési szolgáltatásként való beállításáról: [AD FS egyszerű szolgáltatásnév kezelése](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
 
-## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
+## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
 Most, hogy mindent beállított, a PowerShell használatával hozzon létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy **MyResourceGroup**nevű erőforráscsoportot.
 

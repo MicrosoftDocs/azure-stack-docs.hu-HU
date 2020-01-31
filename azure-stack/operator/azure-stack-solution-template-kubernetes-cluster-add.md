@@ -2,26 +2,18 @@
 title: Kubernetes hozzáadása Azure Stack hub Marketplace-hez
 titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan adhat hozzá Kubernetes a Azure Stack hub Marketplace-hez.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 98fb42ba785469482a34a40867b4060769cfd24b
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bbd99b7085f96e24f2d1b2a74795be2a1584b656
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881943"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881293"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes hozzáadása Azure Stack hub Marketplace-hez
 
@@ -46,7 +38,7 @@ Hozzon létre egy csomagot, egy ajánlatot és egy előfizetést a Kubernetes Ma
 
 1. Válassza az **Áttekintés** lehetőséget az ajánlat panelen.
 
-1. Válassza az **Állapot módosítása**lehetőséget. Válassza a **Nyilvános** lehetőséget.
+1. Válassza az **Állapot módosítása**lehetőséget. Válassza a **nyilvános**lehetőséget.
 
 1. Válassza az **+ erőforrás létrehozása** **lehetőséget > ajánlatok és csomagok** > **előfizetés** létrehozásához.
 

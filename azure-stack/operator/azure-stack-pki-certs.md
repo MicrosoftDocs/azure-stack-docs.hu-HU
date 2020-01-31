@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub nyilvános kulcsú infrastruktúrájának tanúsítványára vonatkozó követelmények | Microsoft Docs
+title: Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
 description: Ismerje meg a Azure Stack hub PKI-tanúsítvány központi telepítési követelményeit Azure Stack hub integrált rendszerekhez.
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/16/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 124f59d043a940ebcd48131f1012551777a17a6d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810452"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881641"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
 
@@ -34,7 +25,7 @@ Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely
 > [!NOTE]
 > Az Azure Stack hub alapértelmezés szerint a belső Active Directory integrált hitelesítésszolgáltatótól (CA) kiállított tanúsítványokat is használ a csomópontok közötti hitelesítéshez. A tanúsítvány érvényesítéséhez minden Azure Stack hub infrastruktúra-gép megbízhatónak tekinti a belső HITELESÍTÉSSZOLGÁLTATÓ főtanúsítványát azáltal, hogy hozzáadja ezt a tanúsítványt a helyi tanúsítványtárolóhoz. Azure Stack hub tanúsítványai nem rendelkeznek rögzítéssel vagy engedélyezési listával. Az egyes kiszolgálói tanúsítványok SAN-ja a cél teljes tartománynevével van érvényesítve. A megbízhatósági láncot is érvényesíti a rendszer, valamint a tanúsítvány lejárati dátumát is (a szabványos TLS-kiszolgáló hitelesítése tanúsítvány-rögzítés nélkül).
 
-## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
+## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
 Az alábbi lista ismerteti az Azure Stack hub telepítéséhez szükséges tanúsítványokra vonatkozó követelményeket:
 
 - A tanúsítványokat a belső hitelesítésszolgáltatótól vagy egy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Ha nyilvános hitelesítésszolgáltató van használatban, azt a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát itt tekintheti meg [: Microsoft megbízható legfelső szintű tanúsítvány programja: résztvevők](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).

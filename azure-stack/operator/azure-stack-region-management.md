@@ -1,28 +1,19 @@
 ---
-title: Régiók kezelése Azure Stack hub-ban | Microsoft Docs
+title: Területi felügyelet Azure Stack központban
 titleSuffix: Azure Stack Hub
 description: Az Azure Stack hub régió-felügyeletének áttekintése.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 56fb993f7c4059ba468100904d10baabac38cd7d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 930909dd82b67dbeff5dbf656635855b6d34d92b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882045"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881452"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Területi felügyelet Azure Stack központban
 
@@ -36,7 +27,7 @@ Azure Stack hub **a régió-felügyeleti csempén** belül elérhető régió-fe
 
 ![A régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-region-management/image1.png)
 
-Ha egy régióra kattint a **régió kezelése** csempén, akkor a következő információkhoz férhet hozzá:
+Ha kiválaszt egy régiót a **régió kezelése** csempén, akkor a következő információk érhetők el:
 
 [![A Azure Stack hub felügyeleti portál régió-kezelés paneljén található ablaktáblák leírása](media/azure-stack-region-management/regionssm.png "Területi felügyelet panel Azure Stack hub felügyeleti portálon")](media/azure-stack-region-management/regions.png#lightbox)
 

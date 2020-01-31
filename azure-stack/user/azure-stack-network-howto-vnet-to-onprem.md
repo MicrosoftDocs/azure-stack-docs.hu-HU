@@ -1,20 +1,18 @@
 ---
-title: VPN Gateway beállítása Azure Stack hubhoz | Microsoft Docs
+title: VPN-átjáró beállítása Azure Stack hubhoz
 description: Megtudhatja, hogyan állíthatja be a VPN-átjárót Azure Stack hubhoz.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259857"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883373"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack hubhoz a FortiGate NVA használatával
 
@@ -57,7 +55,7 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 | VNET alhálózatának neve | forti1-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.16.1.0/24 * |
 | FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
-| Nyilvános IP-cím | forti1-publicip1 |
+| Nyilvános IP-cím neve | forti1-publicip1 |
 | Nyilvános IP-cím típusa | Statikus |
 
 > [!Note]

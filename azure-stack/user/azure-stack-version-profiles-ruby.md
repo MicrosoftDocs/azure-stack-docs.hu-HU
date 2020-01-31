@@ -1,27 +1,18 @@
 ---
-title: API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban | Microsoft Docs
+title: Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Ruby használatával Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 0c439e9d4997486ecc1d8304dba94026f5832bed
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 1236e501ce09b5e81124f8bc87821d1b5f11cfaa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750507"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883104"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 

@@ -1,20 +1,18 @@
 ---
-title: N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében | Microsoft Docs
+title: N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 description: Ismerje meg, hogyan futtathat egy N szintű alkalmazást több Azure Stack hub-régióban a magas rendelkezésre állás érdekében.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: fc3b9d3e620bfd017f7d5870a8e334c1d9ace579
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d249cbdfa205cceb3c0ef1aad7dccbb0c9daaeeb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818502"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885260"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 

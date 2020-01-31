@@ -1,27 +1,18 @@
 ---
-title: API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban | Microsoft Docs
+title: Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 description: Ismerje meg, hogyan használható az API-verziók profiljai a .NET SDK-val Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256393"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883085"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 
@@ -34,7 +25,7 @@ Az API-profilok erőforrás-szolgáltatók és API-verziók kombinációja. Az e
 - Az összes szolgáltatás legújabb verziójának használatához használja a csomagok **legújabb** profilját. Ez a profil a **Microsoft. Azure. Management** NuGet csomag része.
 
 - Azure Stack hub-kompatibilis szolgáltatások használatához használja az alábbi csomagok egyikét:
-  - **Microsoft. Azure. Management. profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg** 
+  - **Microsoft. Azure. Management. profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg**
   - **Microsoft. Azure. Management. profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg**
 
   Győződjön meg arról, hogy a fenti NuGet-csomag **ResourceProvider** része a megfelelő szolgáltatóra módosul.
@@ -53,9 +44,9 @@ Az alkalmazás összes beállítását egyesítheti.
 
 - A telepítendő csomagok a használni kívánt profil verziójától függenek. A profilok nevei a következők:
 
-   - **Microsoft. Azure. Management. profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg**
+  - **Microsoft. Azure. Management. profiles. Hybrid\_2019\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg**
 
-   - **Microsoft. Azure. Management. profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg**
+  - **Microsoft. Azure. Management. profiles. Hybrid\_2018\_03\_01. <*ResourceProvider*>. 0.9.0 – előzetes verzió. nupkg**
 
 - A Visual Studio Code-hoz készült helyes NuGet-csomagok telepítéséhez tekintse meg a következő hivatkozást, ahol letöltheti a [A NuGet csomagkezelő utasításai][].
 
@@ -74,7 +65,7 @@ Ha Azure Stack hubhoz szeretné használni a .NET Azure SDK-t, a következő ér
 | Bérlőazonosító                 | `AZURE_TENANT_ID `      | Az Azure Stack hub- [*bérlő azonosítójának*][]értéke.                                                                          |
 | Ügyfél-azonosító                 | `AZURE_CLIENT_ID `      | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. |
 | Subscription ID (Előfizetés azonosítója)           | `AZURE_SUBSCRIPTION_ID` | Az [*előfizetés-azonosító*][] az Azure stack hub-ban található ajánlatok elérésének módja.                                                      |
-| Titkos ügyfélkulcs             | `AZURE_CLIENT_SECRET`   | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve.                                      |
+| Ügyfél titka             | `AZURE_CLIENT_SECRET`   | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve.                                      |
 | Resource Manager-végpont | `ARM_ENDPOINT`          | Tekintse meg [*az Azure stack hub Resource Manager-végpontot*][].                                                                    |
 | Földrajzi egység                  | `RESOURCE_LOCATION`     | Azure Stack hub helye.
 
@@ -85,7 +76,7 @@ Az Azure Stack hub bérlői AZONOSÍTÓjának megkereséséhez kövesse az [ebbe
 A környezeti változók Windows-parancssorban történő beállításához használja a következő formátumot:
 
 ```shell
-Set Azure_Tenant_ID=Your_Tenant_ID
+set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux-és UNIX-alapú rendszerek
@@ -93,7 +84,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 UNIX-alapú rendszerekben használja a következő parancsot:
 
 ```shell
-Export Azure_Tenant_ID=Your_Tenant_ID
+export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Az Azure Stack hub Resource Manager-végpont

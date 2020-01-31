@@ -1,20 +1,18 @@
 ---
-title: Python-webalkalmazás üzembe helyezése egy virtuális gépen Azure Stack hub-ban | Microsoft Docs
+title: Python-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 description: Python-webalkalmazás üzembe helyezése Azure Stack hub virtuális gépén.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7a4f7bd3697dad61e6b3aff1c730aac193a705cd
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c0455b2e6ab971ae73df14e9986753339544051e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536198"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884860"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Python-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 

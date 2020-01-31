@@ -1,20 +1,18 @@
 ---
-title: VNET létrehozása a VNET-kapcsolathoz a Fortinet FortiGate NVA használatával Azure Stack hub-ban | Microsoft Docs
+title: VNET létrehozása VNET-kapcsolathoz Azure Stack hub-ban Fortinet FortiGate NVA
 description: Megtudhatja, hogyan hozhat létre VNET VNET-kapcsolat létesítéséhez a Fortinet FortiGate-NVA rendelkező Azure Stack központban.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 51fd6ffa23cff44967c31e5d66716bd5634861e0
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536096"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884603"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Hozzon létre egy VNET a VNET-kapcsolathoz a Fortinet FortiGate NVA használatával Azure Stack központban.
 
@@ -55,7 +53,7 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 | VNET alhálózatának neve | forti1-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.16.1.0/24 * |
 | FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
-| Nyilvános IP-cím | forti1-publicip1 |
+| Nyilvános IP-cím neve | forti1-publicip1 |
 | Nyilvános IP-cím típusa | Statikus |
 
 ### <a name="deployment-two-forti2"></a>Kettő üzembe helyezése: Forti2
@@ -72,7 +70,7 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 | VNET alhálózatának neve | Forti2-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.17.1.0/24 * |
 | FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
-| Nyilvános IP-cím | Forti2-publicip1 |
+| Nyilvános IP-cím neve | Forti2-publicip1 |
 | Nyilvános IP-cím típusa | Statikus |
 
 > [!Note]
@@ -140,7 +138,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
 7. Nevezze el az **útvonalat** `to-forti1` vagy `to-forti2`. Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
-8. Adja meg a következőt:
+8. Be
     - forti1: `172.17.0.0/16`  
     - forti2: `172.16.0.0/16`  
 

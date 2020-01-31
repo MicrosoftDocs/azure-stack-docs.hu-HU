@@ -1,26 +1,18 @@
 ---
-title: Virtuálisgép-lemezes tároló létrehozása Azure Stack hub-ban | Microsoft Docs
+title: VIRTUÁLIS gépek lemezes tárolásának létrehozása Azure Stack központban
 description: Lemezek létrehozása a Azure Stack hub virtuális gépei számára.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 66147be9158726ab9ba01d011ba0fa2fd8f141bc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883507"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883473"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>VIRTUÁLIS gépek lemezes tárolásának létrehozása Azure Stack központban
 
@@ -90,10 +82,10 @@ Minden hozzáadott nem felügyelt lemezt külön tárolóba kell helyezni.
    * Válassza ki a **fiók típusát**.
       ![példa: új lemez csatolása a virtuális géphez](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-      **Prémium SSD**  
+      **prémium SSD**  
       A prémium szintű lemezeket (SSD-ket) stabil állapotú meghajtók végzik, és konzisztens, kis késleltetésű teljesítményt nyújtanak. A legjobb egyensúlyt biztosítják az árak és a teljesítmény között, és ideálisak az I/O-igényes alkalmazások és a termelési feladatok számára.
 
-      **Standard HDD**  
+      **standard HDD**  
       A standard szintű lemezek (HDD-ket) a mágneses meghajtókon alapulnak, és olyan alkalmazások számára ajánlottak, amelyekben az adatelérés nem ritkán történik. A Zone-redundáns lemezeket a zóna-redundáns tárolók (ZRS-EK) biztosítják, amelyek több zónában replikálják az adatait, így biztosítva, hogy az adott zóna leállása esetén is elérhetők legyenek az adatai.
 
    * Válassza ki a **forrás típusát**.

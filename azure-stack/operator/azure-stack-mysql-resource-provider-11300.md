@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései | Microsoft Docs
+title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 frissítésének újdonságait.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 21fdc832203e276960168e2ac15b4e552439090a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 3598fe210f951e33905bc369b73fd29f9d2a9d5b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535008"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881907"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 
@@ -45,7 +36,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő 
 
 - **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack hub-összetevőkkel. 
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 - **MySQL erőforrás-szolgáltató Azure stack hub PowerShell-kompatibilitás**. A MySQL erőforrás-szolgáltató frissítve lett az Azure Stack hub 2018-03-01-Hybrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
 
@@ -55,7 +46,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő 
 
 - **A MySQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy órát is igénybe vehet, hogy az újonnan létrehozott SKU-i megjelenjenek az új MySQL-adatbázisok létrehozásakor.
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: nincs.
 
 - A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 

@@ -1,23 +1,18 @@
 ---
-title: Ethereum blockchain-hálózat üzembe helyezése Azure Stack hub-on | Microsoft Docs
+title: Ethereum blockchain-hálózat üzembe helyezése Azure Stack hub-on
 description: Oktatóanyag egyéni megoldási sablonok használatával a konzorcium Ethereum blockchain-hálózatának üzembe helyezéséhez és konfigurálásához Azure Stack hub-on.
-services: azure-stack
-keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 06/03/2019
 ms.topic: tutorial
-ms.service: azure-stack
 ms.reviewer: seyadava
-ms.custom: mvc
-manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924153"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883695"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Ethereum blockchain-hálózat üzembe helyezése Azure Stack hub-on
 
@@ -101,7 +96,7 @@ A Consortium Leader-sablon konfigurálja az első tag hálózati lábnyomát.
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetés | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
+    Előfizetést | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
     Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | EthereumResources
     Földrajzi egység | Az erőforráscsoport Azure-régiója. | | helyi
 
@@ -149,7 +144,7 @@ A Leader üzembe helyezésének ellenőrzéséhez lépjen a vezető rendszergazd
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetés | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
+    Előfizetést | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
     Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | MemberResources
     Földrajzi egység | Az erőforráscsoport Azure-régiója. | | helyi
 
@@ -189,7 +184,7 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
     CONNECTIONSHAREDKEY | A konzorciumi hálózat azon tagjai között, amelyek kapcsolatot hoznak létre, előre elkészített titok.  | |
     REMOTEMEMBERNVAPUBLICIP | A tag NVA IP-címe. Ez az érték a tag telepítési kimenetén található. | |
     MEMBERNVAPRIVATEIP | A vezető magánhálózati NVA IP-címe. Ez az érték a vezető telepítési kimenetén található. | |
-    HELY | Az Azure Stack hub-környezet helye. | | helyi
+    HELYEN | Az Azure Stack hub-környezet helye. | | helyi
     BASEURL | A sablon alap URL-címe. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
 7. Kattintson az **OK** gombra.
@@ -199,7 +194,7 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetés | A vezető előfizetése. | | Fogyasztási előfizetés
+    Előfizetést | A vezető előfizetése. | | Fogyasztási előfizetés
     Erőforráscsoport | A vezető erőforráscsoport. | | EthereumResources
     Földrajzi egység | Az erőforráscsoport Azure-régiója. | | helyi
 

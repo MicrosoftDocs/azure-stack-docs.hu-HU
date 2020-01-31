@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései | Microsoft Docs
+title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
 description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 frissítésének újdonságait.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 942d3b70650b335f1717083e4f9ba14d03e97132
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: d6afec9ea1932260305fe48d3a5728a50ed7472a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534974"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881883"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
 
@@ -41,7 +32,7 @@ Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa a
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 - **Előfordulhat, hogy a MySQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. A MySQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ az első olyan szolgáltatás-rendszergazdai előfizetés meghatározásához, amely nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, a MySQL erőforrás-szolgáltató nem működik megfelelően.
 
@@ -55,7 +46,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő 
 
 - **A MySQL SKU-ban akár egy órát is igénybe vehet, hogy megjelenjenek a portálon**. Akár egy órát is igénybe vehet, hogy az újonnan létrehozott SKU-i megjelenjenek az új MySQL-adatbázisok létrehozásakor. 
 
-    **Megkerülő megoldás**: Nincs.
+    **Áthidaló megoldás**: nincs.
 
 - A **MySQL-bejelentkezések újrafelhasználása**. Az azonos előfizetéshez tartozó meglévő bejelentkezéssel azonos felhasználónévvel rendelkező új MySQL-bejelentkezés létrehozásakor a rendszer ugyanazt a bejelentkezési azonosítót és a meglévő jelszót fogja használni.
 

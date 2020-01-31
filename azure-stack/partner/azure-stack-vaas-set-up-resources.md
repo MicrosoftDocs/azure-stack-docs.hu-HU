@@ -1,26 +1,19 @@
 ---
-title: Oktatóanyag – erőforrások beállítása szolgáltatásként történő érvényesítéshez | Microsoft Docs
+title: Oktatóanyag – erőforrások beállítása szolgáltatásként történő érvényesítéshez
 description: Ebből az oktatóanyagból megtudhatja, hogyan állíthat be erőforrásokat az érvényesítéshez szolgáltatásként.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e04a4fa7384d56a88938e87a83a33bb86829eca3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535909"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884052"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
@@ -48,7 +41,7 @@ Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga s
 
     A következő szerepkörök egyikének hozzárendelésével engedélyezheti a bérlőben lévő felhasználók számára a műveletek futtatását az Varga-ban:
 
-    | Szerepkörnév | Leírás |
+    | Szerepkör neve | Leírás |
     |---------------------|------------------------------------------|
     | Tulajdonos | Teljes hozzáféréssel rendelkezik az összes erőforráshoz. |
     | Olvasó | Megtekintheti az összes erőforrást, de nem hozható létre és nem kezelhető. |
@@ -98,7 +91,7 @@ Az Azure Storage-fiók az Azure nyilvános felhőben, nem pedig a Azure Stack-k�
 
 2. Válassza ki azt az előfizetést, amelyben létre kívánja hozni a tárfiókot.
 
-3. Az **Erőforráscsoport** területen válassza az **Új létrehozása** lehetőséget. Adja meg az új erőforráscsoport nevét.
+3. Az **erőforráscsoport**területen válassza az **új létrehozása**lehetőséget. Adja meg az új erőforráscsoport nevét.
 
 4. Tekintse át az Azure Storage-fiókok [elnevezési konvencióit](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) . Adja meg a tárfiók nevét.
 

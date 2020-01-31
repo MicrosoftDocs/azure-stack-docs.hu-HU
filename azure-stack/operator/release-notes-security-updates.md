@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub kibocsátási megjegyzései – 1910-es biztonsági frissítések | Microsoft Docs
+title: Azure Stack hub kibocsátási megjegyzései – 1910-es biztonsági frissítések
 description: Az Azure Stack hub 1910 biztonsági frissítéseinek megismerése.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6487f3380f39d6e321771a23714e99d8f65dd836
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 813e1ecbff5ecf5a8db2a00fb980bce014ee44d8
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75821018"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885178"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack hub biztonsági frissítései
 

@@ -2,18 +2,17 @@
 title: Az intelligens peremhálózat DevOps mintázata az Azure és a Azure Stack hub használatával.
 description: Ismerje meg az intelligens peremhálózat DevOps mintázatát az Azure és a Azure Stack hub használatával.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f774fb0382409d5674c622f289767ca8ae81effb
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: bf1ae2d8c404f8cc52ab32b22c883ee15934c3b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638672"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877476"
 ---
 # <a name="devops-pattern"></a>DevOps minta
 
@@ -52,11 +51,11 @@ További információ: Azure Resource Manager- [sablonok fejlesztése a felhő k
 
 Emellett vegye figyelembe a következő szempontokat is a minta megvalósításának eldöntése során:
 
-### <a name="scalability"></a>Méretezhetőség
+### <a name="scalability"></a>Skálázhatóság
 
 A központi telepítési automatizálási rendszerek a DevOps-mintázatok kulcsfontosságú vezérlői pontja. A megvalósítások eltérőek lehetnek. A megfelelő kiszolgáló méretének kiválasztása a várt munkaterhelés méretétől függ. A virtuális gépek drágábbak, mint a tárolók. Ha azonban tárolókat használna a skálázáshoz, a build-folyamatoknak tárolókkal kell futnia.
 
-### <a name="availability"></a>Rendelkezésre állás
+### <a name="availability"></a>Elérhetőség
 
 A DevPattern kontextusában a rendelkezésre állás azt jelenti, hogy képes helyreállítani a munkafolyamathoz társított állapotinformációkat, például a teszteredmények, a kódok függőségei vagy más összetevők számára. A rendelkezésre állásra vonatkozó követelmények felméréséhez két általános mérőszámot érdemes figyelembe vennie:
 

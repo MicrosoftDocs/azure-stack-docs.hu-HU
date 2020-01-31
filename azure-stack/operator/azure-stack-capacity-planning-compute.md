@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub kapacitásának tervezése számítás | Microsoft Docs
+title: Azure Stack hub kapacitásának tervezése számítás
 description: További információ a Azure Stack hub üzemelő példányok kapacitásának megtervezéséről.
-services: azure-stack
-documentationcenter: ''
-author: prchint
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 07/16/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 7b91a03f54ed63c49ff18664818133c24c005557
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fc4fa70b21f3af47ba2a23894d8bc2b4e2233b17
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815119"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890051"
 ---
 # <a name="azure-stack-hub-compute"></a>Azure Stack hub-számítás
 
@@ -30,7 +21,7 @@ Az Azure Stack hub által támogatott virtuálisgép- [méretek](https://docs.mi
 >[!IMPORTANT]
 >Az [Azure stack Hub Capacity Planner](https://aka.ms/azstackcapacityplanner) nem veszi figyelembe vagy garantálja a IOPS teljesítményét.
 
-## <a name="vm-placement"></a>Virtuális gépek elhelyezése
+## <a name="vm-placement"></a>VIRTUÁLIS gépek elhelyezése
 
 Az Azure Stack hub elhelyezési motorja a bérlői virtuális gépeket a rendelkezésre álló gazdagépeken helyezi át.
 

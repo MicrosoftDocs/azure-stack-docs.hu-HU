@@ -1,27 +1,18 @@
 ---
-title: Sablonok fejlesztése Azure Stack hub számára | Microsoft Docs
+title: Sablonok fejlesztése Azure Stack hubhoz
 description: Ismerje meg, hogyan fejleszthet Azure Resource Manager-sablonokat az Azure és az Azure Stack hub közötti alkalmazás-hordozhatósághoz.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9cb0d229b076fef849d36a61ed43602e65d0a720
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 97cf7e77aa2a352d5b297b13fca0959722401530
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536113"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884894"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Sablonok fejlesztése Azure Stack hubhoz Azure Resource Manager
 

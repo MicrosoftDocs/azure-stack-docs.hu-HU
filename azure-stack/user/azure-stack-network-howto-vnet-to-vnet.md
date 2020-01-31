@@ -1,20 +1,18 @@
 ---
-title: Két Azure Stack hub összekötése a VNET-társításon keresztül | Microsoft Docs
+title: Két Azure Stack hub összekötése a VNET-társítással
 description: Ismerje meg, hogyan csatlakoztatható két Azure Stack hub a VNET-társításon keresztül.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: af60e71ef9143e1ca5b51fa07aeed100369faa45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536572"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883401"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Két virtuális hálózatok összekötése a peering használatával
 
@@ -50,7 +48,7 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 | VNET alhálózatának neve | forti1-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.16.1.0/24 * |
 | FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
-| Nyilvános IP-cím | forti1-publicip1 |
+| Nyilvános IP-cím neve | forti1-publicip1 |
 | Nyilvános IP-cím típusa | Statikus |
 
 ### <a name="deployment-two-forti2"></a>Kettő üzembe helyezése: Forti2
@@ -67,7 +65,7 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 | VNET alhálózatának neve | Forti2-InsideSubnet |
 | VNET alhálózati előtagon belül | 172.17.1.0/24 * |
 | FortiGate NVA virtuális gép mérete | Standard F2s_v2 |
-| Nyilvános IP-cím | Forti2-publicip1 |
+| Nyilvános IP-cím neve | Forti2-publicip1 |
 | Nyilvános IP-cím típusa | Statikus |
 
 > [!Note]

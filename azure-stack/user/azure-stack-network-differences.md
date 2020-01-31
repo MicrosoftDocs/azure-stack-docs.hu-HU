@@ -1,22 +1,18 @@
 ---
-title: Azure Stack hub hálózati különbségek | Microsoft Docs
+title: Azure Stack hub hálózati különbségek
 description: Ismerje meg a Azure Stack hub hálózatkezelésével kapcsolatos különbségeket és szempontokat.
-services: azure-stack
-keywords: ''
 author: mattbriggs
-manager: femila
 ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2d40e774ce3ef57694ae765e0774d6fc6610d553
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 4cb075b429fa2a52d6bf0b12216716dd451fe444
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536062"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883407"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -48,7 +44,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 | Virtuális hálózati átjárók | Pont – hely VPN Gateway | Támogatott | Még nem támogatott. |
 |  | Vnet – vnet átjáró | Támogatott | Még nem támogatott. |
 |  | Virtual Network átjáró típusa | Az Azure támogatja a VPN-t<br> ExpressRoute <br> Hyper-háló. | Azure Stack hub jelenleg csak a VPN-típust támogatja. |
-|  | VPN Gateway termékváltozatok | Az alapszintű, a GW1, a GW2, a GW3, a standard nagy teljesítményű, rendkívül nagy teljesítményű funkciók támogatása. | Az alapszintű, a standard és a nagy teljesítményű SKU támogatása. |
+|  | SKU VPN Gateway | Az alapszintű, a GW1, a GW2, a GW3, a standard nagy teljesítményű, rendkívül nagy teljesítményű funkciók támogatása. | Az alapszintű, a standard és a nagy teljesítményű SKU támogatása. |
 |  | VPN-típus | Az Azure a házirend-alapú és a Route-alapú rendszert is támogatja. | Azure Stack hub csak az útválasztást támogatja. |
 |  | BGP-beállítások | Az Azure támogatja a BGP-társas címek és a társak súlyozásának konfigurációját. | A BGP-társak címzési címe és a társ súlya automatikusan konfigurálva van Azure Stack központban. A felhasználó nem állíthatja be ezeket a beállításokat a saját értékeivel. |
 |  | Alapértelmezett átjáró helye | Az Azure támogatja az alapértelmezett hely konfigurációját a kényszerített bújtatáshoz. | Még nem támogatott. |

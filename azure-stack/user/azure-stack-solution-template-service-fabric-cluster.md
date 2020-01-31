@@ -1,26 +1,18 @@
 ---
-title: Biztonságos Service Fabric-fürt üzembe helyezése Azure Stack hub-ban | Microsoft Docs
+title: Biztonságos Service Fabric-fürt üzembe helyezése Azure Stack központban
 description: Megtudhatja, hogyan helyezhet üzembe biztonságos Service Fabric-fürtöt Azure Stack hub-ban
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 11a80f5ae4c256cd49724f6b508d160bf9145a06
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: fadc0adbd8cad2ff92b3849d6c79c933a1bf3bfb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536504"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884429"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric-fürt üzembe helyezése Azure Stack központban
 
@@ -196,7 +188,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 1. A Service Fabric Explorer URL-címének és az ügyfél-kapcsolódási végpontnak a megkereséséhez tekintse át a Template deployment eredményét.
 
-1. Nyissa meg a <https://*FQDN*:19080> URL-címet a böngészőben. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
+1. A böngészőben nyissa meg a <https://*FQDN*:19080>. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
    Ha önaláírt tanúsítványt használt, a rendszer figyelmeztetést kap arról, hogy a kapcsolatok nem biztonságosak. A webhely folytatásához válassza a **További információk**lehetőséget, majd lépjen a **weblapra**. 
 
 1. A helyhez való hitelesítéshez ki kell választania a használni kívánt tanúsítványt. Válassza a **további lehetőségek**lehetőséget, válassza ki a megfelelő tanúsítványt, majd kattintson az **OK** gombra a Service Fabric Explorerhoz való kapcsolódáshoz. 

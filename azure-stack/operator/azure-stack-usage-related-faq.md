@@ -1,26 +1,18 @@
 ---
-title: A használati API-val kapcsolatos gyakori kérdések | Microsoft Docs
+title: Használati API-val kapcsolatos gyakori kérdések
 description: Azure Stack hub mérőszámok listája, az Azure használati API-val való összehasonlítás, a használati idő és a jelentett idő, hibakódok.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 18539c666683c6e35c8736616405f961b63adf40
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813062"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880651"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -396,12 +388,12 @@ Mérőszám **azonosítója**: 5Ca1cbb9-6f14-4e76-8be8-1ca91547965e- **fogyaszt�
 
 A használati adatok jelentéseinek két fő ideje van:
 
-* **Jelentett idő**. Az az idő, amikor a használati esemény bekerült a használati rendszerébe
-* **Használati idő**. Az Azure Stack hub-erőforrás felhasználásának ideje
+* **Jelentett idő**. Az az idő, amikor a használati esemény bekerült a használati rendszerébe.
+* **Használati idő**. Az Azure Stack hub-erőforrás felhasználásának időpontja.
 
 Előfordulhat, hogy a használati idő és a jelentett idő egy adott használati eseménynél eltérést jelez. A késleltetés akár több órát is igénybe vehet bármilyen környezetben.
 
-Jelenleg csak a *jelentett idő*szerint lehet lekérdezni.
+Jelenleg csak a **jelentett idő**szerint lehet lekérdezni.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Mit jelentenek ezek a használati API-hibakódok?
 
@@ -417,7 +409,7 @@ Jelenleg csak a *jelentett idő*szerint lehet lekérdezni.
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Mi a virtuális gépek díjszabására vonatkozó szabályzat?
 
-A virtuális gépek futtatása és leállítása a használati adatokat eredményezi. Az Azure-val konzisztensen a használati adatok kibocsátásának leállításához le kell állítani a felszabadítást. Abban az esetben, ha a portál nem érhető el, de a számítási erőforrás-szolgáltató még fut, a használatot a rendszer kibocsátja.
+A virtuális gépek futtatása és leállítása a használati adatokat eredményezi. Az Azure-val konzisztensen a használati adatok kibocsátásának leállításához le kell állítani a felszabadítást. Abban az esetben, ha a portál nem érhető el, de a számítási erőforrás-szolgáltató még fut, a rendszer a használatot is kibocsátja.
 
 ## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>Hogyan kinyerni a használati adatokat az Azure Stack hub használati API-kkal?
 

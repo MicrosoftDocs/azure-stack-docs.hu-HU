@@ -1,25 +1,18 @@
 ---
-title: Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal | Microsoft Docs
+title: Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
 description: Ismerje meg, hogyan csatlakozhat Storage Explorer egy Azure Stack hub-előfizetéshez
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259834"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884391"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
 
@@ -107,7 +100,7 @@ A következő lépésekkel csatlakoztathatja a Storage Explorert egy AD FS-fiók
 
 3. Kattintson a **Tovább** gombra. A Kapcsolódás az Azure Storage-hoz párbeszédpanel Azure- **környezet**területén válassza az **Egyéni környezet használata**lehetőséget, majd kattintson a **tovább**gombra.
 
-    ![Csatlakozás az Azure Storage-hoz](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+    ![Kapcsolódás az Azure Storage-hoz](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
 4. Adja meg Azure Stack hub egyéni környezet szükséges adatait. 
 

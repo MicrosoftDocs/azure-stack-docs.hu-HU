@@ -1,26 +1,18 @@
 ---
-title: Használati és számlázási regisztrációs hibakódok a Cloud Solution Providers for Azure Stack hub esetében | Microsoft Docs
+title: Használati és számlázási regisztrációs hibakódok a Cloud Solution Providers for Azure Stack hub esetében
 description: Azure Stack hub használati és regisztrációs hibakódok.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 1e0f684f1ee7aefc8d6d9cd5ee5847a4b543b90f
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 863f50f0b780c92f776cfcccbd74502ca9c04d35
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706643"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881433"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Használati és számlázási regisztrációs hibakódok
 

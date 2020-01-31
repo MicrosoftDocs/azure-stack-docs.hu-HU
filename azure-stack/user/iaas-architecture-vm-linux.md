@@ -1,20 +1,18 @@
 ---
-title: Linux rendszerű virtuális gép futtatása Azure Stack hub-on | Microsoft Docs
+title: Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 description: Megtudhatja, hogyan futtathat Linux rendszerű virtuális gépet Azure Stack hub-on.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 8667274e6684af407ca503c25b2e2348a7649134
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023151"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885318"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 

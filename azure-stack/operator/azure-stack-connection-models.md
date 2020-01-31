@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub integrált rendszerek kapcsolatainak modelljei | Microsoft Docs
+title: Azure Stack hub integrált rendszerek kapcsolatainak modelljei
 description: A Azure Stack hub integrált rendszereihez tartozó kapcsolódási modellek és egyéb üzembe helyezési tervezési döntések meghatározása.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 53057c5235422f7d5ec016fcd8f9f3286c41dc58
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 26a5821f6616390a4657a64d974862ef25c4cbe5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534073"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879414"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack hub integrált rendszerek kapcsolatainak modelljei
 Ha érdekli egy Azure Stack hub integrált rendszer megvásárlása, meg kell ismernie a Azure Stack hub üzembe helyezésének [számos adatközpont-integrációs megfontolását](azure-stack-datacenter-integration.md) annak meghatározására, hogy a rendszer hogyan illeszkedik az adatközpontba. Emellett el kell döntenie, hogyan integrálja Azure Stack hub-t a hibrid felhőalapú környezetbe. Ez a cikk áttekintést nyújt ezekről a főbb döntésekről, például az Azure-beli kapcsolatok modelljeiről, az Identity Store lehetőségeiről és a számlázási modell lehetőségeiről.
@@ -45,7 +36,7 @@ Dönthet úgy, hogy Azure Stack hubot az internethez (és az Azure-hoz) csatlako
 |Kapacitás alapú számlázás|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
 |Licencelés| Nagyvállalati Szerződés vagy felhőalapú megoldás szolgáltatója | Nagyvállalati szerződés |
 |Javítás és frissítés|A frissítési csomag közvetlenül az internetről Azure Stack hubhoz tölthető le |  Szükséges<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
-| Regisztráció | Automatikus | Szükséges<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
+| Regisztráció | Automatizált | Szükséges<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
 
 Miután eldöntötte, hogy az Azure-beli kapcsolódási modellt használja-e az Azure Stack hub üzembe helyezéséhez, további, egymástól függő döntéseket kell hoznia az Identity Store-hoz és a számlázási módszerhez.
 

@@ -1,27 +1,18 @@
 ---
-title: Az Azure Stack hub identitás-szolgáltatóinak áttekintése | Microsoft Docs
+title: Az Azure Stack hub identitás-szolgáltatóinak áttekintése
 description: Ismerkedjen meg az Azure Stack hub használatával használható identitás-szolgáltatókkal.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f8c5fdaa638c7ab5fa0669ffee57611e89c192ff
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b6db553b2c129b1179adde2f53b98dc705077294
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882555"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890289"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Az Azure Stack hub identitás-szolgáltatóinak áttekintése
 
@@ -67,7 +58,7 @@ Azure Stack hub felhasználói fiókjai:
 
 Amikor bejelentkezik a szervezet felhasználói portálján, a *https:\//Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiók bejelentkezve admin@contoso.com, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="guest-users"></a>Vendégfelhasználók
+### <a name="guest-users"></a>Vendég felhasználók
 
 A vendég felhasználók olyan más címtárbeli bérlők felhasználói fiókjai, amelyek hozzáférést kaptak a címtárban található erőforrásokhoz. A vendég felhasználók támogatásához használja az Azure AD-t, és engedélyezze a több-bérlős támogatását. Ha a támogatás engedélyezve van, meghívhatja a vendég felhasználókat, hogy hozzáférjenek a címtár-bérlő erőforrásaihoz, ami viszont lehetővé teszi a külső szervezetekkel való együttműködést.
 
@@ -105,7 +96,7 @@ Amikor regisztrál egy alkalmazást, két objektumot hoz létre:
 
 Az alkalmazás-és egyszerű szolgáltatás objektumaival kapcsolatos további tudnivalókért tekintse meg [az alkalmazások és szolgáltatások egyszerű objektumainak Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects)című témakört.
 
-### <a name="service-principals"></a>Szolgáltatásnenek
+### <a name="service-principals"></a>Egyszerű szolgáltatások
 
 Az egyszerű szolgáltatásnév egy olyan alkalmazás vagy szolgáltatás *hitelesítő adatai* , amely hozzáférést biztosít az Azure stack hub erőforrásaihoz. Egy egyszerű szolgáltatásnév használata elkülöníti az alkalmazás engedélyeit az alkalmazás felhasználójának engedélyeitől.
 

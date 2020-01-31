@@ -2,18 +2,17 @@
 title: Hibrid minta az AI-alapú lépés hangja-észlelés megvalósításához az Azure és a Azure Stack hub használatával.
 description: Ismerje meg, hogyan használhatja az Azure-t és Azure Stack hub-szolgáltatásokat a kiskereskedelmi adatforgalom elemzésére szolgáló AI-alapú lépés hangja-észlelési megoldás megvalósításához.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187287"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877323"
 ---
 # <a name="footfall-detection-pattern"></a>Lépés hangja észlelési minta
 

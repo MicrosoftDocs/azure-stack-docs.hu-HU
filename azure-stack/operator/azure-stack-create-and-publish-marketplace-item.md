@@ -1,26 +1,18 @@
 ---
-title: Marketplace-elemek létrehozása és közzététele Azure Stack hub-ban | Microsoft Docs
+title: Marketplace-elemek létrehozása és közzététele Azure Stack központban
 description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882759"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890119"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -214,17 +206,17 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Név |X |Sztring |[A-Za-z0-9] + | |
+| Name (Név) |X |Sztring |[A-Za-z0-9] + | |
 | Gyártó/kiadó |X |Sztring |[A-Za-z0-9] + | |
 | Verzió |X |Sztring |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metaadatok
 
-| Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Megjelenítendő név |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
+| displayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
 | Összefoglalás |X |Sztring |60 – 100 karakter | |
@@ -235,7 +227,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 A piactér a következő ikonokat használja:
 
-| Név | Szélesség | Magasság | Megjegyzések |
+| Name (Név) | szélessége | magasság | Megjegyzések |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
@@ -251,18 +243,18 @@ Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Megjelenítendő név |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
+| displayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>További tulajdonságok
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Név | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Megjelenítendő név |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
+| displayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Value (Díj) |X |Sztring |Legfeljebb 30 karakter. | |
 
 ### <a name="html-sanitization"></a>HTML-tisztítás

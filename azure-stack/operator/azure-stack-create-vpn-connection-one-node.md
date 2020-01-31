@@ -1,28 +1,19 @@
 ---
-title: Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben | Microsoft Docs
+title: Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben
 description: Oktatóanyag a Felhőbeli operátorok számára két egycsomópontos Azure Stack Development Kit (ASDK) környezetek közötti helyek közötti VPN-kapcsolat létrehozásához.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 56d2a07b4c13964dc5bdd26aac1bdd9abe9546d3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516725"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879924"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben
 
@@ -63,7 +54,7 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 |   |POC1|POC2|
 |---------|---------|---------|
 |Virtuális hálózat neve     |VNET-01|VNET – 02 |
-|Virtuális hálózat címtartománya |10.0.10.0/23|10.0.20.0/23|
+|Virtuális hálózati címtartomány |10.0.10.0/23|10.0.20.0/23|
 |Alhálózat neve     |Alhálózat – 01|Alhálózat – 02|
 |Alhálózati címtartomány|10.0.10.0/24 |10.0.20.0/24 |
 |Átjáró alhálózata     |10.0.11.0/24|10.0.21.0/24|
@@ -121,7 +112,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
 4. A **név**mezőben adja meg a **GW1**.
@@ -167,7 +158,7 @@ Erre általánosságban úgy gondolhat, hogy a helyi hálózati átjáró erőfo
 
 A VPN-kapcsolaton keresztül áthaladó adatellenőrzéshez szüksége lesz a virtuális gépekre az egyes ASDK való adatküldéshez és fogadáshoz. Hozzon létre egy virtuális GÉPET a POC1-ben, majd a virtuális hálózatán helyezze el a virtuálisgép-alhálózatán:
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapvető beállítások** panelen, a **név**mezőben adja meg a **VM01**nevet.
@@ -209,7 +200,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.  
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.  
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
 4. A **név**mezőben adja meg a **GW2**.
@@ -246,7 +237,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 Most hozzon létre egy virtuális GÉPET a POC2-ben, és helyezze a virtuális hálózata virtuálisgép-alhálózatára:
 
-1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
+1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapvető beállítások** panelen, a **név**mezőbe írja be a következőt: **VM02**.
@@ -334,7 +325,7 @@ Annak érdekében, hogy a forgalmat a helyek közötti kapcsolaton keresztül k�
 3. A virtuális gépek listájában keresse meg a korábban létrehozott **VM01** , majd jelölje ki.
 4. A virtuális gép paneljén kattintson a **kapcsolat**elemre, majd nyissa meg a VM01. rdp fájlt.
 
-     ![Csatlakozás gomb](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![Csatlakozási gomb](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. Jelentkezzen be azzal a fiókkal, amelyet a virtuális gép létrehozásakor konfigurált.
 6. Nyisson meg egy emelt szintű **Windows PowerShell** -ablakot.

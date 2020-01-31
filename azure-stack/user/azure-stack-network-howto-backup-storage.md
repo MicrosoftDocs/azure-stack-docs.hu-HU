@@ -1,20 +1,18 @@
 ---
-title: A Storage-fiókok biztonsági mentése Azure Stack hub-on | Microsoft Docs
+title: A Storage-fiókok biztonsági mentése Azure Stack hub-on
 description: Ismerje meg, hogyan készíthet biztonsági másolatot a Storage-fiókokról Azure Stack hub-on.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 0067a490df899d696524f661e30dfcb2fd0ed662
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b01f4b796f3d436f42da7cba5f2df60e1c666856
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536538"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884576"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
 
@@ -26,7 +24,7 @@ Ez a szakasz a megoldás és a főbb részek általános szerkezetét vizsgálja
 
 ![Azure Stack hub tároló biztonsági mentése](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
-### <a name="application-layer"></a>Alkalmazás rétege
+### <a name="application-layer"></a>Alkalmazásréteg
 
 Az adatok replikálása a Storage-fiókok között külön Azure Stack hub-méretezési egységeken történik több [put blob](https://docs.microsoft.com/rest/api/storageservices/put-blob) kiállításával, vagy a [Letiltás](https://docs.microsoft.com/rest/api/storageservices/put-block) műveletekkel több helyre is írhat objektumokat. Azt is megteheti, hogy az alkalmazás kiállíthatja a [blob másolása](https://docs.microsoft.com/rest/api/storageservices/copy-blob) műveletet úgy, hogy a blobot egy külön méretezési egységben üzemeltetett Storage-fiókba másolja, miután a Put művelet befejeződik az elsődleges fiókban.
 

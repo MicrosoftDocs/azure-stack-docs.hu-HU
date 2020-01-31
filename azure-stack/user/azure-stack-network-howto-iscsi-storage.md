@@ -1,20 +1,18 @@
 ---
-title: Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával | Microsoft Docs
+title: Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 description: Megtudhatja, hogyan csatlakozhat az iSCSI-tárolóhoz Azure Stack hub használatával.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 0e5f87b0cb6920a32021795042a31b740c52adcf
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259783"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883364"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 

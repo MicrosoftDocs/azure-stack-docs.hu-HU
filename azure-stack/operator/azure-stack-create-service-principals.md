@@ -3,16 +3,15 @@ title: Alkalmazás-identitás használata az erőforrásokhoz való hozzáféré
 description: Megtudhatja, hogyan kezelheti az Azure Stack hub egyszerű szolgáltatásait. Az egyszerű szolgáltatás a bejelentkezéshez és az erőforrásokhoz való hozzáféréshez szerepköralapú hozzáférés-vezérléssel használható.
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883099"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879856"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -35,8 +34,8 @@ Az alkalmazás egy egyszerű szolgáltatásnév identitása alatt való futtatá
 
 Első lépésként hozzon létre egy új alkalmazást a címtárban, amely létrehoz egy társított [egyszerű objektumot](/azure/active-directory/develop/developer-glossary#service-principal-object) , amely az alkalmazás identitását jelöli a címtárban. Ez a dokumentum leírja, hogyan kell létrehozni és felügyelni egy egyszerű szolgáltatásnevet a Azure Stack hub-példányhoz választott könyvtártól függően:
 
-- Azure Active Directory (Azure AD). Az Azure AD egy több-bérlős felhőalapú címtár- és identitáskezelési szolgáltatás. Az Azure AD-t egy csatlakoztatott Azure Stack hub-példánnyal is használhatja.
-- Active Directory összevonási szolgáltatások (AD FS). A AD FS egyszerűsített, biztonságos identitás-összevonást és webes egyszeri bejelentkezési (SSO) képességeket biztosít. AD FS a csatlakoztatott és a leválasztott Azure Stack hub-példányokkal is használható.
+- Azure Active Directory (Azure AD). Az Azure AD egy több-bérlős, felhőalapú címtár-és Identitáskezelés-kezelő szolgáltatás. Az Azure AD-t egy csatlakoztatott Azure Stack hub-példánnyal is használhatja.
+- Active Directory összevonási szolgáltatások (AD FS) (AD FS). A AD FS egyszerűsített, biztonságos identitás-összevonást és webes egyszeri bejelentkezési (SSO) képességeket biztosít. AD FS a csatlakoztatott és a leválasztott Azure Stack hub-példányokkal is használható.
 
 Először megtudhatja, hogyan kezelheti a szolgáltatást, majd hogyan rendelheti hozzá az egyszerű szolgáltatást egy szerepkörhöz, és korlátozza az erőforrás-hozzáférését.
 
@@ -48,7 +47,7 @@ Ha az Azure AD-val telepített Azure Stack hubot az identitáskezelési szolgál
 
 Ebben a szakaszban a Azure Portal használatával regisztrálja az alkalmazást, amely létrehozza az egyszerű szolgáltatásnév objektumot az Azure AD-bérlőben. Ebben a példában az egyszerű szolgáltatás ügyfél-titkos hitelesítő adatokkal jön létre, de a portál támogatja a X509 hitelesítő adatait is.
 
-1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com) az Azure-fiókkal.
+1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com) az Azure-fiók használatával.
 2. Válassza a **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.
 3. Adja meg az alkalmazás **nevét** .
 4. Válassza ki a megfelelő **támogatott fióktípus-típusokat**.

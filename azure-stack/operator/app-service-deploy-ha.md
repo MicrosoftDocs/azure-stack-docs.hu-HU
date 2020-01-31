@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub App Service üzembe helyezése egy magasan elérhető konfigurációban | Microsoft Docs
+title: Azure Stack hub App Service üzembe helyezése egy magasan elérhető konfigurációban
 description: Megtudhatja, hogyan helyezheti üzembe a App Servicet a Azure Stack hub-ban egy magasan elérhető konfiguráció használatával.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 0d1912a753ae29eb7a4c0ee8b583c34821962f60
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 1b72a2d71c2ff5e467486fa9672607cca78a38e9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023036"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876905"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service üzembe helyezése egy magasan elérhető konfigurációban
 
@@ -162,7 +153,7 @@ A App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az aláb
 
     ![Vnet kiválasztása App Service](media/app-service-deploy-ha/06.png)
 
-8. Adja meg a korábban rögzített sablon kimeneteit a fájlmegosztás elérési útjának és a fájlmegosztás tulajdonosának paramétereinek. Amikor végzett, kattintson a **Tovább**gombra.
+8. Adja meg a korábban rögzített sablon kimeneteit a fájlmegosztás elérési útjának és a fájlmegosztás tulajdonosának paramétereinek. Ha elkészült, kattintson a **tovább**gombra.
 
     ![Fájlmegosztás kimeneti adatai App Service](media/app-service-deploy-ha/07.png)
 

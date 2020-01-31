@@ -1,27 +1,18 @@
 ---
-title: A Azure Stack hub erőforrásaihoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérléssel | Microsoft Docs
+title: A Azure Stack hub erőforrásaihoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérléssel
 description: Megtudhatja, hogyan kezelheti a szerepköralapú hozzáférés-vezérlés (RBAC) engedélyeit rendszergazdaként vagy bérlőként Azure Stack központban.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: e242900d3604369306717a3d4cc2c5e3aae7932c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 65e5c5fe52ec2901379571103686bd816819909f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879581"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884698"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>A Azure Stack hub erőforrásaihoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérléssel
 

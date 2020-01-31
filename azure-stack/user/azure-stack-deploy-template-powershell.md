@@ -1,26 +1,18 @@
 ---
-title: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban | Microsoft Docs
+title: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban
 description: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 010d6a31ec9bd618ea9b4394b505649f2146a80d
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e0398eb36834676fec53103bb07dbe24bdc57c5d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536317"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883820"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban
 
@@ -34,7 +26,7 @@ Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablo
 > A példa kipróbálása előtt ellenőrizze, hogy konfigurálta-e a [PowerShellt](azure-stack-powershell-configure-user.md) egy Azure stack hub-felhasználóhoz.
 
 1. Keresse meg a [AzureStack-Gyorsindítás-sablonok](https://aka.ms/AzureStackGitHub) tárházat, és keresse meg a **101-Simple-Windows-VM** sablont. Mentse a sablont erre a helyre: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
-2. Nyisson meg egy emelt szintű PowerShell-parancssort.
+2. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 3. Cserélje le `username` és `password` a következő parancsfájlban a felhasználónevével és jelszavával, majd futtassa a szkriptet:
 
     ```powershell

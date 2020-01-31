@@ -1,26 +1,18 @@
 ---
-title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on | Microsoft Docs
+title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 description: Kubernetes-fürt üzembe helyezése Azure Stack hub-on az AK-motort futtató ügyfél virtuális gépről.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883566"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884805"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -80,7 +72,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | --- | --- |
     | dnsPrefix | Adjon meg egy egyedi karakterláncot, amely a virtuális gépek állomásneve azonosítására szolgál majd. Például egy név az erőforráscsoport neve alapján. |
     | count |  Adja meg a központi telepítéshez használni kívánt főkiszolgálók számát. HA egy HA üzemelő példány esetében a minimum a 3, az 1 érték nem lehet üzemelő példányokhoz. |
-    | vmSize |  Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
+    | VmSize |  Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
 8.  A tömb `agentPoolProfiles` frissítésében:
@@ -88,7 +80,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | Mező | Leírás |
     | --- | --- |
     | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. |
-    | vmSize | Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
+    | VmSize | Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
 9.  A tömb `linuxProfile` frissítésében:
@@ -158,7 +150,7 @@ Fürt üzembe helyezésének folytatása:
 
 ## <a name="verify-your-cluster"></a>A fürt ellenőrzése
 
-Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySQL-t a Helm használatával.
+Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySql-t a Helm használatával.
 
 1. Szerezze be az egyik főcsomópont nyilvános IP-címét az Azure Stack hub portál használatával.
 
@@ -166,31 +158,71 @@ Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySQL-
 
 3. Az SSH-felhasználónévhez használja az "azureuser" nevet, valamint a fürt üzembe helyezéséhez megadott kulcspár titkos kulcsát.
 
-4.  Futtassa az alábbi parancsot:
+4. A következő parancsok futtatásával hozzon létre egy Redis-főkiszolgáló minta-telepítését (csak a csatlakoztatott bélyegzők esetében):
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
+   ```
+
+    1. A hüvelyek listájának lekérdezése:
+
+       ```bash
+       kubectl get pods
+       ```
+
+    2. A válasznak a következőhöz hasonlónak kell lennie:
+
+       ```shell
+       NAME                            READY     STATUS    RESTARTS   AGE
+       redis-master-1068406935-3lswp   1/1       Running   0          28s
+       ```
+
+    3. Az üzembe helyezési naplók megtekintése:
+
+       ```shell
+       kubectl logs -f <pod name>
+       ```
+
+    A Redis főkiszolgálót tartalmazó minta PHP-alkalmazás teljes üzembe helyezéséhez kövesse [az itt található utasításokat](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/).
+
+5. Leválasztott bélyegző esetén a következő parancsoknak elegendőnek kell lenniük:
+
+    1. Először győződjön meg arról, hogy a fürt végpontjai futnak:
+
+       ```bash
+       kubectl cluster-info
+       ```
+
+       A kimenetnek a következőképpen kell kinéznie:
+
+       ```shell
+       Kubernetes master is running at https://democluster01.location.domain.com
+       CoreDNS is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+       kubernetes-dashboard is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+       Metrics-server is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+       ```
+
+    2. Ezután tekintse át a csomópont-állapotokat:
+
+       ```bash
+       kubectl get nodes
+       ```
+
+       A kimenet az alábbihoz hasonló lesz:
+
+       ```shell
+       k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-1   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-2   Ready      agent    9d    v1.15.5
+       k8s-master-29969128-0      Ready      master   9d    v1.15.5
+       k8s-master-29969128-1      Ready      master   9d    v1.15.5
+       k8s-master-29969128-2      Ready      master   9d    v1.15.5
+       ```
+
+6. Az alábbi parancs futtatásával törölheti az Redis POD üzembe helyezését az előző lépésből:
 
     ```bash
-    sudo snap install helm --classic
-    kubectl -n kube-system create serviceaccount tiller
-    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-    helm init --service-account=tiller
-    helm repo update
-    helm install stable/mysql
-    ```
-
-5.  A teszt tisztításához keresse meg a MySQL-telepítéshez használt nevet. A következő példában a név `wintering-rodent`. Ezután törölje. 
-
-    Futtassa az alábbi parancsot:
-
-    ```bash
-    helm ls
-    NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
-    wintering-rodent 1 Thu Oct 18 15:06:58 2018 DEPLOYED mysql-0.10.1 5.7.14 default
-    helm delete wintering-rodent
-    ```
-
-    Ekkor megjelenik a CLI:
-    ```bash
-    release "wintering-rodent" deleted
+    kubectl delete deployment -l app=redis
     ```
 
 ## <a name="next-steps"></a>Következő lépések

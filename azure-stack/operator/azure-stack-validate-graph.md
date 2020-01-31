@@ -1,27 +1,18 @@
 ---
 title: Azure Graph-integráció ellenőrzése Azure Stack hubhoz
 description: Az Azure Stack hub Readiness-ellenőrzővel ellenőrizheti Azure Stack hub Graph-integrációját.
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: b12cf8b12b0765b150a119483125ffcfecb6fc69
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 29cc035e66039d09e761410808098d57f0b1927f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812926"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882625"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Azure Stack hub gráf-integrációjának ellenőrzése
 

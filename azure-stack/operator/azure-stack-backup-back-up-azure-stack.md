@@ -1,27 +1,18 @@
 ---
-title: Azure Stack hub biztonsági mentése | Microsoft Docs
+title: Azure Stack hub biztonsági mentése
 description: Ismerje meg, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 04f07af2860518174bf1f2e65ed17e85c34b4692
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 85006def262ed689aabba741e7f08f679c9f98c4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882674"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877833"
 ---
 # <a name="back-up-azure-stack-hub"></a>Azure Stack hub biztonsági mentése
 

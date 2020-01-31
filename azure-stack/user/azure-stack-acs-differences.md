@@ -1,26 +1,18 @@
 ---
-title: Azure Stack hub tárolási különbségek és megfontolások | Microsoft Docs
+title: Azure Stack hub tárolási különbségek és megfontolások
 description: Ismerje meg az Azure Stack hub Storage és az Azure Storage közötti különbségeket, valamint Azure Stack hub üzembe helyezési szempontjait.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: dc50320941ab12fbd3f8b6b43f44e5ef9ddc7c45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 6e5171c105bd806895a04880e0bec0af5fab8855
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535807"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883969"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -46,7 +38,7 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 |A blob Storage tárolási szintjei|Gyakori, ritka elérésű és archív tárolási szintek.|Még nem támogatott.
 |A blob Storage-hoz készült Soft delete|Általánosan elérhető|Még nem támogatott.
 |Oldal blobjának maximális mérete|8 TB|1 TB
-|Oldal blob-oldalának mérete|512 bájt|4 KB
+|Oldal blob-oldalának mérete|512 bájt|4 KB
 |Tábla partíciós kulcsának és a sor kulcsának mérete|1 024 karakter (2 048 bájt)|400 karakter (800 bájt)
 |BLOB pillanatképe|Egy blob pillanatképének maximális száma nincs korlátozva.|Egy blob pillanatképének maximális száma 1 000.
 |Azure AD-hitelesítés a Storage-hoz|Előzetes verzióban|Még nem támogatott.

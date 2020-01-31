@@ -1,27 +1,18 @@
 ---
-title: Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetében | Microsoft Docs
+title: Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 description: Ismerje meg, hogyan tervezhet és készíthet elő adatközpont-integrációt Azure Stack hub integrált rendszerekkel.
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 07ec33de275d46dbdcab3d54c9baa69be8a1e3f2
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535484"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882471"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -92,7 +83,7 @@ A következő táblázat összefoglalja ezeket a tartománynév-elnevezési dön
 | Magánhálózati (belső) tartomány neve | A Azure Stack hub infrastruktúra-kezeléshez létrehozott tartományának (és belső DNS-zónájának) neve.
 | | |
 
-## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
+## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
 
 A telepítéshez SSL (SSL) tanúsítványokat kell megadnia a nyilvános végpontokhoz. A tanúsítványok magas szinten a következő követelményekkel rendelkeznek:
 
@@ -106,7 +97,7 @@ Ha további információra van szüksége arról, hogy milyen PKI-tanúsítvány
 > A PKI-tanúsítvány megadott információit általános útmutatásként kell használni. Az Azure Stack hub PKI-tanúsítványainak beszerzése előtt működjön együtt az OEM-hardveres partnerrel. Részletes tanúsítvány-útmutatást és követelményeket biztosítanak.
 
 
-## <a name="time-synchronization"></a>Időszinkronizálás
+## <a name="time-synchronization"></a>Idő szinkronizálása
 Ki kell választania egy adott időkiszolgálót, amely a Azure Stack hub szinkronizálására szolgál. Az időszinkronizálás kritikus fontosságú az Azure Stack hub és az infrastruktúra szerepkörei számára, mivel a Kerberos-jegyek létrehozásához használatos. A Kerberos-jegyek a belső szolgáltatások hitelesítésére szolgálnak egymással.
 
 Meg kell adnia egy IP-címet az időszinkronizálási kiszolgálóhoz. Bár az infrastruktúra legtöbb összetevője képes feloldani egy URL-címet, néhány csak az IP-címeket támogatja. Ha a leválasztott központi telepítési beállítást használja, meg kell adnia egy időkiszolgálót a vállalati hálózaton, hogy biztosan elérje az infrastruktúra-hálózatot Azure Stack központban.
@@ -133,12 +124,12 @@ A hibrid kapcsolatok esetében fontos figyelembe venni, hogy milyen típusú kö
  
 A következő táblázat összefoglalja a hibrid csatlakozási forgatókönyveket a profik, a hátrányok és a használati esetek között.
 
-| Alkalmazási helyzet | Csatlakozási módszer | Előnyök | Hátrányok | Jó a következőhöz: |
+| Alkalmazási helyzet | Csatlakozási módszer | Szakemberek | Hátrányok | Jó a következőhöz: |
 | -- | -- | --| -- | --|
 | Önálló bérlői Azure Stack hub, intranetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. Egyszerűen megvalósítható; nincs szükség átjáróra. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Vállalati üzemelő példányok, ahol az összes bérlő egyformán megbízható.<br><br>Olyan vállalatok, amelyek rendelkeznek Azure ExpressRoute-áramkörrel az Azure-ban. |
-| Több-bérlős Azure Stack hub, intranetes telepítés | Két hálózat közötti pont-pont típusú VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
+| Több-bérlős Azure Stack hub, intranetes telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
 | Egybérlős Azure Stack hub, internetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Üzemeltetési forgatókönyvek, amelyekben a bérlő saját Azure Stack hub-telepítést és dedikált áramkört kap a Azure Stack hub-környezethez. Például: ExpressRoute és többprotokollos felirat váltás (MPLS).
-| Több-bérlős Azure Stack hub, Internet-telepítés | Két hálózat közötti pont-pont típusú VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Üzemeltetési forgatókönyvek, ahol a szolgáltató több-bérlős felhőt szeretne nyújtani, ahol a bérlők nem bíznak egymással, és a forgalmat titkosítani kell.
+| Több-bérlős Azure Stack hub, Internet-telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Üzemeltetési forgatókönyvek, ahol a szolgáltató több-bérlős felhőt szeretne nyújtani, ahol a bérlők nem bíznak egymással, és a forgalmat titkosítani kell.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>A ExpressRoute használata

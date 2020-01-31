@@ -1,25 +1,18 @@
 ---
-title: API-verziók profiljainak használata a Node. js-sel Azure Stack hub-ban | Microsoft Docs
+title: API-verziók profiljainak használata a Node. js-sel Azure Stack hub-ban
 description: Útmutató az API-verziók profiljainak a Node. js használatával Azure Stack hub-ban.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d235a128e9fc7bb0bdabec58f33ff6de76c50a5e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: b397ee97c5b1e7ea9cc1a47e60f24d21ae8d6f29
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256274"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884271"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Node. js szoftverfejlesztői készlettel (SDK) Azure Stack hub-ban
 
@@ -94,7 +87,7 @@ Ha a Node. js Azure SDK-t Azure Stack hubhoz szeretné használni, meg kell adni
 | Bérlőazonosító | BÉRLŐi\_azonosítója | Az Azure Stack hub- [bérlő azonosítójának](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)értéke. |
 | Ügyfél-azonosító | ÜGYFÉL\_azonosítója | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a jelen dokumentum előző szakaszában a szolgáltatásnév lett létrehozva.  |
 | Subscription ID (Előfizetés azonosítója) | Az AZURE\_előfizetése\_ID azonosító az [előfizetés azonosítója](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) , hogyan érheti el az ajánlatokat az Azure stack hub-ban.  |
-| Titkos ügyfélkulcs | ALKALMAZÁS\_TITKa | Az egyszerű szolgáltatásnév alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
+| Ügyfél titka | ALKALMAZÁS\_TITKa | Az egyszerű szolgáltatásnév alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
 | Resource Manager-végpont | ARM\_VÉGPONT | Tekintse meg [az Azure stack hub Resource Manager-végpontot](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Környezeti változók beállítása a Node. js-hez

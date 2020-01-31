@@ -1,28 +1,24 @@
 ---
-title: Felkészülés a bővítmény gazdagépére Azure Stack hub-ban | Microsoft Docs
+title: A bővítmény-gazdagép előkészítése Azure Stack központban
 description: Megtudhatja, hogyan készítheti elő a bővítmények gazdagépét Azure Stack hub-ban, amely a 1808-es verzió után automatikusan engedélyezve van egy Azure Stack hub-frissítési csomagon keresztül.
-services: azure-stack
-keywords: ''
-author: mattbriggs
-ms.author: mabrigg
+author: ihenkel
+ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.reviewer: thoroet
-manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 070e7bd8a933b3d04185b40f322931ea60f3bbae
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535467"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882267"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>A bővítmény-gazdagép előkészítése Azure Stack központban
 
 A bővítmény-gazdagép a szükséges TCP/IP-portok számának csökkentésével biztonságossá teszi Azure Stack hubot. Ez a cikk az 1808-es frissítés után az Azure Stack hub-frissítési csomagon keresztül automatikusan engedélyezett bővítmény-gazdagépre vonatkozó Azure Stack hub előkészítését vizsgálja. Ez a cikk a 1808-es, 1809-as és 1811-es Azure Stack hub-frissítésekre vonatkozik.
 
-## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
+## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
 
 A bővítmény-gazdagép két új tartományi névteret valósít meg az egyes portál-bővítmények egyedi gazdagép-bejegyzéseinek biztosításához. Az új tartományi névtereknek két további helyettesítő tanúsítványra van szükségük a biztonságos kommunikáció biztosításához.
 
@@ -171,7 +167,7 @@ Else {
 Remove-PSSession -Session $PEPSession
 ```
 
-#### <a name="sample-output"></a>Minta kimenet
+#### <a name="sample-output"></a>Minta kimenete
 
 ```powershell
 Can access AZS DNS

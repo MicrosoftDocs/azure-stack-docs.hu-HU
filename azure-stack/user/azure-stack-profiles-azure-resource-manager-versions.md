@@ -1,25 +1,18 @@
 ---
-title: Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók | Microsoft Docs
+title: Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 description: Ismerkedjen meg az Azure Stack hub-profilok által támogatott Azure Resource Manager API-verziókkal.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 03ec8b455991a85515793d1098df0f72497299b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727496"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883306"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 
@@ -56,7 +49,7 @@ Az API-profilban található szolgáltatókhoz tartozó egyes erőforrástípuso
 
 ### <a name="microsoftauthorization"></a>Microsoft. Authorization
 
-A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a szervezete felhasználói által az erőforrásokra vonatkozó műveleteket. Szerepköröket határozhat meg, szerepköröket rendelhet hozzá a felhasználókhoz vagy csoportokhoz, és információkat kérhet le az engedélyekről. További információt az [Engedélyezés](/rest/api/authorization/) témakörben talál.
+A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a szervezete felhasználói által az erőforrásokra vonatkozó műveleteket. Szerepköröket határozhat meg, szerepköröket rendelhet hozzá a felhasználókhoz vagy csoportokhoz, és információkat kérhet le az engedélyekről. További információ: [Engedélyezés](/rest/api/authorization/).
 
 | Erőforrástípusok | API-verziók |
 |---------------------|--------------------|
@@ -82,7 +75,7 @@ A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a sze
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Az Azure Compute API-k programozott hozzáférést biztosítanak a virtuális gépekhez és az azokat kiszolgáló erőforrásokhoz. További információ: Azure-beli [számítás](/rest/api/compute/).
+Az Azure számítási API-k programozási szintű hozzáférést biztosítanak a virtuális gépekhez és az azokhoz kapcsolódó erőforrásokhoz. További információ: Azure-beli [számítás](/rest/api/compute/).
 
 | Erőforrás típusa | API-verzió |
 |---------------------------------------------------------------|-------------|
@@ -182,7 +175,7 @@ Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájá
 | Előfizetések/erőforrások | 2018-05-01 |
 | Előfizetések/tagNames | 2018-05-01 |
 | Előfizetések/tagNames/tagValues | 2018-05-01 |
-| Bérlők | 2016-06-01 |
+| bérlők | 2016-06-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 

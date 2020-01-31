@@ -1,25 +1,18 @@
 ---
-title: API-kérelmek készítése Azure Stack hubhoz | Microsoft Docs
+title: API-kérelmek készítése Azure Stack hubhoz
 description: Megtudhatja, hogyan kérhet le hitelesítést az Azure-ból, hogy API-kérelmeket Azure Stack hub-ra hozzon.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 4e3f118114a87fbfc279634d68fccb93687cb20b
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 45dd07337aef61a1fcfecb855e0c113315b15271
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750490"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883211"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

@@ -1,26 +1,18 @@
 ---
-title: Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként | Microsoft Docs
+title: Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 98b5cad057ae8a231569cfa7348cb9df16591ff4
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: d7667ed91cb3ebde2b74d05b655e3ff880685d98
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536028"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884534"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
 
@@ -82,7 +74,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 
-## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
+## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
 
 Ha minden beállítással rendelkezik, tesztelje a kapcsolatot a PowerShell használatával a Azure Stack hub erőforrásainak létrehozásához. Tesztként hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális gépet. Futtassa a következő parancsot egy "MyResourceGroup" nevű erőforráscsoport létrehozásához:
 

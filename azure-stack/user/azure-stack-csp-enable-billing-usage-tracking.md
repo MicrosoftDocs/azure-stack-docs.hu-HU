@@ -1,30 +1,22 @@
 ---
-title: Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack hub-előfizetését | Microsoft Docs
+title: Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack hub-előfizetését
 description: Ismerje meg, hogyan kezelheti a felhőalapú megoldás-szolgáltató (CSP) a Azure Stack hub-előfizetését.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: d6ad986c35a819b8cd3250914aeeefc6fd961486
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 5a04602c8906ba546190aa6783b4cbcf40b56cba
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706830"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883856"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack hub-előfizetését
 
-Ha a Azure Stack hubot felhőalapú megoldás-szolgáltatóval (CSP) használja, akkor dönthet úgy, hogy saját előfizetését felügyeli az Azure-ban és a Azure Stack hub-ban található erőforrások eléréséhez. Azt is engedélyezheti, hogy a szolgáltató kezelje az előfizetését. Ez a cikk a következőkhöz nyújt útmutatást:
+Ha a Azure Stack hubot felhőalapú megoldás-szolgáltatóval (CSP) használja, akkor dönthet úgy, hogy saját előfizetését felügyeli az Azure-ban és a Azure Stack hub-ban található erőforrások eléréséhez. Azt is engedélyezheti, hogy a szolgáltató kezelje az előfizetését. Ez a cikk bemutatja, hogyan végezheti el a következőket:
 
 * Adja meg a szolgáltatóhoz való hozzáférést az előfizetéséhez.
 * Győződjön meg arról, hogy a szolgáltató felügyelheti a szolgáltatást.

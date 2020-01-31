@@ -1,20 +1,18 @@
 ---
-title: C# ASP.net-webalkalmazás üzembe helyezése egy virtuális gépen Azure stack hub-ban | Microsoft Docs
+title: C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub virtuális gépén
 description: C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 070a168b28296e03dfa5e559eb68c40d84afb939
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816139"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884922"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen
 
@@ -49,7 +47,7 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
     b. Keresse meg a virtuális gépet. Lehet, hogy rögzítette a virtuális gépet az irányítópulton, vagy megkeresi az **erőforrások keresése** mezőben.
 
-    c. Válassza a **Hálózat** lehetőséget.
+    c. Válassza a **hálózatkezelés**lehetőséget.
 
     d. Válassza a **bejövő Port hozzáadása szabály** a virtuális gép alatt lehetőséget.
 

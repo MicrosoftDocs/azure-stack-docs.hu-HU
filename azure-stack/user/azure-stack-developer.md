@@ -1,27 +1,18 @@
 ---
-title: Alkalmazások fejlesztése Azure Stack hub-hoz | Microsoft Docs
+title: Alkalmazások fejlesztése Azure Stack hub-hoz
 description: Fejlesztési szempontok a Azure Stack hub-beli alkalmazások Azure-szolgáltatásokkal történő prototípusának fejlesztéséhez.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ba5aefa61db489f5f7063ebc4785785ba2f26f4c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: cddce90bf8675aa619175fca2e8c97468b1edebe
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883728"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883676"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Fejlesztés Azure Stack hub-hoz
 

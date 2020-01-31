@@ -1,26 +1,19 @@
 ---
-title: Interaktív funkció-ellenőrzési teszt a Azure Stack érvényesítés szolgáltatásban | Microsoft Docs
+title: Interaktív funkció-ellenőrzési tesztelés Azure Stack érvényesítés szolgáltatásként
 description: Megtudhatja, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stackhoz szolgáltatásként történő érvényesítéssel.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da64bbd13e2bfde5b469c1ae0de89d85a054e3c
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167249"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884138"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
