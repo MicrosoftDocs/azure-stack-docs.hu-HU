@@ -1,4 +1,4 @@
-- name: Azure Stack hub fejlesztői csomag dokumentációja
+- name: Azure Stack Development Kit dokumentáció
   href: index.yml
 - name: Áttekintés
   expanded: true
@@ -51,7 +51,7 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakör
+- name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator
@@ -69,5 +69,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Képzés és tanúsítványok
+    - name: Képzési és minősítési lehetőségek
       href: /azure-stack/operator/azure-stack-train-and-cert

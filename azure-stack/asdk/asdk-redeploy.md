@@ -1,28 +1,18 @@
 ---
-title: A ASDK újbóli üzembe helyezése | Microsoft Docs
+title: A ASDK újbóli üzembe helyezése
 description: Megtudhatja, hogyan telepítheti újra a Azure Stack Development Kit (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 5ff77bbe915a506803a1c06f68579c199439ea73
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: d0fc4539b581474c9db2a2dbb05495c9b1bce695
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025894"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873515"
 ---
 # <a name="redeploy-the-asdk"></a>A ASDK újbóli üzembe helyezése
 Ebből a cikkből megtudhatja, hogyan telepítheti újra a Azure Stack Development Kit (ASDK) nem éles környezetben. Mivel a ASDK frissítése nem támogatott, teljesen újra kell telepítenie, hogy egy újabb verzióra váltson. Újból üzembe helyezheti a ASDK, amikor teljesen új kezdést szeretne kezdeni.
@@ -33,7 +23,7 @@ Ebből a cikkből megtudhatja, hogyan telepítheti újra a Azure Stack Developme
 ## <a name="remove-azure-registration"></a>Azure-regisztráció eltávolítása 
 Ha korábban regisztrálta a ASDK-telepítést az Azure-ban, távolítsa el a regisztrációs erőforrást a ASDK újbóli üzembe helyezése előtt. Regisztrálja újra a ASDK, hogy engedélyezze a piactéren található elemek rendelkezésre állását a ASDK újbóli telepítésekor. Ha korábban még nem regisztrálta az ASDK az Azure-előfizetésével, kihagyhatja ezt a szakaszt.
 
-A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegistration** parancsmagot a Azure stack regisztrációjának törléséhez. Ezután a Remove **-AzureRMResourceGroup** parancsmag használatával törölje a Azure stack erőforráscsoportot az Azure-előfizetésből:
+A regisztrációs erőforrás eltávolításához használja a **Remove-AzsRegistration** parancsmagot a Azure stack regisztrációjának törléséhez. Ezután a **Remove-AzureRMResourceGroup** parancsmag használatával törölje a Azure stack erőforráscsoportot az Azure-előfizetésből:
 
 1. Nyisson meg egy PowerShell-konzolt rendszergazdaként egy olyan számítógépen, amely hozzáfér a Kiemelt végponthoz. A ASDK esetében ez a ASDK-gazda számítógép.
 
@@ -74,7 +64,7 @@ A Azure Stack mostantól sikeresen törölni kell az Azure-előfizetésből. A a
 Azure Stack újbóli üzembe helyezéséhez elölről kell kezdenie az alábbiak szerint. A lépések eltérnek attól függően, hogy a Azure Stack Installer (asdk-Installer. ps1) parancsfájlt használta-e a ASDK telepítéséhez.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>A ASDK újratelepítése a telepítő parancsfájl használatával
-1. A ASDK számítógépen nyisson meg egy rendszergazda jogú PowerShell-konzolt, és navigáljon a asdk-Installer. ps1 parancsfájlhoz a **AzureStack_Installer** könyvtárban, amely nem rendszermeghajtón található. Futtassa a szkriptet, és kattintson az **Újraindítás**gombra.
+1. A ASDK számítógépen nyisson meg egy rendszergazda jogú PowerShell-konzolt, és navigáljon a asdk-Installer. ps1 parancsfájlhoz a nem rendszermeghajtón található **AzureStack_Installer** könyvtárban. Futtassa a szkriptet, és kattintson az **Újraindítás**gombra.
 
    ![Futtassa a asdk-Installer. ps1 parancsfájlt](media/asdk-redeploy/1.png)
 
@@ -98,7 +88,7 @@ Ha nem a asdk-Installer. ps1 parancsfájlt használja a ASDK telepítéséhez, a
 3. Ismételje meg ugyanezen lépéseket, amelyeket először [a PowerShell használatával kell üzembe helyeznie a ASDK](asdk-deploy-powershell.md).
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [ASDK-telepítési feladatok közzététele](asdk-post-deploy.md)
 
 

@@ -1,26 +1,18 @@
 ---
-title: Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban | Microsoft Docs
+title: Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 description: Megtudhatja, hogyan használhatja az Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez a Azure Stack hub-ban található Linux-gépet az AK-motor üzemeltetéséhez.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/28/2020
+ms.openlocfilehash: 66e340df1d687e9a0c19f43c05c4fcb92e6940c2
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878951"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883546"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 
@@ -41,7 +33,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 
 1. Hozzon létre egy linuxos virtuális gépet a Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a `--version v0.43.0`verzióját. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK alaprendszerképének elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a `--version v0.43.0`verzióját. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa az alábbi parancsot:
 
     ```bash  

@@ -1,30 +1,20 @@
 ---
-title: Mi az Azure Stack hub Development Kit (ASDK)? | Microsoft Docs
-description: Ismerje meg az Azure Stack hub fejlesztői készletét, valamint azt, hogy a Azure Stack hub kiértékeléséhez hogyan használják.
-services: azure-stack
-documentationcenter: ''
+title: Mi a Azure Stack Development Kit (ASDK)? | Microsoft Docs
+description: Ismerje meg a Azure Stack Development Kit és az Azure Stack hub kiértékelésének módját.
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
 ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689827"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873294"
 ---
-# <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Mi az Azure Stack hub Development Kit (ASDK)?
+# <a name="what-is-the-azure-stack-development-kit-asdk"></a>Mi a Azure Stack Development Kit (ASDK)?
 A [Microsoft Azure stack hub integrált rendszereinek](../operator/azure-stack-overview.md) mérete 4-16 csomópontokból áll, és a hardvereszközök és a Microsoft közösen támogatja őket. Azure Stack hub integrált rendszerek használatával új forgatókönyveket engedélyezhet az éles számítási feladatokhoz. Ha Ön Azure Stack hub-kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az [operátori dokumentációt](/azure-stack/operator).
 
 A ASDK az Azure Stack hub egycsomópontos telepítése, amelyet **ingyenesen**letöltheti és használhatja. Minden ASDK-összetevő telepítve van egy olyan virtuális gépre (VM), amely egyetlen gazdagépen fut, és meg kell felelnie a [minimális hardverkövetelmények követelményeinek](asdk-deploy-considerations.md#hardware). A ASDK célja, hogy olyan környezetet biztosítson, amelyben kiértékelheti Azure Stack hub-t, és modern alkalmazásokat fejleszthet API-k használatával, és az Azure-t *nem éles* környezetben lehet kialakítani. 

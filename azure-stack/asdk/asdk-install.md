@@ -1,27 +1,18 @@
 ---
-title: A ASDK telepítése | Microsoft Docs
+title: A ASDK telepítése
 description: Ismerje meg, hogyan telepítheti a Azure Stack Development Kitt (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 732eef83c6a973a6afbe260e5cca8134dda46504
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159437"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873787"
 ---
 # <a name="install-the-asdk"></a>A ASDK telepítése
 A [ASDK gazdagépének előkészítése](asdk-prepare-host.md)után a Azure stack Development Kit (ASDK) üzembe helyezhető a CloudBuilder. vhdx lemezképben a jelen cikkben ismertetett lépések alapján.
@@ -34,7 +25,7 @@ A cikkben ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a 
 
 
 1. Miután a gazdaszámítógép sikeresen beindult a CloudBuilder. vhdx lemezképbe, jelentkezzen be a ASDK-gazdaszámítógép ASDK-telepítésre [való előkészítésekor](asdk-prepare-host.md) megadott rendszergazdai hitelesítő adatokkal. Ennek meg kell egyeznie a ASDK gazdagép helyi rendszergazdai hitelesítő adataival.
-2. Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa a  **&lt;meghajtóbetűjel > \AzureStack_Installer\asdk-Installer.ps1** PowerShell-parancsfájlt. Vegye figyelembe, hogy a parancsfájl mostantól egy másik meghajtón is lehet, mint a C:\ az CloudBuilder. vhdx képen. Kattintson az **Install** (Telepítés) gombra.
+2. Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa a **&lt;meghajtóbetűjelet > \ AzureStack_Installer \Asdk-Installer.ps1** PowerShell-parancsfájlt. Vegye figyelembe, hogy a parancsfájl mostantól egy másik meghajtón is lehet, mint a C:\ az CloudBuilder. vhdx képen. Kattintson az **Install** (Telepítés) gombra.
 
     ![A ASDK telepítése](media/asdk-install/1.PNG) 
 
@@ -46,7 +37,7 @@ A cikkben ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a 
 
     Az üzembe helyezést követően a Azure Active Directory (Azure AD) globális rendszergazdai jogosultsága nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Például egy erőforrás-szolgáltatói telepítő parancsfájl vagy egy új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
 
-    A AD FS identitás-szolgáltatóként való használatakor a rendszer az alapértelmezett Stamp Directory szolgáltatást használja. A szolgáltatással való bejelentkezéshez azurestackadmin@azurestack.localhasznált alapértelmezett fiók, és a használni kívánt jelszó a telepítés részeként megadott.
+    A AD FS identitás-szolgáltatóként való használatakor a rendszer az alapértelmezett Stamp Directory szolgáltatást használja. A bejelentkezéshez használt alapértelmezett fiók azurestackadmin@azurestack.local, és a használni kívánt jelszó a telepítés részeként megadott.
 
    > [!NOTE]
    > A legjobb eredmény érdekében akkor is érdemes a ASDK telepíteni, ha a leválasztott Azure Stack-környezetet a AD FS identitás-szolgáltató használatával kívánja használni. Így a Windows Server 2016 próbaverziója a ASDK-telepítésben is aktiválható a telepítéskor.
@@ -77,7 +68,7 @@ A cikkben ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a 
 
 8. Ha Azure AD-telepítést hajt végre, a telepítés megkezdése után néhány perc múlva meg kell adnia az Azure AD globális rendszergazdai fiókjának hitelesítő adatait.
 
-9. Az üzembe helyezési folyamat néhány órát is igénybe vehet, amíg a gazdaszámítógép automatikusan újraindul. Ha figyelni szeretné az üzembe helyezés folyamatát, jelentkezzen be a azurestack\AzureStackAdmin a ASDK-állomás újraindítása után. Ha az üzembe helyezés sikeres, a PowerShell-konzol a következőt jeleníti meg: **TELJES "Központi telepítés"** művelet. 
+9. Az üzembe helyezési folyamat néhány órát is igénybe vehet, amíg a gazdaszámítógép automatikusan újraindul. Ha figyelni szeretné az üzembe helyezés folyamatát, jelentkezzen be a azurestack\AzureStackAdmin a ASDK-állomás újraindítása után. Ha az üzembe helyezés sikeres, a PowerShell-konzol a következőt jeleníti meg: **Befejezés: művelet "központi telepítés"** . 
     > [!IMPORTANT]
     > Ha helyi rendszergazdaként jelentkezik be, miután a gép csatlakozott a azurestack tartományhoz, nem fogja látni a telepítési folyamatot. Ne futtassa újra az üzembe helyezést, hanem jelentkezzen be azurestack\AzureStackAdmin, hogy ellenőrizze, hogy fut-e.
 
@@ -92,5 +83,5 @@ Ha a központi telepítés valamilyen okból meghiúsul, újból [üzembe helyez
   .\InstallAzureStackPOC.ps1 -Rerun
   ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Üzembe helyezés utáni konfiguráció](asdk-post-deploy.md)

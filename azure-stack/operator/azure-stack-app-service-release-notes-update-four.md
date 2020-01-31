@@ -1,27 +1,19 @@
 ---
-title: App Service on Azure Stack hub Update 4 kibocsátási megjegyzései | Microsoft Docs
+title: App Service Azure Stack hub Update 4 kibocsátási megjegyzései
 description: Ismerkedjen meg a Azure Stack hub App Service a 4. frissítésével kapcsolatos javításokkal, javításokkal és ismert problémákkal.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 761d9ca8268664786fadc8c47c7269a346954d8f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 54eae566f2171c471f91e3aaeaf242b90998e962
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880464"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874416"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>App Service Azure Stack hub Update 4 kibocsátási megjegyzései
 
@@ -51,7 +43,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,4
 
 - Az **Egyéni szkriptek bővítményének** **1,9** -es verziója az Azure Marketplace-ről.
 
-### <a name="new-features-and-fixes"></a>Új funkciók és javítások
+### <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
 
 A Azure App Service on Azure Stack hub Update 4 a következő javításokat és javításokat tartalmazza:
 

@@ -2,18 +2,17 @@
 title: Hibrid felhőalapú kapcsolat konfigurálása az Azure és az Azure Stack hub használatával
 description: Megtudhatja, hogyan konfigurálhat hibrid felhőalapú kapcsolatot az Azure és a Azure Stack hub használatával.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881637"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875504"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Hibrid felhőalapú kapcsolat konfigurálása az Azure és az Azure Stack hub használatával
 
@@ -111,7 +110,7 @@ A következő lépésekkel hozhat létre virtuális hálózatot a portál haszn�
 VNet létrehozása az Azure-ban:
 
 1. A böngészőjével csatlakozhat a [Azure Portalhoz](https://portal.azure.com/) , és bejelentkezhet az Azure-fiókjával.
-2. Válassza az **Erőforrás létrehozása** lehetőséget. A **Keresés a piactéren** mezőbe írja be a "virtuális hálózat" kifejezést. Válassza ki a **virtuális hálózatot** az eredmények közül.
+2. Válassza **az erőforrás létrehozása**lehetőséget. A **Keresés a piactéren** mezőbe írja be a "virtuális hálózat" kifejezést. Válassza ki a **virtuális hálózatot** az eredmények közül.
 3. A **telepítési modell kiválasztása** listában válassza ki a **Resource Manager**elemet, majd válassza a **Létrehozás**lehetőséget.
 4. A **virtuális hálózat létrehozása**területen konfigurálja a VNet beállításait. A kötelező mezők nevei vörös csillaggal vannak ellátva.  Ha érvényes értéket ad meg, a csillag zöld pipa jelre változik.
 

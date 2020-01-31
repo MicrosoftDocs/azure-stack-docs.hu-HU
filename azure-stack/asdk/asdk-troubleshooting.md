@@ -1,27 +1,18 @@
 ---
-title: A ASDK hibáinak megoldása | Microsoft Docs
+title: A ASDK hibáinak megoldása
 description: Ismerje meg, hogyan lehet elhárítani a Azure Stack Development Kitt (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: d02b500fce65464ecc27e8fbbd6edbbf7c6882b3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659222"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873311"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
 Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
@@ -74,7 +65,7 @@ Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez
 Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](../operator/azure-stack-network.md).
 
 
-## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+## <a name="virtual-machines"></a>Virtuális gépek
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
 A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 

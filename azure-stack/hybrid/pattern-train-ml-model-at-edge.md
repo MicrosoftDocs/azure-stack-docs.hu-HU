@@ -2,18 +2,17 @@
 title: Minta a Machine Learning (ML) modellnek a peremhálózat szélén, az Azure és az Azure Stack hub használatával történő betanításához.
 description: Megtudhatja, hogyan használhatja az Azure-t és a Azure Stack hub-szolgáltatásokat a (z) ML-modell képzésének a szélén.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: a95102bcdc57bcad7116803768830f317ea48c4c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75717977"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877294"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Machine Learning (ML) modell betanítása a peremhálózati mintán
 

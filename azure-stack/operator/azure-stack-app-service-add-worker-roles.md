@@ -1,27 +1,18 @@
 ---
-title: Feldolgozók és infrastruktúra hozzáadása a App Service Azure Stack hub-ban | Microsoft Docs
+title: Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack hub-ban
 description: Részletes útmutató a Azure Stack hub Azure App Service méretezéséhez
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: cb46029fabb81c224716e5e1c5eb8f65cd0cd34e
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 346b55e867d5b6e21ac1004e9df5925c3cf01d0b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876490"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása Azure App Service Azure Stack hub-ban
 

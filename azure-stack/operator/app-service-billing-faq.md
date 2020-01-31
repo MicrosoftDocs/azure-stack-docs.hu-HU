@@ -1,27 +1,19 @@
 ---
-title: Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések | Microsoft Docs
+title: Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 description: Az Azure Stack hub Azure App Serviceának mérése és számlázása.
-services: azure-stack
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: f45cda455f0c13fd2e6c5cb431fb3c60d54dce03
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: c22bb6c29082449d7590ad67e0f51c8a7c1b7aca
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256325"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875283"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 
@@ -33,7 +25,7 @@ Azure Stack hub Cloud operátorok úgy döntenek, hogy a Azure App Service a Azu
 
 Az infrastruktúra-szerepkörök számlázása nem történik meg, mert a szolgáltatás alapvető működéséhez szükségesek. Az infrastruktúra szerepkörei igény szerint méretezhetők a Felhőbeli operátor bérlői igényeinek kielégítése érdekében. Az infrastruktúra-szerepkörök a következők:
 
-- Vezérlők
+- tartományvezérlők
 - Felügyeleti szerepkörök
 - Kiadók
 - Elülső végek

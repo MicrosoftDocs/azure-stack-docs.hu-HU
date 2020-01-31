@@ -1,27 +1,18 @@
 ---
-title: A ASDK-gazda számítógép előkészítése | Microsoft Docs
+title: A ASDK-gazda számítógép előkészítése
 description: Megtudhatja, hogyan készítheti elő a Azure Stack Development Kit (ASDK) gazdagépet a ASDK telepítéséhez.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
-ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 81e8e8f470988d84441d238ef677950df2d2334b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144016"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873617"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>A ASDK-gazda számítógép előkészítése
 Mielőtt telepítené a Azure Stack Development Kit (ASDK) a gazdaszámítógépre, elő kell készítenie a ASDK-gazdagépet a telepítéshez. A gazdagép előkészítése után a rendszer a CloudBuilder. vhdx virtuális gép (VM) merevlemezéről indítja el a ASDK üzembe helyezésének megkezdéséhez.
@@ -31,7 +22,7 @@ Mielőtt telepítené a ASDK a gazdagépen, elő kell készítenie a ASDK-gazda 
 
 1. Jelentkezzen be helyi rendszergazdaként a ASDK-gazdagépen.
 2. Győződjön meg arról, hogy a CloudBuilder. vhdx fájl át lett helyezve a C:\ gyökerébe meghajtó (`C:\CloudBuilder.vhdx`).
-3. Futtassa a következő szkriptet a ASDK Installer-fájl (asdk-Installer. ps1) letöltéséhez [Azure stack a GitHub-eszközök tárházában](https://github.com/Azure/AzureStack-Tools) a ASDK-gazdagép **C:\AzureStack_Installer** mappájába:
+3. Futtassa a következő szkriptet a ASDK Installer fájl (asdk-Installer. ps1) letöltéséhez [Azure stack a GitHub-eszközök tárházáról](https://github.com/Azure/AzureStack-Tools) a ASDK **c:\ AzureStack_Installer** mappájába:
 
    > [!IMPORTANT]
    > Ügyeljen arra, hogy minden alkalommal letöltse a asdk-Installer. ps1 fájlt, amikor telepíti a ASDK. A szkript gyakori módosításokat hajt végre, és a legújabb verziót kell használni minden ASDK-telepítéshez. Előfordulhat, hogy a parancsfájl régebbi verziói nem működnek a legfrissebb kiadással.
@@ -48,7 +39,7 @@ Mielőtt telepítené a ASDK a gazdagépen, elő kell készítenie a ASDK-gazda 
    Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
    ```
 
-4. Egy emelt szintű PowerShell-konzolon indítsa el a **C:\AzureStack_Installer\asdk-Installer.ps1** parancsfájlt, majd kattintson a **környezet előkészítése**elemre.
+4. Egy emelt szintű PowerShell-konzolon indítsa el a **c:\ AzureStack_Installer \asdk-Installer.ps1** parancsfájlt, majd kattintson a **környezet előkészítése**elemre.
 
     ![A környezet előkészítése a ASDK-ben](media/asdk-prepare-host/1.PNG) 
 
@@ -69,7 +60,7 @@ Mielőtt telepítené a ASDK a gazdagépen, elő kell készítenie a ASDK-gazda 
 
             ![A hálózati adapter beállításainak képernyőképe](media/asdk-prepare-host/step-four-network-adapter.png)
 
-        - Győződjön meg arról, hogy a megjelenített **IP-cím**, az **átjáró**és a **DNS-** érték helyes, adjon meg egy érvényes időkiszolgáló **IP-** címet, majd kattintson a **tovább**gombra.
+        - Győződjön meg arról, hogy a megjelenített **IP-cím**, az **átjáró**és a **DNS-** érték helyes, adjon meg egy érvényes **időkiszolgáló IP-** címet, majd kattintson a **tovább**gombra.
 
             >[!TIP]
             >Az időkiszolgáló IP-címének megkereséséhez látogasson el a [ntppool.org](https://www.ntppool.org/) vagy a ping Time.Windows.com. 
@@ -86,5 +77,5 @@ Mielőtt telepítené a ASDK a gazdagépen, elő kell készítenie a ASDK-gazda 
     ![A ASDK újraindítása](media/asdk-prepare-host/5.PNG)
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [A ASDK telepítése](asdk-install.md)

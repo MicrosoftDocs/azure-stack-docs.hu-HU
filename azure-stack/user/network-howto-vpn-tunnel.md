@@ -1,20 +1,18 @@
 ---
-title: Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban | Microsoft Docs
+title: Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 description: Ismerje meg, hogyan állíthat be több helyek közötti VPN-alagutat Azure Stack hub-ban.
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 42ed5facf2b88aee8eb5fefd514ee31df8722ecc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883048"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883015"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 
@@ -78,7 +76,7 @@ Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látha
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Tekintse át a webes és az alkalmazási rétegek központi telepítéseit és a rögzítési kimeneteket
 
-1.  Ellenőrizze, hogy az üzemelő példány sikeresen befejeződött-e. Válassza a **Kimenetek** lehetőséget.
+1.  Ellenőrizze, hogy az üzemelő példány sikeresen befejeződött-e. Válassza a **kimenetek**lehetőséget.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 

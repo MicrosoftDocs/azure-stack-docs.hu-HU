@@ -2,18 +2,17 @@
 title: Az Azure-ban és az Azure Stack Edge-ben való használatból kihasználható leltározási minta.
 description: Ismerje meg, hogyan használhatja az Azure-t és Azure Stack Edge-szolgáltatásokat a készletek észlelésének megvalósításához.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fb4eb410eefb8a34bd869543a191a1b044a42f72
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638529"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875538"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Az állományon kívüli észlelés az Edge-mintán
 

@@ -1,26 +1,18 @@
 ---
-title: App Service Azure Stack hub Update 7 kibocsátási megjegyzései | Microsoft Docs
+title: App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 description: Ismerje meg, hogy mi a hét frissítése a App Service Azure Stack hub-on, az ismert problémákról, valamint a frissítés letöltésének módjáról.
-services: azure-stack
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 87a2fae4c2020b9c37a2907b42299871b0c85095
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d4ddc7d0b6190c7f855b222079f8d13cb5d6e14e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880260"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874365"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 
@@ -51,7 +43,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,7
 
 - Az **Egyéni szkriptek bővítményének** **1.9.3** -verziójának szindikátusa a piactéren
 
-### <a name="new-features-and-fixes"></a>Új funkciók és javítások
+### <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
 
 A Azure App Service on Azure Stack hub Update 7 a következő javításokat és javításokat tartalmazza:
 

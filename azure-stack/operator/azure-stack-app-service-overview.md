@@ -1,26 +1,18 @@
 ---
-title: A Azure Stack áttekintése – áttekintés | Azure App Service Microsoft Docs
+title: Azure App Service Azure Stack áttekintés
 description: A Azure Stack hub Azure App Service és Azure Functions áttekintése.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 2b39b4e7bf8f4b7d3e24d2547e187b7e5d81c728
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 76acf85ac6bdfa1576416a9fc583463a71ad95d8
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124752"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876116"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Azure App Service és Azure Functions a Azure Stack hub-on – áttekintés
 
@@ -53,7 +45,7 @@ Az alkalmazás több App Service különböző típusú alkalmazásból is állh
 
    [![App Service áttekintése monitorozási adattal](media/azure-stack-app-service-overview/image01.png "App Service áttekintése monitorozási adattal")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
-## <a name="what-is-an-app-service-plan"></a>Mi az az App Service-csomag?
+## <a name="what-is-an-app-service-plan"></a>Mi az App Service terv?
 
 A App Service erőforrás-szolgáltató ugyanazt a kódot használja, amelyet Azure App Service használ, és így közös fogalmakat oszt meg. App Service az alkalmazások díjszabási tárolójának neve *app Service terv*. Az alkalmazások tárolására használt dedikált virtuális gépek készletét jelöli. Egy adott előfizetésen belül több App Service-csomag is megadható.
 

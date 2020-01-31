@@ -1,27 +1,18 @@
 ---
-title: Infrastructure Backup ajánlott eljárások az Azure Stack hub szolgáltatáshoz | Microsoft Docs
+title: Infrastructure Backup az Azure Stack hub szolgáltatás ajánlott eljárásai
 description: Az adatvesztés enyhítése érdekében az Azure Stack hub üzembe helyezése és kezelése során kövesse ezeket az ajánlott eljárásokat, ha végzetes hiba történt.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 4f25f1a2d78be5aafdfb6ef379353b148cf3b418
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882912"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878054"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Infrastructure Backup szolgáltatás – ajánlott eljárások
 
@@ -57,14 +48,14 @@ A kulcsot biztonságos helyen kell tárolni (például globális Azure Key Vault
 
 ![A kulcs tárolása biztonságos helyen történik.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
-## <a name="operational-best-practices"></a>Ajánlott üzemeltetési eljárások
+## <a name="operational-best-practices"></a>Operatív ajánlott eljárások
 
 ### <a name="backups"></a>Biztonsági másolatok
 
  - A biztonsági mentési feladatok a rendszer futása közben futnak, így nincs leállás a kezelési élmények vagy a felhasználói alkalmazások esetében. A biztonsági mentési feladatok 20-40 percet vesznek igénybe egy ésszerű terhelés alá tartozó megoldás esetében.
  - A SZÁMÍTÓGÉPGYÁRTÓ által megadott utasításokat, a hálózati kapcsolók manuális biztonsági mentését, valamint a hardveres életciklus-gazdagépet (HLH) ugyanazon a biztonsági mentési megosztáson kell tárolni, ahol a Infrastructure Backup vezérlő tárolja a vezérlési sík biztonsági mentési információit. Érdemes lehet kapcsoló-és HLH-konfigurációkat tárolni a régió mappában. Ha több Azure Stack hub-példánya van ugyanabban a régióban, érdemes lehet azonosítót használni a méretezési egységhez tartozó minden egyes konfigurációhoz.
 
-### <a name="folder-names"></a>Mappanevek
+### <a name="folder-names"></a>Mappák nevei
 
  - Az infrastruktúra automatikusan hozza létre a MASBACKUP mappát. Ez egy Microsoft által felügyelt megosztás. A megosztásokat a MASBACKUP azonos szinten is létrehozhatja. Nem ajánlott mappák vagy tárolási adattárolót létrehozni a MASBACKUP belül, hogy Azure Stack hub ne hozzon létre.
  -  A felhasználói FQDN és a mappa neve a különböző felhőkből származó biztonsági mentési adatok megkülönböztetéséhez. A Azure Stack hub központi telepítésének és végpontjának teljes tartományneve a régió paraméter és a külső tartománynév paraméter kombinációja. További információ: [Azure stack hub Datacenter Integration-DNS](azure-stack-integrate-dns.md).
@@ -93,7 +84,7 @@ A számítógépgyártóknak javasoljuk, hogy a régió mappájában tárolja az
 
 A rendszer a következő riasztásokat támogatja:
 
-| Riasztás                                                   | Leírás                                                                                     | Szervizelés                                                                                                                                |
+| Riasztás                                                   | Leírás                                                                                     | Szervizkiszolgáló                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | A biztonsági mentés nem sikerült, mert a fájlmegosztás kapacitása nem működik. | A fájlmegosztás nem kapacitású, és a biztonságimásolat-vezérlő nem tudja exportálni a biztonságimásolat-fájlokat a helyre. | Vegyen fel további tárolókapacitást, és próbálkozzon újra a biztonsági mentéssel. A meglévő biztonsági másolatok törlése (az elsőtől kezdve) szabadítson fel lemezterületet.                    |
 | Csatlakozási problémák miatt nem sikerült a biztonsági mentés.             | A Azure Stack hub és a fájlmegosztás közötti hálózat problémákba ütközik.                          | Oldja meg a hálózati problémát, és próbálkozzon újra a biztonsági mentéssel.                                                                                            |

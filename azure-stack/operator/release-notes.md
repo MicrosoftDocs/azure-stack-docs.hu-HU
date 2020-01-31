@@ -1,37 +1,28 @@
 ---
-title: Azure Stack hub kibocsátási megjegyzései | Microsoft Docs
-description: Ismerje meg az Azure Stack hub integrált rendszereinek frissítéseit, beleértve az újdonságokat, valamint a frissítés letöltésének helyét.
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack hub kibocsátási megjegyzései
+description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 41cb61022f3bceda1b54ef88b2209f92b057b19a
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 9f2dee0503f5b3210fa8bb8e81f23c326b3b360b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259732"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885145"
 ---
-# <a name="azure-stack-hub-updates-release-notes"></a>Azure Stack hub frissítései: kibocsátási megjegyzések
+# <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
-Ez a cikk Azure Stack hub frissítési csomagjainak tartalmát ismerteti. A frissítés a Azure Stack hub ezen kiadásának újdonságait és javításait tartalmazza.
+Ez a cikk Azure Stack hub frissítési csomagjainak tartalmát ismerteti. A frissítés az Azure Stack hub legújabb kiadásának javításait és javításait is tartalmazza.
 
 Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal oldali tartalomjegyzéknél használja a verziószám legördülő menüt.
 
 ::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
-> Ez a frissítési csomag csak Azure Stack hub integrált rendszerekhez használható. Ezt a frissítési csomagot ne alkalmazza a Azure Stack Development Kit.
+> Ez a frissítési csomag csak Azure Stack hub integrált rendszerekhez használható. Ne alkalmazza ezt a frissítési csomagot a Azure Stack Development Kitra (ASDK).
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
@@ -58,11 +49,11 @@ Az Azure Stack hub 1910 Update Build száma **1.1910.0.58**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az 1908-es verziójától kezdve a mögöttes operációs rendszer, amelyen Azure Stack hub fut, a Windows Server 2019-re frissült. Ez lehetővé teszi az alapvető fontosságú fejlesztéseket, valamint a közeljövőben további képességeket is Azure Stack hubhoz.
+Az 1908-es verziójától kezdve a mögöttes operációs rendszer, amelyen Azure Stack hub fut, a Windows Server 2019-re frissült. Ez a frissítés lehetővé teszi az alapszintű fejlesztéseket és az Azure Stack hub további képességeinek kihasználását.
 
 Az Azure Stack hub 1910 Update Build típusa **expressz**.
 
-Az 1910-es frissítési csomag mérete nagyobb a korábbi frissítésekhez képest. A megnövelt méret a letöltendő időt eredményezi. A frissítés hosszú ideig az **előkészítési** állapotban marad, és a kezelők a korábbi frissítéseknél hosszabb időt vehetnek igénybe. Az 1910-es frissítés befejezéséhez szükséges idő körülbelül 10 óra, az Azure Stack hub-környezetben található fizikai csomópontok számától függetlenül. A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszerhardver-specifikációk alapján használt kapacitástól függenek. A várt értéknél hosszabb ideig tartó futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack hub-operátorok számára, kivéve, ha a frissítés meghiúsul. Ez a futtatókörnyezeti közelítés az 1910-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
+Az 1910-es frissítési csomag mérete nagyobb a korábbi frissítésekhez képest, ami hosszabb letöltési időt eredményez. A frissítés hosszú ideig az **előkészítési** állapotban marad, és a kezelők elvárhatják, hogy ez a folyamat továbbra is a korábbi frissítéseknél tovább tartson. Az 1910-es frissítés befejezésének várható időpontja körülbelül 10 óra, az Azure Stack hub-környezetben található fizikai csomópontok számától függetlenül. A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszerhardver-specifikációk alapján használt kapacitástól függenek. A várt értéknél hosszabb ideig tartó futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek műveletet Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul. Ez a futtatókörnyezeti közelítés az 1910-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
 
 További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack hub-ban](azure-stack-updates.md).
 
@@ -76,7 +67,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - A felügyeleti portál mostantól megjeleníti a Kiemelt végpontok IP-címeit a régió tulajdonságok menüjében, amely megkönnyíti a felderítést. Emellett megjeleníti az aktuálisan konfigurált időkiszolgálót és a DNS-továbbítókat. További információ: [a privilegizált végpont használata Azure stack központban](azure-stack-privileged-endpoint.md).
 
-- A Azure Stack hub állapot-és monitorozási rendszere mostantól hibát okozhat a különböző hardver-összetevőkön. Ehhez további konfigurálásra van szükség. További információ: [Azure stack hub hardver-összetevők figyelése](azure-stack-hardware-monitoring.md).
+- A Azure Stack hub állapot-és monitorozási rendszere mostantól hibát okozhat a különböző hardver-összetevőkön. Ezek a riasztások további konfigurálást igényelnek. További információ: [Azure stack hub hardver-összetevők figyelése](azure-stack-hardware-monitoring.md).
 
 - [Cloud-init támogatás az Azure stack hub számára](/azure/virtual-machines/linux/using-cloud-init): a Cloud-init egy széles körben használt módszer a Linux RENDSZERű virtuális gépek első indításához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához. A piactéren lévő Ubuntu-lemezképek frissítve lettek a Cloud-init támogatásához a kiépítés érdekében.
 
@@ -98,9 +89,9 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
   - Használjon olyan Azure Resource Manager integrált Kubernetes-szolgáltatót, amely natív Azure-erőforrásokkal rendelkező fürtöket hoz létre.
   - Fürtök üzembe helyezése és kezelése csatlakoztatott vagy leválasztott Azure Stack hub-bélyegzővel.
   - Azure Hybrid-funkciók használata:
-    - Integráció az Azure arc szolgáltatással (a privát előzetes verzió hamarosan elérhető lesz).
-    - Integráció a Azure Monitor for containers (nyilvános előzetes verzióban).
-  - A Windows-tárolók használata az KABAi motorral (privát előzetes verzió).
+    - Integráció az Azure Arcmal.
+    - Integráció a Azure Monitor for containers szolgáltatással.
+  - Használjon Windows-tárolókat az AK-motorral.
   - Az üzembe helyezésekhez CSS-és mérnöki támogatást kaphat.
 
 ### <a name="improvements"></a>Fejlesztései
@@ -115,11 +106,11 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Olyan naplózási szabályt adott hozzá, amely azt jelenti, hogy egy külső eszköz (például egy USB-kulcs) csatlakoztatva van az Azure Stack hub-infrastruktúra egy csomópontjához. A napló a syslog használatával lett kibocsátva, és a **Microsoft-Windows-Security-audit: 6416 | Plug and Play események**. A syslog-ügyfél konfigurálásával kapcsolatos további információkért lásd: [syslog-továbbítás](azure-stack-integrate-security.md).
 
-- Azure Stack hub a belső tanúsítványok 4096 bites RSA-kulcsaira van áthelyezve. A belső titkos kód futtatásával a régi 2048 bites tanúsítványokat a 4096 bites tanúsítványokkal helyettesíti. További információ a Azure Stack hub Secret rotációs szolgáltatásáról: [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md).
+- Azure Stack hub a belső tanúsítványok 4096 bites RSA-kulcsaira vált. A belső titkos kód futtatásával a régi 2048 bites tanúsítványokat a 4096 bites tanúsítványokkal helyettesíti. További információ a Azure Stack hub Secret rotációs szolgáltatásáról: [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md).
 
-- A titkosítási algoritmusok és a kulcs erősségének frissítése több belső összetevő esetében, hogy megfeleljen a nemzetbiztonsági rendszerek Bizottságának – Policy 15 (CNSSP-15), amely ajánlott eljárásokat biztosít a nyilvános szabványok biztonságos használatához Információmegosztás. A tökéletesítések közé tartozik a Kerberos-hitelesítés AES256, valamint a SHA384 a VPN-titkosításhoz. A CNSSP-15-re vonatkozó további információkért tekintse [meg a nemzeti biztonsági rendszerek, szabályzatok oldalának Bizottságát](http://www.cnss.gov/CNSS/issuances/Policies.cfm).
+- A titkosítási algoritmusok és a kulcs erősségének frissítése több belső összetevő esetében, hogy megfeleljen a nemzetbiztonsági rendszerek Bizottságának – Policy 15 (CNSSP-15), amely ajánlott eljárásokat biztosít a nyilvános szabványok biztonságos használatához Információmegosztás. A tökéletesítések közé tartozik a Kerberos-hitelesítés és a VPN-titkosítás SHA384 AES256. A CNSSP-15-re vonatkozó további információkért tekintse [meg a nemzeti biztonsági rendszerek, szabályzatok oldalának Bizottságát](http://www.cnss.gov/CNSS/issuances/Policies.cfm).
 
-- A fenti frissítés eredményeképpen Azure Stack hub mostantól új alapértelmezett értékeket tartalmaz az IPsec/IKEv2 konfigurációkhoz. Az Azure Stack hub oldalon használt új alapértelmezett értékek a következők:
+- A fenti frissítés miatt Azure Stack hub mostantól új alapértelmezett értékeket tartalmaz az IPsec/IKEv2 konfigurációkhoz. Az Azure Stack hub oldalon használt új alapértelmezett értékek a következők:
 
    **IKE 1. fázis (fő módú) paraméterek**
 
@@ -149,13 +140,13 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 ### <a name="changes"></a>Változások
 
-- A Piactéri elemek Azure-ból Azure Stack hubhoz való letöltésekor új felhasználói felület áll rendelkezésre, amely lehetővé teszi az elem verziójának megadását, ha több verzió is létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).  
+- A Piactéri elemek Azure-ból Azure Stack hubhoz való letöltésekor új felhasználói felület áll rendelkezésre, amely lehetővé teszi az elem egy verziójának megadását, ha több verzió létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).  
 
-- Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** . Ez a hálózat az Azure Stack hub rendszerhez van csatlakoztatva, és az adatközponton belül több Azure Stack hub-rendszeren újra felhasználható. Amíg a hálózat Azure Stack hub-ban található, az nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik az Azure Stack hub-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). Az Azure Stack hub-infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény javítása. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket az üzembe helyezés előtt csökkentse a szükséges irányítható IP-területet.
+- Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** . Ez a hálózat az Azure Stack hub rendszerhez van csatlakoztatva, és az adatközponton belül több Azure Stack hub-rendszeren is felhasználható. Amíg a hálózat Azure Stack hub-ban található, az nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik az Azure Stack hub-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). Az Azure Stack hub-infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény javítása. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket a telepítés előtt csökkentse a szükséges irányítható IP-területet.
 
-  - Vegye figyelembe, hogy a/20 bemenet a 1910 után a következő Azure Stack hub frissítésének előfeltétele. Ha a következő Azure Stack hub frissítését a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, az alábbiak szerint. A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket. 
+  - Vegye figyelembe, hogy a/20 bemenet a 1910 után a következő Azure Stack hub-frissítés előfeltétele. Ha a következő Azure Stack hub frissítése a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, a következőképpen: A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket.
 
-  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően érhető el) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, a rendszer a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet fogja kapni. Ha a művelet sikeresen befejeződött, a riasztás bezáródik a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető lesz a következő verzióra.
+  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően érhető el) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
   
 - Az infrastruktúra-biztonsági mentési szolgáltatás törli a részlegesen feltöltött biztonsági mentési adatok mennyiségét, ha a külső tárolóhely a feltöltési eljárás során elfogy a kapacitáson.  
 
@@ -167,18 +158,18 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
            – Az Azure-beli verem-infrastruktúra biztonsági mentésének egyetlen szerepkör-visszaállítási funkciójának támogatása. <br />
            -`RoleName` paraméter hozzáadása a parancsmag `Restore-AzsBackup`hoz.
    - **FRP**: a **meghajtó** -és **kötet** -erőforrások a `2019-05-01`API-verzióval végzett módosításának megszakítása. A funkciókat a Azure Stack hub 1910-es és újabb verziói támogatják: <br />
-            – A `ID`, `Name`, `HealthStatus` és `OperationalStatus` értékének módosítása megtörtént. <br />
+            – A `ID`, `Name`, `HealthStatus`és `OperationalStatus` értékének módosítása megtörtént. <br />
             – Támogatott új tulajdonságok `FirmwareVersion`, `IsIndicationEnabled`, `Manufacturer`és `StoragePool` a **meghajtó** erőforrásaihoz. <br />
             – A **meghajtó** erőforrásainak `CanPool` és `CannotPoolReason` elavultak; Ehelyett használja a `OperationalStatus`.
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
+<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 
-- Kijavítva egy olyan problémát, amely megakadályozta a TLS 1,2 házirend kikényszerítését az Azure Stack hub 1904 kiadás előtt üzembe helyezett környezetekben.
-- A probléma kijavítva, ha az SSH-hitelesítéssel létrehozott Ubuntu 18,04 virtuális gép nem teszi lehetővé az SSH-kulcsok használatát a bejelentkezéshez. 
+- Kijavítva egy olyan problémát, amely megakadályozta a TLS 1,2 házirend betartatását az Azure Stack hub 1904 kiadása előtt üzembe helyezett környezetekben.
+- A probléma kijavítva, ha az SSH-hitelesítéssel létrehozott Ubuntu 18,04-es virtuális gép nem teszi lehetővé az SSH-kulcsok használatát a bejelentkezéshez.
 - A **jelszó alaphelyzetbe állítása** a virtuálisgép-méretezési csoport felhasználói felületéről eltávolítva.
-- Kijavítva a probléma, amelyben a terheléselosztó a portálról való törlése nem eredményezte az objektum az infrastruktúra-rétegből való törlését.
+- Kijavítva a probléma, amelyben a terheléselosztó törlése a portálról nem eredményezte az objektum törlését az infrastruktúra rétegében.
 - Kijavított egy problémát, amely az átjáró-készlet kihasználtsági riasztásának pontatlan százalékát mutatta a felügyeleti portálon.
 <!-- Fixed an issue where adding more than one public IP on the same NIC on a Virtual Machine resulted in internet connectivity issues. Now, a NIC with two public IPs should work as expected.[This fix actually didn't go in 1910 due to build issues, commenting out until next build (2002) ] -->
 
@@ -202,7 +193,7 @@ Az Azure Stack hub 1910 frissítési csomagot [a Azure stack hub letöltési old
 
 Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a 1908-es legújabb Azure Stack hub gyorsjavítását telepíti a 1910-es Azure Stack hub frissítése előtt.
 
-Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
+Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne próbálja meg telepíteni a gyorsjavításokat a ASDK.
 
 ### <a name="prerequisites-before-applying-the-1910-update"></a>Előfeltételek: az 1910-es frissítés alkalmazása előtt
 
@@ -226,14 +217,14 @@ Az Azure Stack hub 1908 Update Build száma **1.1908.4.33**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-1908 esetében a Azure Stack hub futtatására szolgáló operációs rendszer a Windows Server 2019-re frissült. Ez lehetővé teszi az alapvető fontosságú fejlesztéseket, valamint a közeljövőben további képességeket is Azure Stack hubhoz.
+1908 esetében a Azure Stack hub futtatására szolgáló operációs rendszer a Windows Server 2019-re frissült. Ez a frissítés lehetővé teszi az alapszintű fejlesztéseket és az Azure Stack hub további képességeinek kihasználását.
 
-Az Azure Stack hub 1908 Update Build típusa **megtelt**. Ennek eredményeképpen az 1908-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1906 és a 1907. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában az Azure Stack hub-példány által tartalmazott csomópontok számától függenek, a rendszer által a bérlői munkaterhelések által használt kapacitástól, a rendszer hálózati kapcsolataitól (ha az internethez csatlakozik) és a rendszer hardverét. Configuration. Az 1908-es frissítés a belső tesztelés következő várt futtatókörnyezeteit használta: 4 csomópont – 42 óra, 8 csomópont – 50 óra, 12 csomópont – 60 óra, 16 csomópont – 70 óra. A várt értéknél hosszabb ideig tartó frissítési futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack hub-operátorok számára, kivéve, ha a frissítés meghiúsul.
+Az Azure Stack hub 1908 Update Build típusa **megtelt**. Ennek eredményeképpen az 1908-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1906 és a 1907. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában az Azure Stack hub-példány által tartalmazott csomópontok számától függenek, a rendszer által a bérlői munkaterhelések által használt kapacitástól, a rendszer hálózati kapcsolataitól (ha az internethez csatlakozik) és a rendszer hardverét. Configuration. Az 1908-es frissítés a belső tesztelés következő várt futtatókörnyezeteit használta: 4 csomópont – 42 óra, 8 csomópont – 50 óra, 12 csomópont – 60 óra, 16 csomópont – 70 óra. A várt értéknél hosszabb ideig tartó frissítési futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek műveletet Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul.
 
 További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack hub-ban](azure-stack-updates.md).
 
 - A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszer hardveres konfigurációja alapján használt kapacitástól függenek.
-- A vártnál tovább tartó futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack hub-operátorok számára, ha a frissítés meghiúsul.
+- A vártnál hosszabb ideig tartó futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek beavatkozást Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul.
 - Ez a futtatókörnyezeti közelítés az 1908-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
 
 <!-- ## What's in this update -->
@@ -244,7 +235,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 1908 esetében vegye figyelembe, hogy a Azure Stack hub futtatására szolgáló operációs rendszer a Windows Server 2019-re frissült. Ez lehetővé teszi az alapvető fontosságú fejlesztéseket, valamint a közeljövőben további képességeket is Azure Stack hubhoz.
+- 1908 esetében vegye figyelembe, hogy a Azure Stack hub futtatására szolgáló operációs rendszer a Windows Server 2019-re frissült. Ez a frissítés lehetővé teszi az alapszintű fejlesztéseket és az Azure Stack hub további képességeinek kihasználását.
 - Az Azure Stack hub-infrastruktúra összes összetevője FIPS 140-2 módban működik.
 - A Azure Stack hub-operátorok mostantól eltávolíthatják a portál felhasználói adatfájljait. További információ: [a portál felhasználói adatainak törlése Azure stack hub-ból](azure-stack-portal-clear.md).
 
@@ -257,13 +248,13 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - A hardveres szolgáltatók a 2,1-es vagy újabb OEM-bővítményt a 1908-es Azure Stack hub-verzióval megegyező időpontban szabadítják fel. A 2,1-es vagy újabb OEM-bővítmény előfeltétele Azure Stack hub 1908-es verziójának. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
 - A jövőbeli Azure Stack hub OEM-frissítésekkel való kompatibilitással és az ügyfél felhasználói lemezképeit használó VM-telepítéssel kapcsolatos probléma javítva. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
 - Kijavított egy problémát az OEM belső vezérlőprogram frissítésével, és javította a AzureStack a Fabric Ring Health szolgáltatásban. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
 - Kijavított egy problémát az OEM belső vezérlőprogram frissítési folyamatával kapcsolatban. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37)
 
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
+<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 
 ## <a name="security-updates"></a>Biztonsági frissítések
 
@@ -277,7 +268,7 @@ Az Azure Stack hub 1908 frissítési csomagot [a Azure stack hub letöltési old
 
 Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a 1907-es legújabb Azure Stack hub gyorsjavítását telepíti a 1908-es Azure Stack hub frissítése előtt.
 
-Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
+Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne próbálja meg telepíteni a gyorsjavításokat a ASDK.
 
 ### <a name="prerequisites-before-applying-the-1908-update"></a>Előfeltételek: az 1908-es frissítés alkalmazása előtt
 
@@ -306,7 +297,7 @@ Az Azure Stack hub 1907 Update Build száma **1.1907.0.20**.
 Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack hub-ban](azure-stack-updates.md) című cikk. A belső tesztelés alapján a 1907-es frissítés befejezéséhez szükséges idő körülbelül 13 óra.
 
 - A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszer hardveres konfigurációja alapján használt kapacitástól függenek.
-- A vártnál tovább tartó futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack hub-operátorok számára, ha a frissítés meghiúsul.
+- A vártnál hosszabb ideig tartó futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek beavatkozást Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul.
 - Ez a futtatókörnyezeti közelítés az 1907-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
 
 ## <a name="whats-in-this-update"></a>A frissítés ismertetése
@@ -317,9 +308,9 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 <!-- What's new, also net new experiences and features. -->
 
-- Az Azure Stack hub diagnosztikai napló-gyűjtési szolgáltatásának általános elérhetőségi kiadása a diagnosztikai naplók gyűjtésének megkönnyítéséhez és fejlesztéséhez. Az Azure Stack hub diagnosztikai naplójának összegyűjtése szolgáltatás lehetővé teszi a diagnosztikai naplók összegyűjtését és megosztását a Microsoft ügyfél-támogatási szolgálatával (CSS). Ez a diagnosztikai napló-gyűjtési szolgáltatás új felhasználói élményt nyújt a Azure Stack hub felügyeleti portálján, amely lehetővé teszi, hogy az operátorok a diagnosztikai naplók automatikus feltöltését egy tárolási blobba állítsa be, amikor bizonyos kritikus riasztások bekövetkeznek, vagy ha ugyanezt a műveletet hajtják végre. igény szerinti művelet. További információkért lásd a [diagnosztikai napló gyűjtését](azure-stack-diagnostic-log-collection-overview.md) ismertető cikket.
+- Az Azure Stack hub diagnosztikai napló-gyűjtési szolgáltatásának általános elérhetőségi kiadása a diagnosztikai naplók gyűjtésének megkönnyítéséhez és fejlesztéséhez. Az Azure Stack hub diagnosztikai naplójának összegyűjtése szolgáltatás lehetővé teszi a diagnosztikai naplók összegyűjtését és megosztását a Microsoft ügyfél-támogatási szolgálatával (CSS). Ez a diagnosztikai napló-gyűjtési szolgáltatás új felhasználói élményt nyújt a Azure Stack hub felügyeleti portálján, amely lehetővé teszi, hogy az operátorok bizonyos kritikus riasztások esetén beállítsák a diagnosztikai naplók automatikus feltöltését egy tárolási blobba. A szolgáltatás is használható ugyanazon művelet igény szerinti végrehajtásához. További információkért lásd a [diagnosztikai napló gyűjtését](azure-stack-diagnostic-log-collection-overview.md) ismertető cikket.
 
-- Az Azure Stack hub hálózati infrastruktúra ellenőrzésének általánosan elérhető kiadása az Azure Stack hub Validation Tool **test-AzureStack**részeként. Azure Stack hub hálózati infrastruktúrája a **test-AzureStack**részét képezi, amely meghatározza, hogy az Azure stack hub hálózati infrastruktúráján hiba fordul elő. A teszt ellenőrzi a hálózati infrastruktúra kapcsolatát, ha megkerüli a Azure Stack hub szoftveresen megadott hálózatát. Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és az identitás-végpontokkal. Emellett ellenőrzi az Azure-hoz való csatlakozást, ha az Azure AD-t az identitás-szolgáltatóként vagy az összevont kiszolgálóként használja az ADFS használatakor. További tudnivalókért tekintse meg az [Azure stack hub ellenőrző eszközét](azure-stack-diagnostic-test.md) ismertető cikket.
+- Az Azure Stack hub hálózati infrastruktúra ellenőrzésének általánosan elérhető kiadása az Azure Stack hub Validation Tool **test-AzureStack**részeként. Azure Stack hub hálózati infrastruktúrája a **test-AzureStack**részét képezi, amely meghatározza, hogy az Azure stack hub hálózati infrastruktúráján hiba fordul elő. A teszt ellenőrzi a hálózati infrastruktúra kapcsolatát, ha megkerüli a Azure Stack hub szoftveresen megadott hálózatát. Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és az identitás-végpontokkal. Azt is ellenőrzi, hogy a Kapcsolódás az Azure-hoz, ha az Azure AD-t használja identitás-szolgáltatóként, vagy az összevont kiszolgálót az ADFS használatakor. További tudnivalókért tekintse meg az [Azure stack hub ellenőrző eszközét](azure-stack-diagnostic-test.md) ismertető cikket.
 
 - Egy belső titkos elforgatási eljárás lett hozzáadva a belső SQL TLS-tanúsítványok szükség szerinti elforgatásához a rendszer frissítése során.
 
@@ -327,18 +318,18 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Az Azure Stack hub Update (frissítés) panel most megjeleníti az aktív frissítések **utolsó lépésének befejezési** idejét. Ezt úgy tekintheti meg, ha a frissítés panelre kattint, és rákattint egy futó frissítésre. Az **utolsó lépés befejeződött** , majd elérhető a **frissítés futtatása részletek** szakaszban.
+- Az Azure Stack hub Update (frissítés) panel most megjeleníti az aktív frissítések **utolsó lépésének befejezési** idejét. Ezt a hozzáadást a frissítés panelre, majd a futó frissítésre kattintva tekintheti meg. Az **utolsó lépés befejeződött** , majd elérhető a **frissítés futtatása részletek** szakaszban.
 
 - A **Start-AzureStack** és a **stop-AzureStack** operátor műveleteinek fejlesztése. Az Azure Stack hub elindításához szükséges idő átlagosan 50%-kal csökkent. Az Azure Stack hub leállításához szükséges idő átlagosan 30%-kal csökkent. Az átlagos indítási és leállítási idők változatlanok maradnak, mint a csomópontok száma a méretezési egységekben.
 
-- Javított hibakezelés a leválasztott piactér eszközhöz. Ha a letöltés sikertelen vagy részlegesen sikeres az **export-AzSOfflineMarketplaceItem**használatakor, a rendszer részletes hibaüzenetet jelenít meg, amely további részleteket tartalmaz a hibával és a kockázatcsökkentő lépésekkel kapcsolatban, ha van ilyen.
+- Javított hibakezelés a leválasztott piactér eszközhöz. Ha a letöltés sikertelen vagy részlegesen sikeres az **export-AzSOfflineMarketplaceItem**használatakor, a részletes hibaüzenet jelenik meg, amely további részleteket tartalmaz a hibáról és a lehetséges kockázatcsökkentő lépésekről.
 
 - Javította a felügyelt lemezek létrehozásának teljesítményét egy nagyméretű oldal blob/pillanatkép alapján. Korábban egy nagyméretű lemez létrehozásakor időtúllépést váltott ki.  
 
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127669774/home -->
 - Továbbfejlesztett virtuális lemez állapot-ellenőrzését a csomópont leállítása előtt, hogy elkerülje a virtuális lemezek váratlan leválasztását.
 
-- A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a felügyeleti műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a 6 hónaposnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítések esetében naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt [töltse le az](azure-stack-apply-updates.md) összes frissítési művelet összefoglalóját 6 hónapnál régebbi verzióra.
+- A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a kiegészítés a rendszergazdai műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a hat hónapnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítésekhez naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt az összes frissítési művelet [összefoglalóját töltse le](azure-stack-apply-updates.md) a hat hónapnál régebbi verzióra.
 
 ### <a name="changes"></a>Változások
 
@@ -348,16 +339,16 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 - Az infrastruktúra-biztonsági mentési szolgáltatás törli a részlegesen feltöltött biztonsági mentéseket, ha a külső tárolóhely kapacitása elfogy.
 
-- Az infrastruktúra biztonsági mentései már nem tartalmazzák a tartományi szolgáltatások adatai biztonsági mentését. Ez csak azokra a rendszerekre vonatkozik, amelyek a Azure Active Directory használják az identitás-szolgáltatóként.
+- Az infrastruktúra biztonsági mentései már nem tartalmazzák a tartományi szolgáltatások adatai biztonsági mentését. Ez a módosítás csak a Azure Active Directoryt használó rendszerekre vonatkozik, az identitás-szolgáltatóként.
 
 - Most ellenőrizjük, hogy egy, a **számítási > virtuálisgép-lemezképek** panelén betöltött kép oldal blob típusú.
 
 - A Kiemelt jogosultságú Endpoint parancs **set-BmcCredential** most frissíti a hitelesítő adatokat a alaplapi felügyeleti vezérlőben.
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
-- Kijavított egy olyan problémát, amelyben a közzétevőt, az ajánlatot és az SKU-t egy Resource Manager-sablonban bizalmasként kezeli a rendszer: a rendszerkép nem lett beolvasva a központi telepítéshez, kivéve, ha a képparaméterek nem egyeznek meg a közzétevő, az ajánlat és az SKU esetében.
+<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
+- Kijavított egy olyan problémát, amelyben a közzétevőt, ajánlatot és SKU-t kis-és nagybetűkként kezelik a Resource Manager-sablonokban: a rendszerkép nem lett beolvasva telepítésre, kivéve, ha a képparaméterek nem azonosak a közzétevő, az ajánlat és az SKU esetében.
 
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/129536438/home -->
 - A tárolási szolgáltatás metaadatainak biztonsági mentésének időtúllépése miatt nem sikerült a **PartialSucceeded** hibaüzenettel rendelkező biztonsági mentések hibájának kijavítása.  
@@ -375,7 +366,7 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 - Kijavítva egy olyan problémát, amely miatt a frissítés sikertelen volt, mert a felügyeleti sík helytelen konfiguráció miatt nem megfelelő állapotba kerül. Ez a probléma a 1906-es verzióban található, és javítva lett a gyorsjavítások [KB4512794](https://support.microsoft.com/help/4512794/).
 
-- Kijavított egy problémát, amely megakadályozza, hogy a felhasználók elvégezzék a harmadik féltől származó rendszerképek üzembe helyezését a piactéren. Ez a probléma a 1906-es verzióban található, és javítva lett a gyorsjavítások [KB4511259](https://support.microsoft.com/help/4511259/).
+- Kijavított egy problémát, amely megakadályozta, hogy a felhasználók elvégezzék a harmadik féltől származó rendszerképek üzembe helyezését a piactéren. Ez a probléma a 1906-es verzióban található, és javítva lett a gyorsjavítások [KB4511259](https://support.microsoft.com/help/4511259/).
 
 - Kijavítva egy olyan problémát, amely miatt a virtuális gép létrehozása a felügyelt lemezképből sikertelen volt a felhasználói rendszerkép-kezelő szolgáltatás összeomlása miatt. Ez a probléma a 1906-es verzióban található, és javítva lett a gyorsjavítások [KB4512794](https://support.microsoft.com/help/4512794/)
 
@@ -403,7 +394,7 @@ Az Azure Stack hub 1907 frissítési csomagot [a Azure stack hub letöltési old
 
 Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a 1906-es legújabb Azure Stack hub gyorsjavítását telepíti a 1907-es Azure Stack hub frissítése előtt.
 
-Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
+Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne próbálja meg telepíteni a gyorsjavításokat a ASDK.
 
 ### <a name="before-applying-the-1907-update"></a>Az 1907-es frissítés alkalmazása előtt
 
@@ -427,7 +418,7 @@ Az Azure Stack hub 1906 Update Build száma **1.1906.0.30**.
 
 ### <a name="update-type"></a>Frissítés típusa
 
-Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack hub-ban](azure-stack-updates.md) című cikk. Az 1906-es frissítés befejezéséhez szükséges idő körülbelül 10 óra, az Azure Stack hub-környezetben található fizikai csomópontok számától függetlenül. A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszerhardver-specifikációk alapján használt kapacitástól függenek. A várt értéknél hosszabb ideig tartó futtatókörnyezetek nem szokatlanok, és nem igényelnek beavatkozást Azure Stack hub-operátorok számára, kivéve, ha a frissítés meghiúsul. Ez a futtatókörnyezeti közelítés az 1906-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
+Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack hub-ban](azure-stack-updates.md) című cikk. Az 1906-es frissítés befejezéséhez szükséges idő körülbelül 10 óra, az Azure Stack hub-környezetben található fizikai csomópontok számától függetlenül. A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszerhardver-specifikációk alapján használt kapacitástól függenek. A várt értéknél hosszabb ideig tartó futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek műveletet Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul. Ez a futtatókörnyezeti közelítés az 1906-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
 
 ## <a name="whats-in-this-update"></a>A frissítés ismertetése
 
@@ -441,7 +432,7 @@ Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ
 
 - Belső titkos elforgatási eljárás hozzáadva a belső TLS-tanúsítványok rendszerfrissítés során történő elforgatásához.
 
-- A belső titkokat a belső titkok kiváltásának megakadályozása érdekében hozzáadott egy olyan védelmet, amely miatt a rendszer figyelmen kívül hagyja a kritikus riasztást a lejáró titkos kulcsok esetében. Ez nem használható rendszeres működési eljárásként. A titkok rotációját a karbantartási időszakban kell tervezni. További információ: [Azure stack hub Secret rotációs](azure-stack-rotate-secrets.md).
+- A belső titkokat a belső titkok kiváltásának megakadályozása érdekében hozzáadott egy olyan védelmet, amely miatt a rendszer figyelmen kívül hagyja a kritikus riasztást a lejáró titkos kulcsok esetében. Ez a védelem nem használható rendszeres működési eljárásként. A titkok rotációját a karbantartási időszakban kell tervezni. További információ: [Azure stack hub Secret rotációs](azure-stack-rotate-secrets.md).
 
 - A Visual Studio Code mostantól támogatja a Azure Stack hub üzembe helyezését AD FS használatával.
 
@@ -449,7 +440,7 @@ Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- A privilegizált végpont **Get-GraphApplication** parancsmagja mostantól megjeleníti az aktuálisan használt tanúsítvány ujjlenyomatát. Ez javítja az egyszerű szolgáltatásnév felügyeletét, ha Azure Stack hub AD FS-vel van telepítve.
+- A privilegizált végpont **Get-GraphApplication** parancsmagja mostantól megjeleníti az aktuálisan használt tanúsítvány ujjlenyomatát. Ez a frissítés javítja az egyszerű szolgáltatásnév felügyeletét, ha Azure Stack hub AD FS-vel van telepítve.
 
 - Új állapot-figyelési szabályok lettek hozzáadva az AD Graph és a AD FS rendelkezésre állásának ellenőrzéséhez, beleértve a riasztások megadásának lehetőségét is.
 
@@ -461,7 +452,7 @@ Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ
 
 - Új paraméter érhető el a (z) **CustomAdfs** parancsmaghoz a privilegizált végponton, amely lehetővé teszi a visszavont tanúsítványok listájának ellenőrzését a AD FS összevonási megbízhatóságának konfigurálásakor.
 
-- Az 1906-es kiadás nagyobb láthatóságot mutat be a frissítés folyamatában, így biztos lehet benne, hogy a frissítések nem szünetelnek. Ez a **frissítés** panelen megjelenő frissítési lépések teljes számának növekedését eredményezi. Előfordulhat, hogy a korábbi frissítéseknél párhuzamosan további frissítési lépések is előfordulhatnak.
+- Az 1906-es kiadás nagyobb láthatóságot mutat be a frissítés folyamatában, így biztos lehet benne, hogy a frissítések nem szünetelnek. Ez a frissítés azt eredményezi, hogy **a frissítési panelen** a kezelők számára megjelenített frissítési lépések teljes száma megnő. Előfordulhat, hogy a korábbi frissítéseknél párhuzamosan további frissítési lépések is előfordulhatnak.
 
 #### <a name="networking-updates"></a>Hálózatkezelési frissítések
 
@@ -476,18 +467,18 @@ Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ
 - A Storage-fiókokkal kapcsolatos felhasználói élmény mostantól konzisztens az Azure-ban.
 
 - Módosított riasztási eseményindítók a belső titkok lejáratához:
-  - A figyelmeztetési riasztások mostantól 90 nappal a titkok lejárta előtt jelennek meg.
+  - A figyelmeztetési riasztások mostantól 90 nappal a titkok lejárta előtt következnek be.
   - A kritikus riasztások mostantól 30 nappal a titkok lejárta előtt jelennek meg.
 
 - Frissített karakterláncok az infrastruktúra biztonsági mentési erőforrás-szolgáltatójában konzisztens terminológiához.
 
-### <a name="fixes"></a>Javítások
+### <a name="fixes"></a>Hibajavítások
 
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
+<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 
 - Kijavított egy problémát, amelyben a felügyelt lemezes virtuális gép átméretezése egy **belső működési hiba**miatt meghiúsult.
 
-- Kijavítva a hiba, amikor egy sikertelen felhasználói lemezkép létrehozásakor a lemezképet kezelő szolgáltatás helytelen állapotban van. Ez blokkolja a sikertelen lemezkép törlését és az új rendszerképek létrehozását. Ezt a 1905-es gyorsjavítás is rögzíti.
+- Kijavítva a hiba, amikor egy sikertelen felhasználói lemezkép létrehozásakor a lemezképet kezelő szolgáltatás helytelen állapotban van. Ez blokkolja a sikertelen lemezkép törlését és az új rendszerképek létrehozását. Ezt a problémát az 1905-es gyorsjavítás is rögzíti.
 
 - A belső titkos kulcsok sikeres végrehajtása után a rendszer mostantól automatikusan bezárja az aktív riasztásokat a lejáró belső titkokon.
 
@@ -499,7 +490,7 @@ Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ
 
 - Kijavított egy problémát a sablon telepítési felhasználói felületén, amely nem adja meg a paramétereket, ha a sablon neve _ aláhúzással kezdődik.
 
-- Kijavítva a probléma, hogy a virtuálisgép-méretezési csoport létrehozása során a CentOS-alapú 7,2-es verzió üzembe helyezési lehetőséget biztosít. A CentOS 7,2 Azure Stack hub-on nem érhető el. Mostantól a CentOS 7,5-es verzióval biztosítjuk az üzembe helyezési lehetőséget
+- Kijavítva a probléma, hogy a virtuálisgép-méretezési csoport létrehozása során a CentOS-alapú 7,2-es verzió üzembe helyezési lehetőséget biztosít. A CentOS 7,2 nem érhető el Azure Stack hub-on. Mostantól a CentOS 7,5-es verzióval biztosítjuk az üzembe helyezési lehetőséget
 
 - Mostantól eltávolíthat egy méretezési csoportot a **virtuálisgép-méretezési** csoportok paneljéről.
 
@@ -523,7 +514,7 @@ Az Azure Stack hub 1906 frissítési csomagot [a Azure stack hub letöltési old
 
 Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a 1905-es legújabb Azure Stack hub gyorsjavítását telepíti a 1906-es Azure Stack hub frissítése előtt. A frissítés után telepítse a [1906 összes elérhető gyorsjavítását](#after-successfully-applying-the-1906-update).
 
-Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
+Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne próbálja meg telepíteni a gyorsjavításokat a ASDK.
 
 ### <a name="before-applying-the-1906-update"></a>Az 1906-es frissítés alkalmazása előtt
 
@@ -553,14 +544,14 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerek az **elérhet�
 
 ## <a name="archive"></a>Archívum
 
-Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
+Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldali tartalomjegyzéket, és válassza ki a megjeleníteni kívánt verziót.
 
 ## <a name="next-steps"></a>Következő lépések
 
 - Az Azure Stack hub Update Management szolgáltatásának áttekintését lásd: a [frissítések kezelése a Azure stack hub-ban – Áttekintés](azure-stack-updates.md).  
 - A frissítések Azure Stack hubhoz való alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása Azure stack hub-ban](azure-stack-apply-updates.md).
-- Az Azure Stack hub integrált rendszerek karbantartási szabályzatának áttekintéséhez, és hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, lásd: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md).  
-- Ha a privilegizált végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack hub-ban a rendszerjogosultságú végpont használatával](azure-stack-monitor-update.md).
+- Az Azure Stack hub karbantartási szabályzatának áttekintéséhez, valamint arról, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, lásd: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md).  
+- Ha a privilegizált végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack központban a Kiemelt végpont használatával](azure-stack-monitor-update.md).
 ::: moniker-end
 
 <!------------------------------------------------------------>
@@ -607,7 +598,7 @@ Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási meg
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-[A Azure stack hub kibocsátási megjegyzésének régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
+[A Azure stack hub kibocsátási megjegyzésének régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok csak hivatkozási célokat szolgálnak, és nem támogatják a verziók támogatását. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 ::: moniker-end
 
 

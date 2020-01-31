@@ -1,26 +1,18 @@
 ---
-title: Skálázási egység csomópontjainak műveletei Azure Stack központban | Microsoft Docs
+title: Az egység csomópont-műveleteinek méretezése Azure Stack központban
 description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c9a82059d1b4d8dee853394160997a1366ee8597
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882351"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881684"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Az egység csomópont-műveleteinek méretezése Azure Stack központban
 
@@ -59,7 +51,7 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 | Fut | A csomópont aktívan részt vesz a skálázási egységben. |
 | Leállítva | A csomópont nem érhető el. |
 | Hozzáadása | A csomópontot aktívan felveszik a méretezési egységbe. |
-| Javítás | A csomópont aktívan javítás alatt áll. |
+| Javítása | A csomópont aktívan javítás alatt áll. |
 | Karbantartás | A csomópont szüneteltetve van, és nem fut aktív felhasználói munkaterhelés. |
 | Szervizelést igényel | Hiba észlelhető, amely megköveteli a csomópont javítását. |
 

@@ -1,34 +1,25 @@
 ---
-title: Kapcsolódás a ASDK | Microsoft Docs
+title: Kapcsolódás a ASDK
 description: Megtudhatja, hogyan csatlakozhat a Azure Stack Development Kithoz (ASDK).
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 8a9fae5324e20ecd808df1f73dc90555b4802da5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: df4b6c770ef1dd93cddbeb748c0845f391305173
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974603"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874025"
 ---
 # <a name="connect-to-the-asdk"></a>Kapcsolódás a ASDK
 
 Az erőforrások kezeléséhez először csatlakoznia kell a Azure Stack Development Kithoz (ASDK). Ebben a cikkben azokat a lépéseket ismertetjük, amelyeket a ASDK való kapcsolódáshoz a következő kapcsolódási lehetőségek használatával végez:
 
-* [Távoli asztali kapcsolat (RDP)](#connect-with-rdp): Ha Távoli asztali kapcsolat használatával csatlakozik, az egyetlen felhasználó gyorsan csatlakozhat a ASDK.
-* [Virtuális magánhálózat (VPN)](#connect-with-vpn): Ha VPN-kapcsolattal csatlakozik, több felhasználó is csatlakozhat a Azure Stack-portálokhoz az Azure Stack infrastruktúrán kívüli ügyfelektől. A VPN-kapcsolathoz némi telepítés szükséges.
+* [Távoli asztali kapcsolat (RDP)](#connect-with-rdp): Ha távoli asztali kapcsolat használatával csatlakozik, egyetlen felhasználó gyorsan CSATLAKOZHAT a ASDK.
+* [Virtuális magánhálózat (VPN)](#connect-with-vpn): Ha VPN-kapcsolaton keresztül csatlakozik, több felhasználó is csatlakozhat a Azure stack-portálokhoz az Azure stack infrastruktúrán kívüli ügyfelektől. A VPN-kapcsolathoz némi telepítés szükséges.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>Kapcsolódás Azure Stack RDP használatával
@@ -42,9 +33,9 @@ Egyetlen egyidejű felhasználó a Azure Stack felügyeleti portálon vagy a fel
 
 2. A ASDK-gazdagépen nyissa meg a Kiszolgálókezelő alkalmazást (ServerManager. exe). Válassza a **helyi kiszolgáló**lehetőséget, kapcsolja ki az **Internet Explorer fokozott biztonsági beállításait**, majd a Kiszolgálókezelő bezárását.
 
-3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external):.
+3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
 
-4. Jelentkezzen be a felhasználói portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack felhasználói hitelesítő adatokat. A ASDK felhasználói portáljának címe [https://portal.local.azurestack.external](https://portal.local.azurestack.external):.
+4. Jelentkezzen be a felhasználói portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack felhasználói hitelesítő adatokat. A ASDK felhasználói portáljának címe [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
 
 > [!NOTE]
 > Ha további információt szeretne arról, hogy mikor kell használni a fiókot, tekintse meg a [ASDK-adminisztrátor alapjai](asdk-admin-basics.md#what-account-should-i-use)című témakört.
@@ -63,7 +54,7 @@ A VPN-kapcsolat az Azure AD és a Active Directory összevonási szolgáltatáso
 A VPN-kapcsolat ASDK való beállítása előtt győződjön meg arról, hogy teljesítette a következő előfeltételeket:
 
 - Telepítse a [Azure stack-kompatibilis Azure PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) a helyi számítógépre.  
-- Töltse le a [az Azure Stack működéséhez szükséges eszközök](asdk-post-deploy.md#download-the-azure-stack-tools).
+- Töltse le a [Azure stack használatához szükséges eszközöket](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 ### <a name="set-up-vpn-connectivity"></a>VPN-kapcsolat beállítása
 
@@ -105,7 +96,7 @@ Ha a telepítés sikeres, **Azure stack** jelenik meg a VPN-kapcsolatok listáj�
 
 ![Hálózati kapcsolatok](media/asdk-connect/vpn.png)  
 
-### <a name="connect-to-azure-stack"></a>Csatlakozás az Azure Stackhez
+### <a name="connect-to-azure-stack"></a>Kapcsolódás az Azure Stackhez
 
   Kapcsolódjon a Azure Stack-példányhoz az alábbi módszerek egyikének használatával:  
 
@@ -116,7 +107,7 @@ Ha a telepítés sikeres, **Azure stack** jelenik meg a VPN-kapcsolatok listáj�
       -Password $Password
     ```
 
-  * A helyi számítógépen válassza a **hálózati beállítások** > **VPN** > **Azure stack** > a**Csatlakozás**lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (**AzureStack\AzureStackAdmin**) és a jelszavát.
+  * A helyi számítógépen válassza a **hálózati beállítások** > **VPN-**  > **Azure stack** > **Csatlakozás**lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (**AzureStack\AzureStackAdmin**) és a jelszavát.
 
 Amikor először csatlakozik, a rendszer arra kéri, hogy telepítse a Azure Stack főtanúsítványt a **AzureStackCertificateAuthority** a helyi számítógép tanúsítványtárolójában. Ez a lépés hozzáadja a ASDK-hitelesítésszolgáltatót (CA) a megbízható gazdagépek listájához. A tanúsítvány telepítéséhez kattintson az **Igen** gombra.
 
@@ -127,10 +118,10 @@ Amikor először csatlakozik, a rendszer arra kéri, hogy telepítse a Azure Sta
 
 ### <a name="test-vpn-connectivity"></a>VPN-kapcsolat tesztelése
 
-A portál-kapcsolatok teszteléséhez nyisson meg egy böngészőt, és lépjen a felhasználói portálra (https://portal.local.azurestack.external/) vagy a felügyeleti https://adminportal.local.azurestack.external/) portálra).
+A portál kapcsolódásának teszteléséhez nyisson meg egy böngészőt, és lépjen a felhasználói portálra (https://portal.local.azurestack.external/) vagy a felügyeleti portálra (https://adminportal.local.azurestack.external/).
 
 Az erőforrások létrehozásához és kezeléséhez jelentkezzen be a megfelelő előfizetési hitelesítő adatokkal.  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Hibaelhárítás](asdk-troubleshooting.md)
+[hibaelhárítással](asdk-troubleshooting.md)

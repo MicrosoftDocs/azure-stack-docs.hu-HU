@@ -1,27 +1,18 @@
 ---
-title: Speciális ASDK-értékelési feladatok | Microsoft Docs
+title: Speciális ASDK-értékelési feladatok
 description: További tudnivalók a speciális Azure Stack Development KIt (ASDK) próbaverziós feladatairól.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.openlocfilehash: 5ad405deed93155871afb4793a1d800268ae7d22
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594770"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874161"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Speciális ASDK-értékelési feladatok
 Miután megismerte az alapszintű Azure Stack Development Kit (ASDK) szolgáltatás funkcióit és képességeit, a fejlettebb forgatókönyvek kivizsgálása révén mélyebben megismerheti Azure Stack további ismereteket. Ezek a speciális értékelési feladatok teljes mértékben dokumentálva vannak a Azure Stack kezelő dokumentációjában.
@@ -44,6 +35,6 @@ Azure Stack operátorként olyan ajánlatokat hozhat létre, amelyek lehetővé 
 
 Telepítse a App Service erőforrás-szolgáltatót a [webes és API-alkalmazások elérhetővé tételéhez a Azure stack felhasználók](../operator/azure-stack-tutorial-app-service.md)számára.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [További információ a szolgáltatások Azure Stack integrált rendszerekkel való ellátásáról](../operator/service-plan-offer-subscription-overview.md)

@@ -2,18 +2,17 @@
 title: Magasan elérhető MongoDB-megoldás üzembe helyezése az Azure-ban és Azure Stack hub
 description: Ismerje meg, hogyan helyezhet üzembe egy magasan elérhető MongoDB-megoldást az Azure-ban és Azure Stack hub-ban
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e850cde0196d496d6d854822ee0cd1a679bccca0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881501"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877000"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Magasan elérhető MongoDB-megoldás üzembe helyezése az Azure-ban és Azure Stack hub
 

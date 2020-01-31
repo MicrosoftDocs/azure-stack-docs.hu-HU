@@ -1,27 +1,18 @@
 ---
-title: Központi telepítési források konfigurálása a App Serviceshoz Azure Stack hub-on | Microsoft Docs
+title: Központi telepítési források konfigurálása App Serviceshoz Azure Stack hub-on
 description: Megtudhatja, hogyan konfigurálhatja az üzembe helyezési forrásokat (git, GitHub, BitBucket, DropBox és OneDrive) Azure Stack hub App Services.
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0115e726e8922b94eae437cb76e23f4e77199d97
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 30e7ced54a4c2bc69cb5249b58b4844cd9a0b332
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880906"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874773"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Központi telepítési források konfigurálása App Serviceshoz Azure Stack hub-on
 
@@ -96,7 +87,7 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz csatolt Microsoft-fiókkal kell 
 3. Adja meg az új alkalmazás regisztrációjának **nevét** : írja be a **app Serviceot Azure stack hub-ra**, majd kattintson az **alkalmazás létrehozása**elemre.
 4. A következő képernyő felsorolja az új alkalmazás tulajdonságait. Mentse az **alkalmazás azonosítóját** néhány ideiglenes helyre.
 ![OneDrive-alkalmazás tulajdonságai][11]
-5. Az **Alkalmazáskulcsok** alatt kattintson az **Új jelszó generálása** lehetőségre. Jegyezze fel a **létrehozott új jelszót**. Ez a jelszó az alkalmazás titkos kulcsa, és az **OK**gombra kattintás után nem lehet lekérni.
+5. Az **alkalmazás titkai**területen kattintson az **új jelszó előállítása**elemre. Jegyezze fel a **létrehozott új jelszót**. Ez a jelszó az alkalmazás titkos kulcsa, és az **OK**gombra kattintás után nem lehet lekérni.
 6. A **platformok**területen kattintson a **platform hozzáadása**, majd a **web**elemre.
 7. Adja meg az **átirányítási URI**-t. Az Azure Stack hub alapértelmezett központi telepítése során az átirányítási URI a https://portal.local.azurestack.external/TokenAuthorize formában van. Ha egy másik tartományban fut, váltson át a azurestack. local névre.
 ![OneDrive alkalmazás – webes platform hozzáadása][12]

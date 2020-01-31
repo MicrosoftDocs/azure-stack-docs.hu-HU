@@ -2,18 +2,17 @@
 title: Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
 description: Megtudhatja, hogyan helyezhet üzembe egy helyszíni információkat használó alkalmazást, és hogyan méretezhető a felhőben az Azure és a Azure Stack hub használatával.
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 1b21766561c39cf795665e8229eb1763acb89465
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881790"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877510"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
 
@@ -306,7 +305,7 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
 
 2. Válassza az **autoskálázás engedélyezése**lehetőséget.
 
-    ![Automatikus skálázás engedélyezése](media/solution-deployment-guide-hybrid/image17.png)
+    ![Az autoskálázás engedélyezése](media/solution-deployment-guide-hybrid/image17.png)
 
 3. Adja meg az **autoskálázási beállítás nevének**nevét. Az **alapértelmezett** automatikus skálázási szabálynál válassza a **skála mérőszám alapján**lehetőséget. A **példányokra vonatkozó korlátokat** állítsa **minimumra: 1**, **maximum: 10**, **alapértelmezett érték: 1**.
 
@@ -376,8 +375,8 @@ Hozzon létre egy Traffic Manager-profilt az Azure-ban, majd konfigurálja a vé
 
 ### <a name="create-traffic-manager-profile"></a>Traffic Manager profil létrehozása
 
-1. Válassza az **Erőforrás létrehozása** lehetőséget.
-2. Válassza a **Hálózat** lehetőséget.
+1. Válassza **az erőforrás létrehozása**lehetőséget.
+2. Válassza a **hálózatkezelés**lehetőséget.
 3. Válassza ki **Traffic Manager profilt** , és konfigurálja a következő beállításokat:
 
    - A **név**mezőben adja meg a profil nevét. Ennek a **névnek egyedinek kell** lennie az trafficmanager.net zónában, és egy új DNS-név (például northwindstore.trafficmanager.net) létrehozására szolgál.

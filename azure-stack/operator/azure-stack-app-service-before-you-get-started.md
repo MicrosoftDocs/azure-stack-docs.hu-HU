@@ -1,27 +1,18 @@
 ---
-title: A Azure App Service üzembe helyezésének előfeltételei az Azure Stack hub-on | Microsoft Docs
+title: Az Azure App Service Azure Stack hub-beli üzembe helyezésének előfeltételei
 description: Ismerkedjen meg az előfeltételként elvégzendő lépésekkel, mielőtt telepíti a Azure App Servicet Azure Stack hub-on.
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: a1cd98973bede3382790430dd59e434e135701de
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124735"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874756"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Az App Service Azure Stack hub-beli üzembe helyezésének előfeltételei
 
@@ -96,7 +87,7 @@ A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
 | pfxPassword | Szükséges | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó |
-| DomainName | Szükséges | helyi. azurestack. external | Azure Stack hub-régió és tartomány utótagja |
+| domainName | Szükséges | helyi. azurestack. external | Azure Stack hub-régió és tartomány utótagja |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>A Azure App Service Azure Stack hub éles üzembe helyezéséhez szükséges tanúsítványok
 

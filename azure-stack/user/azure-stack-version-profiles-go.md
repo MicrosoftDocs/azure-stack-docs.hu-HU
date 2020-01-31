@@ -1,25 +1,18 @@
 ---
-title: API-verziók profiljainak használata a GO in Azure Stack hub használatával | Microsoft Docs
+title: Az API-verziók profiljainak használata a GO in Azure Stack hub használatával
 description: Ismerje meg, hogyan használható az API-verziók profiljai a GO in Azure Stack hub használatával.
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 6e4cd8fcd5020e94f011188cc6a4e4f61744402d
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 0e6ff55da7a7d66152765a5058b7d281632fb5eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750419"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883062"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
 
@@ -124,7 +117,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
 
 Ha a go SDK-profillal kívánja létrehozni a virtuális hálózatot Azure Stack hubhoz, tekintse meg a [példát](#example).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Hitelesítés
 
 Ha a go SDK-val szeretné beolvasni a Azure Active Directory **engedélyező** tulajdonságát, telepítse a **Go-autorest-** modulokat. Ezeket a modulokat már telepítve kell lennie a "Go SDK" telepítésének. Ha nem, telepítse a [hitelesítési csomagot a githubról](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 

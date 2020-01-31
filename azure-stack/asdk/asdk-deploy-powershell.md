@@ -1,28 +1,18 @@
 ---
-title: A ASDK telepítése a parancssorból a PowerShell használatával | Microsoft Docs
+title: A ASDK telepítése a parancssorból a PowerShell használatával
 description: Megtudhatja, hogyan helyezheti üzembe a ASDK a parancssorból a PowerShell használatával.
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0bced4d75b70b05eea42de763066f1d5b05e1976
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022912"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873804"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -149,7 +139,7 @@ Ha a környezet nem rendelkezik engedélyezve DHCP-vel, akkor a fenti lehetősé
 |InfraAzureDirectoryTenantAdminCredential|Választható|Beállítja a Azure Active Directory felhasználónevét és jelszavát. Ezeknek az Azure-beli hitelesítő adatoknak szervezeti AZONOSÍTÓnak kell lenniük.|
 |InfraAzureEnvironment|Választható|Válassza ki azt az Azure-környezetet, amellyel regisztrálni szeretné ezt az Azure Stack-telepítést. A lehetőségek közé tartozik a globális Azure, az Azure-Kína, az Azure-USA kormánya.|
 |DNSForwarder|Választható|A rendszer a Azure Stack központi telepítésének részeként létrehoz egy DNS-kiszolgálót. Annak engedélyezéséhez, hogy a megoldásban lévő számítógépek a bélyegzőn kívül is feloldják a neveket, adja meg a meglévő infrastruktúra DNS-kiszolgálóját. A in-Stamp DNS-kiszolgáló ismeretlen névfeloldási kérelmeket továbbít erre a kiszolgálóra.|
-|Újbóli futtatás|Választható|Használja ezt a jelzőt a központi telepítés újrafuttatásához. Minden korábbi bemenet használatban van. A korábban megadott adatok újbóli megadása nem támogatott, mert több egyedi érték jön létre és használatos az üzembe helyezéshez.|
+|Újrajátszás|Választható|Használja ezt a jelzőt a központi telepítés újrafuttatásához. Minden korábbi bemenet használatban van. A korábban megadott adatok újbóli megadása nem támogatott, mert több egyedi érték jön létre és használatos az üzembe helyezéshez.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Üzembe helyezés utáni konfigurációk végrehajtása

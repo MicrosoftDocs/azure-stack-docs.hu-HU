@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack hub fejlesztői csomag dokumentációja
+title: Azure Stack Development Kit dokumentáció
 metadata:
-  title: A Azure Stack hub Development Kit dokumentációja – oktatóanyagok és API-referenciák
-  description: 'Megtudhatja, hogyan helyezheti üzembe és használhatja az Azure Stack hub fejlesztői készletet.'
+  title: Azure Stack Development Kit dokumentáció – oktatóanyagok és API-referenciák
+  description: 'Megtudhatja, hogyan helyezheti üzembe és használhatja a Azure Stack Development Kit.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -14,7 +14,7 @@ metadata:
   ms.date: 04/13/2018
   ms.author: mabrigg
 abstract:
-  description: 'Az Azure Stack hub Development Kit (ASDK) a Azure Stack egyetlen csomópontos telepítése, amelyet ingyenesen tölthet le és használhat. A ASDK célja, hogy olyan környezetet biztosítson, amelyben kiértékelheti Azure Stack és modern alkalmazásokat fejleszthet API-k használatával, és az Azure-t nem éles környezetben is kialakíthatja. <br/><br/>Ha Ön Azure Stack kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az <a href="/azure-stack/operator">operátori dokumentációt</a>.<br/><br/>Ha Ön Azure Stack felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat hoz létre a Azure Stackhoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.'
+  description: 'A Azure Stack Development Kit (ASDK) a Azure Stack egy egycsomópontos telepítése, amelyet ingyenesen letölthet és használhat fel. A ASDK célja, hogy olyan környezetet biztosítson, amelyben kiértékelheti Azure Stack és modern alkalmazásokat fejleszthet API-k használatával, és az Azure-t nem éles környezetben is kialakíthatja. <br/><br/>Ha Ön Azure Stack kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az <a href="/azure-stack/operator">operátori dokumentációt</a>.<br/><br/>Ha Ön Azure Stack felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat hoz létre a Azure Stackhoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.'
 sections:
   - title: Részletes útmutatók
     items:

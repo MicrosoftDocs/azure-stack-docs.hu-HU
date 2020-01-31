@@ -1,27 +1,18 @@
 ---
-title: Skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban | Microsoft Docs
+title: Skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 description: Megtudhatja, hogyan adhat hozzá méretezési egység csomópontjait Azure Stack hub egységéhez.
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256376"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876592"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
@@ -121,7 +112,7 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 |Fut               |A csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva               |A csomópont nem érhető el.|
 |Hozzáadása                |A csomópontot aktívan felveszik a méretezési egységbe.|
-|Javítás             |A csomópont aktívan javítás alatt áll.|
+|Javítása             |A csomópont aktívan javítás alatt áll.|
 |Karbantartás           |A csomópont szüneteltetve van, és nem fut aktív felhasználói munkaterhelés. |
 |Szervizelést igényel  |Hiba észlelhető, amely megköveteli a csomópont javítását.|
 
