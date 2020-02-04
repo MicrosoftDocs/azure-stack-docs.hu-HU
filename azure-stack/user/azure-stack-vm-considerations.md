@@ -3,16 +3,16 @@ title: Azure Stack hub VM-funkciók
 description: Ismerkedjen meg a különböző funkciókkal és szempontokkal, amikor Azure Stack hub-beli virtuális gépekkel dolgozik.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 94889f2d5d1223d1f5c1da1eaf5289f968cc5efa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883034"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977886"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -23,6 +23,7 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 | Szolgáltatás | Azure (globális) | Azure Stack Hub |
 | --- | --- | --- |
 | Virtuálisgép-lemezképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincsenek elérhető lemezképek az Azure Stack hub piactéren. A Azure Stack hub-felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack hub piactéren, mielőtt a felhasználók használni tudják őket. |
+| VHD-generáció | A 2. generációs virtuális gépek olyan kulcsfontosságú funkciókat támogatnak, amelyek az egy virtuális gép létrehozásakor nem támogatottak. A szolgáltatások közé tartozik a megnövekedett memória, az Intel Software Guard Extensions (Intel SGX ENKLÁVÉHOZ) és a virtualizált állandó memória (vPMEM). A 2. generációs virtuális gépek előállítása olyan szolgáltatásokkal rendelkezik, amelyek még nem támogatottak az Azure-ban. További információ: [2. generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) -ban  | Azure Stack hub csak egy virtuális gép létrehozását támogatja. A VHDX-ből a VHD-fájlformátumba konvertálhat egy virtuális gépet, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: 2. [generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)-ban. |
 | Virtuálisgép-méretek | Az Azure számos méretben támogatja a virtuális gépeket. A rendelkezésre álló méretek és beállítások megismeréséhez tekintse meg a [Windows rendszerű virtuális gépek méreteit](/azure/virtual-machines/virtual-machines-windows-sizes) és a linuxos virtuálisgép- [méretek](/azure/virtual-machines/linux/sizes) témakört. | Az Azure Stack hub az Azure-ban elérhető virtuálisgép-méretek egy részhalmazát támogatja. A támogatott méretek listájának megtekintéséhez tekintse meg a jelen cikk [VM-méretek](#vm-sizes) című szakaszát. |
 | Virtuális gépek kvótái | A [kvóták korlátait](/azure/azure-subscription-service-limits#service-specific-limits) a Microsoft állítja be. | A Azure Stack hub-felhő rendszergazdájának kvótákat kell rendelnie, mielőtt a virtuális gépet felkínálják a felhasználóknak. |
 | Virtuálisgép-bővítmények |Az Azure a virtuálisgép-bővítmények széles választékát támogatja. Az elérhető bővítmények megismeréséhez tekintse meg a virtuálisgép [-bővítmények és-szolgáltatások](/azure/virtual-machines/windows/extensions-features) című cikket.| Az Azure Stack hub az Azure-ban elérhető bővítmények egy részhalmazát támogatja, és mindegyik bővítmény rendelkezik adott verzióval. A Azure Stack hub Cloud admin kiválaszthatja, hogy mely bővítmények legyenek elérhetők a felhasználók számára. A támogatott bővítmények listájának megtekintéséhez tekintse meg a jelen cikk virtuálisgép- [bővítmények](#vm-extensions) című szakaszát. |

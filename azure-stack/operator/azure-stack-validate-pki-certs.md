@@ -1,29 +1,32 @@
 ---
-title: Azure Stack hub nyilvános kulcsú infrastruktúra-tanúsítványok ellenőrzése Azure Stack hub integrált rendszerek telepítéséhez
-description: Ismerteti, hogyan ellenőrizhető a Azure Stack hub PKI-tanúsítványai Azure Stack hub integrált rendszerekhez. Az Azure Stack hub tanúsítvány-ellenőrzési eszközének használatát ismerteti.
+title: Azure Stack hub PKI-tanúsítványok ellenőrzése
+titleSuffix: Azure Stack Hub
+description: Megtudhatja, hogyan érvényesítheti Azure Stack hub integrált rendszerek PKI-tanúsítványait az Azure Stack hub Readiness-ellenőrző eszköz használatával.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882596"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972542"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványok ellenőrzése
 
-A jelen cikkben ismertetett Azure Stack hub Readiness ellenőrző eszköz [a PowerShell-Galéria](https://aka.ms/AzsReadinessChecker)érhető el. Az eszközzel ellenőrizheti, hogy a [GENERÁLT PKI-tanúsítványok](azure-stack-get-pki-certs.md) megfelelőek-e az előzetes központi telepítéshez. A tanúsítványok érvényesítéséhez elegendő időt kell hagyni a tanúsítványok tesztelésére és kikiadására, ha szükséges.
+A jelen cikkben ismertetett Azure Stack hub Readiness ellenőrző eszköz [a PowerShell-Galéria](https://aka.ms/AzsReadinessChecker)érhető el. Az eszközzel ellenőrizheti, hogy a [generált nyilvános kulcsokra épülő infrastruktúra (PKI) tanúsítványai](azure-stack-get-pki-certs.md) megfelelőek-e az üzembe helyezés előtt. A tanúsítványok érvényesítéséhez elegendő időt kell hagyni a tanúsítványok tesztelésére és kikiadására, ha szükséges.
 
 A készenléti ellenőrző eszköz a következő tanúsítványokat hajtja végre:
 
 - **PFX elemzése**  
-    Ellenőrzi, hogy érvényes-e a PFX-fájl, a helyes jelszó, valamint azt, hogy a nyilvános adatokat a jelszó védi-e. 
+    Ellenőrzi, hogy érvényes-e a PFX-fájl, a helyes jelszó, valamint azt, hogy a nyilvános adatokat a jelszó védi-e.
 - **Lejárat dátuma**  
-    Ellenőrzi a minimális érvényességet 7 nap. 
+    A minimális érvényességet ellenőrzi hét nap alatt.
 - **Aláírási algoritmus**  
     Ellenőrzi, hogy az aláírási algoritmus nem SHA1-e.
 - **Titkos kulcs**  
@@ -33,7 +36,7 @@ A készenléti ellenőrző eszköz a következő tanúsítványokat hajtja végr
 - **DNS-nevek**  
     Ellenőrzi, hogy a SAN tartalmazza-e az egyes végpontok releváns DNS-neveit, illetve hogy van-e egy támogató helyettesítő karakter.
 - **Kulcshasználat**  
-    Ellenőrzi, hogy a kulcshasználat tartalmazza-e a digitális aláírást és a kulcs titkosítási, és a kibővített kulcshasználat kiszolgálói hitelesítést és ügyfél-hitelesítést tartalmaz.
+    Ellenőrzi, hogy a kulcshasználat tartalmazza-e a digitális aláírást és a kulcs titkosítási, valamint ellenőrzi, hogy a kibővített kulcshasználat kiszolgáló-és ügyfél-hitelesítést tartalmaz-e.
 - **Kulcs mérete**  
     Ellenőrzi, hogy a kulcs mérete 2048 vagy nagyobb.
 - **Lánc sorrendje**  
@@ -48,10 +51,10 @@ A készenléti ellenőrző eszköz a következő tanúsítványokat hajtja végr
 
 A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt ellenőrzi a PKI-tanúsítványokat egy Azure Stack hub központi telepítéshez:
 
-- Microsoft Azure Stack hub Readiness-ellenőrző
-- Az [előkészítési útmutatást](azure-stack-prepare-pki-certs.md) követően exportált SSL-tanúsítvány (ok)
-- DeploymentData. JSON
-- Windows 10 vagy Windows Server 2016
+- Microsoft Azure Stack hub Readiness-ellenőrzője.
+- Az [előkészítési útmutatást](azure-stack-prepare-pki-certs.md)követően exportált SSL-tanúsítvány (ok).
+- DeploymentData. JSON fájl.
+- Windows 10 vagy Windows Server 2016.
 
 ## <a name="perform-core-services-certificate-validation"></a>Alapszintű szolgáltatások tanúsítványának ellenőrzése
 
@@ -75,7 +78,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     ```
     
     > [!Note]  
-    > A AD FS és a Graph használata akkor szükséges, ha az Ön identitási rendszereként AD FS használ. Példa:
+    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Példa:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
@@ -86,14 +89,14 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. A PowerShell ablakban módosítsa a **RegionName** és a **teljes tartománynév** értékét a Azure stack hub-környezetnek megfelelően, és futtassa a következőt:
+3. A PowerShell-ablakban módosítsa `RegionName` és `FQDN` a Azure Stack hub-környezetnek megfelelő értékeket, és futtassa a következő parancsmagot:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Győződjön meg arról, hogy a kimenet és az összes tanúsítvány megfelel az összes tesztnek. Példa:
+4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Példa:
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -140,7 +143,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Más Azure Stack hub-szolgáltatások tanúsítványainak érvényesítéséhez módosítsa ```-CertificateType```értékét. Példa:
+    Más Azure Stack hub-szolgáltatások tanúsítványainak ellenőrzéséhez módosítsa a ```-CertificateType```értékét. Példa:
 
     ```powershell  
     # App Services
@@ -155,7 +158,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-Minden mappának tartalmaznia kell egy PFX-fájlt a tanúsítvány típusához, ha a tanúsítvány típusa több tanúsítványra vonatkozó követelményt tartalmaz, az egyes tanúsítványokhoz beágyazott mappák szükségesek, és megkülönbözteti a nevet.  A következő kód egy példaként szolgáló mappát/tanúsítványt mutat be az összes tanúsítvány típusához, valamint a ```-CertificateType``` és ```-CertificatePath```megfelelő értékét.
+    Minden mappának tartalmaznia kell egyetlen PFX-fájlt a tanúsítvány típusához. Ha a tanúsítvány típusa több tanúsítványra vonatkozó követelmény, az egyes tanúsítványokhoz tartozó beágyazott mappák várhatóak és megkülönböztetik a nevet. A következő kód egy példaként szolgáló mappát/tanúsítványt mutat be az összes tanúsítvány típusához, valamint a ```-CertificateType``` és ```-CertificatePath```megfelelő értékét.
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F
@@ -167,16 +170,16 @@ Minden mappának tartalmaznia kell egy PFX-fájlt a tanúsítvány típusához, 
             \---Certificates
                 +---AppServices         # Invoke-AzsCertificateValidation `
                 |   +---API             #     -CertificateType AppServices `
-                |   |       API. pfx #-CertificatePath C:\Certificates\AppServices
+                |   |       api.pfx     #     -CertificatePath C:\Certificates\AppServices
                 |   |
                 |   +---DefaultDomain
-                |   |       wappsvc. pfx
+                |   |       wappsvc.pfx
                 |   |
-                |   +---Identitás
-                |   |       SSO. pfx
+                |   +---Identity
+                |   |       sso.pfx
                 |   |
-                |   \-– közzététel
-                |           FTP. pfx
+                |   \---Publishing
+                |           ftp.pfx
                 |
                 +---DBAdapter           # Invoke-AzsCertificateValidation `
                 |       dbadapter.pfx   #   -CertificateType DBAdapter `
@@ -184,10 +187,10 @@ Minden mappának tartalmaznia kell egy PFX-fájlt a tanúsítvány típusához, 
                 |
                 +---Deployment          # Invoke-AzsCertificateValidation `
                 |   +---ACSBlob         #   -CertificateType Deployment `
-                |   |       acsblob. pfx #-CertificatePath C:\Certificates\Deployment
+                |   |       acsblob.pfx #   -CertificatePath C:\Certificates\Deployment
                 |   |
                 |   +---ACSQueue
-                |   |       acsqueue. pfx
+                |   |       acsqueue.pfx
                ./. ./. ./. ./. ./. ./. ./.    <- Deployment certificate tree trimmed.
                 |   \---Public Portal
                 |           portal.pfx
@@ -200,6 +203,7 @@ Minden mappának tartalmaznia kell egy PFX-fájlt a tanúsítvány típusához, 
                         iothub.pfx      #   -CertificateType IoTHub `
                                         #   -CertificatePath C:\Certificates\IoTHub
     ```
+
 ### <a name="known-issues"></a>Ismert problémák
 
 **Tünet**: a tesztek kimaradnak
@@ -234,21 +238,21 @@ Minden mappának tartalmaznia kell egy PFX-fájlt a tanúsítvány típusához, 
 
 | Könyvtár | Tanúsítvány |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\<régió > _\<externalFQDN > |
-| ACSQueue  |  wildcard_queue_\<régió > _\<externalFQDN > |
-| ACSTable  |  wildcard_table_\<régió > _\<externalFQDN > |
-| Felügyeleti bővítmény gazdagépe  |  wildcard_adminhosting_\<régió > _\<externalFQDN > |
-| Felügyeleti portál  |  adminportal_\<régió > _\<externalFQDN > |
-| ARM-rendszergazda  |  adminmanagement_\<régió > _\<externalFQDN > |
-| ARM nyilvános  |  management_\<régió > _\<externalFQDN > |
-| KeyVault  |  wildcard_vault_\<régió > _\<externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault_\<régió > _\<externalFQDN > |
-| Nyilvános kiterjesztésű gazdagép  |  wildcard_hosting_\<régió > _\<externalFQDN > |
-| Nyilvános portál  |  portal_\<régió > _\<externalFQDN > |
+| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
+| ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
+| Felügyeleti bővítmény gazdagépe  |  `wildcard_adminhosting_<region>_<externalFQDN>` |
+| Felügyeleti portál  |  `adminportal_<region>_<externalFQDN>` |
+| ARM-rendszergazda  |  `adminmanagement_<region>_<externalFQDN>` |
+| ARM nyilvános  |  `management_<region>_<externalFQDN>` |
+| KeyVault  |  `wildcard_vault_<region>_<externalFQDN>` |
+| KeyVaultInternal  |  `wildcard_adminvault_<region>_<externalFQDN>` |
+| Nyilvános kiterjesztésű gazdagép  |  `wildcard_hosting_<region>_<externalFQDN>` |
+| Nyilvános portál  |  `portal_<region>_<externalFQDN>` |
 
 ## <a name="using-validated-certificates"></a>Ellenőrzött tanúsítványok használata
 
-Miután a AzsReadinessChecker érvényesítette a tanúsítványokat, készen áll arra, hogy a Azure Stack hub üzemelő példányában vagy Azure Stack hub Secret rotációs szolgáltatásban is használhassa őket. 
+Miután a AzsReadinessChecker érvényesíti a tanúsítványokat, készen áll arra, hogy a Azure Stack hub üzemelő példányában vagy Azure Stack hub Secret rotációs szolgáltatásban is használhassa őket.
 
  - Az üzembe helyezéshez biztonságosan vigye át a tanúsítványokat a telepítési mérnökbe, hogy azok a [Azure stack hub PKI-követelmények dokumentációjában](azure-stack-pki-certs.md)megadott módon másolja őket a központi telepítési gazdagépre.
  - A Secret rotációs szolgáltatásban a tanúsítványok segítségével frissítheti az Azure Stack hub-környezet nyilvános infrastruktúra-végpontjának régi tanúsítványait az [Azure stack hub Secret rotációs dokumentációjának](azure-stack-rotate-secrets.md)követésével.

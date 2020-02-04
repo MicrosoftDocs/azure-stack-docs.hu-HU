@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan regisztrálhat Azure Stack hub integrált rendszereit az Azure-ban, hogy letöltse az Azure Marketplace-elemeket, és hogyan állíthatja be az adatjelentéskészítést.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/02/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 81b899104b162e92f74204f9b70c67fc280d7c31
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881407"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972571"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: kapacitás, PayAsYouUse és fejlesztés. |
 | MarketplaceSyndicationEnabled | Igaz/hamis | Meghatározza, hogy a piactér-felügyeleti funkció elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) használható a Piactéri elemek letöltésére. |
 | UsageReportingEnabled | Igaz/hamis | Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
-| AgreementNumber | Sztring |  |
+| AgreementNumber | Sztring | Azon EA-szerződés száma, amely alatt a Azure Stack kapacitásának SKU-jának megrendelése megvolt. |
 | registrationName | Sztring | Adja meg a regisztráció egyedi nevét, ha a regisztrációs parancsfájlt a Azure Stack hub egynél több példányán futtatja ugyanazzal az Azure-előfizetés-AZONOSÍTÓval. A paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja az Azure Stack hub több példányán, a parancsfájl meghiúsul. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken

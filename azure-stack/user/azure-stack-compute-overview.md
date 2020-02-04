@@ -3,16 +3,16 @@ title: Azure Stack hub virtuális gépek bemutatása
 description: Ismerkedjen meg Azure Stack hub virtuális gépekkel.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883942"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977903"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
 
@@ -57,7 +57,7 @@ Az előfizetése alapértelmezett kvóta-korlátozásokkal rendelkezik, amelyek 
 
 ### <a name="operating-system-disks-and-images"></a>Operációsrendszer-lemezek és -rendszerképek
 
-A virtuális gépek virtuális merevlemezeket (VHD-ket) használnak az operációs rendszer (OS) és az adattárolók tárolásához. A virtuális merevlemezek az operációs rendszer telepítéséhez kiválasztott rendszerképekhez is használhatók. Az Azure Stack hub számos különböző verzióval és típussal használható piactért biztosít. A piactér lemezképeit a rendszerkép-közzétevő, az ajánlat, az SKU és a verzió azonosítja (általában a legújabb verzió a **legújabbként**van megadva).
+Az Azure Stack hub-beli virtuális gépek csak az egy virtuális merevlemez (VHD/VHDX) formátumának a generálására korlátozódnak. A virtuális merevlemezek a számítógép operációs rendszerének (operációs rendszere) és az adattárolók tárolására használhatók. A virtuális merevlemezek az operációs rendszer telepítéséhez kiválasztott rendszerképekhez is használhatók. Az Azure Stack hub számos különböző verzióval és típussal használható piactért biztosít. A piactér lemezképeit a rendszerkép-közzétevő, az ajánlat, az SKU és a verzió azonosítja (általában a legújabb verzió a **legújabbként**van megadva).
 
 A következő táblázat a rendszerkép információinak megkeresését mutatja be:
 

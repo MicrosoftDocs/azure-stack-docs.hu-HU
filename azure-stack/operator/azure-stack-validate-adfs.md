@@ -1,18 +1,21 @@
 ---
-title: Azure Stack hub AD FS integrációjának ellenőrzése
-description: Az Azure Stack hub Readiness-ellenőrzővel érvényesítheti az Azure Stack hub AD FS-integrációját.
+title: AD FS integráció ellenőrzése
+titleSuffix: Azure Stack Hub
+description: Megtudhatja, hogyan használhatja az Azure Stack hub Readiness-ellenőrzőt az Azure Stack hub AD FS-integrációjának ellenőrzéséhez.
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a98a5384b8590f494e6e9d6acdeb05e90fce3a20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880644"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972590"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Azure Stack hub AD FS integrációjának ellenőrzése
 
@@ -21,7 +24,7 @@ Az Azure Stack hub Readiness-ellenőrző eszközének (AzsReadinessChecker) hasz
 A készültség-ellenőrző ellenőrzi a következőket:
 
 * Az *összevonási metaadatok* tartalmazzák az összevonás érvényes XML-elemeit.
-* A *AD FS SSL-tanúsítvány* beolvasható, és a megbízhatósági lánc is felépíthető. A Stamp AD FSnak meg kell bíznia az SSL-tanúsítvány láncában. A *tanúsítványt ugyanazzal a hitelesítésszolgáltatóval* kell aláírni, amelyet az Azure stack hub központi telepítési tanúsítványokhoz vagy egy megbízható legfelső szintű szolgáltatói partnerhez kell kötni. A megbízható legfelső szintű szolgáltatói partnerek teljes listájáért lásd: [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Az *AD FS SSL-tanúsítvány* beolvasható, és a megbízhatósági lánc is létrehozható. A Stamp esetében AD FS meg kell bíznia az SSL-tanúsítványlánc láncában. A *tanúsítványt ugyanazzal a hitelesítésszolgáltatóval* kell aláírni, amelyet az Azure stack hub központi telepítési tanúsítványokhoz vagy egy megbízható legfelső szintű szolgáltatói partnerhez kell kötni. A megbízható legfelső szintű szolgáltatói partnerek teljes listájáért lásd: [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * A *AD FS aláíró tanúsítvány* megbízható, és nem közeledik a lejárathoz.
 
 Az Azure Stack hub Datacenter-integrációval kapcsolatos további információkért lásd: [Azure stack hub Datacenter Integration-Identity](azure-stack-integrate-identity.md).
@@ -36,31 +39,37 @@ A következő előfeltételeknek kell teljesülniük.
 
 **Az a számítógép, amelyen az eszköz fut:**
 
-* Windows 10 vagy Windows Server 2016, tartományi kapcsolattal.
+* Windows 10 vagy Windows Server 2016 tartományi kapcsolattal.
 * PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő *PowerShell-parancsot* , majd tekintse át a főverziót *és az alverziókat* :  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Az [Microsoft Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.
 
 **Active Directory összevonási szolgáltatások (AD FS) környezet:**
 
 A metaadatok alábbi formái közül legalább egy szükséges:
 
-* AD FS összevonási metaadatok URL-címe Például: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Az összevonási metaadatok XML-fájlja. Példa: FederationMetadata. xml.
+- AD FS összevonási metaadatok URL-címe Például: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* Az összevonási metaadatok XML-fájlja. Például: FederationMetadata. xml.
 
 ## <a name="validate-ad-fs-integration"></a>AD FS integráció ellenőrzése
 
 1. Egy olyan számítógépen, amely megfelel az előfeltételeknek, nyisson meg egy rendszergazdai PowerShell-parancssort, majd futtassa a következő parancsot a AzsReadinessChecker telepítéséhez:
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. A PowerShell-parancssorból futtassa a következő parancsot az érvényesítés indításához. A **-CustomADFSFederationMetadataEndpointUri** értéket a összevonási metaadatok URI azonosítójának megadásával adhatja meg.
 
-     `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+     ```powershell
+     Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+     ```
 
 1. Az eszköz futtatása után tekintse át a kimenetet. Győződjön meg arról, hogy az AD FS az integráció követelményeinek megfelelő állapotú. A sikeres érvényesítés az alábbi példához hasonló:
 
-    ```
+    ```powershell
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
 
     Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
@@ -93,8 +102,8 @@ Alapértelmezés szerint mindkét fájl a `C:\Users\<username>\AppData\Local\Tem
 
 Használja
 
-* **-OutputPath**: a Run parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
-* **-CleanReport**: a Run parancs végén található paraméter a korábbi jelentési információk AzsReadinessCheckerReport. JSON fájljának törléséhez. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
+* `-OutputPath`: a futtatási parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
+* `-CleanReport`: a futtatási parancs végén található paraméter a korábbi jelentési információk AzsReadinessCheckerReport. JSON fájljának törléséhez. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
@@ -104,13 +113,17 @@ Az alábbi példák útmutatást nyújtanak a gyakori ellenőrzési hibákról.
 
 ### <a name="command-not-found"></a>A parancs nem található
 
-`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
+```powershell
+Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
 
 **OK**: a PowerShell automatikus betöltése nem tudta megfelelően betölteni a készültség-ellenőrző modult.
 
-**Megoldás**: explicit módon importálja a készültség-ellenőrző modult. Másolja és illessze be a következő kódot a PowerShellbe, és frissítse \<verziójának\> a jelenleg telepített verzió számával.
+**Megoldás**: explicit módon importálja a készültség-ellenőrző modult. Másolja és illessze be a következő kódot a PowerShellbe, és frissítse `<version>` a jelenleg telepített verzió számával.
 
-`Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
+```powershell
+Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
+```
 
 ## <a name="next-steps"></a>Következő lépések
 

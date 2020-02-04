@@ -1,5 +1,6 @@
 ---
-title: Azure Graph-integráció ellenőrzése Azure Stack hubhoz
+title: Azure Graph-integráció ellenőrzése
+titleSuffix: Azure Stack Hub
 description: Az Azure Stack hub Readiness-ellenőrzővel ellenőrizheti Azure Stack hub Graph-integrációját.
 author: ihenkel
 ms.topic: article
@@ -7,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 29cc035e66039d09e761410808098d57f0b1927f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ff9763edbd96dda39f3de8e8a764ce4f4acd7200
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882625"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972502"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Azure Stack hub gráf-integrációjának ellenőrzése
 
@@ -37,9 +38,11 @@ A következő előfeltételeknek kell teljesülniük.
 
 **Az a számítógép, amelyen az eszköz fut:**
 
-* Windows 10 vagy Windows Server 2016, tartományi kapcsolattal.
-* PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő *PowerShell-parancsot* , majd tekintse át a főverziót *és az alverziókat* :  
-   > `$PSVersionTable.PSVersion`
+* Windows 10 vagy Windows Server 2016 tartományi kapcsolattal.
+* PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő *PowerShell-parancsot* , majd tekintse át a főverziót *és az alverziókat* :
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Active Directory PowerShell-modul.
 * Az [Microsoft Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.
 
@@ -52,19 +55,25 @@ A következő előfeltételeknek kell teljesülniük.
 
 1. Egy olyan számítógépen, amely megfelel az előfeltételeknek, nyisson meg egy rendszergazdai PowerShell-parancssort, majd futtassa a következő parancsot a AzsReadinessChecker telepítéséhez:
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. A PowerShell-parancssorból futtassa a következő parancsot a *$graphCredential* változónak a Graph-fiókhoz való beállításához. Cserélje le a `contoso\graphservice`t a fiókjára a `domain\username` formátum használatával.
 
-    `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
+    ```powershell
+    $graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"
+    ```
 
-1. A PowerShell-parancssorból futtassa a következő parancsot a Graph szolgáltatás érvényesítésének megkezdéséhez. A **-ForestFQDN** értékének megadása az erdő GYÖKERÉNEK teljes tartománynevéhez.
+1. A PowerShell-parancssorból futtassa a következő parancsot a Graph szolgáltatás érvényesítésének megkezdéséhez. A `-ForestFQDN` értékének megadása az erdő gyökerének teljes tartományneveként.
 
-     `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
+    ```powershell
+    Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential
+    ```
 
 1. Az eszköz futtatása után tekintse át a kimenetet. Győződjön meg arról, hogy a gráf-integráció követelményeinek állapota OK. A sikeres érvényesítés az alábbi példához hasonló:
 
-    ```
+    ```powershell
     Testing Graph Integration (v1.0)
             Test Forest Root:            OK
             Test Graph Credential:       OK
@@ -98,8 +107,8 @@ Alapértelmezés szerint mindkét fájl a `C:\Users\<username>\AppData\Local\Tem
 
 Használja
 
-* **-OutputPath**: a Run parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
-* **-CleanReport**: a Run parancs végén található paraméter a korábbi jelentési információk *AzsReadinessCheckerReport. JSON* fájljának törléséhez. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
+* `-OutputPath`: a futtatási parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
+* `-CleanReport`: a futtatási parancs végén található paraméter a korábbi jelentési információk *AzsReadinessCheckerReport. JSON* fájljának törléséhez. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
