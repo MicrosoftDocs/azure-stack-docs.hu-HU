@@ -7,12 +7,12 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876371"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012886"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Azure App Service üzembe helyezése offline környezetben Azure Stack hub-ban
 
@@ -37,9 +37,9 @@ Ha a Azure App Service erőforrás-szolgáltatót a kapcsolat nélküli Azure St
 
 A Azure App Service offline környezetben történő telepítéséhez először hozzon létre egy offline telepítőcsomagot egy internetkapcsolattal rendelkező számítógépen.
 
-1. Futtassa a AppService. exe telepítőjét olyan gépen, amely csatlakozik az internethez.
+1. Futtassa a AppService. exe telepítőjét olyan gépen, amely csatlakozik az internethez. 
 
-2. Válassza a **speciális** > **Offline telepítési csomag létrehozása**lehetőséget.
+2. Válassza a **speciális** > **Offline telepítési csomag létrehozása**lehetőséget. Ennek a lépésnek a végrehajtása több percet is igénybe vehet.
 
     ![Offline csomag létrehozása Azure App Service telepítőben][1]
 
@@ -158,10 +158,17 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 
     ![Szerepkörök szintjeinek és SKU-beállításainak megadása Azure App Service telepítőben][14]
 
+1. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a Azure app Service felhő számítási erőforrás-szolgáltatóján elérhető rendszerképekből. Kattintson a **Tovább** gombra.
+
     > [!NOTE]
     > A Windows Server 2016 Core *nem* támogatott platform-rendszerkép a Azure app Service Azure stack hub-ban való használatához.  Éles környezetben ne használjon próbaverziókat. A Azure App Service on Azure Stack hub megköveteli, hogy a Microsoft .NET 3.5.1 SP1 legyen aktiválva az üzembe helyezéshez használt rendszerképben. Piactér – a Windows Server 2016-lemezképek nem rendelkeznek ezzel a szolgáltatással. Ezért egy Windows Server 2016 rendszerképet kell létrehoznia és használnia ezzel a szolgáltatással előre engedélyezve.
-
-1. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a Azure app Service felhő számítási erőforrás-szolgáltatóján elérhető rendszerképekből. Kattintson a **Tovább** gombra.
+    >
+    > Az egyéni rendszerkép létrehozásával és a piactérhez való hozzáadásával kapcsolatos további tudnivalókért lásd: [Egyéni virtuálisgép-rendszerkép hozzáadása Azure stack hubhoz](azure-stack-add-vm-image.md) . Ügyeljen arra, hogy a következőt adja meg, amikor hozzáadja a rendszerképet a piactérhez:
+    >
+    >- Közzétevő = MicrosoftWindowsServer
+    >- Ajánlat = WindowsServer
+    >- SKU = 2016 – Datacenter
+    >- Version = a "legújabb" verzió meghatározása
 
 1. A következő oldalon:
      1. Adja meg a feldolgozói szerepkör virtuális gép rendszergazdai felhasználónevét és jelszavát.

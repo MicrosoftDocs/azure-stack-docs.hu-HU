@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882088"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001614"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -23,7 +23,7 @@ Az 1809-es frissítéstől kezdve a Azure Stack hub egy integrált syslog-ügyf�
 Az alábbi ábra az Azure Stack hub külső SIEM-sel való integrálását ismerteti. Kétféle integrációs mintát kell figyelembe venni: az első (a kék) az a Azure Stack hub-infrastruktúra, amely magában foglalja az infrastruktúra-alapú virtuális gépeket és a Hyper-V-csomópontokat. Ezekből az összetevőkből származó összes naplózási, biztonsági naplós és riasztás központilag össze van gyűjtve, és a syslog használatával CEF hasznos adattartalommal. Ez az integrációs minta a jelen dokumentum oldalán olvasható.
 A második integrációs minta a narancssárga ábrán látható, amely a alaplapi-felügyeleti vezérlőket (bmc), a hardveres életciklus-gazdagépet (HLH), a hardvereszközöket és a hardvereket futtató virtuális gépeket, valamint a hardverprofil-figyelési és-felügyeleti szoftvert futtató virtuális készülékeket és a rack (TOR) kapcsolók. Mivel ezek az összetevők a hardveres partnerekkel kapcsolatosak, vegye fel a kapcsolatot a hardver-partnerével, hogy miként integrálhatja őket egy külső SIEM-mel.
 
-![Syslog-továbbítási diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Syslog-továbbítási diagram](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
 ## <a name="configuring-syslog-forwarding"></a>Syslog-továbbítás konfigurálása
 

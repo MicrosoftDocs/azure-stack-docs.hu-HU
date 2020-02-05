@@ -3,16 +3,16 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stac
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/04/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 0df8b4e85aea2a194061da523e66385389b38bb1
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 5fee671c0d31f78d92e84733cc1ebf1f7626a50f
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890323"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012924"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
 
@@ -71,7 +71,7 @@ A Marketplace Syndication eszköz egy csatlakoztatott forgatókönyvben is haszn
 A forgatókönyv két részből áll:
 
 - **1. rész**: Letöltés a piactér elemeiből. Az internet-hozzáféréssel rendelkező számítógépen konfigurálja a PowerShellt, töltse le a szindikált eszközt, majd töltse le az elemeket az Azure Marketplace-ről.
-- **2. rész**: feltöltés és közzététel Azure stack hub piactéren. Áthelyezi a letöltött fájlokat az Azure Stack hub-környezetbe, importálhatja őket Azure Stack hubhoz, majd közzéteheti őket a Azure Stack hub piactéren.
+- **2. rész**: feltöltés és közzététel Azure stack hub piactéren. Áthelyezi a letöltött fájlokat az Azure Stack hub-környezetbe, majd közzéteheti őket a Azure Stack hub piactéren.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
@@ -87,26 +87,28 @@ A forgatókönyv két részből áll:
 
   - A letöltött Piactéri elemek importálásának engedélyezéséhez konfigurálni kell az [Azure stack hub-kezelő PowerShell-környezetét](azure-stack-powershell-configure-admin.md) .
 
-  - Az [Azure stack hub-eszközök](https://github.com/Azure/AzureStack-Tools) klónozása GitHub-tárházban.
+- Töltse le a AZS. Syndication. admin modult a PowerShell-galéria az alábbi parancs használatával
+  ```
+  Install-Module -Name Azs.Syndication.Admin
+  ```
 
-- Rendelkeznie kell egy olyan [Storage-fiókkal](azure-stack-manage-storage-accounts.md) Azure stack központban, amely nyilvánosan elérhető tárolóval rendelkezik (ez egy tárolási blob). A tárolót ideiglenes tárolóként használhatja a Piactéri elemek katalógusának fájljaihoz. Ha nem ismeri a Storage-fiókokat és-tárolókat, tekintse meg a [Blobok használata – Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal) az Azure dokumentációjában.
-
-- A Marketplace Syndication eszköz az első eljárás során töltődik le.
-
-- A [AzCopy](/azure/storage/common/storage-use-azcopy) az optimális letöltési teljesítmény érdekében telepítheti, de nem szükséges.
-
-A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen megjelenő alábbi üzenetet, mivel ez nem vonatkozik a leválasztott használati esetekre:
+A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-kezelő panelen megjelenő alábbi üzenetet, mivel ez nem vonatkozik a leválasztott használati esetre:
 
 ![Piactér-kezelés](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Marketplace-elemek letöltése a Marketplace Syndication eszköz használatával
 
 > [!IMPORTANT]
-> Ügyeljen arra, hogy minden alkalommal letöltse a Marketplace Syndication eszközt, amikor a Piactéri elemeket leválasztott forgatókönyvben tölti le. A szkript gyakori módosításokat hajt végre, és a legújabb verziót kell használni az egyes letöltésekhez.
+> Ügyeljen arra, hogy minden alkalommal letöltse a Marketplace Syndication eszközt, amikor a Piactéri elemeket leválasztott forgatókönyvben tölti le. Ezen az eszközön gyakori változások történnek, és a legújabb verziót kell használni az egyes letöltésekhez.
 
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
-2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához a PowerShellben futtassa az **Add-AzureRmAccount** paraméter nélkül. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
+2. Jelentkezzen be a megfelelő Azure Cloud-és AzureAD-címtár-Bérlőbe az Azure Stack hub regisztrálásához használt Azure-fiók használatával. A fiók hozzáadásához a PowerShellben futtassa a következőt: **Add-AzureRmAccount**. 
+
+   ```powershell  
+   Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
+   ```
+   A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
 
    > [!NOTE]
    > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzureRmAccount**: **Remove-AzureRmAccount-scope folyamat**használatával történő bejelentkezés előtt futtassa a következő parancsmagot.
@@ -115,81 +117,58 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
 
    ```powershell  
    Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
-   $AzureContext = Get-AzureRmContext
    ```
 
-4. Töltse le a Marketplace Syndication eszköz legújabb verzióját a következő parancsfájl használatával:
+4. Ha még nem tette meg az előfeltételek lépésben, töltse le a Marketplace Syndication eszköz legújabb verzióját:
 
    ```powershell
-   # Download the tools archive.
-   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-     -OutFile master.zip
-
-   # Expand the downloaded files.
-   expand-archive master.zip `
-     -DestinationPath `
-     -Force
-
-   # Change to the tools directory.
-   cd .\AzureStack-Tools-master
+   Install-Module -Name Azs.Syndication.Admin
    ```
 
-5. Importálja a szindikált modult, majd indítsa el az eszközt a következő parancs futtatásával:
-
-   ```powershell  
-   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
-   ```
-
-6. A Piactéri elemek, például a virtuálisgép-lemezképek, bővítmények vagy a megoldási sablonok exportálásához futtassa a következő parancsot. Cserélje le a célmappa elérési útját egy olyan helyre, amely az Azure Marketplace-ről letöltött fájlokat tárolja:
+5. Az alábbi parancs futtatásával válassza ki a Piactéri elemeket (például a virtuálisgép-lemezképeket, a bővítményeket vagy a megoldási sablonokat). 
 
    ```powershell
-   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" -azCopyDownloadThreads "[optional - AzCopy threads number]" -azureContext $AzureContext
+   $products = Select-AzsMarketplaceItem
    ```
 
-   Az erőforrás-szolgáltatók vagy a Pásti-szolgáltatások exportálásához futtassa a következő parancsot:
+   Ez egy olyan táblázatot jelenít meg, amely felsorolja a kijelölt előfizetésben elérhető összes Azure Stack regisztrációt. Válassza ki azt a regisztrációt, amely megfelel annak a Azure Stack-környezetnek, amelyet a piactérhez tartozó elemek letöltéséhez, majd kattintson **az OK gombra**.
 
-   ```powershell
-   Export-AzSOfflineResourceProvider -destination "Destination folder path" -azCopyDownloadThreads "AzCopy threads number" -azureContext $AzureContext
-   ```
+     ![Azure Stack regisztrációk kiválasztása](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
-   A `-azCopyDownloadThreads` paraméter nem kötelező. Csak akkor használható, ha alacsony sávszélességű hálózattal rendelkezik, és prémium szintű letöltést használ. Ez a beállítás határozza meg az egyidejű műveletek számát a AzCopy-ben. Ha alacsony sávszélességű hálózatot futtat, megadhat egy alacsonyabb számot, amellyel elkerülhető az erőforrás-verseny okozta hiba. További részleteket ebben az Azure- [cikkben](/previous-versions/azure/storage/storage-use-azcopy#specify-the-number-of-concurrent-operations-to-start)találhat.
+   Ekkor egy második táblázat jelenik meg, amely felsorolja az összes letölthető Piactéri elemet. Válassza ki a letölteni kívánt elemet, és jegyezze fel a **verziót**. Több rendszerkép kiválasztásához a **Ctrl** billentyűt is megtarthatja.
+     ![válassza a Azure Stack regisztrációk](media/azure-stack-download-azure-marketplace-item/select-products.png)
+  
+   A képek listáját a **feltételek hozzáadása** lehetőség használatával is szűrheti.
+   ![válassza a Azure Stack regisztrációk](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
 
-   A `-azureContext` paraméter szintén nem kötelező. Ha nem adja meg az Azure-környezetet, a parancsmag az alapértelmezett Azure-környezetet fogja használni.
+   Miután elvégezte a beállításokat, kattintson az OK gombra.
 
-7. Az eszköz futtatásakor az alábbi képhez hasonló képernyő jelenik meg az elérhető Azure Marketplace-elemek listájával:
+6. A piactérről kiválasztott piactér-elemek azonosítói a `$products` változóban lesznek mentve. A kijelölt elemek letöltésének megkezdéséhez használja az alábbi parancsot. Cserélje le a célmappa elérési útját egy olyan helyre, amely az Azure Marketplace-ről letöltött fájlokat tárolja:
 
-   ![Marketplace-elemek](media/azure-stack-download-azure-marketplace-item/tool1.png)
+    ```powershell
+    $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"
+    ```
 
-8. Ha a Marketplace-elem több verziója is elérhető, a **verzió** oszlopban **több verzió**is látható. Ha egy elem verziója **több verzióként**jelenik meg, akkor kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió kiválasztása ablakból.
+7. A letöltés időpontja az elem méretétől függ. A letöltés befejezése után az elem elérhető a parancsfájlban megadott mappában. A letöltés tartalmaz egy VHD-fájlt (virtuális gépek esetében) vagy egy. zip-fájlt (a virtuálisgép-bővítmények és az erőforrás-szolgáltatók esetében). Tartalmazhat egy. *azpkg* formátumú katalógus-csomagot is, amely egy. zip-fájl.
 
-9. Válassza ki a letölteni kívánt elemet, és jegyezze fel a **verziót**. Több rendszerkép kiválasztásához a **Ctrl** billentyűt is megtarthatja. Ha a következő eljárásban importálja az elemet, a  *verzióra* kell hivatkoznia.
+8. Ha a letöltés meghiúsul, próbálkozzon újra a következő PowerShell-parancsmag újbóli futtatásával:
 
-    A képek listáját a **feltételek hozzáadása** lehetőség használatával is szűrheti.
+    ```powershell
+    $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"
+    ```
 
-10. Ha nem telepítette az Azure Storage-eszközöket, a következő üzenet jelenik meg. Az eszközök telepítéséhez győződjön meg róla, hogy letöltötte a [AzCopy](/azure/storage/common/storage-use-azcopy#download-azcopy):
+9. A **AZS. Syndication. admin** modult helyileg is exportálnia kell, hogy átmásolja azt a gépre, amelyről a Marketplace-elemeket Azure stack hubhoz importálja.
 
-    ![Storage-eszközök](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
+   > [!NOTE]
+   > A modul exportálásához használt célmappa nem lehet a piactér elemeinek exportálási helyétől eltérő helyen.
 
-11. Kattintson az **OK gombra**, majd tekintse át és fogadja el a jogi feltételeket.
-
-12. A letöltés időpontja az elem méretétől függ. A letöltés befejezése után az elem elérhető a parancsfájlban megadott mappában. A letöltés tartalmaz egy VHD-fájlt (virtuális gépek esetében) vagy egy. zip-fájlt (a virtuálisgép-bővítmények és az erőforrás-szolgáltatók esetében). Tartalmazhat egy *. azpkg* formátumú katalógus-csomagot is, amely egyszerűen egy. zip-fájl.
-
-13. Ha a letöltés meghiúsul, próbálkozzon újra a következő PowerShell-parancsmag újbóli futtatásával:
-
-   ```powershell
-   # for Marketplace items
-   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes"
-
-   # for Resource providers
-   Export-AzSOfflineResourceProvider -Destination "Destination folder path in quotes"
-   ```
-
-   Az újrapróbálkozás előtt távolítsa el azt a terméket tartalmazó mappát, amelyben a letöltés sikertelen volt. Ha például a letöltési parancsfájl meghibásodik a **D:\downloadFolder\microsoft.customscriptextension-ARM-1.9.1**való letöltéskor, távolítsa el a **D:\downloadFolder\microsoft.customscriptextension-ARM-1.9.1** mappát, majd futtassa újra a parancsmagot.
+    ```powershell
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
+    ```
 
 ### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>A letöltés és közzététel a Azure Stack hub piactéren a PowerShell használatával
 
-1. A [korábban letöltött](#use-the-marketplace-syndication-tool-to-download-marketplace-items) fájlokat helyileg kell áthelyeznie, hogy elérhetők legyenek az Azure stack hub-környezet számára. A Marketplace Syndication eszköznek emellett elérhetőnek kell lennie az Azure Stack hub-környezet számára, mivel az importálási művelet végrehajtásához az eszközt kell használnia.
+1. A [korábban letöltött](#use-the-marketplace-syndication-tool-to-download-marketplace-items) fájlokat helyileg egy olyan gépre kell áthelyeznie, amely a Azure stack hub-környezethez kapcsolódik. A Marketplace Syndication eszköznek emellett elérhetőnek kell lennie az Azure Stack hub-környezet számára, mivel az importálási művelet végrehajtásához az eszközt kell használnia.
 
    Az alábbi ábrán egy példa látható a mappák struktúrájában. A  **D:\downloadfolder** a piactér összes letöltött elemét tartalmazza. Minden almappa egy Piactéri elem (például **Microsoft. Custom-script-Linux-ARM-2.0.3**), amelyet a termékazonosító nevez el. Az egyes almappákon belül a Piactéri elem letöltött tartalma.
 
@@ -197,18 +176,12 @@ A regisztráció után figyelmen kívül hagyhatja a Marketplace-kezelő panelen
 
 2. A Azure Stack hub-kezelő PowerShell-munkamenet konfigurálásához kövesse az [ebben a cikkben](azure-stack-powershell-configure-admin.md) szereplő utasításokat .
 
-3. Importálja a szindikált modult, majd indítsa el a Marketplace Syndication eszközt a következő parancsfájl futtatásával:
+3. Jelentkezzen be az Azure Stack hubhoz egy olyan identitással, amely tulajdonosi hozzáféréssel rendelkezik az "alapértelmezett szolgáltatói előfizetéshez".
 
-   ```powershell
-   $credential = Get-Credential -Message "Enter the Azure Stack Hub operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
-   ```
+4. Importálja a szindikált modult, majd indítsa el a Marketplace Syndication eszközt a következő parancsfájl futtatásával:
 
-   A `-origin` paraméter azt a legfelső szintű mappát határozza meg, amely az összes letöltött terméket tartalmazza; például `"D:\downloadfolder"`.
+    ```powershell
+    Import-AzsMarketplaceItem -RepositoryDir "Source folder path in quotes"
+    ```
 
-   A `-AzsCredential` paraméter nem kötelező. A hozzáférési jogkivonat megújítására szolgál, ha lejárt. Ha a `-AzsCredential` paraméter nincs megadva, és a jogkivonat lejár, a rendszer felszólítja az operátor hitelesítő adatainak megadására.
-
-   > [!NOTE]
-   > AD FS csak a felhasználói identitásokkal való interaktív hitelesítést támogatja. Ha egy hitelesítőadat-objektumra van szükség, akkor egy egyszerű szolgáltatásnevet (SPN) kell használnia. További információ az Azure Stack hub és a AD FS identitás-kezelési szolgáltatásként való beállításáról: [AD FS egyszerű szolgáltatásnév kezelése](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal).
-
-4. A parancsfájl sikeres befejeződése után az elemnek elérhetőnek kell lennie Azure Stack hub piactéren.
+5. A parancsfájl sikeres befejeződése után a piactér elemeinek elérhetőnek kell lenniük Azure Stack hub piactéren.
