@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877442"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037165"
 ---
 # <a name="hybrid-application-design-considerations"></a>Hibrid alkalmazások kialakításával kapcsolatos szempontok 
 
@@ -69,14 +69,14 @@ A leltárban szerepeltetni kívánt általános alkalmazás-összetevők az 1. t
 
 Minden egyes összetevő esetében értékelje ki az egyes oszlopok jellemzőit. Az egyes összetevőknek az összes pillérrel való kiértékelése során előfordulhat, hogy olyan kérdésekkel találkozhat, amelyek befolyásolják a hibrid alkalmazás kialakítását. Ezen megfontolások alapján az alkalmazás optimalizálásával értéket adhat hozzá. A 2. táblázat az egyes oszlopok leírását tartalmazza, amelyek a hibrid alkalmazásokhoz kapcsolódnak.
 
-### <a name="table-2-pillars"></a>2\. táblázat Kulcsfogalmak
+### <a name="table-2-pillars"></a>2\. táblázat Alappilléreknek
 
 | **Pillar** | **Leírás** |
 | ----------- | --------------------------------------------------------- |
 | Elhelyezési  | Az összetevők stratégiai elhelyezése hibrid alkalmazásokban. |
-| Skálázhatóság  | A rendszer megnövekedett terhelés kezelésére vonatkozó képessége. |
-| Elérhetőség  | A hibrid alkalmazások működésének és működésének aránya. |
-| Rugalmasság | A hibrid alkalmazások helyreállításának lehetősége. |
+| Méretezhetőség  | A rendszer megnövekedett terhelés kezelésére vonatkozó képessége. |
+| Rendelkezésre állás  | A hibrid alkalmazások működésének és működésének aránya. |
+| Resiliency | A hibrid alkalmazások helyreállításának lehetősége. |
 | Kezelhetőség | A rendszert termelési állapotban tartó működési folyamatok. |
 | Biztonság | A hibrid alkalmazások és adatok védelme a fenyegetésektől. |
 
@@ -110,7 +110,7 @@ Az elhelyezés a helymeghatározási összetevők fontos feladata, hogy a lehet�
 
 **A forgalmi folyamatok szabályozása.** Kezelje a csúcsérték-használatot, valamint a személyes azonosításra alkalmas adatokra vonatkozó megfelelő és biztonságos kommunikációt, ha az előtér egy nyilvános felhőben érhető el.
 
-## <a name="scalability"></a>Skálázhatóság
+## <a name="scalability"></a>Méretezhetőség
 
 A méretezhetőség a rendszer azon képessége, hogy az alkalmazás megnövekedett terhelését kezelje, ami az idő múlásával változhat a többi tényező és a haderő esetében, továbbá az alkalmazás méretére és hatókörére is hatással lehet.
 
@@ -122,7 +122,7 @@ Hibrid forgatókönyvekben az egyes összetevők horizontális felskálázása t
 
 Egyes alkalmazás-összetevők lineárisan horizontálisan méretezhetők, míg mások skálázási függőségekkel rendelkeznek, és az is előfordulhat, hogy a méretezési lehetőségekre korlátozva van. Például egy, az alkalmazás-összetevők helyeihez hibrid kapcsolatot biztosító VPN-alagút korlátozza a sávszélességet és a késést. Hogyan méretezhető az alkalmazás összetevői a követelmények teljesítése érdekében?
 
-### <a name="scalability-checklist"></a>Méretezési ellenőrzőlista
+### <a name="scalability-checklist"></a>Méretezhetőségi ellenőrzőlisták
 
 **A skálázási küszöbértékek megállapítása.** Az alkalmazás különböző függőségeinek kezeléséhez határozza meg, hogy a különböző felhőkben lévő alkalmazás-összetevők milyen mértékben méretezhetők egymástól függetlenül, miközben továbbra is megfelelnek az alkalmazás futtatásához szükséges követelményeknek. A hibrid alkalmazásoknak gyakran kell méretezniük bizonyos területeket az alkalmazásban, hogy az interakciót és a többi alkalmazást érintsék. Előfordulhat például, hogy az előtér-példányok száma meghaladja a háttér méretezését.
 
@@ -138,13 +138,13 @@ Ha az automatikus skálázás nem érhető el, érdemes lehet parancsfájlokat �
 
 További erőforrások is hozzáadhatók egy másik helyen a bejövő kérelmek terhelésének elosztásához. Győződjön meg arról, hogy az ügyfélkapcsolatok képesek kezelni a megnövekedett terheléseket, valamint a terhelés kezeléséhez az ügyfélkapcsolatok automatizált eljárásait is.
 
-## <a name="availability"></a>Elérhetőség
+## <a name="availability"></a>Rendelkezésre állás
 
 A rendelkezésre állás az az idő, ameddig a rendszer működőképes és működik. A rendelkezésre állás az üzemidő százalékában mérhető. Az alkalmazáshibák, infrastruktúraproblémák és a rendszerterhelés egyaránt csökkenthetik a rendelkezésre állást.
 
-Ennek az oszlopnak a fő vitájában lásd: [*rendelkezésre állás*](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) a szoftverek minőségének pillérei között.
+Ennek az oszlopnak a fő vitájában lásd: [*rendelkezésre állás*](/azure/architecture/framework/) a szoftverek minőségének pillérei között.
 
-### <a name="availability-checklist"></a>Rendelkezésre állási ellenőrzőlista
+### <a name="availability-checklist"></a>Rendelkezésre állási ellenőrzőlisták
 
 **Redundancia biztosítása a kapcsolathoz.** A hibrid alkalmazások a felhők közötti kapcsolatra van szükségük, amelyek között az alkalmazás elterjedt. A hibrid kapcsolatokhoz választható technológiákat használhat, így az elsődleges technológián kívül egy másik technológiával is biztosíthatja az automatikus feladatátvételi képességeket, ha az elsődleges technológia meghibásodik.
 
@@ -158,7 +158,7 @@ Ennek az oszlopnak a fő vitájában lásd: [*rendelkezésre állás*](https://d
 
 **Szolgáltatási szintű szerződések (SLA-kat) fenntartása.** A rendelkezésre állás kritikus fontosságú minden olyan szerződés esetében, amely kapcsolatot tart fenn az ügyfeleivel kötött szolgáltatásokkal és alkalmazásokkal. Előfordulhat, hogy a hibrid alkalmazás által használt összes hely saját SLA-val rendelkezik. Ezek a különböző SLA-kat befolyásolhatja a hibrid alkalmazás teljes SLA-ja.
 
-## <a name="resiliency"></a>Rugalmasság
+## <a name="resiliency"></a>Resiliency
 
 A rugalmasság lehetővé teszi, hogy egy hibrid alkalmazás és rendszer helyreállítsa a hibákat, és folytassa a működést. A rugalmasság célja, hogy az alkalmazás egy hibát követően teljesen működőképes állapotba térjen vissza. A rugalmassági stratégiák olyan megoldások, mint a biztonsági mentés, a replikálás és a vész-helyreállítás.
 
@@ -186,7 +186,7 @@ Ennek az oszlopnak a legfontosabb vitájában lásd: [*rugalmasság*](https://do
 
 A hibrid alkalmazások kezelésének szempontjai kritikus fontosságúak az architektúra tervezésekor. A jól felügyelt hibrid alkalmazások olyan programkódot biztosítanak, amely lehetővé teszi az egységes alkalmazás kódjának közös fejlesztési folyamatban való integrálását. Azáltal, hogy egységes, rendszerszintű és egyedi tesztelési teszteket hajt végre az infrastruktúrában, biztosíthatja az integrált telepítést, ha a módosítások átadják a teszteket, így azok egyesítve lesznek a forráskódba.
 
-Ennek az oszlopnak a fő vitájában a szoftverek minőségének a [*kezelése és a DevOps*](https://docs.microsoft.com/azure/architecture/guide/pillars#management-and-devops) című témakörben talál további információt.
+Ennek az oszlopnak a fő vitájában lásd: [*DevOps*](/azure/architecture/framework/#devops) a szoftverek minőségének pillérei között.
 
 ### <a name="manageability-checklist"></a>Kezelhetőségi ellenőrzőlista
 
@@ -226,7 +226,7 @@ Ennek az oszlopnak a fő vitájában a szoftverek minőségének [*biztonsága*]
 
 **A számítógép naplózása.** A Rendszerfigyelő az alkalmazás-összetevőkből és a kapcsolódó felhőalapú platform műveleteiből is naplózhatja és összesítheti az adatokat.
 
-## <a name="summary"></a>Összefoglalás
+## <a name="summary"></a>Összegzés
 
 Ez a cikk azon elemek listáját tartalmazza, amelyeket fontos figyelembe venni a hibrid alkalmazások létrehozásakor és tervezésekor. Az alkalmazás üzembe helyezése előtt tekintse át ezeket az oszlopokat, így nem fog futni az éles környezetben, és előfordulhat, hogy újra meg kell keresnie a kialakítást.
 

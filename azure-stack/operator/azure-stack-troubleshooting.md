@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bacffec0b3bda76eab27097c2d090df371d51fcf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f5c223e08207518bde315725fd69ddb3fb97a578
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880846"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037267"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -45,11 +45,11 @@ Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljutt
 
 ### <a name="manage-capacity"></a>Kapacitás kezelése
 
-#### <a name="memory"></a>Memória
+#### <a name="memory"></a>Memory (Memória)
 
 Azure Stack hub teljes rendelkezésre álló memória-kapacitásának növeléséhez további memóriát adhat hozzá. Azure Stack hub-ban a fizikai kiszolgálót a skálázási egység csomópontjának is nevezzük. Az ugyanahhoz a skálázási egységhez tartozó skálázásiegység-csomópontokhoz [azonos mennyiségű memóriát](azure-stack-manage-storage-physical-memory-capacity.md) kell hozzárendelni.
 
-#### <a name="retention-period"></a>Megőrzési idő
+#### <a name="retention-period"></a>Megőrzési időszak
 
 A megőrzési időtartam beállítás lehetővé teszi, hogy a felhő operátora napokban határozzon meg egy időszakot (0 és 9999 nap között), amely alatt a törölt fiókok esetleg visszaállíthatók. Az alapértelmezett megőrzési időtartam **0** napra van állítva. Ha a **0** értéket állítja be, az azt jelenti, hogy a törölt fiókok azonnal megmaradnak, és meg vannak jelölve az időszakos szemét-gyűjtéshez.
 
@@ -74,7 +74,7 @@ Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet 
 
 Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók típusát. A több-bérlős Azure Stack központ regisztrálásához használható előfizetések típusai a következők:
 
-* Cloud Solution Provider program
+* Felhőalapú megoldás szolgáltatója
 * Partner Shared Services-előfizetés
 
 ### <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
@@ -114,7 +114,7 @@ Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage Explorer nem működik Azure Stack hub-vel
 
-Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet (`/`) a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack).
+Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet (`/`) a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](/azure-stack/user/azure-stack-storage-connect-se).
 
 ## <a name="troubleshooting-app-service"></a>Hibaelhárítási App Service
 

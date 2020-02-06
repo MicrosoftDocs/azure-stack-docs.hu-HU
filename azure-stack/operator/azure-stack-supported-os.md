@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890204"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037199"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack hub által támogatott vendég operációs rendszerek
 
@@ -29,11 +29,11 @@ Azure Stack hub az alábbi táblázatban felsorolt Windows vendég operációs r
 | Windows Server 2012 R2 | 64 bites |  Adatközpont |
 | Windows Server 2012 | 64 bites |  Adatközpont |
 | Windows Server 2008 R2 SP1 | 64 bites |  Adatközpont |
-| Windows Server 2008 SP2 | 64 bites |  Saját rendszerkép használata |
+| Windows Server 2008 SP2 | 64 bites |  Saját rendszerkép használata |
 | Windows 10 *(lásd az 1. megjegyzést)* | 64 bites, Pro és Enterprise | Saját rendszerkép használata |
 
 > [!NOTE]
-> Ahhoz, hogy a Windows 10-es ügyfél operációs rendszereit Azure Stack hubhoz telepítse, [Windows felhasználónkénti licenceléssel](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) kell rendelkeznie, vagy egy minősített több-bérlős szolgáltatón ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)) keresztül kell megvásárolnia.
+> Ahhoz, hogy a Windows 10-es ügyfél operációs rendszereit Azure Stack hubhoz telepítse, [Windows felhasználónkénti licenceléssel](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) kell rendelkeznie, vagy egy minősített több-bérlős szolgáltatón ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) keresztül kell megvásárolnia.
 
 A piactéren elérhető rendszerképek a használaton kívüli vagy BYOL (EA/SPLA) licenceléshez érhetők el. A mindkettő egyetlen Azure Stack hub-példányon való használata nem támogatott. Az üzembe helyezés során Azure Stack hub a vendég ügynök megfelelő verzióját adja a rendszerképbe.
 
@@ -48,7 +48,7 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 >
 > a [Cloud-init](https://cloud-init.io/) a Azure Stack hub 1910-es vagy újabb verziójában támogatott.
 
-| Terjesztés | Leírás | Gyártó/kiadó | Azure Stack hub piactér |
+| Disztribúció | Leírás | Közzétevő | Azure Stack hub piactér |
 | --- | --- | --- | --- |
 | CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
@@ -62,8 +62,8 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 | SLES 11SP4 | 64 bites | SUSE | Igen |
 | SLES 12SP3 | 64 bites | SUSE | Igen |
 | Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu 16.04-LTS | 64 bites | Canonical | Igen |
+| Ubuntu 18.04-LTS | 64 bites | Canonical | Igen |
 
 Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack hub: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 

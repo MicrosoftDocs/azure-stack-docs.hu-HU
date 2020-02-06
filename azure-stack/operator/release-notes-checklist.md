@@ -7,12 +7,12 @@ ms.date: 01/14/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 373777d5dce715dfa7dc435c5305925af7f9e0b5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885199"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037182"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack hub frissítési tevékenységének ellenőrzőlista
 
@@ -26,7 +26,7 @@ A Azure Stack hub frissítésének előkészítéséhez tekintse át ezt a felad
 | Biztonsági frissítések áttekintése | [A biztonsági frissítések listája](release-notes-security-updates.md).      |
 | A legújabb OEM-csomag alkalmazása | Lépjen kapcsolatba az OEM-vel, és győződjön meg arról, hogy a rendszer megfelel a rendszer frissítésének Azure Stack hub-verziójának minimális OEM-csomagra vonatkozó követelményeinek. Győződjön meg arról, hogy az OEM-csomag kompatibilis a Azure Stack hub azon verziójával, amelyet frissíteni kíván. Ha az OEM-csomag nem kompatibilis a frissítendő Azure Stack hub verziójával, akkor Azure Stack hub-frissítés futtatása előtt végre kell hajtania egy OEM-csomag frissítését. Útmutatásért lásd: "az Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása". |
 | Nem kötelező: automatikus naplózási gyűjtemény konfigurálása | Javasoljuk, hogy az automatikus naplózási gyűjteményt konfigurálja úgy az Azure Stack hub-környezetben, hogy leegyszerűsítse a rendszernaplók gyűjtésének folyamatát abban az esetben, ha támogatási jegyet kell megnyitnia. Az automatikus naplózási gyűjtemény konfigurálásához tekintse meg az [automatikus Azure stack hub diagnosztikai naplók konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection.md)című témakör utasításait. |
-| Legújabb gyorsjavítások alkalmazása | Alkalmazza a jelenleg telepített kiadásra érvényes legújabb gyorsjavításokat. A legújabb gyorsjavítások listáját a [kibocsátási megjegyzések gyorsjavításai](release-notes.md#hotfixes) című szakaszban találja. |
+| Legújabb gyorsjavítások alkalmazása | Alkalmazza a jelenleg telepített kiadásra érvényes legújabb gyorsjavításokat. A legújabb gyorsjavítások listáját a [kibocsátási megjegyzések gyorsjavításai](release-notes.md) című szakaszban találja. |
 | A Capacity Planner eszköz futtatása | Ügyeljen arra, hogy az [Azure stack Hub Capacity Planner eszköz](azure-stack-capacity-planning-overview.md) legújabb verzióját használja a számítási feladatok tervezéséhez és méretezéséhez. A legújabb verzió hibajavításokat tartalmaz, és az egyes Azure Stack hub-frissítésekhez kiadott új szolgáltatásokat nyújt. |
 | **Teszt futtatása – AzureStack** | `Test-AzureStack -Group UpdateReadiness` futtatása a működési problémák azonosításához. A parancsmag az emelt szintű végponti munkameneten (PEP) keresztül érhető el. További információ: [Azure stack hub rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md). |
 | Problémák megoldása | Javítsa ki az `Test-AzureStack`által azonosított működési problémákat. |

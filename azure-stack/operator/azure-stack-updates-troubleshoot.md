@@ -7,12 +7,12 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b944e598080df3551764c7978ab205a9fffd666b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882647"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037216"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához
 
@@ -23,7 +23,7 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 0. **Előfeltételek**: Ellenőrizze, hogy követte-e a [frissítési tevékenység ellenőrzőlistáját](release-notes-checklist.md) , és konfigurálta-e az [automatikus naplózási gyűjteményt](azure-stack-configure-automatic-diagnostic-log-collection.md).
 1. Ha a frissítés sikertelen volt, kövesse a sikertelen riasztások által létrehozott hibaelhárítási lépéseket.
-2. Tekintse át az [általános Azure stack hub javítását és frissítésével kapcsolatos problémákat](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-azure-stack-hub-patch-and-update-issues) , és hajtsa végre a javasolt műveleteket, ha a probléma szerepel a felsorolásban.
+2. Tekintse át az [általános Azure stack hub javítását és frissítésével kapcsolatos problémákat](#common-azure-stack-hub-patch-and-update-issues) , és hajtsa végre a javasolt műveleteket, ha a probléma szerepel a felsorolásban.
 3. Ha nem tudta feloldani a problémát a fenti lépésekkel, hozzon létre egy [Azure stack hub támogatási jegyet](azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulási TimeSpan [összegyűjtött naplók](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection) vannak.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
