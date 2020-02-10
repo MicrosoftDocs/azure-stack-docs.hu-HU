@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884119"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075216"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
@@ -19,7 +19,7 @@ A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalma
 
 A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. A [VPN Gateway for Azure stack hub](azure-stack-vpn-gateway-about-vpn-gateways.md)-hoz kapcsolódó összes csatlakoztatási megoldáshoz leírásokat és topológiai diagramokat talál.
 
-## <a name="vpn-gateway-settings"></a>VPN-átjáró beállításai
+## <a name="vpn-gateway-settings"></a>A VPN gateway beállításairól
 
 ### <a name="gateway-types"></a>Átjárótípusok
 
@@ -41,9 +41,9 @@ Azure Stack hub a következő táblázatban látható VPN Gateway SKU-ket kíná
 
 | | VPN Gateway átviteli sebesség |VPN-átjáró maximális IPsec-alagutak |
 |-------|-------|-------|
-|**Alapszintű SKU**  | 100 Mb/s  | 20    |
-|**Szabványos SKU**   | 100 Mb/s  | 20 |
-|**Nagy teljesítményű SKU** | 200 Mb/s | 10 |
+|**Alapszintű SKU**  | 100 Mbps  | 20    |
+|**Szabványos SKU**   | 100 Mbps  | 20 |
+|**Nagy teljesítményű SKU** | 200 Mbps | 10 |
 
 ### <a name="resizing-gateway-skus"></a>Átjárók átméretezése
 
@@ -132,7 +132,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 ```
 
 > [!IMPORTANT]
-> Amikor átjáró-alhálózatokkal dolgozik, kerülje a hálózati biztonsági csoportok (NSG) társítását az átjáró-alhálózathoz. Ha hálózati biztonsági csoportot társít ehhez az alhálózathoz, akkor a VPN-átjáró a várt módon leállhat. A hálózati biztonsági csoportokkal kapcsolatos további információkért lásd: [Mi az a hálózati biztonsági csoport?](/azure/virtual-network/virtual-networks-nsg).
+> Átjáróalhálózatokkal való munka esetén ne társítsa a hálózati biztonsági csoportot (NSG) az átjáróalhálózathoz. Ha hálózati biztonsági csoportot társít ehhez az alhálózathoz, akkor a VPN-átjáró a várt módon leállhat. A hálózati biztonsági csoportokkal kapcsolatos további információkért lásd: [Mi az a hálózati biztonsági csoport?](/azure/virtual-network/virtual-networks-nsg).
 
 ### <a name="local-network-gateways"></a>Helyi hálózati átjárók
 
@@ -157,25 +157,36 @@ Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Az IKE 1. fázis (Elsődleges mód) paraméterei
 
-| Tulajdonság              | Value (Díj)|
+| Tulajdonság              | Érték|
 |-|-|
 | IKE verziószám           | IKEv2 |
-|Diffie-Hellman Group   | ECP384 |
+|Diffie-Hellman csoport *   | ECP384 |
 | Hitelesítési módszer | Előre megosztott kulcs |
-|Titkosító és kivonatoló algoritmus | AES256, SHA384 |
+|Titkosítási & kivonatolási algoritmusok * | AES256, SHA384 |
 |SA élettartama (Idő)     | 28 800 másodperc|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Az IKE 2. fázis (Gyors mód) paraméterei
 
-| Tulajdonság| Value (Díj)|
+| Tulajdonság| Érték|
 |-|-|
 |IKE verziószám |IKEv2 |
 |Titkosítási & kivonatoló algoritmusok (titkosítás)     | GCMAES256|
 |Titkosítási & kivonatolási algoritmusok (hitelesítés) | GCMAES256|
 |SA élettartama (Idő)  | 27 000 másodperc  |
 |SA élettartama (kilobájt) | 33 553 408     |
-|Sérülés utáni titkosságvédelem (PFS) | ECP384 |
-|Kapcsolat megszakadásának észlelése | Támogatott|  
+|Tökéletes továbbítási titoktartás (PFS) * | ECP384 |
+|Kapcsolat megszakadásának észlelése | Támogatott| 
+
+>[!NOTE]
+>Az 1910-es és újabb verziók esetében a Diffie-Hellman csoport, a kivonatolási algoritmus és a tökéletes továbbítási titok alapértelmezett értékei módosultak. Ha az Azure Stack hub a 1910-es verzió alatti Build-verziót használ, használja a fenti paramétereket a következő értékekkel:
+
+>| Tulajdonság| Érték|
+>|-|-|
+>|Diffie-Hellman Group   | DHGroup2 |
+>|Kivonatoló algoritmusok | SHA256 |
+>|Sérülés utáni titkosságvédelem (PFS) | Nincs |
+
+\* új vagy módosított paramétert.
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881298"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075199"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -95,7 +95,7 @@ A hálózati ACL-ek három rétegben vannak kikényszerítve:
 - 2\. réteg: szoftveresen definiált hálózat
 - 3\. réteg: a gazdagép és a virtuális gép operációs rendszerének tűzfala
 
-## <a name="regulatory-compliance"></a>Jogszabályi megfelelés
+## <a name="regulatory-compliance"></a>Előírásoknak való megfelelés
 
 Az Azure Stack hub egy harmadik féltől származó, független könyvvizsgáló cég által készített formális képesség-felmérésen ment keresztül. Ennek eredményeképpen a Azure Stack hub-infrastruktúra megfelel a számos jelentős megfelelőségi szabványnak megfelelő ellenőrzéseknek. A dokumentáció nem Azure Stack hub minősítése, mert a szabványok több, a személyzettel kapcsolatos és folyamattal kapcsolatos vezérlőt tartalmaznak. Az ügyfelek Ehelyett ezt a dokumentációt használhatják a minősítési folyamat megkezdéséhez.
 
@@ -105,7 +105,7 @@ Az értékelések a következő szabványokat tartalmazzák:
 - A [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) egy átfogó leképezés több szabványon belül, beleértve a FedRAMP mérsékelt, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 és egyebeket.
 - [FedRAMP magas](https://www.fedramp.gov/fedramp-releases-high-baseline/) a kormányzati ügyfelek számára.
 
-A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://servicetrust.microsoft.com/ViewPage/Blueprint)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
+A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://servicetrust.microsoft.com/ViewPage/AzureStack)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
 
 ## <a name="next-steps"></a>Következő lépések
 
