@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972669"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125594"
 ---
 # <a name="create-sql-databases"></a>SQL-adatbázisok létrehozása
 
@@ -32,7 +32,7 @@ ms.locfileid: "76972669"
 
 4. Az **adatbázis létrehozása**területen válassza az **SKU**lehetőséget. Az **SKU kiválasztása**területen válassza ki az adatbázishoz tartozó SKU-t.
 
-   ![Adatbázis létrehozása Azure Stack hub felhasználói portálon.](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Adatbázis létrehozása Azure Stack hub felhasználói portálon.](./media/azure-stack-sql-rp-deploy/newsqldba.png)
 
    >[!NOTE]
    >Mivel az üzemeltetési kiszolgálókat Azure Stack hubhoz adja hozzá, a rendszer hozzárendel egy SKU-t. Az adatbázisok az SKU-ban üzemeltetett kiszolgálók készletében jönnek létre.
@@ -46,13 +46,13 @@ ms.locfileid: "76972669"
    >[!NOTE]
    >Ezek a beállítások az adatbázishoz való hozzáféréshez létrehozott SQL-hitelesítési hitelesítő adatok. A bejelentkezési felhasználónévnek globálisan egyedinek kell lennie. A bejelentkezési beállításokat felhasználhatja más olyan adatbázisok esetén, amelyek ugyanazt az SKU-t használják.
 
-   ![Új adatbázis-bejelentkezés létrehozása Azure Stack hub felhasználói portálon](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Új adatbázis-bejelentkezés létrehozása Azure Stack hub felhasználói portálon](./media/azure-stack-sql-rp-deploy/create-new-login-a.png)
 
 8. Az adatbázis központi telepítésének befejezéséhez kattintson **az OK gombra** .
 
 Jegyezze fel a **kapcsolatok sztringjét**az **alapok**területen, amely az adatbázis központi telepítése után jelenik meg. Ezt a sztringet bármely olyan alkalmazásban használhatja, amelynek hozzá kell férnie az SQL Server-adatbázishoz.
 
-![A SQL Server adatbázishoz tartozó kapcsolatok karakterláncának beolvasása](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![A SQL Server adatbázishoz tartozó kapcsolatok karakterláncának beolvasása](./media/azure-stack-sql-rp-deploy/sql-db-settings-a.png)
 
 ## <a name="sql-always-on-databases"></a>SQL always on Databases
 
@@ -62,7 +62,7 @@ A tervezés szerint az Always On adatbázisokat a különálló kiszolgálói k�
 
 A következő képernyőfelvétel azt mutatja be, hogyan használható a SQL Server Management Studio az SQL always on adatbázis-állapotának megkereséséhez.
 
-![AlwaysOn-adatbázis állapota SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![AlwaysOn-adatbázis állapota SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
 A always on Databases-nek **szinkronizált** és elérhetőnek kell lennie az összes SQL-példányon, és megjelenik a **rendelkezésre állási csoportokban**. Az előző képernyőképen az adatbázis például newdb1, és az állapota **newdb1 (szinkronizálva)** .
 

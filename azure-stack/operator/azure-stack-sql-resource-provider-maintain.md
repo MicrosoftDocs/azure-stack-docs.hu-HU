@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881255"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125811"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -33,7 +33,7 @@ Mivel az erőforrás-szolgáltató egy *felhasználói* virtuális gépen fut, a
 
 A beállítások módosításához válassza a **tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL-üzemeltetési kiszolgálók** &gt; **SQL-bejelentkezések** lehetőséget, és válasszon egy felhasználónevet. A változást az SQL-példányon kell végrehajtani (és szükség esetén a replikákat is). A **Beállítások**területen válassza a **jelszó**lehetőséget.
 
-![SQL-rendszergazdai jelszó frissítése](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![SQL-rendszergazdai jelszó frissítése](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>Titkok rotációja
 
@@ -91,7 +91,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider. ps1 paraméterek
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
 
 |Paraméter|Leírás|
 |-----|-----|

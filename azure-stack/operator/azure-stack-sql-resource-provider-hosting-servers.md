@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: c7b3d1ef979e69a72904e03b49cb5ee4b75c182e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d46837540e8b4bd22fb114062266a5be86862921
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882813"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125691"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Üzemeltetési kiszolgálók hozzáadása az SQL erőforrás-szolgáltatóhoz
 
@@ -84,11 +84,11 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
 
    Az **SQL üzemeltetési kiszolgálók**területen az SQL erőforrás-szolgáltatót az erőforrás-szolgáltatói háttérként szolgáló SQL Server-példányokhoz is összekapcsolhatja.
 
-   ![SQL-adapter irányítópultja Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![SQL-adapter irányítópultja Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. Kattintson a **Hozzáadás** gombra, majd adja meg a SQL Server-példány kapcsolati adatait az **SQL üzemeltetési kiszolgáló hozzáadása** panelen.
 
-   ![SQL-üzemeltetési kiszolgáló hozzáadása a Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![SQL-üzemeltetési kiszolgáló hozzáadása a Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
     Megadhatja a példány nevét, és megadhatja a portszámot, ha a példány nincs az alapértelmezett 1433-as porthoz rendelve.
 
@@ -100,7 +100,7 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
    * Meglévő SKU használatához válasszon egy elérhető SKU-t, majd válassza a **Létrehozás**lehetőséget.
    * SKU létrehozásához válassza az **+ új SKU létrehozása**elemet. A **SKU létrehozása**területen adja meg a szükséges információkat, majd kattintson **az OK gombra**.
 
-     ![SKU létrehozása Azure Stack hub felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![SKU létrehozása Azure Stack hub felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-new-sku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Magas rendelkezésre állás biztosítása az SQL always on rendelkezésre állási csoportok használatával
 

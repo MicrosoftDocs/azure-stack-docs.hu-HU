@@ -7,23 +7,23 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 5955dcf6c211f9f431d84227548496af7782a0d7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881846"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125767"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>MySQL-adatbázisok létrehozása Azure Stack központban
 A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack hub-felhasználó önkiszolgáló MySQL-adatbázisokat hozhat létre és kezelhet a felhasználói portálon.
 
-## <a name="create-a-mysql-database"></a>MySQL-adatbázisok létrehozása
+## <a name="create-a-mysql-database"></a>MySQL-adatbázis létrehozása
 
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
 2. Válassza az **+ erőforrás létrehozása** > **adattároló** > **MySQL-adatbázis** > **Hozzáadás**lehetőséget.
 3. A **MySQL-adatbázis létrehozása**területen adja meg az adatbázis nevét, és konfigurálja a környezetéhez szükséges egyéb beállításokat.
 
-    ![Teszt MySQL-adatbázis létrehozása](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Teszt MySQL-adatbázis létrehozása](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
 
 4. Az **adatbázis létrehozása**területen válassza az **SKU**lehetőséget. A **MySQL SKU kiválasztása**területen válassza ki az adatbázishoz tartozó SKU-t.
 
@@ -44,7 +44,7 @@ A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Sta
 
 Az adatbázis üzembe helyezését követően jegyezze fel a **kapcsolatok karakterláncot** az **alapvető**erőforrások területen. Ezt a sztringet bármely olyan alkalmazásban használhatja, amelynek hozzá kell férnie a MySQL-adatbázishoz.
 
-![A MySQL-adatbázishoz tartozó kapcsolatok karakterláncának beolvasása](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+![A MySQL-adatbázishoz tartozó kapcsolatok karakterláncának beolvasása](./media/azure-stack-mysql-rp-deploy/mysql-db-created-a.png)
 
 ## <a name="update-the-administrative-password"></a>A rendszergazdai jelszó frissítése
 
