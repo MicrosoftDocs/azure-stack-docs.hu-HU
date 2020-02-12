@@ -1,6 +1,6 @@
 ---
-title: Általános munkafolyamat-paraméterek Azure Stack érvényesítés szolgáltatásként
-description: Általános munkafolyamat-paraméterek Azure Stack érvényesítéshez szolgáltatásként
+title: Általános munkafolyamat-paraméterek Azure Stack hub-érvényesítés szolgáltatásként
+description: Általános munkafolyamat-paraméterek Azure Stack hub érvényesítéséhez szolgáltatásként
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +8,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885035"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143693"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack érvényesítéshez szolgáltatásként
+# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack hub érvényesítéséhez szolgáltatásként
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -26,14 +26,14 @@ Az általános paraméterek közé tartoznak például a környezeti változók 
 
 ## <a name="environment-parameters"></a>Környezeti paraméterek
 
-A környezeti paraméterek a Azure Stack környezetet írják le a test alatt. Ezeket az értékeket úgy kell megadni, hogy egy Azure Stack Stamp információs fájlt hoz létre és tölt fel a tesztelni kívánt példányhoz.
+A környezeti paraméterek a Azure Stack hub környezetét írják le a test alatt. Ezeket az értékeket úgy kell megadni, hogy egy Azure Stack hub Stamp információs fájlt hoz létre és tölt fel a tesztelni kívánt példányhoz.
 
 > [!NOTE]
 > A hivatalos ellenőrzési munkafolyamatokban a környezeti paraméterek nem módosíthatók a munkafolyamat létrehozása után.
 
 ### <a name="generate-the-stamp-information-file"></a>A Stamp információs fájljának előállítása
 
-1. Jelentkezzen be a DVM vagy bármely olyan gépre, amely hozzáfér a Azure Stack-környezethez.
+1. Jelentkezzen be a DVM vagy bármely olyan gépre, amely hozzáfér az Azure Stack hub-környezethez.
 2. Futtassa a következő parancsokat egy emelt szintű PowerShell-ablakban:
 
     ```powershell  
@@ -54,9 +54,9 @@ A gyakori tesztelési paraméterek olyan bizalmas információkat tartalmaznak, 
 
 Paraméter    | Leírás
 -------------|-----------------
-Bérlői rendszergazda felhasználó                            | Azure Active Directory a szolgáltatás-rendszergazda által kiépített Bérlői rendszergazda a HRE könyvtárban. Ez a felhasználó bérlői szintű műveleteket hajt végre, például sablonokat helyez üzembe az erőforrások (virtuális gépek, Storage-fiókok stb.) beállításához és a számítási feladatok végrehajtásához. A bérlői fiók üzembe helyezésével kapcsolatos részletekért lásd: [új Azure stack bérlő hozzáadása](../operator/azure-stack-add-new-user-aad.md).
-Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory az Azure AD-címtár bérlője Azure Stack telepítés során megadott rendszergazdája. Keresse meg `AADTenant` az ECE konfigurációs fájlban, és válassza ki az értéket a `UniqueName` elemben.
-Felhőbeli rendszergazda felhasználó               | Azure Stack tartományi rendszergazdai fiókot (például `contoso\cloudadmin`). Keresse meg `User Role="CloudAdmin"` az ECE konfigurációs fájlban, és válassza ki az értéket a `UserName` elemben.
+Bérlői rendszergazda felhasználó                            | Azure Active Directory a szolgáltatás-rendszergazda által kiépített Bérlői rendszergazda a HRE könyvtárban. Ez a felhasználó bérlői szintű műveleteket hajt végre, például sablonokat helyez üzembe az erőforrások (virtuális gépek, Storage-fiókok stb.) beállításához és a számítási feladatok végrehajtásához. A bérlői fiók üzembe helyezésével kapcsolatos részletekért tekintse meg az [új Azure stack hub-bérlő hozzáadása](../operator/azure-stack-add-new-user-aad.md)című témakört.
+Szolgáltatás-rendszergazda felhasználó             | Azure Active Directory az Azure AD-címtár bérlője Azure Stack hub-telepítés során megadott rendszergazdája. Keresse meg `AADTenant` az ECE konfigurációs fájlban, és válassza ki az értéket a `UniqueName` elemben.
+Felhőbeli rendszergazda felhasználó               | Azure Stack hub tartományi rendszergazdai fiókja (például `contoso\cloudadmin`). Keresse meg `User Role="CloudAdmin"` az ECE konfigurációs fájlban, és válassza ki az értéket a `UserName` elemben.
 Diagnosztikai kapcsolatok karakterlánca          | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]

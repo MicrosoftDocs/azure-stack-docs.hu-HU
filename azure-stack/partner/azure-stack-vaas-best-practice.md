@@ -1,6 +1,6 @@
 ---
-title: Azure Stack az érvényesítéssel kapcsolatos ajánlott eljárásokat.
-description: Ez a cikk a szolgáltatásként történő érvényesítés ajánlott eljárásait ismerteti.
+title: A Azure Stack érvényesítésének ajánlott eljárásai
+description: Ismerje meg a szolgáltatásként történő érvényesítés ajánlott eljárásait.
 author: mattbriggs
 ms.topic: article
 ms.date: 10/28/2019
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cdd5d8a2b1933559c204e479f0215e63b6100b33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 87dbfa83fa29c0c2870bd9944ddbf97e3cca0578
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884111"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147651"
 ---
-# <a name="best-practices-for-validation-as-a-service"></a>Ajánlott eljárások szolgáltatásként történő érvényesítéshez
+# <a name="azure-stack-validation-best-practices"></a>A Azure Stack érvényesítésének ajánlott eljárásai
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Ez a cikk az erőforrások szolgáltatásként történő érvényesítésének ajánlott eljárásait ismerteti. Az alaprendszer-erőforrások áttekintéséhez tekintse meg az [Érvényesítés a szolgáltatás alapvető fogalmai](azure-stack-vaas-key-concepts.md)című témakört.
 
-## <a name="solution-management"></a>Megoldás-kezelés
+## <a name="solution-management"></a>Megoldások kezelése
 
 ### <a name="naming-convention-for-vaas-solutions"></a>Az Varga-megoldások elnevezési konvenciója
 
@@ -33,7 +33,7 @@ Saját megoldás XYZ |  Minden Flash | Saját kapcsoló X01 | MySolutionXYZ_AllF
 
 ### <a name="when-to-create-a-new-vaas-solution"></a>Mikor hozzon létre egy új
 
-Ugyanazt az adatbázis-megoldást használja, ha ugyanazon hardveres SKU-ra futtat munkafolyamatokat. A rendszer csak akkor hoz létre új alapszolgáltatási megoldást, ha a hardveres SKU módosul.
+Ugyanazt az adatbázis-megoldást használja, ha ugyanazon hardveres SKU-ra futtat munkafolyamatokat. Csak akkor kell létrehozni egy új adatbázis-megoldást, ha módosul a hardveres SKU.
 
 ## <a name="workflow-management"></a>Munkafolyamat-kezelés
 

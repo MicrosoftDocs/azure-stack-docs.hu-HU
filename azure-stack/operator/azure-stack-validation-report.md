@@ -1,41 +1,42 @@
 ---
-title: Azure Stack hub ellenőrzési jelentése
-description: Az ellenőrzési eredmények áttekintéséhez használja az Azure Stack hub Readiness-ellenőrző jelentését.
+title: Azure Stack hub ellenőrzési jelentés
+titleSuffix: Azure Stack Hub
+description: Ellenőrzési jelentés létrehozásához használja az Azure Stack hub Readiness-ellenőrző eszközt.
 author: ihenkel
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 21c19a368b62a35e3b2daeef2a0e36f84eb4e527
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a2264608c295a29fecc5335ce4970499dd10c895
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880574"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147731"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack hub ellenőrzési jelentés
 
-Az *Azure stack hub Readiness-ellenőrző* eszköz használatával olyan érvényesítéseket futtathat, amelyek támogatják egy Azure stack hub-környezet telepítését és karbantartását. Az eszköz az eredményeket egy. JSON-jelentési fájlba írja. A jelentés részletes és összegzett információkat jelenít meg az Azure Stack hub üzembe helyezéséhez szükséges előfeltételek állapotáról. A jelentés a meglévő Azure Stack hub-telepítések titkainak rotációs adatait is megjeleníti.  
+Az [Azure stack hub Readiness-ellenőrző eszköz](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2002.1111.69) használatával olyan érvényesítéseket futtathat, amelyek támogatják egy Azure stack hub-környezet telepítését és karbantartását. Az eszköz az eredményeket egy. JSON-jelentési fájlba írja. A jelentés részletes és összegzett információkat jelenít meg az Azure Stack hub üzembe helyezéséhez szükséges előfeltételek állapotáról. A jelentés a meglévő Azure Stack hub-telepítések titkainak rotációs adatait is megjeleníti.  
 
 ## <a name="where-to-find-the-report"></a>Hol található a jelentés
 
 Az eszköz futtatásakor a naplózza az eredményeket a **AzsReadinessCheckerReport. JSON**fájlban. Az eszköz egy **AzsReadinessChecker. log**nevű naplót is létrehoz. A fájlok helye a PowerShell érvényesítési eredményeivel együtt jelenik meg:
 
-![Futtatás – ellenőrzés](./media/azure-stack-validation-report/validation.png)
+![Azure Stack hub Readiness-ellenőrző futtatásának érvényesítési eredményei](./media/azure-stack-validation-report/validation.png)
 
 Mindkét fájl megőrzi a további ellenőrzési ellenőrzések eredményét, ha ugyanazon a számítógépen futnak. Például az eszköz futtatható a tanúsítványok érvényesítéséhez, újra futtatva az Azure Identity érvényesítéséhez, majd egy harmadik alkalommal a regisztráció érvényesítéséhez. Mindhárom érvényesítés eredménye elérhető a létrejövő. JSON-jelentésben.  
 
-Alapértelmezés szerint mindkét fájl a **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.JSON**-be van írva.  
+Alapértelmezés szerint mindkét fájl a `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`ba íródik.  
 
 - Egy másik jelentés helyének megadásához használja a parancssor végén található `-OutputPath <path>` paramétert.
 - A parancssor végén található `-CleanReport` paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
-## <a name="view-the-report"></a>A jelentés elolvasása
+## <a name="view-the-report"></a>A jelentés megtekintése
 
 Ha a jelentést a PowerShellben szeretné megtekinteni, adja meg a jelentés elérési útját `-ReportPath`értékként. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja azokat az érvényességeket, amelyek még nem rendelkeznek eredménnyel.
 
-Ha például a jelentést egy olyan PowerShell-parancssorból szeretné megtekinteni, amely a jelentés helyét tartalmazó helyre van nyitva, futtassa a következő parancsot:
+Ha például a jelentést egy olyan PowerShell-parancssorból szeretné megtekinteni, amelyen a jelentés helye található, futtassa a következő parancsot:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
@@ -87,13 +88,13 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>A jelentés összegzésének megtekintése
 
-A jelentés összegzésének megtekintéséhez hozzáadhatja a `-summary` paramétert a PowerShell-parancs végéhez. Példa:
+A jelentés összegzésének megtekintéséhez hozzáadhatja a `-summary` paramétert a PowerShell-parancs végéhez. Például:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
 ```
 
-Az összefoglalás olyan érvényesítéseket mutat be, amelyek nem rendelkeznek eredményekkel, és a befejezett érvényesítések esetén a pass vagy a Fail utasítást jelzi. A kimenet a következő példához hasonló:
+Az összefoglalás olyan érvényesítéseket mutat be, amelyek nem rendelkeznek eredménnyel, és a befejezett érvényesítések esetén a pass vagy a Fail argumentumot jelzi. A kimenet a következő példához hasonló:
 
 ```shell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
@@ -121,15 +122,15 @@ Azure Stack Hub ADFS Validation results not available.
 
 ## <a name="view-a-filtered-report"></a>Szűrt jelentés megtekintése
 
-Ha egy olyan jelentést szeretne megtekinteni, amely egyetlen ellenőrzési típusra van szűrve, használja a **-ReportSections** paramétert az alábbi értékek egyikével:
+Ha egy olyan jelentést szeretne megtekinteni, amely egyetlen ellenőrzési típusra van szűrve, használja a `-ReportSections` paramétert az alábbi értékek egyikével:
 
 - Tanúsítvány
 - AzureRegistration
 - AzureIdentity
-- Gráf
+- Graph
 - ADFS
 - Feladatok
-- Mind  
+- Összes  
 
 Ha például csak a tanúsítványok jelentésének összegzését szeretné megtekinteni, használja a következő PowerShell-parancssort:
 

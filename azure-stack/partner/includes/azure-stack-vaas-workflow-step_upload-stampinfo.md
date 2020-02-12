@@ -6,11 +6,11 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: e264dd7549ee2c7b54d4fb5d9b01e4f70aa04137
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c65d59189a212c435579e95a4daec67db9779bb3
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694261"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143713"
 ---
-Válassza a **feltöltés** lehetőséget, és válassza ki a Azure stack Stamp információs fájlját. Útmutatásért lásd: [a Stamp információs fájljának előállítása](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file).
+Válassza a **feltöltés** lehetőséget, és válassza ki Azure stack hub Stamp információs fájlját. Útmutatásért lásd: [a Stamp információs fájljának előállítása](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file).

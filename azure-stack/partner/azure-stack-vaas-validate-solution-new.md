@@ -1,6 +1,6 @@
 ---
-title: Új Azure Stack megoldás érvényesítése
-description: Ismerje meg, hogyan érvényesítheti az új Azure Stack megoldást szolgáltatásként történő érvényesítéssel.
+title: Új Azure Stack hub-megoldás érvényesítése
+description: Ismerje meg, hogyan érvényesítheti az új Azure Stack hub-megoldást szolgáltatásként történő érvényesítéssel.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3e62141988f99706c652124943da0fbabf44439
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b5380b644aeece0e12e692ebb578fe2b6d0c8792
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884025"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143960"
 ---
-# <a name="validate-a-new-azure-stack-solution"></a>Új Azure Stack megoldás érvényesítése
+# <a name="validate-a-new-azure-stack-hub-solution"></a>Új Azure Stack hub-megoldás érvényesítése
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Megtudhatja, hogyan használhatja a **megoldás-ellenőrzési** munkafolyamatot az új Azure stack megoldások hitelesítéséhez.
+Megtudhatja, hogyan használhatja a **megoldás-ellenőrzési** munkafolyamatot az új Azure stack hub-megoldások hitelesítéséhez.
 
-Az Azure Stack-megoldás olyan hardveres anyagjegyzék (AJ), amely a Microsoft és a partner között közösen megállapodott a Windows Server embléma minősítési követelményeinek teljesítése után. A megoldást újra hitelesíteni kell, ha a hardveres anyagjegyzék módosult. Ha további kérdése van a megoldások újbóli hitelesítésével kapcsolatban, vegye fel a kapcsolatot a csapattal [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
+Az Azure Stack hub-megoldás olyan hardveres anyagjegyzék (AJ), amely a Microsoft és a partner között közösen egyetértett a Windows Server-embléma minősítési követelményeinek teljesítése után. A megoldást újra hitelesíteni kell, ha a hardveres anyagjegyzék módosult. Ha további kérdése van a megoldások újbóli hitelesítésével kapcsolatban, vegye fel a kapcsolatot a csapattal [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
 
 A megoldás hitelesítéséhez futtassa kétszer a megoldás-ellenőrzési munkafolyamatot. Egyszer futtassa egyszer a *minimálisan* támogatott konfigurációhoz. Futtassa még egyszer a *maximálisan* támogatott konfigurációhoz. A Microsoft tanúsítja a megoldást, ha mindkét konfiguráció átadja az összes tesztet.
 
@@ -57,7 +57,7 @@ A megoldás hitelesítéséhez futtassa kétszer a megoldás-ellenőrzési munka
 
 A **megoldás-ellenőrzési tesztek összegzése** lapon megjelenik az érvényesítés végrehajtásához szükséges tesztek listája.
 
-Az érvényesítési munkafolyamatokban a teszt **ütemezése** a munkafolyamat-létrehozás során megadott munkafolyamat-szintű általános paramétereket használja (lásd: a [Azure stack érvényesítéséhez használt munkafolyamat általános paraméterei szolgáltatásként](azure-stack-vaas-parameters.md)). Ha a teszt paramétereinek bármelyik értéke érvénytelenvé válik, a [munkafolyamat-paraméterek módosítása](azure-stack-vaas-monitor-test.md#change-workflow-parameters)elem utasításai szerint újra meg kell adnia őket.
+Az érvényesítési munkafolyamatokban a teszt **ütemezése** a munkafolyamat-létrehozás során megadott munkafolyamat-szintű általános paramétereket használja (lásd: a [Azure stack hub-hitelesítéshez használt munkafolyamat általános paraméterei szolgáltatásként](azure-stack-vaas-parameters.md)). Ha a teszt paramétereinek bármelyik értéke érvénytelenvé válik, a [munkafolyamat-paraméterek módosítása](azure-stack-vaas-monitor-test.md#change-workflow-parameters)elem utasításai szerint újra meg kell adnia őket.
 
 > [!NOTE]
 > Egy meglévő példányon egy érvényesítési teszt ütemezése egy új példányt hoz létre a régi példány helyett a portálon. A régi példány naplói megmaradnak, de nem érhetők el a portálról.  

@@ -1,6 +1,6 @@
 ---
-title: Tesztek monitorozása és kezelése az Azure Stack
-description: Tesztek monitorozása és kezelése a Azure Stack
+title: Tesztek monitorozása és kezelése az Azure Stack hub-beli
+description: Tesztelheti és kezelheti a teszteket az Azure Stack hub-beli Varga portálon.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885079"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143782"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Tesztek monitorozása és kezelése az alapkonfiguráció-portálon
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Az Azure Stack-megoldásra vonatkozó tesztek ütemezése után a szolgáltatásként történő érvényesítés megkezdi a teszt végrehajtási állapotának bejelentését. Ezek az információk az alaprendszer-portálon érhetők el, valamint olyan műveletek, mint például a tesztek újraütemezése és megszakítása.
+Az Azure Stack hub-megoldásra vonatkozó tesztek ütemezése után a szolgáltatásként történő érvényesítés megkezdi a teszt végrehajtási állapotának bejelentését. Ezek az információk az alaprendszer-portálon érhetők el, valamint olyan műveletek, mint például a tesztek újraütemezése és megszakítása.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Navigáljon a munkafolyamat-tesztek összegzése lapra
 
@@ -37,7 +37,7 @@ A munkafolyamat létrehozásakor megadott [tesztelési paramétereket](azure-sta
 
 1. A tesztek összegzése lapon kattintson a **Szerkesztés** gombra.
 
-1. Adja meg az új értékeket a [szolgáltatásként Azure stack érvényesítéshez használt általános munkafolyamat-paramétereknek](azure-stack-vaas-parameters.md)megfelelően.
+1. Adja meg az új értékeket a [Azure stack hub érvényesítéséhez szolgáltatásként használt általános munkafolyamat-paramétereknek](azure-stack-vaas-parameters.md)megfelelően.
 
 1. Az értékek mentéséhez válassza a **Submit (Küldés** ) lehetőséget.
 
@@ -53,20 +53,20 @@ A **teszt** - **átadási** munkafolyamatokban a tesztek és **szerkesztési** g
 
 ## <a name="managing-test-instances"></a>Tesztelési példányok kezelése
 
-A nem hivatalos futtatások (azaz a **test pass** munkafolyamat) esetében a tesztek összegzése lap felsorolja a Azure stack megoldásra ütemezett teszteket.
+A nem hivatalos futtatások (azaz a **test pass** munkafolyamat) esetében a tesztek összegzése lap felsorolja az Azure stack hub megoldáson ütemezett teszteket.
 
-A hivatalos futtatások (azaz az **ellenőrzési** munkafolyamatok) esetében a tesztek összegzése lap felsorolja azokat a teszteket, amelyek szükségesek az Azure stack-megoldás ellenőrzésének végrehajtásához. Az érvényesítési tesztek ezen a lapon vannak ütemezve.
+A hivatalos futtatások (azaz az **ellenőrzési** munkafolyamatok) esetében a tesztek összegzése lap felsorolja az Azure stack hub-megoldás ellenőrzésének befejezéséhez szükséges teszteket. Az érvényesítési tesztek ezen a lapon vannak ütemezve.
 
 Minden ütemezett tesztelési példány a következő információkat jeleníti meg:
 
-| Column | Leírás |
+| Oszlop | Leírás |
 | --- | --- |
 | Teszt neve | A teszt neve és verziója. |
 | Kategória | A teszt célja. |
-| Létrehozás időpontja | A teszt ütemezésének időpontja. |
-| Lépések | A teszt elindításának időpontja. |
+| Létrehozva | A teszt ütemezésének időpontja. |
+| Elindítva | A teszt elindításának időpontja. |
 | Időtartam | A teszt futtatásának időtartama. |
-| Állapot | A teszt állapota vagy eredménye. A végrehajtás előtti vagy folyamatban lévő állapotok a következők: `Pending`, `Running`. A terminál állapota: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| status | A teszt állapota vagy eredménye. A végrehajtás előtti vagy folyamatban lévő állapotok a következők: `Pending`, `Running`. A terminál állapota: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
 | Ügynök neve | Annak az ügynöknek a neve, amely a tesztet futtatta. |
 | Összes művelet | A teszt során megkísérelt műveletek teljes száma. |
 | Átadott műveletek | A teszt során sikeres műveletek száma. |
@@ -84,9 +84,9 @@ A helyi menüben válassza az **információk megtekintése** lehetőséget a te
 | -- | -- |
 | Teszt neve | A teszt neve. |
 | Teszt verziója | A teszt verziója. |
-| Gyártó/kiadó | A teszt közzétevője. |
+| Közzétevő | A teszt közzétevője. |
 | Kategória |  A teszt célja. |
-| Megcélzott szolgáltatások | A tesztelt Azure Stack szolgáltatások. |
+| Megcélzott szolgáltatások | A tesztelt Azure Stack hub-szolgáltatások. |
 | Leírás | A teszt leírása. |
 | Becsült időtartam (perc) | A teszt várt futtatókörnyezete. |
 | Hivatkozások | A kapcsolat tesztelésére vagy a kapcsolattartási pontokra vonatkozó információk. |

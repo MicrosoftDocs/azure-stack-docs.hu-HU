@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e04a4fa7384d56a88938e87a83a33bb86829eca3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7c47c6810802cce31793aae3be3a1502acb5f102
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884052"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143924"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Az érvényesítési szolgáltatásként (az Azure-ban) olyan Azure-szolgáltatás, amely a piacon Azure Stack megoldások ellenőrzéséhez és támogatásához használható. Kövesse ezt a cikket, mielőtt a szolgáltatást használja a megoldás ellenőrzéséhez.
+Az érvényesítési szolgáltatásként (az Azure-ban) olyan Azure-szolgáltatás, amely a piacon Azure Stack hub-megoldások ellenőrzéséhez és támogatásához használható. Kövesse ezt a cikket, mielőtt a szolgáltatást használja a megoldás ellenőrzéséhez.
 
-Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
+Ez az oktatóanyag bemutatja, hogyan végezheti el az alábbi műveleteket:
 
 > [!div class="checklist"]
 > * Készüljön fel az Azure Active Directory (AD) beállításával való használatra.
@@ -47,19 +47,19 @@ Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga s
     | Olvasó | Megtekintheti az összes erőforrást, de nem hozható létre és nem kezelhető. |
     | Tesztelési közreműködő | Létrehozhat és kezelhet tesztelési erőforrásokat. |
 
-    Szerepkörök társítása a **Azure stack érvényesítési szolgáltatásalkalmazás** alkalmazásban:
+    Szerepkörök hozzárendeléséhez az **Azure stack hub Validation Service** alkalmazásban:
 
-   1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
+   1. Jelentkezzen be az [Azure Portal](https://portal.azure.com).
    2. Válassza az **összes szolgáltatás** > **Azure Active Directory** az **identitás** szakaszban.
-   3. Válassza a **vállalati alkalmazások** > **Azure stack érvényesítési szolgáltatásalkalmazás** elemet.
-   4. Válassza a **Felhasználók és csoportok** elemet. A **Azure stack érvényesítési szolgáltatás – felhasználók és csoportok** panel felsorolja azokat a felhasználókat, akik jogosultak az alkalmazás használatára.
+   3. Válassza a **vállalati alkalmazások** > **Azure stack hub ellenőrző szolgáltatásalkalmazás** elemet.
+   4. Válassza a **Felhasználók és csoportok** elemet. Az **Azure stack hub Validation Service – felhasználók és csoportok** panel felsorolja azokat a felhasználókat, akik jogosultak az alkalmazás használatára.
    5. Válassza a **+ felhasználó hozzáadása** lehetőséget egy felhasználó hozzáadásához a bérlőtől, és rendeljen hozzá egy szerepkört.
 
       Ha el szeretné különíteni az Azure-erőforrásokat és-műveleteket a szervezeten belüli különböző csoportok között, létrehozhat több Azure AD-bérlői könyvtárat is.
 
 ### <a name="register-your-tenant"></a>Bérlő regisztrálása
 
-Ezzel a folyamattal engedélyezheti a bérlőnek az **Azure stack érvényesítési szolgáltatás** Azure ad-alkalmazását.
+Ez a folyamat engedélyezi a bérlőnek az **Azure stack hub Validation Service** Azure ad-alkalmazást.
 
 1. Küldje el az alábbi adatokat a bérlőről a Microsoftnak a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
 
@@ -69,7 +69,7 @@ Ezzel a folyamattal engedélyezheti a bérlőnek az **Azure stack érvényesít�
     | Azure AD-bérlői könyvtár neve | Az Azure AD-bérlő könyvtárának neve regisztrálva van. |
     | Azure AD-bérlői címtár azonosítója | A címtárhoz tartozó Azure AD-bérlői könyvtár GUID-azonosítója. További információ az Azure AD-bérlői címtár AZONOSÍTÓjának megkereséséről: a [bérlő azonosítójának beolvasása](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
-2. Várja meg, amíg a Azure Stack ellenőrző csapata megerősíti, hogy a bérlő használhatja-e az adatbázis-portált.
+2. Várjon, amíg a Azure Stack hub ellenőrzési csapata megerősíti, hogy a bérlő használhatja-e az adatbázis-portált.
 
 ### <a name="consent-to-the-vaas-application"></a>Beleegyezett az alapprogram-alkalmazásba
 
@@ -85,7 +85,7 @@ Az Azure AD-rendszergazdaként adja meg az Azure AD-alkalmazás számára a bér
 
 A tesztelés végrehajtása során az Azure a diagnosztikai naplókat egy Azure Storage-fiókba exportálja. A naplók tesztelésén kívül a Storage-fiók is felhasználható a csomag-ellenőrzési munkafolyamat OEM-bővítmény csomagjainak feltöltésére.
 
-Az Azure Storage-fiók az Azure nyilvános felhőben, nem pedig a Azure Stack-környezetben üzemel.
+Az Azure Storage-fiók az Azure nyilvános felhőben üzemel, nem az Azure Stack hub-környezetben.
 
 1. A Azure Portal válassza a **minden szolgáltatás** > **Storage** - > **Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
 

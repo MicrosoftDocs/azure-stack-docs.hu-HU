@@ -1,5 +1,5 @@
 ---
-title: Eredeti berendezésgyártó (OEM) csomagok ellenőrzése a Azure Stack érvényesítés szolgáltatásként
+title: Eredeti berendezésgyártó (OEM) csomagok ellenőrzése a Azure Stack hub érvényesítése szolgáltatásként
 description: Megtudhatja, hogyan ellenőrizheti az eredeti berendezésgyártó (OEM) csomagjait szolgáltatásként történő érvényesítéssel.
 author: mattbriggs
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885115"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143741"
 ---
 # <a name="validate-oem-packages"></a>OEM-csomagok ellenőrzése
 
@@ -55,7 +55,7 @@ Hozzon létre egy tárolót a Storage-fiókban a csomagok Blobok számára. Ez a
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Csomag blob URL-címének előállítása az Varga számára
 
-Ha a **csomag-ellenőrzési** munkafolyamatot az Azure-portálon hozza létre, meg kell adnia egy URL-címet a csomagot tartalmazó Azure Storage-blobhoz. Egyes *interaktív* tesztek, beleértve a **havi AzureStack-frissítés ellenőrzését** és az **OEM-bővítmények ellenőrzését**is, a Blobok csomagjának URL-címét is meg kell adni.
+Ha a **csomag-ellenőrzési** munkafolyamatot az Azure-portálon hozza létre, meg kell adnia egy URL-címet a csomagot tartalmazó Azure Storage-blobhoz. Egyes *interaktív* tesztek, például a **havi Azure stack hub Update ellenőrzése** és az **OEM-bővítmények ellenőrzése**is szükségesek a Blobok csomagjának URL-címéhez.
 
 #### <a name="handling-container-access-level"></a>Tárolók hozzáférési szintjének feldolgozása
 
@@ -65,7 +65,7 @@ A **privát** és a **blob** -hozzáférési szintek esetében átmenetileg hozz
 
 |Hozzáférési szint | Munkafolyamat-követelmény | Tesztelési követelmény |
 |---|---------|---------|
-|Saját | SAS URL-cím létrehozása csomag blobján ([1. lehetőség](#option-1-generate-a-blob-sas-url)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
+|Privát | SAS URL-cím létrehozása csomag blobján ([1. lehetőség](#option-1-generate-a-blob-sas-url)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
 |Blob | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
 |Tároló | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)). | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)).
 
@@ -141,14 +141,14 @@ Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára
 
 5. Adja meg az Azure Storage-blob URL-címét a Microsofttól származó aláírást igénylő teszt aláírt OEM-csomaghoz. Útmutatásért lásd: [csomag blob URL-címének előállítása az Varga számára](#generate-package-blob-url-for-vaas).
 
-6. Másolja a AzureStack-frissítési csomag mappáját egy helyi könyvtárba a DVM. Adja meg annak a mappának az elérési útját, **amely a csomag zip-fájlját és metaadat-fájlját tartalmazza** a "AzureStack frissítési csomag elérési útja"
+6. Másolja a Azure Stack hub Update Package mappát a DVM egy helyi könyvtárába. Adja meg annak a mappának az elérési útját, **amely a csomag zip-fájlját és metaadat-fájlját tartalmazza** a "AzureStack frissítési csomag elérési útja"
 
 7. Másolja a fent létrehozott OEM-csomag mappát a DVM egy helyi könyvtárába. Adja meg annak a mappának az elérési útját, **amely a csomag zip-fájlját és metaadat-fájlját tartalmazza** az "OEM frissítési csomag mappa elérési útja
 
     > [!NOTE]
-    > Másolja a AzureStack Update és az OEM Update **két külön** könyvtárba.
+    > Másolja a Azure Stack hub Update és az OEM Update **két külön** könyvtárba.
 
-8. "RequireDigitalSignature" – **igaz** értéket ad meg, ha a csomagnak a Microsoft által aláírtnak kell lennie (OEM-ellenőrzési munkafolyamat futtatása). Ha a legújabb AzureStack-frissítéssel érvényesít egy Microsoft által aláírt csomagot, adja meg ezt az értéket hamisként (a havi AzureStack-frissítés ellenőrzésének futtatásakor).
+8. "RequireDigitalSignature" – **igaz** értéket ad meg, ha a csomagnak a Microsoft által aláírtnak kell lennie (OEM-ellenőrzési munkafolyamat futtatása). Ha a legújabb Azure Stack hub Update szolgáltatásban érvényesít egy Microsoft által aláírt csomagot, adja meg ezt az értéket false (a havi Azure Stack hub Update ellenőrzésének futtatásakor).
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -170,7 +170,7 @@ Az OEM-csomagok érvényesítéséhez a következő tesztek szükségesek:
 
 1. A **csomag-ellenőrzési tesztek összegzése** lapon a forgatókönyvnek megfelelő, a felsorolt tesztek egy részhalmazát fogja futtatni.
 
-    Az érvényesítési munkafolyamatokban a teszt **ütemezése** a munkafolyamat-létrehozás során megadott munkafolyamat-szintű általános paramétereket használja (lásd: a [Azure stack érvényesítéséhez használt munkafolyamat általános paraméterei szolgáltatásként](azure-stack-vaas-parameters.md)). Ha a teszt paramétereinek bármelyik értéke érvénytelenvé válik, a [munkafolyamat-paraméterek módosítása](azure-stack-vaas-monitor-test.md#change-workflow-parameters)elem utasításai szerint újra meg kell adnia őket.
+    Az érvényesítési munkafolyamatokban a teszt **ütemezése** a munkafolyamat-létrehozás során megadott munkafolyamat-szintű általános paramétereket használja (lásd: a [Azure stack hub-hitelesítéshez használt munkafolyamat általános paraméterei szolgáltatásként](azure-stack-vaas-parameters.md)). Ha a teszt paramétereinek bármelyik értéke érvénytelenvé válik, a [munkafolyamat-paraméterek módosítása](azure-stack-vaas-monitor-test.md#change-workflow-parameters)elem utasításai szerint újra meg kell adnia őket.
 
     > [!NOTE]
     > Egy meglévő példányon egy érvényesítési teszt ütemezése egy új példányt hoz létre a régi példány helyett a portálon. A régi példány naplói megmaradnak, de nem érhetők el a portálról.  

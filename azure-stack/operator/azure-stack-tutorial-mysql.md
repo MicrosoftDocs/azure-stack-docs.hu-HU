@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: b8ad46128d3b0228fdc2e6ecc0c3ca507b4ec697
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882731"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147895"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Magasan elérhető MySQL-adatbázisok létrehozása
 
@@ -78,7 +78,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
    - Válassza ki a használni kívánt erőforráscsoportot, vagy hozzon létre egy újat.
    - Válassza ki a helyet (az alapértelmezett érték a ASDK helyi).
 
-   ![Központi telepítés alapjai – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)] (Media/Azure-stack-tutorial-mysqlrp/2 – LG. PNG # Lightbox)
+   [![központi telepítési alapismeretek – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. A **környezeti konfiguráció** lapon adja meg a következő információkat, majd kattintson az **OK gombra**:
 
@@ -86,11 +86,11 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
    - Virtuális gép mérete (alapértelmezés szerint a standard D1 v2 virtuális gépek).
    - Adatlemez mérete (GB)
 
-   ![Környezeti konfiguráció – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)] (Media/Azure-stack-tutorial-mysqlrp/3-LG. PNG # Lightbox)
+   [![környezeti konfiguráció – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Tekintse át a központi telepítés **összegzését**. Igény szerint letöltheti a testreszabott sablont és paramétereket, majd **az OK gombra**kattintva.
 
-   ![Összefoglalás – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)] (Media/Azure-stack-tutorial-mysqlrp/4-LG. PNG # Lightbox)
+   [![Összegzés – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. A telepítés elindításához kattintson a **Létrehozás** elemre a **vásárlás** lapon.
 

@@ -1,6 +1,6 @@
 ---
 title: A helyi ügynök üzembe helyezése
-description: Telepítse a helyi ügynököt Azure Stack érvényesítéshez szolgáltatásként.
+description: Telepítse a helyi ügynököt Azure Stack hub érvényesítéséhez szolgáltatásként.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884088"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143983"
 ---
 # <a name="deploy-the-local-agent"></a>A helyi ügynök üzembe helyezése
 
@@ -32,13 +32,13 @@ A helyi ügynök üzembe helyezése:
 
 ## <a name="download-and-start-the-local-agent"></a>A helyi ügynök letöltése és elindítása
 
-Töltse le az ügynököt egy olyan gépre, amely megfelel az adatközpont előfeltételeinek, és hozzáfér az összes Azure Stack-végponthoz. Ez a gép nem lehet a Azure Stack rendszer részét képező vagy a Azure Stack-felhőben üzemeltetett számítógép.
+Töltse le az ügynököt egy olyan gépre, amely megfelel az adatközpont előfeltételeinek, és hozzáfér az összes Azure Stack hub-végponthoz. Ez a gép nem lehet a Azure Stack hub rendszer része, vagy az Azure Stack hub-felhőben üzemel.
 
 ### <a name="machine-prerequisites"></a>A gép előfeltételei
 
 Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
 
-- Hozzáférés az összes Azure Stack végponthoz
+- Hozzáférés az összes Azure Stack hub-végponthoz
 - .NET 4,6 és PowerShell 5,0 telepítve
 - Legalább 8 GB RAM
 - Legalább 8 magos processzor
@@ -48,7 +48,7 @@ Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
 ### <a name="download-and-install-the-local-agent"></a>A helyi ügynök letöltése és telepítése
 
 1. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorban azon a gépen, amelyet a tesztek futtatásához fog használni.
-2. Futtassa a következő parancsot a helyi ügynök függőségeinek letöltéséhez és telepítéséhez, és másolja a nyilvános rendszerkép-tárház (PIR) lemezképeit (az operációs rendszer VHD-jét) a Azure Stack környezetbe.
+2. Futtassa a következő parancsot a helyi ügynök függőségeinek letöltéséhez és telepítéséhez, és másolja a nyilvános rendszerkép-tárház (PIR) lemezképeit (az operációs rendszer VHD-jét) a Azure Stack hub-környezetbe.
 
     ```powershell
     # Review and update the following five parameters
@@ -93,7 +93,7 @@ Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>A tesztek elkezdése előtt a józan ész ellenőrzése
 
-A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá kell férnie az Azure Stack-végpontokhoz, ellenkező esetben a tesztek nem fognak működni. Ha az az Varga helyi ügynököt használja, akkor használja az ügynököt futtató gépet. A következő ellenőrzések futtatásával ellenőrizheti, hogy a számítógépe rendelkezik-e hozzáféréssel a Azure Stack végpontokhoz:
+A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá kell férnie az Azure Stack hub-végpontokhoz, ellenkező esetben a tesztek nem fognak működni. Ha az az Varga helyi ügynököt használja, akkor használja az ügynököt futtató gépet. A következő ellenőrzések futtatásával ellenőrizheti, hogy a számítógépe rendelkezik-e hozzáféréssel a Azure Stack hub-végpontokhoz:
 
 1. Győződjön meg arról, hogy az alapszintű URI elérhető. Nyisson meg egy parancssort vagy bash rendszerhéjat, és futtassa a következő parancsot, és cserélje le a `<EXTERNALFQDN>`t a környezet külső teljes tartománynevére:
 
@@ -105,7 +105,7 @@ A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá ke
 
 3. Jelentkezzen be az Azure AD szolgáltatás-rendszergazda nevével és jelszavával, amely a tesztelési fázis létrehozásakor van megadva.
 
-4. Ellenőrizze a rendszer állapotát a **test-AzureStack** PowerShell-parancsmag futtatásával a [Azure stack ellenőrzési teszt futtatása](../operator/azure-stack-diagnostic-test.md)című témakörben leírtak szerint. A tesztek elindítása előtt javítsa ki a figyelmeztetéseket és a hibákat.
+4. Ellenőrizze a rendszer állapotát a **test-AzureStack** PowerShell-parancsmag futtatásával az [Azure stack hub ellenőrzési teszt futtatása](../operator/azure-stack-diagnostic-test.md)című témakörben leírtak szerint. A tesztek elindítása előtt javítsa ki a figyelmeztetéseket és a hibákat.
 
 ## <a name="run-the-local-agent"></a>A helyi ügynök futtatása
 

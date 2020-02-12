@@ -1,26 +1,26 @@
 ---
-title: Az érvényesítési szolgáltatás használata Azure Stack portálon az első teszt beütemezett végrehajtásához
-description: Az érvényesítési szolgáltatásként Azure Stack portálon az első teszt beütemezhet.
+title: Az érvényesítési szolgáltatásként Azure Stack hub-portálon az első teszt beosztásához
+description: Az érvényesítési szolgáltatásként Azure Stack hub-portálon az első tesztet ütemezhetjük.
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885124"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143726"
 ---
 # <a name="scheduling-a-test"></a>Teszt ütemezése
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Egy tesztet ütemezhet a Azure Stack-megoldáshoz tartozó érvényesítési szolgáltatásként (). Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure Stack megoldást jelöl. Beütemezhet egy tesztet annak ellenőrzéséhez, hogy a hardver futtatható-e Azure Stack.
+A Azure Stack hub-megoldáshoz tartozó, az érvényesítési szolgáltatásként szolgáló portálként ütemezett tesztet ütemezhet. Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure Stack hub-megoldást jelöl. Beütemezhet egy tesztet annak ellenőrzéséhez, hogy a hardver képes-e Azure Stack hub futtatására.
 
-A megoldás ellenőrzéséhez hozzon létre egy teszt munkafolyamatot. Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack központi telepítés funkcióit gyakorolják a hardveren. Adja hozzá a megoldás környezeti paramétereit, és válasszon ki egy vagy több, a megoldáson futtatandó tesztet.
+A megoldás ellenőrzéséhez hozzon létre egy teszt munkafolyamatot. Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack hub üzemelő példányának funkcióit gyakorolják a hardveren. Adja hozzá a megoldás környezeti paramétereit, és válasszon ki egy vagy több, a megoldáson futtatandó tesztet.
 
 Míg a test pass munkafolyamat használható az összes olyan teszt futtatására, amelyet az adatbázis-ellenőrzés is tartalmaz, beleértve az ellenőrzési munkafolyamatokból származó teszteket, a test pass-munkafolyamat eredményei nem tekintendők *hivatalosnak*. További információ a hivatalos ellenőrzési munkafolyamatokról: [munkafolyamatok](azure-stack-vaas-key-concepts.md#workflows).
 

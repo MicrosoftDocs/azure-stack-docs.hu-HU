@@ -1,5 +1,5 @@
 ---
-title: A Azure Stack érvényesítésének ajánlott eljárásai
+title: Azure Stack hub-ellenőrzés – ajánlott eljárások
 description: Ez a cikk az érvényesítés szolgáltatásként történő használatának ajánlott eljárásait ismerteti.
 author: mattbriggs
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 647e724b179d994819032859c325bf711cb9d2ee
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885053"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143832"
 ---
 # <a name="create-an-oem-package"></a>OEM-csomag létrehozása
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-A Azure Stack OEM kiterjesztési csomag az a mechanizmus, amellyel az OEM-specifikus tartalmak bekerülnek a Azure Stack infrastruktúrába, a telepítésben való használathoz, valamint olyan operatív folyamatokhoz, mint a frissítés, a bővítés és a mezők cseréje.
+Az Azure Stack hub OEM-bővítmény csomagja az a mechanizmus, amellyel az OEM-specifikus tartalmak bekerülnek a Azure Stack hub-infrastruktúrába, a központi telepítésben való használathoz, valamint olyan operatív folyamatokhoz, mint például a frissítés, a bővítés és a mezők cseréje.
 
 ## <a name="creating-the-package"></a>A csomag létrehozása
 

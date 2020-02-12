@@ -1,6 +1,6 @@
 ---
-title: Azure Stack érvényesítése szolgáltatásként – problémamegoldás
-description: Azure Stack-szolgáltatás érvényesítésének hibája.
+title: Azure Stack hub érvényesítésének hibája szolgáltatásként
+description: Azure Stack hub-szolgáltatás érvényesítésének hibája.
 author: mattbriggs
 ms.topic: article
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884976"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143617"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>A szolgáltatás érvényesítésének megoldása
 
@@ -70,13 +70,13 @@ A PIR-rendszerképet letöltheti a helyi adatközpontban található megosztásr
 
 A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilvános rendszerkép-tárházhoz tartozó képfájlok kivonatának értékét a rendszerképek integritásának ellenőrzése érdekében.
 
-| Fájl neve | SHA256 |
+| Fájlnév | SHA256 |
 |---------------------------------------|------------------------------------------------------------------|
-| Server2016DatacenterFullBYOL. vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
-| WindowsServer2012R2DatacenterBYOL. vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
-| Server2016DatacenterCoreBYOL. vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
-| Ubuntu1404LTS. vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
-| Ubuntu1604-20170619.1. vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| Server2016DatacenterFullBYOL.vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
+| WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
+| Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
+| Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
+| Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 | OpenLogic-CentOS-69-20180105. vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest. vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
@@ -96,12 +96,12 @@ Ha a környezet kifogástalan állapotban van, töltse fel kézzel a következő
     > [!IMPORTANT]
     > Nem minden alapértelmezett érték helyes a piactér meglévő eleménél.
 
-    | Mező  | Value (Díj)  |
+    | Mező  | Érték  |
     |---------|---------|
-    | Gyártó/kiadó | MicrosoftWindowsServer |
+    | Közzétevő | MicrosoftWindowsServer |
     | Ajánlat | WindowsServer |
     | Operációs rendszer típusa | Windows |
-    | SKU (Cikkszám) | 2012-R2-Datacenter |
+    | SKU | 2012-R2-Datacenter |
     | Verzió | 1.0.0 |
     | OPERÁCIÓSRENDSZER-lemez blob URI-ja | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
@@ -110,14 +110,14 @@ Ha a környezet kifogástalan állapotban van, töltse fel kézzel a következő
 
 Az 5 virtuálisgép-rendszerkép tulajdonságai a következők:
 
-| Gyártó/kiadó  | Ajánlat  | Operációs rendszer típusa | SKU (Cikkszám) | Verzió | OPERÁCIÓSRENDSZER-lemez blob URI-ja |
+| Közzétevő  | Ajánlat  | Operációs rendszer típusa | SKU | Verzió | OPERÁCIÓSRENDSZER-lemez blob URI-ja |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
 | Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
-| OpenLogic | CentOS | Linux | 6,9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
+| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
 | credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
 
 ## <a name="next-steps"></a>Következő lépések

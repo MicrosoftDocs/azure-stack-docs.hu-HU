@@ -1,6 +1,6 @@
 ---
-title: Interaktív funkció-ellenőrzési tesztelés Azure Stack érvényesítés szolgáltatásként
-description: Megtudhatja, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stackhoz szolgáltatásként történő érvényesítéssel.
+title: Interaktív funkció-ellenőrzési teszt Azure Stack hub-hitelesítés szolgáltatásként
+description: Ismerje meg, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stack hubhoz szolgáltatásként történő érvényesítéssel.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/28/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15cd1b2adb4ef1b0e5738b89078beb57d6b7b346
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884138"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143836"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884138"
 
 Az interaktív funkció-ellenőrzési tesztelési keretrendszer használatával teszteket kérhet a rendszer számára. Ha tesztet kér, a Microsoft a keretrendszer használatával készít elő manuális interaktív lépéseket igénylő teszteket. A Microsoft a keretrendszer használatával több önálló automatizált tesztet is felhasználhat.
 
-Ez a cikk egy egyszerű manuális forgatókönyvet ismertet. A teszt ellenőrzi a Azure Stack lemez cseréjét. A keretrendszer minden egyes lépésnél összegyűjti a diagnosztikai naplókat. A problémák hibakeresése a keresés során. A keretrendszer lehetővé teszi a más eszközök vagy folyamatok által létrehozott naplók megosztását is, és lehetővé teszi, hogy visszajelzést nyújtson a forgatókönyvről.
+Ez a cikk egy egyszerű manuális forgatókönyvet ismertet. A teszt ellenőrzi a lemez Azure Stack hub-ban való cseréjét. A keretrendszer minden egyes lépésnél összegyűjti a diagnosztikai naplókat. A problémák hibakeresése a keresés során. A keretrendszer lehetővé teszi a más eszközök vagy folyamatok által létrehozott naplók megosztását is, és lehetővé teszi, hogy visszajelzést nyújtson a forgatókönyvről.
 
 > [!Important]  
 > Ez a cikk a lemez-azonosítás végrehajtásának lépéseit ismerteti. Ez egyszerűen egy bemutató, mivel a test pass-munkafolyamatból összegyűjtött összes eredmény nem használható új megoldás-ellenőrzéshez.

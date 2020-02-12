@@ -1,6 +1,7 @@
 ---
 title: Azure Stack érvényesítésének automatizálása a PowerShell használatával
-description: Automatizálhatja Azure Stack érvényesítését a PowerShell használatával.
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan automatizálhatja Azure Stack érvényesítését a PowerShell használatával.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/26/2019
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884992"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147762"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>Azure Stack érvényesítésének automatizálása a PowerShell használatával
+# <a name="automate-azure-stack-hub-validation-with-powershell"></a>Azure Stack hub ellenőrzésének automatizálása a PowerShell-lel
 
 A szolgáltatásként történő érvényesítés lehetővé teszi a tesztek automatizálását a **RunVaaSAutomation. ps1** parancsfájl használatával.
 
@@ -29,7 +30,7 @@ Ez a szkript a következőket tudja használni:
 
 Az alábbi hivatkozások azt ismertetik, hogy miként futtathatók a tesztek az az Varga-portálon keresztül. A szkript használata előtt meg kell ismernie a szükséges paramétereket és azok értékeit:
 
-* SolutionValidation-munkafolyamat: [új Azure stack megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md)
+* SolutionValidation-munkafolyamat: [új Azure stack hub-megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md)
 * PackageValidation munkafolyamat: [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md)
 * TestPass munkafolyamat: [teszt ütemezése](azure-stack-vaas-schedule-test-pass.md)
 
@@ -258,13 +259,13 @@ További információ: [gyakori munkafolyamat-paraméterek](azure-stack-vaas-par
 | VaaSAccountUserName | Az Ön által használt, az alaprendszerbeli felhasználói név |
 | VaaSAccountPassword | Az Ön által használt Varga-jelszó az alaprendszer-portálhoz |
 | VaaSAccountTenantId | Az Ön által használt Varga-bérlő GUID-azonosítója. |
-| ServiceAdminUserName | A Azure Stack szolgáltatás-rendszergazdai fiókja.  |
-| ServiceAdminPassword | A Azure Stack szolgáltatás jelszava.  |
+| ServiceAdminUserName | Az Azure Stack hub szolgáltatás rendszergazdai fiókja.  |
+| ServiceAdminPassword | Az Azure Stack hub szolgáltatás jelszava.  |
 | TenantAdminUserName | Az elsődleges bérlő rendszergazdája.  |
 | TenantAdminPassword | Az elsődleges bérlő jelszava.  |
 | CloudAdminUserName | A Felhőbeli rendszergazda felhasználóneve.  |
 | CloudAdminPassword | A felhő rendszergazdájának jelszava.  |
-| solutionName | Az alapszolgáltatási megoldás neve. |
+| megoldás neve | Az alapszolgáltatási megoldás neve. |
 | Projektnév | Az az Varga-munkafolyamat neve. |
 | DiagnosticsStorageConnection | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](azure-stack-vaas-parameters.md). |
 
@@ -276,6 +277,6 @@ További lehetőségekért lásd: [tesztek figyelése és kezelése az alapvizsg
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ha többet szeretne megtudni a Azure Stack PowerShell-ről, tekintse át a legújabb modulokat.
+Ha többet szeretne megtudni a Azure Stack hub PowerShell-ről, tekintse át a legújabb modulokat.
 
-- [Azure Stack modul](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+- [Azure Stack hub-modul](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

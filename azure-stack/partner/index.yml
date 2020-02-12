@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Stack hub-partner dokumentációja
 metadata:
   title: 'Azure Stack hub partner D\documentation – oktatóanyagok, API-R\reference'
-  description: 'Ismerje meg, hogyan érvényesítheti a hardvert a gazdagépek Azure Stack. A szolgáltatásként történő érvényesítés egy natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik közös mérnöki Azure Stack hub-ajánlatokat biztosítanak a Microsoft számára.'
+  description: 'Ismerje meg, hogyan érvényesítheti a hardvert Azure Stack hub üzemeltetéséhez. A szolgáltatásként történő érvényesítés egy natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik közös mérnöki Azure Stack hub-ajánlatokat biztosítanak a Microsoft számára.'
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -15,7 +15,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: 'Az érvényesítést szolgáltatásként használva ellenőrizhető, hogy a hardver a Azure Stack használatával használható-e. A szolgáltatás egy olyan natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik a Microsofttal közös mérnöki Azure Stack hub-ajánlatokat biztosítanak.'
+  description: 'Az érvényesítés szolgáltatással ellenőrizhető, hogy a hardvert Azure Stack hubhoz kívánja-e használni. A szolgáltatás egy olyan natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik a Microsofttal közös mérnöki Azure Stack hub-ajánlatokat biztosítanak.'
 sections:
   - title: 5 perces rövid útmutatók
     items:

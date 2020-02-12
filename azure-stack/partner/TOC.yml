@@ -32,7 +32,7 @@
       href: azure-stack-vaas-interactive-feature-verification.md
 - name: Alapelvek
   items:
-    - name: Alapfogalmak
+    - name: Fő fogalmak
       href: azure-stack-vaas-key-concepts.md
     - name: Ajánlott eljárások
       href: azure-stack-vaas-best-practice.md
@@ -42,19 +42,19 @@
       href: azure-stack-vaas-parameters.md
     - name: A szolgáltatás érvényesítésének megoldása
       href: azure-stack-vaas-troubleshoot.md
-- name: Kapcsolódó témakör
+- name: Kapcsolódó
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator
     - name: Azure Active Directory
       href: /azure/active-directory/
-- name: Segédanyagok és eszközök
+- name: További források
   items:
-    - name: Azure Stack ütemterv
+    - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: MSDN-fórum Azure Stack
+    - name: Azure Stack hub MSDN fórum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
-    - name: Azure Stack dokumentációs visszajelzés
+    - name: Azure Stack hub dokumentációs visszajelzése
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
