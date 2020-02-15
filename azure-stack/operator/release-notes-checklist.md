@@ -3,16 +3,16 @@ title: Azure Stack hub frissítési tevékenységének ellenőrzőlista
 description: Ellenőrzőlista a rendszer előkészítéséhez a legújabb Azure Stack hub-frissítéshez.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
+ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037182"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213663"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack hub frissítési tevékenységének ellenőrzőlista
 
@@ -31,7 +31,7 @@ A Azure Stack hub frissítésének előkészítéséhez tekintse át ezt a felad
 | **Teszt futtatása – AzureStack** | `Test-AzureStack -Group UpdateReadiness` futtatása a működési problémák azonosításához. A parancsmag az emelt szintű végponti munkameneten (PEP) keresztül érhető el. További információ: [Azure stack hub rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md). |
 | Problémák megoldása | Javítsa ki az `Test-AzureStack`által azonosított működési problémákat. |
 | Frissítés érhető el | Csak a csatlakoztatott forgatókönyvekben Azure Stack hub üzemelő példányai rendszeresen ellenőrzi a biztonságos végpontot, és automatikusan értesíti Önt, ha elérhető egy frissítés a felhőhöz. A leválasztott ügyfelek az [itt ismertetett eljárással](azure-stack-apply-updates.md)tölthetik le és importálhatók új csomagokat. |
-| Karbantartási időszak ütemezett és a felhasználók értesítése | Minden karbantartási műveletről értesítenie kell a felhasználókat, és ha lehetséges, a normál karbantartási időszakokat a munkaidőn kívül kell ütemezni. A karbantartási műveletek befolyásolhatják a meglévő bérlői munkaterheléseket, és az új bérlői műveleteket (például virtuális gépek létrehozását, újrakonfigurálását vagy törlését) eredményezhetik, hogy a művelet a portálról kezdeményezhető, vagy programozott módon a Azure Resource Manager API. A Azure Stack hub Express és a teljes frissítések esetében megtekintheti a [kibocsátási megjegyzéseket](release-notes.md) annak előrejelzéséhez, hogy a frissítés várhatóan mennyi ideig tart az alkalmazott verziónál. |
+| Karbantartási időszak ütemezett és a felhasználók értesítése | Minden karbantartási műveletről értesítenie kell a felhasználókat, és ha lehetséges, a normál karbantartási időszakokat a munkaidőn kívül kell ütemezni. A karbantartási műveletek befolyásolhatják a meglévő bérlői munkaterheléseket, és az új bérlői műveleteket (például virtuális gépek létrehozását, újrakonfigurálását vagy törlését) eredményezhetik, hogy a művelet a portálról kezdeményezhető, vagy programozott módon a Azure Resource Manager API. Más műveletek, például a biztonsági mentés is elérhetetlenné válhatnak, amíg a frissítés be nem fejeződik. A Azure Stack hub Express és a teljes frissítések esetében megtekintheti a [kibocsátási megjegyzéseket](release-notes.md) annak előrejelzéséhez, hogy a frissítés várhatóan mennyi ideig tart az alkalmazott verziónál. |
 
 ## <a name="during-azure-stack-hub-update"></a>Azure Stack hub frissítése közben
 
