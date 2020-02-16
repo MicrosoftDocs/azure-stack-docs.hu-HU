@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 7201ad85961ecf08d1162d97aa684625e0782d35
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147895"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363027"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Magasan elérhető MySQL-adatbázisok létrehozása
 
@@ -60,13 +60,15 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
 - Három linuxos virtuális gép a MySQL-fürt üzemeltetéséhez
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../includes/azs-user-portal.md)]
 
-2. Válassza ki **\+** **erőforrás létrehozása** > **számítás**, majd **a MySQL replikációval**lehetőséget.
+2. Ha még nincs előfizetése rendelve, válassza az **előfizetés beszerzése** az irányítópultról lehetőséget. A panelen írja be az előfizetés nevét, majd válasszon egy ajánlatot. Javasoljuk, hogy a saját előfizetésében tartsa meg a MySQL-fürt üzembe helyezését, hogy elkerülje a véletlen eltávolítást.
 
-   ![Egyéni sablonok üzembe helyezése Azure Stack központban](media/azure-stack-tutorial-mysqlrp/1.png)
+3. Válassza ki **\+** **erőforrás létrehozása** > **számítás**, majd **a MySQL replikációval**lehetőséget.
 
-3. Adja meg az alapvető telepítési információkat az **alapok** lapon. Tekintse át az alapértelmezett értékeket, és szükség szerint módosítsa, majd kattintson **az OK gombra**.
+   ![Egyéni sablonok üzembe helyezése Azure Stack központban](media/azure-stack-tutorial-mysqlrp/img1.png)
+
+4. Adja meg az alapvető telepítési információkat az **alapok** lapon. Tekintse át az alapértelmezett értékeket, és szükség szerint módosítsa, majd kattintson **az OK gombra**.
 
     Legalább a következő adatokat adja meg:
 
@@ -78,28 +80,28 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
    - Válassza ki a használni kívánt erőforráscsoportot, vagy hozzon létre egy újat.
    - Válassza ki a helyet (az alapértelmezett érték a ASDK helyi).
 
-   [![központi telepítési alapismeretek – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+     ![Központi telepítés alapjai – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-4. A **környezeti konfiguráció** lapon adja meg a következő információkat, majd kattintson az **OK gombra**:
+5. A **környezeti konfiguráció** lapon adja meg a következő információkat, majd kattintson az **OK gombra**:
 
    - A Secure Shell-(SSH-) hitelesítéshez használandó jelszó vagy nyilvános SSH-kulcs. Ha jelszót használ, tartalmaznia kell betűket, számokat, és tartalmazhat speciális karaktereket **is** .
    - Virtuális gép mérete (alapértelmezés szerint a standard D1 v2 virtuális gépek).
    - Adatlemez mérete (GB)
 
-   [![környezeti konfiguráció – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+     ![Környezeti konfiguráció – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-5. Tekintse át a központi telepítés **összegzését**. Igény szerint letöltheti a testreszabott sablont és paramétereket, majd **az OK gombra**kattintva.
+6. Tekintse át a központi telepítés **összegzését**. Igény szerint letöltheti a testreszabott sablont és paramétereket, majd **az OK gombra**kattintva.
 
-   [![Összegzés – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   ![Összefoglalás – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/img4.png)
 
-6. A telepítés elindításához kattintson a **Létrehozás** elemre a **vásárlás** lapon.
+7. A telepítés elindításához kattintson a **Létrehozás** elemre a **vásárlás** lapon.
 
-   ![Vásárlás lap – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![Vásárlás lap – MySQL létrehozása replikációval](media/azure-stack-tutorial-mysqlrp/img5.png)
 
     > [!NOTE]
     > Az üzembe helyezés körülbelül egy órát vesz igénybe. Győződjön meg arról, hogy az üzembe helyezés befejeződött, és a MySQL-fürt a folytatás előtt teljesen konfigurálva van.
 
-7. Miután az összes központi telepítés sikeresen befejeződött, tekintse át az erőforráscsoport elemeit, és válassza ki a **mysqlip** nyilvános IP-cím elemet. Jegyezze fel a fürt nyilvános IP-címét és teljes TARTOMÁNYNEVÉt.
+8. Miután az összes központi telepítés sikeresen befejeződött, tekintse át az erőforráscsoport elemeit, és válassza ki a **mysqlip** nyilvános IP-cím elemet. Jegyezze fel a fürt nyilvános IP-címét és teljes TARTOMÁNYNEVÉt.
 
     Ezt az IP-címet egy Azure Stack hub-kezelőnek kell megadnia, hogy létre tudja hozni a MySQL-fürtöt használó MySQL üzemeltetési kiszolgálót.
 
@@ -109,13 +111,13 @@ Alapértelmezés szerint nincs nyilvános hozzáférés konfigurálva a MySQL-he
 
 1. A felügyeleti portálon nyissa meg a MySQL-fürt üzembe helyezése során létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoportot (**alapértelmezett-alhálózat-SG**):
 
-   ![Hálózati biztonsági csoport kiválasztása a Azure Stack hub felügyeleti portálján](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![Hálózati biztonsági csoport kiválasztása a Azure Stack hub felügyeleti portálján](media/azure-stack-tutorial-mysqlrp/img6.png)
 
 2. Válassza a **bejövő biztonsági szabályok** lehetőséget, majd válassza a **Hozzáadás**lehetőséget.
 
     Adja meg a **3306** értéket a **célport tartományban** , és szükség esetén adjon meg egy leírást a **név** és a **Leírás** mezőkben.
 
-   ![nyitás](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![nyitás](media/azure-stack-tutorial-mysqlrp/img7.png)
 
 3. A bejövő biztonsági szabály párbeszédpanel bezárásához válassza a **Hozzáadás** lehetőséget.
 
