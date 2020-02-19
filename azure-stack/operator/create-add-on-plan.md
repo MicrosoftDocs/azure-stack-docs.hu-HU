@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 134e5def9de8adfe7f6146f6355d67d6a775afaf
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: b063f6b69d69f63ddb8adef25413e263e2fe9d4b
+ms.sourcegitcommit: 4386c482c1c320c06df00a7a6364bb84b8720493
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147806"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453426"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Kiegészítő csomagok létrehozása a Azure Stack hub-ban
 
@@ -47,7 +47,7 @@ A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) t
 
 6. Tekintse át az ajánlatban található kiegészítő csomagok listáját annak ellenőrzéséhez, hogy az új kiegészítő csomag szerepel-e a listában.
 
-    A ![kiegészítő csomagok listájának áttekintése a Azure stack felügyeleti portálon](media/create-add-on-plan/add-on4.png "Kiegészítő csomag létrehozása")] (Media/Create-add-on-Plan/Add-on4lg. png # Lightbox)
+    ![[A Azure Stack felügyeleti portálon található kiegészítő csomagok listájának áttekintése] (Media/Create-add-on-Plan/Add-on4. png "kiegészítő csomag létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
