@@ -1,18 +1,18 @@
 ---
 title: Külső figyelési megoldás integrálása Azure Stack hubhoz
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot egy külső figyelési megoldással az adatközpontjában.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a38c6f8aca4ad8203b576550dd01873cdeb9b7a8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882115"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509857"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -116,9 +116,9 @@ Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további informác
 
 | Paraméter | Leírás | Authentication |
 | --- | --- | --- |
-| \* * External_domain_fqdn * * | Külső tartomány teljes tartományneve |    |
-| \* * régió: * * | Régió neve |    |
-| \* * tenant_id: * * | Bérlői azonosító\* |    |
+| **External_domain_fqdn ** | Külső tartomány teljes tartományneve |    |
+| \* * régió: * * | Régiónév |    |
+| **tenant_id: ** | Bérlői azonosító\* |    |
 | client_id: | Ügyfél-azonosító | SPN titkos kulccsal |
 | client_secret: | Ügyfél jelszava | SPN titkos kulccsal |
 | client_cert\*\*: | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
@@ -135,10 +135,10 @@ A többi konfigurációs fájl opcionális konfigurációs beállításokat tart
 
 | Konfiguráció | Leírás |
 | --- | --- |
-| azurestack_commands. cfg | A kezelő konfigurációjában nincs szükség módosításra |
-| azurestack_contacts. cfg | Értesítési beállítások |
-| azurestack_hosts. cfg | Azure Stack hub központi telepítésének elnevezése |
-| azurestack_services. cfg | A szolgáltatás konfigurációja |
+| azurestack_commands.cfg | A kezelő konfigurációjában nincs szükség módosításra |
+| azurestack_contacts.cfg | Értesítési beállítások |
+| azurestack_hosts.cfg | Azure Stack hub központi telepítésének elnevezése |
+| azurestack_services.cfg | A szolgáltatás konfigurációja |
 
 ### <a name="setup-steps"></a>Telepítési lépések
 
@@ -186,7 +186,7 @@ A riasztások a következő paranccsal is lezárhatók egy terminál használat�
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>Hibaelhárítás
+### <a name="troubleshooting"></a>Hibakeresés
 
 A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja meg a beépülő modult egy terminálon. Használja a következő módszert:
 

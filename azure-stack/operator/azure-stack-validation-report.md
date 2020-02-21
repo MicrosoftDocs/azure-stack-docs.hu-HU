@@ -2,18 +2,18 @@
 title: Azure Stack hub ellenőrzési jelentés
 titleSuffix: Azure Stack Hub
 description: Ellenőrzési jelentés létrehozásához használja az Azure Stack hub Readiness-ellenőrző eszközt.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: a2264608c295a29fecc5335ce4970499dd10c895
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: c64c9b4b5a6f73f5dd8f5e323ff16a44589173cc
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147731"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508156"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack hub ellenőrzési jelentés
 

@@ -1,18 +1,18 @@
 ---
 title: A bővítmény-gazdagép előkészítése Azure Stack központban
 description: Megtudhatja, hogyan készítheti elő a bővítmények gazdagépét Azure Stack hub-ban, amely a 1808-es verzió után automatikusan engedélyezve van egy Azure Stack hub-frissítési csomagon keresztül.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1d6b32173b8b2fba921e7e15fc5f0073456e6031
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882267"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509959"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>A bővítmény-gazdagép előkészítése Azure Stack központban
 
@@ -123,7 +123,7 @@ A következő lépésekhez használjon olyan számítógépet, amely csatlakozha
 > Erre a lépésre nincs szükség, ha DNS-zónák delegálását használta a DNS-integrációhoz.
 Ha az egyes gazdagépeken rekordok vannak konfigurálva Azure Stack hub-végpontok közzétételére, két további gazdagépet kell létrehoznia:
 
-| IP | Gazdanév | Type (Típus) |
+| IP | Gazdanév | Típus |
 |----|------------------------------|------|
 | \<IP-> | *. Adminhosting.\<régió >.\<FQDN > | A |
 | \<IP-> | *. Üzemeltetési.\<régió >.\<FQDN > | A |
@@ -167,7 +167,7 @@ Else {
 Remove-PSSession -Session $PEPSession
 ```
 
-#### <a name="sample-output"></a>Minta kimenete
+#### <a name="sample-output"></a>Minta kimenet
 
 ```powershell
 Can access AZS DNS
@@ -180,10 +180,10 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 > [!Note]  
 > Ezt a módosítást a bővítmény gazdagépének engedélyezése előtt végezze el. Ez lehetővé teszi, hogy az Azure Stack hub-portálok folyamatosan elérhetők legyenek.
 
-| Végpont (VIP) | Protocol (Protokoll) | Portok |
+| Végpont (VIP) | Protokoll | Portok |
 |----------------|----------|-------|
-| Rendszergazdai üzemeltetés | HTTPS | 443 |
-| Üzemeltetés | HTTPS | 443 |
+| Admin Hosting | HTTPS | 443 |
+| Hosting | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Meglévő közzétételi szabályok frissítése (a bővítmény gazdagépének engedélyezése után)
 
@@ -195,7 +195,7 @@ A meglévő tűzfalszabályok következő meglévő végpont-portjait be kell z�
 > [!Note]  
 > A sikeres ellenőrzés után a portok bezárását javasoljuk.
 
-| Végpont (VIP) | Protocol (Protokoll) | Portok |
+| Végpont (VIP) | Protokoll | Portok |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Portál (rendszergazda) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | Portál (felhasználó) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |

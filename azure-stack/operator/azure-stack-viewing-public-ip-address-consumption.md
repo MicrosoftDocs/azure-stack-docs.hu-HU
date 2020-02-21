@@ -2,18 +2,18 @@
 title: Hálózati erőforrások kezelése
 titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan kezelheti a hálózati erőforrásokat, beleértve a MAC-címkészletet és a nyilvános IP-címek egy adott régióban való felhasználását.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3542706d71ed6800cd246cbc0d59a5443ed3edbc
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 8f52158e53bbb48b25b9b3a898c0ece33ab3c1be
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147826"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508021"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Hálózati erőforrások kezelése Azure Stack központban
 

@@ -1,18 +1,18 @@
 ---
 title: Az eredeti berendezésgyártó (OEM) frissítésének alkalmazása Azure Stack hubhoz
 description: Útmutató az eredeti berendezésgyártó (OEM) frissítésének Azure Stack hub-ra való alkalmazásához.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/15/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a5b1449ae82258a7e4d65ef3d237673cba388420
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 82c2af02b26e9a661e600b6296b19cf4b0ba802c
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880722"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508939"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -32,14 +32,14 @@ Egyes hardvergyártók esetében szükség lehet a belső vezérlőprogram friss
 
 Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segédanyagokra mutató hivatkozásokat tartalmazza.
 
-| Hardveres partner | Region (Régió) | URL-cím |
+| Hardveres partner | Régió | URL-cím |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozatú rack-Mount FKR – felügyelt kiszolgáló szoftver](https://aka.ms/aa700rq) |
-| Dell EMC | Mind | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Összes | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozatú rack-Mount FKR – felügyelt kiszolgáló szoftver](https://aka.ms/aa700rq) |
+| Dell EMC | Összes | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japán | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA & Egyesült Államok | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-| HPE | Mind | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Mind | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| HPE | Összes | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Összes | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://aka.ms/AA6z600)<br>[a Terra Azure Stack hub dokumentációja (beleértve a cserélhető adatközpontot)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>OEM-frissítések alkalmazása

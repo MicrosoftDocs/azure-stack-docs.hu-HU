@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub identitás-architektúrája
 description: Ismerje meg az Azure Stack hub identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: a3846deb266b610a1f09b32df549e49c88f19b76
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 528e008c5c3c166979ba4c3d4fa15d6a94cc0f87
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890306"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509925"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack hub identitás-architektúrája
 
@@ -24,7 +24,7 @@ A választott identitás-szolgáltató korlátozhatja a beállításokat, beleé
 
 |Képesség vagy forgatókönyv        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Csatlakozik az internethez     |Igen       |Választható|
+|Csatlakozik az internethez     |Igen       |Optional|
 |Több-bérlős támogatás támogatása     |Igen       |Nem      |
 |Ajánlati elemek a piactéren |Igen       |Igen (az [Offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) eszköz használatát igényli)|
 |Active Directory-hitelesítési tár támogatása (ADAL) |Igen |Igen|

@@ -1,24 +1,24 @@
 ---
 title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.30.0 frissítésének újdonságait.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 3598fe210f951e33905bc369b73fd29f9d2a9d5b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 49e161588ba3dadaba0ec55bb63963cb7cc93bce
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881907"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492155"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>MySQL erőforrás-szolgáltató 1.1.30.0 kibocsátási megjegyzései
 
 Ezek a kibocsátási megjegyzések ismertetik a MySQL erőforrás-szolgáltató 1.1.30.0-verziójának újdonságait és ismert problémáit.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub kiadási verzió az alábbi listában látható:
 
 > |Azure Stack hub minimális verziója|MySQL erőforrás-szolgáltató verziója|
@@ -36,7 +36,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő 
 
 - **TLS 1,2 titkosítási frissítés**. Enabled TLS 1,2 – csak az erőforrás-szolgáltató kommunikációjának támogatása belső Azure Stack hub-összetevőkkel. 
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 - **MySQL erőforrás-szolgáltató Azure stack hub PowerShell-kompatibilitás**. A MySQL erőforrás-szolgáltató frissítve lett az Azure Stack hub 2018-03-01-Hybrid PowerShell-profillal való együttműködéshez, valamint a AzureRM 1.3.0 és újabb verziókkal való kompatibilitás biztosításához.
 

@@ -1,17 +1,17 @@
 ---
 title: Állapot és riasztások figyelése Azure Stack központban
 description: Megtudhatja, hogyan figyelheti Azure Stack hub állapotát és riasztásait.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bfe250a6285ddf69308e56246d5d4bd6eefadd50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f70f3d35267ab1bf484a76c870dedf0182fe43a9
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881963"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508106"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Állapot és riasztások figyelése Azure Stack központban
 

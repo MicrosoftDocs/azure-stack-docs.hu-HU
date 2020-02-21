@@ -1,18 +1,18 @@
 ---
 title: Az eredeti berendezésgyártó (OEM) frissítésének alkalmazása Azure Stack hubhoz
 description: Útmutató az eredeti berendezésgyártó (OEM) frissítésének Azure Stack hub-ra való alkalmazásához.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 52848a4da872800e34d6b43e6a3d2f834fb15125
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d75813bf5383d7fa231261057d891a2ab7aa87e2
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880704"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508906"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 

@@ -1,18 +1,18 @@
 ---
 title: Az Azure leválasztott telepítési döntései az Azure Stack hub integrált rendszereihez
 description: Ismerkedjen meg az Azure-beli, Azure Stack hub integrált rendszerek központi telepítésével és a megfontolandó tervezési döntésekkel.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: aa310ffa3896e5468529e8e579328c52a9afa9c8
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b03d00d4f90a16bbb1a299902097e23607e488b8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882321"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510010"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Az Azure leválasztott üzembe helyezési tervezési döntései az Azure Stack hub integrált rendszereihez
 Miután eldöntötte, [hogyan integrálja Azure stack hubot a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), befejezheti a Azure stack hub telepítési döntéseit.
@@ -32,7 +32,7 @@ A leválasztott központi telepítés nem korlátozza, hogy később összekapcs
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>A leválasztott üzemelő példányokban nem párosított vagy nem elérhető funkciók 
 Azure Stack hub úgy lett kialakítva, hogy a legjobban működjön az Azure-hoz való csatlakozáskor, ezért fontos megjegyezni, hogy vannak olyan funkciók és funkciók, amelyek vagy a leválasztott módban nem állnak rendelkezésre vagy teljesen elérhetetlenné válnak.
 
-|Szolgáltatás|Leválasztott üzemmódra gyakorolt hatás|
+|Funkció|Leválasztott üzemmódra gyakorolt hatás|
 |-----|-----|
 |VM üzembe helyezése DSC bővítménnyel a virtuális gép üzembe helyezésének konfigurálásához|A nem párosított DSC-bővítmény az internetet keresi a legújabb WMF-hez.|
 |Virtuális gép üzembe helyezése Docker-bővítménnyel a Docker-parancsok futtatásához|A korlátozott – a Docker a legújabb verzióra fogja ellenőriznie az internetet, és ez az ellenőrzési művelet sikertelen lesz.|

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub frissítéseinek hibáinak megoldása
 description: Azure Stack hub-kezelőként megtudhatja, hogyan oldhatja meg a frissítéssel kapcsolatos problémákat, hogy Azure Stack hub a lehető leggyorsabban tudjon visszatérni az éles környezetbe.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: 1c481538183098b6a1a88143dac339a919a248f3
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037216"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508684"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához
 

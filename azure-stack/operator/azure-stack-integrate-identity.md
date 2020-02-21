@@ -1,18 +1,18 @@
 ---
 title: AD FS identitás integrálása az Azure Stack hub-adatközponttal
 description: Megtudhatja, hogyan integrálhatja Azure Stack hub AD FS Identity providert az adatközpont AD FS.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 1e55ae573d67775389e1e8e8ebac1b9ba094e5a7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b4f48c8fe4138b74b735615777b16630c0fe7060
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882136"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509840"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
@@ -41,9 +41,9 @@ Az utolsó lépésben új tulajdonos van konfigurálva az alapértelmezett szolg
 
 Követelmények:
 
-|Component (Összetevő)|Követelmény|
+|Összetevő|Követelmény|
 |---------|---------|
-|Gráf|Microsoft Active Directory 2012/2012 R2/2016|
+|Graph|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Gráf-integráció beállítása
@@ -113,7 +113,7 @@ Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portoka
 
 Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portokat használja a célként megadott Active Directory való kommunikációhoz:
 
-|Type (Típus)|Port|Protocol (Protokoll)|
+|Típus|Port|Protokoll|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -128,7 +128,7 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|n/a|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|None|
+|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|Nincs|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
@@ -304,7 +304,7 @@ Az egyszerű szolgáltatásnév (SPN) használatának megkövetelése számos es
 Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [egyszerű szolgáltatásnév létrehozása ad FShoz](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Hibaelhárítás
+## <a name="troubleshooting"></a>Hibakeresés
 
 ### <a name="configuration-rollback"></a>Konfiguráció visszaállítása
 

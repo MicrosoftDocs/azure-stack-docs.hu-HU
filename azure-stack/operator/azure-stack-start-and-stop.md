@@ -2,18 +2,18 @@
 title: Indítás és leállítás
 titleSuffix: Azure Stack Hub
 description: Útmutató Azure Stack hub elindításához és leállításához.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 3f3493d55d524de7c292f0052cc20d26b2fccc28
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 524c951717075b293b7829a31ac093a9061f46e8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881199"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509500"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Azure Stack hub elindítása és leállítása
 

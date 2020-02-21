@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub-frissítési csomag előkészítése
 description: Útmutató Azure Stack hub-frissítési csomag előkészítéséhez.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: af8877b9b1c282854a18eb3a1138b70e760cfa91
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5532345fe383b19bb96ea2f240634e15004a22b4
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882712"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509024"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack hub-frissítési csomag előkészítése
 
@@ -25,7 +25,7 @@ Azokon a rendszereken, amelyek képesek az automatikus frissítési végpontokho
 
 A következő táblázat azt mutatja be, hogy a frissítési csomagok manuális előkészítést igényelnek, és automatikusan készüljön fel.
 
-| Frissítés típusa | Kapcsolódás | Beavatkozás szükséges |
+| Frissítés típusa | Kapcsolatok | Beavatkozás szükséges |
 | --- | --- | --- |
 | Azure Stack hub-szoftverfrissítések | Csatlakozva | A rendszer automatikusan letölti és előkészíti a frissítést a frissítés alkalmazása után. |
 | Azure Stack hub-gyorsjavítások | Csatlakozva | A rendszer automatikusan letölti és előkészíti a frissítést a frissítés alkalmazása után. |

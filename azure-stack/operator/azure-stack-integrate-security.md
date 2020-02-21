@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot a figyelési megoldásokkal a syslog forwarding használatával.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.openlocfilehash: 21a4d50c4ebb191e32c8c5a853359880bcdb1392
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001614"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509789"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 A *set-SyslogServer* parancsmag paraméterei:
 
-| Paraméter | Leírás | Type (Típus) | Szükséges |
+| Paraméter | Leírás | Típus | Kötelező |
 |---------|---------|---------|---------|
 |*ServerName* | A syslog-kiszolgáló teljes tartományneve vagy IP-címe. | Sztring | igen|
 |*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | UInt16 | igen|
@@ -69,9 +69,9 @@ A *set-SyslogServer* parancsmag paraméterei:
 
 A *set-SyslogClient* parancsmag paraméterei:
 
-| Paraméter | Leírás | Type (Típus) |
+| Paraméter | Leírás | Típus |
 |---------|---------| ---------|
-| *pfxBinary* | A pfx-fájl tartalma, amely egy bájt [] értékre van átirányítva, amely tartalmazza az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt.  | Bájt [] |
+| *pfxBinary* | A pfx-fájl tartalma, amely egy bájt [] értékre van átirányítva, amely tartalmazza az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt.  | Byte[] |
 | *CertPassword* |  A pfx-fájlhoz társított titkos kulcs importálására szolgáló jelszó. | SecureString |
 |*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | zászló|
 | *OutputSeverity* | A kimeneti naplózás szintje. Az értékek **alapértelmezettek** vagy **részletesek**. Az alapértelmezett érték a súlyossági szinteket tartalmazza: figyelmeztetés, kritikus vagy hiba. A részletes beállítás minden súlyossági szintet tartalmaz: részletes, tájékoztató, figyelmeztetés, kritikus vagy hiba.  | Sztring |
@@ -238,7 +238,7 @@ Prefix fields
 
 Az emelt szintű végpont eseményeinek táblázata:
 
-| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Súlyosság |
+| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Severity |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
@@ -255,9 +255,9 @@ Az emelt szintű végpont eseményeinek táblázata:
 
 A PEP súlyossági táblázata:
 
-| Súlyosság | Szint | Numerikus érték |
+| Severity | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
+|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -275,7 +275,7 @@ Prefix fields
 
 A helyreállítási végpont eseményeinek táblázata:
 
-| Esemény | REP-esemény azonosítója | REP-feladat neve | Súlyosság |
+| Esemény | REP-esemény azonosítója | REP-feladat neve | Severity |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -286,9 +286,9 @@ A helyreállítási végpont eseményeinek táblázata:
 
 REP súlyossági táblázat:
 
-| Súlyosság | Szint | Numerikus érték |
+| Severity | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
+|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -308,7 +308,7 @@ Windows-események súlyossági táblázata:
 
 | CEF súlyossági értéke | Windows-esemény szintje | Numerikus érték |
 |--------------------|---------------------| ----------------|
-|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
+|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -333,10 +333,10 @@ Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 |MasKeywordName |Sikeres naplózás|
 |MasLevel |4|
 |MasOpcode |1|
-|MasOpcodeName |információ|
+|MasOpcodeName |info|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-csoportházirend|
+|MasProviderName |Microsoft-Windows-GroupPolicy|
 |MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Folyamat létrehozása|
@@ -354,9 +354,9 @@ Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 
 Riasztások súlyossági táblázata:
 
-| Súlyosság | Szint |
+| Severity | Szint |
 |----------|-------|
-|0|Nem definiált|
+|0|Meghatározatlan|
 |10|Kritikus|
 |5|Figyelmeztetés|
 
@@ -364,7 +364,7 @@ Egyéni bővítmények táblázata Azure Stack központban létrehozott riasztá
 
 | Egyéni bővítmény neve | Példa | 
 |-----------------------|---------|
-|MasEventDescription|Leírás: \<tesztfelhasználó\> felhasználói fiók lett létrehozva \<TestDomain\>. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfiles útmutatása alapján.
+|MasEventDescription|Leírás: \<tesztfelhasználó\> felhasználói fiók lett létrehozva \<TestDomain\>. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF lezárt riasztások leképezése
 

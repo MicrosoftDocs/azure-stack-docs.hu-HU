@@ -1,18 +1,18 @@
 ---
 title: Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 description: Ismerje meg, hogyan tervezhet és készíthet elő adatközpont-integrációt Azure Stack hub integrált rendszerekkel.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5c91ddd19ad384cc2a029dfac21d482470d37bc8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882471"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510044"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -124,12 +124,12 @@ A hibrid kapcsolatok esetében fontos figyelembe venni, hogy milyen típusú kö
  
 A következő táblázat összefoglalja a hibrid csatlakozási forgatókönyveket a profik, a hátrányok és a használati esetek között.
 
-| Alkalmazási helyzet | Csatlakozási módszer | Szakemberek | Hátrányok | Jó a következőhöz: |
+| Forgatókönyv | Csatlakozási módszer | Szakemberek számára | Hátrányok | Jó a következőhöz: |
 | -- | -- | --| -- | --|
 | Önálló bérlői Azure Stack hub, intranetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. Egyszerűen megvalósítható; nincs szükség átjáróra. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Vállalati üzemelő példányok, ahol az összes bérlő egyformán megbízható.<br><br>Olyan vállalatok, amelyek rendelkeznek Azure ExpressRoute-áramkörrel az Azure-ban. |
-| Több-bérlős Azure Stack hub, intranetes telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
+| Több-bérlős Azure Stack hub, intranetes telepítés | Két hálózat közötti pont-pont típusú VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
 | Egybérlős Azure Stack hub, internetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Üzemeltetési forgatókönyvek, amelyekben a bérlő saját Azure Stack hub-telepítést és dedikált áramkört kap a Azure Stack hub-környezethez. Például: ExpressRoute és többprotokollos felirat váltás (MPLS).
-| Több-bérlős Azure Stack hub, Internet-telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Üzemeltetési forgatókönyvek, ahol a szolgáltató több-bérlős felhőt szeretne nyújtani, ahol a bérlők nem bíznak egymással, és a forgalmat titkosítani kell.
+| Több-bérlős Azure Stack hub, Internet-telepítés | Két hálózat közötti pont-pont típusú VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Üzemeltetési forgatókönyvek, ahol a szolgáltató több-bérlős felhőt szeretne nyújtani, ahol a bérlők nem bíznak egymással, és a forgalmat titkosítani kell.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>A ExpressRoute használata
@@ -144,7 +144,7 @@ A következő ábra a több-bérlős forgatókönyvek ExpressRoute mutatja be.
 
 ![Több-bérlős ExpressRoute forgatókönyvet bemutató diagram](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
-## <a name="external-monitoring"></a>Külső figyelés
+## <a name="external-monitoring"></a>Külső figyelése
 Az Azure Stack hub központi telepítéséről és eszközeiről érkező riasztások egyetlen nézetének beszerzéséhez, valamint a riasztások meglévő IT-szolgáltatások felügyeleti munkafolyamataiba való integrálásához a [Azure stack hub külső adatközpont-figyelési megoldásokkal integrálható](azure-stack-integrate-monitor.md).
 
 A Azure Stack hub-megoldás részeként a hardver életciklus-állomása egy olyan számítógép, amely a Azure Stack hub rendszeren kívül fut, és a hardveres gyártó által biztosított felügyeleti eszközöket futtatja. Ezeket az eszközöket vagy egyéb megoldásokat használhatja, amelyek közvetlenül integrálhatók az adatközpontban meglévő figyelési megoldásokkal.
@@ -163,7 +163,7 @@ Vegye figyelembe a következő követelményeket:
 - A használt megoldásnak ügynök nélkül kell lennie. Azure Stack hub-összetevőkön belül nem telepíthet külső gyártótól származó ügynököket. 
 - Ha System Center Operations Managert szeretne használni, Operations Manager 2012 R2 vagy Operations Manager 2016 szükséges.
 
-## <a name="backup-and-disaster-recovery"></a>Biztonsági mentés és vészhelyreállítás
+## <a name="backup-and-disaster-recovery"></a>Biztonsági mentés és vész-helyreállítás
 
 A biztonsági mentés és a vész-helyreállítás megtervezése magában foglalja a IaaS virtuális gépeket és a Pásti-szolgáltatásokat üzemeltető mögöttes Azure Stack hub-infrastruktúra tervezését, valamint a bérlői alkalmazásokat és adatokat. Ezeket a dolgokat külön tervezze meg.
 

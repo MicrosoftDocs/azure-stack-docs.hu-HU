@@ -1,18 +1,18 @@
 ---
 title: Több-bérlő konfigurálása Azure Stack központban
 description: Megtudhatja, hogyan engedélyezheti és tilthatja le több Azure Active Directory bérlőt Azure Stack hub-ban.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dd91cfed0dd4f2444371de43e7da8a48b6339069
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 48573cb6dd5acf859ca2ce5a87c127dd5351f871
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890272"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509993"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 

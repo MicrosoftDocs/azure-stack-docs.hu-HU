@@ -2,18 +2,18 @@
 title: Az Azure Stack hub SQL erőforrás-szolgáltatójának frissítése
 titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan frissítheti az Azure Stack hub SQL erőforrás-szolgáltatóját.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 07f372f1974780d2310b12cc8d874808e010ac3c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881261"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491747"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL-erőforrás szolgáltatójának frissítése
 
@@ -35,7 +35,7 @@ A *UpdateSQLProvider. ps1* szkript létrehoz egy új virtuális GÉPET (VM) a le
 
 Miután a *UpdateSQLProvider. ps1* parancsfájl létrehoz egy új virtuális gépet, a parancsfájl áttelepíti a következő beállításokat a régi szolgáltató virtuális gépről:
 
-* Adatbázis-információk
+* adatbázis-információk
 * üzemeltetési kiszolgáló adatai
 * szükséges DNS-rekord
 

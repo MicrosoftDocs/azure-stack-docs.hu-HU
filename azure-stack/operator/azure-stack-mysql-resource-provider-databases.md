@@ -1,18 +1,18 @@
 ---
 title: MySQL-adatbázisok létrehozása Azure Stack központban
 description: Megtudhatja, hogyan hozhat létre és kezelhet MySQL-adatbázisokat az Azure Stack hub MySQL-adapter erőforrás-szolgáltatójának használatával.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: afe2a9fe46a5abae9f94347422153480536c37bc
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125767"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492121"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>MySQL-adatbázisok létrehozása Azure Stack központban
 A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Stack hub-felhasználó önkiszolgáló MySQL-adatbázisokat hozhat létre és kezelhet a felhasználói portálon.

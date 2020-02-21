@@ -1,0 +1,28 @@
+- name: A HCI dokumentációjának Azure Stack
+  href: overview.md
+- name: Áttekintés
+  items:
+    - name: Mi az Azure Stack HCI?
+      href: overview.md
+- name: Referencia
+  items:
+    - name: Hyper-V PowerShell-parancsok
+      href: /powershell/module/hyper-v
+    - name: Storage PowerShell-parancsok
+      href: /powershell/module/storage
+- name: Kapcsolódó
+  items:
+    - name: Azure Stack család
+      href: ../index.yml
+    - name: Windows felügyeleti központ
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Azure Hybrid Services
+      href: /windows-server/manage/windows-admin-center/azure
+    - name: Közvetlen tárolóhelyek
+      href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+    - name: Feladatátvételi fürtszolgáltatás
+      href: /windows-server/failover-clustering/failover-clustering-overview
+    - name: Hyper-V
+      href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+    - name: Szoftver által definiált hálózatkezelés
+      href: /windows-server/networking/sdn

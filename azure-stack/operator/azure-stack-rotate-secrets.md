@@ -1,20 +1,20 @@
 ---
-title: Titkok elforgatása
+title: Titkos kódok elforgatása
 titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881335"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509568"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Titkok elforgatása Azure Stack központban
 
@@ -33,7 +33,7 @@ A titkok segítenek a Azure Stack hub-infrastruktúra erőforrásai és szolgál
 7. Készítse elő a mappa szerkezetét.  A [külső titkok elforgatása](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) részben talál példát.
 8. [A titkos kód elforgatásának elindítása](#use-powershell-to-rotate-secrets).
 
-## <a name="rotate-secrets"></a>Titkok elforgatása
+## <a name="rotate-secrets"></a>Titkos kódok elforgatása
 
 Azure Stack hub különböző titkokat használ az Azure Stack hub-infrastruktúra erőforrásai és szolgáltatásai közötti biztonságos kommunikáció fenntartásához.
 
@@ -140,7 +140,7 @@ Ha az alábbi utasítások segítségével futtatja a titkos kódot, a riasztás
 > Fontos továbbá, hogy a fájlmegosztás-mappa szerkezete a **Certificates** mappában is megkezdődik, ellenkező esetben az érvényesítés sikertelen lesz.
 > A fájlmegosztás csatlakoztatásának úgy kell kinéznie, mint a **\\\\\<IP-cím >\\\<megosztásnév >\\** , és tartalmaznia kell a mappa **Certificates\AAD** vagy **Certificates\ADFS** a belsejében.
 >
-> Példa:
+> Például:
 > - Fájlmegosztás = **\\\\\<ip_cím >\\\<megosztásnév >\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<ip_cím >\\\<megosztásnév > \Certificates\AAD**
@@ -301,13 +301,13 @@ A **Start-SecretRotation** parancsmag egy Azure stack hub rendszer infrastruktú
 
 ### <a name="parameters"></a>Paraméterek
 
-| Paraméter | Type (Típus) | Szükséges | Pozíció | Alapértelmezett | Leírás |
+| Paraméter | Típus | Kötelező | Pozíció | Alapértelmezett | Leírás |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | None  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
-| `CertificatePassword` | SecureString | Hamis  | Elemzi  | None  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
-| `Internal` | Sztring | Hamis | Elemzi | None | A belső jelzőt csak akkor kell használni, amikor egy Azure Stack hub operátor belső infrastruktúra-titkokat kíván forgatni. |
-| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | None  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
-| `ReRun` | SwitchParameter | Hamis  | Elemzi  | None  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
+| `PfxFilesPath` | Sztring  | False (Hamis)  | Elemzi  | Nincs  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates**kell lennie. |
+| `CertificatePassword` | SecureString | False (Hamis)  | Elemzi  | Nincs  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
+| `Internal` | Sztring | False (Hamis) | Elemzi | Nincs | A belső jelzőt csak akkor kell használni, amikor egy Azure Stack hub operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `PathAccessCredential` | PSCredential | False (Hamis)  | Elemzi  | Nincs  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
+| `ReRun` | SwitchParameter | False (Hamis)  | Elemzi  | Nincs  | Az újrafuttatást a sikertelen kísérlet után újra kell használni, ha a titkos kód elforgatása megtörtént. |
 
 ### <a name="examples"></a>Példák
 
@@ -379,13 +379,13 @@ A alaplapi felügyeleti vezérlő (BMC) figyeli a kiszolgálók fizikai állapot
 
    **1910-es és újabb verzió**: már nem szükséges, hogy az OEM-utasítások követésével a Azure stack hub-beli fizikai kiszolgálókon először frissítse a bmc hitelesítő adatait. A környezet minden egyes BMC-beli felhasználónevének és jelszavának azonosnak kell lennie. A BMC-felhasználónevek száma nem lehet hosszabb 16 karakternél.
 
-    | Paraméter | Leírás | Állami |
+    | Paraméter | Leírás | Állapot |
     | --- | --- | --- |
-    | BypassBMCUpdate | Ha a paramétert használja, a BMC-ben a hitelesítő adatok nem frissülnek. Csak az Azure Stack hub belső adattár frissül. | Választható |
+    | BypassBMCUpdate | Ha a paramétert használja, a BMC-ben a hitelesítő adatok nem frissülnek. Csak az Azure Stack hub belső adattár frissül. | Optional |
 
 2. Nyisson meg egy kiemelt jogosultságú végpontot Azure Stack hub-munkamenetekben. Útmutatásért lásd: [a privilegizált végpont használata Azure stack központban](azure-stack-privileged-endpoint.md).
 
-3. Miután a PowerShell-kérés módosult **[IP-cím vagy ERCS virtuális gép neve]: ps >** vagy a (z) **[AZS-ERCS01]: PS >** , a környezettől függően futtassa `Set-BmcCredential` `Invoke-Command`futtatásával. Adja át a Kiemelt végponti munkamenet-változót paraméterként. Példa:
+3. Miután a PowerShell-kérés módosult **[IP-cím vagy ERCS virtuális gép neve]: ps >** vagy a (z) **[AZS-ERCS01]: PS >** , a környezettől függően futtassa `Set-BmcCredential` `Invoke-Command`futtatásával. Adja át a Kiemelt végponti munkamenet-változót paraméterként. Például:
 
     ```powershell
     # Interactive Version

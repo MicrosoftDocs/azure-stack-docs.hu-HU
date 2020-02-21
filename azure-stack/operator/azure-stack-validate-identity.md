@@ -2,18 +2,18 @@
 title: Azure-identitás ellenőrzése
 titleSuffix: Azure Stack Hub
 description: Az Azure Identity ellenőrzéséhez használja a Azure Stack hub Readiness-ellenőrzőt.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 5c20e951e2a34c800611c8417d3b8504ed84c346
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: ff09f519e23054fef26157a35e0c55200c0c8467
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972469"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508259"
 ---
 # <a name="validate-azure-identity"></a>Azure-identitás ellenőrzése
 
@@ -185,7 +185,7 @@ Invoke-AzsAzureIdentityValidation Completed
 
 Azure Stack hub megköveteli, hogy a tartománynév legyen az elsődleges tartomány neve.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure-regisztráció ellenőrzése](azure-stack-validate-registration.md)  
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub Storage-fiókok kezelése
 description: Ismerje meg, hogyan lehet megkeresni, felügyelni, helyreállítani és visszaigényelni Azure Stack hub Storage-fiókokat.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: e3817639d379811b79387cb46064fbaff02b2f33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 77505a2d91ff4aac4174395a170ba040fb4e9ec7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882027"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509823"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
 

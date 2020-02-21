@@ -1,18 +1,18 @@
 ---
 title: Fizikai memória kapacitásának kezelése Azure Stack hub-ban
 description: Megtudhatja, hogyan figyelheti és kezelheti Azure Stack hub fizikai memóriáját és kapacitását.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5d0b0c160fc502629a23e799e50569886dd7c000
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15800fa8476640b95f08848c9ffc63ff89df6d0a
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881989"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509755"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Fizikai memória kapacitásának kezelése Azure Stack hub-ban
 

@@ -1,18 +1,18 @@
 ---
 title: MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 description: Megtudhatja, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatói adaptert és a MySQL-adatbázisokat Azure Stack hub szolgáltatásként.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 52ee1953098f861cca572e08269dff56da31f3aa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 60a5df4b54165ab86ac8c836254baabaab4f7ca6
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881826"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492681"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -49,7 +49,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt tö
 
 * Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
-    |Előfeltétel|Leírások|
+    |Előfeltételek|Referencia|
     |-----|-----|
     |A feltételes DNS-továbbítás helyesen van beállítva.|[Azure Stack hub Datacenter-integráció – DNS](azure-stack-integrate-dns.md)|
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack hub Datacenter-integráció – végpontok közzététele](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|

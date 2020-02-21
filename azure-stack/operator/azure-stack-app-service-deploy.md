@@ -1,18 +1,18 @@
 ---
 title: App Service üzembe helyezése Azure Stack központban
 description: Megtudhatja, hogyan helyezheti üzembe a App Service az Azure Stack hub-ban.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 01/13/2020
-ms.author: anwestg
+ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 55d42471f56b17fe2016c7a7ac05f0b688773128
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1d11e9572decd7bd135fe62806c284e43657febf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874858"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491169"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>App Service üzembe helyezése Azure Stack központban
 
@@ -113,8 +113,8 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
     | Box | Példa tanúsítványfájl-fájlnévre |
     | --- | --- |
     | **Alapértelmezett SSL-tanúsítványfájl App Service** | \_. appservice. local. AzureStack. external. pfx |
-    | **App Service API SSL-tanúsítványfájl** | API. appservice. local. AzureStack. external. pfx |
-    | **App Service közzétevő SSL-tanúsítványfájl** | FTP. appservice. local. AzureStack. external. pfx |
+    | **App Service API SSL-tanúsítványfájl** | api.appservice.local.AzureStack.external.pfx |
+    | **App Service közzétevő SSL-tanúsítványfájl** | ftp.appservice.local.AzureStack.external.pfx |
 
     Ha a tanúsítványok létrehozásakor eltérő tartományi utótagot használt, a tanúsítványfájl neve nem a helyi nevet használja *. AzureStack. external*. Ehelyett használja az egyéni tartomány adatait.
 
@@ -132,8 +132,8 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
     | Szerepkör | Minimális példányszám | Minimális SKU | Megjegyzések |
     | --- | --- | --- | --- |
     | Tartományvezérlő | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Felügyeli és karbantartja a App Service felhő állapotát. |
-    | Felügyelet | 1 | Standard_A2 – (2 vCPU, 3584 MB) | A App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelte a javasolt példányokat 2-ra. |
-    | Gyártó/kiadó | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
+    | Kezelés | 1 | Standard_A2 – (2 vCPU, 3584 MB) | A App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelte a javasolt példányokat 2-ra. |
+    | Közzétevő | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
     | Előtér | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Átirányítja a kérelmeket App Service alkalmazásokba. |
     | Megosztott feldolgozók | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Webes vagy API-alkalmazásokat, valamint Azure Functions alkalmazásokat üzemeltet. Előfordulhat, hogy további példányokat szeretne hozzáadni. Operátorként megadhatja az ajánlatát, és kiválaszthatja az SKU-szintet. A rétegeknek legalább egy vCPU kell rendelkezniük. |
 

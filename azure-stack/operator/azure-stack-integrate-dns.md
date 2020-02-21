@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub Datacenter DNS-integráció
 description: Ismerje meg, hogyan integrálhatja Azure Stack hub DNS-t az adatközpont DNS szolgáltatásával.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 3d92504080e754db08d76cf7ec2a2c7e010ee394
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50553f15d394b5640bb63cb2e675da9a9684469d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882172"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509891"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack hub Datacenter DNS-integráció
 
@@ -25,7 +25,7 @@ A Azure Stack hub telepítésekor a DNS szolgáltatással kapcsolatos fontos inf
 
 |Mező  |Leírás  |Példa|
 |---------|---------|---------|
-|Region (Régió)|Az Azure Stack hub üzembe helyezésének földrajzi helye.|`east`|
+|Régió|Az Azure Stack hub üzembe helyezésének földrajzi helye.|`east`|
 |Külső tartomány neve|Az Azure Stack hub üzembe helyezéséhez használni kívánt zóna neve.|`cloud.fabrikam.com`|
 |Belső tartomány neve|Az Azure Stack hub infrastruktúra-szolgáltatásaihoz használt belső zóna neve. A címtár-szolgáltatás integrált és magánjellegű (nem érhető el az Azure Stack hub üzembe helyezésén kívül).|`azurestack.local`|
 |DNS-továbbítók|Azok a DNS-kiszolgálók, amelyek a DNS-lekérdezések, a DNS-zónák és a Azure Stack hub rendszeren kívül futtatott rekordok továbbítására szolgálnak a vállalati intraneten vagy a nyilvános interneten. A DNS-továbbító értékét a telepítés után a [ **set-AzSDnsForwarder** parancsmaggal](#editing-dns-forwarder-ips) módosíthatja. 
@@ -112,7 +112,7 @@ A mérvadó kiszolgálók azok, amelyek a külső DNS-zóna információit és a
 Az Azure Stack hub központi telepítésének a DNS-infrastruktúrával való integrálásához a következő információkra lesz szüksége:
 
 - DNS-kiszolgálói teljes tartománynevek
-- DNS-kiszolgáló IP-címei
+- DNS server IP addresses
 
 Az Azure Stack hub DNS-kiszolgálói teljes tartománynevek formátuma a következő:
 

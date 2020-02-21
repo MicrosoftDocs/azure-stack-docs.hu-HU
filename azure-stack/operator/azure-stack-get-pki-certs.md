@@ -1,18 +1,18 @@
 ---
 title: Tanúsítvány-aláírási kérelmek előállítása Azure Stack hubhoz
 description: Megtudhatja, hogyan hozhatja Azure Stack hub PKI-tanúsítványokhoz tartozó tanúsítvány-aláírási kérelmeket Azure Stack hub integrált rendszerekben.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: baee1a439129f83013e191db683927cd15cb1d65
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0620162767ea69c8c8221f13bd698f003424a58
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882253"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509942"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Tanúsítvány-aláírási kérelmek előállítása Azure Stack hubhoz
 
@@ -47,7 +47,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarálja a **tárgyat**. Példa:
+2. Deklarálja a **tárgyat**. Például:
 
     ```powershell  
     $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
@@ -56,7 +56,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     > [!NOTE]  
     > Ha köznapi nevet (CN) ad meg, a rendszer minden tanúsítványkérelem esetében konfigurálva lesz. Ha a rendszer kihagyja a CN-t, az Azure Stack hub szolgáltatás első DNS-neve lesz konfigurálva a tanúsítványkérelem során.
 
-3. Deklaráljon egy már létező kimeneti könyvtárat. Példa:
+3. Deklaráljon egy már létező kimeneti könyvtárat. Például:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -94,7 +94,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Más Azure Stack hub-szolgáltatásokhoz tartozó tanúsítványkérelmek létrehozásához módosítsa a `-CertificateType`értékét. Példa:
+    Más Azure Stack hub-szolgáltatásokhoz tartozó tanúsítványkérelmek létrehozásához módosítsa a `-CertificateType`értékét. Például:
 
     ```powershell  
     # App Services

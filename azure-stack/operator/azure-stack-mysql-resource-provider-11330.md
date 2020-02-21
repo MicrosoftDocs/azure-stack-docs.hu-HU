@@ -1,24 +1,24 @@
 ---
 title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
 description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.33.0 frissítésének újdonságait.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: d6afec9ea1932260305fe48d3a5728a50ed7472a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d8d545935762d1706a22e3d90b37fa9aeac500b4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881883"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492138"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL erőforrás-szolgáltató 1.1.33.0 kibocsátási megjegyzései
 
 Ezek a kibocsátási megjegyzések ismertetik a MySQL erőforrás-szolgáltató 1.1.33.0-verziójának újdonságait és ismert problémáit.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. A MySQL erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub kiadási verzió az alábbi listában látható:
 
 > |Azure Stack hub minimális verziója|MySQL erőforrás-szolgáltató verziója|
@@ -32,7 +32,7 @@ Töltse le a MySQL erőforrás-szolgáltató bináris fájlját, majd futtassa a
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 Az Azure Stack hub MySQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-### <a name="fixes"></a>Hibajavítások
+### <a name="fixes"></a>Javítások
 
 - **Előfordulhat, hogy a MySQL erőforrás-szolgáltató portál bővítmény nem megfelelő előfizetést választ**. A MySQL erőforrás-szolgáltató Azure Resource Manager hívásokat használ az első olyan szolgáltatás-rendszergazdai előfizetés meghatározásához, amely nem az *alapértelmezett szolgáltatói előfizetés*. Ha ez történik, a MySQL erőforrás-szolgáltató nem működik megfelelően.
 

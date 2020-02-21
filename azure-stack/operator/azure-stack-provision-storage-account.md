@@ -2,17 +2,17 @@
 title: Storage-fiókok létrehozása Azure Stack központban
 titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan hozhat létre Storage-fiókokat Azure Stack központban.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: d130b47d9c5c51d2d0cfa75f778a1facf829ab3b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bc638be874518bec2e7b8a6db9935f93aa33e30f
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881500"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509687"
 ---
 # <a name="create-storage-accounts-in-azure-stack-hub"></a>Storage-fiókok létrehozása Azure Stack központban
 

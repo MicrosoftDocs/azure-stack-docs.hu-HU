@@ -2,18 +2,18 @@
 title: Az SQL erőforrás-szolgáltató eltávolítása
 titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan távolíthatja el az SQL-erőforrás-szolgáltatót az Azure Stack hub üzembe helyezéséről.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882793"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491781"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató eltávolítása
 
@@ -22,16 +22,7 @@ Az SQL-erőforrás-szolgáltató eltávolítása előtt el kell távolítania az
 > [!NOTE]
 > Az erőforrás-szolgáltatói telepítők letöltési hivatkozásait az erőforrás- [szolgáltató előfeltételeinek telepítése című](./azure-stack-sql-resource-provider-deploy.md#prerequisites)cikkben találja.
 
-Az SQL-erőforrás-szolgáltató eltávolítása nem törli a bérlői adatbázisokat az üzemeltetési kiszolgálókról.
-
-## <a name="dependency-cleanup"></a>Függőségek törlése
-
-A DeploySqlProvider. ps1 parancsfájl futtatása előtt több karbantartási feladatot is el kell végezni az erőforrás-szolgáltató eltávolításához.
-
-A Azure Stack hub operátor felelős a következő karbantartási feladatokért:
-
-* Törölje az SQL-adapterre hivatkozó terveket.
-* Törölje az SQL-adapterhez társított kvótákat.
+Az SQL-erőforrás-szolgáltató eltávolítása törli az operátor által kezelt társított terveket és kvótákat. De nem törli a bérlői adatbázisokat az üzemeltetési kiszolgálókról.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Az SQL-erőforrás szolgáltatójának eltávolítása
 

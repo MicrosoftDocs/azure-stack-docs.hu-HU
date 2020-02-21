@@ -2,18 +2,18 @@
 title: A PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
 titleSuffix: Azure Stack Hub
 description: Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása az Azure Stack hub Readiness-ellenőrző használatával.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 942a5f4145fbee0d7a012350d88601554b44834c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adf2bdef69549393717fd5705858376447cd710
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881391"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509636"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
 

@@ -1,24 +1,24 @@
 ---
 title: Azure Stack hub Datacenter integrációs útmutató
 description: Ismerje meg, mire számíthat az Azure Stack hub sikeres helyszíni üzembe helyezéséhez az adatközpontban, a tervezéstől a telepítést követően.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba68a3045876e8dd6e23f430cd23edc429cb4e31
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882506"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510061"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack hub Datacenter integrációs útmutató
 
 Ez a cikk a Azure Stack hub Datacenter integrációjának teljes körű folyamatát ismerteti az üzembe helyezés utáni támogatás megvásárlása után. Az integráció egy együttműködési projekt az ügyfél, a megoldás szolgáltatója és a Microsoft között. A következő lapokon megtekintheti a projekt egyes tagjainak konkrét lépéseit, és a következő szakaszokban láthatja a projekt idővonalának különböző fázisainak összegzését. 
 
-# <a name="customertabcustomer"></a>[Ügyfél](#tab/customer)
+# <a name="customer"></a>[Customer](#tab/customer) (Ügyfél)
 
 1. Használati esetek és követelmények leírása
 1. A számlázási modell meghatározása
@@ -29,7 +29,7 @@ Ez a cikk a Azure Stack hub Datacenter integrációjának teljes körű folyamat
 1. Előfizetési adatok megadása az üzembe helyezés során
 1. A megadott adattal kapcsolatos kérdések megoldása
 
-# <a name="partnertabpartner"></a>[Partner](#tab/partner)
+# <a name="partner"></a>[Partner](#tab/partner)
 
 1. Az ügyfélre vonatkozó követelmények alapján javasolt megoldási lehetőségek
 1. Javaslat a koncepció igazolására (POC) 
@@ -48,7 +48,7 @@ Ez a cikk a Azure Stack hub Datacenter integrációjának teljes körű folyamat
 1. Azure Stack hub üzembe helyezése
 1. Kikapcsolás az ügyfélnek
 
-# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+# <a name="microsoft"></a>[Microsoft](#tab/micro)
 
 1. Partner használata az értékesítés előtti támogatáshoz
 2. Szoftverlicencelési és szerződések előkészítése

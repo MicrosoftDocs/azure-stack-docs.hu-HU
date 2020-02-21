@@ -1,18 +1,18 @@
 ---
 title: Azure-csatlakozású központi telepítési döntések az Azure Stack hub integrált rendszereihez
 description: A központi telepítési tervezési döntések meghatározása a Azure Stack hub integrált rendszereinek Azure-beli csatlakoztatásához, beleértve a számlázást és az identitást.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 82fad799b4c2b24ac3899c376e53bfd07c6d3d07
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a4ab00ff732bcffd66d984757a279a3ad030b33d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879329"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510129"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure-csatlakozású üzembe helyezési tervezési döntések az Azure Stack hub integrált rendszereihez
 Miután eldöntötte, [hogyan integrálja Azure stack hubot a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), véglegesítheti a Azure stack hub telepítési döntéseit.
@@ -50,7 +50,7 @@ Az utólagos használatú számlázási modell használata esetén az Azure-elő
 
 Ha CSP-előfizetést fog használni, tekintse át az alábbi táblázatot a használni kívánt CSP-előfizetés azonosításához, mivel a helyes módszer a pontos CSP-forgatókönyvtől függ:
 
-|Alkalmazási helyzet|Tartomány-és előfizetési lehetőségek|
+|Forgatókönyv|Tartomány-és előfizetési lehetőségek|
 |-----|-----|
 |Ön egy **közvetlen CSP-partner** vagy egy **közvetett CSP-szolgáltató**, és az Azure stack hubot fogja használni|Használjon CSL (Common Service Layer) előfizetést.<br>     vagy<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. &lt;a szervezete például > CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
 |Ön egy **közvetett CSP-viszonteladó**, és az Azure stack hubot fogja használni|Kérje meg a közvetett CSP-szolgáltatót, hogy hozzon létre egy Azure AD-bérlőt a szervezete számára a partner Center használatával társított Azure CSP-előfizetéssel.|

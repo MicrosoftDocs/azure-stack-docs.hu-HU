@@ -1,18 +1,18 @@
 ---
 title: MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 description: Ismerje meg, hogyan adhat hozzá MySQL-üzemeltetési kiszolgálókat a MySQL-adapter erőforrás-szolgáltatóján keresztül történő üzembe helyezéshez.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/06/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 6cd5d09dcfc2467bd596b94597d001c4803e1655
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8c998675f3446941a00da9d9a444f1f9186e60e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881809"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492087"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 
@@ -22,6 +22,39 @@ A virtuális gépen (VM) üzemeltetheti a MySQL üzemeltetési kiszolgálói pé
 > A MySQL erőforrás-szolgáltatót az alapértelmezett szolgáltatói előfizetésben kell létrehozni, míg a MySQL üzemeltetési kiszolgálókat számlázva, felhasználói előfizetésekben kell létrehozni. Az erőforrás-szolgáltatói kiszolgálót nem szabad használni a felhasználói adatbázisok üzemeltetéséhez.
 
 Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is használhatók. A MySQL RP nem támogatja a caching_sha2_password hitelesítést; a következő kiadásban lesz hozzáadva. A MySQL 8,0-kiszolgálókat mysql_native_password használatára kell konfigurálni. A MariaDB is támogatott.
+
+## <a name="configure-external-access-to-the-mysql-hosting-server"></a>A MySQL üzemeltetési kiszolgáló külső hozzáférésének konfigurálása
+
+Ahhoz, hogy a MySQL-kiszolgáló Azure Stack hub MySQL-kiszolgáló gazdagépként is felvehető legyen, engedélyezni kell a külső hozzáférést. A Azure Stack hub Marketplace-en elérhető BitNami MySQL például a következő lépésekkel konfigurálhatja a külső hozzáférést.
+
+1. Egy SSH-ügyfél használatával (ez a példa [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)-t használ) jelentkezzen be a MySQL-kiszolgálóra egy olyan számítógépről, amely hozzáférhet a nyilvános IP-címhez.
+
+    Használja a nyilvános IP-címet, és jelentkezzen be a virtuális gépre a **bitnami** felhasználónevével és a korábban a speciális karakterek nélkül létrehozott alkalmazás jelszavával.
+
+   ![LinuxLogin](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
+
+2. Az SSH-ügyfél ablakban a következő parancs használatával győződjön meg arról, hogy a bitnami szolgáltatás aktív és fut. Ha a rendszer kéri, adja meg újra a bitnami jelszavát:
+
+   `sudo service bitnami status`
+
+   ![Bitnami szolgáltatásának keresése](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
+
+3. Hozzon létre egy távelérési felhasználói fiókot, amelyet az Azure Stack hub MySQL üzemeltetési kiszolgáló használ a MySQL-hez való kapcsolódáshoz, majd zárja be az SSH-ügyfelet.
+
+    A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként a korábban létrehozott root password használatával. Hozzon létre egy új rendszergazda felhasználót, és cserélje le *\<username\>* és *\<jelszó\>* szükség szerint a környezetéhez. Ebben a példában a létrehozott felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
+
+   ```mysql
+   mysql -u root -p
+   create user <username>@'%' identified by '<password>';
+   grant all privileges on *.* to <username>@'%' with grant option;
+   flush privileges;
+   ```
+
+   ![Rendszergazda felhasználó létrehozása](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
+
+4. Jegyezze fel az új MySQL-felhasználói adatokat.
+
+Ezt a felhasználónevet és jelszót fogja használni a rendszer, miközben Azure Stack hub-kezelő létrehoz egy MySQL üzemeltetési kiszolgálót a MySQL-kiszolgáló használatával.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Kapcsolódás MySQL üzemeltetési kiszolgálóhoz
 

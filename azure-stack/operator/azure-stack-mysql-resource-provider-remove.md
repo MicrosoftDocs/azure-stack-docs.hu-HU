@@ -1,18 +1,18 @@
 ---
 title: A MySQL erőforrás-szolgáltató eltávolítása Azure Stack központban
 description: Ismerje meg, hogyan távolíthatja el a MySQL erőforrás-szolgáltatót az Azure Stack hub üzembe helyezéséről.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 89d0a55797b6182b7490778db10914a09977e105
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e432e0a37dbcea7bf441594ba6669ee15578b3e4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881785"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492053"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató eltávolítása Azure Stack központban
 
@@ -21,16 +21,7 @@ A MySQL erőforrás-szolgáltató eltávolítása előtt el kell távolítania a
 > [!NOTE]
 > Az erőforrás-szolgáltatói telepítők letöltési hivatkozásait az erőforrás- [szolgáltató előfeltételeinek telepítése című](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)cikkben találja.
 
-A MySQL erőforrás-szolgáltató eltávolítása nem törli a bérlői adatbázisokat az üzemeltetési kiszolgálókról.
-
-## <a name="dependency-cleanup"></a>Függőségek törlése
-
-A DeployMySqlProvider. ps1 parancsfájl futtatása előtt több karbantartási feladatot is el kell végezni az erőforrás-szolgáltató eltávolításához.
-
-A Azure Stack hub operátor felelős a következő karbantartási feladatokért:
-
-* Törölje a MySQL-adapterre hivatkozó terveket.
-* Törölje a MySQL-adapterhez társított kvótákat.
+A MySQL erőforrás-szolgáltató eltávolítása törli az operátor által kezelt társított terveket és kvótákat. De nem törli a bérlői adatbázisokat az üzemeltetési kiszolgálókról.
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>A MySQL erőforrás-szolgáltató eltávolítása
 

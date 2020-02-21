@@ -2,18 +2,18 @@
 title: Fizikai lemez cseréje
 titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan cserélhet le egy fizikai lemezt Azure Stack hub-ban.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: e3fffcc768bdd4f22f7230ec05db8cde050a18db
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 107b171dbe3fd55e61748dcde6fe6bcfc90ea16e
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881350"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509619"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Azure Stack hub fizikai lemezének cseréje
 

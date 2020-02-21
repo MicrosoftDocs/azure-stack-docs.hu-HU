@@ -1,18 +1,18 @@
 ---
 title: Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
 description: Megtudhatja, hogyan használhatja a Kiemelt végpontot a Azure Stack hub integrált rendszerek frissítési állapotának figyelésére.
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 170bb21a8facd66fc5f581729a19f436fbd16fc1
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881905"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508004"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
 
@@ -61,7 +61,7 @@ Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Példa:
+   Például:
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -101,8 +101,8 @@ A lehetséges értékek:
 
 - Fut
 - Befejezve
-- Meghiúsult 
-- Törölve
+- Sikertelen 
+- Megszakítva
 
 Ezeket a parancsokat többször is futtathatja a legfrissebb állapot megjelenítéséhez. Nem kell újból létrehoznia egy kapcsolatot az ismételt vizsgálathoz.
 

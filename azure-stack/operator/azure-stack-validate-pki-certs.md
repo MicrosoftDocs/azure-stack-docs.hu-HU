@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan érvényesítheti Azure Stack hub integrált rendszerek PKI-tanúsítványait az Azure Stack hub Readiness-ellenőrző eszköz használatával.
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 40539890c6adc431ffba95358855db0e7d9f17d8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972542"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508089"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványok ellenőrzése
 
@@ -78,13 +78,13 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     ```
     
     > [!Note]  
-    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Példa:
+    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Például:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Példa:  
+     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Például:  
         - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
@@ -93,10 +93,10 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
     ```
 
-4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Példa:
+4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Például:
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -143,7 +143,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Más Azure Stack hub-szolgáltatások tanúsítványainak ellenőrzéséhez módosítsa a ```-CertificateType```értékét. Példa:
+    Más Azure Stack hub-szolgáltatások tanúsítványainak ellenőrzéséhez módosítsa a ```-CertificateType```értékét. Például:
 
     ```powershell  
     # App Services
@@ -236,9 +236,9 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
 
 ## <a name="certificates"></a>Tanúsítványok
 
-| Könyvtár | Tanúsítvány |
+| Címtár | Tanúsítvány |
 | ---    | ----        |
-| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSBlob | `wildcard_blob_<region>_<externalFQDN>` |
 | ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
 | ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
 | Felügyeleti bővítmény gazdagépe  |  `wildcard_adminhosting_<region>_<externalFQDN>` |

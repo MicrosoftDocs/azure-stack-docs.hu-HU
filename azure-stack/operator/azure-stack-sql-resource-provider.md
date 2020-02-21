@@ -2,18 +2,18 @@
 title: SQL-adatbázisok használata
 titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan használhatja a SQL Server erőforrás-szolgáltatót az SQL-adatbázisok szolgáltatásként való használatára Azure Stack hub-ban.
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 30ca5673bb337342eba57d127acf2f3e657bb8df
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5f09af556a9541ac0d081a986ac4c2befb26b203
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882783"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491764"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>SQL-adatbázisok használata Azure Stack hub-on
 

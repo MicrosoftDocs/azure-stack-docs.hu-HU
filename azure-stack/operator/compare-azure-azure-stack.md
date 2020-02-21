@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 94553618afdfdbc2c1be84556d630ae89b63bd3d
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: c5e780206f86c2b08298fe267916c67f0108ce4e
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147710"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508038"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>A globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségek
 
@@ -68,7 +68,7 @@ További információ az Azure Stack hub-ról: [Mi az Azure stack hub](azure-sta
 
 ## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-[Azure stack HCI](azure-stack-hci-overview.md) -megoldások lehetővé teszik a helyszíni virtuális gépek futtatását, és az Azure-hoz való egyszerű hiperkonvergens-infrastruktúra (HCI) megoldással való kapcsolódást. Felhőalapú alkalmazásokat hozhat létre és futtathat a helyszíni konzisztens Azure-szolgáltatásokkal a szabályozási vagy technikai követelmények teljesítése érdekében. A helyszíni virtualizált alkalmazások futtatása mellett Azure Stack HCI lehetővé teszi az öregedő kiszolgáló-infrastruktúra cseréjét és összevonását, valamint az Azure for Cloud Serviceshez való kapcsolódást a Windows felügyeleti központtal.
+[Azure stack HCI](../hci/overview.md) -megoldások lehetővé teszik a helyszíni virtuális gépek futtatását, és az Azure-hoz való egyszerű hiperkonvergens-infrastruktúra (HCI) megoldással való kapcsolódást. Felhőalapú alkalmazásokat hozhat létre és futtathat a helyszíni konzisztens Azure-szolgáltatásokkal a szabályozási vagy technikai követelmények teljesítése érdekében. A helyszíni virtualizált alkalmazások futtatása mellett Azure Stack HCI lehetővé teszi az öregedő kiszolgáló-infrastruktúra cseréjét és összevonását, valamint az Azure for Cloud Serviceshez való kapcsolódást a Windows felügyeleti központtal.
 
 Azure Stack HCI a Hyper-V és a Közvetlen tárolóhelyek által vezérelt, ellenőrzött HCI-megoldásokat biztosít a Windows Server 2019 szoftveresen definiált adatközpont (SDDC) használatával. A Windows felügyeleti központ a következő Azure-szolgáltatásokhoz való felügyelethez és integrált hozzáférésekhez használható:
 

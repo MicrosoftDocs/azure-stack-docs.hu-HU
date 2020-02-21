@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
 description: Ismerje meg a Azure Stack hub PKI-tanúsítvány központi telepítési követelményeit Azure Stack hub integrált rendszerekhez.
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881641"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509704"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
 
@@ -67,8 +67,8 @@ Az éles környezetek esetében ajánlott egyéni tanúsítványokat létrehozni
 
 | Telepítési mappa | Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN) | Hatókör (régiónként) | Altartomány névtere |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Nyilvános portál | portál.&lt;régió >.&lt;FQDN > | Portals | &lt;régió >.&lt;FQDN > |
-| Felügyeleti portál | adminportal.&lt;régió >.&lt;FQDN > | Portals | &lt;régió >.&lt;FQDN > |
+| Nyilvános portál | portál.&lt;régió >.&lt;FQDN > | Portálok | &lt;régió >.&lt;FQDN > |
+| Felügyeleti portál | adminportal.&lt;régió >.&lt;FQDN > | Portálok | &lt;régió >.&lt;FQDN > |
 | Nyilvános Azure Resource Manager | felügyeleti.&lt;régió >.&lt;FQDN > | Azure Resource Manager | &lt;régió >.&lt;FQDN > |
 | Azure Resource Manager-rendszergazda | adminmanagement.&lt;régió >.&lt;FQDN > | Azure Resource Manager | &lt;régió >.&lt;FQDN > |
 | ACSBlob | *. blob.&lt;régió >.&lt;FQDN ><br>(Helyettesítő karakteres SSL-tanúsítvány) | Blob Storage | BLOB.&lt;régió >.&lt;FQDN > |
@@ -84,7 +84,7 @@ Ha az Azure AD üzembe helyezési móddal telepíti Azure Stack hub-t, csak az e
 |Telepítési mappa|Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN)|Hatókör (régiónként)|Altartomány névtere|
 |-----|-----|-----|-----|
 |ADFS|ADFS. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|ADFS|*&lt;régió >.&lt;FQDN >*|
-|Gráf|Graph. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|Gráf|*&lt;régió >.&lt;FQDN >*|
+|Graph|Graph. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|Graph|*&lt;régió >.&lt;FQDN >*|
 |
 
 > [!IMPORTANT]
