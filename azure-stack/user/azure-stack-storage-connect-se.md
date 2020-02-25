@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c9940e110d86ca1ebeb4739a6beb375381786be2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884391"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568715"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
 
@@ -62,7 +62,7 @@ Exportálja és importálja Azure Stack hub-tanúsítványt a leválasztott inte
 
 8. Storage Explorer újraindítása után kattintson a **Szerkesztés** menüre, és ellenőrizze, hogy a **cél Azure stack hub API** -k van-e kiválasztva. Ha nem, válassza a **cél Azure stack hub**lehetőséget, majd indítsa újra Storage Explorer a módosítás érvénybe léptetéséhez. Ez a konfiguráció az Azure Stack hub-környezettel való kompatibilitáshoz szükséges.
 
-    ![A cél Azure Stack hub kiválasztásának ellenőrzése](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+    ![A cél Azure Stack hub kiválasztásának ellenőrzése](./media/azure-stack-storage-connect-se/target-azure-stack-new.png)
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-azure-ad"></a>Kapcsolódás Azure Stack hub-előfizetéshez az Azure AD-vel
 

@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 31cdb0d27e9d94e93cf1e410f25f2cc200db31d7
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491747"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568690"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL-erőforrás szolgáltatójának frissítése
 
@@ -21,7 +21,7 @@ Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hu
 
 Az SQL Resource Provider 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például az SQL-erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0 verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-sql-resource-provider-deploy.md#prerequisites)című részben.
 
-Az erőforrás-szolgáltató frissítéséhez használja a *UpdateSQLProvider. ps1* parancsfájlt. Ez a szkript az új SQL-erőforrás-szolgáltató letöltését tartalmazza. A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-sql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeploySqlProvider. ps1 parancsfájl, és meg kell adnia a tanúsítvány adatait.
+Az erőforrás-szolgáltató frissítéséhez használja a *UpdateSQLProvider. ps1* parancsfájlt. Helyi rendszergazdai jogokkal rendelkező szolgáltatásfiók használata, amely az előfizetés **tulajdonosa** . Ez a szkript az új SQL-erőforrás-szolgáltató letöltését tartalmazza. A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-sql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeploySqlProvider. ps1 parancsfájl, és meg kell adnia a tanúsítvány adatait.
 
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató frissítése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.

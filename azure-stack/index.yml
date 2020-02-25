@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 11ba5e777f26cbfca0cae2b4dc1b0b91f6ce77c6
-  ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+  ms.openlocfilehash: 9a0a1b733882ca77cdce2d6ccc0395ce31c891f1
+  ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77509126"
+  ms.lasthandoff: 02/24/2020
+  ms.locfileid: "77568362"
 highlightedContent:
   items:
   - title: Azure Stack család bejelentése
@@ -105,7 +105,7 @@ additionalContent:
         text: Az alkalmazások összeállításának legfontosabb szempontjai
       - url: /azure-stack/user/azure-stack-key-vault-manage-portal
         text: Key Vault létrehozása és kezelése
-    - title: Azure Stack hub Development Kit (ASDK)
+    - title: Azure Stack fejlesztői készlet (ASDK)
       links:
       - url: /azure-stack/asdk/asdk-deploy-considerations
         text: A ASDK követelményei és szempontjai

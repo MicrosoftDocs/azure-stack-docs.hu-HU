@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875623"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568588"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Felhőben futó alkalmazások üzembe helyezése az Azure-ban és Azure Stack hub használatával
 
@@ -39,8 +39,8 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 
 -   Egy Azure-előfizetés. Ha szükséges, hozzon létre egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a Kezdés előtt.
 
-- Egy Azure Stack hub-beli integrált rendszer vagy Azure Stack hub fejlesztői csomag üzembe helyezése.
-    - Az Azure Stack hub telepítésével kapcsolatos utasításokért lásd: [az Azure stack hub fejlesztői csomag telepítése](../asdk/asdk-install.md).
+- Azure Stack hub integrált rendszer vagy Azure Stack Development Kit üzembe helyezése.
+    - Azure Stack hub telepítésére vonatkozó utasításokért lásd: [a Azure stack Development Kit telepítése](../asdk/asdk-install.md).
     - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Előfordulhat, hogy a telepítés elvégzéséhez néhány óra szükséges.
 
@@ -60,11 +60,11 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
-### <a name="scalability"></a>Skálázhatóság
+### <a name="scalability"></a>Méretezhetőség
 
 A többfelhős méretezés kulcsfontosságú összetevője az, hogy a nyilvános és a helyszíni felhőalapú infrastruktúra között azonnali és igény szerinti skálázást lehessen biztosítani, amely konzisztens és megbízható szolgáltatást biztosít.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 
@@ -93,7 +93,7 @@ Hibrid folyamatos integráció és folyamatos üzembe helyezés (CI/CD) beállí
 
 ### <a name="add-code-to-azure-repos"></a>Kód hozzáadása az Azure Reposhez
 
-Azure-beli adattárak
+Azure-repók
 
 1. Jelentkezzen be az Azure Reposba egy olyan fiókkal, amely projekt-létrehozási jogokkal rendelkezik az Azure Reposban.
 

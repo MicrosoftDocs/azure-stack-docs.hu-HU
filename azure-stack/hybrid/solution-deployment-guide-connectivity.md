@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed6869b4c03c9e360cd12a98e206941a3842bfc
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875504"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568486"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Hibrid felhőalapú kapcsolat konfigurálása az Azure és az Azure Stack hub használatával
 
@@ -37,7 +37,7 @@ A hibrid kapcsolat központi telepítésének létrehozásához néhány összet
 
 **Azure Stack hub**
 
-Egy Azure OEM/Hardware partner üzembe helyezhet egy éles Azure Stack központot, és minden felhasználó üzembe helyezhet egy Azure Stack hub Development Kit (ASDK) csomagot.
+Egy Azure OEM/Hardware partner üzembe helyezhet egy éles Azure Stack hubot, és minden felhasználó telepíthet egy Azure Stack Development Kit (ASDK).
 
 **Azure Stack hub-összetevők**
 
@@ -53,9 +53,9 @@ A megoldás példája feltételezi, hogy rendelkezik az Azure és az Azure Stack
  - Ha nem rendelkezik Azure-előfizetéssel, mindössze néhány perc alatt létrehozhat egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a virtuális gép létrehozásának megkezdése előtt.
  - Hozzon létre egy [webalkalmazást](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) az Azure-ban. Jegyezze fel a webalkalmazás URL-címét, mert szüksége lesz rá a megoldásban.
 
-### <a name="azure-stack-hub"></a>Azure Stack Hub
+### <a name="azure-stack-hub"></a>Azure Stack hub
 
- - Használja az éles Azure Stack hub-t, vagy telepítse a Azure Stack hub fejlesztői készletet https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+ - Használja az éles Azure Stack hubot, vagy telepítse a Azure Stack Development Kitt a https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
    >A ASDK üzembe helyezése akár 7 órát is igénybe vehet, ezért tervezze meg ennek megfelelően.
 
@@ -63,7 +63,7 @@ A megoldás példája feltételezi, hogy rendelkezik az Azure és az Azure Stack
  - [Terveket és ajánlatokat hozhat létre](../operator/service-plan-offer-subscription-overview.md) a Azure stack hub-környezetben.
  - [Bérlői előfizetés létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) az Azure stack hub-környezeten belül.
 
-### <a name="before-you-begin"></a>Előzetes teendők
+### <a name="before-you-begin"></a>Előkészületek
 
 A hibrid felhőalapú kapcsolatok konfigurálásának megkezdése előtt győződjön meg arról, hogy megfelel az alábbi feltételeknek:
 
@@ -87,18 +87,18 @@ A kapcsolatok specifikációi:
 
 Hálózati és alhálózat IP-címei:
 
-| Azure/Azure Stack hub-kapcsolatok | Név | Alhálózat | IP-cím |
+| Azure/Azure Stack hub-kapcsolatok | Name (Név) | Alhálózat | IP-cím |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure-vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
 | Azure Stack hub vNet | ApplicationvNet<br>10.100.100.0/23 | ApplicationSubnet <br>10.100.100.0/24 |  |
 |  |  | GatewaySubnet <br>10.100101.0/24 |  |
 | Azure Virtual Network-átjáró | Azure – átjáró |  |  |
-| Azure Stack hub Virtual Network átjáró | AzureStack – átjáró |  |  |
-| Azure nyilvános IP-cím | Azure – GatewayPublicIP |  | Létrehozáskor meghatározva |
-| Azure Stack hub nyilvános IP-címe | AzureStack – GatewayPublicIP |  | Létrehozáskor meghatározva |
-| Azure-beli helyi hálózati átjáró | AzureStack – S2SGateway<br>   10.100.100.0/23 |  | Azure Stack hub nyilvános IP-értéke |
-| Azure Stack hub helyi hálózati átjárója | Azure – S2SGateway<br>10.100.102.0/23 |  | Azure nyilvános IP-érték |
+| Azure Stack hub Virtual Network átjáró | AzureStack-Gateway |  |  |
+| Azure Public IP | Azure-GatewayPublicIP |  | Létrehozáskor meghatározva |
+| Azure Stack hub nyilvános IP-címe | AzureStack-GatewayPublicIP |  | Létrehozáskor meghatározva |
+| Azure-beli helyi hálózati átjáró | AzureStack-S2SGateway<br>   10.100.100.0/23 |  | Azure Stack hub nyilvános IP-értéke |
+| Azure Stack hub helyi hálózati átjárója | Azure-S2SGateway<br>10.100.102.0/23 |  | Azure nyilvános IP-érték |
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack-hub"></a>Virtuális hálózat létrehozása a globális Azure-ban és Azure Stack hub-ban
 
@@ -130,7 +130,7 @@ A [Azure Portal](https://portal.azure.com/)Navigáljon arra a Resource Manager v
 
     ![Átjáró-alhálózat hozzáadása](media/solution-deployment-guide-connectivity/image4.png)
 
-4. Az alhálózat **nevét** a rendszer automatikusan kitölti a "GatewaySubnet" értékkel. Ez az érték szükséges ahhoz, hogy az Azure felismerje az alhálózatot átjáró-alhálózatként.
+4. Az alhálózat **nevét** a rendszer automatikusan kitölti a "GatewaySubnet" értékkel. Ez az érték megadása kötelező az Azure felismerje az alhálózat egy átjáró alhálózata.
 5. Módosítsa a megadott **címtartomány** -értékeket úgy, hogy megfeleljenek a konfigurációs követelményeinek, majd válassza az **OK**gombot.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Virtual Network átjáró létrehozása az Azure-ban és Azure Stack

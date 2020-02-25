@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: a50b39c84a31e0266db437bfe29fd57370881644
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509534"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568639"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack hub tárolási infrastruktúrájának kezelése
 
@@ -68,7 +68,7 @@ A többcsomópontos telepítésekben három infrastrukturális kötet látható,
 
 - A kötetek száma változatlan marad, még akkor is, ha egy csomópont meghibásodik vagy törlődik.
 
-- Ha az Azure Stack hub fejlesztői készletet használja, akkor egyetlen kötet több megosztással is rendelkezik.
+- Ha a Azure Stack Development Kit használja, egyetlen köteten több megosztás található.
 
 A Közvetlen tárolóhelyekban lévő kötetek rugalmasságot biztosítanak a hardveres problémák, például a meghajtó-vagy kiszolgálóhiba elleni védelemhez. A folyamatos rendelkezésre állást is lehetővé teszik a kiszolgáló karbantartása során, például a szoftverfrissítéseket. Azure Stack hub üzemelő példánya háromutas tükrözéssel biztosítja az adatrugalmasságot. A bérlői adatmennyiség három példánya különböző kiszolgálókra van írva, ahol a gyorsítótárban találhatók:
 

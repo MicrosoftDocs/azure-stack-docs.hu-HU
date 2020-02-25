@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a0e9c00aeca18b8f5ed435d39bfb5cf9d4e56067
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dc3096888138400007c4091ec9f7f40e289340ed
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875487"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568418"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Hibrid Felhőbeli identitás konfigurálása az Azure-hoz és Azure Stack hub-alkalmazásokhoz
 
@@ -58,7 +58,7 @@ Az [Azure stack hub PowerShell-](../operator/azure-stack-powershell-install.md) 
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Egy olyan Azure Stack hub-telepítésre van szükség, amelyhez hozzá kell férnie Azure Active Directoryhoz. Ha nem rendelkezik Azure Stack hub-telepítéssel, a következő utasításokat követve állíthatja be a [Azure stack hub fejlesztői készletet](../asdk/asdk-install.md).
+Egy olyan Azure Stack hub-telepítésre van szükség, amelyhez hozzá kell férnie Azure Active Directoryhoz. Ha nem rendelkezik Azure Stack hub-telepítéssel, a következő utasításokat követve állíthatja be a [Azure stack Development Kit](../asdk/asdk-install.md).
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>Kapcsolódás Azure Stack hubhoz kód használatával
 

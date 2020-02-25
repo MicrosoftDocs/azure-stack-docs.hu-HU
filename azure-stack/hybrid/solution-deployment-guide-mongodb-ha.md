@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7611387047d80ad7c60f4402c7399d3d0d4e8b09
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877000"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568334"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>Magasan elérhető MongoDB-megoldás üzembe helyezése az Azure-ban és Azure Stack hub
 
@@ -40,7 +40,7 @@ Ebben a megoldásban a következőhöz hozzon létre egy mintavételi környezet
 
 ## <a name="prerequisites-for-mongodb-with-azure-stack-hub"></a>A MongoDB előfeltételei Azure Stack hubhoz
 
-  - Két csatlakoztatott Azure Stack hub integrált rendszer (Azure Stack hub), ez a központi telepítés nem működik Azure Stack hub fejlesztői készleteken (ASDKs). További információ az Azure Stack hub-ról: [Mi az Azure stack hub?](https://azure.microsoft.com/overview/azure-stack/)
+  - Két csatlakoztatott Azure Stack hub integrált rendszer (Azure Stack hub), ez a telepítés nem működik Azure Stack fejlesztői csomagokon (ASDKs). További információ az Azure Stack hub-ról: [Mi az Azure stack hub?](https://azure.microsoft.com/overview/azure-stack/)
       - Bérlői előfizetés az egyes Azure Stack hubokon.    
       - **Jegyezze fel minden egyes Azure Stack hub előfizetési AZONOSÍTÓját és Azure Resource Manager végpontját.**
   - Egy Azure Active Directory (Azure AD) egyszerű szolgáltatásnév, amely jogosult a bérlői előfizetésre az egyes Azure Stack hubokon. Előfordulhat, hogy két egyszerű szolgáltatást kell létrehoznia, ha az Azure Stack hubok különböző Azure AD-bérlők között vannak telepítve. Ha meg szeretné tudni, hogyan hozhat létre egyszerű szolgáltatásnevet Azure Stack hubhoz, tekintse meg az [egyszerű szolgáltatások létrehozása az Azure stack hub-erőforrásokhoz való hozzáférést biztosító alkalmazások létrehozásával](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)foglalkozó témakört.    

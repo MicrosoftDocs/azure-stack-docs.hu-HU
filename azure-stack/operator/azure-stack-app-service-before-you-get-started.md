@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874756"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568452"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Az App Service Azure Stack hub-beli üzembe helyezésének előfeltételei
 
 A Azure App Service Azure Stack hub-on való üzembe helyezése előtt végre kell hajtania a jelen cikkben ismertetett előfeltételeket.
 
 > [!IMPORTANT]
-> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub Development Kit (ASDK) csomagot a Azure App Service 1,8 üzembe helyezése előtt.
+> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,8 telepítése előtt.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>A telepítő és a segítő parancsfájlok letöltése
 
@@ -27,14 +27,14 @@ A Azure App Service Azure Stack hub-on való üzembe helyezése előtt végre ke
 2. Töltse le a [app Servicet Azure stack hub telepítőn](https://aka.ms/appsvconmasinstaller).
 3. Bontsa ki a fájlokat a Helper scripts. zip fájlból. A következő fájlok és mappák vannak kibontva:
 
-   - Common. ps1
-   - Create-AADIdentityApp. ps1
-   - Create-ADFSIdentityApp. ps1
-   - Create-AppServiceCerts. ps1
-   - Get-AzureStackRootCert. ps1
-   - Remove-AppService. ps1
+   - Common.ps1
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
+   - Create-AppServiceCerts.ps1
+   - Get-AzureStackRootCert.ps1
+   - Remove-AppService.ps1
    - Modulok mappa
-     - GraphAPI. psm1
+     - GraphAPI.psm1
 
 ## <a name="download-items-from-the-azure-marketplace"></a>Elemek letöltése az Azure Marketplace-ről
 
@@ -57,12 +57,12 @@ A következő PowerShell-parancs futtatásakor meg kell adnia a rendszerjogosult
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert. ps1 parancsfájl-paraméterek
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Szükséges | AzS – ERCS01 | Emelt szintű végpont |
-| CloudAdminCredential | Szükséges | AzureStack\CloudAdmin | Tartományi fiók hitelesítő adatai Azure Stack hub Cloud rendszergazdák számára |
+| PrivilegedEndpoint | Kötelező | AzS-ERCS01 | Emelt szintű végpont |
+| CloudAdminCredential | Kötelező | AzureStack\CloudAdmin | Tartományi fiók hitelesítő adatai Azure Stack hub Cloud rendszergazdák számára |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>A Azure App Service ASDK telepítéséhez szükséges tanúsítványok
 
@@ -70,10 +70,10 @@ A *create-AppServiceCerts. ps1* parancsfájl az Azure stack hub hitelesítésszo
 
 | Fájlnév | Használat |
 | --- | --- |
-| _. appservice. local. azurestack. external. pfx | Alapértelmezett SSL-tanúsítvány App Service |
-| API. appservice. local. azurestack. external. pfx | App Service API SSL-tanúsítványa |
-| FTP. appservice. local. azurestack. external. pfx | App Service közzétevő SSL-tanúsítványa |
-| SSO. appservice. local. azurestack. external. pfx | App Service Identity Application-tanúsítvány |
+| _.appservice.local.azurestack.external.pfx | Alapértelmezett SSL-tanúsítvány App Service |
+| api.appservice.local.azurestack.external.pfx | App Service API SSL-tanúsítványa |
+| ftp.appservice.local.azurestack.external.pfx | App Service közzétevő SSL-tanúsítványa |
+| sso.appservice.local.azurestack.external.pfx | App Service Identity Application-tanúsítvány |
 
 A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 
@@ -86,8 +86,8 @@ A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| pfxPassword | Szükséges | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó |
-| domainName | Szükséges | helyi. azurestack. external | Azure Stack hub-régió és tartomány utótagja |
+| pfxPassword | Kötelező | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó |
+| DomainName | Kötelező | local.azurestack.external | Azure Stack hub-régió és tartomány utótagja |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>A Azure App Service Azure Stack hub éles üzembe helyezéséhez szükséges tanúsítványok
 
@@ -116,7 +116,7 @@ Az API-tanúsítvány a felügyeleti szerepkörbe kerül. Az erőforrás-szolgá
 
 | Formátum | Példa |
 | --- | --- |
-| az API. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | API. appservice. Redmond. azurestack. external |
+| az API. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>Tanúsítvány közzététele
 
@@ -124,7 +124,7 @@ A közzétevői szerepkör tanúsítványa biztosítja az FTPS forgalmát, amiko
 
 | Formátum | Példa |
 | --- | --- |
-| FTP. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | FTP. appservice. Redmond. azurestack. external |
+| FTP. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Identitás tanúsítványa
 
@@ -137,7 +137,7 @@ Az identitás tanúsítványának tartalmaznia kell egy tulajdonost, amely megfe
 
 | Formátum | Példa |
 | --- | --- |
-| SSO. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | SSO. appservice. Redmond. azurestack. external |
+| SSO. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="validate-certificates"></a>Tanúsítványok ellenőrzése
 
@@ -157,9 +157,9 @@ Virtuális hálózat –/16
 Alhálózatok
 
 - ControllersSubnet/24
-- ManagementServersSubnet/24
+- ManagementServersSubnet /24
 - FrontEndsSubnet/24
-- PublishersSubnet/24
+- PublishersSubnet /24
 - WorkersSubnet/21
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>A szükséges fájlkiszolgáló és SQL Server licencelési problémái
@@ -357,13 +357,13 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Szükséges | Null | Azure AD-bérlő azonosítója. Adja meg a GUID azonosítót vagy a karakterláncot. Ilyen például a myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Szükséges | Null | Felügyeleti Azure Resource Manager végpont. Példa: adminmanagement. local. azurestack. external. |
-| TenantARMEndpoint | Szükséges | Null | Bérlői Azure Resource Manager végpont. Ilyen például a Management. local. azurestack. external. |
-| AzureStackAdminCredential | Szükséges | Null | Az Azure AD szolgáltatás rendszergazdai hitelesítő adatai. |
-| CertificateFilePath | Szükséges | Null | A korábban létrehozott Identity Application Certificate fájl **teljes elérési útja** . |
-| CertificatePassword | Szükséges | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó. |
-| Környezet | Választható | AzureCloud | A támogatott felhőalapú környezet neve, amelyben a cél Azure Active Directory Graph szolgáltatás elérhető.  Megengedett értékek: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
+| DirectoryTenantName | Kötelező | Null | Azure AD-bérlő azonosítója. Adja meg a GUID azonosítót vagy a karakterláncot. Ilyen például a myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Kötelező | Null | Felügyeleti Azure Resource Manager végpont. Példa: adminmanagement. local. azurestack. external. |
+| TenantARMEndpoint | Kötelező | Null | Bérlői Azure Resource Manager végpont. Ilyen például a Management. local. azurestack. external. |
+| AzureStackAdminCredential | Kötelező | Null | Az Azure AD szolgáltatás rendszergazdai hitelesítő adatai. |
+| CertificateFilePath | Kötelező | Null | A korábban létrehozott Identity Application Certificate fájl **teljes elérési útja** . |
+| CertificatePassword | Kötelező | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó. |
+| Környezet | Optional | AzureCloud | A támogatott felhőalapú környezet neve, amelyben a cél Azure Active Directory Graph szolgáltatás elérhető.  Megengedett értékek: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Active Directory összevonási szolgáltatások (AD FS)-alkalmazás létrehozása
 
@@ -393,11 +393,11 @@ Kövesse az alábbi lépéseket:
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Szükséges | Null | Felügyeleti Azure Resource Manager végpont. Példa: adminmanagement. local. azurestack. external. |
-| PrivilegedEndpoint | Szükséges | Null | Emelt szintű végpont. Példa: AzS-ERCS01. |
-| CloudAdminCredential | Szükséges | Null | Tartományi fiók hitelesítő adatai Azure Stack hub felhőalapú rendszergazdái számára. Példa Azurestack\CloudAdmin. |
-| CertificateFilePath | Szükséges | Null | Az Identity alkalmazás tanúsítvány PFX-fájljának **teljes elérési útja** . |
-| CertificatePassword | Szükséges | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó. |
+| AdminArmEndpoint | Kötelező | Null | Felügyeleti Azure Resource Manager végpont. Példa: adminmanagement. local. azurestack. external. |
+| PrivilegedEndpoint | Kötelező | Null | Emelt szintű végpont. Példa: AzS-ERCS01. |
+| CloudAdminCredential | Kötelező | Null | Tartományi fiók hitelesítő adatai Azure Stack hub felhőalapú rendszergazdái számára. Példa Azurestack\CloudAdmin. |
+| CertificateFilePath | Kötelező | Null | Az Identity alkalmazás tanúsítvány PFX-fájljának **teljes elérési útja** . |
+| CertificatePassword | Kötelező | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó. |
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875300"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568384"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>AI-alapú lépés hangja-észlelési megoldás üzembe helyezése az Azure és Azure Stack hub használatával
 
@@ -36,7 +36,7 @@ Ebben a megoldásban a következőket sajátíthatja el:
 Az üzembe helyezési útmutató első lépéseinek megkezdése előtt győződjön meg arról, hogy:
 
 - Tekintse át a [lépés hangja-észlelési megoldás áttekintését](pattern-retail-footfall-detection.md) 
-- Felhasználói hozzáférés beszerzése egy Azure Stack hub Development Kit (ASDK) vagy Azure Stack hub integrált rendszer-példányhoz a következővel:
+- Felhasználói hozzáférés beszerzése egy Azure Stack Development Kit (ASDK) vagy Azure Stack hub integrált rendszerpéldányhoz, a következővel:
   - A [Azure stack hub erőforrás-szolgáltatón telepített Azure app Service](../operator/azure-stack-app-service-overview.md) . Az Azure Stack hub-példányhoz a kezelőhöz való hozzáférésre van szükség, vagy a telepítéshez a rendszergazdával kell dolgoznia.
   - App Service-és tárolási kvótát biztosító ajánlat előfizetése. Ajánlat létrehozásához operátori hozzáférésre van szükség.
 - Azure-előfizetéshez való hozzáférés beszerzése
@@ -64,7 +64,7 @@ Az üzembe helyezési útmutató első lépéseinek megkezdése előtt győződj
 
 Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd telepítse a felhőalapú alkalmazást.  
 
-1. A megoldáshoz tartozó mintakód klónozása vagy letöltése https://github.com/azure-samples/azure-intelligent-edge-patterns ból. 
+1. A megoldáshoz tartozó mintakód klónozása vagy letöltése https://github.com/azure-samples/azure-intelligent-edge-patternsból. 
 
 1. A Porter hitelesítő adatokat állít elő, amelyek automatizálják az alkalmazás üzembe helyezését. A hitelesítő adatok generálására szolgáló parancs futtatása előtt győződjön meg arról, hogy a következők állnak rendelkezésre:
 

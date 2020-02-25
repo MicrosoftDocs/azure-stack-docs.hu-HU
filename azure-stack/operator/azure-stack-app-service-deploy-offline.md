@@ -7,17 +7,17 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
-ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
+ms.openlocfilehash: 7fa4ac0f63b3f5243a6473c921012614bb01bfb2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77012886"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568622"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Azure App Service üzembe helyezése offline környezetben Azure Stack hub-ban
 
 > [!IMPORTANT]
-> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub Development Kit (ASDK) csomagot a Azure App Service 1,8 üzembe helyezése előtt.
+> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,8 telepítése előtt.
 
 A cikkben található utasításokat követve telepítheti a [Azure app Service erőforrás-szolgáltatót](azure-stack-app-service-overview.md) egy Azure stack hub-környezetbe, amely a következő:
 - Nem kapcsolódik az internethez.
@@ -115,8 +115,8 @@ A Azure App Service offline környezetben történő telepítéséhez először 
     | Box | Példa tanúsítványfájl-fájlnévre |
     | --- | --- |
     | **Alapértelmezett SSL-tanúsítványfájl App Service** | \_. appservice. local. AzureStack. external. pfx |
-    | **App Service API SSL-tanúsítványfájl** | API. appservice. local. AzureStack. external. pfx |
-    | **App Service közzétevő SSL-tanúsítványfájl** | FTP. appservice. local. AzureStack. external. pfx |
+    | **App Service API SSL-tanúsítványfájl** | api.appservice.local.AzureStack.external.pfx |
+    | **App Service közzétevő SSL-tanúsítványfájl** | ftp.appservice.local.AzureStack.external.pfx |
 
     Ha a tanúsítványok létrehozásakor eltérő tartományi utótagot használt, a tanúsítványfájl neve nem a helyi nevet használja *. AzureStack. external*. Ehelyett használja az egyéni tartomány adatait.
 
@@ -151,8 +151,8 @@ A Azure App Service offline környezetben történő telepítéséhez először 
     | Szerepkör | Minimális példányszám | Minimális SKU | Megjegyzések |
     | --- | --- | --- | --- |
     | Tartományvezérlő | 1 | Standard_A2 – (2 vCPU, 3584 MB) | Felügyeli és karbantartja a Azure App Service felhő állapotát. |
-    | Felügyelet | 1 | Standard_A2 – (2 vCPU, 3584 MB) | A Azure App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelje az ajánlott példányokat 2-ra. |
-    | Gyártó/kiadó | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
+    | Kezelés | 1 | Standard_A2 – (2 vCPU, 3584 MB) | A Azure App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelje az ajánlott példányokat 2-ra. |
+    | Közzétevő | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
     | Előtér | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Átirányítja a kérelmeket Azure App Service alkalmazásokba. |
     | Megosztott feldolgozók | 1 | Standard_A1 – (1 vCPU, 1792 MB) | Webes vagy API-alkalmazásokat, valamint Azure Functions alkalmazásokat üzemeltet. Előfordulhat, hogy további példányokat szeretne hozzáadni. Operátorként megadhatja az ajánlatát, és kiválaszthatja az SKU-szintet. A rétegeknek legalább egy vCPU kell rendelkezniük. |
 

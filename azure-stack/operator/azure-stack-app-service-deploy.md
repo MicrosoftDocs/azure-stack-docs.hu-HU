@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 1d11e9572decd7bd135fe62806c284e43657febf
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 9f27013f36b3542e10640b6526eb396aa556e946
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491169"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568673"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>App Service üzembe helyezése Azure Stack központban
 
 Ez a cikk azt ismerteti, hogyan telepítheti App Service a Azure Stack hub-ban.
 
 > [!IMPORTANT]
-> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub Development Kit (ASDK) csomagot a Azure App Service 1,8 üzembe helyezése előtt.
+> Alkalmazza az 1910-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,8 telepítése előtt.
 
 Lehetővé teheti, hogy a felhasználók webes és API-alkalmazásokat hozzanak létre. Ahhoz, hogy a felhasználók létre lehessen hozni ezeket az alkalmazásokat, a következőket kell tennie:
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877510"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568571"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
 
@@ -55,7 +55,7 @@ Ez az oktatóanyag azt is feltételezi, hogy rendelkezik Azure-előfizetéssel. 
 
 A megoldás elindítása előtt győződjön meg arról, hogy megfelel a következő követelményeknek:
 
-- Egy Azure Stack hub Development Kit (ASDK) vagy egy előfizetés egy Azure Stack hub integrált rendszeren. Azure Stack hub Development Kit üzembe helyezéséhez kövesse a [ASDK telepítése a telepítő használatával](../asdk/asdk-install.md)című témakör útmutatását.
+- Egy Azure Stack Development Kit (ASDK) vagy előfizetés egy Azure Stack hub integrált rendszeren. Azure Stack Development Kit telepítéséhez kövesse a [ASDK telepítése a telepítő használatával](../asdk/asdk-install.md)című témakör útmutatását.
 - A Azure Stack hub telepítése a következőkkel telepíthető:
   - A Azure App Service. Az Azure Stack hub operátorral együttműködve telepítheti és konfigurálhatja a Azure App Servicet a környezetében. Ez az oktatóanyag megköveteli, hogy a App Service legalább egy (1) elérhető dedikált feldolgozói szerepkörrel rendelkezzen.
   - Egy Windows Server 2016-rendszerkép.
@@ -122,7 +122,7 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
 10. Némi időbe telik az új virtuális gép létrehozása. A **virtuális gépek állapota a Virtual Machines**szolgáltatásban tekinthető meg.
 
-    ![Virtuális gépek](media/solution-deployment-guide-hybrid/image7.png)
+    ![Virtual machines (Virtuális gépek)](media/solution-deployment-guide-hybrid/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack-hub"></a>Webalkalmazások létrehozása az Azure-ban és Azure Stack hub
 
@@ -207,7 +207,7 @@ A DNS Felhőbeli alkalmazások számára történő megfelelő konfigurálásáv
 
 Ez az oktatóanyag a Azure DNS használatával kezeli a DNS-t, mert App Service tartományok nem működnek.
 
-### <a name="create-subdomains"></a>Altartományok létrehozása
+### <a name="create-subdomains"></a>Create subdomains
 
 Mivel Traffic Manager DNS-CNAME-re támaszkodik, egy altartományra van szükség ahhoz, hogy megfelelően irányítsa a forgalmat a végpontokra. A DNS-rekordokkal és a tartomány-hozzárendeléssel kapcsolatos további információkért lásd: [tartományok leképezése Traffic Managerokkal](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 
@@ -260,7 +260,7 @@ Konfigurálja az telemetria a helyes Application Insights példányra, majd konf
 A webalkalmazás minden példánya egy másik módszert fog használni az SQL-adatbázishoz való kapcsolódáshoz. Az Azure-beli alkalmazás a SQL Server virtuális gép (VM) magánhálózati IP-címét használja, az alkalmazás pedig Azure Stack hub-ban a SQL Server VM nyilvános IP-címét használja.
 
 > [!Note]  
-> Egy Azure Stack hub-beli integrált rendszeren a nyilvános IP-cím nem lehet internetre irányítható. Egy Azure Stack hub Development Kit (ASDK) esetében a nyilvános IP-cím nem irányítható a ASDK kívül.
+> Egy Azure Stack hub-beli integrált rendszeren a nyilvános IP-cím nem lehet internetre irányítható. Egy Azure Stack Development Kiton (ASDK) a nyilvános IP-cím nem irányítható át a ASDK kívül.
 
 App Service környezeti változók használatával más kapcsolódási karakterláncot adhat át az alkalmazás minden egyes példányához.
 
@@ -427,7 +427,7 @@ Ezután konfigurálja az Azure-végpontot.
 
 Mindkét végpont konfigurálása után **Traffic Manager profilban** szerepelnek a **végpontok**kiválasztása után. A következő képernyőfelvételen szereplő példa két végpontot mutat be, amelyek mindegyike állapota és konfigurációs adatai szerepelnek.
 
-![Endpoints (Végpontok)](media/solution-deployment-guide-hybrid/image20.png)
+![Végpontok](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Application Insights figyelésének és riasztásának beállítása
 

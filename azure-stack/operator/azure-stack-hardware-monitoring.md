@@ -3,26 +3,26 @@ title: Azure Stack hub hardver állapotának figyelése
 description: Megtudhatja, hogyan figyelheti Azure Stack hub hardveres összetevőinek állapotát.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dba47774205b4c0631f33de336e0efbfb73db9cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4fe942e6a4230d9807780507de8b658a6e0ed4c3
+ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882216"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77575135"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Azure Stack hub hardver-összetevőinek figyelése
 
-Azure Stack hub állapot-és monitorozási rendszere már figyeli a tárolási alrendszer állapotát, és szükség szerint riasztásokat küld. Az Azure Stack hub 1910-es kiadásával az állapot-és monitorozási rendszer mostantól riasztásokat is felvehet a következő hardver-összetevőkre:
+Az Azure Stack hub állapot-és figyelési rendszere figyeli a tárolási alrendszer állapotát, és szükség szerint riasztásokat küld. Az állapot-és monitorozási rendszer riasztásokat is felvehet a következő hardver-összetevőkre:
 
 - Rendszerventilátorok
 - Rendszerhőmérséklet
 - Tápegység
 - CPU-k
-- Memória
+- Memory (Memória)
 - Rendszerindító meghajtók
 
 > [!NOTE]

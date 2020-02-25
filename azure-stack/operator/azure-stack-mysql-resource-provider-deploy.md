@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 60a5df4b54165ab86ac8c836254baabaab4f7ca6
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 68111eb8179ac3c000c668407c266a7916761bb6
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492681"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568656"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -122,7 +122,7 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 | Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához. | _Szükséges_ |
-| **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. | _Szükséges_ |
+| **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. A szkript sikertelen lesz, ha a AzCredential használt fiók többtényezős hitelesítést (MFA) igényel. | _Szükséges_ |
 | **VMLocalCredential** | A MySQL erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Szükséges_ |
 | **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Szükséges_ |
 | **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |

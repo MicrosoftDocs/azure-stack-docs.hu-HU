@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874433"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568554"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure App Service offline frissítése Azure Stack hub-on
 
 > [!IMPORTANT]
-> Alkalmazza az 1910-es vagy újabb frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack hub fejlesztői csomagot a Azure App Service 1,8 üzembe helyezése előtt.
+> Alkalmazza az 1910-es vagy újabb frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kitt a Azure App Service 1,8 telepítése előtt.
 
 A cikkben található utasításokat követve a Azure Stack hub-környezetben telepített [Azure app Service erőforrás-szolgáltatót](azure-stack-app-service-overview.md) a következő módon frissítheti:
 
@@ -77,7 +77,7 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
 
 5. Tekintse át és fogadja el a harmadik féltől származó licencfeltételeket, majd kattintson a **tovább**gombra.
 
-6. Győződjön meg arról, hogy a Azure Stack hub Azure Resource Manager végpont és Active Directory bérlő adatai helyesek. Ha a Azure Stack hub Development Kit telepítése során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor testreszabta a beállításokat, akkor ebben az ablakban kell szerkesztenie az értékeket. Ha például a *mycloud.com*tartományi utótagot használja, akkor a Azure Stack hub Azure Resource Manager végpontnak *Management.region.mycloud.com*értékre kell váltania. Az információk megerősítése után kattintson a **tovább**gombra.
+6. Győződjön meg arról, hogy a Azure Stack hub Azure Resource Manager végpont és Active Directory bérlő adatai helyesek. Ha Azure Stack Development Kit központi telepítés során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor testreszabta a beállításokat, akkor ebben az ablakban kell szerkesztenie az értékeket. Ha például a *mycloud.com*tartományi utótagot használja, akkor a Azure Stack hub Azure Resource Manager végpontnak *Management.region.mycloud.com*értékre kell váltania. Az információk megerősítése után kattintson a **tovább**gombra.
 
     ![Azure Stack hub felhő információi][3]
 
