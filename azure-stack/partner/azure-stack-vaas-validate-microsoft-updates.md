@@ -1,6 +1,7 @@
 ---
-title: A Microsoft frissítéseinek érvényesítése Azure Stack hub érvényesítése szolgáltatásként
-description: Ismerje meg, hogy miként érvényesítheti a Microsoft-szoftverfrissítéseket szolgáltatásként történő érvényesítéssel.
+title: Szoftverfrissítések érvényesítése a Microsofttól
+titleSuffix: Azure Stack Hub
+description: Ismerje meg, hogyan érvényesítheti a Microsoft szoftverfrissítéseket a Azure Stack hub érvényesítésével szolgáltatásként.
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/29/2019
@@ -8,24 +9,24 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8e09160245551ee83f631360931c8e70bac4318e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: a8e0b3ee678fc56a94a947ab6d390d9e99296977
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143907"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625356"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Szoftverfrissítések érvényesítése a Microsofttól
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-A Microsoft rendszeres időközönként frissítéseket szabadít fel az Azure Stack hub szoftverhez. Ezeket a frissítéseket a Azure Stack hub közös mérnöki partnerei számára biztosítjuk. A frissítések nyilvánosan elérhetők. A frissítéseket megtekintheti a megoldáson, és visszajelzést küldhet a Microsoftnak.
+A Microsoft rendszeres időközönként frissítéseket szabadít fel az Azure Stack hub szoftverhez. Ezeket a frissítéseket a Azure Stack hub közös mérnöki partnerei számára biztosítjuk. A frissítések a nyilvánosan elérhető frissítések előtt vannak megadva. A frissítéseket megtekintheti a megoldáson, és visszajelzést küldhet a Microsoftnak.
 
-Az Azure Stack hub-hoz tartozó Microsoft-szoftverfrissítések elnevezési konvenció alapján vannak kijelölve, például a 1803-es frissítés a következőt jelenti: március 2018. További információ az Azure Stack hub frissítési házirendjéről, a lépésszám és a kibocsátási megjegyzésekről: [Azure stack hub karbantartási szabályzata](../operator/azure-stack-servicing-policy.md).
+Az Azure Stack hub-hoz tartozó Microsoft-szoftverfrissítések elnevezési konvenció alapján vannak kijelölve. Például a 1803-es név azt jelzi, hogy a frissítés a március 2018. További információ az Azure Stack hub karbantartási házirendjéről és a kibocsátási megjegyzésekről: [Azure stack hub karbantartási szabályzata](../operator/azure-stack-servicing-policy.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Mielőtt elvégezte a havi frissítési folyamatot az Varga-ban, ismernie kell a következő elemeket:
+Mielőtt a havi frissítési folyamatot az érvényesítési szolgáltatásként (az "Varga") gyakorolja, ismerkedjen meg a következő elemekkel:
 
 - [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)
 

@@ -1,6 +1,7 @@
 ---
-title: Azure Stack hub érvényesítése szolgáltatási kulcs fogalmakkal
-description: Ismerteti a Azure Stack hub érvényesítésének főbb fogalmait szolgáltatásként.
+title: Érvényesítés szolgáltatási kulcs fogalmai szerint
+titleSuffix: Azure Stack Hub
+description: Ismerje meg Azure Stack hub ellenőrzésének főbb fogalmait szolgáltatásként.
 author: mattbriggs
 ms.topic: article
 ms.date: 10/28/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 972b0be328f80a82ed3c12076a1f540c52b53ea7
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 211a2bf18643ff0c873969520f9bfae20d2ed89d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143761"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625407"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
 
@@ -23,9 +24,9 @@ Ez a cikk az érvényesítési szolgáltatásként ("az"
 
 Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure Stack hub-megoldást jelöl. Az adatbázis-alapú megoldás tárolóként működik az Azure Stack hub-megoldáson futó munkafolyamatok számára.
 
-### <a name="create-a-solution-in-the-vaas-portal"></a>Megoldás létrehozása az Varga-portálon
+### <a name="create-a-solution-in-the-azure-stack-hub-validation-portal"></a>Megoldás létrehozása az Azure Stack hub ellenőrzési portálján
 
-1. Jelentkezzen be az [Varga portálra](https://azurestackvalidation.com).
+1. Jelentkezzen be az [Azure stack hub ellenőrzési portálján](https://azurestackvalidation.com).
 2. A megoldások irányítópulton válassza az **új megoldás**lehetőséget.
 3. Adja meg a megoldás nevét. A névadási javaslatokért lásd: az alaprendszerek [elnevezési konvenciója](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. A megoldás létrehozásához válassza a **Mentés** lehetőséget.
@@ -46,8 +47,8 @@ A munkafolyamat-típusokkal kapcsolatos további információkért lásd: [Mi az
 ### <a name="getting-started-with-vaas-workflows"></a>Első lépések az Varga-munkafolyamatokkal
 
 1. A megoldások irányítópulton hozzon létre egy új megoldást, vagy válasszon ki egy meglévőt. Ez frissíti és aktiválja a munkafolyamat-csempéket.
-2. Ha új munkafolyamatot szeretne létrehozni, válassza az **Indítás** bármely csempén lehetőséget. Az egyes munkafolyamatokkal kapcsolatos információkért tekintse meg a következő cikkeket:
-    - Test pass: gyors útmutató [: az ellenőrzés használata a szolgáltatás-portálon az első teszt beütemezett végrehajtásához](azure-stack-vaas-schedule-test-pass.md)
+2. Új munkafolyamat létrehozásához válassza a **Start** lehetőséget bármely csempén. Az egyes munkafolyamatokkal kapcsolatos információkért tekintse meg a következő cikkeket:
+    - Test pass: gyors útmutató [: az első teszt elvégzéséhez használja a Azure stack hub ellenőrzési portált](azure-stack-vaas-schedule-test-pass.md)
     - Megoldás ellenőrzése: [új Azure stack hub-megoldás érvényesítése](azure-stack-vaas-validate-solution-new.md)
     - Csomag ellenőrzése (havi frissítés): [szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md)
     - Csomag ellenőrzése (csomag aláírása): [OEM-csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md)
@@ -58,9 +59,9 @@ További információ a munkafolyamat-tulajdonságokról és-paraméterekről: [
 
 ## <a name="tests"></a>Vizsgálatok
 
-Az adatbázis-ellenőrzés egy Azure Stack hub-megoldáson futó műveletekből áll. A tesztek különböző felhasználási célokra vannak meghatározva, mint például a funkcionális vagy a megbízhatóság, valamint Azure Stack hub egy vagy több szolgáltatásának megcélzása. Az egyes tesztek saját paramétereket határoznak meg, amelyek némelyikét a tartalmazó munkafolyamathoz tartozó általános paraméterek határozzák meg.
+Az adatbázis-ellenőrzés egy Azure Stack hub-megoldáson futó műveletekből áll. A tesztek különböző felhasználási célokra vannak meghatározva (például a funkcionális vagy a megbízhatósági funkciókat), és egy vagy több Azure Stack hub-szolgáltatást céloznak meg. Az egyes tesztek saját paramétereket határoznak meg, amelyek némelyikét a tartalmazó munkafolyamathoz tartozó általános paraméterek határozzák meg.
 
-A tesztek kezelésével és figyelésével kapcsolatos további információkért lásd: [tesztek figyelése és kezelése az Varga-portálon](azure-stack-vaas-monitor-test.md).
+További információ a tesztek kezeléséről és figyeléséről: [tesztek figyelése és kezelése az Azure stack hub ellenőrzési portálján](azure-stack-vaas-monitor-test.md).
 
 A tesztelési paraméterekkel kapcsolatos további információkért lásd: [Azure stack hub-érvényesítési szolgáltatáshoz tartozó általános munkafolyamat-paraméterek](azure-stack-vaas-parameters.md).
 
@@ -71,7 +72,7 @@ Az alaprendszer-ügynök teszteli A teszt végrehajtását. Az ügynökök két 
 - A **felhőalapú ügynök**. Ez az alapértelmezett ügynök, amely az alapszolgáltatásban érhető el. Nincs szükség beállításra, de ehhez a környezethez kötött kapcsolat szükséges, és Azure Stack hub-végpontoknak az internetről kell feloldaniuk. Bizonyos tesztek nem kompatibilisek a felhőalapú ügynökkel.
 - **Helyi ügynök**. Ez lehetővé teszi az érvényesítés futtatását olyan helyzetekben, amikor a környezethez kötött kapcsolat nem valósítható meg. Egyes tesztek végrehajtásához a helyi ügynöknek kell elvégeznie.
 
-A helyi ügynökök nem kötődnek egy adott Azure Stack hub-vagy az alaprendszer-megoldáshoz. Az ajánlott eljárás a Azure Stack hub-környezeten kívül kell, hogy fusson.
+A helyi ügynökök nem kötődnek egy adott Azure Stack hub-vagy az alaprendszerbeli megoldáshoz. Az ajánlott eljárás a Azure Stack hub-környezeten kívül kell, hogy fusson.
 
 Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 

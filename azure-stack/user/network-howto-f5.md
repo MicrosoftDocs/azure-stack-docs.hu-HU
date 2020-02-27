@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 87c924ff78e4209b300bc7fd68e7cc5b59640026
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f3b564bc667376361e1bfc57df0ec50e32522401
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885333"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636318"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Az F5 telepítése két Azure Stack hub-példány között
 
@@ -138,12 +138,12 @@ A telepítése után konfigurálnia kell az Azure Stack hub-NSG, és le kell zá
 
     ![](./media/network-howto-f5/image11.png)
     
-    | Jelmagyarázat | Value (Díj) |
+    | Paraméter | Érték |
     | --- | --- |
     | Name (Név) | NGINX_Pool |
     | Állapotfigyelő | HTTPS |
     | Csomópont neve | NGINX |
-    | Cím | az NGINX privát IP-címének \< |
+    | Cím | az NGINX privát IP-címének \<> |
     | Szolgáltatási port | 443 |
 
 11. Válassza a **kész**lehetőséget. Ha helyesen van konfigurálva, a készlet állapota zöld.
@@ -158,7 +158,7 @@ A telepítése után konfigurálnia kell az Azure Stack hub-NSG, és le kell zá
 
 13. Hozzon létre egy virtuális kiszolgálót a **helyi forgalom** > **virtual** Servers > **virtuális kiszolgálók listájában** , és válassza a **+** lehetőséget. Konfigurálja a készletet a tábla értékeinek használatával. Hagyja az összes többi mezőt az alapértelmezett értékre.
 
-    | Jelmagyarázat | Value (Díj) |
+    | Paraméter | Érték |
     | --- | --- |
     |Name (Név) | NGINX |
     |Cél címe | a BIG-IP > \<önkiszolgáló IP-címe |

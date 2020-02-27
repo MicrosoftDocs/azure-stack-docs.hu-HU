@@ -1,5 +1,6 @@
 ---
-title: Az Azure Stack hub szolgáltatásként való érvényesítésének áttekintése
+title: Érvényesítés szolgáltatásként – áttekintés
+titleSuffix: Azure Stack Hub
 description: Azure Stack hub ellenőrzésének áttekintése szolgáltatásként.
 author: mattbriggs
 ms.topic: article
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 31d47f947c4c71847156ca4e49c4b370c872e920
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884081"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625288"
 ---
-# <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Mi az a Azure Stack hub szolgáltatásként való érvényesítése?
+# <a name="validation-as-a-service-for-azure-stack-hub"></a>Érvényesítés Azure Stack hub szolgáltatásként
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -23,10 +24,10 @@ Az érvényesítési szolgáltatásként (az Azure-ban) egy natív Azure-szolgá
 
 Az "az" alapszolgáltatások elsődleges használata a következő:
 
-- Új Azure Stack hub-megoldások ellenőrzése
-- Az Azure Stack hub szoftver változásainak ellenőrzése
-- Az üzemelő példányok digitális aláírására szolgáló megoldás partneri csomagjai
-- Az Varga tesztelési biztosítékok előzetes megtekintése
+- Új Azure Stack hub-megoldások ellenőrzése.
+- Az Azure Stack hub szoftver változásainak ellenőrzése.
+- Az üzembe helyezés során használt, digitális aláírással rendelkező megoldás partneri csomagjai.
+- Az Varga tesztelési biztosítékok előzetes megtekintése.
 
 ## <a name="validate-a-new-azure-stack-hub-solution"></a>Új Azure Stack hub-megoldás érvényesítése
 
@@ -36,13 +37,13 @@ További információ: [új Azure stack hub-megoldás érvényesítése](azure-s
 
 ## <a name="validate-changes-to-the-azure-stack-hub-software"></a>Az Azure Stack hub szoftver változásainak ellenőrzése
 
-A partnerek a **csomag-ellenőrzési** munkafolyamattal ellenőrzi, hogy a megoldás a legújabb Azure stack hub-szoftverfrissítések használatával működik-e. A csomag-ellenőrzési munkafolyamatot olyan Microsoft által ajánlott hardveres környezetben kell futtatni, ahol a frissítés alkalmazására a patch és a Update (P & U) használatos. Azt javasoljuk, hogy a munkafolyamatot az alapkonfiguráció összeállításán is futtassa.
+A partnerek a **csomag-ellenőrzési** munkafolyamattal ellenőrzi, hogy a megoldás a legújabb Azure stack hub-szoftverfrissítések használatával működik-e. A csomag-ellenőrzési munkafolyamatot olyan Microsoft által ajánlott hardveres környezetben kell futtatni, ahol a frissítés alkalmazására a patch és a Update (P & U) használatos. Azt javasoljuk, hogy a munkafolyamatot az alapkonfiguráció-builden is futtassa.
 
 További információ: [szoftverfrissítések érvényesítése a Microsofttól](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Digitálisan aláírt megoldási partner csomagjainak beolvasása
 
-A Azure Stack hub frissítéseinek ellenőrzése mellett a partnerek a csomag- **ellenőrzési** munkafolyamattal ellenőrizhetik a számítógépgyártói testreszabási csomagok frissítéseit, amelyek közé tartoznak az Azure stack hub szoftver üzembe helyezése során használt Azure stack hub Partner-specifikus illesztőprogramok, belső vezérlőprogram és egyéb szoftverek. Telepítse az érvényesíteni kívánt csomagot az Azure Stack hub szoftver aktuális verziójára legalább a támogatott minimális méretű megoldás használatával. A rendszer a tesztek végrehajtása előtt elküldi a csomagot az Varga számára. Ha a tesztek sikeresek, értesítse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) arról, hogy a csomag befejezte a tesztelést, és digitálisan alá kell írnia az Azure stack hub digitális aláírásával. A Microsoft aláírja a csomagot, és értesíti a Azure Stack hub-partnert arról, hogy a csomag letölthető az alaprendszer-portálon.
+A Azure Stack hub frissítéseinek ellenőrzése mellett a partnerek a csomag- **ellenőrzési** munkafolyamattal érvényesítik a frissítéseket a számítógépgyártói testreszabási csomagokba. Ezek a frissítések Azure Stack hub-Partner-specifikus illesztőprogramokat, belső vezérlőprogramot és más, az Azure Stack hub szoftver telepítése során használt szoftvereket tartalmazzák. Telepítse az érvényesíteni kívánt csomagot az Azure Stack hub szoftver aktuális verzióján legalább a támogatott minimális méretű megoldás használatával. A rendszer a tesztek végrehajtása előtt elküldi a csomagot az Varga számára. Ha a tesztek sikeresek, értesítse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) arról, hogy a csomag befejezte a tesztelést, és digitálisan alá kell írnia az Azure stack hub digitális aláírásával. A Microsoft aláírja a csomagot, és értesíti a Azure Stack hub-partnert arról, hogy a csomag letölthető a Azure Stack hub ellenőrzési portálján.
 
 További információ: OEM- [csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md).
 
@@ -50,7 +51,7 @@ További információ: OEM- [csomagok ellenőrzése](azure-stack-vaas-validate-o
 
 A Microsoft rendszeresen teszi elérhetővé Azure Stack hub új funkcióit. A szolgáltatások piacra való szállításának fejlesztési folyamata részeként új teszt-biztosítékot is elérhetővé tesznek a **test pass** munkafolyamatban. A test pass munkafolyamat a más munkafolyamatokból származó tesztelési biztosítékokat is tartalmaz, amelyek lehetővé teszik a nem hivatalos tesztek végrehajtását. Ne használja a test pass munkafolyamatot az eredmények jóváhagyásra való küldéséhez. A megoldás érvényesítése és a csomag ellenőrzése munkafolyamatok segítségével hivatalos jóváhagyást kaphat a megoldásához.
 
-További információ [: gyors üzembe helyezés az ellenőrzés során a szolgáltatás-portálon az első teszt elvégzéséhez](azure-stack-vaas-schedule-test-pass.md).
+További információ: gyors útmutató [: az első teszt elvégzéséhez használja a Azure stack hub ellenőrzési portált](azure-stack-vaas-schedule-test-pass.md).
 
 ## <a name="validation-workflow-tests-summary"></a>Ellenőrzési munkafolyamat-tesztek összegzése
 

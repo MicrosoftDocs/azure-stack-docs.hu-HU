@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e3c75bcae503ac8aff234fa28a5e46e011f02f84
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 37083997e7b204002bf9451e8cfd72018e981fa1
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885206"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636267"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 
@@ -29,7 +29,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 - A legújabb frissítések alkalmazásával telepített rendszer. 
 - Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter vagy Windows Server 2019 Datacenter (a legújabb Build ajánlott)
-    -  Custom Script Extension
+    -  Egyéni szkriptbővítmény
 
 ## <a name="things-to-consider"></a>Megfontolandó dolgok
 
@@ -43,7 +43,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 - Ez a sablon DS3v2 virtuális gépet használ.  Az RRAS szolgáltatás a belső Windows-SQL Server telepíti és futtatja.  Ez memóriabeli problémákat okozhat, ha a virtuális gép mérete túl kicsi.  A virtuális gép méretének csökkentése előtt ellenőrizze a teljesítményt.
 - Ez nem egy magasan elérhető megoldás.  Ha még több megoldásra van szüksége, egy második virtuális gépet is hozzáadhat, manuálisan kell módosítania az útvonalat az útválasztási táblázatban a másodlagos csatoló belső IP-címére.  Emellett a több alagutat is konfigurálnia kell a többhöz való kapcsolódáshoz.
 
-## <a name="optional"></a>Választható
+## <a name="optional"></a>Optional
 
 - A blob Storage-fiókját és az SAS-tokent a _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával is használhatja
 - Ennek a sablonnak két kimenete van a INTERNALSUBNETREFVNET1 és a INTERNALSUBNETREFVNET2, amely a belső alhálózatok erőforrás-azonosítói, ha ezt szeretné használni egy folyamat típusú telepítési mintában.

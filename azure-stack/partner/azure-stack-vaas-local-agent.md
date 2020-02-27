@@ -1,6 +1,7 @@
 ---
 title: A helyi ügynök üzembe helyezése
-description: Telepítse a helyi ügynököt Azure Stack hub érvényesítéséhez szolgáltatásként.
+titleSuffix: Azure Stack Hub
+description: Megtudhatja, hogyan helyezheti üzembe a helyi ügynököt Azure Stack hub érvényesítéséhez szolgáltatásként.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 83ecc620238593f8d01cdc9855305a86b34990a8
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143983"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625271"
 ---
 # <a name="deploy-the-local-agent"></a>A helyi ügynök üzembe helyezése
 
@@ -38,12 +39,12 @@ Töltse le az ügynököt egy olyan gépre, amely megfelel az adatközpont előf
 
 Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
 
-- Hozzáférés az összes Azure Stack hub-végponthoz
-- .NET 4,6 és PowerShell 5,0 telepítve
-- Legalább 8 GB RAM
-- Legalább 8 magos processzor
-- Minimális 200 – GB szabad lemezterület
-- Állandó hálózati kapcsolat az internettel
+- Hozzáférés az összes Azure Stack hub-végponthoz.
+- A .NET 4,6 és a PowerShell 5,0 telepítve van.
+- Legalább 8 GB RAM.
+- Legalább 8 magos processzor.
+- Minimális 200 – GB szabad lemezterület.
+- Állandó hálózati kapcsolat az internettel.
 
 ### <a name="download-and-install-the-local-agent"></a>A helyi ügynök letöltése és telepítése
 
@@ -78,30 +79,30 @@ Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
     ```
 
 > [!Note]  
-> Az install-VaaSPrerequisites parancsmag nagyméretű virtuálisgép-lemezképfájlokat tölt le. Ha lassú a hálózati sebesség, letöltheti a fájlokat a helyi fájlkiszolgálón, és manuálisan is hozzáadhat virtuálisgép-lemezképeket a tesztelési environemnt. További információt a [lassú hálózati kapcsolat kezelése](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) című témakörben talál.
+> `Install-VaaSPrerequisites` parancsmag nagyméretű virtuálisgép-lemezképfájlokat tölt le. Ha lassú a hálózati sebesség, letöltheti a fájlokat a helyi fájlkiszolgálón, és manuálisan is hozzáadhat virtuálisgép-lemezképeket a tesztelési environemnt. További információ: [lassú hálózati kapcsolat kezelése](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 
 **Paraméterek**
 
 | Paraméter | Leírás |
 | --- | --- |
-| AadServiceAdminUser | Az Azure AD-bérlő globális rendszergazdai felhasználója. Előfordulhat például, hogy vaasadmin@contoso.onmicrosoft.com. |
-| AadServiceAdminPassword | A globális rendszergazda felhasználó jelszava. |
-| CloudAdminUserName | A Felhőbeli rendszergazda felhasználó, aki elérheti és futtathatja az engedélyezett parancsokat a Kiemelt végponton belül. Ilyen lehet például a AzusreStack\CloudAdmin. További információért lásd [itt](azure-stack-vaas-parameters.md) . |
-| CloudAdminPassword | A Felhőbeli rendszergazdai fiók jelszava.|
+| `AadServiceAdminUser` | Az Azure AD-bérlő globális rendszergazdai felhasználója. Például: vaasadmin@contoso.onmicrosoft.com. |
+| `AadServiceAdminPassword` | A globális rendszergazda felhasználó jelszava. |
+| `CloudAdminUserName` | A Felhőbeli rendszergazda felhasználó, aki elérheti és futtathatja az engedélyezett parancsokat a Kiemelt végponton belül. Például: AzusreStack\CloudAdmin. További információ: [általános munkafolyamat-paraméterek az Varga-hez](azure-stack-vaas-parameters.md). |
+| `CloudAdminPassword` | A Felhőbeli rendszergazdai fiók jelszava.|
 
-![Előfeltételek letöltése](media/installing-prereqs.png)
+![Helyi ügynök előfeltételeinek letöltése](media/installing-prereqs.png)
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>A tesztek elkezdése előtt a józan ész ellenőrzése
 
-A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá kell férnie az Azure Stack hub-végpontokhoz, ellenkező esetben a tesztek nem fognak működni. Ha az az Varga helyi ügynököt használja, akkor használja az ügynököt futtató gépet. A következő ellenőrzések futtatásával ellenőrizheti, hogy a számítógépe rendelkezik-e hozzáféréssel a Azure Stack hub-végpontokhoz:
+A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá kell férnie az Azure Stack hub-végpontokhoz, ellenkező esetben a tesztek nem fognak működni. Ha az alaprendszer-kezelő helyi ügynököt használja, használja az ügynököt futtató gépet. A következő ellenőrzések futtatásával ellenőrizheti, hogy a számítógépe rendelkezik-e hozzáféréssel a Azure Stack hub-végpontokhoz:
 
-1. Győződjön meg arról, hogy az alapszintű URI elérhető. Nyisson meg egy parancssort vagy bash rendszerhéjat, és futtassa a következő parancsot, és cserélje le a `<EXTERNALFQDN>`t a környezet külső teljes tartománynevére:
+1. Győződjön meg arról, hogy az alapszintű URI elérhető. Nyisson meg egy parancssort vagy bash-rendszerhéjat, és futtassa a következő parancsot, és cserélje le a `<EXTERNALFQDN>`t a környezete külső teljes tartománynevére (FQDN):
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Nyisson meg egy webböngészőt, és lépjen a `https://adminportal.<EXTERNALFQDN>`re, és győződjön meg arról, hogy a MAS portál elérhető.
+2. Nyisson meg egy böngészőt, és lépjen a `https://adminportal.<EXTERNALFQDN>`ra, és győződjön meg arról, hogy a MAS portál elérhető.
 
 3. Jelentkezzen be az Azure AD szolgáltatás-rendszergazda nevével és jelszavával, amely a tesztelési fázis létrehozásakor van megadva.
 
@@ -129,10 +130,10 @@ A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá ke
 
     | Paraméter | Leírás |
     | --- | --- |
-    | CloudAdminUserName | A Felhőbeli rendszergazda felhasználó, aki elérheti és futtathatja az engedélyezett parancsokat a Kiemelt végponton belül. Ilyen lehet például a AzusreStack\CloudAdmin. További információért lásd [itt](azure-stack-vaas-parameters.md) . |
-    | CloudAdminPassword | A Felhőbeli rendszergazdai fiók jelszava.|
-    | VaaSUserId | Az Contoso.com-portálra való bejelentkezéshez használt felhasználói azonosító (például UserName\@) |
-    | VaaSTenantId | Azure AD-bérlő azonosítója az érvényesítés szolgáltatásként regisztrált Azure-fiókhoz. |
+    | `CloudAdminUserName` | A Felhőbeli rendszergazda felhasználó, aki elérheti és futtathatja az engedélyezett parancsokat a Kiemelt végponton belül. Például: AzusreStack\CloudAdmin. További információért lásd: [a közös munkafolyamat-paraméterek az Varga](azure-stack-vaas-parameters.md) -hoz című témakörben. |
+    | `CloudAdminPassword` | A Felhőbeli rendszergazdai fiók jelszava.|
+    | `VaaSUserId` | Az Azure Stack hub ellenőrzési portálján való bejelentkezéshez használt felhasználói azonosító. Például: UserName\@Contoso.com). |
+    | `VaaSTenantId` | Azure AD-bérlő azonosítója az érvényesítés szolgáltatásként regisztrált Azure-fiókhoz. |
 
     > [!Note]  
     > Az ügynök futtatásakor az aktuális munkakönyvtárnak a Task Engine Host végrehajtható fájljának, a **Microsoft. VaaSOnPrem. TaskEngineHost. exe** helynek kell lennie.
@@ -143,10 +144,10 @@ Ha nem jelenik meg a jelentett hibák, akkor a helyi ügynök sikeres volt. A ko
 
 ![Ügynök elindítva](media/started-agent.png)
 
-Az ügynököket a neve egyedileg azonosítja. Alapértelmezés szerint a a gép teljes tartománynevét (FQDN) használja, ahonnan az elindult. Kis méretűre kell állítani az ablakot, hogy elkerülje a véletlen kijelölést az ablakon, mivel a fókusz megváltoztatásával szünetelteti az összes többi műveletet.
+Az ügynököket a neve egyedileg azonosítja. Alapértelmezés szerint a a gép FQDN-nevét használja az indítás helyétől kezdve. Kis méretűre kell állítani az ablakot, hogy elkerülje a véletlen kijelölést az ablakon, mivel a fókusz megváltoztatásával szünetelteti az összes többi műveletet.
 
 ## <a name="next-steps"></a>Következő lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)
 - [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)
-- [Gyors útmutató: az ellenőrzés használata szolgáltatás-portálként az első teszt beütemezett végrehajtásához](azure-stack-vaas-schedule-test-pass.md)
+- [Rövid útmutató: az első teszt a Azure Stack hub ellenőrzési portál használatával ütemezhetők.](azure-stack-vaas-schedule-test-pass.md)

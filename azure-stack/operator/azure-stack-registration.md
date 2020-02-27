@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan regisztrálhat Azure Stack hub integrált rendszereit az Azure-ban, hogy letöltse az Azure Marketplace-elemeket, és hogyan állíthatja be az adatjelentéskészítést.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
+ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: c842a762ace6bd51f55240c292c434fc7bc96c92
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509653"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625322"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -506,17 +506,23 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy az alábbi hibák valamelyike látható:
 
-- Nem sikerült beolvasni a $hostName kötelező hardver-információit. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újra a regisztrációt.
+- Nem sikerült beolvasni a `$hostName`kötelező hardver-információit. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
 
-- Nem lehet csatlakozni a $hostNamehoz a hardver adatainak beszerzéséhez – ellenőrizze a fizikai gazdagépet és a kapcsolatot, majd próbálkozzon újra a regisztrációval.
+- Nem lehet csatlakozni a `$hostName`hoz a hardver adatainak beszerzéséhez. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
 
-> Ok: ez általában azért van, mert a gazdagépekről próbáljuk ki a hardver részleteit, például az UUID-t, a BIOS-t és a CPU-t, hogy megkísérelje az aktiválást, és nem tudta elérni a fizikai gazdagéphez való kapcsolódás lehetőségét.
+   Ok: ez általában azért van, mert a gazdagépekről próbáljuk ki a hardver részleteit, például az UUID-t, a BIOS-t és a CPU-t, hogy megkísérelje az aktiválást, és nem tudta elérni a fizikai gazdagéphez való kapcsolódás lehetőségét.
 
-Amikor megpróbál hozzáférni a piactér-felügyelethez, hiba történik a termékek szindikátusba való kipróbálásakor. 
-> Ok: ez általában akkor fordul elő, ha Azure Stack hub nem fér hozzá a regisztrációs erőforráshoz. Ennek egyik gyakori oka, hogy amikor egy Azure-előfizetés címtár-bérlője megváltozik, visszaállítja a regisztrációt. Ha módosította az előfizetés címtár-bérlőjét, nem férhet hozzá a Azure Stack hub piactérhez vagy a jelentéshez. A probléma megoldásához újra kell regisztrálnia a problémát.
+- A felhő-azonosító [`GUID`] már regisztrálva van. A Felhőbeli azonosítók újrafelhasználása nem engedélyezett.
 
-A piactér-felügyelet továbbra is kéri a Azure Stack hub regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával.
-> Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a következő [lépésekkel](azure-stack-registration.md#verify-azure-stack-hub-registration)ellenőrizheti. A piactér-kezelés használatához [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)kell használnia.
+   Ok: Ez akkor fordul elő, ha a Azure Stack-környezet már regisztrálva van. Ha újra regisztrálni szeretné a környezetet egy másik előfizetéssel vagy számlázási modellel, [tekintse meg ezeket az utasításokat](#change-the-subscription-you-use).
+
+- Amikor megpróbál hozzáférni a piactér-felügyelethez, hiba történik a termékek szindikátusba való kipróbálásakor.
+
+   Ok: ez általában akkor fordul elő, ha Azure Stack hub nem fér hozzá a regisztrációs erőforráshoz. Ennek egyik gyakori oka, hogy amikor egy Azure-előfizetés címtár-bérlője megváltozik, visszaállítja a regisztrációt. Ha módosította az előfizetés címtár-bérlőjét, nem férhet hozzá a Azure Stack hub piactérhez vagy a jelentéshez. A probléma megoldásához újra kell regisztrálnia a problémát.
+
+- A piactér-felügyelet továbbra is kéri a Azure Stack hub regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával.
+
+   Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a [következő lépésekkel](azure-stack-registration.md#verify-azure-stack-hub-registration)ellenőrizheti. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
 
 ## <a name="next-steps"></a>Következő lépések
 
