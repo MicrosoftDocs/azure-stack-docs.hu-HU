@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: justini
-ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 48e418c3fa8dd761282f67f59b1cf1ebfc18610b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: c41989d662122dafb5d535c356aeb7d7e48ed4aa
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883956"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704420"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Resource Manager-sablonok használata Azure Stack hub-ban
 
@@ -52,7 +52,7 @@ A PowerShell DSC bővítmény használatával [hozzon létre egy SQL Server 2014
 * Egy virtuális gép (VM) tartományvezérlőként van konfigurálva egy új erdőhöz egyetlen tartománnyal
 * Egy virtuális gép SQL Server 2014 önálló kiszolgálóként van konfigurálva
 
-## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-bővítmény-Azure-Automation-pull-Server
+## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
 
 A PowerShell DSC bővítmény használatával konfigurálhat egy meglévő virtuális gép helyi Configuration Manager (LCD ChipOnGlas), és regisztrálhatja azt egy Azure Automation-fiók DSC lekérési kiszolgálójára.
 

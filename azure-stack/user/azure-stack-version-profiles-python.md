@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884227"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705185"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
 
@@ -41,17 +41,17 @@ A Python SDK a következő API-profilokat támogatja:
 2. A Python SDK telepítésével kapcsolatos útmutatásért lásd: az [Azure Python-fejlesztőknek](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetések létrehozásával kapcsolatos utasításokért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack hub szolgáltatáshoz való létrehozásával kapcsolatos utasításokért lásd: [alkalmazások Azure stack hub elérésének biztosítása](../operator/azure-stack-create-service-principals.md).
-5. Győződjön meg arról, hogy a szolgáltatásnév közreműködői/tulajdonosi szerepkörrel rendelkezik az előfizetésében. A szerepkörnek az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasításokért lásd: [alkalmazások Azure stack hubhoz való hozzáférésének biztosítása](../operator/azure-stack-create-service-principals.md).
+5. Ellenőrizze, hogy az egyszerű szolgáltatást a közreműködői és tulajdonosi szerepkör-előfizetésében. A szerepkörnek az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasításokért lásd: [alkalmazások Azure stack hubhoz való hozzáférésének biztosítása](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
 Ha Azure Stack hubhoz szeretné használni a Python Azure SDK-t, a következő értékeket kell megadnia, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az adott operációs rendszerre vonatkozó utasításokat az alábbi táblázatban leírtak szerint.
 
-| Value (Díj) | Környezeti változók | Leírás |
+| Érték | Környezeti változók | Leírás |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Bérlőazonosító | `AZURE_TENANT_ID` | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md). |
 | Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. |
-| Subscription ID (Előfizetés azonosítója) | `AZURE_SUBSCRIPTION_ID` | Az előfizetés- [azonosítóval](../operator/service-plan-offer-subscription-overview.md#subscriptions) érheti el az ajánlatokat az Azure stack hub szolgáltatásban. |
+| Előfizetés azonosítója | `AZURE_SUBSCRIPTION_ID` | Az előfizetés- [azonosítóval](../operator/service-plan-offer-subscription-overview.md#subscriptions) érheti el az ajánlatokat az Azure stack hub szolgáltatásban. |
 | Titkos ügyfélkulcs | `AZURE_CLIENT_SECRET` | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. |
 | Resource Manager-végpont | `ARM_ENDPOINT` | Lásd a [Azure stack hub Resource Manager-végpontot](azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) ismertető cikket. |
 | Erőforrás helye | `AZURE_RESOURCE_LOCATION` | Az Azure Stack hub-környezet erőforrásának helye.
@@ -117,11 +117,11 @@ A Python SDK-val Azure Stack hub számára elérhető mintakód-minták a követ
 A következő Python-mintakód használatával általános felügyeleti feladatokat hajthat végre a virtuális gépekhez (VM) az Azure Stack hub-ban. A kód mintája a következőket mutatja be:
 
 - Virtuális gépek létrehozása:
-  - Linux rendszerű virtuális gépek létrehozása
-  - Windows rendszerű virtuális gépek létrehozása
+  - Linux rendszerű virtuális gép létrehozása
+  - Windows rendszerű virtuális gép létrehozása
 - Virtuális gép frissítése:
   - Meghajtó kibontása
-  - Virtuális gépek címkézése
+  - Virtuális gép címkézése
   - Adatlemezek csatolása
   - Adatlemezek leválasztása
 - Virtuális gép üzemeltetése:

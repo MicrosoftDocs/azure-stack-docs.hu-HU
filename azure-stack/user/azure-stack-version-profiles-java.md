@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6dc30839ba08a793ead0e857f17e97a90222f7a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884248"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705219"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 
@@ -24,7 +24,7 @@ A Java SDK használata lehetővé teszi a hibrid felhőalapú fejlesztői élmé
 
 ## <a name="java-and-api-version-profiles"></a>Java-és API-verziók profiljai
 
-Az API-profilok erőforrás-szolgáltatók és API-verziók kombinációja. Az erőforrás-szolgáltatói csomagban található egyes erőforrástípusok legújabb, legstabilabb verzióját az API-profil segítségével szerezheti be.
+Egy API-profil az erőforrás-szolgáltatók és API-verziók. Az erőforrás-szolgáltatói csomagban található egyes erőforrástípusok legújabb, legstabilabb verzióját az API-profil segítségével szerezheti be.
 
 - Az összes szolgáltatás legújabb verziójának használatához használja a **legújabb** profilt függőségként.
 
@@ -76,32 +76,32 @@ A Java SDK telepítéséhez kövesse az alábbi lépéseket:
 
 6. Hozzon létre egy szolgáltatásnevet, és mentse az ügyfél-azonosítót és az ügyfél titkos kulcsát. Az Azure Stack hub szolgáltatáshoz való létrehozásával kapcsolatos utasításokért lásd: [alkalmazások Azure stack hub elérésének biztosítása](../operator/azure-stack-create-service-principals.md). Az ügyfél-azonosító a szolgáltatásnév létrehozásakor az alkalmazás-azonosító néven is ismert.
 
-7. Győződjön meg arról, hogy a szolgáltatásnév közreműködői/tulajdonosi szerepkörrel rendelkezik az előfizetésében. A szerepkör az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasításokért lásd: [alkalmazások Azure stack hubhoz való hozzáférésének biztosítása](../operator/azure-stack-create-service-principals.md).
+7. Ellenőrizze, hogy az egyszerű szolgáltatást a közreműködői és tulajdonosi szerepkör-előfizetésében. A szerepkör az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasításokért lásd: [alkalmazások Azure stack hubhoz való hozzáférésének biztosítása](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Ha az Azure Java SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az operációs rendszer táblázatának utasításait.
+Ha az Azure Java SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd értékeket kell beállítania környezeti változókkal. A környezeti változók beállítása, tekintse meg az alábbi táblázat az operációs rendszerének utasításokat.
 
-| Value (Díj)                     | Környezeti változók | Leírás                                                                                                                                                                                                          |
+| Érték                     | Környezeti változók | Leírás                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bérlőazonosító                 | `AZURE_TENANT_ID`            | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md).                                                          |
 | Ügyfél-azonosító                 | `AZURE_CLIENT_ID`             | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a szolgáltatásnév az előző szakaszban lett létrehozva.                                                                                              |
-| Subscription ID (Előfizetés azonosítója)           | `AZURE_SUBSCRIPTION_ID`      | Az előfizetés- [azonosítóval](../operator/service-plan-offer-subscription-overview.md#subscriptions) érheti el az ajánlatokat az Azure stack hub szolgáltatásban.                |
-| Ügyfél titka             | `AZURE_CLIENT_SECRET`        | Az egyszerű szolgáltatás alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve.                                                                                                                                   |
+| Előfizetés azonosítója           | `AZURE_SUBSCRIPTION_ID`      | Az előfizetés- [azonosítóval](../operator/service-plan-offer-subscription-overview.md#subscriptions) érheti el az ajánlatokat az Azure stack hub szolgáltatásban.                |
+| Titkos ügyfélkulcs             | `AZURE_CLIENT_SECRET`        | A szolgáltatás egyszerű alkalmazás titkos kulcs mentése az egyszerű szolgáltatás létrehozásakor.                                                                                                                                   |
 | Resource Manager-végpont | `ARM_ENDPOINT`              | Lásd a [Azure stack hub Resource Manager-végpontot](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) ismertető cikket. |
-| Földrajzi egység                  | `RESOURCE_LOCATION`    | **Helyi** Azure stack hub.                                                                                                                                                                                                |
+| Hely                  | `RESOURCE_LOCATION`    | **Helyi** Azure stack hub.                                                                                                                                                                                                |
 
 Az Azure Stack hub bérlői AZONOSÍTÓjának megkereséséhez tekintse meg az [itt](../operator/azure-stack-csp-ref-operations.md)található utasításokat. A környezeti változók beállításához használja a következő részben ismertetett eljárásokat:
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
-A környezeti változók Windows-parancssorban történő beállításához használja a következő formátumot:
+A környezeti változók beállítása egy Windows parancssorban, használja a következő formátumot:
 
 ```shell
 Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux-és UNIX-alapú rendszerek
+### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux és Unix-alapú rendszerek
 
 UNIX-alapú rendszerek esetén használja a következő parancsot:
 
@@ -127,11 +127,11 @@ Ha a Azure Stack Development Kit (ASDK) használja, meg kell bíznia a távoli g
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Az Azure Stack hub Resource Manager-végpont
 
-A Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. A Azure Resource Manager a feladatokat nem külön, hanem csoportként, egyetlen művelet során is kezelhetik.
+A Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
 
 A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpont egy JSON-fájlt ad vissza, amely a kód futtatásához szükséges adatokkal rendelkezik.
 
-Vegye figyelembe az alábbi szempontokat:
+Vegye figyelembe az alábbiakat:
 
 - A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`.
 
@@ -139,7 +139,7 @@ Vegye figyelembe az alábbi szempontokat:
 
 A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
-Példa JSON-fájlra:
+JSON-mintafájlt:
 
 ```json
 {
@@ -160,7 +160,7 @@ Példa JSON-fájlra:
 
 - **com. microsoft. Azure. profil\_2018\_03\_01\_Hybrid**: az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások kompatibilisek legyenek Azure Stack hub 1808-es vagy újabb verziójával.
 
-- **com. microsoft. Azure**: profil, amely az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
+- **com. microsoft. Azure**: profil, amely az összes szolgáltatás legújabb verzióit tartalmazza. Az összes szolgáltatást a legújabb verziókat használhatja.
 
 Az Azure Stack hub-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok összefoglalását](../user/azure-stack-version-profiles.md#summary-of-api-profiles)ismertető témakört.
 
@@ -258,13 +258,13 @@ Használja a következő GitHub-mintákat referenciáként a .NET-és Azure Stac
 
 ### <a name="sample-unit-test-project"></a>Minta egység tesztelési projekt
 
-1. A tárház klónozása a következő paranccsal:
+1. Klónozza a tárházat, a következő paranccsal:
 
    ```shell
    git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
    ```
 
-2. Hozzon létre egy Azure-szolgáltatásnevet, és rendeljen hozzá egy szerepkört az előfizetéshez való hozzáféréshez. Az egyszerű szolgáltatásnév létrehozásával kapcsolatos utasításokért lásd: [Azure PowerShell használata egy egyszerű szolgáltatásnév létrehozásához tanúsítvánnyal](../operator/azure-stack-create-service-principals.md).
+2. Azure-beli szolgáltatásnév létrehozása, és rendelje hozzá egy szerepkörhöz az előfizetés eléréséhez. Az egyszerű szolgáltatásnév létrehozásával kapcsolatos utasításokért lásd: [Azure PowerShell használata egy egyszerű szolgáltatásnév létrehozásához tanúsítvánnyal](../operator/azure-stack-create-service-principals.md).
 
 3. Kérje le a következő szükséges környezeti változókat:
 
@@ -311,7 +311,7 @@ Használja a következő GitHub-mintákat referenciáként a .NET-és Azure Stac
 
 ## <a name="next-steps"></a>Következő lépések
 
-Az API-profilokról további információt a következő témakörben talál:
+API-profilokkal kapcsolatos további információkért lásd:
 
 - [A Azure Stack hub verziójának profiljai](azure-stack-version-profiles.md)
 - [A profilok által támogatott erőforrás-szolgáltatói API-verziók](azure-stack-profiles-azure-resource-manager-versions.md)

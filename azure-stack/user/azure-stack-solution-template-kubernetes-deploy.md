@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: fd1975beaf58c83c8655a46d9727a8701d710852
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883175"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701768"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
 
@@ -27,7 +27,7 @@ A Kubernetes a Azure Stack hub-ban található AK-motor által generált Azure R
 
 A Kubernetes a következőre használhatja:
 
-- Nagy mértékben méretezhető, nem alkalmazható, másodpercek alatt üzembe helyezhető alkalmazások fejlesztése. 
+- Rugalmasan méretezhető, bővíthető, másodpercek alatt telepíthető alkalmazásokat fejleszthet. 
 - Egyszerűsítse az alkalmazás kialakítását, és javítsa a megbízhatóságát különböző Helm-alkalmazásokkal. A [Helm](https://github.com/kubernetes/helm) egy nyílt forráskódú csomagolási eszköz, amely segítséget nyújt a Kubernetes-alkalmazások életciklusának telepítéséhez és kezeléséhez.
 - Egyszerűen figyelheti és diagnosztizálhatja alkalmazásai állapotát.
 

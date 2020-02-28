@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873890"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695716"
 ---
 # <a name="asdk-requirements-and-considerations"></a>A ASDK követelményei és szempontjai
 
@@ -20,7 +20,7 @@ A Azure Stack Development Kit (ASDK) telepítése előtt győződjön meg arról
 
 ## <a name="hardware"></a>Hardver
 
-| Component (Összetevő) | Minimális | Ajánlott |
+| Összetevő | Minimális | Ajánlott |
 | --- | --- | --- |
 | Lemezmeghajtók: Operációs rendszer |1 operációsrendszer-lemez, amely legalább 200 GB-nyi rendelkezésre áll a rendszerpartícióhoz (SSD vagy HDD). |1 operációsrendszer-lemez, amely legalább 200 GB-nyi rendelkezésre áll a rendszerpartícióhoz (SSD vagy HDD). |
 | Lemezmeghajtók: általános fejlesztői csomag adatai<sup>*</sup>  |4 lemez. Mindegyik lemez legalább 240 GB kapacitást biztosít (SSD vagy HDD). Az összes rendelkezésre álló lemez használatban van. |4 lemez. Mindegyik lemez legalább 400 GB kapacitást biztosít (SSD vagy HDD). Az összes rendelkezésre álló lemez használatban van. |
@@ -107,7 +107,7 @@ Azure Stack Azure AD-fiók használatával történő telepítéséhez elő kell
 
 Az üzembe helyezést követően az Azure AD globális rendszergazdai engedélye nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
 
-## <a name="network"></a>Network (Hálózat)
+## <a name="network"></a>Hálózat
 ### <a name="switch"></a>Kapcsoló
 Egy elérhető port egy kapcsolón a ASDK gép számára.  
 
@@ -131,7 +131,7 @@ Kizárólag az IPv4 használata támogatott. Nem hozhat létre IPv6-hálózatoka
 ### <a name="dhcp"></a>DHCP
 Ellenőrizze, hogy van-e olyan DHCP-kiszolgáló a hálózaton, amelyhez a hálózati adapter csatlakozik. Ha a DHCP nem érhető el, egy további, a gazdagép által használt statikus IPv4-hálózatot kell előkészítenie. Üzembehelyezési paraméterként meg kell adnia azt az IP-címet és átjárót.
 
-### <a name="internet-access"></a>Internet-hozzáférés
+### <a name="internet-access"></a>Internetelérés
 Azure Stack az internet elérését igényli közvetlenül vagy transzparens proxyn keresztül. A Azure Stack nem támogatja a webproxyk konfigurálását az Internet-hozzáférés engedélyezéséhez. A gazdagép IP-címének és az AzS-BGPNAT01 (DHCP vagy statikus IP-cím) által hozzárendelt új IP-nek is képesnek kell lennie az internet elérésére. A 80-es és a 443-es portok a graph.windows.net és a login.microsoftonline.com tartományok alatt használatosak.
 
 

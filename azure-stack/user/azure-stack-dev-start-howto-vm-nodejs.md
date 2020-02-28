@@ -6,13 +6,13 @@ ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: ab6d3e378c4a6f40e597367f06d9e5c4e31eb0c3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/02/20
+ms.openlocfilehash: 3166982098c68760f4f20f4094038f2ab275b73f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883755"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703060"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Node. js-alapú webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -24,7 +24,7 @@ Létrehozhat egy virtuális gépet (VM), amely egy Node. js-webalkalmazást futt
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |

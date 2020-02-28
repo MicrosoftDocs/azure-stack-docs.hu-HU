@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 262d0714c8a0d5979a1313dcff48947f676109ce
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883010"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705066"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>IPsec/IKE-szabályzat konfigurálása két hálózat közötti pont-pont típusú VPN-kapcsolatokhoz
 
@@ -26,7 +26,7 @@ Az IPsec és az IKE protokoll szabványa számos titkosítási algoritmust támo
 
 Ez a cikk útmutatást nyújt az IPsec/IKE-szabályzatok létrehozásáról és konfigurálásáról, valamint az új vagy meglévő kapcsolatok alkalmazásáról.
 
-## <a name="considerations"></a>Megfontolandó szempontok
+## <a name="considerations"></a>Megfontolások
 
 A szabályzatok használatakor vegye figyelembe a következő fontos szempontokat:
 
@@ -64,7 +64,7 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-titkosítás                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-integritás                                      | SHA384, MD5, SHA1, SHA256                                                |
-| DH-csoport                                             | ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, none         |
+| DH-csoport                                             | ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None         |
 | IPsec-titkosítás                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Nincs |
 | IPsec-integritás                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | PFS-csoport                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Nincs                         |
@@ -94,7 +94,7 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 
 A következő táblázat felsorolja az egyéni házirend által támogatott megfelelő Diffie-Hellman csoportokat:
 
-| Diffie-Hellman Group | DHGroup   | PFSGroup      | Kulcs hossza    |
+| Diffie-Hellman Group | DHGroup   | PFSGroup      | A kulcs hossza    |
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768 bites MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 bites MODP |

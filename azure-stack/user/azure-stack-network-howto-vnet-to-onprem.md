@@ -7,12 +7,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883373"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703893"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack hubhoz a FortiGate NVA használatával
 
@@ -42,9 +42,9 @@ Ez a cikk azt ismerteti, hogyan hozható létre VPN-kapcsolat az Azure Stack hub
 
 A következő táblázat összefoglalja a központi telepítésekben használt paramétereket.
 
-| Paraméter | Value (Díj) |
+| Paraméter | Érték |
 |-----------------------------------|---------------------------|
-| FortiGate-példány neve | Forti1 |
+| FortiGate-példány neve | forti1 |
 | BYOL-licenc/-verzió | 6.0.3 |
 | FortiGate rendszergazdai Felhasználónév | fortiadmin |
 | Erőforráscsoport neve | forti1-rg1 |
@@ -211,7 +211,7 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
 Az IPSec VPN-alagút létrehozásához konfigurálni kell a helyszíni VPN-eszközt. A következő táblázat tartalmazza a helyszíni VPN-eszköz beállításához szükséges paramétereket. A helyszíni VPN-eszköz konfigurálásával kapcsolatos információkért tekintse meg a TP az eszköz dokumentációját.
 
-| Paraméter | Value (Díj) |
+| Paraméter | Érték |
 | --- | --- |
 | Távoli átjáró IP-címe | Forti1 rendelt nyilvános IP-cím – lásd: [az FortiGate-NVA aktiválása](#activate-the-fortigate-nva). |
 | Távoli IP-hálózat | 172.16.0.0/16 (ha az IP-címtartományt használja a VNET található utasításokban). |

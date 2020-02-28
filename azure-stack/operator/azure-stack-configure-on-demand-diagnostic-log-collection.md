@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890085"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701547"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack hub diagnosztikai naplók gyűjtése
 
@@ -105,7 +105,7 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
   ```
 
-  Példa:
+  Például:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
@@ -117,7 +117,7 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  Példa:
+  Például:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
@@ -150,13 +150,13 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
 
 * A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, a rendszer alapértelmezés szerint a naplókat az elmúlt négy órára gyűjti.
 
-* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Példa:
+* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Például:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Példa:
+* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Például:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
@@ -169,17 +169,17 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
   |ACS                   |CA                             |HRP                            |OboService                |virtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |LETT            |
-  |ACSDownloadService    |Számítási szolgáltatások                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
+  |ACSDownloadService    |Számítás                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
   |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |EGB                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Adattárolás                   |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Tárterület                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
@@ -205,7 +205,7 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
 > [!NOTE]
 > A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplókon, mivel ez elengedhetetlen a tárterület hatékony kihasználtságának biztosításához, valamint a naplók beszerzésének elkerüléséhez. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek ezen korlátok miatt már nem léteznek. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
 
-### <a name="invoke-azurestackondemandlog"></a>Meghívás – AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
 A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók alapértelmezés szerint nem jelennek meg a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
 

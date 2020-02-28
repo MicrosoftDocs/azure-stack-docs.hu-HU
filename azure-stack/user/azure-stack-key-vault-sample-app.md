@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 4db38de1586096cfeeb2e7f2b806430d0ca1344f
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492308"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702771"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack hub Key Vault titkok elérésének engedélyezése az alkalmazások számára
 
@@ -137,7 +137,7 @@ A **HelloKeyVault** minta betöltése:
 1. Keresse meg a **Microsoft. Azure. kulcstartót. mintákat** > **mintákat** > **HelloKeyVault** mappában.
 2. Nyissa meg a **HelloKeyVault** alkalmazást a Visual Studióban.
 
-### <a name="configure-the-sample-application"></a>A minta alkalmazás konfigurálása
+### <a name="configure-the-sample-application"></a>A mintaalkalmazás konfigurálása
 
 A Visual Studióban:
 

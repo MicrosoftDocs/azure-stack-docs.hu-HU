@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e8c8ad8581b9deff792ce2c095bbc3c5f9cee034
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6324370313656f05c299f37c8e858109378209db
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883217"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701836"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack hubhoz a Azure Active Directory használatával
 
@@ -65,9 +65,9 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
 
     b. Válassza a **soha nem jár** le **lejár**lehetőséget.
 
-    c. Válassza a **Hozzáadás** lehetőséget. Jegyezze fel a kulcs sztringjét. A fürt létrehozásakor szüksége lesz a kulcs sztringre. A kulcs az **egyszerű szolgáltatás ügyfél-titkos**kulcsaként van hivatkozva.
+    c. Válassza a **Hozzáadás** lehetőséget. Győződjön meg, vegye figyelembe a kulcs karakterláncát. A fürt létrehozásakor szüksége lesz a kulcs sztringre. A kulcs az **egyszerű szolgáltatás ügyfél-titkos**kulcsaként van hivatkozva.
 
-## <a name="give-the-service-principal-access"></a>Egyszerű szolgáltatás elérésének biztosítása
+## <a name="give-the-service-principal-access"></a>A szolgáltatás egyszerű hozzáférést
 
 Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy a rendszerbiztonsági tag erőforrásokat hozzon létre.
 
@@ -83,25 +83,25 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza ki az egyszerű szolgáltatásnév számára létrehozott alkalmazás nevét. Előfordulhat, hogy be kell írnia a nevet a keresőmezőbe.
 
-1. Kattintson a **Mentés** gombra.
+1. Kattintson a **Save** (Mentés) gombra.
 
 ## <a name="deploy-kubernetes"></a>Kubernetes üzembe helyezése
 
 1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
 
-1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Create** (Létrehozás) gombra.
+1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. alapismeretek
 
 1. Válassza az **alapok** lehetőséget a Kubernetes-fürt létrehozása területen.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Válassza ki az **előfizetés** -azonosítóját.
 
-1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie.
+1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket.
 
 1. Válassza ki az erőforráscsoport **helyét** . Ez az a régió, amelyet a Azure Stack hub telepítéséhez választ.
 
@@ -109,22 +109,22 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza a **Kubernetes** lehetőséget a Kubernetes-fürt létrehozása területen.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
-1. Adja meg a Linux rendszerű **virtuális gép rendszergazdai felhasználónevét**. A Kubernetes-fürt és a DVM részét képező Linux Virtual Machines felhasználóneve.
+1. Adja meg a Linux rendszerű **virtuális gép rendszergazdai felhasználónevét**. A Linux rendszerű virtuális gépek, a Kubernetes-fürt részét képező és a DVM felhasználóneve.
 
 1. Adja meg a Kubernetes-fürt és a DVM részeként létrehozott összes linuxos gép engedélyezéséhez használt **nyilvános SSH-kulcsot** .
 
 1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például `k8s-12345`. Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
 
     > [!Note]  
-    > Minden egyes fürthöz használjon egy új és egyedi Master profil DNS-előtagot.
+    > Ha mindegyik fürthöz egy új és egyedi fő profil DNS-előtagot használja.
 
 1. Válassza ki a **Kubernetes-főkiszolgáló profiljának darabszámát**. A darabszám a főkészletben lévő csomópontok számát tartalmazza. 1 és 7 közötti érték adható meg. Ennek az értéknek páratlan számnak kell lennie.
 
 1. Válassza ki **a Kubernetes fő virtuális gépek VMSize**. Ez határozza meg a Kubernetes fő virtuális gépek virtuálisgép-méretét. 
 
-1. Válassza ki a **Kubernetes-csomópontok profiljának darabszámát**. A szám a fürtben található ügynökök számát tartalmazza. 
+1. Válassza ki a **Kubernetes-csomópontok profiljának darabszámát**. A száma a fürtben található ügynökök számát tartalmazza. 
 
 1. Válassza ki a **Kubernetes-csomópont virtuális gépek VMSize**. Ez határozza meg a virtuális gépek Kubernetes-csomópontjának méretét. 
 
@@ -134,13 +134,13 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Adja meg az **egyszerű szolgáltatásnév ügyfél titkát**. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs.
 
-1. Adja meg a **Kubernetes verzióját**. Ez az Azure-szolgáltató Kubernetes verziója. Azure Stack hub az egyes Azure Stack hub-verziókhoz egyéni Kubernetes-buildet bocsát ki.
+1. Adja meg a **Kubernetes verzióját**. Ez az a verzió a Kubernetes Azure-szolgáltatóhoz. Azure Stack hub az egyes Azure Stack hub-verziókhoz egyéni Kubernetes-buildet bocsát ki.
 
 ### <a name="3-summary"></a>3. Összefoglalás
 
 1. Válassza az összefoglalás lehetőséget. A panel egy érvényesítési üzenetet jelenít meg a Kubernetes-fürt konfigurációjának beállításaihoz.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
 2. Tekintse át a beállításokat.
 

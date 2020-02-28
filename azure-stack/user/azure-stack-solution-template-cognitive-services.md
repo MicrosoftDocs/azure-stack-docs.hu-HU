@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bc8a6745b9c3e4323e37bc3b4a46291955d227a1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883191"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701819"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 
@@ -57,12 +57,12 @@ A Kezdés előtt a következőket kell tennie:
 
 Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, LUIS vagy szövegfelismerés tárolók előzetes verziójának megtekintéséhez. Az erőforrásból az előfizetési kulcs és a végpont URL-címét kell használnia a kognitív szolgáltatás tárolóinak létrehozásához.
 
-1. Hozzon létre egy Azure-erőforrást a Azure Portal. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Hozzon létre egy Azure-erőforrást az Azure Portalon. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  Az arc vagy Computer Vision erőforrásnak a F0 díjszabási szintjét kell használnia.
 
-2. Az Azure-erőforrás végponti URL-címének és előfizetési kulcsának beolvasása. Miután létrehozta az Azure-erőforrást, az adott erőforrás előfizetési kulcs és végpont URL-címe alapján hozza létre a megfelelő Face, LUIS vagy szövegfelismerés tárolót az előzetes verzióhoz.
+2. A végpont URL-cím és egy előfizetési kulcsra az Azure-beli erőforráshoz kaphat. Miután létrehozta az Azure-erőforrást, az adott erőforrás előfizetési kulcs és végpont URL-címe alapján hozza létre a megfelelő Face, LUIS vagy szövegfelismerés tárolót az előzetes verzióhoz.
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes titkos kód létrehozása 
 
@@ -133,7 +133,7 @@ A legfontosabb mezők részletei:
 | replicaNumber | Meghatározza a létrehozandó példányok kezdeti replikáit. A telepítést később is méretezheti. |
 | ImageLocation | Azt jelzi, hogy az adott kognitív szolgáltatás tárolójának képe hol található az ACR-ben. Például a Face szolgáltatás: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett végpont URL-címe |
-| apiKey | Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett előfizetési kulcs |
+| ApiKey | Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett előfizetési kulcs |
 | SecretName | A [Kubernetes titkos kulcs létrehozása](#create-a-kubernetes-secret) című lépésben létrehozott titkos név |
 
 ## <a name="deploy-the-cognitive-service"></a>A kognitív szolgáltatás üzembe helyezése
@@ -150,7 +150,7 @@ A következő parancs használata az üzembe helyezésének figyelésére:
 
 ## <a name="test-the-cognitive-service"></a>A kognitív szolgáltatás tesztelése
 
-A [OpenAPI-specifikáció](https://swagger.io/docs/specification/about/) elérése az adott tárolóhoz tartozó **/Swagger** relatív URI-n keresztül. Ez a specifikáció, korábbi nevén a hencegés specifikáció, leírja a példányos tároló által támogatott műveleteket. A következő URI például hozzáférést biztosít az előző példában a Hangulatelemzés tárolóhoz tartozó OpenAPI-specifikációhoz:
+A [OpenAPI-specifikáció](https://swagger.io/docs/specification/about/) elérése az adott tárolóhoz tartozó **/Swagger** relatív URI-n keresztül. Ez a specifikáció, korábbi nevén a hencegés specifikáció, leírja a példányos tároló által támogatott műveleteket. Például a következő URI Azonosítót tartalmaz Hangulatelemzés tárolót, amelyet az előző példában volt példányosítani az OpenAPI-specifikáció való hozzáférést:
 
 ```HTTP  
 http:<External IP>:5000/swagger

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3b257fee978fe576c97855d5af18854082155d7e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884563"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702176"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>virtuális társhálózatok létesítése a Azure Stack hub virtuális gépekkel
 
@@ -30,7 +30,7 @@ A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/Azure
 - Központi telepítés a legújabb frissítésekkel. 
 - Szükséges Azure Stack hub Marketplace-elemek:
     -  Windows Server 2016 Datacenter (a legújabb Build ajánlott)
-    -  Custom Script Extension
+    -  Egyéni szkriptbővítmény
 
 ## <a name="things-to-consider"></a>Megfontolandó dolgok
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 842291fc47d76ad40b9933bb6295efaa4446fe41
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880890"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696882"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Bérlői erőforrás-használati API-referenciák
 
@@ -23,13 +23,13 @@ Használhatja a [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates
 
 ## <a name="api-call"></a>API-hívás
 
-### <a name="request"></a>Kérelem
+### <a name="request"></a>Kérés
 
 A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásának részleteit. Nincs kérelem törzse.
 
 | **Metódus** | **Kérelem URI-ja** |
 | --- | --- |
-| GET |https://{armendpoint}/Subscriptions/{subId}/Providers/Microsoft. Commerce/usageAggregates? reportedStartTime = {reportedStartTime} & reportedEndTime = {reportedEndTime} & aggregationGranularity = {részletesség} & API-Version = 2015-06 -01-előzetes verzió & Continuationtoken argumentumot használja = {token-Value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="parameters"></a>Paraméterek
 
@@ -40,7 +40,7 @@ A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásá
 | reportedStartTime |A lekérdezés kezdési időpontja. A *datetime* értékének UTC és az óra elején kell lennie; például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; Tegyük fel például, hogy **2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z**, ahol a kettőspont megmenekült a (z)% 3A rendszerbe, és plusz megmenekült a (z)% 2b rendszerbe, hogy URI-barát legyen |
 | reportedEndTime |A lekérdezés befejezési időpontja. A **reportedStartTime** vonatkozó korlátozások érvényesek erre a paraméterre is. A **reportedEndTime** értéke nem lehet későbbi. |
 | aggregationGranularity |Opcionális paraméter, amely két különálló lehetséges értékkel rendelkezik: **naponta** és **óránként**. Az értékek azt sugallják, hogy az egyik napi részletességgel adja vissza az adatokat, a másik pedig óradíjas megoldás. A **napi** beállítás az alapértelmezett. |
-| API-Version |A kérelem elvégzéséhez használt protokoll verziója. A **2015-06-01-Preview**verziót kell használnia. |
+| api-version |A kérelem elvégzéséhez használt protokoll verziója. A **2015-06-01-Preview**verziót kell használnia. |
 | Continuationtoken argumentumot használja |A rendszer a használati API-szolgáltató utolsó hívásával lekért tokent. Erre a tokenre akkor van szükség, ha a válasz nagyobb, mint 1 000 sor. A folyamat könyvjelzőként működik. Ha nincs jelen, az adatok a nap vagy az óra elejétől kezdve, az átadott részletesség alapján kerülnek beolvasásra. |
 
 ### <a name="response"></a>Válasz

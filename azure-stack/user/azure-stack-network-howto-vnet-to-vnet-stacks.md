@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 243baa06b2374fb42ffcd70fe7cb194e193d9e34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884603"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702210"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Hozzon létre egy VNET a VNET-kapcsolathoz a Fortinet FortiGate NVA használatával Azure Stack központban.
 
@@ -41,7 +41,7 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 
 ### <a name="deployment-one-forti1"></a>Központi telepítés: Forti1
 
-| FortiGate-példány neve | Forti1 |
+| FortiGate-példány neve | forti1 |
 |-----------------------------------|---------------------------|
 | BYOL-licenc/-verzió | 6.0.3 |
 | FortiGate rendszergazdai Felhasználónév | fortiadmin |
@@ -138,7 +138,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
 7. Nevezze el az **útvonalat** `to-forti1` vagy `to-forti2`. Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
-8. Be
+8. Adja meg a következőt:
     - forti1: `172.17.0.0/16`  
     - forti2: `172.16.0.0/16`  
 

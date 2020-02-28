@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885086"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704760"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Oktatóanyag: szolgáltatási ajánlat tesztelése
 
 Az előző oktatóanyagban létrehozott egy ajánlatot a felhasználók számára. Ebből az oktatóanyagból megtudhatja, hogyan tesztelheti az ajánlatot, ha a segítségével előfizetést hoz létre. Ezután létrehozhatja és üzembe helyezheti az erőforrásokat az előfizetés által jogosult alapszolgáltatásokhoz.
 
-Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
+Ez az oktatóanyag bemutatja, hogyan végezheti el az alábbi műveleteket:
 
 > [!div class="checklist"]
 > * Előfizetés létrehozása
@@ -36,7 +36,7 @@ Az oktatóanyag megkezdése előtt végre kell hajtania a következő előfelté
 
 1. Bejelentkezés a felhasználói portálra felhasználói fiókkal 
 
-   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a https://portal.&lt formátumot használva. *régió*&gt;.&lt;*FQDN*&gt;.
+   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a https://portal.&ltformátumot használva. *régió*&gt;.&lt;*FQDN*&gt;.
    - Ha a Azure Stack Development Kit használja, a portál címe https://portal.local.azurestack.external.
 
 1. Válassza az **előfizetés beszerzése** csempét.
@@ -132,7 +132,7 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az új előfiz
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
+Ennek az oktatóanyagnak a segítségével megtanulta a következőket:
 
 > [!div class="checklist"]
 > * Előfizetés létrehozása

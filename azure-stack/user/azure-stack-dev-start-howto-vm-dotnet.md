@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884922"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704182"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen
 
@@ -53,7 +53,7 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
     e. Adjon hozzá egy bejövő biztonsági szabályt a következő portokhoz:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) a weblapok kiszolgálókról történő kézbesítéséhez használt protokoll. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét.  |

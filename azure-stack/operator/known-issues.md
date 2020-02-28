@@ -7,12 +7,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 631a086b86fd7855780aa1cb6dba11dbfa799759
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 05b4fb4a3fedd1431e7850473a720fd4cc1bdf3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879822"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696039"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -160,15 +160,15 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: az SQL Resource Provider (RP) verziójának 1.1.47.0 telepítésekor a portálon nem láthatók az SQL RP-hez társított eszközök.
 - Szervizelés: törölje az RP-t, frissítse a bélyeget, majd telepítse újra az SQL RP-t.
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Terheléselosztó
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Ha a rendelkezésre állási csoport virtuális gépeket egy terheléselosztó háttér-készletéhez adja hozzá, hibaüzenet jelenik meg a portálon, amely **nem tudta menteni**a terheléselosztó háttér-készletét. Ez egy kozmetikai probléma a portálon; a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttér-készlethez.
 - Előfordulás: gyakori
 
-### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
+### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
@@ -197,7 +197,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Értesítések
+#### <a name="alerts"></a>Riasztások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
@@ -226,7 +226,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítási szolgáltatások
+## <a name="compute"></a>Számítás
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -321,15 +321,15 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
-### <a name="load-balancer"></a>Terheléselosztó
+### <a name="load-balancer"></a>Load Balancer
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: amikor Avaiability ad hozzá virtuális gépekhez egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-készletét**. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
 - Előfordulás: gyakori
 
-### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
+### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
@@ -359,7 +359,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Értesítések
+#### <a name="alerts"></a>Riasztások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
@@ -388,7 +388,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítási szolgáltatások
+## <a name="compute"></a>Számítás
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -485,15 +485,15 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
-### <a name="load-balancer"></a>Terheléselosztó
+### <a name="load-balancer"></a>Load Balancer
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: amikor Avaiability ad hozzá virtuális gépekhez egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-készletét**. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
 - Előfordulás: gyakori
 
-### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
+### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
@@ -523,7 +523,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Értesítések
+#### <a name="alerts"></a>Riasztások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
@@ -541,7 +541,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
-### <a name="network-connection-type"></a>Hálózati kapcsolattípus
+### <a name="network-connection-type"></a>Hálózati kapcsolat típusa
 
 - Alkalmazható: a probléma bármely 1906-es vagy 1907-es környezetre érvényes. 
 - Ok: a felhasználói portálon a **AddConnection** panel egy lehetőséget mutat be a **VNet – VNet**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban. 
@@ -558,7 +558,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítási szolgáltatások
+## <a name="compute"></a>Számítás
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -668,7 +668,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: frissítse a portált, és az állapota "folyamatban" állapotba kerül.
 - Előfordulás: időszakos
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="service-endpoints"></a>Szolgáltatásvégpontok
 
@@ -685,7 +685,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
-#### <a name="alerts"></a>Értesítések
+#### <a name="alerts"></a>Riasztások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
@@ -714,7 +714,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Terheléselosztó
 
 #### <a name="add-backend-pool"></a>Háttér-készlet hozzáadása
 
@@ -730,7 +730,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: használja a PowerShellt, a CLI-t vagy a Resource Manager-sablont a háttérbeli készlet terheléselosztó-erőforrással való hozzárendeléséhez.
 - Előfordulás: gyakori
 
-## <a name="compute"></a>Számítási szolgáltatások
+## <a name="compute"></a>Számítás
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 

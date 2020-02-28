@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 418e27424f91d4c676565acc27bcde77962d76ec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: d41455823c6905a947a703412664fc52ff45e1a8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875895"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701122"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service Azure Stack hub Update 6 kibocsátási megjegyzései
 
@@ -22,7 +23,7 @@ Ezek a kibocsátási megjegyzések a Azure Stack hub Update 6 és bármely ismer
 > Alkalmazza az 1904-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack fejlesztői csomagot a Azure App Service 1,6 üzembe helyezése előtt.
 
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 A App Service Azure Stack hub Update 6 Build száma **82.0.1.50**
 
@@ -37,7 +38,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,6
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
-  - Fő
+  - Mester
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése
 
@@ -74,7 +75,7 @@ A Azure Stack hub Update 6 Azure App Service a következő javításokat és jav
 > [!IMPORTANT]
 > Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack hub telepítési dokumentációjában szerepel.
 
@@ -101,7 +102,7 @@ A bérlők még nem használhatják az üzembe helyezési központot, amely a ny
 
 - Központi telepítési beállítások (klasszikus) UX és központi telepítési hitelesítő adatok portál beállításai nem érhetők el
 
-Az üzembe helyezési lehetőségek és az üzembe helyezési hitelesítő adatok felhasználói élményének eléréséhez az Azure Stack hub központi telepítésében a bérlőknek ezen az URL-formátumban kell elérniük a portált – https://portal.&lt ; *régió*&gt;.&lt;*FQDN*&gt; /? websitesExtension_oldvsts = True – ami a ASDK [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd a szokásos módon navigáljon az alkalmazásaihoz.
+Az üzembe helyezési lehetőségek és az üzembe helyezési hitelesítő adatok felhasználói élményének eléréséhez az Azure Stack hub központi telepítésében a bérlőknek ezen az URL-formátumban kell elérniük a portált – https://portal.&lt; *régió*&gt;.&lt;*FQDN*&gt;/? websitesExtension_oldvsts = True – ami a ASDK [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) , majd a szokásos módon navigáljon az alkalmazásaihoz.
 
 - Az Azure Function monitoring folyamatosan megjeleníti a betöltést a portálon
 

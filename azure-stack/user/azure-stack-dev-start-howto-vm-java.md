@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 6a696417b296da978b2d077c6f2c01b94a106d2e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884903"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704148"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -24,7 +24,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -284,7 +284,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
 
     b. Vegye fel a HÁBORÚt *TOMCAT_HOME/webapps* (például */opt/tomcat/webapps/* ).
 
-1.  A Tomcat automatikusan kibontja és üzembe helyezi az alkalmazást. A nevet a korábban létrehozott DNS-név használatával tekintheti meg. Példa:
+1.  A Tomcat automatikusan kibontja és üzembe helyezi az alkalmazást. A nevet a korábban létrehozott DNS-név használatával tekintheti meg. Például:
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample

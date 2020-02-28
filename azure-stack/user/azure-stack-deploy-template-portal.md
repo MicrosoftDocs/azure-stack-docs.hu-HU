@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 904a15c59cf2e9418d3615d25c11303fede04762
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8425b4f8492e57502ca93b0be802b63601f6ba34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885030"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704318"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Sablon üzembe helyezése a portál használatával Azure Stack hub-ban
 
@@ -36,7 +36,7 @@ A portál használatával Azure Resource Manager sablonokat telepíthet Azure St
 
    ![Paraméterek szerkesztése Azure Stack hub-portálon](media/azure-stack-deploy-template-portal/template-deploy4.png)
 
-1. Válassza az **előfizetés**lehetőséget. Válassza ki a használni kívánt előfizetést, majd kattintson **az OK gombra**.
+1. Válasszon ki egy **Előfizetést**. Válassza ki a használni kívánt előfizetést, majd kattintson **az OK gombra**.
 
    ![Előfizetés kiválasztása Azure Stack hub-portálon](media/azure-stack-deploy-template-portal/template-deploy5.png)
 

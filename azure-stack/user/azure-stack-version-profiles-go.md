@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 0e6ff55da7a7d66152765a5058b7d281632fb5eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883062"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705236"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
 
@@ -31,7 +31,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 ## <a name="install-the-azure-sdk-for-go"></a>A Góhoz készült Azure SDK telepítése
 
-1. Telepítse a git-t. Útmutatásért lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. A Git telepítése. Útmutatásért lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Telepítse a [Go programozási nyelvet](https://golang.org/dl). Az Azure-hoz készült API-profilokhoz a 1,9-es vagy újabb verzió szükséges.
 3. Telepítse az Azure go SDK-t és annak függőségeit a következő bash-parancs futtatásával:
 
@@ -62,7 +62,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
    > Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`  
    > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
-   Példa JSON-fájlra:
+   JSON-mintafájlt:
 
    ```json
    { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
@@ -75,7 +75,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
    }
    ```
 
-3. Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetések létrehozásával kapcsolatos információkért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
+3. Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Az előfizetések létrehozásával kapcsolatos információkért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
 4. Hozzon létre egy olyan egyszerű szolgáltatásnevet, amely az **előfizetés** hatókörével és a **tulajdonosi** szerepkörrel rendelkező ügyfél-titkot használ. Mentse az egyszerű szolgáltatás AZONOSÍTÓját és a titkos kulcsot. Az Azure Stack hub egyszerű szolgáltatásának létrehozásával kapcsolatos információkért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md). A Azure Stack hub-környezet már be van állítva.
 
@@ -117,7 +117,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
 
 Ha a go SDK-profillal kívánja létrehozni a virtuális hálózatot Azure Stack hubhoz, tekintse meg a [példát](#example).
 
-## <a name="authentication"></a>Hitelesítés
+## <a name="authentication"></a>Authentication
 
 Ha a go SDK-val szeretné beolvasni a Azure Active Directory **engedélyező** tulajdonságát, telepítse a **Go-autorest-** modulokat. Ezeket a modulokat már telepítve kell lennie a "Go SDK" telepítésének. Ha nem, telepítse a [hitelesítési csomagot a githubról](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 

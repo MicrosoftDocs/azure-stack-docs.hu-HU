@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d81c0387e26a72865b74a88062c5b7b7588b3281
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 44baf18b4e7b1acb39125a4ccdeb4228557de4d4
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875963"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703519"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service Azure Stack hub Update 1 kibocsátási megjegyzései
 
@@ -22,7 +22,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hu
 > [!IMPORTANT]
 > Alkalmazza az 1802-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service telepítése előtt.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 Az Azure Stack hub Update 1 Build számának App Service **69.0.13698.9**.
 
@@ -77,7 +77,7 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
 
   - A Storage-kapcsolatok ellenőrzése a Azure Functions egyéni tároló-választójában.
 
-#### <a name="fixes"></a>Hibajavítások
+#### <a name="fixes"></a>Javítások
 
 - Kapcsolat nélküli központi telepítési csomag létrehozásakor az ügyfelek többé nem kapnak hozzáférési megtagadási hibaüzenetet, amikor megnyitja a mappát a App Service telepítőből.
 
@@ -101,11 +101,11 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
 
     A Get-AzureStackRootCert. ps1 hibája miatt az ügyfelek nem tudják lekérni az Azure Stack hub főtanúsítványát, amikor a parancsfájlt olyan gépen futtatják, amelyen nincs telepítve a főtanúsítvány. A szkript már újra megjelent, ami megoldja a problémát. [Töltse le a frissített segítő szkripteket itt](https://aka.ms/appsvconmashelpers). Ha továbbra is problémákat tapasztal a főtanúsítvány frissített parancsfájllal történő beolvasásakor, forduljon az ügyfélszolgálathoz.
 
-### <a name="known-issues-with-the-update-process"></a>A frissítési folyamattal kapcsolatos ismert problémák
+### <a name="known-issues-with-the-update-process"></a>A frissítési folyamat ismert problémái
 
 - Nincsenek ismert problémák a Azure App Service frissítéséhez Azure Stack hub Update 1.
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A tárolóhely-csere nem működik.
 

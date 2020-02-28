@@ -7,12 +7,12 @@ ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 8a0f6b45d261df2347589178bead735e72cdccd7
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 6640c9e2ef8464a8e7a71840bc3045eb90b3eb7d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509483"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704437"
 ---
 # <a name="border-connectivity"></a>Szegély kapcsolat 
 A hálózati integráció megtervezése a sikeres Azure Stack hub integrált rendszerek üzembe helyezésének, működtetésének és felügyeletének fontos előfeltétele. A határok közötti kapcsolat megtervezése megkezdődik, ha a dinamikus útválasztást a Border Gateway Protocol (BGP) használatával szeretné használni. Ehhez hozzá kell rendelni egy 16 bites BGP autonóm rendszerszámot (nyilvános vagy privát) vagy statikus útválasztást, ahol a rendszer statikus alapértelmezett útvonalat rendel hozzá a szegélyhez tartozó eszközökhöz.

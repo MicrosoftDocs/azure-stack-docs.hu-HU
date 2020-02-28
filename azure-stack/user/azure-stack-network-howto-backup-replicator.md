@@ -7,12 +7,12 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 095de73dea95a4ed3dec04d43e70c1a0554906ca
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884619"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702346"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
@@ -124,19 +124,19 @@ Az Azure-előfizetési replikátor (v3) jelenleg a következő erőforrástípus
 
 - Microsoft. Network/routeTables
 
-- Microsoft.Network/virtualNetworks
+- Microsoft. Network/virtualNetworks
 
-- Microsoft. Network/virtualNetworkGateways
+- Microsoft.Network/virtualNetworkGateways
 
 - Microsoft.Storage/storageAccounts
 
 Ha az eszközt az **összes** erőforrás-típussal futtatja, a replikálás és a telepítés során a rendszer a következő sorrendet követi (az alábbi sorrendben az összes erőforrás konfigurációját replikálták, például SKU, ajánlat stb.):
 
-- Microsoft.Network/virtualNetworks
+- Microsoft. Network/virtualNetworks
 
     - Replikálások: – minden címterület – minden alhálózat
 
-- Microsoft. Network/virtualNetworkGateways
+- Microsoft.Network/virtualNetworkGateways
 
     - Replikálások: – nyilvános IP-konfiguráció – alhálózat konfigurációja – VPN-típus – átjáró típusa
 

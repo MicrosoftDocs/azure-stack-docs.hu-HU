@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883695"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703077"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Ethereum blockchain-hálózat üzembe helyezése Azure Stack hub-on
 
@@ -38,11 +38,11 @@ Töltse le a legújabb elemeket [a piactérről](../operator/azure-stack-downloa
 - Ubuntu Server 16,04 LTS
 - Windows Server 2016
 - Egyéni parancsfájl a Linux 2,0-hez
-- Egyéni parancsfájl-bővítmény a Windowshoz
+- Egyéniszkript-bővítmény Windows rendszerre
 
 A blockchain forgatókönyvekkel kapcsolatos további információkért lásd: [Ethereum-szolgáltatói konzorcium megoldási sablonja](/azure/blockchain/templates/ethereum-poa-deployment).
 
-## <a name="deployment-architecture"></a>üzembe helyezési architektúra
+## <a name="deployment-architecture"></a>Üzembe helyezési architektúra
 
 Ez a megoldási sablon telepíthet egyetlen vagy több tagú Ethereum Consortium-hálózatot. A virtuális hálózat egy hálózati virtuális berendezést és kapcsolati erőforrásokat használó láncbeli topológiában van csatlakoztatva.
 
@@ -98,7 +98,7 @@ A Consortium Leader-sablon konfigurálja az első tag hálózati lábnyomát.
     ---------------|-------------|----------------|-------------
     Előfizetést | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
     Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | EthereumResources
-    Földrajzi egység | Az erőforráscsoport Azure-régiója. | | helyi
+    Hely | Az erőforráscsoport Azure-régiója. | | helyi
 
 8. Kattintson a **Létrehozás** gombra.
 
@@ -146,7 +146,7 @@ A Leader üzembe helyezésének ellenőrzéséhez lépjen a vezető rendszergazd
     ---------------|-------------|----------------|-------------
     Előfizetést | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
     Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | MemberResources
-    Földrajzi egység | Az erőforráscsoport Azure-régiója. | | helyi
+    Hely | Az erőforráscsoport Azure-régiója. | | helyi
 
 8. Kattintson a **Létrehozás** gombra.
 
@@ -184,7 +184,7 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
     CONNECTIONSHAREDKEY | A konzorciumi hálózat azon tagjai között, amelyek kapcsolatot hoznak létre, előre elkészített titok.  | |
     REMOTEMEMBERNVAPUBLICIP | A tag NVA IP-címe. Ez az érték a tag telepítési kimenetén található. | |
     MEMBERNVAPRIVATEIP | A vezető magánhálózati NVA IP-címe. Ez az érték a vezető telepítési kimenetén található. | |
-    HELYEN | Az Azure Stack hub-környezet helye. | | helyi
+    HELY | Az Azure Stack hub-környezet helye. | | helyi
     BASEURL | A sablon alap URL-címe. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
 7. Kattintson az **OK** gombra.
@@ -196,13 +196,13 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
     ---------------|-------------|----------------|-------------
     Előfizetést | A vezető előfizetése. | | Fogyasztási előfizetés
     Erőforráscsoport | A vezető erőforráscsoport. | | EthereumResources
-    Földrajzi egység | Az erőforráscsoport Azure-régiója. | | helyi
+    Hely | Az erőforráscsoport Azure-régiója. | | helyi
 
 8. Kattintson a **Létrehozás** gombra.
 
 Az üzembe helyezés befejezése után néhány percet vesz igénybe, hogy a vezető és a tag is megkezdje a kommunikációt. A központi telepítés ellenőrzéséhez frissítse a tag felügyeleti webhelyét. A tag csomópontjainak állapotának futnia kell.
 
-![A telepítés ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
+![Az üzemelő példány ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
 ## <a name="next-steps"></a>Következő lépések
 

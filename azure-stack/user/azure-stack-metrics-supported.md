@@ -6,78 +6,78 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: fcbde238f47759c8c962242f96fa35975e49d360
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b90458e58054cd0f42564558fd3cb5a8226d6c5d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884631"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702261"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack hub Azure Monitor támogatott mérőszámai
 
-Az Azure monitor Azure Stack hub-on lévő mérőszámait ugyanúgy kell lekérni, mint a globális Azure-ban. Létrehozhat mértékeket a portálon, beolvashatja őket a REST API, vagy lekérdezheti őket a PowerShell vagy a parancssori felület használatával.
+Az Azure monitor Azure Stack hub-on lévő mérőszámait ugyanúgy kell lekérni, mint a globális Azure-ban. A mértékek létrehozása a portálon, beszerezheti őket a REST API-ból, vagy lekérdezheti, ha a PowerShell vagy parancssori felület.
 
 Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai folyamatában elérhető metrikákat. A metrikák lekérdezéséhez és eléréséhez használja az API-profil **2018-01-01** API-Version verzióját. További információ az API-profilokról és az Azure Stack hub-ról: [az API-verziók profiljainak kezelése Azure stack központban](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Összesítés típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenített neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Százalékos processzorhasználat | Százalékos processzorhasználat | Százalék | Átlag | A virtuális gép (ek) által jelenleg használt lefoglalt számítási egységek százalékos aránya. | Nincsenek méretek |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Összesítés típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenített neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| UsedCapacity | Felhasznált kapacitás | Bájt | Átlag | A fiók felhasznált kapacitása. | Nincsenek méretek |
-| Tranzakciók | Tranzakciók | Mennyiség | Összes | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
-| Belépő | Belépő | Bájt | Összes | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
-| Kimenő forgalom | Kimenő forgalom | Bájt | Összes | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
-| SuccessE2ELatency | Sikeres E2E késés | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
-| Elérhetőség | Elérhetőség | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
+| UsedCapacity | Használt kapacitás | Bájt | Átlag | A fiók felhasznált kapacitása. | Nincsenek méretek |
+| Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
+| Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatok (bájt) mennyisége. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
+| Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatok (bájt) mennyisége. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
+| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodperc | Átlag | Az átlagos várakozási használt Azure Storage által feldolgozott sikeres kérések, ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodperc | Átlag | A társzolgáltatásnak vagy a megadott API-művelet (MS) számára elküldött sikeres kérések átlagos végpontok közötti késését. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
+| Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A társzolgáltatás vagy a megadott API-művelet rendelkezésre állási százaléka. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
-## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
+## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Összesítés típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenített neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
 |--------|---------------------|------|------------------|-------------|------------|
-| BlobCapacity | BLOB kapacitása | Bájt | Összes | A Storage-fiók Blob service által felhasznált tárterület mérete bájtban kifejezve. | blobType |
-| BlobCount | Blobok száma | Mennyiség | Összes | A Storage-fiók Blob serviceban található Blobok száma. | blobType |
-| ContainerCount | BLOB-tárolók száma | Mennyiség | Átlag | A Storage-fiók Blob service lévő tárolók száma. | Nincsenek méretek |
-| Tranzakciók | Tranzakciók | Mennyiség | Összes | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
-| Belépő | Belépő | Bájt | Összes | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
-| Kimenő forgalom | Kimenő forgalom | Bájt | Összes | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
-| SuccessE2ELatency | Sikeres E2E késés | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
-| Elérhetőség | Elérhetőség | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
+| BlobCapacity | Blob-kapacitása | Bájt | Összesen | A Storage-fiók Blob service által felhasznált tárterület mérete bájtban kifejezve. | BlobType |
+| BlobCount | Blobok száma | Darabszám | Összesen | A Storage-fiók Blob serviceban található Blobok száma. | BlobType |
+| ContainerCount | Blobtárolók száma | Darabszám | Átlag | A Storage-fiók Blob service lévő tárolók száma. | Nincs dimenzió |
+| Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
+| Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatok (bájt) mennyisége. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
+| Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatok (bájt) mennyisége. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
+| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodperc | Átlag | Az átlagos várakozási használt Azure Storage által feldolgozott sikeres kérések, ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodperc | Átlag | A társzolgáltatásnak vagy a megadott API-művelet (MS) számára elküldött sikeres kérések átlagos végpontok közötti késését. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
+| Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A társzolgáltatás vagy a megadott API-művelet rendelkezésre állási százaléka. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
-## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft. Storage/storageAccounts/tableServices
+## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Összesítés típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenített neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| TableCapacity | Tábla kapacitása | Bájt | Átlag | A Storage-fiók Table service által felhasznált tárterület mérete bájtban kifejezve. | Nincsenek méretek |
-| TableCount | Táblák száma | Mennyiség | Átlag | A Storage-fiók Table serviceban található táblák száma. | Nincsenek méretek |
-| TableEntityCount | Tábla entitások száma | Mennyiség | Átlag | A Storage-fiók Table serviceban szereplő táblák entitások száma. | Nincsenek méretek |
-| Tranzakciók | Tranzakciók | Mennyiség | Összes | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
-| Belépő | Belépő | Bájt | Összes | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
-| Kimenő forgalom | Kimenő forgalom | Bájt | Összes | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
-| SuccessE2ELatency | Sikeres E2E késés | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
-| Elérhetőség | Elérhetőség | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
+| TableCapacity | Table Storage kapacitása | Bájt | Átlag | A Storage-fiók Table service által felhasznált tárterület mérete bájtban kifejezve. | Nincs dimenzió |
+| TableCount | Táblák száma | Darabszám | Átlag | A Storage-fiók Table serviceban található táblák száma. | Nincs dimenzió |
+| TableEntityCount | Táblaentitások száma | Darabszám | Átlag | A Storage-fiók Table serviceban szereplő táblák entitások száma. | Nincs dimenzió |
+| Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
+| Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatok (bájt) mennyisége. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
+| Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatok (bájt) mennyisége. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
+| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodperc | Átlag | Az átlagos várakozási használt Azure Storage által feldolgozott sikeres kérések, ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodperc | Átlag | A társzolgáltatásnak vagy a megadott API-művelet (MS) számára elküldött sikeres kérések átlagos végpontok közötti késését. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
+| Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A társzolgáltatás vagy a megadott API-művelet rendelkezésre állási százaléka. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
-## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft. Storage/storageAccounts/queueServices
+## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Összesítés típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenített neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| QueueCapacity | Várólista kapacitása | Bájt | Átlag | A Storage-fiók Queue szolgáltatás által felhasznált tárterület mérete bájtban kifejezve. | Nincsenek méretek |
-| QueueCount | Várólista száma | Mennyiség | Átlag | A Storage-fiók Queue szolgáltatás várólistáinak száma. | Nincsenek méretek |
-| QueueMessageCount | Üzenetsor-üzenetek száma | Mennyiség | Átlag | A tárolási fiók Queue szolgáltatásban lévő üzenetsor-üzenetek hozzávetőleges száma. | Nincsenek méretek |
-| Tranzakciók | Tranzakciók | Mennyiség | Összes | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
-| Belépő | Belépő | Bájt | Összes | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
-| Kimenő forgalom | Kimenő forgalom | Bájt | Összes | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
-| SuccessE2ELatency | Sikeres E2E késés | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
-| Elérhetőség | Elérhetőség | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
+| QueueCapacity | Queue Storage kapacitása | Bájt | Átlag | A Storage-fiók Queue szolgáltatás által felhasznált tárterület mérete bájtban kifejezve. | Nincs dimenzió |
+| QueueCount | Üzenetsorok száma | Darabszám | Átlag | A Storage-fiók Queue szolgáltatás várólistáinak száma. | Nincs dimenzió |
+| QueueMessageCount | Üzenetsorbeli üzenetek száma | Darabszám | Átlag | A tárolási fiók Queue szolgáltatásban lévő üzenetsor-üzenetek hozzávetőleges száma. | Nincs dimenzió |
+| Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
+| Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatok (bájt) mennyisége. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
+| Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatok (bájt) mennyisége. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
+| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodperc | Átlag | Az átlagos várakozási használt Azure Storage által feldolgozott sikeres kérések, ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodperc | Átlag | A társzolgáltatásnak vagy a megadott API-művelet (MS) számára elküldött sikeres kérések átlagos végpontok közötti késését. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
+| Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A társzolgáltatás vagy a megadott API-művelet rendelkezésre állási százaléka. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -7,12 +7,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 4e4f9eb8d9a1bf0966d75c2d4e47b94a998675f0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b08cbf0ec316c8a5a2726800942f0d12a458db5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884462"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702091"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Gyors útmutató: linuxos kiszolgálói virtuális gép létrehozása az Azure Stack hub portál használatával
 
@@ -82,7 +82,7 @@ Az Azure Stack hub-portál címe attól függ, hogy melyik Azure Stack hub-term�
     > [!Note]  
     > Győződjön meg arról, hogy a kulcshoz tartozó kezdő vagy záró szóközöket távolítja el.
 
-   ![Hitelesítés](media/azure-stack-quick-linux-portal/image3.png)
+   ![Authentication](media/azure-stack-quick-linux-portal/image3.png)
 
 1. Válassza ki a virtuális gép méretének **D1_v2** .
 

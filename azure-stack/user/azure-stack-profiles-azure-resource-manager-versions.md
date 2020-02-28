@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 03ec8b455991a85515793d1098df0f72497299b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dea5064e03fe5710dbd1d734e425a3592dc062cf
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883306"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703791"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 
@@ -31,23 +31,23 @@ Az Azure Stack hub API-profiljainak és verziószámának ismertetése: az [API-
 
 ## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>Az 2019-03-01-hibrid profil áttekintése
 
-| Erőforrás-szolgáltató | API-Version |
+| Erőforrás-szolgáltató | Api-version |
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-12-01 |
 | Microsoft.Network | 2017-10-01<br>A VPN Gateway 2017-10-01 lesz |
 | Microsoft. Storage (adatsík) | 2017-11-09 |
 | Microsoft. Storage (vezérlési sík) | 2017-10-01 |
-| Microsoft. Web | 2018-02-01 |
-| Microsoft. kulcstartó | 2016-10-01 (nem változik) |
+| Microsoft.Web | 2018-02-01 |
+| Microsoft.KeyVault | 2016-10-01 (nem változik) |
 | Microsoft. Resources (Azure Resource Manager saját maga) | 2016-06-01 |
 | Microsoft. Authorization (házirend-műveletek) | 2016-09-01 |
-| Microsoft. bepillantások | 2018-01-01 |
+| Microsoft.Insights | 2018-01-01 |
 
 Az API-profilban található szolgáltatókhoz tartozó egyes erőforrástípusok verzióinak listáját az [2019-03-01-hibrid profil részletei](#details-for-the-2019-03-01-hybrid-profile)című részben tekintheti meg.
 
 ## <a name="details-for-the-2019-03-01-hybrid-profile"></a>Az 2019-03-01-Hybrid profil részletei
 
-### <a name="microsoftauthorization"></a>Microsoft. Authorization
+### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a szervezete felhasználói által az erőforrásokra vonatkozó műveleteket. Szerepköröket határozhat meg, szerepköröket rendelhet hozzá a felhasználókhoz vagy csoportokhoz, és információkat kérhet le az engedélyekről. További információ: [Engedélyezés](/rest/api/authorization/).
 
@@ -62,7 +62,7 @@ A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a sze
 | Szerepkör-hozzárendelések | 2015-07-01 |
 | Szerepkör-definíciók | 2015-07-01 |
 
-### <a name="microsoftcommerce"></a>Microsoft. Commerce
+### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 | Erőforrás típusa | API-verzió |
 |----------------------------------|----------------------|
@@ -80,13 +80,13 @@ Az Azure számítási API-k programozási szintű hozzáférést biztosítanak a
 | Erőforrás típusa | API-verzió |
 |---------------------------------------------------------------|-------------|
 | Rendelkezésre állási csoportok | 2017-12-01 |
-| Földrajzi egységek | 2017-12-01 |
+| Helyek | 2017-12-01 |
 | Helyszínek/műveletek | 2017-12-01 |
 | Helyszínek/közzétevők | 2017-12-01 |
 | Helyszínek/használat | 2017-12-01 |
 | Helyszínek/méreteinek listáján | 2017-12-01 |
 | Műveletek | 2017-12-01 |
-| Virtual Machines | 2017-12-01 |
+| Virtuális gépek | 2017-12-01 |
 | Virtual Machines/bővítmények | 2017-12-01 |
 | Virtual Machine Scale Sets | 2017-12-01 |
 | Virtual Machine Scale Sets/bővítmények | 2017-12-01 |
@@ -94,7 +94,7 @@ Az Azure számítási API-k programozási szintű hozzáférést biztosítanak a
 | Virtual Machine Scale Sets/Virtual Machines | 2017-12-01|
 | Virtual Machines méretezési készletek/virtualMachines/networkInterfaces | 2017-12-01 |
 
-### <a name="microsoftgallery"></a>Microsoft. Gallery
+### <a name="microsoftgallery"></a>Microsoft.Gallery
 
 | Erőforrás típusa | API-verzió |
 |------------------|-------------|
@@ -104,10 +104,10 @@ Az Azure számítási API-k programozási szintű hozzáférést biztosítanak a
 | Gyűjtemény elemei | 2015-04-01 |
 | Műveletek | 2015-04-01 |
 | Portál | 2015-04-01 |
-| Search | 2015-04-01 |
+| Keresés | 2015-04-01 |
 | Javaslom | 2015-04-01 |
 
-### <a name="microsoftinsights"></a>Microsoft. bepillantások
+### <a name="microsoftinsights"></a>Microsoft.Insights
 
 | Erőforrástípusok | API-verziók |
 |--------------------|--------------------|
@@ -115,11 +115,11 @@ Az Azure számítási API-k programozási szintű hozzáférést biztosítanak a
 | Események típusai | 2015-04-01 |
 | Események kategóriái | 2015-04-01 |
 | Metrika-definíciók | 2018-01-01 |
-| Metrikák | 2018-01-01 |
+| Mérőszámok | 2018-01-01 |
 | Diagnosztikai beállítások | 2017-05-01 – előzetes verzió |
 | Diagnosztikai beállítások kategóriái | 2017-05-01 – előzetes verzió |
 
-### <a name="microsoftkeyvault"></a>Microsoft. kulcstartó
+### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 Kezelheti Key Vaultét, valamint a kulcsokat, a titkokat és a tanúsítványokat a Key Vaulton belül. További információkért tekintse meg a [Azure Key Vault REST API-referenciát](/rest/api/keyvault/).
 
@@ -136,23 +136,23 @@ A műveleti hívás eredménye az elérhető hálózati Felhőbeli műveletek li
 
 | Erőforrástípusok | API-verziók |
 |---------------------------|--------------|
-| Connections (Kapcsolatok) | 2017-10-01 |
+| Kapcsolatok | 2017-10-01 |
 | DNS-zónák | 2016-04-01 |
 | Terheléselosztók | 2017-10-01 |
 | Helyi hálózati átjáró | 2017-10-01 |
-| Földrajzi egységek | 2017-10-01|
+| Helyek | 2017-10-01|
 | Hely/operationResults | 2017-10-01 |
 | Helyszínek/műveletek | 2017-10-01 |
 | Helyszínek/használat |2017-10-01 |
 | Hálózati illesztők | 2017-10-01 |
-| Hálózati biztonsági csoportok | 2017-10-01 |
+| Network Security Groups (Hálózati biztonsági csoportok) | 2017-10-01 |
 | Műveletek | 2017-10-01 |
 | Nyilvános IP-cím | 2017-10-01 |
 | Útvonaltáblák | 2017-10-01 |
 | Virtuális hálózati átjáró | 2017-10-01 |
-| Virtual Network | 2017-10-01 |
+| Virtuális hálózatok | 2017-10-01 |
 
-### <a name="microsoftresources"></a>Microsoft. Resources
+### <a name="microsoftresources"></a>Microsoft.Resources
 
 Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájának üzembe helyezését és kezelését. Az erőforráscsoportok kapcsolódó erőforrásai és az erőforrások JSON-sablonokkal való üzembe helyezése is megszervezhető. Az erőforrások Resource Managerrel való üzembe helyezésének és kezelésének bevezetését az [Azure Resource Manager áttekintésében](/azure/azure-resource-manager/resource-group-overview)találhatja meg.
 
@@ -161,11 +161,11 @@ Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájá
 | Központi telepítés | 2018-05-01 |
 | Üzembe helyezések/műveletek | 2018-05-01 |
 | Hivatkozások | 2018-05-01 |
-| Földrajzi egységek | 2018-05-01 |
+| Helyek | 2018-05-01 |
 | Műveletek | 2018-05-01 |
 | Szolgáltatók | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
-| Segédanyagok és eszközök | 2018-05-01/ |
+| További források | 2018-05-01/ |
 | Előfizetések | 2018-05-01 |
 | Előfizetések/helyszínek | 2016-06-01 |
 | Előfizetések/operationresults | 2018-05-01 |
@@ -174,8 +174,8 @@ Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájá
 | Előfizetések/resourceGroups/erőforrások | 2018-05-01 |
 | Előfizetések/erőforrások | 2018-05-01 |
 | Előfizetések/tagNames | 2018-05-01 |
-| Előfizetések/tagNames/tagValues | 2018-05-01 |
-| bérlők | 2016-06-01 |
+| Subscriptions/tagNames/tagValues | 2018-05-01 |
+| Bérlők | 2016-06-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -184,7 +184,7 @@ A Storage erőforrás-szolgáltató (összegző csomag) lehetővé teszi a Stora
 | Erőforrástípusok | API-verziók |
 |-------------------------|--------------|
 | CheckNameAvailability | 2017-10-01 |
-| Földrajzi egységek | 2017-10-01 |
+| Helyek | 2017-10-01 |
 | Helyszínek/kvóták | 2017-10-01 |
 | Műveletek | 2017-10-01 |
 | storageAccounts | 2017-10-01 |

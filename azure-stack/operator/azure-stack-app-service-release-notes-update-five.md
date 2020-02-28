@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 23c24a1ac4046ed169e8207e6e9ae84c04e2b0b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 42a87396caeb4392b14e88dd122f78396efb8ead
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876099"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695495"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>App Service Azure Stack hub Update 5 kibocsátási megjegyzései
 
@@ -22,7 +22,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hu
 > [!IMPORTANT]
 > Alkalmazza az 1901-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,5 telepítése előtt.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 A App Service Azure Stack hub Update 5 Build száma **80.0.2.15**.
 
@@ -37,7 +37,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,5
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
-  - Fő
+  - Mester
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése.
 
@@ -171,7 +171,7 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a m
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack hub üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 

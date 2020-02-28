@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ee18141d01805b498a5f9fa1856d226b6738691c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878326"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703604"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
 
@@ -71,7 +71,7 @@ A követelmények a következők:
 
 | SMB | Verzió |
 |-----|---------|
-| SMB | 3. x     |
+| SMB | 3.x     |
 
 #### <a name="smb-encryption"></a>SMB-titkosítás
 
@@ -89,7 +89,7 @@ Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a bizton
 
 | Környezeti skála | A biztonsági mentés tervezett mérete | A szükséges lemezterület teljes mennyisége |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 csomópontok/ASDK   | 1 GB                     | 20 GB                          |
+| 4-16 csomópontok/ASDK   | 1 GB                     | 20 GB                          |
 
 ***A vállalati AD-identitás-szolgáltatóhoz csatlakozó rendszer az ADFS-n keresztül***
 

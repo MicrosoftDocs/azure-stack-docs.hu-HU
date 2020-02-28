@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.lastreviewed: 01/05/2020
+ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977903"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704403"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
 
@@ -20,7 +20,7 @@ Az Azure Stack hub a virtuális gépeket igény szerinti és méretezhető szám
 
 Egy Azure Stack hub virtuális gép rugalmasságot biztosít a virtualizálás számára, anélkül, hogy a fürtöket vagy az egyes gépeket kellene kezelnie. Azonban továbbra is fenn kell tartania a virtuális gépet olyan feladatok elvégzésével, mint például a konfigurálás, a javítás/frissítés és a rajta futó szoftver telepítése.
 
-Azure Stack hub virtuális gépek többféleképpen is használhatók. Példa:
+Azure Stack hub virtuális gépek többféleképpen is használhatók. Például:
 
 - **Fejlesztés és tesztelés**: Azure stack hub virtuális gépek lehetővé teszik, hogy olyan számítógépet hozzon létre, amely az alkalmazások kódolásához és teszteléséhez szükséges adott konfigurációval rendelkezik.
 
@@ -80,11 +80,11 @@ A bővítményekkel a következő gyakori feladatok végezhetők el:
 
 - **Diagnosztikai adatok gyűjtése**: a Azure Diagnostics bővítmény segít a virtuális gép konfigurálásában az alkalmazás állapotának figyelésére használható diagnosztikai adatok gyűjtéséhez.
 
-### <a name="related-resources"></a>Kapcsolódó források
+### <a name="related-resources"></a>Kapcsolódó források (lehet, hogy a cikkek angol nyelvűek)
 
 A virtuális gép a következő táblázatban található erőforrásokat használja, és a virtuális gép létrehozásakor szükséges vagy létre kell hozni:
 
-|Erőforrás|Szükséges|Leírás|
+|Erőforrás|Kötelező|Leírás|
 |---------|---------|---------|
 |Erőforráscsoport|Igen|A virtuális gépnek egy erőforráscsoport tagjának kell lennie.|
 |Tárfiók|Nem|A virtuális gépnek felügyelt lemezek használata esetén nincs szükség a Storage-fiókra a virtuális merevlemezek tárolásához. <br>A virtuális gépnek nem felügyelt lemezek használata esetén a Storage-fiókra van szüksége a virtuális merevlemezek tárolásához.|
@@ -102,7 +102,7 @@ Több lehetőség közül választhat egy virtuális gép létrehozásához. Az 
 |Azure Stack hub-portál|Windows rendszerű virtuális gép létrehozása az Azure Stack hub portálon<br>[Linuxos virtuális gép létrehozása az Azure Stack hub portál használatával](azure-stack-quick-linux-portal.md)|
 |Sablonok|Azure Stack hub gyors üzembe helyezési sablonjai a következő helyen találhatók:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[Windows rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-powershell.md)<br>[Linuxos virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-powershell.md)|
-|CLI|[Windows rendszerű virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-cli.md)<br>[Linuxos virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-cli.md)|
+|parancssori felület|[Windows rendszerű virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-cli.md)<br>[Linuxos virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>A virtuális gép kezelése
 

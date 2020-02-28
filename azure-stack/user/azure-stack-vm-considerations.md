@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.openlocfilehash: ba6e4483475b97b6803781f5b7c5d29d94cbe896
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977886"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705134"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -20,7 +20,7 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 
 ## <a name="vm-differences"></a>VIRTUÁLIS gépek közötti különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack Hub |
+| Funkció | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 | Virtuálisgép-lemezképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincsenek elérhető lemezképek az Azure Stack hub piactéren. A Azure Stack hub-felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack hub piactéren, mielőtt a felhasználók használni tudják őket. |
 | VHD-generáció | A 2. generációs virtuális gépek olyan kulcsfontosságú funkciókat támogatnak, amelyek az egy virtuális gép létrehozásakor nem támogatottak. A szolgáltatások közé tartozik a megnövekedett memória, az Intel Software Guard Extensions (Intel SGX ENKLÁVÉHOZ) és a virtualizált állandó memória (vPMEM). A 2. generációs virtuális gépek előállítása olyan szolgáltatásokkal rendelkezik, amelyek még nem támogatottak az Azure-ban. További információ: [2. generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) -ban  | Azure Stack hub csak egy virtuális gép létrehozását támogatja. A VHDX-ből a VHD-fájlformátumba konvertálhat egy virtuális gépet, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: 2. [generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)-ban. |
@@ -33,11 +33,11 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 | API-verziók | Az Azure mindig a virtuálisgép-funkciók legújabb API-verzióit tartalmazza. | Azure Stack hub a szolgáltatások adott Azure-szolgáltatásait és adott API-verzióit támogatja. A támogatott API-verziók listájának megtekintéséhez tekintse meg a jelen cikk [API-verziók](#api-versions) című szakaszát. |
 | Azure-Instance Metadata Service | Az Azure Instance Metadata Service információt nyújt a virtuális gép felügyeletére és beállítására használható virtuálisgép-példányok futtatásáról.  | Az Azure Instance Metadata Service nem támogatott Azure Stack hub-on. |
 | Virtuális gépek rendelkezésre állási csoportjai|Több tartalék tartomány (2 vagy 3 régiónként).<br>Több frissítési tartomány.|Több tartalék tartomány (2 vagy 3 régiónként).<br>Egyetlen frissítési tartomány, élő áttelepítéssel a munkaterhelések megóvása érdekében a frissítés során. 20 frissítési tartomány támogatott a sablonok kompatibilitásához.<br>A virtuális gép és a rendelkezésre állási csoportnak azonos helyen és erőforráscsoporthoz kell lennie.|
-| Virtual Machine Scale Sets|Az autoskálázás támogatott.|Az autoskálázás nem támogatott.<br><br>További példányok hozzáadása egy méretezési csoporthoz a portál, a Resource Manager-sablonok vagy a PowerShell használatával. |
+| Virtuálisgép-méretezési csoportok|Az autoskálázás támogatott.|Az autoskálázás nem támogatott.<br><br>További példányok hozzáadása egy méretezési csoporthoz a portál, a Resource Manager-sablonok vagy a PowerShell használatával. |
 | Felhőbeli tanúsító | Válassza ki a Azure Stack központban elérhető Storage-fiók tulajdonságaiból származó végpontokat. | A [Felhőbeli tanúsító](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) a feladatátvevő fürt Kvórumának olyan típusa, amely Microsoft Azure használatával szavaz a fürt kvórumáról.<br>Az Azure Stack hub-hoz képest a globális Azure-beli végpontok a következőkhöz hasonlóak:<br>Globális Azure esetén:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack hub esetében:<br>`https://mywitness.blob.<region>.<FQDN>/`|
-| Virtuálisgép-diagnosztika | A Linux rendszerű virtuális gépek diagnosztikája támogatott. | A Linux rendszerű virtuális gépek diagnosztikája nem támogatott Azure Stack központban. Ha olyan linuxos virtuális gépet telepít, amelyen engedélyezve van a virtuálisgép-diagnosztika, a telepítés sikertelen lesz. A központi telepítés akkor is meghiúsul, ha a Linux virtuális gép alapmetrikáit a diagnosztikai beállítások segítségével engedélyezi. |
+| Virtuálisgép-diagnosztika | A Linux rendszerű virtuális gépek diagnosztikája támogatott. | A Linux rendszerű virtuális gépek diagnosztikája nem támogatott Azure Stack központban. A Virtuálisgép-diagnosztika engedélyezve van egy Linux rendszerű virtuális Gépet helyez üzembe, a központi telepítés sikertelen lesz. Az üzembe helyezés akkor is sikertelen, ha engedélyezi a Linux rendszerű virtuális gép alapvető metrikák diagnosztikai beállításokon keresztül. |
 
-## <a name="vm-sizes"></a>Virtuálisgép-méretek
+## <a name="vm-sizes"></a>A virtuális gépek mérete
 
 Az Azure Stack hub erőforrás-korlátokat szab, hogy elkerülje az erőforrások felhasználását (a kiszolgáló helyi és szolgáltatási szintjén). Ezek a korlátok javítják a bérlői élményt azáltal, hogy csökkentik a többi bérlő erőforrás-felhasználását.
 
@@ -47,22 +47,22 @@ Az Azure Stack hub erőforrás-korlátokat szab, hogy elkerülje az erőforráso
 
 A következő táblázat felsorolja az Azure Stack hub által támogatott virtuális gépeket, valamint azok konfigurációját:
 
-| Type (Típus)            | Méret          | Támogatott méretek tartománya |
+| Típus            | Méret          | Támogatott méretek tartománya |
 | ----------------| ------------- | ------------------------ |
-|Általános rendeltetésű  |Alapszintű A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Általános rendeltetésű  |Standard A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
-|Általános rendeltetésű  |Av2-sorozat     |[A1_v2 – A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
-|Általános rendeltetésű  |D sorozat       |[D1 – D4](azure-stack-vm-sizes.md#d-series)              |
-|Általános rendeltetésű  |Dv2 sorozat     |[D1_v2 – D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|Általános rendeltetésű  |DS-sorozat      |[DS1 – DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|Általános rendeltetésű  |DSv2-sorozat    |[DS1_v2 – DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Memóriára optimalizált |D sorozat       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
-|Memóriára optimalizált |DS-sorozat      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Memóriára optimalizált |Dv2 sorozat     |[D11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Memóriára optimalizált |DSv2-sorozat    |[DS11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
-|Compute-optimalizált|F sorozat       |[F1 – F16](azure-stack-vm-sizes.md#f-series)    |
-|Compute-optimalizált|Fs sorozat      |[F1s – F16s](azure-stack-vm-sizes.md#fs-series)    |
-|Compute-optimalizált|Fsv2 sorozat    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
+|Általános célú  |Alapszintű A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Általános célú  |Standard A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
+|Általános célú  |Av2-sorozat     |[A1_v2 – A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|Általános célú  |D-sorozat       |[D1 – D4](azure-stack-vm-sizes.md#d-series)              |
+|Általános célú  |Dv2-sorozat     |[D1_v2 – D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Általános célú  |DS-sorozat      |[DS1 – DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Általános célú  |DSv2-sorozat    |[DS1_v2 – DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Memóriaoptimalizált |D-sorozat       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
+|Memóriaoptimalizált |DS-sorozat      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Memóriaoptimalizált |Dv2-sorozat     |[D11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Memóriaoptimalizált |DSv2-sorozat    |[DS11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Számításra optimalizált|F-sorozat       |[F1 – F16](azure-stack-vm-sizes.md#f-series)    |
+|Számításra optimalizált|FS sorozat      |[F1s – F16s](azure-stack-vm-sizes.md#fs-series)    |
+|Számításra optimalizált|Fsv2 sorozat    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 A virtuálisgép-méretek és a hozzájuk tartozó erőforrás-mennyiségek konzisztensek Azure Stack hub és az Azure között. Ez a konzisztencia magában foglalja a memória mennyiségét, a magok számát, valamint a létrehozható adatlemezek számát/méretét. Az azonos méretű virtuális gépek teljesítménye azonban egy adott Azure Stack hub-környezet mögöttes jellemzőitől függ.
 

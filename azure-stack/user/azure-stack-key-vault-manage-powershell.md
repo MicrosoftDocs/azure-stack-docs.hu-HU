@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c9d0f5eda2e4107d0686b8869c005e812268acaa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0c7dc4bffba85c60213df4e57c3fc95f756259df
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883630"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704063"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Azure Stack hub Key Vault kezelése a PowerShell használatával
 
@@ -105,7 +105,7 @@ A `-Destination` paraméter használatával adható meg, hogy a kulcs szoftveres
 
 ![Új Key Vault-kulcs létrehozva a PowerShellben](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-Ezután hivatkozhat a létrehozott kulcsra az URI használatával. Ha olyan kulcsot hoz létre vagy importál, amelynek a neve megegyezik egy meglévő kulccsal, az eredeti kulcsot az új kulcsban megadott értékekkel frissíti a rendszer. A korábbi verziót a kulcs Version-specifikus URI-ja segítségével érheti el. Példa:
+Ezután hivatkozhat a létrehozott kulcsra az URI használatával. Ha olyan kulcsot hoz létre vagy importál, amelynek a neve megegyezik egy meglévő kulccsal, az eredeti kulcsot az új kulcsban megadott értékekkel frissíti a rendszer. A korábbi verziót a kulcs Version-specifikus URI-ja segítségével érheti el. Például:
 
 * A `https://vault10.vault.local.azurestack.external:443/keys/key01` használatával mindig megkapja az aktuális verziót.
 * A megadott verzió beszerzéséhez használja a `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a`.

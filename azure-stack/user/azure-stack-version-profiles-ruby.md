@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1236e501ce09b5e81124f8bc87821d1b5f11cfaa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883104"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705168"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 
@@ -42,7 +42,7 @@ Az API-profilok erőforrás-szolgáltatók és szolgáltatási verziók kombiná
        Gem install bundler
        ```
 
-- Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetés létrehozásához szükséges utasítások a [Azure stack hub-ban található előfizetések létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) című cikkben találhatók.
+- Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Az előfizetés létrehozásához szükséges utasítások a [Azure stack hub-ban található előfizetések létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) című cikkben találhatók.
 - Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack hub szolgáltatáshoz tartozó egyszerű szolgáltatásnév létrehozásához az [alkalmazás identitás használata az erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md) című cikk nyújt útmutatást.
 - Győződjön meg arról, hogy a szolgáltatásnév rendelkezik az előfizetéshez hozzárendelt közreműködő/tulajdonos szerepkörrel. A szerepkör egy egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasítások az alkalmazás- [identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md)című témakörben találhatók.
 
@@ -82,17 +82,17 @@ gem install 'azure_sdk'
 
 Ha a Ruby Azure SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd az értékeket környezeti változók alapján kell beállítania. A környezeti változók megadásához tekintse meg az adott operációs rendszer táblázatát követő utasításokat.
 
-| Value (Díj) | Környezeti változók | Leírás |
+| Érték | Környezeti változók | Leírás |
 | --- | --- | --- |
 | Bérlőazonosító | `AZURE_TENANT_ID` | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md). |
 | Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve.  |
-| Subscription ID (Előfizetés azonosítója) | `AZURE_SUBSCRIPTION_ID` | Az előfizetés- [azonosítóval](../operator/service-plan-offer-subscription-overview.md#subscriptions) érheti el az ajánlatokat az Azure stack hub szolgáltatásban. |
-| Ügyfél titka | `AZURE_CLIENT_SECRET` | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. |
+| Előfizetés azonosítója | `AZURE_SUBSCRIPTION_ID` | Az előfizetés- [azonosítóval](../operator/service-plan-offer-subscription-overview.md#subscriptions) érheti el az ajánlatokat az Azure stack hub szolgáltatásban. |
+| Titkos ügyfélkulcs | `AZURE_CLIENT_SECRET` | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. |
 | Resource Manager-végpont | `ARM_ENDPOINT` | Tekintse meg [az Azure stack hub Resource Manager-végpontot](#the-azure-stack-hub-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Az Azure Stack hub Resource Manager-végpont
 
-A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. A Azure Resource Manager a feladatokat nem külön, hanem csoportként, egyetlen művelet során is kezelhetik.
+A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
 
 A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpont egy JSON-fájlt ad vissza, amely a kód futtatásához szükséges adatokkal rendelkezik.
 
@@ -100,7 +100,7 @@ A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpo
  > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.  
  > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
- Példa JSON-fájlra:
+ JSON-mintafájlt:
 
  ```json
  {
@@ -124,7 +124,7 @@ A környezeti változók beállításához használja a következő formátumot 
 set AZURE_TENANT_ID=<YOUR_TENANT_ID>
 ```
 
-#### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux-és UNIX-alapú rendszerek
+#### <a name="macos-linux-and-unix-based-systems"></a>macOS-, Linux-és UNIX-alapú rendszerek
 
 UNIX-alapú rendszerekben használja a következő parancsot:
 
@@ -144,7 +144,7 @@ Azure Stack hub-és API-profilokkal kapcsolatos további információkért tekin
 
 ## <a name="azure-ruby-sdk-api-profile-usage"></a>Azure Ruby SDK API-profil használata
 
-A profil-ügyfél létrehozásához használja a következő kódot. Ez a paraméter csak Azure Stack hub vagy más privát felhők esetén szükséges. A globális Azure-ban alapértelmezés szerint már szerepelnek ezek a beállítások.
+A profil-ügyfél létrehozásához használja a következő kódot. Ez a paraméter csak Azure Stack hub vagy más privát felhők esetén szükséges. Globális Azure alapértelmezés szerint ezek a beállítások már rendelkezik.
 
 ```Ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
@@ -240,7 +240,7 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    - Bérlőazonosító
    - Ügyfél-azonosító
    - Titkos ügyfélkulcs
-   - Subscription ID (Előfizetés azonosítója)
+   - Előfizetés azonosítója
    - Resource Manager-végpont
 
    Állítsa be az alábbi környezeti változókat az Ön által létrehozott szolgáltatásnév alapján lekért információk alapján:

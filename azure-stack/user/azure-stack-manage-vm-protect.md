@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: fdcae656e142f8981a41875daada938b5ce360ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 3/19/2019
+ms.openlocfilehash: 824352a27ae91b2bf0a351b9dc280c83bfb9d19a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884719"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703961"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
 
@@ -64,11 +64,11 @@ Az RTO-ra és az RPO-ra üzleti követelményként tekinthet. Kockázatértékel
 
 Egy másik metrika a **helyreállításhoz szükséges idő** (MTTR), amely az alkalmazás meghibásodás utáni visszaállításának átlagos időtartama. A MTTR egy rendszer empirikus értéke. Ha a MTTR túllépi a RTO, akkor a rendszer meghibásodása elfogadhatatlan üzleti fennakadást okoz, mivel nem lehet visszaállítani a rendszer a megadott RTO belül.
 
-### <a name="backup-restore"></a>Biztonsági mentés visszaállítása
+### <a name="backup-restore"></a>Backup-restore
 
 A virtuálisgép-alapú alkalmazások leggyakoribb védelmi sémája a Backup szoftver használata. A virtuális gépek biztonsági mentése általában tartalmazza az operációs rendszert, az operációs rendszer konfigurációját, az alkalmazás bináris fájljait és az alkalmazásadatok. A biztonsági mentéseket a kötetek, lemezek vagy a teljes virtuális gép pillanatképével hozza létre a rendszer. A Azure Stack hub segítségével rugalmasan készíthet biztonsági mentést a vendég operációs rendszer kontextusában, vagy az Azure Stack hub Storage és a számítási API-k között. Azure Stack hub nem támogatja a biztonsági másolatok meghozatalát a hypervisor szintjén.
  
-![Backup-helyreállító](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
+![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Az alkalmazás helyreállításához egy vagy több virtuális gépet ugyanarra a felhőre vagy egy új felhőre kell visszaállítani. Az adatközpontban vagy a nyilvános felhőben is megcélozhat egy felhőt. Az Ön által választott felhő teljes mértékben a vezérlőn belül van, és az adatvédelemre és a szuverenitásra vonatkozó követelményeken alapul.
 

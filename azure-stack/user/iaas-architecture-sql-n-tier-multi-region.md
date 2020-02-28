@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: d249cbdfa205cceb3c0ef1aad7dccbb0c9daaeeb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e7cef7bf2545a8e256d9e09fbbef338aab230e17
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885260"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705015"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 
@@ -39,7 +39,7 @@ Ez az architektúra az [N szintű alkalmazásban SQL Server](iaas-architecture-w
 
 -   **VNET a VNET VPN-kapcsolathoz**. Mivel virtuális társhálózatok létesítése még nem érhető el Azure Stack hub-on, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
 
-## <a name="recommendations"></a>Ajánlatok
+## <a name="recommendations"></a>Javaslatok
 
 A többrégiós architektúrák magasabb rendelkezésre állást biztosíthatnak, mint az egyetlen régióban történő üzembe helyezés. Ha a regionális leállás hatással van az elsődleges régióra, a [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) használatával feladatátvételt hajthat végre a másodlagos régióba. Ez az architektúra az alkalmazás egy adott alrendszerének meghibásodása esetén is segíthet.
 

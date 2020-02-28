@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 7320389f5b8a74b4a8964216c06c9495fe3581b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50474e9c05f55abc1bfb8213d051393714a9b5cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883512"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702499"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Támogatási szabályzatok az AK motorhoz Azure Stack hub-on
 
@@ -94,7 +94,7 @@ Ha a rendszer egy vagy több, a Azure Stack hub-hoz tartozó Kubernetes-szolgál
 
 A felhasználók letölthetik a Kubernetes Marketplace-elemeket, amelyek lehetővé teszik a felhasználók számára, hogy a Azure Stack hub felhasználói portálon keresztül közvetve központilag telepítsenek Kubernetes-fürtöket, így egyszerűbb, mint az AK-motor közvetlen használata. Ez egy hasznos eszköz, amellyel gyorsan beállíthatja a fürtöket a bemutatók, a tesztelés és a fejlesztés számára. Nem éles környezethez készült, mert nem szerepel a Microsoft által támogatott elemek készletében.
 
-## <a name="preview-features"></a>Előzetes verziók
+## <a name="preview-features"></a>Előzetes verziójú funkciók
 
 A kiterjesztett tesztelést és felhasználói visszajelzéseket igénylő funkciók és funkciók esetében a Microsoft új előzetes verziójú funkciókat vagy szolgáltatásokat bocsát ki a szolgáltatás jelölője mögött. Ezeket a funkciókat előzetes vagy bétaverziós funkciókként érdemes figyelembe venni. Az előzetes verziójú funkciók vagy a szolgáltatás-jelölő funkciók nem éles környezetben használhatók. A funkcionalitással kapcsolatos változások és viselkedés, hibajavítások és egyéb változások instabil fürtöket és állásidőt okozhatnak. A Microsoft nem támogatja ezeket a szolgáltatásokat.
 
