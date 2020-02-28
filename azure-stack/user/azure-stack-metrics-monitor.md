@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bb03193c1c4b061a996e3bef135c6cfc630f36b0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9bbe39f63a4b59446f5c8d6444381afc9ea89cc8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883420"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703927"
 ---
 # <a name="consume-monitoring-data-from-azure-stack-hub"></a>Azure Stack hub megfigyelési adatainak felhasználása
 
@@ -19,11 +19,11 @@ A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamatt
  
 ## <a name="options-for-data-consumption"></a>Adatfelhasználási beállítások
 
-| Data type | Kategória | Támogatott szolgáltatások | Hozzáférési módszerek |
+| Adattípus | Kategória | Támogatott szolgáltatások | Hozzáférési módszerek |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Azure Monitor platform szintű mérőszámok | Metrikák | [Támogatott metrikák a Azure Stack hub Azure Monitor](azure-stack-metrics-supported.md) | REST API |
-| A vendég operációsrendszer-metrikák (például a Perfek száma) kiszámítása | Metrikák | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
-| Tárolási metrikák | Metrikák | Azure Storage | Storage-tábla:<br>Storage Analytics |
+| Azure Monitor platform szintű mérőszámok | Mérőszámok | [Támogatott metrikák a Azure Stack hub Azure Monitor](azure-stack-metrics-supported.md) | REST API |
+| A vendég operációsrendszer-metrikák (például a Perfek száma) kiszámítása | Mérőszámok | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
+| Tárolási metrikák | Mérőszámok | Azure Storage | Storage-tábla:<br>Storage Analytics |
 | Tevékenységnapló | Események | Minden Azure-szolgáltatás | REST API:<br>Azure Monitor Event API |
 | Vendég operációs rendszer naplóinak számítása (például IIS, ETW, syslogs) | Események | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
 | Tárolási naplók | Események | Azure Storage | Storage-tábla:<br>Storage Analytics |

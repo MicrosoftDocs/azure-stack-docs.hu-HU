@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878054"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700510"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Infrastructure Backup szolgáltatás – ajánlott eljárások
 
@@ -22,11 +22,11 @@ Rendszeresen tekintse át az ajánlott eljárásokat annak ellenőrzéséhez, ho
 
 ## <a name="configuration-best-practices"></a>Ajánlott eljárások a konfigurációhoz
 
-### <a name="deployment"></a>Üzembe helyezés
+### <a name="deployment"></a>Környezet
 
 Infrastructure Backup engedélyezése az egyes Azure Stack hub-felhő üzembe helyezése után. Azure Stack hub PowerShell használatával bármely ügyfél/kiszolgáló biztonsági mentését ütemezheti az operátori felügyeleti API-végponthoz való hozzáféréssel.
 
-### <a name="networking"></a>Hálózatkezelés
+### <a name="networking"></a>Hálózat
 
 Az elérési úthoz az univerzális elnevezési konvenció (UNC) karakterláncának teljes tartománynevet (FQDN) kell használnia. Az IP-cím akkor használható, ha a névfeloldás nem lehetséges. Az UNC-karakterlánc megadja az erőforrások, például a megosztott fájlok vagy eszközök helyét.
 
@@ -55,7 +55,7 @@ A kulcsot biztonságos helyen kell tárolni (például globális Azure Key Vault
  - A biztonsági mentési feladatok a rendszer futása közben futnak, így nincs leállás a kezelési élmények vagy a felhasználói alkalmazások esetében. A biztonsági mentési feladatok 20-40 percet vesznek igénybe egy ésszerű terhelés alá tartozó megoldás esetében.
  - A SZÁMÍTÓGÉPGYÁRTÓ által megadott utasításokat, a hálózati kapcsolók manuális biztonsági mentését, valamint a hardveres életciklus-gazdagépet (HLH) ugyanazon a biztonsági mentési megosztáson kell tárolni, ahol a Infrastructure Backup vezérlő tárolja a vezérlési sík biztonsági mentési információit. Érdemes lehet kapcsoló-és HLH-konfigurációkat tárolni a régió mappában. Ha több Azure Stack hub-példánya van ugyanabban a régióban, érdemes lehet azonosítót használni a méretezési egységhez tartozó minden egyes konfigurációhoz.
 
-### <a name="folder-names"></a>Mappák nevei
+### <a name="folder-names"></a>Mappanevek
 
  - Az infrastruktúra automatikusan hozza létre a MASBACKUP mappát. Ez egy Microsoft által felügyelt megosztás. A megosztásokat a MASBACKUP azonos szinten is létrehozhatja. Nem ajánlott mappák vagy tárolási adattárolót létrehozni a MASBACKUP belül, hogy Azure Stack hub ne hozzon létre.
  -  A felhasználói FQDN és a mappa neve a különböző felhőkből származó biztonsági mentési adatok megkülönböztetéséhez. A Azure Stack hub központi telepítésének és végpontjának teljes tartományneve a régió paraméter és a külső tartománynév paraméter kombinációja. További információ: [Azure stack hub Datacenter Integration-DNS](azure-stack-integrate-dns.md).
@@ -73,18 +73,18 @@ Régió: NYC
 
 A MASBackup mappa a Azure Stack hub tárolja a biztonsági másolati adatbázisokat. Ne használja ezt a mappát a saját adatai tárolásához. A számítógépgyártók nem használhatják ezt a mappát az összes biztonsági mentési érték tárolására.
 
-A számítógépgyártóknak javasoljuk, hogy a régió mappájában tárolja az összetevőinek biztonsági mentési adatait. A hálózati kapcsolók, a hardveres életciklus-állomás (HLH) és így tovább is tárolhatók a saját almappájában. Példa:
+A számítógépgyártóknak javasoljuk, hogy a régió mappájában tárolja az összetevőinek biztonsági mentési adatait. A hálózati kapcsolók, a hardveres életciklus-állomás (HLH) és így tovább is tárolhatók a saját almappájában. Például:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
 
-### <a name="monitoring"></a>Monitoring
+### <a name="monitoring"></a>Figyelés
 
 A rendszer a következő riasztásokat támogatja:
 
-| Riasztás                                                   | Leírás                                                                                     | Szervizkiszolgáló                                                                                                                                |
+| Riasztás                                                   | Leírás                                                                                     | Szervizelés                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | A biztonsági mentés nem sikerült, mert a fájlmegosztás kapacitása nem működik. | A fájlmegosztás nem kapacitású, és a biztonságimásolat-vezérlő nem tudja exportálni a biztonságimásolat-fájlokat a helyre. | Vegyen fel további tárolókapacitást, és próbálkozzon újra a biztonsági mentéssel. A meglévő biztonsági másolatok törlése (az elsőtől kezdve) szabadítson fel lemezterületet.                    |
 | Csatlakozási problémák miatt nem sikerült a biztonsági mentés.             | A Azure Stack hub és a fájlmegosztás közötti hálózat problémákba ütközik.                          | Oldja meg a hálózati problémát, és próbálkozzon újra a biztonsági mentéssel.                                                                                            |

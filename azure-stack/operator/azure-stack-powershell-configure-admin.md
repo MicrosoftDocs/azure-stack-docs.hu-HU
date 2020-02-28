@@ -7,16 +7,16 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 1c894dbb431d1f171457ac0300d214cc2e2b7c0f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e0f10db1c9d983b4802812bd4274429387032c66
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881611"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698402"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
-Az Azure Stack hub a PowerShell használatával is konfigurálható olyan erőforrások kezeléséhez, mint az ajánlatok, a csomagok, a kvóták és a riasztások létrehozása. Ez a témakör segítséget nyújt az operátori környezet konfigurálásához.
+Az Azure Stack hub a PowerShell használatával is konfigurálható olyan erőforrások kezeléséhez, mint az ajánlatok, a csomagok, a kvóták és a riasztások létrehozása. Ez a témakör segít az üzemeltető környezet konfigurálásához.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -25,7 +25,7 @@ Futtassa a következő előfeltételeket a [Azure stack Development Kit (ASDK)](
 - Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](azure-stack-powershell-install.md).  
 - Töltse le az [Azure stack hub használatához szükséges eszközöket](azure-stack-powershell-download.md).  
 
-## <a name="connect-with-azure-ad"></a>Az Azure AD-vel való kapcsolat
+## <a name="connect-with-azure-ad"></a>Az Azure AD Connect
 
 Az Azure Stack hub-kezelő környezet PowerShell-lel való konfigurálásához futtassa az alábbi parancsfájlok egyikét. Cserélje le a Azure Active Directory (Azure AD) tenantName, és Azure Resource Manager a végpontok értékeit a saját környezeti konfigurációjával.
 
@@ -47,7 +47,7 @@ Az Azure Stack hub-kezelő környezet PowerShell-lel való konfigurálásához f
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 
-## <a name="connect-with-ad-fs"></a>Kapcsolat AD FS
+## <a name="connect-with-ad-fs"></a>Csatlakozás az AD FS-sel
 
 Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure Active Directory összevont szolgáltatásokkal (Azure AD FS). A ASDK esetében ez az Azure Resource Manager-végpont `https://adminmanagement.local.azurestack.external`ra van beállítva. Azure Stack hub integrált rendszerek Azure Resource Manager végpontjának lekéréséhez forduljon a szolgáltatóhoz.
 

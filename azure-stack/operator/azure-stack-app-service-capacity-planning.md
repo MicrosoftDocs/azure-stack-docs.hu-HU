@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 78482b149a8397b9cc441cd97da905b782f9b7d4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 03/13/20192
+ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876320"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701173"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stack hub-ban
 
@@ -26,8 +26,8 @@ Ezen irányelvek alapján megtervezheti a App Service kapacitási stratégiát.
 | --- | --- | --- |
 | Tartományvezérlő | 2 | A1 |
 | Előtér | 2 | A1 |
-| Felügyelet | 2 | A3 |
-| Gyártó/kiadó | 2 | A1 |
+| Kezelés | 2 | A3 |
+| Közzétevő | 2 | A1 |
 | Webes feldolgozók – közös | 2 | A1 |
 | Webes feldolgozók – dedikált | 2/szintenként | A1 |
 

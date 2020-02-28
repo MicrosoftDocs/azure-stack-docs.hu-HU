@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 06/18/20192
+ms.openlocfilehash: 5a1b36f7640f3259a4b18f087ebf4bad49f3c4ed
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884444"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703672"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások használatával
 
@@ -59,17 +59,17 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 
 1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. alapismeretek
 
 1. Válassza az **alapok** lehetőséget a Kubernetes-fürt létrehozása területen.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Válassza ki az **előfizetés** -azonosítóját.
 
-1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie.
+1. Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket.
 
 1. Válassza ki az erőforráscsoport **helyét** . Ez az a régió, amelyet a Azure Stack hub telepítéséhez választ.
 
@@ -77,22 +77,22 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 
 1. Válassza a **Kubernetes** lehetőséget a Kubernetes-fürt létrehozása területen.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
-1. Adja meg a Linux rendszerű **virtuális gép rendszergazdai felhasználónevét**. A Kubernetes-fürt és a DVM részét képező Linux Virtual Machines felhasználóneve.
+1. Adja meg a Linux rendszerű **virtuális gép rendszergazdai felhasználónevét**. A Linux rendszerű virtuális gépek, a Kubernetes-fürt részét képező és a DVM felhasználóneve.
 
 1. Adja meg a Kubernetes-fürt és a DVM részeként létrehozott összes linuxos gép engedélyezéséhez használt **nyilvános SSH-kulcsot** .
 
 1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például `k8s-12345`. Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
 
     > [!Note]  
-    > Minden egyes fürthöz használjon egy új és egyedi Master profil DNS-előtagot.
+    > Ha mindegyik fürthöz egy új és egyedi fő profil DNS-előtagot használja.
 
 1. Válassza ki a **Kubernetes-főkiszolgáló profiljának darabszámát**. A darabszám a főkészletben lévő csomópontok számát tartalmazza. 1 és 7 közötti érték adható meg. Ennek az értéknek páratlan számnak kell lennie.
 
 1. Válassza ki **a Kubernetes fő virtuális gépek VMSize**.
 
-1. Válassza ki a **Kubernetes-csomópontok profiljának darabszámát**. A szám a fürtben található ügynökök számát tartalmazza. 
+1. Válassza ki a **Kubernetes-csomópontok profiljának darabszámát**. A száma a fürtben található ügynökök számát tartalmazza. 
 
 1. Válassza ki a **Kubernetes-csomópont virtuális gépek VMSize**. Ez határozza meg a virtuális gépek Kubernetes-csomópontjának méretét. 
 
@@ -102,13 +102,13 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 
 1. Adja meg az **egyszerű szolgáltatásnév ügyfél titkát**. Ez az ügyfél titkos kulcsa, amelyet a Azure Stack hub-rendszergazdától kapott AD FS szolgáltatási elv számára.
 
-1. Adja meg a **Kubernetes verzióját**. Ez az Azure-szolgáltató Kubernetes verziója. Azure Stack hub az egyes Azure Stack hub-verziókhoz egyéni Kubernetes-buildet bocsát ki.
+1. Adja meg a **Kubernetes verzióját**. Ez az a verzió a Kubernetes Azure-szolgáltatóhoz. Azure Stack hub az egyes Azure Stack hub-verziókhoz egyéni Kubernetes-buildet bocsát ki.
 
 ### <a name="3-summary"></a>3. Összefoglalás
 
 1. Válassza az összefoglalás lehetőséget. A panel egy érvényesítési üzenetet jelenít meg a Kubernetes-fürt konfigurációjának beállításaihoz.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
+    ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
 2. Tekintse át a beállításokat.
 

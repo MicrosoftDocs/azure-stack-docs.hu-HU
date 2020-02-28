@@ -7,18 +7,18 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4b305b56c9da4a5511a98397df66cc0fa6be34a9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505891a9f7131d474d0b37d08b1d24d08656718d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883787"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704233"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack hub általános telepítései
 
 A Azure Stack hub a szolgáltatásként szolgáló infrastruktúra (IaaS) és a szolgáltatásként szolgáló platform (Péter) használatát is támogatja. Ez a cikk a virtuális gép (VM) beállításához és a Azure Stack hubhoz való üzembe helyezéséhez szükséges erőforrásokat sorolja fel.
 
-## <a name="before-you-begin"></a>Előzetes teendők
+## <a name="before-you-begin"></a>Előkészületek
 
 Mielőtt elkezdené az alkalmazás központi telepítését Azure Stack hubhoz, állítsa be a fejlesztői gépet. Az Azure Stack hub fejlesztőként való működésének előkészítésével kapcsolatos útmutatásért lásd: [fejlesztési környezet beállítása Azure stack hub-ban](azure-stack-dev-start.md).
 

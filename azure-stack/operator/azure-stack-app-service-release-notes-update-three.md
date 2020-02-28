@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 79fdd8a3d9b026aea21ab04ce85c095e30ee272c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 0b277f33472c25d0dc8e6b813685029aea81a303
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874382"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701394"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service Azure Stack hub Update 3 kibocsátási megjegyzései
 
@@ -22,7 +22,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure Stack hub 3. frissítésé
 > [!IMPORTANT]
 > Alkalmazza az 1807-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,3 telepítése előtt.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 Az Azure Stack hub Update 3 Build számának App Service **74.0.13698.31**.
 
@@ -34,7 +34,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,3
 
 ![App Service szerepkör állapota](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-### <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
+### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 3 a következő javításokat és javításokat tartalmazza:
 
@@ -49,7 +49,7 @@ A Azure App Service on Azure Stack hub Update 3 a következő javításokat és 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
 - **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
-  - Hozzáadott ASP.NET Core 2.1.2
+  - Added ASP.NET Core 2.1.2
   - NodeJS 10.0.0 hozzáadva
   - Zulu OpenJDK 8.30.0.1 hozzáadva
   - Tomcat 8.5.31 és 9.0.8 hozzáadva
@@ -170,7 +170,7 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a m
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack hub üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 

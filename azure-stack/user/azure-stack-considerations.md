@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 74e2e6986f3fac7ee6503c1b7417dffea44842b5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: 7b3f8fe96ddd33550f28860c0eaa77fa8cfa8c84
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883869"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704352"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -34,14 +34,14 @@ Az [Azure technikai dokumentációjának tartalma](/azure) feltételezi, hogy az
 
 Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű különbségeket ismerteti. Tartsa szem előtt ezeket a különbségeket Azure Stack hub fejlesztésekor vagy Azure Stack hub-szolgáltatások használatakor:
 
-| Terület | Azure (globális) | Azure Stack Hub |
+| Terület | Azure (globális) | Azure Stack hub |
 | -------- | ------------- | ----------|
 | Ki üzemelteti? | Microsoft | A szervezet vagy a szolgáltató.|
 | Kihez forduljon a támogatási szolgálathoz? | Microsoft | Az integrált rendszerek támogatásához forduljon a Azure Stack hub-kezelőhöz (a szervezetnél vagy a szolgáltatónál).<br><br>A Azure Stack Development Kit (ASDK) támogatásához látogasson el a [Microsoft fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Mivel a fejlesztői készlet egy kiértékelési környezet, a Microsoft ügyfélszolgálati szolgálatai (CSS) nem kínálunk hivatalos támogatást.
 | Elérhető szolgáltatások | Tekintse meg az [Azure-termékek](https://azure.microsoft.com/services/?b=17.04b)listáját. Az elérhető szolgáltatások az Azure-régiótól eltérőek. | Azure Stack hub az Azure-szolgáltatások egy részhalmazát támogatja. A tényleges szolgáltatások attól függően változnak, hogy a szervezet vagy a szolgáltató milyen ajánlatot tesz.
 | Azure Resource Manager végpont * | https://management.azure.com | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított végpontot.<br><br>A fejlesztői csomaghoz használja a következőt: https://management.local.azurestack.external.
 | Portál URL-címe * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított URL-címet.<br><br>A fejlesztői csomaghoz használja a következőt: https://portal.local.azurestack.external.
-| Region (Régió) | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi**lesz.
+| Régió | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi**lesz.
 | Erőforráscsoportok | Az erőforráscsoportok A régiókra terjedhetnek. | Mind az integrált rendszerek, mind a fejlesztői csomag esetében csak egy régió van.
 |Támogatott névterek, erőforrástípusok és API-verziók | A legújabb (vagy korábbi verziók, amelyek még nem elavultak). | Azure Stack hub bizonyos verziókat támogat. Tekintse meg a jelen cikk [verzióra vonatkozó követelmények](#version-requirements) című szakaszát.
 | | |
@@ -52,7 +52,7 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 
 A Microsoft olyan eszközöket és útmutatást biztosít, amelyek segítenek az Azure Stack hub fejlesztésében.
 
-| Ajánlás | Tudástár |
+| Ajánlás | Referencia |
 | -------- | ------------- |
 | Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - a [PowerShell telepítése](../operator/azure-stack-powershell-install.md)<br>- [eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- a [PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- a [Visual Studio telepítése](azure-stack-install-visual-studio.md)
 | Tekintse át a következő elemekre vonatkozó információkat:<br>– Azure Resource Manager a sablon szempontjait.<br>– Útmutató a Gyorsindítás sablonokhoz.<br>– Az Azure-ban Azure Stack hub fejlesztéséhez használható irányelvmodul segítségével. | [Fejlesztés Azure Stack hub-hoz](azure-stack-developer.md) |

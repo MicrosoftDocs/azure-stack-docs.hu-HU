@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b764054e08af89ce20c123c7d3dd9659560e1297
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: ec1a5b07498e380eeef3989df1185537afef360f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884356"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704845"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Az SQL Server ajánlott eljárásai Azure Stack hub teljesítményének optimalizálásához
 
@@ -38,7 +38,7 @@ A következő ellenőrzőlista a SQL Server Azure Stack hub virtuális gépeken 
 |Terület|Optimalizálás|
 |-----|-----|
 |Virtuális gép mérete |[DS3](azure-stack-vm-sizes.md) vagy újabb SQL Server Enterprise kiadáshoz.<br><br>[DS2](azure-stack-vm-sizes.md) vagy újabb a SQL Server Standard Edition és a Web Edition rendszerhez.|
-|Adattárolás |Olyan virtuálisgép-családot használjon, amely támogatja a [Premium Storage](azure-stack-acs-differences.md)-ot.|
+|Tárterület |Olyan virtuálisgép-családot használjon, amely támogatja a [Premium Storage](azure-stack-acs-differences.md)-ot.|
 |Lemezek |Használjon legalább két adatlemezt (egyet a naplófájlokhoz, egyet az adatfájlhoz és a TempDB), és a kapacitás igényei alapján válassza ki a lemez méretét. Állítsa az alapértelmezett adatfájl-tárolóhelyeket ezekre a lemezekre a SQL Server telepítése során.<br><br>Ne használjon operációs rendszert vagy ideiglenes lemezeket az adatbázis-tároláshoz vagy a naplózáshoz.<br>Több Azure-adatlemezt is felhasználhat, hogy a tárolóhelyek használatával megnövelt IO-átviteli sebességet kapjon.<br><br>Dokumentált kiosztási méretekkel rendelkező formátum.|
 |I/O|Az adatfájlok azonnali inicializálásának engedélyezése.<br><br>Az adatbázisok automatikus növekedésének korlátozása ésszerűen kis rögzített növekményekkel (64 MB-256 MB).<br><br>Az AutoShrink letiltása az adatbázison.<br><br>Állítsa be az alapértelmezett biztonsági mentési és adatbázisfájlok helyét az adatlemezeken, nem az operációs rendszer lemezét.<br><br>Zárolt lapok engedélyezése.<br><br>Alkalmazza a SQL Server szervizcsomagokat és az összesítő frissítéseket.|
 |Szolgáltatás-specifikus|Biztonsági mentés közvetlenül a blob Storage-ba (ha a használatban lévő SQL Server verzió támogatja).|

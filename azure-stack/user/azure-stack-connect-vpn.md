@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
-ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: c0a03b453a574b04e6b4a8654e3375d552acc5f5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/24/2019
+ms.openlocfilehash: 13ac78c3f0a665e4319db4d3bf70b0274b5b8dd5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883915"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704369"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Azure Stack hub csatlakozása az Azure-hoz VPN használatával
 
 Ez a cikk azt ismerteti, hogyan lehet helyek közötti VPN-t létrehozni egy virtuális hálózat Azure Stack hub-beli virtuális hálózathoz való összekapcsolásához az Azure-ban.
 
-## <a name="before-you-begin"></a>Előzetes teendők
+## <a name="before-you-begin"></a>Előkészületek
 
 A kapcsolódási konfiguráció befejezéséhez győződjön meg arról, hogy rendelkezik a következő elemek elkezdése előtt:
 
@@ -35,9 +35,9 @@ A következő ábra azt mutatja be, hogy a kapcsolódási konfigurációnak hogy
 
 A hálózati konfigurációval kapcsolatos példák táblázat a cikkben szereplő példákhoz használt értékeket jeleníti meg. Ezeket az értékeket használhatja, vagy megtekintheti őket, hogy jobban megértse a cikkben szereplő példákat:
 
-|   |Azure Stack Hub|Azure|
+|   |Azure Stack hub|Azure|
 |---------|---------|---------|
-|Virtuális hálózat neve     |AZS – VNet|AzureVNet |
+|Virtuális hálózat neve     |Azs-VNet|AzureVNet |
 |Virtuális hálózati címtartomány |10.1.0.0/16|10.100.0.0/16|
 |Alhálózat neve     |Előtér|Előtér|
 |Alhálózati címtartomány|10.1.0.0/24 |10.100.0.0/24 |

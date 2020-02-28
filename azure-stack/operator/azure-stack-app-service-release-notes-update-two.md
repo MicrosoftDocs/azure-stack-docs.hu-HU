@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 029601b9bac3bc3b14d2ab4202df072b6d9063de
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 05/18/2019
+ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875793"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703417"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service Azure Stack hub Update 2 kibocsátási megjegyzései
 
@@ -22,7 +22,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hu
 > [!IMPORTANT]
 > Alkalmazza az 1804-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,2 telepítése előtt.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 A App Service Azure Stack hub Update 2 Build száma **72.0.13698.10**.
 
@@ -67,7 +67,7 @@ A Azure App Service on Azure Stack hub Update 2 a következő javításokat és 
   - Rendszer hitelesítő adatainak elforgatása
   - A kapcsolatok karakterláncának elforgatása
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el.
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877646"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701003"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Földrajzilag elosztott alkalmazás-megoldás létrehozása az Azure-val és Azure Stack hub-vel való közvetlen forgalomhoz
 
@@ -308,7 +308,7 @@ A CNAME hozzáadása után a DNS-rekordok oldal a következő példához hasonl�
 
 4. Az Azure Portal bal oldali navigációs sávján válassza ki az **Egyéni tartományok** elemet.
 
-5. Válassza ki a **Gazdagépnév hozzáadása** elem melletti **+** ikont.
+5. Válassza ki a **Gazdagépnév hozzáadása+ elem melletti**  ikont.
 
 6. Írja be a teljes tartománynevet, például `www.northwindcloud.com`.
 
@@ -535,9 +535,9 @@ A Web App (webalkalmazás) lapon válassza az **SL-beállítások**elemet. Ezut�
 
 ![HTTPS kényszerítése](media/solution-deployment-guide-geo-distributed/image43.png)
 
-Ha a művelet befejeződött, navigáljon az alkalmazásra mutató HTTP URL-címek bármelyikéhez. Példa:
+Ha a művelet befejeződött, navigáljon az alkalmazásra mutató HTTP URL-címek bármelyikéhez. Például:
 
--   https://< app_name >. azurewebsites. net
+-   https://<app_name>.azurewebsites.net
 -   https://northwindcloud.com
 -   <https://www.northwindcloud.com>
 

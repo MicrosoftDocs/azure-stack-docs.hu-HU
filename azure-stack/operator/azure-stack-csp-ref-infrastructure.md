@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 548bcef83794230a196b8afc9d6db11767678df5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882540"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700374"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára
 
@@ -35,7 +35,7 @@ A kereskedelemben használt Azure Stack hub-mérőszámokról és azok árairól
 
 A Azure Stack hub használati és számlázási feltételeit a következő feltételek és fogalmak használják:
 
-| Időtartam | Meghatározás |
+| Időszak | Meghatározás |
 | --- | --- |
 | Közvetlen CSP-partner | A közvetlen CSP-partner közvetlenül a Microsofttól kapja meg az Azure-t és Azure Stack hub-használatot, és az ügyfeleket közvetlenül számlázza. |
 | Közvetett CSP | A közvetett viszonteladók egy közvetett szolgáltatóval (más néven terjesztővel) működnek. A viszonteladók végfelhasználók toborzása; a közvetett szolgáltató a Microsofttal számlázási kapcsolatot tart fenn, kezeli az ügyfelek számlázását, és további szolgáltatásokat nyújt, mint például a terméktámogatás. |

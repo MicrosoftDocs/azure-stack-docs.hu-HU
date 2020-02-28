@@ -7,18 +7,18 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 842dab690d8239ca0c4db7622fe7a0bb18347a0c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874144"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695444"
 ---
 # <a name="asdk-architecture"></a>ASDK architektúra
 A Azure Stack Development Kit (ASDK) egy egycsomópontos üzemelő példány, Azure Stack egyetlen gazdagépen fut. A peremhálózati útválasztási összetevőket a rendszer a gazdagépen telepíti a NAT-és VPN-képességek biztosításához a Azure Stack számára. Azure Stack infrastruktúra-szerepkörök a fizikai gazdagép Hyper-V rétegében futnak.
 
 
-## <a name="virtual-machine-roles"></a>Virtuális gépi szerepkörök
+## <a name="virtual-machine-roles"></a>Virtuális gépek szerepei
 A ASDK a következő virtuális gépeket használó szolgáltatásokat kínálja a fejlesztői csomag gazdagépén:
 
 | Name (Név) | Leírás |

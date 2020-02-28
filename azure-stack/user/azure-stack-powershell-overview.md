@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2238b399c6c7de6e37a7059a395a0024d3e71a98
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883327"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703808"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Ismerkedés a PowerShell-lel Azure Stack hub-ban
 
@@ -20,7 +20,7 @@ A PowerShell úgy van kialakítva, hogy az erőforrásokat a parancssorból keze
 
 Ez a cikk segítséget nyújt az Azure Stack hub-ban használt PowerShell-modulok különböző eléréséhez. Ha a PowerShellt Azure Stack hub-ban használja, a négy API-készlet bármelyikét használhatja, ahogy az a következő táblázatban látható:
 
-| API | PowerShell-dokumentáció | REST-hivatkozás |
+| API | PowerShell-referencia | REST-hivatkozás |
 | --- | --- | --- |
 | Globális Azure Resource Manager | [Azure PowerShell modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](https://docs.microsoft.com/rest/api/) |
 | Azure Stack hub Resource Manager | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) |

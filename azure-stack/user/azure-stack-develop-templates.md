@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 97cf7e77aa2a352d5b297b13fca0959722401530
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884894"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702975"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Sablonok fejlesztése Azure Stack hubhoz Azure Resource Manager
 
@@ -38,9 +38,9 @@ Az Azure-szolgáltatási verziók eltérőek lehetnek az Azure és az Azure Stac
 
 | Erőforrás-szolgáltató | apiVersion |
 | --- | --- |
-| Számítási szolgáltatások |**2015-06-15** |
-| Network (Hálózat) |**2015-06-15**, **2015-05-01 – előzetes** verzió |
-| Adattárolás |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
+| Számítás |**2015-06-15** |
+| Hálózat |**2015-06-15**, **2015-05-01 – előzetes** verzió |
+| Tárterület |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
 | KeyVault | **2015-06-01** |
 | App Service |**2015-08-01** |
 
@@ -55,7 +55,7 @@ Azure Resource Manager [függvények](/azure/azure-resource-manager/resource-gro
 Ezek a függvények nem érhetők el Azure Stack központban:
 
 * Kihagyás
-* eltarthat
+* Eltarthat
 
 ## <a name="resource-location"></a>Erőforrás helye
 

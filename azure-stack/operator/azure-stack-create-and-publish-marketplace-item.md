@@ -7,12 +7,12 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890119"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704454"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -22,7 +22,7 @@ Az Azure Stack hub piactéren közzétett minden elem az Azure Gallery-csomag (.
 
 A jelen cikkben szereplő példák bemutatják, hogyan hozhat létre Windows vagy Linux típusú, egyetlen virtuálisgép-Piactéri ajánlatot.
 
-## <a name="create-a-marketplace-item"></a>Piactéri elem létrehozása
+## <a name="create-a-marketplace-item"></a>Piactér-elemek létrehozása
 
 > [!IMPORTANT]
 > A virtuálisgép-Piactéri elem létrehozása előtt töltse fel az egyéni virtuálisgép-rendszerképet az Azure Stack hub-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása Azure stack hub-hoz](azure-stack-add-vm-image.md)című témakör útmutatását. Ezután kövesse a cikk utasításait a rendszerkép (. azpkg létrehozása) becsomagolásához, majd töltse fel az Azure Stack hub piactérre.
@@ -157,7 +157,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     >
     >
 
-## <a name="publish-a-marketplace-item"></a>Piactéri elem közzététele
+## <a name="publish-a-marketplace-item"></a>Piactér-elemek közzététele
 
 1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack hub tárolóba, vagy feltöltheti az Azure Storage-ba, amely a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
 
@@ -191,7 +191,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
    `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
    `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 
-6. A Piactéri elemeket a **Remove-AzureRMGalleryItem** parancsmag használatával távolíthatja el. Példa:
+6. A Piactéri elemeket a **Remove-AzureRMGalleryItem** parancsmag használatával távolíthatja el. Például:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -206,28 +206,28 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Name (Név) |X |Sztring |[A-Za-z0-9] + | |
-| Gyártó/kiadó |X |Sztring |[A-Za-z0-9] + | |
+| Name (Név) |X |Sztring |[A-Za-z0-9]+ | |
+| Közzétevő |X |Sztring |[A-Za-z0-9]+ | |
 | Verzió |X |Sztring |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metaadatok
 
-| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| displayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
+| DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
-| Összefoglalás |X |Sztring |60 – 100 karakter | |
+| Összegzés |X |Sztring |60 – 100 karakter | |
 | LongSummary |X |Sztring |140 – 256 karakter |Azure Stack központban még nem alkalmazható. |
 | Leírás |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
 
-### <a name="images"></a>Lemezképek
+### <a name="images"></a>Képek
 
 A piactér a következő ikonokat használja:
 
-| Name (Név) | szélessége | magasság | Megjegyzések |
+| Name (Név) | Szélesség | Magasság | Megjegyzések |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
@@ -243,19 +243,19 @@ Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| displayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
+| DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>További tulajdonságok
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Name (Név) | Szükséges | Type (Típus) | Korlátozások | Leírás |
+| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| displayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
-| Value (Díj) |X |Sztring |Legfeljebb 30 karakter. | |
+| DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
+| Érték |X |Sztring |Legfeljebb 30 karakter. | |
 
 ### <a name="html-sanitization"></a>HTML-tisztítás
 

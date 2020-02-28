@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 2b4c90edbb4c53caf358d936873196f1a8c6ef9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5225772f94e5a28d03872d1764681e56f14a2cf4
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881210"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697076"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Előfizetések létrehozása a Azure Stack hub ajánlatai számára
 
@@ -35,7 +35,7 @@ Miután létrehozott egy előfizetést egy felhasználóhoz, bejelentkezhet a fe
 2. Válassza a **Hozzáadás** lehetőséget. Az **új felhasználói előfizetés**területen adja meg a következő adatokat:  
 
    - **Megjelenítendő név** – a *felhasználói előfizetés neveként*megjelenő előfizetés azonosítására szolgáló rövid név.
-   - **Felhasználó** – válasszon egy felhasználót egy elérhető címtár-bérlőből ehhez az előfizetéshez. A Felhasználónév *tulajdonosként*jelenik meg.  A Felhasználónév formátuma a személyazonossági megoldástól függ. Példa:
+   - **Felhasználó** – válasszon egy felhasználót egy elérhető címtár-bérlőből ehhez az előfizetéshez. A Felhasználónév *tulajdonosként*jelenik meg.  A Felhasználónév formátuma a személyazonossági megoldástól függ. Például:
 
      - **Azure ad:** `<user1>@<contoso.onmicrosoft.com>`
 

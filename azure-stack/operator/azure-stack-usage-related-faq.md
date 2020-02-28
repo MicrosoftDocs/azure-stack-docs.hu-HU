@@ -10,12 +10,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1e5b2198bc830ea91babadab7a0a33ed5dc09f38
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972530"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696447"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -25,7 +25,7 @@ Ez a cikk az Azure Stack hub-használattal és a Azure Stack hub használati API
 
 A használatot a következő erőforrás-szolgáltatók jelentik:
 
-### <a name="network"></a>Network (Hálózat)
+### <a name="network"></a>Hálózat
   
 **FOGYASZTÁSMÉRŐ azonosítója**: F271A8A388C44D93956A063E1D2FA80B  
 **Fogyasztásmérő neve**: statikus IP-cím használata  
@@ -37,7 +37,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: IP-címek  
 **Megjegyzések**: a használt IP-címek száma. Ha napi részletességgel hívja meg a használati API-t, a mérő az IP-címet adja vissza, szorozva az órák számával.  
   
-### <a name="storage"></a>Adattárolás
+### <a name="storage"></a>Tárterület
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Fogyasztásmérő neve**: TableCapacity  
@@ -104,7 +104,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: kimenő forgalom GB-ban  
 **Megjegyzések**: Queue szolgáltatás a kimenő adatforgalom GB-ban.
 
-### <a name="compute"></a>Számítási szolgáltatások
+### <a name="compute"></a>Számítás
   
 **FOGYASZTÁSMÉRŐ azonosítója**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Fogyasztásmérő neve**: alapszintű virtuális gép mérete (óra)  
@@ -121,7 +121,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: virtuális gép órája  
 **Megjegyzések**: az alapszintű és a Windows RENDSZERű virtuális gépeket is rögzíti. Nem igazodik a magokhoz.  
   
-### <a name="managed-disks"></a>Managed Disks
+### <a name="managed-disks"></a>Felügyelt lemezek
 
 Mérőszám **azonosítója**: 380874F9-300c-48e0-95a0-d2d9a21ade8f- **fogyasztásmérő neve**: S4- **egység**: lemezek száma\*havi **Megjegyzés**: standard szintű felügyelt lemez – 32 GB
 
@@ -222,7 +222,7 @@ Mérőszám **azonosítója**: 5Ca1cbb9-6f14-4e76-8be8-1ca91547965e- **fogyaszt�
 **Egység**: 10k tranzakció  
 **Megjegyzések**: RSA 3K/4K, ECC Key Transactions (előzetes verzió).  
   
-### <a name="app-service"></a>App Service
+### <a name="app-service"></a>App Service-ben
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Fogyasztásmérő neve**: app Service  
@@ -271,10 +271,10 @@ mérőszám **neve**: egyéni feldolgozói szintek
 **FOGYASZTÁSMÉRŐ azonosítója**: 264ACB47-AD38-47F8-ADD3-47F01DC4F473  
 **Fogyasztásmérő neve**: SNI SSL  
 **Egység**:/SNI SSL kötés  
-**Megjegyzések**: app Service kétféle SSL-kapcsolatot támogat: kiszolgálónév jelzése (SNI) SSL-kapcsolatokat és IP-cím SSL-kapcsolatokat. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
+**Megjegyzések**: app Service kétféle SSL-kapcsolatot támogat: kiszolgálónév jelzése (SNI) SSL-kapcsolatokat és IP-cím SSL-kapcsolatokat. A SNI-alapú SSL a modern böngészőkben működik, miközben az IP-alapú SSL minden böngészőben működik.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
-Mérőszám **neve**: IP SSL **egység**:/IP-alapú SSL-kötési **Megjegyzések**: app Service két típusú SSL-kapcsolatot támogat: kiszolgálónév jelzése (SNI) SSL-kapcsolatok és IP-cím SSL-kapcsolatok. Az SNI-alapú SSL a modern böngészőkben használható, az IP-alapú SSL mindegyikben.  
+Mérőszám **neve**: IP SSL **egység**:/IP-alapú SSL-kötési **Megjegyzések**: app Service két típusú SSL-kapcsolatot támogat: kiszolgálónév jelzése (SNI) SSL-kapcsolatok és IP-cím SSL-kapcsolatok. A SNI-alapú SSL a modern böngészőkben működik, miközben az IP-alapú SSL minden böngészőben működik.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 73215A6C-FA54-4284-B9C1-7E8EC871CC5B  
 **Fogyasztásmérő neve**: webes folyamat **egysége**:  
@@ -285,7 +285,7 @@ Mérőszám **neve**: IP SSL **egység**:/IP-alapú SSL-kötési **Megjegyzések
 **Egység**: GB  
 **Megjegyzések**: összes bejövő kérelemre adott válasz bájtjai és összes kimenő kérelem bájtjainak száma + összes bejövő FTP-kérelemre adott válasz bájtjai és a teljes beérkező webes üzembe helyezési kérelmekre adott válasz bájtjai.  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Hogyan hasonlítható össze az Azure Stack hub használati API-k az [Azure használati API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) -val (jelenleg nyilvános előzetes verzióban)?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Hogyan hasonlítható össze az Azure Stack hub használati API-k az [Azure használati API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) -val (jelenleg nyilvános előzetes verzióban)?
 
 * A bérlői használati API konzisztens az Azure API-val, egyetlen kivétellel: az Azure Stack hub jelenleg nem támogatja a *showDetails* jelzőt.
 * A szolgáltatói használati API csak Azure Stack hubhoz vonatkozik.

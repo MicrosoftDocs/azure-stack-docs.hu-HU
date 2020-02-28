@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873498"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690922"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
 Azure Stack üzembe helyezése és a felhasználói erőforrások kiépítése (például ajánlatok, csomagok, kvóták és előfizetések) után [engedélyeznie kell Azure stack-infrastruktúra biztonsági mentését](../operator/azure-stack-backup-enable-backup-console.md). Az infrastruktúra rendszeres biztonsági mentésének ütemezése és futtatása biztosítja, hogy az infrastruktúra-kezelési adatokat ne veszítse el a rendszer, ha katasztrofális hardveres vagy szolgáltatási hiba történik.
@@ -24,7 +24,7 @@ Azure Stack az infrastruktúra biztonsági mentései olyan fontos adatokat tarta
 
 A ASDK biztonsági másolatainak ellenőrzése a következő esetekben támogatott:
 
-|Alkalmazási helyzet|Rendeltetés|
+|Forgatókönyv|Cél|
 |-----|-----|
 |Az infrastruktúra biztonsági mentésének ellenőrzése egy integrált megoldásból.|Rövid élettartamú ellenőrzés, hogy a biztonsági mentésben szereplő értékek érvényesek-e.|
 |Ismerje meg a teljes körű helyreállítási munkafolyamatot.|A ASDK használatával ellenőrizze a teljes biztonsági mentési és visszaállítási élményt.|
@@ -32,7 +32,7 @@ A ASDK biztonsági másolatainak ellenőrzése a következő esetekben támogato
 
 A következő forgatókönyv **nem** támogatott a biztonsági másolatok ASDK való ellenőrzésekor:
 
-|Alkalmazási helyzet|Rendeltetés|
+|Forgatókönyv|Cél|
 |-----|-----|
 |ASDK Build a biztonsági mentés és a visszaállítás létrehozásához.|A ASDK korábbi verziójából származó biztonsági mentési adatok visszaállítása újabb verzióra.|
 |     |     |
@@ -48,7 +48,7 @@ A ASDK felhőalapú helyreállításának elindítása előtt ellenőrizze, hogy
 
 *A jelenlegi FELHASZNÁLÓIFELÜLET-telepítő csak a titkosítási kulcsot támogatja*
 
-|Előfeltétel|Leírás|
+|Előfeltételek|Leírás|
 |-----|-----|
 |Biztonsági másolat megosztásának elérési útja|A legújabb Azure Stack biztonsági mentés UNC-fájljának elérési útja, amelyet a rendszer Azure Stack infrastruktúra-információk helyreállítására fog használni. Ezt a helyi megosztást a rendszer a felhőalapú helyreállítás üzembe helyezési folyamata során hozza létre.|
 |Visszaállítandó biztonsági mentési azonosító|A biztonsági mentési azonosító a "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" alfanumerikus formában, amely a Felhőbeli helyreállítás során visszaállítani kívánt biztonsági mentést azonosítja.|
@@ -61,7 +61,7 @@ A ASDK felhőalapú helyreállításának elindítása előtt ellenőrizze, hogy
 
 *A jelenlegi PowerShell-telepítő támogatja a titkosítási kulcs vagy a visszafejtési tanúsítvány használatát.*
 
-|Előfeltétel|Leírás|
+|Előfeltételek|Leírás|
 |-----|-----|
 |Biztonsági másolat megosztásának elérési útja|A legújabb Azure Stack biztonsági mentés UNC-fájljának elérési útja, amelyet a rendszer Azure Stack infrastruktúra-információk helyreállítására fog használni. Ezt a helyi megosztást a rendszer a felhőalapú helyreállítás üzembe helyezési folyamata során hozza létre.|
 |Visszaállítandó biztonsági mentési azonosító|A biztonsági mentési azonosító a "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" alfanumerikus formában, amely a Felhőbeli helyreállítás során visszaállítani kívánt biztonsági mentést azonosítja.|

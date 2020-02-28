@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 091a14961c82dcf43a2b64b946a7c96ec5ee1164
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 14192029c2bbac427b6609abfc62b06e0ef937cb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883252"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703740"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -33,7 +33,7 @@ Azure Stack hub PowerShell használatával létrehozhat egy Windows Server 2016 
 
 * Az Azure Stack hub PowerShell beállítása után csatlakoznia kell az Azure Stack hub-környezethez. Útmutatásért lásd: [kapcsolódás Azure stack hubhoz felhasználóként a PowerShell-](azure-stack-powershell-configure-user.md)lel.
 
-## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
+## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
 Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi és kezeli Azure Stack hub-erőforrásokat. A fejlesztői készletből vagy az Azure Stack hub integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
 

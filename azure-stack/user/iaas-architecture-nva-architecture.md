@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: cdcf4eca724e4b8b215b0fcb32e2b81969ef10d0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 69516e7d50cb0635854d2b9168cb6bc308b229d8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884154"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705032"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Magasan elérhető hálózati virtuális berendezések üzembe helyezése Azure Stack hub-on
 
@@ -48,7 +48,7 @@ Az NVA magas rendelkezésre állásúvá tételéhez helyezzen üzembe több NVA
 
 A következő architektúrák bemutatják a magas rendelkezésre állású NVA-khoz szükséges erőforrásokat és konfigurációkat:
 
-| Megoldás | Előnyök | Megfontolandó szempontok |
+| Megoldás | Előnyök | Megfontolások |
 | --- | --- | --- |
 | Bejövő forgalom 7-es rétegű NVA-kkal | Minden NVA-csomópont aktív. | Olyan NVA igényel, amely képes a kapcsolatok megszakítására és a SNAT használatára.<br>A vállalati hálózatról/internetről és Azure Stack hub-ról érkező forgalomhoz külön NVA-készletre van szükség.<br>Csak Azure Stack hub-on kívülről származó forgalomhoz használható.  |
 | Kimenő forgalom 7-es rétegű NVA-kkal | Minden NVA-csomópont aktív. | Olyan NVA igényel, amely képes megszakítani a kapcsolatokat, és implementálja a forrás hálózati címfordítást (SNAT). |

@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 9aa6104e3f6a93d55db82d4bd9ae21ef54601bf2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884176"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694543"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Szolgáltatási ajánlat létrehozása Azure Stack hub felhasználói számára
 
 Ez az oktatóanyag egy operátort mutat be az ajánlat létrehozásához. Az ajánlat lehetővé teszi, hogy a szolgáltatások elérhetők legyenek a felhasználók számára az előfizetések alapján. Az ajánlatra való előfizetést követően a felhasználó az ajánlat által meghatározott szolgáltatásokon belül hozhat létre és helyezhet üzembe erőforrásokat.
 
-Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
+Ez az oktatóanyag bemutatja, hogyan végezheti el az alábbi műveleteket:
 
 > [!div class="checklist"]
 > * Hozzon létre egy ajánlatot.
@@ -49,7 +49,7 @@ Az alapszolgáltatásokat a következő erőforrás-szolgáltatók támogatják,
 | Erőforrás-szolgáltató | Példa erőforrások |
 | ----------------- | ------------------|
 | Microsoft.Compute | Virtuális gépek, lemezek, virtuálisgép-méretezési csoportok |
-| Microsoft. kulcstartó | Kulcstartók, titkok |
+| Microsoft.KeyVault | Kulcstartók, titkok |
 | Microsoft.Network | Virtuális hálózatok, nyilvános IP-címek, terheléselosztó |
 | Microsoft.Storage | Storage-fiókok, blobok, várólisták, táblák |
 
@@ -58,11 +58,11 @@ Az alapszolgáltatásokat a következő erőforrás-szolgáltatók támogatják,
 >[!NOTE]
 > Ha értéket szeretne hozzáadni a szolgáltatáshoz, először telepítenie kell a megfelelő erőforrás-szolgáltatót Azure Stack hub piactéren. A telepítést követően az erőforrásai ugyanúgy elérhetők a felhasználók számára, mint az alapszolgáltatások. Tekintse meg a TARTALOMJEGYZÉKben az olyan erőforrás **-** szolgáltatók aktuális készletét, amelyek támogatják az értéknövelt szolgáltatás ajánlatait.
 
-Az értéknövelt szolgáltatásokat a Azure Stack hub telepítése után telepített erőforrás-szolgáltatók támogatják. Példák:
+Az értéknövelt szolgáltatásokat a Azure Stack hub telepítése után telepített erőforrás-szolgáltatók támogatják. Példák erre vonatkozóan:
 
 | Erőforrás-szolgáltató | Példa erőforrások |
 | ----------------- | ------------------------- |
-| Microsoft. Web | App Service Function apps, Web Apps, API apps | 
+| Microsoft.Web | App Service Function apps, Web Apps, API apps | 
 | Microsoft. MySqlAdapter | MySQL-üzemeltetési kiszolgáló, MySQL-adatbázis | 
 | Microsoft. SqlAdapter | SQL Server üzemeltetési kiszolgáló, SQL Server adatbázis |
 
@@ -186,7 +186,7 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
  
 ## <a name="next-steps"></a>Következő lépések
 
-Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
+Ennek az oktatóanyagnak a segítségével megtanulta a következőket:
 
 > [!div class="checklist"]
 > * Hozzon létre egy ajánlatot.

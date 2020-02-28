@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: cbcb238e644295e1a66f4eb061d1327fdba3fd13
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 934aa01fa02d763ce170df219dfee3770d502d22
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884865"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703043"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 
@@ -103,7 +103,7 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 
 ## <a name="commands"></a>Parancsok
 
-| Azure: bejelentkezés | Jelentkezzen be az Azure-előfizetésébe |
+| Azure: bejelentkezés | Jelentkezzen be az Azure-előfizetésbe |
 | --- | --- |
 | Azure: bejelentkezés az eszköz kódjával | Jelentkezzen be az Azure-előfizetésbe egy eszköz kódjával. Használjon olyan programkódot a telepítőben, ahol a bejelentkezési parancs nem működik. |
 | Azure: bejelentkezés az Azure Cloudba | Jelentkezzen be az Azure-előfizetésbe az egyik szuverén felhőben. |

@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c67d880308bd946c2f73f0993bbd3a19be0342aa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885164"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704777"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
 
@@ -66,7 +66,7 @@ A kvótákat régiónként is beállíthatja. Például egy olyan csomag, amely 
 
 További információ a [Azure stack hub kvótáinak típusairól](azure-stack-quota-types.md).
 
-## <a name="plans"></a>Csomagok
+## <a name="plans"></a>Tervek
 
 A Csomagok egy vagy több szolgáltatás csoportjai. Azure Stack hub-kezelőként létre kell [hoznia](azure-stack-create-plan.md) a felhasználóknak kínált terveket. A felhasználói előfizethetnek az ajánlataira, hogy használhassák a bennük foglalt csomagokat és szolgáltatásokat. A csomagok létrehozásakor ügyeljen arra, hogy beállítja a kvótákat, definiálja az alapterveket, és vegye figyelembe a választható kiegészítő csomagokat is.
 
@@ -78,7 +78,7 @@ Ajánlat létrehozásakor a szolgáltatás rendszergazdája egy alapcsomagot is 
 
 A kiegészítő csomagok az ajánlathoz hozzáadott opcionális csomagok. Alapértelmezés szerint az előfizetés nem tartalmazza a bővítmények csomagjait. A kiegészítő csomagok olyan ajánlatokban elérhető további csomagok (kvótákkal), amelyeket az előfizető hozzáadhat az előfizetésekhez. Létrehozhat például egy alapszintű csomagot korlátozott erőforrásokkal a próbaverzióhoz, valamint egy kiegészítő tervet, amely nagyobb mennyiségű erőforrást biztosít a szolgáltatás bevezetését elfogadó ügyfeleknek.
 
-## <a name="offers"></a>Ajánlatok
+## <a name="offers"></a>kínál
 
 Az ajánlatok egy vagy több, az Ön által létrehozott csomag csoportjai, hogy a felhasználók előfizethetnek rájuk. Például: az Alpha ajánlat az A csomagot is tartalmazhatja, amely a számítási szolgáltatásokat és a B tervet tartalmazza, amely a tárolási és hálózati szolgáltatások készletét biztosítja.
 

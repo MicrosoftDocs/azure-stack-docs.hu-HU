@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: d4ddc7d0b6190c7f855b222079f8d13cb5d6e14e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: ecbfa13b9e40a62aa013747c7f877617e29e8f10
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874365"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703179"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 
@@ -22,7 +23,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure Stack hub Update 7 és az 
 > Alkalmazza az 1907-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack fejlesztői csomagot a Azure App Service 1,7 üzembe helyezése előtt.
 
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 A App Service on Azure Stack hub Update 7 Build száma **84.0.2.10**
 
@@ -37,13 +38,13 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,7
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
-  - Fő
+  - Mester
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése
 
 - Az **Egyéni szkriptek bővítményének** **1.9.3** -verziójának szindikátusa a piactéren
 
-### <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
+### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 7 a következő javításokat és javításokat tartalmazza:
 
@@ -91,7 +92,7 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
 > [!IMPORTANT]
 > Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack hub telepítési dokumentációjában szerepel.
 

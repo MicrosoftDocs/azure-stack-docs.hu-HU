@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884733"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702431"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
 
@@ -118,12 +118,12 @@ Követelmények:
 
 2. Keresse meg a `getkuberneteslogs.sh` parancsfájl által megkövetelt paramétereket. A szkript a következő paramétereket fogja használni:
 
-    | Paraméter | Leírás | Szükséges | Példa |
+    | Paraméter | Leírás | Kötelező | Példa |
     | --- | --- | --- | --- |
     | -h,-– Súgó | A parancs használatának nyomtatása. | nem | 
     -u,--felhasználó | A fürt virtuális gépei rendszergazdai felhasználóneve | igen | azureuser<br>(alapértelmezett érték) |
     | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (más néven "id_rsa")  | igen | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
-    |   -g,--Resource-Group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
+    |   -g, --resource-group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
     |   -n,--User-Namespace               | Naplók gyűjtése a tárolókban a megadott névterekben (a Kube-rendszernaplókat mindig gyűjti a rendszer) | nem |   figyelés |
     |       --API-Model                    | Megőrzi a apimodel. JSON fájlt egy Azure Stack hub Storage-fiókban. Töltse fel a apimodel. JSON fájlt a Storage-fiókba, ha a--upload-logs paraméter is meg van adni. | nem | `./apimodel.json` |
     | – az összes névtér               | Naplók gyűjtése a tárolókban az összes névtérben. Felülbírálja a--User-Namespace | nem | |

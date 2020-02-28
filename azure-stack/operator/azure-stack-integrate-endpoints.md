@@ -7,12 +7,12 @@ ms.date: 12/11/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 4bde57bbd67fcc97e65fbd68adace42d7208e232
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509874"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699575"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban 
 

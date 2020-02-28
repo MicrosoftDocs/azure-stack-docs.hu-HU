@@ -7,12 +7,12 @@ ms.date: 06/17/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: cd63908eceffb5072a41ae200ca2a544728b5971
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 4413e89597147acd43600a6c387cf1826a0eae5e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509517"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697603"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack hub biztonsági vezérlőinek konfigurálása
 

@@ -7,12 +7,12 @@ ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: f0074bedfbcd0e55bea84080e33e14738fccb896
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: f27d314e8537cabb9c1625d3496751eba0feb264
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509976"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699881"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack hub tűzfal-integráció
 Javasoljuk, hogy a Azure Stack hub biztonságossá tételéhez használjon tűzfal eszközt. A tűzfalak segítenek megvédeni az olyan műveleteket, mint az elosztott szolgáltatásmegtagadási (DDOS) támadások, a behatolások észlelése és a tartalmi ellenőrzés. Ugyanakkor az Azure Storage-szolgáltatások, például a Blobok, a táblák és a várólisták adatátviteli szűk keresztmetszete is lehetnek.

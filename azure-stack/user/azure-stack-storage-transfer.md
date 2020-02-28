@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b1a69cb2029a278ecec992abbca00dc3b80b1211
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6b0a31c0eea7f2973563c3f1e481cd2e830c41f8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883143"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704879"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Adatátviteli eszközök használata Azure Stack hub Storage-ban
 
@@ -69,7 +69,7 @@ Az Azure Stack hub támogatásához a AzCopy API-verziójának konfigurálásáh
 
 A AzCopy 10,1-es verziójában a Azure Stack hub következő szolgáltatásai támogatottak:
 
-| Szolgáltatás | Támogatott műveletek |
+| Funkció | Támogatott műveletek |
 | --- | --- |
 |Tároló kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladatok kezelése|Feladatok megjelenítése<br>Feladatok folytatása
@@ -207,7 +207,7 @@ A (z) 1.2.11 verzióban található `Get-AzureRmStorageAccountKey` visszatérés
 
 További információ: [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
 
-## <a name="azure-cli"></a>Azure parancssori felület (CLI)
+## <a name="azure-cli"></a>Azure CLI
 
 Az Azure CLI az Azure parancssori felülete, amely Azure-erőforrások kezelésére szolgál. Telepítheti macOS, Linux és Windows rendszeren, és futtathatja a parancssorból.
 
@@ -272,7 +272,7 @@ A Azure Storage Explorer egy önálló alkalmazás a Microsofttól. Lehetővé t
 * Ha többet szeretne megtudni arról, hogyan konfigurálhatja a Azure Storage Explorer az Azure Stack hub használatával való együttműködésre, tekintse meg a [Storage Explorer Összekötése Azure stack hub-előfizetéssel](azure-stack-storage-connect-se.md)
 * További információ a Microsoft Azure Storage Explorerról: Ismerkedés [a Storage Explorerrel](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 
-## <a name="blobfuse"></a>blobfuse 
+## <a name="blobfuse"></a>Blobfuse 
 
 A [Blobfuse](https://github.com/Azure/azure-storage-fuse) az Azure Blob Storage virtuális fájlrendszer-illesztőprogramja, amely lehetővé teszi a meglévő blokk blob-adatai elérését a Storage-fiókban a Linux fájlrendszerén keresztül. Az Azure Blob Storage egy objektum-tárolási szolgáltatás, ezért nem rendelkezik hierarchikus névtérrel. A Blobfuse a virtuális könyvtár sémájának használatával biztosítja ezt a névteret, és elválasztóként használja a továbbítási perjelek `/`. A Blobfuse az Azure-ban és az Azure Stack központban is működik. 
 
