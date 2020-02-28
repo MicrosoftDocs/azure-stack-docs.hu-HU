@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 346b55e867d5b6e21ac1004e9df5925c3cf01d0b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876490"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695325"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása Azure App Service Azure Stack hub-ban
 
@@ -72,7 +72,7 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
 
     ![App Service az Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Kattintson a **szerepkörök**elemre. Itt láthatja az összes telepített App Service-szerepkör részletezését.
+3. Kattintson a **Szerepkörök** lehetőségre. Itt láthatja az összes telepített App Service-szerepkör részletezését.
 
 4. Kattintson a jobb gombbal a méretezni kívánt típus sorára, majd kattintson a **méretezési csoport**elemre.
 

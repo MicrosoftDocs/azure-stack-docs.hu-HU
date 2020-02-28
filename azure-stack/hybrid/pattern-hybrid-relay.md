@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 945aaf9fa9d422418718c87545c238239220bc06
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890068"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688780"
 ---
 # <a name="hybrid-relay-pattern"></a>Hibrid továbbítási minta
 
@@ -39,22 +39,22 @@ A megoldás működése:
 
 Ez a megoldás a következő összetevőket használja:
 
-| Réteg | Component (Összetevő) | Leírás |
+| Réteg | Összetevő | Leírás |
 |----------|-----------|-------------|
 | Azure | Azure VM | Az Azure-beli virtuális gépek nyilvánosan elérhető végpontot biztosítanak a helyszíni erőforráshoz. |
 | | Azure Service Bus Relay | Az [Azure Service Bus Relay](/azure/service-bus-relay/) biztosítja az infrastruktúra fenntartásához szükséges infrastruktúrát és az Azure-beli virtuális gép és a Azure stack hub virtuális gép közötti kapcsolatot.|
-| Azure Stack Hub | Számítási szolgáltatások | Az Azure Stack hub-alapú virtuális gép a hibrid továbbító alagút kiszolgálóoldali részét biztosítja. |
-| | Adattárolás | Azure Stack hubhoz üzembe helyezett AK-motor-fürt méretezhető, rugalmas motort biztosít az Face API tároló futtatásához.|
+| Azure Stack hub | Számítás | Az Azure Stack hub-alapú virtuális gép a hibrid továbbító alagút kiszolgálóoldali részét biztosítja. |
+| | Tárterület | Azure Stack hubhoz üzembe helyezett AK-motor-fürt méretezhető, rugalmas motort biztosít az Face API tároló futtatásához.|
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
 A megoldás megvalósításának eldöntése során vegye figyelembe a következő szempontokat:
 
-### <a name="scalability"></a>Skálázhatóság 
+### <a name="scalability"></a>Méretezhetőség 
 
 Ez a minta csak a 1:1-es port-hozzárendelések használatát teszi lehetővé az ügyfélen és a kiszolgálón. Ha például az 80-as port az Azure-végpont egyik szolgáltatásának bújtatása, akkor nem használható másik szolgáltatáshoz. A portok megfeleltetéseit ennek megfelelően kell tervezni. Az Service Bus továbbítót és a virtuális gépeket megfelelő méretezéssel kell ellátni a forgalom kezeléséhez.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Ezek az alagutak és kapcsolatok nem redundánsak. A magas rendelkezésre állás biztosítása érdekében érdemes lehet végrehajtani a hibakódot. Egy másik lehetőség, hogy a terheléselosztó mögött Service Bus Relay-kapcsolattal rendelkező virtuális gépek készletét is.
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95102bcdc57bcad7116803768830f317ea48c4c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877294"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688865"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Machine Learning (ML) modell betanítása a peremhálózati mintán
 
@@ -43,23 +43,23 @@ A megoldás működése:
 
 Ez a megoldás a következő összetevőket használja:
 
-| Réteg | Component (Összetevő) | Leírás |
+| Réteg | Összetevő | Leírás |
 |----------|-----------|-------------|
 | Azure | Azure Machine Learning | [Azure Machine learning](/azure/machine-learning/) összehangolja a ml modell betanítását. |
 | | Azure Container Registry | Az Azure ML becsomagolja a modellt egy tárolóba, és tárolja [Azure Container Registry](/azure/container-registry/) a telepítéshez.|
-| Azure Stack Hub | App Service | A [Azure stack hub és a app Service](/azure-stack/operator/azure-stack-app-service-overview) biztosítja az összetevők alapját az Edge-ben. |
-| | Számítási szolgáltatások | Az Ubuntut és a Docker-t futtató Azure Stack hub-beli virtuális gép a ML modell betanítására szolgál. |
-| | Adattárolás | A magánhálózati adattárak Azure Stack hub blob Storage-ban is tárolhatók. |
+| Azure Stack hub | App Service | A [Azure stack hub és a app Service](/azure-stack/operator/azure-stack-app-service-overview) biztosítja az összetevők alapját az Edge-ben. |
+| | Számítás | Az Ubuntut és a Docker-t futtató Azure Stack hub-beli virtuális gép a ML modell betanítására szolgál. |
+| | Tárterület | A magánhálózati adattárak Azure Stack hub blob Storage-ban is tárolhatók. |
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
 A megoldás megvalósításának eldöntése során vegye figyelembe a következő szempontokat:
 
-### <a name="scalability"></a>Skálázhatóság 
+### <a name="scalability"></a>Méretezhetőség 
 
 A megoldás méretezésének engedélyezéséhez létre kell hoznia egy megfelelő méretű virtuális gépet a Azure Stack hub-on a képzéshez.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Győződjön meg arról, hogy a betanítási szkriptek és a Azure Stack hub virtuális gép hozzáfér a betanításhoz használt helyszíni adatszolgáltatásokhoz.
 

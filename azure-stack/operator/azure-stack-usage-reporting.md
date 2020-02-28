@@ -10,12 +10,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: ed0bcd873d6bd33017172eb3accad227e2073668
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972645"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696379"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Azure Stack hub használati adatok jelentése az Azure-ba
 

@@ -8,12 +8,12 @@ ms.date: 12/11/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8d6a94214d45fcf9d008f93d1ce726d7af536d77
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: d3df1040faec4c14b08f358f49fe9a6e9404fdc0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890238"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698062"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Red Hat-alapú virtuális gép előkészítése Azure Stack hubhoz
 
@@ -34,7 +34,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
 * Az univerzális lemezes formázású (UDF-) fájlrendszerek kernel-támogatása szükséges. Az első rendszerindítás során a vendéghez csatolt UDF formátumú adathordozó továbbítja a kiépítési konfigurációt a Linux rendszerű virtuális gépre. Az Azure Linux-ügynöknek csatlakoztatnia kell az UDF fájlrendszert a konfigurációjának olvasásához és a virtuális gép kiépítéséhez.
 * Ne állítson be swap partíciót az operációs rendszer lemezén. A Linux-ügynök úgy konfigurálható, hogy lapozófájlt hozzon létre az ideiglenes erőforrás lemezén. További információt a következő lépésekben talál.
 * Minden Azure-beli virtuális merevlemeznek 1 MB-ra igazított virtuális mérettel kell rendelkeznie. Nyers lemezről VHD-re való konvertáláskor győződjön meg arról, hogy a nyers lemez mérete 1 MB-nál több, az átalakítás előtt. További részleteket az alábbi lépésekben találhat.
-* Azure Stack hub támogatja a Cloud-init-t. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. Mivel a Cloud-init a kezdeti rendszerindítási folyamat során hívásra kerül, nincs szükség további lépésekre vagy ügynökökre a konfiguráció alkalmazásához. A Cloud-init rendszerképhez való hozzáadásával kapcsolatos útmutatásért lásd: [meglévő Linux Azure-beli virtuálisgép-rendszerkép előkészítése a Cloud-init használatával](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
+* Azure Stack hub támogatja a Cloud-init-t. A [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) egy széles körben használt módszer a Linux rendszerű virtuális gépek első indításkor való testreszabásához. A cloud-init használatával csomagokat telepíthet és fájlokat írhat, vagy beállíthatja a felhasználókat és a biztonságot. A cloud-init nevezzük az első rendszerindítás során, mert nincsenek további lépéseket vagy szükséges ügynökök a alkalmazni a konfigurációt. A Cloud-init rendszerképhez való hozzáadásával kapcsolatos útmutatásért lásd: [meglévő Linux Azure-beli virtuálisgép-rendszerkép előkészítése a Cloud-init használatával](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image).
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>RHEL 7 virtuális gép előkészítése a Hyper-V kezelőjéből
 
@@ -74,7 +74,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Módosítsa a rendszermag rendszerindítási sorát a grub-konfigurációban, hogy további kernel-paramétereket is tartalmazzon az Azure-hoz. A módosítás elvégzéséhez nyissa meg `/etc/default/grub` egy szövegszerkesztőben, és módosítsa a `GRUB_CMDLINE_LINUX` paramétert. Példa:
+1. Módosítsa a rendszermag rendszerindítási sorát a grub-konfigurációban, hogy további kernel-paramétereket is tartalmazzon az Azure-hoz. A módosítás elvégzéséhez nyissa meg `/etc/default/grub` egy szövegszerkesztőben, és módosítsa a `GRUB_CMDLINE_LINUX` paramétert. Például:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -252,7 +252,7 @@ Ez a szakasz azt feltételezi, hogy már rendelkezik egy ISO-fájllal a Red Hat 
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Módosítsa a rendszermag rendszerindítási sorát a grub-konfigurációban, hogy további kernel-paramétereket is tartalmazzon az Azure-hoz. A konfiguráció elvégzéséhez nyissa meg `/etc/default/grub` egy szövegszerkesztőben, és módosítsa a `GRUB_CMDLINE_LINUX` paramétert. Példa:
+1. Módosítsa a rendszermag rendszerindítási sorát a grub-konfigurációban, hogy további kernel-paramétereket is tartalmazzon az Azure-hoz. A konfiguráció elvégzéséhez nyissa meg `/etc/default/grub` egy szövegszerkesztőben, és módosítsa a `GRUB_CMDLINE_LINUX` paramétert. Például:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -464,7 +464,7 @@ Ez a szakasz azt feltételezi, hogy már telepített egy RHEL virtuális gépet 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Módosítsa a rendszermag rendszerindítási sorát a grub-konfigurációban, hogy további kernel-paramétereket is tartalmazzon az Azure-hoz. A módosítás elvégzéséhez nyissa meg `/etc/default/grub` egy szövegszerkesztőben, és módosítsa a `GRUB_CMDLINE_LINUX` paramétert. Példa:
+1. Módosítsa a rendszermag rendszerindítási sorát a grub-konfigurációban, hogy további kernel-paramétereket is tartalmazzon az Azure-hoz. A módosítás elvégzéséhez nyissa meg `/etc/default/grub` egy szövegszerkesztőben, és módosítsa a `GRUB_CMDLINE_LINUX` paramétert. Például:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"

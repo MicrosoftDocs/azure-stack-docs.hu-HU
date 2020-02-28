@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: c6c68b3455e7de78e116b3ef6ede1dde7172fb33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 0dff4901d24f759404b69184506d1219273d90c5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881544"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698113"
 ---
-# <a name="provider-resource-usage-api"></a>Szolgáltató erőforrás-használat API
+# <a name="provider-resource-usage-api"></a>Szolgáltatói erőforrás-használati API
 
 A *szolgáltató* kifejezés a szolgáltatás-rendszergazdára és a delegált szolgáltatókra is érvényes. Azure Stack hub-operátorok és a delegált szolgáltatók használhatják a szolgáltatói használati API-t a közvetlen bérlők használatának megtekintésére. Például az alábbi ábrán látható módon a P0 meghívhatja a szolgáltatói API-t a közvetlen használati adatok lekérésére a P1 és P2 címen, a P1 pedig a P3-as és a P4-es használati adatokat hívhatja meg.
 
@@ -22,13 +22,13 @@ A *szolgáltató* kifejezés a szolgáltatás-rendszergazdára és a delegált s
 
 ## <a name="api-call-reference"></a>API-hívás referenciája
 
-### <a name="request"></a>Kérelem
+### <a name="request"></a>Kérés
 
 A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásának részleteit. Nincs kérelem törzse.
 
 Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendelnie egy **tulajdonos**, **közreműködő**vagy **olvasó** szerepkört a szolgáltató előfizetésében.
 
-| Módszer | Kérelem URI-ja |
+| Módszer | Kérés URI-ja |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
@@ -41,7 +41,7 @@ Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendel
 | `reportedStartTime` |A lekérdezés kezdési időpontja. `DateTime` értékének az egyezményes világidő (UTC) és az óra elején kell lennie. például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például `2015-06-16T18%3a53%3a11%2b00%3a00Z`, ahol a kettőspont megmenekült a `%3a`, és a plusz megmenekül a `%2b`, hogy URI-barát legyen. |
 | `reportedEndTime` |A lekérdezés befejezési időpontja. A `reportedStartTime` vonatkozó korlátozások erre az argumentumra is érvényesek. `reportedEndTime` értéke nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
 | `aggregationGranularity` |Opcionális paraméter, amely két különálló lehetséges értékkel rendelkezik: **naponta** és **óránként**. Az értékek azt sugallják, hogy az egyik napi részletességgel adja vissza az adatokat, a másik pedig óradíjas megoldás. A **napi** beállítás az alapértelmezett. |
-| `subscriberId` |Előfizetés azonosítója. A szűrt adatlekérdezéshez a szolgáltató közvetlen bérlője előfizetés-AZONOSÍTÓjának megadása szükséges. Ha nincs megadva előfizetés-azonosító paraméter, a hívás az összes szolgáltató közvetlen bérlője használati adatait adja vissza. |
+| `subscriberId` |Előfizetés-azonosítójára. A szűrt adatlekérdezéshez a szolgáltató közvetlen bérlője előfizetés-AZONOSÍTÓjának megadása szükséges. Ha nincs megadva előfizetés-azonosító paraméter, a hívás az összes szolgáltató közvetlen bérlője használati adatait adja vissza. |
 | `api-version` |A kérelem elvégzéséhez használt protokoll verziója. Ez az érték `2015-06-01-preview`re van állítva. |
 | `continuationToken` |A rendszer a használati API-szolgáltató utolsó hívásával lekért tokent. Erre a tokenre akkor van szükség, ha a válasz nagyobb, mint 1 000 sor. A folyamat könyvjelzőként működik. Ha a jogkivonat nincs jelen, az adatok a nap vagy az óra elejétől kezdve, az átadott részletesség alapján kerülnek beolvasásra. |
 
@@ -112,13 +112,13 @@ A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Comme
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Az összes bérlői használat visszaküldése aktív felhasználók számára
 
-| Módszer | Kérelem URI-ja |
+| Módszer | Kérés URI-ja |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Törölt vagy aktív bérlő használatának visszaküldése
 
-| Módszer | Kérelem URI-ja |
+| Módszer | Kérés URI-ja |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 

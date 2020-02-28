@@ -6,15 +6,15 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: ccc4a91fda1bd3c1d3a55ef0bac7df92d6a2e07c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878275"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703587"
 ---
-# <a name="recover-from-catastrophic-data-loss"></a>Helyreállítás a katasztrofális adatvesztéstől
+# <a name="recover-from-catastrophic-data-loss"></a>Végzetes adatvesztés utáni helyreállítás
 
 Azure Stack hub az Azure-szolgáltatásokat futtatja az adatközpontban, és a környezetekben akár négy, egyetlen állványra telepített csomópontként is futtatható. Ezzel szemben az Azure több mint 40 régióban fut több adatközpontban, és az egyes régiókban több zóna is működik. A felhasználói erőforrások több kiszolgálóra, állványra, adatközpontra és régióra is kiterjedhetnek. Azure Stack hub esetében jelenleg csak a teljes felhő üzembe helyezésére van lehetősége egyetlen állványon. Ez a korlátozás teszi lehetővé a felhő számára az adatközpontban fellépő katasztrofális események kockázatát, vagy a súlyos termék hibái miatti hibákat. Katasztrófa esetén a Azure Stack hub-példány offline állapotba kerül. Az összes adatok valószínűleg nem állíthatók helyre.
 
@@ -22,7 +22,7 @@ Az adatvesztés gyökerétől függően előfordulhat, hogy egyetlen infrastrukt
 
 Ez a forgatókönyv a teljes telepítés helyreállítására vonatkozik, ha hiba történt a privát felhő újratelepítése közben.
 
-| Alkalmazási helyzet                                                           | Adatvesztés                            | Megfontolandó szempontok                                                             |
+| Forgatókönyv                                                           | Adatvesztés                            | Megfontolások                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | Katasztrófa vagy termék meghibásodása miatti katasztrofális adatvesztéssel. | Minden infrastruktúra-és felhasználói és alkalmazásadatok. | A felhasználói alkalmazások és adatok védelme külön történik az infrastruktúra-adatoktól. |
 

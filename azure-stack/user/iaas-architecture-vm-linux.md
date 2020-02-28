@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f969435900f290aaae10942e223ade15cacf4769
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885318"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704964"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 
@@ -22,7 +22,7 @@ A virtuális gép (VM) üzembe helyezése Azure Stack hub-ban (például az Azur
 
 ## <a name="resource-group"></a>Erőforráscsoport
 
-Az [erőforráscsoport](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olyan logikai tároló, amely a kapcsolódó Azure stack hub-erőforrásokat tárolja. Általánosságban elmondható, hogy az erőforrások élettartamuk alapján csoportosítják az erőforrásokat, és ki fogják kezelni őket.
+Az [erőforráscsoport](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olyan logikai tároló, amely a kapcsolódó Azure stack hub-erőforrásokat tárolja. Általánosságban véve csoportba az erőforrásokat az élettartamuk alapján, és fogják kezelni őket.
 
 Olyan szorosan társított erőforrásokat helyezzen el, amelyek ugyanazt az életciklust használják ugyanabba az [erőforráscsoporthoz](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Az erőforráscsoportok segítségével csoportosan helyezhet üzembe és monitorozhat erőforrásokat, és a számlázási költségeket erőforráscsoportonként követheti. Az erőforrásokat készletként is törölheti, ami hasznos lehet a tesztelési környezetekben való üzembe helyezéshez. Jelentéssel bíró erőforrásneveket adjon meg, hogy egyszerűbben megkereshesse és azonosíthassa az egyes erőforrásokat és azok szerepkörét. További információ: [Az Azure-erőforrások ajánlott elnevezési konvenciói](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -42,7 +42,7 @@ Javasoljuk továbbá [Managed Disks](https://docs.microsoft.com/azure-stack/user
 
 Az operációsrendszer-lemez [Azure stack hub-tárolóban](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview)tárolt VHD, így akkor is megmarad, ha a gazdagép nem működik. Linux rendszerű virtuális gépek esetén az operációsrendszer-lemez/dev/sda1. Azt javasoljuk, hogy hozzon létre egy vagy több [adatlemezt](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)is, amelyek az alkalmazásadatok által használt állandó VHD-k.
 
-A létrehozott VHD-k nincsenek formázva. A lemez formázásához jelentkezzen be a virtuális gépre. A Linux-rendszerhéjban az adatlemezek/dev/SDC,/dev/SDD és így tovább jelennek meg. A lsblk futtatásával listázhatja a blokkoló eszközöket, beleértve a lemezeket is. Adatlemez használatához hozzon létre egy partíciót és egy fájlrendszert, majd csatlakoztassa a lemezt. Példa:
+A létrehozott VHD-k nincsenek formázva. A lemez formázásához jelentkezzen be a virtuális gépre. A Linux-rendszerhéjban az adatlemezek/dev/SDC,/dev/SDD és így tovább jelennek meg. A lsblk futtatásával listázhatja a blokkoló eszközöket, beleértve a lemezeket is. Adatlemez használatához hozzon létre egy partíciót és egy fájlrendszert, majd csatlakoztassa a lemezt. Például:
 
 ```bash
 # Create a partition.
@@ -60,7 +60,7 @@ Adatlemez hozzáadásakor a rendszer hozzárendel egy logikaiegység-szám (LUN)
 
 A VM egy ideiglenes lemezzel jön létre. Ezt a lemezt a Azure Stack hub tárolási infrastruktúrájának ideiglenes kötetén tárolja a rendszer. Előfordulhat, hogy az újraindítások és más virtuálisgép-életciklusi események során törölve lett. Ez a lemez csak ideiglenes adatokat, például lapozófájlokat tárol. Linux rendszerű virtuális gépek esetén az ideiglenes lemez/dev/sdb1, és a/mnt/Resource vagy a/mnt. csatlakoztatása
 
-## <a name="network"></a>Network (Hálózat)
+## <a name="network"></a>Hálózat
 
 A hálózati összetevők a következő erőforrásokat tartalmazzák:
 
@@ -72,7 +72,7 @@ A hálózati összetevők a következő erőforrásokat tartalmazzák:
 
 -   Létrehozhat egy teljes tartománynevet (FQDN) is az IP-címhez. Ezután regisztrálhat egy [CNAME rekordot](https://en.wikipedia.org/wiki/CNAME_record) a DNS-ben, amely a teljes tartománynévre mutat. További információ: [teljes tartománynév létrehozása a Azure Portalban](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-portal-create-fqdn).
 
--   **Hálózati biztonsági csoport (NSG).** Hálózati biztonsági csoportok használatával engedélyezheti vagy tilthatja le a virtuális gépekre irányuló hálózati forgalmat. A NSG alhálózatokhoz vagy egyedi virtuálisgép-példányokhoz is társítható.
+-   **Hálózati biztonsági csoport (NSG).** Hálózati biztonsági csoportok használatával engedélyezheti vagy tilthatja le a virtuális gépekre irányuló hálózati forgalmat. Az NSG-k társíthatók alhálózatokhoz vagy Virtuálisgép-példányokhoz.
 
 Minden NSG tartalmaz az [alapértelmezett szabályok](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)készletét, beleértve az összes bejövő internetes forgalmat blokkoló szabályt is. Az alapértelmezett szabályok nem törölhetők, azonban más szabályokkal felülírhatók. Az internetes forgalom engedélyezéséhez hozzon létre olyan szabályokat, amelyek engedélyezik a bejövő forgalmat adott portokra – például a HTTP-hez készült 80-as portot. Az SSH engedélyezéséhez adjon hozzá egy NSG-szabályt, amely engedélyezi a bejövő forgalmat a 22-es TCP-porton.
 

@@ -7,12 +7,12 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: 9e4aef51779480cf7c5e663113e09df71e378f8b
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: eaa7fd667dfba1a9963c1bebfe292b8b6ba9a355
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972508"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705100"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack hub által támogatott virtuálisgép-méretek
 
@@ -27,15 +27,15 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 ### <a name="basic-a"></a>Alapszintű A
 
 > [!NOTE]
-> *Alapszintű A* A [virtuális gépek méretezési csoportjai](../operator/azure-stack-compute-add-scalesets.md) (VMSS) a portálon keresztül jönnek létre a virtuálisgép-méretekkel. Ezzel a mérettel rendelkező VMSS létrehozásához használja a PowerShellt vagy a sablont.
+> *Alapszintű A* A [virtuális gépek méretezési csoportjai](../operator/azure-stack-compute-add-scalesets.md) (VMSS) a portálon keresztül jönnek létre a virtuálisgép-méretekkel. Ez a méret a VMSS létrehozásához, használja a PowerShell vagy a sablont.
 
-|Méret – Size\Name |vCPU     |Memória | Ideiglenes lemez max. mérete | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége: (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemez maximális átviteli sebessége (IOPS) | Hálózati adapterek maximális száma |    
+|Méret – Size\Name |vCPU     |Memory (Memória) | Ideiglenes lemez max. mérete | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége: (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemez maximális átviteli sebessége (IOPS) | Hálózati adapterek maximális száma |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0 \ Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
-|**A1 \ Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
-|**A2 \ Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4/4x300  |2   |
-|**A3 \ Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8/8x300  |2   |
-|**A4 \ Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16/16X300 |2   |
+|**A0 \ Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |2   |
+|**A1 \ Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2 / 2x300  |2   |
+|**A2 \ Basic_A2**  |2    |3,5 GB   | 60 GB   |300  | 300  |4 / 4x300  |2   |
+|**A3 \ Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |2   |
+|**A4 \ Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |2   |
 
 ### <a name="standard-a"></a>Standard A 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |    
@@ -62,7 +62,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 |**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8 / 8x500   |4 |
 |**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16 / 16x500 |8 |
 
-### <a name="d-series"></a>D sorozat
+### <a name="d-series"></a>D-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |----------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1** |1   |3.5 |50   |500 |3000  |4 / 4x500   |2 |
@@ -74,32 +74,32 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 ### <a name="ds-series"></a>DS-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |1   |3.5 |7    |1000 |4000  |4/4x2300   |2 |
-|**Standard_DS2** |2   |7   |14   |1000 |8000  |8/8x2300   |2 |
-|**Standard_DS3** |4   |14  |28   |1000 |16000 |16/16x2300 |4 |
-|**Standard_DS4** |8   |28  |56   |1000 |32000 |32/32x2300 |8 |
+|**Standard_DS1** |1   |3.5 |7    |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 |
+|**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16x2300 |4 |
+|**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 |
 
-### <a name="dv2-series"></a>Dv2 sorozat
+### <a name="dv2-series"></a>Dv2-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-------------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1_v2** |1   |3.5 |50   |500 |3000  |4 / 4x500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
 |**Standard_D3_v2** |4   |14  |200  |500 |12000 |16 / 16x500 |4 |
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32 / 32x500 |8 |
-|**Standard_D5_v2** |16  |56  |800  |500 |48000 |64/64x500 |8 |
+|**Standard_D5_v2** |16  |56  |800  |500 |48000 |64 / 64x500 |8 |
 
 ### <a name="dsv2-series"></a>DSv2-sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4/4x2300   |2 |
-|**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8/8x2300   |2 |
-|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16/16x2300 |4 |
-|**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32/32x2300 |8 |
-|**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64/64x2300 |8 |
+|**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 |
+|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 |
+|**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 |
+|**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
 
 
-## <a name="compute-optimized"></a>Compute-optimalizált
-### <a name="f-series"></a>F sorozat
+## <a name="compute-optimized"></a>Számításra optimalizált
+### <a name="f-series"></a>F-sorozat
 *A Azure Stack hub 1804-es vagy újabb verziójára van szükség*
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
@@ -108,19 +108,19 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8x500   |2 |
 |**Standard_F4**  |4   |8   |64   |500 |12000 |16 / 16x500 |4 |
 |**Standard_F8**  |8   |16  |128  |500 |24000 |32 / 32x500 |8 |
-|**Standard_F16** |16  |32  |256  |500 |48000 |64/64x500 |8 |
+|**Standard_F16** |16  |32  |256  |500 |48000 |64 / 64x500 |8 |
 
 
-### <a name="fs-series"></a>Fs sorozat
+### <a name="fs-series"></a>FS sorozat
 *A Azure Stack hub 1804-es vagy újabb verziójára van szükség*  
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_F1s**  |1   |2   |4   |1000 |4000  |4/4x2300   |2 |
-|**Standard_F2s**  |2   |4   |8   |1000 |8000  |8/8x2300   |2 |
-|**Standard_F4s**  |4   |8   |16  |1000 |16000 |16/16x2300 |4 |
-|**Standard_F8s**  |8   |16  |32  |1000 |32000 |32/32x2300 |8 |
-|**Standard_F16s** |16  |32  |64  |1000 |64000 |64/64x2300 |8 |
+|**Standard_F1s**  |1   |2   |4   |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_F2s**  |2   |4   |8   |1000 |8000  |8 / 8x2300   |2 |
+|**Standard_F4s**  |4   |8   |16  |1000 |16000 |16 / 16x2300 |4 |
+|**Standard_F8s**  |8   |16  |32  |1000 |32000 |32 / 32x2300 |8 |
+|**Standard_F16s** |16  |32  |64  |1000 |64000 |64 / 64x2300 |8 |
 
 
 ### <a name="fsv2-series"></a>Fsv2 sorozat
@@ -128,15 +128,15 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4/4x2300    |2 |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8/8x2300    |2 |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16/16x2300  |4 |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32/32x2300  |4 |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32/32x2300  |8 |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32/32x2300  |8 |
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |2 |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |4 |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |4 |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
-## <a name="memory-optimized"></a>Memóriára optimalizált
+## <a name="memory-optimized"></a>Memóriaoptimalizált
 
 A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt biztosítanak, amely a kapcsolatok adatbázis-kiszolgálóihoz, közepes és nagy gyorsítótárhoz, valamint memórián belüli elemzésekhez lett tervezve.
 
@@ -146,15 +146,15 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8x500   |2 |
 |**Standard_D12**  |4  |28  |200 |500     |12000 |16 / 16x500 |4 |
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32 / 32x500 |8 |
-|**Standard_D14**  |16 |112 |800 |500     |48000 |64/64x500 |8 |
+|**Standard_D14**  |16 |112 |800 |500     |48000 |64 / 64x500 |8 |
 
 ### <a name="mo-ds"></a>DS sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-------------------|---|----|----|--------|------|-------------|---------|
-|**Standard_DS11**  |2  |14  |28  |1000    |8000  |8/8x2300   |2 |
-|**Standard_DS12**  |4  |28  |56  |1000    |12000 |16/16x2300 |4 |
-|**Standard_DS13**  |8  |56  |112 |1000    |32000 |32/32x2300 |8 |
-|**Standard_DS14**  |16 |112 |224 |1000    |64000 |64/64x2300 |8 |
+|**Standard_DS11**  |2  |14  |28  |1000    |8000  |8 / 8x2300   |2 |
+|**Standard_DS12**  |4  |28  |56  |1000    |12000 |16 / 16x2300 |4 |
+|**Standard_DS13**  |8  |56  |112 |1000    |32000 |32 / 32x2300 |8 |
+|**Standard_DS14**  |16 |112 |224 |1000    |64000 |64 / 64x2300 |8 |
 
 ### <a name="mo-dv2"></a>Dv2 sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
@@ -162,16 +162,16 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8x500    |2 |
 |**Standard_D12_v2** |4   |28  |200  |500 |12000  |16 / 16x500  |4 |
 |**Standard_D13_v2** |8   |56  |400  |500 |24000  |32 / 32x500  |8 |
-|**Standard_D14_v2** |16  |112 |800  |500 |48000  |64/64x500  |8 |
+|**Standard_D14_v2** |16  |112 |800  |500 |48000  |64 / 64x500  |8 |
 
 
 ### <a name="mo-dsv2"></a>DSv2 sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4/4x2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8/8x2300    |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16/16x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32/32x2300  |8 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8x2300    |4 |
+|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16x2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
 
 
 ## <a name="next-steps"></a>Következő lépések

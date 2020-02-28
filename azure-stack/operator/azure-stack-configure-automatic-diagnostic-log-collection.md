@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878190"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695223"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>Automatikus Azure Stack hub diagnosztikai naplók gyűjtésének konfigurálása
 
@@ -30,7 +30,7 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 
 ### <a name="create-a-blob-storage-account"></a>BLOB Storage-fiók létrehozása
  
-1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
+1. Jelentkezzen be az [Azure Portal](https://portal.azure.com).
 1. Kattintson a **Storage-fiókok** > **Hozzáadás**elemre. 
 1. Hozzon létre egy BLOB-tárolót a következő beállításokkal:
    - **Előfizetés**: válassza ki az Azure-előfizetését
@@ -66,7 +66,7 @@ Az automatikus naplózási tárolási fiók paramétereinek kiválasztásával k
 
    ![A megosztott hozzáférési aláírás tulajdonságait bemutató képernyőfelvétel](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
-1. Kattintson a **Create** (Létrehozás) gombra.  
+1. Kattintson a **Létrehozás** gombra.  
 
 Másolja az URL-címet, és adja meg az [automatikus napló-gyűjtemény konfigurálásakor](azure-stack-configure-automatic-diagnostic-log-collection.md). A SAS URL-címekkel kapcsolatos további információkért lásd: [közös hozzáférésű aláírások (SAS) használata](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
@@ -138,7 +138,7 @@ A **frissítés sikertelen volt** például egy olyan riasztás, amely elindítj
 |Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt  | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |   
 
 
-## <a name="see-also"></a>Lásd még:
+## <a name="see-also"></a>Lásd még
 
 [Azure Stack hub-napló és az ügyfelek adatkezelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 

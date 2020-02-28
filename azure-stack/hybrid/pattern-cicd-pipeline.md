@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bf1ae2d8c404f8cc52ab32b22c883ee15934c3b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ebd9925b471d46dc67df29557f677b43d0221a1d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877476"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689545"
 ---
 # <a name="devops-pattern"></a>DevOps minta
 
@@ -51,11 +51,11 @@ További információ: Azure Resource Manager- [sablonok fejlesztése a felhő k
 
 Emellett vegye figyelembe a következő szempontokat is a minta megvalósításának eldöntése során:
 
-### <a name="scalability"></a>Skálázhatóság
+### <a name="scalability"></a>Méretezhetőség
 
 A központi telepítési automatizálási rendszerek a DevOps-mintázatok kulcsfontosságú vezérlői pontja. A megvalósítások eltérőek lehetnek. A megfelelő kiszolgáló méretének kiválasztása a várt munkaterhelés méretétől függ. A virtuális gépek drágábbak, mint a tárolók. Ha azonban tárolókat használna a skálázáshoz, a build-folyamatoknak tárolókkal kell futnia.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 A DevPattern kontextusában a rendelkezésre állás azt jelenti, hogy képes helyreállítani a munkafolyamathoz társított állapotinformációkat, például a teszteredmények, a kódok függőségei vagy más összetevők számára. A rendelkezésre állásra vonatkozó követelmények felméréséhez két általános mérőszámot érdemes figyelembe vennie:
 

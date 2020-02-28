@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873294"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690548"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Mi a Azure Stack Development Kit (ASDK)?
 A [Microsoft Azure stack hub integrált rendszereinek](../operator/azure-stack-overview.md) mérete 4-16 csomópontokból áll, és a hardvereszközök és a Microsoft közösen támogatja őket. Azure Stack hub integrált rendszerek használatával új forgatókönyveket engedélyezhet az éles számítási feladatokhoz. Ha Ön Azure Stack hub-kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az [operátori dokumentációt](/azure-stack/operator).
@@ -50,14 +50,14 @@ Azure Stack hub-operátorként tudnia kell, hogy mely szolgáltatásokat teheti 
 
 ### <a name="foundational-services"></a>Alapszolgáltatások
 Alapértelmezés szerint a Azure Stack hub a következő "alapszolgáltatásokat" tartalmazza a ASDK telepítésekor:
-- Számítási szolgáltatások
-- Adattárolás
-- Hálózatkezelés
+- Számítás
+- Tárterület
+- Hálózat
 - Key Vault
 
 Ezekkel az alapszolgáltatásokkal minimális konfigurációval biztosíthat infrastruktúra-szolgáltatást (IaaS) a felhasználók számára.
 
-### <a name="additional-services"></a>Kiegészítő szolgáltatások
+### <a name="additional-services"></a>További szolgáltatások
 Jelenleg a következő kiegészítő platform-szolgáltatásként nyújtott szolgáltatások támogatottak:
 - App Service
 - Azure Functions

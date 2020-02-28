@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 74d21915b7df5161817c0cf48ec7db6f06cbd904
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881518"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698147"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
@@ -90,9 +90,9 @@ Az aktuális kulturális környezet beállítását úgy kell beállítani, hogy
 
    Ezen parancsmagok nagy része kizárólag az integrált rendszerkörnyezetekhez (például az adatközpont-integrációhoz kapcsolódó parancsmagokhoz) készült. A ASDK a következő parancsmagok lettek érvényesítve:
 
-   - Gazdagép törlése
-   - Bezárás – PrivilegedEndpoint
-   - Kilépés – PSSession
+   - Clear-Host
+   - Close-PrivilegedEndpoint
+   - Exit-PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
    - Get-Command
@@ -100,13 +100,13 @@ Az aktuális kulturális környezet beállítását úgy kell beállítani, hogy
    - Get-Help
    - Get-ThirdPartyNotices
    - Mérték – objektum
-   - Új – CloudAdminUser
+   - New-CloudAdminUser
    - Alapértelmezett
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
-   - Teszt – AzureStack
-   - Leállítás – AzureStack
+   - Test-AzureStack
+   - Stop-AzureStack
    - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Tippek a Kiemelt végpont használatához 
@@ -183,7 +183,7 @@ A végpont-munkamenet lezárása:
 
    A parancsmag a következő táblázatban szereplő paramétereket használja:
 
-   | Paraméter | Leírás | Type (Típus) | Szükséges |
+   | Paraméter | Leírás | Típus | Kötelező |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | A külső fájlmegosztás elérési útja "fileshareIP\sharefoldername"-ként definiálva | Sztring | Igen|
    | *Hitelesítőadat* | A fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |   Igen |

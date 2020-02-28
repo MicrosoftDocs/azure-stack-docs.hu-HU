@@ -7,12 +7,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884654"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702465"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
 
@@ -75,7 +75,7 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
 
 4. Válassza ki a CommVault virtuális gép méretét. A biztonsági mentéshez használt virtuális gép méretének legalább 10 GB RAM-nak és 100 GB tárhellyel kell lennie.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png) kérdésre adott válaszban foglalt lépéseket.
+    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
 
 5. Válassza ki a CommVault virtuális gép beállításait.
 
@@ -114,7 +114,7 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 | Azure Resource Manager URL-cím | Az Azure Stack hub Resource Manager-végpont. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | Alkalmazásnév |  |  |
 | Alkalmazásazonosító | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| Subscription ID (Előfizetés azonosítója) | Az előfizetés-AZONOSÍTÓval érheti el az ajánlatokat az Azure Stack hub szolgáltatásban. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
+| Előfizetés azonosítója | Az előfizetés-AZONOSÍTÓval érheti el az ajánlatokat az Azure Stack hub szolgáltatásban. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
 | Bérlő azonosítója (címtár-azonosító) | Az Azure Stack hub-bérlő azonosítója. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
 | Alkalmazás jelszava | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
 

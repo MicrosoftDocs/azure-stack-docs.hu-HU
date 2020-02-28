@@ -5,13 +5,13 @@ author: mattbriggs
 ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f3a895b2ec8245e95ed8482b84433f900e07dfab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 5e5827cd0667a46d30147b0b6283f2a94d67158f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884477"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701955"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 

@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882491"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700340"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
 
@@ -124,7 +124,7 @@ Törölheti a regisztrációhoz hozzáadott bérlőket. Ha a bérlő továbbra i
 | registrationSubscriptionId | A regisztrációhoz tartozó előfizetés-azonosító.   |
 | resourceGroup              | A regisztrációhoz használt erőforráscsoport.   |
 | registrationName           | A regisztráció neve.  |
-| CustomerSubscriptionId     | Az ügyfél-előfizetés azonosítója.  |
+| customerSubscriptionId     | Az ügyfél-előfizetés azonosítója.  |
 
 ### <a name="powershell"></a>PowerShell
 

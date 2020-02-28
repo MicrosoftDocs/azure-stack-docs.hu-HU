@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 54eae566f2171c471f91e3aaeaf242b90998e962
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 93ca14c17613229aea354e96a9e48be41c2ea5e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874416"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703485"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>App Service Azure Stack hub Update 4 kibocsátási megjegyzései
 
@@ -22,7 +22,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hu
 > [!IMPORTANT]
 > Alkalmazza az 1809-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack Development Kit (ASDK) a Azure App Service 1,4 telepítése előtt.
 
-## <a name="build-reference"></a>Build referenciája
+## <a name="build-reference"></a>Hivatkozás létrehozása
 
 A App Service Azure Stack hub Update 4 Build száma **78.0.13698.5**
 
@@ -37,13 +37,13 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,4
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
-  - Fő
+  - Mester
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése.
 
 - Az **Egyéni szkriptek bővítményének** **1,9** -es verziója az Azure Marketplace-ről.
 
-### <a name="new-features-and-fixes"></a>Új funkciók és hibajavítások
+### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 4 a következő javításokat és javításokat tartalmazza:
 
@@ -193,7 +193,7 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a m
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés utáni)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack hub üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 

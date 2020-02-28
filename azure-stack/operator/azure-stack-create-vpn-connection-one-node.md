@@ -7,13 +7,13 @@ ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
-ROBOTS: NOINDEX
-ms.openlocfilehash: 56d2a07b4c13964dc5bdd26aac1bdd9abe9546d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ROBOTS: NOI
+ms.openlocfilehash: 0668ab364bb1b3dbe8b51b6a4742bd8227846298
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879924"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694798"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben
 
@@ -27,7 +27,7 @@ Az alábbi ábra azt mutatja be, hogy a kapcsolódási konfigurációnak hogyan 
 
 ![Helyek közötti VPN-kapcsolat konfigurációja](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
 
-### <a name="before-you-begin"></a>Előzetes teendők
+### <a name="before-you-begin"></a>Előkészületek
 
 A kapcsolódási konfiguráció befejezéséhez győződjön meg arról, hogy a Kezdés előtt a következő elemek vannak:
 
@@ -53,9 +53,9 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 
 |   |POC1|POC2|
 |---------|---------|---------|
-|Virtuális hálózat neve     |VNET-01|VNET – 02 |
+|Virtuális hálózat neve     |VNET-01|VNET-02 |
 |Virtuális hálózati címtartomány |10.0.10.0/23|10.0.20.0/23|
-|Alhálózat neve     |Alhálózat – 01|Alhálózat – 02|
+|Alhálózat neve     |Subnet-01|Subnet-02|
 |Alhálózati címtartomány|10.0.10.0/24 |10.0.20.0/24 |
 |Átjáró alhálózata     |10.0.11.0/24|10.0.21.0/24|
 |Külső BGPNAT-címe     |         |         |

@@ -457,9 +457,7 @@
 - name: Referencia
   items:
     - name: Azure Stack hub PowerShell
-      href: /powershell/azure/azure-stack/overview
-- name: Kapcsolódó
-  items:
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
     - name: ASDK-dokumentáció

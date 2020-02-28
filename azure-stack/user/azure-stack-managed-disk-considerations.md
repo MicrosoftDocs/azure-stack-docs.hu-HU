@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d1f22bf65f088c9aa651498cd02c7669ba4abfb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883437"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703944"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
@@ -25,11 +25,11 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack Hub |
+| Funkció | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
-|Lemezkép          | Felügyelt egyéni rendszerkép |Támogatott|
-|Biztonsági mentési beállítások | Azure Backup szolgáltatás |Még nem támogatott |
+|Image (Kép)          | Felügyelt egyéni rendszerkép |Támogatott|
+|Biztonsági mentési lehetőségek | Azure Backup szolgáltatás |Még nem támogatott |
 |Vész-helyreállítási lehetőségek | Azure Site Recovery |Még nem támogatott|
 |Lemez típusa     |Prémium SSD, standard SSD és standard HDD. |Prémium SSD, standard HDD |
 |Prémium szintű lemezek  |Teljes mértékben támogatott. |Kiépíthető, de nincs teljesítménybeli korlát vagy garancia  |
@@ -43,7 +43,7 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
 > [!NOTE]  
 > A felügyelt lemezek IOPs és átviteli sebessége Azure Stack hub-ban nem kiosztott szám, hanem a Azure Stack hub-ban futó hardverek és munkaterhelések is befolyásolhatják.
 
-## <a name="metrics"></a>Metrikák
+## <a name="metrics"></a>Mérőszámok
 
 A tárolási metrikákkal kapcsolatban is különbségek vannak:
 

@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 608374ce5e788a82378aaf9c62414b05d871c983
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c73e7bc20b1eb1e2538f211d2aaa84dafbfa103b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873481"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694118"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -23,7 +23,7 @@ A [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsof
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>1\.1910.0.58 létrehozása
 
-### <a name="new-features"></a>ÚJ funkciók
+### <a name="new-features"></a>Új funkciók
 
 - Az ebben a kiadásban rögzített problémák, változások és új funkciók listáját a [Azure stack kibocsátási megjegyzései](../operator/release-notes.md)című szakaszban találja.
 
@@ -44,7 +44,7 @@ A [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsof
   
 ## <a name="build-11908020"></a>1\.1908.0.20 létrehozása
 
-### <a name="new-features"></a>ÚJ funkciók
+### <a name="new-features"></a>Új funkciók
 
 - Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1) tartalmazza.
 
@@ -60,7 +60,7 @@ A [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsof
 ::: moniker range="azs-1907"
 ## <a name="build-11907020"></a>1\.1907.0.20 létrehozása
 
-### <a name="new-features"></a>ÚJ funkciók
+### <a name="new-features"></a>Új funkciók
 
 - Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update) tartalmazza.
 
@@ -77,7 +77,7 @@ A [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsof
 ::: moniker range="azs-1906"
 ## <a name="build-11906030"></a>1\.1906.0.30 létrehozása
 
-### <a name="new-features"></a>ÚJ funkciók
+### <a name="new-features"></a>Új funkciók
 
 - Az ebben a kiadásban szereplő új funkciók listáját a Azure Stack kibocsátási megjegyzések [jelen szakasza](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1) tartalmazza.
 

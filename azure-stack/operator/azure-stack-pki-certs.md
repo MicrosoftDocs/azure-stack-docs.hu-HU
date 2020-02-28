@@ -7,12 +7,12 @@ ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 99bec3441d7b6671024f5e1689c6f8504a2f57c1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509704"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698385"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
 
@@ -29,7 +29,7 @@ Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely
 Az alábbi lista ismerteti az Azure Stack hub telepítéséhez szükséges tanúsítványokra vonatkozó követelményeket:
 
 - A tanúsítványokat a belső hitelesítésszolgáltatótól vagy egy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Ha nyilvános hitelesítésszolgáltató van használatban, azt a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát itt tekintheti meg [: Microsoft megbízható legfelső szintű tanúsítvány programja: résztvevők](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
-- Az Azure Stack hub-infrastruktúrának a tanúsítványban közzétett tanúsítvány-visszavonási lista (CRL) elérési helyéhez hálózati hozzáféréssel kell rendelkeznie. A CRL-nek http-végpontnak kell lennie.
+- Az Azure Stack hub-infrastruktúrának a tanúsítványban közzétett tanúsítvány-visszavonási lista (CRL) elérési helyéhez hálózati hozzáféréssel kell rendelkeznie. A CRL-nek egy HTTP-végponton kell lennie.
 - Ha a tanúsítványokat előre 1903-buildekben futtatja, akkor a tanúsítványokat ugyanabból a belső hitelesítésszolgáltatótól kell kibocsátani, amely a telepítéskor vagy bármely nyilvános hitelesítésszolgáltatónál elérhető tanúsítványok aláírására használatos. A 1903-es és újabb verzióiban a tanúsítványokat bármely vállalati vagy nyilvános hitelesítésszolgáltató kiállíthatja.
 - Az önaláírt tanúsítványok használata nem támogatott.
 - Üzembe helyezéshez és elforgatáshoz használhatja a tanúsítvány tulajdonosának neve és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő egyetlen tanúsítványt, vagy használhat egyéni tanúsítványokat az Azure Stack hub alatti névterekhez. a használni kívánt szolgáltatások szükségesek. Mindkét módszerhez szükség van olyan végpontokhoz, ahol szükség van rájuk, **például a kulcstartó és** a **KeyVaultInternal**.

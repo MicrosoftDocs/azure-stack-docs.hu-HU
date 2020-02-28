@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 30e7ced54a4c2bc69cb5249b58b4844cd9a0b332
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: a3ca9d760969974d9ba6fd35f0907472d2271c61
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874773"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703502"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Központi telepítési források konfigurálása App Serviceshoz Azure Stack hub-on
 
@@ -37,19 +37,19 @@ A helyi git mellett a következő verziókövetés-szolgáltatók is támogatott
 
 A feladat elvégzéséhez GitHub-fiókkal kell rendelkeznie. Személyes fiók helyett érdemes lehet egy fiókot használni a szervezet számára.
 
-1. Jelentkezzen be a GitHubba, keresse meg https://www.github.com/settings/developers , majd kattintson **az új alkalmazás regisztrálása**lehetőségre.
+1. Jelentkezzen be a GitHubba, keresse meg https://www.github.com/settings/developers, majd kattintson **az új alkalmazás regisztrálása**lehetőségre.
     ![GitHub – új alkalmazás regisztrálása][3]
 2. Adja meg az **alkalmazás nevét**. Például **App Service Azure stack hub-on**.
 3. Adja meg a **Kezdőlap URL-címét**. A Kezdőlap URL-címének a Azure Stack hub portáljának kell lennie. Például: https://portal.local.azurestack.external.
 4. Adja meg az **alkalmazás leírását**.
-5. Adja meg az **engedélyezési visszahívási URL-címet**. Egy alapértelmezett Azure Stack hub-telepítésben az URL-cím a https://portal.local.azurestack.external/TokenAuthorize formában van. Ha másik tartományban fut, váltson a helyi. azurestack. external tartomány nevére.
+5. Adja meg az **engedélyezési visszahívási URL-címet**. Egy alapértelmezett Azure Stack hub-telepítésben az URL-cím a https://portal.local.azurestack.external/TokenAuthorizeformában van. Ha másik tartományban fut, váltson a helyi. azurestack. external tartomány nevére.
 6. Kattintson az **alkalmazás regisztrálása**elemre. Megjelenik egy lap, amely felsorolja az alkalmazás **ügyfél-azonosítóját** és az **ügyfél titkos kulcsát** .
     ![GitHub – az alkalmazás regisztrációja befejeződött][5]
 7. Az új böngésző lapon vagy ablakban jelentkezzen be az Azure Stack hub felügyeleti portálra (https://adminportal.local.azurestack.external) szolgáltatás-rendszergazdaként.
 8. Tallózással keresse meg az **erőforrás**-szolgáltatókat, majd válassza ki a **app Service erőforrás-szolgáltatói rendszergazdát**.
 9. Kattintson a **verziókövetés konfigurációja**elemre.
 10. Másolja és illessze be az **ügyfél-azonosítót** és az **ügyfél titkát** a GitHub megfelelő beviteli mezőibe.
-11. Kattintson a **Mentés** gombra.
+11. Kattintson a **Save** (Mentés) gombra.
 
 ## <a name="configure-bitbucket"></a>BitBucket konfigurálása
 
@@ -61,18 +61,18 @@ A feladat végrehajtásához rendelkeznie kell egy BitBucket-fiókkal. Személye
     ![BitBucket OAuth-fogyasztó hozzáadása][8]
 3. Adja meg a fogyasztó **nevét** . Például **App Service Azure stack hub-on**.
 4. Adja meg az alkalmazás **leírását** .
-5. Adja meg a **visszahívási URL-címet**. Az Azure Stack hub alapértelmezett központi telepítése során a visszahívási URL-cím a https://portal.local.azurestack.external/TokenAuthorize formában van. Ha másik tartományban fut, a tartománynevet a azurestack. local névre cserélje. Ahhoz, hogy a BitBucket-integráció sikeres legyen, az URL-címnek követnie kell az itt felsorolt nagybetűket.
+5. Adja meg a **visszahívási URL-címet**. Az Azure Stack hub alapértelmezett központi telepítése során a visszahívási URL-cím a https://portal.local.azurestack.external/TokenAuthorizeformában van. Ha másik tartományban fut, a tartománynevet a azurestack. local névre cserélje. Ahhoz, hogy a BitBucket-integráció sikeres legyen, az URL-címnek követnie kell az itt felsorolt nagybetűket.
 6. Adja meg az **URL-címet**. Az URL-címnek az Azure Stack hub portál URL-címének kell lennie. Például: https://portal.local.azurestack.external.
 7. Válassza ki a szükséges **engedélyeket** :
     - **Adattárak**: *olvasás*
     - **Webhookok**: *olvasás és írás*
-8. Kattintson a **Mentés** gombra. Ekkor megjelenik az új alkalmazás, valamint a **kulcs** és a **titok**a OAuth- **fogyasztók**területen.
+8. Kattintson a **Save** (Mentés) gombra. Ekkor megjelenik az új alkalmazás, valamint a **kulcs** és a **titok**a OAuth- **fogyasztók**területen.
     ![BitBucket][9]
 9.  Az új böngésző lapon vagy ablakban jelentkezzen be az Azure Stack hub felügyeleti portálra (https://adminportal.local.azurestack.external) szolgáltatás-rendszergazdaként.
 10.  Keresse meg az **erőforrás** -szolgáltatót, és válassza ki a **app Service erőforrás-szolgáltatói rendszergazdát**.
 11. Kattintson a **verziókövetés konfigurációja**elemre.
 12. Másolja ki és illessze be a kulcsot az **ügyfél-azonosító** beviteli mezőbe, és **titkos** **kódot** a BitBucket **ügyfél titkos** beviteli mezőjébe.
-13. Kattintson a **Mentés** gombra.
+13. Kattintson a **Save** (Mentés) gombra.
 
 ## <a name="configure-onedrive"></a>OneDrive konfigurálása
 
@@ -81,7 +81,7 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz csatolt Microsoft-fiókkal kell 
 > [!NOTE]
 > A OneDrive for Business-fiókok jelenleg nem támogatottak.
 
-1. Keresse meg https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm , és jelentkezzen be Microsoft-fiókjával.
+1. Keresse meg https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm, és jelentkezzen be Microsoft-fiókjával.
 2. **Az alkalmazások**területen kattintson az **alkalmazás hozzáadása**elemre.
 ![OneDrive-alkalmazások][10]
 3. Adja meg az új alkalmazás regisztrációjának **nevét** : írja be a **app Serviceot Azure stack hub-ra**, majd kattintson az **alkalmazás létrehozása**elemre.
@@ -89,25 +89,25 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz csatolt Microsoft-fiókkal kell 
 ![OneDrive-alkalmazás tulajdonságai][11]
 5. Az **alkalmazás titkai**területen kattintson az **új jelszó előállítása**elemre. Jegyezze fel a **létrehozott új jelszót**. Ez a jelszó az alkalmazás titkos kulcsa, és az **OK**gombra kattintás után nem lehet lekérni.
 6. A **platformok**területen kattintson a **platform hozzáadása**, majd a **web**elemre.
-7. Adja meg az **átirányítási URI**-t. Az Azure Stack hub alapértelmezett központi telepítése során az átirányítási URI a https://portal.local.azurestack.external/TokenAuthorize formában van. Ha egy másik tartományban fut, váltson át a azurestack. local névre.
+7. Adja meg az **átirányítási URI**-t. Az Azure Stack hub alapértelmezett központi telepítése során az átirányítási URI a https://portal.local.azurestack.external/TokenAuthorizeformában van. Ha egy másik tartományban fut, váltson át a azurestack. local névre.
 ![OneDrive alkalmazás – webes platform hozzáadása][12]
 8. Adja hozzá a **Microsoft Graph engedélyeket** - **delegált engedélyekhez**.
     - **Files. ReadWrite. AppFolder**
     - **Felhasználói. Olvasni**  
       ![OneDrive alkalmazás – Graph-engedélyek][13]
-9. Kattintson a **Mentés** gombra.
+9. Kattintson a **Save** (Mentés) gombra.
 10.  Az új böngésző lapon vagy ablakban jelentkezzen be az Azure Stack hub felügyeleti portálra (https://adminportal.local.azurestack.external) szolgáltatás-rendszergazdaként.
 11.  Keresse meg az **erőforrás** -szolgáltatót, és válassza ki a **app Service erőforrás-szolgáltatói rendszergazdát**.
 12. Kattintson a **verziókövetés konfigurációja**elemre.
 13. Másolja és illessze be az **alkalmazás azonosítóját** az **ügyfél-azonosító** beviteli mezőbe, és adja meg a **jelszót** a OneDrive **ügyfél titkos** beviteli mezőjében.
-14. Kattintson a **Mentés** gombra.
+14. Kattintson a **Save** (Mentés) gombra.
 
 ## <a name="configure-dropbox"></a>A DropBox konfigurálása
 
 > [!NOTE]
 > A feladat elvégzéséhez DropBox-fiókkal kell rendelkeznie. Személyes fiók helyett érdemes lehet egy fiókot használni a szervezet számára.
 
-1. Keresse meg https://www.dropbox.com/developers/apps , és jelentkezzen be a DropBox-fiókja hitelesítő adataival.
+1. Keresse meg https://www.dropbox.com/developers/apps, és jelentkezzen be a DropBox-fiókja hitelesítő adataival.
 2. Kattintson az **alkalmazás létrehozása**elemre.
 
     ![Dropbox-alkalmazások][14]
@@ -118,13 +118,13 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz csatolt Microsoft-fiókkal kell 
 ![Dropbox-alkalmazás regisztrációja][15]
 6. Kattintson az **alkalmazás létrehozása**elemre. Megjelenik egy olyan oldal, amely felsorolja az alkalmazás beállításait, beleértve az **alkalmazás kulcsát** és az **alkalmazás titkos**kódját is.
 7. Győződjön meg arról, hogy az **alkalmazás mappájának neve** **Azure stack hub app Service**értékre van beállítva.
-8. Állítsa be a **OAuth 2 átirányítási URI** -t, majd kattintson a **Hozzáadás**gombra. Az Azure Stack hub alapértelmezett központi telepítése során az átirányítási URI a https://portal.local.azurestack.external/TokenAuthorize formában van. Ha másik tartományban fut, váltson a tartományra a azurestack. local számára.
+8. Állítsa be a **OAuth 2 átirányítási URI** -t, majd kattintson a **Hozzáadás**gombra. Az Azure Stack hub alapértelmezett központi telepítése során az átirányítási URI a https://portal.local.azurestack.external/TokenAuthorizeformában van. Ha másik tartományban fut, váltson a tartományra a azurestack. local számára.
 ![Dropbox alkalmazás konfigurációjának][16]
 9.  Az új böngésző lapon vagy ablakban jelentkezzen be az Azure Stack hub felügyeleti portálra (https://adminportal.local.azurestack.external) szolgáltatás-rendszergazdaként.
 10.  Keresse meg az **erőforrás** -szolgáltatót, és válassza ki a **app Service erőforrás-szolgáltatói rendszergazdát**.
 11. Kattintson a **verziókövetés konfigurációja**elemre.
 12. Másolja és illessze be az **alkalmazás kulcsát** az **ügyfél-azonosító** beviteli mezőbe és az **alkalmazás titkos** kódját a Dropbox **ügyfél titkos** beviteli mezőjébe.
-13. Kattintson a **Mentés** gombra.
+13. Kattintson a **Save** (Mentés) gombra.
 
 ## <a name="next-steps"></a>Következő lépések
 

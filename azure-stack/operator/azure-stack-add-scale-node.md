@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876592"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688763"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
@@ -36,7 +36,7 @@ Az új csomópont hozzáadásának művelete több órát vagy napot is igénybe
 >  - Méretezési egység csomópontjának javítása
 
 
-## <a name="add-scale-unit-nodes"></a>Skálázási egység csomópontjainak hozzáadása
+## <a name="add-scale-unit-nodes"></a>Skálázási egység csomópontok hozzáadása
 
 A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáról. Ne kövesse ezeket a lépéseket anélkül, hogy először a SZÁMÍTÓGÉPGYÁRTÓ által biztosított kapacitás-bővítési dokumentációra kellene hivatkoznia.
 
@@ -96,7 +96,7 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 ### <a name="status-for-the-add-node-operation"></a>A csomópont hozzáadása művelet állapota 
 **Méretezési egység esetén:**
 
-|Állapot               |Leírás  |
+|status               |Leírás  |
 |---------------------|---------|
 |Fut              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva              |A skálázási egység csomópontja vagy le van zárva, vagy nem érhető el.|
@@ -107,17 +107,17 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 
 **Méretezési egység csomópont esetén:**
 
-|Állapot                |Leírás  |
+|status                |Leírás  |
 |----------------------|---------|
 |Fut               |A csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva               |A csomópont nem érhető el.|
 |Hozzáadása                |A csomópontot aktívan felveszik a méretezési egységbe.|
-|Javítása             |A csomópont aktívan javítás alatt áll.|
+|Javítás             |A csomópont aktívan javítás alatt áll.|
 |Karbantartás           |A csomópont szüneteltetve van, és nem fut aktív felhasználói munkaterhelés. |
 |Szervizelést igényel  |Hiba észlelhető, amely megköveteli a csomópont javítását.|
 
 
-## <a name="troubleshooting"></a>Hibaelhárítás
+## <a name="troubleshooting"></a>Hibakeresés
 A csomópontok hozzáadásakor a következő gyakori problémák észlelhetők. 
 
 **1. forgatókönyv:**  A skálázási egység csomópont hozzáadása művelet meghiúsul, de egy vagy több csomópont leállított állapottal van felsorolva.  

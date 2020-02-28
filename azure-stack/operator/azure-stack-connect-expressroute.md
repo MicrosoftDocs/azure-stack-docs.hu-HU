@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879431"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701496"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure Stack hub összekötése az Azure-ba az Azure ExpressRoute
 
@@ -70,7 +70,7 @@ Az Azure Stack hub-környezet első bérlőhöz való beállításához kövesse
 
 ![Azure Stack hub-hálózat beállítása](media/azure-stack-connect-expressroute/image2.png)
 
-### <a name="before-you-begin"></a>Előzetes teendők
+### <a name="before-you-begin"></a>Előkészületek
 
 Az Azure Stack hub konfigurálásának megkezdése előtt a következőkre lesz szüksége:
 
@@ -93,9 +93,9 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
 5. A **virtuális hálózat létrehozása**területen adja meg az alábbi táblázatban látható értékeket a megfelelő mezőkbe:
 
-   |Mező  |Value (Díj)  |
+   |Mező  |Érték  |
    |---------|---------|
-   |Név     |Tenant1VNet1         |
+   |Name (Név)     |Tenant1VNet1         |
    |Címtér     |10.1.0.0/16|
    |Alhálózat neve     |Tenant1-Sub1|
    |Alhálózati címtartomány     |10.1.1.0/24|
@@ -104,7 +104,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
     * Az **erőforráscsoport**területen válassza az **új létrehozása** lehetőséget egy új erőforráscsoport létrehozásához, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
     * Ellenőrizze az alapértelmezett **helyet**.
-    * Kattintson a **Create** (Létrehozás) gombra.
+    * Kattintson a **Létrehozás** gombra.
     * Választható Kattintson **a rögzítés az irányítópulton**elemre.
 
 #### <a name="create-the-gateway-subnet"></a>Az átjáróalhálózat létrehozása
@@ -127,7 +127,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 1. Válassza a **nyilvános IP-cím**lehetőséget, majd **válassza a nyilvános IP-cím**lehetőséget, majd kattintson az **új létrehozása**lehetőségre.
 1. A név mezőbe írja be a **GW1-pip** **nevet** , majd kattintson az **OK**gombra.
 1. Az **VPN típusa** mezőben alapértelmezés szerint a **Útvonalalapú** lehetőség van kiválasztva. Ne módosítsa ezt a beállítást.
-1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Create** (Létrehozás) gombra.
+1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Létrehozás** gombra.
 
 #### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 

@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873804"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695665"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -133,13 +133,13 @@ Ha a környezet nem rendelkezik engedélyezve DHCP-vel, akkor a fenti lehetősé
 
 |Paraméter|Kötelező/nem kötelező|Leírás|
 |-----|-----|-----|
-|AdminPassword|Szükséges|Beállítja a helyi rendszergazdai fiókot és az összes többi felhasználói fiókot a ASDK-telepítés részeként létrehozott összes virtuális gépen. Ennek a jelszónak meg kell egyeznie a gazdagép aktuális helyi rendszergazdai jelszavával.|
-|InfraAzureDirectoryTenantName|Szükséges|Beállítja a bérlői könyvtárat. Ezzel a paraméterrel megadhat egy adott könyvtárat, amelyben az Azure AD-fiók rendelkezik a több könyvtár felügyeletéhez szükséges engedélyekkel. Egy Azure AD-bérlő teljes neve. onmicrosoft.com vagy egy Azure AD által ellenőrzött egyéni tartománynév.|
-|TimeServer|Szükséges|Ezzel a paraméterrel adható meg egy adott időkiszolgáló. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.|
-|InfraAzureDirectoryTenantAdminCredential|Választható|Beállítja a Azure Active Directory felhasználónevét és jelszavát. Ezeknek az Azure-beli hitelesítő adatoknak szervezeti AZONOSÍTÓnak kell lenniük.|
-|InfraAzureEnvironment|Választható|Válassza ki azt az Azure-környezetet, amellyel regisztrálni szeretné ezt az Azure Stack-telepítést. A lehetőségek közé tartozik a globális Azure, az Azure-Kína, az Azure-USA kormánya.|
-|DNSForwarder|Választható|A rendszer a Azure Stack központi telepítésének részeként létrehoz egy DNS-kiszolgálót. Annak engedélyezéséhez, hogy a megoldásban lévő számítógépek a bélyegzőn kívül is feloldják a neveket, adja meg a meglévő infrastruktúra DNS-kiszolgálóját. A in-Stamp DNS-kiszolgáló ismeretlen névfeloldási kérelmeket továbbít erre a kiszolgálóra.|
-|Újrajátszás|Választható|Használja ezt a jelzőt a központi telepítés újrafuttatásához. Minden korábbi bemenet használatban van. A korábban megadott adatok újbóli megadása nem támogatott, mert több egyedi érték jön létre és használatos az üzembe helyezéshez.|
+|AdminPassword|Kötelező|Beállítja a helyi rendszergazdai fiókot és az összes többi felhasználói fiókot a ASDK-telepítés részeként létrehozott összes virtuális gépen. Ennek a jelszónak meg kell egyeznie a gazdagép aktuális helyi rendszergazdai jelszavával.|
+|InfraAzureDirectoryTenantName|Kötelező|Beállítja a bérlői könyvtárat. Ezzel a paraméterrel megadhat egy adott könyvtárat, amelyben az Azure AD-fiók rendelkezik a több könyvtár felügyeletéhez szükséges engedélyekkel. Egy Azure AD-bérlő teljes neve. onmicrosoft.com vagy egy Azure AD által ellenőrzött egyéni tartománynév.|
+|TimeServer|Kötelező|Ezzel a paraméterrel adható meg egy adott időkiszolgáló. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.|
+|InfraAzureDirectoryTenantAdminCredential|Optional|Beállítja a Azure Active Directory felhasználónevét és jelszavát. Ezeknek az Azure-beli hitelesítő adatoknak szervezeti AZONOSÍTÓnak kell lenniük.|
+|InfraAzureEnvironment|Optional|Válassza ki azt az Azure-környezetet, amellyel regisztrálni szeretné ezt az Azure Stack-telepítést. A lehetőségek közé tartozik a globális Azure, az Azure-Kína, az Azure-USA kormánya.|
+|DNSForwarder|Optional|A rendszer a Azure Stack központi telepítésének részeként létrehoz egy DNS-kiszolgálót. Annak engedélyezéséhez, hogy a megoldásban lévő számítógépek a bélyegzőn kívül is feloldják a neveket, adja meg a meglévő infrastruktúra DNS-kiszolgálóját. A in-Stamp DNS-kiszolgáló ismeretlen névfeloldási kérelmeket továbbít erre a kiszolgálóra.|
+|Futtassa újra|Optional|Használja ezt a jelzőt a központi telepítés újrafuttatásához. Minden korábbi bemenet használatban van. A korábban megadott adatok újbóli megadása nem támogatott, mert több egyedi érték jön létre és használatos az üzembe helyezéshez.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Üzembe helyezés utáni konfigurációk végrehajtása

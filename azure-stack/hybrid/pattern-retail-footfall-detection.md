@@ -7,12 +7,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a644de92672305cdae82490b6a972620ea77924c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877323"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688745"
 ---
 # <a name="footfall-detection-pattern"></a>Lépés hangja észlelési minta
 
@@ -44,13 +44,13 @@ Ez a kiskereskedelmi elemzési minta egy lépcsőzetes megközelítést használ
 
 Ez a megoldás a következő összetevőket használja:
 
-| Réteg | Component (Összetevő) | Leírás |
+| Réteg | Összetevő | Leírás |
 |----------|-----------|-------------|
 | Tárolt hardver | [Custom Vision AI fejlesztői csomag](https://azure.github.io/Vision-AI-DevKit-Pages/) | Egy helyi ML-modell használatával biztosítja az áruházbeli szűrést, amely csak az elemzésre alkalmas személyek képét rögzíti. Biztonságos kiépítés és frissítés IoT Hubon keresztül.<br><br>|
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Az Azure Event Hubs méretezhető platformot biztosít a Azure Stream Analyticshoz szépen integrálható, névtelenül tárolt adatmennyiségek betöltéséhez. |
 |  | [Azure Stream Analytics](/azure/stream-analytics/) | Az Azure Stream Analytics-feladatok összesítik a névtelen adatokat, és a vizualizációk 15 másodperces Windowsba csoportosítják azokat. |
 |  | [Microsoft Power BI](https://powerbi.microsoft.com/) | A Power BI egy könnyen használható irányítópult-felületet biztosít a Azure Stream Analytics kimenetének megtekintéséhez. |
-| Azure Stack Hub | [APP SERVICE](../operator/azure-stack-app-service-overview.md) | A App Service erőforrás-szolgáltató (RP) az Edge-összetevők alapját biztosítja. Beleértve a Web Apps/API-k és a függvények üzemeltetési és felügyeleti funkcióit. |
+| Azure Stack hub | [APP SERVICE](../operator/azure-stack-app-service-overview.md) | A App Service erőforrás-szolgáltató (RP) az Edge-összetevők alapját biztosítja. Beleértve a Web Apps/API-k és a függvények üzemeltetési és felügyeleti funkcióit. |
 | | Azure Kubernetes szolgáltatás [(ak) motorjának](https://github.com/Azure/aks-engine) fürtje | Az Azure Stack hub-ba helyezett, AK-motor-fürtöt tartalmazó AK RP méretezhető, rugalmas motort biztosít az Face API tároló futtatásához. |
 | | Azure Cognitive Services [Face API tárolók](/azure/cognitive-services/face/face-how-to-install-containers)| Az Azure Cognitive Services RP Face API tárolókkal biztosítja a demográfiai, érzelem-és egyedi látogatói észlelést a contoso magánhálózaton. |
 | | Blob Storage | Az AI fejlesztői csomagból rögzített rendszerképek fel lesznek töltve az Azure Stack hub blob Storage-tárolóba. |
@@ -60,7 +60,7 @@ Ez a megoldás a következő összetevőket használja:
 
 A megoldás megvalósításának eldöntése során vegye figyelembe a következő szempontokat:
 
-### <a name="scalability"></a>Skálázhatóság 
+### <a name="scalability"></a>Méretezhetőség 
 
 Ha engedélyezni szeretné, hogy a megoldás több kamera és hely között is méretezhető legyen, meg kell győződnie arról, hogy az összes összetevő képes kezelni a megnövekedett terhelést. Előfordulhat, hogy a következő műveleteket kell végrehajtania:
 
@@ -69,7 +69,7 @@ Ha engedélyezni szeretné, hogy a megoldás több kamera és hely között is m
 - A Event Hubs-fürt átviteli sebességének növelése
 - Szélsőséges esetekben szükség lehet a Azure Functionsról a virtuális gépre való Migrálás.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Mivel ez a megoldás többrétegű, fontos, hogy meggondolja, hogyan kell kezelni a hálózati vagy áramkimaradásokat. Az üzleti igényektől függően célszerű lehet egy olyan mechanizmust megvalósítani, amely helyileg gyorsítótárazza a lemezképeket, majd a kapcsolat visszaadásakor továbbítja Azure Stack hubhoz. Ha a hely elég nagy, akkor lehet, hogy egy Data Box Edge üzembe helyezése a Face API tárolóval az adott helyen jobb megoldás lehet.
 

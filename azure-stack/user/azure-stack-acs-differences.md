@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 6e5171c105bd806895a04880e0bec0af5fab8855
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/30/2020
+ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883969"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687393"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -22,14 +22,14 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 
 ## <a name="cheat-sheet-storage-differences"></a>Cheat Sheet: tárolási különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack Hub |
+| Funkció | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 |File Storage|Felhőalapú SMB-fájlmegosztás támogatott|Még nem támogatott
 |Azure Storage szolgáltatás titkosítása inaktív adatok esetén|256 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás támogatása Key Vaultban.|BitLocker 128 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás nem támogatott.
 |Tárfiók típusa|Általános célú v1, v2 és blob Storage-fiókok|Csak általános célú v1.
 |Replikációs lehetőségek|Helyileg redundáns tárolás, Geo-redundáns tárolás, olvasási hozzáférés a Geo-redundáns tároláshoz és a zóna-redundáns tároláshoz|Helyileg redundáns tárolás.
 |Prémium szintű Storage|Nagy teljesítményű és kis késésű tárolást biztosít. Csak a Premium Storage-fiókokban lévő Blobok támogatása.|Kiépíthető, a teljesítmény korlátja és a garancia nem lehetséges. Nem tiltható le a blokk Blobok használata, blobok, táblák és várólisták hozzáfűzése a Premium Storage-fiókokban.
-|Managed Disks|Prémium és standard támogatott|Az 1808-es vagy újabb verzió használata esetén támogatott.
+|Felügyelt lemezek|Prémium és standard támogatott|Az 1808-es vagy újabb verzió használata esetén támogatott.
 |A blob neve|1 024 karakter (2 048 bájt)|880 karakter (1 760 bájt)
 |BLOB maximális méretének letiltása|4,75 TB (100 MB X 50 000 blokk)|4,75 TB (100 MB x 50 000 blokk) az 1802 frissítéshez vagy újabb verzióhoz. 50 000 X 4 MB (körülbelül 195 GB) a korábbi verziókhoz.
 |Oldal blob-pillanatképének másolata|Azure-beli nem felügyelt virtuálisgép-lemezek biztonsági mentése támogatott futó virtuális gépekhez|Még nem támogatott.

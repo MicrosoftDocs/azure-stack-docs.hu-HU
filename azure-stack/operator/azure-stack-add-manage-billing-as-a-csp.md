@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876558"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695614"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
@@ -30,7 +30,7 @@ Az alábbi ábrán a megosztott szolgáltatások kiválasztásához szükséges 
 
 Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók típusát. A több-bérlős Azure Stack központ regisztrálásához használható előfizetések típusai a következők:
 
-- Cloud Solution Provider program
+- Felhőalapú megoldás szolgáltatója
 - Partner Shared Services-előfizetés
 
 #### <a name="azure-partner-shared-services"></a>Azure partner megosztott szolgáltatások

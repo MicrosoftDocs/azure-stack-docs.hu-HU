@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 45dd07337aef61a1fcfecb855e0c113315b15271
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883211"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703723"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -108,11 +108,11 @@ Minden értéknél:
 
   Az alternatív lehetőségek az adott forgatókönyvekhez érhetők el:
 
-  | Jelentkezés | ApplicationID |
+  | Alkalmazás | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
-  | LegacyPowerShell | 0a7bdc5c-7b57-40BE-9939-d4c5fc7cd417 |
+  | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
-  | WindowsAzureActiveDirectory | 00000002-0000-0000 – C000 – 000000000000 |
+  | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
@@ -159,7 +159,7 @@ Válasz:
 
 ## <a name="api-queries"></a>API-lekérdezések
 
-A hozzáférési jogkivonat beszerzése után minden API-kérelemhez vegye fel a fejlécet. Fejlécként való hozzáadásához hozzon létre egy **engedélyezési** fejlécet a következő értékkel: `Bearer <access token>`. Példa:
+A hozzáférési jogkivonat beszerzése után minden API-kérelemhez vegye fel a fejlécet. Fejlécként való hozzáadásához hozzon létre egy **engedélyezési** fejlécet a következő értékkel: `Bearer <access token>`. Például:
 
 Kérés:
 

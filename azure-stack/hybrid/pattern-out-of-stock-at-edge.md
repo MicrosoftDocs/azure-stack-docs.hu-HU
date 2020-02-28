@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 144163b415a5d5aaa914b2c36ab036b587acd999
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875538"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688814"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>Az állományon kívüli észlelés az Edge-mintán
 
@@ -43,7 +43,7 @@ A megoldás működése:
 
 Ez a megoldás a következő összetevőket használja:
 
-| Réteg | Component (Összetevő) | Leírás |
+| Réteg | Összetevő | Leírás |
 |----------|-----------|-------------|
 | Helyszíni hardver | Hálózati kamera | Szükség van egy hálózati kamerára, vagy egy HTTP-vagy RTSP-hírcsatornával, hogy megismertesse a képeket a következtetésekhez. |
 | Azure | Azure IoT Hub | Az [Azure IoT hub](/azure/iot-hub/) kezeli az eszközök kiépítési és üzenetküldési szolgáltatásait az Edge-eszközökön. |
@@ -56,11 +56,11 @@ Ez a megoldás a következő összetevőket használja:
 
 A megoldás megvalósításának eldöntése során vegye figyelembe a következő szempontokat:
 
-### <a name="scalability"></a>Skálázhatóság 
+### <a name="scalability"></a>Méretezhetőség 
 
 A gépi tanulási modellek többsége a megadott hardvertől függően csak bizonyos számú képkockán futhat. Határozza meg a fényképezőgép (ek) optimális mintavételi sebességét annak érdekében, hogy a ML-folyamat ne legyen biztonsági másolat. A különböző típusú hardverek különböző számú kamerát és képkockákat fognak kezelni.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Fontos figyelembe venni, hogy mi történik, ha a peremhálózati eszköz elveszti a kapcsolódást. Vegye figyelembe, hogy milyen adatok elveszhetnek a Time Series Insights és Power BI irányítópulton. A példaként megadott megoldás nem kiválóan elérhető.
 

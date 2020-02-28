@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
-ms.reviewer: jiahan
-ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.reviewer: jiaha
+ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568639"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697093"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack hub tárolási infrastruktúrájának kezelése
 
@@ -196,7 +196,7 @@ Egyes meghajtók egyszerűen nem állnak készen Azure Stack hub Storage-készle
 | Nincs elegendő kapacitás | A meghajtón vannak partíciók a szabad területtel.<br> <br>**Művelet:** Cserélje le a meghajtót egy új lemezre. Ha ezt a lemezt kell használnia, távolítsa el a lemezt a rendszerből, ügyeljen arra, hogy ne legyen hasznos adat a lemezen, törölje a lemezt, majd helyezze át a lemezt. |
 | Ellenőrzés folyamatban | A Állapotfigyelő szolgáltatás ellenőrzi, hogy a meghajtó vagy a belső vezérlőprogram engedélyezett-e a használatra.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a folyamatot, majd utána az állapotot. |
 | Az ellenőrzés nem sikerült | A Állapotfigyelő szolgáltatás nem tudta megtekinteni, hogy a meghajtó vagy a belső vezérlőprogram engedélyezett-e a használatra.<br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján. |
-| Offline | A meghajtó offline állapotban van. <br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján. |
+| Kapcsolat nélküli | A meghajtó offline állapotban van. <br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján. |
 
 ## <a name="next-step"></a>Következő lépés
 

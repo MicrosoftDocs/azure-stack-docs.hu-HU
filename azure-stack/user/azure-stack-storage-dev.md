@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: eed80065694512b0f180a4bc28be54d0cace12e7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 939479350718ae2176f7d1531e64ad71301e0596
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883153"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701309"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel
 
@@ -32,7 +32,7 @@ A Storage ügyféloldali kódtárai esetében vegye figyelembe a REST API kompat
 
 | Ügyfélkódtár | Azure Stack hub támogatott verziója | Hivatkozás | Végpont specifikációja |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 9.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app. config fájl |
+| .NET | 9.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app.config file |
 | Java | 7.0.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | A kapcsolatok karakterláncának beállítása |
 | Node.js | 2.8.3 | NPM hivatkozása:<br><https://www.npmjs.com/package/azure-storage><br>(Futtatás: `npm install azure-storage@2.8.3`)<br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Szolgáltatási példány deklarációja |
 | C++ | 5.2.0 | Nuget-csomag:<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.CPP.v140/5.2.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0> | A kapcsolatok karakterláncának beállítása |
@@ -63,7 +63,7 @@ Telepítés a zeneszerző használatával: (a blobot példaként kell megtennie)
 
 | Ügyfélkódtár | Azure Stack hub támogatott verziója | Hivatkozás | Végpont specifikációja |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET | 8.7.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app. config fájl |
+| .NET | 8.7.0 | Nuget-csomag:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app.config file |
 | Java | 6.1.0 | Maven-csomag:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | A kapcsolatok karakterláncának beállítása |
 | Node.js | 2.7.0 | NPM hivatkozása:<br><https://www.npmjs.com/package/azure-storage><br>(Futtatás: `npm install azure-storage@2.7.0`)<br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0> | Szolgáltatási példány deklarációja |
 | C++ | 3.1.0 | Nuget-csomag:<br><https://www.nuget.org/packages/wastorage.v140/3.1.0><br> <br>GitHub-kiadás:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0> | A kapcsolatok karakterláncának beállítása |
@@ -172,7 +172,7 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Blobtároló
+## <a name="blob-storage"></a>Blob Storage
 
 A következő Azure Blob Storage-oktatóanyagok a Azure Stack hub-ra vonatkoznak. Figyelje meg, hogy az előző [példák](#examples) részben ismertetett Azure stack hub adott végponti utótagra vonatkozó követelménye.
 

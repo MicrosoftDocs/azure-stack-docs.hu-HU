@@ -7,12 +7,12 @@ ms.date: 11/08/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: d6fa05eb64f749c3d1e2371840b9de1afb8cb7d9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698453"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
 
@@ -38,7 +38,7 @@ Az Azure Stack hub az iparági szabványoknak megfelelő hardverre épül, és u
 
 Az Azure Stack hub architektúrája lehetővé teszi, hogy az Azure-szolgáltatásokat a távoli helyekhez vagy időszakos kapcsolatokhoz, az internetről leválasztva biztosítson. Olyan hibrid megoldásokat hozhat létre, amelyek helyileg dolgozzák fel az adatokat Azure Stack hub-ban, majd az Azure-ban összesítve további feldolgozást és elemzést végeznek. Végezetül, mivel Azure Stack hub a helyszínen van telepítve, az egyes szabályozási vagy házirend-követelmények kielégítésével a felhőalapú alkalmazások helyszíni üzembe helyezése a kód módosítása nélkül is megváltoztatható.
 
-## <a name="deployment-options"></a>Üzembe helyezési lehetőségek
+## <a name="deployment-options"></a>Üzembe helyezési beállítások
 
 A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével. 
 
@@ -54,7 +54,7 @@ Dönthet úgy is, hogy Azure Stack hubot az internethez (és az Azure-hoz) **csa
 
 > További információ: a [csatlakoztatott](azure-stack-connected-deployment.md) és a [leválasztott](azure-stack-disconnected-deployment.md) üzembe helyezési modellek szempontjai.
 
-### <a name="identity-provider"></a>Identitásszolgáltató 
+### <a name="identity-provider"></a>Identitás-szolgáltató 
 
 Azure Stack hub Azure Active Directory (Azure AD) vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) protokollt használ. Az Azure AD a Microsoft felhőalapú, több-bérlős identitás-szolgáltatója. Az internethez csatlakoztatott központi telepítésekkel kapcsolatos legtöbb hibrid forgatókönyv az Azure AD-t használja identitás-tárolóként.
 
