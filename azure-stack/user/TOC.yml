@@ -308,7 +308,7 @@
 - name: Referencia
   items:
     - name: Azure Stack hub PowerShell
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Azure Stack hub REST API böngésző
       href: /rest/api/
     - name: Azure CLI

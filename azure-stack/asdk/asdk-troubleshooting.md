@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d02b500fce65464ecc27e8fbbd6edbbf7c6882b3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873311"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77691347"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
 Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
@@ -20,9 +20,9 @@ Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási inform�
 Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfél-támogatási szolgálata (CSS) nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
 
 
-## <a name="deployment"></a>Üzembe helyezés
+## <a name="deployment"></a>Környezet
 ### <a name="deployment-failure"></a>Üzembe helyezési hiba
-Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl újbóli beállításával újraindíthatja a telepítést a sikertelen lépéssel. Példa:
+Ha a telepítés során hiba lép fel, a központi telepítési parancsfájl újbóli beállításával újraindíthatja a telepítést a sikertelen lépéssel. Például:
 
   ```powershell
   cd C:\CloudDeployment\Setup
@@ -65,7 +65,7 @@ Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez
 Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](../operator/azure-stack-network.md).
 
 
-## <a name="virtual-machines"></a>Virtuális gépek
+## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
 A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
@@ -89,7 +89,7 @@ Ha "árva" virtuális merevlemezeket lát, fontos tisztában lennie azzal, hogy 
 
 További információk az adatmegőrzési küszöbérték és az igény szerinti, a [Storage-fiókok kezelése](../operator/azure-stack-manage-storage-accounts.md)című témakörben olvashatók.
 
-## <a name="storage"></a>Adattárolás
+## <a name="storage"></a>Tárterület
 ### <a name="storage-reclamation"></a>Tárhely-visszanyerés
 Akár 14 órát is igénybe vehet, ha visszaigényelt kapacitást szeretne megjeleníteni a portálon. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyi adattal törli a rendszer, nem garantálható, hogy a rendszer mennyi helyet szabadít fel a Garbage Collector futtatásakor.
 

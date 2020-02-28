@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4bf4a7b868822300c39275b8763798007cdada29
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4d997735cdef07d1a0b8aeafe99fed9ee6155c82
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877374"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689460"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>Több felhőre kiterjedő skálázási minta
 
@@ -47,7 +47,7 @@ A diagramon ez a nyilvános felhőn kívül található, de a helyi adatközpont
 
 A tartománynévrendszer vagy a DNS a webhely vagy szolgáltatás nevének az IP-címére való fordítására (vagy feloldására) felelős.
 
-### <a name="cloud"></a>Felhőbeli
+### <a name="cloud"></a>Felhő
 
 **Üzemeltetett Build kiszolgáló**  
 Környezet a build-folyamat üzemeltetéséhez.
@@ -79,11 +79,11 @@ A nyilvános IP-címek használatával a bejövő forgalom átirányítható a T
 
 A minta megvalósítása során az alábbi pontokat vegye figyelembe:
 
-### <a name="scalability"></a>Skálázhatóság
+### <a name="scalability"></a>Méretezhetőség
 
 A többfelhős méretezés fő összetevője az igény szerinti skálázás lehetősége. A skálázásnak a nyilvános és a helyi felhőalapú infrastruktúra között kell történnie, és igény szerint egységes, megbízható szolgáltatást kell biztosítania.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 
@@ -96,7 +96,7 @@ A Felhőbeli mintázat zökkenőmentes felügyeletet és ismerős felületet biz
 Használja a következő mintát a következő helyzetekben:
 
 - Ha az alkalmazás kapacitását nem várt igényekkel vagy igény szerinti rendszeres igényekkel kell bővíteni.
-- Ha nem szeretne olyan erőforrást befektetni, amelyet csak a csúcsok során használunk. Csak a valóban használt funkciókért kell fizetni.
+- Ha nem szeretne olyan erőforrást befektetni, amelyet csak a csúcsok során használunk. A ténylegesen használt funkciókért kell fizetnie.
 
 Ez a minta nem ajánlott a következő esetekben:
 

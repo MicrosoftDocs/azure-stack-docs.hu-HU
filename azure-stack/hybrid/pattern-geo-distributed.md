@@ -5,14 +5,13 @@ author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
-ms.reviewer: anajod
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 37d4b517eec69ebab72aa3d82733829466b44fda
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anajod2019
+ms.openlocfilehash: aaea4465aaaf69db755186abed6473a636d52580
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875674"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689307"
 ---
 # <a name="geo-distributed-pattern"></a>Földrajzilag elosztott minta
 
@@ -50,11 +49,11 @@ A nyilvános IP-címek használatával a bejövő forgalom átirányítható a T
 
 A minta megvalósítása során az alábbi pontokat vegye figyelembe:
 
-### <a name="scalability"></a>Skálázhatóság
+### <a name="scalability"></a>Méretezhetőség
 
 A minta a földrajzi forgalom útválasztását kezeli, és nem méretezhető, hogy megfeleljen a forgalom növekedésének. Ezt a mintát azonban más Azure-és helyszíni megoldásokkal is kombinálhatja. Ez a minta például a több felhőre kiterjedő skálázási mintával használható.
 
-### <a name="availability"></a>Elérhetőség
+### <a name="availability"></a>Rendelkezésre állás
 
 Győződjön meg arról, hogy a helyileg telepített alkalmazások magas rendelkezésre állásra vannak konfigurálva a helyszíni hardverkonfiguráció és a szoftverek központi telepítése révén.
 
