@@ -7,11 +7,11 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705049"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366439"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
