@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701156"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366245"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Felhőben futó alkalmazások üzembe helyezése az Azure-ban és Azure Stack hub használatával
 
@@ -93,7 +93,7 @@ Hibrid folyamatos integráció és folyamatos üzembe helyezés (CI/CD) beállí
 
 ### <a name="add-code-to-azure-repos"></a>Kód hozzáadása az Azure Reposhez
 
-Azure-repók
+Azure Repos
 
 1. Jelentkezzen be az Azure Reposba egy olyan fiókkal, amely projekt-létrehozási jogokkal rendelkezik az Azure Reposban.
 
@@ -107,7 +107,7 @@ Azure-repók
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza a `Runtimeidentifier` lehetőséget, és vegyen fel `win10-x64`. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.) 
+1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza a `Runtimeidentifier` lehetőséget, és vegyen fel `win10-x64`. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentációt.) 
 
     ![Webalkalmazás-projektfájl szerkesztése](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -123,7 +123,7 @@ Azure-repók
 
     ![Kód hozzáadása a webalkalmazáshoz](media/solution-deployment-guide-cross-cloud-scaling/image4.png)
 
-3. Futtassa a buildet. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) folyamat az Azure-ban és Azure stack hub-on futó összetevőket teszi közzé.
+3. Futtassa a buildet. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) folyamat az Azure-ban és Azure stack hub-on futó összetevőket teszi közzé.
 
 ## <a name="use-an-azure-hosted-agent"></a>Azure-beli üzemeltetett ügynök használata
 
@@ -266,7 +266,7 @@ A felhőben való üzembe helyezéshez használjon [Azure Resource Manager sablo
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, majd vegyen fel `win10-x64`. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentáció.
+1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, majd vegyen fel `win10-x64`. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentáció.
 
 2.  Az Team Explorer segítségével keresse meg a kódot az Azure Reposban.
 
@@ -280,7 +280,7 @@ A felhőben való üzembe helyezéshez használjon [Azure Resource Manager sablo
 
 3.  Az **argumentumokban**adja hozzá az **-r win10-x64** kódot. Ez a kiegészítés szükséges a .NET Core-ban lévő, önálló telepítés elindításához.
 
-4.  Futtassa a buildet. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) folyamat olyan összetevőket tesz közzé, amelyek az Azure-ban és a Azure stack hub-ban is futtathatók.
+4.  Futtassa a buildet. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) folyamat olyan összetevőket tesz közzé, amelyek az Azure-ban és a Azure stack hub-ban is futtathatók.
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Azure-beli üzemeltetett Build-ügynök használata
 

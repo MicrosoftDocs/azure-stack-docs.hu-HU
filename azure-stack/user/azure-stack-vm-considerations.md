@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: ba6e4483475b97b6803781f5b7c5d29d94cbe896
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705134"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364802"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -25,7 +25,7 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 | Virtuálisgép-lemezképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincsenek elérhető lemezképek az Azure Stack hub piactéren. A Azure Stack hub-felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack hub piactéren, mielőtt a felhasználók használni tudják őket. |
 | VHD-generáció | A 2. generációs virtuális gépek olyan kulcsfontosságú funkciókat támogatnak, amelyek az egy virtuális gép létrehozásakor nem támogatottak. A szolgáltatások közé tartozik a megnövekedett memória, az Intel Software Guard Extensions (Intel SGX ENKLÁVÉHOZ) és a virtualizált állandó memória (vPMEM). A 2. generációs virtuális gépek előállítása olyan szolgáltatásokkal rendelkezik, amelyek még nem támogatottak az Azure-ban. További információ: [2. generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) -ban  | Azure Stack hub csak egy virtuális gép létrehozását támogatja. A VHDX-ből a VHD-fájlformátumba konvertálhat egy virtuális gépet, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: 2. [generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)-ban. |
 | Virtuálisgép-méretek | Az Azure számos méretben támogatja a virtuális gépeket. A rendelkezésre álló méretek és beállítások megismeréséhez tekintse meg a [Windows rendszerű virtuális gépek méreteit](/azure/virtual-machines/virtual-machines-windows-sizes) és a linuxos virtuálisgép- [méretek](/azure/virtual-machines/linux/sizes) témakört. | Az Azure Stack hub az Azure-ban elérhető virtuálisgép-méretek egy részhalmazát támogatja. A támogatott méretek listájának megtekintéséhez tekintse meg a jelen cikk [VM-méretek](#vm-sizes) című szakaszát. |
-| Virtuális gépek kvótái | A [kvóták korlátait](/azure/azure-subscription-service-limits#service-specific-limits) a Microsoft állítja be. | A Azure Stack hub-felhő rendszergazdájának kvótákat kell rendelnie, mielőtt a virtuális gépet felkínálják a felhasználóknak. |
+| Virtuális gépek kvótái | A [kvóták korlátait](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits) a Microsoft állítja be. | A Azure Stack hub-felhő rendszergazdájának kvótákat kell rendelnie, mielőtt a virtuális gépet felkínálják a felhasználóknak. |
 | Virtuálisgép-bővítmények |Az Azure a virtuálisgép-bővítmények széles választékát támogatja. Az elérhető bővítmények megismeréséhez tekintse meg a virtuálisgép [-bővítmények és-szolgáltatások](/azure/virtual-machines/windows/extensions-features) című cikket.| Az Azure Stack hub az Azure-ban elérhető bővítmények egy részhalmazát támogatja, és mindegyik bővítmény rendelkezik adott verzióval. A Azure Stack hub Cloud admin kiválaszthatja, hogy mely bővítmények legyenek elérhetők a felhasználók számára. A támogatott bővítmények listájának megtekintéséhez tekintse meg a jelen cikk virtuálisgép- [bővítmények](#vm-extensions) című szakaszát. |
 | Virtuálisgép-hálózat | A bérlői virtuális géphez hozzárendelt nyilvános IP-címek elérhetők az interneten keresztül.<br><br><br>Az Azure-beli virtuális gépek rögzített DNS-névvel rendelkeznek. | A bérlői virtuális géphez hozzárendelt nyilvános IP-címek csak a Azure Stack Development Kit környezeten belül érhetők el. A felhasználónak [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) -vagy [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) -kapcsolattal kell rendelkeznie a Azure stack Development Kithoz az Azure stack hub-ban létrehozott virtuális géphez való csatlakozáshoz.<br><br>Az adott Azure Stack hub-példányon belül létrehozott virtuális gépek DNS-neve a felhőalapú rendszergazda által konfigurált érték alapján történik. |
 | Virtuális gép tárterülete | Támogatja a [felügyelt lemezeket.](/azure/virtual-machines/windows/managed-disks-overview) | A felügyelt lemezeket Azure Stack hub 1808-es és újabb verziói támogatják. |

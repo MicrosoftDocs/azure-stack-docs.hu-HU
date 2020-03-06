@@ -2,17 +2,17 @@
 title: Azure Stack hub integrált rendszerek kapcsolatainak modelljei
 description: A Azure Stack hub integrált rendszereihez tartozó kapcsolódási modellek és egyéb üzembe helyezési tervezési döntések meghatározása.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 620e88bcf20f9744ab91d2450da2a8570369cc14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695189"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364044"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack hub integrált rendszerek kapcsolatainak modelljei
 Ha érdekli egy Azure Stack hub integrált rendszer megvásárlása, meg kell ismernie a Azure Stack hub üzembe helyezésének [számos adatközpont-integrációs megfontolását](azure-stack-datacenter-integration.md) annak meghatározására, hogy a rendszer hogyan illeszkedik az adatközpontba. Emellett el kell döntenie, hogyan integrálja Azure Stack hub-t a hibrid felhőalapú környezetbe. Ez a cikk áttekintést nyújt ezekről a főbb döntésekről, például az Azure-beli kapcsolatok modelljeiről, az Identity Store lehetőségeiről és a számlázási modell lehetőségeiről.

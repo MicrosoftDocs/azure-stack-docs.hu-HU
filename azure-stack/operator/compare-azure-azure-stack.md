@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: b6186a836ac38d94c3b15aa7de45ebc80a8accd1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696192"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366415"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>A globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségek
 
@@ -29,7 +29,7 @@ Microsoft Azure a Cloud Services egyre bővülő készlete, amely segít a szerv
 
 A globális Azure több mint 100 szolgáltatást kínál a világszerte 54 régiókban. A globális Azure-szolgáltatások legfrissebb listáját a [*régiók által elérhető termékek*](https://azure.microsoft.com/regions/services)között tekintheti meg. Az Azure-ban elérhető szolgáltatások kategória szerint vannak felsorolva, és azt is, hogy általánosan elérhetők vagy előzetes verzióban érhetők el.
 
-A globális Azure-szolgáltatásokkal kapcsolatos további információkért lásd: [Ismerkedés az Azure](https://docs.microsoft.com/azure/#pivot=get-started&panel=get-started1)-ban.
+A globális Azure-szolgáltatásokkal kapcsolatos további információkért lásd: [Ismerkedés az Azure](https://docs.microsoft.com/azure/?pivot=get-started&panel=get-started1)-ban.
 
 ## <a name="azure-stack-hub"></a>Azure Stack hub
 

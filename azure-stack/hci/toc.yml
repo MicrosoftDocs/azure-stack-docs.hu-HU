@@ -4,6 +4,10 @@
   items:
     - name: Mi az Azure Stack HCI?
       href: overview.md
+- name: Kezelés
+  items:
+    - name: Kötetek létrehozása
+      href: manage/create-volumes.md
 - name: Referencia
   items:
     - name: Hyper-V PowerShell-parancsok

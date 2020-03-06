@@ -2,17 +2,17 @@
 title: A Start-AzsReadinessChecker parancsmag referenciája
 description: PowerShell-parancsmag Súgó az Azure Stack hub Readiness-ellenőrző modulhoz.
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 01/07/2020
+ms.topic: reference
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 588808f93ae23af3aaed37686474490bc402c566
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0b81915cd7a95bede1edcbfa0f84ea8a5f38513d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695478"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366060"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>A Start-AzsReadinessChecker parancsmag referenciája
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701003"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366279"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Földrajzilag elosztott alkalmazás-megoldás létrehozása az Azure-val és Azure Stack hub-vel való közvetlen forgalomhoz
 
@@ -113,7 +113,7 @@ Hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) beállítása a w
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Webalkalmazás-telepítés létrehozása mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, és vegyen fel `win10-x64`. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) dokumentációt.)
+1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, és vegyen fel `win10-x64`. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentációt.)
 
     ![Webalkalmazás-projekt fájljának szerkesztése a Visual Studióban](media/solution-deployment-guide-geo-distributed/image3.png)
 
@@ -129,7 +129,7 @@ Hibrid folyamatos integráció/folyamatos teljesítés (CI/CD) beállítása a w
 
     ![Kód hozzáadása a Build definícióhoz](media/solution-deployment-guide-geo-distributed/image4.png)
 
-3. **Futtassa a buildet**. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) folyamat olyan összetevőket tesz közzé, amelyek az Azure-ban és a Azure stack hub-ban is futtathatók.
+3. **Futtassa a buildet**. A [saját üzemeltetésű üzembe helyezési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) folyamat olyan összetevőket tesz közzé, amelyek az Azure-ban és a Azure stack hub-ban is futtathatók.
 
 **Azure-beli üzemeltetett ügynök használata**
 

@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/05/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 81cf8806b5aa24d7da78a6243d2806b732160314
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d2d1eec85faaedaf35ba6461867c58670e917298
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694458"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366550"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -138,7 +138,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Az infrastruktúra-biztonsági mentési szolgáltatás javítja a logikát, amely kiszámítja a biztonsági mentések kívánt szabad területét, ahelyett, hogy rögzített küszöbértékre kellene támaszkodnia. A szolgáltatás a külső tárolási hely biztonsági mentési, adatmegőrzési szabályzatának, fenntartásának és aktuális kihasználtságának méretét fogja használni annak megállapítására, hogy egy figyelmeztetést kell-e kiemelni a kezelőnek.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - A Piactéri elemek Azure-ból Azure Stack hubhoz való letöltésekor új felhasználói felület áll rendelkezésre, amely lehetővé teszi az elem egy verziójának megadását, ha több verzió létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).  
 
@@ -193,7 +193,10 @@ Az Azure Stack hub 1910 frissítési csomagot [a Azure stack hub letöltési old
 
 Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a 1908-es legújabb Azure Stack hub gyorsjavítását telepíti a 1910-es Azure Stack hub frissítése előtt.
 
-Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne próbálja meg telepíteni a gyorsjavításokat a ASDK.
+> [!NOTE]
+> Azure Stack hub gyorsjavítási kiadásai kumulatívak; a legújabb gyorsjavítást csak akkor kell telepíteni, ha az adott verzióhoz tartozó korábbi gyorsjavítások összes javítását beolvassa.
+
+Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
 ### <a name="prerequisites-before-applying-the-1910-update"></a>Előfeltételek: az 1910-es frissítés alkalmazása előtt
 
@@ -244,7 +247,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Az Azure Stack hub Rest-titkosításával kapcsolatos adatok fejlesztése a titkoknak a fizikai csomópontok hardveres platformmegbízhatósági modul (TPM) való megőrzése érdekében.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - A hardveres szolgáltatók a 2,1-es vagy újabb OEM-bővítményt a 1908-es Azure Stack hub-verzióval megegyező időpontban szabadítják fel. A 2,1-es vagy újabb OEM-bővítmény előfeltétele Azure Stack hub 1908-es verziójának. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
 
@@ -331,7 +334,7 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 - A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a kiegészítés a rendszergazdai műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a hat hónapnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítésekhez naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt az összes frissítési művelet [összefoglalóját töltse le](azure-stack-apply-updates.md) a hat hónapnál régebbi verzióra.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - Azure Stack hub 1907-es verziója figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés előtt frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. További információ a Azure Stack hub OEM-frissítéseinek alkalmazásáról: [Azure stack hub eredeti berendezésgyártó frissítésének alkalmazása](azure-stack-update-oem.md).
 
@@ -462,7 +465,7 @@ Az Azure Stack hub 1906 Update Build típusa **expressz**. További információ
 
 - A **standard** SKU lehetőség el lett távolítva a terheléselosztó és a nyilvános IP-cím közül, mivel ez jelenleg nem támogatott.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - A Storage-fiókokkal kapcsolatos felhasználói élmény mostantól konzisztens az Azure-ban.
 

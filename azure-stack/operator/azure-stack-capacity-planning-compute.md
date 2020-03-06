@@ -2,17 +2,17 @@
 title: Azure Stack hub számítási kapacitása
 description: További információ a Azure Stack hub üzembe helyezésének számítási kapacitásának megtervezéséről.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688661"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366347"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack hub számítási kapacitása
 
@@ -76,10 +76,10 @@ Rendelkezésre álló memória a virtuális gép elhelyezéséhez = teljes gazda
 Rugalmassági tartalék = H + R * ((N-1) * H) + V * (N-2)
 
 > Az elemek magyarázata:
-> - H = az egyetlen kiszolgáló memóriájának mérete
+> -    H = az egyetlen kiszolgáló memóriájának mérete
 > - N = a méretezési egység mérete (kiszolgálók száma)
-> - R = az operációsrendszer-terheléshez tartozó operációs rendszer tartaléka, amely a<sup>2</sup> . képletben .15
-> - V = a méretezési egység legnagyobb virtuális gépe
+> -    R = az operációsrendszer-terheléshez tartozó operációs rendszer tartaléka, amely a<sup>2</sup> . képletben .15
+> -    V = a méretezési egység legnagyobb virtuális gépe
 
 <sup>1</sup> Azure stack hub-infrastruktúra terhelése = 242 GB + (4 GB x # csomópontok száma). A rendszer körülbelül 31 virtuális gépet használ a Azure Stack hub infrastruktúrájának üzemeltetéséhez, és összesen a memória és a 146 virtuális mag 242 GB + (4 GB x # csomópont) mennyiségét használja fel. A virtuális gépekre vonatkozó ésszerűség az, hogy kielégítse a szükséges szolgáltatások elkülönítését a biztonság, a méretezhetőség, a karbantartás és a javítási követelmények kielégítése érdekében. Ez a belső szolgáltatási struktúra lehetővé teszi az új infrastrukturális szolgáltatások jövőbeli bevezetését a fejlesztésük során.
 

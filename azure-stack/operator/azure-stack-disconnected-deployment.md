@@ -2,17 +2,17 @@
 title: Az Azure leválasztott telepítési döntései az Azure Stack hub integrált rendszereihez
 description: Ismerkedjen meg az Azure-beli, Azure Stack hub integrált rendszerek központi telepítésével és a megfontolandó tervezési döntésekkel.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/01/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4b2cdd9f663f95ddd1fc3b3a23f7fce06da2c2c9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699983"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368702"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Az Azure leválasztott üzembe helyezési tervezési döntései az Azure Stack hub integrált rendszereihez
 Miután eldöntötte, [hogyan integrálja Azure stack hubot a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), befejezheti a Azure stack hub telepítési döntéseit.
