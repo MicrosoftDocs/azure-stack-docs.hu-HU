@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
 ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699575"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366551"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban 
 
@@ -52,7 +52,7 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 |Graph|Graph. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Tanúsítvány-visszavonási lista|CRL. *&lt;régió >.&lt;fqdn >*|HTTP|80|
 |DNS|&#42;. *&lt;régió >.&lt;fqdn >*|TCP & UDP|53|
-|Hosting | *. hosting.\<régió >.\<FQDN > | HTTPS | 443 |
+|Üzemeltetés | *. hosting.\<régió >.\<FQDN > | HTTPS | 443 |
 |Key Vault (felhasználó)|&#42;Vault. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Key Vault (rendszergazda)|&#42;.adminvault. *&lt;régió >.&lt;fqdn >*|HTTPS|443|
 |Tárolási üzenetsor|&#42;várólista. *&lt;régió >.&lt;fqdn >*|HTTP<br>HTTPS|80<br>443|
