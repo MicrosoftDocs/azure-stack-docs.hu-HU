@@ -10,11 +10,11 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704624"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364870"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack hub érvényesítéséhez szolgáltatásként
 
