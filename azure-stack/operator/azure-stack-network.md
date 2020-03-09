@@ -2,17 +2,17 @@
 title: Azure Stack hub hálózati integrációjának tervezése
 description: Ismerje meg, hogyan tervezheti meg az adatközpontok hálózati integrációját Azure Stack hub integrált rendszerekkel.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 02/18/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: c783a22ea284413d7db79ab4925db6d8c58858ea
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698487"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366549"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>A Azure Stack hálózati integrációjának megtervezése
 
