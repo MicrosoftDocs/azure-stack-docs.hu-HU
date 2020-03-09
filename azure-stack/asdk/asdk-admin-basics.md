@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695461"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364334"
 ---
 # <a name="asdk-admin-basics"></a>ASDK-adminisztrátor alapjai
 Több dolgot kell tudnia, ha még nem ismeri a Azure Stack Development Kit (ASDK) felügyeletét. Ez az útmutató áttekintést nyújt a szerepkörről Azure Stack operátorként a kiértékelési környezetben. Az adatok megismerésével biztosíthatja, hogy a felhasználók a lehető leggyorsabban hatékonyak legyenek.
