@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
+ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703587"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935060"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Végzetes adatvesztés utáni helyreállítás
 
@@ -28,7 +28,7 @@ Ez a forgatókönyv a teljes telepítés helyreállítására vonatkozik, ha hib
 
 ## <a name="workflows"></a>Munkafolyamatok
 
-Az Azure Start védelmének megkezdése az infrastruktúra és az alkalmazás-és bérlői adatok külön biztonsági mentésével kezdődik. Ez a dokumentum az infrastruktúra elleni védelemre vonatkozik. 
+Az Azure Stack hub védelme az infrastruktúra és az alkalmazás-és bérlői adatok külön biztonsági mentésével kezdődik. Ez a dokumentum az infrastruktúra elleni védelemre vonatkozik. 
 
 ![Azure Stack hub adathelyreállítási munkafolyamata – üzembe helyezés](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
