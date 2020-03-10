@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77690548"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78935081"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Mi a Azure Stack Development Kit (ASDK)?
 A [Microsoft Azure stack hub integrált rendszereinek](../operator/azure-stack-overview.md) mérete 4-16 csomópontokból áll, és a hardvereszközök és a Microsoft közösen támogatja őket. Azure Stack hub integrált rendszerek használatával új forgatókönyveket engedélyezhet az éles számítási feladatokhoz. Ha Ön Azure Stack hub-kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az [operátori dokumentációt](/azure-stack/operator).

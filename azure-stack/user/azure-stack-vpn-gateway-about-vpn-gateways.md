@@ -7,11 +7,11 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705117"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366440"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>VPN-átjárók létrehozása Azure Stack hubhoz
 

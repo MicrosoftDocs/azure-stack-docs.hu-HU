@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
 ms.openlocfilehash: 40cd0cd279d98773e97bbae816dbd40ea2d1eba8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698198"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364291"
 ---
 # <a name="install-powershell-for-azure-stack-hub"></a>A PowerShell telepítése Azure Stack hubhoz
 

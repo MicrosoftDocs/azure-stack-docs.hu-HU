@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695614"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367027"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 

@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2019
 ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699337"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364086"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux-lemezképek hozzáadása az Azure Stack hub piactérhez
 
