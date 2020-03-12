@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: a0b0e654ac2698c1b9611924cca853bd1ff525de
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
+ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367437"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129582"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 
@@ -21,7 +21,7 @@ A virtuális gépen (VM) üzemeltetheti a MySQL üzemeltetési kiszolgálói pé
 > [!NOTE]
 > A MySQL erőforrás-szolgáltatót az alapértelmezett szolgáltatói előfizetésben kell létrehozni, míg a MySQL üzemeltetési kiszolgálókat számlázva, felhasználói előfizetésekben kell létrehozni. Az erőforrás-szolgáltatói kiszolgálót nem szabad használni a felhasználói adatbázisok üzemeltetéséhez.
 
-Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is használhatók. A MySQL RP nem támogatja a caching_sha2_password hitelesítést; a következő kiadásban lesz hozzáadva. A MySQL 8,0-kiszolgálókat mysql_native_password használatára kell konfigurálni. A MariaDB is támogatott.
+Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is használhatók. A MySQL RP nem támogatja a caching_sha2_password hitelesítést. A MySQL 8,0-kiszolgálókat mysql_native_password használatára kell konfigurálni.
 
 ## <a name="configure-external-access-to-the-mysql-hosting-server"></a>A MySQL üzemeltetési kiszolgáló külső hozzáférésének konfigurálása
 

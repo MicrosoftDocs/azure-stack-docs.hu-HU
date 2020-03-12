@@ -8,6 +8,24 @@
   items:
     - name: Kötetek létrehozása
       href: manage/create-volumes.md
+    - name: Kötetek kiterjesztése
+      href: manage/extend-volumes.md
+    - name: Kötetek törlése
+      href: manage/delete-volumes.md
+    - name: Meghajtók cseréje
+      href: manage/replace-drives.md
+- name: Alapelvek
+  items:
+    - name: Meghajtók kiválasztása
+      href: concepts/choose-drives.md
+    - name: Kötetek megtervezése
+      href: concepts/plan-volumes.md
+    - name: A gyorsítótár megismerése
+      href: concepts/cache.md
+    - name: Hibatűrés és a tárolás hatékonysága
+      href: concepts/fault-tolerance.md
+    - name: Fürt-és tárolási készlet kvóruma
+      href: concepts/quorum.md
 - name: Referencia
   items:
     - name: Hyper-V PowerShell-parancsok

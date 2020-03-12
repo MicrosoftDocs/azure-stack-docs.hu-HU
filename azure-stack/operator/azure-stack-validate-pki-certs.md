@@ -10,12 +10,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 638a4b4d38088c725b417d3f9ee4a92b8c4e396d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366466"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025247"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványok ellenőrzése
 
@@ -89,11 +89,11 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. A PowerShell-ablakban módosítsa `RegionName` és `FQDN` a Azure Stack hub-környezetnek megfelelő értékeket, és futtassa a következő parancsmagot:
+3. A PowerShell ablakban módosítsa `RegionName`, `FQDN` és `IdentitySystem` megfelelő értéket az Azure Stack hub-környezethez, és futtassa a következő parancsmagot:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Például:

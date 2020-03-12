@@ -7,12 +7,12 @@ ms.date: 02/04/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a4882ca540b2a72d77195ee12a5d5ae0be87931d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
+ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368841"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128476"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
 
@@ -91,6 +91,8 @@ A forgatókönyv két részből áll:
   ```
   Install-Module -Name Azs.Syndication.Admin
   ```
+  
+- .NET-keretrendszer 4,7-es vagy újabb verziói
 
 A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-kezelő panelen megjelenő alábbi üzenetet, mivel ez nem vonatkozik a leválasztott használati esetre:
 
