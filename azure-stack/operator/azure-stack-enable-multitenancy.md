@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: ba5c757a08b63c80ce86a9f8890f82fa696066a5
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364289"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294692"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 

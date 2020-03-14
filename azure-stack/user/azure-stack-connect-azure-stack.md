@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364377"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294604"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 

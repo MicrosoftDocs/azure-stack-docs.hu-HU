@@ -10,11 +10,11 @@ ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364742"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294164"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
 
@@ -31,7 +31,7 @@ Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure St
 3. Adja meg a megoldás nevét. A névadási javaslatokért lásd: az alaprendszerek [elnevezési konvenciója](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. A megoldás létrehozásához válassza a **Mentés** lehetőséget.
 
-## <a name="workflows"></a>A munkafolyamatok
+## <a name="workflows"></a>Munkafolyamatok
 
 Az alapszolgáltatási folyamat egy, az egy-egy, az Olyan tesztelési csomagok készletét jelöli, amelyek egy Azure Stack hub üzemelő példányának működését gyakorolhatják. Létre kell hozni egy munkafolyamatot egy Azure Stack hub-megoldás minden központi telepítéséhez vagy szoftverfrissítési példányához.
 
@@ -76,6 +76,6 @@ A helyi ügynökök nem kötődnek egy adott Azure Stack hub-vagy az alaprendsze
 
 Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Ajánlott eljárások szolgáltatásként történő érvényesítéshez](azure-stack-vaas-best-practice.md)

@@ -3,16 +3,16 @@ title: Kubernetes üzembe helyezése Azure Stack hubhoz Azure Active Directory (
 description: Megtudhatja, hogyan helyezhet üzembe Kubernetes az Azure Stack hub szolgáltatásban Azure Active Directory (Azure AD) használatával.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 6324370313656f05c299f37c8e858109378209db
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701836"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313217"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack hubhoz a Azure Active Directory használatával
 
@@ -89,7 +89,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
 
-1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
+1. Válassza **az + erőforrás létrehozása** > **számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a  **Create** (Létrehozás) gombra.
 
     ![Megoldássablon telepítése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

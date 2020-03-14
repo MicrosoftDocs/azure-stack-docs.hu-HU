@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312955"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -35,7 +35,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     > [!Note]  
     > Ha le van választva, letöltheti a fájlt, és manuálisan másolhatja azt a leválasztott gépre, ahol szerkeszteni szeretné. A fájlt a Linux rendszerű gépre másolhatja, például a [Putty vagy a megnyerő](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html)eszközzel.
 
-2.  A szerkesztőben való megnyitásához használhatja a nanot:
+2.  Az API-modell egy szerkesztőben való megnyitásához használhatja a nanot:
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -88,9 +88,9 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | Mező | Leírás |
     | --- | --- |
     | adminUsername | Adja meg a virtuális gép rendszergazdájának felhasználónevét. |
-    | ssh | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. Ha a PuTTY-t használja, nyissa meg a PuTTY Key Generatort a PuTTY titkos kulcs és a nyilvános kulcs betöltéséhez, amely az SSH-RSA-val kezdődik az alábbi példában látható módon. A Linux-ügyfél létrehozásakor generált kulcsot használhatja, de **a nyilvános kulcsot is át kell másolnia, hogy az egyetlen sor szöveg legyen a példában látható módon**.|
+    | ssh | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. Használja a `ssh-rsa`, majd a kulcsot. A nyilvános kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása Linux rendszerhez](create-ssh-key-on-windows.md). |
 
-    ![Putty Key Generator](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    Ha egyéni virtuális hálózatra telepíti a szolgáltatást, a szükséges kulcsok és értékek megkereséséhez és hozzáadásához útmutatást talál a megfelelő tömbökhöz az API-modellben a [Kubernetes-fürt egyéni virtuális hálózatra történő telepítéséhez](kubernetes-aks-engine-custom-vnet.md).
 
 ### <a name="more-information-about-the-api-model"></a>További információ az API-modellről
 
@@ -120,8 +120,8 @@ Fürt üzembe helyezésének folytatása:
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
     | kimenet – könyvtár | Kube – RG | Adja meg annak a könyvtárnak a nevét, amely a kimeneti fájlt `apimodel.json` és egyéb létrehozott fájlokat is tartalmaz. |
     | ügyfél-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
-    | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
-    | előfizetés-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés az ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
+    | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. A szolgáltatás létrehozásakor az ügyfél titkát kell beállítania. |
+    | előfizetés-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
     Például:
 

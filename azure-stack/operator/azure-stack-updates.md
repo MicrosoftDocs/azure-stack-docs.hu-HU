@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
 ms.openlocfilehash: 70079b0959f0e5dc5072ef83c68c8887cd006089
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367743"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294648"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése Azure Stack központban
 

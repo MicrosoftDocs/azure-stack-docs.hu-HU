@@ -63,6 +63,8 @@
               href: azure-stack-install-visual-studio.md
             - name: Biztonságos rendszerhéj használata
               href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: Kulcs létrehozása ssh-keygen-vel
+              href: create-ssh-key-on-windows.md
             - name: REST-ügyfél használata az API-val
               href: azure-stack-rest-api-use.md
         - name: Azure Stack hub Resource Manager-sablonok használata
@@ -210,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-deploy-windows.md
                     - name: Fürt üzembe helyezése
                       href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: Üzembe helyezés egyéni virtuális hálózaton
+                      href: kubernetes-aks-engine-custom-vnet.md
                     - name: Fürt skálázása
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Fürt frissítése

@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: aa41ddde0986716e49073d571e967a050ef660f6
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702431"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313017"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
 
@@ -84,7 +84,7 @@ Elérheti az AK-motor által létrehozott felülvizsgálati információkat. Az 
 
 ## <a name="collect-kubernetes-logs"></a>Kubernetes-naplók gyűjtése
 
-Az AK-beli motor naplóin kívül az Kubernetes-összetevők állapot-és hibaüzeneteket hoznak. Ezeket a naplókat a [Getkuberneteslogs.sh](https://aka.ms/aa6z613)bash-parancsfájllal is összegyűjtheti.
+Az AK-beli motor naplóin kívül az Kubernetes-összetevők állapot-és hibaüzeneteket hoznak. Ezeket a naplókat a [Getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3)bash-parancsfájllal is összegyűjtheti.
 
 Ez a szkript automatizálja a következő naplók összegyűjtésének folyamatát: 
 

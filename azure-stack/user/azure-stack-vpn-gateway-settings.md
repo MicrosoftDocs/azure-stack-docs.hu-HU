@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366439"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294945"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
@@ -154,6 +154,10 @@ Előfordulhat, hogy módosítania kell a helyi hálózati átjáró beállítás
 Ha Azure Stack hub VPN-kapcsolatát állítja be, mindkét végponton konfigurálnia kell a kapcsolódást. Ha VPN-kapcsolatot konfigurál Azure Stack hub és egy hardvereszköz, például egy olyan kapcsoló vagy útválasztó között, amely VPN-átjáróként működik, akkor az eszköz további beállítások megadását kéri.
 
 Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként és válaszadóként, Azure Stack hub alapértelmezés szerint csak egy ajánlatot támogat. Ha más IPSec/IKE-beállításokat kell használnia a VPN-eszköz használatához, több beállítás is elérhető a kapcsolat manuális konfigurálásához. További információ: [IPSec/IKE-szabályzat konfigurálása helyek közötti VPN-kapcsolatokhoz](azure-stack-vpn-s2s.md).
+
+> [!IMPORTANT] 
+> A S2S-alagút használatakor a csomagok tovább vannak ágyazva további fejlécekkel, ami növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350**-es verzióban kell megfogni. Ha a VPN-eszköze nem támogatja az MSS korlátozását, akkor ehelyett beállíthatja az alagútkapcsolaton az **MTU**-t **1400** bájtra. További információ: [virutal Network TCPIP Performance tuning] (virtual-network-tcpip-performance-tuning.md) 
+>
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Az IKE 1. fázis (Elsődleges mód) paraméterei
 

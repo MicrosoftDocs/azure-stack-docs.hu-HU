@@ -8,11 +8,11 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
 ms.openlocfilehash: 5225772f94e5a28d03872d1764681e56f14a2cf4
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364258"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294637"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Előfizetések létrehozása a Azure Stack hub ajánlatai számára
 

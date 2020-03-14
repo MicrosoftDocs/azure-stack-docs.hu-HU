@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: ef847871569a96a889a37c0f74e581cda5cc8712
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701989"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312972"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>A Docker használata a PowerShell futtatásához Azure Stack központban
 
@@ -44,7 +44,7 @@ Ahhoz, hogy a PowerShell használatával hozzáférhessen a Azure Stack hub erő
 
 A Docker megnyitja a Microsoft */Windowsservercore Microsoft-* rendszerképét, amelyen telepítve van a Windows PowerShell 5,1. A fájl ezután betölti a NuGet és a Azure Stack hub PowerShell-modulokat, és letölti az eszközöket Azure Stack Hub-eszközökről.
 
-1. [Töltse le az Azure-stack-PowerShell-tárházat](https://github.com/mattbriggs/azure-stack-powershell) zip-fájlként, vagy az adattár klónozásával.
+1. [Töltse le az Azure-stack-PowerShell-tárházat](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git) zip-fájlként, vagy az adattár klónozásával.
 
 2. Nyissa meg a tárház mappát a terminálon.
 

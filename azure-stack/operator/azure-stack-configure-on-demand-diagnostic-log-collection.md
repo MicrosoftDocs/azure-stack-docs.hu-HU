@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2019
 ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364112"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294912"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack hub diagnosztikai naplók gyűjtése
 
@@ -168,7 +168,7 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |virtualMachines|
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
   |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
   |ACSDownloadService    |Számítás                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
