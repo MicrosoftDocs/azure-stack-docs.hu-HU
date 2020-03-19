@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687393"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511997"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -30,9 +30,11 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 |Replikációs lehetőségek|Helyileg redundáns tárolás, Geo-redundáns tárolás, olvasási hozzáférés a Geo-redundáns tároláshoz és a zóna-redundáns tároláshoz|Helyileg redundáns tárolás.
 |Prémium szintű Storage|Nagy teljesítményű és kis késésű tárolást biztosít. Csak a Premium Storage-fiókokban lévő Blobok támogatása.|Kiépíthető, a teljesítmény korlátja és a garancia nem lehetséges. Nem tiltható le a blokk Blobok használata, blobok, táblák és várólisták hozzáfűzése a Premium Storage-fiókokban.
 |Felügyelt lemezek|Prémium és standard támogatott|Az 1808-es vagy újabb verzió használata esetén támogatott.
+|Felügyelt lemezek pillanatképei|Általánosan elérhető|Támogatott.
+|Felügyelt lemez növekményes pillanatképei|Általánosan elérhető|Még nem támogatott.
 |A blob neve|1 024 karakter (2 048 bájt)|880 karakter (1 760 bájt)
 |BLOB maximális méretének letiltása|4,75 TB (100 MB X 50 000 blokk)|4,75 TB (100 MB x 50 000 blokk) az 1802 frissítéshez vagy újabb verzióhoz. 50 000 X 4 MB (körülbelül 195 GB) a korábbi verziókhoz.
-|Oldal blob-pillanatképének másolata|Azure-beli nem felügyelt virtuálisgép-lemezek biztonsági mentése támogatott futó virtuális gépekhez|Még nem támogatott.
+|Oldal blob-pillanatképének másolata|Azure-beli nem felügyelt virtuálisgép-lemezek biztonsági mentése támogatott futó virtuális gépekhez|API- [ként támogatott aszinkron műveletként](azure-stack-acs-differences.md).
 |Oldal blob növekményes pillanatképének másolása|Támogatott prémium és standard Azure-oldal Blobok|Még nem támogatott.
 |Oldal blob-számlázása|Az egyedi lapokra vonatkozó díjak a blobban vagy a pillanatképben vannak felszámítva. Nem számít fel további díjat a blobokhoz társított Pillanatképek esetében, amíg az alap blob nem frissül.|Az alap blobok és a hozzájuk tartozó Pillanatképek esetében díjat számítunk fel. Az egyes Pillanatképek esetében további díjakat számítunk fel.
 |A blob Storage tárolási szintjei|Gyakori, ritka elérésű és archív tárolási szintek.|Még nem támogatott.

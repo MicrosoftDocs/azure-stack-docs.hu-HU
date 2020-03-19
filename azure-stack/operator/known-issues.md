@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 05b4fb4a3fedd1431e7850473a720fd4cc1bdf3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: a2f86835a9b1008417e427bc62229e94d6b00595
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696039"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512235"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -20,11 +20,11 @@ Ez a cikk az Azure Stack hub kiadásában előforduló ismert problémákat soro
 
 Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartalomjegyzéknél válassza a verzió kiválasztása legördülő menüt.
 
-::: moniker range=">=azs-1906"
+::: moniker range=">=azs-1907"
 > [!IMPORTANT]  
 > A frissítés alkalmazása előtt tekintse át ezt a szakaszt.
 ::: moniker-end
-::: moniker range="<azs-1906"
+::: moniker range="<azs-1907"
 > [!IMPORTANT]  
 > Ha a Azure Stack hub-példánya több mint két frissítés mögött van, akkor az nem felel meg a megfelelőségnek. A [támogatás fogadásához legalább a támogatott verzióra kell frissítenie](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -32,6 +32,122 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
+
+::: moniker range="azs-2002"
+## <a name="update"></a>Frissítés
+
+Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása az Azure stack hub-ban](azure-stack-updates-troubleshoot.md).
+
+## <a name="portal"></a>Portál
+
+### <a name="administrative-subscriptions"></a>Rendszergazdai előfizetések
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: az 1804-es verzióval bevezetett két felügyeleti előfizetés nem használható. Az előfizetés típusa a **mérési** előfizetés és a **fogyasztási** előfizetés.
+- Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
+- Előfordulás: gyakori
+
+### <a name="subscription-permissions"></a>Előfizetés engedélyei
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack hub-portálon keresztül.
+- Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
+- Előfordulás: gyakori
+
+### <a name="storage-account-options"></a>Tárfiók-beállítások
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor**) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
+- Előfordulás: gyakori
+
+### <a name="create-managed-disk-snapshot"></a>Felügyelt lemez pillanatképének létrehozása
+
+- Alkalmazható: Ez a probléma a 2002-es kiadásra vonatkozik.
+- Ok: a felhasználói portálon a felügyelt lemez pillanatképének létrehozásakor a **Fiók típusa** mező üres. Ha üres fióktípus esetén kiválasztja a **Létrehozás** gombot, a pillanatkép létrehozása sikertelen lesz.
+- Szervizelés: válasszon egy számlatípust a **Fiók típusa** legördülő listából, majd hozza létre a pillanatképet.
+- Előfordulás: gyakori
+
+## <a name="networking"></a>Hálózat
+
+### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
+- Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
+- Előfordulás: gyakori
+
+### <a name="network-interface"></a>Hálózati illesztő
+
+#### <a name="addingremoving-network-interface"></a>Hálózati adapter hozzáadása/eltávolítása
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: nem lehet új hálózati adaptert hozzáadni egy **futó** állapotban lévő virtuális géphez.
+- Szervizelés: állítsa le a virtuális gépet a hálózati adapter hozzáadása vagy eltávolítása előtt.
+- Előfordulás: gyakori
+
+#### <a name="primary-network-interface"></a>Elsődleges hálózati adapter
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: egy virtuális gép elsődleges NIC-je nem módosítható. Ha törli vagy leválasztja az elsődleges hálózati adaptert, a rendszer problémákba ütközik a virtuális gép indításakor.
+- Előfordulás: gyakori
+
+### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
+
+#### <a name="documentation"></a>Dokumentáció
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a dokumentáció a Virtual Network Gateway áttekintő oldalán, az Azure Stack hub helyett az Azure-specifikus dokumentációra mutató hivatkozást tartalmaz. Használja az alábbi hivatkozásokat az Azure Stack hub dokumentációjában:
+
+  - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
+  - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+
+## <a name="compute"></a>Számítás
+
+### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: új Windowsos virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait**. A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
+- Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
+- Előfordulás: gyakori
+
+### <a name="consumed-compute-quota"></a>Felhasznált számítási kvóta
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: új virtuális gép létrehozásakor előfordulhat, hogy az **előfizetés az ezen a helyen lévő összes regionális vCPU esetében egy hibaüzenetet kap. Ez az előfizetés az összes rendelkezésre álló, 50 teljes regionális vCPU használja.** Ez azt jelzi, hogy elérte az összes elérhető magok kvótáját.
+- Szervizelés: kérje meg az operátort, hogy adjon meg egy kiegészítő kvótával rendelkező kiegészítő csomagot. Az aktuális csomag kvótájának szerkesztése nem fog működni, vagy nagyobb kvóta jelenik meg.
+- Előfordulás: ritka
+
+### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack hub-környezetekben
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
+- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub-telepítés frissítési folyamata során.
+
+## <a name="resource-providers"></a>Erőforrás-szolgáltatók
+
+### <a name="sqlmysql"></a>SQL/MySQL
+
+- Alkalmazható: Ez a probléma a 2002-es kiadásra vonatkozik. 
+- Ok: Ha a bélyegző az SQL Resource Provider (RP) 1.1.33.0 vagy korábbi verzióját tartalmazza, akkor a bélyegző frissítése után az SQL/MySQL-hez tartozó pengék nem töltődnek be.
+- Szervizelés: frissítse az RP-et a verzió 1.1.47.0
+
+### <a name="app-service"></a>App Service
+
+- Alkalmazható: Ez a probléma a 2002-es kiadásra vonatkozik.
+- Ok: Ha a bélyegző App Service erőforrás-szolgáltató (RP) 1,7-es és régebbi verzióját tartalmazza, a bélyegző frissítése után a App Servicehoz tartozó pengék nem töltődnek be.
+- Szervizelés: frissítse az RP-et a 1,8-es verzióra.
+
+<!-- ## Storage -->
+<!-- ## SQL and MySQL-->
+<!-- ## App Service -->
+<!-- ## Usage -->
+<!-- ### Identity -->
+<!-- ### Marketplace -->
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="update"></a>Frissítés
@@ -79,15 +195,10 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a feltöltési panelen, lehetőség van a **HRE** vagy a **kulcsos hitelesítés**kiválasztására, azonban a **HRE** nem támogatott az Azure stack hub-ban.
 - Előfordulás: gyakori
 
-### <a name="load-balancer-backend-pool"></a>Terheléselosztó-háttér készlete
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon **a terheléselosztó backend-** készletének hozzáadásakor a művelet hibaüzenetet küld, amely **nem tudta menteni a terheléselosztó háttér-készletét**; a művelet azonban valójában sikeres volt.
-- Előfordulás: gyakori
 
 ### <a name="alert-for-network-interface-disconnected"></a>Hálózati adapter leválasztott riasztása
 
-- Alkalmazható: Ez a probléma a 1908-es és a 1910-as kiadásra vonatkozik.
+- Alkalmazható: a probléma a 1908-es vagy újabb verzióra vonatkozik.
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
 
@@ -103,11 +214,6 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a felhasználói portálon megjelenik a **VPN-** átjáró erőforrás-kezelési funkciója és **mérőszámai** , azonban ez Azure stack hub esetében nem támogatott.
 - Előfordulás: gyakori
 
-### <a name="adding-extension-to-vm-scale-set"></a>Bővítmény hozzáadása a virtuálisgép-méretezési csoporthoz
-
-- Alkalmazható: Ez a probléma a 1907-es és újabb kiadásokra vonatkozik.
-- Ok: a felhasználói portálon a virtuálisgép-méretezési csoport létrehozása után a felhasználói felület nem teszi lehetővé a bővítmény hozzáadását.
-- Előfordulás: gyakori
 
 ### <a name="delete-a-storage-container"></a>Storage-tároló törlése
 
@@ -159,6 +265,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: a probléma a 1908-es vagy régebbi bélyegzők esetében érvényes.
 - Ok: az SQL Resource Provider (RP) verziójának 1.1.47.0 telepítésekor a portálon nem láthatók az SQL RP-hez társított eszközök.
 - Szervizelés: törölje az RP-t, frissítse a bélyeget, majd telepítse újra az SQL RP-t.
+
+### <a name="activity-log-blade"></a>Activity napló panel
+
+- Alkalmazható: a probléma a 1907-es vagy annál újabb rendszerű bélyegzők esetében érvényes. <!-- Note: Applies to 2002 as well -->
+- Ok: a műveletnapló elérésekor a portál csak a bejegyzések első oldalát jeleníti meg. **További találatok betöltése** nem tölti be a hozzáadási bejegyzéseket.
+- Szervizelés: állítsa be az időtartományt a szűrőben az első oldal után eltelt bejegyzések áttekintéséhez.
 
 ## <a name="networking"></a>Hálózat
 
@@ -596,6 +708,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: nincs.
 - Előfordulás: gyakori
 
+### <a name="issues-creating-resources"></a>Erőforrások létrehozásával kapcsolatos problémák
+
+- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
+- Ok: a 1906-es ismert probléma az egyéni szerepkörökkel és az erőforrások létrehozásához szükséges engedélyek kiosztásával. Előfordulhat, hogy az erőforrások létrehozásakor problémák lépnek fel, még akkor is, ha rendelkezik a megfelelő engedélyekkel.
+- Szervizelés: frissítsen a 1907-es verzióra a probléma enyhítése érdekében.
+- Előfordulás: gyakori
+
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
 
 - Alkalmazható: Ez a probléma a 1906-es és a 1907-as kiadásra vonatkozik.    
@@ -611,187 +730,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 <!-- ### Marketplace -->
 ::: moniker-end
 
-::: moniker range="azs-1906"
-## <a name="1906-update-process"></a>1906 frissítési folyamat
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: amikor a 1906 Azure Stack hub frissítésének telepítését kísérli meg, a frissítés állapota meghiúsulhat, és az állapot **PreparationFailed**értékre vált. Ezt az okozza, hogy a frissítési erőforrás-szolgáltató (URP) nem tudja megfelelően átvinni a fájlokat a tárolóból egy belső infrastruktúra-megosztásba a feldolgozáshoz. 
-- Szervizelés: a 1901-es (1.1901.0.95) verziótól kezdődően megkerülheti a problémát, ha a **Frissítés most** lehetőségre kattint (nem **folytatódik**). A URP ezután törli az előző kísérletből származó fájlokat, majd újraindítja a letöltést. Ha a probléma továbbra is fennáll, javasoljuk, hogy manuálisan töltse fel a frissítési csomagot a [frissítések importálása és telepítése szakasz](azure-stack-apply-updates.md)alapján.
-- Előfordulás: gyakori
-
-## <a name="portal"></a>Portál
-
-### <a name="administrative-subscriptions"></a>Rendszergazdai előfizetések
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: az 1804-es verzióval bevezetett két felügyeleti előfizetés nem használható. Az előfizetés típusa a **mérési** előfizetés és a **fogyasztási** előfizetés.
-- Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
-- Előfordulás: gyakori
-
-### <a name="subscription-resources"></a>Előfizetés erőforrásai
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói előfizetések törlése árva erőforrásokkal jár.
-- Szervizelés: először törölje a felhasználói erőforrásokat vagy a teljes erőforráscsoportot, majd törölje a felhasználói előfizetéseket.
-- Előfordulás: gyakori
-
-### <a name="subscription-permissions"></a>Előfizetés engedélyei
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: az előfizetéshez tartozó engedélyek nem tekinthetők meg az Azure Stack hub-portálon keresztül.
-- Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
-- Előfordulás: gyakori
-
-### <a name="subscriptions-properties-blade"></a>Előfizetések tulajdonságai panel
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felügyeleti portálon az előfizetések **tulajdonságai panel** nem töltődik be megfelelően
-- Szervizelés: ezeket az előfizetéseket az előfizetések áttekintése panel Essentials (alapvető erőforrások) paneljén tekintheti meg
-- Előfordulás: gyakori
-
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
-- Előfordulás: gyakori
-
-### <a name="upload-blob"></a>BLOB feltöltése
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a **OAuth (előzetes verzió)** beállítással, a feladat hibaüzenettel meghiúsul.
-- Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
-- Előfordulás: gyakori
-
-### <a name="update"></a>Frissítés
-
-- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a kezelő portálon a gyorsjavítás állapotának frissítése helytelen állapotot mutat a frissítéshez. A kezdeti állapot azt jelzi, hogy a frissítést nem sikerült telepíteni, még akkor is, ha még folyamatban van.
-- Szervizelés: frissítse a portált, és az állapota "folyamatban" állapotba kerül.
-- Előfordulás: időszakos
-
-## <a name="networking"></a>Hálózat
-
-### <a name="service-endpoints"></a>Szolgáltatásvégpontok
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
-- Előfordulás: gyakori
-
-### <a name="network-interface"></a>Hálózati illesztő
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: nem lehet új hálózati adaptert hozzáadni egy **futó** állapotban lévő virtuális géphez.
-- Szervizelés: állítsa le a virtuális gépet a hálózati adapter hozzáadása vagy eltávolítása előtt.
-- Előfordulás: gyakori
-
-### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
-
-#### <a name="alerts"></a>Riasztások
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
-- Előfordulás: gyakori
-
-#### <a name="active-active"></a>Aktív-aktív
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
-- Előfordulás: gyakori
-
-#### <a name="vpn-troubleshooter"></a>VPN-hibakereső
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
-- Előfordulás: gyakori
-
-#### <a name="documentation"></a>Dokumentáció
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a dokumentáció a Virtual Network Gateway áttekintő oldalán, az Azure Stack hub helyett az Azure-specifikus dokumentációra mutató hivatkozást tartalmaz. Használja az alábbi hivatkozásokat az Azure Stack hub dokumentációjának megtekintéséhez:
-
-  - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
-  - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
-
-### <a name="load-balancer"></a>Terheléselosztó
-
-#### <a name="add-backend-pool"></a>Háttér-készlet hozzáadása
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, ha **háttér-készletet** próbál hozzáadni egy **Load Balancerhoz**, a művelet meghiúsul, és a hibaüzenet **nem tudta frissíteni a Load Balancer.** ...
-- Szervizelés: használja a PowerShellt, a CLI-t vagy a Resource Manager-sablont a háttérbeli készlet terheléselosztó-erőforrással való hozzárendeléséhez.
-- Előfordulás: gyakori
-
-#### <a name="create-inbound-nat"></a>Bejövő NAT létrehozása
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Ha a felhasználói portálon **bejövő NAT-szabályt** próbál létrehozni egy **Load Balancerhoz**, a művelet meghiúsul, és a hibaüzenet **nem frissül Load Balancer.** ..
-- Szervizelés: használja a PowerShellt, a CLI-t vagy a Resource Manager-sablont a háttérbeli készlet terheléselosztó-erőforrással való hozzárendeléséhez.
-- Előfordulás: gyakori
-
-## <a name="compute"></a>Számítás
-
-### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: új Windowsos virtuális gép (VM) létrehozásakor a következő hibaüzenet jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait**. A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
-- Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
-- Előfordulás: gyakori
-
-### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
-
-
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>Hibák létrehozása a javítás és a frissítés során 4 csomópontos Azure Stack hub-környezetekben
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
-- Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub frissítési folyamata során.
-
-### <a name="ubuntu-ssh-access"></a>Ubuntu SSH-hozzáférés
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: az SSH-hitelesítéssel létrehozott Ubuntu 18,04 virtuális gép nem teszi lehetővé az SSH-kulcsok használatát a bejelentkezéshez.
-- Szervizelés: virtuálisgép-hozzáférés használata a Linux-bővítményhez SSH-kulcsok implementálása a kiépítés után vagy jelszó alapú hitelesítés használatával.
-- Előfordulás: gyakori
-
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>A virtuálisgép-méretezési csoport alaphelyzetbe állításának jelszava nem működik
-
-- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a méretezési csoport felhasználói felületén megjelenik egy új jelszó alaphelyzetbe állítása panel, de az Azure Stack hub még nem támogatja a jelszó visszaállítását egy méretezési csoporton.
-- Szervizelés: nincs.
-- Előfordulás: gyakori
-
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>Az esős felhő a méretezési csoport diagnosztikát
-
-- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a virtuálisgép-méretezési csoport áttekintő lapja egy üres diagramot jelenít meg. Ha az üres diagramra kattint, megnyílik az "esős felhő" panel. Ez a méretezési csoport diagnosztikai információinak, például a CPU százalékának a diagramja, és nem támogatott a jelenlegi Azure Stack hub-buildben.
-- Szervizelés: nincs.
-- Előfordulás: gyakori
-
-### <a name="issues-creating-resources"></a>Erőforrások létrehozásával kapcsolatos problémák
-
-- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a 1906-es ismert probléma az egyéni szerepkörökkel és az erőforrások létrehozásához szükséges engedélyek kiosztásával. Előfordulhat, hogy az erőforrások létrehozásakor problémák lépnek fel, még akkor is, ha rendelkezik a megfelelő engedélyekkel.
-- Szervizelés: frissítsen a 1907-es verzióra a probléma enyhítése érdekében.
-- Előfordulás: gyakori
-
-### <a name="virtual-machine-diagnostic-settings-blade"></a>Virtuális gép diagnosztikai beállításainak panelje
-
-- Alkalmazható: Ez a probléma az 1906-es kiadásra vonatkozik.
-- Ok: a virtuális gép diagnosztikai beállításainak paneljén van egy **fogadó lap, amely egy** alkalmazás-Insight- **fiókot**kér. Ez egy új panel eredménye, amely Azure Stack hub-ban még nem támogatott.
-- Szervizelés: nincs.
-- Előfordulás: gyakori
-
-<!-- ## Storage -->
-<!-- ## SQL and MySQL-->
-<!-- ## App Service -->
-<!-- ## Usage -->
-<!-- ### Identity -->
-<!-- ### Marketplace -->
-::: moniker-end
-
-::: moniker range=">=azs-1906"
+::: moniker range=">=azs-1907"
 ## <a name="archive"></a>Archívum
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
@@ -805,6 +744,9 @@ Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1906"
+## <a name="1906-archived-known-issues"></a>1906 archivált ismert problémák
+::: moniker-end
 ::: moniker range="azs-1905"
 ## <a name="1905-archived-known-issues"></a>1905 archivált ismert problémák
 ::: moniker-end
@@ -845,6 +787,6 @@ Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a
 ## <a name="1802-archived-known-issues"></a>1802 archivált ismert problémák
 ::: moniker-end
 
-::: moniker range="<azs-1906"
+::: moniker range="<azs-1907"
 [A Azure stack hub ismert problémáinak régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 ::: moniker-end

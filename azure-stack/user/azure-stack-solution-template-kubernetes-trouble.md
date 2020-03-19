@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703621"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512592"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Az Azure Stack hub Kubernetes-telepítésének hibáinak megoldása
 
@@ -85,7 +85,7 @@ A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttek
     - Győződjön meg arról, hogy a virtuális gép teljes tartományneve (FQDN) ismétlődő előtaggal kezdődik.
 5.  Ha a virtuális gép **rendben**van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
-    - A Kiemelt végpontok használatával lépjen kapcsolatba az Azure Stack hub rendszergazdájával, és kérje le a Azure Stack hub naplóit. További információ: [Azure stack hub Diagnostics Tools](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+    - A Kiemelt végpontok használatával lépjen kapcsolatba az Azure Stack hub rendszergazdájával, és kérje le a Azure Stack hub naplóit. További információ: [Azure stack hub Diagnostics Tools](../operator/azure-stack-get-azurestacklog.md).
 5. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub-fórumon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 

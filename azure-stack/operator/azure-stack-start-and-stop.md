@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: d6742ad75625eaed8f7e8c1ebec725fa1b62d53c
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367522"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512371"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Azure Stack hub elindítása és leállítása
 
@@ -84,4 +84,4 @@ Ha az infrastruktúra és a bérlői szolgáltatások nem indulnak el sikeresen 
 
 ## <a name="next-steps"></a>Következő lépések
 
-További információ az [Azure stack hub diagnosztikai eszközeiről](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+További információ az [Azure stack hub diagnosztikai eszközeiről](azure-stack-diagnostic-log-collection-overview-tzl.md)

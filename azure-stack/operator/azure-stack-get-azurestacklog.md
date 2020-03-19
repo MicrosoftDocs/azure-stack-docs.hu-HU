@@ -1,49 +1,26 @@
 ---
-title: Igény szerinti Azure Stack hub diagnosztikai naplók gyűjtése
-description: Ismerje meg, hogyan gyűjthet diagnosztikai naplókat igény szerint Azure Stack hub Súgó és támogatás vagy privilegizált végpont (PEP) használatával.
+title: A Kiemelt végpont (PEP) használata a diagnosztikai naplók gyűjtésére
+description: Megtudhatja, hogyan gyűjthet diagnosztikai naplókat igény szerint Azure Stack hub-ban a felügyeleti portál vagy egy PowerShell-parancsfájl használatával.
 author: justinha
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 03/05/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: f17f835c88851d03d7ef1905cbac96b9f6701d8e
+ms.lastreviewed: 03/05/2020
+ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
 ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512218"
+ms.locfileid: "79520462"
 ---
-# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>Igény szerinti Azure Stack hub diagnosztikai naplók gyűjtése
-
-A hibaelhárítás részeként előfordulhat, hogy a Microsoft ügyfél-támogatási szolgálatának (CSS) elemezni kell a diagnosztikai naplókat. Az 1907-es kiadástól kezdve Azure Stack hub-operátorok a **Súgó és támogatás**segítségével feltölthetik a diagnosztikai naplókat az Azure-beli blob-tárolóba. A **Súgó és támogatás** használata ajánlott a PowerShell használatának korábbi módszere miatt, mivel az egyszerűbb. Ha azonban a portál nem érhető el, a kezelők továbbra is gyűjthetnek naplókat a **Get-AzureStackLog** használatával a rendszerjogosultságú végponton (PEP) keresztül a korábbi kiadásokban. Ez a témakör a diagnosztikai naplók igény szerinti gyűjtésének mindkét módját ismerteti.
-
->[!Note]
->A naplók igény szerinti gyűjtésének alternatívájaként egyszerűsítheti a hibaelhárítási folyamatot, ha engedélyezi az [automatikus diagnosztikai naplók gyűjtését](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Ha a rendszerállapot-feltételek kivizsgálására van szükség, a rendszer automatikusan feltölti a naplókat a CSS-elemzésekhez. 
-
-## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>A Súgó és támogatás használatával igény szerint gyűjthet diagnosztikai naplókat
-
-A probléma elhárításához a CSS kérhet egy Azure Stack hub operátort, hogy igény szerint gyűjtsön diagnosztikai naplókat az előző héten megadott időszakra vonatkozóan. Ebben az esetben a CSS a kezelőt egy SAS URL-címmel fogja biztosítani a gyűjtemény feltöltéséhez. A következő lépésekkel konfigurálhatja az igény szerinti naplózási gyűjteményt a CSS SAS URL-címének használatával:
-
-1. Nyissa meg a **Súgó és támogatás áttekintést** , és kattintson a **naplók összegyűjtése most**lehetőségre. 
-1. Válasszon egy 1-4 órás csúszó ablakot az elmúlt hét napban. 
-1. Válassza ki a helyi időzónát.
-1. Adja meg a CSS által megadott SAS URL-címet.
-
-   ![Képernyőkép az igény szerinti naplók gyűjtéséről](media/azure-stack-automatic-log-collection/collect-logs-now.png)
-
->[!NOTE]
->Ha az automatikus diagnosztikai napló gyűjteménye engedélyezve van, a **Súgó és támogatás** megjeleníti a naplózási gyűjtemény folyamatát. Ha a **naplók gyűjtése** gombra kattint a naplók egy adott időpontból való összegyűjtéséhez, miközben az automatikus naplózási gyűjtemény folyamatban van, az igény szerinti gyűjtemény az automatikus naplózási gyűjtemény befejeződése után kezdődik. 
-
-## <a name="use-the-privileged-endpoint-pep-to-collect-diagnostic-logs"></a>A Kiemelt végpont (PEP) használata a diagnosztikai naplók gyűjtésére
+# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Azure Stack hub diagnosztikai naplóinak elküldése a privilegizált végpont (PEP) használatával
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 
+Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat. Ha egy futó napló-gyűjteményt töröl egy új indításhoz, várjon 5 percet, mielőtt elindítja az új naplózási gyűjteményt, és írja be `Remove-PSSession -Session $session`.
 
-### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>Get-AzureStackLog futtatása Azure Stack hub integrált rendszereken
-
-Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy olyan parancsfájlt futtat, amelyen a PEP használatával gyűjthet naplókat egy integrált rendszeren:
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -58,22 +35,14 @@ $session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedE
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if ($session) {
     Remove-PSSession -Session $session
 }
 ```
 
-### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog futtatása Azure Stack Development Kit (ASDK) rendszeren
-
-A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató számítógépen.
-
-1. Jelentkezzen be **AzureStack\CloudAdmin** -ként a ASDK-gazdaszámítógépen.
-2. Nyisson meg egy új PowerShell-ablakot rendszergazdaként.
-3. Futtassa a **Get-AzureStackLog** PowerShell-parancsmagot.
-
-#### <a name="examples"></a>Példák
+### <a name="examples"></a>Példák
 
 * Összes napló összegyűjtése az összes szerepkörhöz:
 
@@ -111,6 +80,30 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
   ```
 
+* Gyűjtsön naplókat a Value-Add RPs értékhez. Az általános szintaxis a következőket használja:
+ 
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  ```
+ 
+  IoT Hub naplók összegyűjtése: 
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  ```
+ 
+  Event Hubs naplók összegyűjtése:
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  ```
+ 
+  Naplók gyűjtése az Azure Stack Edge-hez:
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  ```
+
 * Gyűjtsön naplókat, és tárolja őket a megadott Azure Storage blob-tárolóban. A művelet általános szintaxisa a következő:
 
   ```powershell
@@ -144,7 +137,7 @@ A következő lépésekkel futtathatja a `Get-AzureStackLog`t egy ASDK futtató 
   9. Kattintson a **Létrehozás** gombra.
   10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg a `-OutputSasUri` paraméternek.
 
-### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>A ASDK és az integrált rendszerek paramétereinek szempontjai
+### <a name="parameter-considerations"></a>Paraméterekkel kapcsolatos szempontok 
 
 * A **OutputSharePath** és a **OutputShareCredential** paraméterek a naplók a felhasználó által megadott helyen történő tárolására szolgálnak.
 
@@ -269,5 +262,4 @@ Az alábbiakban néhány példa a begyűjtött naplózási típusokra:
 * **ETW-naplók**
 
 Ezeket a fájlokat a rendszer összegyűjti és menti egy megosztásban Trace Collector. A Get-AzureStackLog segítségével szükség esetén gyűjtheti őket.
-
 

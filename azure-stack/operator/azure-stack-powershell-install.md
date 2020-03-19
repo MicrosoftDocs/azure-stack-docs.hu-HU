@@ -1,38 +1,39 @@
 ---
-title: A PowerShell telepítése Azure Stack hubhoz
+title: PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.reviewer: thoroet
+ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 40cd0cd279d98773e97bbae816dbd40ea2d1eba8
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: df0a87180e1e8ed4b2506d0f2b21406474ee93c1
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294846"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512456"
 ---
-# <a name="install-powershell-for-azure-stack-hub"></a>A PowerShell telepítése Azure Stack hubhoz
+# <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
-Azure PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják az Azure Stack hub-erőforrások kezeléséhez.
+Azure PowerShell AzureRM olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják az Azure Stack hub-erőforrások kezeléséhez.
 
-A felhővel való együttműködéshez Azure Stack hub-kompatibilis PowerShell-modulokat kell telepítenie. Azure Stack hub a **AzureRM** modult használja a globális Azure-ban használt újabb **AzureAZ** modul helyett. Az Azure Stack hub erőforrás-szolgáltatói számára a kompatibilis végpontok megadásához is *API-profilokat* kell használnia.
+A felhővel való együttműködéshez Azure Stack hub-kompatibilis PowerShell-modulokat kell telepítenie. Azure Stack hub az [újabb **AzureAZ** modul](powershell-install-az-module.md)helyett használhatja a **AzureRM** modult. 
 
+Az Azure Stack hub erőforrás-szolgáltatói számára a kompatibilis végpontok megadásához is *API-profilokat* kell használnia.
 Az API-profilok lehetőséget biztosítanak az Azure és a Azure Stack hub közötti verziók közötti különbségek kezelésére. Az API-verzió profilja Azure Resource Manager PowerShell-modulok meghatározott API-verziókkal. Minden egyes felhőalapú platformon támogatott API-verzió-profilok szerepelnek. Az Azure Stack hub például egy adott profil verzióját támogatja, például **2019-03-01-Hybrid**. Profil telepítésekor a rendszer telepíti a megadott profilhoz tartozó Azure Resource Manager PowerShell-modulokat.
 
 Azure Stack hub-kompatibilis PowerShell-modulokat az internethez csatlakoztatott, részben csatlakoztatott vagy leválasztott helyzetekben is telepítheti. Ez a cikk részletesen ismerteti ezeket a forgatókönyveket.
 
 ## <a name="1-verify-your-prerequisites"></a>1. Ellenőrizze az előfeltételeket
 
-Az Azure Stack hub és a PowerShell használatának megkezdése előtt a következő előfeltételeket kell megadnia:
+Az Azure Stack hub és a PowerShell-AzureRM modul használatának megkezdése előtt a következő előfeltételeket kell megadnia:
 
-- **PowerShell 5,0-es verzió** <br>
-A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,0-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)című témakört.
+- **PowerShell 5,1-es verzió** <br>
+A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,1-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)című témakört.
 
   > [!Note]
-  > A PowerShell 5,0 használatához Windows rendszerű gép szükséges.
+  > A PowerShell 5,1 használatához Windows rendszerű gép szükséges.
 
 - **Futtassa a PowerShellt egy rendszergazda jogú parancssorban**.
 
@@ -49,7 +50,7 @@ Annak ellenőrzése, hogy a PSGallery regisztrálva van-e adattárként.
 Nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagokat:
 
 ```powershell
-Import-Module -Name PowerShellGet -ErrorAction Stop
+Install-module -Name PowerShellGet -Force 
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
@@ -84,43 +85,51 @@ A szükséges API-verzió profil és Azure Stack hub PowerShell-modulok a futtat
 
 Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomáson történő telepítéséhez:
 
-- Azure Stack hub 1910-es vagy újabb verziója esetén:
+::: moniker range=">=azs-2002"
+Azure Stack hub 2002-es vagy újabb verziója esetén:
 
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
+```powershell  
+# Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.8.0
-    ```
+# Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.8.1
+```
 
-- Azure Stack hub 1908 vagy 1903 után:
+::: moniker-end
+::: moniker range="azs-1910"
+Azure Stack hub 1910:
 
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
+```powershell  
+# Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.7.2
-    ```
-  
-- Azure Stack hub 1903-es vagy korábbi verziójában csak az alábbi két modult telepítse:
+# Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.8.0
+```
 
-    ```powershell  
-    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+> [!Note]  
+> - A Azure Stack hub-modul 1.8.0-es verziója egy feltörést jelentő változási kiadás. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md) .
 
-    Install-Module -Name AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.1
-    ```
+::: moniker-end
+::: moniker range="<=azs-1908"
+Azure Stack hub 1908 vagy korábbi verzió esetén:
 
-    > [!Note]  
-    > - A Azure Stack hub-modul 1.8.0-es verziója egy feltörést jelentő változási kiadás. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md) .
-    > - Az Azure Stack hub modul 1.7.2 verziója a feltörési változás kiadása. Az Azure Stack hub 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://aka.ms/azspshmigration171).
-    > - A AzureRM modul 2.4.0 verziója a Remove-AzureRmStorageAccount parancsmag megszakítási változásával jár. Ez a parancsmag arra vár, `-Force` paramétert kell megadni a Storage-fiók megerősítés nélküli eltávolításához.
-    > - Nem kell telepítenie a **AzureRM. BootStrapper** eszközt a Azure Stack hub 1901-es vagy újabb verziójához tartozó modulok telepítéséhez.
-    > - Ne telepítse a 2018-03-01-Hybrid profilt a fenti AzureRM-modulok Azure Stack hub 1901-es vagy újabb verziójának használata mellett.
+```powershell  
+# Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+Install-Module -Name AzureRM.BootStrapper
+
+# Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.7.2
+```
+
+> [!Note]  
+> Az Azure Stack hub modul 1.7.2 verziója a feltörési változás kiadása. Az Azure Stack hub 1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://aka.ms/azspshmigration171).
+
+::: moniker-end
 
 ### <a name="confirm-the-installation-of-powershell"></a>A PowerShell telepítésének megerősítése
 
@@ -131,7 +140,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-Ha a telepítés sikeres, a `AzureRM` és `AzureStack` modulok megjelennek a kimenetben.
+Ha a telepítés sikeres, a `AzureAz` és `AzureStack` modulok megjelennek a kimenetben.
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. leválasztva: a PowerShell telepítése internetkapcsolat nélkül
 
@@ -139,7 +148,7 @@ Leválasztott forgatókönyv esetén először töltse le a PowerShell-modulokat
 
 Jelentkezzen be egy internetkapcsolattal rendelkező számítógépre, és a következő parancsfájlok segítségével töltse le a Azure Resource Manager és Azure Stack hub-csomagokat az Azure Stack hub verziójától függően.
 
-A telepítésnek négy lépése van:
+A telepítés öt lépésből áll:
 
 1. Telepítse Azure Stack hub PowerShellt egy csatlakoztatott gépre.
 2. Engedélyezze a további tárolási funkciókat.
@@ -149,48 +158,58 @@ A telepítésnek négy lépése van:
 
 ### <a name="install-azure-stack-hub-powershell"></a>Azure Stack hub PowerShell telepítése
 
-- Azure Stack hub 1910 vagy újabb.
+::: moniker range=">=azs-2002"
+Azure Stack hub 2002 vagy újabb.
 
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
+```powershell
 
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
-    ```
+Install-module -Name PowerShellGet -Force 
+Import-Module -Name PackageManagement -ErrorAction Stop
 
-- Azure Stack hub 1908 vagy 1903 után:
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.1
+```
+::: moniker-end
 
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
+::: moniker range="azs-1910"
+Azure Stack hub 1910.
 
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
-    ```
+```powershell
+Install-module -Name PowerShellGet -Force 
+Import-Module -Name PackageManagement -ErrorAction Stop
 
-- Azure Stack hub 1903 vagy korábbi.
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+```
 
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
+> [!NOTE]  
+> A Azure Stack hub-modul 1.8.0-es verziója egy feltörést jelentő változási kiadás. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md) .
 
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.4.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.1
-    ```
+::: moniker-end
+::: moniker range="<=azs-1908"
+Azure Stack hub 1908 vagy korábbi verzió esetén:
 
-    > [!Note]  
-    > - A Azure Stack hub-modul 1.8.0-es verziója egy feltörést jelentő változási kiadás. A részletekért tekintse meg a [kibocsátási megjegyzést](release-notes.md) .
-    > Az Azure Stack hub-modul 1.7.1 verziója egy megszakítási változás. Azure Stack hub-1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+```powershell
+Install-module -Name PowerShellGet -Force 
+Import-Module -Name PackageManagement -ErrorAction Stop
 
-    > [!NOTE]
-    > Internetkapcsolat nélküli gépeken a következő parancsmag futtatását javasoljuk a telemetria-adatgyűjtés letiltásához. A parancsmagok teljesítménybeli romlása a telemetria-adatgyűjtés letiltása nélkül is felmerülhet. Ez csak az internetkapcsolat nélküli gépek esetében érvényes
-    > ```powershell
-    > Disable-AzureRmDataCollection
-    > ```
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
+```
+
+> [!NOTE]  
+> Az Azure Stack hub-modul 1.7.1 verziója egy megszakítási változás. Azure Stack hub-1.6.0 való áttelepítéshez tekintse meg az [áttelepítési útmutatót](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+
+::: moniker-end
+
+> [!NOTE]  
+> Internetkapcsolat nélküli gépeken a következő parancsmag futtatását javasoljuk a telemetria-adatgyűjtés letiltásához. A parancsmagok teljesítménybeli romlása a telemetria-adatgyűjtés letiltása nélkül is felmerülhet. Ez csak az internetkapcsolat nélküli gépek esetében érvényes
+> ```powershell
+> Disable-AzureRmDataCollection
+> ```
 
 ### <a name="add-your-packages-to-your-workstation"></a>Csomagok hozzáadása a munkaállomáshoz
 

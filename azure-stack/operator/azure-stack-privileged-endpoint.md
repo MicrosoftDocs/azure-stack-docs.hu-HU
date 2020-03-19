@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698147"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512439"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
@@ -20,7 +20,7 @@ Azure Stack hub-kezelőként a legtöbb napi felügyeleti feladathoz a felügyel
 
 A következő feladatok elvégzéséhez használhatja a PEP-t:
 
-- Alacsony szintű feladatok, például [diagnosztikai naplók gyűjtése](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+- Alacsony szintű feladatok, például [diagnosztikai naplók gyűjtése](azure-stack-get-azurestacklog.md).
 - Számos üzembe helyezés utáni adatközpont-integrációs feladat az integrált rendszerekhez, például a tartománynévrendszer (DNS) továbbítóinak hozzáadása az üzembe helyezést követően, Microsoft Graph integráció, Active Directory összevonási szolgáltatások (AD FS) (AD FS) integráció, tanúsítvány rotáció és így tovább.
 - Az integrált rendszer részletes hibaelhárításához az ideiglenes, magas szintű hozzáférés támogatásával dolgozhat.
 
@@ -197,4 +197,4 @@ Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztás
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Azure Stack hub diagnosztikai eszközök](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Azure Stack hub diagnosztikai eszközök](azure-stack-diagnostic-log-collection-overview-tzl.md)

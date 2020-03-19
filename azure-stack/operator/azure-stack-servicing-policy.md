@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
-ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: f81ca3e48387f806e591deea08c4b0c9c518cebd
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294593"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512401"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -45,10 +45,10 @@ A frissítések tervezésével és kezelésével, valamint az aktuális verzió 
 
 Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
+- [Azure Stack hub 2002 frissítése](/azure-stack/operator/release-notes?view=azs-2002)
 - [Azure Stack hub 1910 frissítése](/azure-stack/operator/release-notes?view=azs-1910)
 - [Azure Stack hub 1908 frissítése](/azure-stack/operator/release-notes?view=azs-1908)
 - [Azure Stack hub 1907 frissítése](/azure-stack/operator/release-notes?view=azs-1907)
-- [Azure Stack hub 1906 frissítése](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
@@ -58,12 +58,19 @@ A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azu
 
 A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack hub 1910 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Azure Stack hub 1908 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
-- [Azure Stack hub 1907 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
-- [Azure Stack hub 1906 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
+- [Azure Stack hub 2002 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
+- [Azure Stack hub 1910 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
+- [Azure Stack hub 1908 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
+- [Azure Stack hub 1907 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>Tartsa a rendszerét támogatás alatt
+
+::: moniker range="azs-2002"
+
+> [!IMPORTANT]  
+> A Azure Stack hub 2002-es frissítésével a Microsoft átmenetileg kiterjeszti Azure Stack hub támogatási szabályzatának utasításait. A COVID-19-re válaszoló világbeli ügyfelekkel dolgozunk, akik fontos döntéseket hozhatnak a Azure Stack hub-rendszerekkel kapcsolatban, hogyan frissülnek és felügyelnek, és ennek eredményeképpen biztosítják, hogy az adatközpont üzleti műveletei továbbra is szabályosan működik. Ügyfeleink támogatásában a Microsoft egy ideiglenes támogatási szabályzatot kínál, amely három korábbi frissítési verziót tartalmaz. Ennek eredményeképpen az újonnan kiadott 2002-es frissítés és a három korábbi frissítési verzió (például a 1910, az 1908 és az 1907) közül bármelyiket támogatja a rendszer.
+
+::: moniker-end
 
 Ahhoz, hogy a Azure Stack hub-példány továbbra is támogatott állapotban maradjon, a példánynak a legutóbb kiadott frissítési verziót kell futtatnia, vagy futtatnia kell a két korábbi frissítési verzió valamelyikét.
 

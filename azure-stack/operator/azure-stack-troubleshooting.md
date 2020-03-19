@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ef90476685a786549ed239429a222fbd561f6d15
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696753"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512332"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -87,7 +87,7 @@ A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a 
 4. `get-azurestacklog -filterbyrole seedring` futtatása hívási parancs használatával.
 5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a `test-azurestack`futtatott ERCS mappából szerezheti be.
 
-További információ: [Azure stack hub Diagnostics](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs).
+További információ: [Azure stack hub Diagnostics](azure-stack-get-azurestacklog.md).
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Virtuális gépek (VM-EK) hibáinak megoldása
 
