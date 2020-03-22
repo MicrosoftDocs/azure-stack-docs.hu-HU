@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511997"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069393"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -32,6 +32,7 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 |Felügyelt lemezek|Prémium és standard támogatott|Az 1808-es vagy újabb verzió használata esetén támogatott.
 |Felügyelt lemezek pillanatképei|Általánosan elérhető|Támogatott.
 |Felügyelt lemez növekményes pillanatképei|Általánosan elérhető|Még nem támogatott.
+|Felügyelt lemezes Pillanatképek a virtuális gép számára futó állapotban|Általánosan elérhető|Még nem támogatott.
 |A blob neve|1 024 karakter (2 048 bájt)|880 karakter (1 760 bájt)
 |BLOB maximális méretének letiltása|4,75 TB (100 MB X 50 000 blokk)|4,75 TB (100 MB x 50 000 blokk) az 1802 frissítéshez vagy újabb verzióhoz. 50 000 X 4 MB (körülbelül 195 GB) a korábbi verziókhoz.
 |Oldal blob-pillanatképének másolata|Azure-beli nem felügyelt virtuálisgép-lemezek biztonsági mentése támogatott futó virtuális gépekhez|API- [ként támogatott aszinkron műveletként](azure-stack-acs-differences.md).

@@ -136,10 +136,6 @@
           items:
             - name: A PowerShell RM telepítése
               href: azure-stack-powershell-install.md
-            - name: A PowerShell telepítése az
-              href: powershell-install-az-module.md
-            - name: PowerShell-AzureRM migrálása az az
-              href: migrate-azurerm-az.md
             - name: Eszközök letöltése
               href: azure-stack-powershell-download.md
             - name: Kapcsolódás a PowerShell-lel
@@ -252,7 +248,7 @@
           href: azure-stack-supported-os.md
         - name: Egy virtuálisgép-méretezési csoportot ajánlat
           href: azure-stack-compute-add-scalesets.md
-        - name: A Windows Server a Marketplace-en – gyakori kérdések
+        - name: Azure Stack hub Marketplace – gyakori kérdések
           href: azure-stack-windows-server-faq.md
         - name: Linux rendszerű virtuális gépek biztosítása
           href: azure-stack-linux.md

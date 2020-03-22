@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ce8c4843bc8316a744e1cf3d4f13e744269a9183
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: a819dedd695175d6b4ff28e72965c53969a2f9b2
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512099"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069407"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -45,7 +45,7 @@ A frissítésekkel és a frissítési folyamattal kapcsolatos segítségért lá
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002-Build referenciája
 
-Az Azure Stack hub 2002 Update Build száma **1.2002.0.35**.
+Az Azure Stack hub 2002 Update Build száma **1.2002.12.59**.
 
 > [!IMPORTANT]  
 > A Azure Stack hub 2002-es frissítésével a Microsoft átmenetileg kiterjeszti [Azure stack hub támogatási szabályzatának utasításait](azure-stack-servicing-policy.md).  A COVID-19-re válaszoló világbeli ügyfelekkel dolgozunk, akik fontos döntéseket hozhatnak a Azure Stack hub-rendszerekkel kapcsolatban, hogyan frissülnek és felügyelnek, és ennek eredményeképpen biztosítják, hogy az adatközpont üzleti műveletei továbbra is szabályosan működik. Ügyfeleink támogatásában a Microsoft egy ideiglenes támogatási szabályzatot kínál, amely három korábbi frissítési verziót tartalmaz.  Ennek eredményeképpen az újonnan kiadott 2002-es frissítés és a három korábbi frissítési verzió (például a 1910, az 1908 és az 1907) közül bármelyiket támogatja a rendszer.
@@ -67,7 +67,6 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 <!-- What's new, also net new experiences and features. -->
 
 - Elérhető a AzureRM-alapú Azure Stack hub rendszergazdai PowerShell-modulok új verziója (1.8.1).
-- Az az. * Azure PowerShell bérlői moduljainak új verziója a Azure Stack 2020. március 16-án jelenik meg. A jelenleg használt Azure Stack bérlői Resource Manager-modulok továbbra is működni fognak, de az 2002-es Build után már nem lesznek frissítve.
 - Új figyelmeztető riasztás hozzáadva a Azure Stack hub felügyeleti portálján a konfigurált syslog-kiszolgálóval fennálló csatlakozási problémák jelentéséhez. A riasztás címe **a syslog-ügyfél hálózati hibát észlelt a syslog-üzenet küldése közben**.
 - Új figyelmeztető riasztás hozzáadva az Azure Stack hub felügyeleti portálján a Network Time Protocol (NTP) kiszolgáló csatlakozási problémáinak jelentéséhez. A riasztás címe **érvénytelen időforrást mutat a következőn: [csomópont neve]** .
 - A [Java SDK](https://azure.microsoft.com/develop/java/) új csomagokat adott közzé a TLS-korlátozásokkal kapcsolatos 2002-es megszakítási változás miatt. Telepítenie kell az új Java SDK-függőséget. Az utasításokat a [Java és az API-verziók profiljaiban](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles)találja.
@@ -80,6 +79,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Ez a frissítés a frissítési folyamat olyan változásait tartalmazza, amelyek jelentősen javítják a jövőbeli teljes frissítések teljesítményét. Ezek a változások a 2002-es kiadás utáni következő teljes frissítéssel lépnek érvénybe, és konkrétan a gazdagép operációs rendszereinek frissítésére szolgáló teljes frissítés fázisának teljesítményét célozzák meg. A gazda operációsrendszer-frissítések teljesítményének javítása jelentősen csökkenti azt az időpontot, amelyben a bérlői munkaterhelések hatással vannak a teljes frissítések során.
 - Az Azure Stack hub Readiness-ellenőrző eszköz mostantól ellenőrzi az AD Graph-integrációt az AD Graph számára lefoglalt összes TCP IP-port használatával.
 - Az offline szindikált eszköz frissítése megbízhatósági frissítésekkel történt. Az eszköz már nem érhető el a GitHubon, és [át lett helyezve a PowerShell-galériaba](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). További információ: [Marketplace-elemek letöltése Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).
+- Új figyelési képesség bevezetése folyamatban van. A fizikai gazdagépek és az infrastruktúra-virtuális gépek alacsony lemezterület-riasztása automatikusan kijavítja a platformot, és csak akkor, ha ez a művelet meghiúsul, a riasztás látható lesz az Azure Stack hub felügyeleti portálján, hogy az operátor végrehajtsa a műveletet.
 - A [diagnosztikai naplók gyűjtésének](azure-stack-diagnostic-log-collection-overview-tzl.md)fejlesztése. Az új felület egyszerűsíti és egyszerűbbé teszi a diagnosztikai naplók gyűjtését azáltal, hogy eltávolítja a blob Storage-fiók előzetes konfigurálásának szükségességét. A tárolási környezet előre konfigurálva van, így naplók küldhetők a támogatási eset megnyitása előtt, és kevesebb időt kell fordítani a támogatási hívásokra.
 - Az előjelzéses [naplók és az igény szerinti naplózási gyűjtemény](azure-stack-diagnostic-log-collection-overview-tzl.md) lerövidített ideje 80%-kal csökkent. A naplózási gyűjtési idő hosszabb időt vehet igénybe a várt értéknél, de Azure Stack hub-operátorok beavatkozása nem szükséges, kivéve, ha a naplózási gyűjtemény sikertelen.
 - Egy Azure Stack hub-frissítési csomag letöltési folyamata mostantól látható a frissítés panelen a frissítés kezdeményezése után. Ez csak azokra a csatlakoztatott Azure Stack hub rendszerekre vonatkozik, amelyek a [frissítési csomagok automatikus letöltéssel történő előkészítését](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)választják.
@@ -390,7 +390,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 További információ a Azure Stack hub ezen frissítésében található biztonsági frissítésekről: [Azure stack hub biztonsági frissítései](release-notes-security-updates.md).
 
-## <a name="download-the-update-1908"></a>A frissítés letöltése
+## <a name="download-the-update"></a><a name="download-the-update-1908"></a>A frissítés letöltése
 
 Az Azure Stack hub 1908 frissítési csomagot [a Azure stack hub letöltési oldaláról](https://aka.ms/azurestackupdatedownload)töltheti le.
 

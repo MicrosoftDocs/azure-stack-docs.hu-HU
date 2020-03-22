@@ -2,6 +2,8 @@
   href: index.yml
 - name: Áttekintés
   items:
+    - name: Mi az Azure Stack hub?
+      href: user-overview.md
     - name: Fő szempontok
       href: azure-stack-considerations.md
 - name: Gyors útmutatók

@@ -3,16 +3,16 @@ title: Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 description: Hozza létre az ASK motor Azure Stack hub-on való futtatásának követelményeit.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/27/2020
-ms.openlocfilehash: 1f307a554eca0b9b1bc2af9d8e64a8ec585da078
-ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 7e4fccc805698fcbf66eb4e868a87cfe808eb7f9
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77782811"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069352"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 

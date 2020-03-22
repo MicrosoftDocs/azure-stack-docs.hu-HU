@@ -3,16 +3,16 @@ title: A Marketplace-elem fürtjének áthelyezése az AK-motorba Azure Stack hu
 description: Megtudhatja, hogyan helyezheti át Marketplace-elemeit a Azure Stack hub AK-beli motorján.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 67e194a91ccf27c5c823938000ab5dda478cc6d9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: f15c870a1b256ffa546672a3abde2fc68f9baa4f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704012"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069010"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>A Marketplace-elem fürtjének áthelyezése az AK-motorba Azure Stack hub-on
 
@@ -28,7 +28,7 @@ Miután a Kubernetes Azure Stack hub Marketplace-elem sikeresen kezdeményezte a
 4.  Az üzembe helyezési virtuális gépen lévő munkamenetben a következő elérési úton találja meg az AK-motort: `./var/lib/waagent/custom-script/download/0/bin/aks-engine`
 5.  Keresse meg az AK-motorba bemenetként használt fürtöket leíró `.json` fájlt. A fájl `/var/lib/waagent/custom-script/download/0/bin/azurestack.json`. Vegye figyelembe, hogy a fájl rendelkezik a fürt üzembe helyezéséhez használt egyszerű szolgáltatás hitelesítő adataival. Ha úgy dönt, hogy megőrzi a fájlt, ügyeljen arra, hogy a fájlt egy védett tárolóba helyezze át.
 6.  Keresse meg az AK-motor által létrehozott kimeneti könyvtárat a következő címen: `/var/lib/waagent/custom-script/download/0/_output/<resource group name>`. Ebben a könyvtárban keresse meg a kimeneti `apimodel.json` a Path `/var/lib/waagent/custom-script/download/0/bin/apimodel.json`. A könyvtár és a `apimodel.json` fájl tartalmazza a Kubernetes-fürt üzembe helyezéséhez szükséges összes generált tanúsítványt, kulcsot és hitelesítő adatot. Tárolja biztonságos helyen ezeket az erőforrásokat.
-7.  Keresse meg a Kubernetes konfigurációs fájlt, amelyet gyakran **kubeconfig** -fájlként neveznek, az elérési úton:, ahol az megfelel a Azure stack hub-hely azonosítójának. Ez a fájl akkor lehet hasznos, ha be szeretné állítani a **kubectl** -t a Kubernetes-fürt eléréséhez.
+7.  Keresse meg a Kubernetes konfigurációs fájlját, amelyet gyakran **kubeconfig** -fájlként neveznek, az elérési út `$HOME/<output dir>/kubeconfig/kubeconfing.<location>.json`, ahol a **\<hely >** megfelel az Azure stack hub-hely azonosítójának. Ez a fájl akkor lehet hasznos, ha be szeretné állítani a **kubectl** -t a Kubernetes-fürt eléréséhez.
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>Az AK-motor használata az újonnan létrehozott fürttel
 

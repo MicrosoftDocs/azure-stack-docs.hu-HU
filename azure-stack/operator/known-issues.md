@@ -7,12 +7,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a2f86835a9b1008417e427bc62229e94d6b00595
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: c8cf31eb645653e99a2968201810e064f5ed3f9f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512235"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069476"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -67,6 +67,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: válasszon egy számlatípust a **Fiók típusa** legördülő listából, majd hozza létre a pillanatképet.
 - Előfordulás: gyakori
 
+### <a name="alert-for-network-interface-disconnected"></a>Hálózati adapter leválasztott riasztása
+
+- Alkalmazható: a probléma a 1908-es vagy újabb verzióra vonatkozik.
+- Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
+- Előfordulás: gyakori
+
 ## <a name="networking"></a>Hálózat
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
@@ -104,6 +110,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Számítás
+
+### <a name="nvv4-vm-size-on-portal"></a>NVv4 VM-méret a portálon
+
+- Alkalmazható: Ez a probléma a 2002-es és újabb verziókban is érvényes
+- Ok: Ha a virtuális gép létrehozási élményét fogja látni, a virtuális gép mérete: NV4as_v4. Azok az ügyfelek, akik az AMD Mi25-alapú Azure Stack hub GPU előzetes verziójához szükséges hardverrel rendelkeznek, sikeres virtuálisgép-telepítést képesek lesznek. Az összes többi ügyfélnél a virtuálisgép-mérettel rendelkező virtuális gép üzembe helyezése sikertelen lesz.
+- Szervizelés: az Azure Stack hub GPU előzetes verziójának előkészítése alapján.
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 

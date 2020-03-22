@@ -3,16 +3,16 @@ title: ASDK kibocsátási megjegyzései
 description: A Azure Stack Development Kit (ASDK) javításai, javításai és ismert problémái.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 1c7b117a3c29355a53ac1aee1a8d8a7614cc1c8f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511810"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80068908"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -21,7 +21,7 @@ Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról
 A [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-hírcsatornára](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)való feliratkozással naprakészen tarthatja a ASDK újdonságait.
 
 ::: moniker range="azs-2002"
-## <a name="build-12002035"></a>1\.2002.0.35 létrehozása
+## <a name="build-120021259"></a>1\.2002.12.59 létrehozása
 
 ### <a name="new-features"></a>Új funkciók
 

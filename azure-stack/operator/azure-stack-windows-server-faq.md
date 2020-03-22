@@ -1,25 +1,29 @@
 ---
-title: Windows Server Azure Stack hub piactér – gyakori kérdések
+title: Azure Stack hub Marketplace – gyakori kérdések
 titleSuffix: Azure Stack Hub
 description: A Windows Serverhez készült Azure Stack hub Marketplace-re vonatkozó gyakori kérdések listája.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696073"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069446"
 ---
-# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Windows Server Azure Stack hub piactér – gyakori kérdések
+# <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack hub Marketplace – gyakori kérdések
 
-Ez a cikk az [Azure stack hub piactéren](azure-stack-marketplace.md)elérhető Windows Server-rendszerképekkel kapcsolatos gyakori kérdésekre ad választ.
+Ez a cikk az [Azure stack hub piactéren](azure-stack-marketplace.md)elérhető Piactéri elemekkel kapcsolatos gyakori kérdésekre ad választ.
 
 ## <a name="marketplace-items"></a>Marketplace-elemek
+
+### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>Kihez kell csatlakozni a Azure Stack hub Marketplace-elemek támogatási problémáira?
+
+Az Azure Marketplace támogatási útmutatója kiterjed a Azure Stack hub Marketplace-elemekre is. A kiadók feladata, hogy technikai támogatást nyújtsanak termékeik számára az Azure Stack hub piactéren. Ha többet szeretne megtudni az Azure Marketplace-elemek támogatási útmutatásáról, tekintse meg a [támogatási szakaszt](/azure/marketplace/marketplace-faq-publisher-guide#customer-support) az Azure Marketplace GYIK-cikkben.
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>Hogyan frissíteni egy újabb Windows-rendszerképre?
 

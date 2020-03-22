@@ -7,20 +7,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: df0a87180e1e8ed4b2506d0f2b21406474ee93c1
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512456"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069433"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
 Azure PowerShell AzureRM olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják az Azure Stack hub-erőforrások kezeléséhez.
 
-A felhővel való együttműködéshez Azure Stack hub-kompatibilis PowerShell-modulokat kell telepítenie. Azure Stack hub az [újabb **AzureAZ** modul](powershell-install-az-module.md)helyett használhatja a **AzureRM** modult. 
-
 Az Azure Stack hub erőforrás-szolgáltatói számára a kompatibilis végpontok megadásához is *API-profilokat* kell használnia.
+
 Az API-profilok lehetőséget biztosítanak az Azure és a Azure Stack hub közötti verziók közötti különbségek kezelésére. Az API-verzió profilja Azure Resource Manager PowerShell-modulok meghatározott API-verziókkal. Minden egyes felhőalapú platformon támogatott API-verzió-profilok szerepelnek. Az Azure Stack hub például egy adott profil verzióját támogatja, például **2019-03-01-Hybrid**. Profil telepítésekor a rendszer telepíti a megadott profilhoz tartozó Azure Resource Manager PowerShell-modulokat.
 
 Azure Stack hub-kompatibilis PowerShell-modulokat az internethez csatlakoztatott, részben csatlakoztatott vagy leválasztott helyzetekben is telepítheti. Ez a cikk részletesen ismerteti ezeket a forgatókönyveket.

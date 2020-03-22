@@ -7,12 +7,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9c21ba3a4f43907da6e3c050e9017eb52f236eba
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: dda2620e88ac6fcd8b4ce8ed9167d83f39af4737
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512184"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069423"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack hub biztonsági frissítései
 
@@ -22,7 +22,7 @@ Ez a cikk az Azure Stack hub utolsó négy frissítésének összes biztonsági 
 ## <a name="2002-update"></a>2002 frissítés
 
 A Windows-frissítések kumulatív jellegéből adódóan ez a frissítés az előző hónapok biztonsági tartalmait tartalmazza. A CVEs ezen listája a legutóbbi teljes frissítés óta a biztonsági tartalmakat tükrözi, így az [2019](https://portal.msrc.microsoft.com/en-us/security-guidance/releasenotedetail/2019-Oct)-as, a [2019](https://portal.msrc.microsoft.com/en-us/security-guidance/releasenotedetail/2019-Nov)-es és a [2020 januári](https://portal.msrc.microsoft.com/en-us/security-guidance/releasenotedetail/2020-Jan) [2019](https://portal.msrc.microsoft.com/en-us/security-guidance/releasenotedetail/2019-Dec) .
-A biztonsági rések részletes ismertetését az alábbi hivatkozásokra kattintva vagy a Microsoft Tudásbázis [4534273](https://support.microsoft.com/en-us/help/4534273)-es cikkeiben tekintheti meg.
+A biztonsági rések részletes ismertetését az alábbi hivatkozásokra kattintva vagy a Microsoft Tudásbázis [4534273](https://support.microsoft.com/en-us/help/4534273)-es cikkében találja.
 
 - [CVE-2020-0601](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-0601)
 - [CVE-2020-0607](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-0607)
