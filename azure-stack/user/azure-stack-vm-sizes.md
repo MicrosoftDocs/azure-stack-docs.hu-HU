@@ -3,22 +3,24 @@ title: Azure Stack hub által támogatott virtuálisgép-méretek
 description: A Azure Stack hub által támogatott virtuálisgép-méretek referenciája.
 author: mattbriggs
 ms.topic: reference
-ms.date: 12/3/2019
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: eaa7fd667dfba1a9963c1bebfe292b8b6ba9a355
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705100"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152190"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack hub által támogatott virtuálisgép-méretek
 
 Ez a cikk az Azure Stack hub-ban elérhető virtuális gépek (VM) méreteit sorolja fel. Ebből a cikkből megtudhatja, hogyan választhatja ki a virtuális gépeket az Azure Stack hub-megoldás támogatásához.
 
 A lemez IOPS (bemeneti/kimeneti műveletek száma másodpercenként) az Azure Stack hub-ban a virtuálisgép-méret függvénye a lemez típusa helyett. Ez azt jelenti, hogy egy Standard_Fs sorozatú virtuális gép esetében, függetlenül attól, hogy az SSD-t vagy a HDD-t választja a lemez típusához, a IOPS-korlát egyetlen további adatlemez esetében 2300 IOPS. A kényszerített IOPS határértékek (a lehető legnagyobb mértékben) a zajos szomszédok megelőzése érdekében. Nem biztos benne, hogy a IOPS egy adott virtuálisgép-méretet fog kapni.
+
+A virtuális gép vCPU a magok száma a csomópontok számától függ. Például a 64-nál kisebb magokkal vagy logikai processzorral rendelkező rendszerek nem támogatják a virtuálisgép-méretet Standard_F64s_v2.
 
 ## <a name="vm-general-purpose"></a>Általános célú virtuális gép
 
@@ -140,7 +142,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 
 A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt biztosítanak, amely a kapcsolatok adatbázis-kiszolgálóihoz, közepes és nagy gyorsítótárhoz, valamint memórián belüli elemzésekhez lett tervezve.
 
-### <a name="mo-d"></a>D sorozat
+### <a name="d-series"></a><a name="mo-d"></a>D sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8x500   |2 |
@@ -148,7 +150,7 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32 / 32x500 |8 |
 |**Standard_D14**  |16 |112 |800 |500     |48000 |64 / 64x500 |8 |
 
-### <a name="mo-ds"></a>DS sorozat
+### <a name="ds-series"></a><a name="mo-ds"></a>DS sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1000    |8000  |8 / 8x2300   |2 |
@@ -156,7 +158,7 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_DS13**  |8  |56  |112 |1000    |32000 |32 / 32x2300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1000    |64000 |64 / 64x2300 |8 |
 
-### <a name="mo-dv2"></a>Dv2 sorozat
+### <a name="dv2-series"></a><a name="mo-dv2"></a>Dv2 sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8x500    |2 |
@@ -165,7 +167,7 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_D14_v2** |16  |112 |800  |500 |48000  |64 / 64x500  |8 |
 
 
-### <a name="mo-dsv2"></a>DSv2 sorozat
+### <a name="dsv2-series"></a><a name="mo-dsv2"></a>DSv2 sorozat
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |

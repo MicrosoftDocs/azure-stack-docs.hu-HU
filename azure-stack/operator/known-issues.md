@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: c8cf31eb645653e99a2968201810e064f5ed3f9f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069476"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152149"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -113,8 +113,8 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4 VM-méret a portálon
 
-- Alkalmazható: Ez a probléma a 2002-es és újabb verziókban is érvényes
-- Ok: Ha a virtuális gép létrehozási élményét fogja látni, a virtuális gép mérete: NV4as_v4. Azok az ügyfelek, akik az AMD Mi25-alapú Azure Stack hub GPU előzetes verziójához szükséges hardverrel rendelkeznek, sikeres virtuálisgép-telepítést képesek lesznek. Az összes többi ügyfélnél a virtuálisgép-mérettel rendelkező virtuális gép üzembe helyezése sikertelen lesz.
+- Alkalmazható: a probléma a 2002-es és újabb verzióira vonatkozik.
+- Ok: a virtuális gép létrehozási élménye során a virtuális gép méretét fogja látni: NV4as_v4. Azok az ügyfelek, akik rendelkeznek az AMD Mi25-alapú Azure Stack hub GPU előzetes verziójához szükséges hardverrel, sikeresen üzembe helyezhetik a virtuális gépeket. Az összes többi ügyfélnél a virtuálisgép-mérettel rendelkező virtuális gép üzembe helyezése sikertelen lesz.
 - Szervizelés: az Azure Stack hub GPU előzetes verziójának előkészítése alapján.
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika

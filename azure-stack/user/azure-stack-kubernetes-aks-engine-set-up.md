@@ -3,20 +3,20 @@ title: Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 description: Hozza létre az ASK motor Azure Stack hub-on való futtatásának követelményeit.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7e4fccc805698fcbf66eb4e868a87cfe808eb7f9
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: f89dd7e1036f3c45df184b498c309fe128fe03ba
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069352"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152207"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 
-Az AK-motort telepítheti a környezetében lévő virtuális gépre, vagy bármely, az Azure Stack hub Resource Manager-végponthoz hozzáféréssel rendelkező ügyfélszámítógépre. A motor futtatása előtt a következőkre lesz szüksége: az AK Base Ubuntu Server és a Linux Custom script bővítmény elérhető az előfizetésben, egy olyan egyszerű szolgáltatásnév, amely hozzá van rendelve egy közreműködő szerepkörhöz, valamint egy magán-és nyilvános kulcspár az Ubuntu-kiszolgálóhoz való SSH-hozzáféréshez. Emellett, ha a Azure Stack Development Kit használja, akkor a számítógépnek meg kell bíznia a megfelelő tanúsítványokban.
+Az AK-motort telepítheti egy virtuális gépre (VM) a környezetében, vagy bármely olyan ügyfélszámítógépen, amely hozzáféréssel rendelkezik az Azure Stack hub Resource Manager-végponthoz. A motor futtatása előtt a következőkre lesz szüksége: az AK Base Ubuntu Server és a Linux Custom script bővítmény elérhető az előfizetésben, egy olyan egyszerű szolgáltatásnév, amely hozzá van rendelve egy közreműködő szerepkörhöz, valamint egy magán-és nyilvános kulcspár az Ubuntu-kiszolgálóhoz való SSH-hozzáféréshez. Emellett, ha a Azure Stack Development Kit használja, akkor a számítógépnek meg kell bíznia a megfelelő tanúsítványokban.
 
 Ha rendelkezik az előfeltételekkel, megkezdheti a [fürt definiálását](azure-stack-kubernetes-aks-engine-deploy-cluster.md).
 
@@ -33,8 +33,13 @@ A Felhőbeli operátornak a következő elemeket kell megadnia.
 | Azure Stack hub 1910 vagy újabb | Az KABAi motorhoz Azure Stack hub 1910 vagy újabb rendszer szükséges. | Kötelező | Ha nem biztos abban, hogy Azure Stack hub-verzióját, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
 | Egyéni Linux-szkriptek bővítménye | Linux Custom script bővítmény 2,0<br>Ajánlat: egyéni parancsfájl a Linux 2,0-hez<br>Verzió: 2.0.6 (vagy legújabb verzió)<br>Közzétevő: Microsoft Corp | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. |
 | AK Base Ubuntu-rendszerkép | AK-alapú alaprendszerkép<br>Ajánlat: AK<br> 2019.10.24 (vagy újabb verzió)<br>Közzétevő: Microsoft-AK<br>SKU: AK-Ubuntu-1604-201910 | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. Tekintse meg a verzió függőségével kapcsolatos további információkat a [rendszerképek alapszintű verziójának megkereséséhez](#matching-engine-to-base-image-version).<br> Ha Ön a Azure Stack hub Felhőbeli operátora, és az AK-motort szeretné ajánlani, kövesse az [AK-motor hozzáadása az Azure stack hub piactérhez](../operator/azure-stack-aks-engine.md)című témakör útmutatását. |
-| Egyszerű szolgáltatásnév (SPN) |  Egy olyan alkalmazásnak, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia, egy egyszerű szolgáltatásnak kell képviselnie. | Kötelező | Előfordulhat, hogy kapcsolatba kell lépnie az adott elemmel kapcsolatos Azure Stack hub-operátorral.  Útmutatásért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) |
+| Egyszerű szolgáltatásnév (SPN) |  Egy olyan alkalmazásnak, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia, egy egyszerű szolgáltatásnak kell képviselnie. | Kötelező | Előfordulhat, hogy kapcsolatba kell lépnie az adott elemmel kapcsolatos Azure Stack hub-operátorral.<br>Ha egy Azure Active Directory (HRE) egyszerű szolgáltatásnév van használatban, a Kubernetes-fürtben lévő virtuális gépektől internet-hozzáférésre van szükség, hogy az egyszerű szolgáltatás hitelesíthető legyen a HRE. Ha nincs internet-hozzáférés, a Kubernetes-fürt nem fog működni.<br>Útmutatásért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) |
 | (SPN) hozzárendelt **közreműködő** szerepkör | Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéséhez tartozó erőforrásokhoz az adott szolgáltatásnév használatával, hozzá kell rendelnie a szolgáltatásnevet egy adott erőforráshoz tartozó szerepkörhöz. | Kötelező | Útmutatásért lásd: [szerepkör társítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) |
+
+
+Adja hozzá a következőt az "egyszerű szolgáltatásnév" követelmény leírásához: ""
+
+
 
 Megadhatja a következő elemeket.
 

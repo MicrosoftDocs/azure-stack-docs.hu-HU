@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiaha
-ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4ac1d0de3775c22c0c982d79713847e7cd171f41
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697093"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152255"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack hub tárolási infrastruktúrájának kezelése
 
@@ -25,9 +25,9 @@ Ez a cikk az Azure Stack hub tárolási infrastruktúra erőforrásainak állapo
 
 A Windows Server szoftverrel működő Azure Stack hub Közvetlen tárolóhelyek (S2D) és a Windows Server feladatátvételi fürtszolgáltatás együttes használatával határozza meg a tárolási képességeket. Ez a kombináció egy teljesítményű, méretezhető és rugalmas tárolási szolgáltatást biztosít.
 
-Azure Stack hub integrált rendszerpartnerei számos megoldási variációt kínálnak, beleértve a tárolási rugalmasság széles körét. A következő három típusú meghajtó kombinációját választhatja ki: NVMe (nem felejtő memória expressz), SATA/SAS SSD (SSD-meghajtó), HDD (merevlemez-meghajtó).
+Azure Stack hub integrált rendszerpartnerei számos megoldási variációt kínálnak, beleértve a tárolási rugalmasság széles körét. Jelenleg legfeljebb két meghajtót választhat a három támogatott meghajtó közül: NVMe (nem felejtő memória expressz), SATA/SAS SSD (SSD-meghajtó), HDD (merevlemez). 
 
-Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Egy vagy több típusú meghajtóval rendelkező Azure Stack hub-berendezésben Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD &gt; HDD) összes meghajtóját használja a gyorsítótárazáshoz. A fennmaradó meghajtók a kapacitáshoz használatosak. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
+Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Az egyetlen meghajtóval (például NVMe vagy SSD) rendelkező Azure Stack hub-berendezésekben az összes meghajtó a kapacitásra van felhasználva. Ha kétféle típusú meghajtó van, Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD &gt; HDD) típusú meghajtókat használja a gyorsítótárazáshoz. A fennmaradó meghajtók a kapacitáshoz használatosak. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
 
 ![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -196,7 +196,7 @@ Egyes meghajtók egyszerűen nem állnak készen Azure Stack hub Storage-készle
 | Nincs elegendő kapacitás | A meghajtón vannak partíciók a szabad területtel.<br> <br>**Művelet:** Cserélje le a meghajtót egy új lemezre. Ha ezt a lemezt kell használnia, távolítsa el a lemezt a rendszerből, ügyeljen arra, hogy ne legyen hasznos adat a lemezen, törölje a lemezt, majd helyezze át a lemezt. |
 | Ellenőrzés folyamatban | A Állapotfigyelő szolgáltatás ellenőrzi, hogy a meghajtó vagy a belső vezérlőprogram engedélyezett-e a használatra.<br> <br>**Művelet:** Várjon, amíg a Azure Stack hub befejezi a folyamatot, majd utána az állapotot. |
 | Az ellenőrzés nem sikerült | A Állapotfigyelő szolgáltatás nem tudta megtekinteni, hogy a meghajtó vagy a belső vezérlőprogram engedélyezett-e a használatra.<br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján. |
-| Kapcsolat nélküli | A meghajtó offline állapotban van. <br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján. |
+| Offline | A meghajtó offline állapotban van. <br> <br>**Művelet:** Forduljon az ügyfélszolgálathoz. Mielőtt elkezdené, indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján. |
 
 ## <a name="next-step"></a>Következő lépés
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan adhat hozzá Kubernetes a Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aef1ce4167c2b95651dde1f4bd41de629b2d5b5c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/24/2020v
+ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697467"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229533"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes hozzáadása Azure Stack hub Marketplace-hez
 

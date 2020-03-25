@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a743a27b836ad4e82d75f8a4c6b156340c354ad
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f52b4f20e0cf21201836e19894a7ea15159363f1
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704556"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229566"
 ---
 # <a name="validate-a-new-azure-stack-hub-solution"></a>Új Azure Stack hub-megoldás érvényesítése
 
@@ -67,12 +67,7 @@ Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva
 
 2. Válassza ki a következő teszteket:
     - Felhőalapú szimulációs motor
-    - Számítási SDK operatív csomagja
     - Lemez-azonosítási teszt
-    - Kulcstartó bővítmény SDK operatív csomagja
-    - Kulcstartó SDK operatív csomag
-    - Hálózati SDK operatív csomag
-    - Storage-fiók SDK operatív csomagja
 
 3. Válassza ki az **Ütemezés** lehetőséget a helyi menüben a teszt példány ütemezésének megadásához.
 

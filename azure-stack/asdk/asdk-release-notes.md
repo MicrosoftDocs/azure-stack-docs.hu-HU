@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 1c7b117a3c29355a53ac1aee1a8d8a7614cc1c8f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 32b4bfb500a9717f99085fe0759297f999244bbb
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80068908"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152224"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
@@ -21,7 +21,7 @@ Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról
 A [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS-hírcsatornára](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)való feliratkozással naprakészen tarthatja a ASDK újdonságait.
 
 ::: moniker range="azs-2002"
-## <a name="build-120021259"></a>1\.2002.12.59 létrehozása
+## <a name="build-12002035"></a>1\.2002.0.35 létrehozása
 
 ### <a name="new-features"></a>Új funkciók
 
