@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 78dbba26d13914fe54111b315a0f01c48d53a26a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 60f8ab926bb868517c7b9feeb1c5c4325212607c
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698674"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302822"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató eltávolítása Azure Stack központban
 
@@ -37,7 +37,6 @@ A MySQL erőforrás-szolgáltató eltávolítása törli az operátor által kez
     - **PrivilegedEndpoint**: a privilegizált végpont IP-címe vagy DNS-neve.
     - **AzureEnvironment**: Azure stack hub üzembe helyezéséhez használt Azure-környezet. Csak az Azure AD-telepítésekhez szükséges.
     - **CloudAdminCredential**: a rendszerjogosultságú végpont eléréséhez szükséges hitelesítő adatok a felhő rendszergazdájához.
-    - **DirectoryTenantID**
     - **AzCredential**: az Azure stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt.
 
 ## <a name="next-steps"></a>Következő lépések

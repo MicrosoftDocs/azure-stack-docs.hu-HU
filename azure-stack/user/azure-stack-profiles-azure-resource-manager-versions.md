@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 3b3ea77dcbb59f2a0471225000aa48624bcb1a15
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 883a39ac7c0d3f11d3f9242a7efaa8549e41f4cf
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231672"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302795"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 
@@ -165,7 +165,7 @@ Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájá
 | Műveletek | 2018-05-01 |
 | Szolgáltatók | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
-| További források | 2018-05-01/ |
+| További források | 2018-05-01 |
 | Előfizetések | 2018-05-01 |
 | Előfizetések/helyszínek | 2016-06-01 |
 | Előfizetések/operationresults | 2018-05-01 |
@@ -188,7 +188,7 @@ A Storage erőforrás-szolgáltató (összegző csomag) lehetővé teszi a Stora
 | Helyszínek/kvóták | 2017-10-01 |
 | Műveletek | 2017-10-01 |
 | storageAccounts | 2017-10-01 |
-| használat | 2017-10-01 |
+| Használat | 2017-10-01 |
 
 ## <a name="next-steps"></a>Következő lépések
 
