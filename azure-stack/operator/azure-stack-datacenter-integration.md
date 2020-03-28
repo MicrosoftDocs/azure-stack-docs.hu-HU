@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: c8ea0ea53574132d144ad7e205f78c5bebc41226
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 9ea880003492768e67c71f948a71d693e5a90c9b
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294494"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362169"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -42,7 +42,7 @@ Vegye fel a kapcsolatot Microsoft ügyfélszolgálata, ha magasabb szintű hozz�
 ## <a name="identity-considerations"></a>Identitással kapcsolatos megfontolások
 
 ### <a name="choose-identity-provider"></a>Identitás-szolgáltató kiválasztása
-Érdemes figyelembe vennie, hogy melyik identitás-szolgáltatót kívánja használni Azure Stack hub üzembe helyezéséhez, vagy az Azure AD-hez vagy a AD FShoz. Az identitás-szolgáltatókat az üzembe helyezést követően nem lehet átváltani a teljes rendszer újratelepítése nélkül. Ha nem rendelkezik az Azure AD-fiókkal, és a felhőalapú megoldás szolgáltatója által biztosított fiókot használja, és ha úgy dönt, hogy átváltja a szolgáltatót, és egy másik Azure AD-fiókot használ, kapcsolatba kell lépnie a megoldás szolgáltatójával a megoldás újbóli üzembe helyezéséhez a c-ban ost.
+Érdemes figyelembe vennie, hogy melyik identitás-szolgáltatót kívánja használni Azure Stack hub üzembe helyezéséhez, vagy az Azure AD-hez vagy a AD FShoz. Az identitás-szolgáltatókat az üzembe helyezést követően nem lehet átváltani a teljes rendszer újratelepítése nélkül. Ha nem rendelkezik az Azure AD-fiókkal, és a felhőalapú megoldás szolgáltatója által biztosított fiókot használja, és ha úgy dönt, hogy átváltja a szolgáltatót, és egy másik Azure AD-fiókot használ, kapcsolatba kell lépnie a megoldás szolgáltatójával a megoldás újbóli üzembe helyezéséhez költség.
 
 Az identitás-szolgáltató választása nem rendelkezik a bérlői virtuális gépeken (VM-EK), az Identity rendszeren, az általuk használt fiókokon, vagy ha Active Directory tartományhoz csatlakozik, és így tovább. Ezek a dolgok különállóak.
 
@@ -68,8 +68,8 @@ További információ a licencelési modellekről: [Microsoft Azure stack hub cs
 
 Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, különösen a régió nevét és a külső tartománynevet. A Azure Stack hub nyilvános végpontokhoz való központi telepítésének külső teljes tartományneve (FQDN) a következő két név kombinációja: &lt;*region*&gt;.&lt;*fqdn*&gt;. Például: *East.Cloud.fabrikam.com*. Ebben a példában a Azure Stack hub portálok a következő URL-címeken lesznek elérhetők:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 > [!IMPORTANT]
 > Az Azure Stack hub-telepítéshez kiválasztott régió nevének egyedinek kell lennie, és a portál címeiben fog megjelenni. 

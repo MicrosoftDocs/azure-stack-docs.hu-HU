@@ -4,21 +4,21 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan hozhat létre egyéni szerepkört a globális rendszergazda Azure Stack hub-regisztrációhoz való használatának elkerüléséhez.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 03/27/2020
 ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a7208ed3e66a4c86c591676c9d39ed8b3d8225f8
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 599191a33334e8d38989abb4e293c7361855acfa
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367879"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367778"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Egyéni szerepkör létrehozása Azure Stack hub-regisztrációhoz
 
 > [!WARNING]
-> Ez nem egy biztonsági testtartási funkció. Olyan helyzetekben érdemes használni, ahol meg szeretné akadályozni az Azure-előfizetés véletlen módosításait. Ha a felhasználó jogosultságokat delegál az egyéni szerepkörhöz, a felhasználónak jogosultsága van az engedélyek szerkesztésére és a jogosultságszint-emelésre. Csak a megbízhatónak ítélt felhasználókat rendelje hozzá az egyéni szerepkörhöz.
+> Ez nem egy biztonsági állapot szolgáltatás. Olyan helyzetekben érdemes használni, ahol meg szeretné akadályozni az Azure-előfizetés véletlen módosításait. Ha a felhasználó jogosultságokat delegál az egyéni szerepkörhöz, a felhasználónak jogosultsága van az engedélyek szerkesztésére és a jogosultságszint-emelésre. Csak a megbízhatónak ítélt felhasználókat rendelje hozzá az egyéni szerepkörhöz.
 
 Azure Stack hub-regisztráció során Azure Active Directory (Azure AD-) fiókkal kell bejelentkeznie. A fiókhoz a következő Azure AD-engedélyek és Azure-előfizetési engedélyek szükségesek:
 
@@ -51,7 +51,9 @@ Egyéni szerepkör létrehozásához a `Microsoft.Authorization/roleDefinitions/
         "Microsoft.Authorization/roleAssignments/read",
         "Microsoft.Authorization/roleAssignments/write",
         "Microsoft.Authorization/roleAssignments/delete",
-        "Microsoft.Authorization/permissions/read"
+        "Microsoft.Authorization/permissions/read",
+        "Microsoft.Authorization/locks/read",
+        "Microsoft.Authorization/locks/write
       ],
       "NotActions": [
       ],

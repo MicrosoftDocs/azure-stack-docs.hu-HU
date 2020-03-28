@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705066"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367791"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>IPsec/IKE-szabályzat konfigurálása két hálózat közötti pont-pont típusú VPN-kapcsolatokhoz
 
@@ -64,9 +64,9 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-titkosítás                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-integritás                                      | SHA384, MD5, SHA1, SHA256                                                |
-| DH-csoport                                             | ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None         |
+| DH-csoport                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, none                      |
 | IPsec-titkosítás                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Nincs |
-| IPsec-integritás                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
+| IPsec-integritás                                      | GCMASE256, GCMAES192, GCMAES128                                          |
 | PFS-csoport                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Nincs                         |
 | Gyorsmódú biztonsági társítás élettartama                                       | (Nem kötelező: Ha nincs megadva, az alapértelmezett értékek szerepelnek)<br />                         Másodperc (egész szám; min. 300/alapértelmezett 27000 másodperc)<br />                         Kilobájt (egész szám; min. 1024/alapértelmezett 102400000 kilobájt) |
 | Forgalomválasztó                                     | A házirend-alapú forgalmi választókat Azure Stack hub nem támogatja.         |
