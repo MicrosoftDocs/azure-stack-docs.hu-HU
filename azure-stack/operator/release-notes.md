@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80229542"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402820"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -89,7 +89,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - A Rdagent és a Host Agent automatikus szervizelési és naplózási funkcióinak hozzáadása – a gazdagép két szolgáltatása, amely megkönnyíti a virtuális gépek SZIFILISZét.
 - Új szolgáltatás hozzáadása a piactérek felügyeletéhez, amely lehetővé teszi a rendszergazdák számára, hogy a Azure Stackekkel nem kompatibilis piactér-termékeket töltsenek le, különböző attribútumok, például a Azure Stack verzió vagy a számlázási modell miatt.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - A felügyeleti portál most azt jelzi, hogy egy művelet folyamatban van-e, és a Azure Stack régió melletti ikonra kattint. Amikor a ikon fölé viszi a kurzort, megjelenik a művelet neve. Ez lehetővé teszi a futó rendszer hátterében lévő műveletek azonosítását; például egy biztonsági mentési feladatokra vagy egy tárolási bővítésre, amely több órán keresztül is futtatható.
 
@@ -265,15 +265,11 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Az infrastruktúra-biztonsági mentési szolgáltatás javítja a logikát, amely kiszámítja a biztonsági mentések kívánt szabad területét, ahelyett, hogy rögzített küszöbértékre kellene támaszkodnia. A szolgáltatás a külső tárolási hely biztonsági mentési, adatmegőrzési szabályzatának, fenntartásának és aktuális kihasználtságának méretét fogja használni annak megállapítására, hogy egy figyelmeztetést kell-e kiemelni a kezelőnek.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - A Piactéri elemek Azure-ból Azure Stack hubhoz való letöltésekor új felhasználói felület áll rendelkezésre, amely lehetővé teszi az elem egy verziójának megadását, ha több verzió létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).  
 
-- Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** . Ez a hálózat az Azure Stack hub rendszerhez van csatlakoztatva, és az adatközponton belül több Azure Stack hub-rendszeren is felhasználható. Amíg a hálózat Azure Stack hub-ban található, az nem lehet átfedésben az adatközpontban található hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik az Azure Stack hub-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). Az Azure Stack hub-infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény javítása. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket a telepítés előtt csökkentse a szükséges irányítható IP-területet.
-
-  - Vegye figyelembe, hogy a/20 bemenet a 1910 után a következő Azure Stack hub-frissítés előfeltétele. Ha a következő Azure Stack hub frissítése a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, a következőképpen: A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket.
-
-  - Javítási lépések: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően érhető el) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
+- Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** .  További információ: (Azure Stack hálózati integráció megtervezése) [Azure-stack-network.md].
   
 - Az infrastruktúra-biztonsági mentési szolgáltatás törli a részlegesen feltöltött biztonsági mentési adatok mennyiségét, ha a külső tárolóhely a feltöltési eljárás során elfogy a kapacitáson.  
 
@@ -374,7 +370,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Az Azure Stack hub Rest-titkosításával kapcsolatos adatok fejlesztése a titkoknak a fizikai csomópontok hardveres platformmegbízhatósági modul (TPM) való megőrzése érdekében.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - A hardveres szolgáltatók a 2,1-es vagy újabb OEM-bővítményt a 1908-es Azure Stack hub-verzióval megegyező időpontban szabadítják fel. A 2,1-es vagy újabb OEM-bővítmény előfeltétele Azure Stack hub 1908-es verziójának. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
 
@@ -461,7 +457,7 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 - A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a kiegészítés a rendszergazdai műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a hat hónapnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítésekhez naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt az összes frissítési művelet [összefoglalóját töltse le](azure-stack-apply-updates.md) a hat hónapnál régebbi verzióra.
 
-### <a name="changes"></a>Módosítások
+### <a name="changes"></a>Változások
 
 - Azure Stack hub 1907-es verziója figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés előtt frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. További információ a Azure Stack hub OEM-frissítéseinek alkalmazásáról: [Azure stack hub eredeti berendezésgyártó frissítésének alkalmazása](azure-stack-update-oem.md).
 

@@ -14,6 +14,8 @@
       href: manage/delete-volumes.md
     - name: Meghajtók cseréje
       href: manage/replace-drives.md
+    - name: GPU csatlakoztatása Linux rendszerű virtuális géphez
+      href: manage/attach-gpu-to-linux-vm.md
 - name: Alapelvek
   items:
     - name: Meghajtók kiválasztása
@@ -32,10 +34,22 @@
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-parancsok
       href: /powershell/module/storage
-- name: Kapcsolódó
+    - name: ClusterAwareUpdating PowerShell-parancsok
+      href: /powershell/module/clusterawareupdating
+    - name: FailoverClusters PowerShell-parancsok
+      href: /powershell/module/failoverclusters
+    - name: Tárreplika PowerShell-parancsok
+      href: /powershell/module/storagereplica
+- name: Kapcsolódó témakör
   items:
     - name: Azure Stack család
       href: ../index.yml
+    - name: Azure Stack hub
+      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
+    - name: Azure Stack Edge
+      href: /azure/databox-online/data-box-edge-overview
+    - name: Windows Server
+      href: /windows-server/
     - name: Windows felügyeleti központ
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Azure Hybrid Services
@@ -48,3 +62,5 @@
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: Szoftver által definiált hálózatkezelés
       href: /windows-server/networking/sdn
+    - name: System Center
+      href: /system-center/

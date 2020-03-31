@@ -3,20 +3,20 @@ title: Azure Stack hub diagnosztikai naplóinak küldése
 description: Megtudhatja, hogyan gyűjthet diagnosztikai naplókat igény szerint Azure Stack hub-ban a felügyeleti portál vagy egy PowerShell-parancsfájl használatával.
 author: justinha
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: fb79a6378d2dec69804019b3ab0648ce874bf99d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.lastreviewed: 03/30/2020
+ms.openlocfilehash: 2a46c031be648eedf42e204496ed2a123c926dd9
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79520308"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402722"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Azure Stack hub diagnosztikai naplóinak küldése
 
-Azure Stack operátorok igény szerinti diagnosztikai naplókat küldhetnek a Microsoft ügyfél-támogatási szolgáltatásainak (CSS) a támogatás kérelmezése előtt a felügyeleti portál vagy a PowerShell használatával. Ha Azure Stack hub csatlakozik az Azure-hoz, a felügyeleti portálon a **naplók elküldése most** lehetőség is ajánlott, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, a kezelőknek Ehelyett a [PowerShell használatával kell elküldeni a naplókat](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
+Azure Stack operátorok igény szerinti diagnosztikai naplókat küldhetnek a Microsoft ügyfél-támogatási szolgáltatásainak (CSS) a támogatás kérelmezése előtt a felügyeleti portál vagy a PowerShell használatával. Ha Azure Stack hub csatlakozik az Azure-hoz, a felügyeleti portálon a **naplók elküldése most** lehetőség is ajánlott, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, a kezelők Ehelyett a [Send-AzureStackDiagnosticLog használatával küldenek naplókat](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md). 
 
 Ha nem kapcsolódik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. A következő folyamatábra azt mutatja be, hogy mely lehetőség használható a diagnosztikai naplók küldésére az egyes esetekben. 
 
@@ -31,4 +31,4 @@ Itt adhatja meg a naplók kezdési és befejezési idejét, majd kattintson a **
 
 ## <a name="next-steps"></a>Következő lépések
 
-[A rendszerjogosultságú végpont (PEP) használata Azure Stack hub diagnosztikai naplói küldéséhez](azure-stack-get-azurestacklog.md)
+[A rendszerjogosultságú végpont (PEP) használata Azure Stack hub diagnosztikai naplói küldéséhez](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)

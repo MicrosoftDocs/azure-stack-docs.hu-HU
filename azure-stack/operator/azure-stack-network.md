@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294769"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402839"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>A Azure Stack hálózati integrációjának megtervezése
 
@@ -25,7 +25,7 @@ Ez a cikk Azure Stack hálózati infrastruktúrával kapcsolatos információkat
 
 Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizikai infrastruktúrára van szüksége működése és szolgáltatásai támogatásához. Ahhoz, hogy a Azure Stack integrálva legyen a hálózatra, a rendszer a felső (ToR) kapcsolóktól a legközelebbi kapcsolóhoz vagy útválasztóhoz való kapcsolódást igényli, amely ezen a dokumentáción szegélyként van hivatkozva. A kapcsolati kapcsolat egy vagy több szegélyhez is kapcsolódhat. A ToR-t az Automation-eszköz előre konfigurálta, és legalább egy kapcsolatot vár a ToR és a szegély között, ha BGP-útválasztást használ, és legalább két kapcsolatot (egy-egy ToR-t) a ToR és a szegély között a statikus útválasztás használata esetén, legfeljebb négy kapcsolattal útválasztási beállítások. Ezek a kapcsolatok SFP + vagy SFP28 adathordozóra, valamint egy GB, 10 GB vagy 25 GB sebességre korlátozódnak. A rendelkezésre állás érdekében érdeklődjön az eredeti berendezésgyártó (OEM) hardver gyártójánál. A következő ábra a javasolt kialakítást mutatja be:
 
-![Ajánlott Azure Stack hálózati kialakítás](media/azure-stack-network/physical-network.png)
+![Ajánlott Azure Stack hálózati kialakítás](media/azure-stack-network/physical-network.svg)
 
 
 ## <a name="logical-networks"></a>Logikai hálózatok
@@ -50,7 +50,7 @@ A következő táblázat azokat a logikai hálózatokat és IPv4-alhálózati ta
 
 A Azure Stack hálózati infrastruktúrája több, a kapcsolókon konfigurált logikai hálózatból áll. A következő ábra ezeket a logikai hálózatokat és azok integrálását mutatja be a Top-of-rack (TOR), a alaplapi felügyeleti vezérlő (BMC) és a Border (Customer Network) kapcsolókkal.
 
-![Logikai hálózati diagram és kapcsolási kapcsolatok](media/azure-stack-network/NetworkDiagram.png)
+![Logikai hálózati diagram és kapcsolási kapcsolatok](media/azure-stack-network/networkdiagram.svg)
 
 ### <a name="bmc-network"></a>BMC-hálózat
 
@@ -66,11 +66,14 @@ Ez a/20 (4096 IP-cím) hálózat magán a Azure Stack régióban (nem a Azure St
 - **Belső virtuális IP-hálózat**: a szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
 - **Container Network**: a/23 (512 IP) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve.
 
-A 1910-től kezdődően a magánhálózat mérete a magánhálózati IP-címek egy/20 (4096-es IP-címei) értékre változik. Ez a hálózat a Azure Stack rendszer számára lesz privát (nem az Azure Stack rendszer szegély-kapcsoló eszközein kívülre), és az adatközponton belül több Azure Stack rendszeren is felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban lévő többi hálózattal. A magánhálózati IP-címekre vonatkozó útmutatásért javasoljuk, hogy kövesse a [1918-es RFC-dokumentumot](https://tools.ietf.org/html/rfc1918).
+Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** . Ez a hálózat a Azure Stack rendszer számára lesz privát (nem az Azure Stack rendszer szegély-kapcsoló eszközein kívülre), és az adatközponton belül több Azure Stack rendszeren is felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban lévő többi hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik az Azure Stack hub-infrastruktúra futtatását a tárolókban (az [1905 kibocsátási megjegyzésekben](release-notes.md?view=azs-1905)korábban említettek szerint). Emellett ez az új magánhálózati IP-terület lehetővé teszi, hogy a telepítés előtt csökkentse a szükséges irányítható IP-területet. Az Azure Stack hub-infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény javítása. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket a telepítés előtt csökkentse a szükséges irányítható IP-területet. A magánhálózati IP-címekre vonatkozó útmutatásért javasoljuk, hogy kövesse az [RFC 1918-es dokumentumot](https://tools.ietf.org/html/rfc1918).
 
-Ez a/20 magánhálózati IP-terület több hálózatra lesz osztva, amely lehetővé teszi a Azure Stack rendszer belső infrastruktúrájának a későbbi kiadásokban lévő tárolókban való futtatását. További részletekért tekintse meg a [1910 kibocsátási megjegyzéseit](release-notes.md). Emellett ez az új magánhálózati IP-terület lehetővé teszi, hogy a telepítés előtt csökkentse a szükséges irányítható IP-területet.
+A 1910 előtt üzembe helyezett rendszerek esetében ez a/20 alhálózat egy további, a 1910-es frissítés után a rendszerbe bekerülő hálózat lesz. A további hálózatot a **set-AzsPrivateNetwork** PEP parancsmaggal kell megadnia a rendszeren.
 
-A 1910 előtt üzembe helyezett rendszerek esetében ez a/20 alhálózat egy további, a 1910-es frissítés után a rendszerbe bekerülő hálózat lesz. A további hálózatot a **set-AzsPrivateNetwork** PEP parancsmaggal kell megadnia a rendszeren. A parancsmaggal kapcsolatos útmutatásért tekintse meg a [1910 kibocsátási megjegyzéseit](release-notes.md).
+> [!NOTE]
+> A/20 bemenet a 1910 után a következő Azure Stack hub-frissítés előfeltétele. Ha a következő Azure Stack hub frissítése a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, a következőképpen: A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket.
+
+Javítási **lépések**: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően érhető el) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
 
 ### <a name="azure-stack-infrastructure-network"></a>Infrastruktúra-hálózat Azure Stack
 Ez a/24 hálózat a belső Azure Stack-összetevőkre van kijelölve, így egymás között kommunikálhatnak és cserélhetik az adatcserét. Ez az alhálózat lehet a Azure Stack megoldás kívülről az adatközpontba, ezért nem ajánlott nyilvános vagy internetes útválasztásos IP-címeket használni ezen az alhálózaton. Ezt a hálózatot a rendszer meghirdeti a szegélynek, de az IP-címeinek nagy részét Access Control listák (ACL-ek) védik. A hozzáférésre jogosult IP-címek egy/27 hálózati és gazdagép-szolgáltatásokhoz, például a [privilegizált végponthoz (PEP)](azure-stack-privileged-endpoint.md) és a [Azure stack biztonsági mentéshez](azure-stack-backup-reference.md)megengedett kis hatótávolságon belül vannak.
