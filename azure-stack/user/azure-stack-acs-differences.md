@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 04a89e89be033cb0372395580f2cf618d7857fb7
+ms.sourcegitcommit: 8e480803ee0672eea328e4f14a8b75be94c8fc7f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069393"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80391467"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -22,7 +22,7 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 
 ## <a name="cheat-sheet-storage-differences"></a>Cheat Sheet: tárolási különbségek
 
-| Funkció | Azure (globális) | Azure Stack hub |
+| Szolgáltatás | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 |File Storage|Felhőalapú SMB-fájlmegosztás támogatott|Még nem támogatott
 |Azure Storage szolgáltatás titkosítása inaktív adatok esetén|256 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás támogatása Key Vaultban.|BitLocker 128 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás nem támogatott.
@@ -44,9 +44,15 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 |Oldal blob-oldalának mérete|512 bájt|4 KB
 |Tábla partíciós kulcsának és a sor kulcsának mérete|1 024 karakter (2 048 bájt)|400 karakter (800 bájt)
 |BLOB pillanatképe|Egy blob pillanatképének maximális száma nincs korlátozva.|Egy blob pillanatképének maximális száma 1 000.
-|Azure AD-hitelesítés a Storage-hoz|Előzetes verzióban|Még nem támogatott.
+|Azure AD-hitelesítés a Storage-hoz|Általánosan elérhető|Még nem támogatott.
 |Megváltoztathatatlan Blobok|Általánosan elérhető|Még nem támogatott.
 |Tűzfal-és virtuális hálózati szabályok a tároláshoz|Általánosan elérhető|Még nem támogatott.|
+|Egyéni tartomány leképezése Blob Storage végpontra|Általánosan elérhető|Még nem támogatott.|
+|Statikus webhely üzemeltetése a blob Storage-ban|Általánosan elérhető|Még nem támogatott.|
+|Adattárolási adatok titkosítása az ügyfél által felügyelt kulcsokkal|Általánosan elérhető|Még nem támogatott.|
+|A tranzakciós adatok integritásának ellenőrzése a CRC64-kivonattal|Általánosan elérhető|Még nem támogatott.|
+|Az adatok kiszolgálóoldali szinkron másolata az URL-címről|Általánosan elérhető|Még nem támogatott.|
+|Blob Storagehez készült batch API|Általánosan elérhető|Még nem támogatott.|
 
 A tárolási metrikákkal kapcsolatban is különbségek vannak:
 
@@ -59,8 +65,11 @@ A Azure Stack hub Storage a következő verziókat támogatja:
 
 Azure Storage Services API-k:
 
-1811 frissítés vagy újabb verzió:
+2002 frissítés vagy újabb verzió:
 
+- [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/version-2019-02-02)
+- [2018-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2018-11-09)
+- [2018-03-28](https://docs.microsoft.com/rest/api/storageservices/version-2018-03-28)
 - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
@@ -71,6 +80,8 @@ Azure Storage Services API-k:
 
 Korábbi verziók:
 
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -79,18 +90,10 @@ Korábbi verziók:
 
 Az Azure Storage Services kezelési API-jai:
 
-1811 frissítés vagy újabb verzió:
-
 - [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-05-01 – előzetes verzió](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-
-Korábbi verziók:
-
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01 – előzetes verzió](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
@@ -107,7 +110,7 @@ A Storage modul PowerShell-hez vegye figyelembe a REST API kompatibilis verziót
 
 További információ a Azure Stack hub támogatott Storage-kódtárakkal kapcsolatban: Ismerkedés [a Azure stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)
 * [Adatátviteli eszközök használata az Azure Stack hub Storage szolgáltatáshoz](azure-stack-storage-transfer.md)
