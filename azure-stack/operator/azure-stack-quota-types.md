@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293933"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423864"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kvóta típusai Azure Stack központban
 
@@ -57,6 +57,12 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 | Hálózati adapterek maximális száma |100 |Azon hálózati adapterek maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Maximális terheléselosztó |50 |Az előfizetések által az adott helyen létrehozott terheléselosztó maximális száma. |
 | Hálózati biztonsági csoportok maximális száma |50 |Azon hálózati biztonsági csoportok maximális száma, amelyekre az előfizetés létre tud hozni ezen a helyen. |
+
+## <a name="event-hubs-quota-types"></a>Event Hubs kvóta típusai
+
+| **Típus** | **Alapértelmezett érték** | **Leírás** |
+| --- | --- | --- |
+| VM-magok maximális száma | 10 | Az előfizetések által az adott helyen létrehozható magok maximális száma (például egy A3-as virtuális gép négy maggal rendelkezik). |
 
 ## <a name="view-an-existing-quota"></a>Meglévő kvóta megtekintése
 

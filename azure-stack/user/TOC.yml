@@ -21,6 +21,8 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: Linux rendszerű virtuális gép létrehozása – Parancssori felület
       href: azure-stack-quick-create-vm-linux-cli.md
+    - name: Event Hubs-fürt létrehozása – portál
+      href: event-hubs-quickstart-cluster-portal.md
 - name: oktatóanyagokat
   items:
     - name: Előfizetés egy ajánlatra
@@ -185,6 +187,10 @@
                   href: azure-stack-key-vault-store-credentials.md
                 - name: KeyVault-mintaalkalmazás
                   href: azure-stack-key-vault-sample-app.md
+            - name: Event Hubs
+              items:
+                - name: Áttekintés
+                  href: event-hubs-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
@@ -265,7 +271,7 @@
           items:
             - name: VNet-társítás virtuális gépekkel
               href: azure-stack-network-howto-vnet-peering.md
-            - name: Harmadik féltől származó NVA használata (Fortinet FortiGate NVA)
+            - name: Külső gyártótól származó NVA használata (Fortinet FortiGate NVA)
               items:
                 - name: VNet-társítás a FortiGate
                   href: azure-stack-network-howto-vnet-to-vnet.md
@@ -319,13 +325,13 @@
       href: /rest/api/
     - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó
+- name: Kapcsolódó témakör
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator/
     - name: ASDK dokumentációja
       href: /azure-stack/asdk/
-- name: További források
+- name: Erőforrások
   items:
     - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152149"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479237"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -111,6 +111,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ## <a name="compute"></a>Számítás
 
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>A virtuális gép áttekintő paneljén nem jelenik meg a számítógép helyes neve
+
+- Alkalmazható: a probléma a 2002-es és újabb verzióira vonatkozik.
+- Ok: Ha egy virtuális gép adatait tekinti meg az Áttekintés panelen, a számítógép neve **(nem érhető el)** jelenik meg.
+- Szervizelés: Tekintse meg a **Tulajdonságok panelt** a **Beállítások**területen.
+
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4 VM-méret a portálon
 
 - Alkalmazható: a probléma a 2002-es és újabb verzióira vonatkozik.
@@ -138,6 +144,11 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
 - Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub-telepítés frissítési folyamata során.
+
+### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Az SQL virtuális gép kiépítése sikertelen lesz a ASDK
+- Alkalmazható: Ez a probléma csak a ASDK 2002-es verzióra vonatkozik. 
+- Ok: új SQL-alapú virtuális gép létrehozásakor a ASDK 2002-ben a következő hibaüzenet jelenhet meg: **"a bővítmény a Publisherben" Microsoft. SQLServer. Management ", a" SqlIaaSAgent "típus és a Type Handler" 2,0 "verziója nem található a bővítmény-tárházban."** Azure Stack központban nincs "SqlIaaSAgent" 2,0. 
+
 
 ## <a name="resource-providers"></a>Erőforrás-szolgáltatók
 

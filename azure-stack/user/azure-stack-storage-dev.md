@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: dc89de51c730bdd50000d004555b47d82ab08be6
-ms.sourcegitcommit: 8e480803ee0672eea328e4f14a8b75be94c8fc7f
+ms.openlocfilehash: 57ca779f776e51d8f491c8c9fe3e6a59a37b42ec
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80391483"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423819"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel
 
@@ -28,7 +28,7 @@ Ez a cikk útmutatóként szolgál az Azure Stack hub Storage Fejlesztőeszköz�
 A Storage ügyféloldali kódtárai esetében vegye figyelembe a REST API kompatibilis verziót. Az Azure Stack hub-végpontot is meg kell adnia a kódban.
 
 
-::: moniker range=">azs-2002"
+::: moniker range=">=azs-2002"
 ### <a name="2002-update-or-newer-versions"></a>2002 frissítés vagy újabb verzió
 
 | Ügyfélkódtár | Azure Stack hub támogatott verziója | Hivatkozás | Végpont specifikációja |

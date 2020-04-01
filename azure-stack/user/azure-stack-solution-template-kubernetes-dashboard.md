@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703638"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479317"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>A Kubernetes-irányítópult elérése Azure Stack központban 
 
@@ -121,6 +121,14 @@ Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
 Használhatja az irányítópultot. A Kubernetes-irányítópulttal kapcsolatos további információkért lásd: [Kubernetes webes felhasználói felület irányítópultja](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
 ![Azure Stack hub Kubernetes irányítópultja](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+
+## <a name="troubleshooting"></a>Hibakeresés
+
+### <a name="custom-virtual-networks"></a>Egyéni virtuális hálózatok
+
+Ha a Kubernetes-irányítópulthoz való kapcsolódás során problémákba ütközik a Kubernetes [Egyéni virtuális hálózatra](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet)való telepítése után, győződjön meg arról, hogy a célként megadott alhálózatok az AK-motor által létrehozott útválasztási táblázathoz és hálózati biztonsági csoport erőforrásaihoz vannak társítva.
+
+Győződjön meg arról, hogy a hálózati biztonsági csoport szabályai lehetővé teszik a főcsomópontok és a Kubernetes Dashboard Pod IP közötti kommunikációt. Ezt a fő csomópont ping parancsával lehet érvényesíteni.
 
 ## <a name="next-steps"></a>Következő lépések 
 

@@ -7,14 +7,14 @@ ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294230"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423830"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának (PKI) tanúsítványára vonatkozó követelmények
 
 Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely az Azure Stack hub-szolgáltatások és valószínűleg a bérlői virtuális gépek kis készletéhez rendelt, külsőleg elérhető nyilvános IP-címeket használ. A Azure Stack hub nyilvános infrastruktúra-végpontok megfelelő DNS-neveivel rendelkező PKI-tanúsítványokra van szükség Azure Stack központi telepítés során. Ez a cikk a következő információkat tartalmazza:
 
@@ -60,7 +60,7 @@ Minden Azure Stack hub nyilvános infrastruktúra-végpontjának megfelelő DNS-
 
 Az üzembe helyezéshez a [region] és a [externalfqdn] értékeknek meg kell egyezniük az Azure Stack hub rendszerhez választott régióval és külső tartománynevek nevével. Ha például a régió neve *Redmond* volt, és a külső tartománynév *contoso.com*volt, a DNS-nevek formátuma *&lt;előtag lesz >. Redmond. contoso. com*. A *&lt;előtag >* értékeit a Microsoft a tanúsítvány által védett végpont leírására kijelölte. Továbbá a *&lt;előtag >* a külső infrastruktúra-végpontok értékei az adott végpontot használó Azure stack hub szolgáltatástól függenek.
 
-Az éles környezetek esetében ajánlott egyéni tanúsítványokat létrehozni az egyes végpontokhoz, és a megfelelő könyvtárba másolva. A fejlesztési környezetekben a tanúsítványok a tulajdonos és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő, egyetlen Wild kártyás tanúsítványként is elérhetők. Egyetlen tanúsítvány, amely az összes végpontot és szolgáltatást lefedi, nem biztonságos testhelyzet, ezért csak fejlesztési célokra szolgál. Ne feledje, hogy mindkét beállításhoz helyettesítő tanúsítványokat kell használnia a végpontokhoz, például az **ACS** -hez és a Key Vaulthoz, ahol szükség van rájuk.
+Az éles környezetek esetében ajánlott egyéni tanúsítványokat létrehozni az egyes végpontokhoz, és a megfelelő könyvtárba másolva. A fejlesztési környezetekben a tanúsítványok a tulajdonos és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő, egyetlen helyettesítő helyettesítő tanúsítványként is elérhetők. Egyetlen tanúsítvány, amely az összes végpontot és szolgáltatást lefedi, nem biztonságos testhelyzet, ezért csak fejlesztési célokra szolgál. Ne feledje, hogy mindkét beállításhoz helyettesítő tanúsítványokat kell használnia a végpontokhoz, például az **ACS** -hez és a Key Vaulthoz, ahol szükség van rájuk.
 
 > [!Note]  
 > Az üzembe helyezés során a tanúsítványokat a központi telepítési mappába kell másolnia, amely megfelel az Ön által az Azure AD-ben központilag üzembe helyezett identitás-szolgáltatónak (Azure AD vagy AD FS). Ha egyetlen tanúsítványt használ az összes végponthoz, akkor az alábbi táblázatokban vázolt módon minden központi telepítési mappába kell másolnia a tanúsítványfájl. A mappa szerkezete az üzembe helyezési virtuális gépen előre be van építve, és a következő helyen található: C:\CloudDeployment\Setup\Certificates.
@@ -91,12 +91,12 @@ Ha az Azure AD üzembe helyezési móddal telepíti Azure Stack hub-t, csak az e
 > Az ebben a szakaszban felsorolt összes tanúsítványnak ugyanazzal a jelszóval kell rendelkeznie.
 
 ## <a name="optional-paas-certificates"></a>Választható Péter-tanúsítványok
-Ha azt tervezi, hogy az Azure Stack hub telepítése és konfigurálása után a további Azure Stack hub (SQL, MySQL és App Service) szolgáltatást szeretné telepíteni, további tanúsítványokat kell kérnie a Pásti-szolgáltatások végpontjának lefedéséhez.
+Ha a további Azure Stack hub-szolgáltatások (például SQL, MySQL, App Service vagy Event Hubs) üzembe helyezését tervezi az Azure Stack hub üzembe helyezése és konfigurálása után, akkor további tanúsítványokat kell kérnie a Pásti-szolgáltatások végpontjának lefedéséhez.
 
 > [!IMPORTANT]
-> A App Service, az SQL és a MySQL erőforrás-szolgáltatóhoz használt tanúsítványoknak ugyanazzal a legfelső szintű szolgáltatóval kell rendelkezniük, mint a globális Azure Stack hub-végpontokhoz.
+> Az erőforrás-szolgáltatóhoz használt tanúsítványoknak ugyanazzal a legfelső szintű szolgáltatóval kell rendelkezniük, mint a globális Azure Stack hub-végpontokhoz.
 
-A következő táblázat ismerteti az SQL-és MySQL-adapterekhez szükséges végpontokat és tanúsítványokat, valamint a App Service. Ezeket a tanúsítványokat nem kell átmásolnia az Azure Stack hub telepítési mappájába. Ehelyett a további erőforrás-szolgáltatók telepítésekor adja meg ezeket a tanúsítványokat.
+Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat és tanúsítványokat ismerteti. Ezeket a tanúsítványokat nem kell átmásolnia az Azure Stack hub telepítési mappájába. Ehelyett ezeket a tanúsítványokat az erőforrás-szolgáltató telepítésekor kell megadnia.
 
 |Hatókör (régiónként)|Tanúsítvány|Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SANs)|Altartomány névtere|
 |-----|-----|-----|-----|
@@ -105,12 +105,13 @@ A következő táblázat ismerteti az SQL-és MySQL-adapterekhez szükséges vé
 |App Service|API|API. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
 |App Service|FTP|FTP. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
 |App Service|SSO|SSO. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
+|Event Hubs|Event Hubs|&#42;eventhub. *&lt;régió >.&lt;fqdn >* (San)| eventhub. *&lt;régió >.&lt;fqdn >* |
 
 <sup>1</sup> egy olyan tanúsítványt igényel, amelyben több helyettesítő karakteres alternatív név is szerepel. Előfordulhat, hogy az összes nyilvános hitelesítésszolgáltató nem támogatja több helyettesítő karaktert egyetlen tanúsítványon.
 
-<sup>2</sup> &#42;. appservice. *&lt;régió >.&lt;fqdn >* a helyettesítő karakterek nem használhatók fel a három tanúsítvány helyett (API. appservice. *&lt;régió >.&lt;FQDN >* , ftp. appservice. *&lt;régió >.&lt;FQDN >* és sso. appservice. *&lt;régió >.&lt;FQDN >* . A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
+<sup>2</sup> &#42;. appservice. *&lt;régió >.&lt;fqdn >* helyettesítő tanúsítvány nem használható a következő három tanúsítvány helyett (API. appservice. *&lt;régió >.&lt;FQDN >* , ftp. appservice. *&lt;régió >.&lt;FQDN >* és sso. appservice. *&lt;régió >.&lt;FQDN >* . A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
 
-## <a name="learn-more"></a>További információk
+## <a name="learn-more"></a>Részletek
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
 ## <a name="next-steps"></a>Következő lépések

@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294384"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423887"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
 
@@ -31,7 +31,7 @@ A szolgáltatás nyújtásához kövesse az alábbi magas szintű lépéseket:
 1. Tervezze meg a szolgáltatás ajánlatát a használatával:
 
    - Olyan alapszolgáltatások, mint a számítás, a tárolás, a hálózatkezelés vagy a Key Vault.
-   - Value-szolgáltatások hozzáadása, például App Service, SQL Server vagy MySQL-kiszolgáló.
+   - Value-szolgáltatások hozzáadása, például Event Hubs, App Service, SQL Server vagy MySQL-kiszolgáló.
 
 2. Hozzon létre egy csomagot, amely egy vagy több szolgáltatást tartalmaz. A csomag létrehozásakor válasszon ki vagy hozzon létre kvótákat, amelyek meghatározzák a csomagban lévő egyes szolgáltatások erőforrás-korlátozásait.
 3. Hozzon létre egy ajánlatot, amely egy vagy több csomaggal rendelkezik. Az ajánlat tartalmazhat alapcsomagokat és opcionális kiegészítő csomagokat.
@@ -44,8 +44,9 @@ Az ajánlat létrehozása után a felhasználók előfizethetnek rá a szolgált
 
 Olyan infrastruktúra- [szolgáltatási](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) szolgáltatásokat biztosíthat, amelyek lehetővé teszik a felhasználók számára, hogy igény szerinti számítástechnikai infrastruktúrát hozzanak létre, amelyet az Azure stack hub felhasználói portálján üzembe kell helyezni és felügyelni.
 
-A Microsofttól és más külső szolgáltatóktól származó Azure Stack hubhoz is üzembe helyezheti a [platform szolgáltatásként](https://azure.microsoft.com/overview/what-is-paas/) nyújtott szolgáltatásokat. A megadható Pásti-szolgáltatások közé tartoznak a következők:
+A Microsofttól és külső szolgáltatóktól származó Azure Stack hub szolgáltatásként is üzembe helyezheti a [platformot](https://azure.microsoft.com/overview/what-is-paas/) . Az üzembe helyezhető Pásti-szolgáltatások közé tartoznak a következők:
 
+- [Event Hubs](event-hubs-rp-overview.md)
 - [APP SERVICE](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
 - [MySQL-kiszolgáló](azure-stack-mysql-resource-provider-deploy.md)
@@ -78,7 +79,7 @@ Ajánlat létrehozásakor a szolgáltatás rendszergazdája egy alapcsomagot is 
 
 A kiegészítő csomagok az ajánlathoz hozzáadott opcionális csomagok. Alapértelmezés szerint az előfizetés nem tartalmazza a bővítmények csomagjait. A kiegészítő csomagok olyan ajánlatokban elérhető további csomagok (kvótákkal), amelyeket az előfizető hozzáadhat az előfizetésekhez. Létrehozhat például egy alapszintű csomagot korlátozott erőforrásokkal a próbaverzióhoz, valamint egy kiegészítő tervet, amely nagyobb mennyiségű erőforrást biztosít a szolgáltatás bevezetését elfogadó ügyfeleknek.
 
-## <a name="offers"></a>kínál
+## <a name="offers"></a>Kínál
 
 Az ajánlatok egy vagy több, az Ön által létrehozott csomag csoportjai, hogy a felhasználók előfizethetnek rájuk. Például: az Alpha ajánlat az A csomagot is tartalmazhatja, amely a számítási szolgáltatásokat és a B tervet tartalmazza, amely a tárolási és hálózati szolgáltatások készletét biztosítja.
 
