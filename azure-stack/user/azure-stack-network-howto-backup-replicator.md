@@ -7,12 +7,12 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5ecb5bc2dace6b79d742a61c0c2cdf5f20ee305f
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702346"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614458"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
@@ -98,7 +98,7 @@ Deployment_Files két, **DeployResourceGroups. ps1** és **DeployResources. ps1*
 
     ![A mappák áttekintése](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Állítsa a kontextust a cél előfizetésre, módosítsa a mappát **Deployment_Filesre**, telepítse az erőforráscsoportot, majd indítsa el az erőforrás központi telepítését.
+3.  Állítsa a kontextust a cél előfizetésre, módosítsa a mappát **Deployment_Filesre**, telepítse az erőforráscsoportot (futtassa az DeployResourceGroups. ps1 parancsfájlt), majd indítsa el az erőforrás-telepítést (futtassa a DeployResources. ps1 parancsfájlt).
 
     ![A központi telepítés konfigurálása és elindítása](./media/azure-stack-network-howto-backup-replicator/image6.png)
 

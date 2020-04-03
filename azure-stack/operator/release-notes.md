@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 03/31/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: de68806451d432cc4fd11ec289933e9c48444755
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402820"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614481"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -401,7 +401,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 Azure Stack hub 1908-es kiadását a 1907-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack hub gyorsjavítási 1.1907.29.80](https://support.microsoft.com/help/4555650)
 
 Az Azure Stack hub 1908 Update **Azure stack hub OEM 2,1-es vagy újabb verziójára** van szükség a rendszer hardver-szolgáltatójától. Az OEM-frissítések a Azure Stack hub rendszerhardverének illesztőprogram-és belső vezérlőprogram-frissítéseit tartalmazzák. Az OEM-frissítések alkalmazásával kapcsolatos további információkért lásd: [Azure stack hub eredeti berendezések gyártói frissítéseinek alkalmazása](azure-stack-update-oem.md)
 
@@ -534,7 +534,7 @@ Azure Stack hub 1907-es kiadását a 1906-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack hub gyorsjavítási 1.1907.29.80](https://support.microsoft.com/help/4555650)
 ::: moniker-end
 
 ::: moniker range=">=azs-1907"

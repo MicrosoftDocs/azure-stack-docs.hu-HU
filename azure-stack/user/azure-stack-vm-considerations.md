@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364802"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614434"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -108,6 +108,17 @@ A Windows-termékeket a termék használati jogainak és a Microsoft licencfelt�
 - A Windows Server 2012-es vagy korábbi verzióját futtató virtuális gépeket nem aktiválja automatikusan a rendszer, és a [MAK-aktiválás](https://technet.microsoft.com/library/ff793438.aspx)használatával kell aktiválni. A MAK-aktiválás használatához meg kell adnia a saját termékkulcsot.
 
 Microsoft Azure KMS-aktiválást használ a Windows rendszerű virtuális gépek aktiválásához. Ha Azure Stack hubhoz helyez át egy virtuális gépet az Azure-ba, és az aktiválási problémákba ütközik, tekintse meg az [Azure Windows VM aktiválási problémáinak elhárítása](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems) További információ: [Windows-aktiválási hibák elhárítása Azure-beli virtuális gépeken](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) az Azure támogatási csapatának blogbejegyzésében.
+
+## <a name="high-availability"></a>Magas rendelkezésre állás
+
+Előfordulhat, hogy a virtuális gép újraindítást igényel az Azure Stack hub-kezelő által ütemezett tervezett karbantartás miatt. Az Azure-beli több virtuális gépre kiterjedő üzemi rendszerek magas rendelkezésre állása érdekében a virtuális gépeket egy [rendelkezésre állási csoportba](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) helyezik, amely több tartalék tartományon és frissítési tartományon keresztül terjed ki. A Azure Stack hub kisebb méretében a rendelkezésre állási csoportokban lévő tartalék tartomány a méretezési egység egyetlen csomópontja.  
+
+Habár a Azure Stack hub infrastruktúrája már rugalmas a hibákhoz, az alapul szolgáló technológia (feladatátvételi fürtszolgáltatás) továbbra is leállást okoz az érintett fizikai kiszolgálókon futó virtuális gépeknél, ha hardverhiba van. Azure Stack hub támogatja a rendelkezésre állási csoport legfeljebb három tartalék tartománnyal való egységességét az Azure-ban.
+
+|                   |             |
+|-------------------|-------------|
+| **Tartalék tartományok** | A rendelkezésre állási csoportba helyezett virtuális gépeket fizikailag el kell különíteni egymástól a több tartalék tartomány (Azure Stack hub-csomópontok) lehető legegyenletesebb kiterjedésével. Hardverhiba esetén a sikertelen tartalék tartományba tartozó virtuális gépek más tartalék tartományokban lesznek újraindítva. A többi virtuális gépről külön tartalék tartományokban lesznek tárolva, de ha lehetséges, ugyanabban a rendelkezésre állási készletben. Ha a hardver online állapotba kerül, a virtuális gépek újra lesznek egyenlítve a magas rendelkezésre állás fenntartása érdekében. |
+| **Tartományok frissítése**| A frissítési tartományok egy másik módja, hogy az Azure magas rendelkezésre állást biztosít a rendelkezésre állási csoportokban. A frissítési tartomány a mögöttes hardver logikai csoportja, amely egyszerre végezhető el a karbantartásban. Az ugyanabban a frissítési tartományban található virtuális gépek a tervezett karbantartás során újraindulnak. Mivel a bérlők virtuális gépeket hoznak létre egy rendelkezésre állási csoporton belül, az Azure platform automatikusan elosztja a virtuális gépeket ezen frissítési tartományok között. <br>Azure Stack központban a virtuális gépek a fürt többi online gazdagépén át lesznek telepítve, mielőtt a rendszer a mögöttes gazdagépet frissíti. Mivel a gazdagép frissítése során nincs szükség bérlői állásidőre, a Azure Stack hub frissítési tartomány funkciója csak az Azure-hoz készült sablon-kompatibilitáshoz létezik. A rendelkezésre állási csoportba tartozó virtuális gépek a frissítési tartományuk alapján 0 értéket fognak látni a portálon. |
 
 ## <a name="next-steps"></a>Következő lépések
 

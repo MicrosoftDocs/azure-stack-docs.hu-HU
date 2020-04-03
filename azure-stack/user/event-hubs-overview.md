@@ -8,18 +8,35 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: b0a4e18afdc8ce68ffa212bcc7bc78506420c235
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424245"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614382"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Az Azure Stack hub Event Hubs áttekintése
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 A Event Hubs on Azure Stack hub lehetővé teszi a hibrid Felhőbeli forgatókönyvek megvalósítását. A folyamatos átviteli és eseményvezérelt megoldások támogatottak mind a helyszíni, mind az Azure-beli Felhőbeli feldolgozáshoz. Ha a forgatókönyv hibrid (csatlakoztatva) vagy le van választva, a megoldás képes támogatni az események/streamek nagy léptékű feldolgozását. A forgatókönyvet csak a Event Hubs-fürt mérete köti, amelyet az igényei szerint hozhat létre. 
+
+## <a name="run-event-processing-tasks-and-build-event-driven-applications-on-site"></a>Esemény-feldolgozási feladatok futtatása és eseményvezérelt alkalmazások készítése a helyen
+
+Az Azure Stack hub Event Hubs használatával olyan üzleti forgatókönyveket valósíthat meg, mint például a következők:
+
+- AI-és gépi tanulási munkaterhelések, ahol a Event Hubs az Event streaming Engine.
+- Az Azure-adatközpontokon kívül saját webhelyein is megvalósíthat eseményvezérelt architektúrákat.
+- Kattintássorozat-elemzések a helyszínen üzembe helyezett webalkalmazás (ok) hoz.
+- Eszköz telemetria elemzése.
+- A stream feldolgozása olyan nyílt forráskódú keretrendszerekkel, amelyek Apache Kafka, például a Apache Spark, a flink, a Storm és a Samza-t használják.
+- [Számítási vendég operációs rendszer metrikáinak és eseményeinek felhasználása](azure-stack-metrics-monitor.md).
+
+## <a name="build-hybrid-solutions"></a>Hibrid megoldások készítése
+
+Olyan hibrid megoldásokat hozhat létre, amelyek helyileg töltik fel és dolgozzák fel a peremhálózat adatait az Azure Stack hub-on. Összesített adatokat küldhet az Azure-ba további feldolgozáshoz, vizualizációhoz és tároláshoz. Ha szükséges, használja ki a kiszolgáló nélküli számítástechnikai szolgáltatást az Azure-ban.
+
+[![Hybrid Solutions diagram](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
 
 ## <a name="features"></a>Szolgáltatások 
 
@@ -36,7 +53,7 @@ A Event Hubs kiadásai (Azure Stack hub és az Azure-on) magas fokú szolgáltat
 | Azure Monitor | ✔ | ✔ |
 | Funkció automatikus kivonása | ✘ | ✔ |
 
-Emellett az Azure erőforrás-kezelési műveletei Azure Resource Manager sablonok, a [PowerShell](/powershell/module/azurerm.eventhub/)és az [Azure CLI](/cli/azure/eventhubs/eventhub/)használatával is elvégezhetők. Jelenleg a PowerShellben és az Azure CLI-ben a kezelői felügyeleti műveletek nem támogatottak.
+Az Azure erőforrás-kezelési műveletei Azure Resource Manager sablonok, a [PowerShell](/powershell/module/azurerm.eventhub/)és az [Azure CLI](/cli/azure/eventhubs/eventhub/)használatával is elvégezhetők. Jelenleg a PowerShellben és az Azure CLI-ben a kezelői felügyeleti műveletek nem támogatottak.
 
 ## <a name="feature-documentation"></a>A szolgáltatás dokumentációja
 
