@@ -349,7 +349,7 @@
                 - name: Biztonsági mentés & visszaállítása
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Naplók gyűjtése
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
                 - name: Állapot-& riasztások
                   href: azure-stack-monitor-health.md
                 - name: Kezelés

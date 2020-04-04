@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.openlocfilehash: e5ffa0f8aab00ed26bb025958b95872eb11d1b76
+ms.sourcegitcommit: 821c05cac0db56d208f573369363e376180e2e84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479237"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80646330"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -126,7 +126,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: új Windowsos virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait**. A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
+- Ok: új virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait**. A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
+- Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
+- Előfordulás: gyakori
+
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: Ha egy leállított virtuális gépet próbál elindítani, a következő hibaüzenet jelenhet meg: a **VM Diagnostics Storage-fiókja (diagnosticstorageaccount) nem található. Győződjön meg arról, hogy a Storage-fiók nincs törölve**. A hiba akkor fordul elő, ha olyan virtuális gépet próbál elindítani, amelyen engedélyezve van a rendszerindítási diagnosztika, de a rendszer törli a hivatkozott rendszerindítási diagnosztika Storage-fiókját.
 - Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
 - Előfordulás: gyakori
 

@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: de68806451d432cc4fd11ec289933e9c48444755
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.openlocfilehash: 681e0bd2a19a2e8284510fbe53470795dd84f69c
+ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614481"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638282"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -89,7 +89,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - A Rdagent és a Host Agent automatikus szervizelési és naplózási funkcióinak hozzáadása – a gazdagép két szolgáltatása, amely megkönnyíti a virtuális gépek SZIFILISZét.
 - Új szolgáltatás hozzáadása a piactérek felügyeletéhez, amely lehetővé teszi a rendszergazdák számára, hogy a Azure Stackekkel nem kompatibilis piactér-termékeket töltsenek le, különböző attribútumok, például a Azure Stack verzió vagy a számlázási modell miatt.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - A felügyeleti portál most azt jelzi, hogy egy művelet folyamatban van-e, és a Azure Stack régió melletti ikonra kattint. Amikor a ikon fölé viszi a kurzort, megjelenik a művelet neve. Ez lehetővé teszi a futó rendszer hátterében lévő műveletek azonosítását; például egy biztonsági mentési feladatokra vagy egy tárolási bővítésre, amely több órán keresztül is futtatható.
 
@@ -109,7 +109,17 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
   | Microsoft. backup. admin | backupLocation         | 2016-05-01 |
   | Microsoft. backup. admin | mentések                | 2016-05-01 |
   | Microsoft. backup. admin | műveletek             | 2016-05-01 |
-  
+
+- Windows rendszerű virtuális gép PowerShell használatával történő létrehozásakor ügyeljen arra, hogy hozzáadja a `provisionvmagent` jelzőt, ha azt szeretné, hogy a virtuális gép bővítményeket helyezzen üzembe. A jelző nélkül a virtuális gép a vendég ügynök nélkül jön létre, és nem távolítható el a virtuálisgép-bővítmények üzembe helyezésének lehetősége:
+
+   ```powershell
+   $VirtualMachine = Set-AzureRmVMOperatingSystem `
+     -VM $VirtualMachine `
+     -Windows `
+     -ComputerName "MainComputer" `
+     -Credential $Credential -ProvisionVMAgent
+  ```
+
 ### <a name="fixes"></a>Javítások
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
@@ -265,7 +275,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Az infrastruktúra-biztonsági mentési szolgáltatás javítja a logikát, amely kiszámítja a biztonsági mentések kívánt szabad területét, ahelyett, hogy rögzített küszöbértékre kellene támaszkodnia. A szolgáltatás a külső tárolási hely biztonsági mentési, adatmegőrzési szabályzatának, fenntartásának és aktuális kihasználtságának méretét fogja használni annak megállapítására, hogy egy figyelmeztetést kell-e kiemelni a kezelőnek.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - A Piactéri elemek Azure-ból Azure Stack hubhoz való letöltésekor új felhasználói felület áll rendelkezésre, amely lehetővé teszi az elem egy verziójának megadását, ha több verzió létezik. Az új felhasználói felület a csatlakoztatott és a leválasztott forgatókönyvekben is elérhető. További információ: [Marketplace-elemek letöltése az Azure-ból Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).  
 
@@ -370,7 +380,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Az Azure Stack hub Rest-titkosításával kapcsolatos adatok fejlesztése a titkoknak a fizikai csomópontok hardveres platformmegbízhatósági modul (TPM) való megőrzése érdekében.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - A hardveres szolgáltatók a 2,1-es vagy újabb OEM-bővítményt a 1908-es Azure Stack hub-verzióval megegyező időpontban szabadítják fel. A 2,1-es vagy újabb OEM-bővítmény előfeltétele Azure Stack hub 1908-es verziójának. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
 
@@ -457,7 +467,7 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 - A belső naplók továbbfejlesztett tárolása rendszergazdai műveletekhez. Ez a kiegészítés a rendszergazdai műveletek során jobb teljesítményt és megbízhatóságot eredményez azáltal, hogy minimalizálja a belső naplózási folyamatok memória-és tárterület-felhasználását. Emellett a felügyeleti portál frissítés paneljének továbbfejlesztett oldal betöltési idejét is megfigyelheti. Ennek a fejlesztésnek a részeként a hat hónapnál régebbi frissítési naplók többé nem lesznek elérhetők a rendszeren. Ha a frissítésekhez naplókra van szüksége, ügyeljen arra, hogy az 1907-es frissítés végrehajtása előtt az összes frissítési művelet [összefoglalóját töltse le](azure-stack-apply-updates.md) a hat hónapnál régebbi verzióra.
 
-### <a name="changes"></a>Változások
+### <a name="changes"></a>Módosítások
 
 - Azure Stack hub 1907-es verziója figyelmeztető riasztást tartalmaz, amely arra utasítja a kezelőket, hogy az 1908-as verzióra való frissítés előtt frissítse a rendszer OEM-csomagját a 2,1-es vagy újabb verzióra. További információ a Azure Stack hub OEM-frissítéseinek alkalmazásáról: [Azure stack hub eredeti berendezésgyártó frissítésének alkalmazása](azure-stack-update-oem.md).
 
