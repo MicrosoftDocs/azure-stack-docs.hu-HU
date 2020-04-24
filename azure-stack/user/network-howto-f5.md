@@ -3,16 +3,16 @@ title: Az F5 telepítése két Azure Stack hub-példány között
 description: Ismerje meg, hogyan telepítheti az F5-et két Azure Stack hub-példány között.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: f3b564bc667376361e1bfc57df0ec50e32522401
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636318"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661446"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Az F5 telepítése két Azure Stack hub-példány között
 
@@ -42,7 +42,7 @@ Központi telepítés Azure Stack hub A és A B példánya.
 
 2. Válassza **az + erőforrás létrehozása**lehetőséget.
 
-3. Keresse meg a piactéren a `F5`beírásával.
+3. Keresés a piactéren a `F5`beírásával.
 
 4. Válassza **az F5 Big-IP ve – mind (BYOL, 2 rendszerindító helyszín)** elemet.
 
@@ -79,10 +79,10 @@ Kövesse az alábbi lépéseket mind a Azure Stack, mind A B hubhoz.
 
 
 4. A BIG-IP-készülékek feladatátvételének ellenőrzése. Tesztelési rendszeren konfigurálja a DNS-kiszolgálókat a következők használatára:
-    - Azure Stack hub-példány A = `f5stack1-ext` nyilvános IP-cím
-    - Azure Stack hub-példány B = `f5stack1-ext` nyilvános IP-címe
+    - Azure Stack hub-példány A `f5stack1-ext` = nyilvános IP-cím
+    - Azure Stack hub-példány B `f5stack1-ext` = nyilvános IP-címe
 
-5. Tallózással keresse meg `www.contoso.com`, és a böngésző betölti az NGINX alapértelmezett oldalát.
+5. Tallózással `www.contoso.com` keresse meg a böngészőt, és töltse be az NGINX alapértelmezett oldalát.
 
 ## <a name="create-a-dns-sync-group"></a>DNS-szinkronizálási csoport létrehozása
 
@@ -134,16 +134,16 @@ A telepítése után konfigurálnia kell az Azure Stack hub-NSG, és le kell zá
 
     ![](./media/network-howto-f5/image10.png)
 
-10. A BIG-IP konzolon lépjen a **helyi forgalom > készletek > készlet listára** , és válassza a **+** lehetőséget. Konfigurálja a készletet a tábla értékeinek használatával. Hagyja az összes többi mezőt az alapértelmezett értékre.
+10. A BIG-IP konzolon lépjen a **helyi forgalom > készletek > készlet listára** , és **+** válassza a lehetőséget. Konfigurálja a készletet a tábla értékeinek használatával. Hagyja az összes többi mezőt az alapértelmezett értékre.
 
     ![](./media/network-howto-f5/image11.png)
     
-    | Paraméter | Érték |
+    | Kulcs | Érték |
     | --- | --- |
     | Name (Név) | NGINX_Pool |
     | Állapotfigyelő | HTTPS |
     | Csomópont neve | NGINX |
-    | Cím | az NGINX privát IP-címének \<> |
+    | Cím | \<saját NGINX saját IP-címe> |
     | Szolgáltatási port | 443 |
 
 11. Válassza a **kész**lehetőséget. Ha helyesen van konfigurálva, a készlet állapota zöld.
@@ -156,12 +156,12 @@ A telepítése után konfigurálnia kell az Azure Stack hub-NSG, és le kell zá
 
     ![](./media/network-howto-f5/image13.png)
 
-13. Hozzon létre egy virtuális kiszolgálót a **helyi forgalom** > **virtual** Servers > **virtuális kiszolgálók listájában** , és válassza a **+** lehetőséget. Konfigurálja a készletet a tábla értékeinek használatával. Hagyja az összes többi mezőt az alapértelmezett értékre.
+13. Hozzon létre egy virtuális kiszolgálót a **helyi forgalom** > **virtuális kiszolgálók** > **listájában** , és válassza **+** a lehetőséget. Konfigurálja a készletet a tábla értékeinek használatával. Hagyja az összes többi mezőt az alapértelmezett értékre.
 
-    | Paraméter | Érték |
+    | Kulcs | Érték |
     | --- | --- |
     |Name (Név) | NGINX |
-    |Cél címe | a BIG-IP > \<önkiszolgáló IP-címe |
+    |Cél címe | \<A BIG-IP> önkiszolgáló IP-címe |
     |Szolgáltatási port | 443 |
     |SSL-profil (ügyfél) | clientssl |
     |Forráscím fordítása | Automatikus leképezés |
@@ -172,7 +172,7 @@ A telepítése után konfigurálnia kell az Azure Stack hub-NSG, és le kell zá
 
 14. Ezzel végrehajtotta az NGINX-alkalmazás BIG-IP-konfigurációját. A megfelelő funkciók ellenőrzéséhez keresse fel a webhelyet, és ellenőrizze az F5 statisztikát.
 
-15. Nyisson meg egy böngészőt `https://<F5-public-VIP-IP>`, és győződjön meg arról, hogy az alapértelmezett NGINX-oldal jelenik meg.
+15. Nyisson meg egy böngészőt, `https://<F5-public-VIP-IP>` és győződjön meg róla, hogy megjelenik a NGINX alapértelmezett lapja.
 
     ![](./media/network-howto-f5/image16.png)
 
@@ -191,6 +191,6 @@ Az F5 használatával kapcsolatos további tudnivalók:
 - [A BIG-IP rendszer üzembe helyezése HTTP-alkalmazásokkal](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
 - [Széles körű IP-cím létrehozása a GSLB számára](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md) 

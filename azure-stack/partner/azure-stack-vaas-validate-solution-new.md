@@ -1,29 +1,29 @@
 ---
-title: Új Azure Stack hub-megoldás érvényesítése
-description: Ismerje meg, hogyan érvényesítheti az új Azure Stack hub-megoldást szolgáltatásként történő érvényesítéssel.
+title: Megoldás ellenőrzése Azure Stack központban
+description: Ismerje meg, hogyan érvényesítheti az új Azure Stack hub-megoldást a megoldás-ellenőrzési munkafolyamattal.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f52b4f20e0cf21201836e19894a7ea15159363f1
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.openlocfilehash: 2d47450af602928eb9220238ae945610fd9f0477
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80229566"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661160"
 ---
-# <a name="validate-a-new-azure-stack-hub-solution"></a>Új Azure Stack hub-megoldás érvényesítése
+# <a name="validate-a-solution-in-azure-stack-hub"></a>Megoldás ellenőrzése Azure Stack központban
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Megtudhatja, hogyan használhatja a **megoldás-ellenőrzési** munkafolyamatot az új Azure stack hub-megoldások hitelesítéséhez.
+Ismerje meg, hogyan ellenőrizheti a **megoldás-ellenőrzési** munkafolyamatot az új Azure stack hub-megoldások ellenőrzéséhez.
 
-Az Azure Stack hub-megoldás olyan hardveres anyagjegyzék (AJ), amely a Microsoft és a partner között közösen egyetértett a Windows Server-embléma minősítési követelményeinek teljesítése után. A megoldást újra hitelesíteni kell, ha a hardveres anyagjegyzék módosult. Ha további kérdése van a megoldások újbóli hitelesítésével kapcsolatban, vegye fel a kapcsolatot a csapattal [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
+Az Azure Stack hub-megoldás olyan hardveres anyagjegyzék (AJ), amely a Microsoft és a partner között közösen egyetértett a Windows Server-embléma minősítési követelményeinek teljesítése után. A megoldást újra hitelesíteni kell, ha a hardveres anyagjegyzék módosult. Ha további kérdése van a megoldások újraellenőrzésével kapcsolatban, lépjen kapcsolatba a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)csapatával a következő címen:.
 
-A megoldás hitelesítéséhez futtassa kétszer a megoldás-ellenőrzési munkafolyamatot. Egyszer futtassa egyszer a *minimálisan* támogatott konfigurációhoz. Futtassa még egyszer a *maximálisan* támogatott konfigurációhoz. A Microsoft tanúsítja a megoldást, ha mindkét konfiguráció átadja az összes tesztet.
+A megoldás érvényesítéséhez futtassa kétszer a megoldás-ellenőrzési munkafolyamatot. Egyszer futtassa egyszer a *minimálisan* támogatott konfigurációhoz. Futtassa még egyszer a *maximálisan* támogatott konfigurációhoz. A Microsoft ellenőrzi a megoldást, ha mindkét konfiguráció átadja az összes tesztet.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -31,36 +31,36 @@ A megoldás hitelesítéséhez futtassa kétszer a megoldás-ellenőrzési munka
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
 
-3. Válassza az **Indítás** lehetőséget a **megoldás érvényessége** csempén.
+2. Válassza az **Indítás** lehetőséget a **megoldás érvényessége** csempén.
 
     ![Megoldás érvényességi munkafolyamatának csempe](media/tile_validation-solution.png)
 
-4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Válassza ki a **megoldás konfigurációját**.
+4. Válassza ki a **megoldás konfigurációját**.
     - **Minimum**: a megoldás a minimálisan támogatott számú csomóponttal van konfigurálva.
     - **Maximum**: a megoldás a maximálisan támogatott számú csomóponttal van konfigurálva.
-6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Megoldás-ellenőrzési információk](media/workflow_validation-solution_info.png)
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Munkafolyamat létrehozása után a környezeti paraméterek nem módosíthatók.
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     A rendszer átirányítja a tesztek összegzése lapra.
 
 ## <a name="run-solution-validation-tests"></a>Megoldás-ellenőrzési tesztek futtatása
 
-A **megoldás-ellenőrzési tesztek összegzése** lapon megjelenik az érvényesítés végrehajtásához szükséges tesztek listája.
+A **megoldás-ellenőrzési tesztek összegzése** lapon megjelenik az érvényesítés befejezéséhez szükséges tesztek listája.
 
 Az érvényesítési munkafolyamatokban a teszt **ütemezése** a munkafolyamat-létrehozás során megadott munkafolyamat-szintű általános paramétereket használja (lásd: a [Azure stack hub-hitelesítéshez használt munkafolyamat általános paraméterei szolgáltatásként](azure-stack-vaas-parameters.md)). Ha a teszt paramétereinek bármelyik értéke érvénytelenvé válik, a [munkafolyamat-paraméterek módosítása](azure-stack-vaas-monitor-test.md#change-workflow-parameters)elem utasításai szerint újra meg kell adnia őket.
 
 > [!NOTE]
-> Egy meglévő példányon egy érvényesítési teszt ütemezése egy új példányt hoz létre a régi példány helyett a portálon. A régi példány naplói megmaradnak, de nem érhetők el a portálról.  
+> Egy meglévő példányon egy érvényesítési teszt ütemezése egy új példányt hoz létre a régi példány helyett a portálon. A régi példány naplói megmaradnak, de nem érhetők el a portálról.<br>
 Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
@@ -75,6 +75,6 @@ Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva
 
 ![Megoldás-ellenőrzési teszt ütemezett ellenőrzése](media/workflow_validation-solution_schedule-test.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

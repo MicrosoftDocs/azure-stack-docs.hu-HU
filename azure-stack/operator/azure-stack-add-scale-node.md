@@ -3,16 +3,16 @@ title: Skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 description: Megtudhatja, hogyan adhat hozzá méretezési egység csomópontjait Azure Stack hub egységéhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/16/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688763"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772585"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
@@ -22,7 +22,7 @@ A méretezési egység csomópont hozzáadásához Azure Stack központban kell 
 
 A következő folyamatábra a méretezési egység csomópontjának általános folyamatát mutatja be:
 
-![méretezési egység folyamatának hozzáadása](media/azure-stack-add-scale-node/add-node-flow.png)
+![Skálázási egység folyamatának hozzáadása](media/azure-stack-add-scale-node/add-node-flow.svg)
 <br> *Azt határozza meg, hogy az OEM hardver szállítója a fizikai kiszolgáló állványának elhelyezését és a belső vezérlőprogram frissítését a támogatási szerződés alapján változik-e.*
 
 Az új csomópont hozzáadásának művelete több órát vagy napot is igénybe vehet. A rendszeren futó munkaterhelések egyike sem befolyásolja a további méretezési egység csomópont hozzáadását.
@@ -36,7 +36,7 @@ Az új csomópont hozzáadásának művelete több órát vagy napot is igénybe
 >  - Méretezési egység csomópontjának javítása
 
 
-## <a name="add-scale-unit-nodes"></a>Skálázási egység csomópontok hozzáadása
+## <a name="add-scale-unit-nodes"></a>Skálázási egység csomópontjainak hozzáadása
 
 A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáról. Ne kövesse ezeket a lépéseket anélkül, hogy először a SZÁMÍTÓGÉPGYÁRTÓ által biztosított kapacitás-bővítési dokumentációra kellene hivatkoznia.
 
@@ -54,10 +54,10 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 ### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálra Azure Stack hub-operátorként.
-2. Navigáljon a **+ erőforrás létrehozása** > **kapacitás** > **skálázási egység csomópontra**.
-   ![skálázási egység csomópontja](media/azure-stack-add-scale-node/select-node1.png)
+2. Navigáljon a **+ erőforrás** > -**kapacitás** > **skálázási egység csomópontjának**létrehozására.
+   ![Méretezési egység csomópontja](media/azure-stack-add-scale-node/select-node1.png)
 3. A **Csomópont hozzáadása** panelen válassza ki a *régiót*, majd válassza ki azt a *méretezési egységet* , amelyhez hozzá szeretné adni a csomópontot. Adja meg a hozzá tartozó méretezési egység csomópontjának *bmc IP-címét* is. Egyszerre csak egy csomópontot lehet hozzáadni.
-   ![csomópont-részletek hozzáadása](media/azure-stack-add-scale-node/select-node2.png)
+   ![Csomópont hozzáadása – részletek](media/azure-stack-add-scale-node/select-node2.png)
  
 
 ### <a name="use-powershell"></a>A PowerShell használata
@@ -67,7 +67,7 @@ Csomópont hozzáadásához használja a **New-AzsScaleUnitNodeObject** parancsm
 Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket a *csomópontok neveire* és az *IP-címekre* az Azure stack hub-környezet értékeivel.
 
   > [!Note]  
-  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy a következő karaktereket tartalmazza: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket: `\` `/` `:` `*` `?` `"` `<` `>`,,,,,,,, `|`, `\` `~`,, `!`, `@` `#`,, `$`, `%`, `^`, `&` `(` `)`,,, `{`, `}`,. `_`
 
 **Csomópont hozzáadása:**
   ```powershell
@@ -81,7 +81,7 @@ Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélj
 A csomópont hozzáadása művelet állapotának beolvasásához használja a felügyeleti portált vagy a PowerShellt. A csomópont-műveletek hozzáadása több órát is igénybe vehet.
 
 ### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata 
-Új csomópont hozzáadásának figyeléséhez tekintse át a méretezési egység vagy a skálázási egység csomópont objektumait a felügyeleti portálon. Ehhez nyissa meg a **régió-felügyeleti** > **skálázási egységeket**. Ezután válassza ki az áttekinteni kívánt méretezési egységet vagy méretezési egység csomópontot. 
+Új csomópont hozzáadásának figyeléséhez tekintse át a méretezési egység vagy a skálázási egység csomópont objektumait a felügyeleti portálon. Ehhez nyissa meg a **régió-felügyeleti** > **méretezési egységeket**. Ezután válassza ki az áttekinteni kívánt méretezési egységet vagy méretezési egység csomópontot. 
 
 ### <a name="use-powershell"></a>A PowerShell használata
 A skálázási egység és a skálázási egység csomópontjainak állapota a PowerShell használatával kérhető le a következő módon:
@@ -112,12 +112,12 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 |Fut               |A csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva               |A csomópont nem érhető el.|
 |Hozzáadása                |A csomópontot aktívan felveszik a méretezési egységbe.|
-|Javítás             |A csomópont aktívan javítás alatt áll.|
+|Javítása             |A csomópont aktívan javítás alatt áll.|
 |Karbantartás           |A csomópont szüneteltetve van, és nem fut aktív felhasználói munkaterhelés. |
 |Szervizelést igényel  |Hiba észlelhető, amely megköveteli a csomópont javítását.|
 
 
-## <a name="troubleshooting"></a>Hibakeresés
+## <a name="troubleshooting"></a>Hibaelhárítás
 A csomópontok hozzáadásakor a következő gyakori problémák észlelhetők. 
 
 **1. forgatókönyv:**  A skálázási egység csomópont hozzáadása művelet meghiúsul, de egy vagy több csomópont leállított állapottal van felsorolva.  
@@ -133,5 +133,5 @@ A csomópontok hozzáadásakor a következő gyakori problémák észlelhetők.
 - Szervizelés: ebben az esetben a tárolási konfigurációs feladat meghiúsult. Ehhez a problémához kapcsolatba kell lépnie a támogatási szolgálattal.
 
 
-## <a name="next-steps"></a>Következő lépések 
+## <a name="next-steps"></a>További lépések 
 [Nyilvános IP-címek hozzáadása](azure-stack-add-ips.md) 

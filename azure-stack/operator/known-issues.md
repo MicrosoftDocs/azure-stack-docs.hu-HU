@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/22/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: e5ffa0f8aab00ed26bb025958b95872eb11d1b76
-ms.sourcegitcommit: 821c05cac0db56d208f573369363e376180e2e84
+ms.openlocfilehash: 566ffc4f09906f703b19f16365eb721f6c595c6c
+ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80646330"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82032824"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -81,6 +81,10 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
 - Előfordulás: gyakori
 
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
+- Ok: bejövő vagy kimenő hálózati biztonsági szabály létrehozásakor a **protokoll** beállítás egy **ICMP** -beállítást mutat be. Ez Azure Stack hub esetében jelenleg nem támogatott. Ez a probléma rögzített, és nem fog megjelenni a következő Azure Stack hub-kiadásban.
+- Előfordulás: gyakori
+
 ### <a name="network-interface"></a>Hálózati illesztő
 
 #### <a name="addingremoving-network-interface"></a>Hálózati adapter hozzáadása/eltávolítása
@@ -96,6 +100,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: egy virtuális gép elsődleges NIC-je nem módosítható. Ha törli vagy leválasztja az elsődleges hálózati adaptert, a rendszer problémákba ütközik a virtuális gép indításakor.
 - Előfordulás: gyakori
 
+### <a name="public-ip"></a>Nyilvános IP-cím
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: egy terheléselosztó **IdleTimeoutInMinutes** tartozó nyilvános IP-cím értéke nem módosítható. A művelet a nyilvános IP-címet sikertelen állapotba helyezi.
+- Szervizelés: ahhoz, hogy a nyilvános IP-cím sikeres állapotba kerüljön, módosítsa a **IdleTimeoutInMinutes** értékét a nyilvános IP-címet az eredeti értékre hivatkozó terheléselosztó szabályban (az alapértelmezett érték 4 perc).
+- Előfordulás: gyakori
+
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
 #### <a name="documentation"></a>Dokumentáció
@@ -106,15 +117,15 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
   - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
+  - [ExpressRoute-kapcsolatcsoportok](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítás
+## <a name="compute"></a>Compute
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>A virtuális gép áttekintő paneljén nem jelenik meg a számítógép helyes neve
 
-- Alkalmazható: a probléma a 2002-es és újabb verzióira vonatkozik.
-- Ok: Ha egy virtuális gép adatait tekinti meg az Áttekintés panelen, a számítógép neve **(nem érhető el)** jelenik meg.
+- Alkalmazható: Ez a probléma minden kiadásra vonatkozik.
+- Ok: Ha egy virtuális gép adatait tekinti meg az Áttekintés panelen, a számítógép neve **(nem érhető el)** jelenik meg. Ez a speciális lemezekről vagy lemez-pillanatképekről létrehozott virtuális gépek tervezése.
 - Szervizelés: Tekintse meg a **Tulajdonságok panelt** a **Beállítások**területen.
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4 VM-méret a portálon
@@ -151,10 +162,19 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
 - Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub-telepítés frissítési folyamata során.
 
-### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>Az SQL virtuális gép kiépítése sikertelen lesz a ASDK
-- Alkalmazható: Ez a probléma csak a ASDK 2002-es verzióra vonatkozik. 
-- Ok: új SQL-alapú virtuális gép létrehozásakor a ASDK 2002-ben a következő hibaüzenet jelenhet meg: **"a bővítmény a Publisherben" Microsoft. SQLServer. Management ", a" SqlIaaSAgent "típus és a Type Handler" 2,0 "verziója nem található a bővítmény-tárházban."** Azure Stack központban nincs "SqlIaaSAgent" 2,0. 
+### <a name="sql-vm"></a>SQL-ALAPÚ VIRTUÁLIS GÉP
 
+#### <a name="storage-account-creating-failure-when-configuring-auto-backup"></a>Nem sikerült létrehozni a Storage-fiókot az automatikus biztonsági mentés konfigurálásakor
+
+- Alkalmazható: Ez a probléma a 2002-es verzióra vonatkozik.
+- Ok: Ha az SQL virtuális gépek automatikus biztonsági mentését egy új Storage-fiókkal konfigurálja, a hiba történt a **központi telepítési sablon érvényesítésekor. A "SqlAutobackupStorageAccountKind" sablon-paramétere nem található.**
+- Szervizelés: alkalmazza a legújabb 2002-es gyorsjavítást.
+
+#### <a name="auto-backup-cannot-be-configured-with-tls-12-enabled"></a>Az automatikus biztonsági mentés nem konfigurálható a TLS 1,2 engedélyezve
+
+- Alkalmazható: Ez a probléma a 2002-es és újabb verziójú új telepítések, illetve a TLS 1,2-mel rendelkező korábbi verziók esetében érvényes.
+- Ok: Ha egy meglévő Storage-fiókkal állítja be az SQL virtuális gépek automatikus biztonsági mentését, a hiba **SQL Server IaaS-ügynökkel meghiúsul: az alapul szolgáló kapcsolat bezárult: váratlan hiba történt a küldéskor.**
+- Előfordulás: gyakori
 
 ## <a name="resource-providers"></a>Erőforrás-szolgáltatók
 
@@ -192,7 +212,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
 - Előfordulás: gyakori
 
-### <a name="subscriptions-lock-blade"></a>Előfizetések zárolása panel
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Ismétlődő előfizetés gomb a zárolási panelen
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felügyeleti portálon a felhasználói előfizetések **zárolási** paneljének két gombja van, amelyek az **előfizetést**mondják.
@@ -205,7 +225,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
@@ -364,10 +384,10 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
   - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
+  - [ExpressRoute-kapcsolatcsoportok](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítás
+## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -387,7 +407,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma a 1910-es és korábbi kiadásokra vonatkozik.
 - Ok: nem lehet csatlakozni a rendszerjogosultságú végponthoz (ERC virtuális gépekhez) egy olyan számítógépről, amely a Windows nem angol nyelvű verzióját futtatja.
-- Szervizelés: ez egy ismert probléma, amelyet a 1910-nál későbbi kiadásokban rögzítettek. Megkerülő megoldásként futtathatja a **New-PSSession** és a **ENTER-PSSession** PowerShell-parancsmagokat az **en-us** kulturális környezet használatával. példaként állítsa be a kulturális környezetet a következő parancsfájl használatával: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1.
+- Szervizelés: ez egy ismert probléma, amelyet a 1910-nál későbbi kiadásokban rögzítettek. Megkerülő megoldásként futtathatja a **New-PSSession** és a **ENTER-PSSession** PowerShell-parancsmagokat az **en-us** kulturális környezet használatával. példaként állítsa be a kulturális környezetet a következő parancsfájl https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1használatával:.
 - Előfordulás: ritka
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
@@ -430,7 +450,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: ezeket az előfizetéseket az **előfizetések áttekintése** panel **Essentials (alapvető** erőforrások) paneljén tekintheti meg.
 - Előfordulás: gyakori
 
-### <a name="subscriptions-lock-blade"></a>Előfizetések zárolása panel
+### <a name="duplicate-subscription-button-in-lock-blade"></a>Ismétlődő előfizetés gomb a zárolási panelen
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felügyeleti portálon a felhasználói előfizetések **zárolási** paneljén két gomb található az **előfizetés**címkével.
@@ -443,7 +463,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
@@ -526,10 +546,10 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
   - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
+  - [ExpressRoute-kapcsolatcsoportok](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítás
+## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -613,7 +633,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: [az engedélyek ellenőrzéséhez használja a PowerShellt](/powershell/module/azurerm.resources/get-azurermroleassignment).
 - Előfordulás: gyakori
 
-### <a name="storage-account-settings"></a>Storage-fiók beállításai
+### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
@@ -682,7 +702,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű funkciót mutat be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
-### <a name="network-connection-type"></a>Hálózati kapcsolat típusa
+### <a name="network-connection-type"></a>Hálózati kapcsolattípus
 
 - Alkalmazható: a probléma bármely 1906-es vagy 1907-es környezetre érvényes. 
 - Ok: a felhasználói portálon a **AddConnection** panel egy lehetőséget mutat be a **VNet – VNet**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban. 
@@ -696,10 +716,10 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [Átjárók SKU-ban](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [Magasan elérhető kapcsolatok](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
   - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute-áramkörök](azure-stack-connect-expressroute.md)
+  - [ExpressRoute-kapcsolatcsoportok](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Számítás
+## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
@@ -764,7 +784,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)

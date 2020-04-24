@@ -3,16 +3,16 @@ title: Azure Stack hub csatlakoztatása az Azure-hoz az ExpressRoute használat�
 description: Megtudhatja, hogyan csatlakoztathat virtuális hálózatokat Azure Stack hub-ban az Azure-beli virtuális hálózatokhoz az ExpressRoute használatával.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701496"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772697"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure Stack hub összekötése az Azure-ba az Azure ExpressRoute
 
@@ -51,7 +51,7 @@ Azure Stack hub és az Azure ExpressRoute-vel való összekapcsolásához a köv
 
 A következő ábra az Azure Stack hub és az Azure-környezeteket mutatja be a ExpressRoute beállításának befejezése után a jelen cikkben szereplő példák alapján:
 
-![ExpressRoute hálózat](media/azure-stack-connect-expressroute/Conceptual.png)
+![ExpressRoute hálózat](media/azure-stack-connect-expressroute/conceptual.svg)
 
 Az alábbi ábra azt mutatja be, hogy több bérlő Hogyan kapcsolódhat a Azure Stack hub-infrastruktúrához a ExpressRoute-útválasztón keresztül az Azure-ba:
 
@@ -68,7 +68,7 @@ Az Azure Stack hub-környezet első bérlőhöz való beállításához kövesse
 >[!NOTE]
 >Ezek a lépések bemutatják, hogyan hozhat létre erőforrásokat az Azure Stack hub Portal használatával, de a PowerShellt is használhatja.
 
-![Azure Stack hub-hálózat beállítása](media/azure-stack-connect-expressroute/image2.png)
+![Azure Stack hub-hálózat beállítása](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
 ### <a name="before-you-begin"></a>Előkészületek
 
@@ -104,7 +104,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
     * Az **erőforráscsoport**területen válassza az **új létrehozása** lehetőséget egy új erőforráscsoport létrehozásához, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
     * Ellenőrizze az alapértelmezett **helyet**.
-    * Kattintson a **Létrehozás** gombra.
+    * Kattintson a **Létrehozás**gombra.
     * Választható Kattintson **a rögzítés az irányítópulton**elemre.
 
 #### <a name="create-the-gateway-subnet"></a>Az átjáróalhálózat létrehozása
@@ -122,12 +122,12 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 1. Az **Azure Marketplace**területen válassza a **hálózatkezelés**lehetőséget.
 1. A hálózati erőforrások listájában válassza a **Virtuális hálózati átjáró** elemet.
 1. A név mezőbe írja be a **GW1** **nevet** .
-1. Válassza ki a **Virtuális hálózatot**.
+1. Válassza a **virtuális hálózat**lehetőséget.
 1. A legördülő listából válassza a **Tenant1VNet1** lehetőséget.
 1. Válassza a **nyilvános IP-cím**lehetőséget, majd **válassza a nyilvános IP-cím**lehetőséget, majd kattintson az **új létrehozása**lehetőségre.
 1. A név mezőbe írja be a **GW1-pip** **nevet** , majd kattintson az **OK**gombra.
 1. Az **VPN típusa** mezőben alapértelmezés szerint a **Útvonalalapú** lehetőség van kiválasztva. Ne módosítsa ezt a beállítást.
-1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Létrehozás** gombra.
+1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Létrehozás**gombra.
 
 #### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
@@ -146,7 +146,7 @@ A helyi hálózati átjáró erőforrás a VPN-kapcsolat másik végén találha
    > [!IMPORTANT]
    > Ez a példa azt feltételezi, hogy statikus útvonalakat használ a helyek közötti VPN-kapcsolathoz az Azure Stack hub-átjáró és a ExpressRoute-útválasztó között.
 
-1. Ellenőrizze, hogy az **előfizetés**, az **erőforráscsoport**és a **hely** helyes-e. Ezután kattintson a **Létrehozás** elemre.
+1. Ellenőrizze, hogy az **előfizetés**, az **erőforráscsoport**és a **hely** helyes-e. Ezután válassza a **Létrehozás**lehetőséget.
 
 #### <a name="create-the-connection"></a>A kapcsolat létrehozása
 
@@ -190,15 +190,15 @@ A VPN-kapcsolaton keresztüli adatforgalom teszteléséhez a virtuális gépekne
    * A virtuális hálózat **Tenant1VNet1**.
    * Az alhálózat beállítása **10.1.1.0/24**.
 
-   Használja az alapértelmezett beállításokat, majd kattintson **az OK gombra**.
+   Használja az alapértelmezett beállításokat, és kattintson az **OK** gombra.
 
 1. Az **Összefoglalás**alatt tekintse át a virtuális gép konfigurációját, majd kattintson **az OK**gombra.
 
 További bérlők hozzáadásához ismételje meg a következő szakaszban leírt lépéseket:
 
 * [A virtuális hálózat és a virtuálisgép-alhálózat létrehozása](#create-the-virtual-network-and-vm-subnet)
-* [Az átjáró alhálózatának létrehozása](#create-the-gateway-subnet)
-* [A virtuális hálózati átjáró létrehozása](#create-the-virtual-network-gateway)
+* [Az átjáróalhálózat létrehozása](#create-the-gateway-subnet)
+* [Virtuális hálózati átjáró létrehozása](#create-the-virtual-network-gateway)
 * [A helyi hálózati átjáró létrehozása](#create-the-local-network-gateway)
 * [A kapcsolat létrehozása](#create-the-connection)
 * [Virtuális gép létrehozása](#create-a-virtual-machine)
@@ -223,7 +223,7 @@ Az útválasztó az Útválasztás és távelérés szolgáltatás (RRAS) szerep
    Get-NetNatExternalAddress
    ```
 
-1. A NAT konfigurálásához másolja és szerkessze a következő PowerShell-szkriptet. Szerkessze a szkriptet, és cserélje le a `External BGPNAT address`t, és `Internal IP address` a következő példában szereplő értékekkel:
+1. A NAT konfigurálásához másolja és szerkessze a következő PowerShell-szkriptet. Szerkessze a szkriptet, `External BGPNAT address` és `Internal IP address` cserélje le a következő példában szereplő értékeket:
 
    * *Külső BGPNAT-címek* esetén használja a 10.10.0.62
    * *Belső IP-cím* használata 192.168.102.1
@@ -267,7 +267,7 @@ Az útválasztó az Útválasztás és távelérés szolgáltatás (RRAS) szerep
 
 Miután befejezte Azure Stack hub konfigurálását, üzembe helyezheti az Azure-erőforrásokat. Az alábbi ábrán egy példa látható egy bérlői virtuális hálózatra az Azure-ban. A VNet az Azure-ban bármilyen nevet és címzési sémát használhat. Az Azure-beli virtuális hálózatok és a Azure Stack hub tartományának azonban egyedinek kell lennie, és nem szabad átfedésben lennie:
 
-![Azure-virtuális hálózatok](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure-virtuális hálózatok](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
 Az Azure-ban üzembe helyezett erőforrások hasonlóak az Azure Stack központban üzembe helyezett erőforrásokhoz. A következő összetevőket kell telepítenie:
 
@@ -595,10 +595,10 @@ Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolódáson, megkeresh
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra, és válassza az **összes erőforrás**lehetőséget.
 1. Navigáljon a VPN Gateway erőforráscsoporthoz, és válassza ki a **kapcsolódási** objektum típusát.
 1. Válassza ki a **ConnectToAzure** -összekötőt a listából.
-1. A **kapcsolatok** > **áttekintése**területen megtekintheti a és **a** **kimenő**adatok statisztikáit. Néhány nem nulla értéket kell látnia.
+1. A **kapcsolatok** > **áttekintése**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
 
    ![És kimenő adatbevitel](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz](../user/azure-stack-solution-pipeline.md)

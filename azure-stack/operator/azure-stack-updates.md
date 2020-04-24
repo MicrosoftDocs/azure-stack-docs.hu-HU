@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 70079b0959f0e5dc5072ef83c68c8887cd006089
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294648"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772509"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése Azure Stack központban
 
@@ -67,7 +67,7 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
 Ha már tudja, hogy rendelkezik frissítéssel, alkalmazza a következő lépésekkel.
 
-![Azure Stack hub frissítési folyamata](./media/azure-stack-updates/azure-stack-update-process.png)
+![Azure Stack hub frissítési folyamata](./media/azure-stack-updates/azure-stack-update-process.svg)
 
 1. **Tervezze meg a frissítést**.
 
@@ -91,7 +91,7 @@ Azure Stack hub tartalmaz egy frissítési erőforrás-szolgáltatót, amely kez
 
 A frissítések telepítésekor megtekintheti a magas szintű állapotot, mivel a frissítési folyamat a Azure Stack hub különböző alrendszereit (például a fizikai gazdagépeket és az infrastruktúra virtuális gépeket) célozza meg.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A frissítési folyamat megkezdéséhez kövesse az [Azure stack hub Update Activity ellenőrzőlista](release-notes-checklist.md)című témakör lépéseit.
 - Az Azure Stack hub támogatott verzióinak megismeréséhez lásd: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md).  

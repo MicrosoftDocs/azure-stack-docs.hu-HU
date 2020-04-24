@@ -3,16 +3,16 @@ title: Azure Stack hub használatának és számlázásának kezelése felhőala
 description: Megtudhatja, hogyan regisztrálhat Azure Stack hub-t felhőalapú megoldás-szolgáltatóként (CSP), és hogyan veheti fel az ügyfeleket a számlázáshoz.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 8202942a10e4faf48b09e9fd0d456a810d6a08fd
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294703"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772381"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
@@ -22,7 +22,7 @@ CSP-ként a Azure Stack hub használatával különböző ügyfelekkel dolgozhat
 
 Az alábbi ábrán a megosztott szolgáltatások kiválasztásához szükséges lépések láthatók, valamint az Azure-fiók regisztrálása a Azure Stack hub-fiókkal. A regisztrációt követően a végfelhasználók a következőket vehetik igénybe:
 
-[![A használat és a kezelés felhőalapú megoldás-szolgáltatóként való engedélyezésének folyamata](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "A használat és a kezelés felhőalapú megoldás-szolgáltatóként való engedélyezésének folyamata")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![A használat és a kezelés felhőalapú megoldás-szolgáltatóként való engedélyezésének folyamata](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg "A használat és a kezelés felhőalapú megoldás-szolgáltatóként való engedélyezésének folyamata")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>CSP-vagy APSS-előfizetés létrehozása
 
@@ -30,14 +30,14 @@ Az alábbi ábrán a megosztott szolgáltatások kiválasztásához szükséges 
 
 Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók típusát. A több-bérlős Azure Stack központ regisztrálásához használható előfizetések típusai a következők:
 
-- Felhőalapú megoldás szolgáltatója
+- Felhőszolgáltató
 - Partner Shared Services-előfizetés
 
 #### <a name="azure-partner-shared-services"></a>Azure partner megosztott szolgáltatások
 
 Az Azure partner Shared Services (APSS) előfizetések előnyben részesítettek a regisztrációhoz, ha egy közvetlen CSP vagy egy CSP-terjesztő Azure Stack hub-t üzemeltet.
 
-A APSS-előfizetések egy megosztott szolgáltatásbeli bérlőhöz vannak társítva. Azure Stack hub regisztrálása esetén meg kell adnia egy olyan fiók hitelesítő adatait, amely az előfizetés tulajdonosa. Az Azure Stack hub regisztrálásához használt fiók eltérhet az üzembe helyezéshez használt rendszergazdai fióktól. Továbbá a két fióknak nem kell ugyanahhoz a tartományhoz tartoznia; az üzembe helyezést a már használt bérlő használatával végezheti el. Használhatja például `ContosoCSP.onmicrosoft.com`, majd regisztrálhat egy másik bérlő használatával; például `IURContosoCSP.onmicrosoft.com`. Ha napi Azure Stack hub-felügyeletet hajt végre, ne felejtse el bejelentkezni `ContosoCSP.onmicrosoft.com` használatával. Ha regisztrációs műveletet kell végrehajtania, akkor `IURContosoCSP.onmicrosoft.com` használatával bejelentkezhet az Azure-ba.
+A APSS-előfizetések egy megosztott szolgáltatásbeli bérlőhöz vannak társítva. Azure Stack hub regisztrálása esetén meg kell adnia egy olyan fiók hitelesítő adatait, amely az előfizetés tulajdonosa. Az Azure Stack hub regisztrálásához használt fiók eltérhet az üzembe helyezéshez használt rendszergazdai fióktól. Továbbá a két fióknak nem kell ugyanahhoz a tartományhoz tartoznia; az üzembe helyezést a már használt bérlő használatával végezheti el. Például használhatja `ContosoCSP.onmicrosoft.com`, majd regisztrálhat egy másik bérlő használatával; például: `IURContosoCSP.onmicrosoft.com`. Ha naponta Azure Stack hub-felügyeletet `ContosoCSP.onmicrosoft.com` hajt végre, ne felejtse el bejelentkezni a szolgáltatásba. Ha regisztrációs műveletet kell végrehajtania `IURContosoCSP.onmicrosoft.com` , jelentkezzen be az Azure-ba.
 
 A APSS-előfizetések és azok létrehozási módjának leírását az [Azure partner megosztott szolgáltatásainak hozzáadása](/partner-center/shared-services)című témakörben tekintheti meg.
 
@@ -70,7 +70,7 @@ Amikor Azure Stack hub a használati adatokat a globális Azure-ba továbbítja,
 
 Mivel a bérlői előfizetések CSP-előfizetések, a számlát a CSP-partnernek küldik, és a használati adatok nem láthatók a végfelhasználók számára.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a CSP programról: [Cloud Solution Provider program](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg a [használat és a számlázás Azure stack hub-ban](azure-stack-billing-and-chargeback.md)című témakört.

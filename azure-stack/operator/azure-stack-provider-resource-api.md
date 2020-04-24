@@ -3,16 +3,16 @@ title: Azure Stack hub-szolgáltató erőforrás-használati API
 description: Az erőforrás-használati API-ra vonatkozó hivatkozás, amely lekéri Azure Stack hub használati adatait.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 0dff4901d24f759404b69184506d1219273d90c5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c360123e5393b328e8e5e800ddac283739f89b7b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698113"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661337"
 ---
 # <a name="provider-resource-usage-api"></a>Szolgáltatói erőforrás-használati API
 
@@ -36,13 +36,13 @@ Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendel
 
 | Argumentum | Leírás |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve `https://adminmanagement.{domain-name}`formátumú. Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a ( `https://adminmanagement.{domain-name}`z) formátumban van. Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external`. |
 | `subId` |Annak a felhasználónak az előfizetés-azonosítója, aki a hívást kezdeményezi. |
-| `reportedStartTime` |A lekérdezés kezdési időpontja. `DateTime` értékének az egyezményes világidő (UTC) és az óra elején kell lennie. például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például `2015-06-16T18%3a53%3a11%2b00%3a00Z`, ahol a kettőspont megmenekült a `%3a`, és a plusz megmenekül a `%2b`, hogy URI-barát legyen. |
-| `reportedEndTime` |A lekérdezés befejezési időpontja. A `reportedStartTime` vonatkozó korlátozások erre az argumentumra is érvényesek. `reportedEndTime` értéke nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
+| `reportedStartTime` |A lekérdezés kezdési időpontja. Az értéknek `DateTime` az egyezményes VILÁGIDŐ (UTC) és az óra elején kell lennie; például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például `2015-06-16T18%3a53%3a11%2b00%3a00Z`, ha a kettőspont megmenekül, `%3a` és a plusz megmenekül `%2b` , hogy URI-barát legyen. |
+| `reportedEndTime` |A lekérdezés befejezési időpontja. A rájuk vonatkozó korlátozások erre `reportedStartTime` az argumentumra is érvényesek. Az érték `reportedEndTime` nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
 | `aggregationGranularity` |Opcionális paraméter, amely két különálló lehetséges értékkel rendelkezik: **naponta** és **óránként**. Az értékek azt sugallják, hogy az egyik napi részletességgel adja vissza az adatokat, a másik pedig óradíjas megoldás. A **napi** beállítás az alapértelmezett. |
-| `subscriberId` |Előfizetés-azonosítójára. A szűrt adatlekérdezéshez a szolgáltató közvetlen bérlője előfizetés-AZONOSÍTÓjának megadása szükséges. Ha nincs megadva előfizetés-azonosító paraméter, a hívás az összes szolgáltató közvetlen bérlője használati adatait adja vissza. |
-| `api-version` |A kérelem elvégzéséhez használt protokoll verziója. Ez az érték `2015-06-01-preview`re van állítva. |
+| `subscriberId` |Előfizetés azonosítója. A szűrt adatlekérdezéshez a szolgáltató közvetlen bérlője előfizetés-AZONOSÍTÓjának megadása szükséges. Ha nincs megadva előfizetés-azonosító paraméter, a hívás az összes szolgáltató közvetlen bérlője használati adatait adja vissza. |
+| `api-version` |A kérelem elvégzéséhez használt protokoll verziója. Ez az érték a következőre van beállítva: `2015-06-01-preview`. |
 | `continuationToken` |A rendszer a használati API-szolgáltató utolsó hívásával lekért tokent. Erre a tokenre akkor van szükség, ha a válasz nagyobb, mint 1 000 sor. A folyamat könyvjelzőként működik. Ha a jogkivonat nincs jelen, az adatok a nap vagy az óra elejétől kezdve, az átadott részletesség alapján kerülnek beolvasásra. |
 
 ### <a name="response"></a>Válasz
@@ -88,7 +88,7 @@ meterID1",
 |`subscriptionId` |Az Azure Stack hub-felhasználó előfizetés-azonosítója. |
 |`usageStartTime`|Annak a használati gyűjtőnek az UTC szerinti kezdési időpontja, amelyhez ez a használati összesítés tartozik.|
 |`usageEndTime`|Azon használati gyűjtő UTC-befejezési időpontja, amelyhez ez a használati összesítés tartozik. |
-|`instanceData` |Példány részleteinek kulcs-érték párok (új formátumban):<br> `resourceUri`: teljes erőforrás-azonosító, amely magában foglalja az erőforráscsoportot és a példánynév nevét. <br> `location`: az a régió, amelyben a szolgáltatást futtatták. <br> `tags`: a felhasználó által megadott erőforrás-címkék. <br> `additionalInfo`: További információ a felhasznált erőforrásról; például az operációs rendszer verziója vagy a rendszerkép típusa. |
+|`instanceData` |Példány részleteinek kulcs-érték párok (új formátumban):<br> `resourceUri`: Teljes körű erőforrás-azonosító, amely magában foglalja az erőforráscsoportot és a példány nevét. <br> `location`: Az a régió, amelyben a szolgáltatást futtatták. <br> `tags`: A felhasználó által megadott erőforrás-címkék. <br> `additionalInfo`: További információ a felhasznált erőforrásról; például az operációs rendszer verziója vagy a rendszerkép típusa. |
 |`quantity`|Az adott időkeretben bekövetkezett erőforrás-felhasználás mennyisége. |
 |`meterId` |A felhasznált erőforrás egyedi azonosítója (más néven `ResourceID`). |
 
@@ -122,7 +122,7 @@ A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Comme
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Bérlői erőforrás-használati API-referenciák](azure-stack-tenant-resource-usage-api.md)
 - [Használattal kapcsolatos gyakori kérdések](azure-stack-usage-related-faq.md)

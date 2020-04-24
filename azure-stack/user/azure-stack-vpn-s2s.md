@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 144dcd2ca714a1654bd7add2b415c0ce35126d9b
+ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367791"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82032773"
 ---
-# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>IPsec/IKE-szabályzat konfigurálása két hálózat közötti pont-pont típusú VPN-kapcsolatokhoz
+# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
 Ez a cikk végigvezeti egy IPsec/IKE-szabályzat konfigurálásának lépésein a helyek közötti (S2S) VPN-kapcsolatokhoz Azure Stack központban.
 
@@ -26,19 +26,19 @@ Az IPsec és az IKE protokoll szabványa számos titkosítási algoritmust támo
 
 Ez a cikk útmutatást nyújt az IPsec/IKE-szabályzatok létrehozásáról és konfigurálásáról, valamint az új vagy meglévő kapcsolatok alkalmazásáról.
 
-## <a name="considerations"></a>Megfontolások
+## <a name="considerations"></a>Megfontolandó szempontok
 
 A szabályzatok használatakor vegye figyelembe a következő fontos szempontokat:
 
 - Az IPsec/IKE-házirend csak a *standard* és a *HighPerformance* (Route-based) átjáró SKU-ban működik.
 
-- Egy adott kapcsolatok esetében csak egy házirend-kombinációt adhat meg.
+- Egy adott kapcsolathoz csak egy házirendet adhat meg.
 
 - Meg kell adnia az összes algoritmust és paramétert mind az IKE (Main Mode), mind az IPsec (gyors mód) esetében. A részleges házirend-megadás nem engedélyezett.
 
 - A VPN-eszközök gyártójának specifikációit megkeresve ellenőrizze, hogy a helyi VPN-eszközökön támogatott-e a házirend. A helyek közötti kapcsolatokat nem lehet létrehozni, ha a házirendek nem kompatibilisek.
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>1\. rész – az IPsec/IKE-házirend létrehozásához és beállításához szükséges munkafolyamat
+## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>1. rész – az IPsec/IKE-házirend létrehozásához és beállításához szükséges munkafolyamat
 
 Ez a szakasz a két hálózat közötti pont-pont típusú VPN-kapcsolat IPsec/IKE-házirendjének létrehozásához és frissítéséhez szükséges munkafolyamatot ismerteti:
 
@@ -56,7 +56,7 @@ Az ebben a cikkben szereplő utasítások segítséget nyújtanak az IPsec/IKE-s
 
 ![IPsec/IKE-szabályzatok beállítása és konfigurálása](media/azure-stack-vpn-s2s/site-to-site.png)
 
-## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>2\. rész – támogatott titkosítási algoritmusok és fő erősségek
+## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>2. rész – támogatott titkosítási algoritmusok és fő erősségek
 
 A következő táblázat felsorolja a támogatott titkosítási algoritmusokat és a Azure Stack hub-ügyfelek által konfigurálható fő erősségeket:
 
@@ -64,11 +64,11 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-titkosítás                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-integritás                                      | SHA384, MD5, SHA1, SHA256                                                |
-| DH-csoport                                             | ECP384, ECP256, DHGroup14, DHGroup2, DHGroup1, none                      |
+| DH-csoport                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
 | IPsec-titkosítás                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Nincs |
 | IPsec-integritás                                      | GCMASE256, GCMAES192, GCMAES128                                          |
-| PFS-csoport                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Nincs                         |
-| Gyorsmódú biztonsági társítás élettartama                                       | (Nem kötelező: Ha nincs megadva, az alapértelmezett értékek szerepelnek)<br />                         Másodperc (egész szám; min. 300/alapértelmezett 27000 másodperc)<br />                         Kilobájt (egész szám; min. 1024/alapértelmezett 102400000 kilobájt) |
+| PFS-csoport                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, nincs                  |
+| Gyorsmódú biztonsági társítás élettartama                                       | (Nem kötelező: Ha nincs megadva, az alapértelmezett értékek szerepelnek)<br />                         Másodperc (egész szám; min. 300/alapértelmezett érték: 27000 másodperc)<br />                         KB (egész szám; min. 1024/alapértelmezett érték: 102400000 KB) |
 | Forgalomválasztó                                     | A házirend-alapú forgalmi választókat Azure Stack hub nem támogatja.         |
 
 - A helyszíni VPN-eszköz konfigurációjának meg kell egyezniük velük, vagy tartalmazniuk kell az alábbi, az Azure IPsec/IKE-házirendben megadott algoritmusokat és paramétereket:
@@ -94,7 +94,7 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 
 A következő táblázat felsorolja az egyéni házirend által támogatott megfelelő Diffie-Hellman csoportokat:
 
-| Diffie-Hellman Group | DHGroup   | PFSGroup      | A kulcs hossza    |
+| Diffie-Hellman Group | DH-csoport   | PFS-csoport      | A kulcs hossza    |
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768 bites MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 bites MODP |
@@ -105,7 +105,7 @@ A következő táblázat felsorolja az egyéni házirend által támogatott megf
 
 További információ: [RFC3526](https://tools.ietf.org/html/rfc3526) és [RFC5114](https://tools.ietf.org/html/rfc5114).
 
-## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>3\. rész – új helyek közötti VPN-kapcsolat létrehozása IPsec/IKE-házirenddel
+## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>3. rész – új helyek közötti VPN-kapcsolat létrehozása IPsec/IKE-házirenddel
 
 Ez a szakasz végigvezeti a helyek közötti VPN-kapcsolat IPsec/IKE-házirenddel való létrehozásának lépésein. A következő ábrán látható módon hozza létre a-kapcsolatokat:
 
@@ -121,7 +121,7 @@ Mielőtt elkezdené, győződjön meg arról, hogy rendelkezik a következő el�
 
 - A Azure Resource Manager PowerShell-parancsmagok. A PowerShell-parancsmagok telepítésével kapcsolatos további információkért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1\. lépés – a virtuális hálózat, a VPN-átjáró és a helyi hálózati átjáró létrehozása
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1. lépés – a virtuális hálózat, a VPN-átjáró és a helyi hálózati átjáró létrehozása
 
 #### <a name="1-declare-variables"></a>1. változók deklarálása
 
@@ -193,7 +193,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
 $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>2\. lépés – helyek közötti VPN-kapcsolat létrehozása IPsec/IKE-házirenddel
+### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>2. lépés – helyek közötti VPN-kapcsolat létrehozása IPsec/IKE-házirenddel
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. IPsec/IKE-szabályzat létrehozása
 
@@ -222,7 +222,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 > [!IMPORTANT]
 > Ha egy kapcsolathoz IPsec/IKE-házirend van megadva, az Azure VPN Gateway csak az IPsec/IKE-javaslatot küldi el vagy fogadja el az adott kapcsolaton megadott titkosítási algoritmusokkal és fő erősségekkel. Győződjön meg arról, hogy a kapcsolat a helyszíni VPN-eszközt használja, vagy fogadja el a pontos szabályzat-kombinációt, ellenkező esetben a helyek közötti VPN-alagutat nem lehet létrehozni.
 
-## <a name="part-4---update-ipsecike-policy-for-a-connection"></a>4\. rész – az IPsec/IKE-házirend frissítése egy kapcsolathoz
+## <a name="part-4---update-ipsecike-policy-for-a-connection"></a>4. rész – az IPsec/IKE-házirend frissítése egy kapcsolathoz
 
 Az előző szakasz azt mutatta be, hogyan kezelhetők az IPsec/IKE-szabályzatok egy meglévő helyek közötti kapcsolathoz. Ez a szakasz végigvezeti a következő műveleteken a kapcsolatban:
 
@@ -257,7 +257,7 @@ DhGroup : DHGroup14
 PfsGroup : None
 ```
 
-Ha nincs konfigurálva IPsec/IKE-házirend, a parancs `$connection6.policy` üres értéket ad vissza. Ez nem jelenti azt, hogy az IPsec/IKE nincs konfigurálva a kapcsolatban; Ez azt jelenti, hogy nincs Egyéni IPsec/IKE-szabályzat. A tényleges kapcsolat a helyszíni VPN-eszköz és az Azure VPN Gateway között egyeztetett alapértelmezett házirendet használja.
+Ha nincs konfigurálva IPsec/IKE-házirend, a parancs `$connection6.policy` üres értéket kap. Ez nem jelenti azt, hogy az IPsec/IKE nincs konfigurálva a kapcsolatban; Ez azt jelenti, hogy nincs Egyéni IPsec/IKE-szabályzat. A tényleges kapcsolat a helyszíni VPN-eszköz és az Azure VPN Gateway között egyeztetett alapértelmezett házirendet használja.
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. IPsec/IKE-házirend hozzáadása vagy frissítése a kapcsolatok számára
 
@@ -312,6 +312,6 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 Ugyanazzal a parancsfájllal ellenőrizhető, hogy a házirend el lett-e távolítva a kapcsolatban.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub VPN Gateway konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)

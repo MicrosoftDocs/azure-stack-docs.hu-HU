@@ -7,23 +7,23 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402839"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106907"
 ---
-# <a name="network-integration-planning-for-azure-stack"></a>A Azure Stack hálózati integrációjának megtervezése
+# <a name="network-integration-planning-for-azure-stack"></a>Hálózatintegráció tervezése Azure Stackhez
 
 Ez a cikk Azure Stack hálózati infrastruktúrával kapcsolatos információkat tartalmaz, amelyek segítségével eldöntheti, hogyan integrálhatja a Azure Stackt a meglévő hálózati környezetbe. 
 
 > [!NOTE]
-> A külső DNS-nevek Azure Stackból való feloldásához (például a www\.bing.com) a DNS-kérelmek továbbításához meg kell adnia a DNS-kiszolgálókat. Azure Stack DNS-követelményekkel kapcsolatos további információkért lásd: [Azure stack Datacenter Integration-DNS](azure-stack-integrate-dns.md).
+> A külső DNS-nevek Azure Stackból (például a www\.Bing.com) való FELOLDÁSához DNS-kiszolgálókat kell megadnia a DNS-kérések továbbításához. Azure Stack DNS-követelményekkel kapcsolatos további információkért lásd: [Azure stack Datacenter Integration-DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fizikai hálózat kialakítása
 
-Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizikai infrastruktúrára van szüksége működése és szolgáltatásai támogatásához. Ahhoz, hogy a Azure Stack integrálva legyen a hálózatra, a rendszer a felső (ToR) kapcsolóktól a legközelebbi kapcsolóhoz vagy útválasztóhoz való kapcsolódást igényli, amely ezen a dokumentáción szegélyként van hivatkozva. A kapcsolati kapcsolat egy vagy több szegélyhez is kapcsolódhat. A ToR-t az Automation-eszköz előre konfigurálta, és legalább egy kapcsolatot vár a ToR és a szegély között, ha BGP-útválasztást használ, és legalább két kapcsolatot (egy-egy ToR-t) a ToR és a szegély között a statikus útválasztás használata esetén, legfeljebb négy kapcsolattal útválasztási beállítások. Ezek a kapcsolatok SFP + vagy SFP28 adathordozóra, valamint egy GB, 10 GB vagy 25 GB sebességre korlátozódnak. A rendelkezésre állás érdekében érdeklődjön az eredeti berendezésgyártó (OEM) hardver gyártójánál. A következő ábra a javasolt kialakítást mutatja be:
+Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizikai infrastruktúrára van szüksége működése és szolgáltatásai támogatásához. Ahhoz, hogy a Azure Stack integrálva legyen a hálózatra, a rendszer a felső (ToR) kapcsolóktól a legközelebbi kapcsolóhoz vagy útválasztóhoz való kapcsolódást igényli, amely ezen a dokumentáción szegélyként van hivatkozva. A kapcsolati kapcsolat egy vagy több szegélyhez is kapcsolódhat. A ToR az Automation-eszköz előre konfigurálva van, és legalább egy kapcsolatot vár a ToR és a szegély között, ha BGP-útválasztást használ, és legalább két kapcsolatot (egy-egy ToR-t) a ToR és a szegély között a statikus útválasztás használata esetén, legfeljebb négy kapcsolattal mindkét útválasztási lehetőség közül. Ezek a kapcsolatok SFP + vagy SFP28 adathordozóra, valamint egy GB, 10 GB vagy 25 GB sebességre korlátozódnak. A rendelkezésre állás érdekében érdeklődjön az eredeti berendezésgyártó (OEM) hardver gyártójánál. A következő ábra a javasolt kialakítást mutatja be:
 
 ![Ajánlott Azure Stack hálózati kialakítás](media/azure-stack-network/physical-network.svg)
 
@@ -73,7 +73,7 @@ A 1910 előtt üzembe helyezett rendszerek esetében ez a/20 alhálózat egy tov
 > [!NOTE]
 > A/20 bemenet a 1910 után a következő Azure Stack hub-frissítés előfeltétele. Ha a következő Azure Stack hub frissítése a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, a következőképpen: A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket.
 
-Javítási **lépések**: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően érhető el) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`. Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
+Javítási **lépések**: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően) a PEP `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`-munkamenetben a következő példa használatával:. Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
 
 ### <a name="azure-stack-infrastructure-network"></a>Infrastruktúra-hálózat Azure Stack
 Ez a/24 hálózat a belső Azure Stack-összetevőkre van kijelölve, így egymás között kommunikálhatnak és cserélhetik az adatcserét. Ez az alhálózat lehet a Azure Stack megoldás kívülről az adatközpontba, ezért nem ajánlott nyilvános vagy internetes útválasztásos IP-címeket használni ezen az alhálózaton. Ezt a hálózatot a rendszer meghirdeti a szegélynek, de az IP-címeinek nagy részét Access Control listák (ACL-ek) védik. A hozzáférésre jogosult IP-címek egy/27 hálózati és gazdagép-szolgáltatásokhoz, például a [privilegizált végponthoz (PEP)](azure-stack-privileged-endpoint.md) és a [Azure stack biztonsági mentéshez](azure-stack-backup-reference.md)megengedett kis hatótávolságon belül vannak.
@@ -92,8 +92,8 @@ Ez a/29 (hat gazda IP-cím) hálózat a kapcsolók felügyeleti portjainak csatl
 
 ## <a name="permitted-networks"></a>Engedélyezett hálózatok
 
-A 1910-es verziótól kezdődően az üzembe helyezési munkalap ezt az új mezőt fogja tartalmazni, amely lehetővé teszi, hogy az operátor módosítson egy hozzáférés-vezérlési listát (ACL), amely lehetővé teszi a hálózati eszközök felügyeleti felületeinek elérését és a hardveres életciklus-gazdagép (HLH) megbízható adatközpont . A hozzáférés-vezérlési lista módosításakor az operátor engedélyezheti, hogy a felügyeleti Jumpbox egy adott hálózati tartományon belül, a HLH operációs rendszer és a HLH BMC használatával hozzáférhessenek. Az operátor egy vagy több alhálózatot is megadhat a listához, ha üresen hagyja, a rendszer alapértelmezés szerint megtagadja a hozzáférést. Ez az új funkció lecseréli az üzembe helyezés utáni manuális beavatkozás szükségességét, ahogy azt a [Azure stack kapcsoló konfigurációjának konkrét beállításainak módosítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates)című témakörben ismertette.
+A 1910-es verziótól kezdődően az üzembe helyezési munkalap ezt az új mezőt fogja tartalmazni, amely lehetővé teszi, hogy az operátor módosítson egy hozzáférés-vezérlési listát (ACL), amely lehetővé teszi a hálózati eszközök felügyeleti felületeinek elérését, valamint a hardveres életciklus-gazdagép (HLH) megbízható adatközpont A hozzáférés-vezérlési lista módosításakor az operátor engedélyezheti, hogy a felügyeleti Jumpbox egy adott hálózati tartományon belül, a HLH operációs rendszer és a HLH BMC használatával hozzáférhessenek. Az operátor egy vagy több alhálózatot is megadhat a listához, ha üresen hagyja, a rendszer alapértelmezés szerint megtagadja a hozzáférést. Ez az új funkció lecseréli az üzembe helyezés utáni manuális beavatkozás szükségességét, ahogy azt a [Azure stack kapcsoló konfigurációjának konkrét beállításainak módosítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates)című témakörben ismertette.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További tudnivalók a hálózati tervezésről: a [határok közötti kapcsolat](azure-stack-border-connectivity.md).

@@ -3,16 +3,16 @@ title: PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 04/14/2020
+ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069433"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106941"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
@@ -49,7 +49,7 @@ Annak ellenőrzése, hogy a PSGallery regisztrálva van-e adattárként.
 Nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagokat:
 
 ```powershell
-Install-module -Name PowerShellGet -Force 
+Install-module -Name PowerShellGet -Force
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
@@ -65,16 +65,17 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávolította a korábban telepített Azure Stack hub AzureRM PowerShell-modulokat. Távolítsa el a modulokat a következő két módszer egyikének használatával:
 
-1. A meglévő AzureRM PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
+1. A meglévő AzureRM és az PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
 
     ```powershell
-    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
+    Get-Module -Name Az.* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
     ```
 
     Ha olyan hibát talál, mint például a "a modul már használatban van", akkor a modulokat használó PowerShell-munkameneteket, majd futtassa újra a fenti szkriptet.
 
-2. Törölje az összes olyan mappát, amely `Azure` vagy `Azs.` a `C:\Program Files\WindowsPowerShell\Modules` és `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` mappákból. A mappák törlése eltávolítja a meglévő PowerShell-modulokat.
+2. Törölje az összes olyan mappát, amely `Azure`a `Az` - `Azs.` val kezdődik `C:\Program Files\WindowsPowerShell\Modules` , `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` vagy a és a mappákból. A mappák törlése eltávolítja a meglévő PowerShell-modulokat.
 
 ## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4. csatlakozás: a PowerShell telepítése Azure Stack hubhoz internetkapcsolattal
 
@@ -86,6 +87,10 @@ Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomás
 
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002-es vagy újabb verziója esetén:
+
+Felhasználói AzureRm-modulok vagy az előzetes verziójú modulok is lehetnek. Az az modulok használatához Azure Stack hub 2002 és a legújabb gyorsjavítás szükséges.
+
+Az az előzetes verziójú modulok használatához kövesse a [PowerShell telepítése az modulban](powershell-install-az-module.md)című témakör útmutatását.
 
 ```powershell  
 # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -139,7 +144,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-Ha a telepítés sikeres, a `AzureAz` és `AzureStack` modulok megjelennek a kimenetben.
+Ha a telepítés sikeres, a `AzureRm` és `AzureStack` a modulok megjelennek a kimenetben.
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. leválasztva: a PowerShell telepítése internetkapcsolat nélkül
 
@@ -159,6 +164,8 @@ A telepítés öt lépésből áll:
 
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 vagy újabb.
+
+Használhatja a AzureRM vagy az az előnézet modulokat. Az az modulok esetében lásd a [PowerShell telepítése az modulban](powershell-install-az-module.md)című témakör útmutatását.
 
 ```powershell
 
@@ -218,7 +225,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a AzureRM és a `AzureStack` modult ebből a tárházból:
+4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a `AzureStack` AzureRM és a modulokat ebből a tárházból:
 
    ```powershell
    # requires -Version 5
@@ -260,7 +267,7 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub-eszközök letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

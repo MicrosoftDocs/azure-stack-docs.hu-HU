@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack hub-szolgáltatás érvényesítésének hibája.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: daef2c9685bd844ba99cadfa4f9f095fadc028be
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704505"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661391"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>A szolgáltatás érvényesítésének megoldása
 
@@ -50,7 +50,7 @@ A PIR-rendszerképet letöltheti a helyi adatközpontban található megosztásr
 
 1. Töltse le a AzCopy a következő címről: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Bontsa ki a AzCopy. zip fájlt, és váltson a `AzCopy.exe`t tartalmazó könyvtárba.
+2. Bontsa ki a AzCopy. zip fájlt, és `AzCopy.exe`váltson a-t tartalmazó könyvtárba.
 
 3. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorból. Futtassa az alábbi parancsot:
 
@@ -73,15 +73,15 @@ A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilváno
 
 | Fájlnév | SHA256 |
 |---------------------------------------|------------------------------------------------------------------|
-| Server2016DatacenterFullBYOL.vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
-| WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
-| Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
-| Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
-| Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| Server2016DatacenterFullBYOL. vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
+| WindowsServer2012R2DatacenterBYOL. vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
+| Server2016DatacenterCoreBYOL. vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
+| Ubuntu1404LTS. vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
+| Ubuntu1604-20170619.1. vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 | OpenLogic-CentOS-69-20180105. vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest. vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>Hiba történik a virtuális gép rendszerképének `VaaSPreReq` parancsfájlban való feltöltésekor
+### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>Hiba történik a `VaaSPreReq` virtuálisgép-rendszerkép parancsfájlban való feltöltésekor
 
 Először győződjön meg arról, hogy a környezet kifogástalan állapotban van:
 
@@ -91,7 +91,7 @@ Először győződjön meg arról, hogy a környezet kifogástalan állapotban v
 Ha a környezet kifogástalan állapotban van, töltse fel kézzel a következő öt virtuálisgép-rendszerképet, amelyek szükségesek az
 
 1. Jelentkezzen be szolgáltatás-rendszergazdaként a felügyeleti portálra. A felügyeleti portál URL-címét az ECE áruházból vagy a Stamp-információs fájlból találja. Útmutatásért lásd: [környezeti paraméterek](azure-stack-vaas-parameters.md#environment-parameters).
-1. Válassza a **További szolgáltatások** > **erőforrás-szolgáltatók** > **számítási** > virtuálisgép- **lemezképek**lehetőséget.
+1. Válassza a **További szolgáltatások** > **erőforrás-szolgáltatók** > **számítási** > virtuálisgép-**lemezképek**lehetőséget.
 1. A virtuálisgép- **lemezképek** panel felső részén kattintson a **+ Hozzáadás** gombra.
 1. Módosítsa vagy vizsgálja meg a következő mezők értékeit az első virtuálisgép-rendszerképnél:
     > [!IMPORTANT]
@@ -115,12 +115,12 @@ Az öt virtuálisgép-rendszerkép tulajdonságai a következők:
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
 | Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
 | OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
 | credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Tekintse át a [kibocsátási megjegyzéseket a szolgáltatásként való érvényesítéshez](azure-stack-vaas-release-notes.md) a legújabb kiadásokban való változásokhoz.

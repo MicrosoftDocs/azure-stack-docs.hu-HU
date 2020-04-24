@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stack hubhoz szolgáltatásként történő érvényesítéssel.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a1ef4a77bdc4f4dd83a7bced78c85d64ae7836c3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704726"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661290"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
@@ -106,6 +106,6 @@ Ha nem érhető el meglévő teszt, kövesse a [tesztek ütemezésének](azure-s
 
 15. Válassza a **Submit (Küldés** ) lehetőséget az eredmények Microsoftnak való elküldéséhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tesztek monitorozása és kezelése az Azure Stack hub ellenőrzési portálján](azure-stack-vaas-monitor-test.md)

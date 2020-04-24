@@ -3,16 +3,16 @@ title: Azure Stack hub áttekintése
 description: Áttekintés arról, hogy mi Azure Stack hub, és hogyan teszi lehetővé az Azure-szolgáltatások futtatását az adatközpontban.
 author: justinha
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698453"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772640"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
 
@@ -40,11 +40,11 @@ Az Azure Stack hub architektúrája lehetővé teszi, hogy az Azure-szolgáltat�
 
 ## <a name="deployment-options"></a>Üzembe helyezési beállítások
 
-A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével. 
+A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével.
 
 Az Azure Stack hub integrált rendszerének mérete 4-16-kiszolgálókról, *méretezési egységnek*nevezzük. Az integrált rendszereket a hardveres partner és a Microsoft közösen támogatja. Az alábbi ábrán egy méretezési egység látható. 
 
-![Azure Stack hub integrált rendszerét bemutató ábra](./media/azure-stack-overview/azure-stack-integrated-system.png). 
+![Azure Stack hub integrált rendszerét bemutató ábra](./media/azure-stack-overview/azure-stack-integrated-system.svg). 
 
 <!---add info and image on regions, etc--->
 
@@ -54,7 +54,7 @@ Dönthet úgy is, hogy Azure Stack hubot az internethez (és az Azure-hoz) **csa
 
 > További információ: a [csatlakoztatott](azure-stack-connected-deployment.md) és a [leválasztott](azure-stack-disconnected-deployment.md) üzembe helyezési modellek szempontjai.
 
-### <a name="identity-provider"></a>Identitás-szolgáltató 
+### <a name="identity-provider"></a>Identitásszolgáltató 
 
 Azure Stack hub Azure Active Directory (Azure AD) vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) protokollt használ. Az Azure AD a Microsoft felhőalapú, több-bérlős identitás-szolgáltatója. Az internethez csatlakoztatott központi telepítésekkel kapcsolatos legtöbb hibrid forgatókönyv az Azure AD-t használja identitás-tárolóként.
 
@@ -99,11 +99,11 @@ A Azure Stack hub szolgáltatásban három opcionális, a (z) rendszerbe telepí
 - **SQL Server**: a [SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider.md) használatával Azure stack hub szolgáltatásként kínál SQL-adatbázisokat. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server példánnyal, Ön és a felhasználók létrehozhatnak adatbázisokat a Felhőbeli natív alkalmazásokhoz, az SQL-t használó webhelyekhez és az SQL-t használó egyéb munkaterhelésekhez.
 - **MySQL-kiszolgáló**: a MySQL- [kiszolgáló erőforrás-szolgáltatójának](azure-stack-mysql-resource-provider-deploy.md) használatával tegye elérhetővé a mysql-adatbázisokat Azure stack hub-szolgáltatásként. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2019 Server Core virtuális gépen.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az Azure Stack hub-portfólió összehasonlítása](compare-azure-azure-stack.md)
 
-[Adminisztráció alapjai](azure-stack-manage-basics.md)
+[Az adminisztráció alapjai](azure-stack-manage-basics.md)
 
 [Gyors útmutató: az Azure Stack hub felügyeleti portáljának használata](azure-stack-manage-portals.md)
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan automatizálhatja Azure Stack érvényesítését a PowerShell használatával.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/26/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c9372aed013c8af089e8e07a0474d6d0321ef53a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a3b7919f920dc173a3378328bbfff427b9820d48
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704743"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661433"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>Azure Stack hub ellenőrzésének automatizálása a PowerShell-lel
 
@@ -265,7 +265,7 @@ További információ: [gyakori munkafolyamat-paraméterek](azure-stack-vaas-par
 | TenantAdminPassword | Az elsődleges bérlő jelszava.  |
 | CloudAdminUserName | A Felhőbeli rendszergazda felhasználóneve.  |
 | CloudAdminPassword | A felhő rendszergazdájának jelszava.  |
-| megoldás neve | Az alapszolgáltatási megoldás neve. |
+| SolutionName | Az alapszolgáltatási megoldás neve. |
 | Projektnév | Az az Varga-munkafolyamat neve. |
 | DiagnosticsStorageConnection | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](azure-stack-vaas-parameters.md). |
 
@@ -275,7 +275,7 @@ A rendszer a naplókat és a jelentéseket a jelenlegi munkamappa szerint menti.
 
 További lehetőségekért lásd: [tesztek figyelése és kezelése az alapvizsgálati portálon](azure-stack-vaas-monitor-test.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha többet szeretne megtudni a Azure Stack hub PowerShell-ről, tekintse át a legújabb modulokat.
 

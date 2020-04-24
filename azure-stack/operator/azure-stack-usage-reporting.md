@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696379"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772564"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Azure Stack hub használati adatok jelentése az Azure-ba
 
@@ -28,7 +28,7 @@ A használaton alapuló számlázási modellt használó Azure Stack hub több c
 
 A használati adatok jelentéskészítése szükséges ahhoz, hogy az Azure Stack hub több csomópontot használó felhasználóinak, akik licencet használnak az utólagos használatú modellben. Ez nem kötelező azon ügyfelek számára, akik a kapacitási modell keretében licenccel rendelkeznek (lásd a [vásárlást](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) ismertető oldalt). Azure Stack Development Kit (ASDK) felhasználók esetében Azure Stack hub-operátorok jelentést készíthetnek a használati adatokról, és ellenőrizhetik a szolgáltatást. A felhasználók azonban nem számítanak fel díjat a felmerülő használati díjakért.
 
-![Azure Stack hub használati adatok számlázási folyamata](media/azure-stack-usage-reporting/billing-flow.png)
+![Azure Stack hub használati adatok számlázási folyamata](media/azure-stack-usage-reporting/billing-flow.svg)
 
 A használati adatokat a rendszer az Azure Stack hub-ból az Azure-ba küldi el a Azure Bridge keresztül. Az Azure-ban a kereskedelmi rendszerek feldolgozzák a használati adatokat, és létrehozzák a számlát. A számla létrehozása után az Azure-előfizetés tulajdonosa megtekintheti és letöltheti a [Azure Fiókközpont](https://account.windowsazure.com/subscriptions). Ha szeretne többet megtudni arról, hogy az Azure Stack hub milyen licenccel rendelkezik, tekintse meg a [Azure stack hub csomagolási és díjszabási dokumentumát](https://go.microsoft.com/fwlink/?LinkId=842847).
 
@@ -97,7 +97,7 @@ A ASDK a használati adatok jelentéskészítéséhez a globális Azure-rendszer
 
 A Azure Stack hub használati API-k által jelentett használati adatok és a Azure Fiókközpontban jelentett használati adatok között mindig késés van. Ez a késleltetés az Azure Stack hub használati adatainak az Azure Commerce szolgáltatásba való feltöltéséhez szükséges idő. Emiatt a késés miatt az éjfél előtt röviddel megjelenő használat a következő napon jelenhet meg az Azure-ban. Ha az [Azure stack hub használati API-kat](azure-stack-provider-resource-api.md) használja, és összehasonlítja az eredményeket az Azure számlázási portálon jelentett használattal, a különbség látható.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Szolgáltatói használati API](azure-stack-provider-resource-api.md)  
 - [Bérlői használati API](azure-stack-tenant-resource-usage-api.md)

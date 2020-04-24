@@ -1,24 +1,24 @@
 ---
-title: C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub virtuális gépén
-description: C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen.
+title: C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub virtuális gépén
+description: Helyezzen üzembe egy C# ASP.NET-webalkalmazást Azure Stack hub egyik virtuális gépén.
 author: mattbriggs
 ms.topic: overview
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704182"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661074"
 ---
-# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.net-webalkalmazás üzembe helyezése Azure stack hub-beli virtuális gépen
+# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
-Létrehozhat egy virtuális gépet (VM) a C# ASP.net-webalkalmazás üzemeltetéséhez Azure stack hub-ban. Ez a cikk a kiszolgáló beállításakor követendő útmutatást ismerteti, konfigurálja a C# ASP.net-webalkalmazás üzemeltetéséhez, majd közvetlenül a Visual studióból helyezi üzembe az alkalmazást.
+Létrehozhat egy virtuális gépet (VM) a C# ASP.NET-webalkalmazás üzemeltetéséhez Azure Stack központban. Ez a cikk a kiszolgáló beállításakor követendő utasításokat ismerteti, konfigurálja a C# ASP.NET-webalkalmazás üzemeltetéséhez, majd közvetlenül a Visual studióból helyezi üzembe az alkalmazást.
 
-Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren futó ASP.net Core 2,2-et használja.
+Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón futó ASP.NET Core 2,2-et használja.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
@@ -47,13 +47,13 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
     b. Keresse meg a virtuális gépet. Lehet, hogy rögzítette a virtuális gépet az irányítópulton, vagy megkeresi az **erőforrások keresése** mezőben.
 
-    c. Válassza a **hálózatkezelés**lehetőséget.
+    c. Válassza a **Hálózat** lehetőséget.
 
     d. Válassza a **bejövő Port hozzáadása szabály** a virtuális gép alatt lehetőséget.
 
     e. Adjon hozzá egy bejövő biztonsági szabályt a következő portokhoz:
 
-    | Port | Protokoll | Leírás |
+    | Port | Protocol (Protokoll) | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) a weblapok kiszolgálókról történő kézbesítéséhez használt protokoll. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét.  |
@@ -65,7 +65,7 @@ Ez a cikk egy C# olyan 6,0-alkalmazást használ, amely a Windows 2016 Serveren 
 
     a. A **forrás**mezőben válassza a **bármelyik**lehetőséget.
 
-    b. A **forrásport-tartomány**mezőbe írjon be egy csillagot ( **\*** ).
+    b. A **forrásport-tartomány**mezőbe írjon be egy csillag**\***() karaktert.
 
     c. A **cél**mezőben válassza a **bármelyik**lehetőséget.
 
@@ -132,8 +132,8 @@ Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack hub-ban.
         mywebapp.local.cloudapp.azurestack.external
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).
-- A C# programozási nyelv megismeréséhez és a további erőforrásainak C#megkereséséhez [ C# ](https://docs.microsoft.com/dotnet/csharp/) tekintse meg a következő útmutatót:
+- A c# programozási nyelv megismeréséhez és a C# további erőforrásainak megkereséséhez tekintse meg a [C# útmutatóját](https://docs.microsoft.com/dotnet/csharp/) .

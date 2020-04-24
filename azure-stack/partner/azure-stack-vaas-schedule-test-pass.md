@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan ütemezhet egy tesztet az Azure Stack hub ellenőrzési portálján.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e41fe02946b3f08d34cdb0a6d81c08885ef9d71b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 649ad123107d01059f2b5fdc25adc1b847e2e2c5
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704607"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661191"
 ---
 # <a name="scheduling-a-test"></a>Teszt ütemezése
 
@@ -80,6 +80,6 @@ Munkafolyamat-létrehozás befejezése
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

@@ -3,16 +3,16 @@ title: Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 description: Ismerje meg, hogyan állíthat be több helyek közötti VPN-alagutat Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 09/19/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: c1b48e551a1c94456174cbe5725da72d76f78219
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: ccfab1377a21c9de1df46c9695d10e4afab84dea
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636335"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661502"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 
@@ -76,7 +76,7 @@ Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látha
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>Tekintse át a webes és az alkalmazási rétegek központi telepítéseit és a rögzítési kimeneteket
 
-1.  Ellenőrizze, hogy az üzemelő példány sikeresen befejeződött-e. Válassza a **kimenetek**lehetőséget.
+1.  Ellenőrizze, hogy az üzemelő példány sikeresen befejeződött-e. Válassza a **Kimenetek** lehetőséget.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 
@@ -130,7 +130,7 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
 2.  Kapcsolódjon a rendszerhez egy távoli asztali (DRP) ügyféllel az üzembe helyezés során beállított hitelesítő adatokkal.
 
-3.  Nyissa meg a PowerShellt egy emelt szintű parancssorral, és futtassa `get-VPNS2SInterface`.
+3.  Nyissa meg a PowerShellt egy emelt `get-VPNS2SInterface`szintű parancssorral, és futtassa a parancsot.
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image16.png)
 
@@ -142,7 +142,7 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
 1.  A cél egy Windows 2016-rendszerkép.
 
-2.  Ha a `Add-Site2SiteIKE.ps1` parancsfájlt a tárházból másolja, és helyileg futtatja, a parancsfájl telepíti a **WindowsFeature** és a **remoteaccess**.
+2.  Ha átmásolja `Add-Site2SiteIKE.ps1` a szkriptet a tárházból, és helyileg futtatja, a parancsfájl telepíti a **WindowsFeature** és a **remoteaccess**.
 
     > [!Note]
     > A környezettől függően előfordulhat, hogy újra kell indítania a rendszerét.
@@ -183,7 +183,7 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image21.png)
 
-5.  Ha engedélyezi az RDP-t és a bejelentkezést, nyissa meg a PowerShellt, és futtassa a `get-vpns2sinterface`t, és láthatja, hogy az alagút csatlakoztatva van.
+5.  Ha engedélyezi az RDP-t, és bejelentkezik, nyissa `get-vpns2sinterface`meg a PowerShellt, és futtassa a parancsot, és láthatja, hogy az alagút csatlakoztatva van.
 
     **DBTier**
 
@@ -207,7 +207,7 @@ A folyamat majdnem azonos. Ha azonban az alagút sablonját a meglévő infrastr
 
 ![](./media/azure-stack-network-howto-vpn-tunnel/image24.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [VPN-alagút létrehozása a GRE használatával](network-howto-vpn-tunnel-gre.md)  

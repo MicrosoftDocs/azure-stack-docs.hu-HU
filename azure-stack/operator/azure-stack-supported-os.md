@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Ismerje meg, hogy mely vendég operációs rendszerek használhatók Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: a731c7c72f38fee0fb37fc8b82e55799d5b80d3b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 17af4430f84f744a6ff4c8994ff453939fadb747
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696940"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661245"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack hub által támogatott vendég operációs rendszerek
 
@@ -29,7 +29,7 @@ Azure Stack hub az alábbi táblázatban felsorolt Windows vendég operációs r
 | Windows Server 2012 R2 | 64 bites |  Adatközpont |
 | Windows Server 2012 | 64 bites |  Adatközpont |
 | Windows Server 2008 R2 SP1 | 64 bites |  Adatközpont |
-| Windows Server 2008 SP2 | 64 bites |  Saját rendszerkép használata |
+| Windows Server 2008 SP2 | 64 bites |  Saját rendszerkép használata |
 | Windows 10 *(lásd az 1. megjegyzést)* | 64 bites, Pro és Enterprise | Saját rendszerkép használata |
 
 > [!NOTE]
@@ -62,14 +62,14 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 | SLES 11SP4 | 64 bites | SUSE | Igen |
 | SLES 12SP3 | 64 bites | SUSE | Igen |
 | Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 16.04-LTS | 64 bites | Canonical | Igen |
-| Ubuntu 18.04-LTS | 64 bites | Canonical | Igen |
+| Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
 
 Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack hub: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
-- [Piactéri termékek letöltése](azure-stack-download-azure-marketplace-item.md)  
-- [Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
+- [Marketplace-elemek letöltése](azure-stack-download-azure-marketplace-item.md)  
+- [Marketplace-elem létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

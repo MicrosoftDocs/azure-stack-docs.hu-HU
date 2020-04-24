@@ -4,19 +4,19 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan hozhat létre OEM-bővítményi csomagot Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 64ecf37e0fff2e9380a2c13b6fe65a41ec84de08
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c38a2738fcdfcb61c032982ce4ae0d2ea88d6e3f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704709"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661473"
 ---
-# <a name="create-an-oem-package"></a>OEM-csomag létrehozása
+# <a name="create-an-oem-package"></a>Hardvergyártói csomag létrehozása
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -28,11 +28,11 @@ A létrehozás és az ellenőrzés után az OEM-bővítmény használható az al
 
 1. Azonosítsa a csomag következő tartalmát:
     - A csomag tartalmát tartalmazó Zip-fájl.
-    - Egy `oemMetadata.xml`nevű jegyzékfájl, amelynek a tartalmának meg kell egyeznie a csomag tartalmának gyökerében lévő `metadata.xml` fájlban szereplő tartalommal.
+    - Egy nevű `oemMetadata.xml`jegyzékfájl, amelynek meg kell egyeznie a csomag tartalmának `metadata.xml` gyökerében lévő fájl tartalmával.
 
 2. Válassza ki a tartalmi fájlokat, és hozzon létre egy zip-fájlt:
 
-    a zip-fájl tartalmának ![OEM-bővítmény létrehozásakor](media/vaas-create-oem-package-1.png) ![az elemek tartalmának tömörítése egy OEM-bővítmény csomagjának létrehozásakor](media/vaas-create-oem-package-2.png)
+    ![A zip-fájl tartalma, ha OEM-](media/vaas-create-oem-package-1.png) ![bővítményt hoz létre egy OEM-bővítmény létrehozásakor az elemek tartalmának tömörítéséhez](media/vaas-create-oem-package-2.png)
 
 3. Nevezze át az eredményül kapott fájlt, hogy az azonosítható legyen.
 
@@ -47,6 +47,6 @@ A zip-fájl struktúrájának ellenőrzéséhez vizsgálja meg, és ellenőrizze
 
 A zip-fájl már feltölthető az Varga-ra, és a Microsoft aláírja a csomag-ellenőrzési munkafolyamatban.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [OEM-csomag ellenőrzése](azure-stack-vaas-validate-oem-package.md)

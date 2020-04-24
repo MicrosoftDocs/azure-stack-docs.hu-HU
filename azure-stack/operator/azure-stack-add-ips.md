@@ -3,16 +3,16 @@ title: Nyilvános IP-címek hozzáadása az Azure Stack központban
 description: Megtudhatja, hogyan adhat hozzá nyilvános IP-címeket Azure Stack hubhoz.
 author: justinha
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f17ef9fad4dd595d4a8d1e51b4efc3c0dd029bef
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703366"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772477"
 ---
 # <a name="add-public-ip-addresses"></a>Nyilvános IP-címek hozzáadása
 
@@ -26,9 +26,9 @@ A Azure Stack hub rendszer kezdeti telepítése után bármikor hozzáadhat nyil
 
 Magas szinten az új nyilvános IP-címterület hozzáadásának folyamata Azure Stack hubhoz így néz ki:
 
- ![IP-folyamat hozzáadása](media/azure-stack-add-ips/flow.PNG)
+ ![IP-folyamat hozzáadása](media/azure-stack-add-ips/flow.svg)
 
-## <a name="obtain-the-address-block-from-your-provider"></a>A Címterület beszerzése a szolgáltatótól
+## <a name="obtain-the-address-block-from-your-provider"></a>Szerezze be a címblokkot a szolgáltatójától
 Az első dolog, amit meg kell tennie, hogy megszerezze a Azure Stack hub-hoz hozzáadni kívánt címterület beszerzését. Attól függően, hogy honnan szerzi be a címtartományt, gondolja át, milyen az átvezetési idő, és hogyan kezelheti ezt a Azure Stack hub nyilvános IP-címeinek felhasználására használt sebességgel.
 
 > [!IMPORTANT]
@@ -36,7 +36,7 @@ Az első dolog, amit meg kell tennie, hogy megszerezze a Azure Stack hub-hoz hoz
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>IP-címtartomány hozzáadása Azure Stack hubhoz
 
-1. A böngészőben nyissa meg a felügyeleti portál irányítópultját. Ebben a példában a https://adminportal.local.azurestack.externalhasználjuk.
+1. A böngészőben nyissa meg a felügyeleti portál irányítópultját. Ebben a példában a következőt fogjuk használni https://adminportal.local.azurestack.external:.
 2. Jelentkezzen be az Azure Stack hub felügyeleti portálján Felhőbeli operátorként.
 3. Az alapértelmezett irányítópulton keresse meg a régió-felügyeleti listát, és válassza ki a kezelni kívánt régiót. Ebben a példában a helyit használjuk.
 4. Keresse meg az erőforrás-szolgáltatók csempét, és kattintson a hálózati erőforrás-szolgáltatóra.
@@ -48,5 +48,5 @@ Az első dolog, amit meg kell tennie, hogy megszerezze a Azure Stack hub-hoz hoz
 10. Miután áttekinti az adatokat a panelen, és ellenőrizze, hogy minden helyesnek tűnik-e, kattintson az **OK** gombra a módosítás véglegesítéséhez és a címtartomány Azure stack hubhoz való hozzáadásához.
 
 
-## <a name="next-steps"></a>Következő lépések 
+## <a name="next-steps"></a>További lépések 
 [Tekintse át a méretezési egység csomópontjának műveleteit](azure-stack-node-actions.md).
