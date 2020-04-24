@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Változások és frissítések a Azure Stack hub piactéren.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3a78dabf7e4bae13d4fcea5d672d79110ddb44b7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4efff54a69adc2150aec88791738a9d564df55ee
+ms.sourcegitcommit: 3809903f51e254fadfa8c653d5b441278540319e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699099"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82139477"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -62,6 +62,146 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 04/17/2020: Bitnami AbanteCart – 1.2.2002091007 verzió
+- 04/17/2020: Bitnami ActiveMQ – 5.15.2003260344 verzió
+- 04/17/2020: Bitnami Akeneo – 3.2.2004030743 verzió
+- 04/17/2020: Bitnami szabadban lévő közösségi verzió – 201911.0.2003121515
+- 04/17/2020: Bitnami beli jfrog Artifactory nyílt forráskódú verzió 6.18.2003290935
+- 04/17/2020: Bitnami Canvas LMS – verzió 2020.3.2004032020
+- 04/17/2020: Bitnami Cassandra-Version 3.11.2003302002
+- 04/17/2020: Bitnami CiviCRM – 5.24.2004020441 verzió
+- 04/17/2020: a Bitnami CMS Made Simple-Version 2.2.2002251724
+- 04/17/2020: Bitnami concrete5 – 8.5.2003290934 verzió
+- 04/17/2020: Bitnami HashiCorp Consul – Version 1.7.2003252309
+- 04/17/2020: Bitnami Coppermine – Version 1.6.2002270450
+- 04/17/2020: Bitnami CouchDB – 3.0.2004031727 verzió
+- 04/17/2020: Bitnami diaszpóra – Version 0.7.2003290934
+- 04/17/2020: Bitnami diskurzus – 2.4.2003272110 verziója
+- 04/17/2020: Bitnami Django – 2.2.2003091923 verzió
+- 04/17/2020: Bitnami Dolibarr – 11.0.2003201041 verzió
+- 04/17/2020: Bitnami DreamFactory – 4.0.2004030129 verzió
+- 04/17/2020: Bitnami Drupal – Version 8.8.2003190909
+- 04/17/2020: Bitnami Elasticsearch – 7.6.2003312054 verzió
+- 04/17/2020: Bitnami ELK – 7.6.2003312108 verzió
+- 04/17/2020: Bitnami ERPNext – 12.6.2003272110 verzió
+- 04/17/2020: Bitnami EspoCRM – 5.8.2003180952 verzió
+- 04/17/2020: Bitnami etcd – 3.4.2004020147 verzió
+- 04/17/2020: Bitnami eXo platform – verzió 5.2.2004011322
+- 04/17/2020: a Bitnami FAT ingyenes CRM-verzió 0.18.2003290935
+- 04/17/2020: Bitnami Ghost-Version 3.12.2004010229
+- 04/17/2020: Bitnami GitLab CE – Version 12.9.2004030743
+- 04/17/2020: Bitnami Grafana – 6.7.2004021439 verzió
+- 04/17/2020: Bitnami Apache guacamole – 1.1.2003260344 verzió
+- 04/17/2020: Bitnami Hadoop – 3.2.2003032233 verzió
+- 04/17/2020: Bitnami HHVM – 3.30.2004011930 verzió
+- 04/17/2020: Bitnami Horde Csoportmunka webmail-Version 5.2.2003290935
+- 04/17/2020: Bitnami JasperReports – 7.5.2003032233 verzió
+- 04/17/2020: Bitnami Jenkins – 2.204.2003061428 verzió
+- 04/17/2020: Bitnami Joomla! – verzió 3.9.2003101942
+- 04/17/2020: Bitnami JRuby – 9.2.2003260225 verzió
+- 04/17/2020: Bitnami Kafka – 2.4.2003260336 verzió
+- 04/17/2020: Bitnami Kafka-fürt rendszerképe – verzió 2.4.2003261150
+- 04/17/2020: Bitnami Kong – Version 2.0.2003252244
+- 04/17/2020: Bitnami Kubernetes homokozó – verzió 1.17.2003290935
+- 04/17/2020: Bitnami LAMP – 7.3.2004022153 verzió
+- 04/17/2020: Bitnami LAPP – 7.3.2004030129 verzió
+- 04/17/2020: Bitnami – 0.4.2003060941 verzió
+- 04/17/2020: Bitnami Liferay – verzió 7.3.2003062233
+- 04/17/2020: Bitnami LimeSurvey – 4.1.2003300404 verzió
+- 04/17/2020: Bitnami Live Helper csevegés – verzió 3.28.2002182119
+- 04/17/2020: Bitnami Magento – Version 2.3.2003290934
+- 04/17/2020: Bitnami Mahara – 19.10.2003060941 verzió
+- 04/17/2020: Bitnami Mantiss – 2.24.2003171132 verzió
+- 04/17/2020: Bitnami MariaDB – 10.4.2003252212 verzió
+- 04/17/2020: Bitnami Mattermost Team Edition – Version 5.21.2003310821
+- 04/17/2020: Bitnami Mautic – 2.16.2003291301 verzió
+- 04/17/2020: Bitnami MEAN-Version 4.2.2003272110
+- 04/17/2020: Bitnami MediaWiki – Version 1.34.2003290934
+- 04/17/2020: Bitnami Memcached – 1.6.2003290237 verzió
+- 04/17/2020: Bitnami MODX – Version 2.7.2003021115
+- 04/17/2020: Bitnami MongoDB – 4.2.2003260102 verzió
+- 04/17/2020: Bitnami MongoDB a replikálási lemezkép-verzió 4.2.2003260238
+- 04/17/2020: Bitnami Moodle – 3.8.2003070332 verziója
+- 04/17/2020: Bitnami MyBB – 1.8.2003312155 verzió
+- 04/17/2020: Bitnami MySQL-Version 8.0.2003252232
+- 04/17/2020: Bitnami NAT-verzió 2.1.2004010828
+- 04/17/2020: Bitnami Neo4j – 4.0.2003311444 verzió
+- 04/17/2020: Bitnami Neos – Version 5.1.2002251336
+- 04/17/2020: a Bitnami NGINX nyílt forráskódú verziója 1.16.2003091723
+- 04/17/2020: Bitnami Noalyss – 7.2.2003300403 verzió
+- 04/17/2020: Bitnami Node. js – verzió 12.16.2004032020
+- 04/17/2020: Bitnami-alkotó – verzió 10.0.2003130312
+- 04/17/2020: Bitnami Odoo – 13.0.2003171346 verzió
+- 04/17/2020: a Bitnami Open Atrium – Version 2.645.2003272110
+- 04/17/2020: Bitnami OpenCart – 3.0.2004011016 verzió
+- 04/17/2020: Bitnami Open edX – Version 576663.2.2004040204
+- 04/17/2020: Bitnami Openfire – 4.5.2003121708 verzió
+- 04/17/2020: Bitnami OpenProject – 10.3.2002271344 verzió
+- 04/17/2020: Bitnami narancs – 4.3.2003290934 verzió
+- 04/17/2020: Bitnami OroCRM – 4.0.2002240342 verzió
+- 04/17/2020: Bitnami Osclass – 3.9.2004011930 verzió
+- 04/17/2020: Bitnami ownCloud – 10.4.2003060941 verzió
+- 04/17/2020: Bitnami OXID-6.1.2003182102 verzió
+- 04/17/2020: Bitnami elemzési kiszolgáló – verzió 4.2.2004032142
+- 04/17/2020: Bitnami Phabricator – 2020.7.2003302247 verzió
+- 04/17/2020: a Bitnami phpBB verziója 3.3.2003300403
+- 04/17/2020: Bitnami phpList – 3.5.2003120217 verzió
+- 04/17/2020: Bitnami Pimcore – 6.6.2004020731 verzió
+- 04/17/2020: Bitnami Matomo – 3.13.2003310821 verzió
+- 04/17/2020: Bitnami Plone – 5.2.2004040204 verzió
+- 04/17/2020: Bitnami Pootle – 2.8.2003142035 verzió
+- 04/17/2020: Bitnami PostgreSQL – Version 12.2.2003252203
+- 04/17/2020: Bitnami PrestaShop – verzió 1.7.2003060402
+- 04/17/2020: Bitnami ProcessMaker Közösség – verzió 3.3.2002280250
+- 04/17/2020: Bitnami ProcessWire – 3.0.2003271723 verzió
+- 04/17/2020: Bitnami Publify – 9.1.2004050325 verzió
+- 04/17/2020: Bitnami RabbitMQ – 3.8.2003252248 verzió
+- 04/17/2020: Bitnami re: Dash-Version 8.0.2003101838
+- 04/17/2020: Bitnami Redis – 5.0.2003260436 verzió
+- 04/17/2020: Bitnami Redmine – 4.1.2003192006 verzió
+- 04/17/2020: Bitnami reportserver közösségi verzió 3.1.2004042019
+- 04/17/2020: Bitnami ResourceSpace – 9.2.2003120258 verzió
+- 04/17/2020: Bitnami felülvizsgálati Tanács – 3.0.2003290934 verzió
+- 04/17/2020: Bitnami RoundCube – 1.4.2004030743 verzió
+- 04/17/2020: Bitnami Ruby-Version 2.5.2004022154
+- 04/17/2020: Bitnami SEO panel – verzió 4.3.2003142037
+- 04/17/2020: Bitnami Shopware – 6.1.2003182107 verzió
+- 04/17/2020: Bitnami SilverStripe – 4.5.2003291647 verzió
+- 04/17/2020: Bitnami Simple Machines Fórum – 2.0.2003271504 verziója
+- 04/17/2020: Bitnami SonarQube – 8.2.2003100519 verzió
+- 04/17/2020: Bitnami Spree – 4.0.2003091450 verzió
+- 04/17/2020: Bitnami alverzió – 1.13.2003270848 verziója
+- 04/17/2020: Bitnami SuiteCRM – 7.11.2003290935 verzió
+- 04/17/2020: a Bitnami TensorFlow-verziójának 2.1.2003311517
+- 04/17/2020: Bitnami TestLink – 1.9.2003030838 verzió
+- 04/17/2020: Bitnami Tiki Wiki CMS csoportmunka – verzió 21.0.2003290934
+- 04/17/2020: Bitnami apró, kis RSS-verzió 202004.0.2004010740
+- 04/17/2020: Bitnami tomcat – 8.5.2003252327 verzió
+- 04/17/2020: Bitnami Trac – verzió 1.4.2003271701
+- 04/17/2020: Bitnami TYPO3 – 9.5.2004021800 verzió
+- 04/17/2020: Bitnami WildFly – 19.0.2004011057 verzió
+- 04/17/2020: Bitnami WordPress-Version 5.3.2002192111
+- 04/17/2020: Bitnami WordPress többhelyes verzió 5.4.2004021948
+- 04/17/2020: Bitnami WordPress az NGINX és az SSL-Version 5.3.2002212004
+- 04/17/2020: Bitnami XOOPS – verzió 2.5.2004042000
+- 04/17/2020: Bitnami ZooKeeper – 3.6.2003261205 verzió
+- 04/17/2020: Bitnami rugalmas keresési fürt – 1.0.1-es verzió
+- 04/17/2020: Bitnami Kafka-fürt – 1.0.1-es verzió
+- 04/17/2020: Bitnami-MongoDB replikációval – 1.0.1-es verzió
+- 04/17/2020: a Bitnami Redis magas rendelkezésre állása – Version 1.0.26
+- 04/17/2020: a Bitnami Moodle többrétegű verziója – 1.0.45
+- 04/17/2020: Bitnami ZooKeeper-fürt verziója 1.0.17
+- 04/17/2020: Bitnami PostgreSQL és replikálás – Version 1.0.36
+- 04/17/2020: Bitnami Memcached több példányban – verzió 1.0.33 
+- 04/17/2020: Bitnami MySQL a Replication-Version 1.0.36
+- 04/17/2020: Bitnami Cassandra-fürt verziója – 1.0.20
+- 04/17/2020: Bitnami etcd-fürt verziója 1.0.15
+- 04/17/2020: Bitnami MariaDB a replikálási verzió 1.0.12
+- 04/17/2020: Bitnami WordPress többrétegű verzió 1.0.55
+- 04/17/2020: Bitnami NAT-fürt – verzió 1.0.18
+- 04/17/2020: Bitnami MariaDB Galera – fürt verziója 1.0.35
+- 04/17/2020: Bitnami Jenkins-fürt – verzió 1.0.69
+- 04/17/2020: Bitnami RabbitMQ-fürt verziója 1.0.37
 - 07/11/2019: Thales CipherTrust Cloud Key Manager – verzió 1.0.7
 - 07/16/2019: Windows Server 2016 Datacenter Server Core BYOL – Version 2016.127.20190522
 - 07/16/2019: a Windows Server 2016 Datacenter Server Core 2016.127.20190522 verziójának használata
