@@ -3,16 +3,16 @@ title: Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy 
 description: Ismerje meg, hogyan csatlakozhat Storage Explorer egy Azure Stack hub-előfizetéshez
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ecf05c089ca193cca3554fc6a8e52e406dce3da2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704993"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660378"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
 
@@ -38,7 +38,7 @@ A leválasztott és a ASDK integrált rendszerek esetében a javaslat egy belső
 
 Exportálja és importálja Azure Stack hub-tanúsítványt a leválasztott integrált rendszerekhez és a ASDK. A csatlakoztatott integrált rendszerek esetében a tanúsítvány nyilvánosan aláírva, és ez a lépés nem szükséges.
 
-1. Nyissa meg `mmc.exe` egy Azure Stack hub-gazdagépen vagy egy olyan helyi gépen, amely VPN-kapcsolattal rendelkezik Azure Stack hubhoz. 
+1. Nyisson `mmc.exe` meg egy Azure stack hub-gazdagépet vagy egy helyi gépet, amely VPN-kapcsolattal rendelkezik Azure stack hubhoz. 
 
 2. A **fájl**menüben kattintson a **beépülő modul hozzáadása/eltávolítása**elemre. Válassza ki a **tanúsítványok** lehetőséget az elérhető beépülő modulokban. 
 
@@ -48,7 +48,7 @@ Exportálja és importálja Azure Stack hub-tanúsítványt a leválasztott inte
 
     ![Az Azure Stack hub főtanúsítványának betöltése az MMC. exe használatával](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-5. Kattintson a jobb gombbal a tanúsítványra, válassza a **minden feladat** > **Exportálás**lehetőséget, majd kövesse az utasításokat a tanúsítvány exportálásához **Base-64 kódolású X. 509 (. CER)** .
+5. Kattintson a jobb gombbal a tanúsítványra, válassza a **minden feladat** > **Exportálás**lehetőséget, majd kövesse az utasításokat a tanúsítvány exportálásához **Base-64 kódolású X. 509 (. CER)**.
 
     Az exportált tanúsítványt a következő lépésben fogja használni.
 
@@ -100,14 +100,14 @@ A következő lépésekkel csatlakoztathatja a Storage Explorert egy AD FS-fiók
 
 3. Kattintson a **Tovább** gombra. A Kapcsolódás az Azure Storage-hoz párbeszédpanel Azure- **környezet**területén válassza az **Egyéni környezet használata**lehetőséget, majd kattintson a **tovább**gombra.
 
-    ![Kapcsolódás az Azure Storage-hoz](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+    ![Csatlakozás az Azure Storage-hoz](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
 4. Adja meg Azure Stack hub egyéni környezet szükséges adatait. 
 
     | Mező | Megjegyzések |
     | ---   | ---   |
     | Környezet neve | A mezőt a felhasználó testreszabhatja. |
-    | Azure Resource Manager végpont | A Azure Stack Development Kit Azure Resource Manager erőforrás-végpontjának mintái.<br>Operátorok esetén: https://adminmanagement.local.azurestack.external <br> Felhasználók számára: https://management.local.azurestack.external |
+    | Azure Resource Manager végpont | A Azure Stack Development Kit Azure Resource Manager erőforrás-végpontjának mintái.<br>Operátorok esetén:https://adminmanagement.local.azurestack.external <br> Felhasználók számára:https://management.local.azurestack.external |
 
     Ha Azure Stack hub integrált rendszeren dolgozik, és nem ismeri a felügyeleti végpontját, forduljon a kezelőhöz.
 
@@ -150,8 +150,8 @@ A Storage-fiók neve és a kulcspár használatával is csatlakozhat egy Azure S
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-* [Ismerkedés a Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [A Storage Explorer használatának első lépései](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack hub Storage: különbségek és megfontolások](azure-stack-acs-differences.md)
 * Az Azure Storage szolgáltatással kapcsolatos további információkért lásd: [a Microsoft Azure Storage bemutatása](/azure/storage/common/storage-introduction)

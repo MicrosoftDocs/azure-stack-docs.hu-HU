@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
 ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
-ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80638207"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
@@ -45,7 +45,7 @@ Vegye fel a kapcsolatot Microsoft ügyfélszolgálata, ha magasabb szintű hozz�
 
 ### <a name="choose-identity-provider"></a>Identitás-szolgáltató kiválasztása
 
-Érdemes figyelembe vennie, hogy melyik identitás-szolgáltatót kívánja használni Azure Stack hub üzembe helyezéséhez, vagy az Azure AD-hez vagy a AD FShoz. Az identitás-szolgáltatókat az üzembe helyezést követően nem lehet átváltani a teljes rendszer újratelepítése nélkül. Ha nem rendelkezik az Azure AD-fiókkal, és a felhőalapú megoldás szolgáltatója által biztosított fiókot használja, és ha úgy dönt, hogy átváltja a szolgáltatót, és egy másik Azure AD-fiókot használ, kapcsolatba kell lépnie a megoldás szolgáltatójával a megoldás újbóli üzembe helyezéséhez költség.
+Érdemes figyelembe vennie, hogy melyik identitás-szolgáltatót kívánja használni Azure Stack hub üzembe helyezéséhez, vagy az Azure AD-hez vagy a AD FShoz. Az identitás-szolgáltatókat az üzembe helyezést követően nem lehet átváltani a teljes rendszer újratelepítése nélkül. Ha nem rendelkezik az Azure AD-fiókkal, és a felhőalapú megoldás szolgáltatója által biztosított fiókot használja, és ha úgy dönt, hogy átváltja a szolgáltatót, és egy másik Azure AD-fiókot használ, kapcsolatba kell lépnie a megoldás szolgáltatójával, hogy újra üzembe helyezse a megoldást a saját költségeit.
 
 Az identitás-szolgáltató választása nem rendelkezik a bérlői virtuális gépeken (VM-EK), az Identity rendszeren, az általuk használt fiókokon, vagy ha Active Directory tartományhoz csatlakozik, és így tovább. Ezek a dolgok különállóak.
 
@@ -58,7 +58,7 @@ Ha úgy dönt, hogy az Azure Stack hub-t a AD FS identitás-szolgáltatóként h
 A Graph szolgáltatást Azure Stack központban is integrálhatja a meglévő Active Directory. Ez az integráció lehetővé teszi a szerepköralapú Access Control (RBAC) kezelését Azure Stack hub-ban. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
 
 Az alábbi ábra az integrált AD FS és a gráf forgalmának folyamatát mutatja be.<br/><br/>
-a AD FS és a Graph adatforgalmát bemutató diagram ![](media/azure-stack-datacenter-integration/ADFSIntegration.svg)
+![A AD FS és a gráf forgalmát bemutató diagram](media/azure-stack-datacenter-integration/ADFSIntegration.svg)
 
 ## <a name="licensing-model"></a>Licencelési modell
 
@@ -72,7 +72,7 @@ További információ a licencelési modellekről: [Microsoft Azure stack hub cs
 
 ## <a name="naming-decisions"></a>Elnevezési döntések
 
-Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, különösen a régió nevét és a külső tartománynevet. A Azure Stack hub nyilvános végpontokhoz való központi telepítésének külső teljes tartományneve (FQDN) a következő két név kombinációja: &lt;*region*&gt;.&lt;*fqdn*&gt;. Például: *East.Cloud.fabrikam.com*. Ebben a példában a Azure Stack hub portálok a következő URL-címeken lesznek elérhetők:
+Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, különösen a régió nevét és a külső tartománynevet. A Azure stack hub nyilvános végpontok számára történő központi telepítésének külső teljes tartományneve (FQDN) a következő két név kombinációja: &lt; *régió*&gt;. &lt; *fqdn*FQDN&gt;. Például: *East.Cloud.fabrikam.com*. Ebben a példában a Azure Stack hub portálok a következő URL-címeken lesznek elérhetők:
 
 - `https://portal.east.cloud.fabrikam.com`
 - `https://adminportal.east.cloud.fabrikam.com`
@@ -82,14 +82,14 @@ Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, külön
 
 A következő táblázat összefoglalja ezeket a tartománynév-elnevezési döntéseket.
 
-| Név | Leírás |
+| Name (Név) | Leírás |
 | -------- | ------------- |
-|Régió neve | Az első Azure Stack hub-régió neve. Ez a név a Azure Stack hub által felügyelt nyilvános virtuális IP-címek (VIP) teljes tartománynevének részeként használatos. A régió neve általában egy fizikai hely azonosítója, például egy adatközpont helye.<br><br>A régió neve csak betűkből és számokból állhat, 0-9 között. Nem használhatók speciális karakterek (például `-`, `#`stb.).| 
+|Régió neve | Az első Azure Stack hub-régió neve. Ez a név a Azure Stack hub által felügyelt nyilvános virtuális IP-címek (VIP) teljes tartománynevének részeként használatos. A régió neve általában egy fizikai hely azonosítója, például egy adatközpont helye.<br><br>A régió neve csak betűkből és számokból állhat, 0-9 között. A speciális karakterek (például `-`, `#`stb.) nem engedélyezettek.| 
 | Külső tartomány neve | A külső virtuális IP-címekkel rendelkező végpontokhoz tartozó tartománynévrendszer (DNS) zóna neve. A nyilvános VIP-címek teljes tartománynevében használatos. | 
 | Magánhálózati (belső) tartomány neve | A Azure Stack hub infrastruktúra-kezeléshez létrehozott tartományának (és belső DNS-zónájának) neve.
 | | |
 
-## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
+## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 
 A telepítéshez SSL (SSL) tanúsítványokat kell megadnia a nyilvános végpontokhoz. A tanúsítványok magas szinten a következő követelményekkel rendelkeznek:
 
@@ -101,7 +101,7 @@ Ha további információra van szüksége arról, hogy milyen PKI-tanúsítvány
 > [!IMPORTANT]
 > A PKI-tanúsítvány megadott információit általános útmutatásként kell használni. Az Azure Stack hub PKI-tanúsítványainak beszerzése előtt működjön együtt az OEM-hardveres partnerrel. Részletes tanúsítvány-útmutatást és követelményeket biztosítanak.
 
-## <a name="time-synchronization"></a>Idő szinkronizálása
+## <a name="time-synchronization"></a>Időszinkronizálás
 
 Ki kell választania egy adott időkiszolgálót, amely a Azure Stack hub szinkronizálására szolgál. Az időszinkronizálás kritikus fontosságú az Azure Stack hub és az infrastruktúra szerepkörei számára, mivel a Kerberos-jegyek létrehozásához használatos. A Kerberos-jegyek a belső szolgáltatások hitelesítésére szolgálnak egymással.
 
@@ -129,12 +129,12 @@ A hibrid kapcsolatok esetében fontos figyelembe venni, hogy milyen típusú kö
 
 A következő táblázat összefoglalja a hibrid csatlakozási forgatókönyveket a profik, a hátrányok és a használati esetek között.
 
-| Forgatókönyv | Csatlakozási módszer | Szakemberek számára | Hátrányok | Jó a következőhöz: |
+| Forgatókönyv | Csatlakozási módszer | Előnyök | Hátrányok | Jó a következőhöz: |
 | -- | -- | --| -- | --|
 | Önálló bérlői Azure Stack hub, intranetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. Egyszerűen megvalósítható; nincs szükség átjáróra. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Vállalati üzemelő példányok, ahol az összes bérlő egyformán megbízható.<br><br>Olyan vállalatok, amelyek rendelkeznek Azure ExpressRoute-áramkörrel az Azure-ban. |
-| Több-bérlős Azure Stack hub, intranetes telepítés | Két hálózat közötti pont-pont típusú VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
+| Több-bérlős Azure Stack hub, intranetes telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
 | Egybérlős Azure Stack hub, internetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Üzemeltetési forgatókönyvek, amelyekben a bérlő saját Azure Stack hub-telepítést és dedikált áramkört kap a Azure Stack hub-környezethez. Például: ExpressRoute és többprotokollos felirat váltás (MPLS).
-| Több-bérlős Azure Stack hub, Internet-telepítés | Két hálózat közötti pont-pont típusú VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Üzemeltetési forgatókönyvek, ahol a szolgáltató több-bérlős felhőt szeretne nyújtani, ahol a bérlők nem bíznak egymással, és a forgalmat titkosítani kell.
+| Több-bérlős Azure Stack hub, Internet-telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Üzemeltetési forgatókönyvek, ahol a szolgáltató több-bérlős felhőt szeretne nyújtani, ahol a bérlők nem bíznak egymással, és a forgalmat titkosítani kell.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>A ExpressRoute használata
@@ -149,7 +149,7 @@ A következő ábra a több-bérlős forgatókönyvek ExpressRoute mutatja be.<b
 
 ![Több-bérlős ExpressRoute forgatókönyvet bemutató diagram](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.svg)
 
-## <a name="external-monitoring"></a>Külső figyelése
+## <a name="external-monitoring"></a>Külső figyelés
 Az Azure Stack hub központi telepítéséről és eszközeiről érkező riasztások egyetlen nézetének beszerzéséhez, valamint a riasztások meglévő IT-szolgáltatások felügyeleti munkafolyamataiba való integrálásához a [Azure stack hub külső adatközpont-figyelési megoldásokkal integrálható](azure-stack-integrate-monitor.md).
 
 A Azure Stack hub-megoldás részeként a hardver életciklus-állomása egy olyan számítógép, amely a Azure Stack hub rendszeren kívül fut, és a hardveres gyártó által biztosított felügyeleti eszközöket futtatja. Ezeket az eszközöket vagy egyéb megoldásokat használhatja, amelyek közvetlenül integrálhatók az adatközpontban meglévő figyelési megoldásokkal.
@@ -173,7 +173,7 @@ Vegye figyelembe a következő követelményeket:
 
 A biztonsági mentés és a vész-helyreállítás megtervezése magában foglalja a IaaS virtuális gépeket és a Pásti-szolgáltatásokat üzemeltető mögöttes Azure Stack hub-infrastruktúra tervezését, valamint a bérlői alkalmazásokat és adatokat. Ezeket a dolgokat külön tervezze meg.
 
-### <a name="protect-infrastructure-components"></a>Infrastruktúra-összetevők biztosítása
+### <a name="protect-infrastructure-components"></a>Az infrastruktúra összetevőinek védelme
 
 Azure Stack hub infrastruktúra-összetevők [biztonsági mentését](azure-stack-backup-back-up-azure-stack.md) egy Ön által megadott SMB-megosztáson végezheti el:
 
@@ -203,5 +203,5 @@ Ha egy másodlagos helyre szeretné replikálni az alkalmazásokat, és vészhel
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
 - Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Azure Stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md)

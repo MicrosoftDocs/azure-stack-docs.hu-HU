@@ -29,7 +29,7 @@ sections:
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">Előfizetés egy ajánlatra</a>
           - html: <a href="/azure-stack/operator/create-add-on-plan">Ajánlatok és csomagok frissítése</a>
           - html: <a href="/azure-stack/user/azure-stack-create-vm-template">Virtuális gép létrehozása sablonból</a>
-  - title: Leírások
+  - title: Referencia
     items:
       - type: list
         style: cards

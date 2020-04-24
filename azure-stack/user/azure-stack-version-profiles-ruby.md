@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294802"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
@@ -42,7 +42,7 @@ Az API-profilok erőforrás-szolgáltatók és szolgáltatási verziók kombiná
        Gem install bundler
        ```
 
-- Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Az előfizetés létrehozásához szükséges utasítások a [Azure stack hub-ban található előfizetések létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) című cikkben találhatók.
+- Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetés létrehozásához szükséges utasítások a [Azure stack hub-ban található előfizetések létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) című cikkben találhatók.
 - Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack hub szolgáltatáshoz tartozó egyszerű szolgáltatásnév létrehozásához az [alkalmazás identitás használata az erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md) című cikk nyújt útmutatást.
 - Győződjön meg arról, hogy a szolgáltatásnév rendelkezik az előfizetéshez hozzárendelt közreműködő/tulajdonos szerepkörrel. A szerepkör egy egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasítások az alkalmazás- [identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md)című témakörben találhatók.
 
@@ -70,7 +70,7 @@ A Azure Resource Manager Ruby SDK előzetes verzióban érhető el, és valósz�
 
 ## <a name="use-the-azure_sdk-gem"></a>A azure_sdk gem használata
 
-A **azure_sdk** gem a Ruby SDK által támogatott drágakövek összesítése. Ez a gyöngyszem egy **legújabb** -profilt tartalmaz, amely az összes szolgáltatás legújabb verzióját támogatja. Az Azure Stack hub-hoz készült, **V2017_03_09** és **V2019_03_01_Hybrid**verziószámú profilokat tartalmaz.
+A **azure_sdk** gem a Ruby SDK által támogatott drágakövek összesítése. Ez a gem egy **legújabb** profilt tartalmaz, amely az összes szolgáltatás legújabb verzióját támogatja. Az Azure Stack hub-hoz készült, **V2017_03_09** és **V2019_03_01_Hybrid**verziószámú profilokat tartalmaz.
 
 A következő paranccsal telepítheti a azure_sdk összesítő gem-t:  
 
@@ -92,15 +92,15 @@ Ha a Ruby Azure SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a 
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Az Azure Stack hub Resource Manager-végpont
 
-A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
+A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdáknak az Azure-erőforrások üzembe helyezését, kezelését és figyelését. A Azure Resource Manager a feladatokat nem külön, hanem csoportként, egyetlen művelet során is kezelhetik.
 
 A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpont egy JSON-fájlt ad vissza, amely a kód futtatásához szükséges adatokkal rendelkezik.
 
  > [!NOTE]  
- > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.  
- > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+ > A **Azure stack Development Kit ResourceManagerUrl** (ASDK) `https://management.local.azurestack.external/` a következő: a **ResourceManagerUrl** az integrált rendszerekben: `https://management.region.<fqdn>/`, ahol `<fqdn>` a a teljes tartománynév.  
+ > A szükséges metaadatok beolvasása:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
- JSON-mintafájlt:
+ Példa JSON-fájlra:
 
  ```json
  {
@@ -144,7 +144,7 @@ Azure Stack hub-és API-profilokkal kapcsolatos további információkért tekin
 
 ## <a name="azure-ruby-sdk-api-profile-usage"></a>Azure Ruby SDK API-profil használata
 
-A profil-ügyfél létrehozásához használja a következő kódot. Ez a paraméter csak Azure Stack hub vagy más privát felhők esetén szükséges. Globális Azure alapértelmezés szerint ezek a beállítások már rendelkezik.
+A profil-ügyfél létrehozásához használja a következő kódot. Ez a paraméter csak Azure Stack hub vagy más privát felhők esetén szükséges. A globális Azure-ban alapértelmezés szerint már szerepelnek ezek a beállítások.
 
 ```Ruby  
 active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
@@ -183,7 +183,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-hub-environment-setting-functions"></a>Azure Stack hub-környezet beállítási funkcióinak meghatározása
 
-Az egyszerű szolgáltatásnév Azure Stack hub-környezetbe való hitelesítéséhez `get_active_directory_settings()`használatával határozza meg a végpontokat. Ez a metódus a korábban beállított **ARM_Endpoint** környezeti változót használja:
+Az egyszerű szolgáltatásnév Azure Stack hub-környezetbe való hitelesítéséhez adja meg a végpontokat a `get_active_directory_settings()`használatával. Ez a metódus a korábban beállított **ARM_Endpoint** környezeti változót használja:
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -252,9 +252,9 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
 
    > [!NOTE]  
-   > Windows rendszeren `export`helyett használja a `set`.
+   > Windows rendszeren a helyett `set` használja a `export`t.
 
-4. Győződjön meg arról, hogy a Location változó a Azure Stack hub helyére van beállítva; például `LOCAL="local"`.
+4. Győződjön meg arról, hogy a Location változó a Azure Stack hub helyére van beállítva; például: `LOCAL="local"`.
 
 5. A megfelelő Active Directory-végpontok célzásához adja hozzá a következő kódrészletet, ha Azure Stack hubot vagy más privát felhőket használ:
 
@@ -262,7 +262,7 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. A `options` változóban adja hozzá a Active Directory beállításokat és az alap URL-címet, hogy működjön az Azure Stack hub használatával:
+6. A `options` változóban adja hozzá a Active Directory beállításokat és az alap URL-címet, hogy működjön az Azure stack hub használatával:
 
    ```ruby  
    options = {
@@ -304,7 +304,7 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    bundle exec ruby example.rb
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)  

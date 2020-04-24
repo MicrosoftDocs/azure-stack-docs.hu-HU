@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77704148"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
@@ -24,7 +24,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protokoll | Leírás |
+    | Port | Protocol (Protokoll) | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -188,7 +188,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
 
 1. A Tomcat-kiszolgáló konfigurálása a webkezelési felület elérésének engedélyezéséhez. 
 
-   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználó számára a `manager-gui` és `admin-gui`elérését.
+   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználót a és `manager-gui` `admin-gui`a eléréséhez.
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
@@ -282,7 +282,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
 
     a. *TOMCAT_HOME/webapps*törlése.
 
-    b. Vegye fel a HÁBORÚt *TOMCAT_HOME/webapps* (például */opt/tomcat/webapps/* ).
+    b. Vegye fel a HÁBORÚt *TOMCAT_HOME/webapps* (például */opt/tomcat/webapps/*).
 
 1.  A Tomcat automatikusan kibontja és üzembe helyezi az alkalmazást. A nevet a korábban létrehozott DNS-név használatával tekintheti meg. Például:
 
@@ -290,7 +290,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
     ```
     
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

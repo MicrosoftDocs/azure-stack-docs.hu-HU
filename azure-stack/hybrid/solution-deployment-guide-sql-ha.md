@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 90eb2c2c6dac0c4a1dde16b05192b9188b63c709
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700663"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>SQL Server 2016 rendelkezésre állási csoport üzembe helyezése az Azure-ban és Azure Stack hub-ban
@@ -89,7 +89,7 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
       -AzureStackSubscriptionId_DR "drSubscriptionId"
       ```
 
-4.  Írja be `Y` a NuGet-szolgáltató telepítésének engedélyezéséhez, amely elindítja az "2018-03-01-Hybrid" API-profilt, amelyet telepíteni kell.
+4.  Írja `Y` be a NuGet-szolgáltató telepítésének engedélyezését, amely a telepítendő "2018-03-01-Hybrid" modulok indítását fogja elindítani.
 
 5.  Várjon, amíg az erőforrás üzembe helyezése befejeződik.
 
@@ -103,7 +103,7 @@ Az egyes központi telepítésekhez tartozó Docker-rendszerképek megszüntetik
 
 ![SQL Server 2016 SQL HA](media/solution-deployment-guide-sql-ha/image2.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
   - A SQL Server Management Studio használatával manuálisan hajthatja végre a feladatátvételt a fürtön, lásd: az [AlwaysOn rendelkezésre állási csoport kényszerített manuális feladatátvételének végrehajtása (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)
   - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások.](https://aka.ms/azsdevtutorials)

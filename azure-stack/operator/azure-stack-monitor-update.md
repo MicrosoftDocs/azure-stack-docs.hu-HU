@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368124"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
@@ -38,7 +38,7 @@ Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Ha a rendszer hitelesítő adatokat kér, használja a &lt;*Azure stack hub tartományi*&gt;\cloudadmin-fiókot, vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
+   Amikor a rendszer kéri a hitelesítő adatokat &lt;, használja az *Azure stack hub tartományi*&gt;\cloudadmin-fiókot vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
 2. A privilegizált végponton elérhető parancsok teljes listájának beolvasása.
 
@@ -85,7 +85,7 @@ $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Ha a rendszer hitelesítő adatokat kér, használja a &lt;*Azure stack hub tartományi*&gt;\cloudadmin-fiókot, vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
+ Amikor a rendszer kéri a hitelesítő adatokat &lt;, használja az *Azure stack hub tartományi*&gt;\cloudadmin-fiókot vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
 ### <a name="get-high-level-status-of-the-current-update-run"></a>Az aktuális frissítési Futtatás magas szintű állapotának beolvasása
 
@@ -97,7 +97,7 @@ $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStac
 $statusString.Value 
 ```
 
-A lehetséges értékek:
+A lehetséges értékek a következők:
 
 - Fut
 - Befejezve
@@ -161,7 +161,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 A Kiemelt végpont az Azure Stack hub-környezetben található összes ERCS virtuális gépen elérhető. Mivel a kapcsolódás nem egy magasan elérhető végpontra történik, időnként megszakítások, figyelmeztetés vagy hibaüzenetek merülhetnek fel. Ezek az üzenetek azt jelezhetik, hogy a munkamenet le lett választva, vagy hiba történt az ECE szolgáltatással való kommunikáció során. Ez várt működés. Próbálja megismételni a műveletet néhány perc múlva, vagy hozzon létre egy új emelt szintű végponti munkamenetet az egyik másik ERCS virtuális gépen.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
 

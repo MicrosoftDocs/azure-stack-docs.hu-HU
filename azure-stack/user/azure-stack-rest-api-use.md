@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703723"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
@@ -30,7 +30,7 @@ Ez a cikk nem vizsgálja meg a jogkivonatok beolvasásához rendelkezésre áll�
 
 ## <a name="get-a-token-from-azure"></a>Token beszerzése az Azure-ból
 
-Hozzáférési jogkivonat beszerzéséhez hozzon létre egy kérelem törzsét, amely a `x-www-form-urlencoded` tartalomtípus használatával van formázva. Küldje el a kérését az Azure REST-hitelesítésre és a bejelentkezési végpontra.
+Hozzáférési jogkivonat beszerzéséhez hozzon létre egy `x-www-form-urlencoded` , a tartalomtípus használatával formázott kérelem törzsét. Küldje el a kérését az Azure REST-hitelesítésre és a bejelentkezési végpontra.
 
 ### <a name="uri"></a>URI
 
@@ -40,9 +40,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 A **bérlő azonosítója** a következők egyike:
 
-- A bérlői tartomány, például `fabrikam.onmicrosoft.com`
-- A bérlő azonosítója, például `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- A bérlőtől független kulcsok alapértelmezett értéke: `common`
+- A bérlő tartománya, például`fabrikam.onmicrosoft.com`
+- A bérlő azonosítója, például`8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- Alapértelmezett érték a bérlői független kulcsok esetében:`common`
 
 ### <a name="post-body"></a>Post törzs
 
@@ -58,7 +58,7 @@ grant_type=password
 Minden értéknél:
 
 - **grant_type**:  
-   A használni kívánt hitelesítési séma típusa. Ebben a példában az érték `password`.
+   A használni kívánt hitelesítési séma típusa. Ebben a példában a érték a következő `password`:.
 
 - **erőforrás**:  
    A jogkivonathoz hozzáférő erőforrás. Az erőforrást az Azure Stack hub felügyeleti metaadatok végpontjának lekérdezésével keresheti meg. Tekintse meg a **célközönségek** szakaszt.
@@ -70,7 +70,7 @@ Minden értéknél:
    ```
 
   > [!NOTE]  
-  > Ha egy rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlői végpontot használja; például `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Ha egy rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlői végpontot használja; például: `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
 
   Például a Azure Stack Development Kit végpontként:
 
@@ -110,9 +110,9 @@ Minden értéknél:
 
   | Alkalmazás | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
-  | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
+  | LegacyPowerShell | 0a7bdc5c-7b57-40BE-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |
-  | WindowsAzureActiveDirectory | 00000002-0000-0000-c000-000000000000 |
+  | WindowsAzureActiveDirectory | 00000002-0000-0000 – C000 – 000000000000 |
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
@@ -124,7 +124,7 @@ Minden értéknél:
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-- **jelszó**
+- **alaphelyzetbe állítása**
 
   Az Azure Stack hub Azure AD-rendszergazdai jelszava.
 
@@ -181,14 +181,14 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL-struktúra és lekérdezési szintaxis
 
-Általános kérelem URI-ja, a következőkből áll: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+Általános kérelem URI-ja, a következőkből áll:`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI-séma**:  
 Az URI a kérelem küldéséhez használt protokollt jelzi. Például `http` vagy `https`.
 - **URI-gazdagép**:  
-A gazdagép megadja annak a kiszolgálónak a tartománynevét vagy IP-címét, amelyen a REST szolgáltatási végpont található, például `graph.microsoft.com` vagy `adminmanagement.local.azurestack.external`.
+A gazdagép megadja annak a kiszolgálónak a tartománynevét vagy IP-címét, amelyen a REST szolgáltatás végpontja üzemel, `graph.microsoft.com` például `adminmanagement.local.azurestack.external`vagy.
 - **Erőforrás elérési útja**:  
-Az elérési út meghatározza az erőforrást vagy az erőforrás-gyűjteményt, amely magában foglalhatja a szolgáltatás által az erőforrások kiválasztásának meghatározásához használt több szegmenst is. Például: a `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` segítségével lekérdezheti a listát egy adott alkalmazás tulajdonosainak az alkalmazások gyűjteményén belül.
+Az elérési út meghatározza az erőforrást vagy az erőforrás-gyűjteményt, amely magában foglalhatja a szolgáltatás által az erőforrások kiválasztásának meghatározásához használt több szegmenst is. Például: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` a (z) segítségével lekérdezheti egy adott alkalmazás tulajdonosának listáját az alkalmazások gyűjteményén belül.
 - **Lekérdezési karakterlánc**:  
 A karakterlánc további egyszerű paramétereket tartalmaz, például az API-verziót vagy az erőforrás-kiválasztási feltételeket.
 
@@ -210,6 +210,6 @@ https://adminmanagement.local.azurestack.external/{subscription id}/resourcegrou
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure REST-végpontok használatával kapcsolatos további információkért lásd az [azure REST API referenciáját](/rest/api/).

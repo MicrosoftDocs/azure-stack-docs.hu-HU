@@ -8,17 +8,17 @@ ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368838"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack hub Datacenter integrációs útmutató
 
 Ez a cikk a Azure Stack hub Datacenter integrációjának teljes körű folyamatát ismerteti az üzembe helyezés utáni támogatás megvásárlása után. Az integráció egy együttműködési projekt az ügyfél, a megoldás szolgáltatója és a Microsoft között. A következő lapokon megtekintheti a projekt egyes tagjainak konkrét lépéseit, és a következő szakaszokban láthatja a projekt idővonalának különböző fázisainak összegzését. 
 
-# <a name="customer"></a>[Customer](#tab/customer) (Ügyfél)
+# <a name="customer"></a>[Ügyfél](#tab/customer)
 
 1. Használati esetek és követelmények leírása
 1. A számlázási modell meghatározása
@@ -68,10 +68,10 @@ A Microsoft vagy egy Azure Stack hub Solution partner segít kiértékelni a cé
 
 Az [Azure stack Hub Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) segítségével vizsgálhatja és elemezheti az igényeinek legmegfelelőbb hardver-kapacitást és konfigurációt. 
 
-## <a name="ordering"></a>Rendelés
+## <a name="ordering"></a>Rendezés
 A szervezet vállalja az Azure Stack hub megvásárlását, aláírja a szerződéseket és a vásárlási rendeléseket, és biztosítja az integrációs követelmények adatait a megoldás szolgáltatójának.
 
-## <a name="pre-deployment"></a>Üzembe helyezés előtti
+## <a name="pre-deployment"></a>Központi telepítés előtti
 Ön dönti el, hogyan integrálhatja Azure Stack hub-t az adatközpontba. A Microsoft a megoldás-szolgáltatókkal együttműködve közzétesz egy [üzembe helyezési munkalapot](azure-stack-deployment-worksheet.md) a szükséges információk összegyűjtésének elősegítése érdekében.
 Az [általános adatközpont-integrációs megfontolások](azure-stack-datacenter-integration.md) című cikk olyan információt tartalmaz, amely segítséget nyújt a sablon végrehajtásához, amelyet a központi telepítési munkalapnak nevezünk.
 
@@ -164,5 +164,5 @@ Az Azure Stack hub lehetővé teszi, hogy az Azure-konzisztens, integrált támo
 
 Az integrált támogatási élmény egy Case Exchange-mechanizmust használ a támogatási esetek és a Microsoft és a hardverprofil közötti, kétirányú átvitelhez. Az Microsoft Azure Stack hub a [modern életciklus-szabályzattal](https://support.microsoft.com/help/30881)fog járni.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 További információ az [általános adatközpont integrációs szempontjairól](azure-stack-datacenter-integration.md).

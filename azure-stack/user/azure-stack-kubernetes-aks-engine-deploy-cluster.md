@@ -8,15 +8,15 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80152173"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
-A Kubernetes-fürtöt Azure Stack hubhoz telepítheti egy olyan ügyfél virtuális gépről, amely az AK-motort futtatja. Ebben a cikkben bemutatjuk a fürt specifikációjának írását, a fürt üzembe helyezését a `apimodel.json` fájllal, valamint a fürt ellenőrzésével, amely a MySQL-t a Helm használatával helyezi üzembe.
+A Kubernetes-fürtöt Azure Stack hubhoz telepítheti egy olyan ügyfél virtuális gépről, amely az AK-motort futtatja. Ebben a cikkben a fürt specifikációjának írását, a fürt és a `apimodel.json` fájllal történő üzembe helyezését, valamint a fürt ellenőrzésével foglalkozunk a MySQL és a Helm használatával.
 
 ## <a name="define-a-cluster-specification"></a>Fürt specifikációjának megadása
 
@@ -42,17 +42,17 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     ```
 
     > [!Note]  
-    > Ha nincs telepítve a nano, a nanot telepítheti Ubuntu-re: `sudo apt-get install nano`.
+    > Ha nincs telepítve a nano, akkor telepítheti a nanot Ubuntu- `sudo apt-get install nano`re:.
 
-3.  A kubernetes-azurestack. JSON fájlban keresse meg a `orchestratorRelease`. Válasszon egy támogatott Kubernetes-verziót. Például 1,14, 1,15. A verziók gyakran frissülnek. A verziót x. xx helyett x. xx. x értékkel kell megadni. Az aktuális verziók listáját lásd: [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). A támogatott verziót a következő AK Engine-parancs futtatásával tekintheti meg:
+3.  A kubernetes-azurestack. JSON fájlban keresse meg `orchestratorRelease`a fájlt. Válasszon egy támogatott Kubernetes-verziót. Például 1,14, 1,15. A verziók gyakran frissülnek. A verziót x. xx helyett x. xx. x értékkel kell megadni. Az aktuális verziók listáját lásd: [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). A támogatott verziót a következő AK Engine-parancs futtatásával tekintheti meg:
 
     ```bash
     aks-engine get-versions
     ```
 
-4.  Keresse meg `customCloudProfile`, és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`. 
+4.  Keresse `customCloudProfile` meg és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`. 
 
-5. Ha AD FSt használ, vegye fel `"identitySystem":"adfs"`. Például:
+5. Adja `"identitySystem":"adfs"` hozzá a AD FS-t. Például:
 
     ```JSON  
         "customCloudProfile": {
@@ -64,34 +64,34 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     > [!Note]  
     > Ha az Azure AD-t használja az identitásrendszer számára, nem kell felvennie a **identitySystem** mezőt.
 
-6. Keresse meg `portalURL`, és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`.
+6. Keresse `portalURL` meg és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`.
 
-7.  A `masterProfile`ban állítsa be a következő mezőket:
+7.  A `masterProfile`alkalmazásban állítsa be a következő mezőket:
 
     | Mező | Leírás |
     | --- | --- |
     | dnsPrefix | Adjon meg egy egyedi karakterláncot, amely a virtuális gépek állomásneve azonosítására szolgál majd. Például egy név az erőforráscsoport neve alapján. |
     | count |  Adja meg a központi telepítéshez használni kívánt főkiszolgálók számát. HA egy HA üzemelő példány esetében a minimum a 3, az 1 érték nem lehet üzemelő példányokhoz. |
-    | vmSize |  Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
+    | vmSize |  Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)( `Standard_D2_v2`példa). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
-8.  `agentPoolProfiles` frissítésben:
+8.  A `agentPoolProfiles` frissítés alatt:
 
     | Mező | Leírás |
     | --- | --- |
     | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. Az előfizetések által használandó csomópontok maximális száma 50. Ha egy előfizetéshez egynél több fürtöt telepít, győződjön meg arról, hogy az ügynökök teljes száma nem haladja meg az 50-ot. Ügyeljen arra, hogy a [minta API-modell JSON-fájljában](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)megadott konfigurációs elemeket használja.  |
-    | vmSize | Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)(például `Standard_D2_v2`). |
+    | vmSize | Adja meg [Azure stack hub által támogatott méretet](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)( `Standard_D2_v2`példa). |
     | disztribúció | Írja be a `aks-ubuntu-16.04` (igen) kifejezést. |
 
 
 
 
-9.  `linuxProfile` frissítésben:
+9.  A `linuxProfile` frissítés alatt:
 
     | Mező | Leírás |
     | --- | --- |
     | adminUsername | Adja meg a virtuális gép rendszergazdájának felhasználónevét. |
-    | ssh | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. Használja a `ssh-rsa`, majd a kulcsot. A nyilvános kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása Linux rendszerhez](create-ssh-key-on-windows.md). |
+    | SSH | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. Használja `ssh-rsa` , majd a kulcsot. A nyilvános kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása Linux rendszerhez](create-ssh-key-on-windows.md). |
 
     Ha egyéni virtuális hálózatra telepíti a szolgáltatást, a szükséges kulcsok és értékek megkereséséhez és hozzáadásához útmutatást talál a megfelelő tömbökhöz az API-modellben a [Kubernetes-fürt egyéni virtuális hálózatra történő telepítéséhez](kubernetes-aks-engine-custom-vnet.md).
 
@@ -106,7 +106,7 @@ Miután összegyűjtötte az összes szükséges értéket az API-modellben, lé
 
 Kérdezze meg a Azure Stack hub operátort a következőre:
 
-- Ellenőrizze a rendszer állapotát, és futtassa a `Test-AzureStack` és az OEM-gyártó hardver-figyelési eszközét.
+- Ellenőrizze a rendszer állapotát, és javasolja a futtatását `Test-AzureStack` és az OEM-gyártó hardveres figyelési eszközét.
 - Ellenőrizze a rendszerkapacitást, beleértve az erőforrásokat, például a memóriát, a tárterületet és a nyilvános IP-címeket.
 - Adja meg az előfizetéshez társított kvóta részleteit, így ellenőrizheti, hogy van-e elegendő hely a használni kívánt virtuális gépek számához.
 
@@ -116,15 +116,15 @@ Fürt üzembe helyezésének folytatása:
 
     | Paraméter | Példa | Leírás |
     | --- | --- | --- |
-    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platformot Azure Stack hub használja `AzureStackCloud`. |
+    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack hub által használt `AzureStackCloud`AK-motor. |
     | identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
-    | location | helyi | Az Azure Stack hub régiójának neve. A ASDK a régió `local`értékre van állítva. |
-    | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevét kell lennie a alfanumerikus- és nagybetűket. |
+    | location | helyi | Az Azure Stack hub régiójának neve. A ASDK esetében a régió a következőre van `local`beállítva:. |
+    | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
-    | kimenet – könyvtár | Kube – RG | Adja meg annak a könyvtárnak a nevét, amely a kimeneti fájlt `apimodel.json` és egyéb létrehozott fájlokat is tartalmaz. |
-    | ügyfél-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
-    | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. A szolgáltatás létrehozásakor az ügyfél titkát kell beállítania. |
-    | előfizetés-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
+    | kimenet – könyvtár | Kube – RG | Adja meg annak a könyvtárnak a nevét, amely a `apimodel.json` kimeneti fájlt és más létrehozott fájlokat is tartalmaz. |
+    | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
+    | ügyfél – titok | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatás titkos kulcsát. A szolgáltatás létrehozásakor az ügyfél titkát kell beállítania. |
+    | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
     Például:
 
@@ -147,7 +147,7 @@ Fürt üzembe helyezésének folytatása:
 
     Keresse meg a `apimodel.json`fájlt. Mentse biztonságos helyre. Ezt a fájlt a rendszer az összes többi AK-motor-művelet bemenetként használja.
 
-    A generált `apimodel.json` tartalmazza a bemeneti API-modellben használt egyszerű szolgáltatásnevet, titkos kulcsot és nyilvános SSH-kulcsot. Emellett az összes többi művelet elvégzéséhez szükséges minden egyéb metaadat is az AK-motor számára. Ha elveszíti, az AK-motor nem tudja konfigurálni a fürtöt.
+    A generált `apimodel.json` szolgáltatás tartalmazza a bemeneti API-modellben használt egyszerű szolgáltatásnevet, titkos kulcsot és nyilvános SSH-kulcsot. Emellett az összes többi művelet elvégzéséhez szükséges minden egyéb metaadat is az AK-motor számára. Ha elveszíti, az AK-motor nem tudja konfigurálni a fürtöt.
 
     A titkos kulcsok nem **titkosítottak**. Tárolja a fájlt titkosított, biztonságos helyen. 
 
@@ -228,7 +228,7 @@ Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySql-
     kubectl delete deployment -l app=redis
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor hibáinak megoldása Azure Stack hub-on](azure-stack-kubernetes-aks-engine-troubleshoot.md)

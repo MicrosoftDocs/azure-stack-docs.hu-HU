@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: 73c916a193492662cdbb3ba20031c58932721053
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698589"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>MySQL-adatbázisok használata Microsoft Azure Stack központban
@@ -32,7 +32,7 @@ A MySQL erőforrás-szolgáltató telepítése előtt több korlátozást is fig
 
 Az erőforrás-szolgáltató a következő összetevőket biztosítja:
 
-* **A MySQL erőforrás-szolgáltatói adapter virtuális gépe (VM)** , amely a szolgáltatói szolgáltatásokat futtató Windows Server rendszerű virtuális gép.
+* **A MySQL erőforrás-szolgáltatói adapter virtuális gépe (VM)**, amely a szolgáltatói szolgáltatásokat futtató Windows Server rendszerű virtuális gép.
 * **Az erőforrás-szolgáltató**, amely feldolgozza a kérelmeket, és hozzáfér az adatbázis-erőforrásokhoz.
 * A **MySQL-kiszolgálót működtető kiszolgálók**, amelyek kapacitást biztosítanak az olyan adatbázisok számára, amelyek neve üzemeltetési kiszolgáló. Saját maga is létrehozhat MySQL-példányokat, vagy hozzáférést biztosíthat a külső MySQL-példányokhoz. Az [Azure stack hub](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) rövid útmutatója egy példa sablonnal rendelkezik, amelyet a következőhöz használhat:
 
@@ -49,6 +49,6 @@ A rendszerfióknak a következő jogosultságokkal kell rendelkeznie:
 * **Adatbázis:** létrehozás, eldobás
 * **Bejelentkezés:** létrehozás, beállítás, eldobás, engedélyezés, visszavonás  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A MySQL erőforrás-szolgáltató üzembe helyezése](azure-stack-mysql-resource-provider-deploy.md)

@@ -9,10 +9,10 @@ ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: 69cdd8a672cd3431906d949c1a038cc1dbdb9641
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698011"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Területi felügyelet Azure Stack központban
@@ -43,7 +43,7 @@ Ha kiválaszt egy régiót a **régió kezelése** csempén, akkor a következő
 
 6. **Properties (Tulajdonságok**): a környezet regisztrációjának állapota és adatai a régió kezelése panelen. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**. Ha regisztrálva van, akkor az Azure Stack hub regisztrálásához használt Azure-előfizetés AZONOSÍTÓját is megjeleníti a regisztrációs erőforráscsoport és a név mellett.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Állapot és riasztások figyelése Azure Stack központban](azure-stack-monitor-health.md)
 - [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)

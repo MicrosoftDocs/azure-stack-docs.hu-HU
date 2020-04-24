@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
 ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77699252"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>A Azure Stack hub felügyeleti portáljának használata
@@ -25,7 +25,7 @@ A felügyeleti portál eléréséhez keresse meg a portál URL-címét, és jele
 | Környezet | Felügyeleti portál URL-címe |   
 | -- | -- | 
 | AZURE STACK FEJLESZTŐI KÉSZLET (ASDK)| https://adminportal.local.azurestack.external  |
-| Integrált rendszerek | https://adminportal.&lt; *régió*&gt;.&lt;*FQDN*&gt; | 
+| Integrált rendszerek | https://adminportal.&lt; *régió*&gt;. &lt; *Teljes tartománynév*&gt; | 
 | | |
 
 > [!TIP]
@@ -38,9 +38,9 @@ Az összes Azure Stack hub üzemelő példány alapértelmezett időzónája az 
 A felügyeleti portálon a következőkhöz hasonló műveleteket végezhet:
 
 * [Azure Stack hub regisztrálása az Azure-ban](azure-stack-registration.md)
-* [A piactér feltöltése](azure-stack-download-azure-marketplace-item.md)
+* [A Marketplace feltöltése](azure-stack-download-azure-marketplace-item.md)
 * [Csomagok, ajánlatok és előfizetések létrehozása felhasználók számára](service-plan-offer-subscription-overview.md)
-* [Állapotfelügyelet és riasztások](azure-stack-monitor-health.md)
+* [Állapot és riasztások monitorozása](azure-stack-monitor-health.md)
 * [Azure Stack hub frissítéseinek kezelése](azure-stack-updates.md)
 
 A gyors üzembe helyezési **útmutató** csempéje a leggyakoribb feladatokhoz kapcsolódó online dokumentációra mutató hivatkozásokat tartalmaz.
@@ -84,6 +84,6 @@ Ha a felügyeleti portál jobb felső sarkában található Súgó ikonra (kérd
 
 Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet**, megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja **Azure stack hub** kifejezést a **Products (termékek** ) keresőmezőbe, az összes Azure stack hub-útiterv frissítését láthatja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Regisztrálja Azure stack](azure-stack-registration.md) központját az Azure-ban, és töltse fel [Azure stack hub Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.

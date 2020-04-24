@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
 ms.openlocfilehash: d197a8b4464af8f331a11af2ba642ad053273bf9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699711"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Tanúsítvány-aláírási kérelmek előállítása Azure Stack hubhoz
@@ -86,7 +86,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     ```
 
     > [!NOTE]  
-    > a `<regionName>.<externalFQDN>` a Azure Stack hub összes külső DNS-neve alapján hozza létre az alapokat. Ebben a példában a portál `portal.east.azurestack.contoso.com`.  
+    > `<regionName>.<externalFQDN>`az alapot képezi, hogy az Azure Stack hub összes külső DNS-neve létrejön. Ebben a példában a portál a következő lesz `portal.east.azurestack.contoso.com`:.  
 
 6. Tanúsítvány-aláírási kérelmek előállítása az üzembe helyezéshez:
 
@@ -94,7 +94,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Más Azure Stack hub-szolgáltatásokhoz tartozó tanúsítványkérelmek létrehozásához módosítsa a `-CertificateType`értékét. Például:
+    Más Azure Stack hub-szolgáltatásokhoz tartozó tanúsítványkérelmek létrehozásához módosítsa a értékét `-CertificateType`. Például:
 
     ```powershell  
     # App Services
@@ -129,8 +129,8 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     New-AzsCertificateSigningRequest Completed
     ```
 
-9.  Küldje el a t **.** A CA-hoz GENERÁLT REQ-fájl (belső vagy nyilvános). A **New-AzsCertificateSigningRequest** kimeneti könyvtára tartalmazza a hitelesítésszolgáltatóhoz való beküldéshez szükséges CSR (ka) t. A könyvtár tartalmazza a hivatkozáshoz tartozó alárendelt könyvtárat is, amely a tanúsítványkérelem létrehozásakor használt INF-fájl (oka) t tartalmazza. Győződjön meg arról, hogy a HITELESÍTÉSSZOLGÁLTATÓ olyan tanúsítványokat hoz létre a létrehozott kérelem alapján, amelyek megfelelnek az [Azure stack hub PKI követelményeinek](azure-stack-pki-certs.md).
+9.  Küldje el a t **. **A CA-hoz GENERÁLT REQ-fájl (belső vagy nyilvános). A **New-AzsCertificateSigningRequest** kimeneti könyvtára tartalmazza a hitelesítésszolgáltatóhoz való beküldéshez szükséges CSR (ka) t. A könyvtár tartalmazza a hivatkozáshoz tartozó alárendelt könyvtárat is, amely a tanúsítványkérelem létrehozásakor használt INF-fájl (oka) t tartalmazza. Győződjön meg arról, hogy a HITELESÍTÉSSZOLGÁLTATÓ olyan tanúsítványokat hoz létre a létrehozott kérelem alapján, amelyek megfelelnek az [Azure stack hub PKI követelményeinek](azure-stack-pki-certs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub PKI-tanúsítványok előkészítése](azure-stack-prepare-pki-certs.md)

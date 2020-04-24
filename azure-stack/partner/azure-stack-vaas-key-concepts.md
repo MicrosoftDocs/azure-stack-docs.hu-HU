@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294164"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
@@ -57,7 +57,7 @@ A munkafolyamat-típusokkal kapcsolatos további információkért lásd: [Mi az
 
 További információ a munkafolyamat-tulajdonságokról és-paraméterekről: [Azure stack hub ellenőrzésének általános munkafolyamat-paraméterei szolgáltatásként](azure-stack-vaas-parameters.md).
 
-## <a name="tests"></a>Vizsgálatok
+## <a name="tests"></a>Tesztek
 
 Az adatbázis-ellenőrzés egy Azure Stack hub-megoldáson futó műveletekből áll. A tesztek különböző felhasználási célokra vannak meghatározva (például a funkcionális vagy a megbízhatósági funkciókat), és egy vagy több Azure Stack hub-szolgáltatást céloznak meg. Az egyes tesztek saját paramétereket határoznak meg, amelyek némelyikét a tartalmazó munkafolyamathoz tartozó általános paraméterek határozzák meg.
 
@@ -76,6 +76,6 @@ A helyi ügynökök nem kötődnek egy adott Azure Stack hub-vagy az alaprendsze
 
 Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Ajánlott eljárások szolgáltatásként történő érvényesítéshez](azure-stack-vaas-best-practice.md)

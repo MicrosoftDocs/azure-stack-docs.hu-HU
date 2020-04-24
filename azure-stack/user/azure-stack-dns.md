@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703009"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>DNS használata Azure Stack központban
@@ -73,13 +73,13 @@ Tegyük fel, hogy két személy vagy két folyamat egyszerre próbálkozik a DNS
 
 Azure Stack hub DNS a *etagek* -t használja az egyazon erőforrás egyidejű változásainak biztonságos kezelésére. A etagek különböznek Azure Resource Manager *címkéktől*. Minden DNS-erőforráshoz (zónához vagy rekordhoz) társítva van egy ETAG. Erőforrás lekérése esetén a rendszer a ETAG is beolvassa. Amikor frissít egy erőforrást, dönthet úgy, hogy visszaadja a ETAG, így Azure Stack hub DNS ellenőrizheti a ETAG a kiszolgálói egyezéseken. Mivel az erőforrás minden frissítése újra létrehozza a ETAG, egy ETAG eltérés azt jelzi, hogy egyidejű változás történt. A etagek akkor is használható, ha új erőforrást hoz létre annak biztosítására, hogy az erőforrás még nem létezik.
 
-Alapértelmezés szerint a Azure Stack hub DNS PowerShell-parancsmagjai a Etagek használatával blokkolják a zónák és a rekordhalmazok egyidejű módosításait. Az opcionális `-Overwrite` kapcsolóval tilthatja le a ETAG-ellenőrzéseket. A ETAG-ellenőrzések nélkül az egyidejű változások felülírva vannak.
+Alapértelmezés szerint a Azure Stack hub DNS PowerShell-parancsmagjai a Etagek használatával blokkolják a zónák és a rekordhalmazok egyidejű módosításait. A választható `-Overwrite` kapcsoló használatával elkerülheti a ETAG-ellenőrzéseket. A ETAG-ellenőrzések nélkül az egyidejű változások felülírva vannak.
 
 Az Azure Stack hub DNS-REST API szintjén a Etagek HTTP-fejlécek használatával vannak megadva. A viselkedést az alábbi táblázat ismerteti:
 
 | Fejléc | Viselkedés|
 |--------|---------|
-| Nincs   | A mindig sikeres (nincs ETAG-ellenőrzés).|
+| None   | A mindig sikeres (nincs ETAG-ellenőrzés).|
 | If-Match| A csak akkor lesz sikeres, ha az erőforrás létezik, és a ETAG egyezik.|
 | If-Match *| Az üzembe helyezés csak akkor sikeres, ha az erőforrás létezik.|
 | If-None-Match *| A csak akkor lesz sikeres, ha az erőforrás nem létezik.|
@@ -94,6 +94,6 @@ Azure Stack hub DNS használatakor a következő alapértelmezett korlátozások
 | Rekordhalmazok száma zónában| 5000|
 | Rekord/rekordhalmaz| 20|
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Az Azure Stack hub iDNS bemutatása](azure-stack-understanding-dns.md)

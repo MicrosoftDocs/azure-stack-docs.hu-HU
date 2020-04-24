@@ -3,16 +3,16 @@ title: Azure Stack hub identitás-architektúrája
 description: Ismerje meg az Azure Stack hub identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 42badc226bfd8339c497c752ee4b547c48a1250c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ae5cc821ffe621d4e14ef37b426ff36202ed37ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699677"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244023"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack hub identitás-architektúrája
 
@@ -47,7 +47,7 @@ Az egybérlős topológia akkor hasznos, ha:
 - Minden felhasználó ugyanahhoz a bérlőhöz tartozik.
 - A szolgáltató Azure Stack hub-példányt üzemeltet a szervezet számára.
 
-![Azure Stack hub egybérlős topológiája az Azure AD-vel](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure Stack hub egybérlős topológiája az Azure AD-vel](media/azure-stack-identity-architecture/single-tenant.svg)
 
 Ez a topológia a következő jellemzőkkel rendelkezik:
 
@@ -64,7 +64,7 @@ A több-bérlős topológia akkor hasznos, ha:
 
 - A szolgáltató engedélyezni szeretné, hogy több szervezet felhasználói hozzáférhessenek Azure Stack hubhoz.
 
-![Azure Stack hub több-bérlős topológiája az Azure AD-vel](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure Stack hub több-bérlős topológiája az Azure AD-vel](media/azure-stack-identity-architecture/multi-tenant.svg)
 
 Ez a topológia a következő jellemzőkkel rendelkezik:
 
@@ -79,7 +79,7 @@ A AD FS topológiára akkor van szükség, ha az alábbi feltételek bármelyike
 - Azure Stack hub nem csatlakozik az internethez.
 - Azure Stack hub csatlakozni tud az internethez, de Ön úgy dönt, hogy a AD FS használja az identitás-szolgáltatóhoz.
   
-![Azure Stack hub-topológia AD FS használatával](media/azure-stack-identity-architecture/adfs.png)
+![Azure Stack hub-topológia AD FS használatával](media/azure-stack-identity-architecture/adfs.svg)
 
 Ez a topológia a következő jellemzőkkel rendelkezik:
 
@@ -94,7 +94,7 @@ Ez a topológia a következő jellemzőkkel rendelkezik:
   - A felhasználói fiókok létrehozása és kezelése a helyszíni Active Directory-példányban történik.
   - Az alkalmazások egyszerű szolgáltatásait és regisztrációit a beépített Active Directory-példány kezeli.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-- [Az identitás áttekintése](azure-stack-identity-overview.md)
+- [Az identitások áttekintése](azure-stack-identity-overview.md)
 - [Adatközpont-integráció – identitás](azure-stack-integrate-identity.md)

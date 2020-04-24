@@ -8,17 +8,17 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704335"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Oktatóanyag: virtuális gép létrehozása közösségi sablon használatával
 
 Azure Stack hub-kezelőként vagy felhasználóként létrehozhat egy virtuális gépet (VM) [Egyéni GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates) -gyorsindítási sablonok használatával ahelyett, hogy manuálisan telepítené a sablont az Azure stack hub Piactérről.
 
-Ez az oktatóanyag bemutatja, hogyan végezheti el az alábbi műveleteket:
+Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 > [!div class="checklist"]
 > * Azure Stack hub gyors üzembe helyezési sablonjainak használata
@@ -102,7 +102,7 @@ Most, hogy sikeresen létrejött a Linux rendszerű virtuális gép, bejelentkez
 
 2. Egy rendszergazda jogú parancssorból futtassa az **mstsc. exe fájlt** a távoli asztali kapcsolat megnyitásához, majd kapcsolódjon az előző lépésben felderített LINUXOS virtuális gép nyilvános IP-címéhez. Amikor a rendszer felszólítja, hogy jelentkezzen be a xRDP-be, használja a virtuális gép létrehozásakor megadott hitelesítő adatokat.
 
-    ![Távoli](media/azure-stack-create-vm-template/10.PNG)
+    ![Remote](media/azure-stack-create-vm-template/10.PNG)
 
 3. Nyissa meg a Terminal Emulatort, és adja meg a következő parancsokat a Minikube indításához:
 
@@ -118,9 +118,9 @@ Most, hogy sikeresen létrejött a Linux rendszerű virtuális gép, bejelentkez
 
     ![Irányítópult](media/azure-stack-create-vm-template/12.PNG)
 
-5. Egy minta alkalmazás üzembe helyezéséhez látogasson el a hivatalos Kubernetes dokumentációs oldalára, és hagyja ki a "Minikube-fürt létrehozása" szakaszt, ahogy már létrehozott egyet. Ugorjon a "Node. js-alkalmazás létrehozása" szakaszra a következő helyen: https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/.
+5. Egy minta alkalmazás üzembe helyezéséhez látogasson el a hivatalos Kubernetes dokumentációs oldalára, és hagyja ki a "Minikube-fürt létrehozása" szakaszt, ahogy már létrehozott egyet. Ugorjon a "Node. js-alkalmazás létrehozása" szakaszra https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/a következő helyen:.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 

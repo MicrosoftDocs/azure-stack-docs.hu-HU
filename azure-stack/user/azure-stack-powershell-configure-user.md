@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 3656a5a6a992788ca8d4d975ac819f69793edb02
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702040"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
@@ -19,9 +19,9 @@ ms.locfileid: "77702040"
 Az Azure Stack hub-erőforrások kezeléséhez a PowerShell használatával csatlakozhat Azure Stack hubhoz. A PowerShell használatával például előfizethet az ajánlatokra, virtuális gépeket hozhat létre, és Azure Resource Manager sablonokat telepíthet.
 
 A telepítő beszerzése:
-  - Győződjön meg arról, hogy a követelmények.
-  - Csatlakozás az Azure Active Directory (Azure AD) vagy az Active Directory összevonási szolgáltatások (AD FS). 
-  - Erőforrás-szolgáltatók regisztrálásával.
+  - Győződjön meg arról, hogy rendelkezik a követelményekkel.
+  - Kapcsolódjon Azure Active Directory (Azure AD) vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) szolgáltatáshoz. 
+  - Erőforrás-szolgáltatók regisztrálása.
   - Tesztelje a kapcsolatot.
 
 ## <a name="prerequisites-to-connecting-with-powershell"></a>A PowerShell-lel való csatlakozás előfeltételei
@@ -36,7 +36,7 @@ Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/a
 - **Azure AD-bérlő neve**  
   Az Azure Stack hub felügyeletéhez használt Azure AD-bérlő neve. Például: yourdirectory.onmicrosoft.com.
 - **Azure Resource Manager végpont**  
-  A Azure Stack Development Kit esetében ez az érték https://management.local.azurestack.externalra van beállítva. Ha ezt az értéket szeretné lekérni Azure Stack hub integrált rendszerek esetében, forduljon a szolgáltatóhoz.
+  A Azure Stack Development Kit esetében ez az érték a következőre van beállítva: https://management.local.azurestack.external. Ha ezt az értéket szeretné lekérni Azure Stack hub integrált rendszerek esetében, forduljon a szolgáltatóhoz.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Kapcsolódás Azure Stack hubhoz az Azure AD-vel
 
@@ -62,9 +62,9 @@ Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/a
   Login-AzureRmAccount -EnvironmentName "AzureStackUser"
   ```
 
-## <a name="register-resource-providers"></a>Erőforrás-szolgáltató regisztrálása
+## <a name="register-resource-providers"></a>Erőforrás-szolgáltatók regisztrálása
 
-Az erőforrás-szolgáltatók nincsenek automatikusan regisztrálva olyan új felhasználói előfizetésekhez, amelyek nem rendelkeznek a portálon keresztül telepített erőforrásokkal. Erőforrás-szolgáltató explicit módon regisztrálhatja a következő szkript futtatásával:
+Az erőforrás-szolgáltatók nincsenek automatikusan regisztrálva olyan új felhasználói előfizetésekhez, amelyek nem rendelkeznek a portálon keresztül telepített erőforrásokkal. A következő parancsfájl futtatásával explicit módon regisztrálhat egy erőforrás-szolgáltatót:
 
 ```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
@@ -74,15 +74,15 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 
-## <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Ha minden beállítással rendelkezik, tesztelje a kapcsolatot a PowerShell használatával a Azure Stack hub erőforrásainak létrehozásához. Tesztként hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális gépet. A következő paranccsal hozzon létre egy erőforráscsoportot "MyResourceGroup" nevű:
+Ha minden beállítással rendelkezik, tesztelje a kapcsolatot a PowerShell használatával a Azure Stack hub erőforrásainak létrehozásához. Tesztként hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális gépet. Futtassa a következő parancsot egy "MyResourceGroup" nevű erőforráscsoport létrehozásához:
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok fejlesztése Azure Stack hubhoz](azure-stack-develop-templates.md)
 - [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)

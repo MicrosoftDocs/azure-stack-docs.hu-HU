@@ -3,16 +3,16 @@ title: Windows Server rendszerű virtuális gép létrehozása a PowerShell hasz
 description: Hozzon létre egy Windows Server rendszerű virtuális gépet a PowerShell használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 14192029c2bbac427b6609abfc62b06e0ef937cb
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1bc8316cad8574d09401f803982f853dcb7e2e93
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703740"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660359"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -33,7 +33,7 @@ Azure Stack hub PowerShell használatával létrehozhat egy Windows Server 2016 
 
 * Az Azure Stack hub PowerShell beállítása után csatlakoznia kell az Azure Stack hub-környezethez. Útmutatásért lásd: [kapcsolódás Azure stack hubhoz felhasználóként a PowerShell-](azure-stack-powershell-configure-user.md)lel.
 
-## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
+## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
 Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi és kezeli Azure Stack hub-erőforrásokat. A fejlesztői készletből vagy az Azure Stack hub integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Tárolási erőforrások létrehozása
+## <a name="create-storage-resources"></a>Tárerőforrások létrehozása
 
 Hozzon létre egy Storage-fiókot a rendszerindítási diagnosztika kimenetének tárolásához.
 
@@ -235,6 +235,6 @@ Remove-AzureRmResourceGroup `
   -Name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a rövid útmutatóban egy egyszerű Windowsos virtuális gépet telepített. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa [Azure stack hub virtuálisgép-szolgáltatásaival](azure-stack-vm-considerations.md).

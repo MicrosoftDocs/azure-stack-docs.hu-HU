@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
 ms.openlocfilehash: 51b9530fdd67826616f6117c3c95dbe48b45303f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701640"
 ---
 # <a name="azure-stack-hub-capacity-planner"></a>Azure Stack hub Capacity Planner
@@ -20,7 +20,7 @@ Az Azure Stack hub Capacity Planner egy táblázat, amely azt mutatja be, hogy a
 
 ## <a name="worksheet-descriptions"></a>A munkalap leírása
 
-A következő táblázat az Azure Stack hub Capacity Planner összes munkalapját ismerteti, amelyek a [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner)tölthetők le.
+A következő táblázat az Azure Stack hub Capacity Planner összes munkalapját ismerteti, amely letölthető innen [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):.
 
 |Munkalap neve|Leírás|
 |-----|-----|
@@ -79,6 +79,6 @@ Ha Azure Stack hub-munkaterhelések gyűjteményével szeretne modellt létrehoz
 7. A további modellezést a hardver SKU-ra kiválasztott kiszolgálók számának módosításával vagy a számítási feladatok konfigurációjában lévő virtuális gépek kiosztásának vagy mennyiségének módosításával végezheti el. A társított gráfok azonnali visszajelzést jelenítenek meg, amely bemutatja, hogyan befolyásolja a módosítások a teljes erőforrás-felhasználást.
 8. Ha elégedett a módosításaival, válassza a **javasolt SKU** újra lehetőséget az új konfigurációhoz javasolt SKU megjelenítéséhez. Kiválaszthatja a legördülő menüt is a kívánt SKU kiválasztásához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure stack hub Datacenter integrációs szempontjainak](azure-stack-datacenter-integration.md)megismerése.

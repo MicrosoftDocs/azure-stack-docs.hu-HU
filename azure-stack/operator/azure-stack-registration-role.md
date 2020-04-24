@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 599191a33334e8d38989abb4e293c7361855acfa
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80367778"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Egyéni szerepkör létrehozása Azure Stack hub-regisztrációhoz
@@ -32,7 +32,7 @@ Az Azure-előfizetéshez tartozó tulajdonosi engedélyekkel rendelkező fiók h
 
 ## <a name="create-a-custom-role-using-powershell"></a>Egyéni szerepkör létrehozása a PowerShell használatával
 
-Egyéni szerepkör létrehozásához a `Microsoft.Authorization/roleDefinitions/write` engedéllyel kell rendelkeznie minden `AssignableScopes`, például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdájának](/azure/role-based-access-control/built-in-roles#user-access-administrator). Az alábbi JSON-sablon használatával egyszerűsítheti az egyéni szerepkör létrehozását. A sablon létrehoz egy egyéni szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférést Azure Stack hub-regisztrációhoz.
+`Microsoft.Authorization/roleDefinitions/write` Egyéni szerepkör létrehozásához az engedéllyel kell rendelkeznie `AssignableScopes`, például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználó hozzáférési rendszergazdája](/azure/role-based-access-control/built-in-roles#user-access-administrator)számára. Az alábbi JSON-sablon használatával egyszerűsítheti az egyéni szerepkör létrehozását. A sablon létrehoz egy egyéni szerepkört, amely lehetővé teszi a szükséges olvasási és írási hozzáférést Azure Stack hub-regisztrációhoz.
 
 1. Hozzon létre egy JSON-fájlt. Például:  `C:\CustomRoles\registrationrole.json`.
 2. Adja hozzá az alábbi JSON-kódot a fájlhoz. Cserélje le a `<SubscriptionID>` értékét a saját Azure-előfizetése azonosítójára.
@@ -89,6 +89,6 @@ A regisztráció egyéni szerepkör létrehozása után rendelje hozzá a szerep
 
 További információ az egyéni szerepkörök használatáról: [a hozzáférés kezelése a RBAC és a Azure Portal használatával](/azure/role-based-access-control/role-assignments-portal).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub regisztrálása az Azure-ban](azure-stack-registration.md)

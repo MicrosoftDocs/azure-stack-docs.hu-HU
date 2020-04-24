@@ -3,15 +3,15 @@ title: Azure Stack hub megfigyelési adatainak felhasználása
 description: További információ a Azure Stack hub megfigyelési adatainak felhasználására vonatkozó lehetőségekről.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9bbe39f63a4b59446f5c8d6444381afc9ea89cc8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 933d05e17098ed7ef27a21d5ed846a420ff2f48a
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703927"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660509"
 ---
 # <a name="consume-monitoring-data-from-azure-stack-hub"></a>Azure Stack hub megfigyelési adatainak felhasználása
 
@@ -28,6 +28,6 @@ A figyelési adatgyűjtés egyetlen helyen található a Azure Monitor folyamatt
 | Vendég operációs rendszer naplóinak számítása (például IIS, ETW, syslogs) | Események | Windows és Linux rendszerű virtuális gépek | Storage-tábla vagy-blob:<br>Windows vagy Linux Azure Diagnostics <br>Event hub:<br>Windows Azure Diagnostics |
 | Tárolási naplók | Események | Azure Storage | Storage-tábla:<br>Storage Analytics |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az [Azure monitor Azure stack hub](azure-stack-metrics-azure-data.md)-ról.

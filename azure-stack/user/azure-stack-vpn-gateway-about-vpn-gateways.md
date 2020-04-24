@@ -7,17 +7,17 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294373"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>VPN-átjárók létrehozása Azure Stack hubhoz
 
 Mielőtt hálózati forgalmat küldene az Azure-beli virtuális hálózat és a helyszíni hely között, létre kell hoznia egy virtuális hálózati (VPN-) átjárót a virtuális hálózathoz.
 
-A VPN-átjáró a virtuális hálózati átjárók egy olyan típusa, amely titkosított adatforgalmat továbbít nyilvános kapcsolaton keresztül. A VPN-átjárók használatával a Azure Stack hub virtuális hálózata és az Azure-beli virtuális hálózat között biztonságosan küldhet forgalmat. Biztonságosan egy virtuális hálózat és a egy VPN-eszközhöz van csatlakoztatva egy másik hálózat közötti forgalmat is küldhet.
+A VPN-átjáró a virtuális hálózati átjárók egy olyan típusa, amely titkosított adatforgalmat továbbít nyilvános kapcsolaton keresztül. A VPN-átjárók használatával a Azure Stack hub virtuális hálózata és az Azure-beli virtuális hálózat között biztonságosan küldhet forgalmat. A virtuális hálózat és egy másik, VPN-eszközhöz csatlakozó hálózat között is biztonságosan küldhet forgalmat.
 
 Virtuális hálózati átjáró létrehozásakor megadja a létrehozni kívánt átjárótípust. Azure Stack hub a virtuális hálózati átjárók egy típusát támogatja: a **VPN-** típust.
 
@@ -35,7 +35,7 @@ A Azure Stack hub VPN-átjáróinak létrehozása és konfigurálása előtt tek
 
 ## <a name="configuring-a-vpn-gateway"></a>VPN-átjáró konfigurálása
 
-VPN gateway-kapcsolat meghatározott beállításokkal konfigurált számos erőforrás támaszkodik. Ezek az erőforrások többsége külön konfigurálható, de bizonyos esetekben kell ezeket konfigurálni a meghatározott sorrendben.
+A VPN Gateway-kapcsolatok számos, adott beállításokkal konfigurált erőforrásra támaszkodnak. Ezen erőforrások többsége külön konfigurálható, de bizonyos esetekben ezeket egy adott sorrendben kell konfigurálni.
 
 ### <a name="settings"></a>Beállítások
 
@@ -43,22 +43,22 @@ Az egyes erőforrásokhoz kiválasztott beállítások kritikus fontosságúak a
 
 A VPN-átjárók egyes erőforrásaival és beállításaival kapcsolatos információkért lásd: [Azure stack hub VPN Gateway-beállításai](azure-stack-vpn-gateway-settings.md). Ez a cikk segítséget nyújt a következők megértésében:
 
-* Átjáró VPN-típusok és kapcsolattípusok.
-* Átjáró-alhálózatokkal, a helyi hálózati átjárót és a többi erőforrás-beállítások, amelyeket érdemes figyelembe venni.
+* Az átjáró típusainak, a VPN-típusoknak és a kapcsolati típusoknak.
+* Az átjáró-alhálózatokat, a helyi hálózati átjárókat és az egyéb erőforrás-beállításokat, amelyeket érdemes figyelembe venni.
 
 ### <a name="deployment-tools"></a>Üzembe helyezési eszközök
 
-Létrehozhat és konfigurálhat erőforrásokat egy konfigurációs eszközt, például az Azure portal használatával. Később átválthat egy másik eszközre, például a PowerShellre a további erőforrások konfigurálásához, vagy a meglévő erőforrások módosításához, ha van ilyen. Jelenleg nem lehet a minden erőforrást és erőforrás-beállítást az Azure Portalon konfigurálni. Az egyes kapcsolati topológiákhoz tartozó cikkekben lévő utasítások egyértelműsítik, hogy mikor van szükség egy speciális konfigurációs eszközre.
+Erőforrásokat egyetlen konfigurációs eszközzel hozhat létre és konfigurálhat, például a Azure Portal. Később átválthat egy másik eszközre, például a PowerShellre a további erőforrások konfigurálásához, vagy a meglévő erőforrások módosításához, ha van ilyen. Jelenleg nem lehet a minden erőforrást és erőforrás-beállítást az Azure Portalon konfigurálni. Az egyes kapcsolati topológiákhoz tartozó cikkekben lévő utasítások egyértelműsítik, hogy mikor van szükség egy speciális konfigurációs eszközre.
 
 ## <a name="connection-topology-diagrams"></a>Kapcsolati topológia-diagramok
 
-A VPN Gateway-kapcsolatokhoz különböző konfigurációk érhetők el. Határozza meg, melyik konfiguráció felel meg a legjobban az igényeinek. Az alábbiakban tekintheti meg a következő VPN gateway-kapcsolatok információt és topológia-diagramokat:
+A VPN Gateway-kapcsolatokhoz különböző konfigurációk érhetők el. Döntse el, melyik konfiguráció felel meg legjobban az igényeinek. A következő szakaszban megtekintheti az alábbi VPN Gateway-kapcsolatokkal kapcsolatos információkat és topológiai diagramokat:
 
 * Elérhető üzemi modell
 * Elérhető konfigurációs eszközök
 * Hivatkozások, amelyek közvetlenül egy cikkre mutatnak, ha van ilyen
 
-Az ábrák és leírások az alábbi szakaszok segítségével válassza ki az igényeinek megfelelő kapcsolati topológiát. Az ábrák bemutatják a fő alapvető topológiákat, de lehetséges összetettebb konfigurációk használata a diagramokat útmutatásként hozhat létre.
+A következő szakaszban található diagramok és leírások segítségével kiválaszthatja az igényeinek megfelelő kapcsolódási topológiát. A diagramok a fő alapkonfigurációkat mutatják be, de a diagramok útmutatóként való használatával összetettebb konfigurációk is létrehozhatók.
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Helyek közötti és többhelyes (IPsec/IKE VPN-alagút)
 
@@ -66,9 +66,9 @@ Az ábrák és leírások az alábbi szakaszok segítségével válassza ki az i
 
 A *helyek közötti* (S2S) VPN Gateway-kapcsolat IPSec/IKE (IKEV2) VPN-alagúton keresztüli kapcsolat. Az ilyen típusú kapcsolathoz olyan VPN-eszköz szükséges, amely a helyszínen található, és egy nyilvános IP-címet kap. Ez az eszköz nem helyezhető el NAT mögött. A helyek közötti kapcsolatok létesítmények közötti és hibrid konfigurációk esetében is alkalmazhatók.
 
-![Site-to-site VPN kapcsolat konfigurációja – példa](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
+![Helyek közötti VPN-kapcsolat konfigurációjának példája](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a>több hely
+### <a name="multi-site"></a>Többhelyes
 
 A *többhelyes* kapcsolat a helyek közötti kapcsolat egy változata. A virtuális hálózati átjáróról több VPN-kapcsolatot hoz létre, amelyek általában több helyszíni helyhez csatlakoznak. Több kapcsolat használata esetén egy Route-alapú VPN-típust (más néven dinamikus átjárót) kell használnia a klasszikus virtuális hálózatok használata esetén. Mivel minden virtuális hálózat csak egy VPN-átjáróval rendelkezhet, az átjárón keresztüli összes kapcsolat osztozik a rendelkezésre álló sávszélességen.
 
@@ -76,20 +76,20 @@ A *többhelyes* kapcsolat a helyek közötti kapcsolat egy változata. A virtuá
 
 ## <a name="gateway-skus"></a>Gateway termékváltozatok
 
-Azure Stack hub virtuális hálózati átjárójának létrehozásakor meg kell adnia a használni kívánt átjáró-SKU-t. VPN gateway a következő termékváltozatok támogatottak:
+Azure Stack hub virtuális hálózati átjárójának létrehozásakor meg kell adnia a használni kívánt átjáró-SKU-t. A következő VPN Gateway SKU-ket támogatja:
 
-* Alapszintű
+* Basic
 * Standard
 * Nagy teljesítmény
 
-Ha egy magasabb átjárós SKU-t választ, például a standard szintű vagy a standard szintű vagy az alapszintű teljesítményt, a rendszer több processzort és hálózati sávszélességet rendel az átjáróhoz. Ennek eredményeképpen az átjáró nagyobb hálózati átviteli sebesség a virtuális hálózat is támogatja.
+Ha egy magasabb átjárós SKU-t választ, például a standard szintű vagy a standard szintű vagy az alapszintű teljesítményt, a rendszer több processzort és hálózati sávszélességet rendel az átjáróhoz. Ennek eredményeképpen az átjáró képes támogatni a virtuális hálózat nagyobb hálózati átviteli sebességét.
 
 Azure Stack hub nem támogatja az ultra Performance Gateway SKU-t, amely kizárólag az expressz útvonalon használható.
 
 Az SKU kiválasztásakor vegye figyelembe a következőket:
 
 * Azure Stack hub nem támogatja a házirend-alapú átjárókat.
-* Az alapszintű termékváltozat nem támogatott a Border Gateway Protocol (BGP).
+* A Border Gateway Protocol (BGP) nem támogatott az alapszintű SKU-ban.
 * ExpressRoute – a VPN-átjárók egyidejű konfigurációi Azure Stack központban nem támogatottak.
 
 ## <a name="gateway-availability"></a>Átjáró rendelkezésre állása
@@ -107,8 +107,8 @@ A következő táblázat az átjárók típusát és az átjáró SKU által bec
 || VPN Gateway teljesítménye (1) | VPN Gateway IPsec-alagútjainak maximális száma (2) |
 |-------|-------|-------|
 |**Alapszintű SKU** **(3)** | 100 Mbps | 20 |
-|**Szabványos SKU** | 100 Mbps | 20 |
-|**Nagy teljesítményű SKU** | 200 Mbps | 10 |
+|**Standard termékváltozat** | 100 Mbps | 20 |
+|**Nagy teljesítményű termékváltozat** | 200 Mbps | 10 |
 
 ### <a name="table-notes"></a>Tábla megjegyzései
 
@@ -119,6 +119,6 @@ A következő táblázat az átjárók típusát és az átjáró SKU által bec
 >[!NOTE]
 >Két Azure Stack hub üzemelő példány között csak egy helyek közötti VPN-kapcsolat hozható létre. Ennek oka a platform olyan korlátozása, amely csak egyetlen VPN-kapcsolat használatát teszi lehetővé ugyanahhoz az IP-címhez. Mivel Azure Stack hub kihasználja a több-bérlős átjárót, amely egyetlen nyilvános IP-címet használ a Azure Stack hub rendszer összes VPN-átjárója számára, csak egy VPN-kapcsolat lehet két Azure Stack hub-rendszer között. Ez a korlátozás arra az esetre is vonatkozik, ha egynél több helyek közötti VPN-kapcsolatot csatlakoztat egy olyan VPN-átjáróhoz, amely egyetlen IP-címet használ. Azure Stack hub nem teszi lehetővé, hogy egynél több helyi hálózati átjáró-erőforrást hozzon létre ugyanazzal az IP-címmel.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Azure Stack hub VPN Gateway konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)

@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 212f68be85bfe4b129e84057cc63472e5259a41c
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79293988"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
@@ -45,7 +45,7 @@ Ha egy megosztás kevés a szabad területtel, és nem sikerül a lemezterület 
 
 További információ arról, hogy a bérlői felhasználók hogyan működnek a Azure Stack hub blob Storage [szolgáltatásával: Azure stack hub Storage Services](/azure-stack/user/azure-stack-storage-overview).
 
-### <a name="containers"></a>Tárolók
+### <a name="containers"></a>Containers
 A bérlői felhasználók a Blobok tárolására szolgáló tárolókat hoznak létre. Bár a felhasználók határozzák meg a Blobok elhelyezését, a Storage szolgáltatás algoritmus használatával határozza meg, hogy melyik köteten helyezi el a tárolót. Az algoritmus általában kiválasztja a legnagyobb szabad területtel rendelkező kötetet.  
 
 Miután egy blobot elhelyez egy tárolóban, a blob több helyet is felhasználhat. Amikor új blobokat ad hozzá, és a meglévő Blobok növekednek, a köteten lévő szabad terület csökken.  
@@ -69,7 +69,7 @@ A rögzített tárolók lemezterületének felszabadítására vonatkozó beáll
 A megosztások figyeléséhez használja a Azure PowerShell vagy a felügyeleti portált, így megismerheti, hogy a szabad terület korlátozott-e. A portál használata esetén riasztást kap a kevés lemezterülettel rendelkező megosztásokról.
 
 ### <a name="use-powershell"></a>A PowerShell használata
-Felhőbeli kezelőként a PowerShell `Get-AzsStorageShare` parancsmag használatával figyelheti a megosztás tárolási kapacitását. A parancsmag az egyes megosztásokon a teljes, lefoglalt és szabad területet adja vissza bájtban.
+Felhőbeli kezelőként a megosztás tárolási kapacitását a PowerShell `Get-AzsStorageShare` -parancsmag használatával figyelheti. A parancsmag az egyes megosztásokon a teljes, lefoglalt és szabad területet adja vissza bájtban.
 
 ![Példa: a megosztások szabad területének visszaküldése](media/azure-stack-manage-storage-shares/free-space.png)
 
@@ -80,7 +80,7 @@ Felhőbeli kezelőként a PowerShell `Get-AzsStorageShare` parancsmag használat
 Felhőbeli operátorként a felügyeleti portálon megtekintheti az összes megosztás tárolási kapacitását.
 
 1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
-2. Válassza a **minden szolgáltatás** > **Storage** > **fájlmegosztás** lehetőséget a fájlmegosztás listájának megnyitásához, ahol megtekintheti a használati adatokat.
+2. Válassza a **minden szolgáltatás** > **tárolási** > **fájlmegosztás** lehetőséget a fájlmegosztás listájának megnyitásához, ahol megtekintheti a használati adatokat.
 
     ![Példa: Storage file shares in Azure Stack hub felügyeleti portál](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -105,7 +105,7 @@ A felügyeleti portál használata esetén riasztást kap a kevés lemezterület
 
   ![Példa: riasztás részleteinek megtekintése az Azure Stack hub felügyeleti portálján](media/azure-stack-manage-storage-shares/alert-details.png)
 
-## <a name="manage-available-space"></a>Szabad terület kezelése
+## <a name="manage-available-space"></a>A rendelkezésre álló terület kezelése
 Ha tárterületet szabadít fel egy megosztáson, először a legkevésbé invazív metódusokat használja. Próbálja ki például, hogy a tároló átmigrálása előtt próbálkozzon a terület visszaigénylésével.  
 
 ### <a name="reclaim-capacity"></a>Kapacitás visszaigénylése
@@ -126,7 +126,7 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 
 - Ha egy tároló túlcsordulási módot adott meg, és a blobokat további kötetekre helyezte, az új megosztásnak elegendő kapacitással kell rendelkeznie az áttelepített tároló összes blobjának tárolásához. Ide tartoznak a további megosztásokon található Blobok.
 
-- A PowerShell-parancsmag `Get-AzsStorageContainer` csak a tároló kezdeti kötetén használt helyet azonosítja. A parancsmag nem azonosítja a további kötetekre helyezett Blobok által használt területet. Ezért előfordulhat, hogy a tárolók teljes mérete nem egyértelmű. Lehetséges, hogy egy tároló új megosztáson való összevonása az új megosztást túlcsordulási állapotba tudja küldeni, ahol további megosztásokra helyezheti az adatmennyiséget. Ennek eredményeképpen előfordulhat, hogy újra kell osztania a megosztásokat.
+- A PowerShell- `Get-AzsStorageContainer` parancsmag csak a tároló kezdeti kötetén használt helyet azonosítja. A parancsmag nem azonosítja a további kötetekre helyezett Blobok által használt területet. Ezért előfordulhat, hogy a tárolók teljes mérete nem egyértelmű. Lehetséges, hogy egy tároló új megosztáson való összevonása az új megosztást túlcsordulási állapotba tudja küldeni, ahol további megosztásokra helyezheti az adatmennyiséget. Ennek eredményeképpen előfordulhat, hogy újra kell osztania a megosztásokat.
 
 - Ha nem rendelkezik bizonyos erőforráscsoportok engedélyeivel, és nem tud a PowerShell használatával lekérdezni a további köteteket a túlcsordulási információkhoz, akkor az ezen erőforráscsoportok és tárolók tulajdonosaként működjön együtt az áttelepíteni kívánt összes adatmennyiség megismerése érdekében.  
 
@@ -135,7 +135,7 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Tárolók migrálása a PowerShell használatával
 1. Győződjön meg arról, hogy van [Azure PowerShell telepítve és konfigurálva](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). További információ: Azure- [erőforrások kezelése Azure PowerShell használatával](https://go.microsoft.com/fwlink/?LinkId=394767).
-2. Vizsgálja meg a tárolót, és Ismerje meg, hogy az áttelepíteni kívánt megosztáson milyen adatelemek találhatók. A köteten áttelepítéshez legmegfelelőbb jelölt tárolók azonosításához használja a `Get-AzsStorageContainer` parancsmagot:
+2. Vizsgálja meg a tárolót, és Ismerje meg, hogy az áttelepíteni kívánt megosztáson milyen adatelemek találhatók. A köteten áttelepítéshez legmegfelelőbb jelölt tárolók azonosításához használja a `Get-AzsStorageContainer` következő parancsmagot:
 
    ```powershell  
    $farm_name = (Get-AzsStorageFarm)[0].name
@@ -202,5 +202,5 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 
 A tárhely kezelésének legszélsőségesebb módszere a virtuálisgép-lemezek áthelyezését jelenti. Mivel egy csatolt tároló (amely virtuálisgép-lemezt tartalmaz) áthelyezése összetett, a művelet végrehajtásához forduljon a Microsoft támogatási szolgálatához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 Ha többet szeretne megtudni a virtuális gépek felhasználók számára történő felajánlásáról, tekintse meg a [Azure stack hub tárterület-kapacitásának kezelése](azure-stack-tutorial-tenant-vm.md)című témakört.

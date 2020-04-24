@@ -3,16 +3,16 @@ title: Marketplace-elemek létrehozása és közzététele Azure Stack központb
 description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704454"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660718"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -131,7 +131,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     }
     ```
 
-    ![csomag megjeleníti](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![csomag megjelenítését](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
+    ![Csomag megjelenítési](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![csomagja](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont az [Azure stack hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
 
@@ -178,7 +178,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. A `GalleryItemURI` értéket a Azure Stack hub felügyeleti portálról kérheti le. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
+5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az `GalleryItemURI` értéket lekérheti az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
 
    A katalógus-csomag befejezése és az **Add-AzsGalleryItem**használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
 
@@ -208,8 +208,8 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 | Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Name (Név) |X |Sztring |[A-Za-z0-9]+ | |
-| Közzétevő |X |Sztring |[A-Za-z0-9]+ | |
+| Name (Név) |X |Sztring |[A-Za-z0-9] + | |
+| Közzétevő |X |Sztring |[A-Za-z0-9] + | |
 | Verzió |X |Sztring |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metaadatok
@@ -219,7 +219,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 | DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
-| Összegzés |X |Sztring |60 – 100 karakter | |
+| Összefoglalás |X |Sztring |60 – 100 karakter | |
 | LongSummary |X |Sztring |140 – 256 karakter |Azure Stack központban még nem alkalmazható. |
 | Leírás |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
 
@@ -227,13 +227,13 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 A piactér a következő ikonokat használja:
 
-| Name (Név) | Szélesség | Magasság | Megjegyzések |
+| Name (Név) | Szélesség | Height (Magasság) | Megjegyzések |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
 | Közepes |90 px |90 px |Mindig szükséges |
 | Kicsi |40 px |40 px |Mindig szükséges |
-| Képernyőkép |533 px |324 px |Mindig szükséges |
+| Képernyőfelvétel |533 px |324 px |Mindig szükséges |
 
 ### <a name="categories"></a>Kategóriák
 
@@ -275,7 +275,7 @@ A Marketplace-elemek ikonjai és szövege a Azure Stack hub-portálon látható 
 
 ![Azure Stack hub Marketplace-elemek részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub Marketplace – áttekintés](azure-stack-marketplace.md)
 - [Marketplace-elemek letöltése](azure-stack-download-azure-marketplace-item.md)

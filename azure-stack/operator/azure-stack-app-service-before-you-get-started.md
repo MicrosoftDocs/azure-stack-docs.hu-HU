@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: 3a0a62fe74b3420ccc321f79539cdce16aac6934
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294670"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Az App Service Azure Stack hub-beli üzembe helyezésének előfeltételei
@@ -27,14 +27,14 @@ A Azure App Service Azure Stack hub-on való üzembe helyezése előtt végre ke
 2. Töltse le a [app Servicet Azure stack hub telepítőn](https://aka.ms/appsvconmasinstaller).
 3. Bontsa ki a fájlokat a Helper scripts. zip fájlból. A következő fájlok és mappák vannak kibontva:
 
-   - Common.ps1
-   - Create-AADIdentityApp.ps1
-   - Create-ADFSIdentityApp.ps1
-   - Create-AppServiceCerts.ps1
-   - Get-AzureStackRootCert.ps1
-   - Remove-AppService.ps1
+   - Common. ps1
+   - Create-AADIdentityApp. ps1
+   - Create-ADFSIdentityApp. ps1
+   - Create-AppServiceCerts. ps1
+   - Get-AzureStackRootCert. ps1
+   - Remove-AppService. ps1
    - Modulok mappa
-     - GraphAPI.psm1
+     - GraphAPI. psm1
 
 ## <a name="download-items-from-the-azure-marketplace"></a>Elemek letöltése az Azure Marketplace-ről
 
@@ -57,11 +57,11 @@ A következő PowerShell-parancs futtatásakor meg kell adnia a rendszerjogosult
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert. ps1 parancsfájl-paraméterek
 
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Kötelező | AzS-ERCS01 | Emelt szintű végpont |
+| PrivilegedEndpoint | Kötelező | AzS – ERCS01 | Emelt szintű végpont |
 | CloudAdminCredential | Kötelező | AzureStack\CloudAdmin | Tartományi fiók hitelesítő adatai Azure Stack hub Cloud rendszergazdák számára |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>A Azure App Service ASDK telepítéséhez szükséges tanúsítványok
@@ -70,10 +70,10 @@ A *create-AppServiceCerts. ps1* parancsfájl az Azure stack hub hitelesítésszo
 
 | Fájlnév | Használat |
 | --- | --- |
-| _.appservice.local.azurestack.external.pfx | Alapértelmezett SSL-tanúsítvány App Service |
-| api.appservice.local.azurestack.external.pfx | App Service API SSL-tanúsítványa |
-| ftp.appservice.local.azurestack.external.pfx | App Service közzétevő SSL-tanúsítványa |
-| sso.appservice.local.azurestack.external.pfx | App Service Identity Application-tanúsítvány |
+| _. appservice. local. azurestack. external. pfx | Alapértelmezett SSL-tanúsítvány App Service |
+| API. appservice. local. azurestack. external. pfx | App Service API SSL-tanúsítványa |
+| FTP. appservice. local. azurestack. external. pfx | App Service közzétevő SSL-tanúsítványa |
+| SSO. appservice. local. azurestack. external. pfx | App Service Identity Application-tanúsítvány |
 
 A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 
@@ -87,7 +87,7 @@ A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 | Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
 | pfxPassword | Kötelező | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó |
-| DomainName | Kötelező | local.azurestack.external | Azure Stack hub-régió és tartomány utótagja |
+| DomainName | Kötelező | helyi. azurestack. external | Azure Stack hub-régió és tartomány utótagja |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>A Azure App Service Azure Stack hub éles üzembe helyezéséhez szükséges tanúsítványok
 
@@ -116,7 +116,7 @@ Az API-tanúsítvány a felügyeleti szerepkörbe kerül. Az erőforrás-szolgá
 
 | Formátum | Példa |
 | --- | --- |
-| az API. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | api.appservice.redmond.azurestack.external |
+| API. appservice. \<régió\>. \<Tartománynév\>. \<bővítmény\> | API. appservice. Redmond. azurestack. external |
 
 #### <a name="publishing-certificate"></a>Tanúsítvány közzététele
 
@@ -124,7 +124,7 @@ A közzétevői szerepkör tanúsítványa biztosítja az FTPS forgalmát, amiko
 
 | Formátum | Példa |
 | --- | --- |
-| FTP. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | ftp.appservice.redmond.azurestack.external |
+| FTP. appservice. \<régió\>. \<Tartománynév\>. \<bővítmény\> | FTP. appservice. Redmond. azurestack. external |
 
 #### <a name="identity-certificate"></a>Identitás tanúsítványa
 
@@ -137,7 +137,7 @@ Az identitás tanúsítványának tartalmaznia kell egy tulajdonost, amely megfe
 
 | Formátum | Példa |
 | --- | --- |
-| SSO. appservice.\<régió\>.\<tartománynév\>.\<bővítmény\> | sso.appservice.redmond.azurestack.external |
+| SSO. appservice. \<régió\>. \<Tartománynév\>. \<bővítmény\> | SSO. appservice. Redmond. azurestack. external |
 
 ### <a name="validate-certificates"></a>Tanúsítványok ellenőrzése
 
@@ -157,16 +157,16 @@ Virtuális hálózat –/16
 Alhálózatok
 
 - ControllersSubnet/24
-- ManagementServersSubnet /24
+- ManagementServersSubnet/24
 - FrontEndsSubnet/24
-- PublishersSubnet /24
+- PublishersSubnet/24
 - WorkersSubnet/21
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>A szükséges fájlkiszolgáló és SQL Server licencelési problémái
 
 A Azure Stack hub Azure App Service a szükséges fájlkiszolgáló és a SQL Server működéséhez.  Ingyenesen használhatja a Azure Stack hub központi telepítésén kívül található meglévő erőforrásokat, vagy az Azure Stack hub alapértelmezett szolgáltatói előfizetésén belül helyezhet üzembe erőforrásokat.
 
-Ha úgy dönt, hogy az Azure Stack hub alapértelmezett szolgáltatói előfizetésén belül helyezi üzembe az erőforrásokat, akkor az adott erőforráshoz tartozó licencek (Windows Server-licencek és SQL Server-licencek) a Azure Stack hub-beli Azure App Service díjait tartalmazzák következő korlátozások:
+Ha úgy dönt, hogy az Azure Stack hub alapértelmezett szolgáltatói előfizetésén belül helyezi üzembe az erőforrásokat, akkor az adott erőforráshoz tartozó licencek (Windows Server-licencek és SQL Server-licencek) a következő korlátozások alá tartoznak Azure Stack hub-beli Azure App Serviceek esetében:
 
 - az infrastruktúra üzembe helyezése az **alapértelmezett szolgáltatói előfizetésben**történik;
 - az infrastruktúrát kizárólag az Azure Stack hub erőforrás-szolgáltató Azure App Service használja.  Más munkaterhelések, adminisztratív (más erőforrás-szolgáltatók, például SQL-RP) vagy bérlő (például: bérlői alkalmazások, amelyeknek adatbázisra van szükségük) használata engedélyezett az infrastruktúra használatának elvégzésére.
@@ -221,7 +221,7 @@ Mostantól elérhető egy olyan [hivatkozási architektúra gyors sablonja](http
 
 A Azure Resource Manager sablon használatakor a felhasználók már létre vannak hozva.
 
-1. Futtassa a következő parancsokat a FileShareOwner és a FileShareUser fiókok létrehozásához. Cserélje le a `<password>`t a saját értékeire.
+1. Futtassa a következő parancsokat a FileShareOwner és a FileShareUser fiókok létrehozásához. Cserélje `<password>` le a értéket a saját értékeire.
 
    ``` DOS
    net user FileShareOwner <password> /add /expires:never /passwordchg:no
@@ -250,7 +250,7 @@ A tartalom megosztása bérlői webhely tartalmát tartalmazza. A tartalmi megos
 
 #### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>A tartalom megosztásának kiépítése egyetlen fájlkiszolgálón (Active Directory vagy munkacsoport)
 
-Egyetlen fájlkiszolgálón futtassa a következő parancsokat egy rendszergazda jogú parancssorban. Cserélje le a `C:\WebSites` értékét a környezetének megfelelő elérési utakra.
+Egyetlen fájlkiszolgálón futtassa a következő parancsokat egy rendszergazda jogú parancssorban. Cserélje le az értéket `C:\WebSites` a környezetében lévő megfelelő elérési utakra.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
@@ -349,7 +349,7 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
 11. Keresse meg a 7. lépésben feljegyzett alkalmazás AZONOSÍTÓját. 
 12. Válassza ki a App Service alkalmazás regisztrációját a listából.
 13. Válassza ki az **API-engedélyeket** a bal oldali ablaktáblán.
-14. Válassza a **rendszergazdai jóváhagyás megadása \<bérlő\>** , ahol a \<bérlő\> az Azure ad-bérlő neve. Az **Igen gombra**kattintva erősítse meg a jóváhagyást.
+14. Válassza a **rendszergazdai jóváhagyás megadása \<bérlő\>számára**lehetőséget \<,\> ahol a bérlő az Azure ad-bérlő neve. Az **Igen gombra**kattintva erősítse meg a jóváhagyást.
 
 ```powershell
     Create-AADIdentityApp.ps1
@@ -399,6 +399,6 @@ Kövesse az alábbi lépéseket:
 | CertificateFilePath | Kötelező | Null | Az Identity alkalmazás tanúsítvány PFX-fájljának **teljes elérési útja** . |
 | CertificatePassword | Kötelező | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó. |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A App Service erőforrás-szolgáltató telepítése](azure-stack-app-service-deploy.md)

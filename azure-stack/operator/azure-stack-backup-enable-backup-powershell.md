@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
 ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703315"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Azure Stack hub biztonsági mentésének engedélyezése a PowerShell-lel
@@ -137,7 +137,7 @@ Ha az infrastruktúra biztonsági mentése a 1901-es frissítés előtt lett kon
 A modul helyes verziójának telepítésével kapcsolatos további információkért tekintse meg az [Azure stack hub PowerShell telepítése](azure-stack-powershell-install.md) című témakört.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a biztonsági másolatok futtatásáról: [Azure stack hub biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 

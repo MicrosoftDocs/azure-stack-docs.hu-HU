@@ -9,10 +9,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
 ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80229533"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes hozzáadása Azure Stack hub Marketplace-hez
@@ -38,9 +38,9 @@ Hozzon létre egy csomagot, egy ajánlatot és egy előfizetést a Kubernetes Ma
 
 1. Válassza az **Áttekintés** lehetőséget az ajánlat panelen.
 
-1. Válassza az **Állapot módosítása**lehetőséget. Válassza a **nyilvános**lehetőséget.
+1. Válassza az **Állapot módosítása**lehetőséget. Válassza a **Nyilvános** lehetőséget.
 
-1. Válassza az **+ erőforrás létrehozása** **lehetőséget > ajánlatok és csomagok** > **előfizetés** létrehozásához.
+1. Előfizetés létrehozásához válassza az **+ erőforrás** > létrehozása**ajánlatok és csomagok** > **előfizetését** .
 
     a. Adja meg a **megjelenítendő nevet**.
 
@@ -131,7 +131,7 @@ A Kubernetes elemek eltávolítása:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Megjegyzés: az aktuális elem neve, például `Microsoft.AzureStackKubernetesCluster.0.3.0`.
+3. Jegyezze fel az aktuális elem nevét, például: `Microsoft.AzureStackKubernetesCluster.0.3.0`.
 
 4. Az alábbi PowerShell-parancsmag használatával távolítsa el az elemeket:
 
@@ -141,7 +141,7 @@ A Kubernetes elemek eltávolítása:
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Kubernetes üzembe helyezése Azure Stack hubhoz](../user/azure-stack-solution-template-kubernetes-deploy.md)
 

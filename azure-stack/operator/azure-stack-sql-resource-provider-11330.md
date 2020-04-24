@@ -9,17 +9,17 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2020
 ms.openlocfilehash: 4aefe4e01950c7891bedb43eb1245f10608d1709
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697433"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL Resource Provider 1.1.33.0 kibocsátási megjegyzései
 
 Ezek a kibocsátási megjegyzések ismertetik az SQL Resource Provider 1.1.33.0 verziójának frissítéseit és ismert problémáit.
 
-## <a name="build-reference"></a>Hivatkozás létrehozása
+## <a name="build-reference"></a>Build referenciája
 Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub-verzió az alábbi listában látható:
 
 > |Azure Stack hub minimális verziója|SQL erőforrás-szolgáltató verziója|
@@ -41,7 +41,7 @@ Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő ja
 
 - A **korábbi SQL-erőforrás-szolgáltató (1.1.30.0) telepítése meghiúsulhat, ha a TLS 1,2 nincs engedélyezve**. Frissítette az SQL Resource Provider 1.1.33.0, hogy engedélyezze a TLS 1,2-et az erőforrás-szolgáltató telepítésekor, az erőforrás-szolgáltató frissítésekor vagy a titkok elforgatásakor.
 
-- **Sikertelen volt az SQL-erőforrás-szolgáltató titkos elforgatása**. A következő hibakód miatt kijavított hiba történt a titkok elforgatásakor: `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Sikertelen volt az SQL-erőforrás-szolgáltató titkos elforgatása**. Kijavítva a hiba, amely a következő hibakódot eredményezi a titkos kódok elforgatásakor:`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Ismert problémák
 
@@ -64,7 +64,7 @@ Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő ja
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure Stack hubhoz
 Tekintse meg az [Azure stack hub kibocsátási megjegyzései](azure-stack-servicing-policy.md)dokumentációját.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).
 
 [Felkészülés az SQL-erőforrás-szolgáltató üzembe helyezésére](azure-stack-sql-resource-provider-deploy.md#prerequisites).

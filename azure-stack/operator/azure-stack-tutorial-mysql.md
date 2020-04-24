@@ -9,10 +9,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
 ms.openlocfilehash: 327b63e2b21ea545fd6e0d175d531862ceeac0d6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696923"
 ---
 # <a name="create-highly-available-mysql-databases"></a>Magasan elérhető MySQL-adatbázisok létrehozása
@@ -51,9 +51,9 @@ Szüksége lesz egy SSH-ügyfélre is, például a [Putty](https://www.chiark.gr
 
 Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-kiszolgáló fürtöt a [MySQL és a replikációs](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster) piactér elemmel. Ez a sablon három MySQL-kiszolgálói példányt telepít, amelyek egy magasan elérhető MySQL-fürtben vannak konfigurálva. Alapértelmezés szerint a következő erőforrásokat hozza létre:
 
-- Egy virtuális hálózat
+- Egy virtuális hálózatot
 - Egy hálózati biztonsági csoport
-- Egy Storage-fiók
+- Egy tárfiók
 - Rendelkezésre állási csoport
 - Három hálózati adapter (egyet az egyes alapértelmezett virtuális gépek esetében)
 - Nyilvános IP-cím (az elsődleges MySQL-fürt virtuális géphez)
@@ -64,7 +64,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a MySQL-k
 
 2. Ha még nincs előfizetése rendelve, válassza az **előfizetés beszerzése** az irányítópultról lehetőséget. A panelen írja be az előfizetés nevét, majd válasszon egy ajánlatot. Javasoljuk, hogy a saját előfizetésében tartsa meg a MySQL-fürt üzembe helyezését, hogy elkerülje a véletlen eltávolítást.
 
-3. Válassza ki **\+** **erőforrás létrehozása** > **számítás**, majd **a MySQL replikációval**lehetőséget.
+3. Válassza **\+** **az erőforrás** > létrehozása**számítás**, majd **a MySQL replikációval**lehetőséget.
 
    ![Egyéni sablonok üzembe helyezése Azure Stack központban](media/azure-stack-tutorial-mysqlrp/img1.png)
 
@@ -139,7 +139,7 @@ Ahhoz, hogy a MySQL-fürtöt hozzá lehessen adni Azure Stack hub MySQL-kiszolg�
 
 3. Hozzon létre egy távelérési felhasználói fiókot, amelyet az Azure Stack hub MySQL üzemeltetési kiszolgáló használ a MySQL-hez való kapcsolódáshoz, majd zárja be az SSH-ügyfelet.
 
-    A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként a korábban létrehozott root password használatával. Hozzon létre egy új rendszergazda felhasználót, és cserélje le *\<username\>* és *\<jelszó\>* szükség szerint a környezetéhez. Ebben a példában a létrehozott felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
+    A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként a korábban létrehozott root password használatával. Hozzon létre egy új rendszergazda felhasználót, és cserélje le * \<a felhasználónevet\> * és * \<a jelszót\> * a környezetéhez szükséges módon. Ebben a példában a létrehozott felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
 
    ```mysql
    mysql -u root -p
@@ -172,7 +172,7 @@ Győződjön meg arról is, hogy létrehozott terveket és ajánlatokat a MySQL-
 
 ## <a name="create-a-highly-available-mysql-database"></a>Magasan elérhető MySQL-adatbázis létrehozása
 
-Miután létrehozta és konfigurálta a MySQL-fürtöt, és hozzáadta Azure Stack hub MySQL üzemeltetési kiszolgálóként egy Azure Stack hub-kezelővel, egy előfizetéssel, beleértve a MySQL-kiszolgáló adatbázis-funkcióit is a szakasz lépéseit követve.
+Miután létrehozta és konfigurálta a MySQL-fürtöt, és hozzáadta Azure Stack hub MySQL üzemeltetési kiszolgálóként egy Azure Stack hub-kezelővel, egy előfizetéssel rendelkező bérlői felhasználó, beleértve a MySQL-kiszolgáló adatbázis-funkcióit, az ebben a szakaszban ismertetett lépéseket követve hozhat létre kiválóan elérhető MySQL-adatbázist.
 
 > [!NOTE]
 > Futtassa ezeket a lépéseket a Azure Stack hub felhasználói portálon bérlői felhasználóként a MySQL-kiszolgáló funkcióit (Microsoft. MySQLAdapter szolgáltatás) biztosító előfizetéssel.
@@ -180,7 +180,7 @@ Miután létrehozta és konfigurálta a MySQL-fürtöt, és hozzáadta Azure Sta
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Válassza **a\+erőforrás létrehozása** > **az adat\+ Storage**, majd a **MySQL-adatbázis**elemet.
+2. Válassza **\+** **az** > **erőforrás \+ létrehozása adattárolás, majd**a **MySQL-adatbázis**elemet.
 
     Adja meg a szükséges adatbázis-tulajdonságok adatait, beleértve a nevet, a rendezést, a használandó előfizetést és a telepítéshez használandó helyet.
 
@@ -190,7 +190,7 @@ Miután létrehozta és konfigurálta a MySQL-fürtöt, és hozzáadta Azure Sta
 
    ![SKU kiválasztása Azure Stack hub felhasználói portálon](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. Válassza a **bejelentkezés** > **új bejelentkezés létrehozása** lehetőséget, majd adja meg az új adatbázishoz használandó MySQL-hitelesítési hitelesítő adatokat. Ha elkészült, válassza az **OK** , majd a **Létrehozás** lehetőséget az adatbázis-telepítési folyamat megkezdéséhez.
+4. Válassza a **Bejelentkezés** > **új bejelentkezés létrehozása** lehetőséget, majd adja meg az új adatbázishoz használni kívánt MySQL-hitelesítési hitelesítő adatokat. Ha elkészült, válassza az **OK** , majd a **Létrehozás** lehetőséget az adatbázis-telepítési folyamat megkezdéséhez.
 
    ![Bejelentkezés hozzáadása a Azure Stack hub felhasználói portálon](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 
@@ -198,6 +198,6 @@ Miután létrehozta és konfigurálta a MySQL-fürtöt, és hozzáadta Azure Sta
 
    ![Azure Stack hub felhasználói portálján megtekintheti a kapcsolatok karakterláncát](./media/azure-stack-tutorial-mysqlrp/createdb4.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A MySQL típusú erőforrás-szolgáltató frissítése](azure-stack-mysql-resource-provider-update.md)

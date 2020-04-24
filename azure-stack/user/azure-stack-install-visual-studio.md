@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
 ms.openlocfilehash: 9fb0cf281fb97bc5cf255fb39507869b106d0a1b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702958"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>A Visual Studio telepítése és kapcsolódás Azure Stack hubhoz
@@ -36,7 +36,7 @@ A Visual Studióval Azure Resource Manager [sablonokat](azure-stack-arm-template
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Kapcsolódás Azure Stack hubhoz az Azure AD-vel
 
-1. Indítsa el a Visual studiót.
+1. Indítsa el a Visual Studiót.
 
 2. A **nézet** menüben válassza a **Cloud Explorer**lehetőséget.
 
@@ -48,13 +48,13 @@ A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deplo
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Kapcsolódás Azure Stack hubhoz AD FS
 
-1. Indítsa el a Visual studiót.
+1. Indítsa el a Visual Studiót.
 
 2. Az **eszközök**területen válassza a **Beállítások lehetőséget**.
 
 3. Bontsa ki a **környezet** elemet a **navigációs ablaktáblán** , és válassza a **fiókok**lehetőséget.
 
-4. Válassza a **Hozzáadás**lehetőséget, majd adja meg a felhasználói Azure Resource Manger-végpontot. A Azure Stack Development Kit (ASDK) URL-címe: `https://management.local.azurestack/external`.  Azure Stack hub integrált rendszerek esetében az URL-cím a következő: `https://management.[Region}.[External FQDN]`.
+4. Válassza a **Hozzáadás**lehetőséget, majd adja meg a felhasználói Azure Resource Manger-végpontot. A Azure Stack Development Kit (ASDK) esetében az URL-cím a `https://management.local.azurestack/external`következő:.  Azure Stack hub integrált rendszerek esetében az URL-cím a `https://management.[Region}.[External FQDN]`következő:.
 
     ![Új Azure Cloud Discovery-végpont hozzáadása](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -76,7 +76,7 @@ A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deplo
 
 8. Tallózással keresse meg a meglévő erőforrásokat, erőforráscsoportokat vagy telepítse a sablonokat.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a Visual Studio [oldaláról](/visualstudio/install/install-visual-studio-versions-side-by-side) más Visual Studio-verziókkal.
 - [Sablonok fejlesztése Azure stack hub számára](azure-stack-develop-templates.md).

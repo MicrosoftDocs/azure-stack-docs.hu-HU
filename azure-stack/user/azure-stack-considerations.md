@@ -7,10 +7,10 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
-ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "80362151"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
@@ -46,7 +46,7 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 |Támogatott névterek, erőforrástípusok és API-verziók | A legújabb (vagy korábbi verziók, amelyek még nem elavultak). | Azure Stack hub bizonyos verziókat támogat. Tekintse meg a jelen cikk [verzióra vonatkozó követelmények](#version-requirements) című szakaszát.
 | | |
 
-\* Ha Ön Azure Stack hub-operátor, további információért tekintse meg [a felügyeleti portál és az](../operator/azure-stack-manage-portals.md) [Adminisztráció alapjaival](../operator/azure-stack-manage-basics.md) foglalkozó témakört.
+* Ha Ön Azure Stack hub-operátor, további információért tekintse meg [a felügyeleti portál és az](../operator/azure-stack-manage-portals.md) [Adminisztráció alapjaival](../operator/azure-stack-manage-basics.md) foglalkozó témakört.
 
 ## <a name="helpful-tools-and-best-practices"></a>Hasznos eszközök és ajánlott eljárások
 
@@ -54,7 +54,7 @@ A Microsoft olyan eszközöket és útmutatást biztosít, amelyek segítenek az
 
 | Ajánlás | Referencia |
 | -------- | ------------- |
-| Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - a [PowerShell telepítése](../operator/azure-stack-powershell-install.md)<br>- [eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- a [PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- a [Visual Studio telepítése](azure-stack-install-visual-studio.md)
+| Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - [A PowerShell telepítése](../operator/azure-stack-powershell-install.md)<br>- [Eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- [A PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- [A Visual Studio telepítése](azure-stack-install-visual-studio.md)
 | Tekintse át a következő elemekre vonatkozó információkat:<br>– Azure Resource Manager a sablon szempontjait.<br>– Útmutató a Gyorsindítás sablonokhoz.<br>– Az Azure-ban Azure Stack hub fejlesztéséhez használható irányelvmodul segítségével. | [Fejlesztés Azure Stack hub-hoz](azure-stack-developer.md) |
 | Tekintse át és kövesse a sablonok ajánlott eljárásait. | [Resource Manager gyorsindítási sablonok](https://aka.ms/aa6yz42)
 | | |
@@ -77,7 +77,7 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 Példa kimenetre (csonkolt): ![példa a Get-AzureRmResourceProvider parancs kimenetére](media/azure-stack-considerations/image1.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a szolgáltatási szintbeli eltérésekről:
 

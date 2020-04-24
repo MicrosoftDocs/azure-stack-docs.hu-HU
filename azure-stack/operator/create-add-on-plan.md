@@ -9,10 +9,10 @@ ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
 ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696481"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Kiegészítő csomagok létrehozása a Azure Stack hub-ban
@@ -74,6 +74,6 @@ A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) t
 
 ::: moniker-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Ajánlat létrehozása](azure-stack-create-offer.md)

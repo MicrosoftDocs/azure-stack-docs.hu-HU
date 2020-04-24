@@ -1,18 +1,18 @@
 ---
-title: Az intelligens peremhálózat DevOps mintázata az Azure és a Azure Stack hub használatával.
-description: Ismerje meg az intelligens peremhálózat DevOps mintázatát az Azure és a Azure Stack hub használatával.
+title: Az Azure Stack hub DevOps mintája
+description: Ismerje meg a DevOps mintáját, így biztosíthatja az Azure-ban és Azure Stack hub-ban üzemelő példányok közötti konzisztenciát.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ebd9925b471d46dc67df29557f677b43d0221a1d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 306cc9604a8e919724f9f76b7e5122d534d2d1ae
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689545"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812286"
 ---
 # <a name="devops-pattern"></a>DevOps minta
 
@@ -40,7 +40,7 @@ A DevOps kiadási folyamata a következőket teszi lehetővé:
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
-A DevOps minta az üzemelő példányok közötti konzisztencia biztosítására szolgál, függetlenül a célként megadott környezettől. A képességek azonban eltérőek a Felhőbeli és a helyszíni környezetek között. A következőket ajánljuk figyelmébe:
+A DevOps minta az üzemelő példányok közötti konzisztencia biztosítására szolgál, függetlenül a célként megadott környezettől. A képességek azonban eltérőek a Felhőbeli és a helyszíni környezetek között. Vegye figyelembe a következő szempontokat:
 
 - Elérhetők a központi telepítésben szereplő függvények, végpontok, szolgáltatások és egyéb erőforrások a cél telepítési helyein?
 - A a felhőben elérhető helyen tárolt konfigurációs összetevők?
@@ -59,11 +59,11 @@ A központi telepítési automatizálási rendszerek a DevOps-mintázatok kulcsf
 
 A DevPattern kontextusában a rendelkezésre állás azt jelenti, hogy képes helyreállítani a munkafolyamathoz társított állapotinformációkat, például a teszteredmények, a kódok függőségei vagy más összetevők számára. A rendelkezésre állásra vonatkozó követelmények felméréséhez két általános mérőszámot érdemes figyelembe vennie:
 
--   A helyreállítási időre vonatkozó célkitűzés (RTO) határozza meg, hogy mennyi ideig mehet a rendszer nélkül.
+- A helyreállítási időre vonatkozó célkitűzés (RTO) határozza meg, hogy mennyi ideig mehet a rendszer nélkül.
 
--   A helyreállítási időkorlát (RPO) azt jelzi, hogy mennyi adat veszíthető el, ha a szolgáltatás fennakadása hatással van a rendszerre.
+- A helyreállítási időkorlát (RPO) azt jelzi, hogy mennyi adat veszíthető el, ha a szolgáltatás fennakadása hatással van a rendszerre.
 
-A gyakorlatban a RTO és a RPO a redundanciát és a biztonsági mentést jelenti. A globális Azure-felhőben a rendelkezésre állás nem a hardveres helyreállítás – amely az Azure része –, hanem a DevOps rendszerek állapotának fenntartása. Azure Stack központban a hardveres helyreállítás megfontolásra kerülhet.
+A gyakorlatban a RTO és a RPO a redundanciát és a biztonsági mentést jelenti. A globális Azure-felhőben a rendelkezésre állás nem kérdés a hardveres helyreállításról – ez az Azure részét képezi, hanem a DevOps rendszerek állapotának fenntartását. Azure Stack központban a hardveres helyreállítás megfontolásra kerülhet.
 
 Az üzembe helyezés automatizálásához használt rendszer tervezésekor egy másik fontos szempont a hozzáférés-vezérlés, valamint a szolgáltatások Felhőbeli környezetekben való üzembe helyezéséhez szükséges jogok megfelelő kezelése. Milyen jogosultságok szükségesek az üzemelő példányok létrehozásához, törléséhez vagy módosításához? Például az egyik jogosultságot általában egy erőforráscsoport létrehozásához kell létrehozni az Azure-ban, egy másikat pedig az erőforráscsoport szolgáltatásainak telepítéséhez.
 
@@ -78,17 +78,18 @@ A DevOps minta alapján bármely rendszer kialakításának meg kell fontolnia a
 Használja ezt a mintát, ha:
 
 - Létrehozhat egy kódot egy olyan környezetben, amely megfelel a fejlesztői igényeknek, és a megoldásra jellemző környezetbe helyezi, ahol nehéz lehet új kódot kifejleszteni.
-- Használhatja a fejlesztőknek szóló kódot és eszközöket, ha a DevOps-mintában a folyamatos integráció és a folyamatos kézbesítés folyamatát szeretné követni.
+- Használhatja a fejlesztőknek szóló kódot és eszközöket, ha a folyamatos integráció és a folyamatos kézbesítés folyamatát szeretné követni a DevOps-mintában.
 
 Ez a minta nem ajánlott a következő helyzetekben:
 
 - Ha nem automatizálható az infrastruktúra, az erőforrások, a konfiguráció, az identitás és a biztonsági feladatok kiépítése.
 - Ha a csapatok nem férnek hozzá a hibrid felhőalapú erőforrásokhoz a folyamatos integráció/folyamatos fejlesztési (CI/CD) megközelítés megvalósításához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a cikkben bemutatott témakörökről:
+
 - Az Azure DevOps és a kapcsolódó eszközökről, például az Azure Reposről és az Azure-folyamatokról az Azure [DevOps dokumentációjában](/azure/devops) tájékozódhat.
-- A termékek és megoldások teljes portfóliójának megismeréséhez tekintse meg a [Azure stack termékcsaládot és megoldásokat](/azure-stack).
+- A termékek és megoldások teljes portfóliójának megismeréséhez tekintse meg a [Azure stack termékcsaládot és megoldásokat](/azure-stack) .
 
 Ha készen áll a megoldás tesztelésére, folytassa a [DevOps Hybrid CI/CD megoldás telepítési útmutatóját](https://aka.ms/hybriddevopsdeploy). A telepítési útmutató részletes útmutatást nyújt az összetevők üzembe helyezéséhez és teszteléséhez. Megtudhatja, hogyan helyezhet üzembe egy alkalmazást az Azure-ban és Azure Stack hub-ban hibrid folyamatos integráció/folyamatos kézbesítés (CI/CD) folyamat használatával.

@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: 4a7e7987a5b5b7bb60e6acc882c07b80519bc052
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423948"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Az Azure Stack hub Event Hubs áttekintése
@@ -35,6 +35,6 @@ Ha többet szeretne megtudni a Event Hubs felhasználói élményről, tekintse 
 - Stream [használata a Kafka protokoll használatával](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs)
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A telepítési folyamat megkezdése előtt tekintse át a [Azure stack Hub Event Hubs kapacitásának megtervezése](event-hubs-rp-capacity-planning.md)című ismertetőt. A kapacitás megtervezésének megismerése segít biztosítani, hogy a felhasználók rendelkezzenek a szükséges kapacitással.

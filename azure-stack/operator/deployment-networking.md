@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerkedjen meg a hálózati forgalom folyamatával Azure Stack hub üzembe helyezése során.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: b2acff92365cfd9904a033c381bf85ea843d6b30
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: a663544b21fee671e57483e13030639c7b5edd3b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366398"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243771"
 ---
 # <a name="deployment-network-traffic"></a>Központi telepítési hálózati forgalom
 
@@ -21,7 +21,7 @@ A Azure Stack hub üzembe helyezése során felmerülő hálózati forgalom megi
 
 Ez az ábra a telepítési folyamat során felmerülő összes összetevőt és kapcsolatot mutatja:
 
-![Azure Stack hub központi telepítési hálózati topológiája](media/deployment-networking/figure1.png)
+![Azure Stack hub központi telepítési hálózati topológiája](media/deployment-networking/figure1.svg)
 
 > [!NOTE]
 > Ez a cikk a csatlakoztatott központi telepítésre vonatkozó követelményeket ismerteti. További információ az üzembe helyezési módszerekről: [Azure stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md).
@@ -32,7 +32,7 @@ Az Azure Stack hub-megoldás olyan kiszolgálók egy csoportját tartalmazza, am
 
 Azure Stack hub-megoldás szolgáltatói további felügyeleti virtuális gépeket is kiépíthetnek. Erősítse meg a megoldás szolgáltatóját, mielőtt módosítja a felügyeleti virtuális gépeket egy megoldás-szolgáltatótól.
 
-## <a name="deployment-requirements"></a>Telepítési követelmények
+## <a name="deployment-requirements"></a>Üzembe helyezésre vonatkozó követelmények
 
 Az üzembe helyezés megkezdése előtt bizonyos minimális követelmények érvényesek, amelyeket az OEM az üzembe helyezés sikeres végrehajtásának biztosítása érdekében érvényesít:
 
@@ -45,7 +45,7 @@ Az üzembe helyezés megkezdése előtt bizonyos minimális követelmények érv
 > [!NOTE]
 > Ez a cikk az utolsó három követelményre összpontosít. Az első kettőről a fenti hivatkozásokon talál további információt.
 
-## <a name="about-deployment-network-traffic"></a>Tudnivalók a központi telepítési hálózati forgalomról
+## <a name="about-deployment-network-traffic"></a>Az üzemi környezet hálózati forgalma
 
 A DVM a BMC-hálózat IP-címével van konfigurálva, és hálózati hozzáférést igényel az internethez. Bár az összes BMC-hálózati összetevő nem igényel külső útválasztást vagy internet-hozzáférést, előfordulhat, hogy bizonyos, a hálózat IP-címeit használó OEM-összetevők is szükségesek.
 
@@ -57,6 +57,6 @@ Az Azure Stack hub kapcsolók hálózati konfigurációi olyan hozzáférés-vez
 
 Az üzembe helyezés befejezése után a rendszer a megadott DNS-és NTP-kiszolgálói címeket továbbra is a külső hálózat használatával fogja használni az SDN-n keresztül. Ha például a központi telepítés befejezése után megtekinti a DNS-kéréseket, a forrás a DVM IP-címről egy nyilvános VIP-re fog váltani.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure-regisztráció ellenőrzése](azure-stack-validate-registration.md)

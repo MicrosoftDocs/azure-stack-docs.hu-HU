@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
 ms.openlocfilehash: 1911a07c1a22cbb58b7b7794addadb9cf01f0993
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367335"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack hub-frissítési csomag előkészítése
@@ -39,11 +39,11 @@ A Azure Stack hub frissítéseinek és gyorsjavításának frissítési csomagja
 
 Tekintse át a csomag tartalmát. A frissítési csomagok általában a következő fájlokból állnak:
 
--   **A önkicsomagoló \<PackageName >. zip fájl**. Ez a fájl tartalmazza a frissítés hasznos adatait.
+-   **Egy önkicsomagoló \<PackageName>. zip fájl**. Ez a fájl tartalmazza a frissítés hasznos adatait.
 - **Egy metaadat. xml fájl**. Ez a fájl lényeges információt tartalmaz a frissítésről, például a közzétevőről, a név, az előfeltétel, a méret és a támogatási útvonal URL-címéről.
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>Frissítési csomagok automatikus letöltése és előkészítése
-A Azure Stack hub-szoftverfrissítések és-gyorsjavítások automatikusan készülnek a **Azure stack hub automatikus frissítési végpontokkal**létesített kapcsolattal rendelkező rendszerekhez: https://*. azureedge. net és https://aka.ms/azurestackautomaticupdate. Az **Azure stack hub automatikus frissítési végpontokhoz**való kapcsolódás beállításával kapcsolatos további információkért tekintse meg a [Azure stack hub tűzfal-integráció](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound) című témakörben ismertetett **javítást és frissítési** végpontokat.
+Azure Stack hub-szoftverfrissítések és-gyorsjavítások automatikusan készülnek a **Azure stack hub automatikus frissítési végpontokkal**létesített kapcsolattal rendelkező rendszerekhez: https://*. azureedge. https://aka.ms/azurestackautomaticupdatenet és. Az **Azure stack hub automatikus frissítési végpontokhoz**való kapcsolódás beállításával kapcsolatos további információkért tekintse meg a [Azure stack hub tűzfal-integráció](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound) című témakörben ismertetett **javítást és frissítési** végpontokat.
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Honnan tölthetők le Azure Stack hub frissítési csomagjai
 
@@ -105,6 +105,6 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 
 Manuálisan törölheti a frissítéseket a Storage-fiókból, miután telepítette azokat Azure Stack hubhoz. Azure Stack hub rendszeresen ellenőrzi a régebbi frissítési csomagokat, és eltávolítja azokat a tárolóból. A régi csomagok eltávolításához a Azure Stack hub két hetet is igénybe vehet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A frissítés alkalmazása](azure-stack-apply-updates.md)

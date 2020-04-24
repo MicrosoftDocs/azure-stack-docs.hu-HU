@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367988"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Méretezési egység csomópontjának cseréje egy Azure Stack hub integrált rendszeren
@@ -26,7 +26,7 @@ A következő folyamatábra a teljes méretezési egység csomópontjának cser�
 
 ![Folyamatábra a csomópontok cseréjéhez](media/azure-stack-replace-node/replacenodeflow.png)
 
-\* Ez a művelet nem szükséges a hardver fizikai állapota alapján.
+* Ez a művelet nem szükséges a hardver fizikai állapota alapján.
 
 > [!Note]  
 > Ha a leállítási művelet meghiúsul, javasolt a leállítási művelet, majd a Leállítás művelet használata. További információ: [skálázási egység csomópontjainak műveletei Azure stack hub-ban](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
@@ -66,7 +66,7 @@ Az alábbi lépések a méretezési egység csomópont-helyettesítési folyamat
 6. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
 7. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A fizikai lemezek a rendszer bekapcsolásakor történő cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md). 
 - További információ a rendszer kikapcsolását igénylő hardver-összetevők lecseréléséről: [hardver-összetevő cseréje](azure-stack-replace-component.md).

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
 ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705236"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
@@ -31,7 +31,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 ## <a name="install-the-azure-sdk-for-go"></a>A Góhoz készült Azure SDK telepítése
 
-1. A Git telepítése. Útmutatásért lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Telepítse a git-t. Útmutatásért lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Telepítse a [Go programozási nyelvet](https://golang.org/dl). Az Azure-hoz készült API-profilokhoz a 1,9-es vagy újabb verzió szükséges.
 3. Telepítse az Azure go SDK-t és annak függőségeit a következő bash-parancs futtatásával:
 
@@ -58,11 +58,11 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
 2. A metaadatok információinak beolvasása a Resource Manager-végpontból. A végpont egy JSON-fájlt ad vissza, amely a go-kód futtatásához szükséges információval rendelkezik.
 
    > [!NOTE]  
-   > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/`  
-   > Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`  
-   > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+   > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő:`https://management.local.azurestack.external/`  
+   > Az integrált rendszerek **ResourceManagerUrl** :`https://management.<region>.<fqdn>/`  
+   > A szükséges metaadatok beolvasása:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
-   JSON-mintafájlt:
+   Példa JSON-fájlra:
 
    ```json
    { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
@@ -75,7 +75,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
    }
    ```
 
-3. Ha nem érhető el, hozzon létre egy előfizetést és az előfizetés-azonosító későbbi felhasználás céljából. Az előfizetések létrehozásával kapcsolatos információkért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
+3. Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetések létrehozásával kapcsolatos információkért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
 
 4. Hozzon létre egy olyan egyszerű szolgáltatásnevet, amely az **előfizetés** hatókörével és a **tulajdonosi** szerepkörrel rendelkező ügyfél-titkot használ. Mentse az egyszerű szolgáltatás AZONOSÍTÓját és a titkos kulcsot. Az Azure Stack hub egyszerű szolgáltatásának létrehozásával kapcsolatos információkért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md). A Azure Stack hub-környezet már be van állítva.
 
@@ -98,7 +98,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
       vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
    ```
 
-   `<baseURI>` beállítása a 2. lépésben használt **ResourceManagerUrl** értékre. Állítsa `<subscriptionID>` értéket a 3. lépésből mentett **SubscriptionID** értékre.
+   Állítsa `<baseURI>` a 2. lépésben használt **ResourceManagerUrl** értékre. Állítsa `<subscriptionID>` a 3. lépésben mentett **SubscriptionID** értékre.
 
    A jogkivonat létrehozásához tekintse meg a következő szakaszt.  
 
@@ -117,7 +117,7 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
 
 Ha a go SDK-profillal kívánja létrehozni a virtuális hálózatot Azure Stack hubhoz, tekintse meg a [példát](#example).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Hitelesítés
 
 Ha a go SDK-val szeretné beolvasni a Azure Active Directory **engedélyező** tulajdonságát, telepítse a **Go-autorest-** modulokat. Ezeket a modulokat már telepítve kell lennie a "Go SDK" telepítésének. Ha nem, telepítse a [hitelesítési csomagot a githubról](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
@@ -145,7 +145,7 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
    }
    ```
 
-   Állítsa a `<activeDirectoryEndpoint>` értéket a dokumentum előző szakaszában lekért `ResourceManagerUrl` metaadatok `loginEndpoint` tulajdonságának értékére. Állítsa a `<tenantID>` értéket a Azure Stack hub-bérlői AZONOSÍTÓra.
+   A `<activeDirectoryEndpoint>` `loginEndpoint` tulajdonság értékeként a dokumentum előző szakaszában beolvasott `ResourceManagerUrl` metaadatok értékét adja meg. Állítsa be `<tenantID>` az értéket az Azure stack hub-BÉRLŐi azonosítóra.
 
 4. Végül hozzon létre egy egyszerű szolgáltatásnevet a **adal** modul `NewServicePrincipalToken` metódusának használatával:
 
@@ -165,9 +165,9 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
        return token, err
    ```
 
-    A jelen cikk előző szakaszában lekért **ResourceManagerUrl** metaadatok közül a "célközönség" listán szereplő értékek egyikére `<activeDirectoryResourceID>` beállítani.
-    `<clientID>` beállítása az egyszerű szolgáltatásnév alkalmazás-AZONOSÍTÓJÁRA, amelyet a jelen cikk előző szakaszában hoztak létre.
-    `<clientSecret>` beállítása az egyszerű szolgáltatásnév alkalmazás titkos kódjára, amelyet a jelen cikk előző szakaszában hoztak létre.
+    A `<activeDirectoryResourceID>` "célközönség" listában szereplő értékek egyikére állítsa be a jelen cikk előző szakaszában lekért **ResourceManagerUrl** -metaadatokat.
+    Állítsa `<clientID>` be az egyszerű szolgáltatásnév alkalmazás-azonosítóját, amely akkor lett mentve, amikor a szolgáltatás a jelen cikk előző szakaszában lett létrehozva.
+    Állítsa `<clientSecret>` be az egyszerű szolgáltatásnév alkalmazás titkos kulcsát, amelyet a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentett.
 
 ## <a name="example"></a>Példa
 
@@ -222,7 +222,7 @@ Ez a példa egy olyan go-kódot mutat be, amely egy virtuális hálózatot hoz l
    }
    ```
 
-4. Adja hozzá a `main` metódust. A `main` metódus először egy jogkivonatot kap az előző lépésben megadott metódus használatával. Ezután létrehoz egy ügyfelet egy hálózati modul használatával a profilból. Végül létrehoz egy virtuális hálózatot.
+4. Adja hozzá `main` a metódust. A `main` metódus először egy tokent kap az előző lépésben megadott metódus használatával. Ezután létrehoz egy ügyfelet egy hálózati modul használatával a profilból. Végül létrehoz egy virtuális hálózatot.
 
    ```go
    package main
@@ -297,7 +297,7 @@ A go SDK-val a Azure Stack hub számára elérhető mintakód-minták a követke
 - [Tárolási Adatsík](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
 - [Managed Disks használata](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (a 2019-03-01 profilt használó minta, amely az Azure stack hub által támogatott legújabb API-verziókat célozza)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

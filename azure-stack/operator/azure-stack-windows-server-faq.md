@@ -9,10 +9,10 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
 ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069446"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack hub Marketplace – gyakori kérdések
@@ -35,9 +35,9 @@ Ezután, ha bármelyik virtuálisgép-méretezési csoport egy adott verzióra h
 
 A Microsoft a Windows Server rendszerképeinek két verzióját kínálja Azure Stack hub Marketplace-en keresztül. A rendszerképnek csak egy verziója használható Azure Stack hub-környezetben.  
 
-- Utólagos **fizetés (TB)** : ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
+- Utólagos **fizetés (TB)**: ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
    Ki használja ezt a lehetőséget: Nagyvállalati Szerződés (EA) ügyfelek, akik a használati *Számlázási modellt*használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
-- **Saját licenc használata (BYOL)** : ezek a képek alapszintű mérőórákat futtatnak.
+- **Saját licenc használata (BYOL)**: ezek a képek alapszintű mérőórákat futtatnak.
    Ki használja ezt a lehetőséget: nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
 
 A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stack hub-on. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
@@ -93,17 +93,17 @@ Ha Windows Server rendszerű virtuális gépet szeretne aktiválni Azure Stack h
 
 ### <a name="how-can-i-verify-that-my-vm-is-activated"></a>Hogyan lehet ellenőrizni, hogy a virtuális gép aktiválva van-e?
 
-Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
+Futtassa a következő parancssort egy rendszergazda jogú parancssorból:
 
 ```shell
 slmgr /dlv
 ```
 
-Ha helyesen van aktiválva, a rendszer világosan jelezte, hogy az állomásnév megjelenik a `slmgr` kimenetében. Nem függnek a kijelzőn látható vízjelektől, mivel előfordulhat, hogy nem naprakészek, vagy egy másik, a tiéd mögötti virtuális gépről mutatnak.
+Ha helyesen van aktiválva, a rendszer világosan jelezte, hogy az állomásnév megjelenik a `slmgr` kimenetben. Nem függnek a kijelzőn látható vízjelektől, mivel előfordulhat, hogy nem naprakészek, vagy egy másik, a tiéd mögötti virtuális gépről mutatnak.
 
 ### <a name="my-vm-isnt-set-up-to-use-avma-how-can-i-fix-it"></a>A virtuális gép nincs beállítva a AVMA használatára, Hogyan javíthatom?
 
-Futtassa a következő parancsot egy rendszergazda jogú parancssorból:
+Futtassa a következő parancssort egy rendszergazda jogú parancssorból:
 
 ```shell
 slmgr /ipk <AVMA key>
@@ -113,7 +113,7 @@ Tekintse meg az automatikus virtuálisgép- [aktiválást](/previous-versions/wi
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Létrehozom a saját Windows Server-lemezképeket, Hogyan biztosíthatom, hogy a AVMA használják?
 
-Javasoljuk, hogy a `sysprep` parancs futtatása előtt futtassa a `slmgr /ipk` parancssort a megfelelő kulccsal. Vagy adja meg a AVMA kulcsot az Unattend. exe telepítési fájljában.
+Javasoljuk, hogy a parancs futtatása előtt `slmgr /ipk` futtassa `sysprep` a parancssort a megfelelő kulccsal. Vagy adja meg a AVMA kulcsot az Unattend. exe telepítési fájljában.
 
 ### <a name="i-am-trying-to-use-my-windows-server-2016-image-created-on-azure-and-its-not-activating-or-using-kms-activation"></a>Megpróbálom használni az Azure-ban létrehozott Windows Server 2016-es rendszerképet, és nem aktiválja vagy nem használja a KMS-aktiválást.
 
@@ -127,7 +127,7 @@ Lépjen kapcsolatba a hardver szállítójával, és ellenőrizze, hogy telepít
 
 Az [automatikus VM-aktiválás](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott a Windows Server korábbi verzióiban. A virtuális gépeket manuálisan kell aktiválni.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információkért tekintse át a következő cikkeket:
 

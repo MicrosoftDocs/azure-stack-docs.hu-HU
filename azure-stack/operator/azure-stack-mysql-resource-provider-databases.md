@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 2da344a5699357d008fcc4494992cfcc67047971
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698878"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>MySQL-adatbázisok létrehozása Azure Stack központban
@@ -20,7 +20,7 @@ A MySQL-adatbázis szolgáltatást tartalmazó ajánlatra előfizetett Azure Sta
 ## <a name="create-a-mysql-database"></a>MySQL-adatbázis létrehozása
 
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
-2. Válassza az **+ erőforrás létrehozása** > **adattároló** > **MySQL-adatbázis** > **Hozzáadás**lehetőséget.
+2. Válassza **az + erőforrás** > létrehozása **+ tároló** > **MySQL-adatbázis** > **hozzáadása**elemet.
 3. A **MySQL-adatbázis létrehozása**területen adja meg az adatbázis nevét, és konfigurálja a környezetéhez szükséges egyéb beállításokat.
 
     ![Teszt MySQL-adatbázis létrehozása](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
@@ -50,12 +50,12 @@ Az adatbázis üzembe helyezését követően jegyezze fel a **kapcsolatok karak
 
 A jelszót a MySQL-kiszolgáló példányán módosítva módosíthatja.
 
-1. Válassza a **felügyeleti erőforrások** > a **MySQL-üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
+1. Válassza a **felügyeleti erőforrások** > **MySQL üzemeltetési kiszolgálók**elemet. Válassza ki az üzemeltetési kiszolgálót.
 2. A **Beállítások**területen válassza a **jelszó**lehetőséget.
 3. A **jelszó**területen adja meg az új jelszót, majd kattintson a **Mentés**gombra.
 
 ![A rendszergazdai jelszó frissítése](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg, hogyan [használhatók a kiválóan elérhető MySQL-adatbázisok](azure-stack-tutorial-mysql.md).

@@ -7,10 +7,10 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
 ms.openlocfilehash: 9abcc23505279f417e53f896e58e76dd9205691f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702329"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
@@ -122,6 +122,6 @@ Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztá
 > [!Important]  
 > Ha egy virtuális gép teljesítményének megtekintésekor **nem talál** hibát, akkor ellenőrizze, hogy regisztrálta-e a Microsoft. bepillantást a virtuális géphez társított előfizetésre.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a Azure Stack hub adatfelhasználásának figyeléséről a [Azure stack hub megfigyelési adatainak felhasználása](azure-stack-metrics-monitor.md)című cikkben olvasható.

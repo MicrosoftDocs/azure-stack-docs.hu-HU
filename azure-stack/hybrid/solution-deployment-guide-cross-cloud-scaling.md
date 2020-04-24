@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366245"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Felhőben futó alkalmazások üzembe helyezése az Azure-ban és Azure Stack hub használatával
@@ -41,7 +41,7 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 
 - Azure Stack hub integrált rendszer vagy Azure Stack Development Kit üzembe helyezése.
     - Azure Stack hub telepítésére vonatkozó utasításokért lásd: [a Azure stack Development Kit telepítése](../asdk/asdk-install.md).
-    - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt: [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
+    - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - Előfordulhat, hogy a telepítés elvégzéséhez néhány óra szükséges.
 
 -   [App Service](../operator/azure-stack-app-service-deploy.md) Péter-szolgáltatások üzembe helyezése Azure stack hubhoz.
@@ -107,7 +107,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza a `Runtimeidentifier` lehetőséget, és vegyen fel `win10-x64`. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentációt.) 
+1.  Szerkessze a **webalkalmazás. csproj** fájlt. Válassza `Runtimeidentifier` ki és `win10-x64`adja hozzá a elemet. (Lásd az [önálló központi telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentációt.) 
 
     ![Webalkalmazás-projektfájl szerkesztése](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -208,7 +208,7 @@ Az Azure-folyamatok és az Azure DevOps-szolgáltatások kiválóan konfigurálh
 
     ![Mappa kiválasztása Azure App Service központi telepítéshez](media/solution-deployment-guide-cross-cloud-scaling/image23.png)
 
-18. A változó lapon adjon hozzá egy `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`nevű változót, állítsa az értékét **igaz**értékre, és a hatókört a Azure Stackra.
+18. A változó lapon adjon hozzá egy nevű `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`változót, állítsa az értékét **igaz**értékre, a hatókört pedig Azure Stackra.
     
     ![Változó hozzáadása az Azure-alkalmazások üzembe helyezéséhez](media/solution-deployment-guide-cross-cloud-scaling/image24.png)
 
@@ -239,7 +239,7 @@ A végpontok létrehozásával a Visual Studio online-(VSTO-) buildek üzembe he
 
 5.  A **felhasználók és csoportok hozzáadása**lapon adja meg a felhasználónevet, és válassza ki a felhasználót a felhasználók listájából.
 
-6.  Válassza a **módosítások mentése**lehetőséget.
+6.  Válassza a **Módosítások mentése** lehetőséget.
 
 7.  A **vsts-csoportok** listában válassza ki a **végponti rendszergazdák**elemet.
 
@@ -247,7 +247,7 @@ A végpontok létrehozásával a Visual Studio online-(VSTO-) buildek üzembe he
 
 9.  A **felhasználók és csoportok hozzáadása**lapon adja meg a felhasználónevet, és válassza ki a felhasználót a felhasználók listájából.
 
-10. Válassza a **módosítások mentése**lehetőséget.
+10. Válassza a **Módosítások mentése** lehetőséget.
 
 Most, hogy a végponti információ már létezik, az Azure-folyamatok Azure Stack hub-kapcsolatok használatra készen állnak. Az Azure Stack hub Build ügynöke beolvassa az Azure-folyamatok utasításait, majd az ügynök az Azure Stack hub-vel folytatott kommunikációhoz végponti információkat továbbít.
 
@@ -266,7 +266,7 @@ A felhőben való üzembe helyezéshez használjon [Azure Resource Manager sablo
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Saját tulajdonú webalkalmazások létrehozása a App Services mindkét felhőben
 
-1.  Szerkessze a **webalkalmazás. csproj** fájlt: válassza a `Runtimeidentifier` lehetőséget, majd vegyen fel `win10-x64`. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentáció.
+1.  Szerkessze a **webalkalmazás. csproj** fájlt: `Runtimeidentifier` válassza ki, `win10-x64`majd adja hozzá a elemet. További információ: [önálló telepítési](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf) dokumentáció.
 
 2.  Az Team Explorer segítségével keresse meg a kódot az Azure Reposban.
 
@@ -306,7 +306,7 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 6.  A **feladatok** lapon adja meg az Azure-t a **környezet neveként** , majd válassza a AzureCloud Traders-web EP elemet az **Azure-előfizetések** listájából.
 
-7.  Adja meg az **Azure app Service nevét**, amely `northwindtraders` a következő képernyőfelvételen.
+7.  Adja meg az **Azure app Service nevét**, amely `northwindtraders` a következő képernyőfelvételen szerepel.
 
 8.  Az ügynök fázisa esetében az **ügynök-várólista** listából válassza az **üzemeltetett VS2017** lehetőséget.
 
@@ -320,7 +320,7 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 13. A **sablon kiválasztása**lapon adjon hozzá egy másik környezetet. Válassza a **Azure app Service központi telepítés** lehetőséget, majd kattintson az **alkalmaz**gombra.
 
-14. Adja meg a `Azure Stack Hub` **nevet a környezet neveként**.
+14. Adja `Azure Stack Hub` meg a **környezet nevét**.
 
 15. A **feladatok** lapon keresse meg és válassza ki Azure stack hubot.
 
@@ -332,7 +332,7 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 19. **Azure app Service üzembe helyezéséhez**válassza ki a környezet érvényes **csomagját vagy mappáját** . A **fájl vagy mappa kiválasztása**lapon válassza az **OK** lehetőséget a mappa **helyeként**.
 
-20. A **változó** lapon keresse meg `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`nevű változót. Állítsa a változó értékét **igaz**értékre, és állítsa a hatókörét **Azure stack hubhoz**.
+20. A **változó** lapon keresse meg a nevű `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`változót. Állítsa a változó értékét **igaz**értékre, és állítsa a hatókörét **Azure stack hubhoz**.
 
 21. A **folyamat** lapon válassza a **folyamatos üzembe helyezés trigger** ikont a NorthwindCloud Traders-web összetevőhöz, és állítsa a **folyamatos üzembe helyezési triggert** **engedélyezve**értékre. Tegye ugyanezt a **NorthwindCloud-kereskedők** számára.
 
@@ -371,5 +371,5 @@ A kiadás definíciójának létrehozása az alkalmazás-létrehozási folyamat 
 
 A rugalmas és robusztus többfelhős szolgáltatás adatbiztonságot, biztonsági mentést és redundanciát, egységes és gyors rendelkezésre állást, méretezhető tárolást és elosztást, valamint geo-kompatibilis útválasztást biztosít. Ez a manuálisan aktivált folyamat megbízható és hatékony terhelést biztosít a szolgáltatott webalkalmazások között, és azonnal elérhetővé teszi a kritikus fontosságú adatmennyiséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

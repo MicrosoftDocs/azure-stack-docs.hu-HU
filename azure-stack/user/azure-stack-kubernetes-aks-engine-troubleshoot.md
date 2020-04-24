@@ -3,16 +3,16 @@ title: Az AK-motor hibáinak megoldása Azure Stack hub-on
 description: Ez a cikk a Azure Stack hub AK-motorjának hibaelhárítási lépéseit ismerteti.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069298"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624982"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
 
@@ -116,14 +116,14 @@ Követelmények:
     tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
-2. Keresse meg a `getkuberneteslogs.sh` parancsfájl által megkövetelt paramétereket. A szkript a következő paramétereket fogja használni:
+2. Keresse meg a `getkuberneteslogs.sh` parancsfájlhoz szükséges paramétereket. A szkript a következő paramétereket fogja használni:
 
     | Paraméter | Leírás | Kötelező | Példa |
     | --- | --- | --- | --- |
     | -h,-– Súgó | A parancs használatának nyomtatása. | nem | 
     -u,--felhasználó | A fürt virtuális gépei rendszergazdai felhasználóneve | igen | azureuser<br>(alapértelmezett érték) |
-    | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (más néven "id_rsa")  | igen | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
-    |   -g, --resource-group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
+    | -i,--Identity-file | A Kubernetes-fürt létrehozásához használt nyilvános kulcshoz kötött RSA titkos kulcs (más néven "id_rsa")  | igen | `./rsa.pem`Putty<br>`~/.ssh/id_rsa`SSH |
+    |   -g,--Resource-Group    | Kubernetes fürterőforrás-csoport | igen | k8sresourcegroup |
     |   -n,--User-Namespace               | Naplók gyűjtése a tárolókban a megadott névterekben (a Kube-rendszernaplókat mindig gyűjti a rendszer) | nem |   figyelés |
     |       --API-Model                    | Megőrzi a apimodel. JSON fájlt egy Azure Stack hub Storage-fiókban. Töltse fel a apimodel. JSON fájlt a Storage-fiókba, ha a--upload-logs paraméter is meg van adni. | nem | `./apimodel.json` |
     | – az összes névtér               | Naplók gyűjtése a tárolókban az összes névtérben. Felülbírálja a--User-Namespace | nem | |
@@ -142,17 +142,17 @@ Követelmények:
 
 ## <a name="review-custom-script-extension-error-codes"></a>Egyéni parancsfájl-kiterjesztési hibakódok áttekintése
 
-A fürt futtatásához tekintse meg az egyéni szkriptek bővítménye (CSE) által létrehozott hibakódok listáját. Az ÜGYFÉLOLDALI hiba a probléma kiváltó okának diagnosztizálásakor hasznos lehet. A Kubernetes-fürtben használt Ubuntu Serverhez készült ÜGYFÉLOLDALI szolgáltatás számos, az AK-motorral kapcsolatos műveletet támogat. További információ az ÜGYFÉLOLDALI kilépési kódokról: [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh).
+A fürt futtatásához tekintse meg az egyéni szkriptek bővítménye (CSE) által létrehozott hibakódok listáját. Az ÜGYFÉLOLDALI hiba a probléma kiváltó okának diagnosztizálásakor hasznos lehet. A Kubernetes-fürtben használt Ubuntu Serverhez készült ÜGYFÉLOLDALI szolgáltatás számos, az AK-motorral kapcsolatos műveletet támogat. További információ az ÜGYFÉLOLDALI kilépési kódokról: [cse_helpers. sh](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go).
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Kubernetes-naplók biztosítása a Microsoft támogatási szakemberének
 
-Ha a naplók összegyűjtését és vizsgálatát követően továbbra sem tudja megoldani a problémát, érdemes elindítani a támogatási jegy létrehozásának folyamatát, és meg kell adnia a `getkuberneteslogs.sh` futtatásával gyűjtött naplókat a `--upload-logs` paraméterrel. 
+Ha a naplók összegyűjtését és vizsgálatát követően továbbra sem tudja megoldani a problémát, érdemes elindítani a támogatási jegy létrehozásának folyamatát, és meg kell adnia a által `getkuberneteslogs.sh` gyűjtött naplókat a `--upload-logs` paraméterrel. 
 
 Forduljon Azure Stack hub-kezelőhöz. A támogatási eset létrehozásához az operátor a naplókhoz tartozó információkat használja.
 
-A támogatási problémák kezelésének folyamata során a Microsoft támogatási szakembere kérheti, hogy az Azure Stack hub-kezelő begyűjtse az Azure Stack hub rendszernaplóit. Előfordulhat, hogy meg kell adnia a kezelője számára a Storage-fiók adatait, ahol a `getkuberneteslogs.sh`futtatásával töltötte fel a Kubernetes-naplókat.
+A támogatási problémák kezelésének folyamata során a Microsoft támogatási szakembere kérheti, hogy az Azure Stack hub-kezelő begyűjtse az Azure Stack hub rendszernaplóit. Előfordulhat, hogy az operátornak meg kell adnia a Storage-fiók adatait, ahol a Kubernetes-naplókat a futtatásával `getkuberneteslogs.sh`töltötte fel.
 
-Az operátor futtathatja a **Get-AzureStackLog PowerShell-** parancsmagot. Ez a parancs egy paramétert (`-InputSaSUri`) használ, amely megadja azt a Storage-fiókot, ahol a Kubernetes-naplókat tárolta.
+Az operátor futtathatja a **Get-AzureStackLog PowerShell-** parancsmagot. Ez a parancs egy paramétert`-InputSaSUri`() használ, amely megadja azt a Storage-fiókot, ahol a Kubernetes-naplókat tárolta.
 
 Az operátor kombinálhatja a létrehozott naplókat, ha a Microsoft támogatási szolgálata más rendszernaplókat is igényelhet, és azokat elérhetővé teheti a Microsoft számára.
 
@@ -164,10 +164,10 @@ Ha nem tudja feloldani a telepítési hibát, megnyithatja a GitHub-problémát.
 2. Adjon hozzá egy címet a következő formátumban: C`SE error: exit code <INSERT_YOUR_EXIT_CODE>`.
 3. A probléma a következő információkat tartalmazza:
 
-    - A fürt üzembe helyezéséhez használt `apimodel json`fürt konfigurációs fájlja. A GitHubon való közzététel előtt távolítsa el az összes titkot és kulcsot.  
-     - A következő **kubectl** -parancs kimenete `get nodes`.  
-     - `/var/log/azure/cluster-provision.log` és `/var/log/cloud-init-output.log` tartalma
+    - A fürt üzembe helyezéséhez `apimodel json`használt fürtözött konfigurációs fájl. A GitHubon való közzététel előtt távolítsa el az összes titkot és kulcsot.  
+     - A következő **kubectl** -parancs `get nodes`kimenete.  
+     - A tartalma `/var/log/azure/cluster-provision.log` és`/var/log/cloud-init-output.log`
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)

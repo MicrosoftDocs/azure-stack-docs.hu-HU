@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
 ms.openlocfilehash: fcfd453cf6ccbbbc8f5e65b9db475ab4fdad33b0
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79293966"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>Helyek közötti VPN-kapcsolat létrehozása két virtuális hálózat között különböző ASDK-környezetekben
@@ -52,9 +52,9 @@ A következő táblázat összefoglalja a ASDK-környezetek hálózati konfigur�
 
 |   |POC1|POC2|
 |---------|---------|---------|
-|Virtuális hálózat neve     |VNET-01|VNET-02 |
-|Virtuális hálózati címtartomány |10.0.10.0/23|10.0.20.0/23|
-|Alhálózat neve     |Subnet-01|Subnet-02|
+|Virtuális hálózat neve     |VNET-01|VNET – 02 |
+|Virtuális hálózat címtartománya |10.0.10.0/23|10.0.20.0/23|
+|Alhálózat neve     |Alhálózat – 01|Alhálózat – 02|
 |Alhálózati címtartomány|10.0.10.0/24 |10.0.20.0/24 |
 |Átjáró alhálózata     |10.0.11.0/24|10.0.21.0/24|
 |Külső BGPNAT-címe     |         |         |
@@ -89,7 +89,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 1. Egy bérlői fiók használatával jelentkezzen be a felhasználói portálra.
 2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
-4. Válassza ki a **Virtuális hálózatot**.
+4. Válassza a **virtuális hálózat**lehetőséget.
 5. A **név**, a **címterület**, az **alhálózat neve**és az **alhálózati címtartomány**mezőben a hálózati konfigurációs táblában korábban megjelenő értékeket használhatja.
 6. Az **előfizetés**területen megjelenik a korábban létrehozott előfizetés.
 7. **Erőforráscsoport**esetén létrehozhat egy erőforráscsoportot, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
@@ -111,7 +111,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-the-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
 4. A **név**mezőben adja meg a **GW1**.
@@ -157,7 +157,7 @@ Erre általánosságban úgy gondolhat, hogy a helyi hálózati átjáró erőfo
 
 A VPN-kapcsolaton keresztül áthaladó adatellenőrzéshez szüksége lesz a virtuális gépekre az egyes ASDK való adatküldéshez és fogadáshoz. Hozzon létre egy virtuális GÉPET a POC1-ben, majd a virtuális hálózatán helyezze el a virtuálisgép-alhálózatán:
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapvető beállítások** panelen, a **név**mezőben adja meg a **VM01**nevet.
@@ -180,7 +180,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 1. Jelentkezzen be egy bérlői fiók használatával.
 2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
-4. Válassza ki a **Virtuális hálózatot**.
+4. Válassza a **virtuális hálózat**lehetőséget.
 5. A hálózati konfigurációs táblában korábban megjelenő információk alapján azonosíthatja **a POC2,** a **címtartomány**, az **alhálózat neve**és az **alhálózat címtartomány**értékét.
 6. Az **előfizetés**területen megjelenik a korábban létrehozott előfizetés.
 7. **Erőforráscsoport**esetén hozzon létre egy új erőforráscsoportot, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
@@ -199,7 +199,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 ### <a name="create-virtual-network-gateway"></a>Virtuális hálózati átjáró létrehozása
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.  
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.  
 2. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 3. A hálózati erőforrások listájából válassza ki a **virtuális hálózati átjáró**elemet.
 4. A **név**mezőben adja meg a **GW2**.
@@ -236,7 +236,7 @@ A szolgáltatás-rendszergazda bejelentkezhet bérlőként a bérlők által has
 
 Most hozzon létre egy virtuális GÉPET a POC2-ben, és helyezze a virtuális hálózata virtuálisgép-alhálózatára:
 
-1. A Azure Portal válassza az **+ erőforrás létrehozása**lehetőséget.
+1. Az Azure Portalon kattintson az **+ Erőforrás létrehozása** elemre.
 2. Lépjen a **piactérre**, majd válassza a **számítás**lehetőséget.
 3. A virtuálisgép-rendszerképek listájában válassza ki a **Windows Server 2016 Datacenter eval** rendszerképét.
 4. Az **alapvető beállítások** panelen, a **név**mezőbe írja be a következőt: **VM02**.
@@ -267,7 +267,7 @@ A VPN-kapcsolat konfigurálásához létre kell hoznia egy statikus NAT-leképez
    ![Belső IP-cím](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
 2. Jelentkezzen be a POC1 Azure Stack hub fizikai gépére.
-3. Másolja és szerkessze a következő PowerShell-szkriptet. A NAT minden ASDK való konfigurálásához futtassa a parancsfájlt egy emelt szintű Windows PowerShell integrált parancsprogram-kezelési környezetban. A parancsfájlban adja hozzá az értékeket a `External BGPNAT address` és a `Internal IP address` helyőrzőhöz:
+3. Másolja és szerkessze a következő PowerShell-szkriptet. A NAT minden ASDK való konfigurálásához futtassa a parancsfájlt egy emelt szintű Windows PowerShell integrált parancsprogram-kezelési környezetban. A szkriptben adja hozzá az értékeket a `External BGPNAT address` és `Internal IP address` a helyőrzőhöz:
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -324,7 +324,7 @@ Annak érdekében, hogy a forgalmat a helyek közötti kapcsolaton keresztül k�
 3. A virtuális gépek listájában keresse meg a korábban létrehozott **VM01** , majd jelölje ki.
 4. A virtuális gép paneljén kattintson a **kapcsolat**elemre, majd nyissa meg a VM01. rdp fájlt.
 
-     ![Csatlakozási gomb](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![Csatlakozás gomb](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. Jelentkezzen be azzal a fiókkal, amelyet a virtuális gép létrehozásakor konfigurált.
 6. Nyisson meg egy emelt szintű **Windows PowerShell** -ablakot.

@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 42fb0703ed1e4947a1f35cc14a8708c8372f220e
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79094981"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806671"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Meghajtók kiválasztása Azure Stack HCI-hez
 
@@ -18,7 +18,7 @@ ms.locfileid: "79094981"
 
 Ez a témakör útmutatást nyújt a [közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) meghajtók kiválasztásához, hogy megfeleljenek a Azure stack HCI teljesítményére és kapacitására vonatkozó követelményeknek.
 
-## <a name="drive-types"></a>Meghajtók típusai
+## <a name="drive-types"></a>Meghajtótípusok
 
 Közvetlen tárolóhelyek jelenleg háromféle típusú meghajtóval működik:
 
@@ -30,11 +30,11 @@ Közvetlen tárolóhelyek jelenleg háromféle típusú meghajtóval működik:
 
 ## <a name="built-in-cache"></a>Beépített gyorsítótár
 
-A Közvetlen tárolóhelyek egy beépített kiszolgálóoldali gyorsítótárat tartalmaz. Ez egy nagy, állandó, valós idejű olvasási és írási gyorsítótár. A több típusú meghajtóval üzemelő példányok esetében a rendszer automatikusan konfigurálja a "leggyorsabb" típus összes meghajtójának használatát. A fennmaradó meghajtók a kapacitáshoz használatosak.
+A Közvetlen tárolóhelyek egy beépített kiszolgálóoldali gyorsítótárat tartalmaz. Ez egy nagy, állandó, valós idejű olvasási és írási gyorsítótár. A több típusú meghajtóval üzemelő példányok esetében a rendszer automatikusan konfigurálja a "leggyorsabb" típus összes meghajtójának használatát. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására.
 
 További információkért tekintse meg [a közvetlen tárolóhelyek gyorsítótárának megismerése](/windows-server/storage/storage-spaces/understand-the-cache)című témakört.
 
-## <a name="option-1--maximizing-performance"></a>1\. lehetőség – a teljesítmény maximalizálása
+## <a name="option-1--maximizing-performance"></a>1. lehetőség – a teljesítmény maximalizálása
 
 Ha az adatok véletlenszerű olvasásakor és írásakor kiszámítható és egységes ezredmásodperces késést szeretne elérni, vagy rendkívül magas IOPS (mi [több mint 6 000 000](https://www.youtube.com/watch?v=0LviCzsudGY&t=28m)!) vagy i/o-átviteli sebesség érhető el ( [1 TB/s-nál több](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=16m50s)), akkor az "All-Flash" műveletet kell elvégeznie.
 
@@ -46,12 +46,12 @@ Ennek jelenleg három módja van:
 
 2. **NVMe + SSD.** A NVMe és az SSD-k együttes használatával a NVMe automatikusan gyorsítótárazza az SSD-ket az írásokkal. Ez lehetővé teszi, hogy az írási műveletek a gyorsítótárban legyenek egyesítve, és az SSD-k kopásának csökkentése érdekében csak szükség szerint legyenek elrendezve. Ez a NVMe hasonló írási tulajdonságokat nyújt, az olvasások pedig közvetlenül a szintén gyors SSD-lemezekről származnak.
 
-3. **Minden SSD.** Akárcsak a NVMe esetében, nincs gyorsítótár, ha az összes meghajtó ugyanaz a modell. Ha nagyobb tartósságot és alacsonyabb tartósságú modelleket használ, akkor a korábbi gyorsítótár-írási műveleteket is beállíthatja az utóbbi számára ([beállítás szükséges](/windows-server/storage/storage-spaces/understand-the-cache.md#manual-configuration)).
+3. **Minden SSD.** Akárcsak a NVMe esetében, nincs gyorsítótár, ha az összes meghajtó ugyanaz a modell. Ha nagyobb tartósságot és alacsonyabb tartósságú modelleket használ, akkor a korábbi gyorsítótár-írási műveleteket is beállíthatja az utóbbi számára ([beállítás szükséges](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)).
 
    >[!NOTE]
    > A teljes NVMe vagy az összes – SSD és gyorsítótár nélküli használat előnye, hogy minden meghajtón használható tárolási kapacitást kap. A gyorsítótárazás nem rendelkezik "költött" kapacitással, ami kisebb méretekben is vonzó lehet.
 
-## <a name="option-2--balancing-performance-and-capacity"></a>2\. lehetőség – a teljesítmény és a kapacitás kiegyensúlyozása
+## <a name="option-2--balancing-performance-and-capacity"></a>2. lehetőség – a teljesítmény és a kapacitás kiegyensúlyozása
 
 A különböző alkalmazásokkal és számítási feladatokkal rendelkező környezetek esetében, amelyek némelyike szigorú teljesítménybeli követelményekkel és a jelentős tárolókapacitást igénylő egyéb szolgáltatásokkal rendelkezik, a nagyobb HDD-k esetében NVMe vagy SSD-gyorsítótárazással kell eljárnia.
 
@@ -68,7 +68,7 @@ A különböző alkalmazásokkal és számítási feladatokkal rendelkező körn
    >[!IMPORTANT]
    > Javasoljuk, hogy az SSD-réteg használatával helyezze el a legtöbb teljesítményre érzékeny munkaterhelést az összes flash-meghajtón.
 
-## <a name="option-3--maximizing-capacity"></a>3\. lehetőség – a kapacitás maximalizálása
+## <a name="option-3--maximizing-capacity"></a>3. lehetőség – a kapacitás maximalizálása
 
 A nagy kapacitást igénylő és ritkán írható számítási feladatokhoz, például archiváláshoz, biztonsági mentési célokhoz, adattárházak vagy "hideg" tároláshoz össze kell kapcsolni néhány SSD-t, hogy a gyorsítótárazáshoz több nagyobb HDD legyen a kapacitása.
 
@@ -91,7 +91,7 @@ A gyorsítótár méretének az alkalmazások és a számítási feladatok munka
 
 Javasoljuk, hogy a kiszolgáló teljes tárolókapacitását körülbelül 400 terabájtra korlátozza (TB). A több tárolási kapacitás kiszolgálónként, annál hosszabb idő szükséges az adatleállás vagy újraindítás utáni újraszinkronizáláshoz, például a szoftverfrissítések alkalmazásakor. A Storage-készlet jelenlegi maximális mérete 4 petabyte (PB) (4 000 TB) a Windows Server 2019.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információért lásd még:
 

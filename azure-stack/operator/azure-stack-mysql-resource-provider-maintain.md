@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698725"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
@@ -158,10 +158,10 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**Probléma:**<br>
+**Kérdés**<br>
 A titkok rotációs naplója nem kerül automatikusan begyűjtésre, ha a titkos elforgatási parancsfájl futtatása meghiúsul.
 
-**Workaround**<br>
+**Megkerülő megoldás:**<br>
 A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, mentés a C:\Logs.-ben
 
 ## <a name="collect-diagnostic-logs"></a>Diagnosztikai naplók gyűjtése
@@ -230,7 +230,7 @@ A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL
    
    ![A diagnosztikai beállítások keresése](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/Operational!\*t** a MySQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/\* Operational!** lehetőséget a MySQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
 
    ![Eseménynaplók hozzáadása](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
@@ -244,6 +244,6 @@ Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A MySQL erőforrás-szolgáltató eltávolítása](azure-stack-mysql-resource-provider-remove.md)

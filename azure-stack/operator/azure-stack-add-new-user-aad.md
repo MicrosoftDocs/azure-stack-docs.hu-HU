@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700561"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Új Azure Stack hub felhasználói fiók hozzáadása Azure Active Directory (Azure AD)
@@ -24,17 +24,17 @@ Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
 1. Jelentkezzen be az [Azure](https://portal.azure.com)-ba.
 2. A bal oldali navigációs sávon válassza a **Active Directory** lehetőséget, majd váltson arra a könyvtárra, amelyet az Azure stack hub számára kíván használni (vagy hozzon létre újat).
-3. Válassza **Azure Active Directory** > **felhasználók** > **új felhasználó**lehetőséget.
+3. Válassza **Azure Active Directory** > **felhasználók** > **új felhasználó**elemet.
 
-    ![Felhasználók – minden felhasználó oldalon kiemelve az új felhasználóval](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+    ![Felhasználók – minden felhasználó lap új felhasználóval kiemelve](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
 4. A **felhasználó** lapon adja meg a szükséges adatokat.
 
-    ![Új felhasználó, a felhasználó oldalon a felhasználói adatok hozzáadása](media/azure-stack-add-new-user-aad/new-user-user.png)
+    ![Új felhasználó, felhasználói oldal hozzáadása a felhasználói adatokhoz](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **Név (kötelező)** : az új felhasználó vezetékneve és utóneve. Ha például Anna Parker.
-   - **Felhasználónév (kötelező)** : az új felhasználó felhasználóneve. Például: mary@contoso.com.
-       A Felhasználónév tartomány részének a kezdeti alapértelmezett tartománynevet kell használnia, <_yourdomainname_>. onmicrosoft. com vagy egy egyéni tartománynevet, például contoso.com. Az Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [Egyéni tartománynév hozzáadása az Azure ad](/azure/active-directory/fundamentals/add-custom-domain)-hez.
+   - **Név (kötelező)**: az új felhasználó vezetékneve és utóneve. Például: Mary Parker.
+   - **Felhasználónév (kötelező)**: az új felhasználó felhasználóneve. Például: mary@contoso.com.
+       A Felhasználónév tartomány részének a kezdeti alapértelmezett tartománynevet kell használnia, <_yourdomainname_>. onmicrosoft.com vagy egy egyéni tartománynevet, például contoso.com. Az Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [Egyéni tartománynév hozzáadása az Azure ad](/azure/active-directory/fundamentals/add-custom-domain)-hez.
    - **Profil**: igény szerint további információkat is hozzáadhat a felhasználóról. Emellett később is hozzáadhat felhasználói adatokat. A felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [felhasználói profil adatainak hozzáadása vagy módosítása](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
    - **Címtárbeli szerepkör**: válassza a **felhasználó**lehetőséget.
 
@@ -42,10 +42,10 @@ Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
 6. Kattintson a **Létrehozás** gombra.
 
-    A felhasználó létrehozása és az Azure AD-bérlőhöz hozzáadni.
+    A rendszer létrehozza és hozzáadja a felhasználót az Azure AD-bérlőhöz.
 
 7. Jelentkezzen be a Azure Portalba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-8. A felhasználói portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
+8. `https://portal.local.azurestack.external` A felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
 
 ## <a name="create-a-user-account-using-powershell"></a>Felhasználói fiók létrehozása a PowerShell használatával
 
@@ -79,8 +79,8 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
     ```
 
 1. Jelentkezzen be az Azure-ba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-2. A felhasználói portál megtekintéséhez jelentkezzen be `https://portal.local.azurestack.external`ra az új fiókkal.
+2. `https://portal.local.azurestack.external` A felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub-felhasználók hozzáadása a AD FS](azure-stack-add-users-adfs.md)

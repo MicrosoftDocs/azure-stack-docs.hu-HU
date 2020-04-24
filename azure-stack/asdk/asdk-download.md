@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
 ms.openlocfilehash: f582f6061ebc2bbce7a3605ed7795b9ab5562738
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695903"
 ---
 # <a name="download-and-extract-the-asdk"></a>A ASDK letöltése és kibontása
@@ -36,11 +36,11 @@ Miután meggyőződött arról, hogy a fejlesztői csomag gazdagépe megfelel a 
 3. Tekintse át az önkiszolgáló varázsló **Fontos figyelmeztetés** lapján megjelenő adatvédelmi nyilatkozat adatait, majd kattintson a **tovább**gombra.
 4. Válassza ki az önkiszolgáló varázsló **célhely kiválasztása** lapján kinyerni kívánt Azure stack telepítési fájlok helyét, majd kattintson a **tovább**gombra. Az alapértelmezett hely a *jelenlegi mappa*\Azure stack Development Kit. 
 5. Tekintse át a célhely összefoglalását az önkiszolgáló varázsló **kész kivonat** lapján, majd kattintson a **Kibontás** gombra a CloudBuilder. vhdx (körülbelül 28GB) és a ThirdPartyLicenses. rtf fájlok kibontásához. A folyamat elvégzése hosszabb időt vesz igénybe.
-6. Másolja vagy helyezze át az CloudBuilder. vhdx fájlt a C:\ gyökerébe meghajtó (`C:\CloudBuilder.vhdx`) a ASDK gazdagépen.
+6. Másolja vagy helyezze át az CloudBuilder. vhdx fájlt a C:\ gyökerébe meghajtó (`C:\CloudBuilder.vhdx`) a ASDK-gazdagépen.
 
 > [!NOTE]
 > A fájlok kibontása után törölheti a következőt:. EXE és. BIN-fájlok a merevlemez-terület helyreállításához. A fájlokat biztonsági mentéssel is elvégezheti, így nem kell újból letöltenie a fájlokat, ha újra kell telepítenie a ASDK.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [A ASDK-gazda számítógép előkészítése](asdk-prepare-host.md)

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 4c12cd6eb262aa953637ae6928051e7aa444ef91
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695427"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Hibrid felhőalapú kapcsolat konfigurálása az Azure és az Azure Stack hub használatával
@@ -50,12 +50,12 @@ A megoldás példája feltételezi, hogy rendelkezik az Azure és az Azure Stack
 
 ### <a name="azure"></a>Azure
 
- - Ha nem rendelkezik Azure-előfizetéssel, mindössze néhány perc alatt létrehozhat egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a virtuális gép létrehozásának megkezdése előtt.
+ - Ha nem rendelkezik Azure-előfizetéssel, a Kezdés előtt hozzon létre egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
  - Hozzon létre egy [webalkalmazást](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) az Azure-ban. Jegyezze fel a webalkalmazás URL-címét, mert szüksége lesz rá a megoldásban.
 
 ### <a name="azure-stack-hub"></a>Azure Stack hub
 
- - Használja az éles Azure Stack hubot, vagy telepítse a Azure Stack Development Kitt a https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
+ - Használja az éles Azure Stack hubot, vagy telepítse a Azure Stack Development Kitt a alkalmazásból https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1.
    >[!Note]
    >A ASDK üzembe helyezése akár 7 órát is igénybe vehet, ezért tervezze meg ennek megfelelően.
 
@@ -94,11 +94,11 @@ Hálózati és alhálózat IP-címei:
 | Azure Stack hub vNet | ApplicationvNet<br>10.100.100.0/23 | ApplicationSubnet <br>10.100.100.0/24 |  |
 |  |  | GatewaySubnet <br>10.100101.0/24 |  |
 | Azure Virtual Network-átjáró | Azure – átjáró |  |  |
-| Azure Stack hub Virtual Network átjáró | AzureStack-Gateway |  |  |
-| Azure Public IP | Azure-GatewayPublicIP |  | Létrehozáskor meghatározva |
-| Azure Stack hub nyilvános IP-címe | AzureStack-GatewayPublicIP |  | Létrehozáskor meghatározva |
-| Azure-beli helyi hálózati átjáró | AzureStack-S2SGateway<br>   10.100.100.0/23 |  | Azure Stack hub nyilvános IP-értéke |
-| Azure Stack hub helyi hálózati átjárója | Azure-S2SGateway<br>10.100.102.0/23 |  | Azure nyilvános IP-érték |
+| Azure Stack hub Virtual Network átjáró | AzureStack – átjáró |  |  |
+| Azure nyilvános IP-cím | Azure – GatewayPublicIP |  | Létrehozáskor meghatározva |
+| Azure Stack hub nyilvános IP-címe | AzureStack – GatewayPublicIP |  | Létrehozáskor meghatározva |
+| Azure-beli helyi hálózati átjáró | AzureStack – S2SGateway<br>   10.100.100.0/23 |  | Azure Stack hub nyilvános IP-értéke |
+| Azure Stack hub helyi hálózati átjárója | Azure – S2SGateway<br>10.100.102.0/23 |  | Azure nyilvános IP-érték |
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack-hub"></a>Virtuális hálózat létrehozása a globális Azure-ban és Azure Stack hub-ban
 
@@ -110,7 +110,7 @@ A következő lépésekkel hozhat létre virtuális hálózatot a portál haszn�
 VNet létrehozása az Azure-ban:
 
 1. A böngészőjével csatlakozhat a [Azure Portalhoz](https://portal.azure.com/) , és bejelentkezhet az Azure-fiókjával.
-2. Válassza **az erőforrás létrehozása**lehetőséget. A **Keresés a piactéren** mezőbe írja be a "virtuális hálózat" kifejezést. Válassza ki a **virtuális hálózatot** az eredmények közül.
+2. Válassza az **Erőforrás létrehozása** lehetőséget. A **Keresés a piactéren** mezőbe írja be a "virtuális hálózat" kifejezést. Válassza ki a **virtuális hálózatot** az eredmények közül.
 3. A **telepítési modell kiválasztása** listában válassza ki a **Resource Manager**elemet, majd válassza a **Létrehozás**lehetőséget.
 4. A **virtuális hálózat létrehozása**területen konfigurálja a VNet beállításait. A kötelező mezők nevei vörös csillaggal vannak ellátva.  Ha érvényes értéket ad meg, a csillag zöld pipa jelre változik.
 
@@ -130,14 +130,14 @@ A [Azure Portal](https://portal.azure.com/)Navigáljon arra a Resource Manager v
 
     ![Átjáró-alhálózat hozzáadása](media/solution-deployment-guide-connectivity/image4.png)
 
-4. Az alhálózat **nevét** a rendszer automatikusan kitölti a "GatewaySubnet" értékkel. Ez az érték megadása kötelező az Azure felismerje az alhálózat egy átjáró alhálózata.
+4. Az alhálózat **nevét** a rendszer automatikusan kitölti a "GatewaySubnet" értékkel. Ez az érték szükséges ahhoz, hogy az Azure felismerje az alhálózatot átjáró-alhálózatként.
 5. Módosítsa a megadott **címtartomány** -értékeket úgy, hogy megfeleljenek a konfigurációs követelményeinek, majd válassza az **OK**gombot.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Virtual Network átjáró létrehozása az Azure-ban és Azure Stack
 
 Az alábbi lépéseket követve létrehozhat egy virtuális hálózati átjárót az Azure-ban.
 
-1. A portál lap bal oldalán válassza a **+** lehetőséget, majd a keresőmezőbe írja be a "virtuális hálózati átjáró" kifejezést.
+1. A portál lap bal oldalán válassza ki **+** a "Virtual Network Gateway" (virtuális hálózati átjáró) értéket a keresőmezőbe.
 2. Az **eredmények**területen válassza a **virtuális hálózati átjáró**elemet.
 3. A **virtuális hálózati átjáró**lapon válassza a **Létrehozás** lehetőséget a **virtuális hálózati átjáró létrehozása** lap megnyitásához.
 4. A **virtuális hálózati átjáró létrehozása**lapon adja meg a hálózati átjáró értékeit az **oktatóanyag példái**alapján, valamint a következő további értékeket:
@@ -213,6 +213,6 @@ A következő lépésekkel hozhat létre helyek közötti VPN-kapcsolatot a virt
 
 A kapcsolatot a virtuális hálózati átjáró **kapcsolatok** lapján tekintheti meg. Az állapot az *ismeretlentől* a *csatlakozáshoz*, majd a *sikeres*művelethez fog esni.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

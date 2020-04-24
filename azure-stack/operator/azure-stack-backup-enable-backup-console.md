@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
 ms.openlocfilehash: ce401b20d6baa66807e6ee5f7ee1e94503b653af
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703162"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Biztonsági mentés engedélyezése Azure Stack hub számára a felügyeleti portálról
@@ -28,7 +28,7 @@ A Infrastructure Backup szolgáltatás azonban nem készít biztonsági mentést
 A rendszergazdák és a felhasználók felelősek a IaaS és a Péter-erőforrások biztonsági mentéséhez és visszaállításához az infrastruktúra biztonsági mentési folyamataitól függetlenül. A IaaS és a Péter-erőforrások biztonsági mentésével kapcsolatos információkért tekintse meg az alábbi hivatkozásokat:
 
 - [Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem](../user/azure-stack-manage-vm-protect.md)
-- [Alkalmazás biztonsági mentése az Azure-ban](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Adatok biztonsági mentése az Azure-ban](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [Mi az Azure-beli virtuális gépek SQL Server? Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
@@ -124,7 +124,7 @@ Ha a biztonsági mentést a 1901-es verzióra való frissítés előtt konfigur�
 
 ![Azure Stack hub – titkosítási tanúsítvány használata visszamenőleges kompatibilitási módban](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Útmutató a biztonsági másolatok futtatásához. Lásd: [Azure stack hub biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 

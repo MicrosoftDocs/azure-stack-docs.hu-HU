@@ -3,16 +3,16 @@ title: AD FS identitás integrálása az Azure Stack hub-adatközponttal
 description: Megtudhatja, hogyan integrálhatja Azure Stack hub AD FS Identity providert az adatközpont AD FS.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367819"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243805"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
@@ -27,11 +27,11 @@ A AD FS-ben való üzembe helyezése lehetővé teszi egy meglévő Active Direc
 
 A hitelesítés az identitás egyik része. A szerepköralapú hozzáférés-vezérlés (RBAC) Azure Stack hub-ban való kezeléséhez konfigurálni kell a Graph összetevőt. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
 
-![Azure Stack hub AD FS architektúra](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack hub AD FS architektúra](media/azure-stack-integrate-identity/azure-stack-adfs-architecture.svg)
 
 A meglévő AD FS a fiók biztonsági jogkivonat-szolgáltatása (STS), amely jogcímeket küld az Azure Stack hub AD FS (az erőforrás STS) számára. Azure Stack központban az Automation létrehozza a jogcím-szolgáltatói megbízhatóságot a meglévő AD FS metaadat-végpontján.
 
-A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack hub VIP-végpontját a következő minta használatával lehet létrehozni: `https://adfs.<Region>.<ExternalFQDN>/`.
+A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack hub VIP-végpontját a minta `https://adfs.<Region>.<ExternalFQDN>/`használatával lehet létrehozni.
 
 A függő entitás megbízhatóságának konfigurációjában a Microsoft által biztosított jogcím-átalakítási szabályok konfigurálására is szükség van.
 
@@ -113,7 +113,7 @@ Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portoka
 
 Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portokat használja a célként megadott Active Directory való kommunikációhoz:
 
-|Típus|Port|Protokoll|
+|Típus|Port|Protocol (Protokoll)|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -127,8 +127,8 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |Paraméter|Üzembe helyezési munkalap paramétere|Leírás|Példa|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|Nincs|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
+|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|None|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
@@ -162,7 +162,6 @@ Az 1807-es verziótól kezdődően ezt a módszert használja, ha az alábbi fel
 - Nincs hálózati kapcsolat a meglévő AD FS-kiszolgálóval Azure Stack hub AD FS példányáról.
 
 A következő információk szükségesek az Automation-paraméterek bemenetéhez:
-
 
 |Paraméter|Leírás|Példa|
 |---------|---------|---------|
@@ -291,7 +290,7 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
    **AD FS 2002 és újabb rendszerekhez**
 
    > [!NOTE]
-   > Ha `Add-ADFSRelyingPartyTrust`t hajt végre az ügyfél tulajdonában lévő ADFS-gazdagépen/farmon, először győződjön meg arról, hogy a TLS 1.2 kényszerítve van az ADFS-gazdagépen/farmon, és a kísérlet a következő hibaüzenetet eredményezi:
+   > Ha az ügyfél `Add-ADFSRelyingPartyTrust` birtokolt ADFS-gazdagépen/farmon végez végrehajtást, először győződjön meg arról, hogy a TLS 1.2 kényszerítve van az ADFS-gazdagépen/farmon, és a kísérlet a következő hibaüzenetet eredményezi:
 
 `Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
@@ -311,7 +310,7 @@ Az egyszerű szolgáltatásnév (SPN) használatának megkövetelése számos es
 Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további információkért lásd: [egyszerű szolgáltatásnév létrehozása ad FShoz](azure-stack-create-service-principals.md).
 
 
-## <a name="troubleshooting"></a>Hibakeresés
+## <a name="troubleshooting"></a>Hibaelhárítás
 
 ### <a name="configuration-rollback"></a>Konfiguráció visszaállítása
 
@@ -341,7 +340,7 @@ Ha olyan hiba történik, amely egy olyan állapotban hagyja a környezetet, aho
 
 ### <a name="collecting-additional-logs"></a>További naplók gyűjtése
 
-Ha a parancsmagok bármelyike meghibásodik, további naplókat is gyűjthet a `Get-Azurestacklogs` parancsmag használatával.
+Ha a parancsmagok bármelyike meghibásodik, a `Get-Azurestacklogs` parancsmag használatával további naplókat is gyűjthet.
 
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsokat:
 
@@ -356,6 +355,6 @@ Ha a parancsmagok bármelyike meghibásodik, további naplókat is gyűjthet a `
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Külső monitorozási megoldások integrálása](azure-stack-integrate-monitor.md)

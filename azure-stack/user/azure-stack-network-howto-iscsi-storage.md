@@ -3,16 +3,16 @@ title: Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 description: Megtudhatja, hogyan csatlakozhat az iSCSI-tárolóhoz Azure Stack hub használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 7451338194742723d6b669f94dc11b4449570eda
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703842"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660893"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 
@@ -65,8 +65,8 @@ Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés b
 
 1. Telepítse az infrastruktúra-sablont.
 2. Helyezzen üzembe egy Azure Stack hub virtuális gépet egy, az adatközpontban máshol üzemeltetett virtuális gépre. 
-3. Futtassa a `Create-iSCSITarget.ps1` az IP-cím és a kiszolgálónév kimenetek használatával a sablonból az iSCSI-tároló parancsfájljának kijelentkezési paramétereként, amely lehet virtuális gép vagy fizikai kiszolgáló.
-4. A `Connect-toiSCSITarget.ps1` parancsfájl futtatásához használja az iSCSI-célkiszolgáló külső IP-címét vagy címét bemenetként. 
+3. Futtassa `Create-iSCSITarget.ps1` az IP-cím és a kiszolgálónév kimenetét a sablonból az iSCSI-tárolóban lévő parancsfájl kimeneti paramétereként, amely lehet virtuális gép vagy fizikai kiszolgáló.
+4. Az iSCSI-célkiszolgáló külső IP-címét vagy címét használja bemenetként a `Connect-toiSCSITarget.ps1` parancsfájl futtatásához. 
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/process.png)
 
@@ -79,7 +79,7 @@ Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés b
 |VMName                  |FileServer        |a virtuális gép neve
 |adminUsername           |storageadmin      |Az új virtuális gép rendszergazdájának neve
 |adminPassword           |                  |Az új virtuális gépek rendszergazdai fiókjának jelszava. Az alapértelmezett érték az előfizetés azonosítója
-|VNetName                |Tárterület           |A VNet neve. Ezt fogja használni az erőforrások címkézéséhez
+|VNetName                |Storage           |A VNet neve. Ezt fogja használni az erőforrások címkézéséhez
 |VNetAddressSpace        |10.10.0.0/23      |Címterület a VNet
 |VNetInternalSubnetName  |Belső          |VNet belső alhálózat neve
 |VNetInternalSubnetRange |10.10.1.0/24      |Címtartomány a belső alhálózat VNet
@@ -89,9 +89,9 @@ Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés b
 
 ### <a name="deployment-steps"></a>A központi telepítés lépései
 
-1. ISCSI-ügyfél infrastruktúra üzembe helyezése `azuredeploy.json` használatával
-2. `Create-iSCSITarget.ps1` futtatása a helyszíni kiszolgáló iSCSI-tárolóján. A sablon befejezése után futtatnia kell a Create-iSCSITarget. ps1 parancsot a helyszíni kiszolgáló iSCSI-tárolóján az első lépés kimenetével.
-3. `Connect-toiSCSITarget.ps1` futtatása az iSCSI-ügyfélen. a Connect-toiSCSITarget. ps1 a on iSCSI-ügyfélen az iSCSI-tároló részleteivel.
+1. ISCSI-ügyfél infrastruktúra üzembe helyezése a használatával`azuredeploy.json`
+2. Futtassa `Create-iSCSITarget.ps1` a parancsot a helyszíni kiszolgáló iSCSI-tárolóján. A sablon befejezése után futtatnia kell a Create-iSCSITarget. ps1 parancsot a helyszíni kiszolgáló iSCSI-tárolóján az első lépés kimenetével.
+3. Futtassa `Connect-toiSCSITarget.ps1` a parancsot az iSCSI-ügyfélen. a Connect-toiSCSITarget. ps1 a on iSCSI-ügyfélen az iSCSI-tároló részleteivel.
 
 ## <a name="adding-iscsi-storage-to-existing-vms"></a>ISCSI-tároló hozzáadása meglévő virtuális gépekhez
 
@@ -101,7 +101,7 @@ A meglévő virtuális gépek parancsfájljait is futtathatja, hogy az iSCSI-üg
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient. ps1
 
-A `Prepare-iSCSIClient.ps1` parancsfájl telepíti az iSCSI-ügyfélre vonatkozó előfeltételeket, beleértve a következőket:
+A `Prepare-iSCSIClient.ps1` parancsfájl az iSCSI-ügyfélre telepíti az előfeltételeket, beleértve a következőket:
 - Többutas-i/o-szolgáltatások telepítése
 - az iSCSI-kezdeményező szolgáltatás automatikus indításának beállítása
 - többutas MPIO támogatásának engedélyezése iSCSI-hez
@@ -114,7 +114,7 @@ Az Előfeltételek telepítése után fontos a rendszer újraindítása. Az MPIO
 
 A `Create-iSCSITarget.ps1 `szkriptet a tárolót kiszolgáló rendszeren kell futtatni. A kezdeményezők által korlátozottan több lemezt és célt is létrehozhat. Ezt a parancsfájlt többször is futtathatja, hogy több virtuális lemezt hozzon létre, amelyek különböző célokhoz kapcsolhatók. Több lemezt is összekapcsolhat egy célhoz. 
 
-|**Input** (Bemenet)|**alapértelmezett**|**Leírás**|
+|**Input (Bemenet)**|**alapértelmezett**|**Leírás**|
 |------------------|---------------|------------------------------|
 |RemoteServer         |FileServer               |Az iSCSI-tárolóhoz csatlakozó kiszolgáló neve
 |RemoteServerIPs      |1.1.1.1                  |Az az IP-cím, amelyet az iSCSI-forgalom a következőtől fog származni:
@@ -129,7 +129,7 @@ A `Create-iSCSITarget.ps1 `szkriptet a tárolót kiszolgáló rendszeren kell fu
 
 A `Connect-toiSCSITarget.ps1` a végső parancsfájl, amely az iSCSI-ügyfélen fut, és az iSCSI-tároló által az iSCSI-ügyfél számára bemutatott lemezt csatlakoztatja.
 
-|**Input** (Bemenet)|**alapértelmezett**|**Leírás**|
+|**Input (Bemenet)**|**alapértelmezett**|**Leírás**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2", "2.2.2.3"    |Az iSCSI-tároló IP-címei
 |LocalIPAddresses       |"10.10.1.4"            |Ez az a belső IP-cím, amelyet az iSCSI-forgalom a következő helyről fog származni:
@@ -137,6 +137,6 @@ A `Connect-toiSCSITarget.ps1` a végső parancsfájl, amely az iSCSI-ügyfélen 
 |ChapUsername           |felhasználónév               |A CHAP-hitelesítéshez használt Felhasználónév neve
 |ChapPassword           |userP@ssw0rd!          |A CHAP-hitelesítéshez használt jelszó neve. 12 és 16 karakter közöttinek kell lennie
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

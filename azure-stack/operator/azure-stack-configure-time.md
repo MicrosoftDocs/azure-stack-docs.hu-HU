@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
 ms.openlocfilehash: 56d0bfdef5329d5dd20c3b9add4d30e7942801e1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703536"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Az Azure Stack hub időkiszolgálójának konfigurálása
@@ -55,7 +55,7 @@ A Azure Stack hub számára egy időkiszolgáló (NTP) megadása szükséges az 
 4. Az esetleges hibákért tekintse át a parancs kimenetét.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  
 [Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)  

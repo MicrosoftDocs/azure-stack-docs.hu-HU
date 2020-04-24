@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80479302"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
@@ -25,11 +25,11 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
-| Funkció | Azure (globális) | Azure Stack hub |
+| Szolgáltatás | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
-|Image (Kép)          | Felügyelt egyéni rendszerkép |Támogatott|
-|Biztonsági mentési lehetőségek | Azure Backup szolgáltatás |Még nem támogatott |
+|Kép          | Felügyelt egyéni rendszerkép |Támogatott|
+|Biztonsági mentési beállítások | Azure Backup szolgáltatás |Még nem támogatott |
 |Vész-helyreállítási lehetőségek | Azure Site Recovery |Még nem támogatott|
 |Lemez típusa     |Prémium SSD, standard SSD és standard HDD. |Prémium SSD, standard HDD |
 |Prémium szintű lemezek  |Teljes mértékben támogatott. |Kiépíthető, de nincs teljesítménybeli korlát vagy garancia  |
@@ -133,26 +133,26 @@ Azure Stack hub támogatja a *felügyelt*lemezképeket, amelyek lehetővé teszi
 - Általánosított nem felügyelt virtuális gépeket használ, és szeretné használni a felügyelt lemezeket.
 - Rendelkezik egy általánosított felügyelt virtuális géppel, és több, hasonló felügyelt virtuális gépet szeretne létrehozni.
 
-### <a name="step-1-generalize-the-vm"></a>1\. lépés: a virtuális gép általánosítása
+### <a name="step-1-generalize-the-vm"></a>1. lépés: a virtuális gép általánosítása
 
 Windows esetén kövesse a [Windows rendszerű virtuális gép általánosítása a Sysprep használatával](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) című szakaszt. Linux esetén kövesse [az 1.](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)lépést.
 
 > [!NOTE]
 > Győződjön meg arról, hogy általánosítja a virtuális gépet. A nem megfelelően általánosított rendszerképből létrehozott virtuális gépek **VMProvisioningTimeout** hibát okozhatnak.
 
-### <a name="step-2-create-the-managed-image"></a>2\. lépés: a felügyelt rendszerkép létrehozása
+### <a name="step-2-create-the-managed-image"></a>2. lépés: a felügyelt rendszerkép létrehozása
 
 A felügyelt rendszerkép létrehozásához használhatja a portált, a PowerShellt vagy a CLI-t is. Kövesse a [felügyelt rendszerkép létrehozása](/azure/virtual-machines/windows/capture-image-resource)című témakör lépéseit.
 
-### <a name="step-3-choose-the-use-case"></a>3\. lépés: a használati eset kiválasztása
+### <a name="step-3-choose-the-use-case"></a>3. lépés: a használati eset kiválasztása
 
-#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>1\. eset: nem felügyelt virtuális gépek áttelepítése felügyelt lemezekre
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>1. eset: nem felügyelt virtuális gépek áttelepítése felügyelt lemezekre
 
 A lépés végrehajtása előtt győződjön meg arról, hogy megfelelően általánosítja a virtuális gépet. Az általánosítás után már nem használhatja ezt a virtuális gépet. A nem megfelelően általánosított rendszerképből létrehozott virtuális gépek **VMProvisioningTimeout** hibához vezethetnek.
 
 Kövesse a [rendszerkép létrehozása olyan virtuális gépről, amely Storage-fiókot használ](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account) egy felügyelt rendszerkép létrehozásához egy általános VHD-ből egy Storage-fiókban. A jövőben ezt a rendszerképet használhatja a felügyelt virtuális gépek létrehozásához.
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>2\. eset: felügyelt virtuális gép létrehozása felügyelt képből a PowerShell használatával
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>2. eset: felügyelt virtuális gép létrehozása felügyelt képből a PowerShell használatával
 
 Miután létrehozta a lemezképet egy meglévő felügyelt lemezről származó virtuális gépről a [lemezkép létrehozása felügyelt lemezről a PowerShell használatával](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)című parancsfájl használatával, a következő példában szereplő parancsfájl használatával hozzon létre egy hasonló linuxos virtuális gépet egy meglévő rendszerkép-objektumból.
 
@@ -221,6 +221,6 @@ Az 1808-es vagy újabb frissítés alkalmazása után a következő konfiguráci
    2. Ugyanebben az előfizetésben lépjen a **Access Control (iam)** elemre, és ellenőrizze, hogy a **Azure stack hub által felügyelt lemez szerepel-** e a listáján.
 - Ha több-bérlős környezetet használ, kérje meg a Felhőbeli operátort (amely a saját szervezetében vagy a szolgáltatónál lehet), hogy az [ebben a cikkben](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory)leírt lépéseket követve konfigurálja újra az egyes vendég címtárakat. Ellenkező esetben előfordulhat, hogy a virtuális gépeknek az adott vendég címtárhoz társított előfizetésben való telepítése sikertelen lehet, ha a "belső hiba a Lemezkezelésben" hibaüzenet jelenik meg.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Ismerkedjen meg [Azure stack hub virtuális gépekkel](azure-stack-compute-overview.md).

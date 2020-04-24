@@ -3,16 +3,16 @@ title: A virtuális gép biztonsági mentése Azure Stack-hubhoz a CommVault has
 description: Ismerje meg, hogyan készíthet biztonsági másolatot a virtuális gépről Azure Stack hub-on a CommVault.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 61ea70c9a59442547a9b4b73d4a3f9e676cf89c7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702465"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661041"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
 
@@ -44,7 +44,7 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
 
-2. Válassza **az erőforrás létrehozása** > **számítási** > **CommVault**lehetőséget.
+2. Válassza **az erőforrás** > **létrehozása számítási** > **CommVault**lehetőséget.
 
     > [!Note]  
     > Ha a CommVault nem érhető el, forduljon a felhő üzemeltetőjéhez.
@@ -61,7 +61,7 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     d. Adjon meg egy **jelszót**.
     
-    e. Erősítse meg a jelszót.
+    e. Erősítse meg a jelszavát.
     
     f. Válasszon egy **előfizetést** a biztonsági mentéshez.
     
@@ -120,22 +120,22 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 
 ## <a name="configure-backup-using-the-commvault-console"></a>A biztonsági mentés konfigurálása a CommVault-konzol használatával
 
-1. Nyissa meg az RDP-ügyfelet, és csatlakozzon a Azure Stack hub Commavult virtuális géphez. Adja meg a hitelesítő adatait.
+1. Nyissa meg az RDP-ügyfelet, és csatlakozzon a Azure Stack hub Commavult virtuális géphez. Adja meg hitelesítő adatait.
 
 2. Telepítse Azure Stack hub PowerShell-t és Azure Stack hub-eszközöket a CommVault virtuális gépre.
 
     a. Az Azure Stack hub PowerShell telepítésével kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
     b. Azure Stack hub-eszközök telepítésére vonatkozó utasításokért lásd: [Azure stack hub-eszközök letöltése a githubról](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
-3. Miután a CommVault a CommVault virtuális gépre települ, nyissa meg a Commcell-konzolt. A Start menüben válassza a **Commvault** > **CommVault Commcell-konzol**elemet.
+3. Miután a CommVault a CommVault virtuális gépre települ, nyissa meg a Commcell-konzolt. A Start menüben válassza a **CommVault** > **CommVault Commcell-konzol**elemet.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
-4. Konfigurálja a biztonsági mentési tárházait úgy, hogy a CommVault Commcell-konzolon a Azure Stack hub-on kívül is használják a tárolót. A CommCell böngészőben válassza a tárolási erőforrások > Storage-készletek elemet. Kattintson a jobb gombbal, majd válassza a **tár hozzáadása elemet.** Válassza a **Cloud** (Felhő) lehetőséget.
+4. Konfigurálja a biztonsági mentési tárházait úgy, hogy a CommVault Commcell-konzolon a Azure Stack hub-on kívül is használják a tárolót. A CommCell böngészőben válassza a tárolási erőforrások > Storage-készletek elemet. Kattintson a jobb gombbal, majd válassza a **tár hozzáadása elemet.** Válassza a **felhő**lehetőséget.
 
 5. Adja hozzá a Storage-készlet nevét. Kattintson a **Tovább** gombra.
 
-6. Válassza a létrehozás > **felhőalapú tároló** **létrehozása** lehetőséget.
+6. Válassza a**Felhőbeli tároló** **létrehozása** > lehetőséget.
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
@@ -145,7 +145,7 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 
 9. Adja meg a Storage-fiókjához tartozó hozzáférési adatokat. Itt megtalálhatja az Azure Storage-fiók beállításával kapcsolatos utasításokat. Hozzáférési információk:
 
-    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Például az URL-cím https:\//backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
+    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https:\//backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
     
     -   **Fiók neve**: használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
     
@@ -198,7 +198,7 @@ Az CommVault Live Sync lehetővé teszi, hogy a gépeket az eredeti Azure Stack 
 
 ![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
-Válassza ki a helyreállítani kívánt virtuális gépeket a helyreállítási Azure Stack hubhoz, és válasszon egy tervezett vagy nem tervezett feladatátvételt. A tervezett feladatátvétel akkor megfelelő, ha a helyreállítási helyen végzett műveletek folytatása előtt idő van az éles környezet leállítására. A tervezett feladatátvétel leállítja az éles virtuális gépeket, a végső módosításokat replikálja a helyreállítási helyre, és a legújabb értékekkel online állapotba helyezi a helyreállítási virtuális gépeket, és alkalmazza a virtuális gép méretét és a hálózati konfigurációt az élő szinkronizálás konfigurálása során. A nem tervezett feladatátvétel megkísérli leállítani az éles virtuális gépeket, de folytatja, ha az éles környezet nem érhető el, és egyszerűen a helyreállítási virtuális gépeket online állapotba helyezi a virtuális gépre alkalmazott legutóbb fogadott replikációs adatkészlettel, valamint a mérettel és a hálózattal. korábban kiválasztott konfiguráció. Az alábbi képek egy nem tervezett feladatátvételt mutatnak be, amelyben a helyreállítási virtuális gépek online állapotba kerültek a CommVault Live Sync használatával.
+Válassza ki a helyreállítani kívánt virtuális gépeket a helyreállítási Azure Stack hubhoz, és válasszon egy tervezett vagy nem tervezett feladatátvételt. A tervezett feladatátvétel akkor megfelelő, ha a helyreállítási helyen végzett műveletek folytatása előtt idő van az éles környezet leállítására. A tervezett feladatátvétel leállítja az éles virtuális gépeket, a végső módosításokat replikálja a helyreállítási helyre, és a legújabb értékekkel online állapotba helyezi a helyreállítási virtuális gépeket, és alkalmazza a virtuális gép méretét és a hálózati konfigurációt az élő szinkronizálás konfigurálása során. A nem tervezett feladatátvétel megkísérli leállítani az éles virtuális gépeket, de folytatja, ha az éles környezet nem érhető el, és egyszerűen a helyreállítási virtuális gépeket online állapotba helyezi a virtuális gépre alkalmazott utolsó fogadott replikációs adatkészlettel, valamint a korábban kiválasztott mérettel és hálózati konfigurációval. Az alábbi képek egy nem tervezett feladatátvételt mutatnak be, amelyben a helyreállítási virtuális gépek online állapotba kerültek a CommVault Live Sync használatával.
 
 ![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
@@ -206,6 +206,6 @@ Válassza ki a helyreállítani kívánt virtuális gépeket a helyreállítási
 
 ![](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

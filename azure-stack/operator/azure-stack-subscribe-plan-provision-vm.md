@@ -8,10 +8,10 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
 ms.openlocfilehash: 5225772f94e5a28d03872d1764681e56f14a2cf4
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294637"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Előfizetések létrehozása a Azure Stack hub ajánlatai számára
@@ -21,7 +21,7 @@ Miután [létrehozott egy ajánlatot](azure-stack-create-offer.md), a felhaszná
 - Felhőüzemeltetőként létrehozhat egy előfizetést egy felhasználó számára a felügyeleti portálon. A létrehozott előfizetések nyilvános és személyes ajánlatok részét is képezhetik.
 - Bérlői felhasználóként a felhasználói portál használatakor feliratkozhat egy nyilvános ajánlatra.  
 
-## <a name="create-a-subscription-as-a-cloud-operator"></a>Előfizetés létrehozása Felhőbeli kezelőként
+## <a name="create-a-subscription-as-a-cloud-operator"></a>Hozzon létre egy előfizetést felhőüzemeltetőként
 
 A Felhőbeli operátorok a felügyeleti portál használatával előfizetést hozhatnak létre egy felhasználónak szóló ajánlathoz. Előfizetések hozhatók létre a saját címtár-bérlő tagjai számára. Ha engedélyezve van a [többszörös](azure-stack-enable-multitenancy.md) kisegítő lehetőség, létrehozhat előfizetéseket is a felhasználók számára további címtár-bérlők esetében.
 
@@ -37,9 +37,9 @@ Miután létrehozott egy előfizetést egy felhasználóhoz, bejelentkezhet a fe
    - **Megjelenítendő név** – a *felhasználói előfizetés neveként*megjelenő előfizetés azonosítására szolgáló rövid név.
    - **Felhasználó** – válasszon egy felhasználót egy elérhető címtár-bérlőből ehhez az előfizetéshez. A Felhasználónév *tulajdonosként*jelenik meg.  A Felhasználónév formátuma a személyazonossági megoldástól függ. Például:
 
-     - **Azure ad:** `<user1>@<contoso.onmicrosoft.com>`
+     - **Azure ad:**`<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:** `<user1>@<azurestack.local>`
+     - **AD FS:**`<user1>@<azurestack.local>`
 
    - **Címtár-bérlő** – válassza ki azt a címtár-bérlőt, amelyben a felhasználói fiók tartozik. Ha még nem engedélyezte a többszörös bérletet, csak a helyi címtár-bérlő érhető el.
 
@@ -57,7 +57,7 @@ A Felhőbeli operátorok bármikor hozzáadhatnak egy csomagot egy korábban lé
 
 3. A **csomag hozzáadása**területen válassza ki azt a csomagot, amelyet bővítményként szeretne használni.
 
-## <a name="create-a-subscription-as-a-user"></a>Előfizetés létrehozása felhasználóként
+## <a name="create-a-subscription-as-a-user"></a>Hozzon létre egy előfizetést felhasználóként
 
 Felhasználóként bejelentkezhet a felhasználói portálra, ahol megkeresheti és előfizethet nyilvános ajánlatokat és kiegészítő csomagokat a címtár-bérlő (szervezet) számára.
 
@@ -88,7 +88,7 @@ Ha az előfizetett ajánlat egy kiegészítő csomaggal rendelkezik, akkor bárm
 
 1. Válassza a **+ csomag hozzáadása** vagy a **kiegészítő csomagok** csempét. A **kiegészítő csomagok**területen válassza ki a hozzáadni kívánt csomagot.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ arról, hogy a felhasználók hogyan telepíthetnek erőforrásokat az előfizetésbe:
 

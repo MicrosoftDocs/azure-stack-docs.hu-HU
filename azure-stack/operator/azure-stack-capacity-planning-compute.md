@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
 ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366347"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack hub számítási kapacitása
@@ -21,7 +21,7 @@ Az Azure Stack hub által támogatott [virtuális gépek (VM-EK) mérete](https:
 >[!IMPORTANT]
 >Az [Azure stack Hub Capacity Planner](https://aka.ms/azstackcapacityplanner) nem veszi figyelembe vagy garantálja a IOPS teljesítményét.
 
-## <a name="vm-placement"></a>VIRTUÁLIS gépek elhelyezése
+## <a name="vm-placement"></a>Virtuális gépek elhelyezése
 
 Az Azure Stack hub elhelyezési motorja a bérlői virtuális gépeket a rendelkezésre álló gazdagépeken helyezi át.
 
@@ -29,7 +29,7 @@ Azure Stack hub két szempontot használ a virtuális gépek elhelyezésekor. Le
 
 A Azure Stack hub több virtuális gépre kiterjedő üzemi rendszerének magas rendelkezésre állása érdekében a virtuális gépek (VM-EK) egy rendelkezésre állási csoportba kerülnek, amely több tartalék tartományon keresztül terjed ki. Egy rendelkezésre állási csoport tartalék tartománya egyetlen csomópontként van definiálva a skálázási egységben. Azure Stack hub támogatja a rendelkezésre állási csoport legfeljebb három tartalék tartománnyal való egységességét az Azure-ban. A rendelkezésre állási csoportba helyezett virtuális gépeket fizikailag el kell különíteni egymástól a több tartalék tartományon (Azure Stack hub-gazdagépeken) a lehető legegyenletesebb mértékben. Hardverhiba esetén a sikertelen tartalék tartományba tartozó virtuális gépek más tartalék tartományokban lesznek újraindítva. Ha lehetséges, külön tartalék tartományokban lesznek tárolva ugyanazon rendelkezésre állási csoportba tartozó többi virtuális gépről. Ha a gazdagép online állapotba kerül, a virtuális gépek újra lesznek egyenlítve a magas rendelkezésre állás fenntartása érdekében.  
 
-A virtuálisgép-méretezési csoportok a háttérbeli rendelkezésre állási csoportokat használják, és minden virtuálisgép-méretezési csoport példánya egy másik tartalék tartományba kerül. Ez azt jelenti, hogy külön Azure Stack hub infrastruktúra-csomópontokat használnak. Például egy négy csomópontos Azure Stack hub rendszer esetén előfordulhat, hogy egy három példány virtuálisgép-méretezési csoportjának létrehozása sikertelen lesz, mert a négy csomópontos kapacitás három virtuálisgép-méretezési csoport példányának hiánya miatt nem sikerül Stack hub-csomópontok. Emellett Azure Stack hub-csomópontok különböző szinteken tölthetők fel az elhelyezés megkísérlése előtt.
+A virtuálisgép-méretezési csoportok a háttérbeli rendelkezésre állási csoportokat használják, és minden virtuálisgép-méretezési csoport példánya egy másik tartalék tartományba kerül. Ez azt jelenti, hogy külön Azure Stack hub infrastruktúra-csomópontokat használnak. Például egy négy csomópontos Azure Stack hub rendszer esetén előfordulhat, hogy egy három példányból álló virtuálisgép-méretezési csoport nem sikerül a létrehozás során, mert a négy csomópontos kapacitás három különálló Azure Stack hub-csomóponton helyezi el a három virtuálisgép-méretezési csoport példányát. Emellett Azure Stack hub-csomópontok különböző szinteken tölthetők fel az elhelyezés megkísérlése előtt.
 
 Azure Stack hub nem véglegesíti a memóriát. A fizikai magok számának túlérvényesítése azonban engedélyezett.
 
@@ -39,7 +39,7 @@ Mivel az elhelyezési algoritmusok nem tekintik meg a meglévő virtuális fizik
 
 Az Azure Stack hub kapacitásának pontos megtervezése új szempont. Az 1901-es frissítéssel (és minden további frissítéssel) mostantól a létrehozható virtuális gépek teljes száma korlátozva lesz. Ez a korlát ideiglenes lehet a megoldás instabilitásának elkerülése érdekében. A stabilitási probléma forrása nagyobb számú virtuális gépen, de a szervizeléshez megadott ütemterv nem lett meghatározva. A 60-os virtuális gépek száma mostantól a 700-es teljes megoldási korláttal rendelkezik. Tegyük fel például, hogy egy nyolc kiszolgáló Azure Stack hub virtuális gép korlátja 480 (8 * 60). 12 – 16 kiszolgáló Azure Stack hub-megoldás esetén a korlát 700. Ez a korlát a számítási kapacitással kapcsolatos megfontolásokat hozta létre, például a rugalmassági tartalékot és a CPU virtuális – fizikai arányát, amelyet egy operátor a bélyegzőn szeretne fenntartani. További információ: a Capacity Planner új kiadása.
 
-Ha elérte a virtuális gép méretezési korlátját, a rendszer a következő hibakódokat adja vissza eredményként: `VMsPerScaleUnitLimitExceeded`, `VMsPerScaleUnitNodeLimitExceeded`.
+Ha elérte a virtuális gép méretezési korlátját, a rendszer a következő hibakódokat adja vissza `VMsPerScaleUnitLimitExceeded`eredményként:, `VMsPerScaleUnitNodeLimitExceeded`.
 
 ## <a name="considerations-for-deallocation"></a>A felszabadítás szempontjai
 
@@ -108,5 +108,5 @@ A skálázási egységben a V, a legnagyobb méretű virtuális gép a legnagyob
 > [!NOTE]
 > A hálózatkezelésre vonatkozó kapacitás-tervezési követelmények minimálisak, mert csak a nyilvános VIP mérete konfigurálható. További információ a nyilvános IP-címek Azure Stack hubhoz való hozzáadásáról: [nyilvános IP-címek hozzáadása](azure-stack-add-ips.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 További tudnivalók az [Azure stack hub Storage](azure-stack-capacity-planning-storage.md) szolgáltatásról

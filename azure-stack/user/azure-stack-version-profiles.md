@@ -8,19 +8,19 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
 ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294890"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>API-verziók profiljainak kezelése Azure Stack hub-ban
 
-API-profilok adja meg, az Azure erőforrás-szolgáltató és az Azure REST-végpontokat az API-verzió. Az API-profilok használatával különböző nyelveken hozhat létre egyéni ügyfeleket. Mindegyik ügyfél egy API-profilt használ a Azure Stack hub megfelelő erőforrás-szolgáltatójának és API-verziójának a meghívásához.
+Az API-profilok megadják az Azure erőforrás-szolgáltatót és az API-verziót az Azure REST-végpontokhoz. Az API-profilok használatával különböző nyelveken hozhat létre egyéni ügyfeleket. Mindegyik ügyfél egy API-profilt használ a Azure Stack hub megfelelő erőforrás-szolgáltatójának és API-verziójának a meghívásához.
 
 Létrehozhat egy alkalmazást az Azure-erőforrás-szolgáltatókkal való együttműködéshez anélkül, hogy rendeznie kellene, hogy az egyes erőforrás-szolgáltatói API melyik verziója kompatibilis az Azure Stack hubhoz. Egyszerűen igazítsa az alkalmazást egy profilhoz, és az SDK visszaállít a megfelelő API-verzióra.
 
-Ez a témakör a következőket segíti elő:
+Ez a témakör a következőkben nyújt segítséget:
 
 - Az Azure Stack hub API-profiljainak megismerése.
 - Ismerje meg, hogyan fejlesztheti a megoldásait az API-profilok használatával.
@@ -56,11 +56,11 @@ Ezt a profilt júniusban és decemberben adták ki a globális Azure-hoz. Nem m�
 
 Azure Stack hub nem a globális Azure-ban található API-verziók legújabb verzióját használja. Megoldás létrehozásakor meg kell keresnie az API-verziót minden olyan Azure-erőforrás-szolgáltatónál, amely kompatibilis Azure Stack hubhoz.
 
-Ahelyett, hogy az összes erőforrás-szolgáltatót és az Azure Stack hub által támogatott adott verziót használja, használhat API-profilt. A profil erőforrás-szolgáltatókat és API-verziókat határoz meg. A SDK-val létrehozott SDK vagy egy eszköz, amely a profilban megadott cél `api-version`ra fog visszatérni. Az API-profilok segítségével megadhatja a teljes sablonra érvényes profil-verziót. Futásidőben a Azure Resource Manager kiválasztja az erőforrás megfelelő verzióját.
+Ahelyett, hogy az összes erőforrás-szolgáltatót és az Azure Stack hub által támogatott adott verziót használja, használhat API-profilt. A profil erőforrás-szolgáltatókat és API-verziókat határoz meg. A SDK-val létrehozott SDK vagy egy eszköz, amely a profilban megadott célhoz `api-version` fog visszatérni. Az API-profilok segítségével megadhatja a teljes sablonra érvényes profil-verziót. Futásidőben a Azure Resource Manager kiválasztja az erőforrás megfelelő verzióját.
 
 Az API-profilok olyan eszközökkel működnek, amelyek Azure Resource Manager, például a PowerShell, az Azure CLI, az SDK-ban megadott kód és a Microsoft Visual Studio használatával működnek. Az eszközök és az SDK-k profilok használatával olvashatják el, hogy a modulok és kódtárak melyik verziója szerepeljen az alkalmazás létrehozásakor.
 
-Ha például a PowerShell használatával hoz létre egy Storage-fiókot a **Microsoft. Storage** erőforrás-szolgáltató használatával, amely támogatja a 2016-03-30 **-es API-verziót** és egy virtuális gépet, amely a **Microsoft. számítási** erőforrás-szolgáltatót használja a 2015-12-01 **-es verziójú API-** val, akkor meg kell keresnie, hogy melyik PowerShell-modul támogatja a 2016-03-30 for Storage szolgáltatást, és hogy melyik modul támogatja a 2015-02-01 használatát Ehelyett használhatja a profilt. Használja a `Install-Profile <profilename>`parancsmagot, és a PowerShell betölti a modulok helyes verzióját.
+Ha például a PowerShell használatával hoz létre egy Storage-fiókot a **Microsoft. Storage** erőforrás-szolgáltató használatával, amely támogatja a 2016-03-30 **-es API-verziót** és egy virtuális gépet, amely a **Microsoft. számítási** erőforrás-szolgáltatót használja a 2015-12-01 **-es verziójú API-** val, akkor meg kell keresnie, hogy melyik PowerShell-modul támogatja a 2016-03-30 for Storage szolgáltatást, és hogy melyik modul támogatja a 2015-02-01 használatát Ehelyett használhatja a profilt. Használja a parancsmagot `Install-Profile <profilename>`, és a PowerShell betölti a modulok helyes verzióját.
 
 Hasonlóképpen, ha a Python SDK-t használja egy Python-alapú alkalmazás létrehozásához, megadhatja a profilt. Az SDK betölti a megfelelő modulokat a parancsfájlban megadott erőforrás-szolgáltatóknak.
 
@@ -76,7 +76,7 @@ Használja a .NET API-profilt az erőforrás-szolgáltatói csomagban találhat�
 Használja az PowerShell-galéria elérhető **AzureRM. bootstrapper** modult az API-verzió profiljainak használatához szükséges PowerShell-parancsmagok beszerzéséhez. További információ: [API-verziók profiljainak használata a powershellhez](azure-stack-version-profiles-powershell.md).
 - **Azure CLI**  
 Frissítse környezeti konfigurációját az Azure Stack Hub-specifikus API-verzió profiljának használatára. További információ: az [API-verziók profiljainak használata az Azure CLI-hez](azure-stack-version-profiles-azurecli2.md).
-- **Go**  
+- **Ugrás**  
 A go SDK-ban a profilok különböző típusú, különböző szolgáltatásokból származó verziókkal rendelkező erőforrástípusok kombinációját jelentik. A profilok a profilok/elérési út alatt, a verziószámuk **éééé-hh-nn** formátumban érhetők el. További információ: az [API-verziók profiljainak használata a go](azure-stack-version-profiles-go.md)-hoz.
 - **Ruby**  
 Az Azure Stack hub Resource Managerhez készült Ruby SDK olyan eszközöket biztosít, amelyek segítenek az infrastruktúra kiépítésében és kezelésében. Az SDK erőforrás-szolgáltatói közé tartozik a kiszámítások, a virtuális hálózatok és a Ruby nyelvű tárterület. További információ: [API-verziók profiljainak használata a Ruby használatával](azure-stack-version-profiles-ruby.md).
@@ -85,7 +85,7 @@ A Python SDK támogatja az API-verziók profiljait különböző felhőalapú pl
 - **Node.js**  
 Az Azure Stack hub Resource Managerhez készült Node. js SDK olyan eszközöket biztosít, amelyek segítenek az infrastruktúra kiépítésében és kezelésében. További információ: API- [verziók profiljainak használata a Node. js használatával](azure-stack-version-profile-nodejs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

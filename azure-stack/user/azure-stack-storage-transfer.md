@@ -3,16 +3,16 @@ title: Adatátviteli eszközök használata Azure Stack hub Storage-ban
 description: További információ az Azure Stack hub Storage adatátviteli eszközeiről.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 6b0a31c0eea7f2973563c3f1e481cd2e830c41f8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d61ce13c46e53f5eb2b9ed8fa544096db6ca8590
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704879"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660155"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Adatátviteli eszközök használata Azure Stack hub Storage-ban
 
@@ -59,17 +59,17 @@ A AzCopy egy parancssori segédprogram, amely az adatok másolását Microsoft A
 ### <a name="azcopy-101-configuration-and-limits"></a>AzCopy 10,1 konfiguráció és korlátok
 
 A AzCopy 10,1 mostantól a régebbi API-verziók használatára is konfigurálható. Ez lehetővé teszi (korlátozott) a Azure Stack hub támogatását.
-Az Azure Stack hub támogatásához a AzCopy API-verziójának konfigurálásához állítsa a `AZCOPY_DEFAULT_SERVICE_API_VERSION` környezeti változót `2017-11-09`értékre.
+A AzCopy API-verziójának a Azure Stack hub támogatásához való konfigurálásához `AZCOPY_DEFAULT_SERVICE_API_VERSION` állítsa a környezeti `2017-11-09`változót a következőre:.
 
 | Operációs rendszer | Parancs  |
 |--------|-----------|
-| **Windows** | A parancssorban használja a következőket: `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> A PowerShell használata: `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Windows** | A parancssorban használja a következőket:`set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> A PowerShellben használja a következőket:`$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
 | **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 | **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 
 A AzCopy 10,1-es verziójában a Azure Stack hub következő szolgáltatásai támogatottak:
 
-| Funkció | Támogatott műveletek |
+| Szolgáltatás | Támogatott műveletek |
 | --- | --- |
 |Tároló kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladatok kezelése|Feladatok megjelenítése<br>Feladatok folytatása
@@ -101,7 +101,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ### <a name="azcopy-known-issues"></a>AzCopy ismert problémák
 
  - Nem érhető el bármely AzCopy művelet, mert a file Storage még nem érhető el Azure Stack központban.
- - Ha két Azure Stack hub blob-hely – vagy a Azure Stack hub és az Azure Storage között a AzCopy 10.1 használatával – szeretne adatátvitelt végezni, először le kell töltenie az adatok egy helyi helyre, majd újra fel kell töltenie a célkiszolgálóra a Azure Stack hub vagy az Azure Storage szolgáltatásban. . Vagy használhatja a AzCopy 7,1-es verzióját, és az adatok másolásához adja meg az átvitelt a **/SyncCopy** kapcsolóval.  
+ - Ha két Azure Stack hub blob-hely – vagy a Azure Stack hub és az Azure Storage között a AzCopy 10.1 használatával – szeretne adatátvitelt végezni, először le kell töltenie az adatok egy helyi helyre, majd újra fel kell töltenie a célkiszolgálóra a Azure Stack hub vagy az Azure Storage szolgáltatásban. Vagy használhatja a AzCopy 7,1-es verzióját, és az adatok másolásához adja meg az átvitelt a **/SyncCopy** kapcsolóval.  
  - A AzCopy Linux-verziója csak a 1802-es vagy újabb verziót támogatja, és nem támogatja a Table service.
  - Ha át szeretné másolni az adatait az Azure Table Storage szolgáltatásba és onnan, akkor [telepítse a AzCopy Version 7.3.0](https://aka.ms/azcopyforazurestack20171109)
  
@@ -119,7 +119,7 @@ Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack
 
 1. Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
 2. Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
-3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként**lehetőséget, majd kattintson a **fájl** > **új** elemre egy új parancsfájl létrehozásához.
+3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként**lehetőséget, majd kattintson az**új** **fájl** > elemre egy új parancsfájl létrehozásához.
 4. Másolja az alábbi szkriptet, és illessze be az új parancsfájlba.
 5. Frissítse a parancsfájl-változókat a konfigurációs beállítások alapján.
    > [!NOTE]
@@ -191,7 +191,7 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 Azure Stack hub jelenleg kompatibilis Azure PowerShell moduljának verziója 1.2.11 a felhasználói műveletekhez. Eltér a Azure PowerShell legújabb verziójától. Ez a különbség a tárolási szolgáltatások működését befolyásolja a következő módon:
 
-A (z) 1.2.11 verzióban található `Get-AzureRmStorageAccountKey` visszatérési értékének formátuma két tulajdonsággal rendelkezik: `Key1` és `Key2`, míg az aktuális Azure-verzió az összes fiók kulcsát tartalmazó tömböt ad vissza.
+A 1.2.11 verziójának visszatérési értékének formátuma `Get-AzureRmStorageAccountKey` két tulajdonsággal rendelkezik: `Key1` és `Key2`, míg az aktuális Azure-verzió az összes fiók kulcsát tartalmazó tömböt ad vissza.
 
 ```powershell
 # This command gets a specific key for a storage account, 
@@ -229,8 +229,8 @@ A parancsfájl futtatása előtt győződjön meg arról, hogy sikeresen kapcsol
 1. Nyissa meg a kedvenc szövegszerkesztőjét, majd másolja és illessze be az előző szkriptet a szerkesztőbe.
 2. Frissítse a szkript változóit a konfigurációs beállításoknak megfelelően.
 3. A szükséges változók frissítése után mentse a parancsfájlt, és lépjen ki a szerkesztőből. A következő lépések feltételezik, hogy elnevezte a parancsfájlt **my_storage_sample. sh**néven.
-4. A parancsfájlt végrehajthatóként kell megjelölnie, ha szükséges: `chmod +x my_storage_sample.sh`
-5. Futtassa a szkriptet. Például a bash: `./my_storage_sample.sh`
+4. A parancsfájlt végrehajthatóként kell megjelölnie, ha szükséges:`chmod +x my_storage_sample.sh`
+5. Futtassa a szkriptet. Például a Bashben:`./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash
@@ -274,13 +274,13 @@ A Azure Storage Explorer egy önálló alkalmazás a Microsofttól. Lehetővé t
 
 ## <a name="blobfuse"></a>Blobfuse 
 
-A [Blobfuse](https://github.com/Azure/azure-storage-fuse) az Azure Blob Storage virtuális fájlrendszer-illesztőprogramja, amely lehetővé teszi a meglévő blokk blob-adatai elérését a Storage-fiókban a Linux fájlrendszerén keresztül. Az Azure Blob Storage egy objektum-tárolási szolgáltatás, ezért nem rendelkezik hierarchikus névtérrel. A Blobfuse a virtuális könyvtár sémájának használatával biztosítja ezt a névteret, és elválasztóként használja a továbbítási perjelek `/`. A Blobfuse az Azure-ban és az Azure Stack központban is működik. 
+A [Blobfuse](https://github.com/Azure/azure-storage-fuse) az Azure Blob Storage virtuális fájlrendszer-illesztőprogramja, amely lehetővé teszi a meglévő blokk blob-adatai elérését a Storage-fiókban a Linux fájlrendszerén keresztül. Az Azure Blob Storage egy objektum-tárolási szolgáltatás, ezért nem rendelkezik hierarchikus névtérrel. A Blobfuse a virtuális könyvtár sémájának használatával biztosítja ezt a névteret a továbbítási `/` perjelek elválasztóként való használatával. A Blobfuse az Azure-ban és az Azure Stack központban is működik. 
 
 Ha többet szeretne megtudni arról, hogyan csatlakoztatható a blob Storage fájlrendszerrel a Blobfuse Linux rendszeren, tekintse meg a [blob Storage csatlakoztatása](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)fájlrendszerként a Blobfuse-mel című témakört. 
 
 Azure Stack hub esetében meg kell adni a *blobEndpoint* a Storage-fiók hitelesítő adatainak konfigurálásakor a accountName, a AccountKey/sasToken és a containerName mellett.
 
-A Azure Stack Development Kitban (ASDK) a *blobEndpoint* `myaccount.blob.local.azurestack.external`kell lennie. Azure Stack hub integrált rendszerében lépjen kapcsolatba a felhő rendszergazdájával, ha nem biztos benne, hogy a végpontról van szó.
+A Azure Stack Development Kitban (ASDK) a *blobEndpoint* kell lennie `myaccount.blob.local.azurestack.external`. Azure Stack hub integrált rendszerében lépjen kapcsolatba a felhő rendszergazdájával, ha nem biztos benne, hogy a végpontról van szó.
 
 a *accountKey* és a *sasToken* egyszerre csak egy konfigurálható. Ha meg van adva egy Storage-fiók kulcsa, a hitelesítő adatok konfigurációs fájljának formátuma a következő:
 
@@ -300,7 +300,7 @@ containerName mycontainer
 blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [A Storage Explorer összekötése Azure Stack hub-előfizetéssel](azure-stack-storage-connect-se.md)
 * [Ismerkedés a Storage Explorerrel](/azure/vs-azure-tools-storage-manage-with-storage-explorer)

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 3820d5483a0a7051ea51cc4ce7489d2cfe9f2d42
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77687495"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>AI-alapú lépés hangja-észlelési megoldás üzembe helyezése az Azure és Azure Stack hub használatával
@@ -53,7 +53,7 @@ Az üzembe helyezési útmutató első lépéseinek megkezdése előtt győződj
 - Az Azure Cognitive Services Face API az előfizetési kulcs és a végpont URL-címe. A [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api) ingyenes próbaverzióját is elérheti. Vagy kövesse a [Cognitive Services fiók létrehozása](/azure/cognitive-services/cognitive-services-apis-create-account)című témakör utasításait.
 - Telepítse a következő fejlesztői erőforrásokat:
   - [Azure CLI 2.0](../user/azure-stack-version-profiles-azurecli2.md)
-  - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community).
+  - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/). A Porter használatával Felhőbeli alkalmazásokat helyezhet üzembe az Ön számára biztosított CNAB-csomagbeli jegyzékfájlok használatával.
   - [Visual Studio Code](https://code.visualstudio.com/)
   - [A Visual Studio Code-hoz készült Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
@@ -64,7 +64,7 @@ Az üzembe helyezési útmutató első lépéseinek megkezdése előtt győződj
 
 Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd telepítse a felhőalapú alkalmazást.  
 
-1. A megoldáshoz tartozó mintakód klónozása vagy letöltése https://github.com/azure-samples/azure-intelligent-edge-patternsból. 
+1. A megoldás mintájának klónozása vagy letöltése https://github.com/azure-samples/azure-intelligent-edge-patternsinnen:. 
 
 1. A Porter hitelesítő adatokat állít elő, amelyek automatizálják az alkalmazás üzembe helyezését. A hitelesítő adatok generálására szolgáló parancs futtatása előtt győződjön meg arról, hogy a következők állnak rendelkezésre:
 
@@ -83,7 +83,7 @@ Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készl
 1. A Porternek a futtatandó paramétereket is meg kell adnia. Hozzon létre egy paraméter szöveges fájlt, és adja meg a következő név/érték párokat. Ha segítségre van szüksége a szükséges értékekkel kapcsolatban, kérdezze meg Azure Stack hub-rendszergazdáját.
 
    > [!NOTE] 
-   > A `resource suffix` érték annak biztosítására szolgál, hogy a központi telepítési erőforrások egyedi névvel rendelkezzenek az Azure-ban. Nem lehet hosszabb 8 karakternél, és csak egyedi betűkből és számokból állhat.
+   > Az `resource suffix` érték segítségével biztosítható, hogy az üzembe helyezés erőforrásai egyedi névvel rendelkezzenek az Azure-ban. Nem lehet hosszabb 8 karakternél, és csak egyedi betűkből és számokból állhat.
 
     ```
     azure_stack_tenant_arm="Your Azure Stack Hub tenant endpoint"
@@ -131,7 +131,7 @@ A Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd
 1. A Porternek a futtatandó paramétereket is meg kell adnia. Hozzon létre egy paraméter szöveges fájlt, és adja meg a következő szöveget. Ha nem ismeri a szükséges értékeket, kérdezze meg Azure Stack hub-rendszergazdáját.
 
     > [!NOTE]
-    > A `deployment suffix` érték annak biztosítására szolgál, hogy a központi telepítési erőforrások egyedi névvel rendelkezzenek az Azure-ban. Nem lehet hosszabb 8 karakternél, és csak egyedi betűkből és számokból állhat.
+    > Az `deployment suffix` érték segítségével biztosítható, hogy az üzembe helyezés erőforrásai egyedi névvel rendelkezzenek az Azure-ban. Nem lehet hosszabb 8 karakternél, és csak egyedi betűkből és számokból állhat.
 
     ```
     iot_hub_name="Name of the IoT Hub deployed"
@@ -146,13 +146,13 @@ A Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd
     porter install footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
     ```
 
-5. Győződjön meg arról, hogy a kamera üzembe helyezése befejeződött, ha megtekinti a `https://<camera-ip>:3000/`található kamera-hírcsatornát, ahol a `<camara-ip>` a kamera IP-címe. Ez a lépés akár 10 percet is igénybe vehet.
+5. Ellenőrizze, hogy a kamera üzembe helyezése befejeződött-e a kamera hírcsatornájának megtekintésével `https://<camera-ip>:3000/`, ahol `<camara-ip>` a a kamera IP-címe. Ez a lépés akár 10 percet is igénybe vehet.
 
 ## <a name="configure-azure-stream-analytics"></a>Azure Stream Analytics konfigurálása
 
 Most, hogy az adatok a kamerából Azure Stream Analyticsnek, manuálisan engedélyeznie kell, hogy kommunikáljon a Power BIval.
 
-1.  A Azure Portal nyissa meg az **összes erőforrást**és a *process-lépés hangja\[yoursuffix\]* feladatot.
+1.  A Azure Portal nyissa meg az **összes erőforrást**és a *Process\[-\] lépés hangja yoursuffix* feladatot.
 
 2.  A Stream Analytics-feladat panel **Feladattopológia** szakaszában válassza a **Kimenetek** lehetőséget.
 
@@ -191,7 +191,7 @@ porter uninstall footfall-cloud –tag intelligentedge/footfall-cloud-deployment
 
 porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
 ```
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [hibrid felhőalapú alkalmazások kialakításával kapcsolatos szempontokról](overview-app-design-considerations.md)
 - Tekintse át és javasolja [a githubon a minta kódjának](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis)tökéletesítését.

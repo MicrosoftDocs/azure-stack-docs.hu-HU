@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatá
 description: Fejlesztőként kapcsolódjon Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 934aa01fa02d763ce170df219dfee3770d502d22
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703043"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661055"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 
@@ -62,13 +62,13 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 7. Kérje le a metaadatokat, hogy csatlakozzanak a Azure Stack hub Azure Resource Manager. 
     
     A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi az Azure-erőforrások üzembe helyezését, kezelését és figyelését.
-    - A Azure Stack Development Kit (ASDK) Resource Manager URL-címe a következő: `https://management.local.azurestack.external/` 
-    - Az integrált rendszer Resource Manager URL-címe a következő: `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.
-    - Adja hozzá a következő szöveget az URL-címhez a metaadatok eléréséhez: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+    - A Azure Stack Development Kit (ASDK) Resource Manager URL-címe a következő:`https://management.local.azurestack.external/` 
+    - Az integrált rendszer Resource Manager URL-címe a következő `https://management.region.<fqdn>/`:, `<fqdn>` ahol a a teljes tartománynév.
+    - Adja hozzá a következő szöveget az URL-címhez a metaadatok eléréséhez:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
-    Például az Azure Resource Manager-végpont metaadatainak beolvasására szolgáló URL-cím az alábbihoz hasonló lehet: `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
+    Például az Azure Resource Manager-végpont metaadatainak beolvasására szolgáló URL-cím az alábbihoz hasonló lehet:`https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
 
-    Jegyezze fel a Return JSON-t. Szüksége lesz a `loginEndpoint` és a `audiences` tulajdonság értékeire.
+    Jegyezze fel a Return JSON-t. Szüksége lesz a `loginEndpoint` és `audiences` tulajdonság értékeire.
 
 8. Nyomja le **a CTRL + SHIFT + P** billentyűkombinációt, majd válassza a **Beállítások: felhasználói beállítások (JSON) megnyitása**lehetőséget.
 
@@ -109,11 +109,11 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 | Azure: bejelentkezés az Azure Cloudba | Jelentkezzen be az Azure-előfizetésbe az egyik szuverén felhőben. |
 | Azure: kijelentkezés | Jelentkezzen ki az Azure-előfizetésből. |
 | Azure: előfizetések kiválasztása | Válassza ki a használni kívánt előfizetések készletét. A bővítmény csak a szűrt előfizetésekben lévő erőforrásokat jeleníti meg. |
-| Azure: fiók létrehozása | Ha nem rendelkezik Azure-fiókkal, [regisztrálhat](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) egy mai napra, és \$200 ingyenes kreditet kap. |
+| Azure: fiók létrehozása | Ha még nem rendelkezik Azure-fiókkal, [regisztrálhat](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-azure-account&mktingSource=vscode-azure-account) egy mai napra, és 200 ingyenes \$kreditet kaphat. |
 | Azure: bash megnyitása Cloud Shell | Nyisson meg egy új, bash-t futtató terminált Cloud Shell. |
 | Azure: a PowerShell megnyitása Cloud Shell | Nyisson meg egy új, a PowerShellt futtató terminált Cloud Shellban. |
 | Azure: feltöltés a Cloud Shellba | Töltsön fel egy fájlt a Cloud Shell Storage-fiókjába. |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Fejlesztési környezet beállítása Azure Stack központban](azure-stack-dev-start.md)

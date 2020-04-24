@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppace
 ms.openlocfilehash: 461bad387dd5616eba227df4bd9b6e8beee40e43
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294032"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack hub frissítéseinek telepítése
@@ -37,14 +37,14 @@ Az Azure Stack hub aktuális verzióját a **frissítések** panelen tekintheti 
 
     Ebben a képen például a verzió a 1.1903.0.35.
 
-## <a name="install-updates-and-monitor-progress"></a>Frissítések telepítése és a figyelési folyamat
+## <a name="install-updates-and-monitor-progress"></a>Frissítések telepítése és a folyamat megfigyelése
 
 > [!Important]
 > Az Azure Stack hub frissítéseinek alkalmazása előtt győződjön meg róla, hogy végrehajtotta a [frissítés előtti ellenőrzőlista](release-notes-checklist.md) **összes** lépését, és ütemezte a megfelelő karbantartási időszakot az alkalmazott frissítési típushoz.
 
 1. Nyissa meg az Azure Stack hub felügyeleti portált.
 
-2. Válassza az **irányítópult**lehetőséget. Válassza a **frissítés**lehetőséget.
+2. Válassza az **irányítópult**lehetőséget. Válassza a **Frissítés** lehetőséget.
 
 3. Válassza ki az elérhető frissítést, amelyet telepíteni kíván. Ha nincs **elérhetőként**megjelölt frissítés, [elő kell készítenie a frissítési csomagot](azure-stack-update-prepare-package.md)
 
@@ -70,13 +70,13 @@ Az Azure Stack hub aktuális verzióját a **frissítések** panelen tekintheti 
 
 1. Nyissa meg a felügyeleti portált.
 
-2. Válassza az **irányítópult**lehetőséget. Válassza a **frissítés**lehetőséget.
+2. Válassza az **irányítópult**lehetőséget. Válassza a **Frissítés** lehetőséget.
 
 3. Válassza a **frissítési előzmények**lehetőséget.
 
     ![Azure Stack hub frissítési előzményei](./media/azure-stack-update-apply/image7.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 -   [Frissítések kezelése Azure Stack hub-ban – áttekintés](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
 -   [Azure Stack hub karbantartási szabályzata](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

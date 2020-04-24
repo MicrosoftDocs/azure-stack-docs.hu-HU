@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 7eb9dce19bb25367181b17d3f13ada5ed12eff5d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 4cd946bf306761533f7c8d6dcba8af75a5001400
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424003"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806721"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>A Event Hubs kapacitásának megtervezése Azure Stack hub-ban
 
@@ -40,9 +40,9 @@ Az összes Event Hubs-fürt [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) vir
 
 ## <a name="resource-provider-resource-consumption"></a>Erőforrás-szolgáltató erőforrásainak felhasználása  
 
-Az erőforrás-felhasználás a Event Hubs erőforrás-szolgáltató állandó, és független a felhasználók által létrehozott fürtök számával vagy méretétől. Az alábbi táblázat a Azure Stack hub Event Hubs erőforrás-szolgáltatójának alapvető kihasználtságát, valamint az erőforrás-használat további erőforrásainak megközelítőlegi felhasználását mutatja be. A Event Hubs erőforrás-szolgáltató [D2_V2](/user/azure-stack-vm-sizes#dv2-series) virtuálisgép-típust használ a telepítéshez.
+Az erőforrás-felhasználás a Event Hubs erőforrás-szolgáltató állandó, és független a felhasználók által létrehozott fürtök számával vagy méretétől. Az alábbi táblázat a Azure Stack hub Event Hubs erőforrás-szolgáltatójának alapvető kihasználtságát, valamint az erőforrás-használat további erőforrásainak megközelítőlegi felhasználását mutatja be. A Event Hubs erőforrás-szolgáltató [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) virtuálisgép-típust használ a telepítéshez.
 
-|                                  | Virtuális gép típusa | Fürtcsomópontok | Processzormagok | VM-tároló | Memory (Memória) | Tárfiókok |
+|                                  | Virtuális gép típusa | Fürtcsomópontok | Cores | VM-tároló | Memory (Memória) | Tárfiókok |
 |----------------------------------|---------|-------|-------|------------|--------|------------------|
 | **Erőforrás-szolgáltató Event Hubs** | D2_V2   | 3     | 6     | 300 GiB    | 21 GiB | 2                |
 
@@ -55,15 +55,15 @@ A Event Hubs szolgáltatás által felhasznált teljes kapacitás magában fogla
 
 Az alábbi táblázat a különböző konfigurációk Event Hubs teljes felhasználását mutatja, függetlenül attól, hogy a kvóta kezeli-e őket. Ezek a számok az erőforrás-szolgáltatón alapulnak, és Event Hubs a fent bemutatott fürtök felhasználását. Ezeket a példákat használva könnyedén kiszámíthatja a teljes Azure Stack hub-használatot más központi telepítési méreteknél.
 
-|                                      | Processzormagok | VM-tároló | Memory (Memória)  | Tárfiókok | Teljes tárterület |
+|                                      | Cores | VM-tároló | Memory (Memória)  | Tárfiókok | Összes tárhely |
 |--------------------------------------|-------|------------|---------|------------------|---------------|
 | **1 – CU-fürt + erőforrás-szolgáltató** | 16    | 800 GiB    | 91 GiB  | 6                | változó\*    |
 | **2 – CU-fürt + erőforrás-szolgáltató** | 26    | 1,3 TB     | 161 GiB | 10               | változó\*    |
 | **4 – CU-fürt + erőforrás-szolgáltató** | 46    | 2,3 TB     | 301 GiB | 18               | változó\*    |
 
-\* a bejövő adatblokk (üzenet/esemény) sebessége és az üzenetek megőrzése két fontos tényező, amelyek hozzájárulnak a Event Hubs-fürtök által használt tárterülethez. Ha például az üzenet megőrzésének értéke 7 nap az Event hub létrehozásakor, az üzenetek pedig 1MB/s sebességgel lesznek betöltve, a használatban lévő hozzávetőleges tárterület 604 GB (1 MB x 60 másodperc x 60 perc x 24 óra X 7 nap). Ha a rendszer 7 napos adatmegőrzési sebességgel 20 MB/s sebességű üzenetet továbbít, a megközelítőleges tárterület-felhasználás 12TB. Ügyeljen arra, hogy a tárolási kapacitás felhasználásának teljes megértése érdekében vegye figyelembe a bejövő adatforgalom és a megőrzési idő értéket.
+\*A bejövő adatblokk (üzenet/esemény) sebessége és az üzenetek megőrzése két fontos tényező, amelyek hozzájárulnak Event Hubs-fürtök által használt tárterülethez. Ha például az üzenet megőrzésének értéke 7 nap az Event hub létrehozásakor, az üzenetek pedig 1MB/s sebességgel lesznek betöltve, a használatban lévő hozzávetőleges tárterület 604 GB (1 MB x 60 másodperc x 60 perc x 24 óra X 7 nap). Ha a rendszer 7 napos adatmegőrzési sebességgel 20 MB/s sebességű üzenetet továbbít, a megközelítőleges tárterület-felhasználás 12TB. Ügyeljen arra, hogy a tárolási kapacitás felhasználásának teljes megértése érdekében vegye figyelembe a bejövő adatforgalom és a megőrzési idő értéket.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A telepítési folyamat megkezdése előtt végezze el a [Event Hubs telepítésének Előfeltételeit Azure stack hub-on](event-hubs-rp-prerequisites.md).
 

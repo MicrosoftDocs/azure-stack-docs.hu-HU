@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
 ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701479"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>App Service biztonsági mentése Azure Stack központban
@@ -34,7 +34,7 @@ Az App Service-titkok biztonsági mentését az adminisztrációs portálon vég
 
 1. Jelentkezzen be a Azure Stack hub felügyeleti portálján a szolgáltatás-rendszergazdaként.
 
-2. Tallózással keresse meg **App Service** -> **titkokat**. 
+2. Keresse meg **app Service** -> **titkokat**. 
 
 3. Válassza a **titkos kulcsok letöltése**lehetőséget.
 
@@ -80,5 +80,5 @@ robocopy $source $destination
 net use $destination /delete
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [App Service visszaállítása Azure Stack központban](app-service-recover.md)

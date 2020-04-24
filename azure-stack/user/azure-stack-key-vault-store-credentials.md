@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
 ms.openlocfilehash: 66d69fa3397fa748dfbc67377c3e52c47f35904c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702720"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Az egyszerű szolgáltatásnév hitelesítő adatainak tárolása Azure Stack központban Key Vault
@@ -42,7 +42,7 @@ Key Vault létrehozásához kövesse az alábbi lépéseket:
 
 5. Válasszon ki egy meglévő erőforráscsoportot, vagy hozzon létre egy újat.
 
-6. Válassza ki az árképzési szintet.
+6. Válassza ki a tarifacsomagot.
 
 7. Válasszon egy meglévő hozzáférési szabályzatot, vagy hozzon létre egy újat. A hozzáférési házirend lehetővé teszi, hogy egy felhasználó, alkalmazás vagy biztonsági csoport számára engedélyeket biztosítson a tárolóval kapcsolatos műveletek elvégzéséhez.
 
@@ -90,7 +90,7 @@ Key Vault létrehozásához kövesse az alábbi lépéseket:
 
 A titkos kód sikeres létrehozása után az egyszerű szolgáltatásnév adatait itt tárolja. A **titkok**szakaszban bármikor kiválaszthatja, és megtekintheti vagy módosíthatja a tulajdonságait. A **Properties (Tulajdonságok** ) szakasz tartalmazza a titkos azonosítót, amely egy Uniform Resource Identifier (URI), amelyet a külső alkalmazások a titkos kulcs eléréséhez használnak.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Egyszerű szolgáltatások használata](azure-stack-create-service-principals.md)
 - [Az Azure Stack hub Key Vault kezelése a portálon](azure-stack-key-vault-manage-portal.md)  

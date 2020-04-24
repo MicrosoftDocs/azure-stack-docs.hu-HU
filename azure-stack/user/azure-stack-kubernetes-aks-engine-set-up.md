@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/23/2020
 ms.openlocfilehash: f89dd7e1036f3c45df184b498c309fe128fe03ba
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80152207"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
@@ -28,7 +28,7 @@ Az AK-motor használatához a következő erőforrásokra van szükség. Ne fele
 
 A Felhőbeli operátornak a következő elemeket kell megadnia.
 
-| Előfeltételek | Leírás | Kötelező | Utasítások |
+| Előfeltétel | Leírás | Kötelező | Utasítások |
 | --- | --- | --- | --- | --- |
 | Azure Stack hub 1910 vagy újabb | Az KABAi motorhoz Azure Stack hub 1910 vagy újabb rendszer szükséges. | Kötelező | Ha nem biztos abban, hogy Azure Stack hub-verzióját, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
 | Egyéni Linux-szkriptek bővítménye | Linux Custom script bővítmény 2,0<br>Ajánlat: egyéni parancsfájl a Linux 2,0-hez<br>Verzió: 2.0.6 (vagy legújabb verzió)<br>Közzétevő: Microsoft Corp | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. |
@@ -43,7 +43,7 @@ Adja hozzá a következőt az "egyszerű szolgáltatásnév" követelmény leír
 
 Megadhatja a következő elemeket.
 
-| Előfeltételek | Leírás | Kötelező | Utasítások |
+| Előfeltétel | Leírás | Kötelező | Utasítások |
 | --- | --- | --- | --- |
 | Azure Stack hub-előfizetés | Az ajánlatokat a Azure Stack hub előfizetések segítségével érheti el. Az ajánlat az Ön számára elérhető szolgáltatásokat tartalmazza. | Kötelező | Ahhoz, hogy a bérlői számítási feladatokat üzembe lehessen helyezni Azure Stack központban, először be kell szereznie egy [Azure stack hub-előfizetést](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services). |
 | Erőforráscsoport | Az erőforráscsoport egy tároló, amely Azure-megoldásokhoz kapcsolódó erőforrásokat tárol. Ha nem ad meg egy meglévő erőforráscsoportot, akkor az eszköz létrehoz egyet. | Optional | [Azure Resource Manager erőforráscsoportok kezelése a Azure Portal használatával](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
@@ -55,9 +55,9 @@ Megadhatja a következő elemeket.
 
 ## <a name="matching-engine-to-base-image-version"></a>Illeszkedő motor az alaprendszerkép verziójához
 
-Az AK-motor egy létrehozott rendszerképet, az **AK-alapú alapképet**használja. Az egyes alrendszerek motorjának verziója az Azure Stack hub-kezelő által az Azure Stack hub-ben elérhetővé tett rendszerkép-verziótól függ. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)található egy táblázat, amely az AK-motor verziószámait és a megfelelő támogatott Kubernetes-verziókat tartalmazza. Például az KABAi motor verziója `v0.43.0` az AK alaprendszerképének `2019.10.24`tól függ. Kérje meg a Azure Stack hub-kezelőt, hogy töltse le az adott rendszerkép verzióját az Azure Marketplace-ről a Azure Stack hub piactérre.
+Az AK-motor egy létrehozott rendszerképet, az **AK-alapú alapképet**használja. Az egyes alrendszerek motorjának verziója az Azure Stack hub-kezelő által az Azure Stack hub-ben elérhetővé tett rendszerkép-verziótól függ. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)található egy táblázat, amely az AK-motor verziószámait és a megfelelő támogatott Kubernetes-verziókat tartalmazza. Az AK-motor verziója `v0.43.0` például az AK-alapú `2019.10.24` alaprendszerkép verziójától függ. Kérje meg a Azure Stack hub-kezelőt, hogy töltse le az adott rendszerkép verzióját az Azure Marketplace-ről a Azure Stack hub piactérre.
 
-A rendszer elindítja és hibát jelez, ha a rendszerkép nem érhető el a Azure Stack hub piactéren. Ha például jelenleg a 0.43.0 és az AK-alapú alaprendszerkép-verziót használja `2019.10.24` nem érhető el, a következő hibaüzenet jelenik meg az KABAi motor futtatásakor: 
+A rendszer elindítja és hibát jelez, ha a rendszerkép nem érhető el a Azure Stack hub piactéren. Ha például jelenleg a (z) 0.43.0 és az AK-alapú alaprendszerkép verziója `2019.10.24` nem érhető el, a következő hibaüzenet jelenik meg az AK-motor futtatásakor: 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-201908:2019.08.09' is not available. 
@@ -73,7 +73,7 @@ GitCommit: 6fff62731
 GitTreeState: clean
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor üzembe helyezése Windows rendszeren Azure Stack hub-ban](azure-stack-kubernetes-aks-engine-deploy-windows.md)  

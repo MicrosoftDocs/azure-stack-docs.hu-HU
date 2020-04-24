@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 70f10bd8c2c2e5eb639229ba743090ba5e5ac79c
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025677"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>A fürt és a készlet Kvórumának megértése Azure Stack HCI-ben
@@ -45,7 +45,7 @@ Az alábbi táblázat áttekintést nyújt a fürt Kvórumának eredményeiről 
 
 - Ha két csomóponttal rendelkezik, a tanúsító **megadása kötelező**.
 - Ha három vagy négy csomóponttal rendelkezik, **erősen ajánlott**a tanúsító.
-- Ha van internet-hozzáférése, használjon  **[Felhőbeli tanúsító](/windows-server/failover-clustering/deploy-cloud-witness)**
+- Ha van internet-hozzáférése, használjon ** [Felhőbeli tanúsító](/windows-server/failover-clustering/deploy-cloud-witness)**
 - Ha más gépekkel és fájlmegosztással rendelkező informatikai környezetben van, használjon tanúsító fájlmegosztást
 
 ## <a name="how-cluster-quorum-works"></a>A fürt Kvórumának működése
@@ -93,7 +93,7 @@ Az egyik csomópont szavazata nulla, így a *többségi* szavazás összesen **1
 
 ![A határozatképesség magyarázata két, tanúsító nélküli csomópont esetében](media/quorum/2-node-no-witness.png)
 
-- Egyetlen kiszolgálóhiba esetén is fennmaradhat: **50%** -os eséllyel.
+- Egyetlen kiszolgálóhiba esetén is fennmaradhat: **50%**-os eséllyel.
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat, majd egy másik: **nem**.
 - Egyszerre két kiszolgáló meghibásodását képes túlélni: **nem**.
 
@@ -112,7 +112,7 @@ Minden csomópont szavaz, így a *többséget* összesen **3 szavazattal**határ
 ![A kvórum magyarázata három, tanúsító csomópont nélkül](media/quorum/3-node-no-witness.png)
 
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat: **Igen**.
-- Egy kiszolgáló meghibásodása esetén is fennmaradhat, majd egy másik: **50%** -os eséllyel.
+- Egy kiszolgáló meghibásodása esetén is fennmaradhat, majd egy másik: **50%**-os eséllyel.
 - Egyszerre két kiszolgáló meghibásodását képes túlélni: **nem**.
 
 #### <a name="three-nodes-with-a-witness"></a>Három csomópont tanúsító.
@@ -131,7 +131,7 @@ Az egyik csomópont szavazata nulla, így a *többséget* összesen **3 szavazat
 
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat: **Igen**.
 - Egy kiszolgáló meghibásodása esetén is fennmaradhat, majd egy másik: **Igen**.
-- Egyszerre két kiszolgáló meghibásodását képes túlélni: **50%** -os eséllyel.
+- Egyszerre két kiszolgáló meghibásodását képes túlélni: **50%**-os eséllyel.
 
 #### <a name="four-nodes-with-a-witness"></a>Négy csomópont tanúsító.
 Az összes csomópont és a tanú szavazata, így a *többséget* összesen **5 szavazat**határozza meg. Egy hiba után a 4. forgatókönyvben van. Két egyidejű hiba után ugorjon le a 2. forgatókönyvre.
@@ -222,9 +222,9 @@ A 24 meghajtó mindegyike egy szavazattal rendelkezik, a két csomópont pedig e
 - Engedélyezze a háromutas tükrözést vagy a kettős paritást, hogy el tudja viselni a csomópontok hibáit, és a virtuális lemezeket online állapotban tartsa. 
 - Ha a kettőnél több csomópont van, vagy két csomópont, és egy másik csomóponton lévő lemez nem érhető el, előfordulhat, hogy a kötetek nem férnek hozzá az összes adat mindhárom példányához, ezért offline állapotba kerülhetnek, és nem érhetők el. Javasoljuk, hogy a-kiszolgálókat a köteten lévő összes adatmennyiség rugalmasságának biztosítása érdekében a lehető leggyorsabban hozza vissza vagy cserélje le a lemezeket.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-További információt a következő témakörben talál:
+További információkat a következő cikkekben talál:
 
 - [Kvórum konfigurálása és kezelése](/windows-server/failover-clustering/manage-cluster-quorum)
 - [Felhőbeli tanúsító üzembe helyezése](/windows-server/failover-clustering/deploy-cloud-witness)

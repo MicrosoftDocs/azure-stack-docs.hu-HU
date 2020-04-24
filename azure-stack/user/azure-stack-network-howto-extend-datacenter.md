@@ -3,16 +3,16 @@ title: Az adatközpont kiterjesztése Azure Stack hub-on
 description: Ismerje meg, hogyan bővítheti az adatközpontot Azure Stack hub-on.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d3884f877511c3a0d285b62ecf3136673e24a116
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702448"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661113"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Tároló kiterjesztése Azure Stack hubhoz
 
@@ -60,13 +60,13 @@ Ebben a forgatókönyvben egy Windows Server 2019 rendszerű virtuális gépet h
 
     b.  **Felhasználónév**: localadmin
 
-    c.  **Jelszó és jelszó** **megerősítése**: az ön által választott jelszó \<>
+    c.  **Password (** jelszó) és \< **erősítse meg a jelszót**: az Ön által választott jelszó>
 
-    d.  **Előfizetés**: az Ön által választott előfizetés \<a számítási/tárolási/hálózati erőforrások >.
+    d.  **Előfizetés**: \<az Ön által választott előfizetés, számítási/tárolási/hálózati erőforrásokkal>.
 
     e.  **Erőforráscsoport**: storagetesting (új létrehozása)
 
-    f.  Kattintson az **OK** gombra.
+    f.  Kattintson **az OK gombra**
 
 6.  A **méret kiválasztása** panelen válasszon ki egy **Standard_F8s_v2** , majd válassza a **kiválasztás**lehetőséget.
 
@@ -94,7 +94,7 @@ Ebben a forgatókönyvben egy Windows Server 2019 rendszerű virtuális gépet h
 
     a.  **Név**: subnet2 alhálózattal
 
-    b.  **Címtartomány (CIDR-blokk)** : 10.10.11.0/24
+    b.  **Címtartomány (CIDR-blokk)**: 10.10.11.0/24
 
     c.  **Hálózati biztonsági csoport**: nincs
 
@@ -162,7 +162,7 @@ Alapértelmezés szerint a Azure Stack hub egy alapértelmezett átjárót rende
 
 6.  A kimenő kommunikációt a ping parancs futtatásával is érvényesítheti:  
     `ping 8.8.8.8 -S 10.10.11.4`  
-    A `-S` jelző lehetővé teszi, hogy megadja a forrás címét, ebben az esetben a 10.10.11.4 az alapértelmezett átjárót tartalmazó hálózati adapter IP-címe.
+    A `-S` jelző lehetővé teszi, hogy megadja a forrás címét, ebben az esetben a 10.10.11.4 az alapértelmezett átjáróval rendelkező hálózati adapter IP-címe.
 
 7.  A **cmd**bezárásához.
 
@@ -172,7 +172,7 @@ Ebben a forgatókönyvben egy olyan konfigurációt kell érvényesíteni, amely
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-Az iSCSI-célkiszolgáló esetében ez lehet Windows Server 2016 vagy 2019, fizikai vagy virtuális, Hyper-V-n, VMware-en vagy egy tetszőleges alternatív berendezésen, például egy dedikált fizikai iSCSI SAN-gépen. A legfontosabb szempont, hogy az Azure Stack hub rendszerhez való csatlakozással és onnan kifelé irányuló kapcsolat, de a forrás és a cél között több elérési út is rendelkezésre áll, mivel a szolgáltatás további redundanciát biztosít, és lehetővé teszi a fejlettebb képességek növelését teljesítmény, például MPIO.
+Az iSCSI-célkiszolgáló esetében ez lehet Windows Server 2016 vagy 2019, fizikai vagy virtuális, Hyper-V-n, VMware-en vagy egy tetszőleges alternatív berendezésen, például egy dedikált fizikai iSCSI SAN-gépen. A legfontosabb szempont, hogy az Azure Stack hub rendszerbe való csatlakozással és onnan kifelé irányuló kapcsolattal rendelkezik, azonban a forrás és a cél között több útvonal is van, mivel ez további redundanciát biztosít, és lehetővé teszi a fejlettebb képességek használatát nagyobb teljesítmény érdekében, például az MPIO-t.
 
 Azt javasoljuk, hogy frissítse a Windows Server 2019 iSCSI-tárolót a legújabb összesítő frissítésekkel és javításokkal, szükség esetén újraindítás után, mielőtt továbblépne a fájlmegosztás konfigurálására.
 
@@ -182,19 +182,19 @@ Miután frissítette és újraindította a kiszolgálót, mostantól iSCSI-táro
 
 2.  A megnyitást követően válassza a **tovább**lehetőséget, válassza a **szerepköralapú vagy a szolgáltatáson alapuló telepítés**lehetőséget, majd folytassa a beállításokat, amíg el nem éri a **kiszolgálói szerepkörök kiválasztása** lapot.
 
-3.  Bontsa ki a **fájl-és tárolási szolgáltatások**, majd a **Fájl & az iSCSI-szolgáltatások** elemet, és jelölje be az **iSCSI-célkiszolgáló** jelölőnégyzetet, és fogadja el az új funkciók hozzáadására vonatkozó előugró utasításokat, majd folytassa a befejezést
+3.  Bontsa ki a **fájl-és tárolási szolgáltatások**, majd a **fájl & az iSCSI-szolgáltatások** elemet, és jelölje be az **iSCSI-célkiszolgáló** jelölőnégyzetet, és fogadja el az új funkciók hozzáadására vonatkozó előugró utasításokat, majd folytassa a befejezést
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image10.png)
 
     Ha elkészült, zárjuk be a **Kiszolgálókezelő eszközt.**
 
-4.  Nyissa meg a **fájlkezelőt,** navigáljon a C:\\ elemre, és **hozzon létre egy új**, **iSCSI**nevű mappát.
+4.  Nyissa meg a **fájlkezelőt,** navigáljon a C:\\ gombra, és **hozzon létre egy új**, **iSCSI**nevű mappát.
 
 5.  Nyissa meg újra a **Kiszolgálókezelő alkalmazást** , és válassza a **fájl-és tárolási szolgáltatások** lehetőséget a bal oldali menüben.
 
 6.  Válassza az **iSCSI** lehetőséget, majd a jobb oldali ablaktáblán válassza a "**virtuális iSCSI-lemez létrehozása, az új virtuális iSCSI-lemez varázsló indítása**" hivatkozást. Válassza ki. Megjelenik egy varázsló.
 
-7.  Az **iSCSI virtuális lemez helyének kiválasztása** lapon válassza az **Egyéni elérési út beírásához** a választógombot, és keresse meg a **C:\\iSCSI** elemet, és kattintson a **tovább**gombra.
+7.  Az **iSCSI virtuális lemez helyének kiválasztása** lapon jelölje be a választógombot **Egyéni elérési út megadásához** , és keresse meg a **C:\\iSCSI** elemet, és kattintson a **tovább**gombra.
 
 8.  Adja meg az iSCSI virtuális lemez **iSCSIdisk1** nevét és opcionálisan egy leírást, majd válassza a **tovább**lehetőséget.
 
@@ -208,7 +208,7 @@ Miután frissítette és újraindította a kiszolgálót, mostantól iSCSI-táro
 
 12) A **hozzáférési kiszolgálók megadása** lapon válassza a **Hozzáadás**lehetőséget. Ekkor megnyílik egy párbeszédpanel, amely megadja az iSCSI-tárolóhoz való kapcsolódásra engedélyt igénylő **kezdeményezőket** .
 
-13) A **kezdeményező azonosítójának hozzáadása ablakban**válassza a **megadott típus értékének megadása** lehetőséget, majd a legördülő menüben **jelölje be a** IQN jelölőnégyzetet. Adja meg a **IQN. 1991-05. com. Microsoft:\<számítógépnév >** , ahol a \<számítógépnév > a **VM001** **számítógép neve** , majd válassza a **tovább**lehetőséget.
+13) A **kezdeményező azonosítójának hozzáadása ablakban**válassza a **megadott típus értékének megadása** lehetőséget, majd a legördülő menüben **jelölje be a** IQN jelölőnégyzetet. Adja meg a **IQN. 1991-05. com.\<microsoft: számítógépnév>** , ahol \<a számítógépnév> a **VM001** **számítógép neve** , majd válassza a **tovább**lehetőséget.
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image12.png)
 
@@ -264,7 +264,7 @@ Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure s
 
 15. Ismételje meg a folyamatot a következővel:
 
-    a. \* * IP-cím * *: a második iSCSI cél IP-címe.
+    a. * * IP-cím * *: a második iSCSI cél IP-címe.
 
     b.  **Helyi adapter**: Microsoft iSCSI-kezdeményező.
 
@@ -286,17 +286,17 @@ Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure s
 
     b.  **Kezdeményező IP-címe**: 10.10.10.4.
 
-    c.  **Cél-portál IP-címe**: az első iSCSI-IP-3260 > \<.
+    c.  **Cél portál IP-címe**: \<az első iSCSI cél IP-címe/3260>.
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image20.png)
 
 1.  Ismételje meg a folyamatot a második kezdeményező/cél kombinációnál.
 
-    a. \* * Helyi adapter * *: Microsoft iSCSI-kezdeményező.
+    a. * * Helyi adapter * *: Microsoft iSCSI-kezdeményező.
 
     b.  **Kezdeményező IP-címe**: 10.10.11.4.
 
-    c.  **Cél-portál IP-címe**: \<a második iSCSI-célként megadott IP-cím/3260 >.
+    c.  **Cél-portál IP-címe**: \<a második iSCSI cél IP-címe/3260>.
 
         ![](./media/azure-stack-network-howto-extend-datacenter/image21.png)
 
@@ -347,11 +347,11 @@ A kommunikáció ellenőrzéséhez és a fájl-másolási teszt futtatásához e
     
     ![](./media/azure-stack-network-howto-extend-datacenter/image27.png)
     
-    3.  A létrehozás eltarthat néhány másodpercig. A létrehozást követően a fájl megnyitásához nyissa meg a **fájlkezelőt** , és navigáljon a C:\\-ra, és az új test. vhd-t, valamint az 5 GB-os méretet kell látnia.
+    3.  A létrehozás eltarthat néhány másodpercig. Miután létrehozta a létrehozását, a létrehozás ellenőrzéséhez nyissa meg a **fájlkezelőt** , és navigáljon a C:\\ -ra. Ekkor megjelenik az új test. vhd, és mérete 5 GB.
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image28.png)
 
-    4. Lépjen be a CMD ablakba, és térjen vissza az ISE-hez, majd írja be a következő parancsot a parancsfájl ablakába. Cserélje le az F:\\ a korábban alkalmazott iSCSI-tároló betűjelére.
+    4. Lépjen be a CMD ablakba, és térjen vissza az ISE-hez, majd írja be a következő parancsot a parancsfájl ablakába. Az F:\\ helyére írja be a korábban alkalmazott iSCSI-tároló betűjelét.
 
     5. `Copy-Item "C:\\test.vhd" -Destination "F:\\"`
 
@@ -361,8 +361,8 @@ A kommunikáció ellenőrzéséhez és a fájl-másolási teszt futtatásához e
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-Ennek a forgatókönyvnek a célja, hogy kiemelje az Azure Stack hub-on futó munkaterhelés és egy külső tárolási tömb, ebben az esetben egy Windows Server-alapú iSCSI-tároló közötti kapcsolatot. Ez nem teljesítménytesztnek lett kialakítva, és nem tükrözheti azokat a lépéseket, amelyeket végre kell hajtania, ha alternatív iSCSI-alapú készüléket használ, de a számítási feladatok üzembe helyezése során a Azure Stack hub-ra vonatkozó alapvető szempontokat is kiemeli. , és csatlakoztatja őket a Azure Stack hub-környezeten kívüli tárolási rendszerekhez.
+Ennek a forgatókönyvnek a célja, hogy kiemelje az Azure Stack hub-on futó munkaterhelés és egy külső tárolási tömb, ebben az esetben egy Windows Server-alapú iSCSI-tároló közötti kapcsolatot. Ez nem teljesítménytesztnek lett kialakítva, és nem tükrözheti azokat a lépéseket, amelyeket végre kell hajtania, ha alternatív iSCSI-alapú készüléket használ, de a munkaterhelések Azure Stack hubhoz való üzembe helyezéséhez szükséges alapvető szempontokat is kiemeli, és csatlakoztatja azokat a Azure Stack hub-környezeten kívüli tárolási rendszerekhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)

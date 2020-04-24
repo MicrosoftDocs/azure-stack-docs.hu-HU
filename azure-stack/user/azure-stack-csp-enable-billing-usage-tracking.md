@@ -8,15 +8,15 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
 ms.openlocfilehash: 95cc91a2f9443271b0e89d6dbf22a67137924627
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704301"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack hub-előfizetését
 
-Ha a Azure Stack hubot felhőalapú megoldás-szolgáltatóval (CSP) használja, akkor dönthet úgy, hogy saját előfizetését felügyeli az Azure-ban és a Azure Stack hub-ban található erőforrások eléréséhez. Azt is engedélyezheti, hogy a szolgáltató kezelje az előfizetését. Ez a cikk bemutatja, hogyan végezheti el a következőket:
+Ha a Azure Stack hubot felhőalapú megoldás-szolgáltatóval (CSP) használja, akkor dönthet úgy, hogy saját előfizetését felügyeli az Azure-ban és a Azure Stack hub-ban található erőforrások eléréséhez. Azt is engedélyezheti, hogy a szolgáltató kezelje az előfizetését. Ez a cikk a következőkhöz nyújt útmutatást:
 
 * Adja meg a szolgáltatóhoz való hozzáférést az előfizetéséhez.
 * Győződjön meg arról, hogy a szolgáltató felügyelheti a szolgáltatást.
@@ -43,6 +43,6 @@ Adja hozzá a CSP-t **tulajdonosként** az előfizetéséhez.
 2. Adja hozzá a **tulajdonos** szerepkört a CSP vendég felhasználóhoz. A CSP-felhasználók előfizetéshez való hozzáadásával kapcsolatos információkért lásd: [szerepköralapú Access Control használata az Azure-előfizetések erőforrásaihoz való hozzáférés kezeléséhez](/azure/role-based-access-control/role-assignments-portal). A CSP létrehoz egy helyi Azure Stack hub-előfizetést. Készen áll az Azure Stack hub használatának megkezdésére.
 3. A CSP-nek létre kell hoznia egy erőforrást az előfizetésben annak ellenőrzéséhez, hogy képes-e az erőforrások kezelésére.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg [a használat és a számlázás Azure stack hub-ban](../operator/azure-stack-billing-and-chargeback.md)című témakört.

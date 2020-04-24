@@ -8,17 +8,17 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
 ms.openlocfilehash: 50a5a9498939f47cc8a688f1171d8b1a0cc4ca8a
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77636301"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>VPN-alagút létrehozása a GRE használatával Azure Stack hub-ban
 
 Ebben a megoldásban a Azure Stack hub Resource Manager-sablonnal csatlakoztathat két Azure Stack hub-virtuális hálózatok ugyanazon a Azure Stack hub-környezetben belül. [Azure stack hub-virtuális hálózatok nem csatlakoztatható](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) a beépített Virtual Network átjáró használatával. Egyelőre a Network Virtual Appliances (NVA) s használatával VPN-alagutat kell létrehoznia két Azure Stack hub-virtuális hálózatok között. A megoldás sablonja két Windows Server 2016 virtuális gépet telepít, amelyeken az RRAS telepítve van. A megoldás úgy konfigurálja a két RRAS-kiszolgálót, hogy S2SVPN IKEv2 alagutat használjanak a két virtuális hálózatok között. A megfelelő NSG-és UDR-szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes, **belsőként** kijelölt VNET. 
 
-Ez az üzembe helyezési minta az az alap, amely lehetővé teszi, hogy a VPN-alagutakat ne csak az Azure Stack hub-példányon belül hozza létre, hanem Azure Stack hub-példányok és más erőforrások, például a Windows RRAS S2S használó helyszíni hálózatok számára is. VPN-alagutak.
+Ez az üzembe helyezési minta az az alap, amely lehetővé teszi, hogy a VPN-alagutakat nemcsak az Azure Stack hub-példányon belül hozza létre, hanem Azure Stack hub-példányok és más erőforrások, például a Windows RRAS S2S VPN-alagutak használatát használó helyszíni hálózatok számára is.
 
 A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A sablon az **RRAS-GRE-vnet-vnet** mappában található. 
 
@@ -52,7 +52,7 @@ Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tart
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Több helyek közötti VPN-alagút beállítása](network-howto-vpn-tunnel.md)

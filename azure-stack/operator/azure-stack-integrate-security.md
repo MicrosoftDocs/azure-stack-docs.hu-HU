@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2019
 ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699422"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
@@ -21,7 +21,7 @@ Ez a cikk bemutatja, hogyan integrálhatja az adatközpontban már üzembe helye
 Az 1809-es frissítéstől kezdve a Azure Stack hub egy integrált syslog-ügyféllel rendelkezik, amely a konfigurálást követően a gyakori esemény formátumában (CEF) elbocsátja a syslog-üzeneteket.
 
 Az alábbi ábra az Azure Stack hub külső SIEM-sel való integrálását ismerteti. Kétféle integrációs mintát kell figyelembe venni: az első (a kék) az a Azure Stack hub-infrastruktúra, amely magában foglalja az infrastruktúra-alapú virtuális gépeket és a Hyper-V-csomópontokat. Ezekből az összetevőkből származó összes naplózási, biztonsági naplós és riasztás központilag össze van gyűjtve, és a syslog használatával CEF hasznos adattartalommal. Ez az integrációs minta a jelen dokumentum oldalán olvasható.
-A második integrációs minta a narancssárga ábrán látható, amely a alaplapi-felügyeleti vezérlőket (bmc), a hardveres életciklus-gazdagépet (HLH), a hardvereszközöket és a hardvereket futtató virtuális gépeket, valamint a hardverprofil-figyelési és-felügyeleti szoftvert futtató virtuális készülékeket és a rack (TOR) kapcsolók. Mivel ezek az összetevők a hardveres partnerekkel kapcsolatosak, vegye fel a kapcsolatot a hardver-partnerével, hogy miként integrálhatja őket egy külső SIEM-mel.
+A második integrációs minta az a narancssárga, amely a alaplapi-felügyeleti vezérlőket (bmc), a hardveres életciklus-gazdagépet (HLH), a hardver-partneri figyelési és-felügyeleti szoftvert futtató virtuális gépeket és virtuális készülékeket, valamint a rack (TOR) kapcsolókat ismerteti. Mivel ezek az összetevők a hardveres partnerekkel kapcsolatosak, vegye fel a kapcsolatot a hardver-partnerével, hogy miként integrálhatja őket egy külső SIEM-mel.
 
 ![Syslog-továbbítási diagram](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
@@ -61,19 +61,19 @@ A *set-SyslogServer* parancsmag paraméterei:
 |---------|---------|---------|---------|
 |*ServerName* | A syslog-kiszolgáló teljes tartományneve vagy IP-címe. | Sztring | igen|
 |*ServerPort* | A syslog-kiszolgáló által figyelt port száma. | UInt16 | igen|
-|*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | zászló | nem|
-|*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | zászló | nem|
-|*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | zászló | nem|
-|*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |zászló | nem|
-|*Eltávolítása*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| zászló | nem|
+|*Nincs titkosítás*| Kényszerítse az ügyfelet, hogy a syslog-üzeneteket titkosítatlan szövegként küldje el. | flag | nem|
+|*SkipCertificateCheck*| A syslog-kiszolgáló által a kezdeti TLS-kézfogás során biztosított tanúsítvány érvényesítésének kihagyása. | flag | nem|
+|*SkipCNCheck*| Kihagyhatja a syslog-kiszolgáló által a kezdeti TLS-kézfogás során megadott tanúsítvány köznapi név értékének érvényesítését. | flag | nem|
+|*UseUDP*| Használja a syslog-t UDP-ként átviteli protokollként. |flag | nem|
+|*Eltávolítás*| Távolítsa el a kiszolgáló konfigurációját az ügyfélről, és állítsa le a syslog-továbbítást.| flag | nem|
 
 A *set-SyslogClient* parancsmag paraméterei:
 
 | Paraméter | Leírás | Típus |
 |---------|---------| ---------|
-| *pfxBinary* | A pfx-fájl tartalma, amely egy bájt [] értékre van átirányítva, amely tartalmazza az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt.  | Byte[] |
+| *pfxBinary* | A pfx-fájl tartalma, amely egy bájt [] értékre van átirányítva, amely tartalmazza az ügyfél által a syslog-kiszolgálón való hitelesítéshez használandó tanúsítványt.  | Bájt [] |
 | *CertPassword* |  A pfx-fájlhoz társított titkos kulcs importálására szolgáló jelszó. | SecureString |
-|*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | zászló|
+|*RemoveCertificate* | Tanúsítvány eltávolítása az ügyfélről. | flag|
 | *OutputSeverity* | A kimeneti naplózás szintje. Az értékek **alapértelmezettek** vagy **részletesek**. Az alapértelmezett érték a súlyossági szinteket tartalmazza: figyelmeztetés, kritikus vagy hiba. A részletes beállítás minden súlyossági szintet tartalmaz: részletes, tájékoztató, figyelmeztetés, kritikus vagy hiba.  | Sztring |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>A syslog továbbításának konfigurálása a TCP, a kölcsönös hitelesítés és a TLS 1,2 titkosítás használatával
 
@@ -257,7 +257,7 @@ A PEP súlyossági táblázata:
 
 | Severity | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
+|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -288,7 +288,7 @@ REP súlyossági táblázat:
 
 | Severity | Szint | Numerikus érték |
 |----------|-------| ----------------|
-|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
+|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -308,7 +308,7 @@ Windows-események súlyossági táblázata:
 
 | CEF súlyossági értéke | Windows-esemény szintje | Numerikus érték |
 |--------------------|---------------------| ----------------|
-|0|Meghatározatlan|Érték: 0. A naplókat minden szinten jelzi|
+|0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
@@ -333,10 +333,10 @@ Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 |MasKeywordName |Sikeres naplózás|
 |MasLevel |4|
 |MasOpcode |1|
-|MasOpcodeName |info|
+|MasOpcodeName |információ|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-GroupPolicy|
+|MasProviderName |Microsoft-Windows-csoportházirend|
 |MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Folyamat létrehozása|
@@ -356,7 +356,7 @@ Riasztások súlyossági táblázata:
 
 | Severity | Szint |
 |----------|-------|
-|0|Meghatározatlan|
+|0|Nem definiált|
 |10|Kritikus|
 |5|Figyelmeztetés|
 
@@ -364,7 +364,7 @@ Egyéni bővítmények táblázata Azure Stack központban létrehozott riasztá
 
 | Egyéni bővítmény neve | Példa | 
 |-----------------------|---------|
-|MasEventDescription|Leírás: \<tesztfelhasználó\> felhasználói fiók lett létrehozva \<TestDomain\>. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a https://aka.ms/azurestacklogfilesútmutatása alapján.
+|MasEventDescription|Leírás: A \< \<TestDomain\>készült tesztfelhasználó\> felhasználói fiók. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a következő https://aka.ms/azurestacklogfilestémakör útmutatása alapján:.
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF lezárt riasztások leképezése
 
@@ -379,6 +379,6 @@ Az alábbi példa egy CEF adattartalommal rendelkező syslog-üzenetet mutat be:
 2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack Hub|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Karbantartási szabályzat](azure-stack-servicing-policy.md)

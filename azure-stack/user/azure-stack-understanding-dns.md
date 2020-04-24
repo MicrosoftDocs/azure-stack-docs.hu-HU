@@ -8,15 +8,15 @@ ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
 ms.openlocfilehash: 3209c3a51b491bcdf2779e95c58f41cb124cd3f3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704862"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>IDNS használata Azure Stack központban 
 
-a iDNS egy Azure Stack hub hálózati szolgáltatás, amely lehetővé teszi a külső DNS-nevek (például https:\//www.bing.com) feloldását. Lehetővé teszi a belső virtuális hálózatok nevének regisztrálását is. Ezzel az IP-cím helyett a virtuális gépeket (VM-ket) az ugyanazon a virtuális hálózaton lehet feloldani. Ez a megközelítés eltávolítja az egyéni DNS-kiszolgáló bejegyzéseinek megadásához szükséges adatokat. További információ a DNS-ről: [Azure DNS Overview (áttekintés](https://docs.microsoft.com/azure/dns/dns-overview)).
+a iDNS egy Azure Stack hub hálózati szolgáltatás, amely lehetővé teszi a külső DNS-nevek (például https:\//www.Bing.com) feloldását. Lehetővé teszi a belső virtuális hálózatok nevének regisztrálását is. Ezzel az IP-cím helyett a virtuális gépeket (VM-ket) az ugyanazon a virtuális hálózaton lehet feloldani. Ez a megközelítés eltávolítja az egyéni DNS-kiszolgáló bejegyzéseinek megadásához szükséges adatokat. További információ a DNS-ről: [Azure DNS Overview (áttekintés](https://docs.microsoft.com/azure/dns/dns-overview)).
 
 ## <a name="what-does-idns-do"></a>Mit tesz a iDNS?
 
@@ -24,7 +24,7 @@ Az Azure Stack hub iDNS szolgáltatásában a következő képességeket kapja, 
 
 - Megosztott DNS-névfeloldási szolgáltatások bérlői számítási feladatokhoz.
 - Mérvadó DNS-szolgáltatás a névfeloldáshoz és a DNS-regisztrációhoz a bérlői virtuális hálózaton belül.
-- Rekurzív DNS szolgáltatás a bérlői virtuális gépek internetes neveinek feloldásához. A bérlőknek többé nem kell egyéni DNS-bejegyzéseket megadniuk az internetes nevek feloldásához (például: www\.bing.com.)
+- Rekurzív DNS szolgáltatás a bérlői virtuális gépek internetes neveinek feloldásához. A bérlőknek többé nem kell egyéni DNS-bejegyzéseket megadniuk az internetes nevek feloldásához (\.például www-Bing.com).
 
 Továbbra is használhatja a saját DNS-t, és használhat egyéni DNS-kiszolgálókat. A iDNS használatával azonban megoldhatók az internetes DNS-nevek, és az azonos virtuális hálózatban lévő más virtuális gépekhez is csatlakozhatnak anélkül, hogy egyéni DNS-bejegyzéseket kellene létrehoznia.
 
@@ -171,7 +171,7 @@ Address:  172.31.12.76
 Röviden, a fentiek közül a következőt láthatja:
  
 *   Mindegyik VNet saját zónával rendelkezik, amely minden magánhálózati IP-címhez tartalmaz egy rekordot, amely a virtuális gép nevét és a VNet DNS-utótagját (a GUID azonosítóját) tartalmazza.
-    *   \<vmname >.\<vnetGUID\>. internal.\<régió >.\<stackinternalFQDN >
+    *   \<vmname>. \<vnetGUID\>. internal. \<régió>. \<stackinternalFQDN>
     *   Ez automatikusan történik
 *   Ha nyilvános IP-címeket használ, létrehozhat DNS-címkéket is. Ezek a többi külső címnek hasonlóan oldhatók meg.
  
@@ -180,6 +180,6 @@ Röviden, a fentiek közül a következőt láthatja:
  
 Ahogy a labor eredményei közül láthatja, megadhatja, hogy milyen IP-címet használ. Ha a virtuális gép nevét használja, akkor megkapja a magánhálózati IP-címet, és ha a DNS-címkét használja, akkor a nyilvános IP-címet kapja meg.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [DNS használata Azure Stack központban](azure-stack-dns.md)

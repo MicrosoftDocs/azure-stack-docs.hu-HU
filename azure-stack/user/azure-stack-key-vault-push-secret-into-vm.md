@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702788"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on
@@ -114,7 +114,7 @@ Módosítsa a **azuredeploy. Parameters. JSON** fájlt a környezeti értékek a
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>A azuredeploy. Parameters. JSON fájl frissítése
 
-Frissítse az **azuredeploy. Parameters. JSON** fájlt a `vaultName`, a titkos URI, a `VmName`és egyéb paraméterekkel a környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
+Frissítse az **azuredeploy. Parameters. JSON** fájlt a, `vaultName`a titkos URI- `VmName`val és más paraméterekkel a környezete szerint. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
 
 ```json
 {
@@ -173,15 +173,15 @@ Azure Stack hub az üzembe helyezés során leküldi a tanúsítványt a virtuá
 
 ## <a name="retire-certificates"></a>Tanúsítványok kivonása
 
-A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verzióját nem lehet törölni, de a `Set-AzureKeyVaultSecretAttribute` parancsmag használatával letilthatja.
+A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verzióját nem lehet törölni, de a `Set-AzureKeyVaultSecretAttribute` parancsmag használatával letilthatja azt.
 
-Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. Használja a `VaultName`, `Name`és `Version` paraméterek saját értékeit.
+Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. A `VaultName`, `Name`a és `Version` a paraméterekhez használhatja a saját értékeit.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Virtuális gép üzembe helyezése Key Vault-jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault elérésének engedélyezése az alkalmazás számára](azure-stack-key-vault-sample-app.md)

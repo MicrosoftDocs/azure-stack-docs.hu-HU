@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
 ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368702"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Az Azure leválasztott üzembe helyezési tervezési döntései az Azure Stack hub integrált rendszereihez
@@ -32,7 +32,7 @@ A leválasztott központi telepítés nem korlátozza, hogy később összekapcs
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>A leválasztott üzemelő példányokban nem párosított vagy nem elérhető funkciók 
 Azure Stack hub úgy lett kialakítva, hogy a legjobban működjön az Azure-hoz való csatlakozáskor, ezért fontos megjegyezni, hogy vannak olyan funkciók és funkciók, amelyek vagy a leválasztott módban nem állnak rendelkezésre vagy teljesen elérhetetlenné válnak.
 
-|Funkció|Leválasztott üzemmódra gyakorolt hatás|
+|Szolgáltatás|Leválasztott üzemmódra gyakorolt hatás|
 |-----|-----|
 |VM üzembe helyezése DSC bővítménnyel a virtuális gép üzembe helyezésének konfigurálásához|A nem párosított DSC-bővítmény az internetet keresi a legújabb WMF-hez.|
 |Virtuális gép üzembe helyezése Docker-bővítménnyel a Docker-parancsok futtatásához|A korlátozott – a Docker a legújabb verzióra fogja ellenőriznie az internetet, és ez az ellenőrzési művelet sikertelen lesz.|
@@ -48,10 +48,10 @@ Telemetria|Nem érhető el – az Azure Stack hub és a külső gyártótól sz�
 |Tanúsítványok|Nem érhető el – az internetkapcsolat szükséges a visszavont tanúsítványok listájának (CRL) és az online tanúsítványállapot-protokoll (OSCP) szolgáltatásai számára a HTTPS kontextusában.|
 |Key Vault|Nem párosított – A Key Vault gyakori használati esete, ha egy alkalmazás olvasási titkokat használ futásidőben. Ebben a használati esetben az alkalmazásnak szüksége van egy egyszerű szolgáltatásnév használatára a címtárban. Az Azure AD-ben a normál felhasználók (nem rendszergazdák) alapértelmezés szerint adhatnak hozzá egyszerű szolgáltatásokat. Az Azure AD-ben (AD FS használatával) nem. Ez az inpair akadályt mutat a teljes körű élményben, mivel az egyiknek mindig egy címtár-rendszergazdának kell lennie az alkalmazások hozzáadásához.
 
-## <a name="learn-more"></a>További információk
+## <a name="learn-more"></a>Részletek
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
 - Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Ha többet szeretne megtudni a Microsoft Azure Stack hub csomagolásáról és díjszabásáról, [töltse le a. PDF fájlt](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Datacenter hálózati integráció](azure-stack-network.md)

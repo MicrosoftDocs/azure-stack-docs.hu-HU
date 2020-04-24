@@ -6,7 +6,7 @@
       href: user-overview.md
     - name: Fő szempontok
       href: azure-stack-considerations.md
-- name: Gyors útmutatók
+- name: Rövid útmutatók
   expanded: true
   items:
     - name: Windows rendszerű virtuális gép létrehozása – Portál
@@ -23,7 +23,7 @@
       href: azure-stack-quick-create-vm-linux-cli.md
     - name: Event Hubs-fürt létrehozása – portál
       href: event-hubs-quickstart-cluster-portal.md
-- name: oktatóanyagokat
+- name: Oktatóanyagok
   items:
     - name: Előfizetés egy ajánlatra
       href: azure-stack-subscribe-services.md
@@ -75,7 +75,7 @@
           items:
             - name: Sablonok áttekintése
               href: azure-stack-arm-templates.md
-            - name: Sablon kapcsolatos szempontok
+            - name: Sablonokkal kapcsolatos megfontolások
               href: azure-stack-develop-templates.md
             - name: Sablonok fejlesztése az Azure-ban
               href: azure-stack-developer.md
@@ -93,7 +93,7 @@
                   href: azure-stack-resource-manager-deploy-template-vscode.md
                 - name: Üzembe helyezés a Visual Studióval
                   href: azure-stack-deploy-template-visual-studio.md
-        - name: API-verziók profiljainak használata
+        - name: API-verzióprofilok használata
           items:
             - name: Áttekintés
               href: azure-stack-version-profiles.md
@@ -109,7 +109,7 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: Erőforrás-szolgáltató profil által támogatott API-k
+            - name: Profilok által támogatott erőforrás-szolgáltatói API-k
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Erőforrás-szolgáltatók használata
       items:
@@ -121,7 +121,7 @@
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatások használata
           items:
-            - name: Számítás
+            - name: Compute
               items:
                 - name: Áttekintés
                   href: azure-stack-compute-overview.md
@@ -129,17 +129,17 @@
                   href: azure-stack-vm-considerations.md
                 - name: A virtuális gépek mérete
                   href: azure-stack-vm-sizes.md
-                - name: Virtuálisgép-lemezek kezelése
+                - name: VM-lemezek kezelése
                   href: azure-stack-manage-vm-disks.md
-                - name: Felügyelt lemez-megfontolások
+                - name: Felügyelt lemezek szempontjai
                   href: azure-stack-managed-disk-considerations.md
                 - name: A virtuális gépek védelme
                   href: azure-stack-manage-vm-protect.md
-                - name: Virtuális gép frissítése és kezelése
+                - name: VIRTUÁLIS gépek frissítése és kezelése
                   href: vm-update-management.md
-                - name: Az SQL Server virtuális gépekkel kapcsolatos szempontok
+                - name: SQL Server VM megfontolások
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Tárterület
+            - name: Storage
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -151,7 +151,7 @@
                   href: azure-stack-storage-transfer.md
                 - name: A Storage Explorer csatlakoztatása
                   href: azure-stack-storage-connect-se.md
-            - name: Hálózat
+            - name: Network (Hálózat)
               items:
                 - name: Áttekintés
                   href: azure-stack-network-overview.md
@@ -165,7 +165,7 @@
                       href: azure-stack-vpn-gateway-about-vpn-gateways.md
                     - name: IPSec/IKE-kapcsolatok házirendjeinek konfigurálása
                       href: azure-stack-vpn-s2s.md
-                    - name: A VPN gateway beállításairól
+                    - name: VPN-átjáró beállításai
                       href: azure-stack-vpn-gateway-settings.md
                 - name: iDNS Azure Stack hub-hoz
                   href: azure-stack-understanding-dns.md
@@ -196,13 +196,13 @@
               items:
                 - name: Támogatott metrikák
                   href: azure-stack-metrics-supported.md
-                - name: Azure monitorozási adatok felhasználásához
+                - name: Azure monitoring-adatfeldolgozás
                   href: azure-stack-metrics-monitor.md
         - name: Kiegészítő szolgáltatások telepítése
           items:
             - name: Ethereum üzembe helyezése
               href: azure-stack-ethereum.md
-            - name: A Service Fabric-fürt üzembe helyezése
+            - name: Service Fabric-fürt üzembe helyezése
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: Kubernetes-fürt üzembe helyezése
               items:
@@ -210,7 +210,7 @@
                   items:
                     - name: AK-motor Azure Stack hub-on
                       href: azure-stack-kubernetes-aks-engine-overview.md
-                    - name: Támogatási szabályzat
+                    - name: Támogatási házirend
                       href: azure-stack-kubernetes-aks-engine-support.md
                     - name: Előfeltételek beállítása
                       href: azure-stack-kubernetes-aks-engine-set-up.md
@@ -242,13 +242,13 @@
                       href: azure-stack-solution-template-kubernetes-dashboard.md
                     - name: AK-motor áthelyezése a Marketplace-elemből
                       href: azure-stack-kubernetes-aks-engine-dvm.md
-                    - name: Kubernetes-fürt hibaelhárítása
+                    - name: Kubernetes-fürt hibáinak megoldása
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Cognitive Services üzembe helyezése
               href: azure-stack-solution-template-cognitive-services.md
     - name: Alkalmazások telepítése
       items:
-        - name: 'Webalkalmazás C# üzembe helyezése Windows-alapú virtuális gépen'
+        - name: 'C#-alapú webalkalmazás üzembe helyezése Windows rendszerű virtuális gépen'
           href: azure-stack-dev-start-howto-vm-dotnet.md
         - name: Webalkalmazás üzembe helyezése Linux rendszerű virtuális gépen
           items:
@@ -325,13 +325,13 @@
       href: /rest/api/
     - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakör
+- name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator/
-    - name: ASDK dokumentációja
+    - name: A ASDK dokumentációja
       href: /azure-stack/asdk/
-- name: Erőforrások
+- name: További források
   items:
     - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

@@ -9,17 +9,17 @@ ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "80423905"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Szolgáltatási ajánlat létrehozása Azure Stack hub felhasználói számára
 
 Ez az oktatóanyag egy operátort mutat be az ajánlat létrehozásához. Az ajánlat lehetővé teszi, hogy a szolgáltatások elérhetők legyenek a felhasználók számára az előfizetések alapján. Az ajánlatra való előfizetést követően a felhasználó az ajánlat által meghatározott szolgáltatásokon belül hozhat létre és helyezhet üzembe erőforrásokat.
 
-Ez az oktatóanyag bemutatja, hogyan végezheti el az alábbi műveleteket:
+Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 > [!div class="checklist"]
 > * Hozzon létre egy ajánlatot.
@@ -49,7 +49,7 @@ Az alapszolgáltatásokat a következő erőforrás-szolgáltatók támogatják,
 | Erőforrás-szolgáltató | Példa erőforrások |
 | ----------------- | ------------------|
 | Microsoft.Compute | Virtuális gépek, lemezek, virtuálisgép-méretezési csoportok |
-| Microsoft.KeyVault | Kulcstartók, titkok |
+| Microsoft. kulcstartó | Kulcstartók, titkok |
 | Microsoft.Network | Virtuális hálózatok, nyilvános IP-címek, terheléselosztó |
 | Microsoft.Storage | Storage-fiókok, blobok, várólisták, táblák |
 
@@ -62,10 +62,10 @@ Az értéknövelt szolgáltatásokat a Azure Stack hub telepítése után telep�
 
 | Erőforrás-szolgáltató | Példa erőforrások |
 | ----------------- | ------------------------- |
-| Microsoft.Web | App Service Function apps, Web Apps, API apps | 
+| Microsoft. Web | App Service Function apps, Web Apps, API apps | 
 | Microsoft. MySqlAdapter | MySQL-üzemeltetési kiszolgáló, MySQL-adatbázis | 
 | Microsoft. SqlAdapter | SQL Server üzemeltetési kiszolgáló, SQL Server adatbázis |
-| Microsoft.EventHub | Event Hubs |
+| Microsoft. EventHub | Event Hubs |
 
 ::: moniker range=">=azs-1902"
 
@@ -76,9 +76,9 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 1. Jelentkezzen be a felügyeleti portálra egy Felhőbeli rendszergazdai fiókkal.
 
     - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változhat. Az URL-cím a `https://adminportal.<region>.<FQDN>`formátumot használja.
-    - Ha a Azure Stack Development Kit használja, az URL-cím `https://adminportal.local.azurestack.external`.
+    - Ha a Azure Stack Development Kit használja, az URL-cím: `https://adminportal.local.azurestack.external`.
 
-    Ezután válassza **az + erőforrás létrehozása** > **ajánlatok + csomagok** > **ajánlat**lehetőséget.
+    Ezután válassza **az + erőforrás** > létrehozása **ajánlatok + csomagok** > **lehetőséget.**
 
     ![Új ajánlat az Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/1-create-resource-offer.png)
 
@@ -132,10 +132,10 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 1. Jelentkezzen be a felügyeleti portálra egy Felhőbeli rendszergazdai fiókkal.
 
-    - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a `https://adminportal.<region>.<FQDN>`formátum használatával.
-    - Ha a Azure Stack Development Kit használja, az URL-cím <https://adminportal.local.azurestack.external>.
+    - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik a formátum `https://adminportal.<region>.<FQDN>`használatával.
+    - Ha a Azure Stack Development Kit használja, az URL-cím: <https://adminportal.local.azurestack.external>.
 
-    Ezután válassza **az + erőforrás létrehozása** > **ajánlatok + csomagok** > **ajánlat**lehetőséget.
+    Ezután válassza **az + erőforrás** > létrehozása **ajánlatok + csomagok** > **lehetőséget.**
 
     ![Új ajánlat az Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/image01.png)
 
@@ -185,9 +185,9 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 ::: moniker-end
  
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-Ennek az oktatóanyagnak a segítségével megtanulta a következőket:
+Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 
 > [!div class="checklist"]
 > * Hozzon létre egy ajánlatot.

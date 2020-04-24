@@ -3,16 +3,16 @@ title: Azure Stack hub kezelése az Azure CLI-vel
 description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon a platformfüggetlen parancssori felületen (CLI).
 author: mattbriggs
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: d7972047787ed9ae7a5c6525c8da7dc67717c502
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fb10c078754e68c12cf79a4080544626885525fb
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705253"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660105"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése Azure Stack hubhoz az Azure CLI-vel
 
@@ -71,7 +71,7 @@ A ASDK legfelső szintű tanúsítványának exportálása PEM formátumban:
 
 Beállíthat egy nyilvánosan elérhető végpontot, amely egy virtuálisgép-alias fájlt üzemeltet. A VM-alias fájl egy olyan JSON-fájl, amely a rendszerkép köznapi nevét adja meg. A nevet akkor használja, ha a virtuális gépet Azure CLI-paraméterként telepíti.
 
-1. Ha egyéni rendszerképet tesz közzé, jegyezze fel a közzététel során megadott kiadói, ajánlati, SKU-és verziószám-információkat. Ha ez egy rendszerkép a piactéren, megtekintheti az információkat a ```Get-AzureVMImage``` parancsmag használatával.  
+1. Ha egyéni rendszerképet tesz közzé, jegyezze fel a közzététel során megadott kiadói, ajánlati, SKU-és verziószám-információkat. Ha ez egy rendszerkép a piactéren, megtekintheti az adatokat a ```Get-AzureVMImage``` parancsmag használatával.  
 
 2. Töltse le a [mintát](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) a githubról.
 
@@ -106,9 +106,9 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
 
 Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát, fűzze hozzá a meglévő Python-tanúsítványtárolóhoz az Azure CLI-vel telepített Python-verzióhoz. Előfordulhat, hogy a Python saját példányát futtatja. Az Azure CLI a Python saját verzióját tartalmazza.
 
-1. Keresse meg a tanúsítványtároló helyét a gépen.  A helyet a `az --version`parancs futtatásával találja meg.
+1. Keresse meg a tanúsítványtároló helyét a gépen.  A helyet a parancs `az --version`futtatásával találja meg.
 
-2. Navigáljon ahhoz a mappához, amely a CLI Python-alkalmazást tartalmazza. Futtatni kívánja a Python ezen verzióját. Ha a Pythont a rendszerútvonalon állította be, a Python futtatása a Python saját verzióját fogja futtatni. Ehelyett futtatni kívánja a CLI által használt verziót, és hozzá kell adnia a tanúsítványt az adott verzióhoz. Előfordulhat például, hogy a CLI Python a következő helyen található: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
+2. Navigáljon ahhoz a mappához, amely a CLI Python-alkalmazást tartalmazza. Futtatni kívánja a Python ezen verzióját. Ha a Pythont a rendszerútvonalon állította be, a Python futtatása a Python saját verzióját fogja futtatni. Ehelyett futtatni kívánja a CLI által használt verziót, és hozzá kell adnia a tanúsítványt az adott verzióhoz. Előfordulhat például, hogy a CLI Python a következő helyen `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`található:.
 
     Az alábbi parancsokat használja:
 
@@ -154,14 +154,14 @@ Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanús�
 
 1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
+2. Regisztrálja a környezetét. A következő paraméterek használata a futtatásakor `az cloud register`:
 
     | Érték | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Tárolási végpont | helyi. azurestack. external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -183,18 +183,18 @@ Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanús�
     >[!NOTE]  
     >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
  
-1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Jelentkezzen be az Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Jelentkezzen be az Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    - Bejelentkezés *felhasználóként*: 
 
-     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancsban, vagy egy böngésző használatával végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
+     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
      ```azurecli
      az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
      ```
 
      > [!NOTE]
-     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, használja a `az login` parancsot a `-u` paraméter megadása nélkül. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, `az login` a `-u` paraméter megadása nélkül használja a parancsot. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
 
    - Bejelentkezés *egyszerű szolgáltatásként*: 
     
@@ -204,7 +204,7 @@ Ha meg szeretné bízni a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanús�
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -267,14 +267,14 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
 
 1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
+2. Regisztrálja a környezetét. A következő paraméterek használata a futtatásakor `az cloud register`:
 
     | Érték | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Tárolási végpont | helyi. azurestack. external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -296,24 +296,24 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
     >[!NOTE]  
     >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
 
-1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    - Bejelentkezés *felhasználóként*:
 
-     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancsban, vagy egy böngésző használatával végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
+     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
      ```azurecli
      az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
-     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, használja a `az login` parancsot a `-u` paraméter megadása nélkül. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, `az login` a `-u` paraméter megadása nélkül használja a parancsot. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
 
    - Bejelentkezés *egyszerű szolgáltatásként*: 
     
      Készítse elő a. PEM-fájlt, amelyet a szolgáltatás egyszerű bejelentkezéséhez kíván használni.
 
-     A rendszerbiztonsági tag létrejöttének ügyfélszámítógépén exportálja az egyszerű szolgáltatás tanúsítványát pfx-ként a `cert:\CurrentUser\My`található titkos kulccsal. A tanúsítvány neve megegyezik a rendszerbiztonsági tag nevével.
+     A rendszerbiztonsági tag létrehozására szolgáló ügyfélszámítógépen exportálja az egyszerű szolgáltatás tanúsítványát pfx-ként a következő helyen `cert:\CurrentUser\My`található titkos kulccsal. A tanúsítvány neve megegyezik a rendszerbiztonsági tag nevével.
 
      Alakítsa át a pfx-t PEM-ra (használja az OpenSSL segédprogramot).
 
@@ -327,7 +327,7 @@ Ha a ASDK használja, meg kell bíznia a távoli gépen lévő HITELESÍTÉSSZOL
       --debug 
      ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -378,14 +378,14 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
 
 1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket:
+2. Regisztrálja a környezetét. A következő paraméterek használata a futtatásakor `az cloud register`:
 
     | Érték | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Tárolási végpont | helyi. azurestack. external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -407,11 +407,11 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
     >[!NOTE]  
     >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
 
-5. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
    * Bejelentkezés *felhasználóként*:
 
-     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancsban, vagy egy böngésző használatával végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
+     Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
      ```azurecli
      az login \
@@ -420,7 +420,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
      ```
 
      > [!NOTE]
-     > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, használhatja a `az login` parancsot a `-u` paraméter megadása nélkül. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
+     > Ha a felhasználói fiókjában engedélyezve van a többtényezős hitelesítés, a `az login` parancsot a `-u` paraméter megadása nélkül is használhatja. A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
    
    * Bejelentkezés *egyszerű szolgáltatásként*
     
@@ -434,7 +434,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
        -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -484,14 +484,14 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
 
 1. Regisztrálja Azure Stack hub-környezetét a `az cloud register` parancs futtatásával.
 
-2. Regisztrálja a környezetét. `az cloud register`futtatásakor használja a következő paramétereket.
+2. Regisztrálja a környezetét. A futtatásakor `az cloud register`használja a következő paramétereket.
 
     | Érték | Példa | Leírás |
     | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser` használata a felhasználói környezetben. Ha az operátort használja, akkor `AzureStackAdmin`. |
-    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.<region>.<fqdn>/` ha az integrált rendszervégponttal kapcsolatos kérdése van, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | local.azurestack.external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Környezet neve | AzureStackUser | A `AzureStackUser` felhasználói környezethez használható. Ha az operátor van megadva `AzureStackAdmin`, akkor a () lehetőséget. |
+    | Resource Manager-végpont | https://management.local.azurestack.external | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+    | Tárolási végpont | helyi. azurestack. external | `local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external`a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
     | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [set up the VM aliass Endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
@@ -513,7 +513,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
     >[!NOTE]  
     >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid**helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
 
-5. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` parancs használatával. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+5. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
 6. bejelentkezés: 
 
@@ -530,7 +530,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
         
      Készítse elő a. PEM-fájlt, amelyet a szolgáltatás egyszerű bejelentkezéséhez kíván használni.
 
-      * A rendszerbiztonsági tag létrejöttének ügyfélszámítógépén exportálja az egyszerű szolgáltatás tanúsítványát pfx-ként a `cert:\CurrentUser\My`található titkos kulccsal. A tanúsítvány neve megegyezik a rendszerbiztonsági tag nevével.
+      * A rendszerbiztonsági tag létrehozására szolgáló ügyfélszámítógépen exportálja az egyszerű szolgáltatás tanúsítványát pfx-ként a következő helyen `cert:\CurrentUser\My`található titkos kulccsal. A tanúsítvány neve megegyezik a rendszerbiztonsági tag nevével.
   
       * Alakítsa át a pfx-t PEM-ra (használja az OpenSSL segédprogramot).
 
@@ -544,7 +544,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
         --debug 
       ```
 
-### <a name="test-the-connectivity"></a>A kapcsolat tesztelése
+### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
 Minden beállításnál a CLI használatával hozhat létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot egy alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy "MyResourceGroup" nevű erőforráscsoportot:
 
@@ -560,11 +560,11 @@ Ha az erőforráscsoport sikeresen létrejött, az előző parancs kimenete az �
 
 Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
 
- - A CLI interaktív mód. A `az interactive` parancs például még nem támogatott az Azure Stack hub-ban.
- - Azure Stack hub-ban elérhető virtuálisgép-rendszerképek listájának lekéréséhez használja az `az vm image list` parancs helyett a `az vm image list --all` parancsot. A `--all` beállítás megadásával biztosíthatja, hogy a válasz csak az Azure Stack hub-környezetben elérhető lemezképeket adja vissza.
- - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stack hubhoz. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie az `az vm images list` parancsból származtatott rendszerkép-specifikációkkal.
+ - A CLI interaktív mód. A parancs például az `az interactive` Azure stack hub még nem támogatja.
+ - Azure Stack hub-ban elérhető virtuálisgép-rendszerképek listájának lekéréséhez `az vm image list --all` használja a parancsot a `az vm image list` parancs helyett. A `--all` beállítás megadásával biztosíthatja, hogy a válasz csak az Azure stack hub-környezetben elérhető lemezképeket adja vissza.
+ - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stack hubhoz. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie a `az vm images list` parancsból származtatott rendszerkép-specifikációkkal.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
 - [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: a1939049c3eb8c4440e37e58b6acfafa91881406
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688967"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>App Service üzembe helyezése Azure Stack központban
@@ -52,7 +52,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 
 5. Győződjön meg arról, hogy helyesek-e a App Service felhő konfigurációs adatai. Ha a ASDK telepítése során az alapértelmezett beállításokat használta, fogadja el az alapértelmezett értékeket. Ha azonban testreszabta a ASDK üzembe helyezésekor, vagy egy Azure Stack hub integrált rendszeren való üzembe helyezéskor, akkor az ebben az ablakban található értékeket kell szerkesztenie, hogy azok tükrözzék a különbségeket.
 
-   Ha például a mycloud.com tartományi utótagot használja, akkor a Azure Stack hub-bérlő Azure Resource Manager végpontjának felügyeletre kell váltania.&lt;régió&gt;. mycloud.com. Tekintse át ezeket a beállításokat, majd kattintson a **tovább** gombra a beállítások mentéséhez.
+   Ha például a mycloud.com tartományi utótagot használja, akkor a Azure Stack hub-bérlő Azure Resource Manager végpontjának felügyeletre kell váltania. &lt;region&gt;. mycloud.com. Tekintse át ezeket a beállításokat, majd kattintson a **tovább** gombra a beállítások mentéséhez.
 
    ![App Service telepítő][2]
 
@@ -64,7 +64,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
             - Ha Azure Active Directoryt (Azure AD) használ, adja meg az Azure AD-rendszergazda fiókját és jelszavát, amelyet az Azure Stack hub telepítésekor adott meg. Kattintson a **Csatlakozás** gombra.
             - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **kapcsolat**lehetőséget.
 
-        - **Egyszerű szolgáltatásnév**
+        - **Szolgáltatásnév**
             - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
             - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat**lehetőséget.
 
@@ -87,7 +87,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 
    ![App Service telepítő][4]
 
-8. Adja meg a fájlmegosztás adatait, majd kattintson a **tovább**gombra. A fájlmegosztás címének a teljes tartománynevet (FQDN) vagy a fájlkiszolgáló IP-címét kell használnia. Például \\\appservicefileserver.local.cloudapp.azurestack.external\websites, vagy \\\10.0.0.1\websites.  Ha olyan fájlkiszolgálón használ, amely tartományhoz van csatlakoztatva, meg kell adnia a teljes felhasználónevet, beleértve a tartományt is. Például: myfileserverdomain\FileShareOwner.
+8. Adja meg a fájlmegosztás adatait, majd kattintson a **tovább**gombra. A fájlmegosztás címének a teljes tartománynevet (FQDN) vagy a fájlkiszolgáló IP-címét kell használnia. Például: \\\appservicefileserver.local.cloudapp.azurestack.external\websites vagy \\\10.0.0.1\websites.  Ha olyan fájlkiszolgálón használ, amely tartományhoz van csatlakoztatva, meg kell adnia a teljes felhasználónevet, beleértve a tartományt is. Például: myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >A telepítő megkísérli a fájlmegosztás kapcsolatának tesztelését a folytatás előtt. Ha azonban egy meglévő virtuális hálózatra telepíti, a kapcsolat tesztelése sikertelen lehet. Figyelmeztetést kap, és a folytatáshoz a rendszer kéri. Ha a fájlmegosztás adatai helyesek, folytassa a telepítést.
@@ -113,8 +113,8 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
     | Box | Példa tanúsítványfájl-fájlnévre |
     | --- | --- |
     | **Alapértelmezett SSL-tanúsítványfájl App Service** | \_. appservice. local. AzureStack. external. pfx |
-    | **App Service API SSL-tanúsítványfájl** | api.appservice.local.AzureStack.external.pfx |
-    | **App Service közzétevő SSL-tanúsítványfájl** | ftp.appservice.local.AzureStack.external.pfx |
+    | **App Service API SSL-tanúsítványfájl** | API. appservice. local. AzureStack. external. pfx |
+    | **App Service közzétevő SSL-tanúsítványfájl** | FTP. appservice. local. AzureStack. external. pfx |
 
     Ha a tanúsítványok létrehozásakor eltérő tartományi utótagot használt, a tanúsítványfájl neve nem a helyi nevet használja *. AzureStack. external*. Ehelyett használja az egyéni tartomány adatait.
 
@@ -175,7 +175,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 ## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]
-> Ha a App Service RP-t egy SQL always on-példánnyal adta meg, akkor [a appservice_hosting és appservice_metering adatbázisokat hozzá kell adnia egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
+> Ha a App Service RP-t egy SQL always on-példánnyal adta **must** meg, akkor [a appservice_hosting és appservice_metering adatbázisokat hozzá kell adnia egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
 Ha meglévő virtuális hálózatra telepít üzembe, és belső IP-cím használatával csatlakozik a fájlkiszolgáló kiszolgálóhoz, hozzá kell adnia egy kimenő biztonsági szabályt. Ez a szabály engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. A felügyeleti portálon nyissa meg a WorkersNsg hálózati biztonsági csoportot, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
 
@@ -211,17 +211,17 @@ A App Service erőforrás-szolgáltató üzembe helyezése és regisztrálása u
 
 A teszt webalkalmazás létrehozásához kövesse az alábbi lépéseket:
 
-1. Az Azure Stack hub felhasználói portálon válassza az **+ erőforrás létrehozása** > **web és mobil** > **webalkalmazás**lehetőséget.
+1. Az Azure stack hub felhasználói portálon válassza az **+ erőforrás** > létrehozása**web és mobil** > **webalkalmazás**lehetőséget.
 
 2. A **Web App (webalkalmazás**) területen adjon meg egy nevet a **webalkalmazásban**.
 
 3. Az **erőforráscsoport**területen válassza az **új**lehetőséget. Adja meg az **erőforráscsoport**nevét.
 
-4. Válassza ki **app Service terv/hely** > **hozzon létre új**elemet.
+4. Válassza a **app Service terv/hely** > **létrehozása új**lehetőséget.
 
 5. A **app Servicei csomag**területen adja meg a **app Service terv**nevét.
 
-6. Válassza ki az **árképzési szintet** > **Free-Shared** vagy **shared-shared** > válassza a > **OK** > **Létrehozás** **lehetőséget** .
+6.  > Válassza **a****Free-Shared** vagy **a Shared-** > Shared**Select** > **OK** > **létrehozása**lehetőséget.
 
 7. Megjelenik egy csempe az új webalkalmazáshoz az irányítópulton. Válassza ki a csempét.
 
@@ -229,13 +229,13 @@ A teszt webalkalmazás létrehozásához kövesse az alábbi lépéseket:
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress-, DNN-vagy Django-webhely üzembe helyezése (opcionális)
 
-1. Az Azure Stack hub felhasználói portálon válassza a **+** lehetőséget, nyissa meg az Azure Marketplace-t, telepítsen egy Django-webhelyet, és várjon, amíg a telepítés befejeződik. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
+1. Az Azure Stack hub felhasználói portálon válassza ki **+** az Azure Marketplace-t, telepítsen egy Django-webhelyet, és várjon, amíg a telepítés befejeződik. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
 
-2. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a piactéren telepítheti a WordPress-webhelyeket is. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
+2. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a piactéren telepítheti a WordPress-webhelyeket is. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *Felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
 
 3. Ha SQL Server erőforrás-szolgáltatót is üzembe helyezett, üzembe helyezhet egy DNN-webhelyet a piactéren. Ha a rendszer az adatbázis paramétereinek megadását kéri, válasszon egy adatbázist az erőforrás-szolgáltatóhoz csatlakoztatott SQL Servert futtató számítógépen.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Felkészülés további rendszergazdai műveletekre Azure Stack hub App Service:
 

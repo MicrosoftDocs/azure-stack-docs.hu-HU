@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 6af8d30fc7902e716d974c5ad66049e3a6037f47
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294945"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812424"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
@@ -19,13 +19,13 @@ A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalma
 
 A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. A [VPN Gateway for Azure stack hub](azure-stack-vpn-gateway-about-vpn-gateways.md)-hoz kapcsolódó összes csatlakoztatási megoldáshoz leírásokat és topológiai diagramokat talál.
 
-## <a name="vpn-gateway-settings"></a>A VPN gateway beállításairól
+## <a name="vpn-gateway-settings"></a>VPN-átjáró beállításai
 
 ### <a name="gateway-types"></a>Átjárótípusok
 
 Minden Azure Stack hub virtuális hálózat egyetlen virtuális hálózati átjárót támogat, amelynek a **VPN**típusúnak kell lennie. Ez a támogatás eltér az Azure-tól, amely támogatja a további típusokat.
 
-Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz a `-GatewayType Vpn` jelző szükséges; például:
+Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arról, hogy az átjáró típusa helyes a konfigurációhoz. A VPN-átjáróhoz `-GatewayType Vpn` a jelző szükséges; például:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -41,11 +41,11 @@ Azure Stack hub a következő táblázatban látható VPN Gateway SKU-ket kíná
 
 | | VPN Gateway átviteli sebesség |VPN-átjáró maximális IPsec-alagutak |
 |-------|-------|-------|
-|**Alapszintű SKU**  | 100 Mbps  | 20    |
-|**Szabványos SKU**   | 100 Mbps  | 20 |
-|**Nagy teljesítményű SKU** | 200 Mbps | 10 |
+|**Alapszintű termékváltozat**  | 100 Mbps    | 20    |
+|**Standard termékváltozat**   | 100 Mbps  | 20 |
+|**Nagy teljesítményű termékváltozat** | 200 Mbps | 10 |
 
-### <a name="resizing-gateway-skus"></a>Átjárók átméretezése
+### <a name="resizing-gateway-skus"></a>Az átjárók termékváltozatainak átméretezése
 
 Az Azure Stack hub nem támogatja az SKU-nak a támogatott örökölt SKU-ból való átméretezését.
 
@@ -59,7 +59,7 @@ Ha a Azure Stack hub-portál használatával hoz létre Resource Manager virtuá
 
 #### <a name="powershell"></a>PowerShell
 
-A következő PowerShell-példa a `-GatewaySku` paramétert adja meg **standardként**:
+A következő PowerShell-példa a `-GatewaySku` paramétert **szabványosként**adja meg:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -69,7 +69,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="connection-types"></a>Kapcsolattípusok
 
-A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. A `-ConnectionType` elérhető Resource Manager PowerShell-értékek az **IPSec**.
+A Resource Manager-alapú üzemi modellben minden konfigurációhoz egy adott virtuális hálózati átjáró kapcsolódási típus szükséges. Az elérhető Resource Manager PowerShell-értékek `-ConnectionType` a következők: **IPSec**.
 
 A következő PowerShell-példában létrejön egy S2S-kapcsolat, amely az IPsec-kapcsolat típusát igényli:
 
@@ -95,7 +95,7 @@ Amikor létrehoz egy VPN Gateway-konfigurációhoz tartozó virtuális hálózat
 
 * **Útvonalalapú**: az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használják a csomagok megfelelő bújtatási interfészekhez való közvetlen küldéséhez. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú** VPN-EK házirendje vagy forgalmi választója bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú** VPN-típus értéke **útvonalalapú**.
 
-A következő PowerShell-példa a **útvonalalapú**`-VpnType` adja meg. Amikor létrehoz egy átjárót, meg kell győződnie arról, hogy a `-VpnType` helyesek a konfigurációhoz.
+A következő PowerShell-példa az `-VpnType` as **útvonalalapú**adja meg. Amikor létrehoz egy átjárót, meg kell győződnie arról, `-VpnType` hogy a megfelelő a konfigurációhoz.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -112,7 +112,7 @@ A következő táblázat a VPN-átjárók követelményeit sorolja fel.
 | **Helyek közötti kapcsolat (S2S-kapcsolat)** | Nem támogatott | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció | Útválasztó-alapú VPN-konfiguráció |
 | **Hitelesítési módszer**  | Nem támogatott | Előmegosztott kulcs S2S-kapcsolathoz  | Előmegosztott kulcs S2S-kapcsolathoz  | Előmegosztott kulcs S2S-kapcsolathoz  |
 | **S2S-kapcsolatok maximális száma**  | Nem támogatott | 20 | 20| 10|
-|**Aktív Útválasztás támogatása (BGP)** | Nem támogatott | Nem támogatott | Támogatott | Támogatott |
+|**Aktív útválasztás-támogatás (BGP)** | Nem támogatott | Nem támogatott | Támogatott | Támogatott |
 
 ### <a name="gateway-subnet"></a>Átjáró alhálózata
 
@@ -132,7 +132,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 ```
 
 > [!IMPORTANT]
-> Átjáróalhálózatokkal való munka esetén ne társítsa a hálózati biztonsági csoportot (NSG) az átjáróalhálózathoz. Ha hálózati biztonsági csoportot társít ehhez az alhálózathoz, akkor a VPN-átjáró a várt módon leállhat. A hálózati biztonsági csoportokkal kapcsolatos további információkért lásd: [Mi az a hálózati biztonsági csoport?](/azure/virtual-network/virtual-networks-nsg).
+> Amikor átjáró-alhálózatokkal dolgozik, kerülje a hálózati biztonsági csoportok (NSG) társítását az átjáró-alhálózathoz. Ha hálózati biztonsági csoportot társít ehhez az alhálózathoz, akkor a VPN-átjáró a várt módon leállhat. A hálózati biztonsági csoportokkal kapcsolatos további információkért lásd: [Mi az a hálózati biztonsági csoport?](/azure/virtual-network/virtual-networks-nsg).
 
 ### <a name="local-network-gateways"></a>Helyi hálózati átjárók
 
@@ -156,7 +156,7 @@ Ha Azure Stack hub VPN-kapcsolatát állítja be, mindkét végponton konfigurá
 Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként és válaszadóként, Azure Stack hub alapértelmezés szerint csak egy ajánlatot támogat. Ha más IPSec/IKE-beállításokat kell használnia a VPN-eszköz használatához, több beállítás is elérhető a kapcsolat manuális konfigurálásához. További információ: [IPSec/IKE-szabályzat konfigurálása helyek közötti VPN-kapcsolatokhoz](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> A S2S-alagút használatakor a csomagok tovább vannak ágyazva további fejlécekkel, ami növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350**-es verzióban kell megfogni. Ha a VPN-eszköze nem támogatja az MSS korlátozását, akkor ehelyett beállíthatja az alagútkapcsolaton az **MTU**-t **1400** bájtra. További információ: [virutal Network TCPIP Performance tuning] (virtual-network-tcpip-performance-tuning.md) 
+> A S2S-alagút használatakor a csomagok tovább vannak ágyazva további fejlécekkel, ami növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350**-es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen lévő **MTU** -t **1400** bájtra is állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Az IKE 1. fázis (Elsődleges mód) paraméterei
@@ -188,10 +188,10 @@ Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként
 >|-|-|
 >|Diffie-Hellman Group   | DHGroup2 |
 >|Kivonatoló algoritmusok | SHA256 |
->|Sérülés utáni titkosságvédelem (PFS) | Nincs |
+>|Sérülés utáni titkosságvédelem (PFS) | None |
 
-\* új vagy módosított paramétert.
+\*Új vagy módosított paraméter.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-* [Összekapcsolás a ExpressRoute használatával](../operator/azure-stack-connect-expressroute.md)
+* [Csatlakozás ExpressRoute használatával](../operator/azure-stack-connect-expressroute.md)

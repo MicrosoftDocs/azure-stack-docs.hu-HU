@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025699"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Hibatűrés és a tárolási hatékonyság a Azure Stack HCI-ben
@@ -97,13 +97,13 @@ A tükrözött felgyorsított paritás tárolási hatékonysága az összes tük
 > [!IMPORTANT]
 > Javasoljuk, hogy a legtöbb teljesítményre érzékeny számítási feladathoz használjon tükrözést. Ha többet szeretne megtudni a teljesítmény és a kapacitás kiegyensúlyozásáról a munkaterhelés alapján, tekintse meg a [kötetek megtervezése](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type)című témakört.
 
-## <a name="summary"></a>Summary (Összefoglalás)
+## <a name="summary"></a><a name="summary"></a>Összefoglalás
 
 Ez a szakasz összefoglalja a Közvetlen tárolóhelyek rendelkezésre álló rugalmassági típusokat, az egyes típusok használatának minimális méretezési követelményeit, az egyes típusokhoz tartozó hibák számát, valamint a megfelelő tárolási hatékonyságot.
 
 ### <a name="resiliency-types"></a>Rugalmassági típusok
 
-|    Resiliency          |    Meghibásodási tolerancia       |    Tárolási hatékonyság      |
+|    Rugalmasság          |    Meghibásodási tolerancia       |    Tárolási hatékonyság      |
 |------------------------|----------------------------|----------------------------|
 |    Kétutas tükrözés      |    1                       |    50,0%                   |
 |    Háromutas tükrözés    |    2                       |    33,3%                   |
@@ -112,7 +112,7 @@ Ez a szakasz összefoglalja a Közvetlen tárolóhelyek rendelkezésre álló ru
 
 ### <a name="minimum-scale-requirements"></a>Minimális skálázási követelmények
 
-|    Resiliency          |    Minimálisan szükséges tartalék tartományok   |
+|    Rugalmasság          |    Minimálisan szükséges tartalék tartományok   |
 |------------------------|-------------------------------------|
 |    Kétutas tükrözés      |    2                                |
 |    Háromutas tükrözés    |    3                                |
@@ -126,7 +126,7 @@ Ez a szakasz összefoglalja a Közvetlen tárolóhelyek rendelkezésre álló ru
 
 Ez a táblázat a kettős paritású és a helyi újjáépítési kódok tárolási hatékonyságát mutatja a hibrid telepítések esetében, amelyek merevlemez-meghajtókat (HDD) és SSD-meghajtókat egyaránt tartalmaznak.
 
-|    Tartalék tartományok      |    Elrendezés           |    Hatékonyságot   |
+|    Tartalék tartományok      |    Elrendezés           |    Hatékonyság   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -148,7 +148,7 @@ Ez a táblázat a kettős paritású és a helyi újjáépítési kódok tárol�
 
 Ez a táblázat a kettős paritású és helyi újraépítési kódok tárolási hatékonyságát mutatja minden olyan Flash-telepítés esetén, amely kizárólag SSD-meghajtókat tartalmaz. A paritásos elrendezés nagyobb méretű csoportokat használhat, és jobb tárolási hatékonyságot érhet el egy teljes Flash konfigurációban.
 
-|    Tartalék tartományok      |    Elrendezés           |    Hatékonyságot   |
+|    Tartalék tartományok      |    Elrendezés           |    Hatékonyság   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -166,7 +166,7 @@ Ez a táblázat a kettős paritású és helyi újraépítési kódok tárolási
 |    15                 |    RS 6 + 2           |    75,0%        |
 |    16                 |    FORRÁSKÖZPONT (12, 2, 1)   |    80,0%        |
 
-## <a name="examples"></a>Példák
+## <a name="examples"></a><a name="examples"></a>Példák
 
 Ha csak két kiszolgálóval rendelkezik, javasoljuk, hogy használjon háromutas tükrözést és/vagy kettős paritást, mert jobb hibatűrést biztosítanak. Pontosabban gondoskodnak arról, hogy az összes adatbázis biztonságban maradjon, és folyamatosan elérhető legyen, még akkor is, ha két tartalék tartomány – Közvetlen tárolóhelyek esetén – két kiszolgálót jelent – egyidejű hibák érintik.
 
@@ -204,7 +204,7 @@ Ez a hat példa azt mutatja be, hogy milyen háromutas tükrözést és/vagy ket
 
 Tekintse meg [a kötetek létrehozását a közvetlen tárolóhelyekban](/windows-server/storage/storage-spaces/create-volumes).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A cikkben említett témakörökkel kapcsolatos további információkért tekintse meg a következőket:
 

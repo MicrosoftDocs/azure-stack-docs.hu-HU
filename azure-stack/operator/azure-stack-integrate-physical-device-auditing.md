@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 99b195618841640b77a00b9d1bbab01d18b0e19e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78368056"
 ---
 # <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>Fizikai eszközök naplózásának integrálása az Azure Stack hub-adatközponttal
@@ -32,6 +32,6 @@ Az Azure Stack hub összes fizikai hálózati eszköze támogatja a syslog-üzen
 
 A syslog-célcím egy, az üzembe helyezéshez összegyűjtött opcionális paraméter, de az üzembe helyezés után is hozzáadhatók. A syslog-továbbítás konfigurálásához a hálózati eszközökön forduljon az OEM hardver gyártójához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Karbantartási szabályzat](azure-stack-servicing-policy.md)

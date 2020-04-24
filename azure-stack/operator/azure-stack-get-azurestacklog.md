@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/05/2020
 ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79520462"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Azure Stack hub diagnosztikai naplóinak elküldése a privilegizált végpont (PEP) használatával
@@ -19,7 +19,7 @@ ms.locfileid: "79520462"
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 
-Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat. Ha egy futó napló-gyűjteményt töröl egy új indításhoz, várjon 5 percet, mielőtt elindítja az új naplózási gyűjteményt, és írja be `Remove-PSSession -Session $session`.
+Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat. Ha egy futó napló-gyűjteményt töröl egy új indításhoz, várjon 5 percet, mielőtt elindítja az új napló-gyűjteményt, `Remove-PSSession -Session $session`és adja meg a következőt:.
 
 
 ```powershell
@@ -124,7 +124,7 @@ if ($session) {
   * Hozzáférés a Blob Storage szolgáltatáshoz.
   * Hozzáférés a tároló erőforrástípus-típusához.
 
-  A `-OutputSasUri` paraméterhez használandó SAS URI-érték létrehozásához kövesse az alábbi lépéseket:
+  A paraméterhez használandó SAS URI-érték létrehozásához kövesse `-OutputSasUri` az alábbi lépéseket:
 
   1. Hozzon létre egy Storage-fiókot a [cikk](/azure/storage/common/storage-quickstart-create-account)lépéseit követve.
   2. Nyissa meg a Azure Storage Explorer egy példányát.
@@ -135,7 +135,7 @@ if ($session) {
   7. A követelményektől függően adjon meg egy érvényes **kezdési** és **befejezési időpontot**.
   8. A szükséges engedélyek esetében válassza az **olvasás**, **írás**és **lista**lehetőséget.
   9. Kattintson a **Létrehozás** gombra.
-  10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg a `-OutputSasUri` paraméternek.
+  10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg `-OutputSasUri` a paraméternek.
 
 ### <a name="parameter-considerations"></a>Paraméterekkel kapcsolatos szempontok 
 
@@ -162,17 +162,17 @@ if ($session) {
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
   |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
-  |ACSDownloadService    |Számítás                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |LETT            |
+  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
   |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSSettingsService    |EGB                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Tárterület                   |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
@@ -198,11 +198,11 @@ if ($session) {
 > [!NOTE]
 > A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplókon, mivel ez elengedhetetlen a tárterület hatékony kihasználtságának biztosításához, valamint a naplók beszerzésének elkerüléséhez. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek ezen korlátok miatt már nem léteznek. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
 
-### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Meghívás – AzureStackOnDemandLog
 
 A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók alapértelmezés szerint nem jelennek meg a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
 
-Jelenleg a `-FilterByRole` paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
+Jelenleg a `-FilterByRole` (z) paraméterrel szűrheti a naplózási gyűjteményt a következő szerepkörök használatával:
 
 * OEM
 * NC
@@ -243,7 +243,7 @@ A Azure Stack hub diagnosztikai eszközei megkönnyítik és hatékonyabbá tesz
 
 #### <a name="trace-collector"></a>Trace Collector
 
-A Trace Collector alapértelmezés szerint engedélyezve van, és folyamatosan fut a háttérben, hogy összegyűjtse az összes Windows esemény-nyomkövetés (ETW) naplót az Azure Stack hub Component servicesből. A ETW-naplókat egy közös helyi megosztás tárolja, amely egy öt napos korhatárt használ. Ha elérte ezt a korlátot, a rendszer törli a legrégebbi fájlokat, mert újak jönnek létre. Az egyes fájlokhoz engedélyezett alapértelmezett maximális méret 200 MB. A méret-ellenőrzési folyamat 2 percenként történik, és ha az aktuális fájl > = 200 MB, a rendszer menti, és új fájlt hoz létre. Az esemény-munkamenetek által generált teljes fájlméret 8 GB-os korláttal is rendelkezik.
+A Trace Collector alapértelmezés szerint engedélyezve van, és folyamatosan fut a háttérben, hogy összegyűjtse az összes Windows esemény-nyomkövetés (ETW) naplót az Azure Stack hub Component servicesből. A ETW-naplókat egy közös helyi megosztás tárolja, amely egy öt napos korhatárt használ. Ha elérte ezt a korlátot, a rendszer törli a legrégebbi fájlokat, mert újak jönnek létre. Az egyes fájlokhoz engedélyezett alapértelmezett maximális méret 200 MB. A méret-ellenőrzési folyamat 2 percenként történik, és ha az aktuális fájl >= 200 MB, a rendszer menti, és új fájlt hoz létre. Az esemény-munkamenetek által generált teljes fájlméret 8 GB-os korláttal is rendelkezik.
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 

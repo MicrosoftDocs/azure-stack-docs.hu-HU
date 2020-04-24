@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/24/2020
 ms.openlocfilehash: c1f1ddbfb9f362261a8e55d32a0d8c28b7b64629
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80402866"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>GPU csatlakoztatása Ubuntu Linux virtuális géphez Azure Stack HCI-ben
@@ -28,7 +28,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 5. A **Tulajdonságok** lap megjelenítéséhez kattintson a jobb gombbal a "3D video Controller" elemre. Kattintson a **részletek**gombra. A legördülő menüben **Property**válassza a "hely elérési útjai" lehetőséget.
 6. Jegyezze fel az értéket a string PCIRoot az alábbi képernyőképen látható módon. Kattintson a jobb gombbal az **értékre** , és másolja/mentse.
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="Elérési út képernyőképe":::
-7. Nyissa meg a Windows PowerShellt emelt szintű jogosultságokkal, és hajtsa végre a `Dismount-VMHostAssignableDevice` parancsmagot, hogy le lehessen választani a GPU-eszközt a DOHAI Cserélje le a *LocationPath* értéket a 6. lépésben megszerzett eszköz értékére.
+7. Nyissa meg a Windows PowerShellt emelt `Dismount-VMHostAssignableDevice` szintű jogosultságokkal, és hajtsa végre a parancsmagot, hogy leválasztsa a GPU-eszközt a dohai Cserélje le a *LocationPath* értéket a 6. lépésben megszerzett eszköz értékére.
     ```PowerShell
     Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
@@ -418,7 +418,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     file-loop=1
     ```
 
-12. Navigáljon a Azure Portal. Válassza ki **IoT hub kiépített**elemet, kattintson az **automatikus eszközkezelés**elemre, majd a **IoT Edge**elemre:
+12. Lépjen az Azure Portalra. Válassza ki **IoT hub kiépített**elemet, kattintson az **automatikus eszközkezelés**elemre, majd a **IoT Edge**elemre:
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="Az eszközkezelés automatikus kezelése képernyőkép":::
 
@@ -527,7 +527,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="A VLC player képernyőképe":::
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a GPU-k és a dohai fejlesztési szolgáltatásról:
 

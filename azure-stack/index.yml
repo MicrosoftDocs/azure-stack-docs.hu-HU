@@ -11,10 +11,10 @@ metadata:
   ms.author: bryanla
   ms.date: 11/04/2019
   ms.openlocfilehash: 9a0a1b733882ca77cdce2d6ccc0395ce31c891f1
-  ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 02/24/2020
+  ms.lasthandoff: 04/14/2020
   ms.locfileid: "77568362"
 highlightedContent:
   items:
@@ -112,13 +112,13 @@ additionalContent:
       - url: /azure-stack/asdk/asdk-download
         text: A ASDK letöltése és kibontása
       - url: /azure-stack/asdk/asdk-prepare-host
-        text: A ASDK-gazda számítógép előkészítése
+        text: Az ASDK-gazdagép előkészítése
   - title: Azure Stack Edge
     items:
     - title: Üzembe helyezés
       links:
       - url: /azure/databox-online/data-box-edge-system-requirements
-        text: Rendszerkövetelmények áttekintése
+        text: A rendszerkövetelmények áttekintése
       - url: /azure/databox-online/data-box-edge-limits
         text: A korlátozások ismertetése
       - url: /azure/databox-online/data-box-edge-deploy-prep
@@ -130,7 +130,7 @@ additionalContent:
       - url: /azure/databox-online/data-box-edge-create-iot-edge-module
         text: IoT Edge modul fejlesztése (C#)
       - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
-        text: IoT Edge modul SamplesC#()
+        text: IoT Edge modul-minták (C#)
   - title: Azure Stack HCI
     items:
     - title: Megoldások
@@ -150,8 +150,8 @@ additionalContent:
       - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
         text: Hyper-V
       - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-        text: Közvetlen tárolóhelyek
+        text: Tárolóhelyek – Közvetlen
       - url: /windows-server/networking/sdn
-        text: Szoftver által definiált hálózatkezelés
+        text: Szoftveralapú hálózatkezelés
       - url: /windows-server/failover-clustering/failover-clustering-overview
         text: Feladatátvételi fürtszolgáltatás

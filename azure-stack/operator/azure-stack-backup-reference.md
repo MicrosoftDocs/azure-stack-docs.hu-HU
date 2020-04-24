@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294934"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
@@ -71,7 +71,7 @@ A követelmények a következők:
 
 | SMB | Verzió |
 |-----|---------|
-| SMB | 3.x     |
+| SMB | 3. x     |
 
 #### <a name="smb-encryption"></a>SMB-titkosítás
 
@@ -137,7 +137,7 @@ A titkos kulccsal történő felhőalapú helyreállítás során használt tan�
  * A titkosítási kulcsról a tanúsítványra történő frissítés egy egyirányú művelet.  
  * Minden meglévő biztonsági mentés titkosítva marad a titkosítási kulccsal. Az új biztonsági mentések a tanúsítványt fogják használni. 
 
-## <a name="infrastructure-backup-limits"></a>Infrastructure Backup korlátok
+## <a name="infrastructure-backup-limits"></a>Infrastructure Backup – korlátok
 
 Ezeket a korlátokat a Microsoft Azure Stack hub-példányok tervezése, üzembe helyezése és üzemeltetése során érdemes figyelembe venni. A következő táblázat ezeket a korlátozásokat ismerteti.
 
@@ -154,6 +154,6 @@ Ezeket a korlátokat a Microsoft Azure Stack hub-példányok tervezése, üzembe
 | Backup App Services, függvény, SQL, MySQL erőforrás-szolgáltatói adat | Nincs a hatókörben | Tekintse meg a Microsoft által létrehozott RPs érték bevezetéséhez és kezeléséhez közzétett útmutatót.                                                  |
 | Külső gyártótól származó erőforrás-szolgáltatók biztonsági mentése                              | Nincs a hatókörben | Tekintse meg a harmadik féltől származó gyártók által létrehozott, az érték hozzáadása és kezelése című témakörben közzétett útmutatót.                                          |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
  - Ha többet szeretne megtudni a Infrastructure Backup szolgáltatásról, tekintse meg [a Azure stack hub biztonsági mentése és adathelyreállítása című témakört a Infrastructure Backup szolgáltatással](azure-stack-backup-infrastructure-backup.md).

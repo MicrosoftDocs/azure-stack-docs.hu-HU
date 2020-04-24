@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: f210f5939f60eb996f7c72b9552cf09d11f8de91
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696209"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Hálózati erőforrások kezelése Azure Stack központban
@@ -42,7 +42,7 @@ A **nyilvános IP-készletek használati** csempe a nyilvános IP-címkészlet s
 
 A csempe célja, hogy Azure Stack hub-operátorok számára az ezen a helyen használt nyilvános IP-címek számát adja meg. A szám segítségével a rendszergazdák meghatározhatják, hogy az adott erőforráson alacsonyan futnak-e.
 
-A **bérlői erőforrások** **nyilvános IP-címei** menüpontja csak azokat a nyilvános IP-címeket sorolja fel, amelyeket a *bérlők explicit módon hoztak létre*. A menüelem az **erőforrás-szolgáltatók** -> **hálózati** ablaktáblán található. A **nyilvános IP-készletek használati** csempe **használt** nyilvános IP-címeinek száma mindig eltér a **nyilvános IP-címek** csempén a **bérlői erőforrások**alatt lévő számtól (nagyobb, mint).
+A **bérlői erőforrások** **nyilvános IP-címei** menüpontja csak azokat a nyilvános IP-címeket sorolja fel, amelyeket a *bérlők explicit módon hoztak létre*. A menüelem az **erőforrás-szolgáltatók** -> **hálózati** ablaktábláján található. A **nyilvános IP-készletek használati** csempe **használt** nyilvános IP-címeinek száma mindig eltér a **nyilvános IP-címek** csempén a **bérlői erőforrások**alatt lévő számtól (nagyobb, mint).
 
 ### <a name="view-the-public-ip-address-usage-information"></a>A nyilvános IP-cím használati adatainak megtekintése
 
@@ -55,7 +55,7 @@ A régióban felhasznált nyilvános IP-címek teljes számának megtekintése:
 
 A **használt** szám a nyilvános IP-címkészlet által hozzárendelt nyilvános IP-címek számát jelöli. A **szabad** szám a nyilvános IP-címkészlet azon nyilvános IP-címeinek számát jelöli, amelyeket még nem rendeltek hozzá, és amelyek továbbra is elérhetők. A **(z)% használt** szám a használt vagy a hozzárendelt címek számát jelöli a nyilvános IP-címkészlet ezen a helyen lévő nyilvános IP-címeinek teljes száma százalékában.
 
-### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>A bérlői előfizetések által létrehozott nyilvános IP-címek megtekintése
+### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Tekintse meg a bérlői előfizetések által létrehozott nyilvános IP-címeket.
 
 Válassza ki a **nyilvános IP-címeket** a **bérlői erőforrások**területen. Tekintse át a bérlői előfizetések által explicit módon létrehozott nyilvános IP-címek listáját egy adott régióban.
 
@@ -77,6 +77,6 @@ Különböző esetekben a rendszer a nyilvános IP-címeket rendeli hozzá, amel
 | A háló infrastruktúra-szolgáltatási végponthoz rendelt statikus nyilvános IP-cím. |Igen |Nem |
 | A nyilvános IP-cím implicit módon lett létrehozva a IaaS virtuálisgép-példányokhoz, és a virtuális hálózaton kimenő NAT-hoz használatos. Ezek a színfalak mögött jönnek létre, amikor egy bérlő létrehoz egy virtuálisgép-példányt, hogy a virtuális gépek adatokat tudjanak küldeni az internetre. |Igen |Nem |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Storage-fiókok kezelése Azure Stack központban](azure-stack-manage-storage-accounts.md)

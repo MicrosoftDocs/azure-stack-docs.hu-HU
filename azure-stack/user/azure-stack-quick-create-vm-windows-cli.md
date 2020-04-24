@@ -7,10 +7,10 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "78231655"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuális gépet (VM) az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. A következő példa egy myVM nevű virtuális gépet hoz létre. Ez a példa egy rendszergazdai felhasználónevet használ, és a Demouser@123 rendszergazdai jelszóként. Módosítsa ezeket az értékeket a környezetének megfelelő értékre.
+Hozzon létre egy virtuális gépet (VM) az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. Az alábbi példában egy myVM nevű virtuális gépet hoz létre. Ez a példa egy rendszergazdai felhasználónevet és Demouser@123 rendszergazdai jelszót használ. Módosítsa ezeket az értékeket a környezetének megfelelő értékre.
 
 ```cli
 az vm create \
@@ -96,6 +96,6 @@ Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Gro
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack hub virtuális gépekről, folytassa az [Azure stack hub Virtual Machinesével kapcsolatos szempontokat](azure-stack-vm-considerations.md).

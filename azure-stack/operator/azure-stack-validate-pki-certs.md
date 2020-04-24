@@ -11,10 +11,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
 ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025247"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványok ellenőrzése
@@ -25,7 +25,7 @@ A készenléti ellenőrző eszköz a következő tanúsítványokat hajtja végr
 
 - **PFX elemzése**  
     Ellenőrzi, hogy érvényes-e a PFX-fájl, a helyes jelszó, valamint azt, hogy a nyilvános adatokat a jelszó védi-e.
-- **Lejárat dátuma**  
+- **A lejárat dátuma**  
     A minimális érvényességet ellenőrzi hét nap alatt.
 - **Aláírási algoritmus**  
     Ellenőrzi, hogy az aláírási algoritmus nem SHA1-e.
@@ -56,7 +56,7 @@ A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt ellen
 - DeploymentData. JSON fájl.
 - Windows 10 vagy Windows Server 2016.
 
-## <a name="perform-core-services-certificate-validation"></a>Alapszintű szolgáltatások tanúsítványának ellenőrzése
+## <a name="perform-core-services-certificate-validation"></a>Az alapvető szolgáltatások tanúsítványainak ellenőrzése
 
 Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub PKI-tanúsítványait az üzembe helyezéshez és a titkos kulcsok elforgatásához:
 
@@ -66,7 +66,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ```
 
-2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja a `<C:\Certificates\Deployment>`t az Ön által választott új könyvtár elérési útjára.
+2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja `<C:\Certificates\Deployment>` a kívánt új könyvtár elérési útját.
     ```powershell  
     New-Item C:\Certificates\Deployment -ItemType Directory
     
@@ -89,7 +89,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. A PowerShell ablakban módosítsa `RegionName`, `FQDN` és `IdentitySystem` megfelelő értéket az Azure Stack hub-környezethez, és futtassa a következő parancsmagot:
+3. A PowerShell ablakban módosítsa a (z) és `RegionName` `IdentitySystem` az `FQDN` Azure stack hub-környezet értékeit, és futtassa a következő parancsmagot:
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -143,7 +143,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     Invoke-AzsCertificateValidation Completed
     ```
 
-    Más Azure Stack hub-szolgáltatások tanúsítványainak ellenőrzéséhez módosítsa a ```-CertificateType```értékét. Például:
+    Ha más Azure Stack hub-szolgáltatásokhoz szeretne tanúsítványokat érvényesíteni, ```-CertificateType```módosítsa a értékét. Például:
 
     ```powershell  
     # App Services
@@ -158,7 +158,7 @@ Ezekkel a lépésekkel előkészítheti és érvényesítheti az Azure Stack hub
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-    Minden mappának tartalmaznia kell egyetlen PFX-fájlt a tanúsítvány típusához. Ha a tanúsítvány típusa több tanúsítványra vonatkozó követelmény, az egyes tanúsítványokhoz tartozó beágyazott mappák várhatóak és megkülönböztetik a nevet. A következő kód egy példaként szolgáló mappát/tanúsítványt mutat be az összes tanúsítvány típusához, valamint a ```-CertificateType``` és ```-CertificatePath```megfelelő értékét.
+    Minden mappának tartalmaznia kell egyetlen PFX-fájlt a tanúsítvány típusához. Ha a tanúsítvány típusa több tanúsítványra vonatkozó követelmény, az egyes tanúsítványokhoz tartozó beágyazott mappák várhatóak és megkülönböztetik a nevet. A következő kód egy példaként szolgáló mappát/tanúsítványt mutat be az összes tanúsítvány típusához, valamint a ```-CertificateType``` megfelelő ```-CertificatePath```értéket a és a esetében.
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F
@@ -258,6 +258,6 @@ Miután a AzsReadinessChecker érvényesíti a tanúsítványokat, készen áll 
  - A Secret rotációs szolgáltatásban a tanúsítványok segítségével frissítheti az Azure Stack hub-környezet nyilvános infrastruktúra-végpontjának régi tanúsítványait az [Azure stack hub Secret rotációs dokumentációjának](azure-stack-rotate-secrets.md)követésével.
  - A Pásti-szolgáltatások esetében a tanúsítványok segítségével telepítheti az SQL, a MySQL és a App Services erőforrás-szolgáltatót Azure Stack hub-ban az [Azure stack hub dokumentációjában elérhető szolgáltatások áttekintését](service-plan-offer-subscription-overview.md)követve.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Adatközpont identitásának integrációja](azure-stack-integrate-identity.md)

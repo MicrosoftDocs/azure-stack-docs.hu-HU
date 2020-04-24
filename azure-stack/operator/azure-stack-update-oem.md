@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
 ms.openlocfilehash: 982c62ad37d2d19dd3273c7ece3f20ff725ce6b6
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367250"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
@@ -37,7 +37,7 @@ Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segéd
 | Cisco | Összes | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozatú rack-Mount FKR – felügyelt kiszolgáló szoftver](https://aka.ms/aa700rq) |
 | Dell EMC | Összes | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japán | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | EMEA & Egyesült Államok | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  | EMEA & EGYESÜLT ÁLLAMOK | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 | HPE | Összes | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Összes | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://aka.ms/AA6z600)<br>[a Terra Azure Stack hub dokumentációja (beleértve a cserélhető adatközpontot)](https://aka.ms/aa6zktc)
@@ -58,7 +58,7 @@ Alkalmazza az OEM-csomagokat a következő lépésekkel:
 
 ## <a name="configure-hardware-vendor-vm"></a>Hardveres gyártó virtuális gép konfigurálása
 
-Egyes hardvergyártók esetében előfordulhat, hogy egy virtuális gépnek segítségre van szüksége az OEM-frissítési folyamathoz. Ha a **set-OEMExternalVM** parancsmag futtatásához, `HardwareManager` illetve a **hitelesítő**adatokhoz is használni `ProxyVM` szeretné a- **VMType** -t, a hardvergyártó felelős a virtuális gépek létrehozásához és a dokumentálás elvégzéséhez. A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
+Egyes hardvergyártók esetében előfordulhat, hogy egy virtuális gépnek segítségre van szüksége az OEM-frissítési folyamathoz. A hardvergyártó felelős a virtuális gépek létrehozásához és a dokumentálás elvégzéséhez, `ProxyVM` ha `HardwareManager` a **set-OEMExternalVM** parancsmag futtatásához szükséges vagy a **-VMType** , valamint **a hitelesítő**adatokhoz használandó hitelesítő adatokat. A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
 
 További információ a Azure Stack hub privilegizált végpontján: [a privilegizált végpont használata Azure stack hub-ban](azure-stack-privileged-endpoint.md).
 
@@ -70,7 +70,7 @@ További információ a Azure Stack hub privilegizált végpontján: [a privileg
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. Konfigurálja a hardveres gyártó virtuális gépet a **set-OEMExternalVM** parancsmag használatával. A parancsmag ellenőrzi a **-VMType** `ProxyVM`IP-címét és hitelesítő adatait. A **-VMType** `HardwareManager` a parancsmag nem ellenőrzi a bemenetet. A **set-OEMExternalVM** számára megadott **hitelesítő adat** paraméter az egyik, amelyet a hardver gyártójától származó dokumentáció egyértelműen dokumentál.  NEM a jogosultsági szintű végponttal vagy más meglévő Azure Stack hub hitelesítő adatokkal használt CloudAdmin hitelesítő adat.
+2. Konfigurálja a hardveres gyártó virtuális gépet a **set-OEMExternalVM** parancsmag használatával. A parancsmag ellenőrzi a **-VMTYPE** `ProxyVM`IP-címét és hitelesítő adatait. A **-VMType** `HardwareManager` esetében a parancsmag nem ellenőrzi a bemenetet. A **set-OEMExternalVM** számára megadott **hitelesítő adat** paraméter az egyik, amelyet a hardver gyártójától származó dokumentáció egyértelműen dokumentál.  NEM a jogosultsági szintű végponttal vagy más meglévő Azure Stack hub hitelesítő adatokkal használt CloudAdmin hitelesítő adat.
 
     ```powershell  
     $VmCred = Get-Credential
@@ -81,6 +81,6 @@ További információ a Azure Stack hub privilegizált végpontján: [a privileg
         }
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub frissítései](azure-stack-updates.md)

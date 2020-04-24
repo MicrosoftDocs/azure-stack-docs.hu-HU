@@ -8,17 +8,17 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
 ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294208"
 ---
 # <a name="asdk-architecture"></a>ASDK architektúra
 A Azure Stack Development Kit (ASDK) egy egycsomópontos üzemelő példány, Azure Stack egyetlen gazdagépen fut. A peremhálózati útválasztási összetevőket a rendszer a gazdagépen telepíti a NAT-és VPN-képességek biztosításához a Azure Stack számára. Azure Stack infrastruktúra-szerepkörök a fizikai gazdagép Hyper-V rétegében futnak.
 
 
-## <a name="virtual-machine-roles"></a>Virtuális gépek szerepei
+## <a name="virtual-machine-roles"></a>Virtuális gépi szerepkörök
 A ASDK a következő virtuális gépeket használó szolgáltatásokat kínálja a fejlesztői csomag gazdagépén:
 
 | Name (Név) | Leírás |
@@ -37,5 +37,5 @@ A ASDK a következő virtuális gépeket használó szolgáltatásokat kínálja
 | **AzS – XRP01** | Infrastruktúra-kezelő vezérlő Microsoft Azure Stackhoz, beleértve a számítási, hálózati és tárolási erőforrás-szolgáltatókat.|
 | **AzS – SRNG01** | Támogatási gyűrűs virtuális gép, amely a Azure Stack naplózási szolgáltatását üzemelteti. |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Tudnivalók az alapszintű ASDK-felügyeleti feladatokról](asdk-admin-basics.md)

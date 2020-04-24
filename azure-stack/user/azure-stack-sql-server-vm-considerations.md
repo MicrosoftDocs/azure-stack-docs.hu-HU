@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: ec1a5b07498e380eeef3989df1185537afef360f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704845"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Az SQL Server ajánlott eljárásai Azure Stack hub teljesítményének optimalizálásához
@@ -21,7 +21,7 @@ Ez a cikk az SQL Server ajánlott eljárásait ismerteti a SQL Server optimaliz�
 SQL Server lemezképek létrehozásakor [érdemes lehet virtuális gépeket kiépíteni a Azure stack hub portálon](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Töltse le az SQL IaaS bővítményt a piactér-felügyeletből a Azure Stack hub felügyeleti portálon, és töltse le az Ön által választott SQL Server VM képeket. Ezek közé tartoznak a SQL Server 2016 SP1, SQL Server 2016 SP2 és SQL Server 2017.
 
 > [!NOTE]  
-> Míg a cikk leírja, hogyan kell kiépíteni egy SQL Server VMt a globális Azure Portal használatával, az útmutató az Azure Stack hub-ra is vonatkozik a következő eltérésekkel: az SSD nem érhető el az operációs rendszer lemezéhez, és kisebb különbségek vannak a tárolóban. Configuration.
+> Míg a cikk leírja, hogyan kell kiépíteni egy SQL Server VMt a globális Azure Portal használatával, az útmutató az Azure Stack hubhoz is vonatkozik a következő eltérésekkel: az SSD nem érhető el az operációsrendszer-lemezhez, és kisebb különbségek vannak a tárolási konfigurációban.
 
 A virtuálisgép-lemezképekben a SQL Server csak a saját licenc használata (BYOL) használatával használható. A Windows Server esetében az alapértelmezett licencelési modell az utólagos elszámolású (TB). A virtuális gépen futó Windows Server-licencelési modell részletes ismertetését a [Windows server Azure stack hub Marketplace-en – gyakori kérdések](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server)című cikkben találja.  
 
@@ -38,7 +38,7 @@ A következő ellenőrzőlista a SQL Server Azure Stack hub virtuális gépeken 
 |Terület|Optimalizálás|
 |-----|-----|
 |Virtuális gép mérete |[DS3](azure-stack-vm-sizes.md) vagy újabb SQL Server Enterprise kiadáshoz.<br><br>[DS2](azure-stack-vm-sizes.md) vagy újabb a SQL Server Standard Edition és a Web Edition rendszerhez.|
-|Tárterület |Olyan virtuálisgép-családot használjon, amely támogatja a [Premium Storage](azure-stack-acs-differences.md)-ot.|
+|Storage |Olyan virtuálisgép-családot használjon, amely támogatja a [Premium Storage](azure-stack-acs-differences.md)-ot.|
 |Lemezek |Használjon legalább két adatlemezt (egyet a naplófájlokhoz, egyet az adatfájlhoz és a TempDB), és a kapacitás igényei alapján válassza ki a lemez méretét. Állítsa az alapértelmezett adatfájl-tárolóhelyeket ezekre a lemezekre a SQL Server telepítése során.<br><br>Ne használjon operációs rendszert vagy ideiglenes lemezeket az adatbázis-tároláshoz vagy a naplózáshoz.<br>Több Azure-adatlemezt is felhasználhat, hogy a tárolóhelyek használatával megnövelt IO-átviteli sebességet kapjon.<br><br>Dokumentált kiosztási méretekkel rendelkező formátum.|
 |I/O|Az adatfájlok azonnali inicializálásának engedélyezése.<br><br>Az adatbázisok automatikus növekedésének korlátozása ésszerűen kis rögzített növekményekkel (64 MB-256 MB).<br><br>Az AutoShrink letiltása az adatbázison.<br><br>Állítsa be az alapértelmezett biztonsági mentési és adatbázisfájlok helyét az adatlemezeken, nem az operációs rendszer lemezét.<br><br>Zárolt lapok engedélyezése.<br><br>Alkalmazza a SQL Server szervizcsomagokat és az összesítő frissítéseket.|
 |Szolgáltatás-specifikus|Biztonsági mentés közvetlenül a blob Storage-ba (ha a használatban lévő SQL Server verzió támogatja).|
@@ -152,6 +152,6 @@ Néhány üzemelő példány további teljesítménybeli előnyöket érhet el f
 
     Miután beállította és konfigurálta a biztonsági mentési célhelyet SQL Serverban, biztonsági mentést készíthet a Azure Stack hub blob Storage-ba.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Szolgáltatások használata vagy alkalmazások kiépítése Azure Stack hubhoz](azure-stack-considerations.md)

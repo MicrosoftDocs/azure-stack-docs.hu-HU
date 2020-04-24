@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: b195a55314935282f43f99bf02bda1d2bc298b54
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78370408"
 ---
 # <a name="creating-volumes-in-azure-stack-hci"></a>Kötetek létrehozása Azure Stack HCI-ben
@@ -143,9 +143,9 @@ A többrétegű kötetek létrehozásához a **New-Volume** parancsmag **Storage
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 
-Készen van! Több kötet létrehozásához szükség szerint ismételje meg a műveletet.
+Ennyi az egész! Több kötet létrehozásához szükség szerint ismételje meg a műveletet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A Közvetlen tárolóhelyek további tárolási kezelési feladatainak végrehajtásához lásd még:
 

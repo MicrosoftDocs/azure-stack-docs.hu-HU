@@ -9,10 +9,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 0d1e58fffc7bc5fcc6a2c54ad409752314d1d36b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697399"
 ---
 # <a name="create-sql-databases"></a>SQL-adatbázisok létrehozása
@@ -21,7 +21,7 @@ ms.locfileid: "77697399"
 
 1. Jelentkezzen be az [Azure stack hub](azure-stack-overview.md) felhasználói portálra.
 
-2. Válassza az **+ új** &gt;**adattároló** &gt; **SQL Server adatbázis** &gt; **Hozzáadás**lehetőséget.
+2. Válassza az **+ új** &gt; **adattároló** &gt; **SQL Server adatbázis** &gt; **hozzáadása**elemet.
 
 3. Az **adatbázis létrehozása**területen adja meg a szükséges adatokat, például az **adatbázis nevét** és **a maximális méretet MB-ban**.
 
@@ -64,7 +64,7 @@ A következő képernyőfelvétel azt mutatja be, hogyan használható a SQL Ser
 
 ![AlwaysOn-adatbázis állapota SQL Server Management Studio](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
-A always on Databases-nek **szinkronizált** és elérhetőnek kell lennie az összes SQL-példányon, és megjelenik a **rendelkezésre állási csoportokban**. Az előző képernyőképen az adatbázis például newdb1, és az állapota **newdb1 (szinkronizálva)** .
+A always on Databases-nek **szinkronizált** és elérhetőnek kell lennie az összes SQL-példányon, és megjelenik a **rendelkezésre állási csoportokban**. Az előző képernyőképen az adatbázis például newdb1, és az állapota **newdb1 (szinkronizálva)**.
 
 ### <a name="delete-an-always-on-database"></a>Mindig adatbázis törlése
 
@@ -72,6 +72,6 @@ Ha SQL always on adatbázist töröl az erőforrás-szolgáltatóból, az SQL t�
 
 Az SQL ezután visszaállítja az adatbázist a többi replikán lévő **visszaállítási** állapotba, és csak akkor dobja el az adatbázist, ha az aktiválva van. Ha az adatbázis nincs elvetve, a másodlagos replikák **nem szinkronizálási** állapotba kerülnek.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg, hogyan [használhatók a magasan elérhető SQL-adatbázisok](azure-stack-tutorial-sql.md)

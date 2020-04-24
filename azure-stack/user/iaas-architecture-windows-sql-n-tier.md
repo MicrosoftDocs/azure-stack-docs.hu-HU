@@ -3,16 +3,16 @@ title: Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 description: Megtudhatja, hogyan futtathat egy Windows N szintű alkalmazást Azure Stack hubhoz a SQL Server használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: a44c4cee7948fe9f2cf4a55e7ed337c3932fd95c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e331be14abdeceeb2fef462fba47c4871a320e7f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704947"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81659902"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 
@@ -34,21 +34,21 @@ Az architektúra a következő összetevőket tartalmazza.
 
 -   **Virtuális hálózat és alhálózatok**. Minden Azure-beli virtuális gép üzembe helyezése egy, az alhálózatokra szegmentált virtuális hálózatba történik. Hozzon létre egy külön alhálózatot minden egyes szinthez.
 
--   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure Stack hub-on, elérhetők a [Azure stack hub piacán](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) elérhető alternatívák, például: [Kemp Loadmaster Load Balancer adc Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure stack hub-on, a [Azure stack hub piacon](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) elérhető alternatívák is rendelkezésre állnak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **Terheléselosztók**. A [Azure Load Balancer ](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
+-   **Terheléselosztó.** A [Azure Load Balancer ](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
 
--   **Hálózati biztonsági csoportok** (NSG). A NSG használata a virtuális hálózaton belüli hálózati forgalom korlátozására. Például a háromrétegű architektúra itt látható, az adatbázisszinten nem fogadja el a web front end, csak az üzleti szint és a felügyeleti alhálózatról érkező forgalmat.
+-   **Hálózati biztonsági csoportok** (NSG). A NSG használata a virtuális hálózaton belüli hálózati forgalom korlátozására. Az itt látható háromrétegű architektúrában például az adatbázis-réteg nem fogadja el a webes kezelőfelületről érkező forgalmat, csak az üzleti rétegből és a felügyeleti alhálózatból.
 
 -   **DNS**. Azure Stack hub nem biztosítja a saját DNS-üzemeltetési szolgáltatását, ezért használja a DNS-kiszolgálót a HOZZÁADÁShoz.
 
 **Virtuális gépek**
 
--   **SQL Server Always On rendelkezésre állási csoport**. Magas rendelkezésre állást biztosít az adatszinten a replikáció és a feladatátvétel engedélyezésével. Windows Server feladatátvételi fürt (WSFC) technológiát használ a feladatátvételhez.
+-   **SQL Server always on rendelkezésre állási csoport**. Magas rendelkezésre állást biztosít az adatszinten a replikáció és a feladatátvétel engedélyezésével. A feladatátvételhez a Windows Server feladatátvételi fürt (WSFC) technológiáját használja.
 
--   **(AD DS) Active Directory Domain Services-kiszolgálók** A feladatátvevő fürt és a kapcsolódó fürtözött szerepkörök számítógép-objektumai jönnek létre az Active Directory Domain Servicesben (AD DS). Az azonos virtuális hálózatban lévő virtuális gépeken AD DS-kiszolgálók beállítása előnyben részesített módszer a más virtuális gépekhez való csatlakozásra AD DS. A virtuális gépeket a meglévő vállalati AD DShoz is csatlakoztathatja, ha VPN-kapcsolattal csatlakozik a vállalati hálózathoz. Mindkét módszer esetében módosítania kell a virtuális hálózat DNS-jét a AD DS DNS-kiszolgálóra (virtuális hálózaton vagy meglévő vállalati hálózatban) a AD DS tartomány teljes tartománynevének feloldásához.
+-   **(AD DS) Active Directory Domain Services-kiszolgálók** A feladatátvevő fürt és a hozzá tartozó fürtözött szerepkörök számítógép-objektumai a Active Directory tartományi szolgáltatásokban (AD DS) jönnek létre. Az azonos virtuális hálózatban lévő virtuális gépeken AD DS-kiszolgálók beállítása előnyben részesített módszer a más virtuális gépekhez való csatlakozásra AD DS. A virtuális gépeket a meglévő vállalati AD DShoz is csatlakoztathatja, ha VPN-kapcsolattal csatlakozik a vállalati hálózathoz. Mindkét módszer esetében módosítania kell a virtuális hálózat DNS-jét a AD DS DNS-kiszolgálóra (virtuális hálózaton vagy meglévő vállalati hálózatban) a AD DS tartomány teljes tartománynevének feloldásához.
 
--   **Felhőbeli tanúsító**. A feladatátvevő fürtök csomópontjainak futnia kell, amelyről ismert, hogy a kvórum több mint felét van szükség. Ha a fürt csak két csomópontot tartalmaz, egy hálózati partíció okozhat, minden csomóponthoz gondolja, hogy a fő csomóponttal. Ebben az esetben szükség van egy *tanúra* a kapcsolatok megszakításához és a kvórum létrehozásához. Tanúsító például a megosztott lemezzel működő, egy tie megszakító kvórumot hozzon létre egy erőforrást. Felhőbeli tanúsító egy olyan típusú, amelyet az Azure Blob Storage. A kvórum fogalmával kapcsolatos további tudnivalókért tekintse meg a [fürt és a készlet Kvórumának ismertetése](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)című témakört. A Felhőbeli tanúsító szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). Azure Stack központban a Felhőbeli tanúsító végpont különbözik a globális Azure-tól. 
+-   **Felhőbeli tanúsító**. A feladatátvevő fürtök több mint felet igényelnek a csomópontok futtatásához, amely kvórumnak ismert. Ha a fürt csak két csomóponttal rendelkezik, a hálózati partíciók az egyes csomópontok esetében úgy gondolják, hogy ez a fő csomópont. Ebben az esetben szükség van egy *tanúra* a kapcsolatok megszakításához és a kvórum létrehozásához. A tanúsító egy olyan erőforrás, például egy megosztott lemez, amely döntetlen-MEGSZAKÍTÓKÉNT működhet kvórum létrehozásához. A Felhőbeli tanúsító olyan tanúsító típus, amely az Azure Blob Storage-t használja. A kvórum fogalmával kapcsolatos további tudnivalókért tekintse meg a [fürt és a készlet Kvórumának ismertetése](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)című témakört. A Felhőbeli tanúsító szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). Azure Stack központban a Felhőbeli tanúsító végpont különbözik a globális Azure-tól. 
 
 A következőhöz hasonló lehet:
 
@@ -70,7 +70,7 @@ A virtuális gépek konfigurálásával kapcsolatos javaslatokért lásd: [Windo
 
 ### <a name="virtual-network"></a>Virtuális hálózat
 
-A virtuális hálózat létrehozásakor határozza meg, hogy hány IP-cím szükséges az egyes alhálózatokban lévő erőforrásokhoz. A szükséges IP-címekhez a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -jelölés használatával egy alhálózati maszkot és egy hálózati címtartományt kell megadni. Használjon olyan címtartományt, amely a szabványos [magánhálózati IP-címek](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)közé esik, amelyek 10.0.0.0/8, 172.16.0.0/12 és 192.168.0.0/16.
+A virtuális hálózat létrehozásakor határozza meg, hogy hány IP-cím szükséges az egyes alhálózatokban lévő erőforrásokhoz. A szükséges IP-címekhez a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -jelölés használatával egy alhálózati maszkot és egy hálózati címtartományt kell megadni. Használjon a szabványos [magánhálózati IP-címblokkokba](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces) eső címterületet. Ezek az IP-címblokkok a következők: 10.0.0.0/8, 172.16.0.0/12 és 192.168.0.0/16.
 
 Olyan címtartományt válasszon, amely nincs átfedésben a helyszíni hálózattal, ha később be kell állítania egy átjárót a virtuális hálózat és a helyszíni hálózat között. A virtuális hálózat létrehozása után a címtartomány nem módosítható.
 
@@ -78,35 +78,35 @@ Az alhálózatokat a funkciók és a biztonsági követelmények szem előtt tar
 
 ### <a name="load-balancers"></a>Terheléselosztók
 
-Nem teszik elérhetővé a virtuális gépek közvetlenül az internethez, de ehelyett adjon mindegyiknek privát IP-címet. Az ügyfelek a 7. rétegbeli Load Balancerhoz társított nyilvános IP-cím használatával csatlakoznak.
+Ne tegye elérhetővé a virtuális gépeket közvetlenül az internethez, hanem adjon hozzá minden virtuális gépet egy magánhálózati IP-címhez. Az ügyfelek a 7. rétegbeli Load Balancerhoz társított nyilvános IP-cím használatával csatlakoznak.
 
-Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Például HTTP-forgalom engedélyezéséhez képezze le a 80-as porton az előtérbeli konfigurációból a háttér-címkészletet a 80-as porton. Amikor egy ügyfél HTTP-kérést küld az 80-es portra, a terheléselosztó a forrás IP-címet tartalmazó [kivonatoló algoritmus](/azure/load-balancer/concepts-limitations#load-balancer-concepts) használatával kiválasztja a HÁTTÉRbeli IP-címet. Kérelmek megoszlanak a háttér-címkészletben levő összes virtuális gép között.
+Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérelmet küld a 80-as port felé, a terheléselosztó kiválaszt egy háttérbeli IP-címet egy [kivonatoló algoritmus](/azure/load-balancer/concepts-limitations#load-balancer-concepts) használatával, amely tartalmazza a forrás IP-címét. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
 
 ### <a name="network-security-groups"></a>Network security groups (Hálózati biztonsági csoportok)
 
-A szintek közötti forgalmat NSG-szabályokkal korlátozhatja. A fenti három rétegű architektúrában a webes szint nem kommunikál közvetlenül az adatbázisszint. A szabály betartatásához az adatbázis-szinten le kell tiltani a webes szintű alhálózatról érkező bejövő forgalmat.
+A szintek közötti forgalmat NSG-szabályokkal korlátozhatja. A fentiekben bemutatott háromrétegű architektúrában a webes réteg nem kommunikál közvetlenül az adatbázis szintjével. A szabály betartatásához az adatbázis-szinten le kell tiltani a webes szintű alhálózatról érkező bejövő forgalmat.
 
 1.  A virtuális hálózatról érkező összes bejövő forgalom megtagadása. (Használja a szabály VIRTUAL_NETWORK címkéjét.)
 
-2.  Az üzleti szint alhálózatáról érkező forgalom engedélyezéséhez.
+2.  Az üzleti szintű alhálózatról érkező bejövő forgalom engedélyezése.
 
-3.  Az adatbázisszint alhálózatán érkező forgalom engedélyezéséhez. Ez a szabály lehetővé teszi, hogy szükség van az adatbázis-replikáció és feladatátvételi adatbázis-beli virtuális gépek közötti kommunikációt.
+3.  Engedélyezze a bejövő forgalmat az adatbázis-rétegek alhálózatán. Ez a szabály lehetővé teszi az adatbázis-alapú virtuális gépek közötti kommunikációt, amely az adatbázis-replikációhoz és a feladatátvételhez szükséges.
 
-4.  Engedélyezze az RDP-forgalom (3389-es port) a jumpbox alhálózatáról származó. Ez lehetővé teszi, hogy a rendszergazdák csatlakozni tudjanak az adatbázisszinthez a jumpboxból.
+4.  Engedélyezze az RDP-forgalmat (3389-es port) a Jumpbox alhálózaton. Ez lehetővé teszi, hogy a rendszergazdák csatlakozni tudjanak az adatbázisszinthez a jumpboxból.
 
 Hozzon létre a 2 – 4. szabályt magasabb prioritással, mint az első szabály, ezért bírálják felül.
 
 ## <a name="sql-server-always-on-availability-groups"></a>SQL Server Always On rendelkezésre állási csoportok
 
-Az [Always On rendelkezésre állási csoportok](https://msdn.microsoft.com/library/hh510230.aspx) esetében SQL Server magas rendelkezésre állást ajánlunk. A Windows Server 2016-nál régebbi kiadásokban az Always On rendelkezésre állási csoportok tartományvezérlőt igényelnek, és a rendelkezésre állási csoport összes csomópontjának azonos AD-tartományban kell lennie.
+Magas rendelkezésre állású SQL Server esetén az [Always On rendelkezésre állási csoportok](https://msdn.microsoft.com/library/hh510230.aspx) használatát javasoljuk. A Windows Server 2016-nál régebbi kiadásokban az Always On rendelkezésre állási csoportok tartományvezérlőt igényelnek, és a rendelkezésre állási csoport összes csomópontjának azonos AD-tartományban kell lennie.
 
 A virtuálisgép-réteg magas rendelkezésre állása esetén minden SQL virtuális gépnek rendelkezésre állási csoportnak kell lennie.
 
-Más rétegek a [rendelkezésre állási csoport figyelője](https://msdn.microsoft.com/library/hh213417.aspx)segítségével csatlakozhatnak az adatbázishoz. A figyelő lehetővé teszi, hogy az SQL-ügyfél anélkül csatlakozzon, hogy ismerné az SQL-kiszolgáló fizikai példányának nevét. Az adatbázishoz hozzáférő virtuális gépeket csatlakozni kell a tartományhoz. Az ügyfél (ebben az esetben egy másik szint) DNS használatával oldja fel a figyelő virtuális hálózati nevét IP-címekké.
+A többi szint egy [rendelkezésre állási csoport figyelőjén](https://msdn.microsoft.com/library/hh213417.aspx) keresztül csatlakozik az adatbázishoz. A figyelő lehetővé teszi, hogy az SQL-ügyfél anélkül csatlakozzon, hogy ismerné az SQL-kiszolgáló fizikai példányának nevét. Az adatbázishoz hozzáférő virtuális gépeket csatlakozni kell a tartományhoz. Az ügyfél (ebben az esetben egy másik szint) DNS használatával oldja fel a figyelő virtuális hálózati nevét IP-címekké.
 
 A SQL Server Always On rendelkezésre állási csoportot az alábbiak szerint konfigurálja:
 
-1.  Hozzon létre egy Windows Server feladatátvételi fürtszolgáltatási (WSFC-) fürtöt, egy SQL Server Always On rendelkezésre állási csoportot és egy elsődleges replikát. További információ: [első lépések always on rendelkezésre állási csoportokkal](https://msdn.microsoft.com/library/gg509118.aspx).
+1.  Hozzon létre egy Windows Server feladatátvételi fürtszolgáltatási (WSFC-) fürtöt, egy SQL Server Always On rendelkezésre állási csoportot és egy elsődleges replikát. További információ: [Ismerkedés az Always On rendelkezésre állási csoportokkal](https://msdn.microsoft.com/library/gg509118.aspx).
 
 2.  Hozzon létre egy belső terheléselosztót statikus magánhálózati IP-címmel.
 
@@ -117,23 +117,23 @@ A SQL Server Always On rendelkezésre állási csoportot az alábbiak szerint ko
 > [!Note]
 > Ha a nem fix IP engedélyezve van, az előtérbeli portszámnak egyeznie kell a terheléselosztó szabály háttérbeli portszámával.
 
-Ha egy SQL-ügyfél csatlakozni próbál, a terheléselosztó továbbítja az elsődleges replikának a kapcsolódási kérelmet. Ha feladatátvételt egy másik replikára, a terheléselosztó automatikusan egy új elsődleges replikára irányítja a kérelmeket új. További információ: ILB- [figyelő konfigurálása SQL Server always on rendelkezésre állási csoportokhoz](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
+Ha egy SQL-ügyfél csatlakozni próbál, a terheléselosztó továbbítja az elsődleges replikának a kapcsolódási kérelmet. Ha van feladatátvétel egy másik replikára, a terheléselosztó automatikusan új elsődleges replikára irányítja az új kéréseket. További információ: [ILB-figyelő konfigurálása SQL Server Always On rendelkezésre állási csoportokhoz](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener).
 
 A feladatátvétel során a meglévő ügyfélkapcsolatok lezárulnak. A feladatátvétel befejezése után a rendszer az új elsődleges replikára irányítja az új kapcsolatokat.
 
-Ha az alkalmazás több olvasási műveletet tesz lehetővé, mint az írás, a csak olvasható lekérdezések egy részét kiszervezheti egy másodlagos replikára. Lásd: [a figyelő használata egy írásvédett másodlagos replikához való kapcsolódáshoz (csak olvasható útválasztás)](https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary).
+Ha az alkalmazás több olvasási műveletet tesz lehetővé, mint az írás, a csak olvasható lekérdezések egy részét kiszervezheti egy másodlagos replikára. Lásd: [Csak olvasási másodlagos replikához való csatlakozás figyelővel (csak olvasási útválasztás)](https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary).
 
-Tesztelje az üzemelő példányt a rendelkezésre állási csoport [manuális feladatátvételének kikényszerítésével](https://msdn.microsoft.com/library/ff877957.aspx) .
+[Kényszerítse](https://msdn.microsoft.com/library/ff877957.aspx) a rendelkezésre állási csoport manuális feladatátvételét az üzemelő példány teszteléséhez.
 
 Az SQL-teljesítmény optimalizálása [érdekében a Azure stack hub teljesítményének optimalizálásához az SQL Server ajánlott eljárásait](https://docs.microsoft.com/azure-stack/user/azure-stack-sql-server-vm-considerations)is megtekintheti.
 
 **Jumpbox**
 
-Tiltása RDP-hozzáférés a nyilvános internetről való az alkalmazás számítási feladatait futtató virtuális gépek. Ehelyett ezeknek a virtuális gépeknek az összes RDP-elérését át kell lépnie a Jumpbox. A rendszergazda először bejelentkezik a jumpboxba, majd azon keresztül bejelentkezik a többi virtuális gépbe. A jumpbox engedélyezi az internetről érkező RDP-forgalmat, de csak az ismert, biztonságos IP-címekről.
+Ne engedélyezze az RDP-hozzáférést a nyilvános internetről az alkalmazás számítási feladatait futtató virtuális gépekre. Ehelyett ezeknek a virtuális gépeknek az összes RDP-elérését át kell lépnie a Jumpbox. A rendszergazda először bejelentkezik a jumpboxba, majd azon keresztül bejelentkezik a többi virtuális gépbe. A jumpbox engedélyezi az internetről érkező RDP-forgalmat, de csak az ismert, biztonságos IP-címekről.
 
-A jumpbox rendelkezik a minimális teljesítménykövetelményei, ezért kattintson egy kisméretű Virtuálisgép-méretet. Hozzon létre egy [nyilvános IP-címet](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) a jumpbox számára. Helyezze a Jumpbox ugyanabban a virtuális hálózatban, mint a többi virtuális gépet, de egy különálló felügyeleti alhálózaton.
+A Jumpbox minimális teljesítménnyel kapcsolatos követelményekkel rendelkezik, ezért válassza ki a kis méretű virtuális gép méretét. Hozzon létre egy [nyilvános IP-címet](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) a jumpbox számára. Helyezze a Jumpbox ugyanabban a virtuális hálózatban, mint a többi virtuális gépet, de egy különálló felügyeleti alhálózaton.
 
-A jumpbox védelmére, adja hozzá egy NSG-szabályt, amely RDP-kapcsolatok kizárólag a nyilvános IP-címkészletekről engedélyezi. Állítsa be az NSG-t a többi alhálózathoz is úgy, hogy engedélyezzék a felügyeleti alhálózatból érkező RDP-forgalmat.
+A Jumpbox biztonságossá tételéhez adjon hozzá egy olyan NSG-szabályt, amely csak a biztonságos nyilvános IP-címekről engedélyezi az RDP-kapcsolatokat. Állítsa be az NSG-t a többi alhálózathoz is úgy, hogy engedélyezzék a felügyeleti alhálózatból érkező RDP-forgalmat.
 
 ## <a name="scalability-considerations"></a>Méretezési szempontok
 
@@ -143,9 +143,9 @@ A webes és az üzleti szintek esetében érdemes lehet [virtuálisgép-méretez
 
 A méretezési csoportokban üzembe helyezett virtuális gépek konfigurálásának két alapvető módja van:
 
--   Bővítmények segítségével konfigurálhatja a virtuális Gépet a telepítés után. Ezzel a módszerrel az új virtuálisgép-példányok indítása több időt vehet igénybe, mint a bővítmények nélküli virtuális gépeké.
+-   A bővítmények használatával konfigurálhatja a virtuális gépet a telepítés után. Ezzel a módszerrel az új virtuálisgép-példányok indítása több időt vehet igénybe, mint a bővítmények nélküli virtuális gépeké.
 
--   Üzembe helyezhet egy [felügyelt lemezt](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations) egy egyéni rendszerképpel. Ez a módszer gyorsabban kivitelezhető. Azonban ez megköveteli, hogy a kép naprakészen.
+-   Üzembe helyezhet egy [felügyelt lemezt](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations) egy egyéni rendszerképpel. Ez a módszer gyorsabban kivitelezhető. Azonban a rendszerképek naprakészen tartása szükséges.
 
 További információ: [tervezési szempontok a méretezési csoportokhoz](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview). Ez a kialakítási szempont általában a Azure Stack hub esetében igaz, de vannak bizonyos figyelmeztetések:
 
@@ -165,12 +165,12 @@ Minden Azure Stack hub-bérlői előfizetés alapértelmezett korláttal rendelk
 
 A virtuális hálózatok forgalomelkülönítési határok az Azure-ban. Alapértelmezés szerint az egyik virtuális hálózatban lévő virtuális gépek nem tudnak közvetlenül kommunikálni egy másik virtuális hálózatban lévő virtuális gépekkel.
 
-**NSG-k**. [Hálózati biztonsági csoportok](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) használata az internetre irányuló és onnan érkező forgalom korlátozására. További információt a [Microsoft Cloud Services és a hálózati biztonság](https://docs.microsoft.com/azure/best-practices-network-security)című témakörben talál.
+**NSG**. [Hálózati biztonsági csoportok](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) használata az internetre irányuló és onnan érkező forgalom korlátozására. További információ: [A Microsoft felhőszolgáltatásai és hálózati biztonság](https://docs.microsoft.com/azure/best-practices-network-security).
 
 **DMZ**. Érdemes lehet hozzáadnia egy hálózati virtuális berendezést (network virtual appliance, NVA), hogy DMZ-t lehessen létrehozni az internet és az Azure-beli virtuális hálózat között. Az NVA egy általános kifejezés egy olyan virtuális berendezésre, amely hálózatokhoz kapcsolódó feladatokat lát el, például gondoskodik a tűzfalról, a csomagvizsgálatról, a naplózásról és az egyéni útválasztásról.
 
-**Titkosítás**. Titkosítsa a bizalmas adatokat, és a [Azure stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) használatával kezelheti az adatbázis-titkosítási kulcsokat. További információkért lásd: [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault) Az Azure Key Vault-integráció konfigurálása az SQL Serverhez Azure virtuális gépeken. Emellett ajánlott alkalmazások titkos adatait, például az adatbázis kapcsolati karakterláncainak tárolása a Key Vaultban.
+**Titkosítás**. Titkosítsa a bizalmas adatokat, és a [Azure stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) használatával kezelheti az adatbázis-titkosítási kulcsokat. További információkért lásd: [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault) Az Azure Key Vault-integráció konfigurálása az SQL Serverhez Azure virtuális gépeken. Javasoljuk továbbá, hogy az alkalmazás-titkokat, például az adatbázis-kapcsolódási karakterláncokat a Key Vault tárolja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

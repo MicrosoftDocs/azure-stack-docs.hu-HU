@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: 7bfd1ec2ebf20abb3b6881fffe1588260fc4476e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703553"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Azure App Service üzembe helyezése offline környezetben Azure Stack hub-ban
@@ -39,7 +39,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 
 1. Futtassa a AppService. exe telepítőjét olyan gépen, amely csatlakozik az internethez. 
 
-2. Válassza a **speciális** > **Offline telepítési csomag létrehozása**lehetőséget. Ennek a lépésnek a végrehajtása több percet is igénybe vehet.
+2. Válassza a **speciális** > **Létrehozás offline telepítési csomag**lehetőséget. Ennek a lépésnek a végrehajtása több percet is igénybe vehet.
 
     ![Offline csomag létrehozása Azure App Service telepítőben][1]
 
@@ -53,7 +53,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 
 1. Futtassa a appservice. exe fájlt rendszergazdaként egy olyan számítógépről, amely elérheti az Azure Stack hub rendszergazdai Azure Resource Management végpontját.
 
-1. Válassza a **speciális** > az **Offline telepítés befejezése**lehetőséget.
+1. Válassza a **speciális** > **teljes kapcsolat nélküli telepítés**lehetőséget.
 
     ![Offline telepítés befejezése Azure App Service telepítőben][2]
 
@@ -66,7 +66,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 1. Tekintse át és fogadja el a harmadik féltől származó licencfeltételeket, majd kattintson a **tovább**gombra.
 
 
-1. Győződjön meg arról, hogy a Azure App Service felhő konfigurációs adatai helyesek. Ha a ASDK telepítése során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor vagy egy integrált rendszeren való üzembe helyezéskor testreszabta a beállításokat, akkor az ebben az ablakban található értékeket kell szerkesztenie, hogy azok tükrözzék ezeket a módosításokat. Ha például a mycloud.com tartományi utótagot használja, akkor a Azure Stack hub-bérlő Azure Resource Manager végpontjának `management.<region>.mycloud.com`re kell váltania. Az adatok megerősítése után válassza a **tovább**lehetőséget.
+1. Győződjön meg arról, hogy a Azure App Service felhő konfigurációs adatai helyesek. Ha a ASDK telepítése során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor vagy egy integrált rendszeren való üzembe helyezéskor testreszabta a beállításokat, akkor az ebben az ablakban található értékeket kell szerkesztenie, hogy azok tükrözzék ezeket a módosításokat. Ha például a mycloud.com tartományi utótagot használja, akkor a Azure Stack hub-bérlő Azure Resource Manager végpontjának a értékre `management.<region>.mycloud.com`kell váltania. Az adatok megerősítése után válassza a **tovább**lehetőséget.
 
     ![Azure App Service-felhő konfigurálása Azure App Service telepítőben][3]
 
@@ -76,7 +76,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
         - **Hitelesítőadat**
             - Ha Azure Active Directoryt (Azure AD) használ, adja meg az Azure AD-rendszergazda fiókját és jelszavát, amelyet az Azure Stack hub telepítésekor adott meg. Kattintson a **Csatlakozás** gombra.
             - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **kapcsolat**lehetőséget.
-        - **Egyszerű szolgáltatásnév**
+        - **Szolgáltatásnév**
             - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
             - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat**lehetőséget.
 
@@ -94,7 +94,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 
       ![Virtuális hálózat és alhálózat adatai Azure App Service telepítőben][5]
 
-1. Adja meg a fájlmegosztás adatait, majd kattintson a **tovább**gombra. A fájlmegosztás címének a fájlkiszolgáló teljes tartománynevét (FQDN) vagy IP-címét kell használnia. Például: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, vagy \\\10.0.0.1\websites.  Ha tartományhoz csatlakoztatott fájlkiszolgálón használ, meg kell adnia a teljes felhasználónevet, beleértve a tartományt is. Például: `<myfileserverdomain>\<FileShareOwner>`.
+1. Adja meg a fájlmegosztás adatait, majd kattintson a **tovább**gombra. A fájlmegosztás címének a fájlkiszolgáló teljes tartománynevét (FQDN) vagy IP-címét kell használnia. Például: \\\appservicefileserver.local.cloudapp.azurestack.external\websites vagy \\\10.0.0.1\websites.  Ha tartományhoz csatlakoztatott fájlkiszolgálón használ, meg kell adnia a teljes felhasználónevet, beleértve a tartományt is. Például: `<myfileserverdomain>\<FileShareOwner>`.
 
     > [!NOTE]
     > A telepítő megkísérli a fájlmegosztás kapcsolatának tesztelését a folytatás előtt. Ha azonban egy meglévő virtuális hálózatba helyezi üzembe a telepítést, előfordulhat, hogy a telepítő nem tud kapcsolódni a fájlmegosztás számára, és figyelmeztetést jelenít meg, hogy szeretné-e folytatni. Ellenőrizze a fájlmegosztás adatait, és folytassa, ha helyes.
@@ -115,8 +115,8 @@ A Azure App Service offline környezetben történő telepítéséhez először 
     | Box | Példa tanúsítványfájl-fájlnévre |
     | --- | --- |
     | **Alapértelmezett SSL-tanúsítványfájl App Service** | \_. appservice. local. AzureStack. external. pfx |
-    | **App Service API SSL-tanúsítványfájl** | api.appservice.local.AzureStack.external.pfx |
-    | **App Service közzétevő SSL-tanúsítványfájl** | ftp.appservice.local.AzureStack.external.pfx |
+    | **App Service API SSL-tanúsítványfájl** | API. appservice. local. AzureStack. external. pfx |
+    | **App Service közzétevő SSL-tanúsítványfájl** | FTP. appservice. local. AzureStack. external. pfx |
 
     Ha a tanúsítványok létrehozásakor eltérő tartományi utótagot használt, a tanúsítványfájl neve nem a helyi nevet használja *. AzureStack. external*. Ehelyett használja az egyéni tartomány adatait.
 
@@ -227,17 +227,17 @@ A Azure App Service erőforrás-szolgáltató üzembe helyezése és regisztrál
 >
 > A harmadik technikai előzetes verziótól kezdve a webes, API-és Azure Functions alkalmazások létrehozásához a felhasználói portált kell használnia, és bérlői előfizetéssel kell rendelkeznie.
 
-1. Az Azure Stack hub felhasználói portálon válassza az **+ erőforrás létrehozása** > **web és mobil** > **webalkalmazás**lehetőséget.
+1. Az Azure stack hub felhasználói portálon válassza az **+ erőforrás** > létrehozása**web és mobil** > **webalkalmazás**lehetőséget.
 
 1. A **Web App (webalkalmazás** ) panelen írja be a kívánt nevet a **Web App (webalkalmazás** ) mezőbe.
 
 1. Az **erőforráscsoport**területen válassza az **új**lehetőséget. Adjon meg egy nevet az **erőforráscsoport** mezőben.
 
-1. Válassza ki **app Service terv/hely** > **hozzon létre új**elemet.
+1. Válassza a **app Service terv/hely** > **létrehozása új**lehetőséget.
 
 1. A **app Service terv** panelen adjon meg egy nevet a **app Service terv** mezőben.
 
-1. Válassza ki az **árképzési szintet** > **Free-Shared** vagy **shared-shared** > válassza a > **OK** > **Létrehozás** **lehetőséget** .
+1.  > Válassza **a****Free-Shared** vagy **a Shared-** > Shared**Select** > **OK** > **létrehozása**lehetőséget.
 
 1. Kevesebb mint egy percen belül az új webalkalmazás csempéje megjelenik az irányítópulton. Válassza ki a csempét.
 
@@ -245,13 +245,13 @@ A Azure App Service erőforrás-szolgáltató üzembe helyezése és regisztrál
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress-, DNN-vagy Django-webhely üzembe helyezése (opcionális)
 
-1. Az Azure Stack hub felhasználói portálon válassza a **+** lehetőséget, lépjen az Azure Marketplace webhelyre, helyezzen üzembe egy Django-webhelyet, és várja meg a sikeres befejezést. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
+1. Az Azure Stack hub felhasználói portálon válassza az **+** Azure Marketplace, Django-webhely üzembe helyezése lehetőséget, és várja meg a sikeres befejezést. A Django webes platform fájlrendszer alapú adatbázist használ. Nem igényel további erőforrás-szolgáltatót, például az SQL-t vagy a MySQL-t.
 
-1. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a WordPress-webhelyet üzembe helyezheti az Azure piactéren. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
+1. Ha egy MySQL erőforrás-szolgáltatót is üzembe helyezett, a WordPress-webhelyet üzembe helyezheti az Azure piactéren. Amikor a rendszer az adatbázis paramétereinek megadását kéri, írja be a felhasználónevet *Felhasználó1\@Kiszolgáló1*néven, a felhasználónévvel és a kiszolgáló nevével.
 
 1. Ha SQL Server erőforrás-szolgáltatót is üzembe helyezett, üzembe helyezhet egy DNN-webhelyet az Azure piactéren. Ha a rendszer az adatbázis paramétereinek megadását kéri, válasszon egy adatbázist az erőforrás-szolgáltatóhoz csatlakoztatott SQL Servert futtató számítógépen.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Felkészülés további rendszergazdai műveletekre Azure Stack hub Azure App Service:
 

@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 ms.openlocfilehash: 095b10039c9df4bf10b3a4bdcfc454416885f5ac
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688831"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure Stack hub Azure App Service frissítése
@@ -30,7 +30,7 @@ A folyamat során a frissítés a következő lesz:
 
 * Azure App Service korábbi üzembe helyezésének észlelése.
 * Készítse elő az összes frissítési csomagot és az összes telepítendő OSS-könyvtár új verzióját.
-* Feltöltés a Storage-ba.
+* Feltöltés tárolóba.
 * Az összes Azure App Service-szerepkör frissítése (vezérlők, felügyelet, előtér-, közzétevői és feldolgozói szerepkörök).
 * Azure App Service méretezési csoport definícióinak frissítése.
 * Frissítse Azure App Service erőforrás-szolgáltatói jegyzékfájlt.
@@ -62,7 +62,7 @@ Az Azure App Service Azure Stack hub-beli telepítésének frissítéséhez köv
         - **Hitelesítőadat**
             - Ha Azure Active Directoryt (Azure AD) használ, adja meg az Azure AD-rendszergazda fiókját és jelszavát, amelyet az Azure Stack hub telepítésekor adott meg. Kattintson a **Csatlakozás** gombra.
             - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **kapcsolat**lehetőséget.
-        - **Egyszerű szolgáltatásnév**
+        - **Szolgáltatásnév**
             - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
             - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat**lehetőséget.
 
@@ -94,7 +94,7 @@ Az Azure App Service Azure Stack hub-beli telepítésének frissítéséhez köv
 [4]: ./media/azure-stack-app-service-update/app-service-upgrade-summary.png
 [5]: ./media/azure-stack-app-service-update/app-service-upgrade-complete.png
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Felkészülés további rendszergazdai műveletekre Azure Stack hub Azure App Service:
 

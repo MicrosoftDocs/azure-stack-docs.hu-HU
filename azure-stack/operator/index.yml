@@ -1,83 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Stack hub-kezelő dokumentációja
+summary: Az Microsoft Azure Stack hub egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások biztosítását az adatközpontból. Útmutató Azure Stack hub kezeléséhez.
 metadata:
   title: Azure Stack hub dokumentációja – oktatóanyagok és API-referenciák
-  meta.description: azure-stack
+  description: Ismerje meg, hogyan kezelheti az Azure Stack hub integrált rendszer-infrastruktúráját, és hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.
   services: azure-stack
-  author: justinha
-  manager: femila
-  layout: LandingPage
-  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   ms.service: azure-stack
-  ms.tgt_pltfrm: from-team
-  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 07/09/2019
+  author: justinha
   ms.author: justinha
-abstract:
-  description: 'Az Microsoft Azure Stack hub egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások biztosítását az adatközpontból. Ismerje meg, hogyan kezelheti az Azure Stack hub integrált rendszer-infrastruktúráját, és hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.<br/><br/>Ha Ön Azure Stack hub-felhasználó, aki szolgáltatásokat használ, vagy alkalmazásokat épít Azure Stack hub-hoz, tekintse meg a <a href="/azure-stack/user">felhasználói dokumentációt</a>.<br/><br/>Ha Ön Azure Stack hub-operátor érdekli a Azure Stack Development Kit (ASDK), az Azure Stack hub egycsomópontos üzembe helyezését, amelyet ingyenesen tölthet le és használhat fel, tekintse meg a <a href="/azure-stack/asdk">ASDK dokumentációját</a>.'
-sections:
-  - title: Azure Stack hub – első lépések
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-manage-portals">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
-              <br><b>Az adminisztrációs portál használata</b></a>
-              <p>Azure Stack hub napi szintű felügyeletéhez és működéséhez használja az adminisztrációs portált.</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-powershell-install">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure stack hub PowerShell</b></a>
-              <p>Egyszerűen kezelheti Azure Stack hub-erőforrásait a PowerShellből.</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
-              <br><b>Kapacitás megtervezése</b></a>
-              <p>Megtudhatja, hogyan illeszkednek egymáshoz a különböző számítási erőforrások kiosztásai a kiválasztott hardveres ajánlatok között.</p>
-  - title: Azure Stack hub-szolgáltatások nyújtása
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br><b>SQL-ajánlat a pásti</b></a>
-              <p>Az SQL Server erőforrás-szolgáltató használatával Azure Stack hub szolgáltatásként kínálhat SQL-adatbázisokat.</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br><b>MySQL-ajánlat – pásti</b></a>
-              <p>A MySQL erőforrás-szolgáltató használatával Azure Stack hub szolgáltatásként kínál MySQL-adatbázisokat.</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-app-service-overview">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
-              <br><b>Az ajánlat Azure app Service a pásti</b></a>
-              <p>Segítsen a felhasználóknak webalkalmazások és API-k létrehozásában bármilyen platformon vagy eszközön.</p>
-  - title: Azure Stack hub kezelése
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-updates">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
-              <br><b>Azure stack hub frissítése</b></a>
-              <p>A Microsoft minden hónapban egyetlen csomagot csomagol, hogy Azure Stack hub integrált rendszereit naprakészen tartsa. </p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>Azure stack hub biztonsági mentése</b></a>
-              <p>A konfigurációs és a szolgáltatási adatai biztonsági mentése és visszaállítása a Infrastructure Backup szolgáltatás használatával.</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-security-configuration">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>Azure stack hub biztonsági</a> konfigurálása</b>
-              <p>Az Azure Stack hub úgy lett kialakítva, hogy megvédje a modern fenyegetésekkel szemben, és megfeleljen a megfelelőségi követelményeknek.</p>
+  ms.date: 04/13/2020
+  ms.openlocfilehash: 16a63e28a67b6dfc9d68b29df343e130ae4abca0
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.translationtype: MT
+  ms.contentlocale: hu-HU
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81274089"
+landingContent:
+- title: Az Azure Stack hub ismertetése
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Mi az Azure Stack hub?
+      url: azure-stack-overview.md
+    - text: Mi az Azure Stack HCI?
+      url: azure-stack-hci-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Biztonsági frissítések
+      url: azure-stack-release-notes-security-updates.md
+    - text: Kibocsátási megjegyzések
+      url: azure-stack-release-notes-1908.md
+    - text: Azure Stack hub Capacity Planner
+      url: azure-stack-capacity-planning-overview.md
+- title: Bevezetés
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Az adminisztrációs portál használata
+      url: azure-stack-manage-portals.md
+    - text: Szolgáltatás nyújtása a felhasználóknak
+      url: tutorial-offer-services.md
+    - text: Szolgáltatási ajánlat tesztelése
+      url: tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: Kapcsolatok modelljeinek összehasonlítása
+      url: azure-stack-connection-models.md
+    - text: Csatlakoztatott üzemelő példány
+      url: azure-stack-connected-deployment.md
+    - text: Leválasztott központi telepítés
+      url: azure-stack-disconnected-deployment.md
+- title: Azure Stack hub-eszközök
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Azure Stack hub-eszközök letöltése a GitHubról
+      url: azure-stack-powershell-download.md
+    - text: Az Azure Stack PowerShell telepítése
+      url: azure-stack-powershell-install.md
+    - text: Kapcsolat Azure Stack PowerShell-lel
+      url: azure-stack-powershell-configure-admin.md
+    - text: A Azure Stack Development Kit letöltése (ASDK)
+      url: ../asdk/asdk-download.md
+- title: Azure Stack hub kipróbálása
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: A ASDK-gazdagép előkészítése
+      url: ../asdk/asdk-prepare-host.md
+    - text: A ASDK telepítése
+      url: ../asdk/asdk-install.md
+    - text: ASDK-adminisztrátor alapjai
+      url: ../asdk/asdk-admin-basics.md
+- title: Szolgáltatások ajánlása
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Ajánlat létrehozása virtuális géphez
+      url: azure-stack-tutorial-tenant-vm.md
+    - text: Magasan elérhető MySQL-adatbázis létrehozása
+      url: azure-stack-tutorial-mysql.md
+    - text: Alkalmazások létrehozása bármilyen platformhoz
+      url: azure-stack-app-service-overview.md
+- title: Azure Stack hub kezelése
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Állapot és riasztások monitorozása
+      url: azure-stack-monitor-health.md
+    - text: Frissítések telepítése és a folyamat megfigyelése
+      url: azure-stack-apply-updates.md
+    - text: Konfigurációs és szolgáltatási adatbiztonsági mentés és visszaállítás
+      url: azure-stack-backup-infrastructure-backup.md

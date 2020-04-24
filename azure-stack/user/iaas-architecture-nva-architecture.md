@@ -3,16 +3,16 @@ title: Magasan elérhető hálózati virtuális berendezések üzembe helyezése
 description: Ismerje meg, hogyan helyezhetők üzembe a Azure Stack hub-ban található, magasan elérhető hálózati virtuális berendezések.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 69516e7d50cb0635854d2b9168cb6bc308b229d8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 916e12061961b22c518d0048e8bc8c191f8542a1
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705032"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660064"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Magasan elérhető hálózati virtuális berendezések üzembe helyezése Azure Stack hub-on
 
@@ -26,9 +26,9 @@ Az architektúra a következő összetevőket tartalmazza.
 
 -   **Virtuális hálózat és alhálózatok**. Minden Azure-beli virtuális gép üzembe helyezése egy, az alhálózatokra szegmentált virtuális hálózatba történik. Hozzon létre egy külön alhálózatot minden egyes szinthez.
 
--   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure Stack hub-on, elérhetők a [Azure stack hub piacán](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) elérhető alternatívák, például: [Kemp Loadmaster Load Balancer adc Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure stack hub-on, a [Azure stack hub piacon](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) elérhető alternatívák is rendelkezésre állnak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **Terheléselosztók**. A [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
+-   **Terheléselosztó.** A [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
 
 -   **Hálózati biztonsági csoportok** (NSG). A NSG használata a virtuális hálózaton belüli hálózati forgalom korlátozására. Az itt bemutatott háromrétegű architektúrában például az adatbázis-réteg nem fogadja el a webes kezelőfelületről érkező forgalmat, csak az üzleti rétegből és a felügyeleti alhálózatból.
 
@@ -38,7 +38,7 @@ Ez a cikk az Azure Stack hub hálózatkezelésének alapvető ismeretét feltét
 
 ## <a name="architecture-diagrams"></a>Architektúra-diagramok
 
-Egy NVA számos különböző architektúrában üzembe helyezhető a peremhálózaton. Az alábbi ábra például egyetlen NVA használatát szemlélteti a bejövő forgalomhoz.
+Egy NVA számos különböző architektúrában üzembe helyezhető a peremhálózaton. A következő ábra például egyetlen NVA bejövő forgalomhoz való használatát illusztrálja.
 
 ![A közösségi média utáni Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/image1.png)
 
@@ -48,11 +48,11 @@ Az NVA magas rendelkezésre állásúvá tételéhez helyezzen üzembe több NVA
 
 A következő architektúrák bemutatják a magas rendelkezésre állású NVA-khoz szükséges erőforrásokat és konfigurációkat:
 
-| Megoldás | Előnyök | Megfontolások |
+| Megoldás | Előnyök | Megfontolandó szempontok |
 | --- | --- | --- |
 | Bejövő forgalom 7-es rétegű NVA-kkal | Minden NVA-csomópont aktív. | Olyan NVA igényel, amely képes a kapcsolatok megszakítására és a SNAT használatára.<br>A vállalati hálózatról/internetről és Azure Stack hub-ról érkező forgalomhoz külön NVA-készletre van szükség.<br>Csak Azure Stack hub-on kívülről származó forgalomhoz használható.  |
 | Kimenő forgalom 7-es rétegű NVA-kkal | Minden NVA-csomópont aktív. | Olyan NVA igényel, amely képes megszakítani a kapcsolatokat, és implementálja a forrás hálózati címfordítást (SNAT). |
-| Bejövő forgalom-kimenő forgalom 7. rétegbeli NVA | Minden csomópont aktív.<br>Képes kezelni a forgalmat Azure Stack hub-ból. | Olyan NVA igényel, amely képes a kapcsolatok megszakítására és a SNAT használatára.<br>A vállalati hálózatról/internetről és Azure Stack hub-ról érkező forgalomhoz külön NVA-készletre van szükség. |
+| Bejövő és kimenő forgalom 7-es rétegű NVA-kkal | Minden csomópont aktív.<br>Képes kezelni a forgalmat Azure Stack hub-ból. | Olyan NVA igényel, amely képes a kapcsolatok megszakítására és a SNAT használatára.<br>A vállalati hálózatról/internetről és Azure Stack hub-ról érkező forgalomhoz külön NVA-készletre van szükség. |
 
 ## <a name="ingress-with-layer-7-nvas"></a>Bejövő forgalom 7-es rétegű NVA-kkal
 
@@ -81,7 +81,7 @@ A bejövő forgalomban a 7. rétegbeli NVA architektúrában a NVA a 7. rétegbe
 > [!Note]  
 > Úgy is megoldhatja az aszimmetrikus útvonal-választási problémát, ha gondoskodik róla, hogy az NVA-k bejövő forráshálózati címfordítást (SNAT) végezzenek. Ez lecserélné a kérelmező eredeti forrás IP-címét az NVA által a bejövő adatfolyamon használt IP-címeinek egyikével. Így gondoskodni lehet róla, hogy több NVA is használható legyen egyszerre az útvonal szimmetriájának megőrzése mellett.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért lásd: [Azure stack hub](azure-stack-vm-considerations.md)virtuálisgép-funkciók.  
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

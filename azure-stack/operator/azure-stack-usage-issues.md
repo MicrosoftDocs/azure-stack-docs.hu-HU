@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
 ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512349"
 ---
 # <a name="usage-connectivity-errors"></a>Használati csatlakozási hibák
@@ -30,7 +30,7 @@ A probléma megoldásához próbálkozzon a következő lépésekkel:
 
 - Ellenőrizze, hogy a hálózati konfiguráció lehetővé teszi-e a Azure Bridge számára a távoli szolgáltatáshoz való kapcsolódást.
 
-- A régió- [ **felügyeleti** > **Tulajdonságok** ](azure-stack-registration.md#verify-azure-stack-hub-registration) paneljén megkeresheti a regisztrációhoz, az erőforráscsoporthoz és a regisztrációs erőforrás NEVÉhez használt Azure-előfizetés azonosítóját. Győződjön meg arról, hogy a regisztrációs erőforrás létezik a megfelelő Azure-előfizetési AZONOSÍTÓban Azure Portalban. Ehhez nyissa meg az Azure-előfizetés azonosítója alatt létrehozott **összes erőforrást** , és jelölje be a **rejtett típusok megjelenítése** jelölőnégyzetet. Ha nem találja a regisztrációs erőforrást, kövesse a [megújítása vagy a regisztráció módosítása](azure-stack-registration.md#renew-or-change-registration) az Azure stack hub újbóli regisztrálásához című témakör lépéseit.
+- A régió- [ **felügyeleti** > tulajdonságok](azure-stack-registration.md#verify-azure-stack-hub-registration) panelen megkeresheti a regisztrációhoz, az erőforráscsoporthoz és a regisztrációs erőforrás nevéhez használt Azure-előfizetés azonosítóját. Győződjön meg arról, hogy a regisztrációs erőforrás létezik a megfelelő Azure-előfizetési AZONOSÍTÓban Azure Portalban. Ehhez nyissa meg az Azure-előfizetés azonosítója alatt létrehozott **összes erőforrást** , és jelölje be a **rejtett típusok megjelenítése** jelölőnégyzetet. Ha nem találja a regisztrációs erőforrást, kövesse a [megújítása vagy a regisztráció módosítása](azure-stack-registration.md#renew-or-change-registration) az Azure stack hub újbóli regisztrálásához című témakör lépéseit.
 
   ![Portál](media/azure-stack-usage-issues/stackres.png)
 
@@ -38,7 +38,7 @@ A probléma megoldásához próbálkozzon a következő lépésekkel:
 
 Ez a szakasz a használati hibakódokat ismerteti.
 
-| Hibakód                 | Probléma                                                                                                                                             | Szervizelés                                                                                                                                                                                                                                                                                        |
+| Hibakód                 | Probléma                                                                                                                                             | Kockázatcsökkentés                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NetworkError               | Azure Stack hub-híd nem tud elküldeni egy kérést a használati szolgáltatási végpontnak az Azure-ban.                                                            | Ellenőrizze, hogy a proxy blokkolja-e vagy elfogja-e a használati szolgáltatás végpontjának elérését.                                                                                                                                                                                                             |
 | RequestTimedOut            | A rendszer elküldte a kérelmet a Azure Bridge, de az Azure-beli használati szolgáltatás nem válaszolt az időtúllépési időszakon belül.                             | Ellenőrizze, hogy a proxy blokkolja-e vagy elfogja-e a használati szolgáltatás végpontjának elérését.                                                                                                                                                                                                                        |
@@ -49,7 +49,7 @@ Ez a szakasz a használati hibakódokat ismerteti.
 
 Emellett előfordulhat, hogy meg kell adnia a naplófájlokat a Azure Bridge, a és a WASPublic összetevőkhöz.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Azure stack hub használati adatainak az Azure-ba történő jelentéskészítéséről](azure-stack-usage-reporting.md).
 - Ha a regisztrációs folyamat során aktiválják a hibaüzeneteket, tekintse át a [bérlői regisztrációs hibaüzeneteket](azure-stack-registration-errors.md).

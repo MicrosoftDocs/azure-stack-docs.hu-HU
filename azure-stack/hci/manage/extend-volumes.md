@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/10/2020
 ms.openlocfilehash: 703931b0dccb533b2b924847eb3302f0efa46d1a
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79089297"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Kötetek kiterjesztése a Közvetlen tárolóhelyekban
@@ -64,7 +64,7 @@ Tegyük fel például, hogy a virtuális lemezről a kötetre kell beolvasnia:
 Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
 ```
 
-### <a name="step-1--resize-the-virtual-disk"></a>1\. lépés – a virtuális lemez átméretezése
+### <a name="step-1--resize-the-virtual-disk"></a>1. lépés – a virtuális lemez átméretezése
 
 A virtuális lemez tárolási szinteket használhat, vagy nem, attól függően, hogy hogyan lett létrehozva.
 
@@ -111,9 +111,9 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 Ha átméretezi a **StorageTier**(ka) t, a **VirtualDisk** és a **lemez** automatikusan elvégzi a méretezést, és átméretezi őket.
 
-![Átméretezés – StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
 
-### <a name="step-2--resize-the-partition"></a>2\. lépés – a partíció átméretezése
+### <a name="step-2--resize-the-partition"></a>2. lépés – a partíció átméretezése
 
 Ezután méretezze át a partíciót a **Resize-Partition** parancsmag használatával. A virtuális lemeznek két partíciót kell tartalmaznia: az első foglalt, és nem módosítható; az átméretezni kívántnak **PartitionNumber = 2** és **Type = Basic típusúnak**kell lennie.
 
@@ -139,7 +139,7 @@ Ennyi az egész!
 > [!TIP]
 > A **Get-Volume**futtatásával ellenőrizheti, hogy a köteten van-e új méret.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A további alapvető tárolási felügyeleti feladatokkal kapcsolatos részletes útmutatásért lásd még:
 

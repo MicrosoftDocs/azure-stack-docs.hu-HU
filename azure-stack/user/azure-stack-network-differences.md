@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 1845a25b0cd66168277e39026a3651e6638cf98c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703910"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81274072"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -22,10 +22,10 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 
 ## <a name="cheat-sheet-networking-differences"></a>Cheat Sheet: hálózati különbségek
 
-| Szolgáltatás | Funkció | Azure (globális) | Azure Stack hub |
+| Szolgáltatás | Szolgáltatás | Azure (globális) | Azure Stack hub |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | Több-bérlős DNS | Támogatott | Még nem támogatott |
-|  | DNS AAAA records | Támogatott | Nem támogatott |
+|  | DNS AAAA-rekordok | Támogatott | Nem támogatott |
 |  | DNS-zónák/előfizetés | 100 (alapértelmezett)<br>Igény szerint növelhető. | 100 |
 |  | DNS-rekordhalmazok száma zónában | 5000 (alapértelmezett)<br>Igény szerint növelhető. | 5000 |
 |  | Névkiszolgálók a zónák delegálásához | Az Azure négy névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. | Azure Stack hub két névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. |
@@ -35,16 +35,17 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | DDoS Protection terv | Támogatott | Még nem támogatott. |
 |  | Méretezési csoport IP-konfigurációi | Támogatott | Még nem támogatott. |
 |  | Magánhálózati hozzáférési szolgáltatások (alhálózat) | Támogatott | Még nem támogatott. |
-|  | Szolgáltatási végpontok | Az Azure-szolgáltatásokhoz való belső (nem internetes) kapcsolódás esetén támogatott. | Még nem támogatott. |
+|  | Szolgáltatásvégpontok | Az Azure-szolgáltatásokhoz való belső (nem internetes) kapcsolódás esetén támogatott. | Még nem támogatott. |
 |  | Szolgáltatásvégpont-szabályzatok | Támogatott | Még nem támogatott. |
 |  | Szolgáltatási alagutak | Támogatott | Még nem támogatott.  |
-| Network Security Groups (Hálózati biztonsági csoportok) | Kibővített biztonsági szabályok | Támogatott | Még nem támogatott. |
+| Network Security Groups (Hálózati biztonsági csoportok) | Kibővített biztonsági szabályok | Támogatott | Támogatott. |
 |  | Érvényes biztonsági szabályok | Támogatott | Még nem támogatott. |
 |  | Alkalmazásbiztonsági csoportok | Támogatott | Még nem támogatott. |
+|  | Szabály protokolljai | TCP, UDP, ICMP, any | Csak TCP, UDP vagy bármilyen |
 | Virtuális hálózati átjárók | Pont – hely VPN Gateway | Támogatott | Még nem támogatott. |
 |  | Vnet – vnet átjáró | Támogatott | Még nem támogatott. |
 |  | Virtual Network átjáró típusa | Az Azure támogatja a VPN-t<br> Express Route <br> Hyper-háló. | Azure Stack hub jelenleg csak a VPN-típust támogatja. |
-|  | SKU VPN Gateway | Az alapszintű, a GW1, a GW2, a GW3, a standard nagy teljesítményű, rendkívül nagy teljesítményű funkciók támogatása. | Az alapszintű, a standard és a nagy teljesítményű SKU támogatása. |
+|  | VPN Gateway termékváltozatok | Az alapszintű, a GW1, a GW2, a GW3, a standard nagy teljesítményű, rendkívül nagy teljesítményű funkciók támogatása. | Az alapszintű, a standard és a nagy teljesítményű SKU támogatása. |
 |  | VPN-típus | Az Azure a házirend-alapú és a Route-alapú rendszert is támogatja. | Azure Stack hub csak az útválasztást támogatja. |
 |  | BGP-beállítások | Az Azure támogatja a BGP-társas címek és a társak súlyozásának konfigurációját. | A BGP-társak címzési címe és a társ súlya automatikusan konfigurálva van Azure Stack központban. A felhasználó nem állíthatja be ezeket a beállításokat a saját értékeivel. |
 |  | Alapértelmezett átjáró helye | Az Azure támogatja az alapértelmezett hely konfigurációját a kényszerített bújtatáshoz. | Még nem támogatott. |
@@ -54,7 +55,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 | Terheléselosztó | SKU | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer/Path/legfeljebb 5 előtér-IP-konfigurációval rendelkezhet.  |
 |  | Zóna | A Availability Zones támogatottak. | Még nem támogatott |
 |  | Bejövő NAT-szabályok támogatása szolgáltatási végpontok számára | Az Azure támogatja a szolgáltatási végpontok megadását a bejövő NAT-szabályokhoz. | Azure Stack hub még nem támogatja a szolgáltatási végpontokat, ezért ezeket nem lehet megadni. |
-|  | Protokoll | Az Azure támogatja a GRE vagy az ESP megadását. | A Protocol osztály nem támogatott Azure Stack hub-ban. |
+|  | Protocol (Protokoll) | Az Azure támogatja a GRE vagy az ESP megadását. | A Protocol osztály nem támogatott Azure Stack hub-ban. |
 | Nyilvános IP-cím | Nyilvános IP-cím verziója | Az Azure az IPv6 és az IPv4 protokollt is támogatja. | Kizárólag az IPv4 használata támogatott. |
 | | SKU | Az Azure támogatja az alapszintű és a standard szintű támogatást. | Csak az alapszintű támogatott. |
 | Hálózati adapter | Hatékony útválasztási táblázat beolvasása | Támogatott | Még nem támogatott. |
@@ -67,7 +68,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | Statikus MAC-címek | Nem támogatott | Nem támogatott. Az egyes Azure Stack hub-rendszerek ugyanazt a MAC-címkészletet használják. |
 | Network Watcher | Network Watcher bérlői hálózat figyelési képességei | Támogatott | Még nem támogatott. |
 | Tartalomkézbesítési hálózat (CDN) | Content Delivery Network profilok | Támogatott | Még nem támogatott. |
-| Alkalmazásátjáró | 7\. rétegbeli terheléselosztás | Támogatott | Még nem támogatott. |
+| Alkalmazásátjáró | 7. rétegbeli terheléselosztás | Támogatott | Még nem támogatott. |
 | Traffic Manager | A bejövő forgalom irányítása az alkalmazások optimális teljesítményének és megbízhatóságának megfelelően. | Támogatott | Még nem támogatott. |
 | Express Route | Hozzon létre egy gyors, privát kapcsolatokat a Microsoft Cloud Services szolgáltatással a helyszíni infrastruktúráról vagy a helyi létesítményből. | Támogatott | Azure Stack hub Express Route-áramkörhöz való csatlakoztatásának támogatása. |
 
@@ -88,6 +89,6 @@ Azure Stack hub hálózatkezelés a következő API-verziókat támogatja:
 - 2017-11-01
 - 2017-10-01
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [DNS Azure Stack központban](azure-stack-dns.md)

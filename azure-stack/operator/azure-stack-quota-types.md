@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
 ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423864"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kvóta típusai Azure Stack központban
@@ -113,7 +113,7 @@ Megadhatja, hogy egy adott kvóta eredeti konfigurációját [egy kiegészítő 
 
 A kvóta új értékei globálisan vonatkoznak minden olyan csomagra, amely a módosított kvótát és a csomagokat használó összes meglévő előfizetést használja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [További információ a szolgáltatások, csomagok, ajánlatok és kvóták használatáról.](service-plan-offer-subscription-overview.md)
 - [Hozzon létre kvótákat a csomag létrehozásakor.](azure-stack-create-plan.md)

@@ -3,16 +3,16 @@ title: Alapminták üzembe helyezése Azure Stack központban
 description: Megtudhatja, hogyan helyezhet üzembe alapmintákat Azure Stack hub használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 28775cb3c279e2976a32a63fc21a8797bba6eb38
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 8fedf1e2cd932b5c3a5e84efb6b36bb14c1854d1
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705083"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660767"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>Alapvető minták üzembe helyezése – áttekintés
 
@@ -31,22 +31,22 @@ Minden cikk a gyakori szempontokat tárgyalja, például:
 
 |  Társviszony létesítése virtuális hálózatok között  |  VPN  |  Terheléselosztó  |
 | --- | --- | --- |
-| Virtuális hálózatok ![virtuális gépekkel](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Virtuális hálózatok társítása virtuális gépekkel](azure-stack-network-howto-vnet-peering.md) | ![VPN beállítása helyszíni](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[VPN beállítása helyszíni rendszerre](azure-stack-network-howto-vnet-to-onprem.md) | ![F5 Load Balancer](media/deploy-foundational-patterns/icon-networking-62-load-balancers.svg)<br>[F5 Load Balancer](network-howto-f5.md) |
-| ![virtuális hálózati társ-és FortiGate-](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Virtuális hálózati társítás a FortiGate](azure-stack-network-howto-vnet-to-vnet.md) | ![virtuális magánhálózat](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Virtuális hálózat és virtuális hálózati kapcsolatok](azure-stack-network-howto-vnet-to-vnet-stacks.md) |  |
-|  | ![VPN-alagút (GRE) létrehozása](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[VPN-alagút létrehozása (GRE)](network-howto-vpn-tunnel-gre.md) | |
-|  | több helyek közötti VPN-](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg) beállítása ![<br>[Több helyek közötti VPN beállítása](network-howto-vpn-tunnel.md) | |
+| ![Virtuális hálózatok társítása virtuális gépekkel](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Virtuális hálózatok társítása virtuális gépekkel](azure-stack-network-howto-vnet-peering.md) | ![VPN beállítása helyszíni rendszerre](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[VPN beállítása helyszíni rendszerre](azure-stack-network-howto-vnet-to-onprem.md) | ![F5 Load Balancer](media/deploy-foundational-patterns/icon-networking-62-load-balancers.svg)<br>[F5 Load Balancer](network-howto-f5.md) |
+| ![Virtuális hálózati társítás a FortiGate](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Virtuális hálózati társítás a FortiGate](azure-stack-network-howto-vnet-to-vnet.md) | ![Virtuális magánhálózat](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Virtuális hálózat és virtuális hálózati kapcsolatok](azure-stack-network-howto-vnet-to-vnet-stacks.md) |  |
+|  | ![VPN-alagút létrehozása (GRE)](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[VPN-alagút létrehozása (GRE)](network-howto-vpn-tunnel-gre.md) | |
+|  | ![Több helyek közötti VPN beállítása](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Több helyek közötti VPN beállítása](network-howto-vpn-tunnel.md) | |
 |  | ![VPN-alagút (IPSEC) létrehozása](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[VPN-alagút (IPSEC) létrehozása](network-howto-vpn-tunnel-ipsec.md)| |
 
 
-## <a name="storage"></a>Tárterület
+## <a name="storage"></a>Storage
 
 A tárolási minták használatával növelheti a tárolási lehetőségeket Azure Stack hubhoz. Azure Stack hub-tároló véges. Kapcsolódjon a meglévő adatközpont erőforrásaihoz. A Windows rendszerű virtuális gépek külső iSCSI-tárolóhoz való kapcsolódásra vonatkozó utasítások a Azure Stack hub-ban történő létrehozásához. Megtudhatja, hogyan engedélyezheti a főbb funkciókat, például a többutas I/O (MPIO) szolgáltatást a virtuális gép és a külső tároló közötti teljesítmény és kapcsolat optimalizálása érdekében.
 
 | iSCSI-tároló | Tárterület kiterjesztése |
 | --- | --- | --- |
-| ![az iSCSI-tárolóhoz való kapcsolódáshoz](media/deploy-foundational-patterns/icon-storage-87-storage-accounts-classic.svg)<br>[Kapcsolódás iSCSI-tárolóhoz](azure-stack-network-howto-iscsi-storage.md) | ![bővítse az adatközpontot](media/deploy-foundational-patterns/icon-storage-88-recovery-services-vaults.svg)<br>[Az adatközpont kiterjesztése](azure-stack-network-howto-extend-datacenter.md) |
+| ![Kapcsolódás iSCSI-tárolóhoz](media/deploy-foundational-patterns/icon-storage-87-storage-accounts-classic.svg)<br>[Kapcsolódás iSCSI-tárolóhoz](azure-stack-network-howto-iscsi-storage.md) | ![Az adatközpont kiterjesztése](media/deploy-foundational-patterns/icon-storage-88-recovery-services-vaults.svg)<br>[Az adatközpont kiterjesztése](azure-stack-network-howto-extend-datacenter.md) |
 
-## <a name="backup"></a>Biztonsági mentés
+## <a name="backup"></a>Backup
 
 A biztonsági mentési és vész-helyreállítási minták használatával az előfizetésben lévő összes erőforrást átmásolhatja az Azure-ba vagy egy másik Azure Stack hub-példányba. Ezek a minták a virtuális gépeken belül tárolt információk egy másik környezetbe való replikálásához a CommVault Live-Sync használatával foglalkoznak. Az adatküldéshez létrehozhat egy olyan parancsfájlt, amely létrehoz egy Storage-fiókot és egy biztonsági mentési Storage-fiókot. Az Azure-előfizetési replikátor modullal beállíthatja az erőforrás-replikációt, és testre szabhatja a processzort különböző erőforrások kezeléséhez. 
 
@@ -54,13 +54,13 @@ A biztonsági mentési és vész-helyreállítási minták használatával az el
 
 |  Biztonsági mentés  |  Másolás  |
 | --- | --- | --- |
-| ![a virtuális gép biztonsági mentését Azure Stack központban a CommVault](media/deploy-foundational-patterns/icon-storage-100-import-export-jobs.svg)<br>[A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault](azure-stack-network-howto-backup-commvault.md) | előfizetési erőforrások ![másolása](media/deploy-foundational-patterns/icon-storage-94-data-box.svg)<br>[Előfizetés-erőforrások másolása](azure-stack-network-howto-backup-replicator.md) |
-|  | ![a Storage-fiókok biztonsági mentését Azure Stack központban](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[A Storage-fiókok biztonsági mentése Azure Stack hub-on](azure-stack-network-howto-backup-storage.md)  |
+| ![A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault](media/deploy-foundational-patterns/icon-storage-100-import-export-jobs.svg)<br>[A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault](azure-stack-network-howto-backup-commvault.md) | ![Előfizetés-erőforrások másolása](media/deploy-foundational-patterns/icon-storage-94-data-box.svg)<br>[Előfizetés-erőforrások másolása](azure-stack-network-howto-backup-replicator.md) |
+|  | ![A Storage-fiókok biztonsági mentése Azure Stack hub-on](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[A Storage-fiókok biztonsági mentése Azure Stack hub-on](azure-stack-network-howto-backup-storage.md)  |
 
 ## <a name="github-samples"></a>GitHub-minták
 
 A sablonokat az [Azure intelligens Edge Pattern GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) -tárházában találja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az Azure Hybrid Patterns és Solutions dokumentációja](https://docs.microsoft.com/azure-stack/hybrid/)

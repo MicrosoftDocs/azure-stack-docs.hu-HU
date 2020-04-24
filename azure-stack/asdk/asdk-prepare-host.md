@@ -1,5 +1,5 @@
 ---
-title: A ASDK-gazda számítógép előkészítése
+title: Az ASDK-gazdagép előkészítése
 description: Megtudhatja, hogyan készítheti elő a Azure Stack Development Kit (ASDK) gazdagépet a ASDK telepítéséhez.
 author: justinha
 ms.topic: article
@@ -8,13 +8,13 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
 ms.openlocfilehash: ba64a3bfbef9601d9cc8d8a28176a84a9403326a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696022"
 ---
-# <a name="prepare-the-asdk-host-computer"></a>A ASDK-gazda számítógép előkészítése
+# <a name="prepare-the-asdk-host-computer"></a>Az ASDK-gazdagép előkészítése
 Mielőtt telepítené a Azure Stack Development Kit (ASDK) a gazdaszámítógépre, elő kell készítenie a ASDK-gazdagépet a telepítéshez. A gazdagép előkészítése után a rendszer a CloudBuilder. vhdx virtuális gép (VM) merevlemezéről indítja el a ASDK üzembe helyezésének megkezdéséhez.
 
 ## <a name="prepare-the-development-kit-host-computer"></a>A fejlesztői csomag gazdagépének előkészítése
@@ -77,5 +77,5 @@ Mielőtt telepítené a ASDK a gazdagépen, elő kell készítenie a ASDK-gazda 
     ![A ASDK újraindítása](media/asdk-prepare-host/5.PNG)
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [A ASDK telepítése](asdk-install.md)

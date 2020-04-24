@@ -7,10 +7,10 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
 ms.openlocfilehash: 0c7dc4bffba85c60213df4e57c3fc95f756259df
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704063"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Azure Stack hub Key Vault kezelése a PowerShell használatával
@@ -74,7 +74,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Új kulcstartó létrehozva a PowerShellben](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-A parancs kimenete a létrehozott kulcstartó tulajdonságait jeleníti meg. Amikor egy alkalmazás hozzáfér a tárolóhoz, a tároló **URI** tulajdonságát kell használnia, amely `https://vault01.vault.local.azurestack.external` ebben a példában.
+A parancs kimenete a létrehozott kulcstartó tulajdonságait jeleníti meg. Amikor egy alkalmazás hozzáfér a tárolóhoz, a tároló **URI** tulajdonságát kell használnia, amely `https://vault01.vault.local.azurestack.external` ebben a példában szerepel.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory összevonási szolgáltatások (AD FS) (AD FS) üzembe helyezése
 
@@ -108,7 +108,7 @@ A `-Destination` paraméter használatával adható meg, hogy a kulcs szoftveres
 Ezután hivatkozhat a létrehozott kulcsra az URI használatával. Ha olyan kulcsot hoz létre vagy importál, amelynek a neve megegyezik egy meglévő kulccsal, az eredeti kulcsot az új kulcsban megadott értékekkel frissíti a rendszer. A korábbi verziót a kulcs Version-specifikus URI-ja segítségével érheti el. Például:
 
 * A `https://vault10.vault.local.azurestack.external:443/keys/key01` használatával mindig megkapja az aktuális verziót.
-* A megadott verzió beszerzéséhez használja a `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a`.
+* Ezzel `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a` a verzióval szerezheti be a megadott verziót.
 
 ### <a name="get-a-key"></a>Kulcs lekérése
 
@@ -155,7 +155,7 @@ Ha engedélyezni szeretné, hogy ugyanaz az alkalmazás beolvassa a titkos kulcs
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Virtuális gép üzembe helyezése Key Vault tárolt jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Virtuális gép üzembe helyezése Key Vault tárolt tanúsítvánnyal](azure-stack-key-vault-push-secret-into-vm.md)

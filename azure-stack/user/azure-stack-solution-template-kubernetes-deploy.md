@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
 ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294252"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
@@ -27,7 +27,7 @@ A Kubernetes a Azure Stack hub-ban található AK-motor által generált Azure R
 
 A Kubernetes a következőre használhatja:
 
-- Rugalmasan méretezhető, bővíthető, másodpercek alatt telepíthető alkalmazásokat fejleszthet. 
+- Nagy mértékben méretezhető, nem alkalmazható, másodpercek alatt üzembe helyezhető alkalmazások fejlesztése. 
 - Egyszerűsítse az alkalmazás kialakítását, és javítsa a megbízhatóságát különböző Helm-alkalmazásokkal. A [Helm](https://github.com/kubernetes/helm) egy nyílt forráskódú csomagolási eszköz, amely segítséget nyújt a Kubernetes-alkalmazások életciklusának telepítéséhez és kezeléséhez.
 - Egyszerűen figyelheti és diagnosztizálhatja alkalmazásai állapotát.
 
@@ -45,11 +45,11 @@ A fürt AD FS használatával történő telepítésével kapcsolatos útmutatá
 
 ## <a name="connect-to-your-cluster"></a>Kapcsolódás a fürthöz
 
-Most már készen áll a fürthöz való kapcsolódásra. A főkiszolgáló a fürterőforrás-csoportban található, és a neve `k8s-master-<sequence-of-numbers>`. Használjon SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. A főkiszolgálón használhatja a **kubectl**, a Kubernetes parancssori ügyfelet a fürt felügyeletéhez. Útmutatásért lásd: [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
+Most már készen áll a fürthöz való kapcsolódásra. A főkiszolgáló a fürterőforrás-csoportban található, és neve `k8s-master-<sequence-of-numbers>`. Használjon SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. A főkiszolgálón használhatja a **kubectl**, a Kubernetes parancssori ügyfelet a fürt felügyeletéhez. Útmutatásért lásd: [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
 
 A **Helm** csomagkezelő is hasznos lehet az alkalmazások fürtön való telepítéséhez és üzembe helyezéséhez. A Helm fürthöz való telepítésével és használatával kapcsolatos utasításokért lásd: [Helm.sh](https://helm.sh/).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Kubernetes irányítópult engedélyezése](azure-stack-solution-template-kubernetes-dashboard.md)
 
@@ -59,4 +59,4 @@ A **Helm** csomagkezelő is hasznos lehet az alkalmazások fürtön való telep�
 
 [Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával](azure-stack-solution-template-kubernetes-adfs.md)
 
-[Kubernetes az Azure-ban](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[A Kubernetes az Azure-on](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

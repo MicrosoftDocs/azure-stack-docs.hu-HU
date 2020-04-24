@@ -3,16 +3,16 @@ title: Erőforrások replikálása több Azure Stack hub-előfizetésen kereszt�
 description: Ismerje meg, hogyan replikálhatja az erőforrásokat az Azure Stack hub-előfizetés replikátor-készletének használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/07/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 5ecb5bc2dace6b79d742a61c0c2cdf5f20ee305f
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.openlocfilehash: e7997669d6a8ffa5809fdb0ccd852f4abcb08284
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614458"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660524"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
@@ -48,11 +48,11 @@ Az alapvető processzor a következő három parancsfájlból áll:
 
 A három szkript egy szabványos módon vezérli az adatok áramlását, így nagyobb rugalmasságot biztosít. További erőforrások támogatásának hozzáadásával például nem kell megváltoztatnia az alapprocesszorban található kódokat.
 
-A fent említett testreszabott processzorok olyan `ps1` fájlok, amelyek egy bizonyos típusú erőforrás feldolgozását írják le. A testreszabott processzorok neve mindig az erőforrás típusú adattípussal van elnevezve. Tegyük fel például, hogy `$vm` rendelkezik egy `$vm`futtató virtuálisgép-objektummal. A típus `Microsoft.Compute/virtualMachines`t eredményez. Ez azt jelenti, hogy egy virtuális géphez tartozó processzor neve `virtualMachines_processor.ps1`, a névnek pontosan úgy kell lennie, ahogy az erőforrás-metaadatokban jelenik meg, ahogyan az az alapvető processzor határozza meg, hogy melyik testreszabott processzort használja.
+A fent említett testreszabott processzorok olyan `ps1` fájlok, amelyek egy bizonyos típusú erőforrás feldolgozását írják le. A testreszabott processzorok neve mindig az erőforrás típusú adattípussal van elnevezve. Tegyük fel például `$vm` , hogy a virtuális gép objektuma `$vm`fut. A típus hozama `Microsoft.Compute/virtualMachines`. Ez azt jelenti, hogy egy virtuális gép processzora megnevezett `virtualMachines_processor.ps1`, a névnek pontosan úgy kell lennie, ahogy az erőforrás-metaadatokban jelenik meg, ahogyan az a fő processzor határozza meg, hogy melyik testreszabott processzort használja.
 
 Egy testreszabott processzor azt diktálja, hogy az erőforrást hogyan kell replikálni annak meghatározásával, hogy milyen információk fontosak, és hogy az információk hogyan legyenek kihúzva az erőforrás-metaadatokból. A testreszabott processzor Ezután elvégzi az összes kibontott adatmennyiséget, és felhasználja egy Azure Resource Manager sablonnal együtt használt Parameters-fájl létrehozásához, hogy az erőforrást a cél előfizetésben telepítse. Ezt a paramétert a **Parameter_Files** a post_process. ps1 által feldolgozott post után tárolja a rendszer.
 
-A replikátor-fájl struktúrájában a **Standardized_ARM_Templates**nevű mappa található. A forrás-környezettől függően az üzemelő példányok ezen szabványosított Azure Resource Manager-sablonok valamelyikét fogják használni, vagy egy testreszabott Azure Resource Manager sablont kell létrehozni. Ebben az esetben a testreszabott processzornak meg kell hívnia egy Azure Resource Manager sablon-generátort. A korábban elindított példában a virtuális gépekhez tartozó Azure Resource Manager sablon-generátor neve **virtualMachines_ARM_Template_Generator. ps1**néven szerepel. A Azure Resource Manager sablon-generátor felelős egy testreszabott Azure Resource Manager sablon létrehozásához, amely alapján az adott erőforrás metaadataiban található információk alapján kell létrehoznia. Ha például a virtuális gép erőforrásához metaadatok vannak megadva, hogy az egy rendelkezésre állási csoport tagja, akkor a Azure Resource Manager template Generator létrehoz egy kódot tartalmazó Azure Resource Manager sablont, amely megadja a rendelkezésre állási csoport AZONOSÍTÓját, amely a a virtuális gép a részét képezi. Így amikor a virtuális gépet üzembe helyezi az új előfizetésre, automatikusan bekerül a rendelkezésre állási csoportba az üzembe helyezés után. Ezeket a testreszabott Azure Resource Manager sablonokat a **Standardized_ARM_Templates** mappában található **Custom_ARM_Templates** mappában tárolja a rendszer. A post_processor. ps1 feladata annak megállapítása, hogy egy üzemelő példány egy szabványosított Azure Resource Manager sablont vagy egy testreszabott alkalmazást használ-e, és létrehozza-e a megfelelő központi telepítési kódot.
+A replikátor-fájl struktúrájában a **Standardized_ARM_Templates**nevű mappa található. A forrás-környezettől függően az üzemelő példányok ezen szabványosított Azure Resource Manager-sablonok valamelyikét fogják használni, vagy egy testreszabott Azure Resource Manager sablont kell létrehozni. Ebben az esetben a testreszabott processzornak meg kell hívnia egy Azure Resource Manager sablon-generátort. A korábban elindított példában a virtuális gépekhez tartozó Azure Resource Manager sablon-generátor neve **virtualMachines_ARM_Template_Generator. ps1**néven szerepel. A Azure Resource Manager sablon-generátor felelős egy testreszabott Azure Resource Manager sablon létrehozásához, amely alapján az adott erőforrás metaadataiban található információk alapján kell létrehoznia. Ha például a virtuális gép erőforrásához metaadatok vannak megadva, hogy az egy rendelkezésre állási csoport tagja, akkor a Azure Resource Manager template Generator létrehoz egy kódot tartalmazó Azure Resource Manager sablont, amely megadja annak a rendelkezésre állási csoportnak az AZONOSÍTÓját, amely a virtuális gép részét képezi. Így amikor a virtuális gépet üzembe helyezi az új előfizetésre, automatikusan bekerül a rendelkezésre állási csoportba az üzembe helyezés után. Ezeket a testreszabott Azure Resource Manager sablonokat a **Standardized_ARM_Templates** mappában található **Custom_ARM_Templates** mappában tárolja a rendszer. A post_processor. ps1 feladata annak megállapítása, hogy egy üzemelő példány egy szabványosított Azure Resource Manager sablont vagy egy testreszabott alkalmazást használ-e, és létrehozza-e a megfelelő központi telepítési kódot.
 
 A **post-Process. ps1** parancsfájl feladata a paraméterek fájljainak törlése és a felhasználó által az új erőforrások üzembe helyezéséhez használt parancsfájlok létrehozása. A tisztítási fázisban a parancsfájl a forrás-előfizetési AZONOSÍTÓra, a bérlői AZONOSÍTÓra és a helyre mutató összes hivatkozást lecseréli a megfelelő célértékek alapján. Ezután kiírja a paramétereket tartalmazó fájlt a **Parameter_Files** mappába. Ezután meghatározza, hogy a feldolgozás alatt álló erőforrás testreszabott Azure Resource Manager sablont használ-e, vagy sem, és létrehozza a megfelelő központi telepítési kódot, amely a **New-AzureRmResourceGroupDeployment** parancsmagot használja. A rendszer Ezután hozzáadja a telepítési kódot a **Deployment_Files** mappában tárolt **DeployResources. ps1** nevű fájlhoz. Végül a parancsfájl meghatározza azt az erőforráscsoportot, amelyhez az erőforrás tartozik, és a **DeployResourceGroups. ps1** parancsfájlban ellenőrzi, hogy az erőforráscsoport üzembe helyezési kódja már létezik-e. Ha nem, akkor a parancsfájlhoz hozzá kell adnia egy kódot az erőforráscsoport üzembe helyezéséhez, ha ez nem történik meg.
 
@@ -102,7 +102,7 @@ Deployment_Files két, **DeployResourceGroups. ps1** és **DeployResources. ps1*
 
     ![A központi telepítés konfigurálása és elindítása](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-4.  A `Get-Job` futtatásával ellenőrizhető az állapot. Get-Job | A Receive-Job az eredményeket fogja visszaadni.
+4.  Az `Get-Job` állapot ellenõrzéséhez futtassa a parancsot. Get-Job | A Receive-Job az eredményeket fogja visszaadni.
 
 ## <a name="clean-up"></a>A fölöslegessé vált elemek eltávolítása
 
@@ -116,19 +116,19 @@ Az Azure-előfizetési replikátor (v3) jelenleg a következő erőforrástípus
 
 - Microsoft.Compute/virtualMachines
 
-- Microsoft.Network/loadBalancers
+- Microsoft. Network/loadBalancers
 
-- Microsoft.Network/networkSecurityGroups
+- Microsoft. Network/networkSecurityGroups
 
-- Microsoft.Network/publicIPAddresses
+- Microsoft. Network/nyilvános IP
 
 - Microsoft. Network/routeTables
 
 - Microsoft. Network/virtualNetworks
 
-- Microsoft.Network/virtualNetworkGateways
+- Microsoft. Network/virtualNetworkGateways
 
-- Microsoft.Storage/storageAccounts
+- Microsoft. Storage/storageAccounts
 
 Ha az eszközt az **összes** erőforrás-típussal futtatja, a replikálás és a telepítés során a rendszer a következő sorrendet követi (az alábbi sorrendben az összes erőforrás konfigurációját replikálták, például SKU, ajánlat stb.):
 
@@ -136,19 +136,19 @@ Ha az eszközt az **összes** erőforrás-típussal futtatja, a replikálás és
 
     - Replikálások: – minden címterület – minden alhálózat
 
-- Microsoft.Network/virtualNetworkGateways
+- Microsoft. Network/virtualNetworkGateways
 
     - Replikálások: – nyilvános IP-konfiguráció – alhálózat konfigurációja – VPN-típus – átjáró típusa
 
 - Microsoft. Network/routeTables
 
-- Microsoft.Network/networkSecurityGroups
+- Microsoft. Network/networkSecurityGroups
 
     - Replikálások: – az összes bejövő és kimenő biztonsági szabály
 
-- Microsoft.Network/publicIPAddresses
+- Microsoft. Network/nyilvános IP
 
-- Microsoft.Network/loadBalancers
+- Microsoft. Network/loadBalancers
 
     - Replikálások:-magánhálózati IP-címek – nyilvános IP-cím konfigurációja – alhálózat konfigurációja
     
@@ -156,7 +156,7 @@ Ha az eszközt az **összes** erőforrás-típussal futtatja, a replikálás és
 
     - Replikálások: – tartalék tartományok száma – frissítési tartományok száma
 
-- Microsoft.Storage/storageAccounts
+- Microsoft. Storage/storageAccounts
 
 - Microsoft.Compute/virtualMachines
     - Replikálja  
@@ -183,6 +183,6 @@ Ha Azure Stack a kereskedelmi Azure-ból a kereskedelmi Azure-ba vagy egy előfi
 
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

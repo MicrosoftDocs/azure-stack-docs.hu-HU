@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
 ms.openlocfilehash: 3a78dabf7e4bae13d4fcea5d672d79110ddb44b7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699099"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
@@ -87,7 +87,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 10/1/2019: Microsoft JsonADDomain bővítmény – Version 1.3.4
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 

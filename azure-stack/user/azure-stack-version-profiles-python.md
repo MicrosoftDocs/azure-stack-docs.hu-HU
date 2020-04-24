@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705185"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
@@ -41,7 +41,7 @@ A Python SDK a következő API-profilokat támogatja:
 2. A Python SDK telepítésével kapcsolatos útmutatásért lásd: az [Azure Python-fejlesztőknek](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetések létrehozásával kapcsolatos utasításokért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack hub szolgáltatáshoz való létrehozásával kapcsolatos utasításokért lásd: [alkalmazások Azure stack hub elérésének biztosítása](../operator/azure-stack-create-service-principals.md).
-5. Ellenőrizze, hogy az egyszerű szolgáltatást a közreműködői és tulajdonosi szerepkör-előfizetésében. A szerepkörnek az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasításokért lásd: [alkalmazások Azure stack hubhoz való hozzáférésének biztosítása](../operator/azure-stack-create-service-principals.md).
+5. Győződjön meg arról, hogy a szolgáltatásnév közreműködői/tulajdonosi szerepkörrel rendelkezik az előfizetésében. A szerepkörnek az egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasításokért lásd: [alkalmazások Azure stack hubhoz való hozzáférésének biztosítása](../operator/azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -102,7 +102,7 @@ Ha a ASDK használja, explicit módon meg kell bíznia a távoli gépen lévő H
     ```
 
 > [!NOTE]  
-> Ha a **virtualenv** -t használja a Python SDK-hoz való fejlesztéshez, ahogy azt a [Python minta futtatása](#run-the-python-sample) szakaszban is említettük, az előző tanúsítványt hozzá kell adnia a virtuális környezet tanúsítványtárolóhoz. Az elérési út a következőhöz hasonló lehet: `..\mytestenv\Lib\site-packages\certifi\cacert.pem`.
+> Ha a **virtualenv** -t használja a Python SDK-hoz való fejlesztéshez, ahogy azt a [Python minta futtatása](#run-the-python-sample) szakaszban is említettük, az előző tanúsítványt hozzá kell adnia a virtuális környezet tanúsítványtárolóhoz. Az elérési út a következőhöz `..\mytestenv\Lib\site-packages\certifi\cacert.pem`hasonló lehet:.
 
 ## <a name="python-samples-for-azure-stack-hub"></a>Python-minták az Azure Stack hub-hoz
 
@@ -185,7 +185,7 @@ Az egyes műveletek egyértelműen egy megjegyzéssel és egy Print függvénnye
     python example.py
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Az Azure Python fejlesztői központja](https://azure.microsoft.com/develop/python/)
 - [Az Azure Virtual Machines dokumentációja](https://azure.microsoft.com/services/virtual-machines/)

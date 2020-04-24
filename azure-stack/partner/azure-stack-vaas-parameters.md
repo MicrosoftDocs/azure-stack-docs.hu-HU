@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79293999"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack hub érvényesítéséhez szolgáltatásként
@@ -47,7 +47,7 @@ A környezeti paraméterek a Azure Stack hub környezetét írják le a test ala
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>Értékek megkeresése az ECE konfigurációs fájlban
 
-A környezeti paraméterek értékei manuálisan is megtalálhatók a DVM `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` található **ECE konfigurációs fájlban** .
+A környezeti paraméterek értékei manuálisan is megtalálhatók a DVM található `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` **ECE konfigurációs fájlban** .
 
 ## <a name="test-parameters"></a>Paraméterek tesztelése
 
@@ -56,8 +56,8 @@ A gyakori tesztelési paraméterek olyan bizalmas információkat tartalmaznak, 
 Paraméter    | Leírás
 -------------|-----------------
 Bérlői rendszergazda felhasználó                            | Azure Active Directory (Azure AD) bérlői rendszergazda, amelyet a szolgáltatás rendszergazdája telepített a HRE könyvtárban. Ez a felhasználó bérlői szintű műveleteket hajt végre, például sablonokat helyez üzembe az erőforrások (virtuális gépek, Storage-fiókok stb.) beállításához és a számítási feladatok végrehajtásához. A bérlői fiók üzembe helyezésével kapcsolatos részletekért tekintse meg az [új Azure stack hub-bérlő hozzáadása](../operator/azure-stack-add-new-user-aad.md)című témakört.
-Szolgáltatás-rendszergazda felhasználó             | Az Azure Stack hub üzembe helyezése során megadott Azure ad-címtár-bérlő Azure AD-rendszergazdája. Keresse meg `AADTenant` az ECE konfigurációs fájlban, és válassza ki az értéket a `UniqueName` elemben.
-Felhőbeli rendszergazda felhasználó               | Azure Stack hub tartományi rendszergazdai fiók (például `contoso\cloudadmin`). Keresse meg `User Role="CloudAdmin"` az ECE konfigurációs fájlban, és válassza ki az értéket a `UserName` elemben.
+Szolgáltatás-rendszergazda felhasználó             | Az Azure Stack hub üzembe helyezése során megadott Azure ad-címtár-bérlő Azure AD-rendszergazdája. `AADTenant` Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UniqueName` a elemben.
+Felhőbeli rendszergazda felhasználó               | Azure Stack hub tartományi rendszergazdai fiók (például `contoso\cloudadmin`). `User Role="CloudAdmin"` Keressen rá az ECE konfigurációs fájljába, és válassza ki az értéket `UserName` a elemben.
 Diagnosztikai kapcsolatok karakterlánca          | Egy Azure Storage-fiókhoz tartozó SAS URL-cím, amelybe a rendszer a diagnosztikai naplókat másolja a tesztek végrehajtása során. A SAS URL-cím létrehozásával kapcsolatos utasításokért lásd: [a diagnosztikai kapcsolatok karakterláncának létrehozása](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]
@@ -82,6 +82,6 @@ Diagnosztikai naplók tárolásához a diagnosztika-kapcsolatok karakterlánca s
 > [!NOTE]  
 > Az SAS URL-cím az URL-cím létrehozásakor megadott befejezési időpontban lejár. Az ütemezési tesztek során győződjön meg arról, hogy az URL-cím legalább 30 napig érvényes, valamint a tesztelés végrehajtásához szükséges idő (három hónap javasolt).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

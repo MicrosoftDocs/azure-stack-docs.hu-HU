@@ -9,10 +9,10 @@ ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512332"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
@@ -74,7 +74,7 @@ Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet 
 
 Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók típusát. A több-bérlős Azure Stack központ regisztrálásához használható előfizetések típusai a következők:
 
-* Felhőalapú megoldás szolgáltatója
+* Felhőszolgáltató
 * Partner Shared Services-előfizetés
 
 ### <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
@@ -84,8 +84,8 @@ A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a 
 1. Hozzon létre egy PEP-munkamenetet.
 2. Futtassa az `test-azurestack` parancsot.
 3. Lépjen ki a PEP-munkamenetből.
-4. `get-azurestacklog -filterbyrole seedring` futtatása hívási parancs használatával.
-5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a `test-azurestack`futtatott ERCS mappából szerezheti be.
+4. Futtassa `get-azurestacklog -filterbyrole seedring` a parancsot egy meghívó hívásával.
+5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a futtatott `test-azurestack`ERCS mappából szerezheti be.
 
 További információ: [Azure stack hub Diagnostics](azure-stack-get-azurestacklog.md).
 
@@ -114,7 +114,7 @@ Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage Explorer nem működik Azure Stack hub-vel
 
-Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet (`/`) a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](/azure-stack/user/azure-stack-storage-connect-se).
+Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet`/`() a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](/azure-stack/user/azure-stack-storage-connect-se).
 
 ## <a name="troubleshooting-app-service"></a>Hibaelhárítási App Service
 

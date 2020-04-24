@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/16/2019
-ms.openlocfilehash: 63d50749d3877209dd81ca7a59a38e634b2d46e7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 04/07/2020
+ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697552"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891083"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -54,7 +54,7 @@ A nem gMSA megmaradó titkokat manuálisan, a privilegizált végponton lévő p
 
 Azure Stack hub-infrastruktúra 4096 bites RSA-kulcsokat használ az összes belső tanúsítványához. A külső végpontokhoz ugyanaz a kulcs hosszúságú tanúsítvány is használható. A titkokkal és a tanúsítvány elforgatásával kapcsolatos további információkért tekintse meg a [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)című témakört.
 
-## <a name="windows-defender-application-control"></a>Windows Defender-alkalmazás vezérlése
+## <a name="windows-defender-application-control"></a>Windows Defender Alkalmazásvezérlés
 
 Azure Stack hub a Windows Server legújabb biztonsági funkcióit használja. Ezek közül az egyik a Windows Defender Application Control (WDAC, korábbi nevén Code Integrity), amely végrehajtható fájlok engedélyezését teszi lehetővé, és biztosítja, hogy csak az engedélyezett kódok fussanak az Azure Stack hub-infrastruktúrán belül.
 
@@ -63,7 +63,7 @@ A hitelesített kódot a Microsoft vagy az OEM-partner aláírja. Az aláírt hi
 A WDAC szabályzat emellett megakadályozza, hogy a harmadik féltől származó ügynökök vagy szoftverek fussanak az Azure Stack hub-infrastruktúrában.
 A WDAC kapcsolatos további információkért tekintse meg a [Windows Defender alkalmazás-vezérlés és a kód integritásának virtualizálás-alapú védelme](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)című témakört.
 
-## <a name="credential-guard"></a>Hitelesítőadat-őr
+## <a name="credential-guard"></a>Credential Guard
 
 Az Azure Stack hub egy másik Windows Server biztonsági funkciója a Windows Defender hitelesítő adatai, amely a pass-The-hash és a pass-The-Ticket típusú támadásokkal szemben Azure Stack hub-infrastruktúra hitelesítő adatainak védelmére szolgál.
 
@@ -91,9 +91,9 @@ A Azure Stack hub-infrastruktúra több rétegbeli hálózati Access Control-lis
 
 A hálózati ACL-ek három rétegben vannak kikényszerítve:
 
-- 1\. réteg: a rack-kapcsolók teteje
-- 2\. réteg: szoftveresen definiált hálózat
-- 3\. réteg: a gazdagép és a virtuális gép operációs rendszerének tűzfala
+- 1. réteg: a rack-kapcsolók teteje
+- 2. réteg: szoftveresen definiált hálózat
+- 3. réteg: a gazdagép és a virtuális gép operációs rendszerének tűzfala
 
 ## <a name="regulatory-compliance"></a>Előírásoknak való megfelelés
 
@@ -105,11 +105,10 @@ Az értékelések a következő szabványokat tartalmazzák:
 - A [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) egy átfogó leképezés több szabványon belül, beleértve a FedRAMP mérsékelt, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 és egyebeket.
 - [FedRAMP magas](https://www.fedramp.gov/fedramp-releases-high-baseline/) a kormányzati ügyfelek számára.
 
-A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://servicetrust.microsoft.com/ViewPage/AzureStack)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
+A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://aka.ms/azurestackcompliance)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub biztonsági vezérlőinek konfigurálása](azure-stack-security-configuration.md)
 - [Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban](azure-stack-rotate-secrets.md)
-- [PCI-DSS és a CSA-CCM dokumentumok Azure Stack hub-hoz](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
-- [DoD-és NIST-dokumentumok Azure Stack hubhoz](https://servicetrust.microsoft.com/ViewPage/Blueprint)
+- [PCI-DSS és a CSA-CCM dokumentumok Azure Stack hub-hoz](https://aka.ms/azurestackcompliance)

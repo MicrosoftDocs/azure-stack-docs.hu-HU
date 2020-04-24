@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025666"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>A gyorsítótár megismerése Azure Stack HCI-ben
@@ -71,7 +71,7 @@ A hibrid üzembe helyezések célja a teljesítmény és a kapacitás elosztása
 
 ## <a name="cache-drives-are-selected-automatically"></a>A gyorsítótár-meghajtók automatikusan ki vannak választva
 
-A több típusú meghajtóval üzemelő példányok esetében a Közvetlen tárolóhelyek automatikusan a "leggyorsabb" típusú meghajtókat használja a gyorsítótárazáshoz. A fennmaradó meghajtók a kapacitáshoz használatosak.
+A több típusú meghajtóval üzemelő példányok esetében a Közvetlen tárolóhelyek automatikusan a "leggyorsabb" típusú meghajtókat használja a gyorsítótárazáshoz. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására.
 
 A "leggyorsabb" típus a következő hierarchia alapján van meghatározva.
 
@@ -99,7 +99,7 @@ A gyorsítótár viselkedését a rendszer a gyorsítótárban lévő meghajtók
 
 SSD-meghajtók (NVMe vagy SSD-k) gyorsítótárazásakor a rendszer csak az írásokat gyorsítótárazza. Ez csökkenti a kapacitás-meghajtók kopását, mivel számos írás és újraírás egyesíthető a gyorsítótárban, majd csak szükség szerint elvégezhető, így csökkentve a kapacitás-meghajtók összesített forgalmát és az élettartamuk kiterjesztését. Ezért javasoljuk, hogy a gyorsítótárhoz [nagyobb teljesítményű, írásra optimalizált](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) meghajtók legyenek kiválasztva. Előfordulhat, hogy a kapacitási meghajtók alacsonyabb írási állóképességtel rendelkeznek.
 
-Mivel az olvasások nem befolyásolják jelentősen a Flash élettartamát, és mivel a SSD-meghajtók általánosan alacsony olvasási késést kínálnak, az olvasások nem lesznek gyorsítótárazva: közvetlenül a kapacitás-meghajtókról szolgálnak (kivéve, ha az adatokat a közelmúltban írták, és nem még nem előkészített). Ez lehetővé teszi, hogy a gyorsítótár kizárólag írásra legyen kijelölve, maximalizálva a hatékonyságot.
+Mivel az olvasások nem befolyásolják jelentősen a Flash élettartamát, és mivel a szilárdtest-meghajtók univerzálisan alacsony olvasási késést kínálnak, az olvasások nem kerülnek a gyorsítótárba: közvetlenül a kapacitás-meghajtókról lesznek kézbesítve (kivéve, ha az adatokat a közelmúltban írták, de még nem állították be). Ez lehetővé teszi, hogy a gyorsítótár kizárólag írásra legyen kijelölve, maximalizálva a hatékonyságot.
 
 Ez írási tulajdonságokat (például írási késést) eredményez, amelyet a gyorsítótár-meghajtók diktálnak, míg az olvasási jellemzőket a kapacitási meghajtók diktálják. Mindkettő konzisztens, kiszámítható és egységes.
 
@@ -113,11 +113,11 @@ Közvetlen tárolóhelyek olyan algoritmust valósít meg, amely egy véletlensz
 
 Ha mindhárom típusú meghajtó megtalálható, a NVMe-meghajtók gyorsítótárazást biztosítanak az SSD-k és a HDD-k számára egyaránt. A viselkedés a fent leírtak szerint történik: csak a (z) rendszerű meghajtók gyorsítótárazva vannak az SSD-k számára A HDD-k gyorsítótárazásának terhét egyenletesen osztják el a gyorsítótár-meghajtók között.
 
-## <a name="summary"></a>Összegzés
+## <a name="summary"></a>Összefoglalás
 
 Ez a táblázat összefoglalja, hogy mely meghajtók használatosak a kapacitáshoz, és hogy a gyorsítótárazás milyen viselkedést biztosít az egyes telepítési lehetőségekhez.
 
-| Környezet     | Gyorsítótár-meghajtók                        | Kapacitás-meghajtók | Gyorsítótár viselkedése (alapértelmezett)  |
+| Üzembe helyezés     | Gyorsítótár-meghajtók                        | Kapacitás-meghajtók | Gyorsítótár viselkedése (alapértelmezett)  |
 | -------------- | ----------------------------------- | --------------- | ------------------------- |
 | Minden NVMe         | Nincs (nem kötelező: konfigurálás manuálisan) | NVMe            | Csak írható (ha be van állítva)  |
 | Minden SSD          | Nincs (nem kötelező: konfigurálás manuálisan) | SSD             | Csak írható (ha be van állítva)  |
@@ -267,7 +267,7 @@ A 4 kapacitású meghajtókhoz tartozó 2 gyorsítótár-meghajtók például ki
 
 Nincs univerzális szabály, de ha túl sok olvasási érték hiányzik a gyorsítótárból, akkor elképzelhető, hogy a gyorsítótár kibontásához érdemes megfontolnia a gyorsítótár-meghajtók hozzáadását. A gyorsítótár-meghajtók vagy a kapacitás-meghajtók egymástól függetlenül is hozzáadhatók.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További tárolási ismeretekért lásd még:
 

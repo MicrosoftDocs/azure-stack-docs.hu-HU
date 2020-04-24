@@ -1,9 +1,13 @@
 - name: A HCI dokumentációjának Azure Stack
-  href: overview.md
+  href: index.yml
 - name: Áttekintés
   items:
     - name: Mi az Azure Stack HCI?
       href: overview.md
+- name: Bevezetés
+  items:
+    - name: Azure Stack HCI használata a Windows felügyeleti központtal
+      href: get-started.md
 - name: Kezelés
   items:
     - name: Kötetek létrehozása
@@ -14,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Meghajtók cseréje
       href: manage/replace-drives.md
+    - name: Monitorozás az Azure Monitorral
+      href: manage/azure-monitor.md
     - name: GPU csatlakoztatása Linux rendszerű virtuális géphez
       href: manage/attach-gpu-to-linux-vm.md
 - name: Alapelvek
@@ -40,7 +46,13 @@
       href: /powershell/module/failoverclusters
     - name: Tárreplika PowerShell-parancsok
       href: /powershell/module/storagereplica
-- name: Kapcsolódó témakör
+    - name: NetAdapter PowerShell-parancsok
+      href: /powershell/module/netadapter
+    - name: NetQoS PowerShell-parancsok
+      href: /powershell/module/netqos
+    - name: DcbQoS PowerShell-parancsok
+      href: /powershell/module/dcbqos
+- name: Kapcsolódó témakörök
   items:
     - name: Azure Stack család
       href: ../index.yml
@@ -54,13 +66,13 @@
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Azure Hybrid Services
       href: /windows-server/manage/windows-admin-center/azure
-    - name: Közvetlen tárolóhelyek
+    - name: Tárolóhelyek – Közvetlen
       href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
     - name: Feladatátvételi fürtszolgáltatás
       href: /windows-server/failover-clustering/failover-clustering-overview
     - name: Hyper-V
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
-    - name: Szoftver által definiált hálózatkezelés
+    - name: Szoftveralapú hálózatkezelés
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/

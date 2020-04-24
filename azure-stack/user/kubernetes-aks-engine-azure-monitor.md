@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80068992"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Monitor használata a tárolók számára Azure Stack központban
@@ -20,7 +20,7 @@ Az [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) for containe
 
 > [!IMPORTANT]
 > A Azure Stack hub tárolók Azure Monitor jelenleg nyilvános előzetes verzióban érhető el.
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: a [Microsoft Azure előzetes verziójának kiegészítő használati feltételei](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A tárolók teljesítményének áttekinthető Azure Monitor azáltal, hogy a metrikák API használatával gyűjti a Kubernetes elérhető vezérlőket, csomópontokat és tárolókat a memória és a processzor metrikáinak összegyűjtésével. Emellett a szolgáltatás a tároló naplóit is gyűjti. Ezeket a naplókat a helyszíni fürt Azure-ból származó problémáinak diagnosztizálására használhatja. Miután beállította a Kubernetes-fürtök figyelését, a rendszer automatikusan összegyűjti ezeket a metrikákat és naplókat. A Azure Monitor Log Analytics Agent Linux-ügynökének egy tárolós verziója gyűjti a naplókat. Azure Monitor tárolja a log Analytics-munkaterületen elérhető metrikákat és naplókat az Azure-előfizetésében.
 
@@ -56,7 +56,7 @@ Az Azure Stack hub-fürt támogatott API-definíciói a következő példában t
        }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - További információ a [tárolók Azure monitoráról – áttekintés](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)

@@ -7,10 +7,10 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwe
 ms.openlocfilehash: 65fb8a0adebb73fa8740f41d50eb83f869ac534a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700799"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure App Service offline frissítése Azure Stack hub-on
@@ -50,7 +50,7 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
 
     ![Azure App Service telepítő][1]
 
-2. Kattintson a **speciális** > **Offline csomag létrehozása** elemre.
+2. Kattintson a **speciális** > **kapcsolat nélküli csomag létrehozása** elemre.
 
     ![Azure App Service telepítő speciális][2]
 
@@ -87,7 +87,7 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
         - **Hitelesítőadat**
             - Ha Azure Active Directoryt (Azure AD) használ, adja meg az Azure AD-rendszergazda fiókját és jelszavát, amelyet az Azure Stack hub telepítésekor adott meg. Kattintson a **Csatlakozás** gombra.
             - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **kapcsolat**lehetőséget.
-        - **Egyszerű szolgáltatásnév**
+        - **Szolgáltatásnév**
             - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
             - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat**lehetőséget.
 
@@ -119,7 +119,7 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
 [5]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-summary.png
 [6]: ./media/azure-stack-app-service-update-offline/app-service-upgrade-complete.png
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További rendszergazdai műveletek előkészítése Azure Stack hub Azure App Service
 

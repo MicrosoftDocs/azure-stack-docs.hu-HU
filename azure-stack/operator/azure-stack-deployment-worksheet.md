@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
 ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700068"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Üzembe helyezési munkalap Azure Stack hub integrált rendszerekhez
@@ -72,7 +72,7 @@ Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállít
 
 **Összes törlése**: törli az űrlapon aktuálisan beírt összes adathalmazt, és visszaadja azokat az alapértelmezett értékekre.
 
-**Mentse vagy nyissa meg a folyamatban lévő munkát**: a **Fájl-> Mentés** és a **Fájl-> nyitott** menük használatával mentheti és megnyithatja a részben megadott adatait. Ez eltér az **importálási** és **exportálási** függvényektől, mivel az összes adat bevitele és érvényesítése szükséges. A Megnyitás/Mentés nem ellenőrzi az érvényességet, és nincs szükség az összes mező beírására a munka folyamatban lévő mentéséhez.
+**Mentse vagy nyissa meg a folyamatban lévő munkát**: a **fájl->mentés** és a **fájl->nyitott** menük használatával mentheti és megnyithatja a részben megadott adatait. Ez eltér az **importálási** és **exportálási** függvényektől, mivel az összes adat bevitele és érvényesítése szükséges. A Megnyitás/Mentés nem ellenőrzi az érvényességet, és nincs szükség az összes mező beírására a munka folyamatban lévő mentéséhez.
 
 **Naplózási és figyelmeztető üzenetek**: amíg az űrlap használatban van, előfordulhat, hogy a PowerShell-ablakban nem kritikus fontosságú figyelmeztető üzenetek jelennek meg. A kritikus hibák előugró üzenetként jelennek meg. A részletes naplózás, beleértve a lemezre írt naplót is, engedélyezhető, hogy segítséget nyújtson a hibaelhárítási problémák megoldásához.
 
@@ -84,6 +84,6 @@ Az eszköz elindítása részletes naplózással:
 
 A mentett napló az aktuális felhasználó **temp** könyvtárában található; például: **c:\users\me\appdata\local\temp\ Microsoft_AzureStack \ DeploymentWorksheet_Log. txt**.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Azure Stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md)

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2019
 ms.openlocfilehash: 244d5e214e2d1d42e5697a5aafd51c17d97465f6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704896"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Oktatóanyag: előfizetés létrehozása és tesztelése Azure Stack hub-ban
@@ -37,7 +37,7 @@ Ha felhasználóként szeretne előfizetni az ajánlatra, jelentkezzen be az Azu
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. A **Megjelenítendő név** mezőben adja meg az előfizetés nevét. Ezután válassza az **ajánlat** lehetőséget, hogy az **ajánlat választása** szakaszban válassza ki az elérhető ajánlatok egyikét. Ezután kattintson a **Létrehozás** elemre.
+2. A **Megjelenítendő név** mezőben adja meg az előfizetés nevét. Ezután válassza az **ajánlat** lehetőséget, hogy az **ajánlat választása** szakaszban válassza ki az elérhető ajánlatok egyikét. Ezután válassza a **Létrehozás**lehetőséget.
 
    ![Ajánlat létrehozása](media/azure-stack-subscribe-services/create-subscription.png)
 
@@ -74,7 +74,7 @@ Ha bejelentkezett a felhasználói portálra, tesztelje az ajánlatot úgy, hogy
 > [!NOTE]
 > A virtuális gép üzembe helyezése néhány percet vesz igénybe.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Virtuális gép létrehozása közösségi sablonból](azure-stack-create-vm-template.md)

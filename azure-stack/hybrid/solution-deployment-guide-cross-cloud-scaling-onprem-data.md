@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701071"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
@@ -207,7 +207,7 @@ A DNS Felhőbeli alkalmazások számára történő megfelelő konfigurálásáv
 
 Ez az oktatóanyag a Azure DNS használatával kezeli a DNS-t, mert App Service tartományok nem működnek.
 
-### <a name="create-subdomains"></a>Create subdomains
+### <a name="create-subdomains"></a>Altartományok létrehozása
 
 Mivel Traffic Manager DNS-CNAME-re támaszkodik, egy altartományra van szükség ahhoz, hogy megfelelően irányítsa a forgalmat a végpontokra. A DNS-rekordokkal és a tartomány-hozzárendeléssel kapcsolatos további információkért lásd: [tartományok leképezése Traffic Managerokkal](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name).
 
@@ -286,7 +286,7 @@ App Service környezeti változók használatával más kapcsolódási karakterl
 
 1. Hozzon létre a kapcsolatok karakterláncait az Azure-hoz és Azure Stack hub-hoz. A karakterláncoknak azonosnak kell lenniük, kivéve a használt IP-címeket.
 
-2. Az Azure-ban és Azure Stack hub-ban adja hozzá a megfelelő kapcsolati karakterláncot [alkalmazás-beállításként](https://docs.microsoft.com/azure/app-service/web-sites-configure) a webalkalmazásban, a `SQLCONNSTR\_` előtagként használva a nevet.
+2. Az Azure-ban és Azure Stack hub-ban adja hozzá a megfelelő kapcsolati karakterláncot [alkalmazás-beállításként](https://docs.microsoft.com/azure/app-service/web-sites-configure) a webalkalmazásban, a név előtagként használva `SQLCONNSTR\_` .
 
 3. **Mentse** a webalkalmazás beállításait, és indítsa újra az alkalmazást.
 
@@ -375,8 +375,8 @@ Hozzon létre egy Traffic Manager-profilt az Azure-ban, majd konfigurálja a vé
 
 ### <a name="create-traffic-manager-profile"></a>Traffic Manager profil létrehozása
 
-1. Válassza **az erőforrás létrehozása**lehetőséget.
-2. Válassza a **hálózatkezelés**lehetőséget.
+1. Válassza az **Erőforrás létrehozása** lehetőséget.
+2. Válassza a **Hálózat** lehetőséget.
 3. Válassza ki **Traffic Manager profilt** , és konfigurálja a következő beállításokat:
 
    - A **név**mezőben adja meg a profil nevét. Ennek a **névnek egyedinek kell** lennie az trafficmanager.net zónában, és egy új DNS-név (például northwindstore.trafficmanager.net) létrehozására szolgál.
@@ -451,7 +451,7 @@ Ennek a nézetnek a használatával kibővíthető riasztást és a riasztások 
 
    - A **név**mezőben adja meg az **Azure-felhőbe való betörést**.
    - A **Leírás** megadása nem kötelező.
-   - A **forrás** > **riasztás bekapcsolása**területen válassza a **metrikák**lehetőséget.
+   - A **forrás** > **riasztás**területen válassza a **metrikák**lehetőséget.
    - A **feltételek**területen válassza ki az előfizetését, a Traffic Manager profiljához tartozó erőforráscsoportot, valamint az erőforrás Traffic Manager profiljának nevét.
 
 4. A **metrika**mezőben válassza a **kérelmek aránya**lehetőséget.
@@ -472,7 +472,7 @@ Ennek a nézetnek a használatával kibővíthető riasztást és a riasztások 
 
    - A **név**mezőbe írja be a **Méretezés vissza Azure stack hubhoz**.
    - A **Leírás** megadása nem kötelező.
-   - A **forrás** > **riasztás bekapcsolása**területen válassza a **metrikák**lehetőséget.
+   - A **forrás** > **riasztás**területen válassza a **metrikák**lehetőséget.
    - A **feltételek**területen válassza ki az előfizetését, a Traffic Manager profiljához tartozó erőforráscsoportot, valamint az erőforrás Traffic Manager profiljának nevét.
 
 4. A **metrika**mezőben válassza a **kérelmek aránya**lehetőséget.
@@ -540,6 +540,6 @@ Az automatikus forgalmi váltás konfigurálásához kövesse az alábbi lépés
 5. Mentse a kódot, és adja hozzá a Function app URL-címét a megfelelő paraméterekkel a Application Insights riasztási szabály beállításainak **webhook** szakaszához.
 6. A rendszer automatikusan átirányítja a forgalmat, amikor egy Application Insights riasztás következik be.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

@@ -9,10 +9,10 @@ ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 8f0ad292f8d9772c53c332d2cad7af8bd606594a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697739"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>A Windows Defender víruskereső frissítése Azure Stack hub-on
@@ -31,7 +31,7 @@ Azoknál a Azure Stack hub-telepítések esetében, amelyek nem csatlakoznak a n
 
 Ha a frissítéseket a Azure Stack hub-megoldásra szeretné alkalmazni, először le kell töltenie őket a Microsoft webhelyéről (az alábbi hivatkozásokat), majd ezt követően importálnia kell őket a *updateadminaccount*tartozó Storage blob-tárolóba. Egy ütemezett feladat 30 percenként megvizsgálja a BLOB tárolót, és az új Defender-definíciók és a motor frissítései a Azure Stack hub-infrastruktúrára vonatkoznak. 
 
-Azoknál a leválasztott központi telepítések esetében, amelyek még nem 1910-es vagy újabb verziójúak, vagy amelyek nem tudják napi módon letölteni a Defender-definíciókat és a motor frissítéseit, a havi Azure Stack hub-frissítés tartalmazza a Windows Defender víruskereső-definíciókat, a motort és a a hónapra vonatkozó platform-frissítések. 
+Azon leválasztott központi telepítések esetében, amelyek még nem 1910 vagy újabb verziójúak, vagy amelyek nem képesek napi szinten letölteni a Defender-definíciókat és a motor frissítéseit, a havi Azure Stack hub-frissítés tartalmazza a Windows Defender víruskereső-definíciókat, a motort és a havi platform-frissítéseket. 
 
 
 ### <a name="set-up-windows-defender-for-manual-updates"></a>A Windows Defender manuális frissítésének beállítása 
@@ -59,8 +59,8 @@ Az alábbi eljárás bemutatja, hogyan telepítheti a Windows Defender manuális
 
 2. Töltse le a két Windows Defender-frissítési csomagot, és mentse őket egy olyan helyre, amely elérhető az Azure Stack hub felügyeleti portálján.  
 
-   * mpam-fe. exe [https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64](https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64) 
-   * nis_full. exe fájl [https://go.microsoft.com/fwlink/?LinkId=197094](https://go.microsoft.com/fwlink/?LinkId=197094) 
+   * mpam-fe. exe innen:[https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64](https://go.microsoft.com/fwlink/?LinkId=121721&arch=x64) 
+   * nis_full. exe innen:[https://go.microsoft.com/fwlink/?LinkId=197094](https://go.microsoft.com/fwlink/?LinkId=197094) 
 
    > [!NOTE] 
    > **Minden alkalommal** le kell töltenie ezt a két fájlt, amikor frissíteni szeretné a Defender-aláírásokat. 
@@ -95,6 +95,6 @@ Az alábbi eljárás bemutatja, hogyan telepítheti a Windows Defender manuális
 
 Egy ütemezett feladat 30 percenként megvizsgálja a BLOB tárolót, és minden új Windows Defender-csomagot alkalmaz.  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md)

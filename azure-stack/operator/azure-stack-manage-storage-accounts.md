@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294505"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
@@ -24,7 +24,7 @@ A régióban található Storage-fiókok listáját Azure Stack központban teki
 
 1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
 
-2. Válassza **a minden szolgáltatás** > **Storage** - > **Storage-fiókok**lehetőséget.
+2. Válassza **a minden szolgáltatás** > **tároló** > **Storage-fiókok**lehetőséget.
 
    ![Azure Stack hub Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -84,14 +84,14 @@ Azure Stack központban van egy egyszerű módja:
   
   Előfordulhat, hogy a fiók nem jelenik meg a fiók listájában, ha a Törölt fiók már be van gyűjtve. Ebben az esetben nem lehet helyreállítani. További információ: a [kapacitás visszaigénylése](#reclaim) ebben a cikkben.
 
-## <a name="set-the-retention-period"></a>A megőrzési időtartam beállítása
+## <a name="set-the-retention-period"></a>Az adatmegőrzési időszak beállítása
 Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzemeltető napokban (0–9999 nap) meghatározza azt az időszakot, amely alatt a törölt fiókok esetleg helyreállíthatók. Az alapértelmezett adatmegőrzési időszak 0 nap. Az érték „0”-ra állításával a törölt fiók azonnal megszűnik, és a rendszer megjelöli az időszakos szemétgyűjtésre.
 
 **A megőrzési időtartam módosítása:**
 
 1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
-2. Válassza a **minden szolgáltatás** > **régió** felügyelete az **Adminisztráció**alatt lehetőséget.
-3. Válassza az **erőforrás-szolgáltatók** > **Storage** > **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
+2. Válassza az **összes szolgáltatás** > **régió** felügyelete lehetőséget az **Adminisztráció**alatt.
+3. Válassza **az erőforrás-szolgáltatók** > **tárolási** > **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
 4. Válassza a **konfiguráció** lehetőséget, majd szerkessze a megőrzési időszak értékét.
 
    Állítsa be a napok számát, majd mentse.
@@ -100,7 +100,7 @@ Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzem
 
    ![Megőrzési időszak szerkesztése a felügyeleti portálon](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Kapacitás visszaigénylése
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>Kapacitás visszaigénylése
 A megőrzési idő egyik mellékhatása, hogy a törölt fiókok továbbra is felhasználják a kapacitást, amíg nem kerül sor a megőrzési időszakra. A Felhőbeli operátornak szüksége lehet arra, hogy visszaigényelje a Törölt fiók területét annak ellenére, hogy a megőrzési időszak még nem járt le.
 
 A kapacitást a portál vagy a PowerShell segítségével állíthatja vissza.
@@ -138,7 +138,7 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
 További információ: [Azure stack hub PowerShell dokumentációja](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
  - Az engedélyek kezelésével kapcsolatos információkért lásd: [hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával](azure-stack-manage-permissions.md).
  - Az Azure Stack hub tárolási kapacitásának kezelésével kapcsolatos információkért lásd: [Azure stack hub tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).

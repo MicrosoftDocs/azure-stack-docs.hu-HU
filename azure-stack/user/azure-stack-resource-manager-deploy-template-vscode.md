@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
 ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701887"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Üzembe helyezés a Visual Studio Code-ban Azure Stack hub-ban
@@ -44,15 +44,15 @@ Az Azure Stack hub központi telepítési séma támogatja a hibrid profilokat a
 A Resource Manager-eszközök bővítményének telepítéséhez kövesse az alábbi lépéseket:
 
 1. Nyissa meg a Visual Studio Code-ot.
-2. Nyomja le a CTRL + SHIFT + X billentyűkombinációt a bővítmények panel megnyitásához.
-3. Keresse meg `Azure Resource Manager Tools`, majd válassza a **telepítés**lehetőséget.
+2. A CTRL+SHIFT+X billentyűkombinációval nyissa meg a Bővítmények ablaktáblát
+3. Keresse meg `Azure Resource Manager Tools`a elemet, majd válassza a **telepítés**lehetőséget.
 4. A bővítmény telepítésének befejezéséhez válassza az **Újrabetöltés** lehetőséget.
 
 ## <a name="get-a-template"></a>Sablon beszerzése
 
 A sablon létrehozása helyett a AzureStack-Gyorsindítás-sablonok (https://github.com/Azure/AzureStack-QuickStart-Templates). AzureStack-Gyorsindítás – a sablonok olyan Resource Manager-sablonok tárházai, amelyek erőforrásokat telepítenek Azure Stack hubhoz. 
 
-A cikkben szereplő sablon `101-vm-windows-create`. A sablon egy Windows rendszerű virtuális gép alapszintű telepítését határozza meg Azure Stack hubhoz.  Ez a sablon egy virtuális hálózatot (DNS-t), egy hálózati biztonsági csoportot és egy hálózati adaptert is üzembe helyez.
+A cikkben szereplő sablon neve `101-vm-windows-create`. A sablon egy Windows rendszerű virtuális gép alapszintű telepítését határozza meg Azure Stack hubhoz.  Ez a sablon egy virtuális hálózatot (DNS-t), egy hálózati biztonsági csoportot és egy hálózati adaptert is üzembe helyez.
 
 1. Nyissa meg a Visual Studio Code-ot, és navigáljon egy munkamappához a gépen.
 2. Nyissa meg a git bash-terminált a Visual Studio Code-ban.
@@ -64,9 +64,9 @@ A cikkben szereplő sablon `101-vm-windows-create`. A sablon egy Windows rendsze
     ```bash  
     CD AzureStack-QuickStart-Templates
     ```
-5. A **Megnyitás** gombra kattintva megnyithatja a fájlt `/101-vm-windows-create/azuredeploy.json` a tárházban.
+5. Válassza a **Megnyitás** lehetőséget a fájl `/101-vm-windows-create/azuredeploy.json` megnyitásához a tárházban.
 6. Mentse a fájlt a saját munkaterületére, vagy ha létrehozott egy ágat a tárházból, akkor dolgozhat a helyén.
-7. Ha a fájl továbbra is meg van nyitva, módosítsa a `$Schema` mezőt `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#`re.
+7. Ha `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#`a fájl még meg van nyitva, `$Schema` módosítsa a mezőt a következőre:.
 8. A apiProfile mező értékének törlésével megtekintheti, hogy a központi telepítési séma működik-e.
     ```JSON  
     "apiProfile": ""
@@ -78,7 +78,7 @@ A cikkben szereplő sablon `101-vm-windows-create`. A sablon egy Windows rendsze
 10. Ha elkészült, üzembe helyezheti a sablont a PowerShell használatával. Kövesse az [üzembe helyezés a PowerShell használatával](azure-stack-deploy-template-powershell.md)című témakör utasításait. Adja meg a sablon helyét a parancsfájlban.
 11. A Windows rendszerű virtuális gép üzembe helyezése után navigáljon az Azure Stack hub portálra, és keresse meg az erőforráscsoportot. Ha törölni szeretné a gyakorlat eredményét az Azure Stack hub-ból, törölje az erőforráscsoportot.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub Resource Manager-sablonokról](azure-stack-arm-templates.md).  
 - További információ az [Azure stack hub API-profiljairól](azure-stack-version-profiles.md).

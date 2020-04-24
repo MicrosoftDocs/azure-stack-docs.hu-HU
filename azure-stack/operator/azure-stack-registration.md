@@ -4,16 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan regisztrálhat Azure Stack hub integrált rendszereit az Azure-ban, hogy letöltse az Azure Marketplace-elemeket, és hogyan állíthatja be az adatjelentéskészítést.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 04/06/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 6af18b519f32975643dea10d81dfa9ed1f0588c5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294835"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81308246"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -26,13 +27,14 @@ A cikkben található információk az Azure Stack hub integrált rendszerek Azu
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-A regisztráció előtt a következő előfeltételek szükségesek:
+A regisztráció előtt végezze el a következő előfeltételeket:
 
 - Ellenőrizze a hitelesítő adatokat.
 - Állítsa be a PowerShell nyelvi módját.
 - Telepítse a PowerShellt Azure Stack hubhoz.
 - Töltse le az Azure Stack hub-eszközöket.
-- Határozza meg a regisztrációs forgatókönyvet.
+- Határozza meg a számlázási modellt.
+- Határozza meg az egyedi regisztrációs nevet.
 
 ### <a name="verify-your-credentials"></a>Hitelesítő adatok ellenőrzése
 
@@ -58,7 +60,7 @@ Ha nem rendelkezik Azure-előfizetéssel, amely megfelel ezeknek a követelmény
 > [!NOTE]
 > Ha egynél több Azure Stack központtal rendelkezik, az ajánlott eljárás az egyes Azure Stack központoknak a saját előfizetéshez való regisztrálása. Így könnyebben nyomon követheti a használatot.
 
-### <a name="powershell-language-mode"></a>PowerShell nyelvi mód
+### <a name="set-the-powershell-language-mode"></a>A PowerShell nyelvi módjának beállítása
 
 Azure Stack hub sikeres regisztrálásához a PowerShell nyelvi módját **FullLanguageMode**értékre kell állítani.  Annak ellenőrzéséhez, hogy az aktuális nyelvi mód a teljes értékre van-e állítva, nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsmagokat:
 
@@ -80,25 +82,21 @@ Az Azure Stack hub Tools GitHub-tárháza olyan PowerShell-modulokat tartalmaz, 
 
 Annak érdekében, hogy a legújabb verziót használja, törölje az Azure Stack hub-eszközök meglévő verzióit, és [töltse le a legújabb verziót a githubról](azure-stack-powershell-download.md) az Azure-ban való regisztrálás előtt.
 
-### <a name="determine-your-registration-scenario"></a>A regisztrációs forgatókönyv meghatározása
+### <a name="determine-your-billing-model"></a>Számlázási modell meghatározása
+::: zone pivot="state-connected"
+ Egy csatlakoztatott üzemelő példány lehetővé teszi, hogy Azure Stack hub csatlakozhasson az internethez és az Azure-hoz. Az Azure AD-t vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) is használhatja Identity Store-ként, és két számlázási modell közül választhat: utólagos használat vagy kapacitás alapján. A számlázási modellt később, a regisztrációs parancsfájl futtatásakor kell megadnia.
+::: zone-end
 
-Előfordulhat, hogy az Azure Stack hub üzemelő példánya *csatlakoztatva* van vagy *le van választva*.
+::: zone pivot="state-disconnected"
+ A leválasztott központi telepítés lehetővé teszi az Azure Stack hub használatát az internettel való kapcsolat nélkül. A leválasztott központi telepítés esetében csak egy AD FS Identity Store-t és a Capacity-alapú számlázási modellt kell használnia. A számlázási modellt később, a regisztrációs parancsfájl futtatásakor kell megadnia.
+::: zone-end
 
-- **Csatlakoztatott**  
- A csatlakoztatott eszköz Azure Stack hub üzembe helyezését jelenti, hogy az internethez és az Azure-hoz is csatlakozhat. Azure AD-t vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) kell használnia az identitás-tárolóhoz. A csatlakoztatott üzemelő példányok esetében két számlázási modell közül választhat: utólagos használat vagy kapacitás alapján.
-  - [Regisztráljon egy csatlakoztatott Azure stack hubot az Azure-ban az utólagos **használatú** számlázási modell használatával](#register-connected-with-pay-as-you-go-billing).
-  - [Regisztráljon egy csatlakoztatott Azure stack hubot az Azure-ban a **kapacitás** számlázási modell használatával](#register-connected-with-capacity-billing).
+### <a name="determine-your-unique-registration-name"></a>Egyedi regisztrációs név meghatározása
 
-- **Leválasztott**  
- Az Azure-beli üzembe helyezési lehetőség leválasztásával az internettel való kapcsolat nélkül telepítheti és használhatja Azure Stack hubot. A leválasztott központi telepítés azonban csak egy AD FS Identity Store-ra és a Capacity-alapú számlázási modellre korlátozódik.
-  - [Regisztrálja a leválasztott Azure stack hubot a **kapacitás** számlázási modell használatával ](#register-disconnected-with-capacity-billing).
-
-### <a name="determine-a-unique-registration-name-to-use"></a>A használni kívánt egyedi regisztrációs név meghatározása
-
-Ha az Azure-ban regisztrálja Azure Stack hubot, egyedi regisztrációs nevet kell megadnia. Az Azure Stack hub-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha az Azure Stack hub **Cloud ID**-t használja.
+A regisztrációs parancsfájl futtatásakor egyedi regisztrációs nevet kell megadnia. Az Azure Stack hub-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha az Azure Stack hub **Cloud ID**-t használja.
 
 > [!NOTE]
-> A Capacity-alapú számlázási modell használatával Azure Stack hub-regisztrációk esetében módosítania kell az egyedi nevet, ha az éves előfizetések lejárta után az újbóli regisztráció lejár, kivéve, ha [törli a lejárt regisztrációt](azure-stack-registration.md#change-the-subscription-you-use) , és újra regisztrálja magát az Azure-ban.
+> A Capacity-alapú számlázási modell használatával Azure Stack hub-regisztrációk esetében módosítania kell az egyedi nevet, ha az éves előfizetések lejárta után az újbóli regisztráció lejár, kivéve, ha [törli a lejárt regisztrációt](#renew-or-change-registration) , és újra regisztrálja magát az Azure-ban.
 
 Az Azure Stack hub központi telepítésének felhőalapú AZONOSÍTÓjának meghatározásához nyissa meg a PowerShellt rendszergazdaként egy olyan számítógépen, amely hozzáfér a Kiemelt végponthoz, futtassa a következő parancsokat, majd jegyezze fel a **CloudID** értéket:
 
@@ -107,7 +105,8 @@ Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -Configur
 Run: Get-AzureStackStampInformation
 ```
 
-## <a name="register-connected-with-pay-as-you-go-billing"></a>Az utólagos elszámolású számlázással kapcsolatos regisztráció
+::: zone pivot="state-connected"
+## <a name="register-with-pay-as-you-use-billing"></a>Regisztráció a használaton kívüli számlázással
 
 Ezekkel a lépésekkel regisztrálhat Azure Stack hubot az Azure-ban az utólagos használatú számlázási modell használatával.
 
@@ -129,7 +128,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
    >[!Note]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process`
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot:`Remove-AzureRmAccount-Scope Process`
 
 3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
@@ -174,9 +173,9 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    A folyamat 10 – 15 percet vesz igénybe. Ha a parancs befejeződik, megjelenik a **"saját környezet regisztrálása és aktiválása a megadott paraméterek használatával** " üzenet.
 
-## <a name="register-connected-with-capacity-billing"></a>Kapcsolat regisztrálása a kapacitás számlázásával
+## <a name="register-with-capacity-billing"></a>Regisztrálás kapacitás-számlázással
 
-Ezekkel a lépésekkel regisztrálhat Azure Stack hubot az Azure-ban az utólagos használatú számlázási modell használatával.
+Az alábbi lépésekkel regisztrálhat Azure Stack hubot az Azure-ban a kapacitás számlázási modell használatával.
 
 > [!Note]  
 > Ezeket a lépéseket olyan számítógépről kell futtatni, amely hozzáfér a privilegizált végponthoz (PEP). A PEP részletes ismertetését lásd: [a privilegizált végpont használata Azure stack központban](azure-stack-privileged-endpoint.md).
@@ -223,8 +222,10 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    > A **set-AzsRegistration** parancsmag UsageReportingEnabled paraméterével letilthatja a használati jelentéskészítést úgy, hogy a paraméter hamis értékre van állítva. 
    
    A set-AzsRegistration parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
+::: zone-end
 
-## <a name="register-disconnected-with-capacity-billing"></a>Regisztráció leválasztva a kapacitás számlázásával
+::: zone pivot="state-disconnected"
+## <a name="register-with-capacity-billing"></a>Regisztrálás kapacitás-számlázással
 
 Ha Azure Stack központot regisztrál egy leválasztott környezetben (internetkapcsolat nélkül), akkor a Azure Stack hub-környezetből kell beszereznie egy regisztrációs jogkivonatot. Ezt követően használja ezt a tokent egy olyan számítógépen, amely tud csatlakozni az Azure-hoz, és telepítve van a PowerShell Azure Stack hubhoz.  
 
@@ -319,6 +320,7 @@ Igény szerint a Get-Content parancsmaggal egy olyan fájlra is rámutathat, ame
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
+::: zone-end
 
 ## <a name="verify-azure-stack-hub-registration"></a>Azure Stack hub regisztrációjának ellenőrzése
 
@@ -348,17 +350,16 @@ Másik lehetőségként ellenőrizheti, hogy a regisztráció sikeres volt-e a p
 
 ## <a name="renew-or-change-registration"></a>Regisztráció megújítása vagy módosítása
 
-### <a name="renew-or-change-registration-in-connected-environments"></a>A regisztráció megújítása vagy módosítása csatlakoztatott környezetekben
-
+::: zone pivot="state-connected"
 A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 
 - A kapacitás-alapú éves előfizetés megújítása után.
 - A számlázási modell módosításakor.
 - A változások méretezése (csomópontok hozzáadása/eltávolítása) a kapacitás alapú számlázáshoz.
 
-#### <a name="change-the-subscription-you-use"></a>A használt előfizetés módosítása
+### <a name="change-the-subscription-you-use"></a>A használt előfizetés módosítása
 
-Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot a módosított paraméterekkel, beleértve a `<billing model>`:
+Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot a módosított paraméterekkel, beleértve `<billing model>`a következőket:
 
   ```powershell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
@@ -366,23 +367,23 @@ Ha módosítani szeretné a használt előfizetést, először futtatnia kell a 
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-#### <a name="change-the-billing-model-or-how-to-offer-features"></a>A számlázási modell vagy a szolgáltatások ajánlatának módosítása
+### <a name="change-the-billing-model-or-how-to-offer-features"></a>A számlázási modell vagy a szolgáltatások ajánlatának módosítása
 
 Ha módosítani szeretné a számlázási modellt, vagy azt, hogy miként lehet szolgáltatásokat kínálni a telepítéshez, meghívhatja a regisztrációs függvényt az új értékek beállítására. Nem kell először eltávolítania az aktuális regisztrációt:
 
   ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
+::: zone-end
 
-### <a name="renew-or-change-registration-in-disconnected-environments"></a>Leválasztott környezetekben való regisztráció megújítása vagy módosítása
-
+::: zone pivot="state-disconnected"
 A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 
 - A kapacitás-alapú éves előfizetés megújítása után.
 - A számlázási modell módosításakor.
 - A változások méretezése (csomópontok hozzáadása/eltávolítása) a kapacitás alapú számlázáshoz.
 
-#### <a name="remove-the-activation-resource-from-azure-stack-hub"></a>Az aktiválási erőforrás eltávolítása Azure Stack hub-ból
+### <a name="remove-the-activation-resource-from-azure-stack-hub"></a>Az aktiválási erőforrás eltávolítása Azure Stack hub-ból
 
 Először el kell távolítania az aktiválási erőforrást Azure Stack hubhoz, majd a regisztrációs erőforrást az Azure-ban.  
 
@@ -408,15 +409,24 @@ Vagy használhatja a regisztrációs nevet is:
   Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
+### <a name="re-register-using-connected-steps"></a>Ismételt regisztrálás a csatlakoztatott lépések használatával
+
+Ha a számlázási modellt egy csatlakoztatott állapotban lévő, leválasztott állapotból a kapacitás számlázására módosítja, akkor a csatlakoztatott [modell lépései](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features)után újra regisztrálnia kell. 
+
+>[!Note] 
+>Ez nem változtatja meg az identitási modellt, csak a számlázási mechanizmust, és továbbra is az ADFS-t fogja használni az identitás forrásaként.
+
 ### <a name="re-register-using-disconnected-steps"></a>Újbóli regisztrálás a leválasztott lépések használatával
 
 Mostantól teljesen megszüntette a regisztrációt egy leválasztott forgatókönyvben, és meg kell ismételnie a Azure Stack hub-környezet leválasztott forgatókönyvben való regisztrálásának lépéseit.
+::: zone-end
 
 ### <a name="disable-or-enable-usage-reporting"></a>Használati jelentéskészítés letiltása vagy engedélyezése
 
 A kapacitás-számlázási modellt használó Azure Stack hub-környezetek esetében kapcsolja ki a használati jelentéskészítést a **UsageReportingEnabled** paraméterrel a **set-AzsRegistration** vagy a **Get-AzsRegistrationToken** parancsmagok használatával. Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést.
 
-#### <a name="with-a-connected-azure-stack-hub"></a>Csatlakoztatott Azure Stack hubhoz
+::: zone pivot="state-connected"
+Futtassa a következő PowerShell-parancsmagokat:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -427,9 +437,8 @@ A kapacitás-számlázási modellt használó Azure Stack hub-környezetek eset�
       -BillingModel Capacity
       -RegistrationName $RegistrationName
    ```
-
-#### <a name="with-a-disconnected-azure-stack-hub"></a>Leválasztott Azure Stack hubhoz
-
+::: zone-end
+::: zone pivot="state-disconnected"
 1. A regisztrációs jogkivonat módosításához futtassa a következő PowerShell-parancsmagokat:  
 
    ```Powershell
@@ -442,6 +451,7 @@ A kapacitás-számlázási modellt használó Azure Stack hub-környezetek eset�
    > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken*számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
 2. Mentse ezt a regisztrációs jogkivonatot az Azure-beli csatlakoztatott gépen való használatra. A fájlt vagy a szöveget *$FilePathForRegistrationTokenból*másolhatja.
+::: zone-end
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
 
@@ -476,8 +486,8 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | Sztring |  |
 | ResourceGroupLocation | Sztring |  |
 | BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: kapacitás, PayAsYouUse és fejlesztés. |
-| MarketplaceSyndicationEnabled | Igaz/hamis | Meghatározza, hogy a piactér-felügyeleti funkció elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) használható a Piactéri elemek letöltésére. |
-| UsageReportingEnabled | Igaz/hamis | Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
+| MarketplaceSyndicationEnabled | Igaz/Hamis | Meghatározza, hogy a piactér-felügyeleti funkció elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) használható a Piactéri elemek letöltésére. |
+| UsageReportingEnabled | Igaz/Hamis | Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
 | AgreementNumber | Sztring | Azon EA-szerződés száma, amely alatt a Azure Stack kapacitásának SKU-jának megrendelése megvolt. |
 | RegistrationName | Sztring | Adja meg a regisztráció egyedi nevét, ha a regisztrációs parancsfájlt a Azure Stack hub egynél több példányán futtatja ugyanazzal az Azure-előfizetés-AZONOSÍTÓval. A paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja az Azure Stack hub több példányán, a parancsfájl meghiúsul. |
 
@@ -498,32 +508,33 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | ResourceGroupName | Sztring |  |
 | ResourceGroupLocation | Sztring |  |
 | BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: kapacitás, PayAsYouUse és fejlesztés. |
-| MarketplaceSyndicationEnabled | Igaz/hamis |  |
-| UsageReportingEnabled | Igaz/hamis | Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
+| MarketplaceSyndicationEnabled | Igaz/Hamis |  |
+| UsageReportingEnabled | Igaz/Hamis | Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
 | AgreementNumber | Sztring |  |
 
 ## <a name="registration-failures"></a>Regisztrációs hibák
 
 Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy az alábbi hibák valamelyike látható:
 
-- Nem sikerült beolvasni a `$hostName`kötelező hardver-információit. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
+- Nem sikerült beolvasni a `$hostName`kötelező hardver-információkat. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
 
-- Nem lehet csatlakozni a `$hostName`hoz a hardver adatainak beszerzéséhez. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
+- Nem lehet csatlakozni `$hostName` a következőhöz: a hardver információinak beolvasása. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
 
    Ok: ez általában azért van, mert a gazdagépekről próbáljuk ki a hardver részleteit, például az UUID-t, a BIOS-t és a CPU-t, hogy megkísérelje az aktiválást, és nem tudta elérni a fizikai gazdagéphez való kapcsolódás lehetőségét.
 
-- A felhő-azonosító [`GUID`] már regisztrálva van. A Felhőbeli azonosítók újrafelhasználása nem engedélyezett.
+- A Felhőbeli`GUID`azonosító [] már regisztrálva van. A Felhőbeli azonosítók újrafelhasználása nem engedélyezett.
 
-   Ok: Ez akkor fordul elő, ha a Azure Stack-környezet már regisztrálva van. Ha újra regisztrálni szeretné a környezetet egy másik előfizetéssel vagy számlázási modellel, [tekintse meg ezeket az utasításokat](#change-the-subscription-you-use).
+   Ok: Ez akkor fordul elő, ha a Azure Stack-környezet már regisztrálva van. Ha újra regisztrálni szeretné a környezetet egy másik előfizetéssel vagy számlázási modellel, kövesse a [regisztráció megújítása vagy módosítása lépéseit](#renew-or-change-registration).
 
 - Amikor megpróbál hozzáférni a piactér-felügyelethez, hiba történik a termékek szindikátusba való kipróbálásakor.
 
    Ok: ez általában akkor fordul elő, ha Azure Stack hub nem fér hozzá a regisztrációs erőforráshoz. Ennek egyik gyakori oka, hogy amikor egy Azure-előfizetés címtár-bérlője megváltozik, visszaállítja a regisztrációt. Ha módosította az előfizetés címtár-bérlőjét, nem férhet hozzá a Azure Stack hub piactérhez vagy a jelentéshez. A probléma megoldásához újra kell regisztrálnia a problémát.
-
+::: zone pivot="state-disconnected"
 - A piactér-felügyelet továbbra is kéri a Azure Stack hub regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával.
 
-   Ok: ez egy ismert probléma a leválasztott környezetek esetében. A regisztráció állapotát a [következő lépésekkel](azure-stack-registration.md#verify-azure-stack-hub-registration)ellenőrizheti. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+::: zone-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

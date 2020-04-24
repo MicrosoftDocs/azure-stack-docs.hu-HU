@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
 ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77703077"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Ethereum blockchain-hálózat üzembe helyezése Azure Stack hub-on
@@ -96,7 +96,7 @@ A Consortium Leader-sablon konfigurálja az első tag hálózati lábnyomát.
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetést | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
+    Előfizetés | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
     Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | EthereumResources
     Hely | Az erőforráscsoport Azure-régiója. | | helyi
 
@@ -144,7 +144,7 @@ A Leader üzembe helyezésének ellenőrzéséhez lépjen a vezető rendszergazd
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetést | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
+    Előfizetés | Az előfizetés, amelyre a konzorcium-hálózatot telepíteni kell. | | Fogyasztási előfizetés
     Erőforráscsoport | Az az erőforráscsoport, amelyre a konzorcium-hálózatot telepíteni kell. | | MemberResources
     Hely | Az erőforráscsoport Azure-régiója. | | helyi
 
@@ -194,7 +194,7 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
-    Előfizetést | A vezető előfizetése. | | Fogyasztási előfizetés
+    Előfizetés | A vezető előfizetése. | | Fogyasztási előfizetés
     Erőforráscsoport | A vezető erőforráscsoport. | | EthereumResources
     Hely | Az erőforráscsoport Azure-régiója. | | helyi
 
@@ -202,8 +202,8 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
 
 Az üzembe helyezés befejezése után néhány percet vesz igénybe, hogy a vezető és a tag is megkezdje a kommunikációt. A központi telepítés ellenőrzéséhez frissítse a tag felügyeleti webhelyét. A tag csomópontjainak állapotának futnia kell.
 
-![Az üzemelő példány ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
+![A telepítés ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a Ethereum és az Azure-ról: [Blockchain Technology and Applications](https://azure.microsoft.com/solutions/blockchain/).

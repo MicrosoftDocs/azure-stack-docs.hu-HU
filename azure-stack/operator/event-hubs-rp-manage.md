@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: e9f500da4cab68688a6dd33374cfbc1cc166828d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80424036"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Event Hubs kezelése Azure Stack hub-on
@@ -34,13 +34,13 @@ A következő lépésekkel érheti el a Event Hubs felügyeleti lapját:
    - **Kvóták**: lehetővé teszi kvóták létrehozását, frissítését és törlését. A részletekért tekintse meg a [kvóták szakaszt](#quotas) .
    - **Event Hubs fürtök**: az összes konfigurált fürt listáját jeleníti meg. A részletekért tekintse meg a [Event Hubs-fürtök](#event-hubs-clusters) szakaszt.
 
-   [![az Event hubok kezelése](media/event-hubs-rp-manage/1-manage-event-hubs.png)](media/event-hubs-rp-manage/1-manage-event-hubs.png#lightbox)
+   [![Event hubok kezelése](media/event-hubs-rp-manage/1-manage-event-hubs.png)](media/event-hubs-rp-manage/1-manage-event-hubs.png#lightbox)
 
 ## <a name="quotas"></a>Kvóták
 
 A **kvóták** kiválasztása a főoldalon megjeleníti a használatban lévő kvóták listáját, beleértve a kvótákat meghatározó társított csomagokat is. 
  
-[az Event hubok ![kezelése – kvóták](media/event-hubs-rp-manage/3-quotas.png)](media/event-hubs-rp-manage/3-quotas.png#lightbox)
+[![Event hub-kvóták kezelése](media/event-hubs-rp-manage/3-quotas.png)](media/event-hubs-rp-manage/3-quotas.png#lightbox)
 
 További információ a Event Hubshoz megadott kvóták típusairól: [kvóta típusai](azure-stack-quota-types.md#event-hubs-quota-types)
 
@@ -68,11 +68,11 @@ A Event Hubs erőforrás-szolgáltató a következő riasztásokat támogatja:
 
 A **riasztások** kiválasztása a főoldalon a kiállított riasztások listáját jeleníti meg:
 
-[az Event hubok ![kezelése – riasztások összegzése](media/event-hubs-rp-manage/2-alerts-summary.png)](media/event-hubs-rp-manage/2-alerts-summary.png#lightbox)
+[![Event hubok kezelése – riasztások összegzése](media/event-hubs-rp-manage/2-alerts-summary.png)](media/event-hubs-rp-manage/2-alerts-summary.png#lightbox)
 
 Ha kijelöl egy riasztást a listából, a jobb oldalon a **riasztás részletei** panel jelenik meg:
 
-[az Event hubok ![kezelése – riasztások részletei](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
+[![Event hubok kezelése – riasztások részletei](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 
 További információ a Azure Stack hub figyelési képességeiről, beleértve a riasztásokat is: az [állapot és a riasztások figyelése](azure-stack-monitor-health.md). A naplók gyűjtésével kapcsolatos részletekért lásd: [Azure stack diagnosztikai naplók áttekintése](azure-stack-diagnostic-log-collection-overview.md).
 
@@ -84,20 +84,20 @@ További információ a Azure Stack hub figyelési képességeiről, beleértve 
 - Szolgáltatás állapota.
 - Biztonsági mentés állapota.
 
-[az Event hubok ![kezelése – felhasználói erőforrások](media/event-hubs-rp-manage/4-user-resources.png)](media/event-hubs-rp-manage/4-user-resources.png#lightbox)
+[![Event hubok kezelése – felhasználói erőforrások](media/event-hubs-rp-manage/4-user-resources.png)](media/event-hubs-rp-manage/4-user-resources.png#lightbox)
 
 Az **állapot** vagy a **biztonsági mentés** területen található hivatkozásra kattintva részletes információkat jeleníthet meg Event Hubs állapotáról és a biztonsági mentés állapotáról. A **név** alatti hivatkozás a fürt további részleteit jeleníti meg, beleértve a következőket:
 - Állapot-és konfigurációs információk.
 - A fürt szolgáltatási korlátainak listája.
 
-[az Event hubok ![kezelése – felhasználói fürtök](media/event-hubs-rp-manage/4-user-clusters.png)](media/event-hubs-rp-manage/4-user-clusters.png#lightbox)
+[![Event hubok kezelése – felhasználói fürtök](media/event-hubs-rp-manage/4-user-clusters.png)](media/event-hubs-rp-manage/4-user-clusters.png#lightbox)
 
 A szolgáltatási korlátok a Event Hubs működési határait meghatározó konfigurációs paraméterek. Az elérhető szolgáltatási korlátozások hasonlóak az Azure dedikált Event Hubs számára kínált szolgáltatásokhoz. A **konfigurációs érték**alatti hivatkozás (ok) kiválasztásával módosíthatja a hozzárendelt értéket.
 
 > [!IMPORTANT]
 > A szolgáltatási korlátok módosítása előtt időt kell fordítania a teljes hatás elemzésére. A szolgáltatási korlát módosítása hatással lehet a megoldás viselkedésére, amely az eseményeket használja és állítja elő. A módosítások a Azure Stack kapacitásának erőforrás-felhasználását is befolyásolhatják.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a következőről:
 

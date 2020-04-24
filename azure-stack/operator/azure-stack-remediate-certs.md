@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
 ms.openlocfilehash: 079bec68836af5491d9f39bcf24e68001ffcfe2b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367794"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
@@ -23,7 +23,7 @@ Az ebben a cikkben található információk segítséget nyújt a Azure Stack h
 
 **Probléma** – a pfx titkosítás nem TRIPLEDES – SHA1.
 
-A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javítása** . Ez az alapértelmezett titkosítás minden Windows 10-ügyfélnél a tanúsítvány beépülő modulból való exportáláskor vagy `Export-PFXCertificate`használatával.
+A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javítása** . Ez az alapértelmezett titkosítás minden Windows 10-ügyfél esetében a tanúsítvány beépülő modulból vagy a használatával `Export-PFXCertificate`történő exportáláskor.
 
 ## <a name="read-pfx"></a>PFX olvasása
 
@@ -55,7 +55,7 @@ A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javí
 
 ## <a name="dns-names"></a>DNS-nevek
 
-**Probléma** – a tanúsítvány **DNSNameList** nem tartalmazza az Azure stack hub szolgáltatás végpontjának nevét vagy egy érvényes helyettesítő karaktert. A helyettesítő karakteres egyezések csak a DNS-név bal szélső névterére érvényesek. A `*.region.domain.com` például csak `portal.region.domain.com`esetében érvényes, nem `*.table.region.domain.com`.
+**Probléma** – a tanúsítvány **DNSNameList** nem tartalmazza az Azure stack hub szolgáltatás végpontjának nevét vagy egy érvényes helyettesítő karaktert. A helyettesítő karakteres egyezések csak a DNS-név bal szélső névterére érvényesek. Például `*.region.domain.com` a csak a esetében `portal.region.domain.com`érvényes, nem. `*.table.region.domain.com`
 
 **Javítás** – a Azure stack hub-tanúsítványok aláírási kérelmének létrehozásával újragenerálja a CSR-t a megfelelő DNS-nevekkel a Azure stack hub-végpontok támogatásához. Küldje el újra a CSR-t egy hitelesítésszolgáltatótól. Ezután kövesse az [Azure stack hub PKI-tanúsítványok előkészítése az üzembe helyezéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) című témakör lépéseit, és exportálja a tanúsítványt a CSR-t létrehozó gépről.  
 
@@ -116,7 +116,7 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Cserélje le a `PFXpassword`t a tényleges jelszóra:
+2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Cserélje `PFXpassword` le a-t a tényleges jelszóra:
 
    ```powershell
    $password = Read-Host -Prompt PFXpassword -AsSecureString
@@ -124,8 +124,8 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
 
 3. A PowerShell-parancssorból futtassa a következő parancsot egy új PFX-fájl exportálásához:
 
-   - A `-PfxPath`mezőben határozza meg a PFX-fájl elérési útját. A következő példában az elérési út `.\certificates\ssl.pfx`.
-   - `-ExportPFXPath`esetében adja meg az exportálandó PFX-fájl helyét és nevét. A következő példában az elérési út `.\certificates\ssl_new.pfx`:
+   - A `-PfxPath`esetében Itt adhatja meg a pfx-fájl elérési útját. Az alábbi példában az elérési út a `.\certificates\ssl.pfx`következő:.
+   - A `-ExportPFXPath`(z) esetében adja meg az exportálandó pfx-fájl helyét és nevét. Az alábbi példában az elérési út a `.\certificates\ssl_new.pfx`következő:
 
    ```powershell
    Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
@@ -144,6 +144,6 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [További információ a Azure Stack hub biztonságáról](azure-stack-rotate-secrets.md)

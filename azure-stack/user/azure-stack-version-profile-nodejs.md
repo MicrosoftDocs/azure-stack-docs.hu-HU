@@ -3,16 +3,16 @@ title: API-verziók profiljainak használata a Node. js-sel Azure Stack hub-ban
 description: Útmutató az API-verziók profiljainak a Node. js használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: acdacb826d75a2df1aca49c9029a0ef02e6744ea
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705270"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660123"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Node. js szoftverfejlesztői készlettel (SDK) Azure Stack hub-ban
 
@@ -20,17 +20,17 @@ ms.locfileid: "77705270"
 
 A Node. js SDK segítségével az alkalmazások infrastruktúráját hozhatja létre és kezelheti. A Node. js SDK-ban található API-profilok segítenek a hibrid felhőalapú megoldásokban azáltal, hogy átváltanak a globális Azure-erőforrások és a Azure Stack hub-erőforrások között. A kódot egyszer is megadhatja, majd a globális Azure-t és Azure Stack hubot is megcélozhatja. 
 
-Ebben a cikkben a [Visual Studio Code](https://code.visualstudio.com/) -ot használhatja fejlesztői eszközként. A Visual Studio Code képes hibakeresést végezni a Node. js SDK-val, és lehetővé teszi az alkalmazás futtatását, és az alkalmazás leküldését az Azure Stack hub-példányba. A Visual Studio Code-ból vagy egy, az `node <nodefile.js>`parancsot futtató terminálon keresztül végezhet hibakeresést.
+Ebben a cikkben a [Visual Studio Code](https://code.visualstudio.com/) -ot használhatja fejlesztői eszközként. A Visual Studio Code képes hibakeresést végezni a Node. js SDK-val, és lehetővé teszi az alkalmazás futtatását, és az alkalmazás leküldését az Azure Stack hub-példányba. A Visual Studio Code-ból vagy a parancsot `node <nodefile.js>`futtató terminál-ablakból is végezhet hibakeresést.
 
 ## <a name="the-nodejs-sdk"></a>A Node. js SDK
 
 A Node. js SDK Azure Stack hub Resource Manager-eszközöket biztosít. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, az App Services és a kulcstartó. A Node. js-alkalmazásban 10 erőforrás-szolgáltatói ügyfél-függvénytár telepíthető. Letöltheti azt is, hogy melyik erőforrás-szolgáltatót fogja használni az **2018-03-01-Hybrid** vagy a **2019-03-01-profilhoz** az alkalmazáshoz tartozó memória optimalizálása érdekében. Minden modul egy erőforrás-szolgáltatót, a megfelelő API-verziót és az API-profilt tartalmaz. 
 
-Egy API-profil az erőforrás-szolgáltatók és API-verziók. Az API-profilok segítségével egy erőforrás-szolgáltatói csomag az egyes erőforrástípusok legújabb és legnagyobb stabil verziójának beszerzéséhez.
+Az API-profilok erőforrás-szolgáltatók és API-verziók kombinációja. Az egyes erőforrástípusok legújabb, legstabilabb verzióját az erőforrás-szolgáltatói csomagban található API-profil segítségével szerezheti be.
 
   -   Az összes szolgáltatás legújabb verziójának használatához használja a csomagok **legújabb** profilját.
 
-  -   Az Azure Stack hub szolgáltatással kompatibilis szolgáltatások használatához használja\@az **Azure/ARM-Resources-Profile-Hybrid-2019-03-01** vagy a **\@Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
+  -   Az Azure stack hub szolgáltatással kompatibilis szolgáltatások használatához használja az ** \@Azure/ARM-Resources-Profile-Hybrid-2019-03-01** vagy ** \@az Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
 
 ### <a name="packages-in-npm"></a>Csomagok a NPM
 
@@ -45,13 +45,13 @@ A következő csomagokat találja:
 | [Azure Resource Manager házirend](https://www.npmjs.com/package/@azure/arm-policy-profile-hybrid-2019-03-01) | @azure/arm-policy-profile-hybrid-2019-03-01
 | [Azure Resource Manager DNS](https://www.npmjs.com/package/@azure/arm-dns-profile-2019-03-01-hybrid) | @azure/arm-dns-profile-2019-03-01-hybrid  |
 | [Engedélyezés](https://www.npmjs.com/package/@azure/arm-authorization-profile-2019-03-01-hybrid) | @azure/arm-authorization-profile-2019-03-01-hybrid  |
-| [Számítás](https://www.npmjs.com/package/@azure/arm-compute-profile-2019-03-01-hybrid) | @azure/arm-compute-profile-2019-03-01-hybrid |
+| [Compute](https://www.npmjs.com/package/@azure/arm-compute-profile-2019-03-01-hybrid) | @azure/arm-compute-profile-2019-03-01-hybrid |
 | [Storage](https://www.npmjs.com/package/@azure/arm-storage-profile-2019-03-01-hybrid) | @azure/arm-storage-profile-2019-03-01-hybrid |
 | [Hálózat](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid) | @azure/arm-network-profile-2019-03-01-hybrid |
 | [Erőforrások](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
-A szolgáltatás legújabb API-verziójának használatához használja az adott ügyféloldali függvénytár **legújabb** profilját. Ha például az erőforrás-szolgáltatás legújabb API-verzióját szeretné használni, használja az **erőforrás-kezelési ügyféloldali kódtár** `azure-arm-resource` profilját. csomag.
+A szolgáltatás legújabb API-verziójának használatához használja az adott ügyféloldali függvénytár **legújabb** profilját. Ha például az erőforrás-szolgáltatás legújabb API-verzióját szeretné használni, használja az erőforrás- `azure-arm-resource` **kezelési ügyfél függvénytárának** profilját. csomag.
 
 A csomagban meghatározott API-verziókat használhatja az erőforrás-szolgáltatók adott API-verzióihoz.
 
@@ -60,7 +60,7 @@ A csomagban meghatározott API-verziókat használhatja az erőforrás-szolgált
 
 ## <a name="install-the-nodejs-sdk"></a>A Node. js SDK telepítése
 
-1. A Git telepítése. Útmutatásért lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Telepítse a git-t. Útmutatásért lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 2. Telepítse vagy frissítsen a [Node. js](https://nodejs.org/en/download/)aktuális verziójára. A Node. js a [NPM](https://www.npmjs.com/) JavaScript Package Managert is tartalmazza.
 
@@ -68,9 +68,9 @@ A csomagban meghatározott API-verziókat használhatja az erőforrás-szolgált
 
 2.  Telepítse az Azure Stack hub Resource Manger-ügyfél csomagjait. További információ: [az ügyféloldali kódtárak telepítése](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid).
 
-3.  A csomagokat, amelyeket telepíteni kell a használni kívánt profilt verziójától függ. Az erőforrás-szolgáltatók listáját a [csomagok a NPM](#packages-in-npm) szakaszban találja.
+3.  A telepítendő csomagok a használni kívánt profil verziójától függenek. Az erőforrás-szolgáltatók listáját a [csomagok a NPM](#packages-in-npm) szakaszban találja.
 
-4. Telepítse az erőforrás-szolgáltató ügyféloldali függvénytárát a NPM használatával. A parancssorból futtassa a következőt: `npm install <package-name>`. A `npm install @azure/arm-authorization-profile-2019-03-01-hybrid` futtatásával például telepítheti az engedélyezési erőforrás-szolgáltatói függvénytárat.
+4. Telepítse az erőforrás-szolgáltató ügyféloldali függvénytárát a NPM használatával. A parancssorból futtassa a következőt `npm install <package-name>`:. A futtatásával `npm install @azure/arm-authorization-profile-2019-03-01-hybrid` például telepítheti az engedélyezési erőforrás-szolgáltatói függvénytárat.
 
 5.  Hozzon létre egy előfizetést, és jegyezze fel az előfizetés AZONOSÍTÓját, ha az SDK-t használja. Útmutatásért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm).
 
@@ -80,15 +80,15 @@ A csomagban meghatározott API-verziókat használhatja az erőforrás-szolgált
 
 ### <a name="nodejs-prerequisites"></a>A Node. js előfeltételei 
 
-Ha a Node. js Azure SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd értékeket kell beállítania környezeti változókkal. A környezeti változók beállítása, tekintse meg az alábbi táblázat az operációs rendszerének utasításokat.
+Ha a Node. js Azure SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az operációs rendszer táblázatának utasításait.
 
 | Érték | Környezeti változók | Leírás |
 | --- | --- | --- |
-| Bérlőazonosító | BÉRLŐi\_azonosítója | Az Azure Stack hub- [bérlő azonosítójának](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)értéke. |
-| Ügyfél-azonosító | ÜGYFÉL\_azonosítója | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a jelen dokumentum előző szakaszában a szolgáltatásnév lett létrehozva.  |
-| Előfizetés azonosítója | Az AZURE\_előfizetése\_ID azonosító az [előfizetés azonosítója](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) , hogyan érheti el az ajánlatokat az Azure stack hub-ban.  |
-| Titkos ügyfélkulcs | ALKALMAZÁS\_TITKa | Az egyszerű szolgáltatásnév alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
-| Resource Manager-végpont | ARM\_VÉGPONT | Tekintse meg [az Azure stack hub Resource Manager-végpontot](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
+| Bérlőazonosító | Bérlő\_azonosítója | Az Azure Stack hub- [bérlő azonosítójának](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)értéke. |
+| Ügyfél-azonosító | ÜGYFÉL\_-azonosító | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a jelen dokumentum előző szakaszában a szolgáltatásnév lett létrehozva.  |
+| Előfizetés azonosítója | Az\_előfizetés\_- [azonosítóval](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) rendelkező Azure-előfizetés az Azure stack hub-ban található ajánlatok elérését mutatja be.  |
+| Titkos ügyfélkulcs | ALKALMAZÁS\_titka | Az egyszerű szolgáltatásnév alkalmazásának titka mentve, amikor a szolgáltatásnév létrejött. |
+| Resource Manager-végpont | ARM\_-végpont | Tekintse meg [az Azure stack hub Resource Manager-végpontot](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint). |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Környezeti változók beállítása a Node. js-hez
 
@@ -108,15 +108,15 @@ A környezeti változók beállítása:
 
 **Az Azure Stack hub Resource Manager-végpont**
 
-A Microsoft Azure Resource Manager-keretrendszert, amely lehetővé teszi a rendszergazdák üzembe helyezése, kezelése és monitorozása az Azure-erőforrások számára. Az Azure Resource Manager képes kezelni ezeket a feladatokat, csoportként, nem pedig külön-külön, egyetlen művelettel.
+A Microsoft Azure Resource Manager egy felügyeleti keretrendszer, amely lehetővé teszi a rendszergazdák számára az Azure-erőforrások üzembe helyezését, kezelését és figyelését. A Azure Resource Manager a feladatokat nem külön, hanem csoportként, egyetlen művelet során is kezelhetik.
 
-A metaadat-információkat is kérhet a Resource Manager-végpontot. A végpont egy JSON-fájlt a kód futtatásához szükséges adatokat adja vissza.
+A metaadat-információkat a Resource Manager-végpontból szerezheti be. A végpont egy JSON-fájlt ad vissza, amelyben a kód futtatásához szükséges adatok szerepelnek.
 
 > [!Note]  
-> A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external` a **ResourceManagerUrl** az integrált rendszerekben: `https://management.region.<fqdn>/`, ahol `<fqdn>` a teljes tartománynév.
-A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+> A **Azure stack Development Kit ResourceManagerUrl** (ASDK) `https://management.local.azurestack.external` a következő: a **ResourceManagerUrl** az integrált rendszerekben: `https://management.region.<fqdn>/`, ahol `<fqdn>` a a teljes tartománynév.
+A szükséges metaadatok beolvasása:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
-JSON-mintafájlt:
+Példa JSON-fájlra:
 
 ```JSON  
 {
@@ -143,7 +143,7 @@ JSON-mintafájlt:
 
     Azure Stack hub-hoz készült legújabb profil. Ezt a profilt úgy használhatja, hogy a szolgáltatások a leghatékonyabban kompatibilisek legyenek Azure Stack hubhoz, ha 1808 Stamp vagy tovább van.
 
--  **Azure-ARM-Resource \@**
+-  **\@Azure-ARM-Resource**
 
     A profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az Azure összes szolgáltatásának legújabb verzióit.
 
@@ -151,7 +151,7 @@ Az Azure Stack hub-és API-profilokkal kapcsolatos további információkért te
 
 ### <a name="azure-nodejs-sdk-api-profile-usage"></a>Azure Node. js SDK API-profil használata
 
-A profil-ügyfél létrehozásához a következő sorokat kell használni. Ez a paraméter csak Azure Stack hub vagy más privát felhők esetén szükséges. A globális Azure-ban ezek a beállítások alapértelmezés szerint @azure-arm-resource vagy @azure-arm-storage.
+A profil-ügyfél létrehozásához a következő sorokat kell használni. Ez a paraméter csak Azure Stack hub vagy más privát felhők esetén szükséges. A globális Azure-ban a (vagy @azure-arm-resource @azure-arm-storage) alapértelmezés szerint már rendelkezik ezekkel a beállításokkal.
 
 ```Node.js  
 var ResourceManagementClient = require('@azure/arm-resources-profile-hybrid-2019-03-01').ResourceManagementClient;
@@ -221,16 +221,16 @@ A következő példák használhatók a Node. js-sel és Azure Stack hub API-pro
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
-2.  Azure-beli szolgáltatásnév létrehozása, és rendelje hozzá egy szerepkörhöz az előfizetés eléréséhez. Útmutatásért lásd: a [Azure PowerShell használata egy egyszerű szolgáltatásnév létrehozásához tanúsítvánnyal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+2.  Hozzon létre egy Azure-szolgáltatásnevet, és rendeljen hozzá egy szerepkört az előfizetéshez való hozzáféréshez. Útmutatásért lásd: a [Azure PowerShell használata egy egyszerű szolgáltatásnév létrehozásához tanúsítvánnyal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
-3.  A következő szükséges értékek beolvasása:
+3.  Kérje le a következő szükséges értékeket:
     - Bérlőazonosító
     - Ügyfél-azonosító
     - Titkos ügyfélkulcs
-    - Azure Subscription ID
+    - Azure-előfizetés azonosítója
     - Azure Stack hub Resource Manager-végpont
 
-4.  Állítsa be az alábbi környezeti változókat a parancssor használatával létrehozott egyszerű szolgáltatás lekért információk segítségével:
+4.  Állítsa be az alábbi környezeti változókat a parancssorból létrehozott egyszerű szolgáltatásnév használatával lekért információk alapján:
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -243,7 +243,7 @@ A következő példák használhatók a Node. js-sel és Azure Stack hub API-pro
     > [!Note]  
     > Windows rendszeren használja az **Exportálás**helyett a **készletet** .
 
-5.  Nyissa meg a minta alkalmazás `index.js` fájlját.
+5.  Nyissa `index.js` meg a minta alkalmazás fájlját.
 
 6.  Állítsa a Location változót a Azure Stack hub helyére. Például: `LOCAL = "local"`.
 
@@ -267,9 +267,9 @@ A következő példák használhatók a Node. js-sel és Azure Stack hub API-pro
 
 9.  A [NPM-modulok keresésével](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid)keresse meg a **2019-03-01-Hybrid** értéket, és telepítse a profilhoz társított csomagokat a számítási, hálózati, tárolási, kulcstartó és app Services erőforrás-szolgáltatók számára.
 
-    Ehhez nyissa meg a parancssort, átirányítja a tárház gyökérkönyvtárához, és futtassa `npm install @azure/arm-keyvault-profile-2019-03-01-hybrid`t minden egyes használt erőforrás-szolgáltatónál.
+    Ehhez nyissa meg a parancssort, átirányítja a tárház gyökérkönyvtárához, és futtassa `npm install @azure/arm-keyvault-profile-2019-03-01-hybrid` az összes használt erőforrás-szolgáltatót.
 
-10.  A parancssorban futtassa az `npm install` parancsot az összes Node. js-modul telepítéséhez.
+10.  A parancssorban futtassa a parancsot `npm install` az összes Node. js-modul telepítéséhez.
 
 11.  Futtassa a mintát.
 
@@ -287,7 +287,7 @@ A következő példák használhatók a Node. js-sel és Azure Stack hub API-pro
 
 ### <a name="what-does-indexjs-do"></a>Mit jelent az index. js?
 
-A minta létrehoz egy új Storage-fiókot, felsorolja az előfizetés vagy az erőforráscsoport Storage-fiókjait, felsorolja a Storage-fiók kulcsait, újragenerálja a Storage-fiók kulcsait, beolvassa a Storage-fiók tulajdonságait, frissíti a Storage-fiók SKU azonosítóját, és ellenőrzi a a Storage-fiók neve rendelkezésre állása.
+A minta létrehoz egy új Storage-fiókot, felsorolja az előfizetés vagy az erőforráscsoport Storage-fiókjait, felsorolja a Storage-fiók kulcsait, újragenerálja a Storage-fiók kulcsait, beolvassa a Storage-fiók tulajdonságait, frissíti a Storage-fiók SKU-t, és ellenőrzi a tárolási fiók nevét.
 
 A minta a szolgáltatásnév használatával indul, és **ResourceManagementClient** és **StorageManagementClient** objektumokat hoz létre a hitelesítő adatai és az előfizetés azonosítója alapján.
 
@@ -397,9 +397,9 @@ console.log('\\nDeleting resource group: ' + resourceGroupName);
 return resourceClient.resourceGroups.deleteMethod(resourceGroupName, callback);
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-API-profilokkal kapcsolatos további információkért lásd:
+Az API-profilokról további információt a következő témakörben talál:
 
 - [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md)
 - [A profilok által támogatott erőforrás-szolgáltatói API-verziók](azure-stack-profiles-azure-resource-manager-versions.md)

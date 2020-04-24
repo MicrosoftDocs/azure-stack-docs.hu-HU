@@ -7,14 +7,16 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b1c1048a8ad8bdb8d16d2e86c82febc8c74b03af
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79520429"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624941"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack hub diagnosztikai naplók gyűjteményének áttekintése 
+
+::: moniker range=">= azs-2002"
 
 Az Azure Stack hub a Windows-összetevők és a helyszíni Azure-szolgáltatások nagy gyűjteménye, amelyek egymással együttműködnek. Ezek az összetevők és szolgáltatások saját naplókat hoznak létre. Ha engedélyezni szeretné, hogy a Microsoft ügyfélszolgálata (CSS) hatékonyan diagnosztizálja a problémákat, zökkenőmentesen használható a diagnosztikai naplók gyűjtése. 
 
@@ -64,18 +66,74 @@ Az adat kizárólag a rendszerállapot-riasztások hibaelhárításának céljá
 
 A küldési naplók használatával összegyűjtött naplók már fel lesznek töltve egy Microsoft által felügyelt és szabályozott tárolóba. Ezeket a naplókat a Microsoft egy támogatási eset kontextusában, valamint Azure Stack hub állapotának javítása érdekében éri el. 
 
+
+
 ## <a name="bandwidth-considerations"></a>Sávszélességgel kapcsolatos megfontolások
 
 A diagnosztikai napló-gyűjtemény átlagos mérete attól függően változik, hogy proaktív módon vagy manuálisan fut-e. A **proaktív naplók** átlagos mérete körülbelül 2 GB. A **küldési naplók** gyűjteményének mérete mostantól attól függ, hogy hány órát gyűjt a rendszer.
 
 Az alábbi táblázat az Azure-hoz korlátozott vagy mért kapcsolattal rendelkező környezetekre vonatkozó szempontokat sorolja fel.
 
-
-| Hálózati kapcsolatok | Hatás |
+| Hálózati kapcsolat | Hatás |
 |--------------------|--------|
 | Alacsony sávszélességű/nagy késleltetésű kapcsolat | A napló feltöltése hosszabb időt vesz igénybe | 
 | Megosztott kapcsolatok | A feltöltés hatással lehet más alkalmazásokra, illetve a hálózati kapcsolatokat megosztó felhasználókra is. |
 | Mért kapcsolatok | Az INTERNETSZOLGÁLTATÓ további hálózati használatért díjköteles lehet. | 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Naplók gyűjtése több Azure Stack hub-rendszerből
+
+Állítson be egy BLOB-tárolót minden olyan Azure Stack hub-méretezési egységhez, amelyhez naplókat kíván gyűjteni. A blob-tároló konfigurálásával kapcsolatos további információkért lásd: az [automatikus Azure stack hub diagnosztikai naplójának konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md). Ajánlott eljárásként csak a diagnosztikai naplókat mentse ugyanabból a Azure Stack hub-méretezési egységből egyetlen blob-tárolón belül. 
+
+## <a name="retention-policy"></a>Retention szabályzat
+
+Hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályt](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) a napló adatmegőrzési házirendjének kezeléséhez. Javasoljuk, hogy 30 napig őrizze meg a diagnosztikai naplókat. Életciklus-kezelési szabály létrehozásához az Azure Storage-ban jelentkezzen be a Azure Portalba, kattintson a **Storage-fiókok**elemre, kattintson a blob-tárolóra, majd a **blob Service**területen kattintson az **életciklus-kezelés**elemre.
+
+![A Azure Portal életciklus-kezelését bemutató képernyőkép](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
+
+
+## <a name="sas-token-expiration"></a>SAS-jogkivonat lejárata
+
+Állítsa be a SAS URL-címét két évre. Ha bármikor megújítja a Storage-fiók kulcsait, ne felejtse el újragenerálni az SAS URL-címét. Az SAS-tokent az ajánlott eljárásoknak megfelelően kell kezelnie. További információ: [ajánlott eljárások az SAS használatakor](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
+
+
+## <a name="bandwidth-consumption"></a>Sávszélesség-felhasználás
+
+A diagnosztikai napló-gyűjtemény átlagos mérete attól függően változik, hogy a naplózási gyűjtemény igény szerinti vagy automatikus. 
+
+Az igény szerinti naplózási gyűjtemény esetében a naplók gyűjteményének mérete attól függ, hogy hány órát gyűjt a rendszer. Az elmúlt hét napban bármelyik 1-4 óra csúszó ablakot kiválaszthatja. 
+
+Ha engedélyezve van az automatikus diagnosztikai napló gyűjtése, a szolgáltatás figyeli a kritikus riasztásokat. 
+Ha a kritikus riasztás körülbelül 30 percet vesz igénybe, és a szolgáltatás a megfelelő naplókat gyűjti és tölti fel. 
+Ez a naplózási gyűjtemény átlagos mérete körülbelül 2 GB. 
+Ha a javítás és a frissítés sikertelen, akkor az automatikus naplók gyűjtése csak akkor indul el, ha kritikus riasztás történik, és körülbelül 30 percet vesz igénybe. Javasoljuk, hogy kövesse a [javítás és frissítés figyelésével kapcsolatos útmutatást](azure-stack-updates.md).
+A riasztások figyelése, a naplók gyűjtése és a feltöltés transzparens a felhasználó számára. 
+
+
+
+Az egészséges rendszerekben a naplók egyáltalán nem lesznek összegyűjtve. 
+A nem kifogástalan állapotú rendszerekben a naplózási gyűjtemény naponta kettő vagy három alkalommal futhat, de általában csak egyszer. 
+A legtöbb esetben előfordulhat, hogy egy nap alatt akár tízszer is futhat egy legrosszabb forgatókönyvben.  
+
+Az alábbi táblázat az Azure-ba korlátozott vagy mért kapcsolatokkal rendelkező környezeteket segíthet figyelembe venni az automatikus napló-gyűjtés engedélyezésének következményeit.
+
+| Hálózati kapcsolat | Hatás |
+|--------------------|--------|
+| Alacsony sávszélességű/nagy késleltetésű kapcsolat | A napló feltöltése hosszabb időt vesz igénybe | 
+| Megosztott kapcsolatok | A feltöltés hatással lehet más alkalmazásokra, illetve a hálózati kapcsolatokat megosztó felhasználókra is. |
+| Mért kapcsolatok | Az INTERNETSZOLGÁLTATÓ további hálózati használatért díjköteles lehet. |
+
+
+## <a name="managing-costs"></a>Költségek kezelése
+
+Az Azure [blob Storage díjai](https://azure.microsoft.com/pricing/details/storage/blobs/) attól függnek, hogy a havonta hány adatmentést és egyéb tényezőket, például az adatredundanciát. 
+Ha nem rendelkezik meglévő Storage-fiókkal, jelentkezzen be a Azure Portalba, kattintson a **Storage-fiókok**lehetőségre, és kövesse az [Azure Blob Container sas URL-címének létrehozásához](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)szükséges lépéseket.
+
+Ajánlott eljárásként hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályzatot](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) a folyamatos tárolási költségek csökkentése érdekében. A Storage-fiók beállításával kapcsolatos további információkért lásd: az [automatikus Azure stack hub diagnosztikai naplójának konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)
+
+::: moniker-end
 
 ## <a name="see-also"></a>Lásd még
 

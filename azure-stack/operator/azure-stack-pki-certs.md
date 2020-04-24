@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
 ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423830"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának (PKI) tanúsítványára vonatkozó követelmények
@@ -25,14 +25,14 @@ Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely
 > [!NOTE]
 > Az Azure Stack hub alapértelmezés szerint a belső Active Directory integrált hitelesítésszolgáltatótól (CA) kiállított tanúsítványokat is használ a csomópontok közötti hitelesítéshez. A tanúsítvány érvényesítéséhez minden Azure Stack hub infrastruktúra-gép megbízhatónak tekinti a belső HITELESÍTÉSSZOLGÁLTATÓ főtanúsítványát azáltal, hogy hozzáadja ezt a tanúsítványt a helyi tanúsítványtárolóhoz. Azure Stack hub tanúsítványai nem rendelkeznek rögzítéssel vagy engedélyezési listával. Az egyes kiszolgálói tanúsítványok SAN-ja a cél teljes tartománynevével van érvényesítve. A megbízhatósági láncot is érvényesíti a rendszer, valamint a tanúsítvány lejárati dátumát is (a szabványos TLS-kiszolgáló hitelesítése tanúsítvány-rögzítés nélkül).
 
-## <a name="certificate-requirements"></a>Tanúsítványokra vonatkozó követelmények
+## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 Az alábbi lista ismerteti az Azure Stack hub telepítéséhez szükséges tanúsítványokra vonatkozó követelményeket:
 
 - A tanúsítványokat a belső hitelesítésszolgáltatótól vagy egy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Ha nyilvános hitelesítésszolgáltató van használatban, azt a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát itt tekintheti meg [: Microsoft megbízható legfelső szintű tanúsítvány programja: résztvevők](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 - Az Azure Stack hub-infrastruktúrának a tanúsítványban közzétett tanúsítvány-visszavonási lista (CRL) elérési helyéhez hálózati hozzáféréssel kell rendelkeznie. A CRL-nek egy HTTP-végponton kell lennie.
 - Ha a tanúsítványokat előre 1903-buildekben futtatja, akkor a tanúsítványokat ugyanabból a belső hitelesítésszolgáltatótól kell kibocsátani, amely a telepítéskor vagy bármely nyilvános hitelesítésszolgáltatónál elérhető tanúsítványok aláírására használatos. A 1903-es és újabb verzióiban a tanúsítványokat bármely vállalati vagy nyilvános hitelesítésszolgáltató kiállíthatja.
 - Az önaláírt tanúsítványok használata nem támogatott.
-- Üzembe helyezéshez és elforgatáshoz használhatja a tanúsítvány tulajdonosának neve és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő egyetlen tanúsítványt, vagy használhat egyéni tanúsítványokat az Azure Stack hub alatti névterekhez. a használni kívánt szolgáltatások szükségesek. Mindkét módszerhez szükség van olyan végpontokhoz, ahol szükség van rájuk, **például a kulcstartó és** a **KeyVaultInternal**.
+- Üzembe helyezéshez és elforgatáshoz használhatja a tanúsítvány tulajdonosának neve és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő egyetlen tanúsítványt, vagy használhat egyéni tanúsítványokat a használni kívánt Azure Stack hub-szolgáltatások által igényelt egyes névterekhez. Mindkét módszerhez szükség van olyan végpontokhoz, ahol szükség van rájuk, **például a kulcstartó és** a **KeyVaultInternal**.
 - A tanúsítvány PFX-titkosításának 3DES-nek kell lennie.
 - A tanúsítvány-aláírási algoritmus nem lehet SHA1.
 - A tanúsítvány formátumának PFX-nek kell lennie, mivel az Azure Stack hub telepítéséhez mind a nyilvános, mind a titkos kulcs szükséges. A titkos kulcsnak rendelkeznie kell a helyi számítógép kulcs attribútumával.
@@ -56,41 +56,41 @@ Az alábbi lista ismerteti az Azure Stack hub telepítéséhez szükséges tanú
 ## <a name="mandatory-certificates"></a>Kötelező tanúsítványok
 Az ebben a szakaszban szereplő táblázat az Azure AD-hez és a AD FS Azure Stack hub-környezetekhez szükséges Azure Stack hub nyilvános végpontú PKI-tanúsítványokat ismerteti. A tanúsítványokra vonatkozó követelmények terület szerint vannak csoportosítva, valamint a használt névterek és az egyes névterekhez szükséges tanúsítványok. A tábla azt a mappát is leírja, amelyben a megoldás szolgáltatója a különböző tanúsítványokat a nyilvános végponton másolja.
 
-Minden Azure Stack hub nyilvános infrastruktúra-végpontjának megfelelő DNS-névvel rendelkező tanúsítványokra van szükség. Az egyes végpontok DNS-neve a következők egyike: *&lt;előtag >.&lt;régió >.&lt;fqdn >* .
+Minden Azure Stack hub nyilvános infrastruktúra-végpontjának megfelelő DNS-névvel rendelkező tanúsítványokra van szükség. Minden egyes végpont DNS-neve a (z * &lt;) előtaggal> formátumban&lt; van kifejezve. régió>. FQDN &lt;>*.
 
-Az üzembe helyezéshez a [region] és a [externalfqdn] értékeknek meg kell egyezniük az Azure Stack hub rendszerhez választott régióval és külső tartománynevek nevével. Ha például a régió neve *Redmond* volt, és a külső tartománynév *contoso.com*volt, a DNS-nevek formátuma *&lt;előtag lesz >. Redmond. contoso. com*. A *&lt;előtag >* értékeit a Microsoft a tanúsítvány által védett végpont leírására kijelölte. Továbbá a *&lt;előtag >* a külső infrastruktúra-végpontok értékei az adott végpontot használó Azure stack hub szolgáltatástól függenek.
+Az üzembe helyezéshez a [region] és a [externalfqdn] értékeknek meg kell egyezniük az Azure Stack hub rendszerhez választott régióval és külső tartománynevek nevével. Ha például a régió neve *Redmond* volt, és a külső tartománynév *contoso.com*volt, a DNS-névnek * &lt;>. Redmond.contoso.com formátumú előtaggal*kell rendelkeznie. Az * &lt;előtag>* értékeket a Microsoft a tanúsítvány által védett végpont leírására kijelölte. Emellett a külső infrastruktúra-végpontok * &lt;előtag->* értékei az adott végpontot használó Azure stack hub szolgáltatástól függenek.
 
 Az éles környezetek esetében ajánlott egyéni tanúsítványokat létrehozni az egyes végpontokhoz, és a megfelelő könyvtárba másolva. A fejlesztési környezetekben a tanúsítványok a tulajdonos és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő, egyetlen helyettesítő helyettesítő tanúsítványként is elérhetők. Egyetlen tanúsítvány, amely az összes végpontot és szolgáltatást lefedi, nem biztonságos testhelyzet, ezért csak fejlesztési célokra szolgál. Ne feledje, hogy mindkét beállításhoz helyettesítő tanúsítványokat kell használnia a végpontokhoz, például az **ACS** -hez és a Key Vaulthoz, ahol szükség van rájuk.
 
 > [!Note]  
-> Az üzembe helyezés során a tanúsítványokat a központi telepítési mappába kell másolnia, amely megfelel az Ön által az Azure AD-ben központilag üzembe helyezett identitás-szolgáltatónak (Azure AD vagy AD FS). Ha egyetlen tanúsítványt használ az összes végponthoz, akkor az alábbi táblázatokban vázolt módon minden központi telepítési mappába kell másolnia a tanúsítványfájl. A mappa szerkezete az üzembe helyezési virtuális gépen előre be van építve, és a következő helyen található: C:\CloudDeployment\Setup\Certificates.
+> Az üzembe helyezés során a tanúsítványokat a központi telepítési mappába kell másolnia, amely megfelel az Ön által az Azure AD-ben központilag üzembe helyezett identitás-szolgáltatónak (Azure AD vagy AD FS). Ha egyetlen tanúsítványt használ az összes végponthoz, akkor az alábbi táblázatokban vázolt módon minden központi telepítési mappába kell másolnia a tanúsítványfájl.A mappa szerkezete az üzembe helyezési virtuális gépen előre be van építve, és a következő helyen található: C:\CloudDeployment\Setup\Certificates.
 
 | Telepítési mappa | Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN) | Hatókör (régiónként) | Altartomány névtere |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Nyilvános portál | portál.&lt;régió >.&lt;FQDN > | Portálok | &lt;régió >.&lt;FQDN > |
-| Felügyeleti portál | adminportal.&lt;régió >.&lt;FQDN > | Portálok | &lt;régió >.&lt;FQDN > |
-| Nyilvános Azure Resource Manager | felügyeleti.&lt;régió >.&lt;FQDN > | Azure Resource Manager | &lt;régió >.&lt;FQDN > |
-| Azure Resource Manager-rendszergazda | adminmanagement.&lt;régió >.&lt;FQDN > | Azure Resource Manager | &lt;régió >.&lt;FQDN > |
-| ACSBlob | *. blob.&lt;régió >.&lt;FQDN ><br>(Helyettesítő karakteres SSL-tanúsítvány) | Blob Storage | BLOB.&lt;régió >.&lt;FQDN > |
-| ACSTable | *. table.&lt;régió >.&lt;FQDN ><br>(Helyettesítő karakteres SSL-tanúsítvány) | Table Storage | tábla.&lt;régió >.&lt;FQDN > |
-| ACSQueue | *. üzenetsor.&lt;régió >.&lt;FQDN ><br>(Helyettesítő karakteres SSL-tanúsítvány) | Queue Storage | várólista.&lt;régió >.&lt;FQDN > |
-| KeyVault | *. Vault.&lt;régió >.&lt;FQDN ><br>(Helyettesítő karakteres SSL-tanúsítvány) | Key Vault | Vault.&lt;régió >.&lt;FQDN > |
-| KeyVaultInternal | *.adminvault.&lt;régió >.&lt;FQDN ><br>(Helyettesítő karakteres SSL-tanúsítvány) |  Belső kulcstartó |  adminvault.&lt;régió >.&lt;FQDN > |
-| Felügyeleti bővítmény gazdagépe | *.adminhosting.\<régió >.\<FQDN > (helyettesítő karakteres SSL-tanúsítványok) | Felügyeleti bővítmény gazdagépe | adminhosting.\<régió >.\<FQDN > |
-| Nyilvános kiterjesztésű gazdagép | *. hosting.\<régió >.\<FQDN > (helyettesítő karakteres SSL-tanúsítványok) | Nyilvános kiterjesztésű gazdagép | üzemeltetési.\<régió >.\<FQDN > |
+| Nyilvános portál | portál. &lt;régió>. &lt;teljes tartománynév> | Portálok | &lt;régió>. &lt;teljes tartománynév> |
+| Felügyeleti portál | adminportal. &lt;régió>. &lt;teljes tartománynév> | Portálok | &lt;régió>. &lt;teljes tartománynév> |
+| Nyilvános Azure Resource Manager | felügyeleti. &lt;régió>. &lt;teljes tartománynév> | Azure Resource Manager | &lt;régió>. &lt;teljes tartománynév> |
+| Azure Resource Manager-rendszergazda | adminmanagement. &lt;régió>. &lt;teljes tartománynév> | Azure Resource Manager | &lt;régió>. &lt;teljes tartománynév> |
+| ACSBlob | *. blob. &lt;régió>. &lt;teljes tartománynév><br>(Helyettesítő karakteres SSL-tanúsítvány) | Blob Storage | BLOB. &lt;régió>. &lt;teljes tartománynév> |
+| ACSTable | *. table. &lt;régió>. &lt;teljes tartománynév><br>(Helyettesítő karakteres SSL-tanúsítvány) | Table Storage | tábla. &lt;régió>. &lt;teljes tartománynév> |
+| ACSQueue | *. üzenetsor. &lt;régió>. &lt;teljes tartománynév><br>(Helyettesítő karakteres SSL-tanúsítvány) | Queue Storage | várólista. &lt;régió>. &lt;teljes tartománynév> |
+| KeyVault | *. Vault. &lt;régió>. &lt;teljes tartománynév><br>(Helyettesítő karakteres SSL-tanúsítvány) | Key Vault | Vault. &lt;régió>. &lt;teljes tartománynév> |
+| KeyVaultInternal | *.adminvault. &lt;régió>. &lt;teljes tartománynév><br>(Helyettesítő karakteres SSL-tanúsítvány) |  Belső kulcstartó |  adminvault. &lt;régió>. &lt;teljes tartománynév> |
+| Felügyeleti bővítmény gazdagépe | *.adminhosting. \<régió>. \<FQDN> (helyettesítő karakteres SSL-tanúsítványok) | Felügyeleti bővítmény gazdagépe | adminhosting. \<régió>. \<teljes tartománynév> |
+| Nyilvános kiterjesztésű gazdagép | *. hosting. \<régió>. \<FQDN> (helyettesítő karakteres SSL-tanúsítványok) | Nyilvános kiterjesztésű gazdagép | üzemeltetési. \<régió>. \<teljes tartománynév> |
 
 Ha az Azure AD üzembe helyezési móddal telepíti Azure Stack hub-t, csak az előző táblázatban felsorolt tanúsítványokat kell igényelnie. Ha azonban Azure Stack hub-t a AD FS üzembe helyezési móddal telepíti, akkor az alábbi táblázatban ismertetett tanúsítványokat is meg kell kérnie:
 
 |Telepítési mappa|Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN)|Hatókör (régiónként)|Altartomány névtere|
 |-----|-----|-----|-----|
-|ADFS|ADFS. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|ADFS|*&lt;régió >.&lt;FQDN >*|
-|Graph|Graph. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány)|Graph|*&lt;régió >.&lt;FQDN >*|
+|ADFS|ADFS. * &lt;régió>. &lt;teljes tartománynév>*<br>(SSL-tanúsítvány)|ADFS|*&lt;régió>. &lt;teljes tartománynév>*|
+|Graph|Graph. * &lt;régió>. &lt;teljes tartománynév>*<br>(SSL-tanúsítvány)|Graph|*&lt;régió>. &lt;teljes tartománynév>*|
 |
 
 > [!IMPORTANT]
 > Az ebben a szakaszban felsorolt összes tanúsítványnak ugyanazzal a jelszóval kell rendelkeznie.
 
-## <a name="optional-paas-certificates"></a>Választható Péter-tanúsítványok
+## <a name="optional-paas-certificates"></a>Opcionális PaaS-tanúsítványok
 Ha a további Azure Stack hub-szolgáltatások (például SQL, MySQL, App Service vagy Event Hubs) üzembe helyezését tervezi az Azure Stack hub üzembe helyezése és konfigurálása után, akkor további tanúsítványokat kell kérnie a Pásti-szolgáltatások végpontjának lefedéséhez.
 
 > [!IMPORTANT]
@@ -100,19 +100,19 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 
 |Hatókör (régiónként)|Tanúsítvány|Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SANs)|Altartomány névtere|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL és MySQL|&#42;.dbadapter. *&lt;régió >.&lt;fqdn >*<br>(Helyettesítő karakteres SSL-tanúsítvány)|dbadapter. *&lt;régió >.&lt;fqdn >*|
-|App Service|Webes forgalom alapértelmezett SSL-tanúsítványa|&#42;appservice. *&lt;régió >.&lt;fqdn >*<br>&#42;. SCM. appservice. *&lt;régió >.&lt;fqdn >*<br>&#42;. SSO. appservice. *&lt;régió >.&lt;fqdn >*<br>(Több tartományos helyettesítő karakteres SSL-tanúsítvány<sup>1</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
-|App Service|API|API. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
-|App Service|FTP|FTP. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
-|App Service|SSO|SSO. appservice. *&lt;régió >.&lt;fqdn >*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt;régió >.&lt;fqdn >*<br>SCM. appservice. *&lt;régió >.&lt;fqdn >*|
-|Event Hubs|Event Hubs|&#42;eventhub. *&lt;régió >.&lt;fqdn >* (San)| eventhub. *&lt;régió >.&lt;fqdn >* |
+|SQL, MySQL|SQL és MySQL|&#42;. dbadapter. * &lt;régió>. &lt;teljes tartománynév>*<br>(Helyettesítő karakteres SSL-tanúsítvány)|dbadapter. * &lt;régió>. &lt;teljes tartománynév>*|
+|App Service|Webes forgalom alapértelmezett SSL-tanúsítványa|&#42;. appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>&#42;. SCM. appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>&#42;. SSO. appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>(Több tartományos helyettesítő karakteres SSL-tanúsítvány<sup>1</sup>)|appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>SCM. appservice. * &lt;régió>. &lt;teljes tartománynév>*|
+|App Service|API|API. appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>SCM. appservice. * &lt;régió>. &lt;teljes tartománynév>*|
+|App Service|FTP|FTP. appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>SCM. appservice. * &lt;régió>. &lt;teljes tartománynév>*|
+|App Service|SSO|SSO. appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. * &lt;régió>. &lt;teljes tartománynév>*<br>SCM. appservice. * &lt;régió>. &lt;teljes tartománynév>*|
+|Event Hubs|Event Hubs|&#42;. eventhub. * &lt;régió>. FQDN &lt;>* (San)| eventhub. * &lt;régió>. &lt;teljes tartománynév>* |
 
 <sup>1</sup> egy olyan tanúsítványt igényel, amelyben több helyettesítő karakteres alternatív név is szerepel. Előfordulhat, hogy az összes nyilvános hitelesítésszolgáltató nem támogatja több helyettesítő karaktert egyetlen tanúsítványon.
 
-<sup>2</sup> &#42;. appservice. *&lt;régió >.&lt;fqdn >* helyettesítő tanúsítvány nem használható a következő három tanúsítvány helyett (API. appservice. *&lt;régió >.&lt;FQDN >* , ftp. appservice. *&lt;régió >.&lt;FQDN >* és sso. appservice. *&lt;régió >.&lt;FQDN >* . A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
+<sup>2</sup> &#42;. appservice. * &lt;régió>. a &lt;teljes tartománynév>* helyettesítő tanúsítvány nem használható fel a három tanúsítvány helyett (API. appservice.* &lt;régió>. FQDN &lt;>*, FTP. appservice. * &lt;régió>. FQDN &lt;>* és SSO. appservice. * &lt;régió>. FQDN &lt;>*. A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
 
 ## <a name="learn-more"></a>Részletek
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).

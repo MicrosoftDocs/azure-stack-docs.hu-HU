@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366483"
 ---
 # <a name="validate-azure-registration"></a>Azure-regisztráció ellenőrzése
@@ -56,16 +56,16 @@ A következő előfeltételek szükségesek:
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell-parancssorból futtassa a következő parancsot a `$registrationCredential` beállításaként az előfizetés tulajdonosaként. Cserélje le a `subscriptionowner@contoso.onmicrosoft.com`t a fiókjával és a bérlő nevével:
+2. A PowerShell-parancssorból futtassa a következő parancsot az előfizetés `$registrationCredential` tulajdonosaként szolgáló fiók beállításához. Cserélje `subscriptionowner@contoso.onmicrosoft.com` le a fiókot és a bérlő nevét:
 
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
 
    > [!NOTE]
-   > Ha megosztott szolgáltatásokat vagy – belső használatra-előfizetést használ, meg kell adnia egy felhasználó hitelesítő adatait az adott Azure AD-ből. Ez általában a `subscriptionowner@iurcontoso.onmicrosoft.com`hoz hasonló lesz. A felhasználónak rendelkeznie kell a megfelelő hitelesítő adatokkal az előző lépésben leírtak szerint.
+   > Ha megosztott szolgáltatásokat vagy – belső használatra-előfizetést használ, meg kell adnia egy felhasználó hitelesítő adatait az adott Azure AD-ből. Ez általában a `subscriptionowner@iurcontoso.onmicrosoft.com`következőhöz hasonló lesz:. A felhasználónak rendelkeznie kell a megfelelő hitelesítő adatokkal az előző lépésben leírtak szerint.
 
-3. A PowerShell-parancssorból futtassa a következő parancsot a használni kívánt Azure-előfizetéshez `$subscriptionID` beállításához. Cserélje le a `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`t a saját előfizetés-azonosítójával:
+3. A PowerShell-parancssorból futtassa a következő parancsot a használni `$subscriptionID` kívánt Azure-előfizetés beállításához. Cserélje `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` le saját előfizetés-azonosítójával:
 
    ```powershell
    $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -73,7 +73,7 @@ A következő előfeltételek szükségesek:
 
 4. A PowerShell-parancssorból futtassa a következő parancsot az előfizetés érvényesítésének megkezdéséhez:
 
-   - A `AzureEnvironment` értékének megadása **AzureCloud**, **AzureGermanCloud**vagy **AzureChinaCloud**.  
+   - Itt adhatja meg a `AzureEnvironment` **AzureCloud**, a **AzureGermanCloud**és a **AzureChinaCloud**értéket.  
    - Adja meg az Azure AD-rendszergazda és az Azure AD-bérlő nevét.
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
@@ -95,9 +95,9 @@ A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. 
 
 Ezek a fájlok segíthetnek az érvényesítési állapot megosztásában az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés az identitás konfigurációjának megerősítését biztosítja az üzembe helyezési csoport számára. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
-Alapértelmezés szerint mindkét fájl a `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`ba íródik.  
+Alapértelmezés szerint mindkét fájl íródik a `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`következőre:.  
 
-- Egy másik jelentés helyének megadásához használja a Run parancssor végén található `-OutputPath <path>` paramétert.
+- A futtatási parancssor végén található `-OutputPath <path>` paraméterrel adhatja meg egy másik jelentés helyét.
 - A futtatási parancs végén található `-CleanReport` paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
 További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
@@ -173,7 +173,7 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure-identitás ellenőrzése](azure-stack-validate-identity.md)
 - [A készültségi jelentés megtekintése](azure-stack-validation-report.md)

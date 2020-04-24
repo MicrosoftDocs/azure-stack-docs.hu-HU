@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2019
 ms.openlocfilehash: 5cc3f24c62fc9c91637744cf031da39c6c7279fb
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366500"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack hub ellenőrzési jelentés
@@ -27,14 +27,14 @@ Az eszköz futtatásakor a naplózza az eredményeket a **AzsReadinessCheckerRep
 
 Mindkét fájl megőrzi a további ellenőrzési ellenőrzések eredményét, ha ugyanazon a számítógépen futnak. Például az eszköz futtatható a tanúsítványok érvényesítéséhez, újra futtatva az Azure Identity érvényesítéséhez, majd egy harmadik alkalommal a regisztráció érvényesítéséhez. Mindhárom érvényesítés eredménye elérhető a létrejövő. JSON-jelentésben.  
 
-Alapértelmezés szerint mindkét fájl a `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`ba íródik.  
+Alapértelmezés szerint mindkét fájl íródik a `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`következőre:.  
 
-- Egy másik jelentés helyének megadásához használja a parancssor végén található `-OutputPath <path>` paramétert.
-- A parancssor végén található `-CleanReport` paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
+- Egy másik `-OutputPath <path>` jelentés helyének megadásához használja a parancssor végén található paramétert.
+- A parancssor `-CleanReport` végén található paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
 ## <a name="view-the-report"></a>A jelentés megtekintése
 
-Ha a jelentést a PowerShellben szeretné megtekinteni, adja meg a jelentés elérési útját `-ReportPath`értékként. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja azokat az érvényességeket, amelyek még nem rendelkeznek eredménnyel.
+Ha a jelentést a PowerShellben szeretné megtekinteni, adja meg a jelentés elérési `-ReportPath`útját a következő értékként:. Ez a parancs megjeleníti a jelentés tartalmát, és azonosítja azokat az érvényességeket, amelyek még nem rendelkeznek eredménnyel.
 
 Ha például a jelentést egy olyan PowerShell-parancssorból szeretné megtekinteni, amelyen a jelentés helye található, futtassa a következő parancsot:
 
@@ -88,7 +88,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>A jelentés összegzésének megtekintése
 
-A jelentés összegzésének megtekintéséhez hozzáadhatja a `-summary` paramétert a PowerShell-parancs végéhez. Például:
+A jelentés összegzésének megtekintéséhez adja hozzá a `-summary` paramétert a PowerShell-parancs végéhez. Például:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary

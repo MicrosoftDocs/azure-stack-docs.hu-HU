@@ -8,13 +8,13 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78935060"
 ---
-# <a name="recover-from-catastrophic-data-loss"></a>Végzetes adatvesztés utáni helyreállítás
+# <a name="recover-from-catastrophic-data-loss"></a>Helyreállítás végzetes adatvesztés esetén
 
 Azure Stack hub az Azure-szolgáltatásokat futtatja az adatközpontban, és a környezetekben akár négy, egyetlen állványra telepített csomópontként is futtatható. Ezzel szemben az Azure több mint 40 régióban fut több adatközpontban, és az egyes régiókban több zóna is működik. A felhasználói erőforrások több kiszolgálóra, állványra, adatközpontra és régióra is kiterjedhetnek. Azure Stack hub esetében jelenleg csak a teljes felhő üzembe helyezésére van lehetősége egyetlen állványon. Ez a korlátozás teszi lehetővé a felhő számára az adatközpontban fellépő katasztrofális események kockázatát, vagy a súlyos termék hibái miatti hibákat. Katasztrófa esetén a Azure Stack hub-példány offline állapotba kerül. Az összes adatok valószínűleg nem állíthatók helyre.
 
@@ -22,7 +22,7 @@ Az adatvesztés gyökerétől függően előfordulhat, hogy egyetlen infrastrukt
 
 Ez a forgatókönyv a teljes telepítés helyreállítására vonatkozik, ha hiba történt a privát felhő újratelepítése közben.
 
-| Forgatókönyv                                                           | Adatvesztés                            | Megfontolások                                                             |
+| Forgatókönyv                                                           | Adatvesztés                            | Megfontolandó szempontok                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | Katasztrófa vagy termék meghibásodása miatti katasztrofális adatvesztéssel. | Minden infrastruktúra-és felhasználói és alkalmazásadatok. | A felhasználói alkalmazások és adatok védelme külön történik az infrastruktúra-adatoktól. |
 
@@ -61,6 +61,6 @@ Azure Stack hub támogatja a Cloud Recovery Mode nevű üzembe helyezési típus
 
 Az üzembe helyezés során a rendszer a felhasználói infrastruktúra (IaaS) vagy a platform as Service (szolgáltatásként szolgáló) erőforrásait sem állítja vissza. Ezek a veszteségek közé tartoznak a IaaS virtuális gépek, a Storage-fiókok, a Blobok, a táblák, a hálózati konfiguráció stb. A Felhőbeli helyreállítás célja annak biztosítása, hogy az operátorok és a felhasználók a telepítés befejezése után vissza tudják jelentkezni a portálra. A-ban bejelentkezett felhasználók nem látják az erőforrásaikat. A felhasználók előfizetései visszaállíthatók, és a rendszergazda által meghatározott eredeti csomagok, ajánlatok és szabályzatok. Azok a felhasználók, akik visszajelentkeznek a rendszerben, a katasztrófa előtt az eredeti megoldás által megszabott korlátozásokkal működnek. A Felhőbeli helyreállítás befejezése után az operátor manuálisan állíthatja vissza a Value-Add és a harmadik féltől származó RPs és kapcsolódó adatmennyiséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg az [Infrastructure Backup szolgáltatás használatának](azure-stack-backup-best-practices.md)ajánlott eljárásait.

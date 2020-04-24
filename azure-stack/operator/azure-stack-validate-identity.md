@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 3c2eb6b0efc0bc6f0111ed342ef16e19223f0a85
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366517"
 ---
 # <a name="validate-azure-identity"></a>Azure-identitás ellenőrzése
@@ -58,7 +58,7 @@ A következő előfeltételek szükségesek:
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell-parancssorból futtassa a következő parancsot a `$serviceAdminCredential` beállításaként az Azure AD-bérlő szolgáltatás-rendszergazdájaként.  Cserélje le a `serviceadmin\@contoso.onmicrosoft.com`t a fiókjával és a bérlő nevével:
+2. A PowerShell-parancssorból futtassa a következő parancsot az Azure `$serviceAdminCredential` ad-bérlő szolgáltatás-rendszergazdájaként való beállításához.  Cserélje `serviceadmin\@contoso.onmicrosoft.com` le a fiókot és a bérlő nevét:
 
    ```powershell
    $serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter credentials for service administrator of Azure Active Directory tenant"
@@ -67,7 +67,7 @@ A következő előfeltételek szükségesek:
 3. A PowerShell-parancssorból futtassa a következő parancsot az Azure AD érvényesítésének megkezdéséhez:
 
    - Adja meg a környezet neve értéket a **AzureEnvironment**. A környezeti név paraméter támogatott értékei a **AzureCloud**, a **AzureChinaCloud**vagy a **AzureUSGovernment**, attól függően, hogy melyik Azure-előfizetést használja.
-   - Cserélje le a `contoso.onmicrosoft.com`t az Azure AD-bérlő nevére.
+   - Cserélje `contoso.onmicrosoft.com` le az helyére az Azure ad-bérlő nevét.
 
    ```powershell
    Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com
@@ -94,9 +94,9 @@ A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. 
 
 Ezek a fájlok segíthetnek az érvényesítési állapot megosztásában az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés az identitás konfigurációjának megerősítését biztosítja az üzembe helyezési csoport számára. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
-Alapértelmezés szerint mindkét fájl a `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`ba íródik.  
+Alapértelmezés szerint mindkét fájl íródik a `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`következőre:.  
 
-- Egy másik jelentés helyének megadásához használja a Run parancssor végén található `-OutputPath <path>` paramétert.
+- A futtatási parancssor végén található `-OutputPath <path>` paraméterrel adhatja meg egy másik jelentés helyét.
 - A futtatási parancs végén található `-CleanReport` paraméterrel törölheti az eszköz előző futtatásával kapcsolatos információkat a **AzsReadinessCheckerReport. JSON**fájlból.
 
 További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
@@ -181,11 +181,11 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **OK** – bár a fiók sikeresen be tud jelentkezni, a fiók nem az Azure ad (**AADDirectoryTenantName**) rendszergazdája.  
 
-**Megoldás** – jelentkezzen be a [Azure Portalba](https://portal.azure.com) a fiók tulajdonosaként, lépjen a **Azure Active Directory**, majd a **felhasználók**pontra, majd **válassza ki a felhasználót**. Ezután válassza ki a **címtárbeli szerepkört** , és győződjön meg arról, hogy a felhasználó **globális rendszergazda**. Ha a fiók egy **felhasználó**, lépjen **Azure Active Directory** > **Egyéni tartománynevek** elemre, és győződjön meg róla, hogy a **AADDirectoryTenantName** megadott név a címtár elsődleges tartománynevéként van megjelölve. Ebben a példában ez a **contoso.onmicrosoft.com**.
+**Megoldás** – jelentkezzen be a [Azure Portalba](https://portal.azure.com) a fiók tulajdonosaként, lépjen a **Azure Active Directory**, majd a **felhasználók**pontra, majd **válassza ki a felhasználót**. Ezután válassza ki a **címtárbeli szerepkört** , és győződjön meg arról, hogy a felhasználó **globális rendszergazda**. Ha a fiók egy **felhasználó**, lépjen **Azure Active Directory** > **Egyéni tartománynevek** elemre, és ellenőrizze, hogy a **AADDirectoryTenantName** megadott név meg van-e jelölve a könyvtár elsődleges tartománynevéként. Ebben a példában ez a **contoso.onmicrosoft.com**.
 
 Azure Stack hub megköveteli, hogy a tartománynév legyen az elsődleges tartomány neve.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure-regisztráció ellenőrzése](azure-stack-validate-registration.md)  
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  

@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
 ms.openlocfilehash: 8c0cd14dbeda4e2b7844aefaf10f4a8cf685d60d
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294439"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
@@ -104,8 +104,8 @@ A ASDK üzembe helyezése sikerességének biztosításához használja a test-A
 
 1. Jelentkezzen be AzureStack\AzureStackAdmin-ként a ASDK-gazdaszámítógépen.
 2. Nyissa meg a PowerShellt rendszergazdaként (nem PowerShell ISE).
-3. Futtatás: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. Futtatás: `Test-AzureStack`
+3. Futtassa`Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
+4. Futtassa`Test-AzureStack`
 
 A tesztek végrehajtása eltarthat néhány percig. Ha a telepítés sikeres volt, a kimenet az alábbihoz hasonló módon fog kinézni:
 
@@ -118,8 +118,8 @@ Ha hiba történt, kövesse a hibaelhárítási lépéseket a Súgó beszerzés�
 Az Azure AD-t használó központi telepítések esetén [engedélyeznie kell a több-bérlős](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) telepítést a ASDK-telepítéshez.
 
 > [!NOTE]
-> Ha az Azure Stack regisztrálásához használt tartománytól eltérő rendszergazdai vagy felhasználói fiókok vannak használatban egy Azure Stack portálra való bejelentkezéshez, a Azure Stack regisztrálásához használt tartománynevet a portál URL-címéhez kell csatolni. Ha például Azure Stack regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiók bejelentkezve admin@contoso.com, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https\://Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+> Ha az Azure Stack regisztrálásához használt tartománytól eltérő rendszergazdai vagy felhasználói fiókok vannak használatban egy Azure Stack portálra való bejelentkezéshez, a Azure Stack regisztrálásához használt tartománynevet a portál URL-címéhez kell csatolni. Ha például Azure Stack regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be admin@contoso.comvan jelentkezve, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő\:lesz: https//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A ASDK regisztrálása az Azure-ban](asdk-register.md)

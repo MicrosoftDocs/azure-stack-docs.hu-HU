@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688865"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>Machine Learning (ML) modell betanítása a peremhálózati mintán
@@ -30,7 +30,7 @@ Az Edge-minta betanítása Azure Stack hub-on futó virtuális gépet (VM) haszn
 
 A modell betanítása után regisztrálva van az Azure ML-ben, a tárolóban, és hozzáadva egy Azure Container Registryhoz az üzembe helyezéshez. A minta ezen iterációjában a Azure Stack hub betanítási virtuális gépnek elérhetőnek kell lennie a nyilvános interneten. 
 
-[![a (z) ml modell a peremhálózati architektúrán](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
+[![ml modell betanítása a peremhálózati architektúrában](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
 
 A megoldás működése: 
 
@@ -48,8 +48,8 @@ Ez a megoldás a következő összetevőket használja:
 | Azure | Azure Machine Learning | [Azure Machine learning](/azure/machine-learning/) összehangolja a ml modell betanítását. |
 | | Azure Container Registry | Az Azure ML becsomagolja a modellt egy tárolóba, és tárolja [Azure Container Registry](/azure/container-registry/) a telepítéshez.|
 | Azure Stack hub | App Service | A [Azure stack hub és a app Service](/azure-stack/operator/azure-stack-app-service-overview) biztosítja az összetevők alapját az Edge-ben. |
-| | Számítás | Az Ubuntut és a Docker-t futtató Azure Stack hub-beli virtuális gép a ML modell betanítására szolgál. |
-| | Tárterület | A magánhálózati adattárak Azure Stack hub blob Storage-ban is tárolhatók. |
+| | Compute | Az Ubuntut és a Docker-t futtató Azure Stack hub-beli virtuális gép a ML modell betanítására szolgál. |
+| | Storage | A magánhálózati adattárak Azure Stack hub blob Storage-ban is tárolhatók. |
 
 ## <a name="issues-and-considerations"></a>Problémák és megfontolandó szempontok
 
@@ -71,7 +71,7 @@ Győződjön meg arról, hogy a modellek és kísérletek megfelelően vannak re
 
 Ez a minta lehetővé teszi az Azure ML számára, hogy hozzáférjen a lehetséges bizalmas adatokhoz a helyszínen. Győződjön meg arról, hogy az SSH-ba Azure Stack hub virtuális géphez használt fiók erős jelszóval rendelkezik, és a betanítási parancsfájlok nem őrzik meg és nem töltik fel az adatok felhőbe 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a cikkben bemutatott témakörökről:
 - A ML és a kapcsolódó témakörök áttekintéséhez tekintse meg a [Azure Machine learning dokumentációját](/azure/machine-learning) .

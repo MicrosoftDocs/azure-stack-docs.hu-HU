@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
 ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79511980"
 ---
 # <a name="start-and-stop-the-asdk"></a>A ASDK elindítása és leállítása
@@ -80,5 +80,5 @@ Kövesse az alábbi lépéseket, ha Azure Stack szolgáltatások a ASDK gazdagé
 
 Ha a **Start-AzureStack** futtatása hibát eredményez, látogasson el a [Azure stack támogatási fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) , ahol lekérdezheti a ASDK hibaelhárítási támogatását. 
 
-## <a name="next-steps"></a>Következő lépések 
+## <a name="next-steps"></a>További lépések 
 További információ a Azure Stack diagnosztikai eszközről és a naplózási problémákról: [Azure stack diagnosztikai eszközök](../operator/azure-stack-get-azurestacklog.md).

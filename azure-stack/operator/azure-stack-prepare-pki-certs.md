@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
 ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367954"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
@@ -54,7 +54,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 1. Nyissa meg a Microsoft Management Console-t. A Windows 10-es konzol megnyitásához kattintson a jobb gombbal a **Start menü** **Futtatás**parancsára, majd írja be az **MMC** parancsot, majd nyomja le az ENTER billentyűt.
 
-2. Válassza a **fájl** > **beépülő modul hozzáadása/eltávolítása**elemet, majd kattintson a **tanúsítványok** elemre, és válassza a **Hozzáadás**lehetőséget.
+2. Válassza a **fájl** > **beépülő modul hozzáadása/eltávolítása**elemet, majd válassza a **tanúsítványok** lehetőséget, és válassza a **Hozzáadás**lehetőséget.
 
     ![Tanúsítványkezelő beépülő modul hozzáadása a Microsoft Management Console-ban](./media/prepare-pki-certs/mmc-2.png)
 
@@ -62,9 +62,9 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
     ![Fiók kiválasztása a tanúsítványok hozzáadása beépülő modulhoz a Microsoft Management Console-ban](./media/prepare-pki-certs/mmc-3.png)
 
-4. Keresse meg a **tanúsítványok** > a **vállalati megbízhatóság** > a **tanúsítvány helyét**. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
+4. Tallózással keresse meg a **tanúsítványok** > **vállalati megbízhatósági** > **tanúsítványának helyét**. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
 
-5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek** > az **összes feladat** > **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
+5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek** > **minden feladat** > **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
 
    > [!NOTE]
    > Attól függően, hogy hány Azure Stack hub-tanúsítvány van, előfordulhat, hogy a folyamatot többször kell végrehajtania.
@@ -93,6 +93,6 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 11. Válassza a **Finish** (Befejezés) elemet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [PKI-tanúsítványok ellenőrzése](azure-stack-validate-pki-certs.md)

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294307"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
@@ -34,7 +34,7 @@ Az alkalmazás egy egyszerű szolgáltatásnév identitása alatt való futtatá
 
 Első lépésként hozzon létre egy új alkalmazást a címtárban, amely létrehoz egy társított [egyszerű objektumot](/azure/active-directory/develop/developer-glossary#service-principal-object) , amely az alkalmazás identitását jelöli a címtárban. Ez a dokumentum leírja, hogyan kell létrehozni és felügyelni egy egyszerű szolgáltatásnevet a Azure Stack hub-példányhoz választott könyvtártól függően:
 
-- Azure Active Directory (Azure AD). Az Azure AD egy több-bérlős, felhőalapú címtár-és Identitáskezelés-kezelő szolgáltatás. Az Azure AD-t egy csatlakoztatott Azure Stack hub-példánnyal is használhatja.
+- Azure Active Directory (Azure AD). Az Azure AD egy több-bérlős felhőalapú címtár- és identitáskezelési szolgáltatás. Az Azure AD-t egy csatlakoztatott Azure Stack hub-példánnyal is használhatja.
 - Active Directory összevonási szolgáltatások (AD FS). A AD FS egyszerűsített, biztonságos identitás-összevonást és webes egyszeri bejelentkezési (SSO) képességeket biztosít. AD FS a csatlakoztatott és a leválasztott Azure Stack hub-példányokkal is használható.
 
 Először megtudhatja, hogyan kezelheti a szolgáltatást, majd hogyan rendelheti hozzá az egyszerű szolgáltatást egy szerepkörhöz, és korlátozza az erőforrás-hozzáférését.
@@ -48,7 +48,7 @@ Ha az Azure AD-val telepített Azure Stack hubot az identitáskezelési szolgál
 Ebben a szakaszban a Azure Portal használatával regisztrálja az alkalmazást, amely létrehozza az egyszerű szolgáltatásnév objektumot az Azure AD-bérlőben. Ebben a példában az egyszerű szolgáltatás ügyfél-titkos hitelesítő adatokkal jön létre, de a portál támogatja a X509 hitelesítő adatait is.
 
 1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com) az Azure-fiók használatával.
-2. Válassza a **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.
+2. Válassza **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.
 3. Adja meg az alkalmazás **nevét** .
 4. Válassza ki a megfelelő **támogatott fióktípus-típusokat**.
 5. Az **átirányítási URI**területen válassza a **web** lehetőséget az alkalmazás típusaként, és (opcionálisan) adjon meg egy átirányítási URI-t, ha az alkalmazáshoz szükség van.
@@ -81,7 +81,7 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
 | Helyőrző | Leírás | Példa |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | A rendszerjogosultságú végpont virtuális gép neve a Azure Stack hub-példányon. | "AzS-ERCS01" |
-| \<YourCertificateLocation\> | A X509-tanúsítvány helye a helyi tanúsítványtárolóban. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourCertificateLocation\> | A X509-tanúsítvány helye a helyi tanúsítványtárolóban. | "Tanúsítvány: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<YourAppName\> | Az új alkalmazás regisztrálásának leíró neve. | "Saját felügyeleti eszköz" |
 
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsfájlt:
@@ -126,7 +126,7 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
 
    ```
    
-2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. Amint azt a bemutatta, a rendszer a `ClientID` és `Thumbprint` használja a szolgáltatásnév identitásának bejelentkezni. A sikeres bejelentkezést követően a rendszer a szolgáltatás egyszerű azonosítóját fogja használni a későbbi engedélyezéshez és a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáféréshez.
+2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. Ahogy azt a bemutatta, a `ClientID` és `Thumbprint` a szolgáltatás az egyszerű szolgáltatásnév identitása alá való bejelentkezéshez használatos. A sikeres bejelentkezést követően a rendszer a szolgáltatás egyszerű azonosítóját fogja használni a későbbi engedélyezéshez és a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáféréshez.
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -138,7 +138,7 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-Tartsa nyitva a PowerShell-konzol munkamenetét, ahogy a következő szakaszban `ApplicationIdentifier` értékkel használja.
+Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt `ApplicationIdentifier` a következő szakaszban szereplő értékkel használja.
 
 ### <a name="update-a-service-principals-certificate-credential"></a>Egyszerű szolgáltatásnév tanúsítványa hitelesítő adatainak frissítése
 
@@ -153,7 +153,7 @@ Frissítse a tanúsítvány hitelesítő adatait a PowerShell használatával, �
 | ----------- | ----------- | ------- |
 | \<PepVM\> | A rendszerjogosultságú végpont virtuális gép neve a Azure Stack hub-példányon. | "AzS-ERCS01" |
 | \<YourAppName\> | Az új alkalmazás regisztrálásának leíró neve. | "Saját felügyeleti eszköz" |
-| \<YourCertificateLocation\> | A X509-tanúsítvány helye a helyi tanúsítványtárolóban. | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourCertificateLocation\> | A X509-tanúsítvány helye a helyi tanúsítványtárolóban. | "Tanúsítvány: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | Az alkalmazás regisztrálásához hozzárendelt azonosító. | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
 1. Futtassa a következő parancsmagokat a rendszergazda jogú Windows PowerShell-munkamenet használatával:
@@ -192,7 +192,7 @@ Frissítse a tanúsítvány hitelesítő adatait a PowerShell használatával, �
 > [!IMPORTANT]
 > Az ügyfél titkos kulcsa kevésbé biztonságos, mint a X509-tanúsítvány hitelesítő adatainak használata. A hitelesítési mechanizmus nem csupán kevésbé biztonságos, de általában a titkos kulcs beágyazását igényli az ügyfélalkalmazás forráskódjában. Az éles alkalmazások esetében javasoljuk, hogy a tanúsítvány hitelesítő adatait használja.
 
-Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ügyfél titkos hitelesítő adatait. A tanúsítvány hitelesítő adataival ellentétben a címtár képes az ügyfél titkos hitelesítő adatainak előállítására. Az ügyfél titkos kulcsának meghatározása helyett a `-GenerateClientSecret` kapcsolót kell használnia a létrehozásához. Helyettesítse be a saját értékeit a következő helyőrzők esetében:
+Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ügyfél titkos hitelesítő adatait. A tanúsítvány hitelesítő adataival ellentétben a címtár képes az ügyfél titkos hitelesítő adatainak előállítására. Az ügyfél titkos kulcsának meghatározása helyett a `-GenerateClientSecret` kapcsolóval kell megadnia a létrehozását. Helyettesítse be a saját értékeit a következő helyőrzők esetében:
 
 | Helyőrző | Leírás | Példa |
 | ----------- | ----------- | ------- |
@@ -233,7 +233,7 @@ Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ü
      $SpObject
      ```
 
-2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. Amint azt a bemutatta, a rendszer a `ClientID` és a generált `ClientSecret` használja a szolgáltatásnév identitásának bejelentkezni. A sikeres bejelentkezést követően a rendszer a szolgáltatás egyszerű azonosítóját fogja használni a későbbi engedélyezéshez és a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáféréshez.
+2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. Amint azt a rendszer bemutatta, a `ClientID` és a generált `ClientSecret` érték a szolgáltatásnév identitása alá való bejelentkezéshez használatos. A sikeres bejelentkezést követően a rendszer a szolgáltatás egyszerű azonosítóját fogja használni a későbbi engedélyezéshez és a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáféréshez.
 
      ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
@@ -245,7 +245,7 @@ Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ü
      RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
 
-Tartsa nyitva a PowerShell-konzol munkamenetét, ahogy a következő szakaszban `ApplicationIdentifier` értékkel használja.
+Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt `ApplicationIdentifier` a következő szakaszban szereplő értékkel használja.
 
 ### <a name="update-a-service-principals-client-secret"></a>Egyszerű szolgáltatásnév ügyfél-titkos kódjának frissítése
 
@@ -320,12 +320,12 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 A felhasználók és alkalmazások Azure-erőforrásokhoz való hozzáférését szerepköralapú Access Control (RBAC) engedélyezik. Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéséhez tartozó erőforrásokhoz az adott szolgáltatásnév használatával, *hozzá kell rendelnie* a szolgáltatásnevet egy adott *erőforráshoz*tartozó *szerepkörhöz* . Először döntse el, hogy melyik szerepkör felel meg az alkalmazás megfelelő *engedélyeinek* . Az elérhető szerepkörökről az [Azure-erőforrások beépített szerepköreivel](/azure/role-based-access-control/built-in-roles)foglalkozó témakörben olvashat bővebben.
 
-A választott erőforrás típusa az egyszerű szolgáltatásnév *hozzáférési hatókörét* is létrehozza. Megadhatja a hozzáférési hatókört az előfizetés, az erőforráscsoport vagy az erőforrás szintjén. Alacsonyabb szintű hatókör, az engedélyek öröklődnek. Ha például hozzáad egy alkalmazást az erőforráscsoport "olvasó" szerepköréhez, az azt jelenti, hogy elolvashatja az erőforráscsoportot és a benne foglalt erőforrásokat.
+A választott erőforrás típusa az egyszerű szolgáltatásnév *hozzáférési hatókörét* is létrehozza. Megadhatja a hozzáférési hatókört az előfizetés, az erőforráscsoport vagy az erőforrás szintjén. Az engedélyek a hatókör alacsonyabb szintjein vannak örökölve. Ha például hozzáad egy alkalmazást az erőforráscsoport "olvasó" szerepköréhez, az azt jelenti, hogy elolvashatja az erőforráscsoportot és a benne foglalt erőforrásokat.
 
 1. Jelentkezzen be a megfelelő portálra a Azure Stack hub telepítésekor megadott könyvtár alapján (az Azure AD-Azure Portal vagy a AD FS Azure Stack hub felhasználói portálján, például:). Ebben a példában egy felhasználó bejelentkezett a Azure Stack hub felhasználói portálra.
 
    > [!NOTE]
-   > Egy adott erőforráshoz tartozó szerepkör-hozzárendelések hozzáadásához a felhasználói fióknak olyan szerepkörhöz kell tartoznia, amely deklarálja az `Microsoft.Authorization/roleAssignments/write` engedélyt. Például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdai](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörei.  
+   > Egy adott erőforráshoz tartozó szerepkör-hozzárendelések hozzáadásához a felhasználói fióknak olyan szerepkörhöz kell tartoznia `Microsoft.Authorization/roleAssignments/write` , amely deklarálja az engedélyt. Például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdai](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörei.  
 2. Navigáljon ahhoz az erőforráshoz, amely számára engedélyezni szeretné az egyszerű szolgáltatásnév elérését. Ebben a példában rendelje hozzá az egyszerű szolgáltatást az előfizetés hatókörében lévő szerepkörhöz az **előfizetések**, majd egy adott előfizetés kiválasztásával. Ehelyett kijelölhet egy erőforráscsoportot, vagy egy adott erőforrást, például egy virtuális gépet.
 
      ![Előfizetés kiválasztása hozzárendeléshez](./media/azure-stack-create-service-principal/select-subscription.png)
@@ -333,21 +333,21 @@ A választott erőforrás típusa az egyszerű szolgáltatásnév *hozzáférés
 3. Válassza ki a **Access Control (iam)** lapot, amely univerzális a RBAC támogató összes erőforráson.
 4. Válassza a **+ Hozzáadás** lehetőséget
 5. A **szerepkör**területen válassza ki az alkalmazáshoz hozzárendelni kívánt szerepkört.
-6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack-\<YourAppName\>-\<ClientId\>* . Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz: *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
+6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack-\<YourAppName\>-\<ClientId\>* jön létre. Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz: *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
 7. Miután megtalálta az alkalmazást, jelölje ki, és a **kijelölt tagok**területen fog megjelenni.
 8. A szerepkör hozzárendelésének befejezéséhez kattintson a **Mentés** gombra.
 
-     [szerepkör-hozzárendelés ![](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
+     [![Szerepkör kiosztása](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 
 9. Ha elkészült, az alkalmazás megjelenik az aktuális hatókörhöz rendelt rendszerbiztonsági tag listájában a megadott szerepkörhöz.
 
-     [Hozzárendelt szerepkör ![](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
+     [![Hozzárendelt szerepkör](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
 Most, hogy létrehozott egy szolgáltatásnevet, és hozzárendelt egy szerepkört, megkezdheti az alkalmazáson belüli egyszerű szolgáltatásnév használatát Azure Stack hub-erőforrások eléréséhez.  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Felhasználók hozzáadása az AD FS-hez](azure-stack-add-users-adfs.md)  
 [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)  
-[Az Azure Active Directory dokumentációja](https://docs.microsoft.com/azure/active-directory)  
+[Azure Active Directory dokumentáció](https://docs.microsoft.com/azure/active-directory)  
 [Active Directory összevonási szolgáltatások](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)

@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
 ms.openlocfilehash: 779eeefa8b567cfb6b5c151c180a59b76468870a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/14/2020
 ms.locfileid: "77704545"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
@@ -22,7 +22,7 @@ ms.locfileid: "77704545"
 
 Az érvényesítési szolgáltatásként (adatbázis-ellenőrzés) olyan Azure-szolgáltatás, amely a piacon Azure Stack hub-megoldások ellenőrzéséhez és támogatásához használatos. Kövesse ezt a cikket, mielőtt a szolgáltatást használja a megoldás ellenőrzéséhez.
 
-Ez az oktatóanyag bemutatja, hogyan végezheti el az alábbi műveleteket:
+Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 > [!div class="checklist"]
 > * Készüljön fel az Azure Active Directory (AD) beállításával való használatra.
@@ -34,7 +34,7 @@ Az Azure AD-bérlő használatával regisztrálhat egy szervezetet, és hiteles�
 
 ### <a name="create-a-tenant"></a>Bérlő létrehozása
 
-Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga szolgáltatások eléréséhez. Adjon meg egy leíró nevet (például `ContosoVaaS@onmicrosoft.com`).
+Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga szolgáltatások eléréséhez. Adjon meg egy leíró nevet (például: `ContosoVaaS@onmicrosoft.com`).
 
 1. Hozzon létre egy Azure AD-bérlőt a [Azure Portalban](https://portal.azure.com), vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
@@ -50,8 +50,8 @@ Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga s
 
     Szerepkörök hozzárendeléséhez az **Azure stack hub Validation Service** alkalmazásban:
 
-   1. Jelentkezzen be az [Azure Portal](https://portal.azure.com).
-   2. Válassza az **összes szolgáltatás** > **Azure Active Directory** az **identitás** szakaszban.
+   1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
+   2. Válassza az **összes szolgáltatás** > **Azure Active Directory** az **Identity (identitás** ) szakaszban.
    3. Válassza a **vállalati alkalmazások** > **Azure stack hub Validation Service** -alkalmazás elemet.
    4. Válassza a **Felhasználók és csoportok** elemet. Az **Azure stack hub Validation Service – felhasználók és csoportok** panel felsorolja azokat a felhasználókat, akik jogosultak az alkalmazás használatára.
    5. Válassza a **+ felhasználó hozzáadása** lehetőséget egy felhasználó hozzáadásához a bérlőtől, és rendeljen hozzá egy szerepkört.
@@ -62,11 +62,11 @@ Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga s
 
 Ez a folyamat engedélyezi a bérlőnek az **Azure stack hub Validation Service** Azure ad-alkalmazást.
 
-1. Küldje el az alábbi adatokat a bérlőről a Microsoftnak a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)címen.
+1. Küldje el az alábbi adatokat a bérlőről a Microsoftnak [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)a következő címen:.
 
     | Adatok | Leírás |
     |--------------------------------|---------------------------------------------------------------------------------------------|
-    | Szervezet neve | A hivatalos szervezet neve. |
+    | Szervezetnév | A hivatalos szervezet neve. |
     | Azure AD-bérlői könyvtár neve | Az Azure AD-bérlő könyvtárának neve regisztrálva van. |
     | Azure AD-bérlői címtár azonosítója | A címtárhoz tartozó Azure AD-bérlői könyvtár GUID-azonosítója. További információ az Azure AD-bérlői címtár AZONOSÍTÓjának megkereséséről: a [bérlő azonosítójának beolvasása](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
@@ -88,7 +88,7 @@ A tesztelés végrehajtása során az Azure a diagnosztikai naplókat egy Azure 
 
 Az Azure Storage-fiók az Azure nyilvános felhőben üzemel, nem az Azure Stack hub-környezetben.
 
-1. A Azure Portal válassza a **minden szolgáltatás** > **Storage** - > **Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
+1. A Azure Portal válassza a **minden szolgáltatás** > **tároló** > **Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
 
 2. Válassza ki azt az előfizetést, amelyben létre kívánja hozni a tárfiókot.
 
@@ -110,7 +110,7 @@ Az Azure Storage-fiók az Azure nyilvános felhőben üzemel, nem az Azure Stack
 
 7. A tárfiók beállításainak áttekintéséhez és a fiók létrehozásához válassza a **Felülvizsgálat + létrehozás** elemet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha a környezet nem engedélyezi a bejövő kapcsolatokat, kövesse a helyi ügynök üzembe helyezéséről szóló oktatóanyagot a hardveren futó teszt futtatásához.
 

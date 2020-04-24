@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2019
 ms.openlocfilehash: b02795cf0058a9d63947c6143b0721c544ff9811
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701581"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Azure Stack hub felhasználói előfizetés számlázási tulajdonosának módosítása
@@ -40,7 +40,7 @@ A futtatása előtt cserélje le a következő értékeket a parancsfájlba:
 - **$ArmEndpoint**: a környezet Resource Manager-végpontja.
 - **$TenantId**: a bérlő azonosítója.
 - **$SubscriptionId**: az előfizetés azonosítója.
-- **$OwnerUpn**: egy olyan fiók, például a **felhasználó\@example.com**, amelyet új számlázási tulajdonosként adhat hozzá.
+- **$OwnerUpn**: egy olyan fiók, például **felhasználói\@example.com**, amelyet új számlázási tulajdonosként szeretne hozzáadni.
 
 ```powershell
 # Set up Azure Stack Hub admin environment
@@ -60,6 +60,6 @@ Set-AzsUserSubscription -InputObject $subscription
 
 [!include[Remove Account](../../includes/remove-account.md)]
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Szerepköralapú Access Control kezelése](azure-stack-manage-permissions.md)

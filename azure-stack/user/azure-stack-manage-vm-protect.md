@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
 ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512609"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
@@ -45,14 +45,14 @@ Az alkalmazás tulajdonosai elsődlegesen az alkalmazás és a szervezet által 
 
  - **Helyreállítási időre vonatkozó célkitűzés (RTO)**  
 A RTO az a maximális elfogadható idő, ameddig egy alkalmazás nem érhető el egy incidens után. Például egy 90 perces RTO azt jelenti, hogy az alkalmazást egy, a katasztrófa elejétől 90 percen belül futó állapotba kell állítania. Ha alacsony RTO rendelkezik, egy másik üzemelő példányt folyamatosan készenléti állapotban tarthat a regionális kimaradások elleni védelem érdekében.
- - **Helyreállítási pont célkitűzése (RPO)**  
-A RPO a katasztrófa során elfogadható adatvesztés maximális időtartama. Ha például egyetlen adatbázisban tárolja az adatbiztonsági mentést, és nem végez replikálást más adatbázisokra, akkor akár egy órányi adat is elvész.
+ - **Helyreállítási időkorlát (RPO)**  
+A helyreállítási időkorlát (RPO) a katasztrófa során elfogadható adatveszteség maximális ideje. Ha például egyetlen adatbázisban tárolja az adatbiztonsági mentést, és nem végez replikálást más adatbázisokra, akkor akár egy órányi adat is elvész.
 
 Egy másik metrika a *helyreállításhoz szükséges idő* (MTTR), amely az alkalmazás meghibásodás utáni visszaállításának átlagos időtartama. A MTTR egy rendszer empirikus értéke. Ha a MTTR túllépi a RTO, akkor a rendszer meghibásodása elfogadhatatlan üzleti fennakadást okoz, mivel nem lehet visszaállítani a rendszer a megadott RTO belül.
 
 ## <a name="protection-options"></a>Védelmi beállítások 
 
-### <a name="backup-restore"></a>Backup-restore
+### <a name="backup-restore"></a>Biztonsági mentés visszaállítása
 
 Az alkalmazások és adatkészletek biztonsági mentése lehetővé teszi, hogy az adatsérülés, a véletlen törlések vagy a katasztrófák miatt gyorsan helyreállítsa az állásidőt. A IaaS VM-alapú alkalmazások esetében a vendégen lévő ügynökkel biztosíthatja az alkalmazásadatok, az operációs rendszer konfigurációja és a köteteken tárolt adatmennyiségek védelme. 
 
@@ -103,7 +103,7 @@ Fontos szempontok az Azure Stack hub üzembe helyezéséhez:
 | Telepítsen egy biztonsági mentési célt ugyanarra a Azure Stack hubhoz, amely az ugyanazon biztonsági mentési cél által védett összes alkalmazást is üzemelteti. | Önálló cél: nem ajánlott </br> A biztonsági másolatok külső replikálására szolgáló cél: ajánlott | Ha Azure Stack hub-on helyez üzembe egy biztonságimásolat-berendezést (az operatív visszaállítás optimalizálásához), gondoskodnia kell arról, hogy a rendszer folyamatosan másolja az összes adatforrást egy külső biztonsági mentési helyre. |
 | Fizikai biztonsági mentési berendezés üzembe helyezése ugyanabba az állványba, ahol a Azure Stack hub-megoldás telepítve van | Nem támogatott | Jelenleg nem csatlakoztatható más eszközök az eredeti megoldás részét nem képező rack-kapcsolók tetejéhez. |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ez a cikk az Azure Stack hub-on üzembe helyezett felhasználói virtuális gépek védelmére vonatkozó általános irányelveket ismertetett. További információ az Azure-szolgáltatásoknak a felhasználói virtuális gépek számára történő használatáról:
 

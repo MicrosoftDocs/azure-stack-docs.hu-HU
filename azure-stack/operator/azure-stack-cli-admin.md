@@ -7,10 +7,10 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 8ecb1fde96c4d53bd94c57199635af21d7cf7196
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700867"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára
@@ -50,7 +50,7 @@ certutil -encode root.cer root.pem
 
 Azure Stack hub-operátoroknak olyan nyilvánosan elérhető végpontot kell beállítaniuk, amely virtuálisgép-alias-fájlt üzemeltet. A VM-alias fájl egy olyan JSON-fájl, amely a rendszerkép köznapi nevét adja meg. A nevet akkor használja, ha a virtuális gépet Azure CLI-paraméterként telepíti.  
 
-Mielőtt hozzáad egy bejegyzést egy alias-fájlhoz, győződjön meg róla, hogy [letöltötte a lemezképeket az Azure Marketplace-ről](azure-stack-download-azure-marketplace-item.md) , vagy [közzétette saját egyéni rendszerképét](azure-stack-add-vm-image.md). Ha egyéni rendszerképet tesz közzé, jegyezze fel a közzététel során megadott kiadói, ajánlati, SKU-és verziószám-információkat. Ha ez egy rendszerkép a piactéren, a `Get-AzureVMImage` parancsmag használatával tekintheti meg az adatokat.  
+Mielőtt hozzáad egy bejegyzést egy alias-fájlhoz, győződjön meg róla, hogy [letöltötte a lemezképeket az Azure Marketplace-ről](azure-stack-download-azure-marketplace-item.md) , vagy [közzétette saját egyéni rendszerképét](azure-stack-add-vm-image.md). Ha egyéni rendszerképet tesz közzé, jegyezze fel a közzététel során megadott kiadói, ajánlati, SKU-és verziószám-információkat. Ha ez egy rendszerkép a piactéren, megtekintheti az adatokat a `Get-AzureVMImage` parancsmag használatával.  
 
 Elérhető egy [minta alias-fájl](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) , amelyben számos gyakori rendszerkép-alias található. Ezt kiindulási pontként is használhatja. Ezt a fájlt egy olyan térben tárolja, ahol a CLI-ügyfelek el tudják érni. Ennek egyik módja, hogy a fájlt egy blob Storage-fiókban tárolja, és megosztja az URL-címet a felhasználókkal:
 
@@ -58,7 +58,7 @@ Elérhető egy [minta alias-fájl](https://raw.githubusercontent.com/Azure/azure
 2. Hozzon létre egy Storage-fiókot Azure Stack központban. Ha elkészült, hozzon létre egy BLOB-tárolót. Állítsa be a hozzáférési házirendet a "Public" értékre.  
 3. Töltse fel a JSON-fájlt az új tárolóba. Ha elkészült, megtekintheti a blob URL-címét. Válassza ki a blob nevét, majd válassza ki az URL-címet a blob tulajdonságai között.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](../user/azure-stack-deploy-template-command-line.md )
 - [Kapcsolódás a PowerShell-lel](azure-stack-powershell-install.md)

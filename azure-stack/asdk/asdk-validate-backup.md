@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
 ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512014"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
@@ -41,12 +41,12 @@ A következő forgatókönyv **nem** támogatott a biztonsági másolatok ASDK v
 ## <a name="cloud-recovery-deployment"></a>Felhőbeli helyreállítás üzembe helyezése
 Az integrált rendszerek központi telepítésének infrastruktúra-biztonsági mentései ellenőrizhetők a ASDK Felhőbeli helyreállítási telepítésének végrehajtásával. Ilyen típusú központi telepítés esetén a rendszer a ASDK telepítése után visszaállítja az adott szolgáltatási adatok biztonsági mentését a gazdagépre.
 
-### <a name="prereqs"></a>A felhőalapú helyreállítás előfeltételei
+### <a name="cloud-recovery-prerequisites"></a><a name="prereqs"></a>A felhőalapú helyreállítás előfeltételei
 A ASDK felhőalapú helyreállításának elindítása előtt ellenőrizze, hogy rendelkezik-e a következő információkkal:
 
 **A felhasználói felület telepítőjének követelményei**
 
-|Előfeltételek|Leírás|
+|Előfeltétel|Leírás|
 |-----|-----|
 |Biztonsági másolat megosztásának elérési útja|A legújabb Azure Stack biztonsági mentés UNC-fájljának elérési útja, amelyet a rendszer Azure Stack infrastruktúra-információk helyreállítására fog használni. Ezt a helyi megosztást a rendszer a felhőalapú helyreállítás üzembe helyezési folyamata során hozza létre.|
 |Visszaállítandó biztonsági mentési azonosító|A biztonsági mentési azonosító a "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" alfanumerikus formában, amely a Felhőbeli helyreállítás során visszaállítani kívánt biztonsági mentést azonosítja.|
@@ -57,7 +57,7 @@ A ASDK felhőalapú helyreállításának elindítása előtt ellenőrizze, hogy
 
 **PowerShell-telepítőre vonatkozó követelmények**
 
-|Előfeltételek|Leírás|
+|Előfeltétel|Leírás|
 |-----|-----|
 |Biztonsági másolat megosztásának elérési útja|A legújabb Azure Stack biztonsági mentés UNC-fájljának elérési útja, amelyet a rendszer Azure Stack infrastruktúra-információk helyreállítására fog használni. Ezt a helyi megosztást a rendszer a felhőalapú helyreállítás üzembe helyezési folyamata során hozza létre.|
 |Visszaállítandó biztonsági mentési azonosító|A biztonsági mentési azonosító a "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" alfanumerikus formában, amely a Felhőbeli helyreállítás során visszaállítani kívánt biztonsági mentést azonosítja.|
@@ -79,9 +79,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-Ezután másolja a legújabb Azure Stack biztonságimásolat-fájljait az újonnan létrehozott megosztásra. Győződjön meg róla, hogy `<BackupID>` mappa szülőmappa mappájába másolja, amely a biztonsági mentés időbélyege. A megosztáson belüli mappa struktúrájának a következőket kell tartalmaznia: `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`. 
+Ezután másolja a legújabb Azure Stack biztonságimásolat-fájljait az újonnan létrehozott megosztásra. Ügyeljen arra, hogy a `<BackupID>` mappa szülőmappa mappájába másolja, amely a biztonsági mentés időbélyege. A megosztáson belüli mappa struktúrájának a következőket `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`kell tennie:. 
 
-Végül másolja a visszafejtési tanúsítványt (. pfx) a tanúsítvány könyvtárába: `C:\CloudDeployment\Setup\BackupDecryptionCert\`, és nevezze át a fájlt `BackupDecryptionCert.pfx`re.
+Végül másolja a visszafejtési tanúsítványt (. pfx) a tanúsítvány könyvtárába, és nevezze `C:\CloudDeployment\Setup\BackupDecryptionCert\` át a fájlt a következőre: `BackupDecryptionCert.pfx`.
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>A ASDK üzembe helyezése Felhőbeli helyreállítási módban
 
@@ -100,7 +100,7 @@ Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzem
 > Az aktuális telepítő felhasználói felülete csak a titkosítási kulcsot támogatja.
 
 1. Miután a gazdaszámítógép sikeresen beindult a CloudBuilder. vhdx lemezképbe, jelentkezzen be a ASDK-gazdaszámítógép ASDK-telepítésre [való előkészítésekor](asdk-prepare-host.md) megadott rendszergazdai hitelesítő adatokkal. Ezeknek a hitelesítő adatoknak meg kell egyezniük a ASDK gazdagép helyi rendszergazdai hitelesítő adataival.
-2. Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa a **&lt;meghajtóbetűjelet > \ AzureStack_Installer \Asdk-Installer.ps1** PowerShell-parancsfájlt. Előfordulhat, hogy a parancsfájl egy másik meghajtón van, mint a C:\ az CloudBuilder. vhdx képen. Kattintson a **helyreállítás**gombra.
+2. Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa a ** &lt;meghajtóbetűjelet> \ AzureStack_Installer \asdk-Installer.ps1** PowerShell-parancsfájllal. Előfordulhat, hogy a parancsfájl egy másik meghajtón van, mint a C:\ az CloudBuilder. vhdx képen. Kattintson a **helyreállítás**gombra.
 
     ![ASDK-telepítő parancsfájl](media/asdk-validate-backup/1.PNG) 
 
@@ -175,6 +175,6 @@ Restore-AzsBackup -ResourceId "<BackupID>"
 
 Várjon 60 percet a parancsmag meghívása után, hogy megkezdje a biztonsági mentési adatmennyiség ellenőrzését a felhőalapú helyreállított ASDK.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Azure Stack regisztrálása](asdk-register.md)
 

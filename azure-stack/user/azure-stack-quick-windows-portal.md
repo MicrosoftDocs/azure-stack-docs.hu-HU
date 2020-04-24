@@ -3,16 +3,16 @@ title: Windows rendszerű virtuális gép létrehozása Azure Stack hub-portálo
 description: Megtudhatja, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az Azure Stack hub Portal használatával.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/10/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: c9b2309e5c640d9f2cab79f93dc8a13b1344cea2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b32ce924aae800360229ca1e309b568fdc6f5353
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703757"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660266"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 
@@ -26,12 +26,12 @@ Ismerje meg, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az 
 
 Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe attól függ, hogy melyik Azure Stack hub-termékhez csatlakozik:
 
-* A Azure Stack Development Kit (ASDK) esetében válassza a következőt: https://portal.local.azurestack.external.
+* A Azure Stack Development Kit (ASDK) esetében válassza a következőt https://portal.local.azurestack.external:.
 * Azure Stack hub integrált rendszer esetén keresse meg azt az URL-címet, amelyet a Azure Stack hub-operátor biztosít.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Válassza **az erőforrás létrehozása** > **számítás**lehetőséget. ` Windows Server 2016 Datacenter – Pay as you use`keresése.
+1. Válassza **az erőforrás** > létrehozása**számítás**lehetőséget. Keresse meg` Windows Server 2016 Datacenter – Pay as you use`a következőt:.
     Ha nem látja a **Windows Server 2016 Datacenter – utólagos használatú** bejegyzést, forduljon a Azure stack hub Cloud operatorhoz, és kérje meg, hogy adja hozzá a rendszerképet a Azure stack hub piactérhez. Útmutatásért a felhő operátora hivatkozhat az [egyéni Azure stack hub Marketplace-elem létrehozására és közzétételére](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
     ![Windows Server 2016 Datacenter – fizetés a használat során](./media/azure-stack-quick-windows-portal/image1.png)
@@ -64,6 +64,6 @@ Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe a
 
 Ha végzett a virtuális gép használatával, törölje a virtuális gépet és annak erőforrásait. Ehhez válassza ki az erőforráscsoportot a virtuális gép lapon, és válassza a **Törlés**lehetőséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).

@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
 ms.openlocfilehash: 6d5138868b07e2a3d552cd154976352266941760
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704471"
 ---
 # <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>A DNS-továbbító frissítése Azure Stack központban
@@ -38,6 +38,6 @@ Ez a cikk a rendszerjogosultságú végpont (PEP) használatát ismerteti Azure 
 
 4. Az esetleges hibákért tekintse át a parancs kimenetét.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Tűzfal-integráció](azure-stack-firewall.md)

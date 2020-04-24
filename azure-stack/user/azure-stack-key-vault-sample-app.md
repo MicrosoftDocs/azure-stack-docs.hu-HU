@@ -7,10 +7,10 @@ ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702771"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack hub Key Vault titkok elérésének engedélyezése az alkalmazások számára
@@ -36,7 +36,7 @@ Készítse elő a minta alkalmazást a Azure Portal vagy a PowerShell használat
 > [!NOTE]
 > Alapértelmezés szerint a PowerShell-parancsfájl új alkalmazást hoz létre Active Directoryban. Azonban regisztrálhat egy meglévő alkalmazást is.
 
-A következő parancsfájl futtatása előtt győződjön meg arról, hogy megadja a `aadTenantName` és `applicationPassword` változók értékeit. Ha nem ad meg értéket a `applicationPassword`hoz, ez a szkript véletlenszerűen generált jelszót hoz létre.
+A következő parancsfájl futtatása előtt győződjön meg arról, hogy megadja a és `aadTenantName` `applicationPassword` a változók értékeit. Ha nem ad meg értéket a `applicationPassword`értékhez, ez a szkript véletlenszerűen generált jelszót hoz létre.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -134,15 +134,15 @@ Töltse le a Key Vault-mintát az Azure [Key Vault Client Samples](https://www.m
 
 A **HelloKeyVault** minta betöltése:
 
-1. Keresse meg a **Microsoft. Azure. kulcstartót. mintákat** > **mintákat** > **HelloKeyVault** mappában.
+1. Tallózással keresse meg a **Microsoft. Azure. kulcstartót. a Samples** > **samples** > **HelloKeyVault** mappája.
 2. Nyissa meg a **HelloKeyVault** alkalmazást a Visual Studióban.
 
 ### <a name="configure-the-sample-application"></a>A mintaalkalmazás konfigurálása
 
 A Visual Studióban:
 
-1. Nyissa meg a HelloKeyVault\App.config fájlt, és keresse meg a `<appSettings>` elemet.
-2. Frissítse a **VaultUrl**, a **AuthClientId**és a **AuthCertThumbprint** kulcsokat a kulcstartó létrehozásakor visszaadott értékekkel. Alapértelmezés szerint az app. config fájl helyőrzőt tartalmaz a `AuthCertThumbprint`hoz. A helyőrzőt cserélje le `AuthClientSecret`ra.
+1. Nyissa meg a HelloKeyVault\App.config fájlt, `<appSettings>` és keresse meg az elemet.
+2. Frissítse a **VaultUrl**, a **AuthClientId**és a **AuthCertThumbprint** kulcsokat a kulcstartó létrehozásakor visszaadott értékekkel. Alapértelmezés szerint az app. config fájl helyőrzőt tartalmaz a következőhöz `AuthCertThumbprint`:. A helyőrzőt cserélje `AuthClientSecret`le a következőre:.
 
    ```xml
    <appSettings>
@@ -158,14 +158,14 @@ A Visual Studióban:
 
 ## <a name="run-the-app"></a>Az alkalmazás futtatása
 
-A **HelloKeyVault**futtatásakor az alkalmazás bejelentkezik az Azure ad-be, majd az `AuthClientSecret` token használatával hitelesíti az Azure stack hub kulcstartójában.
+A **HelloKeyVault**futtatásakor az alkalmazás bejelentkezik az Azure ad-be, majd a `AuthClientSecret` token használatával hitelesíti a Azure stack hub kulcstartójában.
 
 A **HelloKeyVault** minta a következőre használható:
 
 * Olyan alapszintű műveleteket hajthat végre, mint például a kulcsok és a titkos kódok létrehozása, titkosítása, becsomagolása és törlése.
-* Adja át a paramétereket, például `encrypt` és `decrypt` a **HelloKeyVault**, és alkalmazza a megadott módosításokat egy kulcstartóra.
+* Adja át a paramétereket `encrypt` , `decrypt` például a és a **HelloKeyVault**, és alkalmazza a megadott módosításokat egy kulcstartóra.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Virtuális gép üzembe helyezése Key Vault-jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault tanúsítvánnyal rendelkező virtuális gép üzembe helyezése](azure-stack-key-vault-push-secret-into-vm.md)

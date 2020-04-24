@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: A HCI dokumentációjának Azure Stack
+summary: A Azure Stack HCI egy hiperkonvergens Windows Server 2019-fürt, amely ellenőrzött hardvert használ a helyileg virtualizált számítási feladatok futtatásához, így az ügyfelek könnyedén összevonják az öregedési infrastruktúrát, és csatlakozhatnak az Azure for Cloud Serviceshez.
+metadata:
+  title: A HCI dokumentációjának Azure Stack
+  description: Azure Stack HCI egy hiperkonvergens Windows Server 2019-fürt, amely érvényesített hardvert használ a virtualizált munkaterhelések helyszíni futtatásához.
+  ms.topic: landing-page
+  author: khdownie
+  ms.author: v-kedow
+  ms.date: 04/17/2020
+  ms.openlocfilehash: f277947b8de05c0a038c01bf9ab994510aa95b4f
+  ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+  ms.translationtype: MT
+  ms.contentlocale: hu-HU
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81624958"
+landingContent:
+- title: Tudnivalók a Azure Stack HCI-ről
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Mi az Azure Stack HCI?
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Azure Stack HCI használata a Windows felügyeleti központtal
+      url: get-started.md
+- title: Azure Stack HCI kezelése
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kötetek létrehozása
+      url: manage/create-volumes.md
+    - text: Kötetek kiterjesztése
+      url: manage/extend-volumes.md
+    - text: Kötetek törlése
+      url: manage/delete-volumes.md
+    - text: Meghajtók cseréje
+      url: manage/replace-drives.md
+    - text: Monitorozás az Azure Monitorral
+      url: manage/azure-monitor.md
+    - text: GPU csatlakoztatása Linux rendszerű virtuális géphez
+      url: manage/attach-gpu-to-linux-vm.md
+- title: Azure Stack HCI-fogalmak
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Meghajtók kiválasztása
+      url: concepts/choose-drives.md
+    - text: Kötetek megtervezése
+      url: concepts/plan-volumes.md
+    - text: A gyorsítótár megismerése
+      url: concepts/cache.md
+    - text: Hibatűrés és a tárolás hatékonysága
+      url: concepts/fault-tolerance.md
+    - text: Fürt-és tárolási készlet kvóruma
+      url: concepts/quorum.md

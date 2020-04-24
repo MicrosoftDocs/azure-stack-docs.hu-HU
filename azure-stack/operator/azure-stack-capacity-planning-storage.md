@@ -2,17 +2,17 @@
 title: Azure Stack hub tárolási kapacitásának megtervezése
 description: Tudnivalók a Azure Stack hub üzemelő példányok tárolási kapacitásának megtervezéséről.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 05/31/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: beccdd382ad95229e136442651e8def37a3a9552
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d7776f07745a2f76bc447df3f29a54578624aca6
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695376"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78935036"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Azure Stack hub tárolási kapacitásának megtervezése
 
@@ -70,6 +70,6 @@ A virtuális lemezek automatikusan lettek létrehozva, és a kapacitásaik a kö
 
 <sup>3</sup> az ACS általi használatra létrehozott virtuális lemezek a fennmaradó kapacitás egyszerű megosztása. Ahogy azt is említettük, az összes virtuális lemez háromutas tükrözés, és az egyes kiszolgálók kapacitásának egyik kapacitása nem foglalt le. A korábban enumerált különböző virtuális lemezek elsőként vannak lefoglalva, a fennmaradó kapacitás pedig az ACS virtuális lemezek esetében használatos.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az [Azure stack Hub Capacity Plannerról](azure-stack-capacity-planner.md).

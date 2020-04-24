@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2019
 ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294021"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux-lemezképek hozzáadása az Azure Stack hub piactérhez
@@ -55,7 +55,7 @@ Készítse elő saját linuxos rendszerképét a következő utasítások haszn�
 
 A [Cloud-init](https://cloud-init.io/) a 1910-nál újabb verziókban Azure stack hub-kiadásokon is támogatott. A Linux rendszerű virtuális gép testreszabásához a Cloud-init használatával a következő PowerShell-utasításokat használhatja.
 
-### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>1\. lépés: hozzon létre egy Cloud-init. txt fájlt a Cloud-config
+### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>1. lépés: hozzon létre egy Cloud-init. txt fájlt a Cloud-config
 
 Hozzon létre egy Cloud-init. txt nevű fájlt, és illessze be a következő Felhőbeli konfigurációt:
 
@@ -101,12 +101,12 @@ runcmd:
   - nodejs index.js
   ```
   
-### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>2\. lépés: a Cloud-init. txt fájlra való hivatkozás a linuxos virtuális gép üzembe helyezése során
+### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>2. lépés: a Cloud-init. txt fájlra való hivatkozás a linuxos virtuális gép üzembe helyezése során
 
 Töltse fel a fájlt egy Azure Storage-fiókba, Azure Stack hub Storage-fiókba vagy a GitHub-tárházba, amelyet a Azure Stack hub Linux rendszerű virtuális gép elérhet.
 Jelenleg a Cloud-init használata a virtuálisgép-telepítéshez csak a REST, a PowerShell és a parancssori felületeken támogatott, és nem rendelkezik társított portál kezelőfelülettel Azure Stack hub-on.
 
-[Ezeket](../user/azure-stack-quick-create-vm-linux-powershell.md) az utasításokat követve hozhatja létre a linuxos virtuális gépet a PowerShell használatával, de ügyeljen arra, hogy a Cloud-init. txt fájlra hivatkozzon a `-CustomData` jelző részeként:
+A Linux rendszerű virtuális gép PowerShell használatával történő létrehozásához kövesse az [alábbi](../user/azure-stack-quick-create-vm-linux-powershell.md) utasításokat, de ügyeljen arra, hogy a Cloud-init. txt fájlra `-CustomData` hivatkozzon a jelző részeként:
 
 ```powershell
 $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
@@ -117,11 +117,11 @@ $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
 
 ## <a name="add-your-image-to-marketplace"></a>Rendszerkép hozzáadása a piactérhez
 
-Kövesse a [rendszerkép hozzáadása a piactérhez](azure-stack-add-vm-image.md)című témakört. Győződjön meg arról, hogy a `OSType` paraméter `Linux`értékre van beállítva.
+Kövesse a [rendszerkép hozzáadása a piactérhez](azure-stack-add-vm-image.md)című témakört. Győződjön meg arról, `OSType` hogy a paraméter a `Linux`következőre van beállítva:.
 
 Miután hozzáadta a lemezképet a piactérhez, létrejön egy Marketplace-elem, és a felhasználók telepíthetnek egy Linux rendszerű virtuális gépet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Marketplace-elemek letöltése az Azure-ból Azure Stack hubhoz](azure-stack-download-azure-marketplace-item.md)
 * [Azure Stack hub Marketplace – áttekintés](azure-stack-marketplace.md)

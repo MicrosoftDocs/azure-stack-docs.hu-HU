@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
 ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78364044"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack hub integrált rendszerek kapcsolatainak modelljei
@@ -40,7 +40,7 @@ Dönthet úgy, hogy Azure Stack hubot az internethez (és az Azure-hoz) csatlako
 
 Miután eldöntötte, hogy az Azure-beli kapcsolódási modellt használja-e az Azure Stack hub üzembe helyezéséhez, további, egymástól függő döntéseket kell hoznia az Identity Store-hoz és a számlázási módszerhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Connected Azure Stack hub telepítési döntései](azure-stack-connected-deployment.md)
 

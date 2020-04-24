@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423970"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>A Event Hubs telepítése Azure Stack hubhoz
@@ -49,7 +49,7 @@ Kövesse ezeket az utasításokat, ha az Azure Stack hub internetkapcsolattal re
 Figyelje meg, hogy a további szoftvercsomagok a Event Hubs együtt tölthetők le, beleértve a következőket:
 
 - Microsoft Azure Stack hub-bővítmény RP Windows Server csak belső
-- PowerShell Desired State Configuration
+- PowerShell kívánt állapotának konfigurálása
 
 A letöltési folyamat befejezése után ugorjon az [Előfeltételek telepítése szakaszra](#install-prerequisites).
 
@@ -69,12 +69,12 @@ Először töltse le a csomagokat a helyi gépre, majd importálja őket a Azure
    [![Marketplace-kezelő letöltött csomagjai](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 4. A Event Hubs install csomag oldalon egy kék szalagcímnek kell megjelennie az egész tetején. A Event Hubs telepítésének megkezdéséhez kattintson a szalagcímre.
-   [![piactér felügyeleti esemény-hubok – telepítés indítása](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Piactér-felügyeleti esemény hubok – telepítés indítása](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Az előfeltételek telepítése
 
 1. Ezután a telepítés lapra kerül át. A telepítési folyamat megkezdéséhez válassza az **Előfeltételek telepítése** lehetőséget.
-   ![piactér felügyeleti esemény-hubok – előfeltételek](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Piactér-felügyeleti esemény-hubok – előfeltételek](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Várjon, amíg az Előfeltételek telepítése sikeres lesz. A következő lépés végrehajtása előtt egy zöld pipa jelenik meg a **telepítés előfeltételeinek telepítése** előtt.
 
@@ -83,27 +83,27 @@ Először töltse le a csomagokat a helyi gépre, majd importálja őket a Azure
 ### <a name="prepare-secrets"></a>Titkok előkészítése 
 
 1. A **2 alatt. Készítse el a titkokat** lépést, válassza a **tanúsítvány hozzáadása**lehetőséget, és megjelenik a **tanúsítvány hozzáadása** panel.
-   ![Marketplace felügyeleti esemény-hubok – a titkok előkészítése](media/event-hubs-rp-install/6-marketplace-management-install-prepare-secrets.png)
+   ![Piactér-felügyeleti esemény-hubok – titkok előkészítése](media/event-hubs-rp-install/6-marketplace-management-install-prepare-secrets.png)
 
 2. A tanúsítvány **hozzáadása**lapon kattintson a Tallózás gombra a tanúsítvány neve mező jobb oldalán.
 3. Válassza ki az előfeltételek teljesítése során beszerzett. pfx tanúsítványfájl-fájlt. További információ: [a telepítés előfeltételei](event-hubs-rp-prerequisites.md). 
 
-4. Adja meg az SSL-tanúsítvány Event Hubs biztonságos karakterlánc létrehozásához megadott jelszót. Ezután válassza a **Hozzáadás** lehetőséget.
-   ![piactér felügyeleti esemény-hubok – tanúsítvány hozzáadása](media/event-hubs-rp-install/7-marketplace-management-install-prepare-secrets-add-cert.png)
+4. Adja meg az SSL-tanúsítvány Event Hubs biztonságos karakterlánc létrehozásához megadott jelszót. Ezután válassza a **Hozzáadás**lehetőséget.
+   ![Piactér-felügyeleti esemény hubok – tanúsítvány hozzáadása](media/event-hubs-rp-install/7-marketplace-management-install-prepare-secrets-add-cert.png)
 
 ### <a name="install-resource-provider"></a>Erőforrás-szolgáltató telepítése
 
 1. Ha a tanúsítvány telepítése sikeres, egy zöld pipa jelenik meg a **titkok előkészítése** elem mellett, mielőtt továbblép a következő lépésre. Most kattintson a **telepítés** gombra a **3. erőforrás-szolgáltató telepítése**lehetőség mellett.
-   ![piactér felügyeleti esemény-hubok – telepítés megkezdése](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
+   ![Piactér-felügyeleti esemény hubok – telepítés indítása](media/event-hubs-rp-install/8-marketplace-management-install-start.png)
  
 2. Ezután a következő oldal jelenik meg, amely azt jelzi, hogy Event Hubs erőforrás-szolgáltató van telepítve.
-   [![piactér felügyeleti esemény-hubok – telepítés](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
+   [![Piactér-felügyeleti esemény hubok – telepítés](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png)](media/event-hubs-rp-install/9-marketplace-management-install-inprogress.png#lightbox)
  
 3. Várjon, amíg a telepítés befejeződött. Ez a folyamat általában egy vagy több órát vesz igénybe a Azure Stack hub típusától függően. 
-   [![piactér felügyeleti esemény-hubok – a telepítés befejeződött](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
+   [![Piactér-felügyeleti esemény-hubok – a telepítés befejeződött](media/event-hubs-rp-install/10-marketplace-management-install-complete.png)](media/event-hubs-rp-install/10-marketplace-management-install-complete.png#lightbox)
 
 4. Ellenőrizze, hogy a Event Hubs telepítése sikeres volt-e, és térjen vissza a **piactér-kezelés**, erőforrás- **szolgáltatók** lapra. Event Hubs állapotának a "telepített" értéknek kell megjelennie.
-   ![Marketplace felügyeleti esemény hubok elérhetők](media/event-hubs-rp-install/11-marketplace-management-rps-installed.png)
+   ![Piactér-felügyeleti esemény hubok elérhetők](media/event-hubs-rp-install/11-marketplace-management-rps-installed.png)
 
 ## <a name="register-event-hubs"></a>Event Hubs regisztrálása
 
@@ -118,16 +118,16 @@ Most regisztrálnia kell a Event Hubs erőforrás-szolgáltatót. A regisztráci
 5. A fenti **szűrés név alapján** mezőben keresse meg a "EventHub" karakterláncot.
 6. Tekintse meg a "Microsoft. EventHub" és a "Microsoft. EventHub. admin" erőforrás-szolgáltató sorainak **állapot** oszlopát.
 7. Ha bármelyikük "regisztráció nélkül" állapotú, válassza ki az egyes szolgáltatókat, majd válassza a **regisztráció**lehetőséget. 
-   nem regisztrált erőforrás-szolgáltatók ![](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
+   ![Nem regisztrált erőforrás-szolgáltatók](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
 8. Néhány másodperc elteltével válassza a **frissítés**lehetőséget. Ekkor látnia kell az erőforrás-szolgáltatót a regisztrált állapottal. 
 9. Ekkor látnia kell a Microsoft. EventHub és a Microsoft. EventHub. admin nevű "regisztrált" állapotot.
-   ![regisztrált erőforrás-szolgáltatók](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
+   ![Regisztrált erőforrás-szolgáltatók](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
 
 10. Térjen vissza a **minden szolgáltatás** lapra.
 11. Keressen rá a "Event Hubs" kifejezésre. Ekkor megjelenik a "Event Hubs", amely a Event Hubs adminisztrációs oldal belépési pontja. 
-   ![elérhető szolgáltatások – Event hubok](media/event-hubs-rp-install/14-all-service-event-hubs.png)
+   ![Elérhető szolgáltatások – Event hubok](media/event-hubs-rp-install/14-all-service-event-hubs.png)
  
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Mielőtt a felhasználók üzembe helyezhetik Event Hubs erőforrásait, létre kell hoznia egy vagy több csomagot, ajánlatot és előfizetést. 
 

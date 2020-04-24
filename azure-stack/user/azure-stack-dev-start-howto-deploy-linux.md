@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77704199"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Linux rendszerű virtuális gép üzembe helyezése Azure Stack hub webalkalmazásának üzemeltetéséhez
@@ -44,7 +44,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 ### <a name="create-your-vm"></a>A virtuális gép létrehozása
 
 1. Hozzon létre egy Secure Shell (SSH) nyilvános kulcsot a kiszolgáló számára. További információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Az Azure Stack hub portálon válassza az **erőforrás létrehozása** > **számítási** > **Ubuntu Server 16,04 LTS**lehetőséget.
+1. Az Azure stack hub portálon válassza az **erőforrás** > létrehozása**számítási** > **Ubuntu Server 16,04 LTS**elemet.
 
     ![Webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
@@ -58,7 +58,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     d. Válassza ki a **hitelesítési típust** **nyilvános SSH-kulcsként**.
 
-    e. Kérje le a létrehozott nyilvános SSH-kulcsot. Nyissa meg egy szövegszerkesztőben, másolja a kulcsot, majd illessze be az **SSH nyilvános kulcs** mezőbe. `---- BEGIN SSH2 PUBLIC KEY ----` szövegének belefoglalása `---- END SSH2 PUBLIC KEY ----`ba. Illessze be a teljes blokkot a mezőbe:
+    e. Kérje le a létrehozott nyilvános SSH-kulcsot. Nyissa meg egy szövegszerkesztőben, másolja a kulcsot, majd illessze be az **SSH nyilvános kulcs** mezőbe. Adja meg `---- END SSH2 PUBLIC KEY ----`a szöveget `---- BEGIN SSH2 PUBLIC KEY ----` a következőre:. Illessze be a teljes blokkot a mezőbe:
 
     ```text  
     ---- BEGIN SSH2 PUBLIC KEY ----
@@ -81,7 +81,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
     > - Az ajánlott méreteket a kiválasztott rendszerkép közzétevője határozza meg, és a hardverre és a szoftverre vonatkozó követelmények alapján történik.
     > - A standard lemezek (HDD-k) prémium szintű lemezekkel (SSD) való használata hatással lehet az operációs rendszer teljesítményére.
 
-1. **3.** Adja meg a választható szolgáltatásokat, írja be a következőt:
+1. **3. **Adja meg a választható szolgáltatásokat, írja be a következőt:
 
     a. A **magas rendelkezésre állás** érdekében válassza ki a rendelkezésre állási készletet. Ha redundanciát szeretne biztosítani az alkalmazás számára, a két vagy több virtuális gépet egy rendelkezésre állási csoportban csoportosítva adja meg. Ez a konfiguráció biztosítja, hogy a tervezett vagy nem tervezett karbantartási események esetén legalább egy virtuális gép elérhető legyen, és teljesítse a 99,95%-os Azure-beli szolgáltatói szerződést (SLA). A virtuális gép rendelkezésre állási csoportja nem módosítható a létrehozása után.
 
@@ -172,6 +172,6 @@ Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók 
         sudo apt-get -y upgrade
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).

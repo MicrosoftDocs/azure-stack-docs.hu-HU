@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/17/2020
 ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79511895"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Kötetek törlése Azure Stack HCI-ben
@@ -54,7 +54,7 @@ A rendszer felszólítja, hogy erősítse meg, hogy végre szeretné hajtani a m
    > [!WARNING]
    > Ez nem helyreállítható művelet. Ez a példa véglegesen töröl egy **VirtualDisk** kötet objektumot.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A további alapvető tárolási felügyeleti feladatokkal kapcsolatos részletes útmutatásért lásd még:
 

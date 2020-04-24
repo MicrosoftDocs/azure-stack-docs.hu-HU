@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: e0aaed5d444a0d7b617ecd2ccd350a9812be8a2c
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79025435"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Sikertelen meghajtók cseréje Azure Stack HCI-re
@@ -28,5 +28,5 @@ Ha egy meghajtó meghibásodik, a **Windows felügyeleti központ** irányítóp
 ## <a name="wait-for-the-alert-to-clear"></a>Várakozás a riasztás törlésére
 A **meghajtók > leltárban**megjelenik az új meghajtó. Az idő elteltével a riasztás törölve lesz, a kötetek visszakerülnek az OK állapotba, a tárterület pedig az új meghajtóra lesz kiegyensúlyozva – nincs szükség felhasználói beavatkozásra.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 -  Annak megismeréséhez, hogy a tárolási állapot hogyan legyen nyomon követve különböző szinteken, például a meghajtó szintjén, tekintse meg az [állapot és működési állapotok](/windows-server/storage/storage-spaces/storage-spaces-states)című témakört.

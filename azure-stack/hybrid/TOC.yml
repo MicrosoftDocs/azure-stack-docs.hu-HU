@@ -6,9 +6,9 @@
       href: overview-patterns-solution-examples.md
 - name: Minták
   items:
-    - name: Önálló
+    - name: Egyirányú
       items:
-        - name: Cross Cloud skálázás
+        - name: Felhőn átívelő méretezés
           href: pattern-cross-cloud-scale.md
         - name: DevOps Hybrid CI/CD
           href: pattern-cicd-pipeline.md
@@ -22,7 +22,7 @@
           href: pattern-train-ml-model-at-edge.md
     - name: Multi
       items:
-        - name: Cross Cloud skálázás (helyszíni adatfeldolgozás)
+        - name: Felhőn átívelő méretezés (helyszíni adatfeldolgozások)
           href: pattern-cross-cloud-scale-onprem-data.md
         - name: Lépés hangja észlelése (kereskedelmi)
           href: pattern-retail-footfall-detection.md
@@ -68,7 +68,7 @@
       href: /rest/api/azure-stack/
     - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Kapcsolódó témakör
+- name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
@@ -76,7 +76,7 @@
       href: /azure-stack/operator/
     - name: ASDK-dokumentáció
       href: /azure-stack/asdk/
-- name: Erőforrások
+- name: További források
   items:
     - name: Azure Stack hub frissítései
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

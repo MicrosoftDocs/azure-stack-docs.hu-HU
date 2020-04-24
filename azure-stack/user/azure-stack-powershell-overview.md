@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
 ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703808"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Ismerkedés a PowerShell-lel Azure Stack hub-ban
@@ -20,9 +20,9 @@ A PowerShell úgy van kialakítva, hogy az erőforrásokat a parancssorból keze
 
 Ez a cikk segítséget nyújt az Azure Stack hub-ban használt PowerShell-modulok különböző eléréséhez. Ha a PowerShellt Azure Stack hub-ban használja, a négy API-készlet bármelyikét használhatja, ahogy az a következő táblázatban látható:
 
-| API | PowerShell-referencia | REST-hivatkozás |
+| API | PowerShell-referencia | REST-referencia |
 | --- | --- | --- |
-| Globális Azure Resource Manager | [Azure PowerShell modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](https://docs.microsoft.com/rest/api/) |
+| Globális Azure Resource Manager | [Azure PowerShell-modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](https://docs.microsoft.com/rest/api/) |
 | Azure Stack hub Resource Manager | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) |
 | Azure Stack hub rendszergazdai végpontok | [Azure Stack hub felügyeleti modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST API Browser-Azure Stack hub](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
 | Azure Stack hub privilegizált végpontja | [A rendszerjogosultságú végpont használata Azure Stack központban](../operator/azure-stack-privileged-endpoint.md) | |
@@ -66,7 +66,7 @@ Ha sok időt tölt a Azure Stack hub PowerShell használatával, akkor a modulok
 A Docker-tárolók segítségével elkülönítheti a PowerShell egyes verzióit a helyi gépen. Ha Docker-tárolókat szeretne használni, hogy a PowerShell-modul PowerShell-modul készletére váltson, a PowerShell [futtatásához használja a Docker használata](azure-stack-powershell-user-docker.md)című témakört.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack hub-ban.
 - Telepítse [Azure stack hub PowerShellt](../operator/azure-stack-powershell-install.md).

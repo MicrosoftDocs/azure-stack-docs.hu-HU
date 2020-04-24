@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
 ms.openlocfilehash: 4cfc5ee7f9e2284b3f7f5c632980235b24d2e956
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367505"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack hub biztonsági vezérlőinek konfigurálása
@@ -114,7 +114,7 @@ Példa a kimenetre:
     VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
     VERBOSE: TLS 1.2 is not enforced
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tudnivalók a Azure Stack hub-infrastruktúra biztonsági helyzetéről](azure-stack-security-foundations.md)
 - [Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban](azure-stack-rotate-secrets.md)

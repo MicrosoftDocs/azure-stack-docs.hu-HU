@@ -20,7 +20,7 @@
       href: azure-stack-vaas-local-agent.md
     - name: A teszt időzítése
       href: azure-stack-vaas-schedule-test-pass.md
-    - name: OEM-csomag létrehozása
+    - name: Hardvergyártói csomag létrehozása
       href: azure-stack-vaas-create-oem-package.md
     - name: OEM-csomagok ellenőrzése
       href: azure-stack-vaas-validate-oem-package.md
@@ -42,7 +42,7 @@
       href: azure-stack-vaas-parameters.md
     - name: A szolgáltatás érvényesítésének megoldása
       href: azure-stack-vaas-troubleshoot.md
-- name: Kapcsolódó
+- name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator

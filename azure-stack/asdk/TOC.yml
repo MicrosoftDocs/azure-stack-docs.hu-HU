@@ -23,7 +23,7 @@
       items:
         - name: A fejlesztői csomag letöltése és kibontása
           href: asdk-download.md
-        - name: A ASDK-gazda számítógép előkészítése
+        - name: Az ASDK-gazdagép előkészítése
           href: asdk-prepare-host.md
         - name: A ASDK telepítése – telepítő
           href: asdk-install.md
@@ -45,11 +45,11 @@
       href: asdk-connect.md
     - name: Hibaelhárítás
       href: asdk-troubleshooting.md
-- name: Leírások
+- name: Referencia
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: CLI
+    - name: parancssori felület
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Kapcsolódó témakörök
   items:
@@ -57,7 +57,7 @@
       href: /azure-stack/operator
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
-- name: Segédanyagok és eszközök
+- name: További források
   items:
     - name: Azure Stack ütemterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
@@ -69,5 +69,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Képzési és minősítési lehetőségek
+    - name: Képzés és tanúsítványok
       href: /azure-stack/operator/azure-stack-train-and-cert

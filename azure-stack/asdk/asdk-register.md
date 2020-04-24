@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
 ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77700646"
 ---
 # <a name="register-the-asdk-with-azure"></a>A ASDK regisztrálása az Azure-ban
@@ -77,7 +77,7 @@ A ASDK az Azure-ban való regisztrálásához kövesse az alábbi lépéseket.
 
 ## <a name="register-in-disconnected-environments"></a>Regisztráció leválasztott környezetekben
 
-Ha Azure Stackt regisztrál egy leválasztott környezetben (internetkapcsolat nélkül), akkor regisztrálnia kell egy regisztrációs jogkivonatot a Azure Stack-környezetből, majd ezt a tokent kell használnia egy olyan számítógépen, amely csatlakozhat az Azure-hoz a regisztráláshoz és az aktiválás létrehozásához. a ASDK-környezet erőforrása.
+Ha Azure Stackt regisztrál egy leválasztott környezetben (internetkapcsolat nélkül), akkor regisztrálnia kell egy regisztrációs jogkivonatot a Azure Stack-környezetből, majd ezt a tokent kell használnia egy olyan számítógépen, amely csatlakozhat az Azure-hoz a ASDK-környezethez tartozó aktiválási erőforrás regisztrálásához és létrehozásához.
 
  > [!IMPORTANT]
  > Mielőtt felhasználja ezeket az utasításokat a Azure Stack regisztrálásához, győződjön meg arról, hogy telepítette a PowerShellt a Azure Stackhoz, és letöltötte a Azure Stack eszközöket a [Telepítés utáni konfiguráció](asdk-post-deploy.md) című cikkben leírtak szerint mind a ASDK gazdagépen, mind pedig az Azure-hoz való kapcsolódáshoz és a regisztráláshoz használt internet-hozzáféréssel.
@@ -102,7 +102,7 @@ A ASDK gazdaszámítógépen indítsa el a PowerShellt rendszergazdaként, és n
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A fájlt vagy a szöveget a `$FilePathForRegistrationToken` paraméter által létrehozott fájlból másolhatja.
+Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A (z) `$FilePathForRegistrationToken` paraméterrel létrehozott fájlból vagy szövegből is másolhatja a fájlt.
 
 ### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
@@ -221,6 +221,6 @@ A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrá
 Az **ugyanahhoz az előfizetéshez** tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub Marketplace-elem hozzáadása](../operator/azure-stack-marketplace.md)

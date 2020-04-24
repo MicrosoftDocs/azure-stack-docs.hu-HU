@@ -7,10 +7,10 @@ ms.date: 01/10/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
 ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702924"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Key Vault kezelése Azure Stack hub-ban a portál használatával
@@ -87,7 +87,7 @@ A titkos kód sikeres létrehozása után kiválaszthatja a **titkok** szakaszba
 
 ![URI-titok](media/azure-stack-key-vault-manage-portal/image5.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Virtuális gép üzembe helyezése a Key Vaultban tárolt jelszó beolvasásával](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault-ben tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése](azure-stack-key-vault-push-secret-into-vm.md)

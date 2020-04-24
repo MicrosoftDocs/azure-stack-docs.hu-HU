@@ -3,16 +3,16 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stac
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/08/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294241"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80979423"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
 
@@ -42,7 +42,7 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
 2. A Piactéri elemek letöltése előtt tekintse át a rendelkezésre álló tárolóhelyet. Később, amikor kiválasztja az elemeket a letöltéshez, összehasonlíthatja a letöltési méretet a rendelkezésre álló tárterület kapacitásával. Ha a kapacitás korlátozott, vegye figyelembe a [rendelkezésre álló terület kezelésének](azure-stack-manage-storage-shares.md#manage-available-space)lehetőségeit.
 
-   A rendelkezésre álló terület áttekintéséhez: a **régió felügyelete**területen válassza ki a vizsgálni kívánt régiót, majd lépjen az **erőforrás-szolgáltatók** > **tárolóhoz**:
+   A rendelkezésre álló terület áttekintéséhez: a **régió felügyelete**területen válassza ki a vizsgálni kívánt régiót, majd nyissa meg az **erőforrás-szolgáltatók** > **tárolót**:
 
    ![Tárterület áttekintése Azure Stack hub felügyeleti portálján](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -54,9 +54,9 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
    ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
-5. Ha egy elem verziója **több**néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából:
+5. Ha egy elem verziója **több**néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából. Vegye figyelembe, hogy a Microsoft mostantól lehetővé teszi olyan attribútumok hozzáadását, amelyek letiltják a rendszergazdák számára a Azure Stack nem kompatibilis piactér-termékek letöltését, különböző tulajdonságok (például a Azure Stack vagy a számlázási modell) miatt. Csak a Microsoft adhatja hozzá ezeket az attribútumokat:
 
-   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
+   [![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Több verzió")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
 
 6. Válassza ki a kívánt elemet, majd válassza a **Letöltés**lehetőséget. A letöltési idő változó, és a hálózati kapcsolattól függ. A letöltés befejezése után az új Piactéri elem üzembe helyezhető Azure Stack hub-operátorként vagy felhasználóként.
 
@@ -138,14 +138,14 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
      ![Azure Stack regisztrációk kiválasztása](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
    Ekkor egy második táblázat jelenik meg, amely felsorolja az összes letölthető Piactéri elemet. Válassza ki a letölteni kívánt elemet, és jegyezze fel a **verziót**. A **CTRL** billentyűt lenyomva több lemezképet is kijelölhet.
-     ![válassza a Azure Stack regisztrációk](media/azure-stack-download-azure-marketplace-item/select-products.png)
+     ![Azure Stack regisztrációk kiválasztása](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
    A képek listáját a **feltételek hozzáadása** lehetőség használatával is szűrheti.
-   ![válassza a Azure Stack regisztrációk](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
+   ![Azure Stack regisztrációk kiválasztása](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
 
    Miután elvégezte a beállításokat, kattintson az OK gombra.
 
-6. A piactérről kiválasztott piactér-elemek azonosítói a `$products` változóban lesznek mentve. A kijelölt elemek letöltésének megkezdéséhez használja az alábbi parancsot. Cserélje le a célmappa elérési útját egy olyan helyre, amely az Azure Marketplace-ről letöltött fájlokat tárolja:
+6. A piactéren a letöltéshez kiválasztott elemek azonosítói a `$products` változóban lesznek mentve. A kijelölt elemek letöltésének megkezdéséhez használja az alábbi parancsot. Cserélje le a célmappa elérési útját egy olyan helyre, amely az Azure Marketplace-ről letöltött fájlokat tárolja:
 
     ```powershell
     $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"

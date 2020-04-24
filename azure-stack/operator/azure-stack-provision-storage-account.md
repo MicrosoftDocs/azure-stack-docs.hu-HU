@@ -8,17 +8,17 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
 ms.openlocfilehash: 2d4085605fc37e95c3f68db074d4a517f5296a7a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367913"
 ---
 # <a name="create-storage-accounts-in-azure-stack-hub"></a>Storage-fiókok létrehozása Azure Stack központban
 
 Azure Stack hub Storage-fiókjai közé tartozik a blob és a Table Services, valamint a Storage-adatobjektumok egyedi névtere. Alapértelmezés szerint a fiókban tárolt adatok csak Ön, azaz a tárfiók tulajdonosa számára érhetők el.
 
-1. Az Azure Stack hub POC számítógépen jelentkezzen be a [`https://adminportal.local.azurestack.external` rendszergazdaként, majd](../asdk/asdk-connect.md)kattintson az **+ erőforrás létrehozása** ** > adattároló > ** **Storage-fiók**elemre.
+1. Az Azure stack hub POC számítógépén `https://adminportal.local.azurestack.external` jelentkezzen be [rendszergazdaként](../asdk/asdk-connect.md), majd kattintson az **+ erőforrás** > létrehozása és**Storage** > **Storage-fiók**elemre.
 
    ![A Storage-fiók létrehozása Azure Stack hub felügyeleti portálon](media/azure-stack-provision-storage-account/image01.png)
 
@@ -30,8 +30,8 @@ Azure Stack hub Storage-fiókjai közé tartozik a blob és a Table Services, va
 
     ![A Storage-fiók neve a Azure Stack hub felügyeleti portálján](media/azure-stack-provision-storage-account/image03.png)
 
-### <a name="next-steps"></a>Következő lépések
+### <a name="next-steps"></a>További lépések
 
 - [Használjon Azure Resource Manager-sablonokat](../user/azure-stack-arm-templates.md)
-- [További tudnivalók az Azure Storage-fiókokról](/azure/storage/common/storage-create-storage-account)
+- [Ismerje meg az Azure tárfiókokat](/azure/storage/common/storage-create-storage-account)
 - [Az Azure Stack hub Azure-konzisztens tárolási ellenőrzési útmutatójának letöltése](https://aka.ms/azurestacktp1doc)

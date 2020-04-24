@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80614382"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Az Azure Stack hub Event Hubs áttekintése
@@ -36,13 +36,13 @@ Az Azure Stack hub Event Hubs használatával olyan üzleti forgatókönyveket v
 
 Olyan hibrid megoldásokat hozhat létre, amelyek helyileg töltik fel és dolgozzák fel a peremhálózat adatait az Azure Stack hub-on. Összesített adatokat küldhet az Azure-ba további feldolgozáshoz, vizualizációhoz és tároláshoz. Ha szükséges, használja ki a kiszolgáló nélküli számítástechnikai szolgáltatást az Azure-ban.
 
-[![Hybrid Solutions diagram](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
+[![Hibrid megoldások diagramja](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
 
 ## <a name="features"></a>Szolgáltatások 
 
 A Event Hubs kiadásai (Azure Stack hub és az Azure-on) magas fokú szolgáltatási paritást kínálnak. Ez a paritás azt jelenti, hogy az SDK-k, minták, PowerShell, CLI és portálok hasonló élményt nyújtanak, néhány különbséggel. A következő táblázat összefoglalja, hogy a szolgáltatások rendelkezésre állása milyen magas szintű különbségeket tartalmaz a kiadások között.  
 
-| Funkció | Event Hubs Azure Stack központban | Azure Event Hubs |
+| Szolgáltatás | Event Hubs Azure Stack központban | Azure Event Hubs |
 |-|-|-|-|
 | Kezelői rendszergazdai élmény | ✔ | ✘ |
 | Kafka-támogatás | ✔ | ✔ |
@@ -74,7 +74,7 @@ Ha többet szeretne megtudni a Event Hubs Azure Stack hub-kezelői felülettel k
 - Naplók gyűjtése.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha Event Hubs nem érhető el az előfizetésben, akkor a rendszergazdával együttműködve [telepítse a Event Hubst Azure stack hub erőforrás-szolgáltatón](../operator/event-hubs-rp-overview.md).
 

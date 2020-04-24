@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80068949"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése Azure Stack hub egyéni virtuális hálózatán 
@@ -29,9 +29,9 @@ Hozzon létre egy új alhálózatot a virtuális hálózaton. Az alhálózati er
 1. Nyissa meg az Azure Stack hub felhasználói portált a Azure Stack hub-példányban.
 2. Válassza az **Összes erőforrás** elemet.
 3. Adja meg a virtuális hálózat nevét a keresőmezőbe.
-4. Alhálózat **hozzáadásához válassza az alhálózatok** >  **+ alhálózatok** lehetőséget.
+4. Alhálózat hozzáadásához válassza az **alhálózatok** > és**alhálózatok** lehetőséget.
 5. Adjon hozzá egy **nevet** és egy **címtartományt** a CIDR-jelölés használatával. Kattintson az **OK** gombra.
-4. Válassza a **Tulajdonságok** lehetőséget a **virtuális hálózatok** panelen. Másolja ki az **erőforrás-azonosítót**, majd adja hozzá a `/subnets/<nameofyoursubnect>`. Ezt az értéket fogja használni a fürthöz tartozó API-modell `vnetSubnetId` kulcsának értékeként. Az alhálózat erőforrás-azonosítója a következő formátumot használja:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
+4. Válassza a **Tulajdonságok** lehetőséget a **virtuális hálózatok** panelen. Másolja ki az **erőforrás-azonosítót**, majd `/subnets/<nameofyoursubnect>`adja hozzá a t. Ezt az értéket fogja használni a fürthöz tartozó API `vnetSubnetId` -modell kulcsának értékeként. Az alhálózat erőforrás-azonosítója a következő formátumot használja:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
 
     ![virtuális hálózati erőforrás azonosítója](media/kubernetes-aks-engine-custom-vnet/virtual-network-id.png)
 
@@ -39,7 +39,7 @@ Hozzon létre egy új alhálózatot a virtuális hálózaton. Az alhálózati er
     
     ![virtuális hálózati CIDR blokk](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
-6. Az alhálózat panelen jegyezze fel a címtartományt és a virtuális hálózati CIDR blokkot, például: `10.1.0.0 - 10.1.0.255 (256 addresses)` és `10.1.0.0/24`.
+6. Az alhálózat panelen jegyezze fel a címtartomány és a virtuális hálózat CIDR blokkját, például: `10.1.0.0 - 10.1.0.255 (256 addresses)` és. `10.1.0.0/24`
 
 
 
@@ -54,7 +54,7 @@ Az AK-motor több főcsomópont használata esetén legfeljebb 16 nem használt 
 Az IP-címek blokkjának elhelyezésekor az alhálózatnak a meglévő IP-címek következő foglalásait kell megadnia:
  - Az első négy IP-cím és az utolsó IP-cím le van foglalva, és nem használható egyetlen Azure-alhálózatban sem
  - A 16 IP-cím pufferének nyitva kell maradnia.
- - A fürt első IP-címének a címtartomány vége felé kell esnie az IP-ütközések elkerülése érdekében. Ha lehetséges, rendelje hozzá a `firstConsecutiveStaticIP` tulajdonságot egy IP-címhez az alhálózaton elérhető IP-címtartomány *vége* közelében.
+ - A fürt első IP-címének a címtartomány vége felé kell esnie az IP-ütközések elkerülése érdekében. Ha lehetséges, rendelje hozzá `firstConsecutiveStaticIP` a tulajdonságot egy IP-címhez az alhálózat elérhető IP-címtartomány *vége* közelében.
 
 A következő példában láthatja, hogy a különböző szempontok hogyan töltik ki az alhálózat IP-tartományát. Ez három főkiszolgálón érhető el. Ha 256-címmel rendelkező alhálózatot használ, például 10.1.0.0/24, akkor az első egymást követő statikus IP-címet kell megadnia a 207-nél. A következő táblázat a címeket és szempontokat tartalmazza:
 
@@ -65,7 +65,7 @@ A következő példában láthatja, hogy a különböző szempontok hogyan tölt
 | 10.1.0.239 - 10.1.0.255 | 16 | 16 IP-cím puffere. |
 | 10.1.0.256 | 1 | Az Azure-alhálózaton van fenntartva. |
 
-Ebben a példában a `firstConsecutiveStaticIP` tulajdonságot `10.1.0.224`.
+Ebben a példában a `firstConsecutiveStaticIP` tulajdonság a következő lesz `10.1.0.224`:.
 
 Nagyobb alhálózatok esetén, például a 60000-nál több címmel rendelkező/16 esetében előfordulhat, hogy nem találja, hogy a statikus IP-hozzárendeléseket a hálózati terület végére állítsa be. Állítsa be a fürt statikus IP-címét az IP-terület első 24 címéről, hogy a fürt rugalmas legyen a címek igénylése során.
 
@@ -79,7 +79,7 @@ A **masterProfile** állítsa be a következő értékeket:
 | Mező | Példa | Leírás |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Határozza meg az alhálózat erőforrás-AZONOSÍTÓját.  |
-| firstConsecutiveStaticIP | 10.1.0.224 | Rendeljen hozzá egy olyan IP-címet a `firstConsecutiveStaticIP` konfigurációs tulajdonsághoz, amely a kívánt alhálózaton elérhető IP-címtartomány *vége* közelében van. `firstConsecutiveStaticIP` csak a fő készletre vonatkozik. |
+| firstConsecutiveStaticIP | 10.1.0.224 | Rendeljen hozzá `firstConsecutiveStaticIP` egy olyan IP-címet a konfigurációs tulajdonsághoz, amely a kívánt alhálózaton elérhető IP-címtartomány *vége* közelében van. `firstConsecutiveStaticIP`csak a fő készletre vonatkozik. |
 
 A **agentPoolProfiles** állítsa be a következő értékeket:
 
@@ -108,11 +108,11 @@ Például:
 
 ## <a name="deploy-your-cluster"></a>A fürt üzembe helyezése
 
-Miután hozzáadta az értékeket az API-modellhez, a `deploy` parancs használatával üzembe helyezheti a fürtöt az ügyfélgépről az AK-motor használatával. Útmutatásért lásd: [Kubernetes-fürt üzembe helyezése](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
+Miután hozzáadta az értékeket az API-modellhez, üzembe helyezheti a fürtöt az ügyfélszámítógépről `deploy` a PARANCCSAL az AK-motor használatával. Útmutatásért lásd: [Kubernetes-fürt üzembe helyezése](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
 
 ## <a name="set-the-route-table-and-network-security-group"></a>Az útválasztási tábla és a hálózati biztonsági csoport beállítása
 
-A fürt üzembe helyezése után térjen vissza a virtuális hálózathoz a Azure Stack felhasználói portálon. Állítsa be az útválasztási táblázatot és a hálózati biztonsági csoportot (NSG) az alhálózat paneljén. Ha nem használja az Azure CNI-t, például `networkPlugin`: `kubenet` az `kubernetesConfig` API-modell konfigurációs objektumában. Miután sikeresen telepített egy fürtöt az egyéni virtuális hálózatra, szerezze be az útválasztási tábla erőforrásának AZONOSÍTÓját a fürt erőforráscsoport **hálózat** paneljéről.
+A fürt üzembe helyezése után térjen vissza a virtuális hálózathoz a Azure Stack felhasználói portálon. Állítsa be az útválasztási táblázatot és a hálózati biztonsági csoportot (NSG) az alhálózat paneljén. Ha nem az Azure CNI használja, például `networkPlugin`: `kubenet` az `kubernetesConfig` API-modell konfigurációs objektumában. Miután sikeresen telepített egy fürtöt az egyéni virtuális hálózatra, szerezze be az útválasztási tábla erőforrásának AZONOSÍTÓját a fürt erőforráscsoport **hálózat** paneljéről.
 
 1. Nyissa meg az Azure Stack hub felhasználói portált a Azure Stack hub-példányban.
 2. Válassza az **Összes erőforrás** elemet.
@@ -127,7 +127,7 @@ A fürt üzembe helyezése után térjen vissza a virtuális hálózathoz a Azur
 > [!Note]  
 > A Kubernetes Windows-fürthöz tartozó egyéni virtuális hálózat [ismert hibával](https://github.com/Azure/aks-engine/issues/371)rendelkezik.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - További információ a [tárolók Azure monitoráról – áttekintés](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)

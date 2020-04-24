@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
 ms.openlocfilehash: c5f3a357295647f557e0b4ef9819aa1781779434
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705304"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Az Azure Stack hub felhasználói portál használata
@@ -22,8 +22,8 @@ Az Azure Stack hub portálon fizethet elő nyilvános ajánlatokra, és használ
 
 A Azure Stack hub-operátor (a szervezet egyik szolgáltatója vagy rendszergazdája) lehetővé teszi a megfelelő URL-cím elérését a portálhoz való hozzáféréshez.
 
-- Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, és a formátuma https://portal.&lt; *régió*&gt;.&lt;*FQDN*&gt;.
-- Ha a Azure Stack Development Kit (ASDK) használja, a portál címe https://portal.local.azurestack.external.
+- Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, és a formátuma https://portal.&lta következő: *régió*&gt;. &lt; *FQDN*FQDN&gt;.
+- Ha a Azure Stack Development Kit (ASDK) használja, a portál címe a következő: https://portal.local.azurestack.external.
 - Az összes Azure Stack hub üzemelő példány alapértelmezett időzónája az egyezményes világidő (UTC) szerint van beállítva. Kiválaszthat egy időzónát Azure Stack hub telepítésekor, de a telepítés során automatikusan visszavált az UTC értékre.
 
 ## <a name="customize-the-dashboard"></a>Az irányítópult testreszabása
@@ -50,7 +50,7 @@ Ha útmutatásra van szüksége az elérhető szolgáltatások használatához, 
 
 - A szervezet vagy szolgáltató a saját dokumentációját is megadhatja, ami általában akkor fordul elő, ha testreszabott szolgáltatásokat vagy alkalmazásokat biztosítanak.
 - A harmadik féltől származó alkalmazások saját dokumentációval rendelkeznek.
-- Az Azure-konzisztens szolgáltatások esetében javasoljuk, hogy először tekintse át az Azure Stack hub dokumentációját. Az Azure Stack hub felhasználói dokumentációjának eléréséhez válassza a Súgó ikont ( **?** ), majd kattintson a **Súgó és támogatás**elemre.
+- Az Azure-konzisztens szolgáltatások esetében javasoljuk, hogy először tekintse át az Azure Stack hub dokumentációját. Az Azure Stack hub felhasználói dokumentációjának eléréséhez válassza a Súgó ikont (**?**), majd kattintson a **Súgó és támogatás**elemre.
 
     ![Súgó és támogatás lehetőség a felhasználói felületen](media/azure-stack-use-portal/HelpAndSupport.png)
 
@@ -67,6 +67,6 @@ Ha támogatásra van szüksége, segítségért forduljon a szervezethez vagy a 
 
 Ha a Azure Stack Development Kit (ASDK) használja, a [Azure stack hub-fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) az egyetlen támogatott támogatási forrás.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Főbb szempontok: szolgáltatások használata vagy alkalmazások készítése Azure Stack hubhoz](azure-stack-considerations.md)

@@ -8,15 +8,15 @@ ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: ba5c757a08b63c80ce86a9f8890f82fa696066a5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294692"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 
-Azure Stack hub-t úgy konfigurálhatja, hogy támogassa a több Azure Active Directory (Azure AD) bérlő felhasználóit, így az Azure Stack hub szolgáltatásainak használatát is lehetővé teszi. Vegyük például a következő forgatókönyvet:
+Azure Stack hub-t úgy konfigurálhatja, hogy támogassa a több Azure Active Directory (Azure AD) bérlő felhasználóit, így az Azure Stack hub szolgáltatásainak használatát is lehetővé teszi. Vegyük példaként a következő esetet:
 
 - Ön a contoso.onmicrosoft.com szolgáltatás rendszergazdája, ahol a Azure Stack hub telepítve van.
 - Mary a fabrikam.onmicrosoft.com címtár-rendszergazdája, ahol a vendég felhasználók találhatók.
@@ -102,9 +102,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Közvetlen bejelentkezés a felhasználók számára
 
-Most, hogy Mary elvégezte a Mary címtár bevezetésének lépéseit, Mária a fabrikam-felhasználókat a bejelentkezéshez irányíthatja. A fabrikam felhasználói (fabrikam.onmicrosoft.com utótaggal rendelkező felhasználók) bejelentkezhetnek a https\://Portal.local.azurestack.external.
+Most, hogy Mary elvégezte a Mary címtár bevezetésének lépéseit, Mária a fabrikam-felhasználókat a bejelentkezéshez irányíthatja. Fabrikam-felhasználók (fabrikam.onmicrosoft.com utótaggal rendelkező felhasználók) bejelentkezés a https\:-//Portal.local.azurestack.external.
 
-Mary a fabrikam címtárban (a fabrikam-címtárban lévő felhasználók a fabrikam.onmicrosoft.com utótagja nélkül) minden [idegen rendszerbiztonsági tag](/azure/role-based-access-control/rbac-and-directory-admin-roles) számára a bejelentkezést a https\://Portal.local.azurestack.external/fabrikam.onmicrosoft.com. használatával. Ha nem használják ezt az URL-címet, azokat a rendszer az alapértelmezett könyvtárba (Fabrikam) küldi, és hibaüzenetet kap, amely szerint a rendszergazda nem járult hozzá.
+Mary a fabrikam címtárban (a fabrikam-könyvtárban lévő felhasználók a fabrikam.onmicrosoft.com utótag nélkül) irányítja át az összes [idegen résztvevőt](/azure/role-based-access-control/rbac-and-directory-admin-roles) a https\:-//Portal.local.azurestack.external/fabrikam.onmicrosoft.com. használatával történő bejelentkezéshez. Ha nem használják ezt az URL-címet, azokat a rendszer az alapértelmezett könyvtárba (Fabrikam) küldi, és hibaüzenetet kap, amely szerint a rendszergazda nem járult hozzá.
 
 ## <a name="disable-multi-tenancy"></a>Több-bérlő letiltása
 
@@ -149,7 +149,7 @@ Ha már nem szeretne több bérlőt használni Azure Stack központban, a követ
     > [!WARNING]
     > A több-bérlős lépések letiltása sorrendben kell végrehajtani. A lépés #1 sikertelen, ha a #2 első lépése befejeződött.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Delegált szolgáltatók kezelése](azure-stack-delegated-provider.md)
 - [Azure Stack hub főbb fogalmak](azure-stack-overview.md)

@@ -3,16 +3,16 @@ title: Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 description: Ismerje meg, hogyan helyezheti üzembe az Azure Cognitive Servicest a Azure Stack hub szolgáltatásban.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701819"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660177"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 
@@ -34,7 +34,7 @@ A tárolókra bontás olyan szoftverterjesztési módszer, amelyben egy alkalmaz
 - **Hordozható architektúra**  
   Lehetővé teheti a hordozható alkalmazások architektúrájának létrehozását, hogy a megoldást a nyilvános felhőbe, a helyszíni saját felhőbe vagy a szegélybe telepítse. A tárolót üzembe helyezheti az Azure Kubernetes Service-ben, a Azure Container Instances-ban vagy egy Azure Stack hub-beli Kubernetes-fürtön. További információ: [a Kubernetes telepítése Azure stack hubhoz](azure-stack-solution-template-kubernetes-deploy.md).
 
-- **Magas átviteli sebesség és kis késleltetés**  
+- **Magas feldolgozási sebesség és kis késés**  
    Adja meg az alkalmazás felhasználóinak, hogy a nagy átviteli sebesség és az alacsony késés érdekében a forgalomban lévő tüskékkel méretezhetők legyenek. A Cognitive Services az Azure Kubernetes szolgáltatásban való futtatásának engedélyezése fizikailag az alkalmazás logikája és az adatkezelés érdekében.
 
 Az Azure Stack hub-ban a magas rendelkezésre állás és a rugalmas skálázás érdekében helyezzen üzembe Cognitive Services tárolókat egy Kubernetes-fürtön, valamint az alkalmazás-tárolókat. A kognitív szolgáltatásokat a App Services, a functions, a blob Storage, az SQL vagy a mySQL-adatbázisokra épülő összetevőkkel kombinálva fejlesztheti alkalmazásait.
@@ -57,16 +57,16 @@ A Kezdés előtt a következőket kell tennie:
 
 Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, LUIS vagy szövegfelismerés tárolók előzetes verziójának megtekintéséhez. Az erőforrásból az előfizetési kulcs és a végpont URL-címét kell használnia a kognitív szolgáltatás tárolóinak létrehozásához.
 
-1. Hozzon létre egy Azure-erőforrást az Azure Portalon. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Hozzon létre egy Azure-erőforrást a Azure Portal. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
    > [!Note]
    >  Az arc vagy Computer Vision erőforrásnak a F0 díjszabási szintjét kell használnia.
 
-2. A végpont URL-cím és egy előfizetési kulcsra az Azure-beli erőforráshoz kaphat. Miután létrehozta az Azure-erőforrást, az adott erőforrás előfizetési kulcs és végpont URL-címe alapján hozza létre a megfelelő Face, LUIS vagy szövegfelismerés tárolót az előzetes verzióhoz.
+2. Az Azure-erőforrás végponti URL-címének és előfizetési kulcsának beolvasása. Miután létrehozta az Azure-erőforrást, az adott erőforrás előfizetési kulcs és végpont URL-címe alapján hozza létre a megfelelő Face, LUIS vagy szövegfelismerés tárolót az előzetes verzióhoz.
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes titkos kód létrehozása 
 
-Használja a Kubectl Create Secret parancsot a Private Container Registry eléréséhez. Cserélje le a `<username>` nevet a felhasználónévre, és `<password>` az Azure Cognitive Services csapattól kapott hitelesítő adatokban megadott jelszóval.
+Használja a Kubectl Create Secret parancsot a Private Container Registry eléréséhez. Cserélje `<username>` le a elemet a felhasználónévre, és `<password>` a jelszót az Azure Cognitive Services csapattól kapott hitelesítő adatokban megadott jelszóval együtt.
 
 ```bash  
     kubectl create secret docker-registry <secretName> \
@@ -131,7 +131,7 @@ A legfontosabb mezők részletei:
 | Mező | Megjegyzések |
 | --- | --- |
 | replicaNumber | Meghatározza a létrehozandó példányok kezdeti replikáit. A telepítést később is méretezheti. |
-| ImageLocation | Azt jelzi, hogy az adott kognitív szolgáltatás tárolójának képe hol található az ACR-ben. Például a Face szolgáltatás: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Azt jelzi, hogy az adott kognitív szolgáltatás tárolójának képe hol található az ACR-ben. Például a Face szolgáltatás:`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett végpont URL-címe |
 | ApiKey | Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett előfizetési kulcs |
 | SecretName | A [Kubernetes titkos kulcs létrehozása](#create-a-kubernetes-secret) című lépésben létrehozott titkos név |
@@ -150,7 +150,7 @@ A következő parancs használata az üzembe helyezésének figyelésére:
 
 ## <a name="test-the-cognitive-service"></a>A kognitív szolgáltatás tesztelése
 
-A [OpenAPI-specifikáció](https://swagger.io/docs/specification/about/) elérése az adott tárolóhoz tartozó **/Swagger** relatív URI-n keresztül. Ez a specifikáció, korábbi nevén a hencegés specifikáció, leírja a példányos tároló által támogatott műveleteket. Például a következő URI Azonosítót tartalmaz Hangulatelemzés tárolót, amelyet az előző példában volt példányosítani az OpenAPI-specifikáció való hozzáférést:
+A [OpenAPI-specifikáció](https://swagger.io/docs/specification/about/) elérése az adott tárolóhoz tartozó **/Swagger** relatív URI-n keresztül. Ez a specifikáció, korábbi nevén a hencegés specifikáció, leírja a példányos tároló által támogatott műveleteket. A következő URI például hozzáférést biztosít az előző példában a Hangulatelemzés tárolóhoz tartozó OpenAPI-specifikációhoz:
 
 ```HTTP  
 http:<External IP>:5000/swagger
@@ -191,7 +191,7 @@ print(faces)
 
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Computer Vision API tárolók telepítése és futtatása.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 

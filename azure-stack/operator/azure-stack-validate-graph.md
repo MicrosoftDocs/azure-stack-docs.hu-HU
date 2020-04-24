@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 541be4667328f6ac3906c785329b8816558c8b84
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366638"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Azure Stack hub gráf-integrációjának ellenőrzése
@@ -59,13 +59,13 @@ A következő előfeltételeknek kell teljesülniük.
     Install-Module Microsoft.AzureStack.ReadinessChecker -Force
     ```
 
-1. A PowerShell-parancssorból futtassa a következő parancsot a *$graphCredential* változónak a Graph-fiókhoz való beállításához. Cserélje le a `contoso\graphservice`t a fiókjára a `domain\username` formátum használatával.
+1. A PowerShell-parancssorból futtassa a következő parancsot a *$graphCredential* változónak a Graph-fiókhoz való beállításához. Cserélje `contoso\graphservice` le a t a fiókra `domain\username` a formátum használatával.
 
     ```powershell
     $graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"
     ```
 
-1. A PowerShell-parancssorból futtassa a következő parancsot a Graph szolgáltatás érvényesítésének megkezdéséhez. A `-ForestFQDN` értékének megadása az erdő gyökerének teljes tartományneveként.
+1. A PowerShell-parancssorból futtassa a következő parancsot a Graph szolgáltatás érvényesítésének megkezdéséhez. A értéket az erdő `-ForestFQDN` gyökeréhez tartozó FQDN értékként kell megadni.
 
     ```powershell
     Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential
@@ -103,18 +103,18 @@ A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. 
 
 Az érvényesítési fájlok segítségével megoszthatja az állapotot az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés megadja az üzembe helyezési csoportnak az identitás konfigurációjának megerősítését. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
-Alapértelmezés szerint mindkét fájl a `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`ba íródik.
+Alapértelmezés szerint mindkét fájl íródik a `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`következőre:.
 
 Használja
 
-* `-OutputPath`: a futtatási parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
-* `-CleanReport`: a futtatási parancs végén található paraméter a korábbi jelentési információk *AzsReadinessCheckerReport. JSON* fájljának törléséhez. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
+* `-OutputPath`: A futtatási parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
+* `-CleanReport`: A Run parancs végén található paraméterrel törli a korábbi jelentési információk *AzsReadinessCheckerReport. JSON* fájlját. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
 Ha egy érvényesítési ellenőrzés sikertelen, a hiba részletei megjelennek a PowerShell ablakban. Az eszköz az *AzsGraphIntegration. log naplófájlba*is naplózza az adatokat.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  
 [Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)  

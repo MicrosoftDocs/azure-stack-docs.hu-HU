@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
 ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294956"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
@@ -49,7 +49,7 @@ Ha Azure Stack hub-t használ az operációsrendszer-lemez létrehozásához, ak
 
 ### <a name="vm-size"></a>Virtuális gép mérete
 
-A használt virtuális gép méretét a futtatni kívánt munkaterhelés határozza meg. A választott méret határoz meg olyan tényezőket, mint a feldolgozókapacitás, a memória és a tárolókapacitás. Azure Stack hub különböző típusú méreteket kínál számos felhasználási típus támogatásához.
+A használt virtuális gép mérete a futtatni kívánt számítási feladatok mennyiségétől függ. A választott méret határoz meg olyan tényezőket, mint a feldolgozókapacitás, a memória és a tárolókapacitás. Azure Stack hub különböző típusú méreteket kínál számos felhasználási típus támogatásához.
 
 ### <a name="vm-limits"></a>VIRTUÁLIS gépek korlátai
 
@@ -71,7 +71,7 @@ Megadhatja a saját rendszerképének feltöltését és használatát. Ha így 
 
 ### <a name="extensions"></a>Bővítmények
 
-A virtuálisgép-bővítmények az üzembe helyezési konfiguráció és az automatizált feladatok révén további képességeket biztosítanak a virtuális gépek számára.
+A virtuális gépek bővítményei további hozzáadott képességekkel ruházzák fel a virtuális gépeket az üzembe helyezést követő konfigurálás és automatizált feladatok útján.
 A bővítményekkel a következő gyakori feladatok végezhetők el:
 
 - **Egyéni parancsfájlok futtatása**: az egyéni szkriptek bővítménye lehetővé teszi a számítási feladatok konfigurálását a virtuális gépen úgy, hogy a virtuális gép üzembe helyezésekor futtatja a parancsfájlt.
@@ -104,7 +104,7 @@ Több lehetőség közül választhat egy virtuális gép létrehozásához. Az 
 |PowerShell|[Windows rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-powershell.md)<br>[Linuxos virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-powershell.md)|
 |parancssori felület|[Windows rendszerű virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-cli.md)<br>[Linuxos virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="manage-your-vm"></a>A virtuális gép kezelése
+## <a name="manage-your-vm"></a>A virtuális gép felügyelete
 
 A virtuális gépeket böngészőalapú portál, parancsfájlok futtatását támogató parancssori eszközök, vagy közvetlenül az API-k segítségével kezelheti. Néhány tipikus felügyeleti feladat:
 
@@ -120,13 +120,13 @@ A következő táblázat a virtuális gépekkel kapcsolatos információk beszer
 |Módszer|Leírás|
 |---------|---------|
 |Azure Stack hub-portál|A központi menüben kattintson a **Virtual Machines** elemre, majd válassza ki a virtuális gépet a listából. A virtuális gép lapján elérhető az áttekintési információk, az értékek beállítása és a figyelési mérőszámok.|
-|Azure PowerShell|A virtuális gépek kezelése az Azure-ban és Azure Stack hub-ban is hasonló. A PowerShell használatával kapcsolatos további információkért tekintse meg a következő Azure-témakört:<br>[Windows rendszerű virtuális gépek létrehozása és kezelése a Azure PowerShell modullal](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Ügyfél-SDK-k|A C# használatával a virtuális gépek kezelése az Azure-ban és Azure stack hub-ban is hasonló. További információkért tekintse meg a következő Azure-témakört:<br>[Windows rendszerű virtuális gépek létrehozása és kezelése az Azure-ban a használatávalC#](/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|A virtuális gépek kezelése az Azure-ban és Azure Stack hub-ban is hasonló. A PowerShell használatával kapcsolatos további információkért tekintse meg a következő Azure-témakört:<br>[Windows rendszerű virtuális gépek létrehozása és felügyelete az Azure PowerShell-modullal](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Ügyfél-SDK-k|A C# használatával a virtuális gépek kezelése hasonló az Azure-ban és Azure Stack hub-ban. További információkért tekintse meg a következő Azure-témakört:<br>[Windows rendszerű virtuális gépek létrehozása és kezelése az Azure-ban C használatával #](/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-your-vm"></a>Csatlakozás a virtuális géphez
 
 A virtuális géphez való kapcsolódáshoz használhatja a Azure Stack hub portál **Kapcsolódás** gombját.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Az Azure Stack hub-beli virtuális gépekkel kapcsolatos megfontolások](azure-stack-vm-considerations.md)

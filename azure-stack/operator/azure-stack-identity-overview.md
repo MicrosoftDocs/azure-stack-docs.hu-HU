@@ -3,16 +3,16 @@ title: Az Azure Stack hub identitás-szolgáltatóinak áttekintése
 description: Ismerkedjen meg az Azure Stack hub használatával használható identitás-szolgáltatókkal.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 896dc2b2def823a91278fe77062b20146a3c6976
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c9a01d4aaa437549177f6e32c10f4600287732a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699694"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244132"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Az Azure Stack hub identitás-szolgáltatóinak áttekintése
 
@@ -32,7 +32,7 @@ A Azure Stack hub-környezettől függő lehetőségekről a következő cikkekb
 
 A következő fejezetek az identitás-szolgáltatókkal kapcsolatos általános fogalmakat és azok Azure Stack központban való használatát ismertetik.
 
-![Identitás-szolgáltatók terminológiája](media/azure-stack-identity-overview/terminology.png)
+![Identitás-szolgáltatók terminológiája](media/azure-stack-identity-overview/terminology.svg)
 
 ### <a name="directory-tenants-and-organizations"></a>Címtárbeli bérlők és szervezetek
 
@@ -51,20 +51,20 @@ A felhasználók és csoportok létrehozása és kezelése a használt identitá
 
 Azure Stack hub felhasználói fiókjai:
 
-- Létrehozása a *felhasználónév\@tartományi* formátumban történik. Bár a AD FS leképezi a felhasználói fiókokat egy Active Directory-példányra, a AD FS nem támogatja a *\\\<tartomány >\\-alias* \<formátum használatát.
+- A a *\@Felhasználónév tartományának* formátumában jönnek létre. Bár a AD FS leképezi a felhasználói fiókokat egy Active Directory példányra, a AD FS nem támogatja a * \\ \<tartomány>\\ \<alias>* formátum használatát.
 - Beállítható a többtényezős hitelesítés használatára.
 - Csak arra a könyvtárra korlátozódik, amelyre először regisztrálnak, amely a szervezet címtára.
 - A helyszíni címtárakból is importálható. További információ: a [helyszíni címtárak integrálása Azure Active Directorysal](/azure/active-directory/connect/active-directory-aadconnect).
 
-Amikor bejelentkezik a szervezet felhasználói portálján, a *https:\//Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiók bejelentkezve admin@contoso.com, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Amikor bejelentkezik a szervezet felhasználói portálján, a *https:\//Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be admin@contoso.comvan jelentkezve, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő\/lesz: https:/Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-### <a name="guest-users"></a>Vendég felhasználók
+### <a name="guest-users"></a>Vendégfelhasználók
 
 A vendég felhasználók olyan más címtárbeli bérlők felhasználói fiókjai, amelyek hozzáférést kaptak a címtárban található erőforrásokhoz. A vendég felhasználók támogatásához használja az Azure AD-t, és engedélyezze a több-bérlős támogatását. Ha a támogatás engedélyezve van, meghívhatja a vendég felhasználókat, hogy hozzáférjenek a címtár-bérlő erőforrásaihoz, ami viszont lehetővé teszi a külső szervezetekkel való együttműködést.
 
 A vendég felhasználók meghívásához a Felhőbeli operátorok és a felhasználók használhatják az [Azure ad B2B-együttműködést](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). A meghívott felhasználók hozzáférést kapnak a címtárhoz, az erőforrásokhoz és az alkalmazásokhoz, és megtarthatja a saját erőforrásai és adatai feletti irányítást.
 
-Vendég felhasználóként bejelentkezhet egy másik szervezet címtár-bérlőbe. Ehhez fűzze hozzá a szervezet címtárának nevét a portál URL-címéhez. Ha például a contoso-szervezethez tartozik, és szeretne bejelentkezni a fabrikam-címtárba, használja a https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Vendég felhasználóként bejelentkezhet egy másik szervezet címtár-bérlőbe. Ehhez fűzze hozzá a szervezet címtárának nevét a portál URL-címéhez. Ha például a contoso-szervezethez tartozik, és be szeretne jelentkezni a fabrikam-címtárba, használja a https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="apps"></a>Alkalmazások
 
@@ -96,7 +96,7 @@ Amikor regisztrál egy alkalmazást, két objektumot hoz létre:
 
 Az alkalmazás-és egyszerű szolgáltatás objektumaival kapcsolatos további tudnivalókért tekintse meg [az alkalmazások és szolgáltatások egyszerű objektumainak Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects)című témakört.
 
-### <a name="service-principals"></a>Egyszerű szolgáltatások
+### <a name="service-principals"></a>Szolgáltatásnevek
 
 Az egyszerű szolgáltatásnév egy olyan alkalmazás vagy szolgáltatás *hitelesítő adatai* , amely hozzáférést biztosít az Azure stack hub erőforrásaihoz. Egy egyszerű szolgáltatásnév használata elkülöníti az alkalmazás engedélyeit az alkalmazás felhasználójának engedélyeitől.
 
@@ -130,7 +130,7 @@ Ha több-Bérlővel állítja be az Azure AD-t, néhány alkalmazás propagálja
 
 ### <a name="authentication-by-apps-and-users"></a>Hitelesítés alkalmazások és felhasználók szerint
 
-![Azure Stack hub rétegei közötti identitás](media/azure-stack-identity-overview/identity-layers.png)
+![Azure Stack hub rétegei közötti identitás](media/azure-stack-identity-overview/identity-layers.svg)
 
 Alkalmazások és felhasználók esetében a Azure Stack hub architektúráját négy réteg írja le. Az egyes rétegek közötti interakciók különböző típusú hitelesítéseket használhatnak.
 
@@ -141,7 +141,7 @@ Alkalmazások és felhasználók esetében a Azure Stack hub architektúráját 
 |Erőforrás-szolgáltatók     |Az erőforrás-szolgáltatóknak átadott hívások biztonsága tanúsítványalapú hitelesítéssel történik. <br>A Azure Resource Manager és az erőforrás-szolgáltató egy API-n keresztül marad a kommunikációban. Az erőforrás-szolgáltató a Azure Resource Managertól kapott összes hívás esetében érvényesíti a hívást a tanúsítvánnyal.|
 |Infrastruktúra és üzleti logika     |Az erőforrás-szolgáltatók az üzleti logikával és az infrastruktúrával kommunikálnak az általuk választott hitelesítési mód használatával. Az Azure Stack hub szolgáltatással szállított alapértelmezett erőforrás-szolgáltatók Windows-hitelesítéssel védik a kommunikációt.|
 
-![A hitelesítéshez szükséges információk](media/azure-stack-identity-overview/authentication.png)
+![A hitelesítéshez szükséges információk](media/azure-stack-identity-overview/authentication.svg)
 
 ### <a name="authenticate-to-azure-resource-manager"></a>Hitelesítés Azure Resource Manager
 
@@ -150,7 +150,7 @@ Az identitás-szolgáltatóval való hitelesítéshez és a JSON Web Token fogad
 1. **Az Identity rendszer (Authority) URL-címe**: az a URL-cím, amelyen az identitás-szolgáltató elérhető. Például *https:\//login.Windows.net*.
 2. **Azure Resource Manager alkalmazás-azonosító URI-ja**: az identitás-szolgáltatónál regisztrált Azure Resource Manager egyedi azonosítója. Emellett minden Azure Stack hub-telepítéshez egyedi.
 3. **Hitelesítő adatok**: az identitás-szolgáltatóval történő hitelesítéshez használt hitelesítő adatok.
-4. **Azure Resource Manager URL-címe**: az URL-cím a Azure Resource Manager szolgáltatás helye. Például *https:\//Management.Azure.com* vagy *https:\//Management.local.azurestack.external*.
+4. **Azure Resource Manager URL-címe**: az URL-cím a Azure Resource Manager szolgáltatás helye. Például *https\/:/Management.Azure.com* vagy *\/https:/Management.local.azurestack.external*.
 
 Ha egy rendszerbiztonsági tag (az ügyfél, az alkalmazások vagy a felhasználó) hitelesítési kérelmet küld az erőforrásokhoz való hozzáféréshez, a kérelemnek tartalmaznia kell a következőket:
 
@@ -168,7 +168,7 @@ Ezután a tokennek továbbítania kell egy kérelem fejlécét Azure Resource Ma
 
 Ha az összes érvényesítés befejeződik, a Azure Resource Manager az *objektumazonosító* (OID) és a *csoportok* jogcímeit használja a rendszerbiztonsági tag által elérhető erőforrások listájának létrehozásához.
 
-![A jogkivonat Exchange protokoll diagramja](media/azure-stack-identity-overview/token-exchange.png)
+![A jogkivonat Exchange protokoll diagramja](media/azure-stack-identity-overview/token-exchange.svg)
 
 > [!NOTE]
 > Az üzembe helyezést követően Azure Active Directory globális rendszergazdai jogosultság nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra (például egy erőforrás-szolgáltatói telepítő parancsfájlra vagy egy olyan új szolgáltatásra, amely engedélyt kér). Ideiglenesen újra megadhatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
@@ -190,7 +190,7 @@ Az Azure Stack hub használatával végzett hitelesítés Azure PowerShell haszn
 
 További információ a Azure Stack hub használatával végzett hitelesítés Azure PowerShell használatáról: [Az Azure CLI telepítése és konfigurálása az Azure stack hub használatával történő használathoz](/azure-stack/user/azure-stack-version-profiles-azurecli2).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Identitás-architektúra](azure-stack-identity-architecture.md)
 - [Adatközpont-integráció – identitás](azure-stack-integrate-identity.md)

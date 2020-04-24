@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
 ms.openlocfilehash: c7e6bc3042b79ee47bde45cefbabc4243c3f0a03
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367818"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Hardver-összetevő cseréje Azure Stack hub méretezési egység csomópontján
@@ -35,7 +35,7 @@ Ez a cikk az általános eljárást ismerteti a nem becserélhető hardver-össz
 
 A nem lecserélhető összetevők az alábbi elemeket tartalmazzák:
 
-- CPU*
+- CPU
 - Memória
 - Alaplap/alaplapi felügyeleti vezérlő (BMC)/video kártya
 - Lemezvezérlő/gazdagép Bus-adapter (HBA)/Backplane
@@ -43,7 +43,7 @@ A nem lecserélhető összetevők az alábbi elemeket tartalmazzák:
 - Operációs rendszer lemeze *
 - Adatmeghajtók (olyan meghajtók, amelyek nem támogatják a gyors cserét, például a PCI-e bővítmények kártyái) *
 
-\* Ezek az összetevők támogatják a gyors cserét, de a szállítói implementációtól függően változhatnak. A részletes lépésekért tekintse meg az OEM gyártója a cserélhető szoftverrel kapcsolatos dokumentációját.
+* Ezek az összetevők támogatják a gyors cserét, de a szállítói implementációtól függően változhatnak. A részletes lépésekért tekintse meg az OEM gyártója a cserélhető szoftverrel kapcsolatos dokumentációját.
 
 A következő folyamatábra a nem lecserélhető hardver-összetevők cseréjére szolgáló általános cserélhető folyamatokat mutatja be.
 
@@ -51,7 +51,7 @@ A következő folyamatábra a nem lecserélhető hardver-összetevők cseréjér
 
 * Előfordulhat, hogy ez a művelet a hardver fizikai állapota alapján nem szükséges.
 
-\* * Az, hogy az OEM hardveres gyártója rendelkezik-e az összetevő cseréjével és a belső vezérlőprogram frissítésével, a támogatási szerződéstől függően változhat.
+* * Az, hogy az OEM hardveres gyártója rendelkezik-e az összetevő cseréjével és a belső vezérlőprogram frissítésével, a támogatási szerződéstől függően változhat.
 
 ## <a name="review-alert-information"></a>Riasztási információk áttekintése
 
@@ -79,7 +79,7 @@ Az alábbi lépések áttekintést nyújtanak az összetevő-helyettesítési fo
 7. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
 8. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A lecserélhető fizikai lemezek cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md).
 - A fizikai csomópontok cseréjével kapcsolatos információkért lásd: [méretezési egység csomópontjának cseréje](azure-stack-replace-node.md).

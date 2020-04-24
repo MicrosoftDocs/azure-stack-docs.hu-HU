@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: c6410e4f0d60138ce773f7f0abfae1a5c1850bd2
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79095014"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Kötetek tervezése Közvetlen tárolóhelyek
@@ -27,7 +27,7 @@ A köteteken a számítási feladatok szükségesek, például VHD-vagy VHDX-fá
 
 ![Mik a kötetek](media/plan-volumes/what-are-volumes.png)
 
-Minden kötet a fürt összes kiszolgálója számára elérhető. A létrehozás után az összes kiszolgálón megjelennek a **C:\ClusterStorage\\** .
+Minden kötet a fürt összes kiszolgálója számára elérhető. A létrehozás után a **C:\ClusterStorage\\ ** az összes kiszolgálón megjelennek.
 
 ![CSV-mappa – képernyőfelvétel](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -176,7 +176,7 @@ A *Volume3* és a *VOLUME4* egyaránt 12 TB x 50,0 százalékos hatékonyságot 
 
 A négy kötet pontosan illeszkedik a készletben elérhető fizikai tárolási kapacitáshoz. Tökéletes!
 
-![Példa](media/plan-volumes/example.png)
+![például](media/plan-volumes/example.png)
 
    >[!TIP]
    > Nem kell azonnal létrehoznia az összes kötetet. Később bármikor kiterjesztheti a köteteket, vagy új köteteket hozhat létre.
@@ -187,7 +187,7 @@ Az egyszerűség kedvéért ez a példa decimális (Base-10) egységeket haszná
 
 Lásd: [kötetek létrehozása Azure stack HCI-ben](../manage/create-volumes.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információért lásd még:
 
