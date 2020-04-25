@@ -1,49 +1,49 @@
 ---
-title: AI-alapú lépés hangja-észlelési megoldás üzembe helyezése az Azure és Azure Stack hub használatával
-description: Ismerje meg, hogyan helyezhet üzembe egy lépés hangja-észlelési megoldást az Azure és az Azure Stack hub használatával. Ez a megoldás a látogatói forgalom elemzésére szolgál a kiskereskedelmi áruházakban.
+title: AI-alapú lépés hangja-észlelési megoldás üzembe helyezése az Azure-ban és Azure Stack hub-ban
+description: Megtudhatja, hogyan helyezhet üzembe egy AI-alapú lépés hangja-észlelési megoldást a látogatói forgalom elemzéséhez a kiskereskedelmi üzletekben az Azure és a Azure Stack hub használatával.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3820d5483a0a7051ea51cc4ce7489d2cfe9f2d42
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ba27bf06a7cf65bd40155a80c8d8877b2ac68805
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77687495"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150314"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>AI-alapú lépés hangja-észlelési megoldás üzembe helyezése az Azure és Azure Stack hub használatával
 
-Ez a cikk azt ismerteti, hogyan helyezhet üzembe olyan megoldást, amely az Azure, az Azure Stack hub és a Custom Vision AI fejlesztői csomag használatával bepillantást nyerhet a valós világbeli műveletekkel.
+Ez a cikk bemutatja, hogyan helyezhet üzembe olyan AI-alapú megoldást, amely az Azure, az Azure Stack hub és a Custom Vision AI fejlesztői csomag használatával bepillantást nyerhet a valós világbeli műveletekkel.
 
 Ebben a megoldásban a következőket sajátíthatja el:
 
 > [!div class="checklist"]
 > - Felhőbeli natív alkalmazáscsomag (CNAB-EK) üzembe helyezése az Edge-ben. 
-> - Felhőbeli határokat átölelő alkalmazás üzembe helyezése.
+> - Felhőbeli határokat felölelő alkalmazás üzembe helyezése.
 > - Használja a Custom Vision AI dev Kit for következtetést a szélén.
 
 > [!Tip]  
 > ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack hub az Azure kiterjesztése. Azure Stack hub a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
-> A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
+> A [hibrid alkalmazások kialakításával kapcsolatos megfontolások](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
-## <a name="prerequisites"></a>Előfeltételek 
+## <a name="prerequisites"></a>Előfeltételek
 
 Az üzembe helyezési útmutató első lépéseinek megkezdése előtt győződjön meg arról, hogy:
 
-- Tekintse át a [lépés hangja-észlelési megoldás áttekintését](pattern-retail-footfall-detection.md) 
+- Tekintse át a [lépés hangja-észlelési minta](pattern-retail-footfall-detection.md) témakört.
 - Felhasználói hozzáférés beszerzése egy Azure Stack Development Kit (ASDK) vagy Azure Stack hub integrált rendszerpéldányhoz, a következővel:
   - A [Azure stack hub erőforrás-szolgáltatón telepített Azure app Service](../operator/azure-stack-app-service-overview.md) . Az Azure Stack hub-példányhoz a kezelőhöz való hozzáférésre van szükség, vagy a telepítéshez a rendszergazdával kell dolgoznia.
   - App Service-és tárolási kvótát biztosító ajánlat előfizetése. Ajánlat létrehozásához operátori hozzáférésre van szükség.
-- Azure-előfizetéshez való hozzáférés beszerzése
+- Azure-előfizetéshez való hozzáférés beszerzése.
   - Ha nem rendelkezik Azure-előfizetéssel, regisztráljon az [ingyenes próbaverziós fiókra](https://azure.microsoft.com/free/) , mielőtt megkezdené.
 - Hozzon létre két egyszerű szolgáltatásnevet a címtárban:
-  - Az egyik az Azure-erőforrásokkal való használatra van konfigurálva, az Azure-előfizetések hatókörén keresztül. 
-  - Egy konfigurált Azure Stack hub-erőforrásokkal való használatra, az Azure Stack hub-előfizetés hatókörében való hozzáféréssel. 
+  - Egy beállítás az Azure-erőforrásokkal való használatra, az Azure-előfizetések hatókörében való hozzáféréssel.
+  - Az egyik beállítása Azure Stack hub-erőforrásokkal való használatra, a Azure Stack hub-előfizetés hatókörében való hozzáféréssel.
   - Az egyszerű szolgáltatások létrehozásával és a hozzáférés engedélyezésével kapcsolatos további tudnivalókért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md). Ha szívesebben szeretné használni az Azure CLI-t, tekintse meg [Az Azure-szolgáltatás létrehozása az Azure CLI-vel](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)című témakört.
 - Azure Cognitive Services üzembe helyezése az Azure-ban vagy Azure Stack hub-ban.
   - Először is tájékozódjon [Cognitive Servicesról](https://azure.microsoft.com/services/cognitive-services/).
@@ -54,15 +54,15 @@ Az üzembe helyezési útmutató első lépéseinek megkezdése előtt győződj
 - Telepítse a következő fejlesztői erőforrásokat:
   - [Azure CLI 2.0](../user/azure-stack-version-profiles-azurecli2.md)
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
-  - [Porter](https://porter.sh/). A Porter használatával Felhőbeli alkalmazásokat helyezhet üzembe az Ön számára biztosított CNAB-csomagbeli jegyzékfájlok használatával.
+  - [Porter](https://porter.sh/). A Porter használatával a felhőalapú alkalmazásokat üzembe helyezheti az Ön számára biztosított CNAB-csomagbeli jegyzékfájlok használatával.
   - [Visual Studio Code](https://code.visualstudio.com/)
   - [A Visual Studio Code-hoz készült Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   - [Python-bővítmény a Visual Studio Code-hoz](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Python](https://www.python.org/)
 
-## <a name="deploy-the-hybrid-cloud-application"></a>A hibrid felhőalapú alkalmazás üzembe helyezése
+## <a name="deploy-the-hybrid-cloud-app"></a>A hibrid felhőalapú alkalmazás üzembe helyezése
 
-Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd telepítse a felhőalapú alkalmazást.  
+Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd telepítse a Cloud alkalmazást.  
 
 1. A megoldás mintájának klónozása vagy letöltése https://github.com/azure-samples/azure-intelligent-edge-patternsinnen:. 
 
@@ -85,7 +85,7 @@ Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készl
    > [!NOTE] 
    > Az `resource suffix` érték segítségével biztosítható, hogy az üzembe helyezés erőforrásai egyedi névvel rendelkezzenek az Azure-ban. Nem lehet hosszabb 8 karakternél, és csak egyedi betűkből és számokból állhat.
 
-    ```
+    ```porter
     azure_stack_tenant_arm="Your Azure Stack Hub tenant endpoint"
     azure_stack_storage_suffix="Your Azure Stack Hub storage suffix"
     azure_stack_keyvault_suffix="Your Azure Stack Hub keyVault suffix"
@@ -108,19 +108,19 @@ Először a Porter CLI használatával hozzon létre egy hitelesítőadat-készl
     - A rendszerkép Storage-fiókjának kapcsolatainak karakterlánca.
     - Az erőforráscsoport neve.
 
-## <a name="prepare-the-custom-vision-ai-dev-kit"></a>A Custom Vision AI fejlesztői csomag előkészítése
+## <a name="prepare-the-custom-vision-ai-devkit"></a>A Custom Vision AI-fejlesztői készlet előkészítése
 
 Ezután állítsa be a Custom Vision AI fejlesztői csomagot, ahogyan az a [jövőkép AI fejlesztői készlet](https://azure.github.io/Vision-AI-DevKit-Pages/docs/quick_start/)rövid útmutatójában látható. A kamerát úgy is beállíthatja és tesztelheti, hogy az előző lépésben megadott kapcsolatok sztringjét használja.
 
-## <a name="deploy-the-camera-application"></a>A kamera alkalmazás üzembe helyezése
+## <a name="deploy-the-camera-app"></a>A kamera alkalmazás üzembe helyezése
 
 A Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd telepítse a kamera alkalmazást.
 
 1. A Porter hitelesítő adatokat állít elő, amelyek automatizálják az alkalmazás üzembe helyezését. A hitelesítő adatok generálására szolgáló parancs futtatása előtt győződjön meg arról, hogy a következők állnak rendelkezésre:
-    
+
     - Az Azure-erőforrások elérésére szolgáló egyszerű szolgáltatás, beleértve az egyszerű szolgáltatásnév, a kulcs és a bérlői DNS-t.
     - Az Azure-előfizetéshez tartozó előfizetés-azonosító.
-    - A Felhőbeli alkalmazás üzembe helyezésekor megadott Rendszerképbeli Storage-fiók kapcsolódási karakterlánca.
+    - A felhőalapú alkalmazás üzembe helyezésekor megadott rendszerkép-tárolási fiók kapcsolódási karakterlánca.
 
 1. Futtassa a Porter hitelesítő adatok létrehozásának folyamatát, és kövesse az utasításokat:
 
@@ -133,7 +133,7 @@ A Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd
     > [!NOTE]
     > Az `deployment suffix` érték segítségével biztosítható, hogy az üzembe helyezés erőforrásai egyedi névvel rendelkezzenek az Azure-ban. Nem lehet hosszabb 8 karakternél, és csak egyedi betűkből és számokból állhat.
 
-    ```
+    ```porter
     iot_hub_name="Name of the IoT Hub deployed"
     deployment_suffix="Unique string here"
     ```
@@ -152,46 +152,47 @@ A Porter CLI használatával hozzon létre egy hitelesítőadat-készletet, majd
 
 Most, hogy az adatok a kamerából Azure Stream Analyticsnek, manuálisan engedélyeznie kell, hogy kommunikáljon a Power BIval.
 
-1.  A Azure Portal nyissa meg az **összes erőforrást**és a *Process\[-\] lépés hangja yoursuffix* feladatot.
+1. A Azure Portal nyissa meg az **összes erőforrást**és a *Process-\[lépés hangja\] yoursuffix* -feladatot.
 
-2.  A Stream Analytics-feladat panel **Feladattopológia** szakaszában válassza a **Kimenetek** lehetőséget.
+2. A Stream Analytics-feladat panel **Feladattopológia** szakaszában válassza a **Kimenetek** lehetőséget.
 
-3.  Válassza ki a **forgalom** kimeneti kimenetét.
+3. Válassza ki a **forgalom** kimeneti kimenetét.
 
-4.  Válassza az **Engedélyezés megújítása** lehetőséget, majd jelentkezzen be Power bi-fiókjába.
-    
-    ![engedélyezési kérés megújítása](./media/solution-deployment-guide-retail-footfall-detection/image2.png)
+4. Válassza az **Engedélyezés megújítása** lehetőséget, majd jelentkezzen be Power bi-fiókjába.
+  
+    ![Engedélyezési kérés megújítása Power BI](./media/solution-deployment-guide-retail-footfall-detection/image2.png)
 
-5.  Mentse a kimeneti beállításokat.
+5. Mentse a kimeneti beállításokat.
 
-6.  Lépjen az **Áttekintés** panelre, és válassza az **Indítás** lehetőséget az adatok Power BIba való küldésének megkezdéséhez.
+6. Lépjen az **Áttekintés** panelre, és válassza az **Indítás** lehetőséget az adatok Power BIba való küldésének megkezdéséhez.
 
-7.  Válassza a **Most** beállítást a feladatkimenet kezdési idejeként, majd válassza az **Indítás** lehetőséget. A feladat állapotát az értesítési sávban tekintheti meg.
+7. Válassza a **Most** beállítást a feladatkimenet kezdési idejeként, majd válassza az **Indítás** lehetőséget. A feladat állapotát az értesítési sávban tekintheti meg.
 
 ## <a name="create-a-power-bi-dashboard"></a>Power BI irányítópult létrehozása
 
-1.  Miután a feladat sikeresen végre lett hajtva, lépjen a [Power BI](https://powerbi.com/)-ba, és lépjen be munkahelyi vagy iskolai fiókjával. Ha az Stream Analytics feladatok lekérdezése az eredményeket jeleníti meg, a létrehozott *lépés hangja-adatkészlet* az **adatkészletek** lapon található.
+1. Ha a feladatot sikeresen elvégezte, lépjen [Power bi](https://powerbi.com/) , és jelentkezzen be munkahelyi vagy iskolai fiókjával. Ha az Stream Analytics feladatok lekérdezése az eredményeket jeleníti meg, a létrehozott *lépés hangja-adatkészlet* az **adatkészletek** lapon található.
 
-2.  A Power BI munkaterületen válassza a **+ Létrehozás** elemet a *lépés hangja Analysis* nevű új irányítópult létrehozásához.
+2. A Power BI munkaterületen válassza a **+ Létrehozás** elemet a *lépés hangja Analysis* nevű új irányítópult létrehozásához.
 
-3.  Válassza a **Csempe felvétele** lehetőséget az ablak tetején. Ezután válassza az **Egyedi folyamatos átviteli adatok**, majd a **Tovább** lehetőséget. Válassza ki a **lépés hangja** az **adatkészletek alatt.** Válassza a **kártya** lehetőséget a **vizualizáció típusa** legördülő listából, és adja hozzá a **kor** **mezőt a mezőkhöz**. Kattintson a **Tovább** gombra, és nevezze el a csempét, majd kattintson az **Alkalmaz** elemre a csempe létrehozásához.
+3. Válassza a **Csempe felvétele** lehetőséget az ablak tetején. Ezután válassza az **Egyedi folyamatos átviteli adatok**, majd a **Tovább** lehetőséget. Válassza ki a **lépés hangja** az **adatkészletek alatt.** Válassza a **kártya** lehetőséget a **vizualizáció típusa** legördülő listából, és adja hozzá a **kor** **mezőt a mezőkhöz**. Kattintson a **Tovább** gombra, és nevezze el a csempét, majd kattintson az **Alkalmaz** elemre a csempe létrehozásához.
 
-4.  Igény szerint további mezőket és kártyákat is hozzáadhat.
+4. Igény szerint további mezőket és kártyákat is hozzáadhat.
 
 ## <a name="test-your-solution"></a>A megoldás tesztelése
 
-Figyelje meg, hogy az Power BI-ben létrehozott kártyákon lévő adatmennyiségek hogyan jelennek meg a kamera előtt. A következtetések a rögzítés után akár 20 másodpercet is igénybe vehetnek.
+Figyelje meg, hogy a Power BIban létrehozott kártyákban lévő adatváltozások Hogyan változnak meg a kamera előtt. A következtetések a rögzítés után akár 20 másodpercet is igénybe vehetnek.
 
 ## <a name="remove-your-solution"></a>Megoldás eltávolítása
 
-Ha el szeretné távolítani a megoldást, futtassa a következő parancsokat a Porter használatával, ugyanazokkal a paraméterekkel, amelyeket az üzembe helyezéshez hozott létre: 
+Ha el szeretné távolítani a megoldást, futtassa a következő parancsokat a Porter használatával, ugyanazokkal a paraméterekkel, amelyeket az üzembe helyezéshez hozott létre:
 
 ```porter
 porter uninstall footfall-cloud –tag intelligentedge/footfall-cloud-deployment:0.1.0 –creds footfall-cloud-deployment –param-file "path-to-cloud-parameters-file.txt"
 
 porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
 ```
+
 ## <a name="next-steps"></a>További lépések
 
-- További információ a [hibrid felhőalapú alkalmazások kialakításával kapcsolatos szempontokról](overview-app-design-considerations.md)
+- További információ a [hibrid alkalmazások kialakításával kapcsolatos szempontokról]. (overview-app-design-considerations.md)
 - Tekintse át és javasolja [a githubon a minta kódjának](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis)tökéletesítését.

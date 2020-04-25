@@ -1,6 +1,6 @@
 ---
 title: Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
-description: Az Azure Stack hub Azure App Serviceának mérése és számlázása.
+description: Tudnivalók a Azure Stack hub Azure App Service számlázásáról.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ea304dc9d95d672377e72ce1dad49d4751b7d5c6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77694883"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150276"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 
@@ -21,7 +21,7 @@ Ez a cikk azt mutatja be, hogyan történik a Felhőbeli operátorok kiszámláz
 
 ## <a name="billing-overview"></a>Számlázási áttekintés
 
-Azure Stack hub Cloud operátorok úgy döntenek, hogy a Azure App Service a Azure Stack hub-ra helyezik üzembe az Azure Stack hub-bélyegzőn, hogy Azure App Service és Azure Functions bérlői képességeit is felkínálják ügyfeleiknek. A Azure App Service erőforrás-szolgáltató több típusú szerepkörből áll, amelyek az infrastruktúra és a munkavégző rétegek között oszthatók fel.
+Azure Stack hub Cloud operátorok úgy döntenek, hogy az Azure Stack hub-on lévő Azure App Service üzembe helyezését Azure Stack hub-bélyegzőre helyezik, hogy Azure App Service és Azure Functions bérlői képességeit is felkínálják ügyfeleiknek. A Azure App Service erőforrás-szolgáltató több típusú szerepkörből áll, amelyek az infrastruktúra és a munkavégző rétegek között oszthatók fel.
 
 Az infrastruktúra-szerepkörök számlázása nem történik meg, mert a szolgáltatás alapvető működéséhez szükségesek. Az infrastruktúra szerepkörei igény szerint méretezhetők a Felhőbeli operátor bérlői igényeinek kielégítése érdekében. Az infrastruktúra-szerepkörök a következők:
 
@@ -34,7 +34,7 @@ A feldolgozói rétegek két fő típusból állnak: megosztott és dedikált. A
 
 ## <a name="shared-workers"></a>Megosztott feldolgozók
 
-A közös feldolgozók több-bérlős gépek, és számos bérlő számára ingyenes és közös App Service csomagok és fogyasztáson alapuló Azure-függvények. A megosztott munkavégzők a használati mérőszámokat a Azure App Service erőforrás-szolgáltatón készként jelölik ki.
+A közös feldolgozók több-bérlős, valamint ingyenes és közös App Service csomagok és fogyasztáson alapuló Azure-függvények számos bérlő számára. A megosztott munkavégzők a használati mérőszámokat a Azure App Service erőforrás-szolgáltatón készként jelölik ki.
 
 ## <a name="dedicated-workers"></a>Dedikált feldolgozók
 
@@ -45,9 +45,9 @@ A mérőórák a dedikált feldolgozók számára vannak kibocsátva, amikor:
 - Készként van megjelölve a Azure App Service erőforrás-szolgáltatóban.
 - App Service-csomaghoz rendelve.
 
-Ez a számlázási modell lehetővé teszi, hogy a Felhőbeli operátorok olyan dedikált feldolgozók készletét használják fel, amelyek az ügyfelek számára a munkahelyen való fizetés nélkül használhatók, amíg a bérlő App Service terve ténylegesen nem áll fenn. 
+Ez a számlázási modell lehetővé teszi, hogy a felhő-kezelők olyan dedikált feldolgozók készletét használják fel, akik a munkavégzők számára készen állnak arra, hogy a feldolgozók fizetése nélkül is használhassák a bérlői App Service
 
-Tegyük fel például, hogy 20 feldolgozója van a kisméretű munkavégző szinten. Ezután, ha öt olyan ügyfele van, amely két S1 App Service tervet hoz létre, és mindegyik méretezéssel a App Service két példányra, akkor nem állnak rendelkezésre munkavégzők. Ennek eredményeképpen az ügyfelek vagy az új ügyfelek nem képesek felskálázásra vagy új App Servicei csomagok létrehozására. 
+Tegyük fel például, hogy 20 feldolgozója van a kisméretű munkavégző szinten. Ezután, ha öt olyan ügyfele van, amely két S1 App Service tervet hoz létre, és mindegyik méretezéssel a App Service két példányra, akkor nem állnak rendelkezésre munkavégzők. Ennek eredményeképpen az ügyfelek vagy az új ügyfelek nem képesek felskálázásra vagy új App Servicei csomagok létrehozására.
 
 A Felhőbeli operátorok megtekinthetik a rendelkezésre álló munkavégző rétegek aktuális számát az Azure Stack hub felügyelet Azure App Service konfigurációjának munkavégző szintjeinek megtekintésével.
 
@@ -61,7 +61,7 @@ A Felhőbeli operátorok lekérhetik az [Azure stack hub-bérlő erőforrás-has
 
 ### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>Hogyan licenc az előfeltételekhez szükséges SQL Server és fájlkiszolgáló infrastruktúra?
 
-A Azure App Service erőforrás-szolgáltató által megkövetelt SQL Server-és fájlkiszolgáló-infrastruktúra licencelése az [első lépések megkezdése előtt](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server) a Azure app Service Azure stack hub-on.
+A Azure App Service erőforrás-szolgáltató által megkövetelt SQL Server-és fájlkiszolgáló-infrastruktúra licencelése itt található: az [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server).
 
 ### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>A használattal kapcsolatos gyakori kérdések felsorolják a bérlői mérőszámokat, de nem a mérőórák árait. Hol találhatom meg őket?
 
@@ -69,11 +69,11 @@ Felhőbeli operátorként ingyenesen alkalmazhatja saját díjszabási modelljé
 
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Hogyan biztosíthatok ingyenes és megosztott SKU-ket az ügyfeleknek, hogy kipróbálják a szolgáltatást?
 
-A Felhőbeli üzemeltetők az ingyenes és a közös SKU-k nyújtásával járó költségekkel járnak, mert megosztott feldolgozók üzemeltetik őket. Ennek a lehetőségnek a minimálisra csökkentése érdekében dönthet úgy, hogy a megosztott feldolgozói szintet lekicsinyíti minimálisra. 
+A Felhőbeli üzemeltetők az ingyenes és a közös SKU-k nyújtásával járó költségekkel járnak, mert megosztott feldolgozók üzemeltetik őket. Ennek a lehetőségnek a minimálisra csökkentése érdekében dönthet úgy, hogy a megosztott feldolgozói szintet lekicsinyíti minimálisra.
 
-Ha például az ingyenes és a közös App Service csomagokra van szüksége, és a felhasználáson alapuló függvények is rendelkezésre állnak, akkor legalább egy a1-es példányra van szükség. A közös munkavégzők a több-bérlős alkalmazások, így több, egyenként elkülönített és a App Service sandbox által védett ügyfél-alkalmazást tárolhatnak. A közös feldolgozói réteg ily módon történő skálázásával havi egy vCPU költségét korlátozhatja.
+Ha például az ingyenes és a közös App Service csomagokra van szüksége, és a felhasználáson alapuló függvények is rendelkezésre állnak, akkor legalább egy a1-es példányra van szükség. A megosztott munkavégzők több-bérlős gépek, így több, egyenként elkülönített és a App Service sandbox által védett ügyfél-alkalmazást tárolhatnak. A közös feldolgozói réteg ily módon történő skálázásával havi egy vCPU költségét korlátozhatja.
 
-Ezután dönthet úgy, hogy létrehoz egy kvótát egy csomagban való használatra, amely csak az ingyenes és a közös SKU-t kínál, és korlátozza az ügyfél által létrehozott ingyenes és közös App Service csomagok számát.
+Ezután dönthet úgy, hogy létrehoz egy kvótát a csomagban való használatra, amely csak az ingyenes és a közös SKU-t kínál, és korlátozza az ügyfél által létrehozható ingyenes és közös App Service csomagok számát.
 
 ## <a name="sample-scripts-to-assist-with-billing"></a>Példák a számlázást segítő parancsfájlokra
 

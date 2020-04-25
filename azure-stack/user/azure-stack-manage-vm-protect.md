@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512609"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150229"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
 
@@ -64,7 +64,7 @@ Az ügynök alkalmazásának helyreállításához manuálisan újra kell létre
 
 #### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>Biztonsági mentés lemezes pillanatkép használatával leállított virtuális gépekhez
 
-A biztonsági mentési termékek védik a IaaS virtuális gépek konfigurációját és a leállított virtuális gépekhez csatolt lemezeket. A Azure Stack hub API-kkal integrált biztonsági mentési termékek a virtuális gépek konfigurációjának rögzítéséhez és a lemezes Pillanatképek létrehozásához. Ha az alkalmazás tervezett állásidője lehetséges, akkor győződjön meg arról, hogy a virtuális gép leállított állapotban van, mielőtt elindítja a biztonsági mentési munkafolyamatot.  
+A biztonsági mentési termékek védik a IaaS virtuális gépek konfigurációját és a leállított virtuális gépekhez csatolt lemezeket. Az Azure Stack hub API-kkal integrált biztonsági mentési termékek használatával rögzítheti a virtuális gépek konfigurációját, és készíthet lemez-pillanatképeket. Ha az alkalmazás tervezett állásidője lehetséges, akkor győződjön meg arról, hogy a virtuális gép leállított állapotban van, mielőtt elindítja a biztonsági mentési munkafolyamatot.  
 
 #### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>Biztonsági mentés lemezes pillanatkép-pillanatkép használatával a futó virtuális gépekhez
 
