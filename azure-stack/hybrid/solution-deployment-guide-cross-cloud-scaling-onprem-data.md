@@ -1,24 +1,24 @@
 ---
-title: Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
-description: Megtudhatja, hogyan helyezhet üzembe egy helyszíni információkat használó alkalmazást, és hogyan méretezhető a felhőben az Azure és a Azure Stack hub használatával.
+title: Hibrid alkalmazás üzembe helyezése a felhőn átívelő helyszíni adatszolgáltatásokkal
+description: Megtudhatja, hogyan helyezhet üzembe olyan alkalmazást, amely helyszíni információkat használ, és az Azure-ban és Azure Stack hub-on keresztül méretezi a felhőket.
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ce9536548a7968f565cb653fb91cc2aa074f50ba
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701071"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167058"
 ---
-# <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Helyszíni adatkezelést használó alkalmazás üzembe helyezése, és az Azure-t és Azure Stack hub-t használó alkalmazások közötti méretezés
+# <a name="deploy-hybrid-app-with-on-premises-data-that-scales-cross-cloud"></a>Hibrid alkalmazás üzembe helyezése a felhőn átívelő helyszíni adatszolgáltatásokkal
 
-Ebből a megoldási útmutatóból megtudhatja, hogyan helyezhet üzembe egy hibrid alkalmazást, amely az Azure-t és Azure Stack hub-t is felöleli, és egyetlen helyszíni adatforrást használ.
+Ez a megoldási útmutató bemutatja, hogyan helyezhet üzembe egy olyan hibrid alkalmazást, amely az Azure-t és Azure Stack hub-t is felöleli, és egyetlen helyszíni adatforrást használ.
 
-A hibrid felhőalapú megoldásokkal kombinálhatja a privát felhő megfelelőségi előnyeit a nyilvános felhő méretezhetőségével. Emellett a fejlesztők kihasználhatják a Microsoft fejlesztői ökoszisztémáját, és alkalmazhatják tudásukat a felhőben és a helyszíni környezetekben.
+A hibrid felhőalapú megoldásokkal kombinálhatja a privát felhő megfelelőségi előnyeit a nyilvános felhő méretezhetőségével. A fejlesztők kihasználhatják a Microsoft fejlesztői ökoszisztémáját is, és alkalmazhatják tudásukat a felhőben és a helyszíni környezetekben.
 
 ## <a name="overview-and-assumptions"></a>Áttekintés és feltételezések
 
@@ -40,29 +40,29 @@ Ez az oktatóanyag a következő feladatokat mutatja be:
 > ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack hub az Azure kiterjesztése. Azure Stack hub a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
-> A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
+> A [hibrid alkalmazások kialakításával kapcsolatos megfontolások](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
 ### <a name="assumptions"></a>Feltételezések
 
 Ez az oktatóanyag feltételezi, hogy rendelkezik a globális Azure és Azure Stack hub alapszintű ismeretével. Ha többet szeretne megtudni az oktatóanyag megkezdése előtt, tekintse át a következő cikkeket:
 
- - [Bevezetés az Azure-ba](https://azure.microsoft.com/overview/what-is-azure/)
- - [Azure Stack hub főbb fogalmak](../operator/azure-stack-overview.md)
+- [Bevezetés az Azure-ba](https://azure.microsoft.com/overview/what-is-azure/)
+- [Azure Stack hub főbb fogalmak](../operator/azure-stack-overview.md)
 
-Ez az oktatóanyag azt is feltételezi, hogy rendelkezik Azure-előfizetéssel. Ha nem rendelkezik előfizetéssel, a Kezdés előtt [létrehozhat egy ingyenes fiókot](https://azure.microsoft.com/free/) .
+Ez az oktatóanyag azt is feltételezi, hogy rendelkezik Azure-előfizetéssel. Ha nem rendelkezik előfizetéssel, [hozzon létre egy ingyenes fiókot a](https://azure.microsoft.com/free/) Kezdés előtt.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
 A megoldás elindítása előtt győződjön meg arról, hogy megfelel a következő követelményeknek:
 
-- Egy Azure Stack Development Kit (ASDK) vagy előfizetés egy Azure Stack hub integrált rendszeren. Azure Stack Development Kit telepítéséhez kövesse a [ASDK telepítése a telepítő használatával](../asdk/asdk-install.md)című témakör útmutatását.
+- Egy Azure Stack Development Kit (ASDK) vagy előfizetés egy Azure Stack hub integrált rendszeren. A ASDK üzembe helyezéséhez kövesse a [ASDK telepítése a telepítő használatával](../asdk/asdk-install.md)című témakör utasításait.
 - A Azure Stack hub telepítése a következőkkel telepíthető:
   - A Azure App Service. Az Azure Stack hub operátorral együttműködve telepítheti és konfigurálhatja a Azure App Servicet a környezetében. Ez az oktatóanyag megköveteli, hogy a App Service legalább egy (1) elérhető dedikált feldolgozói szerepkörrel rendelkezzen.
   - Egy Windows Server 2016-rendszerkép.
   - Egy Microsoft SQL Server rendszerképpel rendelkező Windows Server 2016.
   - A megfelelő csomagok és ajánlatok.
   - A webalkalmazáshoz tartozó tartománynév. Ha nem rendelkezik tartománynévvel, vásárolhat egyet egy olyan tartományi szolgáltatótól, mint a GoDaddy, a Bluehost és a InMotion.
-- A tartományhoz tartozó SSL-tanúsítvány megbízható hitelesítésszolgáltatótól, például LetsEncrypt.
+- Egy megbízható hitelesítésszolgáltatótól (például LetsEncrypt) származó SSL-tanúsítvány a tartományhoz.
 - Egy SQL Server-adatbázissal kommunikáló webalkalmazás, amely támogatja a Application Insights. A [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) minta alkalmazást letöltheti a githubról.
 - Hibrid hálózat egy Azure-beli virtuális hálózat és Azure Stack hub virtuális hálózat között. Részletes útmutatás: [hibrid felhőalapú kapcsolat konfigurálása az Azure-ban és Azure stack hub](solution-deployment-guide-connectivity.md).
 
@@ -78,13 +78,13 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
 3. A **piactéren**válassza a **számítás**lehetőséget, majd válassza a **továbbiak**lehetőséget. A **további**területen válassza ki az **ingyenes SQL Server licencet: SQL Server 2017 Developer Windows Server** rendszerképre.
 
-    ![Virtuális gép rendszerképének kiválasztása](media/solution-deployment-guide-hybrid/image2.png)
+    ![Virtuálisgép-rendszerkép kiválasztása Azure Stack hub felhasználói portálon](media/solution-deployment-guide-hybrid/image2.png)
 
 4. **Ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server**, válassza a **Létrehozás**lehetőséget.
 
 5. Az **alapvető beállítások konfigurálása > alapszintű beállításnál**adja meg a virtuális gép (VM) **nevét** , a SQL Server SA **felhasználónevét** és a biztonsági társításhoz tartozó **jelszót** .  Az **előfizetés** legördülő listából válassza ki azt az előfizetést, amelyre telepíteni kívánja. Az **erőforráscsoport**esetében használja a **meglévő kiválasztása lehetőséget** , és helyezze a virtuális gépet ugyanabba az erőforráscsoporthoz, mint a Azure stack hub webalkalmazás.
 
-    ![A virtuális gép alapszintű beállításainak konfigurálása](media/solution-deployment-guide-hybrid/image3.png)
+    ![A virtuális gép alapszintű beállításainak konfigurálása Azure Stack hub felhasználói portálon](media/solution-deployment-guide-hybrid/image3.png)
 
 6. A **méret**területen válasszon egy méretet a virtuális géphez. Ebben az oktatóanyagban A2_Standard vagy DS2_V2_Standard használatát javasoljuk.
 
@@ -102,9 +102,10 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
    - **Diagnosztikai Storage-fiók**: hozzon létre egy új fiókot, ha szüksége van rá.
    - A konfiguráció mentéséhez kattintson **az OK gombra** .
 
-     ![Választható funkciók konfigurálása](media/solution-deployment-guide-hybrid/image4.png)
+     ![Opcionális virtuálisgép-funkciók konfigurálása Azure Stack hub felhasználói portálon](media/solution-deployment-guide-hybrid/image4.png)
 
 8. A **SQL Server beállítások**területen adja meg a következő beállításokat:
+
    - **SQL-kapcsolat**esetén válassza a **nyilvános (Internet)** lehetőséget.
    - A **port**esetében tartsa meg az alapértelmezett **1433**-as értéket.
    - **SQL-hitelesítés**esetén válassza az **Engedélyezés**lehetőséget.
@@ -114,15 +115,15 @@ A megoldás elindítása előtt győződjön meg arról, hogy megfelel a követk
 
    - A többi beállításnál tartsa meg az alapértelmezett értékeket. Kattintson az **OK** gombra.
 
-     ![SQL Server beállítások konfigurálása](media/solution-deployment-guide-hybrid/image5.png)
+     ![SQL Server beállítások konfigurálása Azure Stack hub felhasználói portálon](media/solution-deployment-guide-hybrid/image5.png)
 
 9. Az **Összefoglalás**lapon tekintse át a virtuális gép konfigurációját, majd a telepítés elindításához kattintson **az OK gombra** .
 
-    ![Konfiguráció összegzése](media/solution-deployment-guide-hybrid/image6.png)
+    ![Konfiguráció összegzése Azure Stack hub felhasználói portálon](media/solution-deployment-guide-hybrid/image6.png)
 
 10. Némi időbe telik az új virtuális gép létrehozása. A **virtuális gépek állapota a Virtual Machines**szolgáltatásban tekinthető meg.
 
-    ![Virtual machines (Virtuális gépek)](media/solution-deployment-guide-hybrid/image7.png)
+    ![Virtuális gépek állapota Azure Stack hub felhasználói portálon](media/solution-deployment-guide-hybrid/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack-hub"></a>Webalkalmazások létrehozása az Azure-ban és Azure Stack hub
 
@@ -152,13 +153,13 @@ Az Azure webes kezelőfelülete és a Azure Stack hub SQL Server adatbázisa kö
 
 A hibrid hálózat Azure oldalán lévő virtuális hálózati átjárónak lehetővé kell tennie a pont – hely kapcsolatoknak a Azure App Service való integrálását.
 
-1. Az Azure-ban navigáljon a virtuális hálózati átjáró lapra. A **Beállítások**területen válassza a **pont – hely konfiguráció**lehetőséget.
+1. Az Azure-ban nyissa meg a virtuális hálózati átjáró lapot. A **Beállítások**területen válassza a **pont – hely konfiguráció**lehetőséget.
 
-    ![Pont – hely beállítás](media/solution-deployment-guide-hybrid/image8.png)
+    ![Pont – hely beállítás az Azure Virtual Network gatewayben](media/solution-deployment-guide-hybrid/image8.png)
 
 2. Válassza a **Konfigurálás most** lehetőséget a pont – hely konfigurálásához.
 
-    ![Pont – hely konfiguráció indítása](media/solution-deployment-guide-hybrid/image9.png)
+    ![Pont – hely konfiguráció indítása az Azure Virtual Network gatewayben](media/solution-deployment-guide-hybrid/image9.png)
 
 3. A **pont – hely** konfiguráció lapon adja meg **a címkészlet számára**használni kívánt magánhálózati IP-címtartományt.
 
@@ -167,23 +168,23 @@ A hibrid hálózat Azure oldalán lévő virtuális hálózati átjárónak lehe
 
    Az **alagút típusa**területen törölje a **IKEv2 VPN-** t. Válassza a **Mentés** lehetőséget a pont – hely konfigurálásának befejezéséhez.
 
-   ![Pont – hely beállítások](media/solution-deployment-guide-hybrid/image10.png)
+   ![Pont – hely beállítások az Azure Virtual Network-átjárón](media/solution-deployment-guide-hybrid/image10.png)
 
 ### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>A Azure App Service alkalmazás integrálása a hibrid hálózattal
 
 1. Az alkalmazás Azure VNet való összekapcsolásához kövesse az [átjáró szükséges VNet-integrációjának](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)utasításait.
 
-2. Navigáljon a webalkalmazást üzemeltető App Service terv **beállításaihoz** . A **Beállítások**területen válassza a **hálózatkezelés**lehetőséget.
+2. Lépjen a webalkalmazást üzemeltető App Service-csomag **beállításaihoz** . A **Beállítások**területen válassza a **hálózatkezelés**lehetőséget.
 
-    ![Hálózatkezelés konfigurálása](media/solution-deployment-guide-hybrid/image11.png)
+    ![A App Service-csomag hálózatkezelésének konfigurálása](media/solution-deployment-guide-hybrid/image11.png)
 
 3. A **VNET-integráció**területen válassza a **kattintson ide a kezeléséhez**.
 
-    ![VNET-integráció kezelése](media/solution-deployment-guide-hybrid/image12.png)
+    ![A App Service-csomag VNET-integrációjának kezelése](media/solution-deployment-guide-hybrid/image12.png)
 
 4. Válassza ki a konfigurálni kívánt VNET. A **VNET felé irányított IP-címek**területen adja meg az Azure VNET, az Azure stack hub VNET és a pont – hely címtartomány IP-címtartományt. A beállítások ellenőrzéséhez és mentéséhez kattintson a **Mentés** gombra.
 
-    ![Útvonalhoz tartozó IP-címtartományok](media/solution-deployment-guide-hybrid/image13.png)
+    ![Az Virtual Network-integrációban útválasztásra kerülő IP-címtartományok](media/solution-deployment-guide-hybrid/image13.png)
 
 Ha többet szeretne megtudni arról, hogy a App Service hogyan integrálódik az Azure virtuális hálózatok, tekintse meg az [alkalmazás integrálása Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)-beli Virtual Network című témakört.
 
@@ -191,13 +192,13 @@ Ha többet szeretne megtudni arról, hogy a App Service hogyan integrálódik az
 
 Az Azure Stack hub virtuális hálózatában lévő helyi hálózati átjárót úgy kell konfigurálni, hogy a forgalmat a App Service pont – hely címtartomány alapján irányítsa.
 
-1. Az Azure Stack központban navigáljon a **helyi hálózati átjáró**elemre. A **Beállítások** területen válassza a **Konfiguráció** elemet.
+1. Az Azure Stack központban lépjen a **helyi hálózati átjáró**elemre. A **Beállítások** területen válassza a **Konfiguráció** elemet.
 
-    ![Átjáró konfigurációs beállítása](media/solution-deployment-guide-hybrid/image14.png)
+    ![Átjáró konfigurációs beállítása Azure Stack hub helyi hálózati átjárójában](media/solution-deployment-guide-hybrid/image14.png)
 
 2. A **címterület**mezőben adja meg az Azure-beli virtuális hálózati átjáró pont – hely típusú címtartományt.
 
-    ![Pont – hely címtartomány](media/solution-deployment-guide-hybrid/image15.png)
+    ![Pont – hely címtartomány a Azure Stack hub helyi hálózati átjárójában](media/solution-deployment-guide-hybrid/image15.png)
 
 3. A konfiguráció ellenőrzéséhez és mentéséhez kattintson a **Mentés** gombra.
 
@@ -235,7 +236,7 @@ Az Azure-és Azure Stack hub-webalkalmazásokat az összes bejövő forgalom SSL
 
 SSL hozzáadása az Azure-hoz:
 
-1. Győződjön meg arról, hogy a beszerzett SSL-tanúsítvány érvényes a létrehozott altartományhoz. (A helyettesítő tanúsítványok használata rendben van.)
+1. Győződjön meg arról, hogy a kapott SSL-tanúsítvány érvényes a létrehozott altartományhoz. (A helyettesítő tanúsítványok használata rendben van.)
 
 2. Az Azure-ban kövesse a **webalkalmazás előkészítése** és az SSL- **tanúsítvány** kötése szakaszát a [meglévő egyéni SSL-tanúsítvány kötése az Azure Web Apps](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl) cikkhez című cikkben található utasításokat. Az **SSL-típusként**válassza a **SNI-alapú SSL** lehetőséget.
 
@@ -243,11 +244,11 @@ SSL hozzáadása az Azure-hoz:
 
 SSL hozzáadása Azure Stack hubhoz:
 
-- Ismételje meg az Azure-ban használt 1-3-es lépést.
+1. Ismételje meg az Azure-ban használt 1-3-es lépést.
 
 ## <a name="configure-and-deploy-the-web-app"></a>A webalkalmazás konfigurálása és üzembe helyezése
 
-Konfigurálja az telemetria a helyes Application Insights példányra, majd konfigurálja a webalkalmazásokat a megfelelő kapcsolati karakterláncokkal. További információ a Application Insightsről: [Mi az Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
+Konfigurálja az telemetria a helyes Application Insights példányra, és konfigurálja a webalkalmazásokat a megfelelő kapcsolati karakterláncokkal. További információ a Application Insightsről: [Mi az Application Insights?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
 ### <a name="add-application-insights"></a>Application Insights hozzáadása
 
@@ -257,10 +258,10 @@ Konfigurálja az telemetria a helyes Application Insights példányra, majd konf
 
 ### <a name="configure-dynamic-connection-strings"></a>Dinamikus kapcsolatok karakterláncának konfigurálása
 
-A webalkalmazás minden példánya egy másik módszert fog használni az SQL-adatbázishoz való kapcsolódáshoz. Az Azure-beli alkalmazás a SQL Server virtuális gép (VM) magánhálózati IP-címét használja, az alkalmazás pedig Azure Stack hub-ban a SQL Server VM nyilvános IP-címét használja.
+A webalkalmazás minden példánya egy másik módszert fog használni az SQL-adatbázishoz való kapcsolódáshoz. Az Azure-beli alkalmazás a SQL Server VM magánhálózati IP-címét, a Azure Stack hub alkalmazás pedig a SQL Server VM nyilvános IP-címét használja.
 
 > [!Note]  
-> Egy Azure Stack hub-beli integrált rendszeren a nyilvános IP-cím nem lehet internetre irányítható. Egy Azure Stack Development Kiton (ASDK) a nyilvános IP-cím nem irányítható át a ASDK kívül.
+> Egy Azure Stack hub-beli integrált rendszeren a nyilvános IP-cím nem lehet internetre irányítható. Egy ASDK a nyilvános IP-cím nem a ASDK kívülre irányítható.
 
 App Service környezeti változók használatával más kapcsolódási karakterláncot adhat át az alkalmazás minden egyes példányához.
 
@@ -301,21 +302,21 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
 
 1. Az Azure-ban keresse meg a kibővíteni kívánt webhelyek App Service tervét, majd válassza a **kibővítés (App Service terv)** lehetőséget.
 
-    ![Horizontális felskálázás](media/solution-deployment-guide-hybrid/image16.png)
+    ![Kibővíthető Azure App Service](media/solution-deployment-guide-hybrid/image16.png)
 
 2. Válassza az **autoskálázás engedélyezése**lehetőséget.
 
-    ![Az autoskálázás engedélyezése](media/solution-deployment-guide-hybrid/image17.png)
+    ![Az autoskálázás engedélyezése Azure App Service](media/solution-deployment-guide-hybrid/image17.png)
 
 3. Adja meg az **autoskálázási beállítás nevének**nevét. Az **alapértelmezett** automatikus skálázási szabálynál válassza a **skála mérőszám alapján**lehetőséget. A **példányokra vonatkozó korlátokat** állítsa **minimumra: 1**, **maximum: 10**, **alapértelmezett érték: 1**.
 
-    ![Automatikus skálázás konfigurálása](media/solution-deployment-guide-hybrid/image18.png)
+    ![Az autoskálázás konfigurálása Azure App Service](media/solution-deployment-guide-hybrid/image18.png)
 
 4. Válassza **a + szabály hozzáadása**lehetőséget.
 
 5. A **metrika forrása**mezőben válassza ki az **aktuális erőforrás**elemet. A szabályhoz a következő feltételeket és műveleteket használhatja.
 
-**Feltételek**
+#### <a name="criteria"></a>Feltételek
 
 1. Az **idő összesítése** területen válassza az **átlag**lehetőséget.
 
@@ -326,7 +327,7 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
    - Állítsa a **küszöbértéket** **50**-re.
    - Állítsa az **időtartamot** **10**értékre.
 
-**Művelet**
+#### <a name="action"></a>Műveletek
 
 1. A **művelet**területen válassza **a számának növekedése a**következővel:.
 
@@ -341,15 +342,15 @@ Ha App Service környezetben hozza létre a webalkalmazást, az egy példánnyal
 6. A **metrika forrása**mezőben válassza ki az **aktuális erőforrás elemet.**
 
    > [!Note]  
-   > Az aktuális erőforrás tartalmazni fogja a App Service terv nevét/GUID azonosítóját, és az **erőforrástípus** és az **erőforrás** legördülő listája nem lesz elérhető.
+   > Az aktuális erőforrás tartalmazni fogja a App Service terv nevét/GUID azonosítóját, és az **Erőforrás típusa** és az **erőforrás** legördülő listája nem lesz elérhető.
 
 ### <a name="enable-automatic-scale-in"></a>Automatikus skálázás engedélyezése
 
 A forgalom csökkenése esetén az Azure-webalkalmazás automatikusan csökkentheti az aktív példányok számát a költségek csökkentése érdekében. Ez a művelet kevésbé agresszív, mint a felskálázás, és csökkenti az alkalmazás felhasználóira gyakorolt hatást.
 
-1. Navigáljon az **alapértelmezett** Felskálázási feltételhez, majd válassza a **+ szabály hozzáadása**elemet. A szabályhoz a következő feltételeket és műveleteket használhatja.
+1. Lépjen az **alapértelmezett** Felskálázási feltételre, majd válassza a **+ szabály hozzáadása**elemet. A szabályhoz a következő feltételeket és műveleteket használhatja.
 
-**Feltételek**
+#### <a name="criteria"></a>Feltételek
 
 1. Az **idő összesítése** területen válassza az **átlag**lehetőséget.
 
@@ -360,7 +361,7 @@ A forgalom csökkenése esetén az Azure-webalkalmazás automatikusan csökkenth
    - Állítsa a **küszöbértéket** **30**-ra.
    - Állítsa az **időtartamot** **10**értékre.
 
-**Művelet**
+#### <a name="action"></a>Műveletek
 
 1. A **művelet**területen válassza **a szám csökkentése a**következővel:.
 
@@ -427,7 +428,7 @@ Ezután konfigurálja az Azure-végpontot.
 
 Mindkét végpont konfigurálása után **Traffic Manager profilban** szerepelnek a **végpontok**kiválasztása után. A következő képernyőfelvételen szereplő példa két végpontot mutat be, amelyek mindegyike állapota és konfigurációs adatai szerepelnek.
 
-![Végpontok](media/solution-deployment-guide-hybrid/image20.png)
+![Traffic Manager profilban található végpontok](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Application Insights figyelésének és riasztásának beállítása
 
@@ -437,11 +438,11 @@ A riasztások létrehozásához Application Insights metrikákat kell használni
 
 ### <a name="create-an-alert-from-metrics"></a>Riasztás létrehozása mérőszámokból
 
-Keresse meg az oktatóanyaghoz tartozó erőforráscsoportot, majd válassza ki a Application Insights példányt a **Application Insights**megnyitásához.
+Nyissa meg az oktatóanyaghoz tartozó erőforráscsoportot, majd válassza ki a Application Insights példányt a **Application Insights**megnyitásához.
 
 ![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
 
-Ennek a nézetnek a használatával kibővíthető riasztást és a riasztások méretezését is létrehozhatja.
+Ennek a nézetnek a használatával kibővíthető riasztást és egy méretezési riasztást hozhat létre.
 
 ### <a name="create-the-scale-out-alert"></a>A kibővíthető riasztás létrehozása
 
@@ -464,7 +465,7 @@ Ennek a nézetnek a használatával kibővíthető riasztást és a riasztások 
 
 9. A menüsávon válassza a **Mentés**lehetőséget.
 
-### <a name="create-the-scale-in-alert"></a>A skála létrehozása riasztásban
+### <a name="create-the-scale-in-alert"></a>A méretezési riasztás létrehozása
 
 1. A **Konfigurálás**területen válassza a **riasztások (klasszikus)** lehetőséget.
 2. Válassza a **metrikus riasztás hozzáadása (klasszikus)** lehetőséget.
@@ -485,9 +486,9 @@ Ennek a nézetnek a használatával kibővíthető riasztást és a riasztások 
 
 9. A menüsávon válassza a **Mentés**lehetőséget.
 
-Az alábbi képernyőfelvételen a kibővíthető és a méretezési riasztások láthatók.
+A következő képernyőképen a kibővíthető és méretezhető riasztások láthatók.
 
-   ![Riasztások (klasszikus)](media/solution-deployment-guide-hybrid/image22.png)
+   ![Application Insights riasztások (klasszikus)](media/solution-deployment-guide-hybrid/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack-hub"></a>Az Azure és a Azure Stack hub közötti forgalom átirányítása
 
@@ -499,22 +500,22 @@ Ha a webhely eléri a konfigurált küszöbértékeket, riasztást kap. A követ
 
 1. A Azure Portal válassza ki a Traffic Manager profilt.
 
-    ![Traffic Manager-végpontok](media/solution-deployment-guide-hybrid/image20.png)
+    ![Azure Portal Traffic Manager végpontok](media/solution-deployment-guide-hybrid/image20.png)
 
 2. Válassza a **végpontok**lehetőséget.
 3. Válassza ki az **Azure-végpontot**.
 4. Az **állapot**területen válassza az **engedélyezve**lehetőséget, majd kattintson a **Mentés**gombra.
 
-    ![Azure-végpont engedélyezése](media/solution-deployment-guide-hybrid/image23.png)
+    ![Azure-végpont engedélyezése Azure Portal](media/solution-deployment-guide-hybrid/image23.png)
 
 5. A Traffic Manager profilhoz tartozó **végpontokon** válassza a **külső végpont**lehetőséget.
 6. Az **állapot**területen válassza a **Letiltva**, majd a **Mentés**lehetőséget.
 
-    ![Azure Stack hub-végpont letiltása](media/solution-deployment-guide-hybrid/image24.png)
+    ![Azure Stack hub-végpont letiltása Azure Portal](media/solution-deployment-guide-hybrid/image24.png)
 
 A végpontok konfigurálása után az alkalmazások forgalma az Azure Stack hub-webalkalmazás helyett az Azure kibővíthető webalkalmazásra kerül.
 
- ![Megváltoztatott végpontok](media/solution-deployment-guide-hybrid/image25.png)
+ ![Az Azure webalkalmazás-forgalomban megváltoztatott végpontok](media/solution-deployment-guide-hybrid/image25.png)
 
 Ha vissza szeretné fordítani a folyamatot Azure Stack hubhoz, a következő lépésekkel hajthatja végre az előző lépéseket:
 

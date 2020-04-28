@@ -3,20 +3,20 @@ title: Bérlők hozzáadása a Azure Stack hubhoz való használathoz és száml
 description: Megtudhatja, hogyan adhat hozzá bérlőt a használathoz és a számlázáshoz Azure Stack hub-ra.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704828"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167024"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Bérlő hozzáadása a Azure Stack hubhoz való használathoz és számlázáshoz
 
-Ez a cikk bemutatja, hogyan adhat hozzá bérlőt egy felhőalapú megoldás-szolgáltató (CSP) által kezelt Azure Stack hub központi telepítéshez. Ha az új bérlő erőforrásokat használ, Azure Stack hub a CSP-előfizetését használja.
+Ez a cikk azt ismerteti, hogyan adhat hozzá bérlőt egy felhőalapú megoldás-szolgáltató (CSP) által kezelt Azure Stack hub-telepítéshez. Ha az új bérlő erőforrásokat használ, Azure Stack hub a CSP-előfizetését használja.
 
 A kriptográfiai szolgáltatók gyakran kínálnak szolgáltatásokat több végfelhasználónak (bérlőnek) a Azure Stack hub üzembe helyezésén. A bérlők Azure Stack hub-regisztrációhoz való hozzáadásával biztosítható, hogy az egyes bérlők használatának jelentése és számlázása a megfelelő CSP-előfizetéssel történjen. Ha nem hajtja végre a jelen cikkben ismertetett lépéseket, a bérlői használatért az Azure Stack hub kezdeti regisztrációjában használt előfizetésre kell fizetni. Mielőtt felveszi a végfelhasználót Azure Stack hub-ba a használat nyomon követéséhez és a bérlők kezeléséhez, konfigurálnia kell Azure Stack hub-t CSP-ként. A lépéseket és erőforrásokat lásd: a [Azure stack hub használatának és számlázásának kezelése felhőalapú megoldási szolgáltatóként](azure-stack-add-manage-billing-as-a-csp.md).
 
@@ -49,14 +49,14 @@ Alapértelmezés szerint Ön, mint CSP, nem férhet hozzá a végfelhasználó A
 
 Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner Center ügyfél-identitását használva jelenti az ügyfelek használatát. Ezzel a lépéssel biztosítható, hogy minden ügyfél használati adatait az adott ügyfél egyéni CSP-előfizetése alatt jelentse. Így egyszerűbbé válik a használat és a számlázás. Ennek a lépésnek a végrehajtásához először [regisztrálnia kell Azure stack hubot](azure-stack-registration.md).
 
-1. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorral, és futtassa a következőket:  
+1. Nyisson meg egy emelt szintű parancssorban a Windows PowerShellt, és futtassa a következőket:  
 
    ```powershell
    Add-AzureRmAccount
    ```
 
-   >[!Note]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot:`Remove-AzureRmAccount-Scope Process`
+   >[!NOTE]
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzureRmAccount**használatával történő bejelentkezés előtt futtassa a következő parancsmagot `Remove-AzureRmAccount-Scope Process`:.
 
 2. Adja meg az Azure-beli hitelesítő adatait.
 3. A PowerShell-munkamenetben futtassa a következőket:

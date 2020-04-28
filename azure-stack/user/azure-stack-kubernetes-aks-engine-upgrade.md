@@ -3,16 +3,16 @@ title: Kubernetes-fürt frissítése Azure Stack hub-on
 description: Ismerje meg, hogyan frissíthet egy Kubernetes-fürtöt Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 2e8d4c04cbfce4f7140ecdd873da5323cb1e1e7d
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069247"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167041"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
 
@@ -47,30 +47,16 @@ Az üzembe helyezett fürtök frissítéseinek fedele:
 
 Az alábbi utasítások a frissítés végrehajtásához szükséges minimális lépéseket használják. Ha további részleteket szeretne látni, tekintse meg a [Kubernetes-fürtök frissítése](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)című cikket.
 
-1. Először meg kell határoznia a frissítés céljára megcélzott verziókat. Ez a verzió a jelenleg használt verziótól függ, és ezt a verziószámot használja a frissítés elvégzéséhez.
+1. Először meg kell határoznia a frissítés céljára megcélzott verziókat. Ez a verzió a jelenleg használt verziótól függ, és ezt a verziószámot használja a frissítés elvégzéséhez. A legújabb frissítésekben támogatott Kubernetes-verziók a következők: 1.14.7 és 1.15.10. Kövesse ezt a táblázatot az elérhető frissítésekhez:
 
-    Futtassa az alábbi parancsot:
+| Aktuális verzió | Frissítés érhető el |
+| --- | --- |
+|1.14.7 | 1.15.10 |
+|1.14.8 | 1.15.10 |
+|1.15.4 | 1.15.10 |
+|1.15.5 | 1.15.10 |
 
-    ```bash  
-    $ aks-engine get-versions
-    Version Upgrades
-    1.15.0
-    1.14.3  1.15.0
-    1.14.1  1.14.3, 1.15.0
-    1.13.7  1.14.1, 1.14.3
-    1.13.5  1.13.7, 1.14.1, 1.14.3
-    1.12.8  1.13.5, 1.13.7
-    1.12.7  1.12.8, 1.13.5, 1.13.7
-    1.11.10 1.12.7, 1.12.8
-    1.11.9  1.11.10, 1.12.7, 1.12.8
-    1.10.13 1.11.9, 1.11.10
-    1.10.12 1.10.13, 1.11.9, 1.11.10
-    1.9.11  1.10.12, 1.10.13
-    1.9.10  1.9.11, 1.10.12, 1.10.13
-    1.6.9   1.9.10, 1.9.11
-    ```
-
-    Például a `get-versions` parancs kimenetének megfelelően, ha a jelenlegi Kubernetes verziója "1.13.5", a "1.13.7, 1.14.1, 1.14.3" értékre frissíthet.
+Az AK-motor teljes leképezéséhez az AK alaprendszerkép-és Kubernetes-verzióit lásd: [támogatott AK-motor-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
 2. Gyűjtsön adatokat, amelyekre szüksége lesz a `upgrade` parancs futtatásához. A frissítés a következő paramétereket használja:
 

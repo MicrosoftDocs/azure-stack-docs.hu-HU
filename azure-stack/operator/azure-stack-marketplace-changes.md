@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Változások és frissítések a Azure Stack hub piactéren.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 04/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 4efff54a69adc2150aec88791738a9d564df55ee
-ms.sourcegitcommit: 3809903f51e254fadfa8c653d5b441278540319e
+ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82139477"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166973"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -22,16 +22,13 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
-- 06/27/2019: SIOS Datakeeper-fürt kiadása
-- 06/27/2019: Veeam biztonsági mentési & replikációja
-- 06/27/2019: a Windows Server 2019 Datacenter Server Core with containers szolgáltatás használata
-- 06/27/2019: Windows Server 2019 Datacenter Server Core with containers BYOL
-- 06/27/2019: a Windows Server 2019 Datacenter használata
-- 06/27/2019: Windows Server 2019 Datacenter BYOL
-- 06/27/2019: a Windows Server 2019 Datacenter Server Core utólagos használat
-- 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
-- 06/27/2019: a Windows Server 2019 Datacenter és a tárolók használati díja
-- 06/27/2019: Windows Server 2019 Datacenter tárolók BYOL
+- 01/21/2020: Teradici felhőalapú hozzáférési szoftver
+- 12/26/2019: a CloudGuard IaaS magas rendelkezésre állása
+- 12/26/2019: ellenőrzési pont CloudGuard IaaS biztonsági felügyelete
+- 12/26/2019: ellenőrzési pont CloudGuard IaaS egyetlen átjáróval
+- 10/16/2019: SIOS DataKeeper-fürt kiadása
+- 08/19/2019: Iguazio adatelemzési platform
+- 08/09/2019: Oracle Linux
 - 08/05/2019: Bitnami Drupal
 - 08/05/2019: Bitnami etcd
 - 08/05/2019: Bitnami Grafana
@@ -43,13 +40,16 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 08/05/2019: Bitnami NAT
 - 08/05/2019: Bitnami felülvizsgálati Tanács
 - 08/05/2019: Bitnami-alkotó
-- 08/09/2019: Oracle Linux
-- 08/19/2019: Iguazio adatelemzési platform
-- 10/16/2019: SIOS DataKeeper-fürt kiadása
-- 12/26/2019: a CloudGuard IaaS magas rendelkezésre állása
-- 12/26/2019: ellenőrzési pont CloudGuard IaaS biztonsági felügyelete
-- 12/26/2019: ellenőrzési pont CloudGuard IaaS egyetlen átjáróval
-- 01/21/2020: Teradici felhőalapú hozzáférési szoftver
+- 06/27/2019: SIOS Datakeeper-fürt kiadása
+- 06/27/2019: a Windows Server 2019 Datacenter Server Core with containers szolgáltatás használata
+- 06/27/2019: Windows Server 2019 Datacenter Server Core with containers BYOL
+- 06/27/2019: a Windows Server 2019 Datacenter használata
+- 06/27/2019: Windows Server 2019 Datacenter BYOL
+- 06/27/2019: a Windows Server 2019 Datacenter Server Core utólagos használat
+- 06/27/2019: Windows Server 2019 Datacenter Server Core BYOL
+- 06/27/2019: a Windows Server 2019 Datacenter és a tárolók használati díja
+- 06/27/2019: Windows Server 2019 Datacenter tárolók BYOL
+- 06/27/2019: Veeam biztonsági mentési & replikációja
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
@@ -62,6 +62,16 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 04/20/2020: Windows Server 2012 Datacenter-BYOL-Version 3.127.20190521
+- 04/20/2020: Windows Server 2012 R2 Datacenter – a 4.127.20200205 verzió használatakor kell fizetnie
+- 04/20/2020: Windows Server 2012 R2 Datacenter-BYOL-Version 4.127.20200205
+- 04/20/2020: Windows Server 2012 Datacenter – a 3.127.20200205 verzió használatakor kell fizetnie
+- 04/20/2020: Windows Server 2016 Datacenter-BYOL-Version 2020,01
+- 04/20/2020: a Windows Server 2016 Datacenter Server Core – az 2020,01-as verzióban fizetendő
+- 04/20/2020: Windows Server 2016 Datacenter Server Core-BYOL-Version 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter tárolókkal – díj 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter with containers-BYOL-Version 2020,01
+- 04/20/2020: Windows Server 2016 Datacenter – az 2020,01-as verzióban fizetendő díj
 - 04/17/2020: Bitnami AbanteCart – 1.2.2002091007 verzió
 - 04/17/2020: Bitnami ActiveMQ – 5.15.2003260344 verzió
 - 04/17/2020: Bitnami Akeneo – 3.2.2004030743 verzió
@@ -202,7 +212,18 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 04/17/2020: Bitnami MariaDB Galera – fürt verziója 1.0.35
 - 04/17/2020: Bitnami Jenkins-fürt – verzió 1.0.69
 - 04/17/2020: Bitnami RabbitMQ-fürt verziója 1.0.37
-- 07/11/2019: Thales CipherTrust Cloud Key Manager – verzió 1.0.7
+- 10/1/2019: Microsoft JsonADDomain bővítmény – Version 1.3.4
+- 09/25/2019: Debian 8 – Version 8.0.20190806
+- 09/24/2019: F5 – Networks Big-IP Virtual Edition – Version 14.1.200000
+- 09/12/2019: Service Fabric-Version 1.0.3
+- 09/02/2019: AK-alapú alaprendszerkép – Version 2019.08.09 és 2019.08.21 verzió
+- 08/30/2019: Azure Stack hub Kubernetes-fürt verziója 0.5.1
+- 08/08/2019: CloudLink SecureVM-bővítmény a Linux rendszerhez – 6,8-es verzió
+- 08/08/2019: CloudLink SecureVM-bővítmény a Windows-verzió 6,8-es verziójához
+- 07/30/2019: SQLIaaSExtension – 1.3.20180 verzió
+- 07/30/2019: SQL Server 2017 (expressz, fejlesztői, standard és Enterprise kiadás) – 14.0.20190410 verzió
+- 07/30/2019: SQL Server 2016 SP1 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
+- 07/30/2019: SQL Server 2016 SP2 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
 - 07/16/2019: Windows Server 2016 Datacenter Server Core BYOL – Version 2016.127.20190522
 - 07/16/2019: a Windows Server 2016 Datacenter Server Core 2016.127.20190522 verziójának használata
 - 07/16/2019: Windows Server 2016 Datacenter, tárolók BYOL – 2016.127.20190522 verzió
@@ -213,19 +234,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 07/16/2019: a Windows Server 2008 R2 használati díjas 2.127.20190522
 - 07/16/2019: Windows Server 2012 R2 Datacenter BYOL – verzió 4.127.20190522
 - 07/16/2019: Windows Server 2012 R2 Datacenter – 4.127.20190522 verzió
-- 07/30/2019: SQL Server 2016 SP1 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
-- 07/30/2019: SQL Server 2016 SP2 (expressz, fejlesztői, standard és Enterprise kiadás) – 13.2.20190410 verzió
-- 07/30/2019: SQL Server 2017 (expressz, fejlesztői, standard és Enterprise kiadás) – 14.0.20190410 verzió
-- 07/30/2019: SQLIaaSExtension – 1.3.20180 verzió
-- 08/08/2019: CloudLink SecureVM-bővítmény a Linux rendszerhez – 6,8-es verzió
-- 08/08/2019: CloudLink SecureVM-bővítmény a Windows-verzió 6,8-es verziójához
-- 08/30/2019: Azure Stack hub Kubernetes-fürt verziója 0.5.1
-- 09/02/2019: AK-alapú alaprendszerkép – Version 2019.08.09 és 2019.08.21 verzió
-- 09/12/2019: Service Fabric-Version 1.0.3
-- 09/24/2019: F5 – Networks Big-IP Virtual Edition – Version 14.1.200000
-- 09/25/2019: Debian 8 – Version 8.0.20190806
-- 10/1/2019: Microsoft JsonADDomain bővítmény – Version 1.3.4
-
+- 07/11/2019: Thales CipherTrust Cloud Key Manager – verzió 1.0.7
 
 ## <a name="next-steps"></a>További lépések
 

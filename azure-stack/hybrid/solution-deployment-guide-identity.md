@@ -7,14 +7,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 69d4d3d6617bf57f9af82b3f7093f094be142c39
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d8a658e1ea285a19e09e5df27c0d7a349b3372eb
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701020"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167007"
 ---
-# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Hibrid Felhőbeli identitás konfigurálása az Azure-hoz és Azure Stack hub-alkalmazásokhoz
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Hibrid felhőalapú identitás konfigurálása az Azure-hoz és Azure Stack hub-alkalmazásokhoz
 
 Megtudhatja, hogyan konfigurálhat hibrid Felhőbeli identitást Azure-és Azure Stack hub-alkalmazásaihoz.
 
@@ -37,8 +37,7 @@ Ennek a megoldásnak a lépéseihez Azure Stack hub-kezelő engedélyekkel kell 
 > ![Hybrid-Pillars. png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack hub az Azure kiterjesztése. Azure Stack hub a felhő-számítástechnika rugalmasságát és innovációját a helyszíni környezetbe helyezi, így az egyetlen hibrid felhő, amely lehetővé teszi a hibrid alkalmazások bárhol történő létrehozását és üzembe helyezését.  
 > 
-> A [hibrid alkalmazásokkal kapcsolatos tervezési szempontok](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át a hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
-
+> A [hibrid alkalmazások kialakításával kapcsolatos megfontolások](overview-app-design-considerations.md) a szoftverek minőségének (elhelyezés, skálázhatóság, rendelkezésre állás, rugalmasság, kezelhetőség és biztonság) pilléreit tekintik át hibrid alkalmazások tervezéséhez, üzembe helyezéséhez és üzemeltetéséhez. A kialakítási szempontok segítik a hibrid alkalmazások kialakításának optimalizálását, ami minimalizálja az éles környezetekben felmerülő kihívásokat.
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Egyszerű szolgáltatásnév létrehozása az Azure AD-hez a portálon
 
@@ -58,16 +57,16 @@ Az [Azure stack hub PowerShell-](../operator/azure-stack-powershell-install.md) 
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Egy olyan Azure Stack hub-telepítésre van szükség, amelyhez hozzá kell férnie Azure Active Directoryhoz. Ha nem rendelkezik Azure Stack hub-telepítéssel, a következő utasításokat követve állíthatja be a [Azure stack Development Kit](../asdk/asdk-install.md).
+Egy, az Azure AD-hez csatlakoztatott Azure Stack hub-telepítésre van szükség, amelyhez hozzá tud férni. Ha nem rendelkezik Azure Stack hub-telepítéssel, a következő utasításokat követve állíthatja be a [Azure stack Development Kitt (ASDK)](../asdk/asdk-install.md).
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>Kapcsolódás Azure Stack hubhoz kód használatával
 
-Ha kódot használ a Azure Stack hubhoz való kapcsolódáshoz, használja a Azure Resource Manager endpoints API-t a Azure Stack hub-telepítéshez tartozó hitelesítési és gráf végpontok beszerzéséhez, majd végezzen hitelesítést a REST-kérelmek használatával. A [githubon](https://github.com/shriramnat/HybridARMApplication)megtalálhatja a minta ügyfélalkalmazás alkalmazást.
+Ha kódot használ a Azure Stack hubhoz való kapcsolódáshoz, használja a Azure Resource Manager endpoints API-t az Azure Stack hub-telepítéshez tartozó hitelesítési és gráf végpontok beszerzéséhez. Ezután végezze el a hitelesítést a REST-kérelmek használatával. A [githubon](https://github.com/shriramnat/HybridARMApplication)megtalálhatja a minta ügyfélalkalmazás alkalmazást.
 
 >[!Note]
 >Ha a választott nyelvhez készült Azure SDK támogatja az Azure API-profilokat, előfordulhat, hogy az SDK nem működik együtt Azure Stack hub-val. Az Azure API-profilokkal kapcsolatos további tudnivalókért tekintse meg az [API-verzió profiljainak kezelése](../user/azure-stack-version-profiles.md) című cikket.
 
 ## <a name="next-steps"></a>További lépések
 
- - Ha többet szeretne megtudni arról, hogyan kezeli az identitást Azure Stack központban, tekintse meg a [Azure stack hub Identity Architecture](../operator/azure-stack-identity-architecture.md)című témakört.
- - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).
+- Ha többet szeretne megtudni arról, hogyan kezeli az identitást Azure Stack központban, tekintse meg a [Azure stack hub Identity Architecture](../operator/azure-stack-identity-architecture.md)című témakört.
+- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

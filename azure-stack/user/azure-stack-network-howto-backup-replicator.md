@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e7997669d6a8ffa5809fdb0ccd852f4abcb08284
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660524"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173913"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
@@ -72,7 +72,7 @@ Az eszközhöz a **Parallel**nevű paraméter szükséges. Ez a paraméter egy l
 
 ## <a name="add-additional-resource-types"></a>További erőforrástípusok hozzáadása
 
-Az új erőforrástípusok hozzáadása egyszerű. A fejlesztőnek létre kell hoznia egy testreszabott processzort, valamint egy Azure Resource Manager sablont vagy egy Azure Resource Manager sablon-generátort. A befejezést követően a fejlesztőnek hozzá kell adnia az erőforrástípust a **$resourceType** paraméterhez és a **$resourceTypes** tömbhöz a resource_retriever. ps1 ValidateSet. Az erőforrástípus * * $resourceTypes * * tömbhöz való hozzáadásakor azt a megfelelő sorrendben kell hozzáadni. A tömb sorrendje határozza meg, hogy az erőforrások milyen sorrendben lesznek telepítve, ezért ne feledje, hogy a függőségek megmaradnak. Végül, ha a testreszabott processzor egy Azure Resource Manager sablon-generátort használ, hozzá kell adnia az erőforrástípus nevét a **$customTypes** tömbhöz **post_process. ps1**-ben.
+Az új erőforrástípusok hozzáadása egyszerű. A fejlesztőnek létre kell hoznia egy testreszabott processzort, valamint egy Azure Resource Manager sablont vagy egy Azure Resource Manager sablon-generátort. A befejezést követően a fejlesztőnek hozzá kell adnia az erőforrástípust a **$resourceType** paraméterhez és a **$resourceTypes** tömbhöz a resource_retriever. ps1 ValidateSet. Az erőforrástípus a **$resourceTypes** tömbhöz való hozzáadásakor a megfelelő sorrendben kell hozzáadni. A tömb sorrendje határozza meg, hogy az erőforrások milyen sorrendben lesznek telepítve, ezért ne feledje, hogy a függőségek megmaradnak. Végül, ha a testreszabott processzor egy Azure Resource Manager sablon-generátort használ, hozzá kell adnia az erőforrástípus nevét a **$customTypes** tömbhöz **post_process. ps1**-ben.
 
 ## <a name="run-azure-subscription-replicator"></a>Azure-előfizetési replikátor futtatása
 
