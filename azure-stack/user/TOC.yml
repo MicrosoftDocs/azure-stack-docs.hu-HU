@@ -212,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: Támogatási házirend
                       href: azure-stack-kubernetes-aks-engine-support.md
+                    - name: AK-motor kibocsátási megjegyzései
+                      href: kubernetes-aks-engine-release-notes.md
                     - name: Előfeltételek beállítása
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Linux-ügyfél létrehozása

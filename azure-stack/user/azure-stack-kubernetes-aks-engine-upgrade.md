@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 2e8d4c04cbfce4f7140ecdd873da5323cb1e1e7d
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167041"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218806"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
 

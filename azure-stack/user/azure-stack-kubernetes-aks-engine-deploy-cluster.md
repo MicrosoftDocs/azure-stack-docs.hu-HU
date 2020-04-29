@@ -3,16 +3,16 @@ title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 description: Kubernetes-fürt üzembe helyezése Azure Stack hub-on az AK-motort futtató ügyfél virtuális gépről.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 6edf0f42664f86ffca5bd25aef86892b017c98c9
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167092"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218823"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -44,11 +44,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     > [!Note]  
     > Ha nincs telepítve a nano, akkor telepítheti a nanot Ubuntu- `sudo apt-get install nano`re:.
 
-3.  A kubernetes-azurestack. JSON fájlban keresse meg `orchestratorRelease`a fájlt. Válasszon egy támogatott Kubernetes-verziót. Például 1,14, 1,15. A verziók gyakran frissülnek. A verziót x. xx helyett x. xx. x értékkel kell megadni. Az aktuális verziók listáját lásd: [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions). A támogatott verziót a következő AK Engine-parancs futtatásával tekintheti meg:
-
-    ```bash
-    aks-engine get-versions
-    ```
+3.  A kubernetes-azurestack. JSON fájlban keresse meg a orchestratorRelease és a orchestratorVersion. Válasszon egy támogatott Kubernetes-verziót. Például `orchestratorRelease` az 1,14-es vagy a 1,15-es `orchestratorVersion` , illetve a 1.14.7 vagy a 1.15.10 használata esetén. A `orchestratorRelease` as x. xx és orchestratorVersion x. xx. x néven kell megadnia. Az aktuális verziók listáját lásd: [támogatott AK-motor verziói](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)
 
 4.  Keresse `customCloudProfile` meg és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`. 
 

@@ -3,16 +3,16 @@ title: VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack
 description: Megtudhatja, hogyan használhatja a Azure Automation Azure Monitor for VMs, Update Management, Change Tracking és leltározási megoldásait az Azure Stack hub-ban üzembe helyezett Windows-és Linux-alapú virtuális gépek kezeléséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 733405cc09444b88d8b81750f73be805b339e1d3
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/27/2020
+ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
+ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661477"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82223055"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú virtuális gépek (VM-EK) kezeléséhez használja az alábbi Azure Automation megoldás-szolgáltatásokat:
@@ -51,7 +51,7 @@ Ezután [létre kell hoznia egy Automation-fiókot](https://docs.microsoft.com/a
 
 5. Mindhárom megoldás engedélyezéséhez ismételje meg a 2-4. lépést. 
 
-   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media//vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media//vm-update-management/1-lg.PNG)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Azure Monitor for VMs engedélyezése
 
@@ -70,11 +70,11 @@ A Log Analytics munkaterület létrehozása után engedélyezze a teljesítmény
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>Az Azure Stack hub felügyeleti portálján
 Miután engedélyezte a Azure Automation megoldásokat a Azure Portalban, be kell jelentkeznie a Azure Stack hub felügyeleti portálra a felhő-rendszergazdaként, és le kell töltenie a **Azure monitor, a frissítés és a konfiguráció felügyeletét** , valamint a Linux-bővítmény **Azure monitor, frissítését és konfigurálását** a Azure stack hub piactéren.
 
-   ![Azure Monitor, frissítés és konfigurálási felügyeleti bővítmény Marketplace-elem](media/vm-update-management/2.PNG) 
+   ![Azure Monitor, frissítés és konfigurálási felügyeleti bővítmény Marketplace-elem](media//vm-update-management/2.PNG) 
 
 A Azure Monitor for VMs Map megoldás engedélyezéséhez és a hálózati függőségek betekintéséhez töltse le a **Azure Monitor Dependency Agent**:
 
-   ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
+   ![Azure Monitor Dependency Agent](media//vm-update-management/2-dependency.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-hub-vms"></a>Update Management engedélyezése Azure Stack hub-beli virtuális gépekhez
 Az alábbi lépéseket követve engedélyezheti Azure Stack hub-beli virtuális gépek frissítésének kezelését.
@@ -83,15 +83,15 @@ Az alábbi lépéseket követve engedélyezheti Azure Stack hub-beli virtuális 
 
 2. Az Azure Stack hub-felhasználó-portálon nyissa meg a virtuális gépek bővítmények paneljét, amely számára engedélyezni szeretné ezeket a megoldásokat, kattintson a **+ Hozzáadás**gombra, jelölje ki az **Azure Update és a Configuration Management** bővítményt, majd kattintson a **Létrehozás**gombra:
 
-   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media//vm-update-management/3-sm.PNG "VM extension blade")](media//vm-update-management/3-lg.PNG)
 
 3. Adja meg a korábban létrehozott munkaterület azonosítója és elsődleges kulcsot, hogy összekapcsolja az ügynököt a LogAnalytics munkaterülettel. Ezután kattintson az **OK** gombra a bővítmény telepítéséhez.
 
-   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media//vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media//vm-update-management/4-lg.PNG) 
 
 4. A [Update Management dokumentációjában](https://docs.microsoft.com/azure/automation/automation-update-management)leírtaknak megfelelően engedélyeznie kell a Update Management megoldást minden felügyelni kívánt virtuális géphez. Ha engedélyezni szeretné a megoldást a munkaterületre jelentést küldő összes virtuális gépre vonatkozóan, válassza a **kezelés**, majd a **számítógépek kezelése**lehetőséget, és jelölje be az **Engedélyezés az összes elérhető és jövőbeli gépen** beállítást.
 
-   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media//vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media//vm-update-management/5-lg.PNG) 
 
    > [!TIP]
    > Ismételje meg ezt a lépést, hogy minden megoldást engedélyezzen a munkaterületnek jelentést tevő Azure Stack hub virtuális gépek számára. 
@@ -100,12 +100,28 @@ Ha az Azure Update és a Configuration Management bővítmény engedélyezve van
 
 A virtuális gépek beolvasása után a Update Management megoldásban megjelennek a Azure Automation fiókban: 
 
-   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media//vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media//vm-update-management/6-lg.PNG) 
 
 > [!IMPORTANT]
 > 30 perctől akár 6 óráig is eltarthat, amíg megjelennek a felügyelt számítógépekből származó frissített adatok az irányítópulton.
 
 Az Azure Stack hub virtuális gépek mostantól az Azure-beli virtuális gépekkel együtt is szerepelhetnek az ütemezett frissítések telepítése során.
+
+##  <a name="create-an-update-deployment-schedule"></a>Frissítés központi telepítési ütemtervének létrehozása
+
+A frissítés központi telepítési ütemtervének létrehozásához használjon PowerShell-parancsmagot vagy az Azure REST API a gépek átadásához. A következő PowerShell-példa használatával lekérheti a gépek ütemezését. A **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** parancsmagot használhatja a `ForUpdateConfiguration` paraméterrel az ütemterv létrehozásához. Ezután használja a **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** parancsmagot, és adja át a Azure stack hub- `NonAzureComputer` gépeket a paraméternek. A szkript futtatásához a globális [Azure PowerShell az modult](https://docs.microsoft.com/powershell/azure/)kell használnia.
+
+Az alábbi példa bemutatja, hogyan teheti meg ezt:
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Azure Stack hub-on futó Azure Monitor for VMs engedélyezése
 Miután a virtuális gép rendelkezik a **Azure monitor, a frissítés és a konfiguráció kezelésével**, valamint a **Azure monitor Dependency Agent** bővítmények telepítésével, a [Azure monitor for VMS](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) megoldásban elkezdi a jelentéskészítési adatgyűjtést. 
