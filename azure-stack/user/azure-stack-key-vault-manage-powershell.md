@@ -3,15 +3,15 @@ title: Azure Stack hub Key Vault kezelése a PowerShell használatával
 description: Megtudhatja, hogyan kezelheti Key Vault a Azure Stack hub-ban a PowerShell használatával.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0c7dc4bffba85c60213df4e57c3fc95f756259df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
+ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704063"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580163"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Azure Stack hub Key Vault kezelése a PowerShell használatával
 
@@ -145,14 +145,16 @@ A **set-AzureRmKeyVaultAccessPolicy** parancsmag használatával engedélyezheti
 
 A következő példában a tár neve **ContosoKeyVault**, és az engedélyezni kívánt alkalmazás a **8F8C4BBD-485B-45FD-98F7-EC6300B7B4ED**ügyfél-azonosítója. Az alkalmazás engedélyezéséhez futtassa a következő parancsot. A **PermissionsToKeys** paramétert is megadhatja egy felhasználó, egy alkalmazás vagy egy biztonsági csoport engedélyeinek megadásához.
 
+Ha a set-AzureRmKeyvaultAccessPolicy-t egy ADFS-ben konfigurált Azure Stack hub-környezettel használja, meg kell adni a BypassObjectIdValidation paramétert.
+
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 Ha engedélyezni szeretné, hogy ugyanaz az alkalmazás beolvassa a titkos kulcsokat a tárolóban, futtassa a következő parancsmagot:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>További lépések

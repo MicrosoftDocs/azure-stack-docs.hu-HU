@@ -1,6 +1,6 @@
 ---
 title: App Service Azure Stack hub Update 7 kibocsátási megjegyzései
-description: Ismerje meg, hogy mi a hét frissítése a App Service Azure Stack hub-on, az ismert problémákról, valamint a frissítés letöltésének módjáról.
+description: Az Azure Stack hub App Service vonatkozó kibocsátási megjegyzései, beleértve az új funkciókat, javításokat és ismert problémákat.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
@@ -8,55 +8,55 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: ecbfa13b9e40a62aa013747c7f877617e29e8f10
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8faeca7cf964ce459ebc10cc047c7b9475deeec4
+ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703179"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580073"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 
-Ezek a kibocsátási megjegyzések ismertetik a Azure Stack hub Update 7 és az ismert problémák Azure App Serviceének javításait és javításait. Az ismert problémák az üzembe helyezéssel, a frissítési folyamattal és a buildtel (a telepítés után) kapcsolatos problémákkal közvetlenül kapcsolatos problémákra vannak osztva.
+Ezek a kibocsátási megjegyzések a Azure Stack hub Update 7-es verziójában Azure App Service új funkcióit, javításait és ismert problémáit ismertetik. Az ismert problémák két szakaszra vannak osztva: a frissítési folyamattal és a buildtel (a telepítés után) kapcsolatos problémákról.
 
 > [!IMPORTANT]
-> Alkalmazza az 1907-es frissítést az Azure Stack hub integrált rendszerére, vagy telepítse a legújabb Azure Stack fejlesztői csomagot a Azure App Service 1,7 üzembe helyezése előtt.
-
+> Alkalmazza a 1910-es frissítést a Azure Stack integrált rendszerre, vagy telepítse a legújabb Azure Stack Development Kitt (ASDK) a Azure App Service 1,7 üzembe helyezése előtt.
 
 ## <a name="build-reference"></a>Build referenciája
 
-A App Service on Azure Stack hub Update 7 Build száma **84.0.2.10**
+A App Service Azure Stack hub Update 7 Build száma **84.0.2.10**.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-Az üzembe helyezés megkezdése előtt tekintse át az [első lépések dokumentációját](azure-stack-app-service-before-you-get-started.md) .
+Az üzembe helyezés megkezdése előtt tekintse [meg a App Service Azure stack hub-ban való üzembe helyezésének előfeltételeit](azure-stack-app-service-before-you-get-started.md) .
 
 Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,7-re:
 
-- Győződjön meg arról, hogy az összes szerepkör készen áll a Azure App Service adminisztráció Azure Stack hub felügyeleti portálon
+- Győződjön meg arról, hogy az összes szerepkör készen áll Azure App Service felügyeletre az Azure Stack hub felügyeleti portálján.
 
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
   - Mester
 
-- A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése
+- A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése.
 
-- Az **Egyéni szkriptek bővítményének** **1.9.3** -verziójának szindikátusa a piactéren
+- Az **Egyéni szkriptek bővítményének** **1.9.3** -verzióját a Azure stack hub Piactérről.
 
 ### <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 7 a következő javításokat és javításokat tartalmazza:
 
-- A [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) távoli kódfuttatást lehetővé tévő biztonsági rés feloldása
+- A [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) távoli kódfuttatást lehetővé tévő biztonsági rés feloldása.
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
+- Frissítések **app Service bérlő, rendszergazda, functions portálok és kudu eszközökhöz**. Konzisztens Azure Stack hub Portal SDK verziójával.
 
 - A **Azure functions Runtime** és a **v 1.0.12582**frissítése.
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
 - **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
+
   - ASP.NET Core 2.2.46
   - OpenJDK 8.38.0.13
   - Tomcat 7.0.94
@@ -70,22 +70,25 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
   - [2019-08 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4512495)](https://support.microsoft.com/help/4512495)
 
 - **A felhasználói portálon mostantól engedélyezhető a hozzáférési korlátozások**:
-  - A jelen kiadást használó felhasználók a közzétett dokumentáció alapján konfigurálhatják a webes/API/functions [Azure app Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)-alkalmazásokhoz való hozzáférési korlátozásokat, **Megjegyzés**: a (z) Azure app Service on Azure stack hub nem támogatja a szolgáltatási végpontokat.
+  - A felhasználók mostantól a web/API/functions alkalmazásaihoz hozzáférési korlátozásokat állíthatnak be a közzétett dokumentációnak megfelelően – [Azure app Service hozzáférési korlátozásokat](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
+  
+  > [!NOTE]
+  > Az Azure Stack hub Azure App Service nem támogatja a szolgáltatási végpontokat.
 
 - A **központi telepítési beállítások (klasszikus) funkcióinak visszaállítása**:
   - A felhasználók ismét használhatják az üzembe helyezési lehetőségeket (klasszikus) az alkalmazások GitHub-, bitbucket-, Dropbox-, OneDrive-, helyi és külső adattárakból való üzembe helyezésének konfigurálásához, valamint az alkalmazások telepítési hitelesítő adatainak beállításához.
 
 - Az **Azure functions figyelése** megfelelően van konfigurálva.
 
-- **Windows Update viselkedés**: a felhasználói visszajelzések alapján módosítjuk, hogy a Windows Update hogyan van konfigurálva app Service szerepkörökben a 7. frissítésből:
+- A **Windows Update viselkedése**: az ügyfelek visszajelzései alapján módosítottuk a 7. frissítés app Service szerepköreire Windows Update konfigurálásának módját:
   - Három mód:
-    - **Letiltva** – Windows Update szolgáltatás letiltva, a Windows a (z) Azure stack hub-kiadásokban Azure app Service által szállított kb-val frissül.
-    - Az **automatikus** Windows Update szolgáltatás engedélyezve van, és a Windows Update meghatározza, hogyan és mikor kell frissíteni;
-    - A **felügyelt** Windows Update szolgáltatás le van tiltva, Azure app Service az egyes szerepkörök OnStart során Windows Update ciklust fog végezni.
+    - **Letiltva** – Windows Update szolgáltatás letiltva, a Windows az Azure stack hub-kiadásokban Azure app Service által szállított kb-val frissül.
+    - Az **automatikus** Windows Update szolgáltatás engedélyezve van, és Windows Update határozza meg, hogyan és mikor kell frissíteni;
+    - A **felügyelt** Windows Update szolgáltatás le van tiltva, Azure app Service hajt végre Windows Update ciklust az egyéni szerepkör OnStart során.
 
   **Új** Központi telepítések – a Windows Update szolgáltatás alapértelmezés szerint le van tiltva.
 
-  **Meglévő** Központi telepítések – Ha módosította a beállítást a vezérlőn, az érték a **false (hamis** ) értékről **Letiltva** értékűre változik, és az **igaz** érték egy korábbi értéke lesz **automatikusan**
+  **Meglévő** Központi telepítések – Ha módosította a vezérlő beállítását, az érték **false** értékről **Letiltva** értékűre változik, és az **igaz** érték korábbi értéke **automatikus**lesz.
 
 ### <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
@@ -97,15 +100,16 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack hub telepítési dokumentációjában szerepel.
 
 Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
- * Forrás: bármely
- * Forrásoldali porttartomány: *
- * Cél: IP-címek
- * Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
- * Célport tartománya: 445
- * Protokoll: TCP
- * Művelet: Engedélyezés
- * Prioritás: 700
- * Név: Outbound_Allow_SMB445
+
+* Forrás: bármely
+* Forrásoldali porttartomány: *
+* Cél: IP-címek
+* Célként megadott IP-címtartomány: a fájlkiszolgáló IP-címeinek tartománya
+* Célport tartománya: 445
+* Protokoll: TCP
+* Művelet: Engedélyezés
+* Prioritás: 700
+* Név: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
@@ -113,5 +117,5 @@ Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](azure-stack-r
 
 ## <a name="next-steps"></a>További lépések
 
-- A Azure App Service áttekintését lásd: [Azure App Service Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
-- A App Service Azure Stack hub-on való telepítésének előkészítésével kapcsolatos további információkért lásd: [az Azure stack hub-beli app Service első lépéseinek](azure-stack-app-service-before-you-get-started.md)megkezdése.
+- A Azure App Service áttekintését lásd: [Azure app Service és Azure Functions Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
+- További információ a App Service telepítésének előkészítéséről Azure Stack hub-on: [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).
