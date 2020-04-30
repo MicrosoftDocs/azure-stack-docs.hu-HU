@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 566ffc4f09906f703b19f16365eb721f6c595c6c
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032824"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556415"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -36,7 +36,9 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 ::: moniker range="azs-2002"
 ## <a name="update"></a>Frissítés
 
-Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása az Azure stack hub-ban](azure-stack-updates-troubleshoot.md).
+Az 2002-es frissítés alkalmazása után az "érvénytelen időforráshoz" tartozó riasztás helytelenül jelenhet meg a felügyeleti portálon. Ez a hamis pozitív riasztás figyelmen kívül hagyható, és egy közelgő kiadásban lesz kijavítva. 
+
+Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azure stack hub hibaelhárítási frissítései](azure-stack-updates-troubleshoot.md)című témakört.
 
 ## <a name="portal"></a>Portál
 

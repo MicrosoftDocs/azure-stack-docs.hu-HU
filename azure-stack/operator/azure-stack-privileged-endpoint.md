@@ -3,16 +3,16 @@ title: A rendszerjogosultságú végpont használata Azure Stack központban
 description: Megtudhatja, hogyan használhatja a Kiemelt végpontot (PEP) Azure Stack hub-ban operátorként.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: b82a776f67648ec882837dc44d51fe95b24aba4f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661319"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556406"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
@@ -47,7 +47,7 @@ Az emelt szintű végpont futtatásakor be kell `en-US` állítania az aktuális
       - Egy integrált rendszeren futtassa a következő parancsot egy emelt szintű Windows PowerShell-munkamenetből, hogy hozzáadja a PEP-t megbízható gazdagépként a hardver életciklus-gazdagépén vagy a privilegizált elérésű munkaállomáson futó megerősített virtuális gépen.
 
       ```powershell  
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
 
       - Ha a ASDK futtatja, jelentkezzen be a fejlesztői csomag gazdagépére.
@@ -109,7 +109,7 @@ Az emelt szintű végpont futtatásakor be kell `en-US` állítania az aktuális
    - Leállítás – AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>Tippek a Kiemelt végpont használatához 
+## <a name="how-to-use-the-privileged-endpoint"></a>A Kiemelt végpont használata 
 
 A fent említettek szerint a PEP egy [PowerShell-JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a hiba a várt viselkedés.
 
@@ -119,7 +119,7 @@ Ha például egy adott parancsmag paramétereinek listáját szeretné lekérni,
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Azt is megteheti, hogy az [import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) parancsmag használatával importálja az összes PEP-parancsmagot a helyi számítógép aktuális munkamenetére. Ezzel a PEP-parancsmagok és-függvények mostantól elérhetők a helyi gépen, a TAB befejezésével együtt, és általánosságban a parancsfájlok.
+Azt is megteheti, hogy az [**import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) parancsmag használatával importálja az összes PEP-parancsmagot a helyi számítógép aktuális munkamenetére. A PEP-parancsmagok és-függvények mostantól elérhetők a helyi gépen, a TAB befejezéssel együtt, és általánosságban a parancsfájlok. A **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** modult is futtathatja a parancsmagra vonatkozó utasítások áttekintéséhez.
 
 Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a következő lépéseket:
 
@@ -197,4 +197,5 @@ Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztás
 
 ## <a name="next-steps"></a>További lépések
 
-[Azure Stack hub diagnosztikai eszközök](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack hub diagnosztikai eszközök](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack hub privilegizált végpontjának referenciája](../reference/pep-2002/index.md)

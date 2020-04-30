@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ca48b252525ea6869233f23158a05962056aa7a4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: efe8b85d9363e0c5e3c07bf4190314e030707a9a
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069177"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556450"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
 
@@ -36,11 +36,11 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 3. [A chocolatey telepítése a PowerShell-utasítások használatával](https://chocolatey.org/install#install-with-powershellexe). 
 
     A chocolaty webhelye szerint: a chocolatey egy Windows rendszerű csomagkezelő, például az apt-get vagy a yum, de a Windows. A rendszer úgy lett kialakítva, hogy egy decentralizált keretrendszer legyen a szükséges alkalmazások és eszközök gyors telepítéséhez. A szolgáltatás a NuGet-infrastruktúrára épül, amely jelenleg a PowerShell-t használja, mivel a disztribúciók csomagjait a saját ajtajára, az err-re, a számítógépekre irányítja.
-4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.43.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+4. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK-alapú alapmotornak elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.48.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 5. Futtassa a következő parancsot egy emelt szintű parancssorból, és adja meg a verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version 0.43.0 -y
+        choco install aks-engine --version 0.48.0 -y
     ```
 
 > [!Note]  
@@ -65,7 +65,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 7.  Futtassa a következő parancsot egy emelt szintű parancssorból. Adja meg a megfelelő verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version 0.43.0 -y
+        choco install aks-engine --version 0.48.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>A telepítés ellenőrzése

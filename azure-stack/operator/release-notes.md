@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: b57b58e9b245c912d7717cc05a3d8d4c20034f76
-ms.sourcegitcommit: a82a80eb6a110ca0c463add6131ad73cf51b06d3
+ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82070153"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556326"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -137,7 +137,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Kijavított egy problémát, amely az Azure Stack hub frissítési hibáinak gyakori okát okozta a ERCS szerepkörön történt memória-nyomás miatt.
 - Kijavított egy hibát abban a frissítési panelen, amelyben a frissítési állapot az Azure Stack hub-frissítés előkészítési fázisában való **felkészülés** helyett **telepítésként** látható.
 - Kijavított egy hibát, amelyben a fizikai kapcsolók RSC funkciója létrehozta a inkonzisztenciák-t, és elejtette a terheléselosztó használatával áramló forgalmat. A RSC szolgáltatás alapértelmezés szerint le van tiltva.
-- Kijavított egy hibát, amikor másodlagos IP-címet ad hozzá a virtuális géphez, és RDP-problémát okozott.
+- Kijavítva a hiba, ahol a hálózati adapter több IP-konfigurációja okozta a forgalmat, és megakadályozta a kimenő kapcsolatot. 
 - Kijavított egy hibát, amikor egy hálózati adapter MAC-címe gyorsítótárazva lett, és az adott címnek egy másik erőforráshoz való hozzárendelésének oka a virtuális gép üzembe helyezésének meghibásodása volt.
 - Kijavítva a hiba, hogy a kereskedelmi csatornán futó Windows rendszerbeli rendszerképeket nem lehetett aktiválni a AVMA.
 - Kijavított egy hibát, amelyben a virtuális gépeket nem lehet létrehozni, ha a virtuális gép által igényelt virtuális magok száma a csomópont fizikai magokkal egyenlő. Mostantól engedélyezzük, hogy a virtuális magok egyenlőek legyenek a csomópont fizikai magokkal, vagy kisebbek legyenek.

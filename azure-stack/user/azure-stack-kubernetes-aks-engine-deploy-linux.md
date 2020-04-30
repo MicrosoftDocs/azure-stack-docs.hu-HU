@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 23ffcd6e92ba442447dfa43459344904af514d14
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5a6089a405e860bb25e52e61e273eb5094bc3647
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069101"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556444"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 
@@ -33,13 +33,13 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 
 1. Hozzon létre egy linuxos virtuális gépet a Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK alaprendszerképének elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.43.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) táblázatban. Az AK alaprendszerképének elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.48.0`. Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa az alábbi parancsot:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.43.0
+        ./get-akse.sh --version v0.48.0
     ```
 
     > [!Note]  
