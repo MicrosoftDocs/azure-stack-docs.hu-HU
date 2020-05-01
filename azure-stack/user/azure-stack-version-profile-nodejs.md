@@ -3,16 +3,16 @@ title: API-verziók profiljainak használata a Node. js-sel Azure Stack hub-ban
 description: Útmutató az API-verziók profiljainak a Node. js használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/30/2020
+ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660123"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596805"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Node. js szoftverfejlesztői készlettel (SDK) Azure Stack hub-ban
 
@@ -209,9 +209,9 @@ function main() {
 
 A következő példák használhatók a Node. js-sel és Azure Stack hub API-profilokkal rendelkező megoldások létrehozásához. A minták a GitHubról a következő adattárakban szerezhetők be:
 
-- [A tárolási csomópont erőforrás-szolgáltatójának első lépései](https://github.com/sijuman/storage-node-resource-provider-getting-started)
-- [Számítási csomópont kezelése](https://github.com/sijuman/compute-node-manage-vm)
-- [Erőforrás-kezelő csomópont-erőforrások és-csoportok](https://github.com/sijuman/resource-manager-node-resources-and-groups)
+- [A tárolási csomópont erőforrás-szolgáltatójának első lépései](https://github.com/Azure-Samples/hybrid-storage-nodejs-create-storageaccount)
+- [Számítási csomópont kezelése](https://github.com/Azure-Samples/Hybrid-compute-nodejs-create-vm)
+- [Erőforrás-kezelő csomópont-erőforrások és-csoportok](https://github.com/Azure-Samples/Hybrid-resourcegroups-nodejs-manageresources)
 
 ### <a name="sample-create-storage-account"></a>Minta létrehozása Storage-fiók 
 

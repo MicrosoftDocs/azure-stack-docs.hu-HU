@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772640"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605635"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
 
@@ -65,7 +65,7 @@ Azure Stack hub leválasztott központi telepítéséhez AD FS kell használnia.
 
 Azure Stack hub ugyanazt az operatív modellt használja, mint az Azure. Egy Azure Stack hub-operátor számos szolgáltatást és alkalmazást biztosíthat a bérlői felhasználók számára, hasonlóan ahhoz, ahogyan a Microsoft Azure-szolgáltatásokat nyújt a bérlői felhasználók számára. 
 
-![Azure Stack hub-feladatok szerepköreit bemutató diagram](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Azure Stack hub-feladatok szerepköreit bemutató diagram](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
 Azure Stack hub a felügyeleti portál, a felhasználói portál vagy a [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)segítségével kezelhető. Az Azure Stack hub-portálok mindegyike Azure Resource Manager különálló példányaival támogatott. Az **Azure stack hub-operátor** a felügyeleti portál használatával felügyeli az Azure stack hub-t, és olyan műveleteket hajthat végre, mint például a bérlői ajánlatok létrehozása és az integrált rendszer állapotának és figyelésének állapota. A felhasználói portál önkiszolgáló élményt biztosít a felhőalapú erőforrások, például a virtuális gépek, a Storage-fiókok és a webalkalmazások felhasználásához.
 

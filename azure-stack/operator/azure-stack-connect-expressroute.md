@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772697"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605693"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure Stack hub összekötése az Azure-ba az Azure ExpressRoute
 
@@ -55,7 +55,7 @@ A következő ábra az Azure Stack hub és az Azure-környezeteket mutatja be a 
 
 Az alábbi ábra azt mutatja be, hogy több bérlő Hogyan kapcsolódhat a Azure Stack hub-infrastruktúrához a ExpressRoute-útválasztón keresztül az Azure-ba:
 
-![Több-bérlős kapcsolatok a ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
+![Több-bérlős kapcsolatok a ExpressRoute](media/azure-stack-connect-expressroute/architecture.svg)
 
 A cikkben szereplő példa ugyanazt a több-bérlős architektúrát használja ebben a diagramban, hogy csatlakoztatni Azure Stack hubot az Azure-hoz a ExpressRoute privát társításával. A kapcsolat a két hálózat közötti pont-pont típusú VPN-kapcsolattal történik a Azure Stack hub virtuális hálózati átjárójában egy ExpressRoute-útválasztóhoz.
 
@@ -328,7 +328,7 @@ Ismételje meg ezeket a lépéseket minden további bérlői virtuális hálóza
 
 A ExpressRoute-útválasztó konfigurálásához használhatja a következő ExpressRoute útválasztó-konfigurációs diagramot. Ez az ábra két bérlőt mutat be (1. Bérlő és 2. Bérlő) a megfelelő ExpressRoute-áramkörökkel. Minden bérlő saját VRF (virtuális útválasztással és továbbítással) van társítva a ExpressRoute-útválasztó LAN-és WAN-oldalán. Ez a konfiguráció biztosítja a két bérlő közötti végpontok közötti elkülönítést. Jegyezze fel az útválasztói felületeken használt IP-címeket a konfigurációs példa követése során.
 
-![ExpressRoute útválasztó konfigurációja](media/azure-stack-connect-expressroute/EndToEnd.png)
+![ExpressRoute útválasztó konfigurációja](media/azure-stack-connect-expressroute/endtoend.svg)
 
 Bármely olyan útválasztót használhat, amely támogatja a IKEv2 VPN-t és BGP-t, hogy leállítsa a két hálózat közötti pont-pont típusú VPN-kapcsolatokat Azure Stack hubhoz. Ugyanez az útválasztó használja az Azure-hoz való kapcsolódásra egy ExpressRoute áramkör használatával.
 

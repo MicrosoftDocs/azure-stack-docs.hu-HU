@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c2c7dde1ef4da6b75be3d7c46228bd23ca8bf979
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812441"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596822"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Azure Stack hub csatlakozása az Azure-hoz VPN használatával
 
@@ -50,7 +50,6 @@ Először hozza létre az Azure hálózati erőforrásait. Az alábbi utasítás
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>A virtuális hálózat és a virtuális gép (VM) alhálózatának létrehozása
 
 1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com/) az Azure-fiók használatával.
-
 2. A felhasználói portálon válassza az **+ erőforrás létrehozása**lehetőséget.
 3. Lépjen a **piactérre**, majd válassza a **hálózatkezelés**lehetőséget.
 4. Válassza a **virtuális hálózat**lehetőséget.
