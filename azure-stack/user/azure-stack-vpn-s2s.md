@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 144dcd2ca714a1654bd7add2b415c0ce35126d9b
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032773"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643497"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
@@ -54,7 +54,7 @@ Ez a szakasz a két hálózat közötti pont-pont típusú VPN-kapcsolat IPsec/I
 
 Az ebben a cikkben szereplő utasítások segítséget nyújtanak az IPsec/IKE-szabályzatok beállításához és konfigurálásához az alábbi ábrán látható módon:
 
-![IPsec/IKE-szabályzatok beállítása és konfigurálása](media/azure-stack-vpn-s2s/site-to-site.png)
+![IPsec/IKE-szabályzatok beállítása és konfigurálása](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>2. rész – támogatott titkosítási algoritmusok és fő erősségek
 
@@ -109,7 +109,7 @@ További információ: [RFC3526](https://tools.ietf.org/html/rfc3526) és [RFC51
 
 Ez a szakasz végigvezeti a helyek közötti VPN-kapcsolat IPsec/IKE-házirenddel való létrehozásának lépésein. A következő ábrán látható módon hozza létre a-kapcsolatokat:
 
-![helyek közötti kapcsolat – szabályzat](media/azure-stack-vpn-s2s/site-to-site.png)
+![helyek közötti kapcsolat – szabályzat](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 A helyek közötti VPN-kapcsolatok létrehozásával kapcsolatos részletes útmutatásért lásd: [helyek közötti VPN-kapcsolat létrehozása](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
 

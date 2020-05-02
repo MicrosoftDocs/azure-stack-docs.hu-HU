@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: cf9d17bda49c1fe5d401481d79b61b18442ee7ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703808"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643462"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Ismerkedés a PowerShell-lel Azure Stack hub-ban
 
@@ -20,7 +20,7 @@ A PowerShell úgy van kialakítva, hogy az erőforrásokat a parancssorból keze
 
 Ez a cikk segítséget nyújt az Azure Stack hub-ban használt PowerShell-modulok különböző eléréséhez. Ha a PowerShellt Azure Stack hub-ban használja, a négy API-készlet bármelyikét használhatja, ahogy az a következő táblázatban látható:
 
-| API | PowerShell-referencia | REST-referencia |
+| API | PowerShell-dokumentáció | REST-referencia |
 | --- | --- | --- |
 | Globális Azure Resource Manager | [Azure PowerShell-modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](https://docs.microsoft.com/rest/api/) |
 | Azure Stack hub Resource Manager | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) |
@@ -35,7 +35,7 @@ Az erőforrás-szolgáltatók mindkét funkciót és vezérlőt biztosítják az
 
 A következő blokk diagram a PowerShell-modulok készletei közötti kapcsolatokat mutatja. A gépről betöltheti a PowerShell-modulokat, és felügyelheti a globális Azure-és Azure Stack hubot is.
 
-![Azure Stack hub PowerShell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
+![Azure Stack hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
 
 ### <a name="global-azure"></a>Globális Azure
 

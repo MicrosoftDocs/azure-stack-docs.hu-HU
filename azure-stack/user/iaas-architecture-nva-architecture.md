@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 916e12061961b22c518d0048e8bc8c191f8542a1
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660064"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643549"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Magasan elérhető hálózati virtuális berendezések üzembe helyezése Azure Stack hub-on
 
@@ -40,7 +40,7 @@ Ez a cikk az Azure Stack hub hálózatkezelésének alapvető ismeretét feltét
 
 Egy NVA számos különböző architektúrában üzembe helyezhető a peremhálózaton. A következő ábra például egyetlen NVA bejövő forgalomhoz való használatát illusztrálja.
 
-![A közösségi média utáni Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/image1.png)
+![A közösségi média utáni Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 Ebben az architektúrában az NVA biztonságos hálózati határt biztosít az összes bejövő és kimenő hálózati forgalom ellenőrzésével, és csak azt a forgalmat engedi át, amely megfelel a hálózati biztonsági szabályoknak. Az a tény, hogy az összes hálózati forgalomnak át kell haladnia a NVA, azt jelenti, hogy a NVA egyetlen meghibásodási pont a hálózaton. Ha az NVA leáll, akkor nincs más útvonal a hálózati forgalom számára, és a háttérbeli alhálózatok nem lesznek elérhetők.
 
@@ -58,7 +58,7 @@ A következő architektúrák bemutatják a magas rendelkezésre állású NVA-k
 
 Az alábbi ábra egy magas rendelkezésre állású architektúrát mutat be, amely egy internetkapcsolattal rendelkező terheléselosztó mögötti bejövő peremhálózati hálózatot valósít meg. Ez az architektúra úgy lett kialakítva, hogy kapcsolatot biztosítson Azure Stack hub munkaterhelésekkel a 7. rétegbeli forgalomhoz, például HTTP vagy HTTPS:
 
-![A Térkép leírásának automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/image2.png)
+![A Térkép leírásának automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image2.svg)
 
 Az ilyen architektúra előnye, hogy minden NVA aktív, és ha az egyik meghibásodik, akkor a terheléselosztó átirányítja a hálózati forgalmat egy másikra. Mindkét NVA a belső terheléselosztóra irányítja a forgalmat, így mindaddig, amíg egy NVA aktív, a forgalom nem akad el. Az NVA-knak le kell zárnia a webes szintű virtuális gépek felé tartó SSL-forgalmat. Ezek a NVA nem terjeszthetők ki a vállalati hálózati forgalom kezelésére, mert a vállalati hálózati forgalomhoz egy másik dedikált NVA-készletre van szükség a saját hálózati útvonalakkal.
 
@@ -66,7 +66,7 @@ Az ilyen architektúra előnye, hogy minden NVA aktív, és ha az egyik meghibá
 
 A 7. rétegbeli NVA architektúra kiterjeszthető, hogy kiterjeszthető peremhálózat legyen a Azure Stack hub számítási feladatból származó kérelmek számára. A következő architektúra úgy lett kialakítva, hogy magas rendelkezésre állást biztosítson a peremhálózat NVA a 7. rétegbeli forgalomhoz, például HTTP vagy HTTPS:
 
-![A mobiltelefon-Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/image3.png)
+![A mobiltelefon-Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 Ebben az architektúrában az Azure Stack hub-ból származó összes forgalmat egy belső terheléselosztó felé irányítja a rendszer. A terheléselosztó elosztja a kimenő kérelmeket egy NVA-készlet tagjai között. Ezek az NVA-k az internetre irányítják a forgalmat saját nyilvános IP-címeik használatával.
 
@@ -74,7 +74,7 @@ Ebben az architektúrában az Azure Stack hub-ból származó összes forgalmat 
 
 A két bejövő és kimenő architektúrában külön peremhálózati hálózat volt a bejövő és kimenő forgalomhoz. A következő architektúra azt mutatja be, hogyan lehet létrehozni egy peremhálózati hálózatot, amely a 7. rétegbeli forgalom (például HTTP vagy HTTPS) esetében egyaránt használható a bejövő és kimenő forgalomhoz:
 
-![A közösségi média utáni Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/image4.png)
+![A közösségi média utáni Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 A bejövő forgalomban a 7. rétegbeli NVA architektúrában a NVA a 7. rétegbeli Load Balancer beérkező kérelmeket dolgozza fel. Az NVA-k a terheléselosztó háttérkészletében található, számítási feladatokat végző virtuális gépek kimenő kérelmeit is feldolgozzák. Mivel a bejövő forgalom egy 7. rétegbeli Load balancerrel van irányítva, és a kimenő forgalom egy SLB (Azure Stack hub alapszintű Load Balancer) van irányítva, a NVA a munkamenet-affinitás fenntartásáért felelősek. Ez azt a 7. rétegbeli terheléselosztó a bejövő és kimenő kérelmek leképezését is fenntartja, hogy a megfelelő választ továbbítsa az eredeti kérelmezőnek. A belső terheléselosztó azonban nem fér hozzá a 7. rétegbeli terheléselosztó-hozzárendelésekhez, és a saját logikával küldi el a válaszokat a NVA. Lehetséges, hogy a terheléselosztó választ küldhet egy olyan NVA, amely eredetileg nem kapta meg a kérelmet a 7. rétegbeli terheléselosztótól. Ebben az esetben a NVA kommunikálni kell, és át kell adni a választ, hogy a megfelelő NVA továbbítsa a választ a 7. rétegbeli terheléselosztó számára.
 

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660893"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687441"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 
@@ -24,7 +24,7 @@ A sablont az [Azure intelligens Edge Pattern](https://github.com/lucidqdreams/az
 
 Az ábrán egy Azure Stack hub-ban üzemeltetett virtuális gép látható egy iSCSI-csatlakoztatott lemezzel egy helyszíni Windows-gépről (fizikai vagy virtuális gépen), amely lehetővé teszi, hogy az Azure Stack hub-on kívüli tárolás az iSCSI protokollon keresztül az Azure Stack hub által üzemeltetett virtuális gépen legyen.
 
-![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>Követelmények
 
@@ -57,7 +57,7 @@ Az ábrán egy Azure Stack hub-ban üzemeltetett virtuális gép látható egy i
 
 A diagramon a sablon alapján központilag telepített erőforrások láthatók az iSCSI-tárolóhoz való kapcsolódáshoz használható iSCSI-ügyfél létrehozásához. Ez a sablon telepíti a virtuális gépet és más erőforrásokat, továbbá futtatja a prepare-iSCSIClient. ps1-t, majd újraindítja a virtuális gépet.
 
-![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>Az üzembe helyezési folyamat
 
@@ -68,7 +68,7 @@ Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés b
 3. Futtassa `Create-iSCSITarget.ps1` az IP-cím és a kiszolgálónév kimenetét a sablonból az iSCSI-tárolóban lévő parancsfájl kimeneti paramétereként, amely lehet virtuális gép vagy fizikai kiszolgáló.
 4. Az iSCSI-célkiszolgáló külső IP-címét vagy címét használja bemenetként a `Connect-toiSCSITarget.ps1` parancsfájl futtatásához. 
 
-![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>A azuredeploy. JSON bemenetei
 
@@ -97,7 +97,7 @@ Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés b
 
 A meglévő virtuális gépek parancsfájljait is futtathatja, hogy az iSCSI-ügyfélről iSCSI-tárolóhoz kapcsolódjon. Ez a folyamat akkor áll fenn, ha saját maga hozza létre az iSCSI-tárolót. Ez az ábra a PowerShell-parancsfájlok végrehajtási folyamatát mutatja be. Ezek a szkriptek a parancsfájl könyvtárában találhatók:
 
-![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![helyettesítő szöveg](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient. ps1
 
