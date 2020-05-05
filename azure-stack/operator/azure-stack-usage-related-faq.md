@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696447"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742415"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -306,13 +306,13 @@ Jelenleg csak a **jelentett idő**szerint lehet lekérdezni.
 
 | **HTTP-állapotkód** | **Hibakód** | **Leírás** |
 | --- | --- | --- |
-| 400/hibás kérelem |*NoApiVersion* |Hiányzik az *API-Version* lekérdezési paraméter. |
-| 400/hibás kérelem |*InvalidProperty* |Hiányzik egy tulajdonság, vagy az értéke érvénytelen. A válasz törzsében lévő hibakódban található üzenet azonosítja a hiányzó tulajdonságot. |
-| 400/hibás kérelem |*RequestEndTimeIsInFuture* |A *ReportedEndTime* értéke jövőbeli. A jövőben nem engedélyezettek az argumentumok. |
-| 400/hibás kérelem |*SubscriberIdIsNotDirectTenant* |A szolgáltatói API-hívás olyan előfizetés-azonosítót használt, amely nem a hívó érvényes bérlője. |
-| 400/hibás kérelem |*SubscriptionIdMissingInRequest* |A hívó előfizetés-azonosítója hiányzik. |
-| 400/hibás kérelem |*InvalidAggregationGranularity* |A rendszer érvénytelen összesítési részletességet kért. Az érvényes értékek napi és óránkénti. |
-| 503 |*ServiceUnavailable* |Újrapróbálkozást lehetővé tevő hiba történt, mert a szolgáltatás foglalt, vagy a hívás folyamatban van. |
+| 400/hibás kérelem |NoApiVersion |A `api-version` lekérdezési paraméter hiányzik. |
+| 400/hibás kérelem |InvalidProperty |Hiányzik egy tulajdonság, vagy az értéke érvénytelen. A válasz törzsében lévő hibakódban található üzenet azonosítja a hiányzó tulajdonságot. |
+| 400/hibás kérelem |RequestEndTimeIsInFuture |A értéke `ReportedEndTime` jövőbeli. A jövőbeli értékek nem engedélyezettek ehhez az argumentumhoz. |
+| 400/hibás kérelem |SubscriberIdIsNotDirectTenant |A szolgáltatói API-hívás olyan előfizetés-azonosítót használt, amely nem a hívó érvényes bérlője. |
+| 400/hibás kérelem |SubscriptionIdMissingInRequest |A hívó előfizetés-azonosítója hiányzik. |
+| 400/hibás kérelem |InvalidAggregationGranularity |A rendszer érvénytelen összesítési részletességet kért. Az érvényes értékek napi és óránkénti. |
+| 503 |ServiceUnavailable |Újrapróbálkozást lehetővé tevő hiba történt, mert a szolgáltatás foglalt, vagy a hívás folyamatban van. |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Mi a virtuális gépek díjszabására vonatkozó szabályzat?
 

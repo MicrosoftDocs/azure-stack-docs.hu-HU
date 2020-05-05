@@ -3,23 +3,23 @@ title: Bérlők regisztrálása a használat nyomon követéséhez Azure Stack k
 description: Megtudhatja, hogyan regisztrálhat bérlőket, és hogyan követheti nyomon a bérlők használatát Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294879"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742310"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
 
 Ez a cikk a regisztrációs műveletekkel kapcsolatos részleteket tartalmazza. A következő műveletekkel végezheti el a műveleteket:
 
-- Bérlői regisztrációk kezelése
-- Bérlői használat követésének kezelése
+- Bérlői regisztrációk kezelése.
+- Bérlői használat követésének kezelése.
 
 ## <a name="add-tenant-to-registration"></a>Bérlő hozzáadása a regisztrációhoz
 

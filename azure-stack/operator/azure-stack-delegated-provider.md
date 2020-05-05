@@ -3,16 +3,16 @@ title: Ajánlatok delegálása Azure Stack központban
 description: Megtudhatja, hogyan delegálhat olyan feladatokat, mint az ajánlatok létrehozása és a felhasználók regisztrálása.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 95b7ca9d6ed5bf0c8fed0019b4b3954fd3a7d458
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4f32bc3e12689f75ad5c7e5b04e7fb36049271b3
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700238"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742518"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Ajánlatok delegálása Azure Stack központban
 
@@ -36,11 +36,11 @@ A következő szerepkörök a delegálás részét képezik:
 
 ## <a name="delegation-steps"></a>Delegálás lépései
 
-A delegálás beállításának két alapvető lépése van:
+A delegálás beállításának két lépése van:
 
-1. **Delegált szolgáltatói előfizetés létrehozása**: fizessen elő egy felhasználót egy olyan ajánlatra, amely csak az előfizetések szolgáltatást tartalmazza. Az erre az ajánlatra előfizetett felhasználók ezt követően kiterjeszthetik a delegált ajánlatokat más felhasználóknak az ajánlatokra való regisztrálással.
+1. **Delegált szolgáltatói előfizetés létrehozása**: fizessen elő egy felhasználót egy olyan ajánlatra, amely csak az előfizetési szolgáltatást tartalmazza. Az erre az ajánlatra előfizetett felhasználók ezt követően kiterjeszthetik a delegált ajánlatokat más felhasználóknak az ajánlatokra való regisztrálással.
 
-2. **Ajánlat delegálása a delegált szolgáltató**számára: ez az ajánlat lehetővé teszi, hogy a delegált szolgáltató előfizetéseket hozzon létre, vagy bővítse az ajánlatot a felhasználók számára. A delegált szolgáltató most már megteheti az ajánlatot, és felkínálhatja azokat más felhasználóknak.
+2. **Ajánlat delegálása a delegált szolgáltató**számára: ez az ajánlat lehetővé teszi, hogy a delegált szolgáltató előfizetéseket hozzon létre, vagy bővítse az ajánlatot a felhasználók számára. A delegált szolgáltató most már megteheti az ajánlatot, és kiterjesztheti a többi felhasználóra.
 
 A következő ábra a delegálás beállításának lépéseit mutatja be:
 
@@ -54,11 +54,11 @@ A kapcsolat létrejötte után az Azure Stack hub operátor delegálhat egy ajá
 
 ## <a name="delegation-walkthrough"></a>Delegálási útmutató
 
-A következő szakaszokban ismertetjük a delegált szolgáltató beállítását, az ajánlat delegálását, valamint annak ellenőrzését, hogy a felhasználók regisztrálhatnak-e a delegált ajánlatra.
+A következő szakaszok ismertetik a delegált szolgáltató beállításának lépéseit, az ajánlatok delegálását, valamint annak ellenőrzését, hogy a felhasználók regisztrálhatnak-e a delegált ajánlatra.
 
 ### <a name="set-up-roles"></a>Szerepkörök beállítása
 
-Az útmutató használatához két Azure AD-fiókra van szükség az Azure Stack hub-kezelő fiókon kívül. Ha nem rendelkezik ezzel a két fiókkal, létre kell hoznia azokat. A fiókok bármely Azure AD-felhasználóhoz tartozhatnak, és a meghatalmazott szolgáltatóként és a felhasználóként is hivatkoznak rájuk.
+Az útmutató használatához két Azure AD-fiókra van szükség az Azure Stack hub-kezelő fiókon kívül. Ha nem rendelkezik ezzel a két fiókkal, létre kell hoznia azokat. A fiókok bármely Azure AD-felhasználóhoz tartozhatnak, és a *meghatalmazott szolgáltatóként* és a *felhasználóként*is hivatkoznak rájuk.
 
 | **Szerepkör** | **Szervezeti jogosultságok** |
 | --- | --- |
@@ -114,7 +114,7 @@ Jelentkezzen be a felhasználói portálra meghatalmazott szolgáltatóként, ma
    ![Név kiosztása Azure Stack hub felhasználói portálon](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Fontos tisztában lenni azzal, hogy a delegált szolgáltatók csak olyan ajánlatokat választhatnak, amelyek hozzá vannak delegálva. Nem módosíthatják ezeket az ajánlatokat. Ezeket az ajánlatokat csak Azure Stack hub-operátor módosíthatja. Például csak egy operátor módosíthatja a csomagjait és kvótáit. A meghatalmazott szolgáltatók nem készítenek ajánlatot az alapcsomagokból és a kiegészítő csomagokból.
+   >Fontos tisztában lenni azzal, hogy a delegált szolgáltatók csak olyan ajánlatokat választhatnak, amelyek hozzá vannak delegálva. Nem módosíthatják ezeket az ajánlatokat; ezeket az ajánlatokat csak Azure Stack hub-operátor módosíthatja. Például csak egy operátor módosíthatja a csomagjait és kvótáit. A meghatalmazott szolgáltatók nem készítenek ajánlatot az alapcsomagokból és a kiegészítő csomagokból.
 
 3. A delegált szolgáltató a saját portál URL-címén keresztül nyilvánosan elérhetővé teheti ezeket az ajánlatokat. Az ajánlat nyilvános létrehozásához válassza a **Tallózás**lehetőséget, majd az **ajánlatokat**. Válassza ki az ajánlatot, majd válassza az **Állapot módosítása**lehetőséget.
 
@@ -133,7 +133,7 @@ Jelentkezzen be a felhasználói portálra meghatalmazott szolgáltatóként, ma
 1. Egy új böngészőablakban lépjen az előző lépésben mentett delegált portál URL-címére. Jelentkezzen be a portálra felhasználóként.
 
    >[!NOTE]
-   >A delegált ajánlatok nem láthatók, kivéve, ha a delegált portált használja.
+   >A delegált ajánlatok csak akkor láthatók, ha a delegált portált használja.
 
 1. Az irányítópulton válassza az **előfizetés beszerzése**lehetőséget. Láthatja, hogy csak a delegált szolgáltató által létrehozott delegált ajánlatok jelennek meg a felhasználó számára.
 

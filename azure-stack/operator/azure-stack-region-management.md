@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Az Azure Stack hub régió-felügyeletének áttekintése.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 69cdd8a672cd3431906d949c1a038cc1dbdb9641
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e04f6a6baca7b834a248bc40835d05f0773fd5b4
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698011"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777848"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Területi felügyelet Azure Stack központban
 
@@ -23,7 +23,7 @@ Egy integrált rendszertelepítés (más néven *Azure stack hub-felhő*) egyetl
 
 ## <a name="information-available-through-the-region-management-tile"></a>A régió-felügyeleti csempén keresztül elérhető információk
 
-Azure Stack hub **a régió-felügyeleti csempén** belül elérhető régió-felügyeleti képességekkel rendelkezik. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján lévő Azure Stack hub-operátor számára érhető el. Ezen a csempén keresztül nyomon követheti és frissítheti Azure Stack hub-régióját és összetevőit, amelyek régiónként jellemzőek.
+Azure Stack hub **a régió-felügyeleti csempén** belül elérhető régió-felügyeleti képességekkel rendelkezik. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján lévő Azure Stack hub-operátor számára érhető el. Ezen a csempén nyomon követheti és frissítheti Azure Stack hub-régióját és összetevőit, amelyek régió-specifikusak.
 
 ![A régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-region-management/image1.png)
 

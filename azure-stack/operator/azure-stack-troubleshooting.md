@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Megtudhatja, hogyan lehet elhárítani a Azure Stack hubot, beleértve a virtuális gépekkel, a tárolással és a App Serviceekkel kapcsolatos problémákat.
 author: justinha
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d85ee89edc6b36fb9eca84f59867621b37e8dd5a
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512332"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777882"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -33,6 +33,7 @@ Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljutt
 * [Diagnosztikai eszközök használata az Azure Stack hub-ban](azure-stack-diagnostics.md)
 * [Azure Stack hub rendszerállapotának ellenőrzése](azure-stack-diagnostic-test.md)
 * [A csomag kiadási ritmusának frissítése](azure-stack-servicing-policy.md#update-package-release-cadence)
+* [Csomópont állapotának ellenőrzése és hibakeresése](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>A vendég virtuális gépek által támogatott operációs rendszerek és méretek
 

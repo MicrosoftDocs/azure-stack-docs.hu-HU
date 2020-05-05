@@ -3,16 +3,16 @@ title: Azure Stack hub által felügyelt lemezek; különbségek és szempontok
 description: Ismerje meg a felügyelt lemezek és a felügyelt lemezképek Azure Stack hub-ban való használatakor felmerülő különbségeket és szempontokat.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 335c6e39b067e9a95ec075866279d35b451d7c87
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479302"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777678"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
@@ -21,7 +21,7 @@ Ez a cikk a [ *felügyelt lemezek* Azure stack hub](azure-stack-manage-vm-disks.
 A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemezes kezelését a virtuálisgép-lemezekhez társított [Storage-fiókok](../operator/azure-stack-manage-storage-accounts.md) kezelésével.
 
 > [!NOTE]  
-> Azure Stack hub felügyelt lemezei az 1808-es frissítéstől kezdve érhetők el. Az 1811-es frissítéstől kezdve a szolgáltatás alapértelmezés szerint engedélyezve van, amikor a Azure Stack hub portál használatával hoz létre virtuális gépeket.
+> Az Azure Stack hub felügyelt lemezei a 1808-es frissítéstől kezdve voltak elérhetők. Az 1811-es frissítéstől kezdve a szolgáltatás alapértelmezés szerint engedélyezve van, amikor a Azure Stack hub portál használatával hoz létre virtuális gépeket.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
@@ -54,7 +54,7 @@ A tárolási metrikákkal kapcsolatban is különbségek vannak:
 
 Azure Stack hub Managed Disks a következő API-verziókat támogatja:
 
-- 2017-03-30 
+- 2017-03-30
 - 2017-12-01 (csak felügyelt lemezképek, nincsenek lemezek, Pillanatképek nélkül)
 
 ## <a name="convert-to-managed-disks"></a>Átalakítás felügyelt lemezekre

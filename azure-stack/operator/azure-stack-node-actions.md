@@ -3,16 +3,16 @@ title: Az egység csomópont-műveleteinek méretezése Azure Stack központban
 description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4874b93acf9e869a3b8e66f42191d5419e48fece
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79293977"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777746"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Az egység csomópont-műveleteinek méretezése Azure Stack központban
 
@@ -54,6 +54,35 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 | Javítása | A csomópont aktívan javítás alatt áll. |
 | Karbantartás | A csomópont szüneteltetve van, és nem fut aktív felhasználói munkaterhelés. |
 | Szervizelést igényel | Hiba észlelhető, amely megköveteli a csomópont javítását. |
+
+### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack hub a művelet utáni állapot hozzáadását mutatja
+
+Azure Stack hub az operatív csomópont állapotát egy művelet, **például a** kiürítés, a folytatás, a javítás, a Leállítás vagy az indítás végrehajtása után jeleníti meg.
+Ez akkor fordulhat elő, ha a háló erőforrás-szolgáltatói szerepkör-gyorsítótára nem frissült egy művelet után. 
+
+A következő lépések alkalmazása előtt győződjön meg arról, hogy jelenleg nincs folyamatban a művelet. Frissítse a végpontot a környezetének megfelelően.
+
+1. Nyissa meg a PowerShellt, és adja hozzá Azure Stack hub-környezetét. Ehhez [Azure stack hub PowerShell-t kell telepíteni](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) a számítógépre.
+
+   ```powershell
+   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzureRmAccount -Environment AzureStack
+   ```
+
+2. Futtassa a következő parancsot a háló erőforrás-szolgáltatói szerepkörének újraindításához.
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. Ellenőrizze, hogy az érintett méretezési egység csomópontjának működési állapota a **futtatásra**módosult-e. Használhatja a felügyeleti portált vagy a következő PowerShell-parancsot:
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. Ha a csomópont működési állapota továbbra **is megjelenik, mert a** tovább gombra kattintva nyisson meg egy támogatási eseményt.
+
 
 ## <a name="scale-unit-node-actions"></a>Méretezési egység csomópontjainak műveletei
 
@@ -175,4 +204,6 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
 
 ## <a name="next-steps"></a>További lépések
 
-Tudnivalók [a Azure stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+- [Az Azure Stack PowerShell telepítése](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
+- [Tudnivalók a Azure Stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Csomópont-hozzáadási műveletek figyelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)

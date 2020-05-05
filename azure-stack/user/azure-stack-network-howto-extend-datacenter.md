@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661113"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742604"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Tároló kiterjesztése Azure Stack hubhoz
 
@@ -30,7 +30,7 @@ Ez az alábbi forgatókönyvhöz nyújt segítséget. Hogyan csatlakoztatható A
 
 Az ábrán egy olyan forgatókönyv látható, amelyben egyetlen virtuális gép fut, amely a munkaterhelést, a csatlakozást és a külső (a virtuális gép és a Azure Stack hub) tárolót használja, és az adatok olvasását, írását stb. Ebben a cikkben a fájlok egyszerű lekérésére koncentrálhat, de ezt a példát kiterjesztheti összetettebb forgatókönyvek, például az adatbázisfájlok távoli tárolása érdekében.
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
 A diagramon láthatja, hogy a Azure Stack hub rendszerű virtuális gép több hálózati adapterrel lett telepítve. Mind a redundancia, hanem a tárolási ajánlott eljárás is fontos, hogy a cél és a cél között több útvonal is legyen. Ahol a dolgok összetettebbek lesznek, az Azure Stack hub-ban lévő virtuális gépek nyilvános és magánhálózati IP-címekkel is rendelkeznek, akárcsak az Azure-ban. Ha a külső tárterület szükséges a virtuális gép eléréséhez, csak a nyilvános IP-címen keresztül teheti meg, mivel a magánhálózati IP-címek elsődlegesen a virtuális hálózatok és az alhálózatokon belüli Azure Stack hub rendszerekben használatosak. A külső tároló nem tud kommunikálni a virtuális gép magánhálózati IP-címével, kivéve, ha a helyről a VPN-re halad át, hogy a vNet magát. Ebben a példában a nyilvános IP-címen keresztül folytatjuk a kommunikációt. A diagramon a nyilvános IP-címmel kapcsolatban az egyik dolog, hogy két különböző nyilvános IP-címkészlet alhálózata van. Alapértelmezés szerint az Azure Stack hub csak egy készletet igényel a nyilvános IP-címekhez, de megfontolandó, hogy a redundáns útválasztáshoz egy másodpercet kell hozzáadnia. Jelenleg azonban nem lehet kijelölni egy adott készletből származó IP-címet, ezért előfordulhat, hogy az azonos készletben lévő virtuális gépeket a több virtuális hálózati kártyán is megtalálhatja.
 

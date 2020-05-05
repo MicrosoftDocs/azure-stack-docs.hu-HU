@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ee08259248a49eef08ce0012d60be2705cc4f877
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704913"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742366"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Az Azure Stack hub Storage bemutatása
 
@@ -23,7 +23,7 @@ Az Azure Stack hub Storage az Azure Storage által biztosított szolgáltatások
 
 Azure Stack hub Storage a következő három szolgáltatást nyújtja:
 
-- **Blob Storage**
+- **BLOB Storage**
 
     A blob Storage strukturálatlan objektumokat tárol. A Blobok bármilyen típusú szöveg-vagy bináris adattípust tartalmazhatnak, például dokumentumot, médiafájlt vagy az alkalmazás telepítőjét.
 
@@ -31,13 +31,13 @@ Azure Stack hub Storage a következő három szolgáltatást nyújtja:
 
     A Table Storage a strukturált adatkészleteket tárolja. A Table Storage egy NoSQL-attribútum, amely lehetővé teszi a gyors fejlesztést és a nagy mennyiségű adattal való gyors hozzáférést.
 
-- **Queue Storage**
+- **Üzenetsor-tárolás**
 
     A üzenetsor-tárolás megbízható üzenetküldést biztosít a munkafolyamat-feldolgozáshoz és a Cloud Services összetevői közötti kommunikációhoz.
 
 Az Azure Stack hub Storage-fiók egy biztonságos fiók, amely hozzáférést biztosít a Azure Stack hub Storage szolgáltatásaihoz. A tárfiók biztosítja az egyedi névteret a tárterület erőforrásainak. A következő ábra a Azure Stack hub tárolási erőforrásai közötti kapcsolatokat mutatja be egy Storage-fiókban:
 
-![Azure Stack hub Storage – áttekintés](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Azure Stack hub Storage – áttekintés](media/azure-stack-storage-overview/azurestackstorageoverview.svg)
 
 ### <a name="blob-storage"></a>Blob Storage
 

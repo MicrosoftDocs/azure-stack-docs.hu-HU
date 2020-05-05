@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 9abcc23505279f417e53f896e58e76dd9205691f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702329"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742446"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
 
-Ez a cikk az Azure Stack hub Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor Azure Stack hub-beli használatáról szóló további információkat. 
+Ez a cikk az Azure Stack hub Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor Azure Stack hub-beli használatáról szóló további információkat.
 
 A Azure Monitor áttekintését lásd: a globális Azure-cikk első [lépései Azure monitor on Azure stack hub](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
@@ -42,7 +42,7 @@ Az Azure-ban az Azure Monitorhoz hasonlóan a Azure Monitor a Azure Stack hub al
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor források: számítási részhalmaz
 
-![Azure Monitor Azure Stack hub-forrásokon – számítási részhalmaz](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor Azure Stack hub-forrásokon – számítási részhalmaz](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
 A Azure Stack hub **Microsoft. számítási** erőforrás-szolgáltatója a következőket tartalmazza:
  - Virtual machines (Virtuális gépek) 
@@ -76,7 +76,7 @@ A Azure Stack hub-infrastruktúra által látott számítási erőforrásokra vo
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure monitor-források: minden más
 
-![Azure Monitor Azure Stack hub-forrásokon – minden más](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor Azure Stack hub-forrásokon – minden más](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.svg)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Erőforrások – mérőszámok és diagnosztikai naplók
 
