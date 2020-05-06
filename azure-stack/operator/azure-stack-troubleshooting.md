@@ -8,12 +8,12 @@ ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d85ee89edc6b36fb9eca84f59867621b37e8dd5a
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 4c3488ac0f8b022d7d0e21ce09cfb3160f346d5c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777882"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848115"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -117,8 +117,32 @@ Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való
 
 Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet`/`() a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](/azure-stack/user/azure-stack-storage-connect-se).
 
-## <a name="troubleshooting-app-service"></a>Hibaelhárítási App Service
+## <a name="troubleshoot-app-service"></a>Hibakeresés App Service
 
 ### <a name="create-aadidentityappps1-script-fails"></a>A Create-AADIdentityApp. ps1 parancsfájl végrehajtása sikertelen
 
-Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor a szükséges `-AzureStackAdminCredential` paramétert is tartalmazza. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app).
+Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a parancsfájl futtatásakor a szükséges `-AzureStackAdminCredential` paramétert is tartalmazza. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
+
+## <a name="troubleshoot-azure-stack-hub-updates"></a>Azure Stack hub frissítéseinek hibáinak megoldása
+
+Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, hogy a kezelők következetes és áramvonalas módon alkalmazzák a frissítési csomagokat. Habár nem gyakori, a javítások és a frissítési folyamat során problémák léphetnek fel. A javítási és frissítési folyamat során a következő lépések ajánlottak:
+
+0. **Előfeltételek**: Ellenőrizze, hogy követte-e a [frissítési tevékenység ellenőrzőlistáját](release-notes-checklist.md) , és konfigurálta-e az [automatikus naplózási gyűjteményt](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+
+1. Ha a frissítés sikertelen volt, kövesse a sikertelen riasztások által létrehozott hibaelhárítási lépéseket.
+
+2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](azure-stack-help-and-support-overview-tzl.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) az időtartományhoz.
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
+
+*A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
+
+### <a name="preparationfailed"></a>PreparationFailed
+
+**Alkalmazható**: Ez a probléma az összes támogatott kiadásra vonatkozik.
+
+**OK**: az Azure stack hub frissítésének telepítésére tett kísérlet során előfordulhat, hogy a frissítés állapota meghiúsul, és az állapot `PreparationFailed`módosul. Internetkapcsolattal rendelkező rendszerek esetében ez általában azt jelzi, hogy a frissítési csomag nem tölthető le megfelelően, mert gyenge az internetkapcsolat. 
+
+**Szervizelés**: a probléma megkerüléséhez kattintson a **Telepítés most** lehetőségre. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) szakaszt követve manuálisan töltse fel a frissítési csomagot.
+
+**Előfordulás**: gyakori

@@ -2,21 +2,21 @@
 title: Java-háború üzembe helyezése Azure Stack hub virtuális gépén
 description: Java-háború üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
-ms.topic: overview
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704148"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836206"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
-Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséhez Azure Stack központban. Ebben a cikkben egy Apache Tomcat-kiszolgálót telepít és konfigurál egy Linux rendszerű virtuális gépen Azure Stack hub-ban. Ezután betölt egy Java webalkalmazás-erőforrást (WAR-fájlt) a-kiszolgálóra. A WAR-fájlok a Java Archive-(JAR-) fájlok, a Java-erőforrásokat (például osztályokat, szövegeket, képeket, XML-fájlokat és HTML-ket, valamint a webalkalmazások kézbesítéséhez használt egyéb erőforrásokat) tartalmazó tömörített fájlok terjesztésére szolgálnak.
+Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez Azure Stack hub-ban. Ebben a cikkben telepíti, megnyithatja a megfelelő portokat, és konfigurálhat egy Apache Tomcat-kiszolgálót egy Linux rendszerű virtuális gépen Azure Stack hub-ban. Ezután betölt egy Java webalkalmazás-erőforrást (WAR-fájlt) a-kiszolgálóra. A WAR-fájlok a Java Archive-(JAR-) fájlok, a Java-erőforrásokat (például osztályokat, szövegeket, képeket, XML-fájlokat és HTML-ket, valamint a webalkalmazások kézbesítéséhez használt egyéb erőforrásokat) tartalmazó tömörített fájlok terjesztésére szolgálnak.
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
@@ -24,7 +24,7 @@ Létrehozhat egy virtuális gépet (VM) a Python-webalkalmazás üzemeltetéséh
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protocol (Protokoll) | Description |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |

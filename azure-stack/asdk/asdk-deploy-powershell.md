@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695665"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847146"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -131,7 +131,7 @@ Ha a környezet nem rendelkezik engedélyezve DHCP-vel, akkor a fenti lehetősé
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC. ps1 választható paraméterek
 
-|Paraméter|Kötelező vagy nem kötelező|Leírás|
+|Paraméter|Kötelező vagy nem kötelező|Description|
 |-----|-----|-----|
 |AdminPassword|Kötelező|Beállítja a helyi rendszergazdai fiókot és az összes többi felhasználói fiókot a ASDK-telepítés részeként létrehozott összes virtuális gépen. Ennek a jelszónak meg kell egyeznie a gazdagép aktuális helyi rendszergazdai jelszavával.|
 |InfraAzureDirectoryTenantName|Kötelező|Beállítja a bérlői könyvtárat. Ezzel a paraméterrel megadhat egy adott könyvtárat, amelyben az Azure AD-fiók rendelkezik a több könyvtár felügyeletéhez szükséges engedélyekkel. Egy Azure AD-bérlő teljes neve. onmicrosoft.com vagy egy Azure AD által ellenőrzött egyéni tartománynév.|
@@ -158,7 +158,7 @@ Regisztrálnia kell Azure Stack az Azure-ban, hogy [le tudja tölteni az Azure M
 **[Azure Stack regisztrálása az Azure-ban](asdk-register.md)**
 
 ## <a name="next-steps"></a>További lépések
-Gratulálunk! A lépések elvégzése után egy ASDK-környezettel fog rendelkezni, amely [rendszergazdai](https://adminportal.local.azurestack.external) és [felhasználói](https://portal.local.azurestack.external) portálokkal is rendelkezik. 
+Gratulálunk! A lépések elvégzése után egy ASDK-környezettel fog rendelkezni `https://adminportal.local.azurestack.external` , amely `https://portal.local.azurestack.external` rendszergazdai és felhasználói portálokkal is rendelkezik. 
 
 [ASDK-telepítési konfigurációs feladatok közzététele](asdk-post-deploy.md)
 

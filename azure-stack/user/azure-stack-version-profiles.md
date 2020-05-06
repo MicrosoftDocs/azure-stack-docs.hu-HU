@@ -3,22 +3,22 @@ title: API-verziók profiljainak kezelése Azure Stack hub-ban
 description: Az API-verziók profiljainak megismerése Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294890"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836223"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>API-verziók profiljainak kezelése Azure Stack hub-ban
 
 Az API-profilok megadják az Azure erőforrás-szolgáltatót és az API-verziót az Azure REST-végpontokhoz. Az API-profilok használatával különböző nyelveken hozhat létre egyéni ügyfeleket. Mindegyik ügyfél egy API-profilt használ a Azure Stack hub megfelelő erőforrás-szolgáltatójának és API-verziójának a meghívásához.
 
-Létrehozhat egy alkalmazást az Azure-erőforrás-szolgáltatókkal való együttműködéshez anélkül, hogy rendeznie kellene, hogy az egyes erőforrás-szolgáltatói API melyik verziója kompatibilis az Azure Stack hubhoz. Egyszerűen igazítsa az alkalmazást egy profilhoz, és az SDK visszaállít a megfelelő API-verzióra.
+Létrehozhat egy alkalmazást az Azure-erőforrás-szolgáltatókkal való együttműködéshez anélkül, hogy meg kellene tudnia, hogy az egyes erőforrás-szolgáltatói API melyik verziója kompatibilis az Azure Stack hubhoz. Egyszerűen igazítsa az alkalmazást egy profilhoz, és az SDK visszaállít a megfelelő API-verzióra.
 
 Ez a témakör a következőkben nyújt segítséget:
 

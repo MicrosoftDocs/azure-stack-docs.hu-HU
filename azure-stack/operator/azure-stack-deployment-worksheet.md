@@ -1,5 +1,5 @@
 ---
-title: Üzembe helyezési munkalap Azure Stack hub integrált rendszerekhez
+title: Azure Stack hub üzembe helyezési munkalapja
 description: Megtudhatja, hogyan telepítheti és használhatja az üzembe helyezési munkalap eszközt Azure Stack hub üzembe helyezéséhez.
 author: IngridAtMicrosoft
 ms.topic: article
@@ -7,29 +7,29 @@ ms.date: 04/19/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1949d198c7d85e60c5a3195dfbd5e725cef834c7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700068"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836126"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Üzembe helyezési munkalap Azure Stack hub integrált rendszerekhez
 
 Az Azure Stack hub üzembe helyezési munkalap egy Windows Forms alkalmazás, amely egy helyen összesíti az összes szükséges központi telepítési információt és döntést. A telepítési munkalapot a tervezési folyamat során végezheti el, és áttekintheti a telepítés megkezdése előtt.
 
-A munkalapon megkövetelt információk a hálózatkezelési, a biztonsági és az identitási információkra terjednek ki. Fontos döntéseket igényel, amelyeknek számos különböző területen ismerete lehet. Ezért előfordulhat, hogy a munkalapra való betöltéshez érdemes megtekinteni az ezekben a területeken szaktudással rendelkező csapatokat.
+A munkalapon megkövetelt információk a hálózatkezelési, a biztonsági és az identitási információkra terjednek ki. Ezeknek az információknak bizonyos területeken konkrét ismeretekre lehet szükségük, ezért javasoljuk, hogy forduljon szakértőkkel a munkalap befejezéséhez.
 
-A munkalap kitöltésekor előfordulhat, hogy a hálózati környezetbe be kell állítania a telepítés előtti konfigurációs módosításokat. Ebbe beletartozik az Azure Stack hub-megoldás IP-címeinek megőrzése, valamint az útválasztók, kapcsolók és tűzfalak konfigurálása az új Azure Stack hub-megoldáshoz való kapcsolódás előkészítéséhez.
+A munkalap kitöltésekor előfordulhat, hogy a hálózati környezetbe be kell állítania a telepítés előtti konfigurációs módosításokat. Ezek a változások közé tartozhatnak az Azure Stack hub-megoldás IP-címeinek megőrzése, valamint az útválasztók, kapcsolók és tűzfalak konfigurálása az új Azure Stack hub-megoldással való kapcsolat előkészítéséhez.
 
 > [!NOTE]
-> Az üzembe helyezési munkalap eszközének végrehajtásával kapcsolatos további információkért tekintse meg [ezt a cikket a Azure stack hub dokumentációjában](azure-stack-datacenter-integration.md).
+> További információ az üzembe helyezési munkalap eszközének befejezéséről: az [adatközpont-integráció tervezési szempontjai Azure stack hub integrált rendszerekhez](azure-stack-datacenter-integration.md).
 
-[![Üzembe helyezési munkalap](media/azure-stack-deployment-worksheet/depworksheet.png "Üzembe helyezési munkalap")](media/azure-stack-deployment-worksheet/depworksheet.png)
+[![Azure Stack hub központi telepítésének üzembe helyezési munkalapja](media/azure-stack-deployment-worksheet/depworksheet.png "Üzembe helyezési munkalap")](media/azure-stack-deployment-worksheet/depworksheet.png)
 
 ## <a name="installing-the-windows-powershell-module"></a>A Windows PowerShell-modul telepítése
 
-Az üzembe helyezési munkalap minden egyes kiadásához végre kell hajtania egy PowerShell-modul egyszeri telepítését minden olyan gépen, amelyen használni szeretné a központi telepítési munkalapot.
+Az üzembe helyezési munkalap minden egyes kiadásához egy PowerShell-modul egyszeri telepítését kell végrehajtani minden olyan gépen, amelyre a telepítési munkalapot használni kívánja.
 
 > [!NOTE]  
 > Ennek a módszernek a működéséhez a számítógépnek csatlakoznia kell az internethez.
@@ -46,7 +46,7 @@ Ha nem megbízható tárházból történő telepítésről kap üzenetet, a tel
 
 ## <a name="use-the-deployment-worksheet-tool"></a>Az üzembe helyezési munkalap eszköz használata
 
-Az üzembe helyezési munkalap elindításához és használatához olyan számítógépen, amelyen a központi telepítési munkalap PowerShell-modulját telepítette, hajtsa végre a következő lépéseket:
+A következő lépések végrehajtásával indíthatja el és használhatja a központi telepítési munkalapot azon a számítógépen, amelyen telepítette a központi telepítési munkalap PowerShell-modulját:
 
 1. Indítsa el a Windows PowerShellt (ne használja a PowerShell ISE-t, mert nem várt eredmények merülhetnek fel). A PowerShellt rendszergazdaként nem kell futtatni.
 
@@ -62,9 +62,9 @@ Az üzembe helyezési munkalap elindításához és használatához olyan szám�
    Start-DeploymentWorksheet
    ```
 
-Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállítások (például az **Ügyfél beállításai**, a **hálózati beállítások**és a **skálázási egység**) összegyűjtéséhez. A konfigurációs adatfájlok előállítása előtt minden lapon meg kell adnia az összes olyan értéket (kivéve a jelölést, amely nem **kötelező**). Miután az összes szükséges értéket beírta az eszközre, a **művelet** menüben **importálhatja**, **exportálhatja**és **létrehozhatja**a következőt:. A telepítéshez szükséges JSON-fájlok a következők:
+Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállítások, például az **Ügyfél beállításai**, a **hálózati beállítások**és a **skálázási egység (#**) összegyűjtéséhez. A konfigurációs adatfájlok előállítása előtt minden lapon meg kell adnia az összes olyan értéket (kivéve a jelölést, amely nem **kötelező**). Miután az összes szükséges értéket beírta az eszközre, a **művelet** menüben **importálhatja**, **exportálhatja**és **létrehozhatja**a következőt:. A telepítéshez szükséges JSON-fájlok a következők:
 
-**Importálás**: lehetővé teszi egy olyan Azure stack hub konfigurációs adatfájl (ConfigurationData. JSON) importálását, amelyet az eszköz hozott létre, vagy amelyeket a telepítési munkalap korábbi kiadásával hoztak létre. Az importálási művelet alaphelyzetbe állítja az űrlapokat, és törli a korábban megadott beállításokat vagy generált adatok.
+**Importálás**: lehetővé teszi egy olyan Azure stack hub konfigurációs adatfájl (ConfigurationData. JSON) importálását, amelyet az eszköz vagy az üzembe helyezési munkalap korábbi kiadása által létrehozott fájlok hoztak létre. Az importálás során a rendszer visszaállítja az űrlapokat, és törli a korábban megadott beállításokat vagy a generált összes adatát.
 
 **Exportálás**: érvényesíti az űrlapokra aktuálisan beírt adatokat, létrehozza az IP-alhálózatokat és a hozzárendeléseket, majd a tartalmat JSON formátumú konfigurációs fájlokként menti. Ezután ezeket a fájlokat használhatja a hálózati konfiguráció létrehozásához és Azure Stack hub telepítéséhez.
 
@@ -72,7 +72,7 @@ Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállít
 
 **Összes törlése**: törli az űrlapon aktuálisan beírt összes adathalmazt, és visszaadja azokat az alapértelmezett értékekre.
 
-**Mentse vagy nyissa meg a folyamatban lévő munkát**: a **fájl->mentés** és a **fájl->nyitott** menük használatával mentheti és megnyithatja a részben megadott adatait. Ez eltér az **importálási** és **exportálási** függvényektől, mivel az összes adat bevitele és érvényesítése szükséges. A Megnyitás/Mentés nem ellenőrzi az érvényességet, és nincs szükség az összes mező beírására a munka folyamatban lévő mentéséhez.
+**Mentse vagy nyissa meg a folyamatban lévő munkát**: a **fájl->mentés** és a **fájl->nyitott** menük használatával mentheti és megnyithatja a részben megadott adatait. Ez a függvény különbözik az **importálási** és **exportálási** függvényektől, mert minden adat megadása és érvényesítése szükséges. A Megnyitás/Mentés nem ellenőrzi a munkát, és nincs szükség az összes mező beírására, hogy mentse a munkáját.
 
 **Naplózási és figyelmeztető üzenetek**: amíg az űrlap használatban van, előfordulhat, hogy a PowerShell-ablakban nem kritikus fontosságú figyelmeztető üzenetek jelennek meg. A kritikus hibák előugró üzenetként jelennek meg. A részletes naplózás, beleértve a lemezre írt naplót is, engedélyezhető, hogy segítséget nyújtson a hibaelhárítási problémák megoldásához.
 

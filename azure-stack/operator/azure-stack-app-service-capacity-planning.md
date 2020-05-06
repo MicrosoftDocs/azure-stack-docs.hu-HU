@@ -3,16 +3,16 @@ title: Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azur
 description: További információ a Azure Stack hub App Service kiszolgálói szerepköreinek kapacitásának megtervezéséről.
 author: BryanLa
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/20192
-ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701173"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847859"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Kapacitás megtervezése App Service kiszolgálói szerepkörökhöz Azure Stack hub-ban
 
@@ -20,44 +20,49 @@ Az Azure App Service Azure Stack hub-on történő éles használatra kész köz
 
 Ez a cikk útmutatást nyújt az éles üzembe helyezéshez használni kívánt számítási példányok és számítási egységek minimális számához.
 
+> [!NOTE]
+> A szerepkörök ajánlott számítási SKU-ra vonatkozó útmutatása a 2020. Q2 Azure App Service kiadásával lett frissítve Azure Stack hub-on, hogy az Azure üzemelő példányokkal összhangba hozza a standard szintű üzembe helyezést.
+
 Ezen irányelvek alapján megtervezheti a App Service kapacitási stratégiát.
 
 | App Service kiszolgálói szerepkör | A példányok minimálisan ajánlott száma | Ajánlott számítási SKU|
 | --- | --- | --- |
-| Tartományvezérlő | 2 | A1 |
-| Előtér | 2 | A1 |
-| Kezelés | 2 | A3 |
-| Közzétevő | 2 | A1 |
-| Webes feldolgozók – közös | 2 | A1 |
-| Webes feldolgozók – dedikált | 2/szintenként | A1 |
+| Tartományvezérlő | 2 | A4v2 |
+| Előtér | 2 | A4_v2 |
+| Kezelés | 2 | D3_v2 |
+| Közzétevő | 2 | A2_v2 |
+| Webes feldolgozók – közös | 2 | A4_v2 |
+| Webes feldolgozók – dedikált – kis méretű | 2/szintenként | A1_v2 |
+| Webes feldolgozók – dedikált – közepes | 2/szintenként | A2_v2 |
+| Webes feldolgozók – dedikált – nagy | 2/szintenként | A4_v2 |
 
 ## <a name="controller-role"></a>Vezérlő szerepkör
 
-**Ajánlott minimum**: az a1 standard két példánya
+**Ajánlott minimum**: két A4v2-példány
 
 A Azure App Service vezérlő általában a processzor, a memória és a hálózati erőforrások alacsony felhasználását tapasztalja. A magas rendelkezésre állás érdekében azonban két vezérlővel kell rendelkeznie. Két vezérlő is engedélyezett a maximálisan megengedett vezérlők számára. A második webhely-vezérlőt közvetlenül a telepítőből is létrehozhatja a telepítés során.
 
 ## <a name="front-end-role"></a>Előtér-szerepkör
 
-**Ajánlott minimum**: az a1 standard két példánya
+**Ajánlott minimum**: A4v_2 két példánya
 
 Az előtér-útvonalak a webes feldolgozók rendelkezésre állása alapján a webes feldolgozóknak küldött kérelmeket. A magas rendelkezésre állás érdekében több előtérrel kell rendelkeznie, és kettőnél több is lehet. A kapacitás megtervezése érdekében vegye figyelembe, hogy minden mag másodpercenként körülbelül 100 kérelmet képes kezelni.
 
 ## <a name="management-role"></a>Felügyeleti szerepkör
 
-**Ajánlott minimum**: az a3 standard két példánya
+**Ajánlott minimum**: két D3v2-példány
 
 Az Azure-alkalmazás klasszikus üzembe helyezési modellének feladata a App Service Azure Resource Manager és az API-végpontok, a portál-bővítmények (rendszergazda, bérlő, functions portál) és az adatszolgáltatás felelőse. A felügyeleti kiszolgálói szerepkörhöz általában csak 4 GB RAM-ra van szükség éles környezetben. Előfordulhat azonban, hogy magas CPU-szintet tapasztal, ha sok felügyeleti feladat (például webhely létrehozása) van végrehajtva. A magas rendelkezésre állás érdekében több kiszolgálót kell hozzárendelni ehhez a szerepkörhöz, és kiszolgálónként legalább két magot kell megadnia.
 
 ## <a name="publisher-role"></a>Közzétevői szerepkör
 
-**Ajánlott minimum**: az a1 standard két példánya
+**Ajánlott minimum**: két A2v2-példány
 
 Ha sok felhasználó egyszerre tesz közzé egyidejű közzétételt, a kiadói szerepkör nagy CPU-használatot tapasztalhatnak. A magas rendelkezésre állás érdekében győződjön meg arról, hogy egynél több közzétevői szerepkör érhető el. A közzétevő csak az FTP-/FTPS-forgalmat kezeli.
 
 ## <a name="web-worker-role"></a>Webes feldolgozói szerepkör
 
-**Ajánlott minimum**: az a1 standard két példánya
+**Ajánlott minimum**: A4_v2 két példánya
 
 A magas rendelkezésre állás érdekében legalább négy webes feldolgozói szerepkörrel kell rendelkeznie: kettőt a közös webhely üzemmódhoz, és kettőt minden olyan dedikált feldolgozói réteghez, amelyet kínál. A megosztott és dedikált számítási módok különböző szolgáltatási szinteket biztosítanak a bérlőknek. Ha sok ügyfelünk van, több webes feldolgozóra lehet szüksége:
 

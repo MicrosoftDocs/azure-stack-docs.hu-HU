@@ -7,12 +7,12 @@ ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2019
-ms.openlocfilehash: 4d2f76e1af47800331aac44715b5b8630baceae1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 167a9c9d46be7ac77e59e2be7ede1c09e43fda70
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701428"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847928"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
 
@@ -172,7 +172,7 @@ A rendszerkép feltöltése előtt fontos figyelembe venni a következőket:
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>A virtuális gép rendszerképének eltávolítása Azure Stack hub-kezelőként a portál használatával
 
-1. Nyissa meg az Azure Stack hub [felügyeleti portált](https://adminportal.local.azurestack.external).
+1. Nyissa meg az Azure Stack hub [felügyeleti `https://adminportal.local.azurestack.external`portál] eszközt.
 
 2. Ha a virtuálisgép-rendszerképhez társított Piactéri elem tartozik, válassza a **piactér-kezelés**elemet, majd válassza ki a törölni kívánt virtuálisgép-Piactéri elemet.
 

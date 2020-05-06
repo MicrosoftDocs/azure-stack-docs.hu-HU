@@ -3,16 +3,16 @@ title: Azure Stack hub frissítési tevékenységének ellenőrzőlista
 description: Ellenőrzőlista a rendszer előkészítéséhez a legújabb Azure Stack hub-frissítéshez.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: c966aa9689f97265b2bca2e9b246f266ac4a11c7
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 03f2b9d80b4fde1f0c7b73b3c24a2d5e799d4d49
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777814"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799849"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack hub frissítési tevékenységének ellenőrzőlista
 
@@ -24,7 +24,7 @@ A Azure Stack hub frissítésének előkészítéséhez tekintse át ezt a felad
 |------------------------------|-----------------------------------------------------------|
 | Az ismert problémák áttekintése     | [Ismert problémák listája](known-issues.md).                |
 | Biztonsági frissítések áttekintése | [A biztonsági frissítések listája](release-notes-security-updates.md).      |
-| A bővítmény erőforrás-szolgáltatói frissítéseinek áttekintése | [APP SERVICE](azure-stack-app-service-update.md)<br>[Eseményközpont](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-sql-resource-provider-update.md)<br>[SQL](azure-stack-mysql-resource-provider-update.md)<br>  |
+| A bővítmény erőforrás-szolgáltatói frissítéseinek áttekintése | [APP SERVICE](azure-stack-app-service-update.md)<br>[Event Hubs](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-sql-resource-provider-update.md)<br>[SQL](azure-stack-mysql-resource-provider-update.md)<br>  |
 | A legújabb OEM-csomag alkalmazása | Lépjen kapcsolatba az OEM-vel, és győződjön meg arról, hogy a rendszer megfelel a rendszer frissítésének Azure Stack hub-verziójának minimális OEM-csomagra vonatkozó követelményeinek. Győződjön meg arról, hogy az OEM-csomag kompatibilis a Azure Stack hub azon verziójával, amelyet frissíteni kíván. Ha az OEM-csomag nem kompatibilis a frissítendő Azure Stack hub verziójával, akkor Azure Stack hub-frissítés futtatása előtt végre kell hajtania egy OEM-csomag frissítését. Útmutatásért lásd: "az Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása". |
 | Nem kötelező: automatikus naplózási gyűjtemény konfigurálása | Javasoljuk, hogy az automatikus naplózási gyűjteményt konfigurálja úgy az Azure Stack hub-környezetben, hogy leegyszerűsítse a rendszernaplók gyűjtésének folyamatát abban az esetben, ha támogatási jegyet kell megnyitnia. Az automatikus naplózási gyűjtemény konfigurálásához tekintse meg az [automatikus Azure stack hub diagnosztikai naplók konfigurálása](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)című témakör utasításait. |
 | Legújabb gyorsjavítások alkalmazása | Alkalmazza a jelenleg telepített kiadásra érvényes legújabb gyorsjavításokat. A legújabb gyorsjavítások listáját a [kibocsátási megjegyzések gyorsjavításai](release-notes.md) című szakaszban találja. |

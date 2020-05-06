@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: ab0f54d94b96a7bdd75d13f04fd9146146d42740
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294274"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846891"
 ---
 # <a name="asdk-admin-basics"></a>ASDK-adminisztrátor alapjai
 Több dolgot kell tudnia, ha még nem ismeri a Azure Stack Development Kit (ASDK) felügyeletét. Ez az útmutató áttekintést nyújt a szerepkörről Azure Stack operátorként a kiértékelési környezetben. Az adatok megismerésével biztosíthatja, hogy a felhasználók a lehető leggyorsabban hatékonyak legyenek.
@@ -33,7 +33,7 @@ Az Azure Stack kezelésekor figyelembe kell vennie néhány fiókra vonatkozó s
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Milyen eszközöket használhatok a felügyelethez?
-A Azure Stack kezelésére a [Azure stack felügyeleti portál](https://adminportal.local.azurestack.external) vagy a PowerShell használható. Az alapvető fogalmak megismerésének legegyszerűbb módja a portálon keresztül. Ha a PowerShellt szeretné használni, telepítenie kell a [PowerShellt a Azure Stackhoz](asdk-post-deploy.md#install-azure-stack-powershell) , és [le kell töltenie a Azure stack eszközöket a githubról](asdk-post-deploy.md#download-the-azure-stack-tools).
+A Azure Stack kezelésére a Azure Stack felügyeleti portál `https://adminportal.local.azurestack.external` vagy a PowerShell használható. Az alapvető fogalmak megismerésének legegyszerűbb módja a portálon keresztül. Ha a PowerShellt szeretné használni, telepítenie kell a [PowerShellt a Azure Stackhoz](asdk-post-deploy.md#install-azure-stack-powershell) , és [le kell töltenie a Azure stack eszközöket a githubról](asdk-post-deploy.md#download-the-azure-stack-tools).
 
 A Azure Stack a Azure Resource Manager használja a mögöttes üzembe helyezési, felügyeleti és szervezeti mechanizmusként. Ha Azure Stack fogja kezelni a felhasználókat, és segítségre van szüksége a felhasználók támogatásához, ismerkedjen meg a Azure Resource Managerokkal. További információt a Első lépések Azure Resource Manager tanulmányban való elolvasásával [foglalkozó](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)témakörben olvashat.
 
@@ -41,7 +41,7 @@ A Azure Stack a Azure Resource Manager használja a mögöttes üzembe helyezés
 A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. A ASDK segítségével megtudhatja, hogy mely szolgáltatásokat ajánljuk, és hogyan teheti elérhetővé ezeket a szolgáltatásokat [csomagok, ajánlatok és kvóták létrehozásával](../operator/azure-stack-tutorial-tenant-vm.md). Emellett elemeket is hozzá kell adnia a piactérhez, például a virtuális gépekhez (VM). A legegyszerűbb módszer, ha a [Piactéri elemeket](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból Azure Stackba tölti le.
 
 > [!NOTE]
-> Ha tesztelni szeretné a csomagjait, ajánlatait és szolgáltatásait, használja a [felhasználói portált](https://portal.local.azurestack.external); nem a [felügyeleti portálon](https://adminportal.local.azurestack.external).
+> Ha tesztelni szeretné a csomagjait, ajánlatait és szolgáltatásait, használja a felhasználói portált `https://portal.local.azurestack.external`; nem a felügyeleti portálon `https://adminportal.local.azurestack.external`.
 
 A szolgáltatások biztosítása mellett gondoskodnia kell arról, hogy az Azure Stack-kezelő minden rendszeres kötelessége a ASDK működésének megőrzése érdekében. Ezek a feladatok a következőket tartalmazzák:
 - Felhasználói fiókokat adhat hozzá az Azure AD-hez vagy AD FS-példányokhoz.

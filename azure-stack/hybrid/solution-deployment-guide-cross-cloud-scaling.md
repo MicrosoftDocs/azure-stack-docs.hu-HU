@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95ce4d59e5374cab351c165405895f552478f6b
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 7ad15c36d2c3e8ae4442bd153cefd71bd26cc0bc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167075"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847418"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Felhőben futó alkalmazások üzembe helyezése az Azure-ban és Azure Stack hub használatával
 
@@ -40,7 +40,7 @@ Ebben a megoldásban egy példaként szolgáló környezetet fog kiépíteni a k
 - Egy Azure-előfizetés. Ha szükséges, hozzon létre egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a Kezdés előtt.
 - Azure Stack hub integrált rendszer vagy Azure Stack Development Kit (ASDK) üzembe helyezése.
   - Az Azure Stack hub telepítésére vonatkozó utasításokért lásd: [a ASDK telepítése](../asdk/asdk-install.md).
-  - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)
+  - Az üzembe helyezés utáni automatizálási szkriptek ASDK válassza a következőt:[https://github.com/mattmcspirit/azurestack/](https://github.com/mattmcspirit/azurestack)
   - Előfordulhat, hogy a telepítés elvégzéséhez néhány óra szükséges.
 - [App Service](../operator/azure-stack-app-service-deploy.md) Péter-szolgáltatások üzembe helyezése Azure stack hubhoz.
 - [Hozzon létre terveket/ajánlatokat](../operator/service-plan-offer-subscription-overview.md) a Azure stack hub-környezetben.

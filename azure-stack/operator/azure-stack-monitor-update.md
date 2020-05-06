@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368124"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848183"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
 
@@ -20,7 +20,7 @@ Az emelt [szintű végpont](azure-stack-privileged-endpoint.md) használatával 
 
 A következő új PowerShell-parancsmagok szerepelnek az Update Managementhez Azure Stack hub integrált rendszerek 1710-es frissítésében.
 
-| Parancsmag  | Leírás  |
+| Parancsmag  | Description  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | A jelenleg futó, befejezett vagy sikertelen frissítés állapotát adja vissza. A frissítési művelet magas szintű állapotát és egy olyan XML-dokumentumot biztosít, amely az aktuális lépést és a megfelelő állapotot is leírja. |
 | `Resume-AzureStackUpdate` | Egy sikertelen frissítés folytatása azon a ponton, ahol a művelet sikertelen volt. Bizonyos esetekben előfordulhat, hogy a frissítés folytatása előtt el kell végeznie a kockázatcsökkentő lépéseket.         |
@@ -160,6 +160,8 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 ## <a name="troubleshoot"></a>Hibaelhárítás
 
 A Kiemelt végpont az Azure Stack hub-környezetben található összes ERCS virtuális gépen elérhető. Mivel a kapcsolódás nem egy magasan elérhető végpontra történik, időnként megszakítások, figyelmeztetés vagy hibaüzenetek merülhetnek fel. Ezek az üzenetek azt jelezhetik, hogy a munkamenet le lett választva, vagy hiba történt az ECE szolgáltatással való kommunikáció során. Ez várt működés. Próbálja megismételni a műveletet néhány perc múlva, vagy hozzon létre egy új emelt szintű végponti munkamenetet az egyik másik ERCS virtuális gépen.
+
+További információ a frissítések hibaelhárításáról: [Azure stack hibaelhárítás](azure-stack-troubleshooting.md)
 
 ## <a name="next-steps"></a>További lépések
 

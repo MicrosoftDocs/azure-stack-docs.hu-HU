@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703417"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848047"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service Azure Stack hub Update 2 kibocsátási megjegyzései
 
@@ -26,14 +26,14 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure App Service Azure Stack hu
 
 A App Service Azure Stack hub Update 2 Build száma **72.0.13698.10**.
 
-### <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy [három tárgyú helyettesítő karaktert](azure-stack-app-service-before-you-get-started.md#get-certificates) igényelnek, mivel a kudu-hez tartozó SSO-t a Azure app Service-ben kezelik. Az új Tárgy: ** \*. SSO. appservice.\< régió\>. \<tartománynév\>. \<bővítmény\>**
+> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \*. SSO. appservice.\< régió\>. \<tartománynév\>. \<bővítmény\>**
 
 Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
-### <a name="new-features-and-fixes"></a>Új funkciók és javítások
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 2 a következő javításokat és javításokat tartalmazza:
 
@@ -67,7 +67,7 @@ A Azure App Service on Azure Stack hub Update 2 a következő javításokat és 
   - Rendszer hitelesítő adatainak elforgatása
   - A kapcsolatok karakterláncának elforgatása
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el.
 
@@ -83,7 +83,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 * Prioritás: 700
 * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
 Tekintse meg az [Azure stack Hub 1804 kibocsátási megjegyzései](azure-stack-update-1903.md) dokumentációját
 

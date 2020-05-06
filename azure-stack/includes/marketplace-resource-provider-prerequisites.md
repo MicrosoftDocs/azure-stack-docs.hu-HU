@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.reviewer: bryanla
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e1e2c3c6c3d1149b2cd034c2f5e4abfdf26e712f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d84b6a7d7f4ec1777b8e58e8cafc9ba64726393f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423981"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847876"
 ---
-Ha már telepített egy erőforrás-szolgáltatót Azure Stack hub piactérről, valószínűleg végrehajtotta az általános előfeltételeket, és kihagyhatja ezt a szakaszt. Ellenkező esetben először végezze el a következő előfeltételeket: 
+Ha már telepített egy erőforrás-szolgáltatót, valószínűleg végrehajtotta a következő előfeltételeket, és kihagyhatja ezt a szakaszt. Ellenkező esetben a folytatás előtt végezze el a következőket: 
 
 1. Ha még nem tette [meg, regisztrálja Azure stack hub-példányát az Azure](../operator/azure-stack-registration.md)-ban. Erre a lépésre azért van szükség, mert az Azure-ból az elemek a piactérről való csatlakoztatásához és a piactérhez való letöltéséhez szükséges.
 

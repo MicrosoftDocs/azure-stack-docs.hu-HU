@@ -4,16 +4,16 @@ description: Frissítse a Azure Stack hub App Service-es kiadási megjegyzéseit
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: ccbe8abd3a8d427005c34084d875af08ed3f5134
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 5bdf06b740d8a2c12f96494c52a683f50fe31340
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580093"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847809"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service Azure Stack hub Update 8 kibocsátási megjegyzései
 
@@ -26,26 +26,31 @@ Ezek a kibocsátási megjegyzések ismertetik az új funkciókat, javításokat 
 
 Az Azure Stack hub Update 8 build számának App Service **86.0.2.13**.
 
-### <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>Előfeltételek
 
 Az üzembe helyezés megkezdése előtt tekintse [meg az előfeltételek a App Service Azure stack hub-ban történő telepítéséhez](azure-stack-app-service-before-you-get-started.md) című témakört.
 
-Mielőtt megkezdené a Azure App Service frissítését Azure Stack 1,8-re:
+Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,8-re:
 
 - Győződjön meg arról, hogy az összes szerepkör készen áll Azure App Service felügyeletre az Azure Stack hub felügyeleti portálján.
+
+- App Service titkos kódok biztonsági mentése az Azure Stack hub felügyeleti portálján a App Service felügyelet használatával
 
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
-  - Mester
+  - master
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése.
 
-- Az **Egyéni szkriptek bővítményének** **1.9.3** -verzióját a Azure stack hub Piactérről.
+  > [!Important]
+  > A Felhőbeli operátorok felelősek a fájlkiszolgáló és a SQL Server karbantartásához és üzemeltetéséhez.  Az erőforrás-szolgáltató nem kezeli ezeket az erőforrásokat.  A felhő operátor feladata a App Service adatbázisok és a bérlői tartalom fájlmegosztás biztonsági mentése.
 
-### <a name="new-features-and-fixes"></a>Új funkciók és javítások
+- Az **Egyéni szkriptek bővítményének** **1.9.3** -verziójának benyújtása az Azure stack hub piactérről
 
-A (z) Azure Stack Update 8 Azure App Service a következő javításokat és javításokat tartalmazza:
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
+
+A Azure App Service on Azure Stack hub Update 8 a következő javításokat és javításokat tartalmazza:
 
 - Frissítések **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközökhöz**. Konzisztens a Azure Stack Portal SDK verziójával.
 
@@ -83,7 +88,7 @@ Azure Stack hub Azure App Service összes új központi telepítése a felügyel
 
 A **TLS 1,2** mostantól minden alkalmazásnál érvényben van.
 
-### <a name="known-issues-upgrade"></a>Ismert problémák (frissítés)
+## <a name="known-issues-upgrade"></a>Ismert problémák (frissítés)
 
 - A frissítés sikertelen, ha a SQL Server always on fürtön feladatátvétel történt a másodlagos csomópontra.
 
@@ -97,14 +102,14 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
 
 - Az SQL-fürt feladatátvétele az előző aktív csomópontra.
 
-### <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
+## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]
 > Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
-- A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack üzembe helyezési dokumentációban is szerepel.
+- A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack hub telepítési dokumentációjában szerepel.
 
   Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-címet helyez üzembe a fájlkiszolgálón való kapcsolódáshoz, hozzá kell adnia egy kimenő biztonsági szabályt, amely engedélyezi az SMB-forgalmat a munkavégző alhálózat és a fájlkiszolgáló között. Nyissa meg a WorkersNsg a felügyeleti portálon, és adjon hozzá egy kimenő biztonsági szabályt a következő tulajdonságokkal:
 
@@ -182,6 +187,33 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
     1. Bejelentkezések migrálása a tárolt adatbázis-felhasználók számára.
 
         ```sql
+        USE appservice_hosting
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+
+        USE appservice_metering
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
         BEGIN
         DECLARE @username sysname ;  
@@ -264,11 +296,11 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
 
     ```
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg a dokumentációt a [Azure Stack 1907 kibocsátási megjegyzésekben](azure-stack-release-notes-1907.md).
+Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](azure-stack-release-notes-1907.md)dokumentációját.
 
 ## <a name="next-steps"></a>További lépések
 
 - A Azure App Service áttekintését lásd: [Azure app Service és Azure Functions Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
-- További információ a App Service telepítésének előkészítéséről Azure Stackn: [app Service üzembe helyezésének Előfeltételei Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).
+- További információ a App Service telepítésének előkészítéséről Azure Stack hub-on: [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a810579dd3dd50b58b357921657e87103dbfe59a
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: ff314d46e51af89207b1a6299771bd891a995e71
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166990"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847503"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Hibrid felhőalapú kapcsolat konfigurálása az Azure és az Azure Stack hub használatával
 
@@ -43,7 +43,7 @@ A hibrid kapcsolat központi telepítésének létrehozásához néhány összet
 
 Egy Azure OEM/Hardware partner üzembe helyezhet egy éles Azure Stack hubot, és minden felhasználó telepíthet egy Azure Stack Development Kit (ASDK).
 
-- Használja az éles Azure Stack hubot, vagy telepítse a ASDK https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1a alkalmazásból.
+- Használja üzemi Azure Stack hub-t, vagy telepítse a ASDK.
    >[!Note]
    >A ASDK üzembe helyezése akár 7 órát is igénybe vehet, ezért tervezze meg ennek megfelelően.
 
@@ -57,7 +57,7 @@ Az Azure Stack hub-operátornak telepítenie kell a App Service, terveket és aj
 
 A megoldás példája feltételezi, hogy rendelkezik az Azure és az Azure Stack hub alapszintű ismeretével. Ha többet szeretne megtudni a megoldás megkezdése előtt, olvassa el a következő cikkeket:
 
-- [Bevezetés az Azure-ba](https://azure.microsoft.com/overview/what-is-azure/)
+- [Bevezetés az Azure használatába](https://azure.microsoft.com/overview/what-is-azure/)
 - [Azure Stack hub főbb fogalmak](../operator/azure-stack-overview.md)
 
 ### <a name="before-you-begin"></a>Előkészületek
@@ -84,7 +84,7 @@ A kapcsolatok specifikációi:
 
 Hálózati és alhálózat IP-címei:
 
-| Azure/Azure Stack hub-kapcsolatok | Name (Név) | Alhálózat | IP-cím |
+| Azure/Azure Stack hub-kapcsolatok | Name | Alhálózat | IP-cím |
 |---|---|---|---|
 | Azure-vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

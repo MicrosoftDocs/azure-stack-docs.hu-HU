@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub karbantartási szabályzatát, valamint azt, hogyan tarthat egy integrált rendszer támogatott állapotú.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512401"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848149"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -80,13 +80,19 @@ Ha például a legújabb elérhető verzió a 1904, és az előző két frissít
 
 A Microsoft szoftverfrissítési csomagjai nem összesítő jellegűek, és előfeltételként igénylik az előző frissítési csomagot vagy gyorsjavítást. Ha úgy dönt, hogy egy vagy több frissítést elhalaszt, vegye figyelembe a teljes futtatókörnyezetet, ha a legújabb verzióra szeretne jutni.
 
+### <a name="resource-provider-version-support"></a>Erőforrás-szolgáltató verziójának támogatása
+
+Azure Stack hub-erőforrás-szolgáltatók esetében fontos megjegyezni, hogy a Azure Stack hub támogatott verziójával kompatibilis adott erőforrás-szolgáltató csak a legutóbb kiadott verziója támogatott, annak ellenére, hogy az Azure Stack hub egy régebbi verzióját használja, amely továbbra is a támogatási ablakban található.
+
+Az erőforrás-szolgáltató kompatibilitásával kapcsolatos további információkért tekintse meg az adott erőforrás-szolgáltató kibocsátási megjegyzéseit.
+
 ## <a name="get-support"></a>Támogatás kérése
 
 Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú megoldás-szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: [Azure-támogatással kapcsolatos gyakori kérdések](https://azure.microsoft.com/support/faq/).
 
-A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-updates-troubleshoot.md).
+A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-troubleshooting.md).
 
 ## <a name="next-steps"></a>További lépések
 
 - [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
-- [Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához](azure-stack-updates-troubleshoot.md)
+- [Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához](azure-stack-troubleshooting.md)

@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Javával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78231638"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836155"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 
@@ -82,7 +82,7 @@ A Java SDK telepítéséhez kövesse az alábbi lépéseket:
 
 Ha az Azure Java SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az operációs rendszer táblázatának utasításait.
 
-| Érték                     | Környezeti változók | Leírás                                                                                                                                                                                                          |
+| Érték                     | Környezeti változók | Description                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bérlőazonosító                 | `AZURE_TENANT_ID`            | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md).                                                          |
 | Ügyfél-azonosító                 | `AZURE_CLIENT_ID`             | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a szolgáltatásnév az előző szakaszban lett létrehozva.                                                                                              |
@@ -103,7 +103,7 @@ Set AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="macos-linux-and-unix-based-systems"></a>MacOS-, Linux-és UNIX-alapú rendszerek
 
-UNIX-alapú rendszerek esetén használja a következő parancsot:
+UNIX-alapú rendszerekben használja a következő parancsot:
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>

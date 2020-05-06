@@ -7,23 +7,23 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: a617efab5516fb2f6bad96e36c99f1b84852237c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d43c39aeed909946e852ccad37d92a2d47d3d889
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698640"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799764"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató frissítése Azure Stack központban
+
+> [!IMPORTANT]
+> Az erőforrás-szolgáltató frissítése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal. A kibocsátási megjegyzések az erőforrás-szolgáltatóhoz szükséges minimális Azure Stack hub-verziót is meghatározzák.
 
 Előfordulhat, hogy a Azure Stack hub-buildek frissítésekor új MySQL erőforrás-szolgáltatói adapter jelenik meg. Míg a meglévő adapter továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
 A MySQL erőforrás-szolgáltató 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például a MySQL erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0-verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)című cikkben.
 
 Az erőforrás-szolgáltató frissítéséhez használja a **UpdateMySQLProvider. ps1** parancsfájlt. A folyamat hasonló az erőforrás-szolgáltató telepítéséhez használt folyamathoz, a jelen cikk erőforrás-szolgáltató üzembe helyezése című szakaszában leírtak szerint. A parancsfájl az erőforrás-szolgáltató letöltését tartalmazza. 
-
- > [!IMPORTANT]
- > Az erőforrás-szolgáltató frissítése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
 
 ## <a name="update-script-processes"></a>Parancsfájl-folyamatok frissítése
 
@@ -38,7 +38,7 @@ A parancsfájlnak ugyanazokat az argumentumokat kell használnia, amelyek a Depl
 ## <a name="update-script-parameters"></a>Parancsfájl paramétereinek frissítése 
 A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a következő paramétereket a parancssorból. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
 
-| Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték | 
+| Paraméter neve | Description | Megjegyzés vagy alapértelmezett érték | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Szükséges_ | 
 | **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Ugyanazokat a hitelesítő adatokat használja, mint amelyeket az Azure Stack hub telepítéséhez használt. | _Szükséges_ | 
@@ -49,8 +49,8 @@ A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a 
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Szükséges_ | 
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 | 
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 | 
-| **Eltávolítás** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem | 
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem | 
+| **Eltávolítás** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No | 
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No | 
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Parancsfájl frissítése – példa
