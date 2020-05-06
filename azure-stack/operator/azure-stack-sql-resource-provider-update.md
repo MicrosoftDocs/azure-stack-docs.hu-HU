@@ -8,23 +8,23 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 43099dfb4bfb2ffe50e6c8ccdfc05633ff4f3a6e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2c6ad5acc7096f243334165032eb7c134fc5cae0
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697161"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799781"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL típusú erőforrás-szolgáltató frissítése
+
+> [!IMPORTANT]
+> Az erőforrás-szolgáltató frissítése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal. A kibocsátási megjegyzések az erőforrás-szolgáltatóhoz szükséges minimális Azure Stack hub-verziót is meghatározzák.
 
 Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hub új buildre frissül. Bár a meglévő erőforrás-szolgáltató továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
 Az SQL Resource Provider 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például az SQL-erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0 verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-sql-resource-provider-deploy.md#prerequisites)című részben.
 
 Az erőforrás-szolgáltató frissítéséhez használja a *UpdateSQLProvider. ps1* parancsfájlt. Helyi rendszergazdai jogokkal rendelkező szolgáltatásfiók használata, amely az előfizetés **tulajdonosa** . Ez a szkript az új SQL-erőforrás-szolgáltató letöltését tartalmazza. A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-sql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeploySqlProvider. ps1 parancsfájl, és meg kell adnia a tanúsítvány adatait.
-
- > [!IMPORTANT]
- > Az erőforrás-szolgáltató frissítése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
 
 ## <a name="update-script-processes"></a>Parancsfájl-folyamatok frissítése
 
@@ -43,7 +43,7 @@ Miután a *UpdateSQLProvider. ps1* parancsfájl létrehoz egy új virtuális gé
 
 A **UpdateSQLProvider. ps1** PowerShell-parancsfájl futtatásakor a parancssorban megadhatja a következő paramétereket. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
 
-| Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
+| Paraméter neve | Description | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Szükséges_ |
 | **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. | _Szükséges_ |
@@ -54,8 +54,8 @@ A **UpdateSQLProvider. ps1** PowerShell-parancsfájl futtatásakor a parancssorb
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Szükséges_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** |Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | Nem |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
+| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | No |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
 
 ## <a name="update-script-powershell-example"></a>Parancsfájl PowerShell-példa frissítése
 > [!NOTE]

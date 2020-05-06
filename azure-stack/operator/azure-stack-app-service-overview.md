@@ -3,16 +3,16 @@ title: Azure App Service Azure Stack áttekintés
 description: A Azure Stack hub Azure App Service és Azure Functions áttekintése.
 author: BryanLa
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ac9c6707e0b6e179fdae3dac0b4ec94bad11e6d7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688882"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847826"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Azure App Service és Azure Functions a Azure Stack hub-on – áttekintés
 
@@ -34,7 +34,7 @@ Az App Service számos alkalmazástípust kínál, amelyek mindegyike adott szá
 
 - Webhelyeket és webalkalmazásokat üzemeltető [Web Apps](/azure/app-service/overview) .
 - [API apps](/azure/app-service/overview) a REST API-k üzemeltetéséhez.
-- Azure Functions az eseményen alapuló, kiszolgáló nélküli számítási feladatok üzemeltetéséhez.
+- [Azure functions v1](/azure/azure-functions) az eseményvezérelt, kiszolgáló nélküli számítási feladatok üzemeltetéséhez.
 
 A Word *alkalmazás* a számítási feladatok futtatására kijelölt üzemeltetési erőforrásokra hivatkozik. Tegyük fel, hogy a *webalkalmazást* például úgy gondolja, hogy egy webalkalmazást használ a számítási erőforrások és az alkalmazás kódjának, amelyek együttesen biztosítják a funkcionalitást a böngészőben. Azure App Service a webalkalmazás a Azure Stack hub által az alkalmazás kódjának üzemeltetéséhez biztosított számítási erőforrás.
 
@@ -52,7 +52,6 @@ A App Service erőforrás-szolgáltató ugyanazt a kódot használja, amelyet Az
 Az Azure-ban megosztott és dedikált feldolgozók vannak. A közös feldolgozók támogatják a nagy sűrűségű és a több-bérlős alkalmazások üzemeltetését, és csak egy közös feldolgozót lehet létrehozni. A dedikált kiszolgálókat csak egy bérlő használja, és három méretben érhető el: kicsi, közepes és nagy. A helyszíni ügyfelek igényeit nem lehet mindig az említett feltételekkel ismertetni. Az Azure Stack hub App Serviceban az erőforrás-szolgáltatói rendszergazdák határozzák meg az elérhetővé tenni kívánt feldolgozói szinteket. Az egyedi üzemeltetési igények alapján több közös feldolgozót vagy különálló feldolgozót is meghatározhat. Ezeknek a feldolgozói rétegbeli definícióknak a használatával meghatározhatják saját díjszabási SKU-ket.
 
 ## <a name="portal-features"></a>Portál funkciói
-
 
 A Azure App Service on Azure Stack hub ugyanazt a felhasználói felületet használja, amelyet a Azure App Service használ. Ugyanez igaz a háttérrel. Néhány szolgáltatás azonban le van tiltva az Azure Stack központban. A szolgáltatások által igényelt Azure-specifikus elvárások vagy szolgáltatások jelenleg nem érhetők el Azure Stack hub-ban.
 

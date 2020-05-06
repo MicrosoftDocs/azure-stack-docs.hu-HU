@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 8faeca7cf964ce459ebc10cc047c7b9475deeec4
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 824dd1304f027c1348eff2faad29d3f187e9732f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580073"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847741"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 
@@ -26,7 +26,7 @@ Ezek a kibocsátási megjegyzések a Azure Stack hub Update 7-es verziójában A
 
 A App Service Azure Stack hub Update 7 Build száma **84.0.2.10**.
 
-### <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>Előfeltételek
 
 Az üzembe helyezés megkezdése előtt tekintse [meg a App Service Azure stack hub-ban való üzembe helyezésének előfeltételeit](azure-stack-app-service-before-you-get-started.md) .
 
@@ -34,16 +34,21 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,7
 
 - Győződjön meg arról, hogy az összes szerepkör készen áll Azure App Service felügyeletre az Azure Stack hub felügyeleti portálján.
 
+- App Service titkos kódok biztonsági mentése az Azure Stack hub felügyeleti portálján a App Service felügyelet használatával
+
 - A App Service és a fő adatbázisok biztonsági mentése:
   - AppService_Hosting;
   - AppService_Metering;
-  - Mester
+  - master
 
 - A bérlői alkalmazás tartalmának fájlmegosztás biztonsági mentése.
 
-- Az **Egyéni szkriptek bővítményének** **1.9.3** -verzióját a Azure stack hub Piactérről.
+  > [!Important]
+  > A Felhőbeli operátorok felelősek a fájlkiszolgáló és a SQL Server karbantartásához és üzemeltetéséhez.  Az erőforrás-szolgáltató nem kezeli ezeket az erőforrásokat.  A felhő operátor feladata a App Service adatbázisok és a bérlői tartalom fájlmegosztás biztonsági mentése.
 
-### <a name="new-features-and-fixes"></a>Új funkciók és javítások
+- Adja meg az **Egyéni szkriptek bővítményének** **1.9.3** verzióját az Azure stack hub Piactérről.
+
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 7 a következő javításokat és javításokat tartalmazza:
 
@@ -90,12 +95,12 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
 
   **Meglévő** Központi telepítések – Ha módosította a vezérlő beállítását, az érték **false** értékről **Letiltva** értékűre változik, és az **igaz** érték korábbi értéke **automatikus**lesz.
 
-### <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
+## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]
 > Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózatban van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el, ahogy az a Azure App Service Azure Stack hub telepítési dokumentációjában szerepel.
 
@@ -111,7 +116,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 * Prioritás: 700
 * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
 Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](azure-stack-release-notes-1907.md) dokumentációját
 

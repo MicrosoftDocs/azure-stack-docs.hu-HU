@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a Python használatával Azure S
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Python használatával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705185"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82835900"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
 
@@ -47,7 +47,7 @@ A Python SDK a következő API-profilokat támogatja:
 
 Ha Azure Stack hubhoz szeretné használni a Python Azure SDK-t, a következő értékeket kell megadnia, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az adott operációs rendszerre vonatkozó utasításokat az alábbi táblázatban leírtak szerint.
 
-| Érték | Környezeti változók | Leírás |
+| Érték | Környezeti változók | Description |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Bérlőazonosító | `AZURE_TENANT_ID` | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md). |
 | Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. |

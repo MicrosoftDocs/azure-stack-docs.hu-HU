@@ -34,7 +34,11 @@
         - name: Compute
           href: azure-stack-capacity-planning-compute.md
         - name: Storage
-          href: azure-stack-capacity-planning-storage.md
+          items:
+            - name: Tárolási kapacitás megtervezése
+              href: azure-stack-capacity-planning-storage.md
+            - name: Tárolási infrastruktúra – áttekintés
+              href: azure-stack-storage-infrastructure-overview.md
         - name: Azure Stack hub Capacity Planner
           href: azure-stack-capacity-planner.md
     - name: Adatközpont integrációja
@@ -168,8 +172,6 @@
                   href: azure-stack-update-monitor.md
                 - name: Kiemelt végpont használata
                   href: azure-stack-monitor-update.md
-            - name: Frissítések hibáinak megoldása
-              href: azure-stack-updates-troubleshoot.md
         - name: Állapot és riasztások monitorozása
           href: azure-stack-monitor-health.md
         - name: Hardver-összetevők figyelése
@@ -187,7 +189,7 @@
             - name: Tárolási kapacitás kezelése
               href: azure-stack-manage-storage-shares.md
             - name: Tárolási infrastruktúra kezelése
-              href: azure-stack-storage-infrastructure-overview.md
+              href: azure-stack-manage-storage-infrastructure.md
             - name: Fizikai memória kapacitásának kezelése
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: Skálázási egység csomópontjainak hozzáadása
@@ -208,7 +210,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: Biztonság konfigurálása
+        - name: A biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -294,50 +296,52 @@
               href: azure-stack-app-service-overview.md
             - name: App Service kapacitás megtervezése
               href: azure-stack-app-service-capacity-planning.md
-            - name: A kezdés előtt
-              href: azure-stack-app-service-before-you-get-started.md
-            - name: App Service üzembe helyezése
-              href: azure-stack-app-service-deploy.md
-            - name: Magas rendelkezésre állású App Service üzembe helyezése
-              href: app-service-deploy-ha.md
-            - name: App Service-szolgáltatások offline üzembe helyezése
-              href: azure-stack-app-service-deploy-offline.md
-            - name: App Service frissítése
-              href: azure-stack-app-service-update.md
-            - name: App Service offline frissítése
-              href: azure-stack-app-service-update-offline.md
-            - name: Infrastruktúra-Szerepkörök hozzáadása App Service
-              href: azure-stack-app-service-add-worker-roles.md
-            - name: Központi telepítés forrásának konfigurálása
-              href: azure-stack-app-service-configure-deployment-sources.md
-            - name: App Service titkok és tanúsítványok elforgatása
-              href: app-service-rotate-certificates.md
-            - name: App Service biztonsági mentése
-              href: app-service-back-up.md
-            - name: App Service helyreállítása
-              href: app-service-recover.md
-            - name: App Service eltávolítása
-              href: app-service-remove.md
             - name: App Service számlázás – gyakori kérdések
               href: app-service-billing-faq.md
+            - name: Előfeltételek
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Üzembe helyezés
+              items:
+                - name: App Service üzembe helyezése
+                  href: azure-stack-app-service-deploy.md
+                - name: Magas rendelkezésre állású App Service üzembe helyezése
+                  href: app-service-deploy-ha.md
+            - name: Életciklus-kezelés
+              items:
+                - name: App Service frissítése
+                  href: azure-stack-app-service-update.md
+                - name: Infrastruktúra-Szerepkörök hozzáadása App Service
+                  href: azure-stack-app-service-add-worker-roles.md
+                - name: Központi telepítés forrásának konfigurálása
+                  href: azure-stack-app-service-configure-deployment-sources.md
+                - name: App Service titkok és tanúsítványok elforgatása
+                  href: app-service-rotate-certificates.md
+                - name: App Service biztonsági mentése
+                  href: app-service-back-up.md
+                - name: App Service helyreállítása
+                  href: app-service-recover.md
+                - name: App Service eltávolítása
+                  href: app-service-remove.md
             - name: App Service Azure Stack hub kibocsátási megjegyzései
               items:
-                - name: App Service Azure Stack hub Update 1 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-one.md
-                - name: App Service Azure Stack hub Update 2 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service Azure Stack hub Update 3 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service Azure Stack hub Update 4 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: App Service Azure Stack hub Update 5 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service Azure Stack hub Update 6 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: App Service Azure Stack hub Update 7 kibocsátási megjegyzései
-                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service Azure Stack hub 2020 Q2 kibocsátási megjegyzései
+                  href: app-service-release-notes-2020-Q2.md
                 - name: App Service Azure Stack hub Update 8 kibocsátási megjegyzései
                   href: azure-stack-app-service-release-notes-update-eight.md
+                - name: App Service Azure Stack hub Update 7 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service Azure Stack hub Update 6 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: App Service Azure Stack hub Update 5 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: App Service Azure Stack hub Update 4 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: App Service Azure Stack hub Update 3 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: App Service Azure Stack hub Update 2 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: App Service Azure Stack hub Update 1 kibocsátási megjegyzései
+                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Event Hubs Azure Stack központban
           items:
             - name: Áttekintés
@@ -492,7 +496,7 @@
           href: azure-stack-diagnostic-test.md
         - name: Hibaelhárítás
           href: azure-stack-troubleshooting.md
-- name: Referencia
+- name: Hivatkozás
   items:
     - name: Azure Stack hub PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
@@ -502,7 +506,7 @@
       href: /azure-stack/user/
     - name: ASDK-dokumentáció
       href: /azure-stack/asdk/
-- name: Erőforrások
+- name: További források
   items:
     - name: Képzés és tanúsítványok
       href: azure-stack-train-and-cert.md

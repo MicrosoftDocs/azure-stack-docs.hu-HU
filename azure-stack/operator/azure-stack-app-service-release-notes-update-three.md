@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 0b277f33472c25d0dc8e6b813685029aea81a303
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ed14d3a482a61b3daad827d559ef96926b65c551
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701394"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848064"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service Azure Stack hub Update 3 kibocsátási megjegyzései
 
@@ -26,7 +26,7 @@ Ezek a kibocsátási megjegyzések ismertetik a Azure Stack hub 3. frissítésé
 
 Az Azure Stack hub Update 3 Build számának App Service **74.0.13698.31**.
 
-### <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>Előfeltételek
 
 Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
@@ -34,7 +34,7 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,3
 
 ![App Service szerepkör állapota](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-### <a name="new-features-and-fixes"></a>Új funkciók és javítások
+## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
 A Azure App Service on Azure Stack hub Update 3 a következő javításokat és javításokat tartalmazza:
 
@@ -66,7 +66,7 @@ A Azure App Service on Azure Stack hub Update 3 a következő javításokat és 
   - [Karbantartási verem frissítése a Windows Server 2016 x64-alapú rendszerekhez (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
   - [2018-07 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
-### <a name="post-update-steps-optional"></a>Frissítés utáni lépések (nem kötelező)
+## <a name="post-update-steps-optional"></a>Frissítés utáni lépések (nem kötelező)
 
 Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a meglévő Azure App Service Azure Stack hub-alapú telepítések esetében, hajtsa végre ezeket Azure App Service a lépéseket az Azure Stack hub 1,3 frissítésének befejezése után:
 
@@ -170,7 +170,7 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a m
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
+## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
 - A feldolgozók nem tudják elérni a fájlkiszolgálón, ha a App Service egy meglévő virtuális hálózaton van telepítve, és a fájlkiszolgáló csak a magánhálózaton érhető el. Ezt a problémát a Azure Stack hub üzembe helyezési dokumentációjának Azure App Servicejában nevezzük.
 
@@ -186,7 +186,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
  * Prioritás: 700
  * Név: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
 Tekintse meg az Azure Stack hub 1807 kibocsátási megjegyzései dokumentációját.
 

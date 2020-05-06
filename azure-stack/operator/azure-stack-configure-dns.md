@@ -7,22 +7,24 @@ ms.date: 11/21/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6d5138868b07e2a3d552cd154976352266941760
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ede13e98893fcf30c0e1640d65271554410f659a
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704471"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836087"
 ---
 # <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>A DNS-továbbító frissítése Azure Stack központban
 
-Legalább egy elérhető DNS-továbbító szükséges ahhoz, hogy a Azure Stack hub-infrastruktúra fel tudja oldani a külső neveket. Azure Stack hub üzembe helyezéséhez meg kell adni egy DNS-továbbítót. Ezt a bemenetet használja a Azure Stack hub belső DNS-kiszolgálóihoz továbbítóként, és lehetővé teszi a külső névfeloldást olyan szolgáltatások esetében, mint a hitelesítés, a piactér kezelése vagy a használat.
+Legalább egy elérhető DNS-továbbító szükséges ahhoz, hogy a Azure Stack hub-infrastruktúra fel tudja oldani a külső neveket. Azure Stack hub üzembe helyezéséhez meg kell adni egy DNS-továbbítót. Ez a bemenet a Azure Stack hub belső DNS-kiszolgálóihoz továbbítóként használható, és lehetővé teszi a külső névfeloldást olyan szolgáltatások esetében, mint a hitelesítés, a piactér kezelése vagy a használat.
 
-A DNS egy kritikus adatközpont-infrastruktúra szolgáltatás, amely megváltoztatható, és ha igen, akkor Azure Stack hub-t frissíteni kell.
+A DNS egy kritikus adatközpont-infrastruktúra szolgáltatás, amely megváltozhat. Ha igen, Azure Stack hub-t frissíteni kell.
 
 Ez a cikk a rendszerjogosultságú végpont (PEP) használatát ismerteti Azure Stack hub DNS-továbbítójának frissítéséhez. Javasoljuk, hogy két megbízható DNS-továbbító IP-címet használjon.
 
-1. Kapcsolódjon a [Kiemelt végponthoz](azure-stack-privileged-endpoint.md). Vegye figyelembe, hogy egy támogatási jegy megnyitásával nem szükséges feloldani a Kiemelt végpontot.
+## <a name="steps-to-update-the-dns-forwarder"></a>A DNS-továbbító frissítésének lépései
+
+1. Kapcsolódjon a [Kiemelt végponthoz](azure-stack-privileged-endpoint.md). Egy támogatási jegy megnyitásával nem szükséges feloldani a Kiemelt végpontot.
 
 2. A következő parancs futtatásával tekintse át az aktuálisan konfigurált DNS-továbbítót. Másik lehetőségként használhatja a felügyeleti portál régiójának tulajdonságait is:
 

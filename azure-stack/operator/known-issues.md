@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556415"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848098"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -38,7 +38,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 
 Az 2002-es frissítés alkalmazása után az "érvénytelen időforráshoz" tartozó riasztás helytelenül jelenhet meg a felügyeleti portálon. Ez a hamis pozitív riasztás figyelmen kívül hagyható, és egy közelgő kiadásban lesz kijavítva. 
 
-Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azure stack hub hibaelhárítási frissítései](azure-stack-updates-troubleshoot.md)című témakört.
+Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azure stack hub hibaelhárítási frissítései](azure-stack-troubleshooting.md)című témakört.
 
 ## <a name="portal"></a>Portál
 
@@ -74,6 +74,12 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 - Alkalmazható: a probléma a 1908-es vagy újabb verzióra vonatkozik.
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
+
+### <a name="access-control-iam"></a>Access Control (IAM)
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a IAM kiterjesztés elavult. Az Azure Stack hub szolgáltatással szállított Ibiza-portál új viselkedést eredményez, amelynek hatására a RBAC bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a felhasználói portálon a címtár és az**előfizetés** ). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
+- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál tetején, az értesítések gomb közelében, vagy a **minden erőforrás** **panelen** található parancsikonon keresztül érhető el, és nem jelenik meg az **előfizetés? Nyissa meg a könyvtár és előfizetés beállításait**. Az előfizetést ebben a menüben kell kiválasztani.
 
 ## <a name="networking"></a>Hálózat
 
@@ -203,7 +209,7 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 ::: moniker range="azs-1910"
 ## <a name="update"></a>Frissítés
 
-Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása az Azure stack hub-ban](azure-stack-updates-troubleshoot.md).
+Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása az Azure stack hub-ban](azure-stack-troubleshooting.md).
 
 ## <a name="portal"></a>Portál
 
@@ -246,7 +252,6 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a feltöltési panelen, lehetőség van a **HRE** vagy a **kulcsos hitelesítés**kiválasztására, azonban a **HRE** nem támogatott az Azure stack hub-ban.
 - Előfordulás: gyakori
 
-
 ### <a name="alert-for-network-interface-disconnected"></a>Hálózati adapter leválasztott riasztása
 
 - Alkalmazható: a probléma a 1908-es vagy újabb verzióra vonatkozik.
@@ -264,7 +269,6 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon megjelenik a **VPN-** átjáró erőforrás-kezelési funkciója és **mérőszámai** , azonban ez Azure stack hub esetében nem támogatott.
 - Előfordulás: gyakori
-
 
 ### <a name="delete-a-storage-container"></a>Storage-tároló törlése
 
@@ -489,7 +493,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="load-balancer"></a>Load Balancer
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
-- Ok: amikor Avaiability ad hozzá virtuális gépekhez egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-készletét**. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
+- Ok: amikor rendelkezésre állási csoport virtuális gépeket ad hozzá egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-** készletét. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
 - Előfordulás: gyakori
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
@@ -653,7 +657,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="load-balancer"></a>Load Balancer
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
-- Ok: amikor Avaiability ad hozzá virtuális gépekhez egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-készletét**. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
+- Ok: amikor rendelkezésre állási csoport virtuális gépeket ad hozzá egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-** készletét. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
 - Előfordulás: gyakori
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)

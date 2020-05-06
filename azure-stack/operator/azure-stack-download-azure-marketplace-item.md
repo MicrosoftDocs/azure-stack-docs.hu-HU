@@ -3,16 +3,17 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stac
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979423"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848268"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
 
@@ -28,15 +29,14 @@ A letölthető Piactéri elemek teljes listájáért tekintse meg a [Azure stack
 > [!NOTE]
 > A katalógus a felhő alapján eltérő lesz, és a Azure Stack hub rendszer csatlakozik a szolgáltatáshoz. A felhőalapú környezetet az Azure Stack hub regisztrálásához használt Azure-előfizetés határozza meg.
 
-## <a name="connected-scenario"></a>Csatlakoztatott esetre vonatkozó forgatókönyv
+::: zone pivot="state-connected"
+A csatlakoztatott központi telepítés lehetővé teszi a Piactéri elemek letöltését a felügyeleti portálon.
 
-Ha Azure Stack hub csatlakozik az internethez, akkor a felügyeleti portálon töltheti le a piactér-elemeket.
-
-### <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>Előfeltételek
 
 Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és regisztrálni kell az Azure-ban.
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>Marketplace-elemek letöltése a portál használatával
+## <a name="use-the-portal-to-download-marketplace-items"></a>Marketplace-elemek letöltése a portál használatával
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
 
@@ -61,10 +61,10 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 6. Válassza ki a kívánt elemet, majd válassza a **Letöltés**lehetőséget. A letöltési idő változó, és a hálózati kapcsolattól függ. A letöltés befejezése után az új Piactéri elem üzembe helyezhető Azure Stack hub-operátorként vagy felhasználóként.
 
 7. A letöltött elem üzembe helyezéséhez válassza az **+ erőforrás létrehozása**lehetőséget, majd keressen az új piactér elem kategóriái között. Ezután válassza ki az elemet a telepítési folyamat megkezdéséhez. A folyamat eltérő lehet a piactér különböző elemeinél.
+::: zone-end
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>Leválasztott vagy részben csatlakoztatott forgatókönyv
-
-Ha Azure Stack hub korlátozott vagy nem rendelkezik internetkapcsolattal, akkor a PowerShell és a *Marketplace Syndication eszköz* használatával töltheti le a piactér elemeit egy internetkapcsolattal rendelkező gépre. Ezután vigye át az elemeket az Azure Stack hub-környezetbe. Leválasztott környezetben nem töltheti le a Marketplace-elemeket az Azure Stack hub portál használatával.
+::: zone pivot="state-disconnected"
+Ha Azure Stack hub korlátozott vagy nem rendelkezik internetkapcsolattal, a PowerShell és a *Marketplace Syndication eszköz* használatával töltheti le a Piactéri elemeket egy internetkapcsolattal rendelkező gépre. Ezután vigye át az elemeket az Azure Stack hub-környezetbe. Leválasztott környezetben nem töltheti le a Marketplace-elemeket az Azure Stack hub portál használatával.
 
 A Marketplace Syndication eszköz egy csatlakoztatott forgatókönyvben is használható.
 
@@ -73,7 +73,7 @@ A forgatókönyv két részből áll:
 - **1. rész**: Letöltés a piactér elemeiből. Az internet-hozzáféréssel rendelkező számítógépen konfigurálja a PowerShellt, töltse le a szindikált eszközt, majd töltse le az elemeket az Azure Marketplace-ről.
 - **2. rész**: feltöltés és közzététel Azure stack hub piactéren. Áthelyezi a letöltött fájlokat az Azure Stack hub-környezetbe, majd közzéteheti őket a Azure Stack hub piactéren.
 
-### <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>Előfeltételek
 
 - Csatlakoztatott környezet (nem kell Azure Stack hub). Az Azure-ból származó termékek listájának lekéréséhez és a részletek helyi letöltéséhez kapcsolat szükséges. Ha ez megtörtént, a többi eljáráshoz nincs szükség internetkapcsolatra. Létrehoz egy katalógust azokról az elemekről, amelyeket korábban letöltött a leválasztott környezetben való használathoz.
 
@@ -98,7 +98,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 
 ![Piactér-kezelés](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Marketplace-elemek letöltése a Marketplace Syndication eszköz használatával
+## <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Marketplace-elemek letöltése a Marketplace Syndication eszköz használatával
 
 > [!IMPORTANT]
 > Ügyeljen arra, hogy minden alkalommal letöltse a Marketplace Syndication eszközt, amikor a Piactéri elemeket leválasztott forgatókönyvben tölti le. Ezen az eszközön gyakori változások történnek, és a legújabb verziót kell használni az egyes letöltésekhez.
@@ -168,7 +168,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>A letöltés és közzététel a Azure Stack hub piactéren a PowerShell használatával
+## <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>A letöltés és közzététel a Azure Stack hub piactéren a PowerShell használatával
 
 1. Át kell helyeznie azokat a fájlokat, amelyeket [korábban helyileg töltött le](#use-the-marketplace-syndication-tool-to-download-marketplace-items) egy olyan gépre, amely az Azure stack hub-környezethez kapcsolódik. A Marketplace Syndication eszköznek emellett elérhetőnek kell lennie az Azure Stack hub-környezet számára, mivel az importálási művelet végrehajtásához az eszközt kell használnia.
 
@@ -187,3 +187,4 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
     ```
 
 5. A parancsfájl sikeres befejeződése után a piactér elemeinek elérhetőnek kell lenniük Azure Stack hub piactéren.
+::: zone-end

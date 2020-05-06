@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81308246"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848217"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -123,7 +123,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | Paraméter | Leírás |  
+   | Paraméter | Description |  
    |-----|-----|
    | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
@@ -154,7 +154,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Paraméter | Leírás |  
+   | Paraméter | Description |  
    |-----|-----|
    | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
@@ -190,7 +190,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | Paraméter | Leírás |  
+   | Paraméter | Description |  
    |-----|-----|
    | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Paraméter | Típus | Leírás |
+| Paraméter | Típus | Description |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring | Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
@@ -486,7 +486,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | Sztring |  |
 | ResourceGroupLocation | Sztring |  |
 | BillingModel | Sztring | Az előfizetés által használt számlázási modell. A paraméter megengedett értékei a következők: kapacitás, PayAsYouUse és fejlesztés. |
-| MarketplaceSyndicationEnabled | Igaz/Hamis | Meghatározza, hogy a piactér-felügyeleti funkció elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) használható a Piactéri elemek letöltésére. |
+| MarketplaceSyndicationEnabled | Igaz/Hamis | Meghatározza, hogy a piactér-felügyeleti funkció elérhető-e a portálon. Állítsa igaz értékre, ha az internetkapcsolattal van regisztrálva. Hamis értékre állítva, ha a regisztráció a leválasztott környezetekben megtörténjen. A leválasztott regisztrációk esetében az [Offline hírszolgáltatási eszköz](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) használható a Piactéri elemek letöltésére. |
 | UsageReportingEnabled | Igaz/Hamis | Azure Stack hub alapértelmezés szerint a használati metrikákat jelenti. A kapacitást használó vagy leválasztott környezetet támogató operátoroknak ki kell kapcsolniuk a használati jelentéskészítést. A paraméter megengedett értékei a következők: true, false. |
 | AgreementNumber | Sztring | Azon EA-szerződés száma, amely alatt a Azure Stack kapacitásának SKU-jának megrendelése megvolt. |
 | RegistrationName | Sztring | Adja meg a regisztráció egyedi nevét, ha a regisztrációs parancsfájlt a Azure Stack hub egynél több példányán futtatja ugyanazzal az Azure-előfizetés-AZONOSÍTÓval. A paraméter alapértelmezett értéke **AzureStackRegistration**. Ha azonban ugyanazt a nevet használja az Azure Stack hub több példányán, a parancsfájl meghiúsul. |
@@ -500,7 +500,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Paraméter | Típus | Leírás |
+| Paraméter | Típus | Description |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring |  Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
@@ -532,7 +532,7 @@ Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy
 ::: zone pivot="state-disconnected"
 - A piactér-felügyelet továbbra is kéri a Azure Stack hub regisztrálását és aktiválását akkor is, ha már regisztrálta a bélyegzőt a leválasztott folyamat használatával.
 
-   Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).
+   Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
 ## <a name="next-steps"></a>További lépések

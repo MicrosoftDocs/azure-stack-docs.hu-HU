@@ -8,34 +8,29 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423970"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848200"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>A Event Hubs telepítése Azure Stack hubhoz
 
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+[!INCLUDE [preview banner](../includes/event-hubs-preview.md)]
 
 Ez a cikk bemutatja, hogyan töltheti le és telepítheti az Event Hubs erőforrás-szolgáltatót, így elérhetővé teheti az ügyfelek számára az előfizetést.
 
 ## <a name="download-packages"></a>Csomagok letöltése
 
-Mielőtt telepítené a Event Hubst a Azure Stack hubhoz, le kell töltenie az erőforrás-szolgáltatót és annak függő csomagjait. A helyzettől vagy a követelményektől függően két lehetőség közül választhat:
-
-- Event Hubs letöltése csatlakoztatott forgatókönyvben.
-- Event Hubs letöltése leválasztott vagy részben csatlakoztatott forgatókönyvben.
-
-Ha nem ismeri az Azure Stack hub felügyeleti portál **piactér-felügyeleti** szolgáltatását, akkor időt kell fordítania a Marketplace- [elemek letöltésére az Azure-ból, és közzé kell tennie az Azure stack hub](azure-stack-download-azure-marketplace-item.md)-ban. Ez a cikk végigvezeti az Azure-beli elemek az Azure Stack hub piactéren való letöltésének folyamatán. A csatlakoztatott és a leválasztott forgatókönyvekre egyaránt vonatkozik. 
-
-### <a name="download-event-hubs---connected-scenario"></a>Event Hubs csatlakoztatott forgatókönyv letöltése
+Mielőtt telepítené a Event Hubst a Azure Stack hubhoz, le kell töltenie az erőforrás-szolgáltatót és annak függő csomagjait a Marketplace felügyeleti szolgáltatás használatával. Ha nem ismeri a piactér felügyeletét, időt kell fordítania [a piactér-elemek letöltésére az Azure-ból, és közzé kell tennie a Azure stack hub](azure-stack-download-azure-marketplace-item.md)-ban. Ez a cikk végigvezeti az Azure-beli elemek az Azure Stack hub piactéren való letöltésének folyamatán. A csatlakoztatott és a leválasztott forgatókönyvekre egyaránt vonatkozik. 
 
 > [!NOTE]
 > A letöltési folyamat akár 30 percet is igénybe vehet, attól függően, hogy milyen hálózati késést és meglévő csomagokat használ a Azure Stack hub-példányon. 
 
-Kövesse ezeket az utasításokat, ha az Azure Stack hub internetkapcsolattal rendelkezik:
+::: zone pivot="state-connected"
+Kövesse az alábbi utasításokat egy csatlakoztatott forgatókönyvhöz:
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
 2. Válassza a **piactér-kezelés** lehetőséget a bal oldalon.
@@ -50,25 +45,23 @@ Figyelje meg, hogy a további szoftvercsomagok a Event Hubs együtt tölthetők 
 
 - Microsoft Azure Stack hub-bővítmény RP Windows Server csak belső
 - PowerShell kívánt állapotának konfigurálása
+::: zone-end
 
-A letöltési folyamat befejezése után ugorjon az [Előfeltételek telepítése szakaszra](#install-prerequisites).
+::: zone pivot="state-disconnected"
+Leválasztott vagy részben csatlakoztatott forgatókönyv esetén letölti a csomagokat a helyi gépre, majd importálja őket a Azure Stack hub-példányba.
 
-### <a name="download-event-hubs---disconnected-or-partially-connected-scenario"></a>Event Hubs letöltése – leválasztott vagy részben csatlakoztatott forgatókönyv
-
-Először töltse le a csomagokat a helyi gépre, majd importálja őket a Azure Stack hub-példányba.
-
-1. Ha még nem tette meg, kövesse a [Marketplace-elemek letöltése – leválasztott vagy részben csatlakoztatott forgatókönyvek](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)című témakör utasításait. Itt letöltheti és futtathatja a Marketplace Syndication eszközt, amely lehetővé teszi a Event Hubs csomagok letöltését.
+1. Ha még nem tette meg, kövesse a [Marketplace-elemek letöltése – leválasztott vagy részben csatlakoztatott forgatókönyvek](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)című témakör utasításait. Itt letöltheti és futtathatja a Marketplace Syndication eszközt, amely lehetővé teszi a Event Hubs csomagok letöltését.
 2. Miután a szindikált eszköz "Azure Marketplace-elemek" ablaka megnyílik, keresse meg és válassza a "Event Hubs" lehetőséget a szükséges csomagok letöltéséhez a helyi gépre.
 3. A letöltés befejeződése után importálja a csomagokat a Azure Stack hub-példányba, és tegye közzé a piactéren. 
+::: zone-end
 
 ## <a name="installation"></a>Telepítés 
 
-1. Ha még nem tette meg, jelentkezzen be az Azure Stack hub felügyeleti portálján.
-2. Válassza ki a **piactér-felügyelet** elemet a bal oldalon, majd válassza az **erőforrás-szolgáltatók**lehetőséget.
-3. A Event Hubs és az egyéb szükséges szoftverek letöltése után a **piactér-kezelésnek** a "nincs telepítve" állapotú "Event Hubs" csomagokat kell megjelenítenie. Előfordulhat, hogy más csomagok is a "letöltött" állapotot jelenítik meg. Válassza ki a telepíteni kívánt "Event Hubs" sort.
+1. Ha még nem tette meg, jelentkezzen be az Azure Stack hub felügyeleti portálra, válassza a bal oldali **piactér-kezelés** elemet, és válassza az **erőforrás-szolgáltatók**lehetőséget.
+2. A Event Hubs és az egyéb szükséges szoftverek letöltése után a **piactér-kezelés** a "nincs telepítve" állapotú "Event Hubs" csomagokat jeleníti meg. Előfordulhat, hogy más csomagok is a "letöltött" állapotot jelenítik meg. Válassza ki a telepíteni kívánt "Event Hubs" sort.
    [![Marketplace-kezelő letöltött csomagjai](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
-4. A Event Hubs install csomag oldalon egy kék szalagcímnek kell megjelennie az egész tetején. A Event Hubs telepítésének megkezdéséhez kattintson a szalagcímre.
+3. A Event Hubs telepítési csomag lapon egy kék szalagcím jelenik meg az egész tetején. A Event Hubs telepítésének megkezdéséhez kattintson a szalagcímre.
    [![Piactér-felügyeleti esemény hubok – telepítés indítása](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Az előfeltételek telepítése

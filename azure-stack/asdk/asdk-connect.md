@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 1b562d2a72f3da4d4ac9ef7045f5cbd5408f4afa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294428"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847078"
 ---
 # <a name="connect-to-the-asdk"></a>Kapcsolódás a ASDK
 
@@ -33,9 +33,9 @@ Egyetlen egyidejű felhasználó a Azure Stack felügyeleti portálon vagy a fel
 
 2. A ASDK-gazdagépen nyissa meg a Kiszolgálókezelő alkalmazást (ServerManager. exe). Válassza a **helyi kiszolgáló**lehetőséget, kapcsolja ki az **Internet Explorer fokozott biztonsági beállításait**, majd a Kiszolgálókezelő bezárását.
 
-3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe: [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe: `https://adminportal.local.azurestack.external`.
 
-4. Jelentkezzen be a felhasználói portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack felhasználói hitelesítő adatokat. A ASDK felhasználói portáljának címe [https://portal.local.azurestack.external](https://portal.local.azurestack.external):.
+4. Jelentkezzen be a felhasználói portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack felhasználói hitelesítő adatokat. A ASDK felhasználói portáljának címe `https://portal.local.azurestack.external`:.
 
 > [!NOTE]
 > Ha további információt szeretne arról, hogy mikor kell használni a fiókot, tekintse meg a [ASDK-adminisztrátor alapjai](asdk-admin-basics.md#what-account-should-i-use)című témakört.
@@ -118,7 +118,7 @@ Amikor először csatlakozik, a rendszer arra kéri, hogy telepítse a Azure Sta
 
 ### <a name="test-vpn-connectivity"></a>VPN-kapcsolat tesztelése
 
-A portál-kapcsolatok teszteléséhez nyisson meg egy böngészőt, és lépjen a felhasználói portálra (https://portal.local.azurestack.external/) vagy a felügyeleti portálrahttps://adminportal.local.azurestack.external/)).
+A portál kapcsolódásának teszteléséhez nyisson meg egy böngészőt, és lépjen a felhasználói portálra a `https://portal.local.azurestack.external/` vagy a rendszergazdai portálon `https://adminportal.local.azurestack.external/`.
 
 Az erőforrások létrehozásához és kezeléséhez jelentkezzen be a megfelelő előfizetési hitelesítő adatokkal.  
 

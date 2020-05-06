@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d219da5d219b5d341e5c62cfbf823be1334cc614
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 650144e2c1079b65c2d71a47471e600fa9ec4520
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167109"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847622"
 ---
 # <a name="direct-traffic-with-a-geo-distributed-app-using-azure-and-azure-stack-hub"></a>Közvetlen forgalom egy földrajzilag elosztott alkalmazással az Azure és a Azure Stack hub használatával
 
@@ -343,7 +343,7 @@ A CNAME hozzáadása után a DNS-rekordok oldal a következő példához hasonl�
 
 #### <a name="test-in-a-browser"></a>Tesztelés böngészőben
 
-Tallózással keresse meg a korábban konfigurált DNS-név (oka) t `northwindcloud.com` (például vagy www.northwindcloud.com).
+Tallózással keresse meg a korábban konfigurált DNS-név (oka) t `northwindcloud.com` ( `www.northwindcloud.com`például vagy).
 
 ## <a name="part-3-bind-a-custom-ssl-cert"></a>3. rész: egyéni SSL-tanúsítvány kötése
 
@@ -537,7 +537,7 @@ Ha a művelet befejeződött, lépjen az alkalmazásra mutató HTTP URL-címek b
 
 - https://<app_name>. azurewebsites.net
 - `https://northwindcloud.com`
-- <https://www.northwindcloud.com>
+- `https://www.northwindcloud.com`
 
 #### <a name="enforce-tls-1112"></a>A TLS 1.1/1.2 kényszerítése
 

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772477"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847911"
 ---
 # <a name="add-public-ip-addresses"></a>Nyilvános IP-címek hozzáadása
 
@@ -36,7 +36,7 @@ Az első dolog, amit meg kell tennie, hogy megszerezze a Azure Stack hub-hoz hoz
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>IP-címtartomány hozzáadása Azure Stack hubhoz
 
-1. A böngészőben nyissa meg a felügyeleti portál irányítópultját. Ebben a példában a következőt fogjuk használni https://adminportal.local.azurestack.external:.
+1. A böngészőben nyissa meg a felügyeleti portál irányítópultját. Ebben a példában a következőt fogjuk használni `https://adminportal.local.azurestack.external`:.
 2. Jelentkezzen be az Azure Stack hub felügyeleti portálján Felhőbeli operátorként.
 3. Az alapértelmezett irányítópulton keresse meg a régió-felügyeleti listát, és válassza ki a kezelni kívánt régiót. Ebben a példában a helyit használjuk.
 4. Keresse meg az erőforrás-szolgáltatók csempét, és kattintson a hálózati erőforrás-szolgáltatóra.

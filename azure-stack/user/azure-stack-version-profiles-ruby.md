@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a Ruby használatával Azure Sta
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Ruby használatával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294802"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836240"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 
@@ -44,7 +44,7 @@ Az API-profilok erőforrás-szolgáltatók és szolgáltatási verziók kombiná
 
 - Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetés létrehozásához szükséges utasítások a [Azure stack hub-ban található előfizetések létrehozása](../operator/azure-stack-subscribe-plan-provision-vm.md) című cikkben találhatók.
 - Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack hub szolgáltatáshoz tartozó egyszerű szolgáltatásnév létrehozásához az [alkalmazás identitás használata az erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md) című cikk nyújt útmutatást.
-- Győződjön meg arról, hogy a szolgáltatásnév rendelkezik az előfizetéshez hozzárendelt közreműködő/tulajdonos szerepkörrel. A szerepkör egy egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasítások az alkalmazás- [identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md)című témakörben találhatók.
+- Győződjön meg arról, hogy a szolgáltatásnév rendelkezik az előfizetéshez hozzárendelt közreműködő/tulajdonos szerepkörrel. A szerepkör egy egyszerű szolgáltatáshoz való hozzárendelésével kapcsolatos utasítások az [alkalmazás identitás használata az erőforrások eléréséhez](../operator/azure-stack-create-service-principals.md) című cikkben olvashatók.
 
 ## <a name="install-the-rubygem-packages"></a>A RubyGem-csomagok telepítése
 
@@ -82,7 +82,7 @@ gem install 'azure_sdk'
 
 Ha a Ruby Azure SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd az értékeket környezeti változók alapján kell beállítania. A környezeti változók megadásához tekintse meg az adott operációs rendszer táblázatát követő utasításokat.
 
-| Érték | Környezeti változók | Leírás |
+| Érték | Környezeti változók | Description |
 | --- | --- | --- |
 | Bérlőazonosító | `AZURE_TENANT_ID` | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md). |
 | Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve.  |

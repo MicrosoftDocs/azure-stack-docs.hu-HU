@@ -4,16 +4,16 @@ description: Tudnivalók a Azure Stack hub Azure App Service számlázásáról.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: 3717308e28b7dfa62534ee1abd4e71ff06361d50
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150276"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847945"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 
@@ -70,6 +70,9 @@ Felhőbeli operátorként ingyenesen alkalmazhatja saját díjszabási modelljé
 ### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>Hogyan biztosíthatok ingyenes és megosztott SKU-ket az ügyfeleknek, hogy kipróbálják a szolgáltatást?
 
 A Felhőbeli üzemeltetők az ingyenes és a közös SKU-k nyújtásával járó költségekkel járnak, mert megosztott feldolgozók üzemeltetik őket. Ennek a lehetőségnek a minimálisra csökkentése érdekében dönthet úgy, hogy a megosztott feldolgozói szintet lekicsinyíti minimálisra.
+
+> [!IMPORTANT] 
+> A közös feldolgozók telepítési alapértelmezett értékei a Azure Stack hub 2020. Q2-ben Azure App Service módosultak az új telepítések esetén.  Alapértelmezés szerint a megosztott munkavégzők a A4_v2 számítási SKU használatával vannak kiépítve, amelyet a kezelő a telepítéskor vagy a telepítés után módosíthat.
 
 Ha például az ingyenes és a közös App Service csomagokra van szüksége, és a felhasználáson alapuló függvények is rendelkezésre állnak, akkor legalább egy a1-es példányra van szükség. A megosztott munkavégzők több-bérlős gépek, így több, egyenként elkülönített és a App Service sandbox által védett ügyfél-alkalmazást tárolhatnak. A közös feldolgozói réteg ily módon történő skálázásával havi egy vCPU költségét korlátozhatja.
 
