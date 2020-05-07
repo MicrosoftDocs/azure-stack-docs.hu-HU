@@ -7,12 +7,12 @@ ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: abbf82a61c27a58833d286639b281989d3a29fd7
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166956"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861384"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
@@ -38,7 +38,7 @@ Ha Active Directory összevont szolgáltatásokat (AD FS) használ az Identitás
 
 ## <a name="add-the-aks-base-image"></a>Az AK-alapú alaprendszerkép hozzáadása
 
-Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban az Azure Stack hub le van választva, az alábbi utasításokat követve [töltheti le a piactér-elemeket az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
+Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban az Azure Stack hub le van választva, az alábbi utasításokat követve [töltheti le a piactér-elemeket az Azure-ból](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
 
 Adja hozzá a következő elemeket a piactérhez:
 
@@ -61,7 +61,7 @@ Adja hozzá a következő elemeket a piactérhez:
 
 ## <a name="add-a-custom-script-extension"></a>Egyéni parancsfájl-kiterjesztés hozzáadása
 
-Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban az Azure Stack hub le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
+Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban az Azure Stack hub le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
 
 1. Nyissa meg a [felügyeleti portált](https://adminportal.local.azurestack.external).
 

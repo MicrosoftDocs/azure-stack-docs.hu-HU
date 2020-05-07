@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f24c75f90b466f72f980996fde03e791deb0a5f4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
+ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847874"
+ms.locfileid: "82868473"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Az App Service Azure Stack hub-beli üzembe helyezésének előfeltételei
 
@@ -113,7 +113,7 @@ Azure App Service egy fájlkiszolgáló használatát igényli. Éles környezet
 Mostantól elérhető egy, a fájlkiszolgáló és a SQL Server üzembe helyezésére szolgáló [hivatkozási architektúra](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) -gyorsindítási sablon. Ez a sablon támogatja a Active Directory infrastruktúrát egy olyan virtuális hálózatban, amely a Azure App Service a Azure Stack hub-on való, magasan elérhető központi telepítésének támogatására van konfigurálva.
 
 > [!NOTE]
-> A telepítés befejezéséhez a ASDK-példánynak képesnek kell lennie az erőforrások letöltésére a GitHubról.
+> Az integrált rendszerpéldánynak képesnek kell lennie az erőforrások letöltésére a GitHubról a telepítés befejezéséhez.
 
 #### <a name="steps-to-deploy-a-custom-file-server"></a>Egyéni fájlkiszolgáló üzembe helyezésének lépései
 
@@ -271,7 +271,7 @@ A tanúsítványok létrehozásához kövesse az alábbi lépéseket:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts. ps1 parancsfájl-paraméterek
 
-| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Description |
+| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
 | pfxPassword | Kötelező | Null | A tanúsítvány titkos kulcsának megvédését segítő jelszó |
 | DomainName | Kötelező | helyi. azurestack. external | Azure Stack hub-régió és tartomány utótagja |
@@ -333,7 +333,7 @@ A következő PowerShell-parancs futtatásakor meg kell adnia a rendszerjogosult
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert. ps1 parancsfájl-paraméterek
 
-| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Description |
+| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Kötelező | AzS – ERCS01 | Emelt szintű végpont |
 | CloudAdminCredential | Kötelező | AzureStack\CloudAdmin | Tartományi fiók hitelesítő adatai Azure Stack hub Cloud rendszergazdák számára |
@@ -394,7 +394,7 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
     Create-AADIdentityApp.ps1
 ```
 
-| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Description |
+| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Kötelező | Null | Azure AD-bérlő azonosítója. Adja meg a GUID azonosítót vagy a karakterláncot. Ilyen például a myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Kötelező | Null | Felügyeleti Azure Resource Manager végpont. Példa: adminmanagement. local. azurestack. external. |
@@ -418,7 +418,7 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
     Create-ADFSIdentityApp.ps1
 ```
 
-| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Description |
+| Paraméter | Kötelező vagy választható | Alapértelmezett érték | Leírás |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Kötelező | Null | Felügyeleti Azure Resource Manager végpont. Példa: adminmanagement. local. azurestack. external. |
 | PrivilegedEndpoint | Kötelező | Null | Emelt szintű végpont. Példa: AzS-ERCS01. |

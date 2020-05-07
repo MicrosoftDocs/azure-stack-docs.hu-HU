@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 36c2fabf06df1725938b512752f40f70728dd8e9
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 57cdd5ed496d0792f2d36f1e12d5fb8fce1d4370
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848282"
+ms.locfileid: "82861401"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service Azure Stack hub 2020 Q2 kibocsátási megjegyzései
 
@@ -84,16 +84,16 @@ A (z) Azure Stack Q2-es frissítésének Azure App Service a következő javít�
 
 - Az **alapértelmezett virtuális gép és a méretezési csoport frissítése az új központi telepítésekhez**: a nyilvános felhőalapú szolgáltatással való konzisztencia fenntartása érdekében a Azure app Service új központi telepítései a Azure stack hub-on a következő SKU-ket fogják használni az erőforrás-szolgáltató üzemeltetéséhez használt mögöttes gépek és méretezési csoportok számára.
   
-  | Szerepkör | Minimális példányszám | Minimális SKU |
-  | --- | --- | --- |
-  | Tartományvezérlő | 2 | Standard_A4_v2-(4 mag, 8192 MB) |
-  | Kezelés | 1 | Standard_D3_v2-(4 mag, 14336 MB) |
-  | Közzétevő | 1 | Standard_A2_v2 – (2 mag, 4096 MB) |
-  | Előtér | 1 | Standard_A4_v2-(4 mag, 8192 MB) |
-  | Megosztott feldolgozók | 1 | Standard_A4_v2-(4 mag, 8192 MB) |
-  | Kisméretű dedikált feldolgozó | 1 | Standard_A1_v2-(1 mag, 2048 MB) |
-  | Közepes méretű dedikált feldolgozó | 1 | Standard_A2_v2 – (2 mag, 4096 MB) |
-  | Nagyméretű dedikált feldolgozó | 1 | Standard_A4_v2-(4 mag, 8192 MB) |
+  | Szerepkör | Minimális SKU |
+  | --- | --- |
+  | Tartományvezérlő | Standard_A4_v2-(4 mag, 8192 MB) |
+  | Kezelés | Standard_D3_v2-(4 mag, 14336 MB) |
+  | Közzétevő | Standard_A2_v2 – (2 mag, 4096 MB) |
+  | Előtér | Standard_A4_v2-(4 mag, 8192 MB) |
+  | Megosztott feldolgozók | Standard_A4_v2-(4 mag, 8192 MB) |
+  | Kisméretű dedikált feldolgozó | Standard_A1_v2-(1 mag, 2048 MB) |
+  | Közepes méretű dedikált feldolgozó | Standard_A2_v2 – (2 mag, 4096 MB) |
+  | Nagyméretű dedikált feldolgozó | Standard_A4_v2-(4 mag, 8192 MB) |
 
 A ASDK-telepítések esetében a példányokat lekicsinyítheti alacsonyabb SKU-ra, hogy csökkentse az alapvető és a memória-végrehajtást, de a teljesítmény romlása is megtapasztalható.
 
