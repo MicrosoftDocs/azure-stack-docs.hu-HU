@@ -38,7 +38,7 @@ A parancsfájlnak ugyanazokat az argumentumokat kell használnia, amelyek a Depl
 ## <a name="update-script-parameters"></a>Parancsfájl paramétereinek frissítése 
 A **UpdateMySQLProvider. ps1** PowerShell-parancsfájl futtatásakor adja meg a következő paramétereket a parancssorból. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
 
-| Paraméter neve | Description | Megjegyzés vagy alapértelmezett érték | 
+| Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Szükséges_ | 
 | **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Ugyanazokat a hitelesítő adatokat használja, mint amelyeket az Azure Stack hub telepítéséhez használt. | _Szükséges_ | 

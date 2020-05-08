@@ -3,15 +3,15 @@ title: IPsec/IKE-helyek közötti VPN-kapcsolatok konfigurálása
 description: Ismerje meg és konfigurálja az IPsec/IKE-házirendet a két hálózat közötti pont-pont típusú VPN-vagy VNet-VNet kapcsolatok számára Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643497"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967794"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 

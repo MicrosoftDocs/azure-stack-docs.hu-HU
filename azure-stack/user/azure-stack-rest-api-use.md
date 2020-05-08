@@ -3,16 +3,16 @@ title: API-kérelmek készítése Azure Stack hubhoz
 description: Megtudhatja, hogyan kérhet le hitelesítést az Azure-ból, hogy API-kérelmeket Azure Stack hub-ra hozzon.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703723"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967743"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -22,11 +22,11 @@ Az Azure Stack hub REST API-k segítségével automatizálhat olyan műveleteket
 
 Az API-k megkövetelik, hogy az ügyfél hitelesítse magát a Microsoft Azure bejelentkezési végpontján. A végpont visszaadja az Azure Stack hub API-khoz eljuttatott minden kérelem fejlécében használandó tokent. Microsoft Azure a 2,0 OAuth használja.
 
-Ez a cikk olyan példákat tartalmaz, amelyek a **curl** segédprogramot használják Azure stack hub-kérelmek létrehozásához. a cURL egy olyan parancssori eszköz, amely az adatátvitelre szolgáló függvénytárat biztosít. Ezek a példák végigvezetik a tokenek lekérésének folyamatán az Azure Stack hub API-k eléréséhez. A legtöbb programozási nyelv olyan OAuth 2,0 kódtárakat biztosít, amelyek robusztus jogkivonat-felügyelettel rendelkeznek, és olyan feladatokat kezelnek, mint például a jogkivonat frissítése.
+Ez a cikk olyan példákat tartalmaz, amelyek a **curl** segédprogramot használják Azure stack hub-kérelmek létrehozásához. a cURL egy olyan parancssori eszköz, amely az adatátvitelre szolgáló függvénytárat biztosít. Ezek a példák az Azure Stack hub API-k eléréséhez szükséges tokenek lekérésének folyamatát írják le. A legtöbb programozási nyelv olyan OAuth 2,0 kódtárakat biztosít, amelyek robusztus jogkivonat-felügyelettel rendelkeznek, és olyan feladatokat kezelnek, mint például a jogkivonat frissítése.
 
 Tekintse át az Azure Stack hub REST API-k teljes folyamatát egy általános REST-ügyféllel, például a **curltel**, hogy könnyebben megértse a mögöttes kérelmeket, és hogy mit várhat a válasz hasznos adataiban.
 
-Ez a cikk nem vizsgálja meg a jogkivonatok beolvasásához rendelkezésre álló összes lehetőséget, például az interaktív bejelentkezést vagy a dedikált alkalmazás-azonosítók létrehozását. A témakörökkel kapcsolatos információkért tekintse meg az [Azure REST API referenciát](/rest/api/).
+Ez a cikk nem vizsgálja meg a jogkivonatok beolvasásához rendelkezésre álló összes lehetőséget, például az interaktív bejelentkezést vagy a dedikált alkalmazás-azonosítók létrehozását. Ezekről a témakörökről az [Azure REST API dokumentációjában](/rest/api/)talál további információt.
 
 ## <a name="get-a-token-from-azure"></a>Token beszerzése az Azure-ból
 

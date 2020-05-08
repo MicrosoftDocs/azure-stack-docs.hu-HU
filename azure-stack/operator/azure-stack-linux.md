@@ -3,16 +3,16 @@ title: Linux-lemezképek hozzáadása az Azure Stack hub piactérhez
 description: Ismerje meg, hogyan adhat hozzá linuxos lemezképeket az Azure Stack hub Marketplace-hez.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/07/2020
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 32cdb1ec98f9825a63b5acfa68e4c8e3f43089a7
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294021"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967726"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux-lemezképek hozzáadása az Azure Stack hub piactérhez
 
@@ -22,11 +22,11 @@ A Linux rendszerű virtuális gépeket (VM-ket) telepítheti Azure Stack hubhoz 
 
 Linuxos lemezképek letöltéséhez az Azure Marketplace-ről lásd: [Marketplace-elemek letöltése az Azure-ból Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md). Válassza ki azokat a Linux-rendszerképeket, amelyekhez felhasználókat szeretne biztosítani az Azure Stack hub-ban.
 
-Ezek a lemezképek gyakran frissülnek, ezért a piactér-felügyeletet gyakran érdemes naprakészen tartani.
+Ezek a lemezképek gyakran frissülnek, ezért érdemes rendszeresen megtekinteni a visszaállítást, hogy naprakészek maradjanak.
 
 ## <a name="prepare-your-own-image"></a>Saját rendszerkép előkészítése
 
-Amikor lehetséges, a Marketplace-kezelőből töltse le az elérhető rendszerképeket. Ezeket a lemezképeket Azure Stack hubhoz készítettük és tesztelték.
+Ahol csak lehetséges, töltse le a piactér-felügyeleten keresztül elérhető lemezképeket. Ezeket a lemezképeket Azure Stack hubhoz készítettük és tesztelték.
 
 ### <a name="azure-linux-agent"></a>Azure Linux-ügynök
 
@@ -101,12 +101,12 @@ runcmd:
   - nodejs index.js
   ```
   
-### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>2. lépés: a Cloud-init. txt fájlra való hivatkozás a linuxos virtuális gép üzembe helyezése során
+### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>2. lépés: a Cloud-init. txt fájlra való hivatkozás a linuxos virtuális gép üzembe helyezése során
 
 Töltse fel a fájlt egy Azure Storage-fiókba, Azure Stack hub Storage-fiókba vagy a GitHub-tárházba, amelyet a Azure Stack hub Linux rendszerű virtuális gép elérhet.
 Jelenleg a Cloud-init használata a virtuálisgép-telepítéshez csak a REST, a PowerShell és a parancssori felületeken támogatott, és nem rendelkezik társított portál kezelőfelülettel Azure Stack hub-on.
 
-A Linux rendszerű virtuális gép PowerShell használatával történő létrehozásához kövesse az [alábbi](../user/azure-stack-quick-create-vm-linux-powershell.md) utasításokat, de ügyeljen arra, hogy a Cloud-init. txt fájlra `-CustomData` hivatkozzon a jelző részeként:
+A Linux rendszerű virtuális gép PowerShell használatával történő létrehozásához kövesse az [alábbi utasításokat](../user/azure-stack-quick-create-vm-linux-powershell.md) , de ügyeljen arra, hogy a Cloud-init. txt fájlra `-CustomData` hivatkozzon a jelző részeként:
 
 ```powershell
 $VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `

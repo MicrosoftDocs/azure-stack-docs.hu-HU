@@ -3,16 +3,16 @@ title: A portál felhasználói adatainak törlése Azure Stack hub által igén
 description: Azure Stack hub-kezelőként megtudhatja, hogyan törölheti a portál felhasználói információit, ha Azure Stack hub-felhasználó kéri.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: bede8fc72cfcdd6f3376c49a87293fef3626c380
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9acb9e391de7965aac281f08175d58635b5bb554
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698334"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967760"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>A portál felhasználói adatainak törlése Azure Stack hub-ból
 
@@ -128,7 +128,7 @@ A felhasználói objektum AZONOSÍTÓjának Azure Stack hub-kezelőként való f
 
    ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
-   
+
    ## Replace the following value with the directory tenant ID of the user to clear.
    $DirectoryTenantId = "3160cbf5-c227-49dd-8654-86e924c0b72f"
 

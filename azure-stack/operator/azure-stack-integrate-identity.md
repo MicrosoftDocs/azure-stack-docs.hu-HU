@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173947"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908595"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
@@ -128,7 +128,7 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
-|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|None|
+|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|Nincs|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
@@ -219,7 +219,7 @@ A Súgó parancsfájlt a GitHubon [Azure stack Hub-eszközökről](https://githu
 
 Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lépéseket:
 
-1. Másolja az alábbi tartalmat egy. txt fájlba (például c:\ClaimRules.txt mentve) az adatközpont AD FS példányán vagy a farm tagján:
+1. Másolja az alábbi tartalmat egy. txt fájlba (például c:\ClaimIssuanceRules.txt mentve) az adatközpont AD FS példányán vagy a farm tagján:
 
    ```text
    @RuleTemplate = "LdapClaims"

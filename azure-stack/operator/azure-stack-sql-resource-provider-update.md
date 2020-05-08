@@ -43,7 +43,7 @@ Miután a *UpdateSQLProvider. ps1* parancsfájl létrehoz egy új virtuális gé
 
 A **UpdateSQLProvider. ps1** PowerShell-parancsfájl futtatásakor a parancssorban megadhatja a következő paramétereket. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
 
-| Paraméter neve | Description | Megjegyzés vagy alapértelmezett érték |
+| Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
 | **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Szükséges_ |
 | **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. | _Szükséges_ |

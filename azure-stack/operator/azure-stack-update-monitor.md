@@ -20,7 +20,7 @@ A frissítések figyeléséhez és kezeléséhez használhatja a Azure Stack hub
 
 A frissítések kezeléséhez a következő PowerShell-parancsmagot használhatja:
 
-| Parancsmag | Description |
+| Parancsmag | Leírás |
 |------------------------------------------------------|-------------|
 | [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | Az elérhető frissítések listájának beolvasása. |
 | [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| A frissítési helyszínek listájának beolvasása. |

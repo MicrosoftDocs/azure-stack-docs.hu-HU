@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Változások és frissítések a Azure Stack hub piactéren.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: db8eafe9aceeb9e1e901f0f2677f52535e70c0d3
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166973"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908525"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -57,6 +57,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - Bitnami X2Engine Sales CRM
 - Bitnami cukornád
 - Bitnami Node. js magas rendelkezésre állású fürt
+- Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder: L4 – L7 Application Delivery Controller, globális kiszolgáló terheléselosztása (GSLB), SSL-betekintés
 - Az ellenőrzési pont vSEC biztonságának kezelése
 

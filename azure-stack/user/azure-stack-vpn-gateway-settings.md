@@ -3,15 +3,15 @@ title: A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 description: Az Azure Stack hub VPN Gateway-beállításainak ismertetése és konfigurálása.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 6af8d30fc7902e716d974c5ad66049e3a6037f47
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6ff4822e3093dd636bdd5b83fb3150eb9036d9ec
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812424"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967777"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
@@ -188,7 +188,7 @@ Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként
 >|-|-|
 >|Diffie-Hellman Group   | DHGroup2 |
 >|Kivonatoló algoritmusok | SHA256 |
->|Sérülés utáni titkosságvédelem (PFS) | None |
+>|Sérülés utáni titkosságvédelem (PFS) | Nincs |
 
 \*Új vagy módosított paraméter.
 
