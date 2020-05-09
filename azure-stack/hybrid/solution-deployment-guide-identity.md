@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f3c952695d430befa69c4b3dc2ffaf7787ac8b31
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 7a0777c218a27647214ada7b628cede5f7c01587
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847163"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988216"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Hibrid felhőalapú identitás konfigurálása az Azure-hoz és Azure Stack hub-alkalmazásokhoz
 
@@ -41,11 +41,11 @@ Ennek a megoldásnak a lépéseihez Azure Stack hub-kezelő engedélyekkel kell 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Egyszerű szolgáltatásnév létrehozása az Azure AD-hez a portálon
 
-Ha Azure Stack hub-t az Azure AD-ben telepítette az identitás-tárolóként, az Azure-hoz hasonlóan az egyszerű szolgáltatásokat is létrehozhatja. Az [erőforrások eléréséhez használt alkalmazás-identitással](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal) megtudhatja, hogyan hajthatja végre a lépéseket a portálon. A Kezdés előtt győződjön meg arról, hogy rendelkezik a [szükséges Azure ad-engedélyekkel](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
+Ha Azure Stack hub-t az Azure AD-ben telepítette az identitás-tárolóként, az Azure-hoz hasonlóan az egyszerű szolgáltatásokat is létrehozhatja. Az [erőforrások eléréséhez használt alkalmazás-identitással](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-app-identity) megtudhatja, hogyan hajthatja végre a lépéseket a portálon. A Kezdés előtt győződjön meg arról, hogy rendelkezik a [szükséges Azure ad-engedélyekkel](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) .
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>Egyszerű szolgáltatásnév létrehozása AD FShoz a PowerShell használatával
 
-Ha AD FS használatával telepített Azure Stack hubot, a PowerShell segítségével létrehozhat egy egyszerű szolgáltatásnevet, hozzárendelhet egy szerepkört a hozzáféréshez, és bejelentkezhet a PowerShellből az identitás használatával. Az [erőforrások eléréséhez használt alkalmazás-identitással](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal) megtudhatja, hogyan hajthatja végre a szükséges lépéseket a PowerShell használatával.
+Ha AD FS használatával telepített Azure Stack hubot, a PowerShell segítségével létrehozhat egy egyszerű szolgáltatásnevet, hozzárendelhet egy szerepkört a hozzáféréshez, és bejelentkezhet a PowerShellből az identitás használatával. Az [erőforrások eléréséhez használt alkalmazás-identitással](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity) megtudhatja, hogyan hajthatja végre a szükséges lépéseket a PowerShell használatával.
 
 ## <a name="using-the-azure-stack-hub-api"></a>Az Azure Stack hub API használata
 
