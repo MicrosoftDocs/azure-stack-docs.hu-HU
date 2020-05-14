@@ -4,16 +4,17 @@ titleSuffix: Azure Stack
 description: Ismerje meg, hogyan kezelheti Azure Stack hub tárolási infrastruktúráját.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/5/2020
+ms.date: 5/11/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: de6da5b42a88d2c1f9689fe8c43d898bc7a0bf5e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.custom: contperfq4
+ms.openlocfilehash: 0712caec89d3a6e2203ca780b4877b330953c61c
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848166"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202492"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack hub Storage-infrastruktúra áttekintése
 
@@ -27,7 +28,7 @@ A Windows Server szoftverrel működő Azure Stack hub Közvetlen tárolóhelyek
 
 Azure Stack hub integrált rendszerpartnerei számos megoldási variációt kínálnak, beleértve a tárolási rugalmasság széles körét. Jelenleg legfeljebb két meghajtót választhat a három támogatott meghajtó közül: NVMe (nem felejtő memória expressz), SATA/SAS SSD (SSD-meghajtó), HDD (merevlemez). 
 
-Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Egy Azure Stack hub-készülék egyetlen meghajtóval (azaz NVMe vagy SSD-vel) minden meghajtót felhasznál a kapacitáshoz. Ha kétféle típusú meghajtó van, a Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD &gt; HDD) típusú meghajtókat használja a gyorsítótárazáshoz. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
+Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Egy Azure Stack hub-készülék egyetlen meghajtóval (azaz NVMe vagy SSD-vel) minden meghajtót felhasznál a kapacitáshoz. Ha kétféle típusú meghajtó van, a Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD HDD) típusú meghajtókat használja a &gt; gyorsítótárazáshoz. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
 
 ![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -41,7 +42,7 @@ A gyorsítótár viselkedését a rendszer a gyorsítótárban lévő meghajtók
 
 ![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image3.png)
 
-A tárterület elérhető konfigurációjának megadásához tekintse meg Azure Stack hub OEM-https://azure.microsoft.com/overview/azure-stack/partners/) partnert (részletes leírást.
+A tárterület elérhető konfigurációjának megadásához tekintse meg Azure Stack hub OEM-partnert ( https://azure.microsoft.com/overview/azure-stack/partners/) részletes leírást.
 
 > [!Note]  
 > Azure Stack hub-készülék hibrid üzembe helyezhető, HDD-és SSD-(vagy NVMe-) meghajtókon is. A gyorsabb típusú meghajtók azonban gyorsítótár-meghajtóként használhatók, és az összes többi meghajtót készletként fogja használni. A bérlői adattárolók (Blobok, táblák, várólisták és lemezek) a kapacitás-meghajtókra kerülnek. A prémium szintű lemezek kiosztása vagy a Premium Storage-fiók típusának kiválasztása nem garantálja, hogy az objektumok az SSD-vagy NVMe-meghajtókon lesznek lefoglalva.

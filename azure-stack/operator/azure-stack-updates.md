@@ -3,16 +3,16 @@ title: Frissítések kezelése
 description: Ismerje meg, hogyan kezelheti a frissítéseket Azure Stack hub-ban
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772509"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374614"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése Azure Stack központban
 
@@ -49,7 +49,7 @@ A frissítések három típusát a következő lépésszám bocsátja ki:
 
 Ha továbbra is támogatást szeretne kapni, a Azure Stack hub-környezetet egy támogatott Azure Stack hub-szoftverrel kell megtartania. További információ: [Azure stack hub karbantartási szabályzata](azure-stack-update-servicing-policy.md).
 
-## <a name="where-to-get-notice-of-an-update"></a>Honnan kaphat értesítést egy frissítésről
+## <a name="how-to-know-an-update-is-available"></a>A frissítés elérhetővé tétele
 
 A frissítések figyelmeztetése néhány tényezőtől függ, például az internethez való kapcsolódással és a frissítés típusával.
 
@@ -91,7 +91,7 @@ Azure Stack hub tartalmaz egy frissítési erőforrás-szolgáltatót, amely kez
 
 A frissítések telepítésekor megtekintheti a magas szintű állapotot, mivel a frissítési folyamat a Azure Stack hub különböző alrendszereit (például a fizikai gazdagépeket és az infrastruktúra virtuális gépeket) célozza meg.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A frissítési folyamat megkezdéséhez kövesse az [Azure stack hub Update Activity ellenőrzőlista](release-notes-checklist.md)című témakör lépéseit.
 - Az Azure Stack hub támogatott verzióinak megismeréséhez lásd: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md).  

@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: cf6895cac1c0be2b55c99ff51ebccc0f46350437
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 974b338ff7da9bd4442d4aadc02d475bd01686df
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847724"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374627"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service Azure Stack hub Update 6 kibocsátási megjegyzései
 
@@ -108,13 +108,13 @@ Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](/azure-stack/
 
 - A központi telepítési beállítások (klasszikus) UX és az üzembe helyezési hitelesítő adatok portál beállításai nem érhetők el.
 
-    Az üzembe helyezési lehetőségek és a központi telepítési hitelesítő adatok felhasználói felületének eléréséhez az Azure Stack hub üzembe helyezése során a bérlőknek az `https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;/?websitesExtension_oldvsts=true` URL-cím formátuma alapján kell elérniük a portált:-ami a ASDK lenne `https://portal.local.azurestack.external/?websitesExtension_oldvsts=true`, majd navigáljon az alkalmazásaihoz.
+    Az üzembe helyezési lehetőségek és a központi telepítési hitelesítő adatok felhasználói felületének eléréséhez az Azure Stack hub üzembe helyezése során a bérlőknek az URL-cím formátuma alapján kell elérniük a portált: `https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;/?websitesExtension_oldvsts=true` -ami a ASDK lenne `https://portal.local.azurestack.external/?websitesExtension_oldvsts=true` , majd navigáljon az alkalmazásaihoz.
 
 - Az Azure Function monitoring folyamatosan megjeleníti a betöltést a portálon.
 
     Amikor megkísérli figyelni az egyes függvényeket a felhasználói portálon, nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma. A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók**menüpontra, és válassza az **Alkalmazásbeállítások**lehetőséget.  Vegyen fel egy **AzureWebJobsDashboard** nevű új alkalmazás-beállítást, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre. Ezután nyissa meg a figyelés nézetet a függvényben, és tekintse meg a figyelési adatokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure app Service és Azure Functions Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
 - További információ a App Service telepítésének előkészítéséről Azure Stackn: [app Service üzembe helyezésének Előfeltételei Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).

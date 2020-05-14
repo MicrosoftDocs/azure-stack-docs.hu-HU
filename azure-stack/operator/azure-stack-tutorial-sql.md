@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81478842"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202421"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Magasan elérhető SQL-adatbázisok létrehozása Azure Stack hub-vel
 
@@ -60,11 +60,11 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Ser
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Válassza **\+** **az erőforrás** > létrehozása**Egyéni**lehetőséget, majd **template Deployment**.
+2. Válassza **\+** **az erőforrás létrehozása**  >  **Egyéni**lehetőséget, majd **template Deployment**.
 
    ![Egyéni sablonok üzembe helyezése Azure Stack hub felügyeleti portálján](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
-3. Az **Egyéni üzembe helyezés** panelen válassza a **sablon** > -**Gyorsindítás sablon** szerkesztése lehetőséget, majd az elérhető egyéni sablonok legördülő listájában válassza ki az **SQL-2016-AlwaysOn** sablont. Válassza az **OK**, majd a **Mentés** lehetőséget.
+3. Az **Egyéni üzembe helyezés** panelen válassza a **sablon**-  >  **Gyorsindítás sablon** szerkesztése lehetőséget, majd az elérhető egyéni sablonok legördülő listájában válassza ki az **SQL-2016-AlwaysOn** sablont. Válassza az **OK**, majd a **Mentés** lehetőséget.
 
    [![Sablon szerkesztése az Azure Stack hub felügyeleti portálján](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "Gyorsindítás sablon kiválasztása")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
@@ -84,7 +84,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Ser
 
 6. A felhasználói portálon válassza az **erőforráscsoportok** lehetőséget, majd az egyéni telepítéshez létrehozott erőforráscsoport nevét (ehhez a példához tartozó**Erőforrás-csoport** ). Tekintse meg a központi telepítés állapotát, és győződjön meg arról, hogy az összes központi telepítés sikeresen befejeződött.
     
-    Ezután tekintse át az erőforráscsoport elemeit, és válassza ki a **\<SQLPIPsql\> erőforráscsoport neve** nyilvános IP-cím elemet. Jegyezze fel a nyilvános IP-címet és a terheléselosztó nyilvános IP-címének teljes TARTOMÁNYNEVÉt. Ezt az SQL alAlwaysOnon rendelkezésre állási csoportot kihasználó SQL-üzemeltetési kiszolgáló létrehozásához meg kell adnia egy Azure Stack hub-kezelőnek.
+    Ezután tekintse át az erőforráscsoport elemeit, és válassza ki a **SQLPIPsql \< erőforráscsoport neve \> ** nyilvános IP-cím elemet. Jegyezze fel a nyilvános IP-címet és a terheléselosztó nyilvános IP-címének teljes TARTOMÁNYNEVÉt. Ezt az SQL alAlwaysOnon rendelkezésre állási csoportot kihasználó SQL-üzemeltetési kiszolgáló létrehozásához meg kell adnia egy Azure Stack hub-kezelőnek.
 
    > [!NOTE]
    > A sablon központi telepítése több órát is igénybe vesz.
@@ -95,13 +95,18 @@ A sablon sikeres üzembe helyezése és az SQL alAlwaysONon rendelkezésre áll�
 
 Ha automatikus beültetést tartalmazó rendelkezésre állási csoportot hoz létre, a SQL Server automatikusan létrehozza a másodlagos replikákat a csoportban lévő összes adatbázishoz anélkül, hogy más manuális beavatkozásra lenne szükség. Ez a mérték biztosítja a AlwaysOn-adatbázisok magas rendelkezésre állását.
 
-Ezeket az SQL-parancsokat az alAlwaysOnon rendelkezésre állási csoport automatikus beültetésének konfigurálására használhatja. Cserélje `<InstanceName>` le az t az elsődleges példányra `<availability_group_name>` SQL Server nevére, és szükség szerint adja meg az alAlwaysOnon rendelkezésre állási csoport nevét.
+Ezeket az SQL-parancsokat az alAlwaysOnon rendelkezésre állási csoport automatikus beültetésének konfigurálására használhatja. Cserélje le `<PrimaryInstanceName>` az értékét az elsődleges példányra SQL Server nevére, `<SecondaryInstanceName>` a másodlagos példánnyal SQL Server a nevet, az `<availability_group_name>` alAlwaysOnon rendelkezésre állási csoport nevét pedig szükség szerint.
 
 Az elsődleges SQL-példányon:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON '<InstanceName>'
+      MODIFY REPLICA ON '<PrimaryInstanceName>'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON '<SecondaryInstanceName>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
@@ -136,7 +141,7 @@ Ezekkel a parancsokkal állíthatja be a rendelkezésre állási csoportba tarto
 
 Az SQL Server alAlwayOnon rendelkezésre állási csoport létrehozása és megfelelő konfigurálása után egy Azure Stack hub-operátornak létre kell hoznia egy Azure Stack hub SQL üzemeltetési kiszolgálót. Az SQL üzemeltetési kiszolgáló teszi elérhetővé a további kapacitást a felhasználók számára adatbázisok létrehozásához.
 
-Ügyeljen arra, hogy a nyilvános IP-címet vagy a teljes FQDN-t használja az SQL-AlwaysOn rendelkezésre állási csoport erőforráscsoport létrehozásakor (**\<SQLPIPsql-erőforráscsoport neve\>**) korábban rögzített SQL Load Balancer nyilvános IP-címéhez. Emellett ismernie kell az alAlwaysOnon rendelkezésre állási csoportban található SQL-példányokhoz való hozzáféréshez használt SQL Server hitelesítő adatokat.
+Ügyeljen arra, hogy a nyilvános IP-címet vagy a teljes FQDN-t használja az SQL-AlwaysOn rendelkezésre állási csoport erőforráscsoport létrehozásakor (**SQLPIPsql- \< erőforráscsoport \> neve**) korábban rögzített SQL Load Balancer nyilvános IP-címéhez. Emellett ismernie kell az alAlwaysOnon rendelkezésre állási csoportban található SQL-példányokhoz való hozzáféréshez használt SQL Server hitelesítő adatokat.
 
 > [!NOTE]
 > Ezt a lépést a Azure Stack hub felügyeleti portálján Azure Stack hub-kezelővel kell futtatni.
@@ -158,7 +163,7 @@ Miután az SQL alAlwaysOnon rendelkezésre állási csoportot létrehozta, konfi
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. Válassza **\+** **az erőforrás** > létrehozása** \+ adattároló**lehetőséget, majd **SQL Database**.
+2. Válassza **\+** **az erőforrás létrehozása**  >  ** \+ adattároló**lehetőséget, majd **SQL Database**.
 
     Adja meg a szükséges adatbázis-tulajdonság adatait. Ez az információ tartalmazza a telepítéshez használandó nevet, rendezést, maximális méretet, valamint az előfizetést, az erőforráscsoportot és a helyet.
 
@@ -168,7 +173,7 @@ Miután az SQL alAlwaysOnon rendelkezésre állási csoportot létrehozta, konfi
 
    ![SKU kiválasztása Azure Stack hub felhasználói portálon](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. Válassza a **Bejelentkezés** > **új bejelentkezés létrehozása** lehetőséget, majd adja meg az új adatbázishoz használni kívánt SQL-hitelesítési hitelesítő adatokat. Ha elkészült, válassza az **OK** , majd a **Létrehozás** lehetőséget az adatbázis-telepítési folyamat megkezdéséhez.
+4. Válassza a **Bejelentkezés**  >  **új bejelentkezés létrehozása** lehetőséget, majd adja meg az új adatbázishoz használni kívánt SQL-hitelesítési hitelesítő adatokat. Ha elkészült, válassza az **OK** , majd a **Létrehozás** lehetőséget az adatbázis-telepítési folyamat megkezdéséhez.
 
    ![Bejelentkezés létrehozása Azure Stack hub felhasználói portálon](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 
@@ -176,6 +181,6 @@ Miután az SQL alAlwaysOnon rendelkezésre állási csoportot létrehozta, konfi
 
    ![Azure Stack hub felhasználói portálján megtekintheti a kapcsolatok karakterláncát](./media/azure-stack-tutorial-sqlrp/createdb4.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Az SQL típusú erőforrás-szolgáltató frissítése](azure-stack-sql-resource-provider-update.md)

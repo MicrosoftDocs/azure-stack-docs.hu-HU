@@ -167,6 +167,10 @@
                       href: azure-stack-vpn-s2s.md
                     - name: VPN-átjáró beállításai
                       href: azure-stack-vpn-gateway-settings.md
+                    - name: A hálózati virtuális berendezésekkel kapcsolatos problémák elhárítása
+                      href: network-virtual-appliance.md
+                    - name: Helyek közötti kapcsolatok – problémamegoldás
+                      href: site-to-site.md
                 - name: iDNS Azure Stack hub-hoz
                   href: azure-stack-understanding-dns.md
                 - name: DNS Azure Stack központban
@@ -231,7 +235,7 @@
                     - name: Az KABAi motor hibáinak megoldása
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Tárolók Azure Monitor használata
-                      href: kubernetes-aks-engine-azure-monitor.md
+                      href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
                 - name: Marketplace-tétel
                   items:
                     - name: Kubernetes-fürt üzembe helyezése
@@ -305,7 +309,7 @@
               href: azure-stack-network-howto-backup-storage.md
             - name: Előfizetés-erőforrások másolása
               href: azure-stack-network-howto-backup-replicator.md
-- name: Alapelvek
+- name: Fogalmak
   items:
     - name: IaaS architektúrák
       items:
@@ -319,21 +323,21 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Hálózati virtuális berendezések
           href: iaas-architecture-nva-architecture.md
-- name: Referencia
+- name: Hivatkozás
   items:
     - name: Azure Stack hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
-    - name: Azure Stack hub REST API böngésző
-      href: /rest/api/
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+    - name: Azure Stack hub-rendszergazda REST API-k
+      href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
 - name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator/
     - name: A ASDK dokumentációja
       href: /azure-stack/asdk/
-- name: További források
+- name: Erőforrások
   items:
     - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

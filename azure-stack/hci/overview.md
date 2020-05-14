@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b08b5e65c0cff4ab82494261fb1663b16bf757d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2b7ab4dbb4eefe867c207b9db4329cbae1bfef4a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812407"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202460"
 ---
 # <a name="azure-stack-hci-solutions-overview"></a>Azure Stack HCI-megoldások áttekintése
 
@@ -99,6 +99,10 @@ Látogasson el a [Azure stack HCI webhelyre](https://azure.microsoft.com/overvie
 
 ## <a name="video-based-learning"></a>Videó alapú tanulás
 
+Az Azure bővített hálózati videója itt található:
+
+- [Zökkenőmentes kapcsolódás az Azure-hoz a Windows Serverrel és a hibrid hálózatkezeléssel](https://www.youtube.com/watch?v=do2_4Y2p9dk)
+
 Íme néhány videó a Microsoft Ignite 2019-munkamenetekről:
 
 - [Microsoft Ignite Live 2019 – Első lépések Azure Stack HCI-vel](https://www.youtube.com/watch?v=vueHIBqNIEU)
@@ -113,7 +117,7 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 
 - [Azure Stack HCI | Hibrid Felhőbeli virtuális esemény](https://www.youtube.com/watch?v=nxpoEva-R2Y)
 
-## <a name="faq"></a>GYIK
+## <a name="faq"></a>Gyakori kérdések
 
 ### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Milyen Azure Stack hub-és Azure Stack HCI-megoldások közösek?
 

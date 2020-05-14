@@ -1,24 +1,25 @@
 ---
 title: Azure Stack hub SQL Resource Provider 1.1.47.0 kibocsátási megjegyzései
-description: Ismerje meg, hogy mi a legújabb Azure Stack hub SQL erőforrás-szolgáltató frissítése, beleértve az ismert problémákat és a letöltés helyét.
+description: Ismerje meg a legújabb Azure Stack hub SQL erőforrás-szolgáltató frissítésének újdonságait, beleértve az új funkciókat, javításokat és ismert problémákat.
 author: justinha
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 9303a9d60fad754a5ba644d4b6e1c5cd3d331497
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 59c8cfdaf13b84f7ba27e633731f4d1587cf63b8
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697416"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375017"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL Resource Provider 1.1.47.0 kibocsátási megjegyzései
 
 Ezek a kibocsátási megjegyzések ismertetik az SQL Resource Provider 1.1.47.0 verziójának frissítéseit és ismert problémáit.
 
 ## <a name="build-reference"></a>Build referenciája
+
 Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub-verzió az alábbi listában látható:
 
 > |Azure Stack hub minimális verziója|SQL erőforrás-szolgáltató verziója|
@@ -31,19 +32,18 @@ Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az
 
 ## <a name="new-features-and-fixes"></a>Új funkciók és javítások
 
-Az Azure Stack hub SQL erőforrás-szolgáltatójának ezen verziója egy gyorsjavítási kiadás, amellyel az erőforrás-szolgáltató kompatibilis lesz az 1910-es frissítés néhány legújabb változásával, új funkció nélkül.
+Az Azure Stack hub SQL erőforrás-szolgáltatójának ezen verziója egy gyorsjavítási kiadás, amellyel az erőforrás-szolgáltató kompatibilis lesz az 1910-es frissítés legújabb portáljának változásaival. Nincsenek új funkciók.
 
-Emellett támogatja a legújabb Azure Stack hub API Version profilt 2019-03-01-Hybrid és Azure Stack hub PowerShell-modul 1.8.0-t. Ezért az üzembe helyezés és a frissítés során nem kell telepíteni a modulok adott korábbi verzióit.
+Emellett támogatja a legújabb Azure Stack hub API Version profilt 2019-03-01-Hybrid és Azure Stack hub PowerShell-modul 1.8.0. Ezért az üzembe helyezés és a frissítés során nem kell telepíteni a modulok adott korábbi verzióit.
 
 Kövesse az erőforrás-szolgáltató frissítési folyamatát az SQL Resource Provider gyorsjavítás 1.1.47.0 alkalmazásához, miután a Azure Stack hub frissítve lett az 1910-es frissítésre. Ez segít a felügyeleti portálon olyan ismert problémák megoldásában, amelyekben az SQL erőforrás-szolgáltató kapacitás-figyelése megtartja a betöltést.
 
 ## <a name="known-issues"></a>Ismert problémák
 
-Nincs.
+Nincsenek.
 
-## <a name="next-steps"></a>További lépések
-[További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).
+## <a name="next-steps"></a>Következő lépések
 
-[Felkészülés az SQL-erőforrás-szolgáltató üzembe helyezésére](azure-stack-sql-resource-provider-deploy.md#prerequisites).
-
-[Frissítse az SQL-erőforrás-szolgáltatót egy korábbi verzióról](azure-stack-sql-resource-provider-update.md). 
+- [További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).
+- [Felkészülés az SQL-erőforrás-szolgáltató üzembe helyezésére](azure-stack-sql-resource-provider-deploy.md#prerequisites).
+- [Frissítse az SQL-erőforrás-szolgáltatót egy korábbi verzióról](azure-stack-sql-resource-provider-update.md).

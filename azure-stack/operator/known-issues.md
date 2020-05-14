@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848098"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202440"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -36,7 +36,7 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 ::: moniker range="azs-2002"
 ## <a name="update"></a>Frissítés
 
-Az 2002-es frissítés alkalmazása után az "érvénytelen időforráshoz" tartozó riasztás helytelenül jelenhet meg a felügyeleti portálon. Ez a hamis pozitív riasztás figyelmen kívül hagyható, és egy közelgő kiadásban lesz kijavítva. 
+A 2002-es frissítés alkalmazása után az „érvénytelen időforrással” kapcsolatos riasztás helytelenül jelenhet meg a felügyeleti portálon. Ez a vakriasztás figyelmen kívül hagyható, egy hamarosan megjelenő kiadásban ki lesz javítva. 
 
 Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azure stack hub hibaelhárítási frissítései](azure-stack-troubleshooting.md)című témakört.
 
@@ -196,7 +196,7 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 
 - Alkalmazható: Ez a probléma a 2002-es kiadásra vonatkozik.
 - Ok: Ha a bélyegző App Service erőforrás-szolgáltató (RP) 1,7-es és régebbi verzióját tartalmazza, a bélyegző frissítése után a App Servicehoz tartozó pengék nem töltődnek be.
-- Szervizelés: frissítse az RP-et a 1,8-es verzióra.
+- Szervizelés: frissítse az RP-t a [2020](azure-stack-app-service-update.md)-es verzióra.
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -413,7 +413,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma a 1910-es és korábbi kiadásokra vonatkozik.
 - Ok: nem lehet csatlakozni a rendszerjogosultságú végponthoz (ERC virtuális gépekhez) egy olyan számítógépről, amely a Windows nem angol nyelvű verzióját futtatja.
-- Szervizelés: ez egy ismert probléma, amelyet a 1910-nál későbbi kiadásokban rögzítettek. Megkerülő megoldásként futtathatja a **New-PSSession** és a **ENTER-PSSession** PowerShell-parancsmagokat az **en-us** kulturális környezet használatával. példaként állítsa be a kulturális környezetet a következő parancsfájl https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1használatával:.
+- Szervizelés: ez egy ismert probléma, amelyet a 1910-nál későbbi kiadásokban rögzítettek. Megkerülő megoldásként futtathatja a **New-PSSession** és a **ENTER-PSSession** PowerShell-parancsmagokat az **en-us** kulturális környezet használatával. példaként állítsa be a kulturális környezetet a következő parancsfájl használatával: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 .
 - Előfordulás: ritka
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
@@ -790,7 +790,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)

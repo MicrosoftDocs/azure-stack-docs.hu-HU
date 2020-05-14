@@ -210,7 +210,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: A biztonság konfigurálása
+        - name: Biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -499,14 +499,20 @@
 - name: Hivatkozás
   items:
     - name: Azure Stack hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
     - name: Azure Stack hub privilegizált végpontja
       href: ../reference/pep-2002/
+    - name: Azure Stack hub-rendszergazda REST API-k
+      href: /rest/api/azure-stack/
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+- name: Kapcsolódó témakörök
+  items:
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
-    - name: ASDK-dokumentáció
+    - name: A ASDK dokumentációja
       href: /azure-stack/asdk/
-- name: További források
+- name: Erőforrások
   items:
     - name: Képzés és tanúsítványok
       href: azure-stack-train-and-cert.md

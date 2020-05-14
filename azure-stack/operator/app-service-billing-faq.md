@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2020
-ms.openlocfilehash: 3717308e28b7dfa62534ee1abd4e71ff06361d50
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 66dfb06327f542263aea45d66af796c4afcea8be
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847945"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374657"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service Azure Stack hub számlázási áttekintése és gyakori kérdések
 
@@ -88,7 +88,7 @@ A rendelkezésre álló minta szkriptek a következők:
 - [Get-AppServiceSubscriptionUsage](https://aka.ms/aa6zku6): Ez a minta kiszámítja Azure app Service Azure stack hub használati összegének előfizetését. Ez a parancsfájl a használati API adatai alapján számítja ki a használati összegeket, valamint a Cloud operátor által mért mérőszámok árait.
 - [Felfüggesztés – UserSubscriptions](https://aka.ms/aa6zku7): Ez a minta felfüggeszti vagy engedélyezi az előfizetéseket a Felhőbeli operátor által megadott használati korlátok alapján.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub-bérlői erőforrás-használati API](azure-stack-tenant-resource-usage-api.md)
 

@@ -1,22 +1,22 @@
 ---
-title: A portál felhasználói adatainak törlése Azure Stack hub által igény szerint.
-description: Azure Stack hub-kezelőként megtudhatja, hogyan törölheti a portál felhasználói információit, ha Azure Stack hub-felhasználó kéri.
+title: Portál felhasználói adatainak törlése igény szerint Azure Stack hub-ból
+description: Megtudhatja, hogyan törölheti a portál felhasználói információit Azure Stack hub-felhasználók kérésére.
 author: sethmanheim
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 9acb9e391de7965aac281f08175d58635b5bb554
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: e419ebd632fabac6985b1a763b4661d75307e4ba
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967760"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375095"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>A portál felhasználói adatainak törlése Azure Stack hub-ból
 
-Azure Stack hub-operátorok igény szerint törölhetik a portál felhasználói adatfájljait, amikor Azure Stack hub-felhasználó kéri azt. Azure Stack hub-felhasználóként a portál testreszabható a csempék rögzítésével és az irányítópult elrendezésének módosításával. A felhasználók emellett módosíthatják a témát, és a személyes beállításoknak megfelelően módosíthatják az alapértelmezett nyelvet.
+Azure Stack hub-operátorok igény szerint törölhetik a portál felhasználói adatszolgáltatásait, amikor Azure Stack hub-felhasználó kéri azt. Azure Stack hub-felhasználóként a portál testreszabható a csempék rögzítésével és az irányítópult elrendezésének módosításával. A felhasználók emellett módosíthatják a témát, és a személyes beállításoknak megfelelően módosíthatják az alapértelmezett nyelvet.
 
 A portál felhasználói információi közé tartoznak a kedvencek és a nemrégiben elért erőforrások a Azure Stack hub felhasználói portálon. Ez a cikk bemutatja, hogyan törölheti a portál felhasználói információit.
 
@@ -33,7 +33,7 @@ A portál felhasználói beállításainak eltávolítása csak a felhasználói
 - Azure Stack hub rendszergazdai hitelesítő adatai a rendszergazdai erőforrás-kezelő végpont eléréséhez.
 
 > [!NOTE]
-> Ha olyan felhasználótól kísérli meg törölni a portál felhasználói adatait, amely egy vendég címtárból érkezett (több-bérlős), akkor olvasási engedéllyel kell rendelkeznie a címtárban. További információ a [jelen cikk a CSP-forgatókönyvben című szakaszában található](#clear-portal-user-data-in-guest-directory).
+> Ha olyan felhasználótól kísérli meg törölni a portál felhasználói adatait, amely egy vendég címtárból (több-bérlőből) érkezett, a címtárban olvasási engedéllyel kell rendelkeznie. További információ a [jelen cikk a CSP-forgatókönyvben című szakaszában található](#clear-portal-user-data-in-guest-directory).
 
 ## <a name="clear-portal-user-data-using-a-user-principal-name"></a>A portál felhasználói adatai törlése egyszerű felhasználónév használatával
 
@@ -84,7 +84,7 @@ A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia
 
 ### <a name="user-retrieves-the-user-object-id"></a>A felhasználó lekéri a felhasználói objektum AZONOSÍTÓját
 
-1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), keresse meg a gyökérkönyvtárat a **AzureStack-Tools-Master** könyvtárban, majd importálja a szükséges PowerShell-modult.
+1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-Master** könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -114,7 +114,7 @@ A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia
 
 A felhasználói objektum AZONOSÍTÓjának Azure Stack hub-kezelőként való fogadása után futtassa a következő parancsokat a portál felhasználói adatértékének eltávolításához:
 
-1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), keresse meg a gyökérkönyvtárat a **AzureStack-Tools-Master** könyvtárban, majd importálja a szükséges PowerShell-modult.
+1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-Master** könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -140,6 +140,6 @@ A felhasználói objektum AZONOSÍTÓjának Azure Stack hub-kezelőként való f
     -UserObjectID $userObjectID `
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Regisztrálja Azure stack hubot az Azure](azure-stack-registration.md) -ban, és töltse fel az [Azure stack hub Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.

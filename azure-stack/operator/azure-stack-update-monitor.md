@@ -1,24 +1,24 @@
 ---
-title: Frissítések figyelése Azure Stack központban a PowerShell használatával
-description: Útmutató a Azure Stack hub frissítéseinek figyeléséhez a PowerShell használatával
+title: Frissítések figyelése a PowerShell-lel Azure Stack hub-ban
+description: Megtudhatja, hogyan figyelheti a frissítéseket a PowerShell-lel Azure Stack hub-ban.
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0adeafb421c30eaf8753c735b16b85471173a5fc
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 3e6f5ebac251ca18dd15d269ad23ac1632a4794c
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848132"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374988"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>Frissítések figyelése Azure Stack központban a PowerShell használatával
+# <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Frissítések figyelése a PowerShell-lel Azure Stack hub-ban
 
 A frissítések figyeléséhez és kezeléséhez használhatja a Azure Stack hub felügyeleti végpontokat. Elérhetők a PowerShell-lel. Az Azure Stack hub PowerShell-lel való beállításával kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](azure-stack-powershell-install.md).
 
-A frissítések kezeléséhez a következő PowerShell-parancsmagot használhatja:
+A frissítések kezeléséhez a következő PowerShell-parancsmagokat használhatja:
 
 | Parancsmag | Leírás |
 |------------------------------------------------------|-------------|
@@ -30,7 +30,7 @@ A frissítések kezeléséhez a következő PowerShell-parancsmagot használhatj
 
 ## <a name="get-a-list-of-update-runs"></a>A frissítési futtatások listájának lekérése
 
-A frissítési futtatások listájának lekérése:
+A frissítési futtatások listájának lekéréséhez futtassa a következő parancsot:
 
 ```powershell
 Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
@@ -43,9 +43,11 @@ Ha a frissítés sikertelen, akkor folytathatja a frissítés futtatását, ha a
 ```powershell
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
+
 ## <a name="troubleshoot"></a>Hibaelhárítás
-További információ a frissítések hibaelhárításáról: [Azure stack hibaelhárítás](azure-stack-troubleshooting.md)
 
-## <a name="next-steps"></a>További lépések
+További információ a frissítések hibaelhárításáról: [Azure stack hibaelhárítás](azure-stack-troubleshooting.md).
 
--   [Frissítések kezelése Azure Stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+## <a name="next-steps"></a>Következő lépések
+
+- [Frissítések kezelése Azure Stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
