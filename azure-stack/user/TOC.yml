@@ -139,7 +139,7 @@
                   href: vm-update-management.md
                 - name: SQL Server VM megfontolások
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: Storage
+            - name: Tárolás
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -309,7 +309,7 @@
               href: azure-stack-network-howto-backup-storage.md
             - name: Előfizetés-erőforrások másolása
               href: azure-stack-network-howto-backup-replicator.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: IaaS architektúrák
       items:
@@ -323,21 +323,21 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Hálózati virtuális berendezések
           href: iaas-architecture-nva-architecture.md
-- name: Hivatkozás
+- name: Referencia
   items:
     - name: Azure Stack hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
     - name: Azure Stack hub-rendszergazda REST API-k
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
 - name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
       href: /azure-stack/operator/
     - name: A ASDK dokumentációja
       href: /azure-stack/asdk/
-- name: Erőforrások
+- name: Források
   items:
     - name: Azure Stack hub-útiterv
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'

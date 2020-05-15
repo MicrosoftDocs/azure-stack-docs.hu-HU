@@ -25,7 +25,7 @@
       href: tutorial-offer-services.md
     - name: Szolgáltatási ajánlat tesztelése
       href: tutorial-test-offer.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: Kapacitástervezés
       items:
@@ -33,7 +33,7 @@
           href: azure-stack-capacity-planning-overview.md
         - name: Compute
           href: azure-stack-capacity-planning-compute.md
-        - name: Storage
+        - name: Tárolás
           items:
             - name: Tárolási kapacitás megtervezése
               href: azure-stack-capacity-planning-storage.md
@@ -496,23 +496,23 @@
           href: azure-stack-diagnostic-test.md
         - name: Hibaelhárítás
           href: azure-stack-troubleshooting.md
-- name: Hivatkozás
+- name: Referencia
   items:
     - name: Azure Stack hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
     - name: Azure Stack hub privilegizált végpontja
       href: ../reference/pep-2002/
     - name: Azure Stack hub-rendszergazda REST API-k
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
 - name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
     - name: A ASDK dokumentációja
       href: /azure-stack/asdk/
-- name: Erőforrások
+- name: Források
   items:
     - name: Képzés és tanúsítványok
       href: azure-stack-train-and-cert.md

@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 5d915c34d5752e2b496705a90215715121127409
-ms.sourcegitcommit: e83191c952a89d4ac52bf2606eb2b45075e6a8ba
+ms.openlocfilehash: 1899fa20bb274229b5da066d8d55eb0d97e2123e
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382488"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403872"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -187,11 +187,11 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 05/07/2020: Bitnami Zurmo – 3.2.2004220512 verzió
 - 04/20/2020: Windows Server 2019 Datacenter BYOL – verzió 2019.127.20200213
 - 04/20/2020: Windows Server 2019 Datacenter TB – verzió 2019.127.20200213
-- 04/20/2020: Windows Server 2019 Datacenter Server Core BYOL-Version 2019,127.-20200204
-- 04/20/2020: Windows Server 2019 Datacenter Server Core TB-Version 2019,127.-20200204
-- 04/20/2020: a Windows Server 2019 Datacenter with containers BYOL-Version 2019,127.-20200204
-- 04/20/2020: a Windows Server 2019 Datacenter with containers TB-Version 2019,127.-20200204
-- 04/20/2020: Windows Server 2019 Datacenter Core with containers BYOL-Version 2019.-127,20200204
+- 04/20/2020: Windows Server 2019 Datacenter Server Core BYOL – Version 2019.127.20200204
+- 04/20/2020: Windows Server 2019 Datacenter Server Core TB – Version 2019.127.20200204
+- 04/20/2020: Windows Server 2019 Datacenter, tárolók BYOL – 2019.127.20200204 verzió
+- 04/20/2020: Windows Server 2019 Datacenter, tárolók TB – 2019.127.20200204 verzió
+- 04/20/2020: Windows Server 2019 Datacenter Core with containers BYOL-Version 2019.127.20200204
 - 04/20/2020: Windows Server 2019 Datacenter Core with containers TB-Version 2019.127.20200204
 - 04/20/2020: Windows Server 2016 Datacenter-BYOL-Version 2016.127.20200131
 - 04/20/2020: Windows Server 2016 Datacenter – a 2016.127.20200131 verzió használatakor kell fizetnie
@@ -199,7 +199,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 04/20/2020: a Windows Server 2016 Datacenter Server Core – a 2016.127.20200131 verzió használata után kell fizetnie
 - 04/20/2020: Windows Server 2016 Datacenter with containers-BYOL-Version 2016.127.20200131
 - 04/20/2020: Windows Server 2016 Datacenter és tárolók – a 2016.127.20200131 verzió használata
-- 04/20/2020: Windows Server 2012 Datacenter-BYOL-Version 3.127.20190521
+- 04/20/2020: Windows Server 2012 Datacenter-BYOL-Version 3.127.20200205
 - 04/20/2020: Windows Server 2012 R2 Datacenter – a 4.127.20200205 verzió használatakor kell fizetnie
 - 04/20/2020: Windows Server 2012 R2 Datacenter-BYOL-Version 4.127.20200205
 - 04/20/2020: Windows Server 2012 Datacenter – a 3.127.20200205 verzió használatakor kell fizetnie

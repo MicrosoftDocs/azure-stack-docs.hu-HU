@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202421"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403849"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Magasan elérhető SQL-adatbázisok létrehozása Azure Stack hub-vel
 
@@ -35,8 +35,8 @@ A Kezdés előtt győződjön meg arról, hogy a [SQL Server erőforrás-szolgá
 > [!IMPORTANT]
 > Az Azure Stack hub gyors üzembe helyezési sablonjának használatához az alábbi lépések szükségesek.
 
-- [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) Marketplace-rendszerkép.
-- SQL Server 2016 SP1 vagy SP2 (Enterprise, standard vagy Developer) a Windows Server 2016 Server rendszerképén. Ez a cikk a [SQL Server 2016 SP2 Enterprise szolgáltatást használja a Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) piactéren rendszerképeken.
+- Windows Server 2016 Datacenter Marketplace-rendszerkép.
+- SQL Server 2016 SP1 vagy SP2 (Enterprise vagy Developer) a Windows Server 2016 Server rendszerképén. Ez a cikk a SQL Server 2016 SP2 Enterprise szolgáltatást használja a Windows Server 2016 piactéren rendszerképeken.
 - [SQL Server IaaS-bővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.3.20180 vagy újabb verziója. Az SQL IaaS bővítmény telepíti a szükséges összetevőket, amelyekre szükség van a piactér SQL Server minden Windows-verzióhoz tartozó elemhez. Lehetővé teszi az SQL-specifikus beállítások konfigurálását az SQL-alapú virtuális gépeken (VM). Ha a bővítmény nincs telepítve a helyi piactéren, az SQL kiépítés sikertelen lesz.
 - [Egyéni parancsfájl-bővítmény a Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 vagy újabb verziójához. Az egyéni szkriptek bővítménye egy eszköz, amellyel automatikusan elindítható a telepítés utáni virtuális gépek testreszabási feladatai.
 - A [PowerShell kívánt állapot-konfiguráció (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) 2.76.0.0 vagy újabb verziója. A DSC a Windows PowerShell egyik felügyeleti platformja, amely lehetővé teszi a szoftveres szolgáltatások konfigurációs információinak üzembe helyezését és kezelését. A platform emellett azt a környezetet is kezeli, amelyben ezek a szolgáltatások futnak.
@@ -45,7 +45,7 @@ Ha többet szeretne megtudni az elemek Azure Stack piactérről való hozzáadá
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>SQL Server alAlwaysOnon rendelkezésre állási csoport létrehozása
 
-Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Server alAlwaysOnon rendelkezésre állási csoportot az [SQL-2016-AlwaysOn Azure stack hub](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)rövid útmutatójának használatával. Ez a sablon két SQL Server Enterprise, standard vagy fejlesztői példányt telepít egy always on rendelkezésre állási csoportba. A következő erőforrásokat hozza létre:
+Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Server alAlwaysOnon rendelkezésre állási csoportot az [SQL-2016-AlwaysOn Azure stack hub](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)rövid útmutatójának használatával. Ez a sablon két SQL Server Enterprise-vagy fejlesztői példányt telepít egy always on rendelkezésre állási csoportba. A következő erőforrásokat hozza létre:
 
 - Egy hálózati biztonsági csoport.
 - Egy virtuális hálózat.
@@ -53,7 +53,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Ser
 - Négy nyilvános IP-cím (egy az AD-hoz, kettő az egyes SQL-alapú virtuális gépekhez, a másik pedig az SQL AlwaysOn-figyelőhöz kötött nyilvános Load Balancer).
 - Egy külső terheléselosztó az SQL AlwaysOn-figyelőhöz kötött, nyilvános IP-címmel rendelkező SQL virtuális gépekhez.
 - Egy virtuális gép (Windows Server 2016), amely tartományvezérlőként van konfigurálva egyetlen tartománnyal rendelkező új erdőhöz.
-- Két virtuális gép (Windows Server 2016), amely SQL Server 2016 SP1 vagy SP2 Enterprise, standard vagy Developer Edition rendszerrel van konfigurálva, és fürtözött. Ezeknek Piactéri lemezképeknek kell lenniük.
+- Két virtuális gép (Windows Server 2016), amely SQL Server 2016 SP1 vagy SP2 Enterprise vagy Developer Edition rendszerrel van konfigurálva, és fürtözött. Ezeknek Piactéri lemezképeknek kell lenniük.
 - Egy virtuális gép (Windows Server 2016), amely tanúsító fájlmegosztásként van konfigurálva a fürthöz.
 - Egy rendelkezésre állási csoport, amely az SQL és a fájlmegosztás tanúsító virtuális gépeket tartalmazza.
 
