@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/18/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 1899fa20bb274229b5da066d8d55eb0d97e2123e
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
+ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403872"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550146"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -63,6 +63,9 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 05/15/2020: Bitnami AbanteCart – 1.2.2004220207 verzió
+- 05/15/2020: Bitnami Canvas LMS – verzió 2020.5.2005120909
+- 05/15/2020: Bitnami Neos – Version 5.2.2005130917
 - 05/07/2020: Bitnami ActiveMQ – 5.15.2003260344 verzió
 - 05/07/2020: Bitnami Akeneo – 4-es verzió – 3.2.2004230142
 - 05/07/2020: Bitnami szabadban lévő közösségi verzió – 201911.0.2004242008

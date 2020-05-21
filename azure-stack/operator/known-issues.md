@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
+ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202440"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83721878"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -264,12 +264,6 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a felhasználói portálon a felügyelt lemez kiválasztásakor a lemez típusa prémium SSD, a legördülő lista az **operációs rendszer lemezét**jeleníti meg. A beállítás melletti elemleírás szerint **bizonyos operációsrendszer-lemezek ingyenesen elérhetők az ingyenes Azure-fiókkal**; Ez azonban a Azure Stack hub esetében nem érvényes. Emellett a lista olyan **ingyenes fiókot** is tartalmaz, amely Azure stack hub esetében nem érvényes.
 - Előfordulás: gyakori
 
-### <a name="vpn-troubleshoot-and-metrics"></a>VPN-hibák és mérőszámok
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon megjelenik a **VPN-** átjáró erőforrás-kezelési funkciója és **mérőszámai** , azonban ez Azure stack hub esetében nem támogatott.
-- Előfordulás: gyakori
-
 ### <a name="delete-a-storage-container"></a>Storage-tároló törlése
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
@@ -282,12 +276,6 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon, amikor a **Virtual Machinesra** navigál, és a tetején található gomb használatával próbálkozik a frissítéssel, az állapotok nem fognak pontosan frissülni.
 - Szervizelés: a rendszer 5 percenként automatikusan frissíti az állapotot, függetlenül attól, hogy a frissítés gombra kattintott-e. Várjon 5 percet, és keresse meg az állapotot.
-- Előfordulás: gyakori
-
-### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
-
-- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon az útválasztási táblázat létrehozásakor **Virtual Network átjáró** a következő ugrási típusú beállítások egyike jelenik meg. Ez azonban Azure Stack hub esetében nem támogatott.
 - Előfordulás: gyakori
 
 ### <a name="storage-account-options"></a>Tárfiók-beállítások
@@ -364,6 +352,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
 
+#### <a name="next-hop-type"></a>Következő ugrás típusa
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a felhasználói portálon az útválasztási táblázat létrehozásakor **Virtual Network átjáró** a következő ugrási típusú beállítások egyike jelenik meg. Ez azonban Azure Stack hub esetében nem támogatott.
+- Előfordulás: gyakori
+
 #### <a name="alerts"></a>Riasztások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
@@ -380,6 +374,10 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű szolgáltatást jelenít meg. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Előfordulás: gyakori
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a felhasználói portálon megjelenik a **VPN-** átjáró erőforrás-kezelési funkciója és **mérőszámai** , azonban ez Azure stack hub esetében nem támogatott.
 - Előfordulás: gyakori
 
 #### <a name="documentation"></a>Dokumentáció
@@ -525,6 +523,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Előfordulás: gyakori
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
+
+#### <a name="next-hop-type"></a>Következő ugrás típusa
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a felhasználói portálon az útválasztási táblázat létrehozásakor **Virtual Network átjáró** a következő ugrási típusú beállítások egyike jelenik meg. Ez azonban Azure Stack hub esetében nem támogatott.
+- Előfordulás: gyakori
 
 #### <a name="alerts"></a>Riasztások
 
@@ -689,6 +693,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Előfordulás: gyakori
 
 ### <a name="virtual-network-gateway"></a>Virtuális hálózati átjáró
+
+#### <a name="next-hop-type"></a>Következő ugrás típusa
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a felhasználói portálon az útválasztási táblázat létrehozásakor **Virtual Network átjáró** a következő ugrási típusú beállítások egyike jelenik meg. Ez azonban Azure Stack hub esetében nem támogatott.
+- Előfordulás: gyakori
 
 #### <a name="alerts"></a>Riasztások
 

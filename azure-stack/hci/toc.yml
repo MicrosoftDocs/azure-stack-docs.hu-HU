@@ -4,7 +4,7 @@
   items:
     - name: Mi az Azure Stack HCI?
       href: overview.md
-- name: Első lépések
+- name: Bevezetés
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal
       href: get-started.md
@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: Meghajtók cseréje
       href: manage/replace-drives.md
+    - name: Fürtök kezelése
+      href: manage/cluster.md
     - name: Az Azure Site Recovery használata
       href: manage/azure-site-recovery.md
     - name: Monitorozás az Azure Monitorral

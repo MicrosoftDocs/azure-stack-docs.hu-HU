@@ -50,8 +50,8 @@
       href: /azure/active-directory/
 - name: További források
   items:
-    - name: Azure Stack hub-útiterv
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack hub közúti Térkép
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack hub MSDN fórum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
     - name: Azure Stack hub dokumentációs visszajelzése

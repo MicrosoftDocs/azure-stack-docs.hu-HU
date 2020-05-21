@@ -3,65 +3,94 @@ title: Azure Stack hub Storage-infrastruktúra áttekintése
 titleSuffix: Azure Stack
 description: Ismerje meg, hogyan kezelheti Azure Stack hub tárolási infrastruktúráját.
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 5/11/2020
+ms.topic: conceptual
+ms.date: 05/11/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: 0712caec89d3a6e2203ca780b4877b330953c61c
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: a8bc501587c4f4450a07704734391a8e889e3296
+ms.sourcegitcommit: 7d4c28353bc138bbae744d9dbca79fe934c2e94b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202492"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83624588"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack hub Storage-infrastruktúra áttekintése
 
-Ez a cikk áttekintést nyújt Azure Stack hub Storage-infrastruktúráról.
+Ez a cikk Azure Stack hub tárolási infrastruktúrájának fogalmait ismerteti. Információkat tartalmaz a meghajtókról és a kötetekről, valamint arról, hogyan használják őket Azure Stack központban.
 
-## <a name="understand-drives-and-volumes"></a>Meghajtók és kötetek ismertetése
+## <a name="drives"></a>Meghajtók
 
-### <a name="drives"></a>Meghajtók
+### <a name="drive-types"></a>Meghajtótípusok
 
-A Windows Server szoftverrel működő Azure Stack hub Közvetlen tárolóhelyek (S2D) és a Windows Server feladatátvételi fürtszolgáltatás együttes használatával határozza meg a tárolási képességeket. Ez a kombináció egy teljesítményű, méretezhető és rugalmas tárolási szolgáltatást biztosít.
+Azure Stack hub integrált rendszerpartnerei számos megoldási variációt kínálnak, beleértve a tárolási rugalmasság széles körét. A három támogatott meghajtó típus közül legfeljebb **két** meghajtót választhat:
 
-Azure Stack hub integrált rendszerpartnerei számos megoldási variációt kínálnak, beleértve a tárolási rugalmasság széles körét. Jelenleg legfeljebb két meghajtót választhat a három támogatott meghajtó közül: NVMe (nem felejtő memória expressz), SATA/SAS SSD (SSD-meghajtó), HDD (merevlemez). 
+1. NVMe (nem felejtő memória expressz)
+1. SATA/SAS SSD (SSD-meghajtó)
+1. HDD (merevlemez-meghajtó).
 
-Közvetlen tárolóhelyek tartalmaz egy gyorsítótárat a tárolási teljesítmény maximalizálása érdekében. Egy Azure Stack hub-készülék egyetlen meghajtóval (azaz NVMe vagy SSD-vel) minden meghajtót felhasznál a kapacitáshoz. Ha kétféle típusú meghajtó van, a Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD HDD) típusú meghajtókat használja a &gt; gyorsítótárazáshoz. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására. A meghajtók a következők egyike lehet: "All-Flash" vagy "hibrid".
+### <a name="performance-vs-capacity"></a>Teljesítmény és kapacitás
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image1.png)
+Azure Stack hub a Windows Server feladatátvételi fürtszolgáltatásával Közvetlen tárolóhelyek (S2D) protokollt használ. Ez a kombináció egy teljesítményű, méretezhető és rugalmas tárolási szolgáltatást biztosít.
+
+Azure Stack üzemelő példányok képesek maximalizálni a tárolási teljesítményt, illetve a teljesítmény és a kapacitás elosztását.
+
+A Közvetlen tárolóhelyek gyorsítótárat használ a tárolási teljesítmény maximalizálása érdekében.
+
+### <a name="how-drive-types-are-used"></a>A meghajtók típusának használata
+
+Ha egy Azure Stack hub-készülék egy meghajtóval rendelkezik, a rendszer minden meghajtót felhasznál a kapacitáshoz.
+
+Ha kétféle típusú meghajtó van, a Közvetlen tárolóhelyek automatikusan a "leggyorsabb" (NVMe &gt; SSD HDD) típusú meghajtókat használja a &gt; gyorsítótárazáshoz. A fennmaradó meghajtók szolgálnak a tárolókapacitás biztosítására.
+
+### <a name="all-flash-or-hybrid"></a>Minden Flash vagy hibrid
+
+A meghajtók egy "teljesen Flash" vagy "hibrid" telepítésbe csoportosíthatók.
 
 Az összes Flash-telepítés célja, hogy maximalizálja a tárolási teljesítményt, és ne tartalmazzon rotációs HDD-ket.
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image2.png)
+![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image1.png)
+
 
 A hibrid üzembe helyezések célja a teljesítmény és a kapacitás elosztása, illetve a kapacitás maximalizálása, valamint a rotációs HDD-k beépítése.
 
-A gyorsítótár viselkedését a rendszer a gyorsítótárban lévő meghajtók típusa (i) alapján automatikusan meghatározza. SSD-k gyorsítótárazásakor (például SSD-NVMe gyorsítótárazás esetén) csak az írások vannak gyorsítótárazva. Ez csökkenti a kapacitás-meghajtók kopását, csökkenti a kapacitás-meghajtók összesített forgalmát és az élettartamuk kiterjesztését. Addig az olvasások nem vannak gyorsítótárazva. Nincsenek gyorsítótárazva, mert az olvasások nem befolyásolják jelentősen a Flash élettartamát, és mivel az SSD-k univerzálisan alacsony olvasási késést kínálnak. A HDD-k gyorsítótárazása (például SSD-meghajtók gyorsítótárazása) esetén az olvasás és az írás is gyorsítótárazva van, így a Flash-hez hasonló késés (gyakran/~ 10x jobb) is biztosítható mindkettőhöz.
+![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image2.png)
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image3.png)
+### <a name="caching-behavior"></a>Gyorsítótárazási viselkedés
+
+A gyorsítótár viselkedését automatikusan meghatározza a meghajtók típusa (i) alapján. SSD-k gyorsítótárazásakor (például SSD-NVMe gyorsítótárazás esetén) csak az írások vannak gyorsítótárazva. Ez csökkenti a kapacitás-meghajtók kopását, csökkenti a kapacitás-meghajtók összesített forgalmát és az élettartamuk kiterjesztését.
+
+Az olvasások nem vannak gyorsítótárazva. Nincsenek gyorsítótárazva, mert az olvasások nem befolyásolják jelentősen a Flash élettartamát, és mivel az SSD-k univerzálisan alacsony olvasási késést kínálnak.
+
+A HDD-k gyorsítótárazása (például SSD-meghajtók gyorsítótárazása) esetén az olvasás és az írás is gyorsítótárazva van, így a Flash-hez hasonló késés (gyakran/~ 10x jobb) is biztosítható mindkettőhöz.
+
+![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 A tárterület elérhető konfigurációjának megadásához tekintse meg Azure Stack hub OEM-partnert ( https://azure.microsoft.com/overview/azure-stack/partners/) részletes leírást.
 
-> [!Note]  
-> Azure Stack hub-készülék hibrid üzembe helyezhető, HDD-és SSD-(vagy NVMe-) meghajtókon is. A gyorsabb típusú meghajtók azonban gyorsítótár-meghajtóként használhatók, és az összes többi meghajtót készletként fogja használni. A bérlői adattárolók (Blobok, táblák, várólisták és lemezek) a kapacitás-meghajtókra kerülnek. A prémium szintű lemezek kiosztása vagy a Premium Storage-fiók típusának kiválasztása nem garantálja, hogy az objektumok az SSD-vagy NVMe-meghajtókon lesznek lefoglalva.
+> [!NOTE]
+> Az Azure Stack hub készülék hibrid üzembe helyezhető, HDD-és SSD-(vagy NVMe-) meghajtókon is. A gyorsabb típusú meghajtók azonban gyorsítótár-meghajtóként használhatók, és az összes többi meghajtót készletként fogja használni. A bérlői adattárolók (Blobok, táblák, várólisták és lemezek) a kapacitás-meghajtókra kerülnek. A prémium szintű lemezek kiosztása vagy a Premium Storage-fiók típusának kiválasztása nem garantálja, hogy az objektumok az SSD-vagy NVMe-meghajtókon lesznek lefoglalva.
 
-### <a name="volumes"></a>Kötetek
+## <a name="volumes"></a>Kötetek
 
 A *Storage szolgáltatás* a rendelkezésre álló tárolót külön kötetekre particionálja, amelyek a rendszer-és a bérlői adattároláshoz vannak lefoglalva. A kötetek a Storage-készletben lévő meghajtókat kombinálva biztosítják a hibatűrést, a méretezhetőséget és a Közvetlen tárolóhelyek teljesítménybeli előnyeit.
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image4.png)
+![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image4.svg)
+
+### <a name="volume-types"></a>Kötetek típusai
 
 Az Azure Stack hub Storage-készleten három típusú kötet jön létre:
 
-- Infrastruktúra: Azure Stack hub infrastruktúra-alapú virtuális gépek és alapszolgáltatások által használt gazdagép-fájlok.
+1. A Azure Stack hub-infrastruktúra virtuális gépei és az alapszolgáltatások által használt **infrastruktúra** -kötetek gazdagép-fájljai.
+1. A **virtuális gép** ideiglenes kötetei a bérlői virtuális gépekhez csatolt ideiglenes lemezeket tárolják, és ezeket az adatlemezeket tárolják.
+1. Az **Object Store** -kötetek a bérlői adatkarbantartási blobokat, táblákat, várólistákat és virtuálisgép-lemezeket tartalmazzák.
 
-- VM Temp: a bérlői virtuális gépekhez csatolt ideiglenes lemezeket üzemelteti, és ezeket az adatlemezeket tárolja.
+### <a name="volumes-in-a-multi-node-deployment"></a>Kötetek egy több csomópontos üzemelő példányban
 
-- Object Store: gazdagép-bérlői adatkarbantartási Blobok, táblák, várólisták és virtuális gépek lemezei.
+A többcsomópontos telepítésekben három infrastrukturális kötet található.
 
-A többcsomópontos telepítésekben három infrastrukturális kötet látható, míg a virtuális gépek ideiglenes kötetei és az objektum-tároló kötetek száma megegyezik a Azure Stack hub üzemelő példányában lévő csomópontok számával:
+A virtuális gépek ideiglenes kötetei és az objektum-tároló kötetek száma megegyezik a Azure Stack hub üzemelő példányában található csomópontok számával:
 
 - Négy csomópontos üzemelő példányon négy azonos virtuálisgép-Temp kötet és négy egyenlő objektum-tároló kötet található.
 
@@ -69,13 +98,20 @@ A többcsomópontos telepítésekben három infrastrukturális kötet látható,
 
 - A kötetek száma változatlan marad, még akkor is, ha egy csomópont meghibásodik vagy törlődik.
 
-- Ha a Azure Stack Development Kit használja, egyetlen köteten több megosztás található.
+> [!NOTE]
+> Ha a [Azure stack Development Kit (ASDK)](https://docs.microsoft.com/azure-stack/asdk/)használja, akkor egyetlen kötet több [megosztással](azure-stack-manage-storage-shares.md)is rendelkezik.
 
-A Közvetlen tárolóhelyekban lévő kötetek rugalmasságot biztosítanak a hardveres problémák, például a meghajtó-vagy kiszolgálóhiba elleni védelemhez. A folyamatos rendelkezésre állást is lehetővé teszik a kiszolgáló karbantartása során, például a szoftverfrissítéseket. Azure Stack hub üzemelő példánya háromutas tükrözéssel biztosítja az adatrugalmasságot. A bérlői adatmennyiség három példánya különböző kiszolgálókra van írva, ahol a gyorsítótárban találhatók:
+### <a name="fault-tolerance-and-mirroring"></a>Hibatűrés és tükrözés
+
+A Közvetlen tárolóhelyekban lévő kötetek rugalmasságot biztosítanak a hardveres problémák, például a meghajtó-vagy kiszolgálóhiba elleni védelemhez. Lehetővé teszik a folyamatos rendelkezésre állást a kiszolgáló karbantartása során, például a szoftverfrissítéseket.
+
+A tükrözések hibatűrést biztosítanak, ha az összes adattal több példányt tart. Az adatszalagos tárolás és a nem triviális, de a tükrözést használó összes tárolt információ többször is szerepel. A rendszer minden egyes példányt különböző fizikai hardverre (különböző kiszolgálókon lévő különböző meghajtókra) ír, amelyeket feltételez, hogy egymástól függetlenül meghibásodik. 
+
+Azure Stack hub üzemelő példánya háromutas tükrözéssel biztosítja az adatrugalmasságot. A háromutas tükrözés képes biztonságosan elviselni legalább két hardveres problémát (meghajtó vagy kiszolgáló) egyszerre. Ha például egy kiszolgáló újraindításakor hirtelen egy másik meghajtó vagy kiszolgáló meghibásodik, az összes adat biztonságban és folyamatosan elérhető marad.
+
+A bérlői adatmennyiség három példánya különböző kiszolgálókra van írva, ahol a gyorsítótárban találhatók:
 
 ![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image5.png)
-
-A tükrözések hibatűrést biztosítanak, ha az összes adattal több példányt tart. Az adatszalagos tárolás és a nem triviális, de igaz, hogy a tükrözés használatával tárolt összes adathalmazt többször kell megírni. A rendszer minden egyes példányt különböző fizikai hardverre (különböző kiszolgálókon lévő különböző meghajtókra) ír, amelyeket feltételez, hogy egymástól függetlenül meghibásodik. A háromutas tükrözés képes biztonságosan elviselni legalább két hardveres problémát (meghajtó vagy kiszolgáló) egyszerre. Ha például egy kiszolgáló újraindításakor hirtelen egy másik meghajtó vagy kiszolgáló meghibásodik, az összes adat biztonságban és folyamatosan elérhető marad.
 
 ## <a name="next-step"></a>Következő lépés
 

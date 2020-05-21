@@ -3,25 +3,41 @@ title: Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 description: Ismerje meg, hogyan helyezheti üzembe az Azure Cognitive Servicest a Azure Stack hub szolgáltatásban.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/13/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 05/13/2020
+ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
+ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554981"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 
-> [!Note]  
-> Az Azure Cognitive Services on Azure Stack hub előzetes verzióban érhető el.
-
-Az Azure Cognitive Services a tárolók támogatásával Azure Stack hub-ban is használható. Az Azure Cognitive Services tárolók támogatása lehetővé teszi, hogy ugyanazokat a gazdag API-kat használja, amelyek elérhetők az Azure-ban. A tárolók használata rugalmasságot biztosít a [Docker-tárolókban](https://www.docker.com/what-container)tárolt szolgáltatások üzembe helyezéséhez és üzemeltetéséhez. A tárolók támogatása jelenleg előzetes verzióban érhető el az Azure Cognitive Services egy részhalmaza számára, beleértve a [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), a [text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)és a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) részeit.
+Az Azure Cognitive Services a tárolók támogatásával Azure Stack hub-ban is használható. Az Azure Cognitive Services tárolók támogatása lehetővé teszi, hogy ugyanazokat a gazdag API-kat használja, amelyek elérhetők az Azure-ban. A tárolók használata rugalmasságot biztosít a [Docker-tárolókban](https://www.docker.com/what-container)tárolt szolgáltatások üzembe helyezéséhez és üzemeltetéséhez. 
 
 A tárolókra bontás olyan szoftverterjesztési módszer, amelyben egy alkalmazás vagy szolgáltatás, beleértve a függőségeit és a konfigurációját, tároló képként van csomagolva. Kevés vagy nem módosítható, ha lemezképet telepít egy tároló gazdagépre. Minden tároló el van különítve a többi tárolótól és a mögöttes operációs rendszertől. Maga a rendszer csak a rendszerkép futtatásához szükséges összetevőket tartalmaz. A tároló gazdagépek kisebb helyigénysel rendelkeznek, mint a virtuális gépek. A rövid távú feladatok képeiből is létrehozhat tárolókat, amelyek már nem szükségesek, de eltávolíthatók.
+
+A tárolók támogatása jelenleg az Azure Cognitive Services egy részhalmaza számára érhető el:
+
+- Language Understanding
+- Text Analytics (hangulat 3,0)
+
+> [!IMPORTANT]
+> A Azure Stack hub-hoz készült Azure Cognitive Services egy részhalmaza jelenleg nyilvános előzetes verzióban érhető el.
+> A felülvizsgálati verziót szolgáltatói szerződés nélkül biztosítjuk, és éles számítási feladatokhoz nem ajánlott. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: a [Microsoft Azure előzetes verziójának kiegészítő használati feltételei](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+A tárolók támogatása jelenleg nyilvános előzetes verzióban érhető el az Azure Cognitive Services egy részhalmaza számára:
+
+- Olvasás (optikai karakterfelismerés \[ OCR-je])
+- Kulcskifejezések kinyerése
+- Nyelvfelismerés
+- Anomália detektor
+- Űrlap-felismerő
+- Beszéd – szöveg (egyéni, standard)
+- Szöveg – beszéd (egyéni, standard)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Tárolók használata Cognitive Services Azure Stack hub-on
 
@@ -66,7 +82,7 @@ Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, LU
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes titkos kód létrehozása 
 
-Használja a Kubectl Create Secret parancsot a Private Container Registry eléréséhez. Cserélje `<username>` le a elemet a felhasználónévre, és `<password>` a jelszót az Azure Cognitive Services csapattól kapott hitelesítő adatokban megadott jelszóval együtt.
+Használja a Kubectl Create Secret parancsot a Private Container Registry eléréséhez. Cserélje le a `<username>` elemet a felhasználónévre, és `<password>` a jelszót az Azure Cognitive Services csapattól kapott hitelesítő adatokban megadott jelszóval együtt.
 
 ```bash  
     kubectl create secret docker-registry <secretName> \
@@ -141,12 +157,37 @@ A legfontosabb mezők részletei:
 A következő parancs használata a kognitív szolgáltatás tárolóinak üzembe helyezéséhez:
 
 ```bash  
-    Kubectl apply -f <yamlFineName>
+    Kubectl apply -f <yamlFileName>
 ```
 A következő parancs használata az üzembe helyezésének figyelésére: 
 ```bash  
     Kubectl get pod - watch
 ```
+
+## <a name="configure-http-proxy-settings"></a>HTTP-proxy beállításainak konfigurálása
+
+A munkavégző csomópontoknak proxyra és SSL-re van szükségük. Ha HTTP-proxyt szeretne konfigurálni a kimenő kérelmek végrehajtásához, használja a következő két argumentumot:
+
+- **HTTP_PROXY** – a használni kívánt proxy, például:`https://proxy:8888`
+- **HTTP_PROXY_CREDS** – a proxyn való hitelesítéshez szükséges hitelesítő adatok, például: `username:password` .
+
+### <a name="set-up-the-proxy"></a>A proxy beállítása
+
+1. Fájl hozzáadása `http-proxy.conf` mindkét helyen:
+    - `/etc/system/system/docker.service.d/`
+    - `/cat/etc/environment/`
+
+2. Ellenőrizze, hogy be tud-e jelentkezni a tárolóba a Cognitive Services csapat által megadott hitelesítő adatokkal, és végezze el a `docker pull` következő tárolóban történő használatát: 
+
+    `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
+
+    Futtassa a következőt:
+
+    `docker run hello-world pull`
+
+### <a name="ssl-interception-setup"></a>SSL-lehallgatás beállítása
+
+1. Adja hozzá a **https-lehallgatás** tanúsítványát, `/usr/local/share/ca-certificates` és frissítse a tárolót a következővel: `update-ca-certificates` . 
 
 ## <a name="test-the-cognitive-service"></a>A kognitív szolgáltatás tesztelése
 
@@ -191,7 +232,7 @@ print(faces)
 
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Computer Vision API tárolók telepítése és futtatása.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 

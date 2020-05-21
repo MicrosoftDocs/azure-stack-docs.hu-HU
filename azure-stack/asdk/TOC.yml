@@ -7,7 +7,7 @@
       href: asdk-what-is.md
     - name: ASDK kibocsátási megjegyzései
       href: asdk-release-notes.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: Üzembe helyezési tervezési szempontok
       href: asdk-deploy-considerations.md
@@ -45,7 +45,7 @@
       href: asdk-connect.md
     - name: Hibaelhárítás
       href: asdk-troubleshooting.md
-- name: Hivatkozás
+- name: Referencia
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
@@ -57,10 +57,10 @@
       href: /azure-stack/operator
     - name: Azure Stack hub felhasználói dokumentációja
       href: /azure-stack/user/
-- name: Erőforrások
+- name: További források
   items:
-    - name: Azure Stack ütemterv
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack Road Térkép
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: MSDN-fórum Azure Stack
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure Stack dokumentációs visszajelzés
