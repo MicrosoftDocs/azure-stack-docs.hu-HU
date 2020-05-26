@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 54f993cd76f0d850e0dd82a2e1b9817806f2c517
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988320"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780805"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -86,7 +86,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Az offline szindikált eszköz frissítése megbízhatósági frissítésekkel történt. Az eszköz már nem érhető el a GitHubon, és [át lett helyezve a PowerShell-galériaba](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). További információ: [Marketplace-elemek letöltése Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).
 - Új figyelési képesség bevezetése folyamatban van. A fizikai gazdagépek és az infrastruktúra-virtuális gépek alacsony lemezterület-riasztása automatikusan kijavítja a platformot, és csak akkor, ha ez a művelet meghiúsul, a riasztás látható lesz az Azure Stack hub felügyeleti portálján, hogy az operátor végrehajtsa a műveletet.
 - A [diagnosztikai naplók gyűjtésének](azure-stack-diagnostic-log-collection-overview-tzl.md)fejlesztése. Az új felület egyszerűsíti és egyszerűbbé teszi a diagnosztikai naplók gyűjtését azáltal, hogy eltávolítja a blob Storage-fiók előzetes konfigurálásának szükségességét. A tárolási környezet előre konfigurálva van, így naplók küldhetők a támogatási eset megnyitása előtt, és kevesebb időt kell fordítani a támogatási hívásokra.
-- Az előjelzéses [naplók és az igény szerinti naplók gyűjtésére](azure-stack-diagnostic-log-collection-overview-tzl.md) vonatkozó idő 80%-kal csökkent. A naplózási gyűjtési idő hosszabb időt vehet igénybe a várt értéknél, de Azure Stack hub-operátorok beavatkozása nem szükséges, kivéve, ha a naplózási gyűjtemény sikertelen.
+- Az előjelzéses [naplók és az igény szerinti naplók gyűjtésére](azure-stack-diagnostic-log-collection-overview-tzl.md)vonatkozó idő   80%-kal csökkent. A naplózási gyűjtési idő hosszabb időt vehet igénybe a várt értéknél, de Azure Stack hub-operátorok beavatkozása nem szükséges, kivéve, ha a naplózási gyűjtemény sikertelen.
 - Egy Azure Stack hub-frissítési csomag letöltési folyamata mostantól látható a frissítés panelen a frissítés kezdeményezése után. Ez csak azokra a csatlakoztatott Azure Stack hub rendszerekre vonatkozik, amelyek a [frissítési csomagok automatikus letöltéssel történő előkészítését](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)választják.
 - A hálózati vezérlő gazdagép-ügynökének megbízhatósági fejlesztése.
 - Egy új, DNS-Orchestrator nevű Micro-szolgáltatást vezetett be, amely javítja a belső DNS-szolgáltatások rugalmassági logikáját a javítás és a frissítés során.
@@ -115,7 +115,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
   | Microsoft. backup. admin | mentések                | 2016-05-01 |
   | Microsoft. backup. admin | műveletek             | 2016-05-01 |
 
-- Windows rendszerű virtuális gép PowerShell használatával történő létrehozásakor ügyeljen arra, `provisionvmagent` hogy adja hozzá a jelzőt, ha azt szeretné, hogy a virtuális gép bővítményeket helyezzen üzembe. A jelző nélkül a virtuális gép a vendég ügynök nélkül jön létre, és nem távolítható el a virtuálisgép-bővítmények üzembe helyezésének lehetősége:
+- Windows rendszerű virtuális gép PowerShell használatával történő létrehozásakor ügyeljen arra, hogy adja hozzá a `provisionvmagent` jelzőt, ha azt szeretné, hogy a virtuális gép bővítményeket helyezzen üzembe. A jelző nélkül a virtuális gép a vendég ügynök nélkül jön létre, és nem távolítható el a virtuálisgép-bővítmények üzembe helyezésének lehetősége:
 
    ```powershell
    $VirtualMachine = Set-AzureRmVMOperatingSystem `
@@ -162,7 +162,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.37.132](https://support.microsoft.com/help/4550133)
+- [Azure Stack hub gyorsjavítási 1.1910.40.138](https://support.microsoft.com/help/4558082)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Az 2002-es frissítés sikeres alkalmazása után
 
@@ -195,7 +195,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 <!-- What's new, also net new experiences and features. -->
 
-- A felügyeleti portál mostantól megjeleníti a Kiemelt végpontok IP-címeit a régió tulajdonságok menüjében, amely megkönnyíti a felderítést. Emellett megjeleníti az aktuálisan konfigurált időkiszolgálót és a DNS-továbbítókat. További információ: [a privilegizált végpont használata Azure stack központban](azure-stack-privileged-endpoint.md).
+- A felügyeleti portál mostantól megjeleníti a Kiemelt végpontok IP-címeit a régió tulajdonságok menüjében, amely megkönnyíti a felderítést. Emellett megjeleníti az aktuálisan konfigurált időkiszolgálót és a DNS-továbbítókat. További információkat [a kiemelt végpont Azure Stack Hubbeli használatát ismertető részben](azure-stack-privileged-endpoint.md) talál.
 
 - A Azure Stack hub állapot-és monitorozási rendszere mostantól hibát okozhat a különböző hardver-összetevőkön. Ezek a riasztások további konfigurálást igényelnek. További információ: [Azure stack hub hardver-összetevők figyelése](azure-stack-hardware-monitoring.md).
 
@@ -282,10 +282,10 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
    - **Új DRP felügyeleti modul**: a telepítési erőforrás-szolgáltató (DRP) lehetővé teszi az erőforrás-szolgáltatók összehangolt központi telepítését Azure stack hubhoz. Ezek a parancsok a Azure Resource Manager réteget használják a DRP való kommunikációhoz.
    - **Brp**: <br />
            – Az Azure-beli verem-infrastruktúra biztonsági mentésének egyetlen szerepkör-visszaállítási funkciójának támogatása. <br />
-           -Paraméter `RoleName` hozzáadása a parancsmaghoz `Restore-AzsBackup`.
-   - **FRP**: a **meghajtó** -és **kötet** -erőforrások a következő API `2019-05-01`-verzióval történő megszakítása. A funkciókat a Azure Stack hub 1910-es és újabb verziói támogatják: <br />
-            – A, a `ID`és `Name` `OperationalStatus` a `HealthStatus`érték módosult. <br />
-            – Támogatott új tulajdonságok `FirmwareVersion`, `IsIndicationEnabled` `Manufacturer`,, és `StoragePool` a **meghajtó** erőforrásaihoz. <br />
+           -Paraméter hozzáadása `RoleName` a parancsmaghoz `Restore-AzsBackup` .
+   - **FRP**: a **meghajtó** -és **kötet** -erőforrások a következő API-verzióval történő megszakítása `2019-05-01` . A funkciókat a Azure Stack hub 1910-es és újabb verziói támogatják: <br />
+            – A, a `ID` és a érték `Name` `HealthStatus` `OperationalStatus` módosult. <br />
+            – Támogatott új tulajdonságok `FirmwareVersion` ,,, `IsIndicationEnabled` `Manufacturer` és `StoragePool` a **meghajtó** erőforrásaihoz. <br />
             – A tulajdonságok `CanPool` és `CannotPoolReason` a **meghajtó** erőforrásai elavultak; használja `OperationalStatus` helyette.
 
 ### <a name="fixes"></a>Javítások
@@ -319,14 +319,14 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 Azure Stack hub 1910-es kiadását a 1908-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1908.25.78](https://support.microsoft.com/help/4552361)
+- [Azure Stack hub gyorsjavítási 1.1908.29.87](https://support.microsoft.com/help/4558083)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Az 1910-es frissítés sikeres alkalmazása után
 
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.37.132](https://support.microsoft.com/help/4550133)
+- [Azure Stack hub gyorsjavítási 1.1910.40.138](https://support.microsoft.com/help/4558082)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -405,7 +405,7 @@ Az Azure Stack hub 1908 Update **Azure stack hub OEM 2,1-es vagy újabb verziój
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1908.25.78](https://support.microsoft.com/help/4552361)
+- [Azure Stack hub gyorsjavítási 1.1908.29.87](https://support.microsoft.com/help/4558083)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

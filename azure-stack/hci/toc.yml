@@ -20,10 +20,16 @@
       href: manage/replace-drives.md
     - name: Fürtök kezelése
       href: manage/cluster.md
+    - name: Kiszolgálók hozzáadása vagy eltávolítása
+      href: manage/add-cluster.md
     - name: Az Azure Site Recovery használata
       href: manage/azure-site-recovery.md
     - name: Monitorozás az Azure Monitorral
       href: manage/azure-monitor.md
+    - name: Virtuális gépek kezelése
+      href: manage/vm.md
+    - name: Virtuális gépek kezelése a PowerShell-lel
+      href: manage/vm-powershell.md
     - name: GPU csatlakoztatása Linux rendszerű virtuális géphez
       href: manage/attach-gpu-to-linux-vm.md
 - name: Alapelvek

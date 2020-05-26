@@ -97,6 +97,8 @@
           items:
             - name: Áttekintés
               href: azure-stack-version-profiles.md
+            - name: Profilok által támogatott erőforrás-szolgáltatói API-k
+              href: azure-stack-profiles-azure-resource-manager-versions.md
             - name: .NET
               href: azure-stack-version-profiles-net.md
             - name: Java
@@ -109,8 +111,6 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: Profilok által támogatott erőforrás-szolgáltatói API-k
-              href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Erőforrás-szolgáltatók használata
       items:
         - name: 'Biztonság, megfelelőség és identitás'

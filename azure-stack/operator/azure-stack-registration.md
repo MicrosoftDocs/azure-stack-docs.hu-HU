@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988299"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780795"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -252,7 +252,7 @@ Ha Azure Stack központot regisztrál egy leválasztott környezetben (internetk
 
 ### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
-Az internethez csatlakozó számítógépen hajtsa végre ugyanezen lépéseket a RegisterWithAzure. psm1 modul importálásához, és jelentkezzen be a megfelelő Azure PowerShell-környezetbe. Ezután hívja meg a Register-AzsEnvironment. Az Azure-ban regisztrálni kívánt regisztrációs jogkivonat meghatározása. Ha a Azure Stack hub több példányát regisztrálja ugyanazzal az Azure-előfizetési AZONOSÍTÓval, adjon meg egy egyedi regisztrációs nevet.
+Az internethez csatlakozó számítógépen hajtsa végre ugyanezen lépéseket a RegisterWithAzure. psm1 modul importálásához, és jelentkezzen be a megfelelő Azure PowerShell környezetbe. Ezután hívja meg a Register-AzsEnvironment. Az Azure-ban regisztrálni kívánt regisztrációs jogkivonat meghatározása. Ha a Azure Stack hub több példányát regisztrálja ugyanazzal az Azure-előfizetési AZONOSÍTÓval, adjon meg egy egyedi regisztrációs nevet.
 
 A regisztrációs jogkivonat és egy egyedi jogkivonat neve szükséges.
 
@@ -357,22 +357,40 @@ A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 - A számlázási modell módosításakor.
 - A változások méretezése (csomópontok hozzáadása/eltávolítása) a kapacitás alapú számlázáshoz.
 
+### <a name="prerequisites"></a>Előfeltételek
+
+A következő információk szükségesek a [felügyeleti portálról](#verify-azure-stack-hub-registration) a regisztráció megújításához vagy módosításához:
+
+| Felügyeleti portál | Parancsmag paraméter | Megjegyzések | 
+|-----|-----|-----|
+| REGISZTRÁCIÓS ELŐFIZETÉS AZONOSÍTÓJA | Előfizetés | Az előző regisztráció során használt előfizetés-azonosító |
+| REGISZTRÁCIÓS ERŐFORRÁSCSOPORT | ResourceGroupName | Az az erőforráscsoport, amelyben az előző regisztrációs erőforrás létezik |
+| REGISZTRÁCIÓ NEVE | RegistrationName | A korábbi regisztráció során használt regisztrációs név |
+
 ### <a name="change-the-subscription-you-use"></a>A használt előfizetés módosítása
 
-Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot bármilyen módosított paraméterrel, beleértve `<billing model>`a következőt:. A **Remove-AzsRegistration**futtatása közben be kell jelentkeznie a regisztráció során használt előfizetésbe, és a és `RegistrationName` `ResourceGroupName` a paraméterek használati értékeit a felügyeleti portálon a [jelenlegi regisztrációs adatok keresése](#verify-azure-stack-hub-registration)lehetőségnél látható módon:
+Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot bármilyen módosított paraméterrel, beleértve a következőt: `<billing model>` . A **Remove-AzsRegistration**futtatása közben be kell jelentkeznie a regisztráció során használt előfizetésbe, és a és a paraméterek használati értékeit a `RegistrationName` `ResourceGroupName` [felügyeleti portálon](#verify-azure-stack-hub-registration)látható módon kell megadnia:
 
   ```powershell  
+  # select the subscription used during the registration (shown in portal)
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # switch to new subscription id
+  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  # register 
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
   ```
 
-### <a name="change-the-billing-model-or-how-to-offer-features"></a>A számlázási modell vagy a szolgáltatások ajánlatának módosítása
+### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>A számlázási modell módosítása, a szolgáltatások felkínálása vagy a példány újbóli regisztrálása
 
-Ha módosítani szeretné a számlázási modellt, vagy azt, hogy miként lehet szolgáltatásokat kínálni a telepítéshez, meghívhatja a regisztrációs függvényt az új értékek beállítására. Nem kell először eltávolítania az aktuális regisztrációt:
+Ez a szakasz akkor érvényes, ha módosítani szeretné a számlázási modellt, a szolgáltatások kínálatát, vagy ha újra szeretné regisztrálni a példányt. Ebben az esetben a regisztrációs függvényt kell meghívnia az új értékek beállítására. Nem kell először eltávolítania az aktuális regisztrációt. Jelentkezzen be a [felügyeleti portálon](#verify-azure-stack-hub-registration)megjelenő előfizetés-azonosítóba, majd futtassa újra a regisztrációt egy új `BillingModel` értékkel, miközben a `RegistrationName` és a `ResourceGroupName` Paraméterek értékei megegyeznek a [felügyeleti portálon](#verify-azure-stack-hub-registration)látható értékekkel:
 
   ```powershell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # select the subscription used during the registration
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 ::: zone-end
 
@@ -389,7 +407,7 @@ Először el kell távolítania az aktiválási erőforrást Azure Stack hubhoz,
 
 Az Azure Stack hub aktiválási erőforrásának eltávolításához futtassa a következő PowerShell-parancsmagokat az Azure Stack hub-környezetben:  
 
-  ```Powershell
+  ```powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
@@ -397,21 +415,20 @@ Ha a regisztrációs erőforrást el szeretné távolítani az Azure-ban, győz�
 
 Használhatja az erőforrás létrehozásához használt regisztrációs jogkivonatot:  
 
-  ```Powershell
+  ```powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-Vagy használhatja a regisztrációs nevet is:
+Vagy használhatja a regisztrációs név és a regisztrációs erőforráscsoport nevét a [felügyeleti portálról](#verify-azure-stack-hub-registration):
 
-  ```Powershell
-  $RegistrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $RegistrationName
+  ```powershell
+  Unregister-AzsEnvironment -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 
 ### <a name="re-register-using-connected-steps"></a>Ismételt regisztrálás a csatlakoztatott lépések használatával
 
-Ha a számlázási modellt egy csatlakoztatott állapotban lévő, leválasztott állapotból a kapacitás számlázására módosítja, akkor a csatlakoztatott [modell lépései](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features)után újra regisztrálnia kell. 
+Ha a számlázási modellt egy csatlakoztatott állapotban lévő, leválasztott állapotból a kapacitás számlázására módosítja, akkor a csatlakoztatott [modell lépései](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance)után újra regisztrálnia kell. 
 
 >[!Note] 
 >Ez nem változtatja meg az identitási modellt, csak a számlázási mechanizmust, és továbbra is az ADFS-t fogja használni az identitás forrásaként.
@@ -517,13 +534,13 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy az alábbi hibák valamelyike látható:
 
-- Nem sikerült beolvasni a `$hostName`kötelező hardver-információkat. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
+- Nem sikerült beolvasni a kötelező hardver-információkat `$hostName` . Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újra a regisztrációt.
 
-- Nem lehet csatlakozni `$hostName` a következőhöz: a hardver információinak beolvasása. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újból futtatni a regisztrációt.
+- Nem lehet csatlakozni a következőhöz: `$hostName` a hardver információinak beolvasása. Tekintse át a fizikai gazdagépet és a kapcsolatot, majd próbálja meg újra a regisztrációt.
 
    Ok: ez általában azért van, mert a gazdagépekről próbáljuk ki a hardver részleteit, például az UUID-t, a BIOS-t és a CPU-t, hogy megkísérelje az aktiválást, és nem tudta elérni a fizikai gazdagéphez való kapcsolódás lehetőségét.
 
-- A Felhőbeli`GUID`azonosító [] már regisztrálva van. A Felhőbeli azonosítók újrafelhasználása nem engedélyezett.
+- A Felhőbeli azonosító [ `GUID` ] már regisztrálva van. A Felhőbeli azonosítók újrafelhasználása nem engedélyezett.
 
    Ok: Ez akkor fordul elő, ha a Azure Stack-környezet már regisztrálva van. Ha újra regisztrálni szeretné a környezetet egy másik előfizetéssel vagy számlázási modellel, kövesse a [regisztráció megújítása vagy módosítása lépéseit](#renew-or-change-registration).
 

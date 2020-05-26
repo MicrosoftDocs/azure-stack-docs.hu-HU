@@ -1,17 +1,18 @@
 ---
-title: IPsec/IKE-helyek közötti VPN-kapcsolatok konfigurálása
-description: Ismerje meg és konfigurálja az IPsec/IKE-házirendet a két hálózat közötti pont-pont típusú VPN-vagy VNet-VNet kapcsolatok számára Azure Stack hub-ban.
+title: IPsec/IKE-helyek közötti VPN-kapcsolatok konfigurálása Azure Stack hub-ban
+description: 'További információk: az IPsec/IKE-szabályzat konfigurálása a helyek közötti VPN-vagy VNet-VNet kapcsolatokhoz Azure Stack központban.'
 author: sethmanheim
+ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967794"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780683"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
@@ -24,7 +25,7 @@ Ez a cikk végigvezeti egy IPsec/IKE-szabályzat konfigurálásának lépésein 
 
 Az IPsec és az IKE protokoll szabványa számos titkosítási algoritmust támogat különböző kombinációkban. Ha szeretné megtekinteni, hogy mely paraméterek támogatottak Azure Stack hub-ban, hogy megfeleljen a megfelelőségi vagy biztonsági követelményeknek, tekintse meg az [IPSec/IKE paramétereit](azure-stack-vpn-gateway-settings.md#ipsecike-parameters).
 
-Ez a cikk útmutatást nyújt az IPsec/IKE-szabályzatok létrehozásáról és konfigurálásáról, valamint az új vagy meglévő kapcsolatok alkalmazásáról.
+Ez a cikk útmutatást nyújt az IPsec/IKE-szabályzatok létrehozásáról és konfigurálásáról, és azt egy új vagy meglévő kapcsolódásra alkalmazza.
 
 ## <a name="considerations"></a>Megfontolandó szempontok
 
@@ -38,9 +39,17 @@ A szabályzatok használatakor vegye figyelembe a következő fontos szempontoka
 
 - A VPN-eszközök gyártójának specifikációit megkeresve ellenőrizze, hogy a helyi VPN-eszközökön támogatott-e a házirend. A helyek közötti kapcsolatokat nem lehet létrehozni, ha a házirendek nem kompatibilisek.
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>1. rész – az IPsec/IKE-házirend létrehozásához és beállításához szükséges munkafolyamat
+### <a name="prerequisites"></a>Előfeltételek
 
-Ez a szakasz a két hálózat közötti pont-pont típusú VPN-kapcsolat IPsec/IKE-házirendjének létrehozásához és frissítéséhez szükséges munkafolyamatot ismerteti:
+Mielőtt elkezdené, győződjön meg arról, hogy rendelkezik a következő előfeltételekkel:
+
+- Azure-előfizetés. Ha még nem rendelkezik Azure-előfizetéssel, aktiválhatja [MSDN-előfizetői előnyeit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), vagy regisztrálhat egy [ingyenes fiókot](https://azure.microsoft.com/pricing/free-trial/).
+
+- A Azure Resource Manager PowerShell-parancsmagok. A PowerShell-parancsmagok telepítésével kapcsolatos további információkért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
+
+## <a name="part-1---create-and-set-ipsecike-policy"></a>1. rész – IPsec/IKE-házirend létrehozása és beállítása
+
+Ez a szakasz a helyek közötti VPN-kapcsolat IPsec/IKE-házirendjének létrehozásához és frissítéséhez szükséges lépéseket ismerteti:
 
 1. Hozzon létre egy virtuális hálózatot és egy VPN-átjárót.
 
@@ -58,7 +67,7 @@ Az ebben a cikkben szereplő utasítások segítséget nyújtanak az IPsec/IKE-s
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>2. rész – támogatott titkosítási algoritmusok és fő erősségek
 
-A következő táblázat felsorolja a támogatott titkosítási algoritmusokat és a Azure Stack hub-ügyfelek által konfigurálható fő erősségeket:
+A következő táblázat felsorolja a támogatott titkosítási algoritmusokat és a Azure Stack hub által konfigurálható fő erősségeket:
 
 | IPsec/IKEv2                                          | Beállítások                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
@@ -79,9 +88,9 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
   - IPsec titkosítási algoritmus (gyors mód/2. fázis).
   - IPsec-integritási algoritmus (gyors mód/2. fázis).
   - PFS-csoport (gyors mód/2. fázis).
-  - Az SA-élettartamok csak a helyi specifikációk, ezért nem kell megegyezniük.
+  - Az SA-élettartamok csak a helyi specifikációk, és nem kell egyezniük.
 
-- Ha a GCMAES-t IPsec titkosítási algoritmusként használja, ki kell választania ugyanazt a GCMAES algoritmust és a kulcs hosszát az IPsec-integritáshoz. Például: a GCMAES128 használata mindkettőhöz.
+- Ha a GCMAES IPsec titkosítási algoritmusként van használatban, ki kell választania ugyanazt a GCMAES algoritmust és a kulcs hosszát az IPsec-integritáshoz; például a GCMAES128 használata mindkettőhöz.
 
 - Az előző táblázatban:
 
@@ -112,14 +121,6 @@ Ez a szakasz végigvezeti a helyek közötti VPN-kapcsolat IPsec/IKE-házirendde
 ![helyek közötti kapcsolat – szabályzat](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 A helyek közötti VPN-kapcsolatok létrehozásával kapcsolatos részletes útmutatásért lásd: [helyek közötti VPN-kapcsolat létrehozása](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell).
-
-### <a name="prerequisites"></a>Előfeltételek
-
-Mielőtt elkezdené, győződjön meg arról, hogy rendelkezik a következő előfeltételekkel:
-
-- Azure-előfizetés. Ha még nem rendelkezik Azure-előfizetéssel, aktiválhatja [MSDN-előfizetői előnyeit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), vagy regisztrálhat egy [ingyenes fiókot](https://azure.microsoft.com/pricing/free-trial/).
-
-- A Azure Resource Manager PowerShell-parancsmagok. A PowerShell-parancsmagok telepítésével kapcsolatos további információkért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1. lépés – a virtuális hálózat, a VPN-átjáró és a helyi hálózati átjáró létrehozása
 
@@ -226,9 +227,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 Az előző szakasz azt mutatta be, hogyan kezelhetők az IPsec/IKE-szabályzatok egy meglévő helyek közötti kapcsolathoz. Ez a szakasz végigvezeti a következő műveleteken a kapcsolatban:
 
-1. Egy kapcsolat IPsec/IKE-házirendjének megjelenítése.
-2. Az IPsec/IKE-házirend hozzáadása vagy frissítése egy kapcsolatban.
-3. Távolítsa el az IPsec/IKE-házirendet egy-kapcsolatban.
+- Egy kapcsolat IPsec/IKE-házirendjének megjelenítése.
+- Az IPsec/IKE-házirend hozzáadása vagy frissítése egy kapcsolatban.
+- Távolítsa el az IPsec/IKE-házirendet egy-kapcsolatban.
 
 > [!NOTE]
 > Az IPsec/IKE-házirend csak a *standard* és a *HighPerformance* Route-alapú VPN-átjárók esetében támogatott. Nem működik az *Alapszintű* átjáró SKU-on.
@@ -314,4 +315,4 @@ Ugyanazzal a parancsfájllal ellenőrizhető, hogy a házirend el lett-e távol�
 
 ## <a name="next-steps"></a>További lépések
 
-- [Azure Stack hub VPN Gateway konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)
+- [Az Azure Stack Hub VPN Gateway-konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)
