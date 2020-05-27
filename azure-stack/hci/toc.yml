@@ -20,6 +20,8 @@
       href: manage/replace-drives.md
     - name: Fürtök kezelése
       href: manage/cluster.md
+    - name: Fürtök kezelése a PowerShell-lel
+      href: manage/cluster-powershell.md
     - name: Kiszolgálók hozzáadása vagy eltávolítása
       href: manage/add-cluster.md
     - name: Az Azure Site Recovery használata
