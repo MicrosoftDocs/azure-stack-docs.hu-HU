@@ -3,16 +3,16 @@ title: PowerShell Azure Stack hub-ban
 description: Azure Stack központban található PowerShell számos modult és kontextust tartalmaz.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643462"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111811"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Ismerkedés a PowerShell-lel Azure Stack hub-ban
 
@@ -51,7 +51,7 @@ Azure Stack hub erőforrás-szolgáltatók készletét teszi elérhetővé a Fel
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Azure Stack hub privilegizált végpontja
 
-Azure Stack hub operátori tevékenységeihez, például a telepítés teszteléséhez és a naplók eléréséhez a kezelők kommunikálhatnak a privilegizált végponttal (PEP). A PEP egy előre konfigurált távoli PowerShell-konzol, amely lehetővé teszi, hogy a kezelők számára megfelelő hozzáférést biztosítson bizonyos feladatokhoz. A végpont a PowerShell elég felügyeletét (JEA) használja a parancsmagok korlátozott készletének elérhetővé tétele érdekében. További információ: [a privilegizált végpont használata Azure stack központban](../operator/azure-stack-privileged-endpoint.md).
+Azure Stack hub operátori tevékenységeihez, például a telepítés teszteléséhez és a naplók eléréséhez a kezelők kommunikálhatnak a privilegizált végponttal (PEP). A PEP egy előre konfigurált távoli PowerShell-konzol, amely lehetővé teszi, hogy a kezelők számára megfelelő hozzáférést biztosítson bizonyos feladatokhoz. A végpont a PowerShell elég felügyeletét (JEA) használja a parancsmagok korlátozott készletének elérhetővé tétele érdekében. További információkat [a kiemelt végpont Azure Stack Hubbeli használatát ismertető részben](../operator/azure-stack-privileged-endpoint.md) talál.
 
 ### <a name="azure-stack-hub-tools"></a>Azure Stack hub-eszközök
 
@@ -66,7 +66,7 @@ Ha sok időt tölt a Azure Stack hub PowerShell használatával, akkor a modulok
 A Docker-tárolók segítségével elkülönítheti a PowerShell egyes verzióit a helyi gépen. Ha Docker-tárolókat szeretne használni, hogy a PowerShell-modul PowerShell-modul készletére váltson, a PowerShell [futtatásához használja a Docker használata](azure-stack-powershell-user-docker.md)című témakört.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack hub-ban.
 - Telepítse [Azure stack hub PowerShellt](../operator/azure-stack-powershell-install.md).

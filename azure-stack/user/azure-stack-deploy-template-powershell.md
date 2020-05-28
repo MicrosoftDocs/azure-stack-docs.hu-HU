@@ -3,16 +3,16 @@ title: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ba
 description: Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 9081464e05825cbd211f043818e841276a840303
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7c8c27374b7ba114dc09297c2f0112d3f0f9579d
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704267"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112161"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Sablon üzembe helyezése a PowerShell használatával Azure Stack hub-ban
 
@@ -25,9 +25,9 @@ Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablo
 >[!NOTE]
 > A példa kipróbálása előtt ellenőrizze, hogy konfigurálta-e a [PowerShellt](azure-stack-powershell-configure-user.md) egy Azure stack hub-felhasználóhoz.
 
-1. Keresse meg a [AzureStack-Gyorsindítás-sablonok](https://aka.ms/AzureStackGitHub) tárházat, és keresse meg a **101-Simple-Windows-VM** sablont. Mentse a sablont erre a helyre: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Keresse meg a [AzureStack-Gyorsindítás-sablonok](https://aka.ms/AzureStackGitHub) tárházat, és keresse meg a **101-Simple-Windows-VM** sablont. Mentse a sablont erre a helyre: `C:\templates\azuredeploy-101-simple-windows-vm.json` .
 2. Nyisson meg egy emelt szintű PowerShell-parancssort.
-3. Cserélje `username` le `password` a és a parancsot a következő parancsfájlba a felhasználónevével és jelszavával, majd futtassa a parancsfájlt:
+3. Cserélje le a `username` és a `password` parancsot a következő parancsfájlba a felhasználónevével és jelszavával, majd futtassa a parancsfájlt:
 
     ```powershell
     # Set deployment variables
@@ -54,8 +54,8 @@ Ez a példa **AzureRM** PowerShell-parancsmagokat és egy githubon tárolt sablo
 
 ## <a name="cancel-a-running-template-deployment"></a>Futó sablon központi telepítésének megszakítása
 
-Egy futó sablon központi telepítésének megszakításához használja `Stop-AzureRmResourceGroupDeployment` a PowerShell-parancsmagot.
+Egy futó sablon központi telepítésének megszakításához használja a `Stop-AzureRmResourceGroupDeployment` PowerShell-parancsmagot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Sablon üzembe helyezése a Visual Studióval](azure-stack-deploy-template-visual-studio.md)

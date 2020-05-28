@@ -3,15 +3,15 @@ title: Windows rendszerű virtuális gép létrehozása Azure Stack hub-ban az A
 description: Windows rendszerű virtuális gép létrehozása Azure Stack hub-ban az Azure CLI használatával
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 5c4c9c5f173b65051ba86e02ae7623a24a406f39
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "78231655"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111846"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 
@@ -27,7 +27,7 @@ Az Azure CLI használatával létrehozhat egy Windows Server 2016 rendszerű vir
 
 * Azure Stack hub-nak az Azure CLI egy adott verziójára van szüksége az erőforrások létrehozásához és kezeléséhez. Ha nem rendelkezik az Azure CLI-vel Azure Stack hubhoz konfigurálva, kövesse az [Azure CLI telepítésének és konfigurálásának](azure-stack-version-profiles-azurecli2.md)lépéseit.
 
-## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
+## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
 Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Az Azure Stack hub-környezetből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
 
@@ -88,7 +88,7 @@ Az alapértelmezett IIS-Kezdőlap megtekintésére használhat egy tetszőleges 
 
 ![Alapértelmezett IIS-webhely](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
+## <a name="clean-up-resources"></a>Erőforrások felszabadítása
 
 Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Group delete](/cli/azure/group#az-group-delete) parancs használatával távolítsa el az erőforráscsoportot, a virtuális gépet és az összes kapcsolódó erőforrást.
 
@@ -96,6 +96,6 @@ Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Gro
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack hub virtuális gépekről, folytassa az [Azure stack hub Virtual Machinesével kapcsolatos szempontokat](azure-stack-vm-considerations.md).

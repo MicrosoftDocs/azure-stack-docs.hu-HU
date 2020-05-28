@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 20f50ffdaee8ca24cfc0c0406d846d3f5e830396
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 56782d79483f544dc019b4c162ed9af1a1163e4b
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988277"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111238"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
@@ -49,7 +49,7 @@ Az Azure Stack hub-kezelő környezet PowerShell-lel való konfigurálásához f
 
 ## <a name="connect-with-ad-fs"></a>Kapcsolat AD FS
 
-Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure Active Directory összevont szolgáltatásokkal (Azure AD FS). A ASDK esetében ez a Azure Resource Manager végpont a következőre `https://adminmanagement.local.azurestack.external`van beállítva:. Azure Stack hub integrált rendszerek Azure Resource Manager végpontjának lekéréséhez forduljon a szolgáltatóhoz.
+Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure Active Directory összevont szolgáltatásokkal (Azure AD FS). A ASDK esetében ez a Azure Resource Manager végpont a következőre van beállítva: `https://adminmanagement.local.azurestack.external` . Azure Stack hub integrált rendszerek Azure Resource Manager végpontjának lekéréséhez forduljon a szolgáltatóhoz.
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -72,7 +72,7 @@ Most, hogy mindent beállított, a PowerShell használatával hozzon létre erő
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Sablonok fejlesztése Azure stack hub számára](../user/azure-stack-develop-templates.md).
 - [Sablonok üzembe helyezése a PowerShell](../user/azure-stack-deploy-template-powershell.md)-lel.

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub Storage és az Azure Storage közötti különbségeket, valamint Azure Stack hub üzembe helyezési szempontjait.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4206ebb6e8195c43ad043f09567d0911222c1e20
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81394968"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111931"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -23,7 +23,7 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 
 ## <a name="cheat-sheet-storage-differences"></a>Cheat Sheet: tárolási különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack hub |
+| Funkció | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 |File Storage|A felhőalapú SMB-fájlmegosztás támogatott. | Még nem támogatott.
 |Azure Storage szolgáltatás titkosítása inaktív adatok esetén|256 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás támogatása Key Vaultban.|BitLocker 128 bites AES-titkosítás. Az ügyfél által felügyelt kulcsokkal történő titkosítás nem támogatott.
@@ -104,7 +104,7 @@ A Storage-modul PowerShell-hez vegye figyelembe a REST API kompatibilis verziót
 
 További információ a Azure Stack hub támogatott Storage-kódtárakkal kapcsolatban: Ismerkedés [a Azure stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)
 * [Adatátviteli eszközök használata az Azure Stack hub Storage szolgáltatáshoz](azure-stack-storage-transfer.md)

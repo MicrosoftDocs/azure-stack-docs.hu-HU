@@ -3,15 +3,15 @@ title: Azure Monitor használata Azure Stack hub-on
 description: Ismerje meg, hogyan használhatja a Azure Monitort Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742446"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112033"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
 
@@ -122,6 +122,6 @@ Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztá
 > [!Important]  
 > Ha egy virtuális gép teljesítményének megtekintésekor **nem talál** hibát, akkor ellenőrizze, hogy regisztrálta-e a Microsoft. bepillantást a virtuális géphez társított előfizetésre.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a Azure Stack hub adatfelhasználásának figyeléséről a [Azure stack hub megfigyelési adatainak felhasználása](azure-stack-metrics-monitor.md)című cikkben olvasható.

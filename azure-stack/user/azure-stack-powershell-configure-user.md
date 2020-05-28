@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3656a5a6a992788ca8d4d975ac819f69793edb02
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702040"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111785"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
 
@@ -36,7 +36,7 @@ Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/a
 - **Azure AD-bérlő neve**  
   Az Azure Stack hub felügyeletéhez használt Azure AD-bérlő neve. Például: yourdirectory.onmicrosoft.com.
 - **Azure Resource Manager végpont**  
-  A Azure Stack Development Kit esetében ez az érték a következőre van beállítva: https://management.local.azurestack.external. Ha ezt az értéket szeretné lekérni Azure Stack hub integrált rendszerek esetében, forduljon a szolgáltatóhoz.
+  A Azure Stack Development Kit esetében ez az érték a következőre van beállítva: https://management.local.azurestack.external . Ha ezt az értéket szeretné lekérni Azure Stack hub integrált rendszerek esetében, forduljon a szolgáltatóhoz.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Kapcsolódás Azure Stack hubhoz az Azure AD-vel
 
@@ -82,7 +82,7 @@ Ha minden beállítással rendelkezik, tesztelje a kapcsolatot a PowerShell hasz
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Sablonok fejlesztése Azure Stack hubhoz](azure-stack-develop-templates.md)
 - [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)

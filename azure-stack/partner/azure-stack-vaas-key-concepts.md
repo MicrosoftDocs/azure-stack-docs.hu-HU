@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg Azure Stack hub ellenőrzésének főbb fogalmait szolgáltatásként.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9525f1f6286f5621832db5b20b3593fde6bf3546
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294164"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112101"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
 
@@ -76,6 +76,6 @@ A helyi ügynökök nem kötődnek egy adott Azure Stack hub-vagy az alaprendsze
 
 Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Ajánlott eljárások szolgáltatásként történő érvényesítéshez](azure-stack-vaas-best-practice.md)

@@ -3,16 +3,16 @@ title: A Docker használata a PowerShell futtatásához Azure Stack központban
 description: A Docker használata a PowerShell futtatásához Azure Stack központban
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9d761114908919ef1b98436997c7225ba1544ae3
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79312972"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111829"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>A Docker használata a PowerShell futtatásához Azure Stack központban
 
@@ -91,7 +91,7 @@ A Docker megnyitja a Microsoft */Windowsservercore Microsoft-* rendszerképét, 
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 -  Tekintse át az [Azure stack hub PowerShell Azure stack hub-](azure-stack-powershell-overview.md)beli áttekintését.
 - További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack hub-ban.

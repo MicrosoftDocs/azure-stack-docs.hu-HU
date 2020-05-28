@@ -3,16 +3,16 @@ title: A Kubernetes telepítése Azure Stack hub-tárolók használatára
 description: Megtudhatja, hogyan helyezhet üzembe Kubernetes a tárolók Azure Stack hubhoz való használatához.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 789f516355407a5b1c69c4c359b8377a63e06123
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294252"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111420"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
 
@@ -45,11 +45,11 @@ A fürt AD FS használatával történő telepítésével kapcsolatos útmutatá
 
 ## <a name="connect-to-your-cluster"></a>Kapcsolódás a fürthöz
 
-Most már készen áll a fürthöz való kapcsolódásra. A főkiszolgáló a fürterőforrás-csoportban található, és neve `k8s-master-<sequence-of-numbers>`. Használjon SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. A főkiszolgálón használhatja a **kubectl**, a Kubernetes parancssori ügyfelet a fürt felügyeletéhez. Útmutatásért lásd: [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
+Most már készen áll a fürthöz való kapcsolódásra. A főkiszolgáló a fürterőforrás-csoportban található, és neve `k8s-master-<sequence-of-numbers>` . Használjon SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. A főkiszolgálón használhatja a **kubectl**, a Kubernetes parancssori ügyfelet a fürt felügyeletéhez. Útmutatásért lásd: [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
 
 A **Helm** csomagkezelő is hasznos lehet az alkalmazások fürtön való telepítéséhez és üzembe helyezéséhez. A Helm fürthöz való telepítésével és használatával kapcsolatos utasításokért lásd: [Helm.sh](https://helm.sh/).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Kubernetes irányítópult engedélyezése](azure-stack-solution-template-kubernetes-dashboard.md)
 

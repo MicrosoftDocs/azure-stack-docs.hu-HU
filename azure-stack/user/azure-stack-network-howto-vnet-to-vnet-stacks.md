@@ -3,16 +3,16 @@ title: VNET létrehozása VNET-kapcsolathoz Azure Stack hub-ban Fortinet FortiGa
 description: Megtudhatja, hogyan hozhat létre VNET VNET-kapcsolat létesítéséhez a Fortinet FortiGate-NVA rendelkező Azure Stack központban.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 243baa06b2374fb42ffcd70fe7cb194e193d9e34
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 853bacd6f2ef64c60abac955280d92ea9053d77c
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702210"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111999"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Hozzon létre egy VNET a VNET-kapcsolathoz a Fortinet FortiGate NVA használatával Azure Stack központban.
 
@@ -84,7 +84,7 @@ Ismételje meg ezeket a lépéseket Azure Stack hub-környezetek esetében is.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image5.png)
 
-1. Válassza az **erőforrás létrehozása** elemet, és `FortiGate`keresse meg a következőt:.
+1. Válassza az **erőforrás létrehozása** elemet, és keresse meg a következőt: `FortiGate` .
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image6.png)
 
@@ -136,7 +136,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
 6. Válassza a **Hozzáadás** lehetőséget.
 
-7. Nevezze el **Route** `to-forti1` az útvonalat `to-forti2`vagy a nevet. Ha más IP-címtartományt használ, használja az IP-címtartományt.
+7. Nevezze el az **útvonalat** `to-forti1` vagy a nevet `to-forti2` . Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
 8. Adja meg a következőt:
     - forti1:`172.17.0.0/16`  
@@ -178,9 +178,9 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.   > Válassza **a****rendszerbelső vezérlőprogram**lehetőséget.
+5.  Válassza **a**  >  **rendszerbelső vezérlőprogram**lehetőséget.
 
-6.  Jelölje be a legújabb belső vezérlőprogram, például a következőt `FortiOS v6.2.0 build0866`:.
+6.  Jelölje be a legújabb belső vezérlőprogram, például a következőt: `FortiOS v6.2.0 build0866` .
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
 
@@ -188,9 +188,9 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 8.  A NVA frissíti a belső vezérlőprogramot a legújabb buildekre és újraindításokra. A folyamat körülbelül öt percet vesz igénybe. Jelentkezzen be újra a FortiGate webkonzolra.
 
-10.  Kattintson a **VPN** > **IPSec varázsló**elemre.
+10.  Kattintson a **VPN**  >  **IPSec varázsló**elemre.
 
-11. Adja meg a VPN nevét, például `conn1` a VPN- **létrehozási varázslóban**.
+11. Adja meg a VPN nevét, például `conn1` a **VPN-létrehozási varázslóban**.
 
 12. Válassza **ezt a helyet a NAT mögött**.
 
@@ -229,7 +229,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 21. **Létrehozás** kiválasztása
 
-22. Válassza a **hálózati** > **adapterek**lehetőséget.
+22. Válassza a **hálózati**  >  **adapterek**lehetőséget.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
@@ -246,11 +246,11 @@ Ismételje meg a többi NVA lépéseit.
 
 Miután a fentiek befejeződtek **mindkét** NVA esetében:
 
-1.  A forti2 FortiGate webkonzolon válassza az**IPSec-figyelő** **figyelése** > lehetőséget. 
+1.  A forti2 FortiGate webkonzolon válassza az **Monitor**  >  **IPSec-figyelő**figyelése lehetőséget. 
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
 
-2.  Jelölje `conn1` ki és válassza **ki az** > **összes fázis 2 választók**lehetőséget.
+2.  Jelölje ki `conn1` és válassza **Bring Up**ki az  >  **összes fázis 2 választók**lehetőséget.
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
 
@@ -265,7 +265,7 @@ A FortiGate-NVA keresztül most már képesnek kell lennie az egyes VNET közöt
 
 -   Győződjön meg arról, hogy a virtuálisgép-tűzfalszabályok lehetővé teszik a kapcsolat teszteléséhez használni kívánt kommunikációt. Tesztelési célból javasoljuk, hogy a tűzfalat teljes mértékben tiltsa le az operációs rendszeren belül, ha lehetséges.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Hálózati megoldás nyújtása Azure Stack központban a Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  

@@ -3,16 +3,16 @@ title: A Storage-fiókok biztonsági mentése Azure Stack hub-on
 description: Ismerje meg, hogyan készíthet biztonsági másolatot a Storage-fiókokról Azure Stack hub-on.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: a945800e999ce825c11d5300d02baa58bbfba9b8
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703859"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111965"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
 
@@ -107,7 +107,7 @@ Miután beállította a Windows Servert, telepítenie kell [Azure stack hub Powe
     | /SC | Használjon perces ütemtervet. |
     | /MO | Egy *XX* perces intervallum. |
     | /TN | A feladat neve. |
-    | /TR | A `script.bat` fájl elérési útja. |
+    | /TR | A fájl elérési útja `script.bat` . |
 
 
     - Windows Server esetén:
@@ -117,12 +117,12 @@ Miután beállította a Windows Servert, telepítenie kell [Azure stack hub Powe
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>A Storage-fiók használata katasztrófa esetén
 
-Minden Azure Stack hub Storage-fióknak van egy egyedi DNS-neve, amely a Azure Stack hub-régió nevéből származik, például: `https://krsource.blob.east.asicdc.com/`. A DNS-névvel írt és onnan beolvasott alkalmazásoknak meg kell adni a Storage-fiók DNS-nevének változását, ha a célként `https://krtarget.blob.west.asicdc.com/` megadott fiókot például vészhelyzetben kell használni.
+Minden Azure Stack hub Storage-fióknak van egy egyedi DNS-neve, amely a Azure Stack hub-régió nevéből származik, például: `https://krsource.blob.east.asicdc.com/` . A DNS-névvel írt és onnan beolvasott alkalmazásoknak meg kell adni a Storage-fiók DNS-nevének változását, ha a célként megadott fiókot például `https://krtarget.blob.west.asicdc.com/` vészhelyzetben kell használni.
 
 Az alkalmazás-kapcsolódási karakterláncok akkor módosíthatók, ha az objektumok áttelepítéséhez meg kell adni egy adott vészhelyzetet, vagy ha CNAME rekord van használatban a forrás-és a cél Storage-fiókok előtt, a terheléselosztó manuális feladatátvételi algoritmussal konfigurálható, amely lehetővé teszi a rendszergazda számára a cél deklarálása
 
 Ha az alkalmazás az HRE vagy a AD FS helyett a SAS-t használja, a fenti metódus nem fog működni, és az alkalmazás-kapcsolódási karakterláncokat frissíteni kell a célként megadott Storage-fiók URL-címével és a cél Storage-fiókhoz generált SAS-kulcsokkal.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)

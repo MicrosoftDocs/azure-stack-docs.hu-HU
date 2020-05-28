@@ -3,15 +3,15 @@ title: Linuxos virtuális gép létrehozása az Azure CLI használatával Azure 
 description: Hozzon létre egy linuxos virtuális gépet az Azure CLI használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 49b2a950b523ca76143f50784efb048880d1ac93
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 9cb3a448d708a70d70705cd8ea6230f17816726a
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77701938"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111680"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Linux Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 
@@ -31,7 +31,7 @@ Az Azure CLI használatával létrehozhat egy Ubuntu Server 16,04 LTS virtuális
 
 * A (z) *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
+## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
 Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. A fejlesztői készletből vagy az Azure Stack hub integrált rendszerből futtassa az az [Group Create](/cli/azure/group#az-group-create) parancsot egy erőforráscsoport létrehozásához.
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Virtuális gép létrehozása
 
-Hozzon létre egy virtuális gépet az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. Az alábbi példában egy myVM nevű virtuális gépet hoz létre. A példa a *demouser* nevet használja rendszergazdai felhasználónévként *Demouser@123* és rendszergazdai jelszóként. Módosítsa ezeket az értékeket úgy, hogy az a környezetének megfelelő legyen.
+Hozzon létre egy virtuális gépet az az [VM Create](/cli/azure/vm#az-vm-create) paranccsal. Az alábbi példában egy myVM nevű virtuális gépet hoz létre. A példa a *demouser* nevet használja rendszergazdai felhasználónévként és *Demouser@123* rendszergazdai jelszóként. Módosítsa ezeket az értékeket úgy, hogy az a környezetének megfelelő legyen.
 
 ```cli
 az vm create \
@@ -92,11 +92,11 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Ha telepítette az NGINX-webkiszolgálót, és a 80-es portot nyitja meg a virtuális gépen, a webkiszolgálót a virtuális gép nyilvános IP-címének használatával érheti el. Ehhez nyisson meg egy böngészőt, és nyissa meg ```http://<public IP address>```a következőt:.
+Ha telepítette az NGINX-webkiszolgálót, és a 80-es portot nyitja meg a virtuális gépen, a webkiszolgálót a virtuális gép nyilvános IP-címének használatával érheti el. Ehhez nyisson meg egy böngészőt, és nyissa meg a következőt: ```http://<public IP address>``` .
 
 ![Az NGINX webkiszolgáló kezdőlapja](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
+## <a name="clean-up-resources"></a>Erőforrások felszabadítása
 
 Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Group delete](/cli/azure/group#az-group-delete) paranccsal távolíthatja el őket. Futtassa az alábbi parancsot:
 
@@ -104,6 +104,6 @@ Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Gro
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített egy webkiszolgálóval. Az Azure Stack hub virtuális gépekkel kapcsolatos további információkért lásd: [Azure stack hub-beli virtuális gépek szempontjai](azure-stack-vm-considerations.md).
