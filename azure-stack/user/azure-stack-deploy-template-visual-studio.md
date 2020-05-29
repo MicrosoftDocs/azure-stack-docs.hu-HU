@@ -3,16 +3,16 @@ title: Sablonok üzembe helyezése a Visual Studióval Azure Stack hub-ban
 description: Megtudhatja, hogyan helyezhet üzembe sablonokat a Visual Studióval Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 404928bfad6e3ad85b78d97bee0527cfcbc25f0e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ea268d367ab529fabe8a8b363ed14ce17bc790aa
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704250"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146801"
 ---
 # <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>Sablonok üzembe helyezése Azure Stack hub-ban a Visual Studióval
 
@@ -33,7 +33,7 @@ A Visual Studióval Azure Resource Manager sablonokat telepíthet Azure Stack hu
 11. Az **erőforráscsoport helye** listából válassza ki a helyet, majd válassza a **telepítés**lehetőséget.
 12. A **Paraméterek szerkesztése**területen adja meg a paraméterek (amelyek sablon alapján változnak) értékeit, majd válassza a **Mentés**lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a parancssorral](azure-stack-deploy-template-command-line.md)
 * [Sablonok fejlesztése Azure Stack hubhoz](azure-stack-develop-templates.md)

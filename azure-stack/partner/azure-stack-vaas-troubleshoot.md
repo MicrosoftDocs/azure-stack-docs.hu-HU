@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661391"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146971"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>A szolgáltatás érvényesítésének megoldása
 
@@ -40,17 +40,26 @@ Ha az ügynök folyamata nem megfelelően van leállítva, akkor a rajta futó t
 
 ## <a name="vm-images"></a>VM-lemezképek
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Hiba történik a virtuálisgép-rendszerkép parancsfájlban való feltöltésekor `VaaSPreReq`
+Tekintse meg az alábbi szakaszt a **lassú hálózati kapcsolat kezeléséhez**. Manuális lépéseket biztosít a virtuálisgép-lemezképek Azure Stack stampre való feltöltéséhez.
+
 ### <a name="handle-slow-network-connectivity"></a>Lassú hálózati kapcsolat kezelése
 
-A PIR-rendszerképet letöltheti a helyi adatközpontban található megosztásra. Ezután megtekintheti a rendszerképet.
+#### <a name="1-verify-that-the-environment-is-healthy"></a>1. Ellenőrizze, hogy a környezet kifogástalan állapotú-e
+
+1. A DVM/Jump (ugrás) mezőben győződjön meg róla, hogy sikeresen bejelentkezhet a felügyeleti portálra a rendszergazdai hitelesítő adatok használatával.
+
+2. Győződjön meg arról, hogy nincsenek riasztások vagy figyelmeztetések.
+
+3. Ha a környezet kifogástalan állapotban van, az alábbi szakasz lépéseinek megfelelően töltse fel manuálisan a szükséges virtuálisgép-lemezképeket.
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>A PIR-rendszerkép letöltése a helyi megosztásra lassú hálózati forgalom esetén
+#### <a name="2-download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>2. a PIR-rendszerkép letöltése a helyi megosztásra lassú hálózati forgalom esetén
 
 1. Töltse le a AzCopy a következő címről: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Bontsa ki a AzCopy. zip fájlt, és `AzCopy.exe`váltson a-t tartalmazó könyvtárba.
+2. Bontsa ki a AzCopy. zip fájlt, és váltson a-t tartalmazó könyvtárba `AzCopy.exe` .
 
 3. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorból. Futtassa az alábbi parancsot:
 
@@ -67,7 +76,7 @@ A PIR-rendszerképet letöltheti a helyi adatközpontban található megosztásr
 > [!Note]  
 > A LocalFileShare a megosztás elérési útja vagy a helyi elérési út.
 
-#### <a name="verifying-pir-image-file-hash-value"></a>A PIR képfájl kivonatoló értékének ellenőrzése
+#### <a name="3-verifying-pir-image-file-hash-value"></a>3. a PIR képfájl kivonatoló értékének ellenőrzése
 
 A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilvános rendszerkép-tárházhoz tartozó képfájlok kivonatának értékét a rendszerképek integritásának ellenőrzése érdekében.
 
@@ -81,46 +90,55 @@ A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilváno
 | OpenLogic-CentOS-69-20180105. vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest. vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>Hiba történik a `VaaSPreReq` virtuálisgép-rendszerkép parancsfájlban való feltöltésekor
+#### <a name="4-upload-vm-images-to-a-storage-account"></a>4. virtuálisgép-lemezképek feltöltése egy Storage-fiókba
 
-Először győződjön meg arról, hogy a környezet kifogástalan állapotban van:
+1. Használjon meglévő Storage-fiókot, vagy hozzon létre egy új Storage-fiókot az Azure-ban.
 
-1. A DVM/Jump (ugrás) mezőben győződjön meg róla, hogy sikeresen bejelentkezhet a felügyeleti portálra a rendszergazdai hitelesítő adatok használatával.
-1. Győződjön meg arról, hogy nincsenek riasztások vagy figyelmeztetések.
+2. Hozzon létre egy tárolót a lemezképek feltöltéséhez.
 
-Ha a környezet kifogástalan állapotban van, töltse fel kézzel a következő öt virtuálisgép-rendszerképet, amelyek szükségesek az
+3. A Azcopy eszközzel töltse fel a virtuálisgép-lemezképeket a fenti [*LocalFileShare*] fájlból (ahol letöltötte a virtuálisgép-lemezképeket) az imént létrehozott tárolóba.
+    > [!IMPORTANT]
+    > A tároló "nyilvános hozzáférési szintjének" módosítása a Blobra (névtelen olvasási hozzáférés csak blobokhoz)
 
-1. Jelentkezzen be szolgáltatás-rendszergazdaként a felügyeleti portálra. A felügyeleti portál URL-címét az ECE áruházból vagy a Stamp-információs fájlból találja. Útmutatásért lásd: [környezeti paraméterek](azure-stack-vaas-parameters.md#environment-parameters).
-1. Válassza a **További szolgáltatások** > **erőforrás-szolgáltatók** > **számítási** > virtuálisgép-**lemezképek**lehetőséget.
-1. A virtuálisgép- **lemezképek** panel felső részén kattintson a **+ Hozzáadás** gombra.
-1. Módosítsa vagy vizsgálja meg a következő mezők értékeit az első virtuálisgép-rendszerképnél:
+#### <a name="5-upload-vm-images-to-azure-stack-environment"></a>5. virtuálisgép-rendszerképek feltöltése Azure Stack környezetbe
+
+1. Jelentkezzen be a felügyeleti portálon a szolgáltatás-rendszergazdaként. A felügyeleti portál URL-címét az ECE áruházból vagy a Stamp-információs fájlból találja. Útmutatásért lásd: [környezeti paraméterek](azure-stack-vaas-parameters.md#environment-parameters).
+
+2. Válassza a **További szolgáltatások**  >  **erőforrás-szolgáltatók**  >  **számítási**virtuálisgép-  >  **lemezképek**lehetőséget.
+
+3. A virtuálisgép- **lemezképek** panel felső részén kattintson a **+ Hozzáadás** gombra.
+
+4. Módosítsa vagy vizsgálja meg a következő mezők értékeit az első virtuálisgép-rendszerképnél:
+
     > [!IMPORTANT]
     > Nem minden alapértelmezett érték helyes a piactér meglévő eleménél.
 
     | Mező  | Érték  |
     |---------|---------|
-    | Közzétevő | MicrosoftWindowsServer |
+    | Publisher | MicrosoftWindowsServer |
     | Ajánlat | WindowsServer |
     | Operációs rendszer típusa | Windows |
-    | SKU | 2012-R2-Datacenter |
+    | Termékváltozat | 2012-R2-Datacenter |
     | Verzió | 1.0.0 |
-    | OPERÁCIÓSRENDSZER-lemez blob URI-ja | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+    | OPERÁCIÓSRENDSZER-lemez blob URI-ja | https://<*a Storage-fiók* >/< *tárolójának neve*>/windowsserver2012r2datacenterbyol.vhd |
 
-1. Válassza a **Létrehozás** gombot.
-1. Ismételje meg a többi virtuálisgép-lemezképet.
 
-Az öt virtuálisgép-rendszerkép tulajdonságai a következők:
+5. Válassza a **Létrehozás** gombot.
 
-| Közzétevő  | Ajánlat  | Operációs rendszer típusa | SKU | Verzió | OPERÁCIÓSRENDSZER-lemez blob URI-ja |
+6. Ismételje meg a többi virtuálisgép-lemezképet.
+
+Az összes szükséges virtuálisgép-rendszerkép tulajdonságai a következők:
+
+| Publisher  | Ajánlat  | Operációs rendszer típusa | Termékváltozat | Verzió | OPERÁCIÓSRENDSZER-lemez blob URI-ja |
 |---------|---------|---------|---------|---------|---------|
-| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
-| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
-| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
-| credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 – Datacenter – Server-Core | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3 – LTS | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/Ubuntu1404LTS.vhd |
+| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://[*a Storage-fiók*]/[*tároló neve*]/Ubuntu1604-20170619.1.vhd |
+| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/OpenLogic-CentOS-69-20180105.vhd |
+| Credativ | Debian | Linux | 8 | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/Debian8_latest. vhd |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Tekintse át a [kibocsátási megjegyzéseket a szolgáltatásként való érvényesítéshez](azure-stack-vaas-release-notes.md) a legújabb kiadásokban való változásokhoz.

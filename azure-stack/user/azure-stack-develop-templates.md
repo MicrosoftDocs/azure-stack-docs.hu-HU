@@ -3,16 +3,16 @@ title: Sablonok fejlesztése Azure Stack hubhoz
 description: Ismerje meg, hogyan fejleszthet Azure Resource Manager-sablonokat az Azure és az Azure Stack hub közötti alkalmazás-hordozhatósághoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702975"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146750"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Sablonok fejlesztése Azure Stack hubhoz Azure Resource Manager
 
@@ -24,7 +24,7 @@ A telepíteni kívánt sablonnak csak Microsoft Azure szolgáltatásokat kell ha
 
 ## <a name="public-namespaces"></a>Nyilvános névterek
 
-Mivel Azure Stack hub az adatközpontban üzemel, különböző szolgáltatási végponti névterek vannak, mint az Azure nyilvános felhője. Ennek eredményeképpen a Azure Resource Manager-sablonokban rögzített nyilvános végpontok meghiúsulnak, amikor az Azure Stack hubhoz próbálja telepíteni őket. A `reference` és `concatenate` a függvények használatával dinamikusan hozhat létre szolgáltatási végpontokat az erőforrás-szolgáltató értékének az üzembe helyezés során való lekéréséhez. Például ahelyett, hogy a sablonban rögzített `blob.core.windows.net` kódolást használ, a [primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) beolvasásával dinamikusan állíthatja be a *osDisk. URI* végpontot:
+Mivel Azure Stack hub az adatközpontban üzemel, különböző szolgáltatási végponti névterek vannak, mint az Azure nyilvános felhője. Ennek eredményeképpen a Azure Resource Manager-sablonokban rögzített nyilvános végpontok meghiúsulnak, amikor az Azure Stack hubhoz próbálja telepíteni őket. A és a függvények használatával dinamikusan hozhat létre szolgáltatási végpontokat az `reference` `concatenate` erőforrás-szolgáltató értékének az üzembe helyezés során való lekéréséhez. Például ahelyett, hogy a sablonban rögzített kódolást használ `blob.core.windows.net` , a [primaryEndpoints. blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) beolvasásával dinamikusan állíthatja be a *osDisk. URI* végpontot:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -76,7 +76,7 @@ Azure Resource Manager-sablonok egy `location` attribútum használatával helye
 ]
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
 * [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)

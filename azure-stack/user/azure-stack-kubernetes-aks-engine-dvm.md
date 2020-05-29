@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7fd43ca4e9ccd6eda5f09198a7b2efe1e9da073a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 222212a26362a617322b65f93509a0cd2a313999
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111394"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146869"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>A Marketplace-elem fürtjének áthelyezése az AK-motorba Azure Stack hub-on
 
@@ -28,12 +28,8 @@ Miután a Kubernetes Azure Stack hub Marketplace-elem sikeresen kezdeményezte a
 4.  Az üzembe helyezési virtuális gépen lévő munkamenetben a következő elérési úton találja meg az AK-motort:`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
 5.  Keresse meg az `.json` AK-motorba bemenetként használt fürtöket leíró fájlt. A fájlt a következő helyen: `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` . Vegye figyelembe, hogy a fájl rendelkezik a fürt üzembe helyezéséhez használt egyszerű szolgáltatás hitelesítő adataival. Ha úgy dönt, hogy megőrzi a fájlt, ügyeljen arra, hogy a fájlt egy védett tárolóba helyezze át.
 6.  Keresse meg az AK-motor által létrehozott kimeneti könyvtárat a következő helyen: `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` . Ebben a könyvtárban keresse meg a kimenetet `apimodel.json` az elérési úton `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` . A könyvtár és a `apimodel.json` fájl tartalmazza az összes generált tanúsítványt, kulcsot és a Kubernetes-fürt üzembe helyezéséhez szükséges hitelesítő adatokat. Tárolja biztonságos helyen ezeket az erőforrásokat.
-<<<<<<< HEAD
-7.  Keresse meg a Kubernetes konfigurációs fájlját, amelyet gyakran **kubeconfig** -fájlként neveznek, az elérési úton `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , ahol a **<location>** Azure stack hub-hely azonosítójának felel meg. Ez a fájl akkor lehet hasznos, ha be szeretné állítani a **kubectl** -t a Kubernetes-fürt eléréséhez.
-=======
-7.  Keresse meg a Kubernetes konfigurációs fájlját, amelyet gyakran **kubeconfig** -fájlként neveznek, az elérési úton `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , ahol a **`<location>`** Azure stack hub-hely azonosítójának felel meg. Ez a fájl akkor lehet hasznos, ha be szeretné állítani a **kubectl** -t a Kubernetes-fürt eléréséhez.
+7.  Keresse meg a Kubernetes konfigurációs fájlját, amelyet gyakran **kubeconfig** -fájlként neveznek, az elérési úton `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` , ahol a **\<location>** Azure stack hub-hely azonosítójának felel meg. Ez a fájl akkor lehet hasznos, ha be szeretné állítani a **kubectl** -t a Kubernetes-fürt eléréséhez.
 
->>>>>>> bd9784471c39194c2918fd281a81b031ee90bafb
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>Az AK-motor használata az újonnan létrehozott fürttel
 
@@ -47,4 +43,3 @@ Miután megtalálta az AK-motort, a bemeneti apimodel. JSON fájlt, a kimeneti k
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - [Az AK-motor hibáinak megoldása Azure Stack hub-on](azure-stack-kubernetes-aks-engine-troubleshoot.md)  
-

@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742310"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158367"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
 
@@ -40,7 +40,7 @@ Az Azure Stack hub-és API-profilokkal kapcsolatos további információkért l�
 | Paraméter                  | Leírás |
 |---                         | --- |
 | registrationSubscriptionID | A kezdeti regisztrációhoz használt Azure-előfizetés. |
-| customerSubscriptionID     | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). A partner centeren keresztül kell létrehozni a Cloud Solution Provider (CSP) ajánlatban. Ha egy ügyfél több Bérlővel rendelkezik, hozzon létre egy előfizetést a bérlőnek Azure Stack hubhoz való bejelentkezéshez. |
+| customerSubscriptionID     | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). A partner centeren keresztül kell létrehozni a Cloud Solution Provider (CSP) ajánlatban. Ha egy ügyfél több Bérlővel rendelkezik, hozzon létre egy előfizetést a bérlőnek Azure Stack hubhoz való bejelentkezéshez. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket. |
 | resourceGroup              | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
 | registrationName           | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. A név általában a **azurestack-CloudID**formában van, ahol a **CloudID** az Azure stack hub üzemelő példányának felhő-azonosítója. |
 
@@ -124,7 +124,7 @@ Törölheti a regisztrációhoz hozzáadott bérlőket. Ha a bérlő továbbra i
 | registrationSubscriptionId | A regisztrációhoz tartozó előfizetés-azonosító.   |
 | resourceGroup              | A regisztrációhoz használt erőforráscsoport.   |
 | registrationName           | A regisztráció neve.  |
-| customerSubscriptionId     | Az ügyfél-előfizetés azonosítója.  |
+| customerSubscriptionId     | Az ügyfél-előfizetés azonosítója. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket.  |
 
 ### <a name="powershell"></a>PowerShell
 
@@ -143,6 +143,6 @@ A TÖRLÉSi művelettel eltávolíthatja a bérlői leképezéseket.
 **Válasz**: 204 nincs tartalom  
 **Válasz törzse**: üres
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Erőforrás-használati adatok lekérése Azure Stack hub-ból](azure-stack-billing-and-chargeback.md)

@@ -3,16 +3,16 @@ title: Go-webalkalmazás üzembe helyezése Azure Stack hub virtuális gépén
 description: Go-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e6556ee12644140ace4553c4e613441440e00d14
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: c81ef85db48cbb45e104666ef1d9974bd56aa3ff
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704165"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146903"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Go-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -24,7 +24,7 @@ Létrehozhat egy virtuális gépet (VM) egy go-webalkalmazás üzemeltetéséhez
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protokoll | Description |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -89,7 +89,7 @@ Létrehozhat egy virtuális gépet (VM) egy go-webalkalmazás üzemeltetéséhez
        http://yourhostname.cloudapp.net:3000
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

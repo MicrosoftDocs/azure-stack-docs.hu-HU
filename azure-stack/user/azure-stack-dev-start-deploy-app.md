@@ -3,16 +3,16 @@ title: Alkalmazás üzembe helyezése Azure Stack hubhoz
 description: Alkalmazás üzembe helyezése Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 505891a9f7131d474d0b37d08b1d24d08656718d
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: f162a244e97d2346851ff4b13b6bdd04033e33fb
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704233"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146852"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack hub általános telepítései
 
@@ -33,7 +33,7 @@ A következő útmutató cikkeiben virtuális gépet (VM) állít be Azure Stack
 - [Python](azure-stack-dev-start-howto-vm-python.md)
 - [NodeJS](azure-stack-dev-start-howto-vm-nodejs.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Fejlesztési környezet beállítása Azure stack központban](azure-stack-dev-start.md).
 - [Folyamatos integrációs/folyamatos szállítási (CI/CD) folyamat beállítása Azure stack hub-ban](azure-stack-solution-pipeline.md).

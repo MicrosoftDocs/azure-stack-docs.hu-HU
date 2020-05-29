@@ -3,16 +3,16 @@ title: Java-háború üzembe helyezése Azure Stack hub virtuális gépén
 description: Java-háború üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
-ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 1a7915743314481630dc489f733b3123ae2fafe8
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836206"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147005"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -24,7 +24,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol (Protokoll) | Description |
+    | Port | Protokoll | Description |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -188,7 +188,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 1. A Tomcat-kiszolgáló konfigurálása a webkezelési felület elérésének engedélyezéséhez. 
 
-   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználót a és `manager-gui` `admin-gui`a eléréséhez.
+   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználót a és a eléréséhez `manager-gui` `admin-gui` .
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
@@ -290,7 +290,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
     ```
     
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

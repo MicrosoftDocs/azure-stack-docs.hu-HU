@@ -3,16 +3,16 @@ title: VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 description: Megtudhatja, hogyan hozhat létre VPN-alagutat az Azure Stack hub IPSEC szolgáltatásával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 37083997e7b204002bf9451e8cfd72018e981fa1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4a4a284b1f4e02399a8030e0338b83ccf44ae1fe
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77636267"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146631"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 
@@ -43,7 +43,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 - Ez a sablon DS3v2 virtuális gépet használ.  Az RRAS szolgáltatás a belső Windows-SQL Server telepíti és futtatja.  Ez memóriabeli problémákat okozhat, ha a virtuális gép mérete túl kicsi.  A virtuális gép méretének csökkentése előtt ellenőrizze a teljesítményt.
 - Ez nem egy magasan elérhető megoldás.  Ha még több megoldásra van szüksége, egy második virtuális gépet is hozzáadhat, manuálisan kell módosítania az útvonalat az útválasztási táblázatban a másodlagos csatoló belső IP-címére.  Emellett a több alagutat is konfigurálnia kell a többhöz való kapcsolódáshoz.
 
-## <a name="optional"></a>Optional
+## <a name="optional"></a>Választható
 
 - A blob Storage-fiókját és az SAS-tokent a _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával is használhatja
 - Ennek a sablonnak két kimenete van a INTERNALSUBNETREFVNET1 és a INTERNALSUBNETREFVNET2, amely a belső alhálózatok erőforrás-azonosítói, ha ezt szeretné használni egy folyamat típusú telepítési mintában.
@@ -52,7 +52,7 @@ Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tart
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Több helyek közötti VPN-alagút beállítása](network-howto-vpn-tunnel.md)  

@@ -3,16 +3,16 @@ title: Linux rendszerű virtuális gép üzembe helyezése Azure Stack hubhoz
 description: Alkalmazás üzembe helyezése Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704199"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146954"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Linux rendszerű virtuális gép üzembe helyezése Azure Stack hub webalkalmazásának üzemeltetéséhez
 
@@ -44,7 +44,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 ### <a name="create-your-vm"></a>A virtuális gép létrehozása
 
 1. Hozzon létre egy Secure Shell (SSH) nyilvános kulcsot a kiszolgáló számára. További információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Az Azure stack hub portálon válassza az **erőforrás** > létrehozása**számítási** > **Ubuntu Server 16,04 LTS**elemet.
+1. Az Azure stack hub portálon válassza az **erőforrás létrehozása**  >  **számítási**  >  **Ubuntu Server 16,04 LTS**elemet.
 
     ![Webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
@@ -58,7 +58,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     d. Válassza ki a **hitelesítési típust** **nyilvános SSH-kulcsként**.
 
-    e. Kérje le a létrehozott nyilvános SSH-kulcsot. Nyissa meg egy szövegszerkesztőben, másolja a kulcsot, majd illessze be az **SSH nyilvános kulcs** mezőbe. Adja meg `---- END SSH2 PUBLIC KEY ----`a szöveget `---- BEGIN SSH2 PUBLIC KEY ----` a következőre:. Illessze be a teljes blokkot a mezőbe:
+    e. Kérje le a létrehozott nyilvános SSH-kulcsot. Nyissa meg egy szövegszerkesztőben, másolja a kulcsot, majd illessze be az **SSH nyilvános kulcs** mezőbe. Adja meg a szöveget a következőre: `---- BEGIN SSH2 PUBLIC KEY ----` `---- END SSH2 PUBLIC KEY ----` . Illessze be a teljes blokkot a mezőbe:
 
     ```text  
     ---- BEGIN SSH2 PUBLIC KEY ----
@@ -165,13 +165,13 @@ Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók 
 
 1. Az Azure Stack hub-példánnyal azonos hálózaton nyissa meg az SSH-ügyfelet. További információ: [nyilvános SSH-kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
-1. Adja meg a következő parancsokat:
+1. Írja be a következő parancsokat:
 
     ```bash  
         sudo apt-get update
         sudo apt-get -y upgrade
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).

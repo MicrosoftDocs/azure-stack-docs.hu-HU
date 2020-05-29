@@ -3,16 +3,16 @@ title: Az Azure Stack hub felhasználói portál használata
 description: Megtudhatja, hogyan érheti el és használhatja a Azure Stack hub felhasználói portálját.
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c5f3a357295647f557e0b4ef9819aa1781779434
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f60094812a5bc0b27a05ec7e66ac7bf65d747d76
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705304"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147022"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Az Azure Stack hub felhasználói portál használata
 
@@ -22,8 +22,8 @@ Az Azure Stack hub portálon fizethet elő nyilvános ajánlatokra, és használ
 
 A Azure Stack hub-operátor (a szervezet egyik szolgáltatója vagy rendszergazdája) lehetővé teszi a megfelelő URL-cím elérését a portálhoz való hozzáféréshez.
 
-- Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, és a formátuma https://portal.&lta következő: *régió*&gt;. &lt; *FQDN*FQDN&gt;.
-- Ha a Azure Stack Development Kit (ASDK) használja, a portál címe a következő: https://portal.local.azurestack.external.
+- Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, és https://portal.&lt a formátuma* a következő: régió* &gt; . &lt; *FQDN* &gt; .
+- Ha a Azure Stack Development Kit (ASDK) használja, a portál címe a következő: https://portal.local.azurestack.external .
 - Az összes Azure Stack hub üzemelő példány alapértelmezett időzónája az egyezményes világidő (UTC) szerint van beállítva. Kiválaszthat egy időzónát Azure Stack hub telepítésekor, de a telepítés során automatikusan visszavált az UTC értékre.
 
 ## <a name="customize-the-dashboard"></a>Az irányítópult testreszabása
@@ -67,6 +67,6 @@ Ha támogatásra van szüksége, segítségért forduljon a szervezethez vagy a 
 
 Ha a Azure Stack Development Kit (ASDK) használja, a [Azure stack hub-fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) az egyetlen támogatott támogatási forrás.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Főbb szempontok: szolgáltatások használata vagy alkalmazások készítése Azure Stack hubhoz](azure-stack-considerations.md)

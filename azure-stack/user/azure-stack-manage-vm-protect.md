@@ -3,16 +3,16 @@ title: Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
 description: Megtudhatja, hogyan hozhat létre helyreállítási tervet az Azure Stack hub-on üzembe helyezett virtuális gépek adatvesztéssel és nem tervezett állásidővel szembeni védelme érdekében.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150229"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146937"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
 
@@ -103,7 +103,7 @@ Fontos szempontok az Azure Stack hub üzembe helyezéséhez:
 | Telepítsen egy biztonsági mentési célt ugyanarra a Azure Stack hubhoz, amely az ugyanazon biztonsági mentési cél által védett összes alkalmazást is üzemelteti. | Önálló cél: nem ajánlott </br> A biztonsági másolatok külső replikálására szolgáló cél: ajánlott | Ha Azure Stack hub-on helyez üzembe egy biztonságimásolat-berendezést (az operatív visszaállítás optimalizálásához), gondoskodnia kell arról, hogy a rendszer folyamatosan másolja az összes adatforrást egy külső biztonsági mentési helyre. |
 | Fizikai biztonsági mentési berendezés üzembe helyezése ugyanabba az állványba, ahol a Azure Stack hub-megoldás telepítve van | Nem támogatott | Jelenleg nem csatlakoztatható más eszközök az eredeti megoldás részét nem képező rack-kapcsolók tetejéhez. |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ez a cikk az Azure Stack hub-on üzembe helyezett felhasználói virtuális gépek védelmére vonatkozó általános irányelveket ismertetett. További információ az Azure-szolgáltatásoknak a felhasználói virtuális gépek számára történő használatáról:
 

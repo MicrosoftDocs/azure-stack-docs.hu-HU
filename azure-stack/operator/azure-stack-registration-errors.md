@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4b193ada5c9a188b725ea88dc2d5f54905a5e537
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d4cd7b00b00f4447f9ba9a8bc341452ae6464897
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375067"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158333"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>Használati és számlázási regisztrációs hibakódok
 
@@ -23,7 +23,7 @@ Ha Ön egy felhőalapú megoldás-szolgáltató (CSP), a következő hibaüzenet
 | Hiba   | Részletek  | Megjegyzések  |
 |---|---|---|
 | RegistrationNotFound | A megadott regisztráció nem található. Győződjön meg arról, hogy helyesen adta meg a következő adatokat:<br>1. előfizetés azonosítója (megadott érték: **előfizetés azonosítója**),<br>2. erőforráscsoport (megadott érték: **erőforráscsoport**),<br>3. a regisztráció neve (megadott érték: **regisztrációs név**). | Ez a hiba általában akkor fordul elő, ha a kezdeti regisztrációra mutató információk nem megfelelőek. Ha ellenőriznie kell az erőforráscsoportot és a regisztráció nevét, megkeresheti a Azure Portalban az összes erőforrás listázásával. Ha egynél több regisztrációs erőforrást talál, tekintse meg a tulajdonságok **CloudDeploymentID** , és válassza ki azt a regisztrációt, amelynek **CloudDeploymentID** megfelel a felhőnek. A **CloudDeploymentID**megkereséséhez használhatja ezt a PowerShell-parancsot Azure stack hub-on:<br>`$azureStackStampInfo = Invoke-Command -Session $session -ScriptBlock { Get-AzureStackStampInformation }` |
-| BadCustomerSubscriptionId | A megadott **ügyfél-előfizetés azonosítója** és a **regisztrációs név** előfizetési azonosítója nem ugyanahhoz a Microsoft CSP-hez tartozik. Győződjön meg arról, hogy az ügyfél-előfizetés azonosítója helyes. Ha a probléma továbbra is fennáll, forduljon az ügyfélszolgálathoz. | Ez a hiba akkor fordul elő, ha az ügyfél-előfizetés CSP-előfizetés, de egy olyan CSP-partnerre mutat, amely eltér a kezdeti regisztráció során használt előfizetéstől. Ez az ellenőrzés olyan helyzetek elkerülését eredményezi, amelyek olyan CSP-partner számlázására vezethetnek, amely nem felel meg a használt Azure Stack hub-nak. |
+| BadCustomerSubscriptionId | A megadott **ügyfél-előfizetés azonosítója** és a **regisztrációs név** előfizetési azonosítója nem ugyanahhoz a Microsoft CSP-hez tartozik. Győződjön meg arról, hogy az ügyfél-előfizetés azonosítója helyes. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket. Ha a probléma továbbra is fennáll, forduljon az ügyfélszolgálathoz. | Ez a hiba akkor fordul elő, ha az ügyfél-előfizetés CSP-előfizetés, de egy olyan CSP-partnerre mutat, amely eltér a kezdeti regisztráció során használt előfizetéstől. Ez az ellenőrzés olyan helyzetek elkerülését eredményezi, amelyek olyan CSP-partner számlázására vezethetnek, amely nem felel meg a használt Azure Stack hub-nak. |
 | InvalidCustomerSubscriptionId  | Az **ügyfél-előfizetés azonosítója** érvénytelen. Győződjön meg arról, hogy érvényes Azure-előfizetés van megadva. |   |
 | CustomerSubscriptionNotFound  | Nem található az **ügyfél-előfizetés azonosítója** a **regisztráció neve**alatt. Győződjön meg arról, hogy érvényes Azure-előfizetés van használatban, és hogy az előfizetés-azonosító hozzá lett adva a regisztrációhoz a PUT művelettel. | Ez a hiba akkor fordul elő, amikor egy bérlőt hozzáadtak egy előfizetéshez, de az ügyfél-előfizetés nem található a regisztrációhoz. Az ügyfél nem lett hozzáadva a regisztrációhoz, vagy az előfizetés-azonosító helytelenül lett írva. |
 | UnauthorizedCspRegistration | A megadott **regisztrációs név** nem engedélyezett a több-bérlő használata esetén. Küldjön egy e-mailt, azstCSP@microsoft.com és adja meg a regisztrációs nevét, az erőforráscsoportot és a regisztrációhoz használt előfizetés-azonosítót. | A bérlők felvételének megkezdése előtt jóvá kell hagynia a regisztrációt a Microsoft több bérlője számára. |

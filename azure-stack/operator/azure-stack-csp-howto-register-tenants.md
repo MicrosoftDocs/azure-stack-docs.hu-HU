@@ -3,16 +3,16 @@ title: Bérlők hozzáadása a Azure Stack hubhoz való használathoz és száml
 description: Megtudhatja, hogyan adhat hozzá bérlőt a használathoz és a számlázáshoz Azure Stack hub-ra.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 5/28/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.lastreviewed: 5/28/2020
+ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167024"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158384"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Bérlő hozzáadása a Azure Stack hubhoz való használathoz és számlázáshoz
 
@@ -27,7 +27,7 @@ Az alábbi ábra azokat a lépéseket mutatja be, amelyekkel a CSP-nek követnie
 
 ## <a name="add-an-end-customer"></a>Végfelhasználó hozzáadása
 
-A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el `azstcsp@microsoft.com`a regisztrációs előfizetés azonosítóját, az erőforráscsoport nevét és a regisztrációs nevet a következőnek:. Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
+A végfelhasználók hozzáadása előtt engedélyeznie kell a több-bérlős számlázást a regisztrációnál. A több-bérlős számlázás engedélyezéséhez küldje el a regisztrációs előfizetés AZONOSÍTÓját, az erőforráscsoport nevét és a regisztrációs nevet a következőnek: `azstcsp@microsoft.com` . Általában 1-2 munkanapot vesz igénybe, hogy lehetővé tegye a több-bérlőt.
 
 A következő ábrán látható módon vegyen fel egy végfelhasználót az alábbi lépésekkel:
 
@@ -56,7 +56,7 @@ Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner
    ```
 
    >[!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzureRmAccount**használatával történő bejelentkezés előtt futtassa a következő parancsmagot `Remove-AzureRmAccount-Scope Process`:.
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzureRmAccount**használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process` .
 
 2. Adja meg az Azure-beli hitelesítő adatait.
 3. A PowerShell-munkamenetben futtassa a következőket:
@@ -72,7 +72,7 @@ A következő szakasz a **New-AzureRmResource** parancsmag paramétereit ismerte
 | Paraméter | Leírás |
 | --- | --- |
 |registrationSubscriptionID | Az Azure Stack hub kezdeti regisztrálásához használt Azure-előfizetés.|
-| customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést az Azure Stack hub-ba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés AZONOSÍTÓjának kisbetűs karaktereket kell használnia. |
+| customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést az Azure Stack hub-ba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket. |
 | resourceGroup | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
 | registrationName | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. 
 
@@ -87,7 +87,7 @@ Konfigurálja Azure Stack hub-t több Azure AD-bérlő felhasználóinak támoga
 
 Miután hozzáadta az új ügyfelet Azure Stack hubhoz, vagy a végfelhasználói bérlő engedélyezte a vendég fiókját a tulajdonosi jogosultságokkal, ellenőrizze, hogy létrehozhat-e erőforrást a bérlőben. [Létrehozhatnak például egy Windows rendszerű virtuális gépet az Azure stack hub portál](../user/azure-stack-quick-windows-portal.md)használatával.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Ha szeretné áttekinteni a regisztrációs folyamat során elindított hibaüzeneteket, tekintse meg a [bérlői regisztrációs hibaüzeneteket](azure-stack-registration-errors.md).
 - Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg [a használat és a számlázás Azure stack hub-ban](azure-stack-billing-and-chargeback.md)című témakört.

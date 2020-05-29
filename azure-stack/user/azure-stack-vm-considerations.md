@@ -3,16 +3,16 @@ title: Azure Stack hub VM-funkciók
 description: Ismerkedjen meg a különböző funkciókkal és szempontokkal, amikor Azure Stack hub-beli virtuális gépekkel dolgozik.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/3/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614434"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146784"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -20,7 +20,7 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 
 ## <a name="vm-differences"></a>VIRTUÁLIS gépek közötti különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack hub |
+| Funkció | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 | Virtuálisgép-lemezképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincsenek elérhető lemezképek az Azure Stack hub piactéren. A Azure Stack hub-felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack hub piactéren, mielőtt a felhasználók használni tudják őket. |
 | VHD-generáció | A 2. generációs virtuális gépek olyan kulcsfontosságú funkciókat támogatnak, amelyek az egy virtuális gép létrehozásakor nem támogatottak. A szolgáltatások közé tartozik a megnövekedett memória, az Intel Software Guard Extensions (Intel SGX ENKLÁVÉHOZ) és a virtualizált állandó memória (vPMEM). A 2. generációs virtuális gépek előállítása olyan szolgáltatásokkal rendelkezik, amelyek még nem támogatottak az Azure-ban. További információ: [2. generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) -ban  | Azure Stack hub csak egy virtuális gép létrehozását támogatja. A VHDX-ből a VHD-fájlformátumba konvertálhat egy virtuális gépet, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: 2. [generációs virtuális gépek támogatása az Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)-ban. |
@@ -120,6 +120,6 @@ Habár a Azure Stack hub infrastruktúrája már rugalmas a hibákhoz, az alapul
 | **Tartalék tartományok** | A rendelkezésre állási csoportba helyezett virtuális gépeket fizikailag el kell különíteni egymástól a több tartalék tartomány (Azure Stack hub-csomópontok) lehető legegyenletesebb kiterjedésével. Hardverhiba esetén a sikertelen tartalék tartományba tartozó virtuális gépek más tartalék tartományokban lesznek újraindítva. A többi virtuális gépről külön tartalék tartományokban lesznek tárolva, de ha lehetséges, ugyanabban a rendelkezésre állási készletben. Ha a hardver online állapotba kerül, a virtuális gépek újra lesznek egyenlítve a magas rendelkezésre állás fenntartása érdekében. |
 | **Frissítési tartományok**| A frissítési tartományok egy másik módja, hogy az Azure magas rendelkezésre állást biztosít a rendelkezésre állási csoportokban. A frissítési tartomány a mögöttes hardver logikai csoportja, amely egyszerre végezhető el a karbantartásban. Az ugyanabban a frissítési tartományban található virtuális gépek a tervezett karbantartás során újraindulnak. Mivel a bérlők virtuális gépeket hoznak létre egy rendelkezésre állási csoporton belül, az Azure platform automatikusan elosztja a virtuális gépeket ezen frissítési tartományok között. <br>Azure Stack központban a virtuális gépek a fürt többi online gazdagépén át lesznek telepítve, mielőtt a rendszer a mögöttes gazdagépet frissíti. Mivel a gazdagép frissítése során nincs szükség bérlői állásidőre, a Azure Stack hub frissítési tartomány funkciója csak az Azure-hoz készült sablon-kompatibilitáshoz létezik. A rendelkezésre állási csoportba tartozó virtuális gépek a frissítési tartományuk alapján 0 értéket fognak látni a portálon. |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Windows rendszerű virtuális gép létrehozása a PowerShell-lel Azure Stack hub-ban](azure-stack-quick-create-vm-windows-powershell.md)

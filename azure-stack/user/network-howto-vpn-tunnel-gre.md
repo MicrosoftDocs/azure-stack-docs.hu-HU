@@ -3,16 +3,16 @@ title: VPN-alagút létrehozása a GRE használatával Azure Stack hub-ban
 description: Megtudhatja, hogyan hozhat létre VPN-alagutat a GRE használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 50a5a9498939f47cc8a688f1171d8b1a0cc4ca8a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1fbf50e36b75c847f81b9c065410a736d557f5e4
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77636301"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146716"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>VPN-alagút létrehozása a GRE használatával Azure Stack hub-ban
 
@@ -52,7 +52,7 @@ Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tart
 
 ![helyettesítő szöveg](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Több helyek közötti VPN-alagút beállítása](network-howto-vpn-tunnel.md)
