@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 773c8a0758d00ece537b6d80b0e0735655adb275
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158401"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203119"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok hibáinak megoldása
 
@@ -33,7 +33,7 @@ Az IPsec/IKEV2 Azure Stack hub alapértelmezett paraméterei [a 1910-es buildtel
 
 - Ellenőrizze, hogy az [ellenőrzött VPN-eszközt és az operációs rendszer verzióját használja-](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)e. Ha az eszköz nem ellenőrzött VPN-eszköz, előfordulhat, hogy kapcsolatba kell lépnie az eszköz gyártójával, és meg kell tudnia, hogy van-e kompatibilitási probléma.
 
-- Ellenőrizze, hogy nincs-e átfedésben lévő IP-tartomány Azure Stack hub virtuális hálózat és a helyszíni hálózat között. Ez útválasztási problémákhoz vezethet. 
+- Ellenőrizze, hogy nincs-e átfedésben lévő IP-tartomány Azure Stack hub virtuális hálózat és a helyszíni hálózat között. Ez csatlakozási problémákhoz vezethet. 
 
 - A VPN társ IP-címeinek ellenőrzése:
 

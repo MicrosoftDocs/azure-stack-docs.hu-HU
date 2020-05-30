@@ -6,12 +6,13 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ROBOTS: nosnippet
+ms.openlocfilehash: 572a550d6f9101fd8b118290d14deda96229b0f9
+ms.sourcegitcommit: b9f595d63969bfefc541daff07dc459441ec5b9a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988314"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84214610"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -50,7 +51,7 @@ Ha az Azure AD-val telepített Azure Stack hubot az identitáskezelési szolgál
 Ebben a szakaszban a Azure Portal használatával regisztrálja az alkalmazást, amely létrehozza az egyszerű szolgáltatásnév objektumot az Azure AD-bérlőben. Ebben a példában az ügyfél titkos hitelesítő adatait kell megadnia, de a portál támogatja a X509-tanúsítványon alapuló hitelesítő adatokat is.
 
 1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com) az Azure-fiók használatával.
-2. Válassza **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.
+2. Válassza **Azure Active Directory**  >  **Alkalmazásregisztrációk**  >  **új regisztráció**lehetőséget.
 3. Adja meg az alkalmazás **nevét** .
 4. Válassza ki a megfelelő **támogatott fióktípus-típusokat**.
 5. Az **átirányítási URI**területen válassza a **web** lehetőséget az alkalmazás típusaként, és (opcionálisan) adjon meg egy átirányítási URI-t, ha az alkalmazáshoz szükség van.
@@ -130,7 +131,7 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
 
    ```
    
-2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és `Thumbprint` a hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
+2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és a `Thumbprint` hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -142,7 +143,7 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt `ApplicationIdentifier` a következő szakaszban szereplő értékkel használja.
+Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt a `ApplicationIdentifier` következő szakaszban szereplő értékkel használja.
 
 ### <a name="update-a-certificate-credential"></a>Tanúsítvány hitelesítő adatainak frissítése
 
@@ -196,7 +197,7 @@ Frissítse a tanúsítvány hitelesítő adatait a PowerShell használatával, �
 > [!WARNING]
 > Az ügyfél titkos kulcsa kevésbé biztonságos, mint a X509-tanúsítvány hitelesítő adatainak használata. A hitelesítési mechanizmus nem csupán kevésbé biztonságos, de általában a titkos kulcs beágyazását igényli az ügyfélalkalmazás forráskódjában. Az éles alkalmazások esetében javasoljuk, hogy a tanúsítvány hitelesítő adatait használja.
 
-Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ügyfél titkos hitelesítő adatait. A tanúsítvány hitelesítő adataival ellentétben a címtár képes az ügyfél titkos hitelesítő adatainak előállítására. Az ügyfél titkos kulcsának meghatározása helyett a `-GenerateClientSecret` kapcsolóval kell megadnia a létrehozását. Helyettesítse be a saját értékeit a következő helyőrzők esetében:
+Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ügyfél titkos hitelesítő adatait. A tanúsítvány hitelesítő adataival ellentétben a címtár képes az ügyfél titkos hitelesítő adatainak előállítására. Az ügyfél titkos kulcsának meghatározása helyett a kapcsolóval kell megadnia a `-GenerateClientSecret` létrehozását. Helyettesítse be a saját értékeit a következő helyőrzők esetében:
 
 | Helyőrző | Leírás | Példa |
 | ----------- | ----------- | ------- |
@@ -237,7 +238,7 @@ Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ü
      $SpObject
      ```
 
-2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és `ClientSecret` a hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
+2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és a `ClientSecret` hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
 
      ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
@@ -249,7 +250,7 @@ Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ü
      RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
 
-Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt `ApplicationIdentifier` a következő szakaszban szereplő értékkel használja.
+Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt a `ApplicationIdentifier` következő szakaszban szereplő értékkel használja.
 
 ### <a name="update-a-client-secret"></a>Ügyfél titkos kulcsának frissítése
 
@@ -329,7 +330,7 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 1. Jelentkezzen be a megfelelő portálra a Azure Stack hub telepítésekor megadott könyvtár alapján (az Azure AD-Azure Portal vagy a AD FS Azure Stack hub felhasználói portálján, például:). Ebben a példában egy felhasználó bejelentkezett a Azure Stack hub felhasználói portálra.
 
    > [!NOTE]
-   > Egy adott erőforráshoz tartozó szerepkör-hozzárendelések hozzáadásához a felhasználói fióknak olyan szerepkörhöz kell tartoznia `Microsoft.Authorization/roleAssignments/write` , amely deklarálja az engedélyt. Például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdai](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörei.  
+   > Egy adott erőforráshoz tartozó szerepkör-hozzárendelések hozzáadásához a felhasználói fióknak olyan szerepkörhöz kell tartoznia, amely deklarálja az `Microsoft.Authorization/roleAssignments/write` engedélyt. Például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdai](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörei.  
 2. Navigáljon ahhoz az erőforráshoz, amely számára engedélyezni szeretné az alkalmazás elérését. Ebben a példában az alkalmazás egyszerű szolgáltatását rendeli hozzá egy szerepkörhöz az előfizetés hatókörében, az **előfizetések**, majd egy adott előfizetés kiválasztásával. Ehelyett kijelölhet egy erőforráscsoportot, vagy egy adott erőforrást, például egy virtuális gépet.
 
      ![Előfizetés kiválasztása hozzárendeléshez](./media/azure-stack-create-service-principal/select-subscription.png)
@@ -337,7 +338,7 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 3. Válassza ki a **Access Control (iam)** lapot, amely univerzális a RBAC támogató összes erőforráson.
 4. Válassza a **+ Hozzáadás** lehetőséget
 5. A **szerepkör**területen válassza ki az alkalmazáshoz hozzárendelni kívánt szerepkört.
-6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack-\<YourAppName\>-\<ClientId\>* jön létre. Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz: *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
+6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack- \<YourAppName\> - \<ClientId\> *ként jön létre. Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz: *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
 7. Miután megtalálta az alkalmazást, jelölje ki, és a **kijelölt tagok**területen fog megjelenni.
 8. A szerepkör hozzárendelésének befejezéséhez kattintson a **Mentés** gombra.
 

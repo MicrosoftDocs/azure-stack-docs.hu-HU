@@ -3,20 +3,22 @@ title: Nyilvános IP-címek hozzáadása az Azure Stack központban
 description: Megtudhatja, hogyan adhat hozzá nyilvános IP-címeket Azure Stack hubhoz.
 author: justinha
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 423f274dab5569273cc35ec4aac6b082326217f3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847911"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203136"
 ---
 # <a name="add-public-ip-addresses"></a>Nyilvános IP-címek hozzáadása
 
-Ebben a cikkben a külső címekre a nyilvános IP-címekre hivatkozunk. Azure Stack hub kontextusában a nyilvános IP-cím olyan IP-cím, amely a Azure Stack hub-on kívülről érhető el. Azt határozza meg, hogy a külső hálózat nyilvános internetre irányítható-e, vagy intraneten van-e, és a saját címtartomány használata nem számít a jelen cikk céljaira – a lépések ugyanazok.
+Ebben a cikkben a külső címekre a nyilvános IP-címekre hivatkozunk. Azure Stack hub kontextusában a nyilvános IP-cím olyan IP-cím, amely a Azure Stack hub-on kívülről érhető el. Annak megadása, hogy a külső hálózat nyilvános internetre irányítható-e, vagy intraneten van-e, és a saját címtartomány használata nem számít a jelen cikk céljaira, a lépések ugyanazok. 
+
+Habár több IP-készletet is beállíthat, nem fogja tudni kiválasztani, hogy melyiket szeretné használni. Azure Stack hub minden IP-készletet egyetlenként. Erőforrás létrehozásakor nem választhat IP-címet hozzárendeléshez.
 
 > [!IMPORTANT]
 > A cikkben ismertetett lépések csak a partner Toolkit 1809-es vagy újabb verziójával telepített rendszerekre vonatkoznak. Az 1809-es verzió előtt üzembe helyezett rendszerek megkövetelik a (TOR) kapcsoló hozzáférés-vezérlési listái (ACL-ek) frissítését, hogy ENGEDÉLYEZZék az új nyilvános VIP-készlet tartományát. Ha régebbi kapcsoló-konfigurációkat futtat, akkor a SZÁMÍTÓGÉPGYÁRTÓval együttműködve adja hozzá a megfelelő engedélyezési ACL-eket az új nyilvános IP-készlethez, vagy konfigurálja újra a kapcsolót a legújabb partneri eszközkészlet használatával, hogy megakadályozza az új nyilvános IP-címek blokkolását.
@@ -36,7 +38,7 @@ Az első dolog, amit meg kell tennie, hogy megszerezze a Azure Stack hub-hoz hoz
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>IP-címtartomány hozzáadása Azure Stack hubhoz
 
-1. A böngészőben nyissa meg a felügyeleti portál irányítópultját. Ebben a példában a következőt fogjuk használni `https://adminportal.local.azurestack.external`:.
+1. A böngészőben nyissa meg a felügyeleti portál irányítópultját. Ebben a példában a következőt fogjuk használni: `https://adminportal.local.azurestack.external` .
 2. Jelentkezzen be az Azure Stack hub felügyeleti portálján Felhőbeli operátorként.
 3. Az alapértelmezett irányítópulton keresse meg a régió-felügyeleti listát, és válassza ki a kezelni kívánt régiót. Ebben a példában a helyit használjuk.
 4. Keresse meg az erőforrás-szolgáltatók csempét, és kattintson a hálózati erőforrás-szolgáltatóra.
