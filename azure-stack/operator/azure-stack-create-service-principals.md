@@ -6,17 +6,15 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ROBOTS: nosnippet
-ms.openlocfilehash: 572a550d6f9101fd8b118290d14deda96229b0f9
-ms.sourcegitcommit: b9f595d63969bfefc541daff07dc459441ec5b9a
+ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
+ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84214610"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262667"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
-
-Egy olyan alkalmazást, amelynek a Azure Resource Manageron keresztül kell telepítenie vagy konfigurálnia az erőforrásokat, a saját identitásának kell képviselnie. Ugyanúgy, ahogy a felhasználó egy egyszerű rendszerbiztonsági tag, az alkalmazást egy egyszerű szolgáltatásnév képviseli. Az egyszerű szolgáltatás identitást biztosít az alkalmazás számára, amely lehetővé teszi, hogy csak a szükséges engedélyeket delegálja az alkalmazásnak.  
+<meta name="robots" content="nosnippet">Egy olyan alkalmazást, amelynek a Azure Resource Manageron keresztül kell telepítenie vagy konfigurálnia az erőforrásokat, a saját identitásának kell képviselnie. Ugyanúgy, ahogy a felhasználó egy egyszerű rendszerbiztonsági tag, az alkalmazást egy egyszerű szolgáltatásnév képviseli. Az egyszerű szolgáltatás identitást biztosít az alkalmazás számára, amely lehetővé teszi, hogy csak a szükséges engedélyeket delegálja az alkalmazásnak.  
 
 Előfordulhat például, hogy rendelkezik egy Azure Resource Managert használó Configuration Management-alkalmazással az Azure-erőforrások leltározásához. Ebben az esetben létrehozhat egy egyszerű szolgáltatásnevet, megadhatja az adott egyszerű szolgáltatáshoz tartozó "olvasó" szerepkört, és korlátozhatja a Configuration Management alkalmazást csak olvasási hozzáférésre.
 
