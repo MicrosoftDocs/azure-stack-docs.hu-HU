@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
+ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294934"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84301028"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
 
@@ -89,7 +89,7 @@ Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a bizton
 
 | Környezeti skála | A biztonsági mentés tervezett mérete | A szükséges lemezterület teljes mennyisége |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 csomópontok/ASDK   | 1 GB                     | 20 GB                          |
+| 4-16 csomópontok/ASDK   | 1 GB                     | 20 GB                          |
 
 ***A vállalati AD-identitás-szolgáltatóhoz csatlakozó rendszer az ADFS-n keresztül***
 
@@ -111,6 +111,15 @@ Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a bizton
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | A megbízható hálózati környezetben található tárolóeszközön tárolt SMB-fájlmegosztás. | A 445-es portra akkor van szükség, ha a Azure Stack hub-példány tűzfallal védett környezetben található. Infrastructure Backup vezérlő az 445-as porton keresztül kezdeményezi a kapcsolódást az SMB-fájlkiszolgálón. |
 | A fájlkiszolgáló teljes tartománynevének használatához a névnek feloldhatónak kell lennie a PEP-ből.             |                                                                                                                                                                                         |
+
+#### <a name="firewall-rules"></a>Tűzfalszabályok
+Ügyeljen arra, hogy a tűzfalszabályok beállításával engedélyezze a ERCS virtuális gépek és a külső tároló közötti kapcsolat használatát. 
+
+| Forrás | Cél | Protokoll/port |
+|------------------|-----------------------|--------------------------------|
+| 1. ERCS VM        | Tárolási hely      | 445/SMB                        |
+| 2. ERCS VM        | Tárolási hely      | 445/SMB                        |
+| 3. ERCS VM        | Tárolási hely      | 445/SMB                        |
 
 > [!Note]  
 > Nincs szükség bejövő port megnyitására.
@@ -154,6 +163,6 @@ Ezeket a korlátokat a Microsoft Azure Stack hub-példányok tervezése, üzembe
 | Backup App Services, függvény, SQL, MySQL erőforrás-szolgáltatói adat | Nincs a hatókörben | Tekintse meg a Microsoft által létrehozott RPs érték bevezetéséhez és kezeléséhez közzétett útmutatót.                                                  |
 | Külső gyártótól származó erőforrás-szolgáltatók biztonsági mentése                              | Nincs a hatókörben | Tekintse meg a harmadik féltől származó gyártók által létrehozott, az érték hozzáadása és kezelése című témakörben közzétett útmutatót.                                          |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
  - Ha többet szeretne megtudni a Infrastructure Backup szolgáltatásról, tekintse meg [a Azure stack hub biztonsági mentése és adathelyreállítása című témakört a Infrastructure Backup szolgáltatással](azure-stack-backup-infrastructure-backup.md).
