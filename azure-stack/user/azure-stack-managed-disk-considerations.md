@@ -7,12 +7,12 @@ ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 335c6e39b067e9a95ec075866279d35b451d7c87
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: da3ba321eee4c71549fb84a61d3010803e5e6349
+ms.sourcegitcommit: 85c373fd8f9e8888a7ba25bedce2f640c93de1e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777678"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84334161"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
@@ -25,7 +25,7 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack hub |
+| Funkció | Azure (globális) | Azure Stack hub |
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
 |Kép          | Felügyelt egyéni rendszerkép |Támogatott|
@@ -186,13 +186,13 @@ $PIp = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Locatio
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
 # Create an inbound network security group rule for port 3389
-$NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "MyNetworkSecurityGroupRuleRDP"  -Protocol Tcp `
+$NsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name "MyNetworkSecurityGroupRuleSSH"  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 22 -Access Allow
 
 # Create a network security group
 $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $Location `
-  -Name "MyNetworkSecurityGroup" -SecurityRules $NsgRuleRDP
+  -Name "MyNetworkSecurityGroup" -SecurityRules $NsgRuleSSH
 
 # Create a virtual network card and associate with public IP address and NSG
 $Nic = New-AzureRmNetworkInterface -Name "MyNic" -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -221,6 +221,6 @@ Az 1808-es vagy újabb frissítés alkalmazása után a következő konfiguráci
    2. Ugyanebben az előfizetésben lépjen a **Access Control (iam)** elemre, és ellenőrizze, hogy a **Azure stack hub által felügyelt lemez szerepel-** e a listáján.
 - Ha több-bérlős környezetet használ, kérje meg a Felhőbeli operátort (amely a saját szervezetében vagy a szolgáltatónál lehet), hogy az [ebben a cikkben](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory)leírt lépéseket követve konfigurálja újra az egyes vendég címtárakat. Ellenkező esetben előfordulhat, hogy a virtuális gépeknek az adott vendég címtárhoz társított előfizetésben való telepítése sikertelen lehet, ha a "belső hiba a Lemezkezelésben" hibaüzenet jelenik meg.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Ismerkedjen meg [Azure stack hub virtuális gépekkel](azure-stack-compute-overview.md).

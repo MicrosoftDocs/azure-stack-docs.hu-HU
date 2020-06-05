@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 05/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
+ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780805"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84329214"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -162,14 +162,14 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.40.138](https://support.microsoft.com/help/4558082)
+- [Azure Stack hub gyorsjavítási 1.1910.42.142](https://support.microsoft.com/help/4564874)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Az 2002-es frissítés sikeres alkalmazása után
 
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.2002.24.85](https://support.microsoft.com/help/4558081)
+- [Azure Stack hub gyorsjavítási 1.2002.28.93](https://support.microsoft.com/help/4562966)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -326,7 +326,7 @@ Azure Stack hub 1910-es kiadását a 1908-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.40.138](https://support.microsoft.com/help/4558082)
+- [Azure Stack hub gyorsjavítási 1.1910.42.142](https://support.microsoft.com/help/4564874)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -549,7 +549,7 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerek az **elérhet�
 
 Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldali tartalomjegyzéket, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Az Azure Stack hub Update Management szolgáltatásának áttekintését lásd: a [frissítések kezelése a Azure stack hub-ban – Áttekintés](azure-stack-updates.md).  
 - A frissítések Azure Stack hubhoz való alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása Azure stack hub-ban](azure-stack-apply-updates.md).
