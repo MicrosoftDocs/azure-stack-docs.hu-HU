@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 15908ca3057cb347f1dd02c7ee5113c0e9d0b9de
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: 66760fd19b90e55ab27e2c1f2509f0a9b9cb51ae
+ms.sourcegitcommit: d943f7d6e665e3334125f8a15a0343fd28d8f2a9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708320"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84452413"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
 
@@ -47,7 +47,7 @@ Ha egy objektum-tároló kötete kevés a szabad területnél, és [a lemezterü
 
 További információ arról, hogy a bérlői felhasználók hogyan működnek a Azure Stack hub blob Storage [szolgáltatásával: Azure stack hub Storage Services](/azure-stack/user/azure-stack-storage-overview).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Tárolók
 A bérlői felhasználók a Blobok tárolására szolgáló tárolókat hoznak létre. Bár a felhasználók határozzák meg a Blobok elhelyezését, a Storage szolgáltatás algoritmus használatával határozza meg, hogy melyik köteten helyezi el a tárolót. Az algoritmus általában kiválasztja a legnagyobb szabad területtel rendelkező kötetet.  
 
 Miután egy blobot elhelyez egy tárolóban, a blob több helyet is felhasználhat. Amikor új blobokat ad hozzá, és a meglévő Blobok növekednek, a köteten lévő szabad terület csökken. 
@@ -152,7 +152,7 @@ A törölt bérlői fiókok által használt kapacitást visszaállíthatja. A r
 
 További információkért tekintse meg a [Azure stack hub Storage-fiókok kezelése](azure-stack-manage-storage-accounts.md#reclaim)című témakör "kapacitás visszaigénylése" című szakaszát.
 
-::: moniker range="<azs-2002"
+::: moniker range="<azs-1910"
 
 ### <a name="migrate-a-container-between-volumes"></a>Tároló áttelepítése kötetek között
 *Ez a beállítás csak Azure Stack hub integrált rendszerekre vonatkozik.*
@@ -242,7 +242,7 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 A tárhely kezelésének legszélsőségesebb módszere a virtuálisgép-lemezek áthelyezését jelenti. Mivel egy csatolt tároló (amely virtuálisgép-lemezt tartalmaz) áthelyezése összetett, a művelet végrehajtásához forduljon a Microsoft támogatási szolgálatához.
 
 ::: moniker-end
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-1910"
 
 ### <a name="migrate-a-managed-disk-between-volumes"></a>Felügyelt lemez migrálása kötetek között
 *Ez a beállítás csak Azure Stack hub integrált rendszerekre vonatkozik.*
@@ -263,7 +263,10 @@ Lemezterületet szabadíthat fel egy túlhasznált köteten, ha egy felügyelt l
    $StorageSubSystem = (Get-AzsStorageSubSystem -ScaleUnit $ScaleUnit.Name)[0]
    $Volumes = (Get-AzsVolume -ScaleUnit $ScaleUnit.Name -StorageSubSystem $StorageSubSystem.Name | Where-Object {$_.VolumeLabel -Like "ObjStore_*"})
    $SourceVolume  = ($Volumes | Sort-Object RemainingCapacityGB)[0]
-   $Disks = Get-AzsDisk -Status All -ScaleUnit $ScaleUnit.name -VolumeLabel $SourceVolume.VolumeLabel | Select-Object -First 10
+   $VolumeName = $SourceVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationSource = "\\SU1FileServer."+$VolumeName+"\SU1_"+$SourceVolume.VolumeLabel
+   $Disks = Get-AzsDisk -Status All -SharePath $MigrationSource | Select-Object -First 10
    ```
    Ezután vizsgálja meg $disks:
 
@@ -277,13 +280,16 @@ Lemezterületet szabadíthat fel egy túlhasznált köteten, ha egy felügyelt l
 
    ```powershell
    $DestinationVolume  = ($Volumes | Sort-Object RemainingCapacityGB -Descending)[0]
+   $VolumeName = $DestinationVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationTarget = "\\SU1FileServer."+$VolumeName+"\SU1_"+$DestinationVolume.VolumeLabel
    ```
 
 4. A felügyelt lemezek áttelepítésének megkezdése. Az áttelepítés aszinkron módon történik. Ha az első áttelepítés befejeződése előtt megkezdi a további lemezek áttelepítését, akkor a feladatok neve alapján követheti nyomon az egyes állapotok állapotát.
 
    ```powershell
    $jobName = "MigratingDisk"
-   Start-AzsDiskMigrationJob -Disks $Disks -TargetScaleUnit $ScaleUnit.name -TargetVolumeLabel $DestinationVolume.VolumeLabel -Name $jobName
+   Start-AzsDiskMigrationJob -Disks $Disks -TargetShare $MigrationTarget -Name $jobName
    ```
 
 5. Az áttelepítési feladatok állapotának vizsgálatához használja a feladatok nevét. A lemez áttelepítése után a **MigrationStatus** a **Befejezés**értékre van állítva.
