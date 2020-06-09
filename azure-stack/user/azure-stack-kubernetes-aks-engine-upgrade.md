@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4e7ef93f7199e9257fd602d54d3479a92ac8e8a8
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218806"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533722"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
 
@@ -32,7 +32,7 @@ Az üzembe helyezett fürtök frissítéseinek fedele:
 
 Üzemi fürt frissítésekor vegye figyelembe a következőket:
 
--   A megfelelő fürt-specifikációt (`apimodel.json`) és erőforráscsoportot használja a célként megadott fürthöz?
+-   A megfelelő fürt-specifikációt ( `apimodel.json` ) és erőforráscsoportot használja a célként megadott fürthöz?
 -   Megbízható gépet használ az ügyfélszámítógép számára az AK-motor futtatásához és a frissítési műveletek végrehajtásához?
 -   Ellenőrizze, hogy rendelkezik-e biztonsági mentési fürttel, és hogy működőképes-e.
 -   Ha lehetséges, futtassa a parancsot a Azure Stack hub-környezetben található virtuális gépről a hálózati ugrások és a lehetséges csatlakozási hibák csökkentése érdekében.
@@ -58,12 +58,12 @@ Az alábbi utasítások a frissítés végrehajtásához szükséges minimális 
 
 Az AK-motor teljes leképezéséhez az AK alaprendszerkép-és Kubernetes-verzióit lásd: [támogatott AK-motor-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
-2. Gyűjtsön adatokat, amelyekre szüksége lesz a `upgrade` parancs futtatásához. A frissítés a következő paramétereket használja:
+2. Gyűjtsön adatokat, amelyekre szüksége lesz a parancs futtatásához `upgrade` . A frissítés a következő paramétereket használja:
 
     | Paraméter | Példa | Leírás |
     | --- | --- | --- |
-    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack hub által használt `AzureStackCloud`AK-motor. |
-    | location | helyi | Az Azure Stack hub régiójának neve. A ASDK esetében a régió a következőre van `local`beállítva:. |
+    | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack hub által használt AK-motor `AzureStackCloud` . |
+    | location | helyi | Az Azure Stack hub régiójának neve. A ASDK esetében a régió a következőre van beállítva: `local` . |
     | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
     | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
     | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
@@ -90,10 +90,10 @@ Az AK-motor teljes leképezéséhez az AK alaprendszerkép-és Kubernetes-verzi�
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Az operációs rendszer rendszerképének frissítésére szolgáló lépések
 
-1. Tekintse át [a támogatott kubernetes-verziók táblát](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions) , és állapítsa meg, hogy rendelkezik-e a frissítéshez tervezett AK-motor és AK-alapú alaprendszerkép verziószámával. Az AK-motor futtatási verziójának megtekintése: `aks-engine version`.
-2. Frissítse az AK-motort ennek megfelelően, azon a gépen, amelyen telepítette az AK `./get-akse.sh --version vx.xx.x` -motort: az **x. xx. x** helyére a megadott verziót használja.
+1. Tekintse át [a támogatott kubernetes-verziók táblát](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) , és állapítsa meg, hogy rendelkezik-e a frissítéshez tervezett AK-motor és AK-alapú alaprendszerkép verziószámával. Az AK-motor futtatási verziójának megtekintése: `aks-engine version` .
+2. Frissítse az AK-motort ennek megfelelően, azon a gépen, amelyen telepítette az AK-motort: az `./get-akse.sh --version vx.xx.x` **x. xx. x** helyére a megadott verziót használja.
 3. Kérje meg az Azure Stack hub-kezelőt, hogy adja hozzá a használni kívánt Azure Stack hub-piactérhez szükséges AK-alapú alaprendszerkép verzióját.
-4. Futtassa a `aks-engine upgrade` parancsot ugyanazzal a Kubernetes-verzióval, amelyet már használ, de adja hozzá a `--force`t. A [frissítés kényszerítését](#forcing-an-upgrade)bemutató példát láthat.
+4. Futtassa a `aks-engine upgrade` parancsot ugyanazzal a Kubernetes-verzióval, amelyet már használ, de adja hozzá a t `--force` . A [frissítés kényszerítését](#forcing-an-upgrade)bemutató példát láthat.
 
 
 ## <a name="forcing-an-upgrade"></a>Frissítés kényszerítése
@@ -115,7 +115,7 @@ aks-engine upgrade \
 
 Útmutatásért lásd: [kényszerített frissítés](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md#force-upgrade).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)
 - [Kubernetes-fürt méretezése Azure Stack hub-on](azure-stack-kubernetes-aks-engine-scale.md)

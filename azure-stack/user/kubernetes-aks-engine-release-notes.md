@@ -7,12 +7,12 @@ ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 1e58943e4ff315d2b5c2a9370f623846e920443d
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.openlocfilehash: 9fd9671d4dbdad1dbf43b151c481fdbd9ca2c0ab
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82220725"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533688"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
 
@@ -56,7 +56,7 @@ A becsült idő 12 – 15 perc a fürtben virtuális gépenként. Egy 20 csomóp
 
 Töltse le az AK Base Ubuntu-rendszerkép és az AK-motor új verzióit.
 
-Ahogy a Azure Stack hub dokumentációjában a Kubernetes-fürt üzembe helyezése című rész ismerteti, a két fő összetevő szükséges: 
+Ahogy azt a Azure Stack hub-dokumentációhoz tartozó AK-motor ismerteti, a Kubernetes-fürt üzembe helyezéséhez két fő összetevő szükséges: 
 - Az AK-motor bináris fájlja
 - AK Base Ubuntu 16,04 – LTS rendszerkép-disztribúció
 
@@ -83,38 +83,38 @@ Az aktuális verziót és a verziófrissítést a következő táblázatban tal�
 
 ## <a name="whats-new"></a>Újdonságok 
 
--   A Kubernetes-verzió 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834)) támogatása. Új fürt telepítésekor ügyeljen arra, hogy az API-modell JSON-fájljában legyen megadva (a.k.s. fürt definíciós fájlja) a kiadás verziószáma, valamint a másodlagos verziószám. Megtalálhatja például a következőket: [kubernetes-azurestack. JSON](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
+-   A Kubernetes-verzió 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)) támogatása. Új fürt telepítésekor ügyeljen arra, hogy az API-modell JSON-fájljában legyen megadva (a.k.s. fürt definíciós fájlja) a kiadás verziószáma, valamint a másodlagos verziószám. Megtalálhatja például a következőket: [kubernetes-azurestack. JSON](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
 
     - `"orchestratorRelease": "1.15`,
 
     - `"orchestratorVersion": "1.15.10"`
 
     > [!Note]  
-    > Ha a Kubernetes verziója nincs explicit módon megadva az API-modell JSON-fájljában, `1.15` a rendszer a verziót fogja használni ([\#2932](https://github.com/Azure/aks-engine/issues/2932)), és a` 1.15.11`orchestratorVersion alapértelmezés szerint a következő lesz:, ami hibát okoz a fürt üzembe helyezése során.
+    > Ha a Kubernetes verziója nincs explicit módon megadva az API-modell JSON-fájljában, a rendszer a verziót `1.15` fogja használni ([ \# 2932](https://github.com/Azure/aks-engine/issues/2932)), és a orchestratorVersion alapértelmezés szerint a következő lesz ` 1.15.11` :, ami hibát okoz a fürt üzembe helyezése során.
 
--   Az AK-Engine v 0.43.1 esetében a felhőalapú szolgáltató alapértelmezett gyakorisági beállításai vezérlik a vezérlési hurkot, és az egyéb feladatok nem működnek megfelelően Azure Stack hub Resource Manager küszöbértékekkel a bejövő kérelmek esetében. Ez a frissítés Azure stack hub alapértelmezett értékeit módosítja az újrapróbálkozási terhelés Azure stack hub Resource Managerbe ([\#2861](https://github.com/Azure/aks-engine/issues/2861)) való csökkentése érdekében.
+-   Az AK-Engine v 0.43.1 esetében a felhőalapú szolgáltató alapértelmezett gyakorisági beállításai vezérlik a vezérlési hurkot, és az egyéb feladatok nem működnek megfelelően Azure Stack hub Resource Manager küszöbértékekkel a bejövő kérelmek esetében. Ez a frissítés Azure Stack hub alapértelmezett értékeit módosítja az újrapróbálkozási terhelés Azure Stack hub Resource Managerbe ([ \# 2861](https://github.com/Azure/aks-engine/issues/2861)) való csökkentése érdekében.
 
--   Az AK-motor új ellenőrzési lépése vagy a végrehajtás leállítása vagy figyelmeztetés megjelenítése, ha az API-modell JSON-fájlja Azure stack hub által nem támogatott tulajdonságokat tartalmaz ([\#2717](https://github.com/Azure/aks-engine/issues/2717)).
+-   Az AK-motor új ellenőrzési lépése vagy a végrehajtás leállítása vagy figyelmeztetés megjelenítése, ha az API-modell JSON-fájlja Azure Stack hub által nem támogatott tulajdonságokat tartalmaz ([ \# 2717](https://github.com/Azure/aks-engine/issues/2717)).
 
--   Egy új ellenőrző beadással az AK-motor ellenőrzi, hogy rendelkezésre áll-e az AK-motor futtatásához szükséges AK-alaprendszerkép verziója ([\#2342](https://github.com/Azure/aks-engine/issues/2342)). Ez az API-modell fájljának elemzése és az Azure Stack hub Resource Manager meghívása előtt következik be.
+-   Egy új ellenőrző beadással az AK-motor ellenőrzi, hogy rendelkezésre áll-e az AK-motor futtatásához szükséges AK-alaprendszerkép verziója ([ \# 2342](https://github.com/Azure/aks-engine/issues/2342)). Ez az API-modell fájljának elemzése és az Azure Stack hub Resource Manager meghívása előtt következik be.
 
--   A "--Control-Plane-only" paranccsal a "frissítés" parancsban a felhasználó csak a főVirtual Machines ([\#2635](https://github.com/Azure/aks-engine/issues/2635)) megcélzására használható.
+-   A "--Control-Plane-only" paranccsal a "frissítés" parancsban a felhasználó csak a főVirtual Machines ([ \# 2635](https://github.com/Azure/aks-engine/issues/2635)) megcélzására használható.
 
--   A Linux kernel 4.15.0-1071-Azure for Ubuntu 16,04-LTS verziójának frissítése. A részletekért tekintse meg a "[csomag: Linux-rendszerkép-4.15.0-1071- \[Azure\](4.15.0-1071.76) Security](https://packages.ubuntu.com/xenial/linux-image-4.15.0-1071-azure)" című témakört.
+-   A Linux kernel 4.15.0-1071-Azure for Ubuntu 16,04-LTS verziójának frissítése. A részletekért tekintse meg a "[csomag: Linux-rendszerkép-4.15.0-1071-Azure (4.15.0-1071.76) \[ Security \] ](https://packages.ubuntu.com/xenial/linux-image-4.15.0-1071-azure)" című témakört.
 
 -   Új hyperkube-frissítések a Kubernetes-verziók 1.14.8 és 1.15.10 való támogatásához.
 
 -   Frissítse a kubectl, hogy megegyezzen a fürt Kubernetes verziójával. Ez az összetevő a Kubernetes-fürt főcsomópontjaiban érhető el, és SSH-ban is futtatható a főkiszolgálón.
 
--   Frissítések az Azure Container monitor bővítményhez a legújabb [február 2020-es kiadással](https://github.com/microsoft/Docker-Provider/blob/ci_feature_prod/README.md) ([\#2850](https://github.com/Azure/aks-engine/issues/2850)).
+-   Frissítések az Azure Container monitor bővítményhez a legújabb [február 2020-es kiadással](https://github.com/microsoft/Docker-Provider/blob/ci_feature_prod/README.md) ([ \# 2850](https://github.com/Azure/aks-engine/issues/2850)).
 
--   Frissítés a `coredns` verzióra: v 1.6.6 ([\#2555](https://github.com/Azure/aks-engine/issues/2555)).
+-   Frissítés a `coredns` verzióra: v 1.6.6 ([ \# 2555](https://github.com/Azure/aks-engine/issues/2555)).
 
--   Frissítsen `etcd` a 3.3.18 verzióra ([\#2462](https://github.com/Azure/aks-engine/issues/2462)).
+-   Frissítsen `etcd` a 3.3.18 verzióra ([ \# 2462](https://github.com/Azure/aks-engine/issues/2462)).
 
--   Frissítsen `moby` a 3.0.11 verzióra ([\#2887](https://github.com/Azure/aks-engine/issues/2887)).
+-   Frissítsen `moby` a 3.0.11 verzióra ([ \# 2887](https://github.com/Azure/aks-engine/issues/2887)).
 
--   Ezzel a kiadással az AK-os motor `k8s.gcr.io` megrövidíti a függőséget, hogy most a hivatalos `Kubernetes MCR registry @ mcr.microsoft.com` képet használja a lemezképek összeállításakor ([\#2722](https://github.com/Azure/aks-engine/issues/2722)).
+-   Ezzel a kiadással az AK-os motor megrövidíti a függőséget `k8s.gcr.io` , hogy most a hivatalos képet használja a `Kubernetes MCR registry @ mcr.microsoft.com` lemezképek összeállításakor ([ \# 2722](https://github.com/Azure/aks-engine/issues/2722)).
 
 ## <a name="known-issues"></a>Ismert problémák
 
@@ -130,17 +130,17 @@ Az alábbiakban felsoroljuk a kijavított hibák némelyikét, valamint a 0.44.0
 
 ### <a name="bug-fixes"></a>Hibajavítások
 
--   `userAssignedIdentityId`a Windows `azure.json` hiányzó idézőjelek között ([\#2327](https://github.com/Azure/aks-engine/issues/2327))
+-   `userAssignedIdentityId`a Windows `azure.json` hiányzó idézőjelek között ([ \# 2327](https://github.com/Azure/aks-engine/issues/2327))
 
--   Az `update config` addons csak frissítéssel ([\#2282](https://github.com/Azure/aks-engine/issues/2282))
+-   `update config`Az addons csak frissítéssel ([ \# 2282](https://github.com/Azure/aks-engine/issues/2282))
 
--   A Windows-csomópontok felügyeleti IP-címének lekéréséhez szükséges időkorlát ([\#2284](https://github.com/Azure/aks-engine/issues/2284))
+-   A Windows-csomópontok felügyeleti IP-címének lekéréséhez szükséges időkorlát ([ \# 2284](https://github.com/Azure/aks-engine/issues/2284))
 
--   1.0.28 Azure CNI zip-fájl hozzáadása a Windows VHD-hez ([\#2268](https://github.com/Azure/aks-engine/issues/2268))
+-   1.0.28 Azure CNI zip-fájl hozzáadása a Windows VHD-hez ([ \# 2268](https://github.com/Azure/aks-engine/issues/2268))
 
--   A IPAddressCount beállításának helyes alapértelmezett sorrendje ([\#2358](https://github.com/Azure/aks-engine/issues/2358))
+-   A IPAddressCount beállításának helyes alapértelmezett sorrendje ([ \# 2358](https://github.com/Azure/aks-engine/issues/2358))
 
--   Frissítsen egyetlen omsagent-YAML az összes k8s-verzióra, hogy elkerülje a manuális hibákat és az egyszerű karbantartást ([\#2692](https://github.com/Azure/aks-engine/issues/2692))
+-   Frissítsen egyetlen omsagent-YAML az összes k8s-verzióra, hogy elkerülje a manuális hibákat és az egyszerű karbantartást ([ \# 2692](https://github.com/Azure/aks-engine/issues/2692))
 
 ### <a name="release-notes"></a>Kibocsátási megjegyzések
 
@@ -157,6 +157,6 @@ Ez az Azure-hoz és Azure Stack hub-hoz készült kibocsátási megjegyzések te
 -   https://github.com/Azure/aks-engine/releases/tag/v0.47.0
 -   https://github.com/Azure/aks-engine/releases/tag/v0.48.0
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)

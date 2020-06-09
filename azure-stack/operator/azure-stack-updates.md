@@ -3,18 +3,18 @@ title: Frissítések kezelése
 description: Ismerje meg, hogyan kezelheti a frissítéseket Azure Stack hub-ban
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 06/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 03c233690ffa3148c04aabb49d69c6bc28f07eb1
+ms.sourcegitcommit: 0f1483e17d7e7fa5b4c5c457eab13373eb4b3fdc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374614"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84506451"
 ---
-# <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése Azure Stack központban
+# <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése az Azure Stack Hubban
 
 A teljes és expressz frissítések, gyorsjavítások, valamint az eredeti berendezésgyártó (OEM) illesztőprogram-és belső vezérlőprogram-frissítései a Azure Stack hub naprakészen tartanak. Ez a cikk ismerteti a frissítések különböző típusait, a megjelenésük időpontját, valamint azt, hogy hol talál további információkat a jelenlegi kiadásról.
 
@@ -49,7 +49,7 @@ A frissítések három típusát a következő lépésszám bocsátja ki:
 
 Ha továbbra is támogatást szeretne kapni, a Azure Stack hub-környezetet egy támogatott Azure Stack hub-szoftverrel kell megtartania. További információ: [Azure stack hub karbantartási szabályzata](azure-stack-update-servicing-policy.md).
 
-## <a name="how-to-know-an-update-is-available"></a>A frissítés elérhetővé tétele
+## <a name="how-to-know-an-update-is-available"></a>Hogyan tudhatom meg, hogy elérhető egy frissítés?
 
 A frissítések figyelmeztetése néhány tényezőtől függ, például az internethez való kapcsolódással és a frissítés típusával.
 
@@ -63,7 +63,22 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
     Az OEM-frissítések a gyártótól függenek. Létre kell hoznia egy kommunikációs csatornát az OEM-mel, hogy tisztában legyen az OEM-mel kapcsolatos frissítésekkel, amelyeket alkalmazni kell. További információ a Számítógépgyártókról és az OEM-frissítési folyamatról: [Azure stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása](azure-stack-update-oem.md).
 
-## <a name="update-processes"></a>Folyamatok frissítése
+### <a name="major-version-to-major-version"></a>Főverzió a főverzióig
+
+A főverzióról a főverzióra történő frissítésnek lépésről lépésre kell esnie:
+
+- a jelenlegi környezet csak a következő főverzióra tud frissíteni
+- a főverzió frissítését nem lehet kihagyni.
+
+Ha például a környezet 1. x, a legújabb elérhető frissítési verzió 3. x, akkor az 1. x, majd 2. x, majd 3. x verziót kell frissítenie.
+
+### <a name="hotfixes-within-major-versions"></a>Gyorsjavítások a főbb verziókon belül
+
+Ugyanazon a főverziószámon belül Azure Stack több gyorsjavítás is kiszabadítható. Mivel a gyorsjavítások kumulatívak, a legújabb frissítési csomag tartalmazza az összes korábbi gyorsjavítást. A legújabb gyorsjavítást a gyorsjavítások számának kiugrásával frissítheti.
+
+Ha például a verziójának verziója a (z). MV. 1. x, a legújabb frissítés a. MV. 4. x verzióban érhető el. Annak ellenére, hogy a verziójának frissítései vannak. MV. 2. x és a verzióban. MV. 3. x, közvetlenül telepíthető. MV. 4. x. A-ben a összes gyorsjavítása elérhető lesz. MV. 2. x és a verzióban. Az MV. 3. x automatikusan.
+
+## <a name="update-process"></a>Frissítési folyamat
 
 Ha már tudja, hogy rendelkezik frissítéssel, alkalmazza a következő lépésekkel.
 

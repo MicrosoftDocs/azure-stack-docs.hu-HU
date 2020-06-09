@@ -3,16 +3,16 @@ title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételei
 description: Megtudhatja, hogyan adhatja hozzá az AK-motor előfeltételeit az Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.lastreviewed: 6/08/2020
+ms.openlocfilehash: 77d2e6b826f6bc6517d0dd5ed941019a460557e9
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861384"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533705"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
@@ -50,12 +50,12 @@ Adja hozzá a következő elemeket a piactérhez:
 
 1. Írja be a `AKS Base` (igen) kifejezést.
 
-1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
+1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
 
     A listában válassza a következőket:
     - **Közzétevő**: Azure Kubernetes Service
     - **Ajánlat**: AK
-    - **Verzió**: AK alaprendszerkép 16,04 – LTS rendszerkép-disztribúció, október 2019 (2019.10.24 vagy Version, amely az AK-motorhoz van leképezve)
+    - **Verzió**: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, március 2020 (2020.03.19 vagy Version, amely az AK-motorhoz van leképezve)
 
 1. Válassza a **Letöltés lehetőséget.**
 
@@ -81,7 +81,7 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Válassza a **Letöltés lehetőséget.**
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Mi a Azure Stack hub AK-motorja?](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
