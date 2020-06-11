@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313217"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631204"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack hubhoz a Azure Active Directory használatával
 
@@ -52,28 +52,28 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
 1. Hozzon létre egy Azure AD-alkalmazást.
 
     a. Jelentkezzen be az Azure-fiókjába a [Azure Portalon](https://portal.azure.com)keresztül.  
-    b. Válassza **Azure Active Directory** > **Alkalmazásregisztrációk** > **új regisztráció**lehetőséget.  
+    b. Válassza **Azure Active Directory**  >  **Alkalmazásregisztrációk**  >  **új regisztráció**lehetőséget.  
     c. Adja meg az alkalmazás nevét és URL-címét.  
     d. Válassza ki a **támogatott fióktípus-típusokat**.  
-    e.  Adja `http://localhost` hozzá az alkalmazás URI azonosítóját. Válassza a **web** lehetőséget a létrehozni kívánt alkalmazás típusához. Az értékek beállítása után válassza a **regisztráció**lehetőséget.
+    e.  Adja hozzá az `http://localhost` alkalmazás URI azonosítóját. Válassza a **web** lehetőséget a létrehozni kívánt alkalmazás típusához. Az értékek beállítása után válassza a **regisztráció**lehetőséget.
 
 1. Jegyezze fel az **alkalmazás azonosítóját**. A fürt létrehozásakor szüksége lesz az AZONOSÍTÓra. Az azonosító az **egyszerű szolgáltatásnév ügyfél-azonosítójaként**van hivatkozva.
 
-1. A szolgáltatás alapelveinek paneljén válassza az **új ügyfél titkot**. **Beállítások** > **kulcsai**. A szolgáltatási elv hitelesítési kulcsát kell létrehoznia.
+1. A szolgáltatás alapelveinek paneljén válassza az **új ügyfél titkot**. **Beállítások**  >  **Kulcsok**. A szolgáltatási elv hitelesítési kulcsát kell létrehoznia.
 
     a. Adja meg a **leírást**.
 
     b. Válassza a **soha nem jár** le **lejár**lehetőséget.
 
-    c. Válassza a **Hozzáadás** lehetőséget. Jegyezze fel a kulcs sztringjét. A fürt létrehozásakor szüksége lesz a kulcs sztringre. A kulcs az **egyszerű szolgáltatás ügyfél-titkos**kulcsaként van hivatkozva.
+    c. Válassza a **Hozzáadás** elemet. Jegyezze fel a kulcs sztringjét. A fürt létrehozásakor szüksége lesz a kulcs sztringre. A kulcs az **egyszerű szolgáltatás ügyfél-titkos**kulcsaként van hivatkozva.
 
 ## <a name="give-the-service-principal-access"></a>Egyszerű szolgáltatás elérésének biztosítása
 
 Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy a rendszerbiztonsági tag erőforrásokat hozzon létre.
 
-1.  Jelentkezzen be az [Azure stack hub portálra](https://portal.local.azurestack.external/).
+1.  Jelentkezzen be az Azure Stack hub portálra `https://portal.local.azurestack.external/` .
 
-1. Válassza **a minden szolgáltatás** > **előfizetések**lehetőséget.
+1. Válassza **a minden szolgáltatás**  >  **előfizetések**lehetőséget.
 
 1. Válassza ki az operátor által a Kubernetes-fürt használatára létrehozott előfizetést.
 
@@ -87,9 +87,9 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 ## <a name="deploy-kubernetes"></a>Kubernetes üzembe helyezése
 
-1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
+1. Nyissa meg az Azure Stack hub portált `https://portal.local.azurestack.external` .
 
-1. Válassza **az + erőforrás** > **létrehozása számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás**gombra.
+1. Válassza **az + erőforrás létrehozása**  >  **számítási**  >  **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** lehetőségre.
 
     ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -115,7 +115,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Adja meg a Kubernetes-fürt és a DVM részeként létrehozott összes linuxos gép engedélyezéséhez használt **nyilvános SSH-kulcsot** .
 
-1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például `k8s-12345`:. Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
+1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például: `k8s-12345` . Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
 
     > [!Note]  
     > Minden egyes fürthöz használjon egy új és egyedi Master profil DNS-előtagot.
@@ -150,7 +150,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 >  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Kapcsolódás a fürthöz](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
 

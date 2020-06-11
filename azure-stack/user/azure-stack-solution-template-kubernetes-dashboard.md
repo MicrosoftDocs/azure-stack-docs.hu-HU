@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111552"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631191"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>A Kubernetes-irányítópult elérése Azure Stack központban 
 
@@ -47,7 +47,7 @@ Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
 
 1. Szerezze be a fürt főkiszolgálójára vonatkozó nyilvános IP-címet és felhasználónevet az Azure Stack hub irányítópultján. A következő információk beszerzése:
 
-    - Jelentkezzen be az [Azure stack hub portálra](https://portal.local.azurestack.external/)
+    - Jelentkezzen be az Azure Stack hub portálra `https://portal.local.azurestack.external/` .
     - Válassza **a minden szolgáltatás**  >  **minden erőforrás**elemet. Keresse meg a főkiszolgálót a fürterőforrás-csoportban. A főkiszolgáló neve `k8s-master-<sequence-of-numbers>` . 
 
 2. Nyissa meg a fő csomópontot a portálon. Másolja a **nyilvános IP-** címet. Kattintson a **Kapcsolódás** gombra a Felhasználónév beolvasásához a **Bejelentkezés a virtuális gép helyi fiókjával jelölőnégyzet használatával** . Ez ugyanaz a Felhasználónév, amelyet a fürt létrehozásakor beállított. A nyilvános IP-cím helyett használja a kapcsolat panelen felsorolt magánhálózati IP-címet.

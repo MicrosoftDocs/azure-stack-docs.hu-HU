@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub karbantartási szabályzatát, valamint azt, hogyan tarthat egy integrált rendszer támogatott állapotú.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: harik
+ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848149"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636835"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -52,9 +52,9 @@ Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés 
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Alkalmanként a Microsoft gyorsjavításokat biztosít Azure Stack hubhoz, amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti.
+Alkalmanként a Microsoft gyorsjavításokat biztosít Azure Stack hubhoz, amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely részletezi a gyorsjavításban tárgyalt problémákat.
 
-A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azure Stack hub normál teljes frissítési csomagjai. Azonban a teljes frissítéstől eltérően a gyorsjavítások percek alatt telepíthetők. Javasoljuk, hogy a gyorsjavítások telepítésekor Azure Stack hub-operátorok állítsanak be karbantartási időszakokat. A gyorsjavítások frissítik a Azure Stack hub-felhő verzióját, így könnyen megállapíthatja, hogy a gyorsjavítás alkalmazása megtörtént-e. Külön gyorsjavítást biztosítanak a Azure Stack hub minden olyan verziójához, amely továbbra is támogatott. Egy adott iterációhoz tartozó javítások kumulatívak, és az adott verzió korábbi frissítéseit tartalmazzák. A megfelelő Tudásbázis-cikkben további információt talál egy adott gyorsjavítás alkalmazhatóságáról. Tekintse meg a kibocsátási megjegyzések hivatkozásait az előző szakaszban.
+A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azure Stack hub normál teljes frissítési csomagjai. Azonban a teljes frissítéstől eltérően a gyorsjavítások percek alatt telepíthetők. Javasoljuk, hogy a gyorsjavítások telepítésekor Azure Stack hub-operátorok állítsanak be karbantartási időszakokat. A gyorsjavítások frissítik a Azure Stack hub-felhő verzióját, így könnyen megállapíthatja, hogy a gyorsjavítás alkalmazása megtörtént-e. Külön gyorsjavítást biztosítanak a Azure Stack hub minden olyan verziójához, amely továbbra is támogatott. **Egy adott iterációhoz tartozó egyes gyorsjavítások kumulatívak, és az ugyanazon verzióhoz tartozó korábbi gyorsjavításokat is tartalmazzák.** A megfelelő Tudásbázis-cikkben további információt talál egy adott gyorsjavítás alkalmazhatóságáról. Tekintse meg a kibocsátási megjegyzések hivatkozásait az előző szakaszban.
 
 A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
@@ -92,7 +92,7 @@ Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nag
 
 A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-troubleshooting.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
+- [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)
 - [Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához](azure-stack-troubleshooting.md)

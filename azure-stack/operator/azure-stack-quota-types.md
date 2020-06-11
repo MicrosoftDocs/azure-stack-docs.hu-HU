@@ -1,21 +1,20 @@
 ---
-title: Kvóta típusai Azure Stack központban
-description: Megtekintheti és szerkesztheti az Azure Stack hub szolgáltatásaihoz és erőforrásaihoz elérhető különböző típusú kvótákat.
+title: Kvóták és kvóták típusai Azure Stack központban
+description: Megtekintheti és szerkesztheti a Azure Stack hub szolgáltatásaihoz és erőforrásaihoz elérhető különböző kvótákat és a kvóták típusait.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423864"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666387"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kvóta típusai Azure Stack központban
-
 
 A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg a felhasználói előfizetés által kiépíthető vagy felhasználható erőforrások korlátait. Egy kvóta például lehetővé teheti, hogy egy felhasználó legfeljebb öt virtuális gépet hozzon létre. Mindegyik erőforrásra különböző típusú kvóták vonatkoznak.
 
@@ -38,7 +37,7 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 
 ## <a name="storage-quota-types"></a>Tárolási kvóták típusai
 
-| **Elem** | **Alapértelmezett érték** | **Leírás** |
+| **Item** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
 | Maximális kapacitás (GB) |2048 |Az ezen a helyen lévő előfizetések által felhasználható tárterület teljes kapacitása. Ez az érték az összes blob (beleértve a nem felügyelt lemezeket is) és az összes hozzá tartozó pillanatkép, tábla és várólista felhasznált méretének teljes mérete. |
 | A Storage-fiókok teljes száma |20 |Az előfizetés által az adott helyen létrehozható tárolási fiókok maximális száma. |
@@ -48,7 +47,7 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 
 ## <a name="network-quota-types"></a>Hálózati kvóták típusai
 
-| **Elem** | **Alapértelmezett érték** | **Leírás** |
+| **Item** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
 | Virtuális hálózatok maximális száma |50 |Azon virtuális hálózatok maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Virtuális hálózati átjárók maximális száma |1 |Azon virtuális hálózati átjárók (VPN-átjárók) maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
@@ -113,7 +112,7 @@ Megadhatja, hogy egy adott kvóta eredeti konfigurációját [egy kiegészítő 
 
 A kvóta új értékei globálisan vonatkoznak minden olyan csomagra, amely a módosított kvótát és a csomagokat használó összes meglévő előfizetést használja.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [További információ a szolgáltatások, csomagok, ajánlatok és kvóták használatáról.](service-plan-offer-subscription-overview.md)
 - [Hozzon létre kvótákat a csomag létrehozásakor.](azure-stack-create-plan.md)

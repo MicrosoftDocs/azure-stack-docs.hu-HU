@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e331be14abdeceeb2fef462fba47c4871a320e7f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: ee2352e6e7ee6b6e6a7322bcdb66ea4d24797eb8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659902"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631133"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 
@@ -24,7 +24,7 @@ Az architektúra a következő összetevőket tartalmazza.
 
 ![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
-## <a name="general"></a>Általános kérdések
+## <a name="general"></a>Általános
 
 -   **Erőforráscsoport**. Az [erőforráscsoportok](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) az Azure-erőforrások csoportosítására használhatók, így élettartamuk, tulajdonosuk vagy egyéb feltételek szerint kezelhetők.
 
@@ -34,7 +34,7 @@ Az architektúra a következő összetevőket tartalmazza.
 
 -   **Virtuális hálózat és alhálózatok**. Minden Azure-beli virtuális gép üzembe helyezése egy, az alhálózatokra szegmentált virtuális hálózatba történik. Hozzon létre egy külön alhálózatot minden egyes szinthez.
 
--   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure stack hub-on, a [Azure stack hub piacon](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) elérhető alternatívák is rendelkezésre állnak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure stack hub-on, a [Azure stack hub piacon](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) elérhető alternatívák is rendelkezésre állnak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   **Terheléselosztó.** A [Azure Load Balancer ](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
 
@@ -80,7 +80,7 @@ Az alhálózatokat a funkciók és a biztonsági követelmények szem előtt tar
 
 Ne tegye elérhetővé a virtuális gépeket közvetlenül az internethez, hanem adjon hozzá minden virtuális gépet egy magánhálózati IP-címhez. Az ügyfelek a 7. rétegbeli Load Balancerhoz társított nyilvános IP-cím használatával csatlakoznak.
 
-Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérelmet küld a 80-as port felé, a terheléselosztó kiválaszt egy háttérbeli IP-címet egy [kivonatoló algoritmus](/azure/load-balancer/concepts-limitations#load-balancer-concepts) használatával, amely tartalmazza a forrás IP-címét. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
+Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérelmet küld a 80-as port felé, a terheléselosztó kiválaszt egy háttérbeli IP-címet egy [kivonatoló algoritmus](https://docs.microsoft.com/azure/load-balancer/concepts#limitations) használatával, amely tartalmazza a forrás IP-címét. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
 
 ### <a name="network-security-groups"></a>Network security groups (Hálózati biztonsági csoportok)
 
@@ -171,6 +171,6 @@ A virtuális hálózatok forgalomelkülönítési határok az Azure-ban. Alapér
 
 **Titkosítás**. Titkosítsa a bizalmas adatokat, és a [Azure stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) használatával kezelheti az adatbázis-titkosítási kulcsokat. További információkért lásd: [Configure Azure Key Vault Integration for SQL Server on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault) Az Azure Key Vault-integráció konfigurálása az SQL Serverhez Azure virtuális gépeken. Javasoljuk továbbá, hogy az alkalmazás-titkokat, például az adatbázis-kapcsolódási karakterláncokat a Key Vault tárolja.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).

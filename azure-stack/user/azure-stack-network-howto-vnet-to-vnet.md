@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 144d03f3b80e25f3db77cd6cbfba5ec7225a8496
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 98c4b4d333a33dc018682e638cec821c8b8ee416
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111653"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631312"
 ---
 # <a name="connect-two-vnets-through-peering"></a>Két virtuális hálózatok összekötése a peering használatával
 
@@ -26,7 +26,7 @@ Ez a cikk azt ismerteti, hogyan hozható létre kapcsolat két virtuális háló
 
 -  Legalább két elérhető FortiGate a FortiGate-NVA aktiválásához. A licencek beszerzésével kapcsolatos információkért tekintse meg a Fortinet a [regisztráció és a licenc letöltése](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)című cikket.
 
-    Ez az eljárás az [egyetlen FortiGate-VM-telepítést](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)használja. A FortiGate-NVA a helyszíni hálózatban lévő, a Azure Stack hub VNET való összekapcsolásával kapcsolatban talál további lépéseket.
+    Ez az eljárás az [egyetlen FortiGate-VM-telepítést](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)használja. A FortiGate-NVA a helyszíni hálózatban lévő, a Azure Stack hub VNET való összekapcsolásával kapcsolatban talál további lépéseket.
 
     A FortiGate-megoldás aktív-passzív (HA) beállítással történő üzembe helyezésével kapcsolatos további információkért tekintse meg az [Azure-beli FortiGate-VM](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure)Fortinet dokumentációjában található részleteket.
 
@@ -87,20 +87,20 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
 
-5.  Kattintson az **OK** gombra.
+5.  Válassza az **OK** lehetőséget.
 
 6.  Adja meg a virtuális hálózatot, az alhálózatokat és a virtuális gép méretét a [telepítési paraméterek](#deployment-parameters) táblázat használatával.
 
     > [!Warning] 
     > Ha a helyszíni hálózat átfedésben van az IP-tartománnyal `172.16.0.0/16` , ki kell választania és be kell állítania egy másik hálózati tartományt és alhálózatot. Ha más neveket és tartományokat kíván használni a [telepítési paraméterek](#deployment-parameters) táblázatban, akkor olyan paramétereket használjon, amelyek **nem** ütköznek a helyszíni hálózattal. Ügyeljen arra, hogy a VNET IP-címtartomány és alhálózati tartományok beállítása a VNET belül történjen. Nem szeretné, hogy a tartomány átfedésben legyen a helyszíni hálózatban található IP-tartományokkal.
 
-7.  Kattintson az **OK** gombra.
+7.  Válassza az **OK** lehetőséget.
 
 8.  Konfigurálja a FortiGate NVA tartozó nyilvános IP-címet:
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
 
-9.  Kattintson az **OK** gombra. Majd válassza az **OK** elemet.
+9.  Válassza az **OK** lehetőséget. Majd válassza az **OK** elemet.
 
 10.  Kattintson a **Létrehozás** gombra.
 
@@ -178,7 +178,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
 
-13. Kattintson a **Tovább** gombra.
+13. Válassza a **Tovább** lehetőséget.
 
 14. Adja meg annak a helyszíni VPN-eszköznek a távoli IP-címét, amelyhez csatlakozni fog.
 
@@ -191,7 +191,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
 
-17. Kattintson a **Tovább** gombra.
+17. Válassza a **Tovább** lehetőséget.
 
 18. Válassza a **port2** lehetőséget a **helyi adapterhez**.
 
@@ -219,7 +219,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 24. Válassza a **helyi hálózat** lehetőséget a **szerepkör** listában és a **DHCP-** ben a címzési mód beállításnál.
 
-25. Kattintson az **OK** gombra.
+25. Válassza az **OK** lehetőséget.
 
 Ismételje meg a többi NVA lépéseit.
 

@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403849"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630986"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Magasan elérhető SQL-adatbázisok létrehozása Azure Stack hub-vel
 
@@ -35,8 +35,8 @@ A Kezdés előtt győződjön meg arról, hogy a [SQL Server erőforrás-szolgá
 > [!IMPORTANT]
 > Az Azure Stack hub gyors üzembe helyezési sablonjának használatához az alábbi lépések szükségesek.
 
-- Windows Server 2016 Datacenter Marketplace-rendszerkép.
-- SQL Server 2016 SP1 vagy SP2 (Enterprise vagy Developer) a Windows Server 2016 Server rendszerképén. Ez a cikk a SQL Server 2016 SP2 Enterprise szolgáltatást használja a Windows Server 2016 piactéren rendszerképeken.
+- Windows Server 2016 Datacenter.
+- SQL Server 2016 SP1 vagy SP2 (Enterprise, standard vagy Developer) a Windows Server 2016 Server rendszerképén. 
 - [SQL Server IaaS-bővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.3.20180 vagy újabb verziója. Az SQL IaaS bővítmény telepíti a szükséges összetevőket, amelyekre szükség van a piactér SQL Server minden Windows-verzióhoz tartozó elemhez. Lehetővé teszi az SQL-specifikus beállítások konfigurálását az SQL-alapú virtuális gépeken (VM). Ha a bővítmény nincs telepítve a helyi piactéren, az SQL kiépítés sikertelen lesz.
 - [Egyéni parancsfájl-bővítmény a Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 vagy újabb verziójához. Az egyéni szkriptek bővítménye egy eszköz, amellyel automatikusan elindítható a telepítés utáni virtuális gépek testreszabási feladatai.
 - A [PowerShell kívánt állapot-konfiguráció (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) 2.76.0.0 vagy újabb verziója. A DSC a Windows PowerShell egyik felügyeleti platformja, amely lehetővé teszi a szoftveres szolgáltatások konfigurációs információinak üzembe helyezését és kezelését. A platform emellett azt a környezetet is kezeli, amelyben ezek a szolgáltatások futnak.
@@ -84,7 +84,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Ser
 
 6. A felhasználói portálon válassza az **erőforráscsoportok** lehetőséget, majd az egyéni telepítéshez létrehozott erőforráscsoport nevét (ehhez a példához tartozó**Erőforrás-csoport** ). Tekintse meg a központi telepítés állapotát, és győződjön meg arról, hogy az összes központi telepítés sikeresen befejeződött.
     
-    Ezután tekintse át az erőforráscsoport elemeit, és válassza ki a **SQLPIPsql \< erőforráscsoport neve \> ** nyilvános IP-cím elemet. Jegyezze fel a nyilvános IP-címet és a terheléselosztó nyilvános IP-címének teljes TARTOMÁNYNEVÉt. Ezt az SQL alAlwaysOnon rendelkezésre állási csoportot kihasználó SQL-üzemeltetési kiszolgáló létrehozásához meg kell adnia egy Azure Stack hub-kezelőnek.
+    Ezután tekintse át az erőforráscsoport elemeit, és válassza ki a **SQLPIPsql \<resource group name\> ** nyilvános IP-cím elemet. Jegyezze fel a nyilvános IP-címet és a terheléselosztó nyilvános IP-címének teljes TARTOMÁNYNEVÉt. Ezt az SQL alAlwaysOnon rendelkezésre állási csoportot kihasználó SQL-üzemeltetési kiszolgáló létrehozásához meg kell adnia egy Azure Stack hub-kezelőnek.
 
    > [!NOTE]
    > A sablon központi telepítése több órát is igénybe vesz.
@@ -141,7 +141,7 @@ Ezekkel a parancsokkal állíthatja be a rendelkezésre állási csoportba tarto
 
 Az SQL Server alAlwayOnon rendelkezésre állási csoport létrehozása és megfelelő konfigurálása után egy Azure Stack hub-operátornak létre kell hoznia egy Azure Stack hub SQL üzemeltetési kiszolgálót. Az SQL üzemeltetési kiszolgáló teszi elérhetővé a további kapacitást a felhasználók számára adatbázisok létrehozásához.
 
-Ügyeljen arra, hogy a nyilvános IP-címet vagy a teljes FQDN-t használja az SQL-AlwaysOn rendelkezésre állási csoport erőforráscsoport létrehozásakor (**SQLPIPsql- \< erőforráscsoport \> neve**) korábban rögzített SQL Load Balancer nyilvános IP-címéhez. Emellett ismernie kell az alAlwaysOnon rendelkezésre állási csoportban található SQL-példányokhoz való hozzáféréshez használt SQL Server hitelesítő adatokat.
+Ügyeljen arra, hogy a nyilvános IP-címet vagy a teljes FQDN-t használja az SQL-AlwaysOn rendelkezésre állási csoportjának létrehozásakor (**SQLPIPsql \<resource group name\> **) korábban rögzített SQL Load Balancer nyilvános IP-címéhez. Emellett ismernie kell az alAlwaysOnon rendelkezésre állási csoportban található SQL-példányokhoz való hozzáféréshez használt SQL Server hitelesítő adatokat.
 
 > [!NOTE]
 > Ezt a lépést a Azure Stack hub felügyeleti portálján Azure Stack hub-kezelővel kell futtatni.

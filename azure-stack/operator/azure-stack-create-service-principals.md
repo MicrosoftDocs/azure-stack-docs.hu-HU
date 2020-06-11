@@ -6,15 +6,16 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
-ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
+ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262667"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666413"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
-<meta name="robots" content="nosnippet">Egy olyan alkalmazást, amelynek a Azure Resource Manageron keresztül kell telepítenie vagy konfigurálnia az erőforrásokat, a saját identitásának kell képviselnie. Ugyanúgy, ahogy a felhasználó egy egyszerű rendszerbiztonsági tag, az alkalmazást egy egyszerű szolgáltatásnév képviseli. Az egyszerű szolgáltatás identitást biztosít az alkalmazás számára, amely lehetővé teszi, hogy csak a szükséges engedélyeket delegálja az alkalmazásnak.  
+
+Egy olyan alkalmazást, amelynek a Azure Resource Manageron keresztül kell telepítenie vagy konfigurálnia az erőforrásokat, a saját identitásának kell képviselnie. Ugyanúgy, ahogy a felhasználó egy egyszerű rendszerbiztonsági tag, az alkalmazást egy egyszerű szolgáltatásnév képviseli. Az egyszerű szolgáltatás identitást biztosít az alkalmazás számára, amely lehetővé teszi, hogy csak a szükséges engedélyeket delegálja az alkalmazásnak.  
 
 Előfordulhat például, hogy rendelkezik egy Azure Resource Managert használó Configuration Management-alkalmazással az Azure-erőforrások leltározásához. Ebben az esetben létrehozhat egy egyszerű szolgáltatásnevet, megadhatja az adott egyszerű szolgáltatáshoz tartozó "olvasó" szerepkört, és korlátozhatja a Configuration Management alkalmazást csak olvasási hozzáférésre.
 
@@ -348,7 +349,7 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 
 Most, hogy megadta az alkalmazás identitását, és engedélyezte azt az erőforrás-hozzáféréshez, engedélyezheti a parancsfájlt vagy a kódot a bejelentkezéshez és a Azure Stack hub-erőforrások biztonságos eléréséhez.  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)  
 [Azure Active Directory dokumentáció](https://docs.microsoft.com/azure/active-directory)  

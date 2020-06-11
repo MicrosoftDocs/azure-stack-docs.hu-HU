@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704488"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631152"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Ajánlat létrehozása Azure Stack hub-ban
 
@@ -21,7 +21,7 @@ ms.locfileid: "77704488"
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>Ajánlat létrehozása (1902 és újabb)
 
-1. Jelentkezzen be az [Azure stack hub felügyeleti portálra](https://adminportal.local.azurestack.external) , és válassza az **+ erőforrás létrehozása**, majd a **+ csomagok**, majd az **ajánlat**lehetőséget.
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálra, `https://adminportal.local.azurestack.external` és válassza az **+ erőforrás létrehozása**, majd a **+ csomagok**, majd az **ajánlat**lehetőséget.
 
    ![Ajánlat létrehozása Azure Stack hub-ban](media/azure-stack-create-offer/offers.png)
 
@@ -68,7 +68,7 @@ Az ajánlatok állapota kétféleképpen módosítható:
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>Ajánlat létrehozása (1901 és korábbi verziók)
 
-1. Jelentkezzen be az [Azure stack hub felügyeleti portálra](https://adminportal.local.azurestack.external) , és válassza az **+ erőforrás létrehozása**, majd a **bérlői ajánlatok + csomagok**lehetőséget, majd az **ajánlatot**.
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálra, `https://adminportal.local.azurestack.external` és válassza az **+ erőforrás létrehozása**, majd a **bérlői ajánlatok + csomagok**lehetőséget, majd az **ajánlatot**.
 
    ![Ajánlat létrehozása Azure Stack hub-ban](media/azure-stack-create-offer/image01.png)
   
@@ -101,7 +101,7 @@ Az ajánlatok állapota kétféleképpen módosítható:
 > Az alapértelmezett ajánlatokat, terveket és kvótákat a PowerShell használatával is létrehozhatja. További információ: [Azure stack hub PowerShell-modul 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Ha szeretné megtudni, hogyan módosíthat egy ajánlatot, és hogyan adhat hozzá felhasználókat egy kiegészítő csomaggal, folytassa a [kiegészítő csomag létrehozásával](create-add-on-plan.md) (opcionális).
 - Ellenkező esetben ugorjon az [ajánlatra való előfizetésre](azure-stack-subscribe-plan-provision-vm.md)

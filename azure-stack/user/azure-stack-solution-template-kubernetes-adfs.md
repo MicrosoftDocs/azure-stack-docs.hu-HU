@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313156"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631214"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások használatával
 
@@ -55,9 +55,9 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 
 ## <a name="deploy-kubernetes"></a>Kubernetes üzembe helyezése
 
-1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
+1. Nyissa meg az Azure Stack hub portált `https://portal.local.azurestack.external` .
 
-1. Válassza **az + erőforrás** > **létrehozása számítási** > **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
+1. Válassza **az + erőforrás létrehozása**  >  **számítási**  >  **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
 
     ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -83,7 +83,7 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 
 1. Adja meg a Kubernetes-fürt és a DVM részeként létrehozott összes linuxos gép engedélyezéséhez használt **nyilvános SSH-kulcsot** .
 
-1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például `k8s-12345`:. Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
+1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például: `k8s-12345` . Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
 
     > [!Note]  
     > Minden egyes fürthöz használjon egy új és egyedi Master profil DNS-előtagot.
@@ -117,7 +117,7 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 > [!TIP]  
 >  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Kapcsolódás a fürthöz](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
 

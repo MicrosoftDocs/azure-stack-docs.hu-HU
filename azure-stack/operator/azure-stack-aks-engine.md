@@ -7,12 +7,12 @@ ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 77d2e6b826f6bc6517d0dd5ed941019a460557e9
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533705"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630443"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
@@ -42,7 +42,7 @@ Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való b
 
 Adja hozzá a következő elemeket a piactérhez:
 
-1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
 1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
 
@@ -63,7 +63,7 @@ Adja hozzá a következő elemeket a piactérhez:
 
 Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet az Azure-ból. Ha azonban az Azure Stack hub le van választva, az elem hozzáadásához kövesse a [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) című témakört.  Adja hozzá az 5. lépésben megadott elemeket.
 
-1. Nyissa meg a [felügyeleti portált](https://adminportal.local.azurestack.external).
+1. Nyissa meg a felügyeleti portált `https://adminportal.local.azurestack.external` .
 
 1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
 

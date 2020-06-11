@@ -1,18 +1,18 @@
 ---
 title: Frissítések kezelése
 description: Ismerje meg, hogyan kezelheti a frissítéseket Azure Stack hub-ban
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 06/04/2020
-ms.author: inhenkel
+ms.date: 06/09/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: 03c233690ffa3148c04aabb49d69c6bc28f07eb1
-ms.sourcegitcommit: 0f1483e17d7e7fa5b4c5c457eab13373eb4b3fdc
+ms.reviewer: niy
+ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84506451"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636869"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése az Azure Stack Hubban
 
@@ -65,18 +65,13 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
 ### <a name="major-version-to-major-version"></a>Főverzió a főverzióig
 
-A főverzióról a főverzióra történő frissítésnek lépésről lépésre kell esnie:
+A főverzióról a főverzióra történő frissítésnek lépésről lépésre kell esnie: az aktuális környezet csak a következő főverzióra frissíthető, és nem lehet kihagyni a főverzió frissítését.
 
-- a jelenlegi környezet csak a következő főverzióra tud frissíteni
-- a főverzió frissítését nem lehet kihagyni.
-
-Ha például a környezet 1. x, a legújabb elérhető frissítési verzió 3. x, akkor az 1. x, majd 2. x, majd 3. x verziót kell frissítenie.
+Ha például az Azure Stack hub-környezete 1908. x, és a legújabb elérhető frissítési verzió a 2002. x, akkor a 1908-1910, majd a 2002-ra kell frissítenie.
 
 ### <a name="hotfixes-within-major-versions"></a>Gyorsjavítások a főbb verziókon belül
 
-Ugyanazon a főverziószámon belül Azure Stack több gyorsjavítás is kiszabadítható. Mivel a gyorsjavítások kumulatívak, a legújabb frissítési csomag tartalmazza az összes korábbi gyorsjavítást. A legújabb gyorsjavítást a gyorsjavítások számának kiugrásával frissítheti.
-
-Ha például a verziójának verziója a (z). MV. 1. x, a legújabb frissítés a. MV. 4. x verzióban érhető el. Annak ellenére, hogy a verziójának frissítései vannak. MV. 2. x és a verzióban. MV. 3. x, közvetlenül telepíthető. MV. 4. x. A-ben a összes gyorsjavítása elérhető lesz. MV. 2. x és a verzióban. Az MV. 3. x automatikusan.
+Ugyanazon a főverziószámon belül Azure Stack hub több gyorsjavítást is kiszabadíthat. A gyorsjavítások összegző jellegűek; a legújabb gyorsjavítási csomag tartalmazza az adott verzióhoz tartozó összes korábbi gyorsjavítást. További információ: [gyorsjavítások](azure-stack-servicing-policy.md#hotfixes).
 
 ## <a name="update-process"></a>Frissítési folyamat
 

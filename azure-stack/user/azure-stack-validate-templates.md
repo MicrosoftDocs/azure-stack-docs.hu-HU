@@ -3,20 +3,20 @@ title: Az Azure Stack hub sablon-ellenőrzési eszközének használata
 description: A sablon-ellenőrzési eszközzel megkeresheti Azure Stack hubhoz való központi telepítéshez szükséges sablonokat.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7e003a8b42e479fcc732b8e1146fceb6128cf5f1
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705287"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666277"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Az Azure Stack hub sablon-ellenőrzési eszközének használata
 
-A sablon-ellenőrzési eszköz használatával győződjön meg arról, hogy a Azure Resource Manager [sablonjai](azure-stack-arm-templates.md) készen állnak-e a Azure stack hubhoz való üzembe helyezésre. A sablon-ellenőrzési eszköz az Azure Stack hub-eszközök GitHub-tárházának részeként érhető el. Töltse le az Azure Stack hub-eszközöket az [eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md)című témakörben ismertetett lépések segítségével.
+A sablon-ellenőrzési eszköz használatával győződjön meg arról, hogy a Azure Resource Manager [sablonjai](azure-stack-arm-templates.md) készen állnak-e a Azure stack hubhoz való üzembe helyezésre. A sablon-ellenőrzési eszköz az Azure Stack hub Tools GitHub-tárházban érhető el. Töltse le az Azure Stack hub-eszközöket az [eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md)című témakörben ismertetett lépések segítségével.
 
 ## <a name="overview"></a>Áttekintés
 
@@ -29,7 +29,7 @@ A sablon érvényesítéséhez először létre kell majd adnia egy felhőalapú
 
 A sablon-érvényesítő használata előtt futtassa a **AzureRM. CloudCapabilities** PowerShell-modult, és hozzon létre egy JSON-fájlt.
 
->[!NOTE]
+> [!NOTE]
 > Ha frissíti az integrált rendszerét, vagy új szolgáltatásokat vagy virtuális bővítményeket ad hozzá, futtassa újra ezt a modult.
 
 1. Ellenőrizze, hogy van-e kapcsolata Azure Stack hubhoz. Ezek a lépések a Azure Stack Development Kit (ASDK) gazdagépről hajthatók végre, vagy [VPN-](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) kapcsolattal is csatlakozhatnak a munkaállomásról.
@@ -39,7 +39,7 @@ A sablon-érvényesítő használata előtt futtassa a **AzureRM. CloudCapabilit
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. A **Get-CloudCapabilities** parancsmag használatával lekérheti a szolgáltatási verziókat, és létrehozhatja a FELHŐALAPÚ képességek JSON-fájlját. Ha nem ad meg `-OutputPath`, a **AzureCloudCapabilities. JSON** fájl az aktuális könyvtárban jön létre. A tényleges Azure-beli hely használata:
+3. A **Get-CloudCapabilities** parancsmag használatával lekérheti a szolgáltatási verziókat, és létrehozhatja a FELHŐALAPÚ képességek JSON-fájlját. Ha nem ad meg `-OutputPath` , a (z) **AzureCloudCapabilities.js** fájl az aktuális könyvtárban jön létre. A tényleges Azure-beli hely használata:
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -74,13 +74,13 @@ A sablon-érvényesítő parancsmag a következő paramétereket támogatja.
 
 | Paraméter | Leírás | Kötelező |
 | ----- | -----| ----- |
-| `TemplatePath` | Megadja Azure Resource Manager sablonok rekurzív megkeresésének elérési útját. | Igen |
-| `TemplatePattern` | Megadja az egyeztetendő sablonfájlok nevét. | Nem |
-| `CapabilitiesPath` | Megadja a Felhőbeli képességek JSON-fájljának elérési útját. | Igen |
-| `IncludeComputeCapabilities` | Magában foglalja a IaaS-erőforrások, például a virtuálisgép-méretek és a virtuálisgép-bővítmények értékelését. | Nem |
-| `IncludeStorageCapabilities` | Magában foglalja a tárolási erőforrások, például az SKU-típusok kiértékelését. | Nem |
-| `Report` | Megadja a generált HTML-jelentés nevét. | Nem |
-| `Verbose` | Naplózza a hibákat és a figyelmeztetéseket a konzolon. | Nem|
+| `TemplatePath` | Megadja Azure Resource Manager sablonok rekurzív megkeresésének elérési útját. | Yes |
+| `TemplatePattern` | Megadja az egyeztetendő sablonfájlok nevét. | No |
+| `CapabilitiesPath` | Megadja a Felhőbeli képességek JSON-fájljának elérési útját. | Yes |
+| `IncludeComputeCapabilities` | Magában foglalja a IaaS-erőforrások, például a virtuálisgép-méretek és a virtuálisgép-bővítmények értékelését. | No |
+| `IncludeStorageCapabilities` | Magában foglalja a tárolási erőforrások, például az SKU-típusok kiértékelését. | No |
+| `Report` | Megadja a generált HTML-jelentés nevét. | No |
+| `Verbose` | Naplózza a hibákat és a figyelmeztetéseket a konzolon. | No|
 
 ### <a name="examples"></a>Példák
 
@@ -94,7 +94,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -Report TemplateReport.html
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Sablonok üzembe helyezése Azure Stack hubhoz](azure-stack-arm-templates.md)
 - [Sablonok fejlesztése Azure Stack hubhoz](azure-stack-develop-templates.md)

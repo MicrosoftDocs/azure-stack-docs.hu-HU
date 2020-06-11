@@ -7,18 +7,18 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: b0dd6b5013a19c120d1d8e69594406292ee6ac6c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423847"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631360"
 ---
 # <a name="tutorial-test-a-service-offering"></a>Oktatóanyag: szolgáltatási ajánlat tesztelése
 
 Az előző oktatóanyagban létrehozott egy ajánlatot a felhasználók számára. Ebből az oktatóanyagból megtudhatja, hogyan tesztelheti az ajánlatot, ha a segítségével előfizetést hoz létre. Ezután létrehozhatja és üzembe helyezheti az erőforrásokat az előfizetés által jogosult alapszolgáltatásokhoz.
 
-Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
+Az oktatóanyag a következőket ismerteti:
 
 > [!div class="checklist"]
 > * Előfizetés létrehozása
@@ -36,8 +36,8 @@ Az oktatóanyag megkezdése előtt végre kell hajtania a következő előfelté
 
 1. Bejelentkezés a felhasználói portálra felhasználói fiókkal 
 
-   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a formátum https://portal.&lthasználatával. *régió*&gt;. &lt; *FQDN*FQDN&gt;.
-   - Ha a Azure Stack Development Kit használja, a portál címe: https://portal.local.azurestack.external.
+   - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik, a formátum használatával https://portal.&lt .* régió* &gt; . &lt; *FQDN* &gt; .
+   - Ha a Azure Stack Development Kit használja, a portál címe: `https://portal.local.azurestack.external` .
 
 1. Válassza az **előfizetés beszerzése** csempét.
 
@@ -59,7 +59,7 @@ A felhasználói portálon kiépít egy Storage-fiókot az előző szakaszban l�
 
 1. Jelentkezzen be a felhasználói portálra egy felhasználói fiókkal.
 
-1. Válassza **az + erőforrás** > **létrehozása + tároló** > **Storage-fiók – blob, fájl, tábla, üzenetsor**lehetőséget.
+1. Válassza **az + erőforrás létrehozása** > **+ tároló** > **Storage-fiók – blob, fájl, tábla, üzenetsor**lehetőséget.
 
 1. A **Storage-fiók létrehozása**területen adja meg a következő információkat:
   
@@ -76,8 +76,8 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az előző sza
 
 1. Jelentkezzen be a felhasználói portálra egy felhasználói fiókkal.
 
-1. Válassza az **+ erőforrás** > létrehozása **számítási** > ** \<rendszerkép neve\>** lehetőséget, ahol a "rendszerkép-Name" az előfeltételek között letöltött virtuális gép neve.
-1. A **virtuális gép** / létrehozása **alapismeretek**területen adja meg a következő információkat:
+1. Válassza az **+ erőforrás létrehozása** > **számítás** lehetőséget > **\<image-name\>** , ahol a "rendszerkép neve" az előfeltételek között letöltött virtuális gép neve.
+1. A **virtuális gép létrehozása** / **alapismeretek**területen adja meg a következő információkat:
   
    - Adja meg a virtuális gép **nevét**.
    - Adja meg a rendszergazdai fiók **felhasználónevét** .
@@ -105,7 +105,7 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az új előfiz
 
 1. Jelentkezzen be a felhasználói portálra egy felhasználói fiókkal.
 
-1. Az irányítópulton válassza az **+ erőforrás** > **létrehozása számítás** > **Windows Server 2016 Datacenter eval**lehetőséget, majd válassza a **Létrehozás**lehetőséget.
+1. Az irányítópulton válassza az **+ erőforrás létrehozása** > **számítás** > **Windows Server 2016 Datacenter eval**lehetőséget, majd válassza a **Létrehozás**lehetőséget.
 
 1. Az **alapismeretek**területen adja meg a következő információkat:
   
@@ -130,7 +130,7 @@ A felhasználói portálon egy virtuális gépet kell kiépíteni az új előfiz
 1. Az új virtuális gép megjelenítéséhez válassza az **összes erőforrás**lehetőséget. Keresse meg a virtuális gépet, és válassza ki a nevét a keresési eredmények közül.
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 

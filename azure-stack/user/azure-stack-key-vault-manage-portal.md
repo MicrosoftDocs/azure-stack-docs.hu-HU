@@ -3,15 +3,15 @@ title: Key Vault kezelése Azure Stack hub-ban a portál használatával
 description: Megtudhatja, hogyan kezelheti Key Vault a Azure Stack hub-ban az Azure Stack hub portál használatával.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5413c37b0574e022716a1a0d333c18e78a818937
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702924"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666386"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>Key Vault kezelése Azure Stack hub-ban a portál használatával
 
@@ -23,7 +23,7 @@ Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Azure Key Vault szo
 
 ## <a name="create-a-key-vault"></a>Kulcstartó létrehozása
 
-1. Jelentkezzen be a [felhasználói portálra](https://portal.local.azurestack.external).
+1. Jelentkezzen be a felhasználói portálra `https://portal.local.azurestack.external` .
 
 2. Az irányítópulton válassza az **+ erőforrás létrehozása**, majd a **Biztonság és Identitáskezelés**, majd a **Key Vault**lehetőséget.
 
@@ -49,7 +49,7 @@ A kulcstároló létrehozása után a következő eljárással hozhat létre és
 
 ### <a name="create-a-key"></a>Kulcs létrehozása
 
-1. Jelentkezzen be az Azure Stack hub [felhasználói portálra](https://portal.local.azurestack.external).
+1. Jelentkezzen be az Azure Stack hub felhasználói portálra `https://portal.local.azurestack.external` .
 
 2. Az irányítópulton válassza a **minden erőforrás**lehetőséget, válassza ki a korábban létrehozott kulcstartót, majd válassza a **kulcsok** csempét.
 
@@ -69,7 +69,7 @@ A kulcs sikeres létrehozása után kiválaszthatja a **kulcsok** területen, é
 
 ### <a name="create-a-secret"></a>Titkos kulcs létrehozása
 
-1. Jelentkezzen be a [felhasználói portálra](https://portal.local.azurestack.external).
+1. Jelentkezzen be a felhasználói portálra `https://portal.local.azurestack.external` .
 
 2. Az irányítópulton válassza a **minden erőforrás**lehetőséget, válassza ki a korábban létrehozott kulcstartót, majd válassza a **titkok** csempét.
 
@@ -87,7 +87,7 @@ A titkos kód sikeres létrehozása után kiválaszthatja a **titkok** szakaszba
 
 ![URI-titok](media/azure-stack-key-vault-manage-portal/image5.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép üzembe helyezése a Key Vaultban tárolt jelszó beolvasásával](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault-ben tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése](azure-stack-key-vault-push-secret-into-vm.md)

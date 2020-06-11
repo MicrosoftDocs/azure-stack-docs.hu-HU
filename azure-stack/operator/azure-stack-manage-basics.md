@@ -8,12 +8,12 @@ ms.date: 04/03/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 04/03/2020
-ms.openlocfilehash: 66fbcf3b94ae89f5f0946ee34582d69cea4ea97e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 156a28bc0f1eccf096b7651f895e34a9a290d7a5
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979358"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630771"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -32,8 +32,8 @@ Vegye figyelembe a felhasználók számára elérhetővé tehető szolgáltatás
 Alapértelmezés szerint a Azure Stack hub a következő alapszolgáltatásokat tartalmazza az Azure Stack hub telepítésekor:
 
 - Compute
-- Storage
-- Hálózat
+- Tárolás
+- Hálózatkezelés
 - Key Vault
 
 Ezekkel az alapszolgáltatásokkal minimális konfigurációval biztosíthat infrastruktúra-szolgáltatást (IaaS) a felhasználók számára.
@@ -49,7 +49,7 @@ A következő kiegészítő szolgáltatásként nyújtott platform-szolgáltatá
 - IoT Hub
 - Eseményközpont
 
-Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és **útmutatók** > **a** [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
+Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a **How-to guides**  >  **Offer services** [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
 
 ### <a name="service-roadmap"></a>Szolgáltatási ütemterv
 
@@ -86,12 +86,12 @@ A szolgáltatások biztosítása mellett az operátorok rendszeres kötelessége
 - [A hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérléssel](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-permissions). (Ez a feladat nem korlátozódik a rendszergazdákra.)
 - Az [infrastruktúra állapotának figyelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-health).
 - A [hálózati](https://docs.microsoft.com/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption) és [tárolási](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-accounts) erőforrások kezelése.
-- [Azure stack hub elindítása és leállítása](https://docs.microsoft.com/azure-stack/operator/azure-stack-start-and-stop&branch=release-tzl).
-- [A kiterjesztett tároló üzemeltetése](https://docs.microsoft.com/azure-stack/tdc/extended-storage-operator-guide&branch=release-tzl).
-- [IoT hub kezelése](https://docs.microsoft.com/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Azure stack hub elindítása és leállítása](azure-stack-start-and-stop.md).
+- [A kiterjesztett tároló üzemeltetése](../user/azure-stack-network-howto-extend-datacenter.md).
+- [IoT hub kezelése](https://docs.microsoft.com/azure/iot-hub/about-iot-hub).
 - Az [Event hub kezelése](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
 - [App Service kezelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- Cserélje le a hibás hardvereket. Itt láthatók a [cserélhető részek](https://docs.microsoft.com/azure-stack/tdc/cru-replaceable-parts&branch=release-tzl)listája.
+- Cserélje le a hibás hardvereket. Itt láthatók a [cserélhető részek](azure-stack-replace-component.md)listája.
 - [Támogatás kérése](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
 
 ## <a name="operator-tasks"></a>Operátori feladatok
@@ -111,7 +111,7 @@ Az alábbi lista az operátorok napi, heti és havi feladatait sorolja fel:
 1. Kapacitásának ellenőrzését.
 2. Futtassa `isi status –verbose` a parancsot a Avocent-kapcsolatban.
 
-# <a name="monthly"></a>[Havi](#tab/monthly)
+# <a name="monthly"></a>[Havonta](#tab/monthly)
 
 1. Havi frissítési csomagok (Microsoft & OEM) alkalmazása.
 2. A biztonsági mentés ellenőrzése a ASDK használatával.
@@ -169,6 +169,6 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 Bármilyen más esetben forduljon a Microsoft CSS-hez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Területi felügyelet Azure Stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-region-management)

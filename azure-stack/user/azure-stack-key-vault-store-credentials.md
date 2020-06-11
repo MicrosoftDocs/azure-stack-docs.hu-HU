@@ -3,15 +3,15 @@ title: Az egyszerű szolgáltatásnév hitelesítő adatainak tárolása Azure S
 description: Ismerje meg, hogyan tárolja Key Vault a szolgáltatás egyszerű hitelesítő adatait Azure Stack hub-on
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: 66d69fa3397fa748dfbc67377c3e52c47f35904c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e42be131f23690611aa4509911644753bea53c4e
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702720"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666362"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Az egyszerű szolgáltatásnév hitelesítő adatainak tárolása Azure Stack központban Key Vault
 
@@ -90,7 +90,7 @@ Key Vault létrehozásához kövesse az alábbi lépéseket:
 
 A titkos kód sikeres létrehozása után az egyszerű szolgáltatásnév adatait itt tárolja. A **titkok**szakaszban bármikor kiválaszthatja, és megtekintheti vagy módosíthatja a tulajdonságait. A **Properties (Tulajdonságok** ) szakasz tartalmazza a titkos azonosítót, amely egy Uniform Resource Identifier (URI), amelyet a külső alkalmazások a titkos kulcs eléréséhez használnak.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Egyszerű szolgáltatások használata](azure-stack-create-service-principals.md)
 - [Az Azure Stack hub Key Vault kezelése a portálon](azure-stack-key-vault-manage-portal.md)  

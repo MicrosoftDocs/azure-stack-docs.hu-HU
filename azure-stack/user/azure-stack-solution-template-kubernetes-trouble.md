@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660212"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631080"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Az Azure Stack hub Kubernetes-telepítésének hibáinak megoldása
 
@@ -48,7 +48,7 @@ A következő ábra a fürt üzembe helyezésének általános folyamatát mutat
         1. Lekéri a katalógus végpontját a Azure Resource Manager metaadat-végpontból.
         2. Az Active Directory-erőforrás AZONOSÍTÓjának beolvasása a Azure Resource Manager metaadat-végpontból.
         3. Betölti az alkabai Motor API-modelljét.
-        4. Üzembe helyezi az AK-motort a Kubernetes-fürtön, és menti a `/etc/kubernetes/azurestackcloud.json`Azure stack hub felhőalapú profilját.
+        4. Üzembe helyezi az AK-motort a Kubernetes-fürtön, és menti a Azure Stack hub felhőalapú profilját `/etc/kubernetes/azurestackcloud.json` .
 3. Hozza létre a fő virtuális gépeket.
 
 4. Egyéni parancsfájl-bővítmények letöltése és futtatása.
@@ -93,7 +93,7 @@ A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttek
 
 A Kubernetes-fürt üzembe helyezésekor áttekintheti a központi telepítés állapotát, és ellenőrizheti, hogy vannak-e problémák.
 
-1. Nyissa meg az [Azure stack hub portált](https://portal.local.azurestack.external).
+1. Nyissa meg az Azure Stack hub portált `https://portal.local.azurestack.external` .
 2. Válassza az **erőforráscsoportok**lehetőséget, majd válassza ki a Kubernetes-fürt telepítésekor használt erőforráscsoport nevét.
 3. Válassza a **központi telepítések**lehetőséget, majd válassza ki a **központi telepítés nevét**.
 
@@ -105,7 +105,7 @@ A Kubernetes-fürt üzembe helyezésekor áttekintheti a központi telepítés �
     | ----     | ----        |
     | Erőforrás | Az erőforrás neve. |
     | Típus | Az erőforrás-szolgáltató és az erőforrás típusa. |
-    | status | Az tétel állapota. |
+    | Állapot | Az tétel állapota. |
     | Időbélyeg | Az idő UTC-időbélyege. |
     | Művelet részletei | A művelet részleteit, például a műveletben érintett erőforrás-szolgáltatót, az erőforrás-végpontot és az erőforrás nevét. |
 
@@ -123,7 +123,7 @@ A Azure Stack hub felügyeletéhez használt gépen bash-kérésre van szükség
 
 A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplóit:
 
-1. Nyisson meg egy bash-parancssort. Egy Windows rendszerű gépről nyissa meg a _git bash_ vagy a Run parancsot: `C:\Program Files\Git\git-bash.exe`.
+1. Nyisson meg egy bash-parancssort. Egy Windows rendszerű gépről nyissa meg a _git bash_ vagy a Run parancsot: `C:\Program Files\Git\git-bash.exe` .
 
 2. Töltse le a log Collector-szkriptet a következő parancsok a bash-parancssorban történő futtatásával:
 
@@ -138,10 +138,10 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
 
     | Paraméter           | Leírás                                                                                                      | Példa                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d,--VMD-Host      | A DVM nyilvános IP-címe vagy teljesen minősített tartományneve (FQDN). A virtuális gép neve a `vmd-`(z) karakterlánccal kezdődik. | IP: 192.168.102.38<br>DNS: VMD-myk8s. local. cloudapp. azurestack. external |
+    | -d,--VMD-Host      | A DVM nyilvános IP-címe vagy teljesen minősített tartományneve (FQDN). A virtuális gép neve a (z) karakterlánccal kezdődik `vmd-` . | IP: 192.168.102.38<br>DNS: VMD-myk8s. local. cloudapp. azurestack. external |
     | -h,-– Súgó  | A parancs használatának nyomtatása. | |
     | -i,--Identity-file | Az Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott RSA titkos kulcsfájl elérési útja. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | C:\data\ id_rsa. PEM (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m,--Master-Host   | A Kubernetes fő csomópontjának nyilvános IP-címe vagy teljes tartományneve (FQDN). A virtuális gép neve a `k8s-master-`(z) karakterlánccal kezdődik. | IP: 192.168.102.37<br>FQDN: k8s-12345. local. cloudapp. azurestack. external      |
+    | -m,--Master-Host   | A Kubernetes fő csomópontjának nyilvános IP-címe vagy teljes tartományneve (FQDN). A virtuális gép neve a (z) karakterlánccal kezdődik `k8s-master-` . | IP: 192.168.102.37<br>FQDN: k8s-12345. local. cloudapp. azurestack. external      |
     | -u,--User          | A Kubernetes-fürt létrehozásakor a Piactéri tételnek átadott felhasználó neve. A Kubernetes-csomópontokhoz való távoli bejelentkezéshez szükséges. | Azureus (alapértelmezett érték) |
 
 
@@ -151,14 +151,14 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. Néhány perc elteltével a szkript kiírja az összegyűjtött naplókat egy nevű `KubernetesLogs_{{time-stamp}}`könyvtárba. Itt talál egy könyvtárat a fürthöz tartozó minden egyes virtuális géphez.
+4. Néhány perc elteltével a szkript kiírja az összegyűjtött naplókat egy nevű könyvtárba `KubernetesLogs_{{time-stamp}}` . Itt talál egy könyvtárat a fürthöz tartozó minden egyes virtuális géphez.
 
     A log Collector parancsfájl a naplófájlokban is hibákat keres, és hibaelhárítási lépéseket is tartalmaz, ha ismert problémát talál. Győződjön meg arról, hogy a szkript legújabb verzióját futtatja, hogy növelje az ismert problémák megtalálásának esélyét.
 
 > [!Note]  
 > Tekintse meg ezt a GitHub- [tárházat](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) a log Collector parancsfájl további részleteinek megismeréséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Kubernetes üzembe helyezése Azure Stack hubhoz](azure-stack-solution-template-kubernetes-deploy.md)
 

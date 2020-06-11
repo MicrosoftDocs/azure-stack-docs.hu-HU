@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
-ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
+ms.openlocfilehash: 838ce4ab909019ce14569a8c5ad5da0b19457a90
+ms.sourcegitcommit: f082a8aa7e9cfaeab21b750d58520db58147ff1a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82223055"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84679705"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú virtuális gépek (VM-EK) kezeléséhez használja az alábbi Azure Automation megoldás-szolgáltatásokat:
@@ -109,7 +109,7 @@ Az Azure Stack hub virtuális gépek mostantól az Azure-beli virtuális gépekk
 
 ##  <a name="create-an-update-deployment-schedule"></a>Frissítés központi telepítési ütemtervének létrehozása
 
-A frissítés központi telepítési ütemtervének létrehozásához használjon PowerShell-parancsmagot vagy az Azure REST API a gépek átadásához. A következő PowerShell-példa használatával lekérheti a gépek ütemezését. A **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** parancsmagot használhatja a `ForUpdateConfiguration` paraméterrel az ütemterv létrehozásához. Ezután használja a **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** parancsmagot, és adja át a Azure stack hub- `NonAzureComputer` gépeket a paraméternek. A szkript futtatásához a globális [Azure PowerShell az modult](https://docs.microsoft.com/powershell/azure/)kell használnia.
+A frissítés központi telepítési ütemtervének létrehozásához PowerShell-parancsmagot vagy az Azure REST API kell használnia a gépek továbbításához. A következő PowerShell-példa használatával lekérheti a gépek ütemezését. A **[New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** parancsmagot használhatja a `ForUpdateConfiguration` paraméterrel az ütemterv létrehozásához. Ezután használja a **[New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** parancsmagot, és adja át a Azure stack hub-gépeket a `NonAzureComputer` paraméternek. A szkript futtatásához a globális [Azure PowerShell az modult](https://docs.microsoft.com/powershell/azure/)kell használnia.
 
 Az alábbi példa bemutatja, hogyan teheti meg ezt:
 
@@ -143,5 +143,5 @@ Ha a [Azure monitor for VMS](https://docs.microsoft.com/azure/azure-monitor/insi
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Update Management engedélyezése Resource Manager-sablon használatával
 Ha nagyszámú Azure Stack hub virtuális gépet használ, a [Azure Resource Manager sablonnal](https://aka.ms/aa6zdzy) egyszerűbben telepítheti a megoldást a virtuális gépeken. A sablon telepíti a Microsoft monitoring Agent bővítményt egy meglévő Azure Stack hub virtuális gépre, és hozzáadja egy meglévő Azure LogAnalytics-munkaterülethez.
  
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [SQL Server VM teljesítmény optimalizálása](azure-stack-sql-server-vm-considerations.md)

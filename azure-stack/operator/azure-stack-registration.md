@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 2f001bb2e2a77358463069dcfd351f4828233cf6
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780795"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630832"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -326,7 +326,7 @@ Igény szerint a Get-Content parancsmaggal egy olyan fájlra is rámutathat, ame
 
 A **régió kezelése** csempével ellenőrizheti, hogy az Azure stack hub regisztrációja sikeres volt-e. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján érhető el. Az állapot regisztrálható vagy nem regisztrálható. Ha regisztrálva van, akkor az Azure-előfizetés AZONOSÍTÓját is megjeleníti, amelyet az Azure Stack hub regisztrálásához használt a regisztrációs erőforráscsoport és a név használatával.
 
-1. Jelentkezzen be az [Azure stack hub felügyeleti portálján](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be az Azure Stack hub felügyeleti portálján `https://adminportal.local.azurestack.external` .
 
 2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
 
@@ -496,7 +496,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| Paraméter | Típus | Leírás |
+| Paraméter | Típus | Description |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring | Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
@@ -518,7 +518,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Paraméter | Típus | Leírás |
+| Paraméter | Típus | Description |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | A [rendszerjogosultságú végpont eléréséhez](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)használt hitelesítő adatok. A Felhasználónév formátuma **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sztring |  Előre konfigurált távoli PowerShell-konzol, amely olyan képességeket biztosít, mint a naplók gyűjtése és az egyéb utólagos üzembe helyezési feladatok. További tudnivalókat a [privilegizált végpont használata](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) című cikkben találhat. |
@@ -553,6 +553,6 @@ Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy
    Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

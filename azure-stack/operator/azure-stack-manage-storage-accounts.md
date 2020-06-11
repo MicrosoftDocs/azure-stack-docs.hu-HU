@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294505"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630929"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
 
@@ -22,15 +22,15 @@ Ismerje meg, hogyan kezelheti Azure Stack hub Storage-fiókokat. Az üzleti igé
 
 A régióban található Storage-fiókok listáját Azure Stack központban tekintheti meg a következő lépésekkel:
 
-1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
-2. Válassza **a minden szolgáltatás** > **tároló** > **Storage-fiókok**lehetőséget.
+2. Válassza **a minden szolgáltatás**  >  **tároló**  >  **Storage-fiókok**lehetőséget.
 
    ![Azure Stack hub Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
 
 Alapértelmezés szerint az első 10 fiók jelenik meg. A lista alján található **további terhelés** hivatkozásra kattintva további részleteket is megadhat.
 
-VAGY
+OR
 
 Ha érdekli egy adott Storage-fiók, akkor csak **a megfelelő fiókokat szűrheti és** kérheti le.
 
@@ -89,9 +89,9 @@ Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzem
 
 **A megőrzési időtartam módosítása:**
 
-1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
-2. Válassza az **összes szolgáltatás** > **régió** felügyelete lehetőséget az **Adminisztráció**alatt.
-3. Válassza **az erőforrás-szolgáltatók** > **tárolási** > **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
+1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
+2. Válassza az **összes szolgáltatás**  >  **régió** felügyelete lehetőséget az **Adminisztráció**alatt.
+3. Válassza az **erőforrás-szolgáltatók**  >  **tárolási**  >  **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
 4. Válassza a **konfiguráció** lehetőséget, majd szerkessze a megőrzési időszak értékét.
 
    Állítsa be a napok számát, majd mentse.
@@ -138,7 +138,7 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
 További információ: [Azure stack hub PowerShell dokumentációja](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
  - Az engedélyek kezelésével kapcsolatos információkért lásd: [hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával](azure-stack-manage-permissions.md).
  - Az Azure Stack hub tárolási kapacitásának kezelésével kapcsolatos információkért lásd: [Azure stack hub tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).

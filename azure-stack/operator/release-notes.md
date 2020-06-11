@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
-ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
+ms.openlocfilehash: 50ff7fc42cc6993c4ceeb009515cdad62ce980de
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329214"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636886"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -157,6 +157,8 @@ Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arr
 
 Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
+A gyorsjavításokkal kapcsolatos további információkért tekintse meg a [Azure stack hub karbantartási házirendjét](azure-stack-servicing-policy.md#hotfixes).
+
 ### <a name="prerequisites-before-applying-the-2002-update"></a>Előfeltételek: az 2002-es frissítés alkalmazása előtt
 
 Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
@@ -166,7 +168,7 @@ Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a követk
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Az 2002-es frissítés sikeres alkalmazása után
 
-A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
+A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [Azure Stack hub gyorsjavítási 1.2002.28.93](https://support.microsoft.com/help/4562966)

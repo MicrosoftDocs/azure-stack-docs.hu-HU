@@ -3,15 +3,15 @@ title: Az Azure Stack hub Key Vault bemutatása
 description: Ismerje meg, hogyan kezeli a Key Vault a kulcsokat és a titkokat Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 09db1c2e8daa34b566512ca6daee2480a86527df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9842d0aa2892218b9d3e8ef527df8f83574487b8
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704046"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666464"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Az Azure Stack hub Key Vault bemutatása
 
@@ -65,7 +65,7 @@ A következő forgatókönyvek azt írják le, hogyan segíthetnek a Key Vault a
 
 **Utasítás:** A Key Vault úgy lett kialakítva, hogy a Microsoft ne tekintse meg vagy ne bontsa ki a kulcsokat. Ha egy alkalmazásnak az ügyféladatok használatával kell titkosítási műveleteket végeznie, Key Vault a kulcsokat használja az alkalmazás nevében. Az alkalmazás nem látja az ügyfelek kulcsait. Habár több Azure Stack hub-szolgáltatást és-erőforrást is használunk, a kulcsokat egyetlen helyről kezelheti Azure Stack hub-ban. A tároló egyetlen felületet biztosít, függetlenül attól, hogy hány tárolóval rendelkezik Azure Stack hub-ban, mely régiókat támogatják, és mely alkalmazások használják azokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Az Azure Stack hub Key Vault kezelése a portálon](azure-stack-key-vault-manage-portal.md)  
 * [Azure Stack hub Key Vault kezelése a PowerShell használatával](azure-stack-key-vault-manage-powershell.md)

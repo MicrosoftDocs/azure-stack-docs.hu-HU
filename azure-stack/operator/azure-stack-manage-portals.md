@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 3ed7d53efe5a77362332d4a2216935fee4dd7270
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77699252"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630837"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>A Azure Stack hub felügyeleti portáljának használata
 
@@ -24,8 +24,8 @@ A felügyeleti portál eléréséhez keresse meg a portál URL-címét, és jele
 
 | Környezet | Felügyeleti portál URL-címe |   
 | -- | -- | 
-| AZURE STACK FEJLESZTŐI KÉSZLET (ASDK)| https://adminportal.local.azurestack.external  |
-| Integrált rendszerek | https://adminportal.&lt; *régió*&gt;. &lt; *Teljes tartománynév*&gt; | 
+| AZURE STACK FEJLESZTŐI KÉSZLET (ASDK)| `https://adminportal.local.azurestack.external`  |
+| Integrált rendszerek | https://adminportal.&lt; *régió* &gt; . &lt; *Teljes tartománynév*&gt; | 
 | | |
 
 > [!TIP]
@@ -84,6 +84,6 @@ Ha a felügyeleti portál jobb felső sarkában található Súgó ikonra (kérd
 
 Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet**, megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja **Azure stack hub** kifejezést a **Products (termékek** ) keresőmezőbe, az összes Azure stack hub-útiterv frissítését láthatja.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Regisztrálja Azure stack](azure-stack-registration.md) központját az Azure-ban, és töltse fel [Azure stack hub Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.

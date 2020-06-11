@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 06/10/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
-ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
+ms.openlocfilehash: 235b3232c9ace0ab95b8a041abb521ba1bba55ac
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83721878"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666447"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -79,18 +79,27 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a IAM kiterjesztés elavult. Az Azure Stack hub szolgáltatással szállított Ibiza-portál új viselkedést eredményez, amelynek hatására a RBAC bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a felhasználói portálon a címtár és az**előfizetés** ). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
-- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál tetején, az értesítések gomb közelében, vagy a **minden erőforrás** **panelen** található parancsikonon keresztül érhető el, és nem jelenik meg az **előfizetés? Nyissa meg a könyvtár és előfizetés beállításait**. Az előfizetést ebben a menüben kell kiválasztani.
+- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál felső részén, az **Értesítések** gomb közelében található, vagy elérhető az **Összes erőforrás** panelen elhelyezett parancsikonon keresztül is. A panelen a következő jelenik meg: **Nem talál egy előfizetést? Nyissa meg a Címtár + Előfizetések beállítása elemet**. Az előfizetést ebben a menüben tudja kiválasztani.
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
-### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
+### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound-szabály nem hozható létre
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: nem hozható létre explicit **DenyAllOutbound** -szabály egy NSG, mivel ez megakadályozza a virtuális gép üzembe helyezéséhez szükséges összes belső kommunikációt az infrastruktúrával.
 - Előfordulás: gyakori
 
+### <a name="icmp-protocol-not-supported-for-nsg-rules"></a>NSG-szabályok nem támogatják az ICMP protokollt
+
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: bejövő vagy kimenő hálózati biztonsági szabály létrehozásakor a **protokoll** beállítás egy **ICMP** -beállítást mutat be. Ez Azure Stack hub esetében jelenleg nem támogatott. Ez a probléma rögzített, és nem fog megjelenni a következő Azure Stack hub-kiadásban.
+- Előfordulás: gyakori
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nem lehet törölni egy NSG, ha a hálózati adapterek nem csatlakoznak a futó virtuális géphez
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: egy NSG és egy futó virtuális géphez nem csatolt hálózati adapter társítása esetén az adott objektumhoz tartozó frissítési (PUT) művelet meghiúsul a hálózati vezérlő rétegében. A NSG a hálózati erőforrás-szolgáltató rétegben fogja frissíteni, de a hálózati vezérlőn nem, így a NSG sikertelen állapotba kerül.
+- Remdiation: csatolja a NSG társított hálózati adaptereket, amelyeket el kell távolítani a futó virtuális gépekkel, és meg kell szüntetnie a NSG társítását, vagy el kell távolítania a NSG társított összes hálózati adaptert.
 - Előfordulás: gyakori
 
 ### <a name="network-interface"></a>Hálózati illesztő
@@ -301,7 +310,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a IAM kiterjesztés elavult. Az Azure Stack hub szolgáltatással szállított Ibiza-portál új viselkedést eredményez, amelynek hatására a RBAC bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a felhasználói portálon a címtár és az**előfizetés** ). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
-- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál tetején, az értesítések gomb közelében, vagy a **minden erőforrás** **panelen** található parancsikonon keresztül érhető el, és nem jelenik meg az **előfizetés? Nyissa meg a könyvtár és előfizetés beállításait**. Az előfizetést ebben a menüben kell kiválasztani.
+- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál felső részén, az **Értesítések** gomb közelében található, vagy elérhető az **Összes erőforrás** panelen elhelyezett parancsikonon keresztül is. A panelen a következő jelenik meg: **Nem talál egy előfizetést? Nyissa meg a Címtár + Előfizetések beállítása elemet**. Az előfizetést ebben a menüben tudja kiválasztani.
 
 ### <a name="sql-resource-provider"></a>SQL erőforrás-szolgáltató
 
@@ -315,7 +324,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a műveletnapló elérésekor a portál csak a bejegyzések első oldalát jeleníti meg. **További találatok betöltése** nem tölti be a hozzáadási bejegyzéseket.
 - Szervizelés: állítsa be az időtartományt a szűrőben az első oldal után eltelt bejegyzések áttekintéséhez.
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="load-balancer"></a>Terheléselosztó
 
@@ -333,6 +342,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Előfordulás: gyakori
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nem lehet törölni egy NSG, ha a hálózati adapterek nem csatlakoznak a futó virtuális géphez
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: egy NSG és egy futó virtuális géphez nem csatolt hálózati adapter társítása esetén az adott objektumhoz tartozó frissítési (PUT) művelet meghiúsul a hálózati vezérlő rétegében. A NSG a hálózati erőforrás-szolgáltató rétegben fogja frissíteni, de a hálózati vezérlőn nem, így a NSG sikertelen állapotba kerül.
+- Remdiation: csatolja a NSG társított hálózati adaptereket, amelyeket el kell távolítani a futó virtuális gépekkel, és meg kell szüntetnie a NSG társítását, vagy el kell távolítania a NSG társított összes hálózati adaptert.
 - Előfordulás: gyakori
 
 ### <a name="network-interface"></a>Hálózati illesztő
@@ -486,7 +502,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="load-balancer"></a>Load Balancer
 
@@ -504,6 +520,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Előfordulás: gyakori
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nem lehet törölni egy NSG, ha a hálózati adapterek nem csatlakoznak a futó virtuális géphez
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: egy NSG és egy futó virtuális géphez nem csatolt hálózati adapter társítása esetén az adott objektumhoz tartozó frissítési (PUT) művelet meghiúsul a hálózati vezérlő rétegében. A NSG a hálózati erőforrás-szolgáltató rétegben fogja frissíteni, de a hálózati vezérlőn nem, így a NSG sikertelen állapotba kerül.
+- Remdiation: csatolja a NSG társított hálózati adaptereket, amelyeket el kell távolítani a futó virtuális gépekkel, és meg kell szüntetnie a NSG társítását, vagy el kell távolítania a NSG társított összes hálózati adaptert.
 - Előfordulás: gyakori
 
 ### <a name="network-interface"></a>Hálózati illesztő
@@ -656,12 +679,19 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="load-balancer"></a>Load Balancer
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: amikor rendelkezésre állási csoport virtuális gépeket ad hozzá egy Load Balancer háttér-készletéhez, a portálon hibaüzenet jelenik meg, amely **nem tudta menteni a terheléselosztó háttér-** készletét. Ez egy kozmetikai probléma a portálon, a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttérrendszer-készlethez. 
+- Előfordulás: gyakori
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nem lehet törölni egy NSG, ha a hálózati adapterek nem csatlakoznak a futó virtuális géphez
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: egy NSG és egy futó virtuális géphez nem csatolt hálózati adapter társítása esetén az adott objektumhoz tartozó frissítési (PUT) művelet meghiúsul a hálózati vezérlő rétegében. A NSG a hálózati erőforrás-szolgáltató rétegben fogja frissíteni, de a hálózati vezérlőn nem, így a NSG sikertelen állapotba kerül.
+- Remdiation: csatolja a NSG társított hálózati adaptereket, amelyeket el kell távolítani a futó virtuális gépekkel, és meg kell szüntetnie a NSG társítását, vagy el kell távolítania a NSG társított összes hálózati adaptert.
 - Előfordulás: gyakori
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)

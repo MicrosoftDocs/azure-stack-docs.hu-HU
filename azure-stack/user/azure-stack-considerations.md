@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: a6e2eda40a41c5ffbd7cd39789d993255a8603f9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "80362151"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631343"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -27,7 +27,7 @@ Az [Azure technikai dokumentációjának tartalma](/azure) feltételezi, hogy az
 
 * Azure Stack hub az Azure-ban elérhető szolgáltatások és funkciók egy részét biztosítja.
 * A vállalata vagy szolgáltatója kiválaszthatja, hogy mely szolgáltatásokat szeretné nyújtani. Az elérhető lehetőségek lehetnek testreszabott szolgáltatások vagy alkalmazások. Saját testreszabott dokumentációt is biztosíthatnak.
-* A megfelelő Azure Stack Hub-specifikus végpontokat kell használnia (például a portál címének URL-címe és a Azure Resource Manager végpont).
+* Használja a megfelelő Azure Stack Hub-specifikus végpontokat (például a portál címének URL-címe és a Azure Resource Manager végpont).
 * Az Azure Stack hub által támogatott PowerShell-és API-verziókat kell használnia. A támogatott verziók használatával biztosíthatja, hogy alkalmazásai a Azure Stack hub-ban és az Azure-ban is működjenek.
 
 ## <a name="cheat-sheet-high-level-differences"></a>Cheat Sheet: magas szintű különbségek
@@ -39,8 +39,8 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 | Ki üzemelteti? | Microsoft | A szervezet vagy a szolgáltató.|
 | Kihez forduljon a támogatási szolgálathoz? | Microsoft | Az integrált rendszerek támogatásához forduljon a Azure Stack hub-kezelőhöz (a szervezetnél vagy a szolgáltatónál).<br><br>A Azure Stack Development Kit (ASDK) támogatásához látogasson el a [Microsoft fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Mivel a fejlesztői készlet egy kiértékelési környezet, a Microsoft ügyfélszolgálati szolgálatai (CSS) nem kínálunk hivatalos támogatást.
 | Elérhető szolgáltatások | Tekintse meg az [Azure-termékek](https://azure.microsoft.com/services/?b=17.04b)listáját. Az elérhető szolgáltatások az Azure-régiótól eltérőek. | Azure Stack hub az Azure-szolgáltatások egy részhalmazát támogatja. A tényleges szolgáltatások attól függően változnak, hogy a szervezet vagy a szolgáltató milyen ajánlatot tesz.
-| Azure Resource Manager végpont * | `https://management.azure.com` | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított végpontot.<br><br>A fejlesztői csomaghoz használja a következőt: https://management.local.azurestack.external.
-| Portál URL-címe * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított URL-címet.<br><br>A fejlesztői csomaghoz használja a következőt: https://portal.local.azurestack.external.
+| Azure Resource Manager végpont * | `https://management.azure.com` | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított végpontot.<br><br>A fejlesztői csomaghoz használja a következőt: `https://management.local.azurestack.external` .
+| Portál URL-címe * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított URL-címet.<br><br>A fejlesztői csomaghoz használja a következőt: `https://portal.local.azurestack.external` .
 | Régió | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi**lesz.
 | Erőforráscsoportok | Az erőforráscsoportok A régiókra terjedhetnek. | Mind az integrált rendszerek, mind a fejlesztői csomag esetében csak egy régió van.
 |Támogatott névterek, erőforrástípusok és API-verziók | A legújabb (vagy korábbi verziók, amelyek még nem elavultak). | Azure Stack hub bizonyos verziókat támogat. Tekintse meg a jelen cikk [verzióra vonatkozó követelmények](#version-requirements) című szakaszát.
@@ -52,7 +52,7 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 
 A Microsoft olyan eszközöket és útmutatást biztosít, amelyek segítenek az Azure Stack hub fejlesztésében.
 
-| Ajánlás | Referencia |
+| Ajánlás | Hivatkozások |
 | -------- | ------------- |
 | Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - [A PowerShell telepítése](../operator/azure-stack-powershell-install.md)<br>- [Eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- [A PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- [A Visual Studio telepítése](azure-stack-install-visual-studio.md)
 | Tekintse át a következő elemekre vonatkozó információkat:<br>– Azure Resource Manager a sablon szempontjait.<br>– Útmutató a Gyorsindítás sablonokhoz.<br>– Az Azure-ban Azure Stack hub fejlesztéséhez használható irányelvmodul segítségével. | [Fejlesztés Azure Stack hub-hoz](azure-stack-developer.md) |
@@ -75,9 +75,9 @@ Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | S
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Példa kimenetre (csonkolt): ![példa a Get-AzureRmResourceProvider parancs kimenetére](media/azure-stack-considerations/image1.png)
+Példa kimenetre (csonkolt): ![ példa a Get-AzureRmResourceProvider parancs kimenetére](media/azure-stack-considerations/image1.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a szolgáltatási szintbeli eltérésekről:
 

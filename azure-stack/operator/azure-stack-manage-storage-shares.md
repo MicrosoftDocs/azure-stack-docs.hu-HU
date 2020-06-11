@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 66760fd19b90e55ab27e2c1f2509f0a9b9cb51ae
-ms.sourcegitcommit: d943f7d6e665e3334125f8a15a0343fd28d8f2a9
+ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84452413"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631001"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
 
@@ -90,7 +90,7 @@ Felhőbeli kezelőként a megosztás tárolási kapacitását a PowerShell-paran
 ### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
 Felhőbeli operátorként a felügyeleti portálon megtekintheti az összes megosztás tárolási kapacitását.
 
-1. Jelentkezzen be a [felügyeleti portálra](https://adminportal.local.azurestack.external).
+1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
 2. Válassza a **minden szolgáltatás** > **tárolási** > **fájlmegosztás** lehetőséget a fájlmegosztás listájának megnyitásához, ahol megtekintheti a használati adatokat.
 
     ![Példa: Storage file shares in Azure Stack hub felügyeleti portál](media/azure-stack-manage-storage-shares/storage-file-shares.png)

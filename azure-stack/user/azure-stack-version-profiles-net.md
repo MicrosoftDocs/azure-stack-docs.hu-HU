@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: bb13b13f48aa9ccab231e255e0dcb5547b61615a
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: f7b0aaf51e8e1b5f14e54762c710cd24ed25d5f1
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835917"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631099"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 
@@ -25,8 +25,8 @@ Az API-profilok erőforrás-szolgáltatók és API-verziók kombinációja. Az e
 - Az összes szolgáltatás legújabb verziójának használatához használja a csomagok **legújabb** profilját. Ez a profil a **Microsoft. Azure. Management** NuGet csomag része.
 
 - Azure Stack hub-kompatibilis szolgáltatások használatához használja az alábbi csomagok egyikét:
-  - **Microsoft. Azure. Management. profiles.\_Hybrid\_2019\_03 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
-  - **Microsoft. Azure. Management. profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
+  - **Microsoft. Azure. Management. profiles. Hybrid \_ 2019 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
+  - **Microsoft. Azure. Management. profiles. Hybrid \_ 2018 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
 
   Győződjön meg arról, hogy a fenti NuGet-csomag **ResourceProvider** része a megfelelő szolgáltatóra módosul.
 
@@ -44,9 +44,9 @@ Az alkalmazás összes beállítását egyesítheti.
 
 - A telepítendő csomagok a használni kívánt profil verziójától függenek. A profilok nevei a következők:
 
-  - **Microsoft. Azure. Management. profiles.\_Hybrid\_2019\_03 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
+  - **Microsoft. Azure. Management. profiles. Hybrid \_ 2019 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
 
-  - **Microsoft. Azure. Management. profiles.\_Hybrid\_2018\_03 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
+  - **Microsoft. Azure. Management. profiles. Hybrid \_ 2018 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0 – előzetes verzió. nupkg**
 
 - A Visual Studio Code-hoz készült helyes NuGet-csomagok telepítéséhez tekintse meg a következő hivatkozást, ahol letöltheti a [NuGet Package Manager utasításait][].
 
@@ -95,10 +95,10 @@ A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpo
 
 Vegye figyelembe az alábbi szempontokat:
 
-- A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: https://management.local.azurestack.external/.
+- A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/` .
 
-- Az integrált rendszerek **ResourceManagerUrl** a (z `https://management.region.<fqdn>/`): `<fqdn>` , ahol a a teljes tartománynév.
-A szükséges metaadatok beolvasása `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`:.
+- Az integrált rendszerek **ResourceManagerUrl** a (z `https://management.region.<fqdn>/` ):, ahol a a `<fqdn>` teljes tartománynév.
+A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` .
 
 Példa JSON-fájlra:
 
@@ -117,9 +117,9 @@ Példa JSON-fájlra:
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-- **Microsoft. Azure. Management. profiles.\_Hybrid\_2019\_03 01. *<ResourceProvider*>.0.9.0-preview. nupkg**: az Azure stack hub-hoz készült legújabb profil. Ezt a profilt olyan szolgáltatásokhoz használhatja, amelyek kompatibilisek Azure Stack hubhoz, feltéve, hogy a 1904-es vagy újabb verzióval rendelkezik.
+- **Microsoft. Azure. Management. profiles. hybrid \_ 2019 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-preview. nupkg**: az Azure stack hub-hoz készült legújabb profil. Ezt a profilt olyan szolgáltatásokhoz használhatja, amelyek kompatibilisek Azure Stack hubhoz, feltéve, hogy a 1904-es vagy újabb verzióval rendelkezik.
 
-- **Microsoft. Azure. Management. profiles.\_Hybrid\_2018\_03 01. *<ResourceProvider*>.0.9.0-preview. nupkg**: használja ezt a profilt, hogy a szolgáltatások kompatibilisek legyenek az Azure stack hub 1808-es vagy újabb verzióival.
+- **Microsoft. Azure. Management. profiles. hybrid \_ 2018 \_ 03 \_ 01. <*ResourceProvider*>.0.9.0-preview. nupkg**: használja ezt a profilt, hogy a szolgáltatások kompatibilisek legyenek az Azure stack hub 1808-es vagy újabb verzióival.
 
 - **Legújabb**: az összes szolgáltatás legújabb verzióit tartalmazó profil. Használja az összes szolgáltatás legújabb verzióit. Ez a profil a **Microsoft. Azure. Management** NuGet csomag része.
 
@@ -188,7 +188,7 @@ A következő mintákat használhatja a .NET-tel és az Azure Stack hub API-prof
 - [Storage-fiókok kezelése](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm): Ez a példa a Azure stack hub által támogatott **2019-03-01-hibrid** profilt használja.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ az API-profilokról:
 
