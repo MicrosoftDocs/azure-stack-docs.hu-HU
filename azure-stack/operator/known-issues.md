@@ -7,12 +7,12 @@ ms.date: 06/10/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 235b3232c9ace0ab95b8a041abb521ba1bba55ac
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: 198e6441daae7331eda2502ad7dfc2aea32a08b3
+ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666447"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84766354"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -81,7 +81,7 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 - Ok: a IAM kiterjesztés elavult. Az Azure Stack hub szolgáltatással szállított Ibiza-portál új viselkedést eredményez, amelynek hatására a RBAC bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a felhasználói portálon a címtár és az**előfizetés** ). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
 - Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál felső részén, az **Értesítések** gomb közelében található, vagy elérhető az **Összes erőforrás** panelen elhelyezett parancsikonon keresztül is. A panelen a következő jelenik meg: **Nem talál egy előfizetést? Nyissa meg a Címtár + Előfizetések beállítása elemet**. Az előfizetést ebben a menüben tudja kiválasztani.
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound-szabály nem hozható létre
 
@@ -138,6 +138,10 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>Nem hozható létre Standard_DS2_v2 VM-mérettel rendelkező VMSS a portálon
+
+- Alkalmazható: Ez a probléma az 2002-es kiadásra vonatkozik.
+- Ok: van egy portál hibája, amely megakadályozza a VMSS létrehozását a Standard_DS2_v2 VM-mérettel. Ha létrehoz egy hibát, a (z) "{" code ":" DeploymentFailed ", az" üzenet ":" legalább egy erőforrás-telepítési művelet sikertelen volt. A részletekért listázza az üzembehelyezési műveleteket. Tekintse https://aka.ms/arm-debug meg a használati adatokat. "," Részletek ": [{" code ":" BadRequest "," üzenet ":" {\r\n \" hiba \" : {\R\n \" kód \" : \" NetworkProfileValidationError \" , \r\n \" üzenet: a \" \" virtuális gép mérete Standard_DS2_v2 nem szerepel a VM-méretezési csoport/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Megengedett méretek:. \" \r\n} \r\n} "}]}" szervizelés: hozzon létre egy VMSS a PowerShell-lel vagy egy Resource Manager-sablonnal.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>A virtuális gép áttekintő paneljén nem jelenik meg a számítógép helyes neve
 
@@ -324,7 +328,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a műveletnapló elérésekor a portál csak a bejegyzések első oldalát jeleníti meg. **További találatok betöltése** nem tölti be a hozzáadási bejegyzéseket.
 - Szervizelés: állítsa be az időtartományt a szűrőben az első oldal után eltelt bejegyzések áttekintéséhez.
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="load-balancer"></a>Terheléselosztó
 
@@ -502,7 +506,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="load-balancer"></a>Load Balancer
 
@@ -679,7 +683,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: töltse fel a blobot a SAS kapcsoló használatával.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="load-balancer"></a>Load Balancer
 
