@@ -3,15 +3,15 @@ title: Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzemb
 description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet, és hogyan küldhet rá tanúsítványokat Azure Stack hub kulcstartójának használatával
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/12/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702788"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744869"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on
 
@@ -30,7 +30,7 @@ A tanúsítványokat számos esetben használják, például a hitelesítés Act
 A következő lépések azt írják le, hogy milyen folyamat szükséges a tanúsítvány virtuális géphez való leküldéséhez:
 
 1. Hozzon létre egy Key Vault-titkot.
-2. Frissítse az **azuredeploy. Parameters. JSON** fájlt.
+2. Frissítse a **azuredeploy.parameters.js** fájlt.
 3. A sablon üzembe helyezése.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A következő lépések azt írják le, hogy milyen folyamat szükséges a tanú
 A következő szkript egy. pfx formátumú tanúsítványt hoz létre, létrehoz egy kulcstartót, és a Key vaultban tárolja a tanúsítványt titkos kulcsként.
 
 > [!IMPORTANT]
-> A Key Vault létrehozásakor a `-EnabledForDeployment` paramétert kell használnia. Ez a paraméter biztosítja, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
+> A `-EnabledForDeployment` Key Vault létrehozásakor a paramétert kell használnia. Ez a paraméter biztosítja, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -108,13 +108,13 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-A parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t. Jegyezze fel ezt az URI-t, mert a [leküldéses tanúsítványban a Windows Resource Manager-sablonra](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)kell hivatkoznia. Töltse le a [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) template mappát a fejlesztői számítógépére. Ez a mappa tartalmazza a **azuredeploy. JSON** és a **azuredeploy. Parameters. JSON** fájlt, amelyet a következő lépésekben kell megadnia.
+A parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t. Jegyezze fel ezt az URI-t, mert a [leküldéses tanúsítványban a Windows Resource Manager-sablonra](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)kell hivatkoznia. Töltse le a [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) template mappát a fejlesztői számítógépére. Ez a mappa tartalmazza a fájlok **azuredeploy.js** és **azuredeploy.parameters.js** , amelyekre a következő lépésekben szüksége van.
 
-Módosítsa a **azuredeploy. Parameters. JSON** fájlt a környezeti értékek alapján. A fontos paraméterek a tár neve, a tár erőforráscsoport és a titkos URI (az előző szkript által generált). A következő szakasz egy példát mutat be egy paraméter fájlra.
+Módosítsa a fájl **azuredeploy.parameters.js** a környezeti értékek alapján. A fontos paraméterek a tár neve, a tár erőforráscsoport és a titkos URI (az előző szkript által generált). A következő szakasz egy példát mutat be egy paraméter fájlra.
 
-## <a name="update-the-azuredeployparametersjson-file"></a>A azuredeploy. Parameters. JSON fájl frissítése
+## <a name="update-the-azuredeployparametersjson-file"></a>A fájl azuredeploy.parameters.jsfrissítése
 
-Frissítse az **azuredeploy. Parameters. JSON** fájlt a, `vaultName`a titkos URI- `VmName`val és más paraméterekkel a környezete szerint. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
+A ( **azuredeploy.parameters.json** z `vaultName` ), titkos URI azonosítóval és egyéb paraméterekkel frissítse a fájlazuredeploy.parameters.jsét a `VmName` környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
 
 ```json
 {
@@ -173,9 +173,9 @@ Azure Stack hub az üzembe helyezés során leküldi a tanúsítványt a virtuá
 
 ## <a name="retire-certificates"></a>Tanúsítványok kivonása
 
-A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verzióját nem lehet törölni, de a `Set-AzureKeyVaultSecretAttribute` parancsmag használatával letilthatja azt.
+A tanúsítványok kivonása a Tanúsítványkezelő folyamat része. A tanúsítvány régebbi verzióját nem lehet törölni, de a parancsmag használatával letilthatja azt `Set-AzureKeyVaultSecretAttribute` .
 
-Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. A `VaultName`, `Name`a és `Version` a paraméterekhez használhatja a saját értékeit.
+Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. A `VaultName` , a `Name` és a paraméterekhez használhatja a saját értékeit `Version` .
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0

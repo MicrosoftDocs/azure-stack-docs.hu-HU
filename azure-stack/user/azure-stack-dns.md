@@ -3,15 +3,15 @@ title: DNS Azure Stack központban
 description: Ismerkedjen meg a DNS-sel Azure Stack központban, valamint hogyan hozhat létre és kezelhet DNS-zónákat.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7ab3775b0424a8cba0b84bc3d3ccb40705b192fb
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703009"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744902"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>DNS használata Azure Stack központban
 
@@ -43,7 +43,7 @@ Van egy webalkalmazásból származó terheléselosztó feldolgozási kérelme. 
 
 A DNS-zónák és-rekordok a Azure Stack hub-ban hozhatók létre és kezelhetők.
 
-Az Azure Stack hub az Azure-hoz hasonló DNS-szolgáltatást biztosít, amely a Azure DNS API-kkal konzisztens API-kat használ.  Ha a tartományait Azure Stack hub DNS-ben üzemelteti, a DNS-rekordokat ugyanazzal a hitelesítő adatokkal, API-kkal és eszközökkel kezelheti. Ugyanezt a számlázási és támogatási szolgáltatásokat is használhatja a többi Azure-szolgáltatáshoz.
+Az Azure Stack hub az Azure-hoz hasonló DNS-szolgáltatást biztosít, amely a Azure DNS API-kkal konzisztens API-kat használ. Ha a tartományait Azure Stack hub DNS-ben üzemelteti, a DNS-rekordokat ugyanazzal a hitelesítő adatokkal, API-kkal és eszközökkel kezelheti. Ugyanezt a számlázási és támogatási szolgáltatásokat is használhatja a többi Azure-szolgáltatáshoz.
 
 Az Azure Stack hub DNS-infrastruktúrája sokkal kisebb, mint az Azure. Egy Azure Stack hub központi telepítésének mérete és helye befolyásolja a DNS hatókörét, méretezését és teljesítményét. Ez azt is jelenti, hogy a teljesítmény, a rendelkezésre állás, a globális terjesztés és a magas rendelkezésre állás eltérő lehet az üzembe helyezéstől az üzembe helyezésig.
 
@@ -53,9 +53,9 @@ A Azure Stack hub DNS-je hasonló a DNS-hez az Azure-ban, de van néhány fontos
 
 * **Nem támogatja az AAAA-rekordokat**: Azure stack hub nem támogatja az AAAA-rekordokat, mert az Azure stack hub nem támogatja az IPv6-címeket. Ez az Azure-beli DNS-ben és Azure Stack hub-ban kulcsfontosságú különbség.
 
-* **Nem több-bérlő**: a Azure stack hub DNS szolgáltatása nem több-bérlős. A bérlők nem tudják létrehozni ugyanazt a DNS-zónát. Csak az első előfizetés, amely a zóna létrehozását kísérli meg, és a későbbi kérelmek sikertelenek lesznek. Ez az Azure és a Azure Stack hub DNS közötti különbség.
+* **Nem több-bérlős**: az Azure stack hub DNS szolgáltatása nem több-bérlős. A bérlők nem tudják létrehozni ugyanazt a DNS-zónát. Csak az első előfizetés, amely a zóna létrehozását kísérli meg, és a későbbi kérelmek sikertelenek lesznek. Ez az Azure és a Azure Stack hub DNS közötti különbség.
 
-* **Címkék, metaadatok és etagek**: kisebb különbségek vannak abban, hogy Azure stack hub hogyan kezelje a címkéket, a metaadatokat, a etagek és a korlátokat.
+* **Címkék, metaadatok és etagek**: kisebb különbségek vannak abban a módon, Azure stack hub a címkéket, a metaadatokat, a etagek és a korlátokat kezeli.
 
 További információ a Azure DNSről: [DNS-zónák és-rekordok](/azure/dns/dns-zones-records).
 
@@ -79,7 +79,7 @@ Az Azure Stack hub DNS-REST API szintjén a Etagek HTTP-fejlécek használatáva
 
 | Fejléc | Viselkedés|
 |--------|---------|
-| None   | A mindig sikeres (nincs ETAG-ellenőrzés).|
+| Nincs   | A mindig sikeres (nincs ETAG-ellenőrzés).|
 | If-Match| A csak akkor lesz sikeres, ha az erőforrás létezik, és a ETAG egyezik.|
 | If-Match *| Az üzembe helyezés csak akkor sikeres, ha az erőforrás létezik.|
 | If-None-Match *| A csak akkor lesz sikeres, ha az erőforrás nem létezik.|

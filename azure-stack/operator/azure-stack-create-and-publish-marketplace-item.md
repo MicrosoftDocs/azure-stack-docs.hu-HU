@@ -3,16 +3,16 @@ title: Marketplace-elemek létrehozása és közzététele Azure Stack központb
 description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 195b6ef3b15ada39664871557ed7efe2d613f5cd
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660718"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744946"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -41,12 +41,12 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
    ![Képernyőfelvétel a telepítési sablonok struktúrájáról](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. A manifest. JSON sablonban cserélje le a következő Kiemelt értékeket (a számokat), az [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md)megadott értékkel.
+4. Cserélje le a következő Kiemelt értékeket (számokat) a sablon Manifest.jsaz [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md)megadott értékre.
 
    > [!NOTE]  
    > A Azure Resource Manager sablonban soha ne végezzen semmilyen titkos kulcsot, például a termékkulcsot, a jelszót vagy az ügyfél által azonosítható adatokat. A sablon JSON-fájljai a katalógusban közzétett egyszeri hitelesítés nélkül érhetők el. Tárolja [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) összes titkát, és hívja meg őket a sablonból.
 
-   A következő sablon a manifest. JSON fájl mintája:
+   A következő sablon a fájl Manifest.jsmintája:
 
     ```json
     {
@@ -113,12 +113,12 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     - (4) – a név, amelyet az ügyfelek látnak.
     - (5) – a közzétevő neve, amelyet az ügyfelek látnak.
     - (6) – a közzétevő jogi neve.
-    - (7) – a **UIDefinition. JSON** fájl tárolási helyének elérési útja.  
+    - (7) – a **UIDefinition.js** fájl tárolási helyének elérési útja.  
     - (8) – a JSON fő sablonfájl elérési útja és neve.
     - (9) – azoknak a kategóriáknak a neve, amelyekben ez a sablon megjelenik.
     - (10) – az egyes ikonok elérési útja és neve.
 
-5. Az **MS-Resource**értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterláncok/erőforrások. JSON** fájlban:
+5. Az **MS-Resource**értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterlánc/resources.js** fájlon belül:
 
     ```json
     {
@@ -131,7 +131,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     }
     ```
 
-    ![Csomag megjelenítési](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![csomagja](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
+    ![Csomag megjelenítési ](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![ csomagja](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont az [Azure stack hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
 
@@ -144,16 +144,16 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     > [!NOTE]
     > A Piactéri elem megfelelő létrehozásához mind a négy ikon mérete (kis, közepes, nagy, széles) szükséges.
 
-10. A manifest. JSON további szerkesztését a következő témakörben tekintheti meg [: hivatkozás: Marketplace Item manifest. JSON](#reference-marketplace-item-manifestjson).
+10. A Manifest.jstovábbi szerkesztését a következő témakörben tekintheti meg [: a Piactéri elem manifest.js](#reference-marketplace-item-manifestjson):.
 
-11. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGallery. exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
+11. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGallery.exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
 
     ```shell
     .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
     ```
 
     > [!NOTE]
-    > A kimeneti elérési út bármely választott útvonal lehet, és nem kell a C: meghajtó alatt lennie. A manifest. JSON fájl és a kimeneti csomag teljes elérési útja azonban léteznie kell. Ha például a kimeneti elérési út `C:\<path>\galleryPackageName.azpkg`, akkor a mappának `C:\<path>` léteznie kell.
+    > A kimeneti elérési út bármely választott útvonal lehet, és nem kell a C: meghajtó alatt lennie. A fájl manifest.jsának teljes elérési útját és a kimeneti csomagot azonban léteznie kell. Ha például a kimeneti elérési út `C:\<path>\galleryPackageName.azpkg` , akkor a mappának `C:\<path>` léteznie kell.
     >
     >
 
@@ -178,7 +178,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az `GalleryItemURI` értéket lekérheti az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
+5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az értéket lekérheti `GalleryItemURI` az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
 
    A katalógus-csomag befejezése és az **Add-AzsGalleryItem**használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
 
@@ -202,38 +202,38 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
    >
    >
 
-## <a name="reference-marketplace-item-manifestjson"></a>Hivatkozás: Marketplace Item manifest. JSON
+## <a name="reference-marketplace-item-manifestjson"></a>Hivatkozás: Marketplace-elem manifest.jsbekapcsolva
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Description |
 | --- | --- | --- | --- | --- |
-| Name (Név) |X |Sztring |[A-Za-z0-9] + | |
-| Közzétevő |X |Sztring |[A-Za-z0-9] + | |
+| Name |X |Sztring |[A-Za-z0-9] + | |
+| Publisher |X |Sztring |[A-Za-z0-9] + | |
 | Verzió |X |Sztring |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metaadatok
 
-| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
 | Összefoglalás |X |Sztring |60 – 100 karakter | |
 | LongSummary |X |Sztring |140 – 256 karakter |Azure Stack központban még nem alkalmazható. |
-| Leírás |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
+| Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
 
 ### <a name="images"></a>Képek
 
 A piactér a következő ikonokat használja:
 
-| Name (Név) | Szélesség | Height (Magasság) | Megjegyzések |
+| Name | Szélesség | Height (Magasság) | Megjegyzések |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
 | Közepes |90 px |90 px |Mindig szükséges |
 | Kicsi |40 px |40 px |Mindig szükséges |
-| Képernyőfelvétel |533 px |324 px |Mindig szükséges |
+| Képernyőfelvétel |533 px |324 px |Választható |
 
 ### <a name="categories"></a>Kategóriák
 
@@ -243,7 +243,7 @@ Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
@@ -252,7 +252,7 @@ Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásoka
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Name (Név) | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Érték |X |Sztring |Legfeljebb 30 karakter. | |

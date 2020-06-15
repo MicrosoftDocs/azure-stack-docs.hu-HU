@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111395"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730679"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -52,6 +52,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | Átjáró átméretezése | Az Azure támogatja az átjáró átméretezését az üzembe helyezés után. | Az átméretezés nem támogatott. |
 |  | Rendelkezésre állási konfiguráció | Aktív/aktív | Aktív/passzív |
 |  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a házirend-alapú forgalom-választókat az Útválasztás-alapú átjáró kapcsolataival. | Még nem támogatott. |
+|  | Figyelés és riasztások | Az Azure Azure Monitort használ a VPN-erőforrásokra vonatkozó riasztások beállításához. | Még nem támogatott.|
 | Terheléselosztó | Termékváltozat | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer/Path/legfeljebb 5 előtér-IP-konfigurációval rendelkezhet.  |
 |  | Zóna | A Availability Zones támogatottak. | Még nem támogatott |
 |  | Bejövő NAT-szabályok támogatása szolgáltatási végpontok számára | Az Azure támogatja a szolgáltatási végpontok megadását a bejövő NAT-szabályokhoz. | Azure Stack hub még nem támogatja a szolgáltatási végpontokat, ezért ezeket nem lehet megadni. |
@@ -89,6 +90,6 @@ Azure Stack hub hálózatkezelés a következő API-verziókat támogatja:
 - 2017-11-01
 - 2017-10-01
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [DNS Azure Stack központban](azure-stack-dns.md)
