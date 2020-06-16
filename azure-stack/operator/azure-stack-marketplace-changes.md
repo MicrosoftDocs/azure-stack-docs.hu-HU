@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 17a4a5d617332a38ac33af38b97452f5bd2975ff
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 6625f45fcb593d510a8774d112199fc3d7ed1698
+ms.sourcegitcommit: 893d55bd3e680ec8b23358c04dec73efaa68a73e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146818"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783452"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -56,13 +56,14 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami cukornád
-- Bitnami Node. js magas rendelkezésre állású fürt
+- Bitnami Node.js magas rendelkezésre állású fürt
 - Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder: L4 – L7 Application Delivery Controller, globális kiszolgáló terheléselosztása (GSLB), SSL-betekintés
 - Az ellenőrzési pont vSEC biztonságának kezelése
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 6/12/2020: Bitnami Grafana – 6.7.2006040249 verzió
 - 5/21/2020: Ubuntu Server 16,04 LTS-Version 16.04.202004290
 - 5/21/2020: Ubuntu Server 18,04 LTS-Version 18.04.202004080
 - 5/21/2020: Windows Server 2008 R2 SP1 BYOL-Version 7601.24552.2004101827
@@ -148,7 +149,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 05/07/2020: Bitnami Neo4j-Version. 4.0.2003311444
 - 05/07/2020: a Bitnami NGINX nyílt forráskódú verziója 1.16.2004221209
 - 05/07/2020: Bitnami Noalyss – 7.3.2004220120 verzió
-- 05/07/2020: Bitnami Node. js – verzió 12.16.2004281743
+- 05/07/2020: Bitnami Node.js – 12.16.2004281743 verzió
 - 05/07/2020: Bitnami-alkotó – verzió 10.0.2004220137
 - 05/07/2020: Bitnami Odoo – 13.0.2004220418 verzió
 - 05/07/2020: a Bitnami Open Atrium – Version 2.645.2004220952
@@ -244,7 +245,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 07/30/2019: SQL Server 2016 SP2 (Express, Developer, standard és Enterprise kiadás) – 13.2.20190410 verzió
 - 07/11/2019: Thales CipherTrust Cloud Key Manager – verzió 1.0.7
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
