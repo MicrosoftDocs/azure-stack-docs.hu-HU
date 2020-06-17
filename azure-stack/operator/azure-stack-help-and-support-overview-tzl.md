@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 20d20e5e53a8826ea0514e894bacbfeeeda6c540
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: a9b81eb49abdcd08cef13e89845473db5c9c9032
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580130"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819502"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -42,15 +42,15 @@ A **Súgó és támogatás** felső részén olyan dolgokat érdemes kipróbáln
 
 Az integrált rendszerek esetében a Microsoft és az eredeti berendezésgyártó (OEM) hardveres partnerei között összehangolt eszkalációs és megoldási folyamat áll rendelkezésre.
 
-Ha Cloud Services-probléma merül fel, a támogatás a Microsoft ügyfél-támogatási szolgálatán (CSS) keresztül érhető el. Kiválaszthatja a **Súgó** (kérdőjel) elemet a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva megnyithatja a **Súgó + támogatás áttekintést** , és elküldheti az új támogatási kérelmet. A támogatási kérelem létrehozásakor Azure Stack hub szolgáltatást kell megjelölnie. Javasoljuk, hogy az ügyfelek ezt a lehetőséget használják a jegyek küldésére a globális Azure Portal használata helyett.
+Ha Cloud Services-probléma merül fel, a támogatás Microsoft ügyfélszolgálataon keresztül érhető el. Kiválaszthatja a **Súgó** (kérdőjel) elemet a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva megnyithatja a **Súgó + támogatás áttekintést** , és elküldheti az új támogatási kérelmet. A támogatási kérelem létrehozásakor Azure Stack hub szolgáltatást kell megjelölnie. Javasoljuk, hogy az ügyfelek ezt a lehetőséget használják a jegyek küldésére a globális Azure Portal használata helyett.
 
-Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissítéssel, a hardverrel (beleértve a mezőre cserélhető egységeket is) és az összes hardveres szoftvert (például a hardver életciklus-állomásán futó szoftvert), először lépjen kapcsolatba az OEM hardver gyártójával. Bármilyen más esetben forduljon a Microsoft CSS-hez.
+Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissítéssel, a hardverrel (beleértve a mezőre cserélhető egységeket is) és az összes hardveres szoftvert (például a hardver életciklus-állomásán futó szoftvert), először lépjen kapcsolatba az OEM hardver gyártójával. Minden más esetben lépjen kapcsolatba Microsoft ügyfélszolgálata.
 
 ![Az integrált rendszerek szakértői súgójának beolvasása](media/azure-stack-help-and-support/get-support-integrated.png)
 
 A Azure Stack Development Kit (ASDK) esetében a támogatással kapcsolatos kérdéseket a [Azure stack hub MSDN fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)teheti meg.
 
-Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva nyissa meg a Súgó **+ támogatás áttekintést**, amely a fórumra mutató hivatkozást tartalmaz. Az MSDN-fórumok rendszeres figyelése. Mivel a ASDK egy kiértékelési környezet, a Microsoft CSS-ben nem érhető el hivatalos támogatás.
+Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva nyissa meg a Súgó **+ támogatás áttekintést**, amely a fórumra mutató hivatkozást tartalmaz. Az MSDN-fórumok rendszeres figyelése. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
 A probléma megoldásához, illetve az online képzések fejlesztéséhez és a saját képességeinek javításához az MSDN-fórumokat is elérheti.
 
@@ -83,7 +83,7 @@ A 1907-es kiadástól kezdve két új módon gyűjthet naplókat a **súgóban �
 
 ![Diagnosztikai naplók gyűjtésének beállításai](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Az integrált rendszerek megoszthatják a diagnosztikai naplókat a Microsoft terméktámogatási szolgáltatásával (CSS). Mivel a Azure Stack Development Kit (ASDK) egy kiértékelési környezet, a CSS nem támogatja. További információ: [Azure stack hub diagnosztikai naplójának gyűjteménye – áttekintés](azure-stack-diagnostic-log-collection-overview.md).
+Az integrált rendszerek a Microsoft ügyfélszolgálata segítségével oszthatják meg a diagnosztikai naplókat. Mivel a Azure Stack Development Kit (ASDK) egy kiértékelési környezet, Microsoft ügyfélszolgálata nem támogatja. További információ: [Azure stack hub diagnosztikai naplójának gyűjteménye – áttekintés](azure-stack-diagnostic-log-collection-overview.md).
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Súgó és támogatás az Azure Stack hub korábbi kiadásaihoz (pre-1905)
 
@@ -91,15 +91,15 @@ A korábbi Azure Stack hub-kiadások is tartalmaz egy hivatkozást, amely **seg�
 
 ![Támogatási útmutatók beszerzése](media/azure-stack-help-and-support/get-support-previous.png)
 
-Ha Cloud Services-probléma merül fel, a támogatás a Microsoft ügyfél-támogatási szolgálatán (CSS) keresztül érhető el. Válassza a **Súgó** (kérdőjel) lehetőséget a felügyeleti portál jobb felső sarkában, majd válassza a **Súgó és támogatás**lehetőséget, majd válassza az **új támogatási kérés** lehetőséget, hogy közvetlenül nyújtson be egy új támogatási kérést a CSS használatával.
+Ha Cloud Services-probléma merül fel, a támogatás Microsoft ügyfélszolgálataon keresztül érhető el. Válassza a **Súgó** (kérdőjel) lehetőséget a felügyeleti portál jobb felső sarkában, válassza a **Súgó és támogatás**lehetőséget, majd válassza az **új támogatási kérés** lehetőséget, hogy közvetlenül egy új támogatási kérést küldjön Microsoft ügyfélszolgálata.
 
-Az integrált rendszerek esetében a Microsoft és az OEM-partnereink közötti összehangolt eszkalációs és megoldási folyamat áll rendelkezésre. Ha Cloud Services-probléma merül fel, a támogatás a Microsoft CSS-ben érhető el.
+Az integrált rendszerek esetében a Microsoft és az OEM-partnereink közötti összehangolt eszkalációs és megoldási folyamat áll rendelkezésre. Ha Cloud Services-probléma merül fel, a támogatás Microsoft ügyfélszolgálataon keresztül érhető el.
 
-Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissítéssel, a hardverrel (beleértve a mezőre cserélhető egységeket is) és az összes hardveres szoftvert, például a hardver életciklus-állomásán futó szoftvert, először lépjen kapcsolatba az OEM hardver gyártójával. Bármilyen más esetben forduljon a Microsoft CSS-hez.
+Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissítéssel, a hardverrel (beleértve a mezőre cserélhető egységeket is) és az összes hardveres szoftvert, például a hardver életciklus-állomásán futó szoftvert, először lépjen kapcsolatba az OEM hardver gyártójával. Minden más esetben lépjen kapcsolatba Microsoft ügyfélszolgálata.
 
 A ASDK kapcsolatban a [Azure stack hub MSDN fórumának](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)támogatással kapcsolatos kérdéseire kérhet segítséget.
 
-Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd válassza az **új támogatási kérelem** lehetőséget, hogy segítséget kapjon a Azure stack hub Közösség szakértőitől. Mivel a ASDK egy kiértékelési környezet, a Microsoft CSS-ben nem érhető el hivatalos támogatás.
+Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd válassza az **új támogatási kérelem** lehetőséget, hogy segítséget kapjon a Azure stack hub Közösség szakértőitől. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
 ::: moniker-end
 

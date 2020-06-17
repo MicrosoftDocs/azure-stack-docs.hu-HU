@@ -3,16 +3,16 @@ title: Azure Stack hub virtuális gépek bemutatása
 description: Ismerkedjen meg Azure Stack hub virtuális gépekkel.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294956"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813734"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
 
@@ -57,11 +57,11 @@ Az előfizetése alapértelmezett kvóta-korlátozásokkal rendelkezik, amelyek 
 
 ### <a name="operating-system-disks-and-images"></a>Operációsrendszer-lemezek és -rendszerképek
 
-Az Azure Stack hub-beli virtuális gépek csak az egy virtuális merevlemez (VHD/VHDX) formátumának a generálására korlátozódnak. A virtuális merevlemezek a számítógép operációs rendszerének (operációs rendszere) és az adattárolók tárolására használhatók. A virtuális merevlemezek az operációs rendszer telepítéséhez kiválasztott rendszerképekhez is használhatók. Az Azure Stack hub számos különböző verzióval és típussal használható piactért biztosít. A piactér lemezképeit a rendszerkép-közzétevő, az ajánlat, az SKU és a verzió azonosítja (általában a legújabb verzió a **legújabbként**van megadva).
+Azure Stack hub-beli virtuális gépek az 1. generációs virtuális merevlemez (VHD/VHDX) formátumra korlátozódnak. A virtuális merevlemezek a számítógép operációs rendszerének (operációs rendszere) és az adattárolók tárolására használhatók. A virtuális merevlemezek az operációs rendszer telepítéséhez használt rendszerképekhez is használhatók. Az Azure Stack hub számos különböző verzióval és típussal használható piactért biztosít. A piactér lemezképeit a rendszerkép-közzétevő, az ajánlat, az SKU és a verzió azonosítja (általában a legújabb verzió a **legújabbként**van megadva).
 
 A következő táblázat a rendszerkép információinak megkeresését mutatja be:
 
-|Módszer|Leírás|
+|Metódus|Leírás|
 |---------|---------|
 |Azure Stack hub-portál|Az értékek a rendszerképek kiválasztásakor automatikusan megjelennek.|
 |Azure Stack hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -71,8 +71,7 @@ Megadhatja a saját rendszerképének feltöltését és használatát. Ha így 
 
 ### <a name="extensions"></a>Bővítmények
 
-A virtuális gépek bővítményei további hozzáadott képességekkel ruházzák fel a virtuális gépeket az üzembe helyezést követő konfigurálás és automatizált feladatok útján.
-A bővítményekkel a következő gyakori feladatok végezhetők el:
+A virtuálisgép-bővítmények a telepítés utáni konfiguráció és az automatizált feladatok révén további képességeket biztosítanak a virtuális gépek számára. Ezeket a gyakori feladatokat a bővítmények segítségével hajthatja végre:
 
 - **Egyéni parancsfájlok futtatása**: az egyéni szkriptek bővítménye lehetővé teszi a számítási feladatok konfigurálását a virtuális gépen úgy, hogy a virtuális gép üzembe helyezésekor futtatja a parancsfájlt.
 
@@ -87,7 +86,7 @@ A virtuális gép a következő táblázatban található erőforrásokat haszn�
 |Erőforrás|Kötelező|Leírás|
 |---------|---------|---------|
 |Erőforráscsoport|Igen|A virtuális gépnek egy erőforráscsoport tagjának kell lennie.|
-|Tárfiók|Nem|A virtuális gépnek felügyelt lemezek használata esetén nincs szükség a Storage-fiókra a virtuális merevlemezek tárolásához. <br>A virtuális gépnek nem felügyelt lemezek használata esetén a Storage-fiókra van szüksége a virtuális merevlemezek tárolásához.|
+|Tárfiók|Nem|A virtuális gépnek felügyelt lemezek használata esetén nincs szükség a Storage-fiókra a virtuális merevlemezek tárolásához. |
 |Virtuális hálózat|Igen|A virtuális gépnek egy virtuális hálózat tagjának kell lennie.|
 |Nyilvános IP-cím|Nem|A virtuális gép rendelkezhet hozzárendelt nyilvános IP-címmel, hogy távolról is el lehessen érni.|
 |Hálózati illesztő|Igen|A virtuális gépnek szüksége van a hálózati illesztőre a hálózattal való kommunikációhoz.|
@@ -95,11 +94,11 @@ A virtuális gép a következő táblázatban található erőforrásokat haszn�
 
 ## <a name="create-your-first-vm"></a>Az első virtuális gép létrehozása
 
-Több lehetőség közül választhat egy virtuális gép létrehozásához. Az Ön által választott környezettől függ. A következő táblázat a virtuális gép létrehozásának megkezdéséhez nyújt segítséget:
+A virtuális gépek több módon is létrehozhatók. Az Ön által választott környezettől függ. A következő táblázat a virtuális gép létrehozásának megkezdéséhez nyújt segítséget:
 
-|Módszer|Cikk|
+|Metódus|Cikk|
 |---------|---------|
-|Azure Stack hub-portál|Windows rendszerű virtuális gép létrehozása az Azure Stack hub portálon<br>[Linuxos virtuális gép létrehozása az Azure Stack hub portál használatával](azure-stack-quick-linux-portal.md)|
+|Azure Stack hub-portál|[Hozzon létre egy Windows rendszerű virtuális gépet az Azure stack hub portálon](azure-stack-quick-windows-portal.md).<br>[Hozzon létre egy linuxos virtuális gépet az Azure stack hub portál használatával](azure-stack-quick-linux-portal.md).|
 |Sablonok|Azure Stack hub gyors üzembe helyezési sablonjai a következő helyen találhatók:<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[Windows rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-powershell.md)<br>[Linuxos virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-powershell.md)|
 |parancssori felület|[Windows rendszerű virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-windows-cli.md)<br>[Linuxos virtuális gép létrehozása a parancssori felület használatával Azure Stack hub-ban](azure-stack-quick-create-vm-linux-cli.md)|
@@ -115,17 +114,17 @@ A virtuális gépeket böngészőalapú portál, parancsfájlok futtatását tá
 
 ### <a name="get-information-about-your-vm"></a>A virtuális gép adatainak lekérése
 
-A következő táblázat a virtuális gépekkel kapcsolatos információk beszerzésének néhány módját mutatja be.
+A következő táblázat néhány módszert mutat be a virtuális gépekkel kapcsolatos információk lekéréséhez:
 
-|Módszer|Leírás|
+|Metódus|Leírás|
 |---------|---------|
 |Azure Stack hub-portál|A központi menüben kattintson a **Virtual Machines** elemre, majd válassza ki a virtuális gépet a listából. A virtuális gép lapján elérhető az áttekintési információk, az értékek beállítása és a figyelési mérőszámok.|
-|Azure PowerShell|A virtuális gépek kezelése az Azure-ban és Azure Stack hub-ban is hasonló. A PowerShell használatával kapcsolatos további információkért tekintse meg a következő Azure-témakört:<br>[Windows rendszerű virtuális gépek létrehozása és felügyelete az Azure PowerShell-modullal](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Ügyfél-SDK-k|A C# használatával a virtuális gépek kezelése hasonló az Azure-ban és Azure Stack hub-ban. További információkért tekintse meg a következő Azure-témakört:<br>[Windows rendszerű virtuális gépek létrehozása és kezelése az Azure-ban C használatával #](/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|A virtuális gépek kezelése az Azure-ban és Azure Stack hub-ban is hasonló. A PowerShell használatával kapcsolatos további információkért tekintse meg a [Windows rendszerű virtuális gépek létrehozása és kezelése a Azure PowerShell modullal](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)című témakört.|
+|Ügyfél-SDK-k|A C# használatával a virtuális gépek kezelése hasonló az Azure-ban és Azure Stack hub-ban. További információkért lásd: [Windows rendszerű virtuális gépek létrehozása és kezelése az Azure-ban a C# használatával](/azure/virtual-machines/windows/csharp).|
 
 ### <a name="connect-to-your-vm"></a>Csatlakozás a virtuális géphez
 
-A virtuális géphez való kapcsolódáshoz használhatja a Azure Stack hub portál **Kapcsolódás** gombját.
+A virtuális géphez való kapcsolódáshoz használhatja a Azure Stack hub portál **kapcsolódási** lehetőségét.
 
 ## <a name="next-steps"></a>További lépések
 

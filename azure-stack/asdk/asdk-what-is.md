@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: 197d1b47b3127b21f3b843a77a57642894270a71
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708193"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819237"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Mi a Azure Stack Development Kit (ASDK)?
 A [Microsoft Azure stack hub integrált rendszereinek](../operator/azure-stack-overview.md) mérete 4-16 csomópontokból áll, és a hardvereszközök és a Microsoft közösen támogatja őket. Azure Stack hub integrált rendszerek használatával új forgatókönyveket engedélyezhet az éles számítási feladatokhoz. Ha Ön Azure Stack hub-kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az [operátori dokumentációt](/azure-stack/operator).
@@ -42,7 +42,7 @@ Az egycsomópontos ASDK üzemelő példányok számos különböző módon kül�
 |**Rugalmasság**|Az egycsomópontos konfiguráció nem biztosít magas rendelkezésre állást|A magas rendelkezésre állási képességek támogatottak.|
 |**Hálózat**|A ASDK-gazdagép az összes ASDK hálózati forgalmat irányítja. Nincsenek további kapcsolókra vonatkozó követelmények.|A többcsomópontos üzemelő példányokban összetettebb [hálózati útválasztási infrastruktúra](../operator/azure-stack-network.md#network-infrastructure) szükséges, beleértve a Top-of-rack (TOR), a alaplapi felügyeleti vezérlő (bmc) és a Border (Datacenter Network) kapcsolókat.|
 |**Javítási és frissítési folyamat**|A ASDK új verziójára való áttéréshez újra kell telepítenie a ASDK a ASDK-gazdaszámítógépen.|A telepített Azure Stack hub verziójának frissítéséhez használt [javítási és frissítési](../operator/azure-stack-updates.md) folyamat.|
-|**Támogatás**|MSDN Azure Stack fórum. A Microsoft ügyfél-és támogatási (CSS) támogatása *nem* érhető el nem éles környezetekben.|[MSDN Azure stack fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) és teljes körű CSS-támogatás.|
+|**Támogatás**|MSDN Azure Stack fórum. Microsoft ügyfélszolgálata nem *érhető el nem éles* környezetekben.|[MSDN Azure stack fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) és teljes körű támogatás.|
 | | |
 
 ## <a name="learn-about-available-services"></a>Az elérhető szolgáltatások ismertetése
@@ -70,5 +70,5 @@ Jelenleg a következő kiegészítő platform-szolgáltatásként nyújtott szol
 Azure Stack hub további Azure-szolgáltatások támogatását is támogatja. Ha többet szeretne megtudni az Azure Stack hub-ról, tekintse meg a [Azure stack ütemtervet](https://azure.microsoft.com/updates/?query=azure%20stack%20hub).
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 Az Azure Stack hub kiértékelésének megkezdéséhez először le kell [töltenie a legújabb ASDK](asdk-download.md) , és elő kell készítenie a ASDK-gazdagépet. Ezután telepítheti a ASDK, és bejelentkezhet a rendszergazda és a felhasználói portálra az Azure Stack hub használatának megkezdéséhez.

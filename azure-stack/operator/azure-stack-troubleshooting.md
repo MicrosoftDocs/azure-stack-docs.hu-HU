@@ -8,12 +8,12 @@ ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375007"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819514"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -21,7 +21,7 @@ Ez a dokumentum a Azure Stack hub integrált környezetek hibaelhárítási info
 
 ## <a name="frequently-asked-questions"></a>Gyakori kérdések
 
-Ezek a témakörök a Microsoft terméktámogatási szolgálatának (CSS) eljuttatott gyakori kérdésekre mutató hivatkozásokat tartalmaznak.
+Ezek a fejezetek olyan dokumentumokra mutató hivatkozásokat tartalmaznak, amelyek a Microsoft ügyfélszolgálata eljuttatott gyakori kérdésekre vonatkoznak.
 
 ### <a name="purchase-considerations"></a>Vásárlási szempontok
 
@@ -80,7 +80,7 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 
 ### <a name="get-scale-unit-metrics"></a>Méretezési egység metrikáinak beolvasása
 
-A PowerShell használatával lekérheti a bélyegző kihasználtsági adatait a CSS súgója nélkül. A bélyegző kihasználtságának beszerzése:
+A PowerShell használatával lekérheti a Stamp kihasználtsági információit a Microsoft ügyfélszolgálata súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
 1. Hozzon létre egy PEP-munkamenetet.
 2. Futtassa az `test-azurestack` parancsot.
@@ -119,9 +119,9 @@ Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban
 
 ## <a name="troubleshoot-app-service"></a>Hibakeresés App Service
 
-### <a name="create-aadidentityappps1-script-fails"></a>A Create-AADIdentityApp. ps1 parancsfájl végrehajtása sikertelen
+### <a name="create-aadidentityappps1-script-fails"></a>Create-AADIdentityApp.ps1 szkript sikertelen
 
-Ha a App Servicehoz szükséges Create-AADIdentityApp. ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a `-AzureStackAdminCredential` parancsfájl futtatásakor a szükséges paramétert is tartalmazza. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
+Ha a App Service szükséges Create-AADIdentityApp.ps1 parancsfájl nem sikerül, ügyeljen arra, hogy a `-AzureStackAdminCredential` parancsfájl futtatásakor a szükséges paramétert is tartalmazza. További információkért lásd: [az App Service üzembe helyezésének Előfeltételei Azure stack központban](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app).
 
 ## <a name="troubleshoot-azure-stack-hub-updates"></a>Azure Stack hub frissítéseinek hibáinak megoldása
 

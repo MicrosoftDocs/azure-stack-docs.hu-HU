@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 66a47e7eb896fbe8cd6e30ea5f6de8bdc71e77e5
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744903"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819531"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -37,7 +37,7 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 | Terület | Azure (globális) | Azure Stack hub |
 | -------- | ------------- | ----------|
 | Ki üzemelteti? | Microsoft | A szervezet vagy a szolgáltató.|
-| Kihez forduljon a támogatási szolgálathoz? | Microsoft | Az integrált rendszerek támogatásához forduljon a Azure Stack hub-kezelőhöz (a szervezetnél vagy a szolgáltatónál).<br><br>A Azure Stack Development Kit (ASDK) támogatásához látogasson el a [Microsoft fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Mivel a fejlesztői készlet egy kiértékelési környezet, a Microsoft ügyfélszolgálati szolgálatai (CSS) nem kínálunk hivatalos támogatást.
+| Kihez forduljon a támogatási szolgálathoz? | Microsoft | Az integrált rendszerek támogatásához forduljon a Azure Stack hub-kezelőhöz (a szervezetnél vagy a szolgáltatónál).<br><br>A Azure Stack Development Kit (ASDK) támogatásához látogasson el a [Microsoft fórumára](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack). Mivel a fejlesztői csomag egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 | Elérhető szolgáltatások | Tekintse meg az [Azure-termékek](https://azure.microsoft.com/services/?b=17.04b)listáját. Az elérhető szolgáltatások az Azure-régiótól eltérőek. | Azure Stack hub az Azure-szolgáltatások egy részhalmazát támogatja. A tényleges szolgáltatások attól függően változnak, hogy a szervezet vagy a szolgáltató milyen ajánlatot tesz.
 | Azure Resource Manager végpont * | `https://management.azure.com` | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított végpontot.<br><br>A fejlesztői csomaghoz használja a következőt: `https://management.local.azurestack.external` .
 | Portál URL-címe * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított URL-címet.<br><br>A fejlesztői csomaghoz használja a következőt: `https://portal.local.azurestack.external` .

@@ -7,16 +7,16 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512541"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819482"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Azure Stack hub rendszerállapotának ellenőrzése
 
-Azure Stack hub-kezelőként elengedhetetlen az igény szerinti rendszer állapotának és állapotának megállapítása. Az Azure Stack hub Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy teszteket futtasson a rendszeren a hibák azonosítására, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, amikor probléma lép fel a Microsoft Customer Services ügyfélszolgálatával (CSS). A rendszerszintű állapot-és állapotadatok alapján a CSS összegyűjtheti és elemezheti a részletes naplókat, koncentrálhat arra a területre, ahol a hiba bekövetkezett, és együttműködik Önnel a probléma megoldásához.
+Azure Stack hub-kezelőként elengedhetetlen az igény szerinti rendszer állapotának és állapotának megállapítása. Az Azure Stack hub Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy teszteket futtasson a rendszeren a hibák azonosítására, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, ha probléma merül fel a Microsoft Customer Services támogatási szolgálatával (Microsoft ügyfélszolgálata). A rendszerszintű állapot-és állapotadatok esetében Microsoft ügyfélszolgálata a részletes naplók összegyűjtését és elemzését, a hiba előfordulási területére koncentrálhat, és segít a probléma megoldásában.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Az érvényesítési eszköz futtatása és az eredmények elérése
 
@@ -47,11 +47,11 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
 
    További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Ha bármilyen teszt jelentés **sikertelen**, futtassa `Get-AzureStackLog`a parancsot. Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-get-azurestacklog.md).
+1. Ha bármilyen teszt jelentés **sikertelen**, futtassa a parancsot `Get-AzureStackLog` . Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-get-azurestacklog.md).
 
-   A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne gyűjtsön naplókat, és ne vegye fel a kapcsolatot a CSS-sel, ha a tesztek **figyelmeztetnek**
+   A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne Gyűjtse össze a naplókat és a kapcsolatfelvételi Microsoft ügyfélszolgálata helyet, ha a tesztek **figyelmeztetést**küldenek.
 
-1. Ha arra utasítja az ellenőrző eszközt, hogy a CSS-t futtatja, a CSS-képviselő az összegyűjtött naplókat fogja kérni a probléma megoldásának folytatásához.
+1. Ha arra utasítja az ellenőrző eszközt, hogy a Microsoft ügyfélszolgálata futtatja az ellenőrzést, akkor a Microsoft ügyfélszolgálata képviselője a probléma megoldásának folytatásához a gyűjtött naplókat fogja kérni.
 
 ## <a name="tests-available"></a>Elérhető tesztek
 

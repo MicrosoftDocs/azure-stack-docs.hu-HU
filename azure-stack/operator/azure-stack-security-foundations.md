@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80891083"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819250"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -48,17 +48,15 @@ A TLS 1,2 Azure Stack hub külső végpontokon való betartatásával kapcsolato
 
 ## <a name="secret-management"></a>Titkos kód kezelése
 
-Azure Stack hub-infrastruktúra számos titkot, például jelszavakat használ a működéshez. A legtöbb esetben a rendszer automatikusan elforgatja őket, mert csoportosan felügyelt szolgáltatásfiókok (gMSA-EK), amelyek 24 óránként forognak.
-
-A nem gMSA megmaradó titkokat manuálisan, a privilegizált végponton lévő parancsfájllal lehet elforgatni.
+Azure Stack hub-infrastruktúra a működéséhez számos titkot, például jelszavakat és tanúsítványokat használ. A belső szolgáltatásfiókok által társított jelszavak többsége 24 óránként automatikusan el lesz forgatva, mert [csoportosan felügyelt szolgáltatásfiókok (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), a közvetlenül a belső tartományvezérlő által felügyelt tartományi fiók típusa.
 
 Azure Stack hub-infrastruktúra 4096 bites RSA-kulcsokat használ az összes belső tanúsítványához. A külső végpontokhoz ugyanaz a kulcs hosszúságú tanúsítvány is használható. A titkokkal és a tanúsítvány elforgatásával kapcsolatos további információkért tekintse meg a [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)című témakört.
 
 ## <a name="windows-defender-application-control"></a>Windows Defender Alkalmazásvezérlés
 
-Azure Stack hub a Windows Server legújabb biztonsági funkcióit használja. Ezek közül az egyik a Windows Defender Application Control (WDAC, korábbi nevén Code Integrity), amely végrehajtható fájlok engedélyezését teszi lehetővé, és biztosítja, hogy csak az engedélyezett kódok fussanak az Azure Stack hub-infrastruktúrán belül.
+Az Azure Stack Hub a Windows Server legújabb biztonsági funkcióit használja. Ezek egyike a Windows Defender Alkalmazásvezérlés (WDAC, korábbi nevén Kódintegritás), amely a végrehajtható fájlok engedélyezési listáját állítja elő, továbbá biztosítja, hogy csak jogosult kódok fussanak az Azure Stack Hub-infrastruktúrán belül.
 
-A hitelesített kódot a Microsoft vagy az OEM-partner aláírja. Az aláírt hitelesített kód szerepel a Microsoft által meghatározott szabályzatban megadott engedélyezett szoftverek listáján. Ez azt jelenti, hogy csak az Azure Stack hub-infrastruktúrában való futtatásra jóváhagyott szoftverek hajthatók végre. A jogosulatlan kód végrehajtására tett kísérletek le vannak tiltva, és a rendszer riasztást generál. Azure Stack hub a felhasználói módú kód integritását (UMCI) és a hypervisor kód integritását (HVCI) is kikényszeríti.
+A hitelesített kódot a Microsoft vagy az OEM-partner aláírja. Az aláírt hitelesített kód szerepel a Microsoft által meghatározott szabályzatban megadott engedélyezett szoftverek listáján. Ez azt jelenti, hogy csak az Azure Stack hub-infrastruktúrában való futtatásra jóváhagyott szoftverek hajthatók végre. A rendszer blokkol minden jogosulatlan kód futtatására tett kísérletet, és ilyen esetben riasztást küld. Az Azure Stack Hub a felhasználói módú kódintegritást (UMCI) és a hipervizor-kódintegritást (HVCI) egyaránt kényszeríti.
 
 A WDAC szabályzat emellett megakadályozza, hogy a harmadik féltől származó ügynökök vagy szoftverek fussanak az Azure Stack hub-infrastruktúrában.
 A WDAC kapcsolatos további információkért tekintse meg a [Windows Defender alkalmazás-vezérlés és a kód integritásának virtualizálás-alapú védelme](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)című témakört.

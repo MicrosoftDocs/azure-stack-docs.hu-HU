@@ -3,15 +3,15 @@ title: VPN-átjárók létrehozása Azure Stack hubhoz
 description: VPN-átjárók létrehozása és konfigurálása Azure Stack hub számára.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294373"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813727"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>VPN-átjárók létrehozása Azure Stack hubhoz
 
@@ -25,8 +25,8 @@ Mindegyik virtuális hálózat kettő virtuális hálózati átjáróval rendelk
 
 A Azure Stack hub VPN-átjáróinak létrehozása és konfigurálása előtt tekintse át a [Azure stack hub hálózatkezelésével kapcsolatos szempontokat](azure-stack-network-differences.md) , hogy megtudja, hogyan különböznek az Azure-beli konfigurációk a Azure stack hub-től.
 
->[!NOTE]
->Az Azure-ban a kiválasztott VPN Gateway SKU sávszélességének átviteli sebességét az átjáróhoz csatlakozó összes kapcsolaton át kell osztani. Azure Stack hub-ban azonban a VPN Gateway SKU sávszélesség-értéke az átjáróhoz csatlakozó összes kapcsolati erőforrásra vonatkozik.
+> [!NOTE]
+> Az Azure-ban a kiválasztott VPN Gateway SKU sávszélességének átviteli sebességét az átjáróhoz csatlakozó összes kapcsolaton át kell osztani. Azure Stack hub-ban azonban a VPN Gateway SKU sávszélesség-értéke az átjáróhoz csatlakozó összes kapcsolati erőforrásra vonatkozik.
 >
 > Például:
 >
@@ -48,7 +48,7 @@ A VPN-átjárók egyes erőforrásaival és beállításaival kapcsolatos inform
 
 ### <a name="deployment-tools"></a>Üzembe helyezési eszközök
 
-Erőforrásokat egyetlen konfigurációs eszközzel hozhat létre és konfigurálhat, például a Azure Portal. Később átválthat egy másik eszközre, például a PowerShellre a további erőforrások konfigurálásához, vagy a meglévő erőforrások módosításához, ha van ilyen. Jelenleg nem lehet a minden erőforrást és erőforrás-beállítást az Azure Portalon konfigurálni. Az egyes kapcsolati topológiákhoz tartozó cikkekben lévő utasítások egyértelműsítik, hogy mikor van szükség egy speciális konfigurációs eszközre.
+Erőforrásokat egyetlen konfigurációs eszközzel hozhat létre és konfigurálhat, például a Azure Portal. Később átválthat egy másik eszközre, például a PowerShellre a további erőforrások konfigurálásához, vagy a meglévő erőforrások módosításához, ha van ilyen. Jelenleg nem konfigurálhatja a Azure Portal összes erőforrás-és erőforrás-beállítását. Az egyes kapcsolati topológiákhoz tartozó cikkekben lévő utasítások egyértelműsítik, hogy mikor van szükség egy speciális konfigurációs eszközre.
 
 ## <a name="connection-topology-diagrams"></a>Kapcsolati topológia-diagramok
 
@@ -78,7 +78,7 @@ A *többhelyes* kapcsolat a helyek közötti kapcsolat egy változata. A virtuá
 
 Azure Stack hub virtuális hálózati átjárójának létrehozásakor meg kell adnia a használni kívánt átjáró-SKU-t. A következő VPN Gateway SKU-ket támogatja:
 
-* Basic
+* Alapszintű
 * Standard
 * Nagy teljesítmény
 
@@ -116,9 +116,9 @@ A következő táblázat az átjárók típusát és az átjáró SKU által bec
 **(2)** – a maximális alagutak az összes előfizetésre vonatkozóan Azure stack központilag üzemelő példányok száma.  
 **(3)** – a BGP-útválasztás nem támogatott az alapszintű SKU esetében.
 
->[!NOTE]
->Két Azure Stack hub üzemelő példány között csak egy helyek közötti VPN-kapcsolat hozható létre. Ennek oka a platform olyan korlátozása, amely csak egyetlen VPN-kapcsolat használatát teszi lehetővé ugyanahhoz az IP-címhez. Mivel Azure Stack hub kihasználja a több-bérlős átjárót, amely egyetlen nyilvános IP-címet használ a Azure Stack hub rendszer összes VPN-átjárója számára, csak egy VPN-kapcsolat lehet két Azure Stack hub-rendszer között. Ez a korlátozás arra az esetre is vonatkozik, ha egynél több helyek közötti VPN-kapcsolatot csatlakoztat egy olyan VPN-átjáróhoz, amely egyetlen IP-címet használ. Azure Stack hub nem teszi lehetővé, hogy egynél több helyi hálózati átjáró-erőforrást hozzon létre ugyanazzal az IP-címmel.
+> [!NOTE]
+> Két Azure Stack hub üzemelő példány között csak egy helyek közötti VPN-kapcsolat hozható létre. Ennek oka a platform olyan korlátozása, amely csak egyetlen VPN-kapcsolat használatát teszi lehetővé ugyanahhoz az IP-címhez. Mivel Azure Stack hub kihasználja a több-bérlős átjárót, amely egyetlen nyilvános IP-címet használ a Azure Stack hub rendszer összes VPN-átjárója számára, csak egy VPN-kapcsolat lehet két Azure Stack hub-rendszer között. Ez a korlátozás arra az esetre is vonatkozik, ha egynél több helyek közötti VPN-kapcsolatot csatlakoztat egy olyan VPN-átjáróhoz, amely egyetlen IP-címet használ. Azure Stack hub nem teszi lehetővé, hogy egynél több helyi hálózati átjáró-erőforrást hozzon létre ugyanazzal az IP-címmel.
 
 ## <a name="next-steps"></a>További lépések
 
-* [Azure Stack hub VPN Gateway konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)
+* [Az Azure Stack Hub VPN Gateway-konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)

@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 50ff7fc42cc6993c4ceeb009515cdad62ce980de
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636886"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819455"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -224,7 +224,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
     - Integráció az Azure Arcmal.
     - Integráció a Azure Monitor for containers szolgáltatással.
   - Használjon Windows-tárolókat az AK-motorral.
-  - Az üzembe helyezésekhez CSS-és mérnöki támogatást kaphat.
+  - Microsoft ügyfélszolgálata és mérnöki támogatás fogadása az üzemelő példányokhoz.
 
 ### <a name="improvements"></a>Fejlesztései
 
@@ -431,7 +431,7 @@ Az Azure Stack hub 1907 Update Build típusa **expressz**. További információ
 
 <!-- What's new, also net new experiences and features. -->
 
-- Az Azure Stack hub diagnosztikai napló-gyűjtési szolgáltatásának általános elérhetőségi kiadása a diagnosztikai naplók gyűjtésének megkönnyítéséhez és fejlesztéséhez. Az Azure Stack hub diagnosztikai naplójának összegyűjtése szolgáltatás lehetővé teszi a diagnosztikai naplók összegyűjtését és megosztását a Microsoft ügyfél-támogatási szolgálatával (CSS). Ez a diagnosztikai napló-gyűjtési szolgáltatás új felhasználói élményt nyújt a Azure Stack hub felügyeleti portálján, amely lehetővé teszi, hogy az operátorok bizonyos kritikus riasztások esetén beállítsák a diagnosztikai naplók automatikus feltöltését egy tárolási blobba. A szolgáltatás is használható ugyanazon művelet igény szerinti végrehajtásához. További információkért lásd a [diagnosztikai napló gyűjtését](azure-stack-diagnostic-log-collection-overview.md) ismertető cikket.
+- Az Azure Stack hub diagnosztikai napló-gyűjtési szolgáltatásának általános elérhetőségi kiadása a diagnosztikai naplók gyűjtésének megkönnyítéséhez és fejlesztéséhez. Az Azure Stack hub diagnosztikai naplójának begyűjtési szolgáltatása lehetővé teszi a diagnosztikai naplók összegyűjtését és megosztását Microsoft ügyfélszolgálata használatával. Ez a diagnosztikai napló-gyűjtési szolgáltatás új felhasználói élményt nyújt a Azure Stack hub felügyeleti portálján, amely lehetővé teszi, hogy az operátorok bizonyos kritikus riasztások esetén beállítsák a diagnosztikai naplók automatikus feltöltését egy tárolási blobba. A szolgáltatás is használható ugyanazon művelet igény szerinti végrehajtásához. További információkért lásd a [diagnosztikai napló gyűjtését](azure-stack-diagnostic-log-collection-overview.md) ismertető cikket.
 
 - Az Azure Stack hub hálózati infrastruktúra ellenőrzésének általánosan elérhető kiadása az Azure Stack hub Validation Tool **test-AzureStack**részeként. Azure Stack hub hálózati infrastruktúrája a **test-AzureStack**részét képezi, amely meghatározza, hogy az Azure stack hub hálózati infrastruktúráján hiba fordul elő. A teszt ellenőrzi a hálózati infrastruktúra kapcsolatát, ha megkerüli a Azure Stack hub szoftveresen megadott hálózatát. Egy nyilvános VIP kapcsolatát mutatja be a konfigurált DNS-továbbítókkal, az NTP-kiszolgálókkal és az identitás-végpontokkal. Azt is ellenőrzi, hogy a Kapcsolódás az Azure-hoz, ha az Azure AD-t használja identitás-szolgáltatóként, vagy az összevont kiszolgálót az ADFS használatakor. További tudnivalókért tekintse meg az [Azure stack hub ellenőrző eszközét](azure-stack-diagnostic-test.md) ismertető cikket.
 
@@ -551,7 +551,7 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerek az **elérhet�
 
 Ha egy régebbi verzióhoz szeretne hozzáférni az archivált kibocsátási megjegyzésekhez, használja a bal oldali tartalomjegyzéket, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Az Azure Stack hub Update Management szolgáltatásának áttekintését lásd: a [frissítések kezelése a Azure stack hub-ban – Áttekintés](azure-stack-updates.md).  
 - A frissítések Azure Stack hubhoz való alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása Azure stack hub-ban](azure-stack-apply-updates.md).

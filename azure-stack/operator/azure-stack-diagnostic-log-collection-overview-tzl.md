@@ -7,20 +7,20 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 2fcc31625fc0f508532c5c6a524f26e9cef31760
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: d3c6ecaa062f97aef76835d3c291b4ecaf405b11
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836036"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819466"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Diagnosztikai naplók gyűjteménye Azure Stack hub-ban
 
 ::: moniker range=">= azs-2002"
 
-Az Azure Stack hub a Windows-összetevők és a helyszíni Azure-szolgáltatások nagy gyűjteménye, amelyek egymással együttműködnek. Ezek az összetevők és szolgáltatások saját naplókat hoznak létre. Ha engedélyezni szeretné, hogy a Microsoft ügyfélszolgálata (CSS) hatékonyan diagnosztizálja a problémákat, zökkenőmentesen megtapasztaljuk a diagnosztikai naplók gyűjtését.
+Az Azure Stack hub a Windows-összetevők és a helyszíni Azure-szolgáltatások nagy gyűjteménye, amelyek egymással együttműködnek. Ezek az összetevők és szolgáltatások saját naplókat hoznak létre. Ahhoz, hogy a Microsoft ügyfélszolgálata hatékonyan diagnosztizálja a problémákat, zökkenőmentesen észlelt a diagnosztikai naplók gyűjtésére.
 
-A **Súgó és támogatás** diagnosztikai naplóinak gyűjteménye segíti a kezelők számára a CSS-sel való gyors összegyűjtését és megosztását egy egyszerű felhasználói felületen, amely nem igényel PowerShellt. A naplók gyűjtése akkor is történik, ha más infrastrukturális szolgáltatások nem állnak le.  
+A **Súgó + támogatás**diagnosztikai naplójának gyűjteménye   segíti a kezelők számára, hogy a Microsoft ügyfélszolgálata használatával gyorsan összegyűjtsék és megosszák a diagnosztikai naplókat egy egyszerű felhasználói felületen, amely nem igényel PowerShellt. A naplók gyűjtése akkor is történik, ha más infrastrukturális szolgáltatások nem állnak le.  
 
 Javasoljuk, hogy ezt a módszert használja a naplók gyűjtésére, és csak [a Kiemelt jogosultságú végpont (PEP)](azure-stack-get-azurestacklog.md) használatára legyen lehetőség, ha a felügyeleti portál vagy a **Súgó + támogatás** panel nem érhető el.
 
@@ -35,7 +35,7 @@ A diagnosztikai napló gyűjteménye szolgáltatás két lehetőséget kínál a
 
 ### <a name="send-logs-proactively"></a>Naplók interaktív küldése
 
-A [proaktív naplók gyűjtése](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) egyszerűsíti és leegyszerűsíti a diagnosztikai naplók gyűjtését, így az ügyfelek a támogatási eset megnyitása előtt küldhetnek naplókat a Microsoftnak. A diagnosztikai naplók proaktív módon vannak feltöltve az Azure Stack hub-ból elemzésre. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy [rendszerállapot-riasztást](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) vált ki, és a CSS-t csak egy támogatási eset kontextusában érik el.
+A [proaktív naplók gyűjtése](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md) egyszerűsíti és leegyszerűsíti a diagnosztikai naplók gyűjtését, így az ügyfelek a támogatási eset megnyitása előtt küldhetnek naplókat a Microsoftnak. A diagnosztikai naplók proaktív módon vannak feltöltve az Azure Stack hub-ból elemzésre. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy [rendszerállapot-riasztást](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts) emelnek fel, és csak Microsoft ügyfélszolgálata egy támogatási eset kontextusában érik el őket.
 
 #### <a name="how-the-data-is-handled"></a>Az adatkezelés módja
 
@@ -51,7 +51,7 @@ A **proaktív** naplók használatával gyűjtött naplókat a Microsoft által 
 
 A [naplók elküldése most](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) egy manuális lehetőség, amelyben a rendszer csak akkor küldi el a diagnosztikai naplókat a Azure stack hub-ból, ha az ügyfél kezdeményezi a gyűjteményt, általában a támogatási eset megnyitása előtt.
 
-Azure Stack operátorok igény szerinti diagnosztikai naplókat küldhetnek a Microsoft ügyfélszolgálati szolgáltatásainak (CSS) a felügyeleti portál vagy a PowerShell használatával. Ha Azure Stack hub csatlakozik az Azure-hoz, a [naplók küldése most a felügyeleti portálon](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) lehetőséggel ajánlott, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, a kezelőknek Ehelyett a [PowerShell használatával kell elküldeni a naplókat](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md).
+Azure Stack operátorok igény szerinti diagnosztikai naplókat küldhetnek Microsoft ügyfélszolgálata a felügyeleti portál vagy a PowerShell használatával. Ha Azure Stack hub csatlakozik az Azure-hoz, a [naplók küldése most a felügyeleti portálon](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) lehetőséggel ajánlott, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, a kezelőknek Ehelyett a [PowerShell használatával kell elküldeni a naplókat](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md).
 
 Ha nem csatlakozik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. A következő folyamatábra azt mutatja be, hogy mely lehetőség használható a diagnosztikai naplók küldésére az egyes esetekben.
 
@@ -59,7 +59,7 @@ Ha nem csatlakozik az internethez, vagy csak helyileg szeretné menteni a napló
 
 #### <a name="how-the-data-is-handled"></a>Az adatkezelés módja
 
-A Azure Stack hub-ból származó diagnosztikai naplók összegyűjtésének kezdeményezésével elfogadja és elfogadja a naplók feltöltését és a Microsoft által kezelt és felügyelt Azure Storage-fiókban való megőrzését. A Microsoft CSS a támogatási esettel azonnal elérheti ezeket a naplókat anélkül, hogy az ügyfelet be kellene vonni a naplózási gyűjteménybe.
+A Azure Stack hub-ból származó diagnosztikai naplók összegyűjtésének kezdeményezésével elfogadja és elfogadja a naplók feltöltését és a Microsoft által kezelt és felügyelt Azure Storage-fiókban való megőrzését. Az Microsoft ügyfélszolgálata a támogatási esettel azonnal elérheti ezeket a naplókat anélkül, hogy az ügyfelet be kellene vonni a naplók gyűjtésére.
 
 A rendszer csak a rendszerállapot-riasztások hibaelhárításához használja az információkat, és az Ön beleegyezike nélkül nem használja marketing-, reklámozási vagy egyéb kereskedelmi célra. Az adatok akár 90 napig is megtekinthetők, a Microsoft által gyűjtött adatok pedig az [általános adatvédelmi gyakorlatnak](https://privacy.microsoft.com/)megfelelően lesznek kezelve.
 

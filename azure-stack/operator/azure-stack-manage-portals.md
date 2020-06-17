@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 3ed7d53efe5a77362332d4a2216935fee4dd7270
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630837"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819196"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>A Azure Stack hub felügyeleti portáljának használata
 
@@ -77,13 +77,13 @@ Az Azure Stack hub-kezelő dokumentációjának eléréséhez használja a Súg�
 
 Ha a felügyeleti portál jobb felső sarkában található Súgó ikonra (kérdőjel) kattint, kattintson a **Súgó + támogatás**lehetőségre, majd az **új támogatási kérelem** a **támogatás**alatt lehetőségre, a következő eredmények egyike történik:
 
-- Ha integrált rendszerű szolgáltatást használ, akkor a művelet megnyit egy webhelyet, ahol közvetlenül nyithat egy támogatási jegyet a Microsoft ügyfélszolgálati szolgáltatásaival (CSS). Ha segítségre van szüksége annak megismeréséhez, hogy a Microsoft támogatási szolgálata vagy az eredeti berendezésgyártó (OEM) hardvergyártó támogatását használja, olvassa el a következő [témakört](azure-stack-manage-basics.md#where-to-get-support) :.
-- Ha a ASDK használja, akkor ez a művelet közvetlenül az [Azure stack hub fórumok helyét](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) nyitja meg. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, a Microsoft CSS-ben nem érhető el hivatalos támogatás.
+- Ha integrált rendszerre van szüksége, akkor a művelet megnyit egy webhelyet, ahol közvetlenül megnyithatja a támogatási jegyet a Microsoft ügyfélszolgálata használatával. Ha segítségre van szüksége annak megismeréséhez, hogy a Microsoft támogatási szolgálata vagy az eredeti berendezésgyártó (OEM) hardvergyártó támogatását használja, olvassa el a következő [témakört](azure-stack-manage-basics.md#where-to-get-support) :.
+- Ha a ASDK használja, akkor ez a művelet közvetlenül az [Azure stack hub fórumok helyét](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) nyitja meg. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Gyors hozzáférés az Azure-ütemtervhez
 
 Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet**, megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja **Azure stack hub** kifejezést a **Products (termékek** ) keresőmezőbe, az összes Azure stack hub-útiterv frissítését láthatja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Regisztrálja Azure stack](azure-stack-registration.md) központját az Azure-ban, és töltse fel [Azure stack hub Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.

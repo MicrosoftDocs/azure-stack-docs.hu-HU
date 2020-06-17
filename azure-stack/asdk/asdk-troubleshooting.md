@@ -7,17 +7,17 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: efc23ad5694ba7828c2dc5c5ba5de09be3591e04
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77691347"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819282"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
 Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
 
-Mivel a ASDK egy kiértékelési környezet, a Microsoft ügyfél-támogatási szolgálata (CSS) nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
+Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálata nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Azure stack MSDN fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)szakértőitől. 
 
 
 ## <a name="deployment"></a>Üzembe helyezés
@@ -36,7 +36,7 @@ Ez a viselkedés valószínűleg csak egy PowerShell-parancssorablak alapértelm
 
 Ha a sablon érvényesítése során hibaüzenet jelenik meg, hogy a "osProfile" paraméter nem engedélyezett, ügyeljen arra, hogy az API-k megfelelő verzióit használja az alábbi összetevőkhöz:
 
-- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [Számítás](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
 - [Hálózat](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
 
 A virtuális merevlemez Azure-ból Azure Stackba történő másolásához használja a [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy). Működjön együtt a gyártóval a rendszerképpel kapcsolatos problémák megoldásához. A Azure Stack WALinuxAgent követelményeivel kapcsolatos további információkért lásd: [Azure Linux Agent](../operator/azure-stack-linux.md#azure-linux-agent).

@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: e77252cf89d52291d7d4071d83981eb36bb062ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836172"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819426"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Proaktív diagnosztikai naplók gyűjteménye Azure Stack hub-ban
 
@@ -20,7 +20,7 @@ ms.locfileid: "82836172"
 
 Időt takaríthat meg az ügyfélszolgálattal, ha proaktív módon gyűjti a diagnosztikai naplókat, amikor Azure Stack hub riasztást kap.
 
-Ha a rendszerállapot-feltételek kivizsgálására van szükség, a naplók automatikusan feltölthetők az elemzéshez, mielőtt a Microsoft terméktámogatási szolgálatával (CSS) megnyitják a támogatási esetet.
+Ha a rendszerállapot-feltételek kivizsgálására van szükség, a naplók automatikusan feltölthetők az elemzéshez, mielőtt a támogatási esetet megnyitják Microsoft ügyfélszolgálata.
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>A proaktív naplózási gyűjtemény konfigurálásának lépései
 
@@ -41,13 +41,13 @@ A következő lépésekkel konfigurálhatja a proaktív naplózási gyűjtemény
 
 Javasoljuk, hogy az automatikus diagnosztikai napló gyűjtési funkciójának konfigurálásával egyszerűsítse a naplók gyűjtését és az ügyfél-támogatási élményt.
 
-Ha a rendszerállapot-feltételek kivizsgálására van szükség, a rendszer automatikusan feltöltheti a naplókat a Microsoft Customer Support Services (CSS) által végzett elemzéshez.
+Ha a rendszerállapot-feltételek kivizsgálására van szükség, a naplók Microsoft ügyfélszolgálata alapján automatikusan tölthetők fel elemzésre.
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Azure Blob Container SAS URL-cím létrehozása
 
 Az automatikus naplók konfigurálása előtt meg kell kapnia egy közös hozzáférési aláírást (SAS) a blob-tárolóhoz. Az SAS lehetővé teszi, hogy a fiók kulcsainak megosztása nélkül hozzáférést biztosítson a Storage-fiók erőforrásaihoz.
 
-Azure Stack hub-naplófájlokat a blob-tárolóba mentheti az Azure-ban, majd megadhatja a SAS URL-címét, ahol a CSS képes gyűjteni a naplókat.
+Azure Stack hub-naplófájlokat a blob-tárolóba mentheti az Azure-ban, majd megadhatja a SAS URL-címét, ahol a Microsoft ügyfélszolgálata képes gyűjteni a naplókat.
 
 ### <a name="prerequisites"></a>Előfeltételek
 
@@ -135,7 +135,7 @@ A Azure Stack hub-ból gyűjtött naplók előzményei a **Súgó + támogatás*
 
 Ha engedélyezve van, a proaktív naplók gyűjteménye csak akkor tölti fel a naplókat, ha az alábbi események egyike következik be.
 
-A **frissítés sikertelen volt** például egy olyan riasztás, amely előidézi a proaktív diagnosztikai naplók gyűjtését. Ha engedélyezve van, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során, hogy a probléma megoldásához segítséget nyújtson a CSS-ben. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni.
+A **frissítés sikertelen volt** például egy olyan riasztás, amely előidézi a proaktív diagnosztikai naplók gyűjtését. Ha engedélyezve van, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során, hogy segítsen Microsoft ügyfélszolgálata a probléma megoldásában. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni.
 
 | Riasztás címe | FaultIdType |
 |---|---|

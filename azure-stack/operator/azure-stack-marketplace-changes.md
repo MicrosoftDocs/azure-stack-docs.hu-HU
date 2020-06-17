@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/15/2020
+ms.date: 06/16/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6625f45fcb593d510a8774d112199fc3d7ed1698
-ms.sourcegitcommit: 893d55bd3e680ec8b23358c04dec73efaa68a73e
+ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783452"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819368"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -63,6 +63,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 6/16/2020: SQLIaaSExtension – 1.3.20370 verzió
 - 6/12/2020: Bitnami Grafana – 6.7.2006040249 verzió
 - 5/21/2020: Ubuntu Server 16,04 LTS-Version 16.04.202004290
 - 5/21/2020: Ubuntu Server 18,04 LTS-Version 18.04.202004080
