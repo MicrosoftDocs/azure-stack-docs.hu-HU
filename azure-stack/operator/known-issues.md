@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 06/17/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 198e6441daae7331eda2502ad7dfc2aea32a08b3
-ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
+ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84766354"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977172"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -141,7 +141,8 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 ### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>Nem hozható létre Standard_DS2_v2 VM-mérettel rendelkező VMSS a portálon
 
 - Alkalmazható: Ez a probléma az 2002-es kiadásra vonatkozik.
-- Ok: van egy portál hibája, amely megakadályozza a VMSS létrehozását a Standard_DS2_v2 VM-mérettel. Ha létrehoz egy hibát, a (z) "{" code ":" DeploymentFailed ", az" üzenet ":" legalább egy erőforrás-telepítési művelet sikertelen volt. A részletekért listázza az üzembehelyezési műveleteket. Tekintse https://aka.ms/arm-debug meg a használati adatokat. "," Részletek ": [{" code ":" BadRequest "," üzenet ":" {\r\n \" hiba \" : {\R\n \" kód \" : \" NetworkProfileValidationError \" , \r\n \" üzenet: a \" \" virtuális gép mérete Standard_DS2_v2 nem szerepel a VM-méretezési csoport/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Megengedett méretek:. \" \r\n} \r\n} "}]}" szervizelés: hozzon létre egy VMSS a PowerShell-lel vagy egy Resource Manager-sablonnal.
+- Ok: van egy portál hibája, amely megakadályozza a VMSS létrehozását a Standard_DS2_v2 VM-mérettel. Ha létrehoz egy hibát, a (z) "{" code ":" DeploymentFailed ", az" üzenet ":" legalább egy erőforrás-telepítési művelet sikertelen volt. A részletekért listázza az üzembehelyezési műveleteket. Tekintse https://aka.ms/arm-debug meg a használati adatokat. "," Részletek ": [{" code ":" BadRequest "," üzenet ":" {\r\n \" hiba \" : {\R\n \" kód \" : \" NetworkProfileValidationError \" , \r\n \" üzenet: a \" \" virtuális gép mérete Standard_DS2_v2 nem szerepel a VM-méretezési csoport/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Megengedett méretek:. \" \r\n} \r\n} "}]}"
+- Szervizelés: hozzon létre egy VMSS a PowerShell-lel vagy egy Resource Manager-sablonnal.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>A virtuális gép áttekintő paneljén nem jelenik meg a számítógép helyes neve
 
@@ -151,7 +152,7 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4 VM-méret a portálon
 
-- Alkalmazható: a probléma a 2002-es és újabb verzióira vonatkozik.
+- Alkalmazható: Ez a probléma a 2002-es és újabb kiadásokra vonatkozik.
 - Ok: a virtuális gép létrehozási élménye során a virtuális gép méretét fogja látni: NV4as_v4. Azok az ügyfelek, akik rendelkeznek az AMD Mi25-alapú Azure Stack hub GPU előzetes verziójához szükséges hardverrel, sikeresen üzembe helyezhetik a virtuális gépeket. Az összes többi ügyfélnél a virtuálisgép-mérettel rendelkező virtuális gép üzembe helyezése sikertelen lesz.
 - Szervizelés: az Azure Stack hub GPU előzetes verziójának előkészítése alapján.
 
@@ -162,6 +163,7 @@ Más ismert Azure Stack hub-frissítési problémák esetén tekintse [meg a Azu
 - Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
 - Előfordulás: gyakori
 
+### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: Ha egy leállított virtuális gépet próbál elindítani, a következő hibaüzenet jelenhet meg: a **VM Diagnostics Storage-fiókja (diagnosticstorageaccount) nem található. Győződjön meg arról, hogy a Storage-fiók nincs törölve**. A hiba akkor fordul elő, ha olyan virtuális gépet próbál elindítani, amelyen engedélyezve van a rendszerindítási diagnosztika, de a rendszer törli a hivatkozott rendszerindítási diagnosztika Storage-fiókját.
@@ -395,6 +397,8 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű szolgáltatást jelenít meg. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
+
+#### <a name="vpn-troubleshooter"></a>VPN-hibakereső
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: a felhasználói portálon megjelenik a **VPN-** átjáró erőforrás-kezelési funkciója és **mérőszámai** , azonban ez Azure stack hub esetében nem támogatott.
@@ -834,7 +838,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)
