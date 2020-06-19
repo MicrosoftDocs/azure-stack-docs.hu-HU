@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 195b6ef3b15ada39664871557ed7efe2d613f5cd
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
+ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744946"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85069136"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -149,7 +149,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 11. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGallery.exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
 
     ```shell
-    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -175,7 +175,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
     ```powershell
     Add-AzsGalleryItem -GalleryItemUri `
-    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
 5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az értéket lekérheti `GalleryItemURI` az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
@@ -206,7 +206,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Name | Kötelező | Típus | Korlátozások | Description |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | Name |X |Sztring |[A-Za-z0-9] + | |
 | Publisher |X |Sztring |[A-Za-z0-9] + | |
@@ -214,14 +214,14 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="metadata"></a>Metaadatok
 
-| Name | Kötelező | Típus | Korlátozások | Description |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
 | PublisherLegalName |X |Sztring |Legfeljebb 256 karakter | |
 | Összefoglalás |X |Sztring |60 – 100 karakter | |
 | LongSummary |X |Sztring |140 – 256 karakter |Azure Stack központban még nem alkalmazható. |
-| Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
+| Leírás |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 – 5 000 karakter | |
 
 ### <a name="images"></a>Képek
 
@@ -243,7 +243,7 @@ Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Name | Kötelező | Típus | Korlátozások | Description |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
@@ -252,7 +252,7 @@ Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásoka
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Name | Kötelező | Típus | Korlátozások | Description |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Érték |X |Sztring |Legfeljebb 30 karakter. | |
