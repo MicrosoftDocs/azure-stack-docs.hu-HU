@@ -3,16 +3,16 @@ title: Több-bérlő konfigurálása Azure Stack központban
 description: Megtudhatja, hogyan engedélyezheti és tilthatja le több Azure Active Directory bérlőt Azure Stack hub-ban.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ffad503fec50952eca492e16ca0051e69d1c1f14
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173879"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107158"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 
@@ -76,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 Miután a Azure Stack hub-kezelő engedélyezte a fabrikam címtárat a Azure Stack hub-ban való használathoz, Mary-nek regisztrálnia kell Azure Stack hubot a fabrikam címtár-Bérlővel.
 
-#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>Azure Stack hub regisztrálása a vendég címtárral
+#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>Azure Stack hub regisztrálása a vendég címtárral
 
 Mária (a fabrikam címtár-rendszergazdája) a következő parancsokat futtatja a vendég címtár fabrikam.onmicrosoft.com:
 
@@ -102,9 +102,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>Közvetlen bejelentkezés a felhasználók számára
 
-Most, hogy Mary elvégezte a Mary címtár bevezetésének lépéseit, Mária a fabrikam-felhasználókat a bejelentkezéshez irányíthatja. Fabrikam-felhasználók (fabrikam.onmicrosoft.com utótaggal rendelkező felhasználók) bejelentkezés a https\:-//Portal.local.azurestack.external.
+Most, hogy Mary elvégezte a Mary címtár bevezetésének lépéseit, Mária a fabrikam-felhasználókat a bejelentkezéshez irányíthatja. Fabrikam-felhasználók (fabrikam.onmicrosoft.com utótaggal rendelkező felhasználók) bejelentkezés a https- \: //Portal.local.azurestack.external.
 
-Mary a fabrikam címtárban (a fabrikam-könyvtárban lévő felhasználók a fabrikam.onmicrosoft.com utótag nélkül) irányítja át az összes [idegen résztvevőt](/azure/role-based-access-control/rbac-and-directory-admin-roles) a https\:-//Portal.local.azurestack.external/fabrikam.onmicrosoft.com. használatával történő bejelentkezéshez. Ha nem használják ezt az URL-címet, azokat a rendszer az alapértelmezett könyvtárba (Fabrikam) küldi, és hibaüzenetet kap, amely szerint a rendszergazda nem járult hozzá.
+Mary a fabrikam címtárban (a fabrikam-könyvtárban lévő felhasználók a fabrikam.onmicrosoft.com utótag nélkül) irányítja át az összes [idegen résztvevőt](/azure/role-based-access-control/rbac-and-directory-admin-roles) a https-//Portal.local.azurestack.external/fabrikam.onmicrosoft.com. használatával történő bejelentkezéshez. \: Ha nem használják ezt az URL-címet, azokat a rendszer az alapértelmezett könyvtárba (Fabrikam) küldi, és hibaüzenetet kap, amely szerint a rendszergazda nem járult hozzá.
 
 ## <a name="disable-multi-tenancy"></a>Több-bérlő letiltása
 
@@ -148,6 +148,42 @@ Ha már nem szeretne több bérlőt használni Azure Stack központban, a követ
 
     > [!WARNING]
     > A több-bérlős lépések letiltása sorrendben kell végrehajtani. A lépés #1 sikertelen, ha a #2 első lépése befejeződött.
+
+## <a name="retrieve-azure-stack-hub-identity-health-report"></a>Azure Stack hub Identity Health-jelentés beolvasása 
+
+Cserélje le a `<region>` , `<domain>` , és `<homeDirectoryTenant>` helyőrzőket, majd hajtsa végre a következő parancsmagot Azure stack hub-rendszergazdaként.
+
+```powershell
+
+$AdminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+$DirectoryName = "<homeDirectoryTenant>.onmicrosoft.com"
+$healthReport = Get-AzsHealthReport -AdminResourceManagerEndpoint $AdminResourceManagerEndpoint -DirectoryTenantName $DirectoryName
+Write-Host "Healthy directories: "
+$healthReport.directoryTenants | Where status -EQ 'Healthy' | Select -Property tenantName,tenantId,status | ft
+
+
+Write-Host "Unhealthy directories: "
+$healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
+```
+
+### <a name="update-azure-ad-tenant-permissions"></a>Azure AD-bérlői engedélyek frissítése
+
+Ez a művelet törli a riasztást Azure Stack központban, ami azt jelzi, hogy a címtárnak frissítésre van szüksége. Futtassa a következő parancsokat a **Azurestack-Tools-Master/Identity** mappában:
+
+```powershell
+Import-Module ..\Connect\AzureStack.Connect.psm1
+Import-Module ..\Identity\AzureStack.Identity.psm1
+
+$adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+
+# This is the primary tenant Azure Stack is registered to:
+$homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
+
+Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+   -DirectoryTenantName $homeDirectoryTenantName -Verbose
+```
+
+A parancsfájl rendszergazdai hitelesítő adatokat kér az Azure AD-bérlőn, és több percet is igénybe vehet. A riasztást a parancsmag futtatása után törölni kell.
 
 ## <a name="next-steps"></a>További lépések
 
