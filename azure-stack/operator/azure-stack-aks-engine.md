@@ -1,22 +1,25 @@
 ---
-title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
+title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit Azure Stack hub Marketplace-hez
 description: Megtudhatja, hogyan adhatja hozzá az AK-motor előfeltételeit az Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 6/08/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630443"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717988"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
-Engedélyezheti a felhasználók számára az Azure Kubernetes Services (ak) motor beállítását úgy, hogy hozzáadja a jelen cikkben ismertetett elemeket az Azure Stack hubhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ. Az KABAi motorhoz a [Azure stack Hub 1910](release-notes.md?view=azs-1910) -es vagy újabb verzióját kell használnia.
+Beállíthatja a felhasználók számára az Azure Kubernetes Services (ak) motorját. Adja hozzá a cikkben ismertetett elemeket az Azure Stack hubhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ. Az KABAi motorhoz a [Azure stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) -es vagy újabb verzióját kell használnia.
+
+> [!NOTE]  
+> A Azure Stack hub és az AK motor verziószámának leképezése az [AK-motor kibocsátási megjegyzései](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping)között található.
 
 ## <a name="check-your-users-service-offering"></a>A felhasználó szolgáltatási ajánlatának megkeresése
 
@@ -48,14 +51,15 @@ Adja hozzá a következő elemeket a piactérhez:
 
 1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
 
-1. Írja be a `AKS Base` (igen) kifejezést.
+1. Írja be a következő szöveget: `AKS Base`.
 
 1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
 
     A listában válassza a következőket:
     - **Közzétevő**: Azure Kubernetes Service
     - **Ajánlat**: AK
-    - **Verzió**: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, március 2020 (2020.03.19 vagy Version, amely az AK-motorhoz van leképezve)
+    - **Név**: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, augusztus 2020 (2020.09.14 vagy Version, amely az AK-motorhoz van leképezve)
+    - **Verzió**: 2020.09.14
 
 1. Válassza a **Letöltés lehetőséget.**
 
@@ -69,7 +73,7 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
 
-1. Írja be a `Custom Script for Linux` (igen) kifejezést.
+1. Írja be a következő szöveget: `Custom Script for Linux`.
 
 1. Válassza ki a parancsfájlt a következő profillal:
    - **Ajánlat**: egyéni parancsfájl a Linux 2,0-hez

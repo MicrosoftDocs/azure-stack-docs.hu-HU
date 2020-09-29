@@ -1,18 +1,18 @@
 ---
-title: Azure Stack hub által felügyelt lemezek; különbségek és szempontok
+title: Azure Stack hub felügyelt lemezek eltérései és szempontjai
 description: Ismerje meg a felügyelt lemezek és a felügyelt lemezképek Azure Stack hub-ban való használatakor felmerülő különbségeket és szempontokat.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: bfa7abf0d481e8791c4e35d80d391de95b8a5b97
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: d8ddebe5fccf03a47db3d6ab190b77296b34734b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107176"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574261"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
@@ -20,12 +20,11 @@ Ez a cikk a [ *felügyelt lemezek* Azure stack hub](azure-stack-manage-vm-disks.
 
 A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemezes kezelését a virtuálisgép-lemezekhez társított [Storage-fiókok](../operator/azure-stack-manage-storage-accounts.md) kezelésével.
 
-> [!NOTE]  
-> Az Azure Stack hub felügyelt lemezei a 1808-es frissítéstől kezdve voltak elérhetők. Az 1811-es frissítéstől kezdve a szolgáltatás alapértelmezés szerint engedélyezve van, amikor a Azure Stack hub portál használatával hoz létre virtuális gépeket.
+A felügyelt lemezek alapértelmezés szerint engedélyezve vannak a virtuális gépek Azure Stack hub portál használatával történő létrehozásakor.
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack hub |
+| Funkció | Azure (globális) | Azure Stack Hub |
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
 |Kép          | Felügyelt egyéni rendszerkép |Támogatott|
@@ -38,7 +37,7 @@ A felügyelt lemezek egyszerűbbé teszik a IaaS virtuális gépek (VM-EK) lemez
 |Lemezméret  |Azure Premium Disk: P4 (32 GiB) – P80 (32 TiB)<br>Azure standard SSD lemez: E10 (128 GiB) – E80 (32 TiB)<br>Azure standard HDD lemez: S4 (32 GiB) – S80 (32 TiB) |M4:32 GiB<br>M6:64 GiB<br>M10:128 GiB<br>M15:256 GiB<br>M20:512 GiB<br>M30:1023 GiB |
 |Lemezek pillanatképének másolása|A futó virtuális gépekhez csatolt Snapshot Azure Managed Disks.|Még nem támogatott |
 |Lemezek teljesítményének analitikai |Összesített mérőszámok és lemezes mérőszámok támogatottak. |Még nem támogatott |
-|Migrálás      |Adja meg az eszközt a meglévő, nem felügyelt Azure Resource Manager virtuális gépekről való áttelepítéshez anélkül, hogy újra létre kellene hoznia a virtuális gépet.  |Még nem támogatott |
+|Áttelepítés      |Adja meg az eszközt a meglévő, nem felügyelt Azure Resource Manager virtuális gépekről való áttelepítéshez anélkül, hogy újra létre kellene hoznia a virtuális gépet.  |Még nem támogatott |
 
 > [!NOTE]  
 > A felügyelt lemezek IOPs és átviteli sebessége Azure Stack hub-ban nem kiosztott szám, hanem a Azure Stack hub-ban futó hardverek és munkaterhelések is befolyásolhatják.
@@ -204,6 +203,7 @@ $Image = Get-AzureRmImage -ResourceGroupName $ImageRG -ImageName $ImageName
 $VmConfig = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize "Standard_D1" | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $VirtualMachineName -Credential $Cred | `
 Set-AzureRmVMSourceImage -Id $Image.Id | `
+Set-AzureRmVMOSDisk -VM $VmConfig -CreateOption FromImage -Linux | `
 Add-AzureRmVMNetworkInterface -Id $Nic.Id
 
 # Create a virtual machine
@@ -221,6 +221,6 @@ Az 1808-es vagy újabb frissítés alkalmazása után a következő konfiguráci
    2. Ugyanebben az előfizetésben lépjen a **Access Control (iam)** elemre, és ellenőrizze, hogy a **Azure stack hub által felügyelt lemez szerepel-** e a listáján.
 - Ha több-bérlős környezetet használ, kérje meg a Felhőbeli operátort (amely a saját szervezetében vagy a szolgáltatónál lehet), hogy az [ebben a cikkben](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory)leírt lépéseket követve konfigurálja újra az egyes vendég címtárakat. Ellenkező esetben előfordulhat, hogy a virtuális gépeknek az adott vendég címtárhoz társított előfizetésben való telepítése sikertelen lehet, ha a "belső hiba a Lemezkezelésben" hibaüzenet jelenik meg.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Ismerkedjen meg [Azure stack hub virtuális gépekkel](azure-stack-compute-overview.md).

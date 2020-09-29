@@ -1,0 +1,65 @@
+- name: Azure Kubernetes Service a Azure Stack HCI dokumentációjában
+  href: index.yml
+- name: Áttekintés
+  items:
+    - name: Azure Kubernetes szolgáltatás Azure Stack HCI-on
+      href: overview.md
+- name: Rövid útmutatók
+  expanded: true
+  items:
+    - name: Az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben
+      items:
+        - name: A Windows felügyeleti központ használata
+          href: setup.md
+        - name: A PowerShell használata
+          href: setup-powershell.md
+    - name: Kubernetes-fürt létrehozása
+      items:
+        - name: A Windows felügyeleti központ használata
+          href: create-kubernetes-cluster.md
+        - name: A PowerShell használata
+          href: create-kubernetes-cluster-powershell.md
+- name: Oktatóanyagok
+  items:
+    - name: Windows Server-tárolók használata
+      href: deploy-windows-application.md
+    - name: Linux-tárolók használata
+      href: deploy-linux-application.md
+- name: Alapelvek
+  items:
+    - name: Azure Kubernetes Azure Stack HCI-fogalmakkal
+      href: kubernetes-concepts.md
+    - name: Rendszerkövetelmények
+      href: system-requirements.md
+- name: Útmutatók
+  items:
+    - name: Kapcsolódás az Azure arc Kubernetes-hoz
+      href: connect-to-arc.md
+    - name: Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz
+      href: adapt-apps-mixed-os-clusters.md
+    - name: Állandó tárterület használata Windows-tárolókban és felkészülés a gMSA
+      href: persistent-storage-windows-nodes.md
+    - name: Hibaelhárítás
+      href: troubleshoot.md
+- name: Kapcsolódó témakörök
+  items:
+    - name: Azure Stack HCI
+      href: ../hci/index.yml
+    - name: Windows felügyeleti központ
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Azure Hybrid Cloud
+      href: /hybrid
+    - name: Windows Server
+      href: /windows-server/
+- name: További források
+  items:
+    - name: Kibocsátási megjegyzések
+      href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: Ismert problémák
+      href: known-issues.md
+    - name: Azure-ütemterv
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: AK Azure Stack HCI-ütemterv
+      href: 'https://aka.ms/aks-hci-roadmap/'
+    - name: Fájl hibái
+      href: 'https://aka.ms/aks-hci-issues/'

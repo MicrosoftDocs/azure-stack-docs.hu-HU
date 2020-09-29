@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: ecedd49789a20788f1f1ba40e568298c569d168d
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 6a63ae93488a13b2b3c8f872aadf882a9ccd1a13
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848081"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106869"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure Stack hub Azure App Service frissítése
 
@@ -43,9 +43,9 @@ Az Azure App Service Azure Stack hub-beli telepítésének frissítéséhez köv
 
 1. Töltse le a [Azure app Service telepítőjét](https://aka.ms/appsvcupdateQ2installer).
 
-2. Futtassa a appservice. exe fájlt rendszergazdaként.
+2. appservice.exe futtatása rendszergazdaként.
 
-    ![Azure App Service telepítő][1]
+    ![Képernyőfelvétel: a telepítési vagy frissítési folyamat elindítása a App Service telepítőben.][1]
 
 3. Kattintson **a Azure app Service telepítése vagy a frissítés a legújabb verzióra** lehetőségre.
 
@@ -55,7 +55,7 @@ Az Azure App Service Azure Stack hub-beli telepítésének frissítéséhez köv
 
 6. Győződjön meg arról, hogy a Azure Stack hub Azure Resource Manager végpont és a Active Directory bérlő adatai helyesek. Ha a ASDK telepítése során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor testreszabta a beállításokat, akkor ebben az ablakban kell szerkesztenie az értékeket. Ha például a *mycloud.com*tartományi utótagot használja, akkor a Azure Stack hub Azure Resource Manager végpontnak *Management.region.mycloud.com*értékre kell váltania. Az adatok megerősítése után kattintson a **tovább**gombra.
 
-    ![Azure Stack hub felhő információi][2]
+    ![Képernyőfelvétel: az ARM-végpontok konfigurálása a App Service-telepítőben.][2]
 
 7. A következő oldalon:
 
@@ -73,20 +73,20 @@ Az Azure App Service Azure Stack hub-beli telepítésének frissítéséhez köv
 
     1. Ha a rendszer meglévő Azure App Service központi telepítést észlel, akkor az erőforráscsoport és a Storage-fiók fel van töltve, és nem érhető el.
 
-      ![Azure App Service telepítés észlelhető][3]
+      ![Képernyőfelvétel: Itt adhatja meg a Azure Stack hub előfizetési adatait a App Service telepítőben.][3]
 
 8. Az összefoglalás lapon:
    1. Ellenőrizze az elvégzett beállításokat. A módosítások elvégzéséhez használja az **előző gombokat** az előző lapok megkereséséhez.
    2. Ha a konfigurációk helyesek, jelölje be a jelölőnégyzetet.
    3. A frissítés elindításához kattintson a **tovább**gombra.
 
-       ![Azure App Service frissítés összegzése][4]
+       ![A telepítő App Service frissítési összegzését bemutató képernyőkép.][4]
 
 9. Frissítési folyamat lapja:
     1. A frissítési folyamat nyomon követése. Azure Stack hub Azure App Service frissítésének időtartama a telepített szerepkör-példányok számától függően változhat.
     2. A frissítés sikeres befejeződése után kattintson a **Kilépés**gombra.
 
-        ![Azure App Service frissítési folyamat][5]
+        ![A App Service telepítőjének telepítési folyamatát bemutató képernyőkép.][5]
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -96,7 +96,7 @@ Ebből a cikkből megtudhatja, hogyan frissítheti a [Azure app Service erőforr
 * Active Directory összevonási szolgáltatások (AD FS) (AD FS) védi.
 
 > [!IMPORTANT]
-> A frissítés futtatása előtt el kell végeznie [Azure app Service telepítését a Azure stack hub-ban egy leválasztott környezetben](azure-stack-app-service-deploy-offline.md). 
+> A frissítés futtatása előtt el kell végeznie [Azure app Service telepítését a Azure stack hub-ban egy leválasztott környezetben](./azure-stack-app-service-deploy.md?pivots=state-disconnected&view=azs-2002). 
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>A App Service erőforrás-szolgáltató telepítőjének futtatása
 
@@ -104,7 +104,7 @@ Ha Azure Stack hub-környezetben szeretné frissíteni a App Service erőforrás
 
 1. Töltse le a [Azure app Service telepítőjét](https://aka.ms/appsvcupdate8installer).
 2. Hozzon létre egy offline frissítési csomagot.
-3. Futtassa a App Service telepítőt (appservice. exe), és fejezze be a frissítést.
+3. Futtassa a App Service telepítőt (appservice.exe), és fejezze be a frissítést.
 
 A folyamat során a frissítés a következő lesz:
 
@@ -118,30 +118,30 @@ A folyamat során a frissítés a következő lesz:
 
 Ha a App Servicet leválasztott környezetben szeretné frissíteni, először létre kell hoznia egy offline frissítési csomagot egy internetkapcsolattal rendelkező számítógépen.
 
-1. A appservice. exe futtatása rendszergazdaként
+1. appservice.exe futtatása rendszergazdaként
 
-    ![Azure App Service telepítő][11]
+    ![Képernyőkép, amely bemutatja, hogyan indíthatja el a frissítést egy leválasztási környezetben.][11]
 
-2. Kattintson a **speciális** > **kapcsolat nélküli csomag létrehozása** elemre.
+2. Kattintson a **speciális**  >  **kapcsolat nélküli csomag létrehozása** elemre.
 
-    ![Azure App Service telepítő speciális][12]
+    ![Képernyőfelvétel: offline csomag létrehozása a App Service-telepítőben.][12]
 
 3. A Azure App Service telepítő létrehoz egy offline frissítési csomagot, és megjeleníti annak elérési útját.  A mappa **megnyitása** lehetőségre kattintva megnyithatja a mappát a fájlkezelőben.
 
-4. Másolja a telepítőt (AppService. exe) és az offline telepítőcsomagot egy olyan gépre, amely az Azure Stack hubhoz van csatlakoztatva.
+4. Másolja a telepítőt (AppService.exe) és az offline telepítőcsomagot egy olyan gépre, amely kapcsolódik az Azure Stack hubhoz.
 
 ## <a name="complete-the-upgrade-of-app-service-on-azure-stack-hub"></a>App Service verziófrissítésének befejezése Azure Stack hub-on
 
 > [!IMPORTANT]
 > A Azure App Service-telepítőt olyan gépen kell futtatni, amely elérheti a Azure Stack hub rendszergazdai Azure Resource Manager végpontját.
 
-1. Futtassa a appservice. exe fájlt rendszergazdaként.
+1. appservice.exe futtatása rendszergazdaként.
 
-    ![Azure App Service telepítő][11]
+    ![A frissítés elindítását bemutató képernyőkép.][11]
 
-2. Kattintson a **speciális** > **teljes kapcsolat nélküli telepítés vagy frissítés**lehetőségre.
+2. Kattintson a **speciális**  >  **teljes kapcsolat nélküli telepítés vagy frissítés**lehetőségre.
 
-    ![Azure App Service telepítő speciális][12]
+    ![Képernyőkép a App Service-telepítő offline telepítésének vagy frissítésének módjáról.][12]
 
 3. Keresse meg a korábban létrehozott offline verziófrissítési csomag helyét, majd kattintson a **tovább**gombra.
 
@@ -151,7 +151,7 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
 
 6. Győződjön meg arról, hogy a Azure Stack hub Azure Resource Manager végpont és Active Directory bérlő adatai helyesek. Ha Azure Stack Development Kit központi telepítés során az alapértelmezett beállításokat használta, akkor itt fogadhatja el az alapértelmezett értékeket. Ha azonban a Azure Stack hub telepítésekor testreszabta a beállításokat, akkor ebben az ablakban kell szerkesztenie az értékeket. Ha például a *mycloud.com*tartományi utótagot használja, akkor a Azure Stack hub Azure Resource Manager végpontnak *Management.region.mycloud.com*értékre kell váltania. Az információk megerősítése után kattintson a **tovább**gombra.
 
-    ![Azure Stack hub felhő információi][13]
+    ![Képernyőfelvétel: az ARM-végpontok konfigurálása a telepítőben.][13]
 
 7. A következő oldalon:
 
@@ -169,22 +169,22 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
    
    1. Ha a rendszer egy meglévő App Service központi telepítést észlel, akkor az erőforráscsoport és a Storage-fiók ki lesz töltve és szürkén jelenik meg.
 
-      ![Azure App Service telepítés észlelhető][14]
+      ![Képernyőkép, amely bemutatja, hol kell konfigurálni a Azure Stack hub-előfizetéseket a telepítőben.][14]
 8. Az összefoglalás lapon:
    1. Ellenőrizze az elvégzett beállításokat. A módosítások elvégzéséhez használja az **előző gombokat** az előző lapok megkereséséhez.
    2. Ha a konfigurációk helyesek, jelölje be a jelölőnégyzetet.
    3. A frissítés elindításához kattintson a **tovább**gombra.
 
-       ![Azure App Service frissítés összegzése][15]
+       ![Képernyőkép, amely a telepítőben gyűjtött információk összegzését jeleníti meg.][15]
 
 9. Frissítési folyamat lapja:
     1. A frissítési folyamat nyomon követése. Az App Service Azure Stack hub-on való frissítésének időtartama a telepített szerepkör-példányok számától függ.
     2. A frissítés sikeres befejeződése után kattintson a **Kilépés**gombra.
 
-        ![Azure App Service frissítési folyamat][16]
+        ![A frissítést bemutató képernyőfelvétel sikeresen befejeződött.][16]
 ::: zone-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Felkészülés további rendszergazdai műveletekre Azure Stack hub Azure App Service:
 

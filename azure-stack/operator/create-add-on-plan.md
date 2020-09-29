@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696481"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106792"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Kiegészítő csomagok létrehozása a Azure Stack hub-ban
 
@@ -35,19 +35,19 @@ A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) t
 2. Kövesse ugyanezeket a lépéseket [egy új alapcsomag](azure-stack-create-plan.md) létrehozásához, amely a korábban nem kínált szolgáltatásokat kínáló új terv létrehozásához szükséges.
 3. A felügyeleti portálon válassza az **ajánlatok** lehetőséget, majd válassza ki a kiegészítő csomaggal frissítendő ajánlatot.
 
-   ![Válassza az ajánlat lehetőséget, ha a Azure Stack felügyeleti portálon a kiegészítő csomaggal szeretne frissíteni](media/create-add-on-plan/add-on1.png)
+   ![Képernyőkép, amely bemutatja, hogyan választható ki a Azure Stack felügyeleti portálon a kiegészítő csomaggal frissíthető ajánlat.](media/create-add-on-plan/add-on1.png)
 
 4. Az ajánlat tulajdonságainak alján válassza a **kiegészítő csomagok**lehetőséget. Válassza a **Hozzáadás** lehetőséget.
 
-    ![Kiegészítő csomagok kiválasztása Azure Stack felügyeleti portálon](media/create-add-on-plan/add-on2.png)
+    ![A Azure Stack felügyeleti portálon a kiegészítő csomagok kiválasztását bemutató képernyőkép.](media/create-add-on-plan/add-on2.png)
 
 5. Válassza ki a hozzáadni kívánt csomagot. Ebben a példában a csomag neve **20-storageaccounts**. A terv kiválasztása után **a Kiválasztás gombra kattintva adja** hozzá a csomagot az ajánlathoz. Értesítést kap arról, hogy a csomag sikeresen hozzá lett adva az ajánlathoz.
 
-    ![Válassza ki a hozzáadni kívánt bővítményi csomagot Azure Stack felügyeleti portálon](media/create-add-on-plan/add-on3.png)
+    ![Képernyőkép, amely bemutatja, hogyan választható ki a Azure Stack felügyeleti portálon felvenni kívánt kiegészítő csomag.](media/create-add-on-plan/add-on3.png)
 
 6. Tekintse át az ajánlatban található kiegészítő csomagok listáját annak ellenőrzéséhez, hogy az új kiegészítő csomag szerepel-e a listában.
 
-    ![[A Azure Stack felügyeleti portálon található kiegészítő csomagok listájának áttekintése] (Media/Create-add-on-Plan/Add-on4. png "kiegészítő csomag létrehozása")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![Képernyőkép, amely a Azure stack felügyeleti portálon áttekinthető bővítményi csomagok listáját jeleníti meg.](media/create-add-on-plan/add-on4.png "Kiegészítő csomag létrehozása")] (média/létrehozás-kiegészítő csomag/add-on4lg.png # Lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -74,6 +74,6 @@ A kiegészítő csomagok [létrehozása ugyanúgy](azure-stack-create-plan.md) t
 
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ajánlat létrehozása](azure-stack-create-offer.md)

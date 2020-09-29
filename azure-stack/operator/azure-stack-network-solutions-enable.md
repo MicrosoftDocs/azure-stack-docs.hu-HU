@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 12dc8715b90aa257953b5dc13bf671c9264aea8d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a145a95207fb923d736582f79a315ae625d7223b
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111170"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107009"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Hálózati megoldás nyújtása Azure Stack központban a Fortinet FortiGate
 
@@ -30,7 +30,7 @@ Az Azure Marketplace FortiGate kapcsolatos további információkért lásd: [Fo
     - Fortinet FortiGate – Azure-beli virtuális BYOL
     - FortiGate NGFW – egyetlen virtuális gép üzembe helyezése (BYOL)
 
-    ![Azure Stack hub FortiGate Fortinet](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
+    ![Képernyőkép, amely megjeleníti az elérhető letöltött elemeket.](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
 
 4. Várjon, amíg a Marketplace-elemek nem rendelkeznek a **letöltött**állapottal. Az elemek letöltése több percet is igénybe vehet.
 

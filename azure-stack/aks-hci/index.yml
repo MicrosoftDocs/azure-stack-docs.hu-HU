@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Kubernetes Service a Azure Stack HCI dokumentációjában
+summary: Az Azure Kubernetes Service on Azure Stack HCI a népszerű Azure Kubernetes szolgáltatás (ak) Orchestrator helyszíni megvalósítása, amely automatizálja a tároló alkalmazások skálázását. Az Azure Kubernetes szolgáltatás jelenleg előzetes verzióban érhető el a Azure Stack HCI-ben, így gyorsabban megkezdheti a Linux és Windows rendszerű tárolók üzemeltetését az adatközpontban.
+metadata:
+  title: Azure Kubernetes Service a Azure Stack HCI dokumentációjában
+  description: Az Azure Kubernetes Service on Azure Stack HCI a népszerű Azure Kubernetes szolgáltatás (ak) Orchestrator helyszíni megvalósítása, amely automatizálja a tároló alkalmazások skálázását. Az Azure Kubernetes szolgáltatás jelenleg előzetes verzióban érhető el a Azure Stack HCI-ben, így gyorsabban megkezdheti a Linux és Windows rendszerű tárolók üzemeltetését az adatközpontban.
+  ms.topic: landing-page
+  author: jasongerend
+  ms.author: jgerend
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 25ac5eecb2f198613c3402a269c1aeafd7df4cc0
+  ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+  ms.translationtype: MT
+  ms.contentlocale: hu-HU
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90949004"
+landingContent:
+- title: Tudnivalók az Azure Kubernetes szolgáltatásról
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Mi az az Azure Kubernetes Service a Azure Stack HCI-ben?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Kubernetes-alapfogalmak az AKS-hez
+      url: kubernetes-concepts.md
+- title: Bevezetés
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Rendszerkövetelmények ellenõrzése
+      url: system-requirements.md
+  - linkListType: quickstart
+    links:
+    - text: Az AK beállítása a Windows felügyeleti központtal
+      url: setup.md
+    - text: AK beállítása a PowerShell-lel
+      url: setup-powershell.md
+    - text: Kubernetes-fürt létrehozása a Windows felügyeleti központtal
+      url: create-kubernetes-cluster.md
+    - text: Kubernetes-fürt létrehozása a PowerShell-lel
+      url: create-kubernetes-cluster-powershell.md
+- title: Windows-és Linux-alkalmazások központi telepítése
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Windows Server-tárolók használata
+      url: deploy-windows-application.md
+    - text: Linux-tárolók használata
+      url: deploy-linux-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz
+      url: adapt-apps-mixed-os-clusters.md
+    - text: Állandó tárterület használata Windows-tárolókban és felkészülés a gMSA
+      url: persistent-storage-windows-nodes.md
+- title: Integrálás az Azure-ral
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kapcsolódás az Azure arc Kubernetes-hoz
+      url: connect-to-arc.md

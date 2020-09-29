@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: f7eb790506c5dbbb7d49fc469dd61d394fb1f0fc
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848200"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106841"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>A Event Hubs telepítése Azure Stack hubhoz
 
@@ -32,7 +32,7 @@ Mielőtt telepítené a Event Hubst a Azure Stack hubhoz, le kell töltenie az e
 ::: zone pivot="state-connected"
 Kövesse az alábbi utasításokat egy csatlakoztatott forgatókönyvhöz:
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 2. Válassza a **piactér-kezelés** lehetőséget a bal oldalon.
 3. Válassza ki az **Erőforrás-szolgáltatók** elemet.
 4. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
@@ -62,12 +62,12 @@ Leválasztott vagy részben csatlakoztatott forgatókönyv esetén letölti a cs
    [![Marketplace-kezelő letöltött csomagjai](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
 3. A Event Hubs telepítési csomag lapon egy kék szalagcím jelenik meg az egész tetején. A Event Hubs telepítésének megkezdéséhez kattintson a szalagcímre.
-   [![Piactér-felügyeleti esemény hubok – telepítés indítása](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
+   [![Képernyőkép, amely bemutatja, hogyan indíthatja el a telepítést a piactér felügyeleti esemény-hubokban.](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>Az előfeltételek telepítése
 
 1. Ezután a telepítés lapra kerül át. A telepítési folyamat megkezdéséhez válassza az **Előfeltételek telepítése** lehetőséget.
-   ![Piactér-felügyeleti esemény-hubok – előfeltételek](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
+   ![Képernyőkép, amely bemutatja, hogyan telepítheti az előfeltételeket a piactér felügyeleti esemény-hubokban.](media/event-hubs-rp-install/4-marketplace-management-install-prereqs-start.png)
  
 2. Várjon, amíg az Előfeltételek telepítése sikeres lesz. A következő lépés végrehajtása előtt egy zöld pipa jelenik meg a **telepítés előfeltételeinek telepítése** előtt.
 
@@ -81,7 +81,7 @@ Leválasztott vagy részben csatlakoztatott forgatókönyv esetén letölti a cs
 2. A tanúsítvány **hozzáadása**lapon kattintson a Tallózás gombra a tanúsítvány neve mező jobb oldalán.
 3. Válassza ki az előfeltételek teljesítése során beszerzett. pfx tanúsítványfájl-fájlt. További információ: [a telepítés előfeltételei](event-hubs-rp-prerequisites.md). 
 
-4. Adja meg az SSL-tanúsítvány Event Hubs biztonságos karakterlánc létrehozásához megadott jelszót. Ezután válassza a **Hozzáadás**lehetőséget.
+4. Adja meg az SSL-tanúsítvány Event Hubs biztonságos karakterlánc létrehozásához megadott jelszót. Ezután válassza a **Hozzáadás** elemet.
    ![Piactér-felügyeleti esemény hubok – tanúsítvány hozzáadása](media/event-hubs-rp-install/7-marketplace-management-install-prepare-secrets-add-cert.png)
 
 ### <a name="install-resource-provider"></a>Erőforrás-szolgáltató telepítése
@@ -120,7 +120,7 @@ Most regisztrálnia kell a Event Hubs erőforrás-szolgáltatót. A regisztráci
 11. Keressen rá a "Event Hubs" kifejezésre. Ekkor megjelenik a "Event Hubs", amely a Event Hubs adminisztrációs oldal belépési pontja. 
    ![Elérhető szolgáltatások – Event hubok](media/event-hubs-rp-install/14-all-service-event-hubs.png)
  
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Mielőtt a felhasználók üzembe helyezhetik Event Hubs erőforrásait, létre kell hoznia egy vagy több csomagot, ajánlatot és előfizetést. 
 

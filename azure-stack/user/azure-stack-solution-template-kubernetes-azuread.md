@@ -3,20 +3,20 @@ title: Kubernetes üzembe helyezése Azure Stack hubhoz Azure Active Directory (
 description: Megtudhatja, hogyan helyezhet üzembe Kubernetes az Azure Stack hub szolgáltatásban Azure Active Directory (Azure AD) használatával.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 97b2cfc5a595c23bdd12d6ce4519606218bb4687
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631204"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106635"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Kubernetes üzembe helyezése Azure Stack hubhoz a Azure Active Directory használatával
 
-> [!Note]  
+> [!NOTE]  
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A cikk lépéseit követve üzembe helyezheti és beállíthatja a Kubernetes erőforrásait, ha az Azure Active Directory (Azure AD) használja az Identitáskezelés szolgáltatásként, egyetlen, koordinált műveletben.
@@ -27,7 +27,7 @@ Első lépésként győződjön meg arról, hogy rendelkezik a megfelelő enged�
 
 1. Ellenőrizze, hogy létrehozhat-e alkalmazásokat a Azure Active Directory (Azure AD) bérlőben. Ezekre az engedélyekre szüksége lesz a Kubernetes telepítéséhez.
 
-    Az engedélyek ellenőrzésével kapcsolatos utasításokért tekintse meg az [Azure Active Directory engedélyek ellenőrzése](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)című témakört.
+    Az engedélyek ellenőrzésével kapcsolatos utasításokért tekintse meg az [Azure Active Directory engedélyek ellenőrzése](/azure/azure-resource-manager/resource-group-create-service-principal-portal)című témakört.
 
 1. Nyilvános és titkos SSH-kulcspár létrehozása a Linux rendszerű virtuális gépre való bejelentkezéshez Azure Stack hub-on. A fürt létrehozásakor szüksége lesz a nyilvános kulcsra.
 
@@ -55,7 +55,7 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
     b. Válassza **Azure Active Directory**  >  **Alkalmazásregisztrációk**  >  **új regisztráció**lehetőséget.  
     c. Adja meg az alkalmazás nevét és URL-címét.  
     d. Válassza ki a **támogatott fióktípus-típusokat**.  
-    e.  Adja hozzá az `http://localhost` alkalmazás URI azonosítóját. Válassza a **web** lehetőséget a létrehozni kívánt alkalmazás típusához. Az értékek beállítása után válassza a **regisztráció**lehetőséget.
+    e.  Adja hozzá az `http://localhost` alkalmazás URI azonosítóját. Válassza a **web**  lehetőséget a létrehozni kívánt alkalmazás típusához. Az értékek beállítása után válassza a **regisztráció**lehetőséget.
 
 1. Jegyezze fel az **alkalmazás azonosítóját**. A fürt létrehozásakor szüksége lesz az AZONOSÍTÓra. Az azonosító az **egyszerű szolgáltatásnév ügyfél-azonosítójaként**van hivatkozva.
 
@@ -65,7 +65,7 @@ Egyszerű szolgáltatásnév beállítása az Azure-ban. Az egyszerű szolgálta
 
     b. Válassza a **soha nem jár** le **lejár**lehetőséget.
 
-    c. Válassza a **Hozzáadás** elemet. Jegyezze fel a kulcs sztringjét. A fürt létrehozásakor szüksége lesz a kulcs sztringre. A kulcs az **egyszerű szolgáltatás ügyfél-titkos**kulcsaként van hivatkozva.
+    c. Válassza a **Hozzáadás** lehetőséget. Jegyezze fel a kulcs sztringjét. A fürt létrehozásakor szüksége lesz a kulcs sztringre. A kulcs az **egyszerű szolgáltatás ügyfél-titkos**kulcsaként van hivatkozva.
 
 ## <a name="give-the-service-principal-access"></a>Egyszerű szolgáltatás elérésének biztosítása
 
@@ -83,7 +83,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza ki az egyszerű szolgáltatásnév számára létrehozott alkalmazás nevét. Előfordulhat, hogy be kell írnia a nevet a keresőmezőbe.
 
-1. Kattintson a **Save** (Mentés) gombra.
+1. Kattintson a **Mentés** gombra.
 
 ## <a name="deploy-kubernetes"></a>Kubernetes üzembe helyezése
 
@@ -91,13 +91,13 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza **az + erőforrás létrehozása**  >  **számítási**  >  **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** lehetőségre.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Képernyőkép, amely bemutatja, hogyan hozhat létre egy Kubernetes-fürtöt.](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. alapismeretek
 
 1. Válassza az **alapok** lehetőséget a Kubernetes-fürt létrehozása területen.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Képernyőkép, amely bemutatja, hogyan adhat hozzá alapvető adatokat a Kubernetes-fürthöz.](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. Válassza ki az **előfizetés** -azonosítóját.
 
@@ -109,7 +109,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Válassza a **Kubernetes** lehetőséget a Kubernetes-fürt létrehozása területen.
 
-    ![Megoldás sablonjának üzembe helyezése](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
+    ![A Kubernetes-fürt beállításaival kapcsolatos információkat bemutató képernyőkép.](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
 1. Adja meg a Linux rendszerű **virtuális gép rendszergazdai felhasználónevét**. A Kubernetes-fürt és a DVM részét képező Linux Virtual Machines felhasználóneve.
 
@@ -117,7 +117,7 @@ Adja meg a szolgáltatás egyszerű hozzáférését az előfizetéséhez, hogy 
 
 1. Adja meg a **fő profil DNS-előtagját** , amely a régió egyedi. Ennek a régió-egyedi névnek kell lennie, például: `k8s-12345` . Az ajánlott eljárás szerint válassza ki az erőforráscsoport nevét.
 
-    > [!Note]  
+    > [!NOTE]  
     > Minden egyes fürthöz használjon egy új és egyedi Master profil DNS-előtagot.
 
 1. Válassza ki a **Kubernetes-főkiszolgáló profiljának darabszámát**. A darabszám a főkészletben lévő csomópontok számát tartalmazza. 1 és 7 közötti érték adható meg. Ennek az értéknek páratlan számnak kell lennie.

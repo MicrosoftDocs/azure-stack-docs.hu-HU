@@ -1,5 +1,5 @@
 ---
-title: Frissítések alkalmazása egy Azure Stack hub erőforrás-szolgáltatón.
+title: Frissítések alkalmazása egy Azure Stack hub erőforrás-szolgáltatón
 description: Ismerje meg, hogyan alkalmazhatja a szolgáltatás frissítését Azure Stack hub erőforrás-szolgáltatóján.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: 5ec6f85fc2f2e526c4b85521337ab65dc2b939cc
-ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
+ms.openlocfilehash: ff1a6258e682d3230ea7968a97b9e392991ca72b
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799866"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107127"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Azure Stack hub erőforrás-szolgáltató frissítése
 
@@ -26,13 +26,13 @@ A piactérről telepített erőforrás-szolgáltatóknak rendszeres karbantartá
 
 Az erőforrás-szolgáltatók ugyanazzal a frissítési funkcióval frissülnek, mint Azure Stack hub-frissítések alkalmazásához.
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 2. Válassza a **minden szolgáltatás** hivatkozást a bal oldalon, majd a **felügyelet** szakaszban válassza a **frissítések**lehetőséget.
    ![Minden szolgáltatás lap](media/resource-provider-apply-updates/1-all-services.png)
 
 3. A **frissítések** lapon megtalálhatja az erőforrás-szolgáltatók frissítéseit az erőforrás- **szolgáltató** szakaszban.
 
-   [![Rendelkezésre álló oldal frissítése](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
+   [![Az erőforrás-szolgáltató szakaszt bemutató képernyőkép.](media/resource-provider-apply-updates/3-update-available.png)](media/resource-provider-apply-updates/3-update-available.png#lightbox)
 
 ## <a name="apply-an-update"></a>Frissítés alkalmazása
 
@@ -48,6 +48,6 @@ Ha van elérhető frissítés egy adott erőforrás-szolgáltatóhoz:
 6. A "telepítés folyamatban" értesítés jelenik meg a jobb felső sarokban, és visszatér a **frissítések** oldalára. Az erőforrás-szolgáltató sor **állapota** oszlop a "telepítés" értékre is módosul.
 7. A telepítés befejezésekor egy másik értesítés is jelzi a sikert vagy a hibát. A sikeres telepítés a **piactér-felügyeleti erőforrás-szolgáltatók** lapon is frissíti a **verziót** .
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a [rendszergazdai irányítópult frissítései szolgáltatásról](azure-stack-apply-updates.md).

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: a8bc501587c4f4450a07704734391a8e889e3296
-ms.sourcegitcommit: 7d4c28353bc138bbae744d9dbca79fe934c2e94b
+ms.openlocfilehash: a60de3bf059522b980d7a3e74295736118334773
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83624588"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106440"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack hub Storage-infrastruktúra áttekintése
 
@@ -50,12 +50,12 @@ A meghajtók egy "teljesen Flash" vagy "hibrid" telepítésbe csoportosíthatók
 
 Az összes Flash-telepítés célja, hogy maximalizálja a tárolási teljesítményt, és ne tartalmazzon rotációs HDD-ket.
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image1.png)
+![Az összes Flash üzembe helyezési csoportot megjelenítő diagram.](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 
 A hibrid üzembe helyezések célja a teljesítmény és a kapacitás elosztása, illetve a kapacitás maximalizálása, valamint a rotációs HDD-k beépítése.
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image2.png)
+![Egy hibrid üzembe helyezési csoportosítást bemutató diagram.](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 ### <a name="caching-behavior"></a>Gyorsítótárazási viselkedés
 
@@ -65,7 +65,7 @@ Az olvasások nem vannak gyorsítótárazva. Nincsenek gyorsítótárazva, mert 
 
 A HDD-k gyorsítótárazása (például SSD-meghajtók gyorsítótárazása) esetén az olvasás és az írás is gyorsítótárazva van, így a Flash-hez hasonló késés (gyakran/~ 10x jobb) is biztosítható mindkettőhöz.
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image3.svg)
+![Azure Stack hub tárolási gyorsítótárazási viselkedését bemutató diagram.](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 A tárterület elérhető konfigurációjának megadásához tekintse meg Azure Stack hub OEM-partnert ( https://azure.microsoft.com/overview/azure-stack/partners/) részletes leírást.
 
@@ -76,7 +76,7 @@ A tárterület elérhető konfigurációjának megadásához tekintse meg Azure 
 
 A *Storage szolgáltatás* a rendelkezésre álló tárolót külön kötetekre particionálja, amelyek a rendszer-és a bérlői adattároláshoz vannak lefoglalva. A kötetek a Storage-készletben lévő meghajtókat kombinálva biztosítják a hibatűrést, a méretezhetőséget és a Közvetlen tárolóhelyek teljesítménybeli előnyeit.
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image4.svg)
+![Azure Stack hub Storage szolgáltatás partícióit megjelenítő diagram.](media/azure-stack-storage-infrastructure-overview/image4.svg)
 
 ### <a name="volume-types"></a>Kötetek típusai
 
@@ -99,7 +99,7 @@ A virtuális gépek ideiglenes kötetei és az objektum-tároló kötetek száma
 - A kötetek száma változatlan marad, még akkor is, ha egy csomópont meghibásodik vagy törlődik.
 
 > [!NOTE]
-> Ha a [Azure stack Development Kit (ASDK)](https://docs.microsoft.com/azure-stack/asdk/)használja, akkor egyetlen kötet több [megosztással](azure-stack-manage-storage-shares.md)is rendelkezik.
+> Ha a [Azure stack Development Kit (ASDK)](../asdk/index.yml)használja, akkor egyetlen kötet több [megosztással](azure-stack-manage-storage-shares.md)is rendelkezik.
 
 ### <a name="fault-tolerance-and-mirroring"></a>Hibatűrés és tükrözés
 
@@ -111,7 +111,7 @@ Azure Stack hub üzemelő példánya háromutas tükrözéssel biztosítja az ad
 
 A bérlői adatmennyiség három példánya különböző kiszolgálókra van írva, ahol a gyorsítótárban találhatók:
 
-![Azure Stack hub Storage-infrastruktúra](media/azure-stack-storage-infrastructure-overview/image5.png)
+![Diagram, amely azt mutatja, hogy a bérlői adatmennyiség három példánya hogyan íródik különböző kiszolgálókra.](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 ## <a name="next-step"></a>Következő lépés
 

@@ -3,18 +3,18 @@ title: GPU csatlakoztatása Linux rendszerű virtuális géphez Azure Stack HCI-
 description: A GPU használata Ubuntu Linux virtuális gépen futó AI-munkaterhelésekkel Azure Stack HCI-ben.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/24/2020
-ms.openlocfilehash: c1f1ddbfb9f362261a8e55d32a0d8c28b7b64629
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/01/2020
+ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80402866"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106954"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>GPU csatlakoztatása Ubuntu Linux virtuális géphez Azure Stack HCI-ben
 
-> A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Ez a témakör részletesen ismerteti, hogyan telepítheti és konfigurálhatja az NVIDIA Graphics Processing Unit (GPU) szolgáltatást Azure Stack HCI-vel egy Ubuntu rendszerű virtuális gép (DOHAI) technológiájának használatával.
 Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és telepíti a virtuális gépeket.
@@ -28,7 +28,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 5. A **Tulajdonságok** lap megjelenítéséhez kattintson a jobb gombbal a "3D video Controller" elemre. Kattintson a **részletek**gombra. A legördülő menüben **Property**válassza a "hely elérési útjai" lehetőséget.
 6. Jegyezze fel az értéket a string PCIRoot az alábbi képernyőképen látható módon. Kattintson a jobb gombbal az **értékre** , és másolja/mentse.
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="Elérési út képernyőképe":::
-7. Nyissa meg a Windows PowerShellt emelt `Dismount-VMHostAssignableDevice` szintű jogosultságokkal, és hajtsa végre a parancsmagot, hogy leválasztsa a GPU-eszközt a dohai Cserélje le a *LocationPath* értéket a 6. lépésben megszerzett eszköz értékére.
+7. Nyissa meg a Windows PowerShellt emelt szintű jogosultságokkal, és hajtsa végre a parancsmagot, hogy leválasztsa `Dismount-VMHostAssignableDevice` a GPU-eszközt a dohai Cserélje le a *LocationPath* értéket a 6. lépésben megszerzett eszköz értékére.
     ```PowerShell
     Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
@@ -54,7 +54,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
     Get-VMAssignableDevice -VMName Ubuntu
     ```
 
-    A GPU virtuális géphez való sikeres hozzárendelése az alábbi kimenetet jeleníti meg: a :::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="GPU képernyőképének hozzárendelése":::
+    A GPU virtuális géphez való sikeres hozzárendelése az alábbi kimenetet jeleníti meg: a  :::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="GPU képernyőképének hozzárendelése":::
 
     Adja meg a további értékeket a [GPU dokumentációját](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)követve:
 
@@ -74,7 +74,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 
 5. A Hyper-V kezelőjével kapcsolódjon a virtuális géphez, és indítsa el az Ubuntu operációs rendszer telepítését. Válassza ki az alapértelmezett beállításokat az Ubuntu operációs rendszer telepítéséhez a virtuális gépen.
 
-6. A telepítés befejezése után a **Hyper-V kezelőjével** állítsa le a virtuális gépet, és konfigurálja a virtuális gép **automatikus leállítási műveletét** a vendég operációs rendszer leállításához, az alábbi képernyőképen látható módon: :::image type="content" source="media/attach-gpu-to-linux-vm/guest-shutdown.png" alt-text="vendég operációsrendszer-leállítás képernyőképe":::
+6. A telepítés befejezése után a **Hyper-V kezelőjével** állítsa le a virtuális gépet, és konfigurálja a virtuális gép **automatikus leállítási műveletét** a vendég operációs rendszer leállításához, az alábbi képernyőképen látható módon:  :::image type="content" source="media/attach-gpu-to-linux-vm/guest-shutdown.png" alt-text="vendég operációsrendszer-leállítás képernyőképe":::
 
 7. Jelentkezzen be az Ubuntuba, és nyissa meg a terminált az SSH telepítéséhez:
 
@@ -84,7 +84,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 
 8. Keresse meg az Ubuntu telepítéséhez használt TCP/IP-címet az **ifconfig** paranccsal, és másolja az **ETH0** -interfész IP-címét.
 
-9. További konfiguráláshoz használjon egy SSH-ügyfelet, például a [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/) -t az Ubuntu virtuális géphez való kapcsolódáshoz.
+9. Használjon olyan SSH-ügyfelet, mint például az OpenSSH (alapértelmezés szerint a Windows 10 operációs rendszerre telepített ssh.exe) vagy a [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/) az Ubuntu virtuális géphez való kapcsolódás további konfigurálásához.
 
 10. Az SSH-ügyféllel való bejelentkezés után adja ki a parancsot **lspci** , és ellenőrizze, hogy az NVIDIA GPU "3D vezérlő"-ként van-e felsorolva.
 
@@ -94,7 +94,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 11. A virtuális gépen keresse meg és nyissa meg a **szoftverek & frissítéseit**. Navigáljon a **további illesztőprogramok**elemre, majd válassza ki a listában szereplő legújabb NVIDIA GPU-illesztőprogramokat. Az illesztőprogram telepítésének befejezéséhez kattintson a **módosítások alkalmazása** gombra.
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="Illesztőprogram-telepítési képernyőkép":::
 
-12. Az illesztőprogram telepítésének befejeződése után indítsa újra az Ubuntu virtuális gépet. Miután a virtuális gép elindul, csatlakozzon az SSH-ügyfélen, és adja ki az **NVIDIA-SMI** parancsot annak ellenőrzéséhez, hogy az NVIDIA GPU-illesztőprogram telepítése sikeresen befejeződött-e. A kimenetnek az alábbi képernyőképhez hasonlónak kell lennie: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="NVIDIA-SMI képernyőfelvétel":::
+12. Az illesztőprogram telepítésének befejeződése után indítsa újra az Ubuntu virtuális gépet. Miután a virtuális gép elindul, csatlakozzon az SSH-ügyfélen, és adja ki az **NVIDIA-SMI** parancsot annak ellenőrzéséhez, hogy az NVIDIA GPU-illesztőprogram telepítése sikeresen befejeződött-e. A kimenetnek az alábbi képernyőképhez hasonlónak kell lennie: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="képernyőkép, amely az NVIDIA-SMI parancs kimenetét jeleníti meg.":::
 
 13. Az SSH-ügyfél használatával állítsa be a tárházat, és telepítse a Docker CE motort:
 
@@ -188,7 +188,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
     ```
 
-    A sikeres telepítés az alábbi képernyőképen látható kimenettel fog kinézni: :::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="sikeres Docker-telepítés képernyőképe":::
+    A sikeres telepítés az alábbi képernyőképen látható kimenettel fog kinézni:  :::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="sikeres Docker-telepítés képernyőképe":::
 
 5. Az itt leírt útmutatást követve folytassa a Azure IoT Edge telepítésével, kihagyva a futtatókörnyezet telepítését:
 
@@ -263,7 +263,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/custom-streams.png" alt-text="Egyéni streamek képernyőképe":::
 
-11. Hozzon létre egy test5_config_file_src_infer_azure_iotedge_edited. txt nevű új fájlt a/var/deepstream/custom_configs könyvtárban. Egy szövegszerkesztővel nyissa meg a fájlt, és illessze be a következő kódot, majd mentse és zárjuk be a fájlt.
+11. Hozzon létre egy test5_config_file_src_infer_azure_iotedge_edited.txt nevű új fájlt a/var/deepstream/custom_configs könyvtárban. Egy szövegszerkesztővel nyissa meg a fájlt, és illessze be a következő kódot, majd mentse és zárjuk be a fájlt.
 
     ```shell
     # Copyright (c) 2018 NVIDIA Corporation.  All rights reserved.
@@ -273,12 +273,12 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     # and any modifications thereto.  Any use, reproduction, disclosure or
     # distribution of this software and related documentation without an express
     # license agreement from NVIDIA Corporation is strictly prohibited.
-    
+
     [application]
     enable-perf-measurement=1
     perf-measurement-interval-sec=5
     #gie-kitti-output-dir=streamscl
-    
+
     [tiled-display]
     enable=1
     rows=2
@@ -292,7 +292,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     #(3): nvbuf-mem-cuda-unified - Allocate Unified cuda memory, applicable for Tesla
     #(4): nvbuf-mem-surface-array - Allocate Surface Array memory, applicable for Jetson
     nvbuf-memory-type=0
-    
+
     [source0]
     enable=1
     #Type - 1=CameraV4L2 2=URI 3=MultiURI
@@ -301,7 +301,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     num-sources=2
     gpu-id=0
     nvbuf-memory-type=0
-    
+
     [source1]
     enable=1
     #Type - 1=CameraV4L2 2=URI 3=MultiURI
@@ -310,10 +310,10 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     num-sources=2
     gpu-id=0
     nvbuf-memory-type=0
-    
+
     [sink0]
     enable=0
-    
+
     [sink3]
     enable=1
     #Type - 1=FakeSink 2=EglSink 3=File 4=RTSPStreaming
@@ -325,7 +325,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     # set below properties in case of RTSPStreaming
     rtsp-port=8554
     udp-port=5400
-    
+
     [sink1]
     enable=1
     #Type - 1=FakeSink 2=EglSink 3=File 4=UDPSink 5=nvoverlaysink 6=MsgConvBroker
@@ -340,7 +340,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     topic=mytopic
     #Optional:
     #msg-broker-config=../../../../libs/azure_protocol_adaptor/module_client/cfg_azure.txt
-    
+
     [sink2]
     enable=0
     type=3
@@ -353,7 +353,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     bitrate=2000000
     output-file=out.mp4
     source-id=0
-    
+
     [osd]
     enable=1
     gpu-id=0
@@ -368,7 +368,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     clock-text-size=12
     clock-color=1;0;0;0
     nvbuf-memory-type=0
-    
+
     [streammux]
     gpu-id=0
     ##Boolean property to inform muxer that sources are live
@@ -384,7 +384,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     ##along with width, height properties
     enable-padding=0
     nvbuf-memory-type=0
-    
+
     [primary-gie]
     enable=1
     gpu-id=0
@@ -401,7 +401,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     labelfile-path=../../../../../samples/models/Primary_Detector/labels.txt
     config-file=../../../../../samples/configs/deepstream-app/config_infer_primary.txt
     #infer-raw-output-dir=../../../../../samples/primary_detector_raw_output/
-    
+
     [tracker]
     enable=1
     tracker-width=600
@@ -413,7 +413,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     gpu-id=0
     #enable-batch-process applicable to DCF only
     enable-batch-process=0
-    
+
     [tests]
     file-loop=1
     ```
@@ -486,7 +486,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="iotedge lista képernyőképe":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="Képernyőkép, amely a iotedge listájának kimenetét jeleníti meg.":::
 
     ```shell
     nvidia-smi
@@ -503,19 +503,19 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="iotedge lista képernyőképe":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="A NvdiaDeepStreem tárolót megjelenítő kimenet képernyőképe.":::
 
     ```shell
     sudo iotedge logs -f NVIDIADeepStreamSDK
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="iotedge lista képernyőképe":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="Képernyőkép, amely a iotedge logs-f NVIDIADeepStreamSDK parancs kimenetét jeleníti meg.":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="iotedge lista képernyőképe":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="Képernyőkép, amely az NVIDIA-SMI parancs további kimenetét jeleníti meg.":::
 
 21. Erősítse meg az Ubuntu virtuális gép TCP/IP-címét az **ifconfig** parancs használatával, és keresse meg az **ETH0** felület melletti TCP/IP-címet.
 
@@ -527,7 +527,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="A VLC player képernyőképe":::
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a GPU-k és a dohai fejlesztési szolgáltatásról:
 

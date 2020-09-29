@@ -1,18 +1,18 @@
 ---
-title: C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub virtuális gépén
+title: C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 description: Helyezzen üzembe egy C# ASP.NET-webalkalmazást Azure Stack hub egyik virtuális gépén.
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661074"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574193"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -53,7 +53,7 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
     e. Adjon hozzá egy bejövő biztonsági szabályt a következő portokhoz:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) a weblapok kiszolgálókról történő kézbesítéséhez használt protokoll. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét.  |
@@ -65,7 +65,7 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
     a. A **forrás**mezőben válassza a **bármelyik**lehetőséget.
 
-    b. A **forrásport-tartomány**mezőbe írjon be egy csillag**\***() karaktert.
+    b. A **forrásport-tartomány**mezőbe írjon be egy csillag ( **\*** ) karaktert.
 
     c. A **cél**mezőben válassza a **bármelyik**lehetőséget.
 
@@ -75,7 +75,7 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
     f. A **Művelet** beállításnál válassza az **Engedélyezés** lehetőséget.
 
-    g. A **prioritás**beállításnál hagyja meg az alapértelmezett beállítást.
+    : A **prioritás**beállításnál hagyja meg az alapértelmezett beállítást.
 
     h. Adjon meg egy **nevet** és egy **leírást** , amely segít megjegyeznünk, hogy a port miért van nyitva.
 
@@ -97,8 +97,7 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
 ## <a name="create-an-app"></a>Alkalmazás létrehozása 
 
-A Visual Studióval használhatja a saját webalkalmazást, vagy [egy ASP.net Core alkalmazás közzétételét az Azure-](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-)ban. A cikk azt ismerteti, hogyan hozhat létre és tehet közzé egy ASP.NET-webalkalmazást egy Azure-beli virtuális gépen a Visual Studio 2017 Azure Virtual Machines Publishing funkciójának használatával. Miután telepítette és ellenőrizte, hogy az alkalmazás helyileg fut-e, frissítenie kell a közzétételi célt a Windows rendszerű virtuális gépre a Azure Stack hub-példányban.
+A Visual Studióval használhatja a saját webalkalmazást, vagy [egy ASP.net Core alkalmazás közzétételét az Azure-](/aspnet/core/tutorials/razor-pages/razor-pages-start?tabs=visual-studio&view=aspnetcore-2.2)ban. A cikk azt ismerteti, hogyan hozhat létre és tehet közzé egy ASP.NET-webalkalmazást egy Azure-beli virtuális gépen a Visual Studio 2017 Azure Virtual Machines Publishing funkciójának használatával. Miután telepítette és ellenőrizte, hogy az alkalmazás helyileg fut-e, frissítenie kell a közzétételi célt a Windows rendszerű virtuális gépre a Azure Stack hub-példányban.
 
 ## <a name="deploy-and-run-the-app"></a>Az alkalmazás üzembe helyezése és futtatása
 
@@ -132,8 +131,8 @@ Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack hub-ban.
         mywebapp.local.cloudapp.azurestack.external
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).
-- A c# programozási nyelv megismeréséhez és a C# további erőforrásainak megkereséséhez tekintse meg a [C# útmutatóját](https://docs.microsoft.com/dotnet/csharp/) .
+- A c# programozási nyelv megismeréséhez és a C# további erőforrásainak megkereséséhez tekintse meg a [C# útmutatóját](/dotnet/csharp/) .

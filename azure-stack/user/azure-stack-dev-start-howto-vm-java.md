@@ -1,5 +1,5 @@
 ---
-title: Java-háború üzembe helyezése Azure Stack hub virtuális gépén
+title: Java WAR üzembe helyezése virtuális gépen Azure Stack hub-ban
 description: Java-háború üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,13 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
-ms.openlocfilehash: 1a7915743314481630dc489f733b3123ae2fafe8
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.custom: conteperfq4
+ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147005"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107208"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -24,7 +25,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protokoll | Description |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -160,7 +161,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
         sudo systemctl start tomcat
     ```
 
-    g. A megadásával ellenőrizze, hogy hiba nélkül indította el a következőket:
+    : A megadásával ellenőrizze, hogy hiba nélkül indította el a következőket:
 
     ```bash  
         sudo systemctl status tomcat
@@ -176,7 +177,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 1. Nyisson meg egy böngészőt ugyanabban a hálózatban, mint az Azure Stack hub, majd nyissa meg a kiszolgálót, *yourmachine. local. cloudapp. azurestack. external: 8080*.
 
-    ![Apache Tomcat egy Azure Stack hub virtuális gépen](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Képernyőkép, amely az Apache Tomcat oldalát jeleníti meg.](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     A kiszolgáló Apache Tomcat-lapja betöltődik. Ezután konfigurálja a kiszolgálót úgy, hogy a kiszolgáló állapotát, a Manager alkalmazást és a gazdagép-kezelőt is hozzáférhessen.
 
@@ -188,7 +189,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 1. A Tomcat-kiszolgáló konfigurálása a webkezelési felület elérésének engedélyezéséhez. 
 
-   a. Szerkessze a *tomcat-users. XML* fájlt, és Definiáljon egy szerepkört és egy felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználót a és a eléréséhez `manager-gui` `admin-gui` .
+   a. Szerkessze a *tomcat-users.xml* fájlt, és Definiáljon egy szerepkört és felhasználót, hogy be tudja jelentkezni. Adja meg a felhasználót a és a eléréséhez `manager-gui` `admin-gui` .
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
@@ -215,9 +216,9 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
     c. Mentse és zárja be a fájlt.
 
-1. A Tomcat korlátozza a *kezelő* és a gazdagép- *kezelő* alkalmazásokhoz való hozzáférést a kiszolgálóról érkező kapcsolatokhoz. Mivel Azure Stack hub-beli virtuális gépen telepíti a Tomcat-t, el kell távolítania ezt a korlátozást. Módosítsa ezen alkalmazások IP-címének korlátozásait a megfelelő *Context. XML* fájlok szerkesztésével.
+1. A Tomcat korlátozza a *kezelő* és a gazdagép- *kezelő* alkalmazásokhoz való hozzáférést a kiszolgálóról érkező kapcsolatokhoz. Mivel Azure Stack hub-beli virtuális gépen telepíti a Tomcat-t, el kell távolítania ezt a korlátozást. Módosítsa az alkalmazások IP-címének korlátozásait a megfelelő *context.xml* fájlok szerkesztésével.
 
-    a. A *Context. XML* frissítése a Manager alkalmazásban:
+    a. *context.xml* frissítése a Manager alkalmazásban:
 
     ```bash  
         sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
@@ -234,7 +235,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
     c. Mentse és zárja be a fájlt.
 
-    d. Frissítse a *Context. xml fájlt* a Host Manager alkalmazáshoz hasonló frissítéssel:
+    d. Frissítse  *context.xml* a Host Manager alkalmazást egy hasonló frissítéssel:
 
     ```bash  
         sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml

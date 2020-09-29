@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631001"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106815"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
 
@@ -45,7 +45,7 @@ Mivel a tárolási objektumok (Blobok stb.) egyenként egyetlen köteten belül 
 
 Ha egy objektum-tároló kötete kevés a szabad területnél, és [a lemezterület felszabadítására irányuló](#reclaim-capacity) műveletek nem sikeresek vagy nem érhetők el, Azure stack a központi felhőalapú operátorok áttelepíthetik a tárolási objektumokat az egyik kötetről a másikra.
 
-További információ arról, hogy a bérlői felhasználók hogyan működnek a Azure Stack hub blob Storage [szolgáltatásával: Azure stack hub Storage Services](/azure-stack/user/azure-stack-storage-overview).
+További információ arról, hogy a bérlői felhasználók hogyan működnek a Azure Stack hub blob Storage [szolgáltatásával: Azure stack hub Storage Services](../user/azure-stack-storage-overview.md).
 
 ### <a name="containers"></a>Tárolók
 A bérlői felhasználók a Blobok tárolására szolgáló tárolókat hoznak létre. Bár a felhasználók határozzák meg a Blobok elhelyezését, a Storage szolgáltatás algoritmus használatával határozza meg, hogy melyik köteten helyezi el a tárolót. Az algoritmus általában kiválasztja a legnagyobb szabad területtel rendelkező kötetet.  
@@ -173,7 +173,7 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 > A Blobok tárolóba való áttelepítése egy offline művelet, amely a PowerShell használatát igényli. Amíg az áttelepítés befejeződik, az áttelepíteni kívánt tároló összes blobja offline állapotban marad, és nem használható. Az Azure Stack hub frissítését is el kell végezni, amíg az összes folyamatban lévő áttelepítés be nem fejeződik.
 
 #### <a name="migrate-containers-by-using-powershell"></a>Tárolók migrálása a PowerShell használatával
-1. Győződjön meg arról, hogy van [Azure PowerShell telepítve és konfigurálva](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). További információ: Azure- [erőforrások kezelése Azure PowerShell használatával](https://go.microsoft.com/fwlink/?LinkId=394767).
+1. Győződjön meg arról, hogy van [Azure PowerShell telepítve és konfigurálva](/powershell/azure/). További információ: Azure- [erőforrások kezelése Azure PowerShell használatával](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Vizsgálja meg a tárolót, és Ismerje meg, hogy az áttelepíteni kívánt megosztáson milyen adatelemek találhatók. A köteten áttelepítéshez legmegfelelőbb jelölt tárolók azonosításához használja a következő `Get-AzsStorageContainer` parancsmagot:
 
    ```powershell  
@@ -222,7 +222,7 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![Példa: áttelepítési állapot](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Az áttelepítési állapotot bemutató képernyőkép.](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. Egy folyamatban lévő áttelepítési feladatot is megszakíthat. A megszakított áttelepítési feladatok aszinkron módon lesznek feldolgozva. A lemondásokat a $jobid használatával követheti nyomon:
 
@@ -234,7 +234,7 @@ Az áttelepítés összevonja a tároló összes blobját az új megosztáson.
 
 7. Az áttelepítési állapot *megszakítása*előtt a 6. lépésből is futtathatja a parancsot:  
 
-    ![Példa: megszakított állapot](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![A megszakított áttelepítési állapotra vonatkozó példát bemutató képernyőkép.](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>VM-lemezek áthelyezése
 *Ez a beállítás csak Azure Stack hub integrált rendszerekre vonatkozik.*
@@ -324,4 +324,4 @@ A terület kezelésének legszélsőségesebb módszere a nem felügyelt lemezek
 ::: moniker-end
 
 ## <a name="next-steps"></a>Következő lépések
-Ha többet szeretne megtudni a virtuális gépek felhasználók számára történő felajánlásáról, tekintse meg a [Azure stack hub tárterület-kapacitásának kezelése](azure-stack-tutorial-tenant-vm.md)című témakört.
+Ha többet szeretne megtudni a virtuális gépek felhasználók számára történő felajánlásáról, tekintse meg a [Azure stack hub tárterület-kapacitásának kezelése](./tutorial-offer-services.md?view=azs-2002)című témakört.

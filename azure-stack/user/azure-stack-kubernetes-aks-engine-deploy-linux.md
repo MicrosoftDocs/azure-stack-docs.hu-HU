@@ -3,16 +3,16 @@ title: Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 description: Megtudhatja, hogyan használhatja az Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez a Azure Stack hub-ban található Linux-gépet az AK-motor üzemeltetéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 9b99f0d7184030d513d2fab375ebb9040ec370c8
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 49855cbe926dc29b20c3309e4fc3a084ee5a5e70
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533671"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717964"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 
@@ -31,18 +31,18 @@ Az ügyfélszámítógép kiválasztásakor vegye figyelembe a következőket:
 
 Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére egy, az internethez csatlakozó Azure Stack hub használatával.
 
-1. Hozzon létre egy linuxos virtuális gépet a Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
+1. Hozzon létre egy linuxos virtuális gépet a Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](./azure-stack-quick-linux-portal.md).
 2. Kapcsolódjon a virtuális géphez.
-3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) táblázatban. Az AK alaprendszerképének elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.48.0` . Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
+3. Keresse meg az AK-motor verzióját a [támogatott Kubernetes-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) táblázatban. Az AK alaprendszerképének elérhetőnek kell lennie az Azure Stack hub piactéren. A parancs futtatásakor meg kell adnia a verziót `--version v0.55.4` . Ha nem adja meg a verziót, a parancs telepíti a legújabb verziót, amelynek szüksége lehet egy VHD-lemezképre, amely nem érhető el a piactéren.
 4. Futtassa az alábbi parancsot:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.48.0
+        ./get-akse.sh --version 0.55.4
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Ha nem sikerül a telepítés, kipróbálhatja a [leválasztott környezetben](#install-in-a-disconnected-environment)megjelenő lépéseket, vagy [kipróbálhatja a GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish), egy másik csomagkezelő-kezelőt.
 
 ## <a name="install-in-a-disconnected-environment"></a>Telepítés leválasztott környezetben
@@ -51,9 +51,9 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 
 1.  Egy internettel rendelkező gépről nyissa meg a GitHub [Azure/AK-Engine-](https://github.com/Azure/aks-engine/releases/latest)t. Töltse le a Linux rendszerű gépek archívumát (*. tar. gz), például: `aks-engine-v0.xx.x-linux-amd64.tar.gz` .
 
-2.  Hozzon létre egy Storage-fiókot a Azure Stack hub-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer Azure stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Hozzon létre egy Storage-fiókot a Azure Stack hub-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer Azure stack hub](./azure-stack-storage-connect-se.md).
 
-3. Hozzon létre egy linuxos virtuális gépet a Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal).
+3. Hozzon létre egy linuxos virtuális gépet a Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](./azure-stack-quick-linux-portal.md).
 
 3.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack hub Storage-fiók blob URL-címéről, amelybe feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot a könyvtárba `/usr/local/bin` .
 

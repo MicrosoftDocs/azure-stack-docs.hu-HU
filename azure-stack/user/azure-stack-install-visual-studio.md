@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744929"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107099"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>A Visual Studio telepítése és kapcsolódás Azure Stack hubhoz
 
@@ -36,19 +36,19 @@ A Visual Studióval Azure Resource Manager [sablonokat](azure-stack-arm-template
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Kapcsolódás Azure Stack hubhoz az Azure AD-vel
 
-1. Indítsa el a Visual Studiót.
+1. Indítsa el a Visual studiót.
 
 2. A **nézet** menüben válassza a **Cloud Explorer**lehetőséget.
 
 3. Válassza a **fiókok kezelése**lehetőséget, majd az új ablaktáblán jelentkezzen be Azure Active Directory (Azure ad) hitelesítő adataival.  
 
-    ![A Cloud Explorer képernyőképe a bejelentkezés után és a Azure Stack hubhoz való csatlakozáskor](./media/azure-stack-install-visual-studio/image2.png)
+    ![Képernyőfelvétel: a Cloud Explorer a bejelentkezett és Azure Stack hubhoz való csatlakozás után a thas mutatja](./media/azure-stack-install-visual-studio/image2.png)
 
 A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deploy-template-visual-studio.md) vagy az elérhető erőforrástípusok és erőforráscsoportok tallózásával hozhatja létre saját sablonjait.  
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Kapcsolódás Azure Stack hubhoz AD FS
 
-1. Indítsa el a Visual Studiót.
+1. Indítsa el a Visual studiót.
 
 2. Az **eszközök**területen válassza a **Beállítások lehetőséget**.
 
@@ -58,11 +58,11 @@ A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deplo
 
     ![Új Azure Cloud Discovery-végpont hozzáadása](./media/azure-stack-install-visual-studio/image5.png)
 
-5. Válassza a **Hozzáadás** elemet.  
+5. Válassza a **Hozzáadás** lehetőséget.  
 
     A Visual Studio meghívja az Azure Resource Mangert, és felfedi a végpontokat, beleértve a hitelesítési végpontot az Azure Directory összevont szolgáltatások (AD FS) számára.
 
-    ![A Cloud Explorer képernyőképe a bejelentkezés után és a Azure Stack hubhoz való csatlakozáskor](./media/azure-stack-install-visual-studio/image6.png)
+    ![Képernyőkép, amely az Azure címtár összevont szolgáltatásainak végpontait jeleníti meg.](./media/azure-stack-install-visual-studio/image6.png)
 
 6. A **nézet** menüben válassza a **Cloud Explorer** lehetőséget.
 
@@ -76,7 +76,7 @@ A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deplo
 
 8. Tallózással keresse meg a meglévő erőforrásokat, erőforráscsoportokat vagy telepítse a sablonokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a Visual Studio [oldaláról](/visualstudio/install/install-visual-studio-versions-side-by-side) más Visual Studio-verziókkal.
 - [Sablonok fejlesztése Azure stack hub számára](azure-stack-develop-templates.md).

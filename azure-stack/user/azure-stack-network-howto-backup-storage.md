@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111965"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107226"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
 
@@ -22,17 +22,17 @@ Ez a cikk a Storage-fiókok védelmét és helyreállítását vizsgálja egy Az
 
 Ez a szakasz a megoldás és a főbb részek általános szerkezetét vizsgálja.
 
-![Azure Stack hub tároló biztonsági mentése](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![Diagram, amely az Azure Stack hub tároló biztonsági mentésének általános szerkezetét jeleníti meg.](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>Alkalmazás rétege
 
-Az adatok replikálása a Storage-fiókok között külön Azure Stack hub-méretezési egységeken történik több [put blob](https://docs.microsoft.com/rest/api/storageservices/put-blob) kiállításával, vagy a [Letiltás](https://docs.microsoft.com/rest/api/storageservices/put-block) műveletekkel több helyre is írhat objektumokat. Azt is megteheti, hogy az alkalmazás kiállíthatja a [blob másolása](https://docs.microsoft.com/rest/api/storageservices/copy-blob) műveletet úgy, hogy a blobot egy külön méretezési egységben üzemeltetett Storage-fiókba másolja, miután a Put művelet befejeződik az elsődleges fiókban.
+Az adatok replikálása a Storage-fiókok között külön Azure Stack hub-méretezési egységeken történik több [put blob](/rest/api/storageservices/put-blob) kiállításával, vagy a [Letiltás](/rest/api/storageservices/put-block) műveletekkel több helyre is írhat objektumokat. Azt is megteheti, hogy az alkalmazás kiállíthatja a [blob másolása](/rest/api/storageservices/copy-blob) műveletet úgy, hogy a blobot egy külön méretezési egységben üzemeltetett Storage-fiókba másolja, miután a Put művelet befejeződik az elsődleges fiókban.
 
 ### <a name="scheduled-copy-task"></a>Ütemezett másolási feladat
 
 A AzCopy egy kiváló eszköz, amellyel helyi fájlrendszerekből, Azure Cloud Storage-ból, Azure Stack hub-tárolóból és S3-ból másolhatók az adatok. Jelenleg a AzCopy nem tud az Adatmásolást két Azure Stack hub Storage-fiók között. Az objektumok forrás Azure Stack hub Storage-fiókból egy célként megadott Azure Stack hub Storage-fiókba való másolása egy közvetítő helyi fájlrendszert igényel.
 
-További információkért tekintse meg a AzCopy az [adatátviteli eszközök használata Azure stack hub Storage-ban](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer?view=azs-1908#azcopy) című cikket.
+További információkért tekintse meg a AzCopy az [adatátviteli eszközök használata Azure stack hub Storage-ban](./azure-stack-storage-transfer.md?view=azs-1908#azcopy) című cikket.
 
 ### <a name="azure-stack-hub-source"></a>Azure Stack hub (forrás)
 
@@ -54,13 +54,13 @@ Létrehozhat egy Linux-vagy Windows Server-kiszolgálót közbenső kiszolgáló
 - A Linux-kiszolgálók beállításával kapcsolatos útmutatásért tekintse meg a [Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](azure-stack-quick-linux-portal.md)című témakört.  
 - A Windows Server beállításával kapcsolatos útmutatásért lásd: [Windows Server rendszerű virtuális gép létrehozása az Azure stack hub Portalon](azure-stack-quick-windows-portal.md).  
 
-Miután beállította a Windows Servert, telepítenie kell [Azure stack hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) -t és [Azure stack hub-eszközöket](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
+Miután beállította a Windows Servert, telepítenie kell [Azure stack hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) -t és [Azure stack hub-eszközöket](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
 
 ## <a name="set-up-backup-for-storage-accounts"></a>Biztonsági mentés beállítása a Storage-fiókokhoz
 
 1. A forrás és a cél Storage-fiókok blob-végpontjának beolvasása.
 
-    ![Azure Stack hub tároló biztonsági mentése](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![A forrás és a cél Storage-fiókok elsődleges blob-végpontját bemutató képernyőkép.](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. SAS-jogkivonatok létrehozása és rögzítése a forrás és a cél Storage-fiókok számára.
 
@@ -112,7 +112,7 @@ Miután beállította a Windows Servert, telepítenie kell [Azure stack hub Powe
 
     - Windows Server esetén:
 
-    A Windows-feladatok ütemezésének használatáról további információt a Feladatütemező [fejlesztők](https://docs.microsoft.com/windows/win32/taskschd/task-scheduler-start-page) számára című témakörben talál.
+    A Windows-feladatok ütemezésének használatáról további információt a Feladatütemező [fejlesztők](/windows/win32/taskschd/task-scheduler-start-page) számára című témakörben talál.
     
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>A Storage-fiók használata katasztrófa esetén

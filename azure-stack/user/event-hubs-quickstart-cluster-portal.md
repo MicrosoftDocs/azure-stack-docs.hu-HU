@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: 6af9ef6f562c9b31d7310b7f35d7b6b0533472ea
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "80479244"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107236"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>Rövid útmutató: Event Hubs-fürt létrehozása az Azure Stack hub portál használatával
 
@@ -44,19 +44,19 @@ Ebből a rövid útmutatóból megtudhatja, hogyan használhatja a Azure Stack h
 Az Event Hubs-fürtök egyedi hatókörű tárolót biztosítanak, amelyben egy vagy több névteret hozhat létre. Event Hubs-fürt létrehozásához hajtsa végre a következő lépéseket: 
 
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
-2. Válassza a **minden szolgáltatás** lehetőséget a bal oldali navigációs ablaktáblán, írja be a "Event Hubs fürtök" kifejezést a keresőmezőbe, majd válassza ki a **Event Hubs fürtök** elemet az eredmények listából.
+2. Válassza a **minden szolgáltatás**lehetőséget   a bal oldali navigációs ablaktáblán, írja be a "Event Hubs fürtök" kifejezést a keresőmezőbe, majd válassza ki a **Event Hubs fürtök** elemet az eredmények listából.
 3. A Event Hubs- **fürtök** lapon válassza a **+ Hozzáadás** lehetőséget a felső menüben. A jobb oldalon megnyílik a **Event Hubs-fürt létrehozása** panel.
-4. A **Event Hubs-fürt** létrehozása lap **alapok** lapján:  
+4. A **Event Hubs-fürt létrehozása**lap **alapok** lapján   :  
    - **Fürt neve**: adjon meg egy nevet. A rendszer azonnal ellenőrzi, hogy a név elérhető-e. Ha elérhető, egy pipa jelenik meg a mező jobb oldalán. 
    - **Előfizetés**: válassza ki azt az előfizetést, amelyben létre szeretné hozni a fürtöt. 
    - **Erőforráscsoport**: hozza létre vagy válassza ki azt az erőforráscsoportot, amelyben létre szeretné hozni a fürtöt. 
-   - A folytatáshoz kattintson a **következő: címkék >**  gombra a lap alján. Előfordulhat, hogy várnia kell, amíg a rendszer teljes mértékben kiépíti az erőforrásokat. 
+   - A folytatáshoz kattintson a **következő: címkék >**   gombra a lap alján. Előfordulhat, hogy várnia kell, amíg a rendszer teljes mértékben kiépíti az erőforrásokat. 
 
    [![Event hub-fürt létrehozása – alapismeretek](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png)](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png#lightbox)
 
 5. A **címkék** lapon: 
    - Igény szerint megadhatja az erőforrás-kódelemek nevét/érték párokat.  
-   - A folytatáshoz válassza a **következőt: Review + >**  létrehozása gomb. 
+   - A folytatáshoz válassza a **következőt: Review + >létrehozása **   gomb. 
 
    [![Event hub-fürt létrehozása – Címkék](media/event-hubs-quickstart-cluster-portal/1-create-cluster-tags.png)](media/event-hubs-quickstart-cluster-portal/1-create-cluster-tags.png#lightbox)
 
@@ -76,7 +76,7 @@ Az Event Hubs-fürtök egyedi hatókörű tárolót biztosítanak, amelyben egy 
 
 Most hozzon létre egy névteret az új fürtön belül:
 
-1. **Event Hubs fürt** **Áttekintés** lapján válassza a felső menü **+ névtér** elemét. 
+1. **Event Hubs fürt** **Áttekintés** lapján válassza a felső menü **+ névtér**elemét   . 
 
    [![Fürtök Event Hubs – fürt kiválasztása](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png#lightbox)
 
@@ -89,7 +89,7 @@ Most hozzon létre egy névteret az új fürtön belül:
      - Hely 
      - Fürt neve 
 
-   - Válassza a **Létrehozás** lehetőséget a névtér létrehozásához:
+   - Válassza a **Létrehozás**lehetőséget   a névtér létrehozásához:
 
    [![Fürtök Event Hubs – névtér létrehozása](media/event-hubs-quickstart-cluster-portal/2-view-cluster-create-namespace.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster-create-namespace.png#lightbox)
 
@@ -105,7 +105,7 @@ Most hozzon létre egy névteret az új fürtön belül:
 
 2. Az **Event hub létrehozása** panelen:
    - **Név**: adja meg az Event hub nevét. A név csak betűket, számokat, pontokat, kötőjeleket és aláhúzást tartalmazhat. A névnek betűvel vagy számmal kell kezdődnie és végződnie. A rendszer azonnal ellenőrzi, hogy a név elérhető-e. Ha elérhető, egy pipa jelenik meg a mező jobb oldalán.
-   - Válassza a **Létrehozás** lehetőséget az Event hub létrehozásához.
+   - Válassza a **Létrehozás**lehetőséget   az Event hub létrehozásához.
 
    [![Event Hubs – a névtér áttekintése – Event hub létrehozása](media/event-hubs-quickstart-cluster-portal/3-event-hubs-namespace-overview-create-event-hub.png)](media/event-hubs-quickstart-cluster-portal/3-event-hubs-namespace-overview-create-event-hub.png#lightbox)
 
@@ -113,19 +113,19 @@ Most hozzon létre egy névteret az új fürtön belül:
 
 A fürt törlése:
 
-1. A bal oldali navigációs panelen válassza a **minden szolgáltatás** lehetőséget. A keresőmezőbe írja be a "Event Hubs fürtök" kifejezést, majd válassza ki a **Event Hubs fürtök** elemet az eredmények listából.
+1.  **All services**   A bal oldali navigációs panelen válassza a minden szolgáltatás lehetőséget. A keresőmezőbe írja be a "Event Hubs fürtök" kifejezést, majd válassza ki a **Event Hubs fürtök** elemet az eredmények listából.
 2. Az **Event hub-fürtök** lapon keresse meg és válassza ki a korábban létrehozott fürtöt.
 
-   [![Fürtök Event Hubs – fürt törlése](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
+   [![Képernyőkép, amely bemutatja, hogyan választhatja ki a törölni kívánt fürtöt.](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
 
 3. **Event Hubs fürt** **Áttekintés** lapján:
-   - A felső menüben válassza a **Törlés** lehetőséget.  
+   -  **Delete**   A felső menüben válassza a Törlés lehetőséget.  
    - Ekkor megnyílik a **fürt törlése** panel a jobb oldalon, és törlési megerősítő üzenet jelenik meg. 
-   - Adja meg a fürt nevét, és válassza a **Törlés** lehetőséget a fürt törléséhez. 
+   - Adja meg a fürt nevét, és válassza a **Törlés**lehetőséget a   fürt törléséhez. 
 
    [![Fürtök Event Hubs – fürt törlése](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-delete.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-delete.png#lightbox)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebből a rövid útmutatóból megtudhatta, hogyan hozhat létre Event Hubs-fürtöt a portál használatával. Most folytassa a "küldési és fogadási események" rövid útmutatókat, az elsővel kezdve:  
 

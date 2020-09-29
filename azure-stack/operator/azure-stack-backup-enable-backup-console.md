@@ -1,5 +1,5 @@
 ---
-title: Biztonsági mentés engedélyezése Azure Stack hub számára a felügyeleti portálról
+title: Azure Stack hub biztonsági mentésének engedélyezése a felügyeleti portálról
 description: Megtudhatja, hogyan engedélyezheti a Infrastructure Backup szolgáltatást a felügyeleti portálról, hogy a Azure Stack hub visszaállítható, ha hiba történt.
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ce401b20d6baa66807e6ee5f7ee1e94503b653af
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703162"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106619"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Biztonsági mentés engedélyezése Azure Stack hub számára a felügyeleti portálról
 
@@ -28,8 +28,8 @@ A Infrastructure Backup szolgáltatás azonban nem készít biztonsági mentést
 A rendszergazdák és a felhasználók felelősek a IaaS és a Péter-erőforrások biztonsági mentéséhez és visszaállításához az infrastruktúra biztonsági mentési folyamataitól függetlenül. A IaaS és a Péter-erőforrások biztonsági mentésével kapcsolatos információkért tekintse meg az alábbi hivatkozásokat:
 
 - [Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem](../user/azure-stack-manage-vm-protect.md)
-- [Adatok biztonsági mentése az Azure-ban](https://docs.microsoft.com/azure/app-service/manage-backup)
-- [Mi az Azure-beli virtuális gépek SQL Server? Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+- [Adatok biztonsági mentése az Azure-ban](/azure/app-service/manage-backup)
+- [Mi az Azure-beli virtuális gépek SQL Server? Windows](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
 ## <a name="enable-or-reconfigure-backup"></a>Biztonsági mentés engedélyezése vagy újrakonfigurálása
@@ -67,7 +67,7 @@ A rendszergazdák és a felhasználók felelősek a IaaS és a Péter-erőforrá
    > [!Note]
    > **1901 és újabb**verzió: Azure stack hub elfogad egy tanúsítványt az infrastruktúra biztonsági mentési adatai titkosításához. Ügyeljen arra, hogy a tanúsítványt egy biztonságos helyen tárolja a nyilvános és a titkos kulccsal. Biztonsági okokból nem ajánlott a tanúsítvány és a titkos kulcs használata a biztonsági mentési beállítások konfigurálásához. További információ a tanúsítvány életciklusának kezeléséről: [Infrastructure Backup szolgáltatás ajánlott eljárásai](azure-stack-backup-best-practices.md).
    > 
-   > **1811 vagy korábbi**: Azure stack hub elfogad egy szimmetrikus kulcsot az infrastruktúra biztonsági mentési adatai titkosításához. [Kulcs létrehozásához használja a New-AzsEncryptionKey64 parancsmagot](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Az 1811-ról 1901-re való frissítés után a biztonsági mentési beállítások megőrzik a titkosítási kulcsot. Javasoljuk, hogy frissítse a biztonsági mentési beállításokat a tanúsítvány használatára. A titkosítási kulcs támogatása már elavult. Legalább 3 kiadással frissíti a beállításokat a tanúsítvány használatára.
+   > **1811 vagy korábbi**: Azure stack hub elfogad egy szimmetrikus kulcsot az infrastruktúra biztonsági mentési adatai titkosításához. [Kulcs létrehozásához használja a New-AzsEncryptionKey64 parancsmagot](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Az 1811-ról 1901-re való frissítés után a biztonsági mentési beállítások megőrzik a titkosítási kulcsot. Javasoljuk, hogy frissítse a biztonsági mentési beállításokat a tanúsítvány használatára. A titkosítási kulcs támogatása már elavult. Legalább 3 kiadással frissíti a beállításokat a tanúsítvány használatára.
 
 10. A biztonsági mentési vezérlő beállításainak mentéséhez kattintson **az OK gombra** .
 
@@ -77,7 +77,7 @@ A rendszergazdák és a felhasználók felelősek a IaaS és a Péter-erőforrá
 ## <a name="start-backup"></a>Biztonsági mentés indítása
 A biztonsági mentés elindításához kattintson a **biztonsági mentés most** gombra egy igény szerinti biztonsági mentés elindításához. Az igény szerinti biztonsági mentés nem módosítja a következő ütemezett biztonsági mentés idejét. A feladat befejezése után megerősítheti az **alapvető**beállítások beállításait:
 
-![Igény szerinti Azure Stack-alapú biztonsági mentés](media/azure-stack-backup/scheduled-backup.png)
+![Képernyőkép, amely bemutatja, hogyan indíthat el egy igény szerinti biztonsági mentést.](media/azure-stack-backup/scheduled-backup.png)
 
 A **Start-AzsBackup PowerShell-** parancsmagot a Azure stack hub felügyeleti számítógépén is futtathatja. További információ: [Azure stack hub biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 
@@ -115,7 +115,7 @@ Az új biztonsági mentések a nyilvános kulcsot fogják használni az új tan�
 ![Azure Stack hub – tanúsítvány ujjlenyomatának megtekintése](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Visszamenőleges kompatibilitási mód
-Ha a biztonsági mentést a 1901-es verzióra való frissítés előtt konfigurálta, a beállítások változása nem változik. Ebben az esetben a titkosítási kulcs támogatja a visszamenőleges kompatibilitást. Frissítheti a titkosítási kulcsot, vagy átválthat egy tanúsítvány használatára. Legalább három kiadása van a titkosítási kulcs frissítésének folytatásához. Ezt az időt használhatja a tanúsítványra való áttéréshez. Új titkosítási kulcs létrehozásához használja a [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
+Ha a biztonsági mentést a 1901-es verzióra való frissítés előtt konfigurálta, a beállítások változása nem változik. Ebben az esetben a titkosítási kulcs támogatja a visszamenőleges kompatibilitást. Frissítheti a titkosítási kulcsot, vagy átválthat egy tanúsítvány használatára. Legalább három kiadása van a titkosítási kulcs frissítésének folytatásához. Ezt az időt használhatja a tanúsítványra való áttéréshez. Új titkosítási kulcs létrehozásához használja a [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack hub – titkosítási kulcs használata visszafelé kompatibilitási módban](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 
@@ -124,7 +124,7 @@ Ha a biztonsági mentést a 1901-es verzióra való frissítés előtt konfigur�
 
 ![Azure Stack hub – titkosítási tanúsítvány használata visszamenőleges kompatibilitási módban](media/azure-stack-backup/encryption-settings-backcompat-certificate.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Útmutató a biztonsági másolatok futtatásához. Lásd: [Azure stack hub biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 

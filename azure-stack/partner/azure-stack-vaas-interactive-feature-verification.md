@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stack hubhoz szolgáltatásként történő érvényesítéssel.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661290"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107261"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
@@ -48,7 +48,7 @@ Ha nem érhető el meglévő teszt, kövesse a [tesztek ütemezésének](azure-s
     > [!Note]  
     > A teszt verziója növeli a tesztelési biztosítékok fejlesztését. A legmagasabb verziót mindig csak akkor kell használni, ha a Microsoft másként nem jelez.
 
-    ![Lemez-azonosító teszt – Azure Stack hub interaktív tesztelése](media/azure-stack-vaas-interactive-feature-verification/image4.png)
+    ![A lemez-azonosítási tesztet bemutató képernyőkép – Azure Stack hub interaktív tesztelése.](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2. Válassza a **Szerkesztés** lehetőséget, és adja meg a tartományi rendszergazda felhasználónevét és jelszavát.
 
@@ -106,6 +106,6 @@ Ha nem érhető el meglévő teszt, kövesse a [tesztek ütemezésének](azure-s
 
 15. Válassza a **Submit (Küldés** ) lehetőséget az eredmények Microsoftnak való elküldéséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az Azure Stack hub ellenőrzési portálján](azure-stack-vaas-monitor-test.md)

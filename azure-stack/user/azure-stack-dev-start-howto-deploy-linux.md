@@ -1,18 +1,18 @@
 ---
 title: Linux rendszerű virtuális gép üzembe helyezése Azure Stack hubhoz
-description: Alkalmazás üzembe helyezése Azure Stack hubhoz.
+description: Linux rendszerű virtuális gép üzembe helyezése Ubuntu-lemezképpel az Azure Stack hub webalkalmazásának üzemeltetéséhez.
 author: mattbriggs
 ms.topic: overview
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146954"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574057"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Linux rendszerű virtuális gép üzembe helyezése Azure Stack hub webalkalmazásának üzemeltetéséhez
 
@@ -69,7 +69,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     f. Válassza ki az Azure Stack hub-példány előfizetését.
 
-    g. Hozzon létre egy új erőforráscsoportot, vagy használjon egy meglévőt, attól függően, hogyan szeretné rendezni az alkalmazás erőforrásait.
+    : Hozzon létre egy új erőforráscsoportot, vagy használjon egy meglévőt, attól függően, hogyan szeretné rendezni az alkalmazás erőforrásait.
 
     h. Válassza ki a tartózkodási helyét. A Azure Stack Development Kit (ASDK) általában egy *helyi* régióban található. A hely a Azure Stack hub-példánytól függ.
 1. **2. Méret**, írja be a következőt:
@@ -87,7 +87,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     b. A **Storage**esetében válassza a **prémium szintű lemezek (SSD)** vagy a **standard lemez (HDD)** lehetőséget. A prémium szintű lemezeket (SSD-ket) stabil állapotú meghajtók végzik, és konzisztens, kis késleltetésű teljesítményt nyújtanak. A legjobb egyensúlyt biztosítják az árak és a teljesítmény között, és ideálisak a nagy I/O-igényű alkalmazások és a termelési feladatok számára. A standard szintű lemezeket a mágneses meghajtók végzik, és az olyan alkalmazások esetében előnyösek, amelyekben az adatelérés nem gyakori. A Zone-redundáns lemezeket a zóna-redundáns tárolás (ZRS) támogatja, amely több zónában replikálja az adatait, és akkor is elérhető, ha egy zóna nem működik. 
 
-    c. Válassza a **felügyelt lemezek használata**lehetőséget. Ha engedélyezi ezt a funkciót, az Azure automatikusan kezeli a lemezek rendelkezésre állását. Az adatredundancia és a hibatűrés előnyeit a Storage-fiókok saját maga általi létrehozása és kezelése nélkül veheti igénybe. Előfordulhat, hogy a felügyelt lemezek nem érhetők el minden régióban. További információ: [Bevezetés az Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)szolgáltatásba.
+    c. Válassza a **felügyelt lemezek használata**lehetőséget. Ha engedélyezi ezt a funkciót, az Azure automatikusan kezeli a lemezek rendelkezésre állását. Az adatredundancia és a hibatűrés előnyeit a Storage-fiókok saját maga általi létrehozása és kezelése nélkül veheti igénybe. Előfordulhat, hogy a felügyelt lemezek nem érhetők el minden régióban. További információ: [Bevezetés az Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview)szolgáltatásba.
 
     d. A hálózat konfigurálásához válassza a **virtuális hálózat**lehetőséget. A virtuális hálózatok logikailag el vannak különítve egymástól az Azure-ban. Az IP-címtartományok, az alhálózatok, az útválasztási táblák, az átjárók és a biztonsági beállítások ugyanúgy konfigurálhatók, mint az adatközpont hagyományos hálózata. Az azonos virtuális hálózatban lévő virtuális gépek alapértelmezés szerint hozzáférhetnek egymáshoz. 
 
@@ -95,7 +95,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     f. A virtuális géphez vagy a virtuális gépen futó szolgáltatásokhoz való hozzáférés konfigurálásához válassza a **nyilvános IP-cím**lehetőséget. Nyilvános IP-cím használatával kommunikálhat a virtuális géppel a virtuális hálózaton kívülről. 
 
-    g. Válassza a **hálózati biztonsági csoport**, **alapszintű**vagy **speciális**lehetőséget. Olyan szabályok beállítása, amelyek engedélyezik vagy megtagadják a virtuális gép felé irányuló hálózati forgalmat. 
+    : Válassza a **hálózati biztonsági csoport**, **alapszintű**vagy **speciális**lehetőséget. Olyan szabályok beállítása, amelyek engedélyezik vagy megtagadják a virtuális gép felé irányuló hálózati forgalmat. 
 
     h. Ha az általános vagy egyéni protokollok hozzáférését szeretné beállítani a virtuális géphez, válassza a **nyilvános bejövő portok**lehetőséget. A szolgáltatás megadja a szabály céljának protokollját és a porttartomány tartományát. Kiválaszthat egy előre definiált szolgáltatást, például RDP protokoll (RDP) vagy SSH-t, vagy egyéni porttartomány is megadhat. 
         A webkiszolgálón nyissa meg a HTTP (80), a HTTPS (443) és az SSH (22) használatát. Ha a gép RDP-kapcsolaton keresztüli felügyeletét tervezi, nyissa meg a 3389-es portot.
@@ -106,7 +106,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 
     k. A mérőszámokat tároló Storage-fiók megadásához válassza a **diagnosztika Storage-fiók**lehetőséget. A metrikák egy Storage-fiókba íródnak, így a saját eszközeivel is elemezheti őket. 
 
-    l. Kattintson az **OK** gombra.
+    l. Válassza az **OK** lehetőséget.
 
 1. Tekintse át a **4. Összefoglalás**:
     - A portál ellenőrzi a beállításokat.

@@ -3,25 +3,26 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 61ee34b016ec75964ac2f6535779bce7e1d5184a
-ms.sourcegitcommit: 0098896ba958169f378c0ef38b83b90d8e52c681
+ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85111373"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134763"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
-Ez a cikk a [Azure stack hub Marketplace-elemek](azure-stack-marketplace-azure-items.md) legutóbbi hozzáadásait, frissítéseit, módosításait és eltávolítását sorolja fel az elmúlt három hónapban. Az ebben a szakaszban található információk gyakran frissülnek, ezért a változásokhoz gyakran térjen vissza.
+Ez a cikk a [Azure stack hub Marketplace-elemek](azure-stack-marketplace-azure-items.md)legutóbbi hozzáadásait, frissítéseit, módosításait és eltávolításait sorolja fel. Az ebben a szakaszban található információk gyakran frissülnek, ezért a változásokhoz gyakran térjen vissza.
 
 Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) cikke mindig tartalmazza az elérhető Azure stack hub Marketplace-elemek legfrissebb listáját.
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
+- 09/08/2020: Qualys virtuális képolvasó készülék
 - 01/21/2020: Teradici felhőalapú hozzáférési szoftver
 - 12/26/2019: a CloudGuard IaaS magas rendelkezésre állása
 - 12/26/2019: ellenőrzési pont CloudGuard IaaS biztonsági felügyelete
@@ -53,6 +54,12 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
+- Bitnami Shopware
+- SQL Server 2017 standard on SUSE Linux Enterprise Server (SLES) 12 SP2
+- Ingyenes licenc: SQL Server 2017 Developer on SUSE Linux Enterprise Server (SLES) 12 SP2
+- Ingyenes licenc: SQL Server 2017 Express on SUSE Linux Enterprise Server (SLES) 12 SP2
+- SQL Server 2017 Enterprise SUSE Linux Enterprise Server (SLES) 12 SP2
+- SQL Server 2017 web on SUSE Linux Enterprise Server (SLES) 12 SP2
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami cukornád
@@ -63,11 +70,184 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 09/21/2020: CentOS alkalmazás-összekötő átjáró – verzió 7.2.0
+- 09/09/2020: FortiGate NGFW – egyetlen virtuális gép üzembe helyezése (BYOL) – 1.0.2-es verzió
+- 09/04/2020: CentOS-alapú 6,10-Version 6.10.2020042900
+- 09/04/2020: CentOS-alapú 7,4-Version 7.4.20200220
+- 09/04/2020: CentOS-alapú 7,5-Version 7.5.201808150
+- 09/04/2020: CentOS-alapú 7,6-Version 7.6.201909120
+- 09/04/2020: CentOS-alapú 7,7-Version 7.7.2020062400
+- 09/04/2020: CentOS-alapú 8,0-Version 8.0.201912060
+- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1 – a go-verzió 7601.24559.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1 – saját licenccel rendelkező verzió 7601.24559.2008080510
+- 09/03/2020: Windows Server 2008 R2 SP1 – a go-verzió 7601.24559.2008080510
+- 09/03/2020: Windows Server 2008 R2 SP1 – saját licenc-verzió 7601.24559.2008080510
+- 09/03/2020: Windows Server 2012 Datacenter – a go-verzió 9200.23121.2008080510
+- 09/03/2020: Windows Server 2012 Datacenter – saját licenc-verzió 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter – a go-verzió 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter – saját licenc-verzió 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter – a go-verzió 9600.19785.2008100926
+- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter – saját licenc-verzió 9600.19785.2008100926
+- 09/03/2020: Windows Server 2012 R2 Datacenter – a go-verzió 9600.19785.2008100926
+- 09/03/2020: Windows Server 2012 R2 Datacenter – saját licenc-verzió 9600.19785.2008100926
+- 09/03/2020: Windows 10 Enterprise N 2016 LTSB – saját licenc-verzió 14393.3866.2008081933
+- 09/03/2020: Windows 10 Enterprise 2016 LTSB – saját licenc-verzió 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – a go-verzió 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – saját licenc-verzió 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – a go-verzió 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – saját licenc-verzió 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – Server Core – a go-verzió 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – Server Core – saját licenc-verzió 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – a go-verzió 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – saját licenc-verzió 14393.3866.2008081933
+- 09/03/2020: Windows 10 Enterprise, 1809-es verzió – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Pro, 1809-es verzió – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Pro N, 1809-es verzió – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise 2019 LTSC – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session, 1809-es verzió – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise N, 1809-es verzió – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise N 2019 LTSC – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core – a go-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core with containers – a go-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core with containers – saját licenc – verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter – a go-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server, 1809-es verzió tárolókkal – a go-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server, 1809-es verzió tárolókkal – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – a go-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – saját licenc verziójának 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter – a go-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter tárolókkal – a go-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter tárolókkal – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core with containers – a go-verzió 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core with containers – saját licenc – verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter tárolókkal – a go-verzió 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter tárolókkal – saját licenc-verzió 17763.1397.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session, 1903-es verzió – saját licenc-verzió 18362.1016.2008062123
+- 09/03/2020: Windows 10 Enterprise N, 1903-es verzió – saját licenc-verzió 18362.1016.2008062123
+- 09/03/2020: Windows 10 Enterprise, 1903-es verzió – saját licenc-verzió 18362.1016.2008062123
+- 09/03/2020: Windows 10 Pro N, 1903-es verzió – saját licenc-verzió 18362.1016.2008062123
+- 09/03/2020: Windows 10 Pro, 1903-es verzió – saját licenc-verzió 18362.1016.2008062123
+- 09/03/2020: [smalldisk] Windows Server, 1903-es verzió tárolókkal – a go-verzió 18362.1016.2008062123
+- 09/03/2020: [smalldisk] Windows Server, 1903-es verzió tárolókkal – saját licenc-verzió 18362.1016.2008062123
+- 09/03/2020: Windows 10 Enterprise N, 1909-es verzió – saját licenc-verzió 18363.1016.2008070242
+- 09/03/2020: Windows 10 Enterprise, 1909-es verzió – saját licenc-verzió 18363.1016.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session, 1909-es verzió – saját licenc-verzió 18363.1016.2008070242
+- 09/03/2020: Windows 10 Pro, 1909-es verzió – saját licenc-verzió 18363.1016.2008070242
+- 09/03/2020: Windows 10 Pro N, 1909-es verzió – saját licenc-verzió 18363.1016.2008070242
+- 09/03/2020: [smalldisk] Windows Server, 1909-es verzió tárolókkal – a go-verzió 18363.1016.2008070242
+- 09/03/2020: [smalldisk] Windows Server, 1909-es verzió tárolókkal – saját licenc-verzió 18363.1016.2008070242
+- 09/03/2020: Windows 10 Enterprise multi-session, 2004-es verzió – saját licenc-verzió 19041.450.2008080726
+- 09/03/2020: Windows 10 Enterprise, 2004-es verzió – saját licenc-verzió 19041.450.2008080726
+- 09/03/2020: [smalldisk] Windows Server, 2004-es verzió tárolókkal – a go-verzió 19041.450.2008080726
+- 09/03/2020: [smalldisk] Windows Server, 2004-es verzió tárolókkal – saját licenc-verzió 19041.450.2008080726
+- 08/31/2020: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, augusztus 2020 – Version 2020.08.24
+- 08/21/2020: Windows 10 Enterprise, 1903-es verzió – saját licenc-verzió 18362.959.2007101755
+- 08/21/2020: Windows 10 Pro, 1903-es verzió – saját licenc-verzió 18362.959.2007101755
+- 08/21/2020: Windows 10 Enterprise, 1909-es verzió – saját licenc-verzió 18363.959.2007101752
+- 08/21/2020: Windows 10 Pro, 1909-es verzió – saját licenc-verzió 18363.959.2007101752
+- 08/21/2020: Windows 10 Enterprise, 2004-es verzió – saját licenc-verzió 19041.388.2007101729
+- 08/21/2020: Windows 10 Enterprise 2016 LTSB – saját licenc-verzió 14393.3808.2007101707
+- 08/21/2020: Windows 10 Enterprise 2019 LTSC – saját licenc-verzió 17763.1339.2007101755
+- 08/21/2020: Windows 10 Pro, 1809-es verzió – saját licenc-verzió 17763.1339.2007101755
+- 08/21/2020: Windows Server 2008 R2 SP1 – a go-verzió 7601.24557.2007101756
+- 08/21/2020: [smalldisk] Windows Server 2008 R2 SP1 – a go-verzió 7601.24557.2007101756
+- 08/21/2020: Windows Server 2012 Datacenter – a go-verzió 9200.23086.2007131700
+- 08/21/2020: [smalldisk] Windows Server 2012 Datacenter – a go-verzió 9200.23086.2007131700
+- 08/21/2020: Windows Server 2012 R2 Datacenter – a go-verzió 9600.19756.2007111612
+- 08/21/2020: [smalldisk] Windows Server 2012 R2 Datacenter – a go-verzió 9600.19756.2007111612
+- 08/21/2020: Windows Server 2016 Datacenter – a go-verzió 14393.3808.2007101707
+- 08/21/2020: Windows Server 2016 Datacenter – Server Core – a go-verzió 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – a go-verzió 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – a go-verzió 14393.3808.2007101707
+- 08/21/2020: Windows Server 2019 Datacenter Server Core – a go-verzió 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – a go-verzió 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter Server Core with containers – a go-verzió 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core with containers – a go-verzió 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter – a go-verzió 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter – a go-verzió 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter tárolókkal – a go-verzió 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter tárolókkal – a go-verzió 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, 1809-es verzió tárolókkal – a go-verzió 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, 1903-es verzió tárolókkal – a go-verzió 18362.959.2007101755
+- 08/21/2020: [smalldisk] Windows Server, 1909-es verzió tárolókkal – a go-verzió 18363.959.2007101752
+- 08/21/2020: [smalldisk] Windows Server, 2004-es verzió tárolókkal – a go-verzió 19041.388.2007101729
+- 08/04/2020: Windows Server 2008 R2 SP1 – saját licenc-verzió 7601.24556.2006050139
+- 08/04/2020: Windows Server 2008 R2 SP1 – a go-verzió 7601.24556.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1 – saját licenccel rendelkező verzió 7601.24556.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1 – a go-verzió 7601.24556.2006050139
+- 08/04/2020: Windows Server 2012 Datacenter – saját licenc-verzió 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 Datacenter – a go-verzió 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter – saját licenc-verzió 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter – a go-verzió 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 R2 Datacenter – saját licenc-verzió 9600.19728.2006050139
+- 08/04/2020: Windows Server 2012 R2 Datacenter – a go-verzió 9600.19728.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter – saját licenc-verzió 9600.19728.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter – a go-verzió 9600.19728.2006050139
+- 08/04/2020: Windows Server 2016 Datacenter – saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – a go-verzió 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – Server Core – saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – Server Core – a go-verzió 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – a go-verzió 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – a go-verzió 14393.3750.2006031549
+- 08/04/2020: Windows Server 2019 Datacenter – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core – a go-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – saját licenc verziójának 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – a go-verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core with containers – saját licenc – verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core with containers – a go-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core with containers – saját licenc – verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core with containers – a go-verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter – a go-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter – a go-verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter tárolókkal – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter tárolókkal – a go-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter tárolókkal – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter tárolókkal – a go-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, 1809-es verzió tárolókkal – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, 1809-es verzió tárolókkal – a go-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, 1903-es verzió tárolókkal – saját licenc-verzió 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, 1903-es verzió tárolókkal – a go-verzió 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, 2004-es verzió tárolókkal – saját licenc-verzió 19041.329.2006042019
+- 08/04/2020: Windows 10 Enterprise 2016 LTSB – saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: Windows 10 Enterprise 2019 LTSC – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows 10 Enterprise, 1809-es verzió – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows 10 Pro, 1809-es verzió – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows 10 Enterprise, 1903-es verzió – saját licenc-verzió 18362.900.2006061800
+- 08/04/2020: Windows 10 Pro, 1903-es verzió – saját licenc-verzió 18362.900.2006061800
+- 08/04/2020: Windows 10 Enterprise, 1909-es verzió – saját licenc-verzió 18363.900.2006061800
+- 08/04/2020: Windows 10 Pro, 1909-es verzió – saját licenc-verzió 18363.900.2006061800
+- 08/04/2020: Windows 10 Enterprise, 2004-es verzió – saját licenc-verzió 19041.329.2006042019
+- 07/27/2020: Ubuntu Server 20,04 LTS – verzió 20.04.202007080
+- 07/27/2020: Ubuntu Server 20,04 LTS – verzió 20.04.202007160
+- 07/27/2020: Ubuntu Server 20,04 LTS – verzió 20.04.202004230
+- 07/27/2020: Ubuntu Server 16,04 LTS – verzió 16.04.202007080
+- 07/27/2020: Ubuntu Server 18,04 LTS – verzió 16.04.202007080
+- 07/21/2020: {WS-TB} ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – Version 13.2.20200513
+- 07/21/2020: {WS-TB} ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016-Version 13.2.20200514
+- 07/21/2020: {WS-TB} ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – Version 14.0.20200513
+- 07/21/2020: {WS-TB} ingyenes SQL Server licenc: SQL Server 2017 Express Windows Server 2016-Version 14.0.20200514
+- 07/21/2020: {WS-TB} SQL Server 2016 SP2 Enterprise a Windows Server 2016 – Version 13.2.20200513
+- 07/21/2020: {WS-TB} SQL Server 2016 SP2 standard a Windows Server 2016 – Version 13.2.20200514
+- 07/21/2020: {WS-TB} SQL Server 2017 Enterprise Windows Server 2016 – Version 14.0.20200513
+- 07/21/2020: {WS-TB} SQL Server 2017 standard on Windows Server 2016 – Version 14.0.20200514
+- 07/22/2020: {WS-BYOL} ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – Version 13.2.20200513
+- 07/22/2020: {WS-BYOL} ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016-Version 13.2.20200514
+- 07/22/2020: {WS-BYOL} ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – Version 14.0.20200513
+- 07/22/2020: {WS-BYOL} ingyenes SQL Server licenc: SQL Server 2017 Express Windows Server 2016-Version 14.0.20200514
+- 07/22/2020: {WS-BYOL} SQL Server 2016 SP2 Enterprise a Windows Server 2016 – Version 13.2.20200513
+- 07/22/2020: {WS-BYOL} SQL Server 2016 SP2 standard a Windows Server 2016 – Version 13.2.20200514
+- 07/22/2020: {WS-BYOL} SQL Server 2017 Enterprise Windows Server 2016 – Version 14.0.20200513
+- 07/22/2020: {WS-BYOL} SQL Server 2017 standard on Windows Server 2016 – Version 14.0.20200514
 - 6/19/2020: Bitnami Gitlab CE – verzió 13.0.2006110322
 - 6/16/2020: SQLIaaSExtension – 1.3.20370 verzió
 - 6/12/2020: Bitnami Grafana – 6.7.2006040249 verzió
-- 5/21/2020: Ubuntu Server 16,04 LTS-Version 16.04.202004290
-- 5/21/2020: Ubuntu Server 18,04 LTS-Version 18.04.202004080
 - 5/21/2020: Windows Server 2008 R2 SP1 BYOL-Version 7601.24552.2004101827
 - 5/21/2020: a Windows Server 2008 R2 SP1 a 7601.24552.2004101827 verzió használatakor kell fizetnie
 - 5/21/2020: Windows Server 2012 Datacenter BYOL – verzió 9200.23016.2004101828
@@ -84,173 +264,11 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 5/21/2020: a Windows Server 2019 Datacenter a 17763.1158.2004131759 verzió használatakor kell fizetnie
 - 5/21/2020: Windows Server 2019 Datacenter, tárolók BYOL – 17763.1158.2004131759 verzió
 - 5/21/2020: a Windows Server 2019 Datacenter with containers szolgáltatás a 17763.1158.2004131759 verzió használatakor díjköteles
-- 05/15/2020: Bitnami AbanteCart – 1.2.2004220207 verzió
-- 05/15/2020: Bitnami Canvas LMS – verzió 2020.5.2005120909
-- 05/15/2020: Bitnami Neos – Version 5.2.2005130917
-- 05/07/2020: Bitnami ActiveMQ – 5.15.2003260344 verzió
-- 05/07/2020: Bitnami Akeneo – 4-es verzió – 3.2.2004230142
-- 05/07/2020: Bitnami szabadban lévő közösségi verzió – 201911.0.2004242008
-- 05/07/2020: Bitnami Apache Solr – 8.5.2004201607 verzió
-- 05/07/2020: Bitnami beli jfrog Artifactory nyílt forráskódú verzió 6.19.2005041054
-- 05/07/2020: Bitnami Cassandra-Version 3.11.2003302002
-- 05/07/2020: Bitnami CiviCRM – 5.24.2004230742 verzió
-- 05/07/2020: a Bitnami CMS Made Simple-Version 2.2.2004220149
-- 05/07/2020: Bitnami concrete5 – 8.5.2004220952 verzió
-- 05/07/2020: Bitnami HashiCorp Consul – Version 1.7.2003252309
-- 05/07/2020: Bitnami Coppermine – Version 1.6.2004220101
-- 05/07/2020: Bitnami CouchDB – 3.0.2004090905 verzió
-- 05/07/2020: Bitnami diaszpóra – Version 0.7.2004220228
-- 05/07/2020: Bitnami diskurzus – 2.4.2004222352 verziója
-- 05/07/2020: Bitnami Django – 2.2.2004220952 verzió
-- 05/07/2020: Bitnami DokuWiki – 20180422.0.2004220151 verzió
-- 05/07/2020: Bitnami Dolibarr – 11.0.2004220907 verzió
-- 05/07/2020: Bitnami DreamFactory – 4.1.2004221304 verzió
-- 05/07/2020: Bitnami Drupal – Version 8.8.2004220309
-- 05/07/2020: Bitnami Elasticsearch – 7.6.2003312054 verzió
-- 05/07/2020: Bitnami ELK – 7.6.2003312108 verzió
-- 05/07/2020: Bitnami ERPNext-Version-12.7.2004231458
-- 05/07/2020: Bitnami EspoCRM – 5.8.2004220156 verzió
-- 05/07/2020: Bitnami etcd – 3.4.2004020147 verzió
-- 05/07/2020: Bitnami eXo platform – verzió 5.2.2004241913
-- 05/07/2020: a Bitnami FAT ingyenes CRM-verzió 0.18.2004220211
-- 05/07/2020: Bitnami Ghost-Version 3.14.2005041054
-- 05/07/2020: Bitnami GitLab CE – Version 12.10.2004241755
-- 05/07/2020: Bitnami Grafana – 6.7.2004231501 verzió
-- 05/07/2020: Bitnami Apache guacamole – 1.1.2003260344 verzió
-- 05/07/2020: Bitnami Hadoop – 3.2.2004242040 verzió
-- 05/07/2020: Bitnami HHVM – 3.30.2004220056 verzió
-- 05/07/2020: Bitnami Horde Csoportmunka webmail-Version 5.2.2004220952
-- 05/07/2020: Bitnami JasperReports – 7.5.2004220219 verzió
-- 05/07/2020: Bitnami Jenkins – 2.204.2003061428 verzió
-- 05/07/2020: Bitnami Joomla! – verzió 3.9.2004220511
-- 05/07/2020: Bitnami JRuby – 9.2.2004241917 verzió
-- 05/07/2020: Bitnami Kafka – 2.5.2004152349 verzió
-- 05/07/2020: Bitnami Kong – Version 2.0.2004232326
-- 05/07/2020: Bitnami Kubernetes homokozó – verzió 1.18.2004090333
-- 05/07/2020: Bitnami LAMP – 7.3.2004241853 verzió
-- 05/07/2020: Bitnami LAPP – 7.3.2004241251 verzió
-- 05/07/2020: Bitnami – 0.4.2004221148 verzió
-- 05/07/2020: Bitnami Liferay – verzió 7.3.2004231024
-- 05/07/2020: Bitnami LimeSurvey – 4.2.2005041206 verzió
-- 05/07/2020: Bitnami Live Helper csevegés – verzió 3.31.2004220209
-- 05/07/2020: Bitnami Magento – Version 2.3.2004220952
-- 05/07/2020: Bitnami Mahara – 10-es verzió – 19.10.2004220207
-- 05/07/2020: Bitnami Mantiss – 2.24.2004220951 verzió
-- 05/07/2020: Bitnami MariaDB – 10.4.2003252212 verzió
-- 05/07/2020: Bitnami Mattermost Team Edition – Version 5.22.2005041054
-- 05/07/2020: Bitnami Mautic – 2.16.2004220323 verzió
-- 05/07/2020: Bitnami MEAN-Version 4.2.2004281603
-- 05/07/2020: Bitnami MediaWiki – Version 1.34.2004220952
-- 05/07/2020: Bitnami Memcached – 1.6.2004132340 verzió
-- 05/07/2020: Bitnami MODX – Version 2.7.2004220204
-- 05/07/2020: Bitnami MongoDB – 4.2.2004170936 verzió
-- 05/07/2020: Bitnami Moodle – 3.8.2004220952 verziója
-- 05/07/2020: Bitnami MyBB – 1.8.2004230613 verzió
-- 05/07/2020: Bitnami MySQL-Version 8.0.2003252232
-- 05/07/2020: Bitnami NAT-verzió 2.1.2004010828
-- 05/07/2020: Bitnami Neo4j-Version. 4.0.2003311444
-- 05/07/2020: a Bitnami NGINX nyílt forráskódú verziója 1.16.2004221209
-- 05/07/2020: Bitnami Noalyss – 7.3.2004220120 verzió
-- 05/07/2020: Bitnami Node.js – 12.16.2004281743 verzió
-- 05/07/2020: Bitnami-alkotó – verzió 10.0.2004220137
-- 05/07/2020: Bitnami Odoo – 13.0.2004220418 verzió
-- 05/07/2020: a Bitnami Open Atrium – Version 2.645.2004220952
-- 05/07/2020: Bitnami OpenCart – 3.0.2004230142 verzió
-- 05/07/2020: Bitnami Open edX – Version 576663.2.2004250743
-- 05/07/2020: Bitnami Openfire – 4.5.2004241829 verzió
-- 05/07/2020: Bitnami OpenProject – 10.3.2004220618 verzió
-- 05/07/2020: Bitnami narancs – 4.3.2004220223 verzió
-- 05/07/2020: Bitnami OroCRM – 4.0.2004220319 verzió
-- 05/07/2020: Bitnami Osclass – 3.9.2004221629 verzió
-- 05/07/2020: Bitnami ownCloud – 10.4.2004231341 verzió
-- 05/07/2020: Bitnami OXID-6.2.2004220516 verzió
-- 05/07/2020: Bitnami elemzési kiszolgáló – verzió 4.2.2004091706
-- 05/07/2020: Bitnami Phabricator – 2020.7.2004220220 verzió
-- 05/07/2020: a Bitnami phpBB verziója 3.3.2004220456
-- 05/07/2020: Bitnami phpList – 3.5.2004240140 verzió
-- 05/07/2020: Bitnami Pimcore – 6.6.2004220524 verzió
-- 05/07/2020: Bitnami Matomo – 3.13.2004221147 verzió
-- 05/07/2020: Bitnami Plone – 5.2.2004231024 verzió
-- 05/07/2020: Bitnami Pootle – 2.8.2004221629 verzió
-- 05/07/2020: Bitnami PostgreSQL – Version 12.2.2003252203
-- 05/07/2020: Bitnami PrestaShop – verzió 1.7.2004220522
-- 05/07/2020: Bitnami ProcessMaker Közösség – verzió 3.3.2004220909
-- 05/07/2020: Bitnami ProcessWire – 3.0.2004230142 verzió
-- 05/07/2020: Bitnami Publify – 9.1.2004220128 verzió
-- 05/07/2020: Bitnami RabbitMQ – 3.8.2003252248 verzió
-- 05/07/2020: Bitnami re: Dash-Version 8.0.2004231503
-- 05/07/2020: Bitnami Redis – 5.0.2004271447 verzió
-- 05/07/2020: Bitnami Redmine – 4.1.2004220530 verzió
-- 05/07/2020: Bitnami reportserver közösségi verzió 3.1.2004220515
-- 05/07/2020: Bitnami ResourceSpace – 9.2.2004240738 verzió
-- 05/07/2020: Bitnami felülvizsgálati Tanács – 3.0.2004220506 verzió
-- 05/07/2020: Bitnami RoundCube – 1.4.2004220454 verzió
-- 05/07/2020: Bitnami Ruby-Version 2.5.2004220936
-- 05/07/2020: Bitnami SEO panel – verzió 4.3.2004220952
-- 05/07/2020: Bitnami Shopware – 6.1.2004231024 verzió
-- 05/07/2020: Bitnami SilverStripe – 4.5.2004220952 verzió
-- 05/07/2020: Bitnami Simple Machines Fórum – 2.0.2004220454 verziója
-- 05/07/2020: Bitnami SonarQube – 4-es verzió – 8.2.2004250108
-- 05/07/2020: Bitnami Spree – 4.1.2004220518 verzió
-- 05/07/2020: Bitnami alverzió – 1.13.2004220556 verziója
-- 05/07/2020: Bitnami SuiteCRM – 7.11.2004220532 verzió
-- 05/07/2020: a Bitnami TensorFlow-verziójának 2.1.2004131848
-- 05/07/2020: Bitnami TestLink – 1.9.2004220510 verzió
-- 05/07/2020: Bitnami Tiki Wiki CMS csoportmunka – verzió 21.0.2004221629
-- 05/07/2020: Bitnami apró, kis RSS-verzió 202004.0.2004220952
-- 05/07/2020: Bitnami tomcat – 8.5.2004091906 verzió
-- 05/07/2020: Bitnami Trac – verzió 1.4.2004220504
-- 05/07/2020: Bitnami TYPO3 – 9.5.2004221628 verzió
-- 05/07/2020: Bitnami weblate – Version 4.0.2004231024
-- 05/07/2020: Bitnami WildFly – 19.0.2004011057 verzió
-- 05/07/2020: Bitnami WordPress-Version 5.4.2004221628
-- 05/07/2020: Bitnami WordPress többhelyes verzió 5.4.2004221629
-- 05/07/2020: Bitnami WordPress az NGINX és az SSL-Version 5.4.2004221147
-- 05/07/2020: Bitnami XOOPS – verzió 2.5.2004220506
-- 05/07/2020: Bitnami ZooKeeper – 3.6.2004302354 verzió
-- 05/07/2020: Bitnami Zurmo – 3.2.2004220512 verzió
-- 04/20/2020: Windows Server 2019 Datacenter BYOL – verzió 2019.127.20200213
-- 04/20/2020: Windows Server 2019 Datacenter TB – verzió 2019.127.20200213
-- 04/20/2020: Windows Server 2019 Datacenter Server Core BYOL – Version 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter Server Core TB – Version 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter, tárolók BYOL – 2019.127.20200204 verzió
-- 04/20/2020: Windows Server 2019 Datacenter, tárolók TB – 2019.127.20200204 verzió
-- 04/20/2020: Windows Server 2019 Datacenter Core with containers BYOL-Version 2019.127.20200204
-- 04/20/2020: Windows Server 2019 Datacenter Core with containers TB-Version 2019.127.20200204
-- 04/20/2020: Windows Server 2016 Datacenter-BYOL-Version 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter – a 2016.127.20200131 verzió használatakor kell fizetnie
-- 04/20/2020: Windows Server 2016 Datacenter Server Core – BYOL verzió 2016.127.20200131
-- 04/20/2020: a Windows Server 2016 Datacenter Server Core – a 2016.127.20200131 verzió használata után kell fizetnie
-- 04/20/2020: Windows Server 2016 Datacenter with containers-BYOL-Version 2016.127.20200131
-- 04/20/2020: Windows Server 2016 Datacenter és tárolók – a 2016.127.20200131 verzió használata
-- 04/20/2020: Windows Server 2012 Datacenter-BYOL-Version 3.127.20200205
-- 04/20/2020: Windows Server 2012 R2 Datacenter – a 4.127.20200205 verzió használatakor kell fizetnie
-- 04/20/2020: Windows Server 2012 R2 Datacenter-BYOL-Version 4.127.20200205
-- 04/20/2020: Windows Server 2012 Datacenter – a 3.127.20200205 verzió használatakor kell fizetnie
-- 04/20/2020: Windows Server 2012 R2 Datacenter BYOL – verzió 4.127.20200205
-- 04/20/2020: a Windows Server 2012 R2 Datacenter díjköteles, a 4.127.20200205 verzió használatakor
-- 04/20/2020: Windows Server 2012 Datacenter BYOL – verzió 3.127.20200205
-- 04/20/2020: a Windows Server 2012 Datacenter a 3.127.20200205 verzió használatakor kell fizetnie
-- 04/20/2020: Windows Server 2008 R2 SP1 BYOL-Version 2.127.20200206
-- 04/20/2020: a Windows Server 2008 R2 SP1 a 2.127.20200206 verzió használatakor kell fizetnie
-- 10/1/2019: Microsoft JsonADDomain bővítmény – Version 1.3.4
-- 09/25/2019: Debian 8 – Version 8.0.20190806
-- 09/24/2019: F5 – Networks Big-IP Virtual Edition – Version 14.1.200000
-- 09/12/2019: Service Fabric-Version 1.0.3
-- 09/02/2019: AK-alapú alaprendszerkép – Version 2019.08.09 és 2019.08.21 verzió
-- 08/30/2019: Azure Stack hub Kubernetes-fürt verziója 0.5.1
-- 08/08/2019: CloudLink SecureVM-bővítmény a Linux rendszerhez – 6,8-es verzió
-- 08/08/2019: CloudLink SecureVM-bővítmény a Windows-verzió 6,8-es verziójához
-- 07/30/2019: SQLIaaSExtension – 1.3.20180 verzió
-- 07/30/2019: SQL Server 2017 (Express, Developer, standard és Enterprise kiadás) – 14.0.20190410 verzió
-- 07/30/2019: SQL Server 2016 SP1 (Express, Developer, standard és Enterprise kiadás) – 13.2.20190410 verzió
-- 07/30/2019: SQL Server 2016 SP2 (Express, Developer, standard és Enterprise kiadás) – 13.2.20190410 verzió
-- 07/11/2019: Thales CipherTrust Cloud Key Manager – verzió 1.0.7
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
 - [Az Azure Marketplace áttekintése](azure-stack-marketplace.md)
-- [Azure Stack hub számára elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
+- [Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
 - [Azure Stack hub Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

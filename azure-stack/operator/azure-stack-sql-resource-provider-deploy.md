@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908483"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946402"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -30,26 +30,21 @@ Az Azure Stack hub SQL erőforrás-szolgáltató üzembe helyezése előtt több
 
 - A **Windows server 2016 Datacenter-Server Core** rendszerkép letöltésével adja hozzá a szükséges Windows Server Core virtuális gépet Azure stack hub Marketplace-hez.
 
-- Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik.
+- Töltse le az SQL Resource Provider bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
-  |Azure Stack hub minimális verziója|Az SQL RP verziója|
+  |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|
   |-----|-----|
-  |1910-es verzió (1.1910.0.58)|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1808-es verzió (1.1808.0.97)|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |1808-es verzió (1.1808.0.97)|[Az SQL RP verziója 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |1804-es verzió (1.0.180513.1)|[Az SQL RP verziója 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
   |     |     |
-
-> [!IMPORTANT]
-> Az SQL Resource Provider 1.1.47.0-verziójának telepítése előtt az Azure Stack hub rendszerét frissíteni kell a 1910-es vagy újabb verzióra. A korábbi, nem támogatott Azure Stack hub-verziók SQL Resource Provider verziójának 1.1.47.0 nem működik.
 
 - Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
-    |Előfeltétel|Hivatkozás|
+    |Előfeltétel|Referencia|
     |-----|-----|
     |A feltételes DNS-továbbítás helyesen van beállítva.|[Azure Stack hub Datacenter-integráció – DNS](azure-stack-integrate-dns.md)|
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack hub Datacenter-integráció – bejövő portok és protokollok](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |A PKI-tanúsítvány tárgya és SAN beállítása helyesen van beállítva.|[Azure Stack hub üzembe helyezése kötelező PKI-előfeltételek](azure-stack-pki-certs.md#mandatory-certificates)<br>[A Azure Stack hub üzembe helyezése – az összes tanúsítvány előfeltételei](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |A PKI-tanúsítvány tárgya és SAN beállítása helyesen van beállítva.|[Azure Stack hub üzembe helyezése kötelező PKI-előfeltételek](azure-stack-pki-certs.md)<br>[A Azure Stack hub üzembe helyezése – az összes tanúsítvány előfeltételei](azure-stack-pki-certs.md)|
     |     |     |
 
 Leválasztott forgatókönyv esetén végezze el a következő lépéseket a szükséges PowerShell-modulok letöltéséhez és az adattár manuális regisztrálásához.
@@ -62,8 +57,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. Ezután másolja a letöltött csomagokat egy USB-eszközre.
@@ -88,18 +83,21 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>Tanúsítványok
 
-_Csak az integrált rendszerek telepítéséhez_. Meg kell adnia az SQL Péter PKI-tanúsítványát, amely az [Azure stack hub központi telepítésének PKI-követelményeinek](./azure-stack-pki-certs.md#optional-paas-certificates)opcionális, nem kötelezően megadandó tanúsítványok című szakaszában található. Helyezze a. pfx-fájlt a **DependencyFilesLocalPath** paraméter által megadott helyre. Ne adjon meg tanúsítványt a ASDK rendszerekhez.
+_Csak az integrált rendszerek telepítéséhez_. Meg kell adnia az SQL Péter PKI-tanúsítványát, amely az [Azure stack hub központi telepítésének PKI-követelményeinek](./azure-stack-pki-certs.md)opcionális, nem kötelezően megadandó tanúsítványok című szakaszában található. Helyezze a. pfx-fájlt a **DependencyFilesLocalPath** paraméter által megadott helyre. Ne adjon meg tanúsítványt a ASDK rendszerekhez.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató üzembe helyezése
 
-Miután telepítette az összes előfeltételt, futtassa a **DeploySqlProvider. ps1** parancsfájlt egy olyan számítógépről, amely a Azure stack hub rendszergazdai Azure Resource Management végpontját és a privilegizált végpontot is elérheti az SQL-erőforrás-szolgáltató üzembe helyezéséhez. A DeploySqlProvider. ps1 parancsfájlt a rendszer az SQL-erőforrás-szolgáltató bináris fájljának részeként kibontja, amelyet a Azure Stack hub-verziójához töltött le.
+Miután telepítette az összes előfeltételt, futtassa a **DeploySqlProvider.ps1** parancsfájlt egy olyan számítógépről, amely hozzáférhet mind a Azure stack hub rendszergazdai Azure Resource Management-végponthoz, mind a privilegizált végponthoz az SQL-erőforrás-szolgáltató üzembe helyezéséhez. A DeploySqlProvider.ps1 szkriptet az SQL-erőforrás-szolgáltató bináris fájljának részeként Kinyeri a rendszer, amelyet az Azure Stack hub adott verziójához töltött le.
 
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató üzembe helyezése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
 
-Az SQL-erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy **új** emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta az SQL Resource Provider bináris fájljait. A már betöltött PowerShell-modulok által okozott lehetséges problémák elkerülése érdekében javasoljuk, hogy használjon egy új PowerShell-ablakot.
+Az SQL-erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy **új** emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta az SQL Resource Provider bináris fájljait. 
 
-Futtassa a DeploySqlProvider. ps1 parancsfájlt, amely a következő feladatokat hajtja végre:
+> [!IMPORTANT]
+> A már betöltött PowerShell-modulok által okozott lehetséges problémák elkerülése érdekében javasoljuk, hogy használjon egy új PowerShell-ablakot. Vagy a Clear-azurermcontext használatával törölheti is a gyorsítótárat a Frissítési parancsfájl futtatása előtt.
+
+Futtassa a DeploySqlProvider.ps1 parancsfájlt, amely a következő feladatokat hajtja végre:
 
 - Feltölti a tanúsítványokat és egyéb összetevőket egy Azure Stack hub Storage-fiókjába.
 - Közzéteszi a katalógus-csomagokat, így az SQL-adatbázisok üzembe helyezhetők a gyűjtemény használatával.
@@ -111,22 +109,22 @@ Futtassa a DeploySqlProvider. ps1 parancsfájlt, amely a következő feladatokat
 > [!NOTE]
 > Az SQL erőforrás-szolgáltató központi telepítésének indításakor létrejön a **System. local. sqladapter** erőforráscsoport. A szükséges központi telepítések elvégzése akár 75 percet is igénybe vehet. Ne helyezzen más erőforrásokat a **System. local. sqladapter** erőforráscsoporthoz.
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider. ps1 paraméterek
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 paraméterek
 
 A következő paramétereket adhatja meg a parancssorból. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
 
 | Paraméter neve | Leírás | Megjegyzés vagy alapértelmezett érték |
 | --- | --- | --- |
-| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Szükséges_ |
-| **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. A szkript sikertelen lesz, ha a AzCredential használt fiók többtényezős hitelesítést (MFA) igényel.| _Szükséges_ |
-| **VMLocalCredential** | Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Szükséges_ |
-| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Szükséges_ |
+| **CloudAdminCredential** | A rendszerjogosultságú végpont eléréséhez szükséges felhőalapú rendszergazda hitelesítő adatai. | _Kötelező_ |
+| **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. A szkript sikertelen lesz, ha a AzCredential használt fiók többtényezős hitelesítést (MFA) igényel.| _Kötelező_ |
+| **VMLocalCredential** | Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ |
+| **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ |
 | **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud**használatával. | AzureCloud |
 | **DependencyFilesLocalPath** | Csak az integrált rendszerek esetében a tanúsítvány. pfx fájlját ebbe a könyvtárba kell helyezni. Itt egy Windows Update MSU-csomagot is másolhat. | Nem _kötelező_ (az integrált rendszerek esetében_kötelező_ ) |
-| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Szükséges_ |
+| **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
+| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
 | **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Az SQL-erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
@@ -196,17 +194,12 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>A központi telepítés ellenőrzése a Azure Stack hub portál használatával
 
-Az alábbi lépéseket követve ellenőrizheti, hogy az SQL-erőforrás szolgáltatója sikeresen telepítve van-e.
-
 1. Jelentkezzen be a felügyeleti portálra szolgáltatás-rendszergazdaként.
-2. Válassza az **erőforráscsoportok**lehetőséget.
-3. Válassza ki a **rendszerállapotot.\< Location\>. sqladapter** erőforráscsoport.
+2. Válassza az **Erőforráscsoportok** lehetőséget.
+3. Válassza ki a **System. \<location\> . sqladapter** erőforráscsoport.
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
-
-    ![Az SQL-erőforrás-szolgáltató üzembe helyezésének ellenőrzése az Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
 5. Végül a felügyeleti portálon válassza a **Virtual Machines (virtuális gépek** ) lehetőséget annak ellenőrzéséhez, hogy az SQL Resource Provider virtuális gép sikeresen létrejött-e, és fut-e.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)

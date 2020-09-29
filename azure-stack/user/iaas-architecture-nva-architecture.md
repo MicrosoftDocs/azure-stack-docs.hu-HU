@@ -3,22 +3,22 @@ title: Magasan elérhető hálózati virtuális berendezések üzembe helyezése
 description: Ismerje meg, hogyan helyezhetők üzembe a Azure Stack hub-ban található, magasan elérhető hálózati virtuális berendezések.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643549"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107005"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Magasan elérhető hálózati virtuális berendezések üzembe helyezése Azure Stack hub-on
 
 Ez a cikk bemutatja, hogyan helyezhet üzembe egy hálózati virtuális berendezést (NVA) a magas rendelkezésre állás érdekében Azure Stack hub-ban. Az NVA-kat általában a szegélyhálózatokról, más néven DMZ-kről a más hálózatok és alhálózatok felé irányuló hálózati forgalom szabályozására használják. A cikk csak bejövő, csak kimenő, valamint bejövő és kimenő forgalmú példaarchitektúrákat is tartalmaz.
 
-A [Azure stack hub piactéren](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items)elérhető különböző gyártóktól származó NVA az optimális teljesítmény érdekében az egyiket használhatja.
+A [Azure stack hub piactéren](../operator/azure-stack-marketplace-azure-items.md)elérhető különböző gyártóktól származó NVA az optimális teljesítmény érdekében az egyiket használhatja.
 
 Az architektúra a következő összetevőket tartalmazza.
 
@@ -26,13 +26,13 @@ Az architektúra a következő összetevőket tartalmazza.
 
 -   **Virtuális hálózat és alhálózatok**. Minden Azure-beli virtuális gép üzembe helyezése egy, az alhálózatokra szegmentált virtuális hálózatba történik. Hozzon létre egy külön alhálózatot minden egyes szinthez.
 
--   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure stack hub-on, a [Azure stack hub piacon](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) elérhető alternatívák is rendelkezésre állnak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **7. rétegbeli Load Balancer.** Mivel a Application Gateway még nem érhető el az Azure stack hub-on, a [Azure stack hub piacon](../operator/azure-stack-marketplace-azure-items.md) elérhető alternatívák is rendelkezésre állnak, például: [Kemp Loadmaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) vagy [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **Terheléselosztó.** A [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
+-   **Terheléselosztó.** A [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)használatával terjesztheti a webes szinten lévő hálózati forgalmat az üzleti szintjére, valamint az üzleti szintjétől a SQL Serverig.
 
 -   **Hálózati biztonsági csoportok** (NSG). A NSG használata a virtuális hálózaton belüli hálózati forgalom korlátozására. Az itt bemutatott háromrétegű architektúrában például az adatbázis-réteg nem fogadja el a webes kezelőfelületről érkező forgalmat, csak az üzleti rétegből és a felügyeleti alhálózatból.
 
--   **UDR.** A [*felhasználó által megadott útvonalak*](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/) (UDR-EK) használatával irányíthatja a forgalmat az adott terheléselosztó felé.
+-   **UDR.** A [*felhasználó által megadott útvonalak*](/azure/virtual-network/virtual-networks-udr-overview/) (UDR-EK) használatával irányíthatja a forgalmat az adott terheléselosztó felé.
 
 Ez a cikk az Azure Stack hub hálózatkezelésének alapvető ismeretét feltételezi.
 
@@ -40,7 +40,7 @@ Ez a cikk az Azure Stack hub hálózatkezelésének alapvető ismeretét feltét
 
 Egy NVA számos különböző architektúrában üzembe helyezhető a peremhálózaton. A következő ábra például egyetlen NVA bejövő forgalomhoz való használatát illusztrálja.
 
-![A közösségi média utáni Leírás automatikusan generált képernyőképe](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![Képernyőkép, amely egyetlen NVA használatát mutatja be a bejövő forgalom számára.](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 Ebben az architektúrában az NVA biztonságos hálózati határt biztosít az összes bejövő és kimenő hálózati forgalom ellenőrzésével, és csak azt a forgalmat engedi át, amely megfelel a hálózati biztonsági szabályoknak. Az a tény, hogy az összes hálózati forgalomnak át kell haladnia a NVA, azt jelenti, hogy a NVA egyetlen meghibásodási pont a hálózaton. Ha az NVA leáll, akkor nincs más útvonal a hálózati forgalom számára, és a háttérbeli alhálózatok nem lesznek elérhetők.
 
@@ -78,10 +78,10 @@ A két bejövő és kimenő architektúrában külön peremhálózati hálózat 
 
 A bejövő forgalomban a 7. rétegbeli NVA architektúrában a NVA a 7. rétegbeli Load Balancer beérkező kérelmeket dolgozza fel. Az NVA-k a terheléselosztó háttérkészletében található, számítási feladatokat végző virtuális gépek kimenő kérelmeit is feldolgozzák. Mivel a bejövő forgalom egy 7. rétegbeli Load balancerrel van irányítva, és a kimenő forgalom egy SLB (Azure Stack hub alapszintű Load Balancer) van irányítva, a NVA a munkamenet-affinitás fenntartásáért felelősek. Ez azt a 7. rétegbeli terheléselosztó a bejövő és kimenő kérelmek leképezését is fenntartja, hogy a megfelelő választ továbbítsa az eredeti kérelmezőnek. A belső terheléselosztó azonban nem fér hozzá a 7. rétegbeli terheléselosztó-hozzárendelésekhez, és a saját logikával küldi el a válaszokat a NVA. Lehetséges, hogy a terheléselosztó választ küldhet egy olyan NVA, amely eredetileg nem kapta meg a kérelmet a 7. rétegbeli terheléselosztótól. Ebben az esetben a NVA kommunikálni kell, és át kell adni a választ, hogy a megfelelő NVA továbbítsa a választ a 7. rétegbeli terheléselosztó számára.
 
-> [!Note]  
+> [!NOTE]  
 > Úgy is megoldhatja az aszimmetrikus útvonal-választási problémát, ha gondoskodik róla, hogy az NVA-k bejövő forráshálózati címfordítást (SNAT) végezzenek. Ez lecserélné a kérelmező eredeti forrás IP-címét az NVA által a bejövő adatfolyamon használt IP-címeinek egyikével. Így gondoskodni lehet róla, hogy több NVA is használható legyen egyszerre az útvonal szimmetriájának megőrzése mellett.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért lásd: [Azure stack hub](azure-stack-vm-considerations.md)virtuálisgép-funkciók.  
-- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).
+- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

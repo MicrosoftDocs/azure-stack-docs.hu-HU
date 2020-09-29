@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935060"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836505"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Helyreállítás végzetes adatvesztés esetén
 
@@ -22,9 +22,9 @@ Az adatvesztés gyökerétől függően előfordulhat, hogy egyetlen infrastrukt
 
 Ez a forgatókönyv a teljes telepítés helyreállítására vonatkozik, ha hiba történt a privát felhő újratelepítése közben.
 
-| Forgatókönyv                                                           | Adatvesztés                            | Megfontolandó szempontok                                                             |
+| Használati eset                                                           | Adatvesztés                            | Megfontolandó szempontok                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Katasztrófa vagy termék meghibásodása miatti katasztrofális adatvesztéssel. | Minden infrastruktúra-és felhasználói és alkalmazásadatok. | A felhasználói alkalmazások és adatok védelme külön történik az infrastruktúra-adatoktól. |
+| Katasztrófa vagy termék meghibásodása miatti katasztrofális adatvesztéssel. | Minden infrastruktúra-és felhasználói és alkalmazásadatok. | A más OEM-re is visszaállítható.<br/> A a hardver különböző generációja számára állítható vissza.<br/> A visszaállítható a méretezési egység csomópontjainak különböző darabszámára.<br/> A felhasználói alkalmazások és adatok védelme külön történik az infrastruktúra-adatoktól. |
 
 ## <a name="workflows"></a>Munkafolyamatok
 
@@ -52,15 +52,15 @@ Ha van olyan katasztrófa, amely használhatatlanná teszi a hardvert, az újbó
 Azure Stack hub támogatja a Cloud Recovery Mode nevű üzembe helyezési típust. Ezt a módot csak akkor használja a rendszer, ha úgy dönt, hogy egy katasztrófa vagy egy termék meghibásodása után helyreállítja Azure Stack hubot. Ez a telepítési mód nem állítja helyre a megoldásban tárolt felhasználói adatokat. Ennek a telepítési módnak a hatóköre csak a következő adatmennyiségek visszaállítására korlátozódik:
 
  - Üzembe helyezési bemenetek
- - Belső identitás-szolgáltatási adatok (ADFS-telepítések).
+ - Belső Identity Service-adatok
  - Összevont azonosítási konfiguráció (ADFS-telepítések).
  - A belső hitelesítésszolgáltató által használt főtanúsítványok.
- - Azure Resource Manager a konfigurációs felhasználói adatok, például az előfizetések, a csomagok, az ajánlatok, a tárolási kvóták, a hálózati kvóták és a számítási erőforrások.
+ - Azure Resource Manager a konfigurációs felhasználói adatok, például az előfizetések, a csomagok, az ajánlatok, az erőforráscsoportok, a címkék, a tárolási kvóták, a hálózati kvóták és a számítási erőforrások.
  - Key Vault a titkokat és a tárolókat.
  - RBAC szabályzat-hozzárendelések és szerepkör-hozzárendelések.
 
 Az üzembe helyezés során a rendszer a felhasználói infrastruktúra (IaaS) vagy a platform as Service (szolgáltatásként szolgáló) erőforrásait sem állítja vissza. Ezek a veszteségek közé tartoznak a IaaS virtuális gépek, a Storage-fiókok, a Blobok, a táblák, a hálózati konfiguráció stb. A Felhőbeli helyreállítás célja annak biztosítása, hogy az operátorok és a felhasználók a telepítés befejezése után vissza tudják jelentkezni a portálra. A-ban bejelentkezett felhasználók nem látják az erőforrásaikat. A felhasználók előfizetései visszaállíthatók, és a rendszergazda által meghatározott eredeti csomagok, ajánlatok és szabályzatok. Azok a felhasználók, akik visszajelentkeznek a rendszerben, a katasztrófa előtt az eredeti megoldás által megszabott korlátozásokkal működnek. A Felhőbeli helyreállítás befejezése után az operátor manuálisan állíthatja vissza a Value-Add és a harmadik féltől származó RPs és kapcsolódó adatmennyiséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ismerje meg az [Infrastructure Backup szolgáltatás használatának](azure-stack-backup-best-practices.md)ajánlott eljárásait.

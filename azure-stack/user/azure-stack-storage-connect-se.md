@@ -1,22 +1,22 @@
 ---
-title: Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
+title: Storage Explorer összekötése Azure Stack hub-előfizetéshez vagy a Storage-fiókhoz
 description: Ismerje meg, hogyan csatlakozhat Storage Explorer egy Azure Stack hub-előfizetéshez
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631244"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107133"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Storage Explorer összekötése egy Azure Stack hub-előfizetéssel vagy egy Storage-fiókkal
 
-Ebből a cikkből megtudhatja, hogyan csatlakozhat a Azure Stack hub-előfizetésekhez és a Storage-fiókokhoz a [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)használatával. A Storage Explorer egy önálló alkalmazás, amely lehetővé teszi, hogy könnyedén működjön együtt a Azure Stack hub Storage-szolgáltatással a Windows, macOS és Linux rendszereken.
+Ebből a cikkből megtudhatja, hogyan csatlakozhat a Azure Stack hub-előfizetésekhez és a Storage-fiókokhoz a [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)használatával. A Storage Explorer egy önálló alkalmazás, amely lehetővé teszi, hogy könnyedén működjön együtt a Azure Stack hub Storage-szolgáltatással a Windows, macOS és Linux rendszereken.
 
 > [!NOTE]  
 > Több eszköz is rendelkezésre áll az adatok áthelyezéséhez Azure Stack hub-tárolóba. További információ: [adatátviteli eszközök az Azure stack hub Storage](azure-stack-storage-transfer.md)szolgáltatáshoz.
@@ -29,7 +29,7 @@ Miután kapcsolódott egy Azure Stack hub-előfizetéshez vagy egy Storage-fiók
 
 A Azure Stack hub-előfizetés eléréséhez közvetlen hozzáférést kell biztosítania Azure Stack hubhoz vagy egy VPN-kapcsolathoz Storage Explorerhoz. Ha meg szeretné tudni, hogyan állíthat be VPN-kapcsolatot Azure Stack hubhoz, tekintse meg a [csatlakozás Azure stack HUBHOZ VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)használatával című témakört.
 
-> [!Note]  
+> [!NOTE]  
 > Ha a ASDK VPN-kapcsolaton keresztül csatlakozik a ASDK, ne használja a VPN telepítési folyamata során létrehozott főtanúsítványt (CA. cer).  Ez egy DER kódolású tanúsítvány, és nem teszi lehetővé Storage Explorer számára a Azure Stack hub-előfizetések lekérését. A következő lépésekkel exportálhatja a 64-es kódolású tanúsítványt, hogy az a Storage Explorer használatával legyen használatban.
 
 A leválasztott és a ASDK integrált rendszerek esetében a javaslat egy belső vállalati hitelesítésszolgáltató használata a főtanúsítvány alapszintű 64 formátumban való exportálásához, majd a Azure Storage Explorerba történő importálásához.  
@@ -89,25 +89,26 @@ A következő lépésekkel csatlakoztathatja a Storage Explorert egy Azure Stack
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>Kapcsolódás Azure Stack hub-előfizetéshez AD FS-fiókkal
 
-> [!Note]  
+> [!NOTE]  
 > Az Azure összevont szolgáltatás (AD FS) bejelentkezési felülete támogatja a Storage Explorer 1.2.0 vagy újabb verziókat az Azure Stack hub 1804-as vagy újabb frissítésével.
+
 A következő lépésekkel csatlakoztathatja a Storage Explorert egy AD FS-fiókhoz tartozó Azure Stack hub-előfizetéshez.
 
 1. Válassza a **fiókok kezelése**lehetőséget. Az Intéző felsorolja azokat a Microsoft-előfizetéseket, amelyekre bejelentkezett.
 2. Válassza a **fiók hozzáadása** lehetőséget az Azure stack hub-előfizetéshez való kapcsolódáshoz.
 
-    ![Fiók hozzáadása – Storage Explorer](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![Képernyőkép, amely bemutatja, hogyan adhat hozzá egy fiókot a Storage Explorer.](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. Válassza a **Tovább** lehetőséget. A Kapcsolódás az Azure Storage-hoz párbeszédpanel Azure- **környezet**területén válassza az **Egyéni környezet használata**lehetőséget, majd kattintson a **tovább**gombra.
+3. Kattintson a **Tovább** gombra. A Kapcsolódás az Azure Storage-hoz párbeszédpanel Azure- **környezet**területén válassza az **Egyéni környezet használata**lehetőséget, majd kattintson a **tovább**gombra.
 
     ![Csatlakozás az Azure Storage-hoz](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
 4. Adja meg Azure Stack hub egyéni környezet szükséges adatait. 
 
-    | Mező | Megjegyzések |
+    | Mező | Jegyzetek |
     | ---   | ---   |
     | Környezet neve | A mezőt a felhasználó testreszabhatja. |
-    | Azure Resource Manager végpont | A Azure Stack Development Kit Azure Resource Manager erőforrás-végpontjának mintái.<br>Operátorok esetén:`https://adminmanagement.local.azurestack.external` <br> Felhasználók számára:`https://management.local.azurestack.external` |
+    | Azure Resource Manager végpont | A Azure Stack Development Kit Azure Resource Manager erőforrás-végpontjának mintái.<br>Operátorok esetén: `https://adminmanagement.local.azurestack.external` <br> Felhasználók számára: `https://management.local.azurestack.external` |
 
     Ha Azure Stack hub integrált rendszeren dolgozik, és nem ismeri a felügyeleti végpontját, forduljon a kezelőhöz.
 

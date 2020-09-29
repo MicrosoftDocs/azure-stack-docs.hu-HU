@@ -1,18 +1,18 @@
 ---
 title: Üzembe helyezés a Visual Studio Code-ban Azure Stack hub-ban
-description: Felhasználóként hozzon létre egy Azure Resource Manager sablont a Visual Studio Code-ban, és a központi telepítési séma használatával készítsen elő egy olyan sablont, amely kompatibilis az Azure Stack hub saját verziójával.
+description: Hozzon létre egy Azure Resource Manager sablont a Visual Studio Code-ban, és a központi telepítési séma használatával készítse elő az Azure Stack hub saját verziójával kompatibilis sablont.
 author: mattbriggs
 ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 3f97ec57900119543e37b0d99a7d82e30c900f42
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111626"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574244"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Üzembe helyezés a Visual Studio Code-ban Azure Stack hub-ban
 
@@ -37,7 +37,7 @@ Az Azure Stack hub központi telepítési séma támogatja a hibrid profilokat a
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Hozzáférés Azure Stack hubhoz
-- [Azure stack hub PowerShell telepítve](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) a felügyeleti végpontokat elérő gépre
+- [Azure stack hub PowerShell telepítve](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) a felügyeleti végpontokat elérő gépre
 
 ## <a name="install-resource-manager-tools-extension"></a>Resource Manager-eszközök bővítményének telepítése
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: f2716bfbdab58c90401e3c6b10908c35f774feed
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423905"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107189"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Szolgáltatási ajánlat létrehozása Azure Stack hub felhasználói számára
 
@@ -75,30 +75,30 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 1. Jelentkezzen be a felügyeleti portálra egy Felhőbeli rendszergazdai fiókkal.
 
-    - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változhat. Az URL-cím a `https://adminportal.<region>.<FQDN>`formátumot használja.
-    - Ha a Azure Stack Development Kit használja, az URL-cím: `https://adminportal.local.azurestack.external`.
+    - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változhat. Az URL-cím a formátumot használja `https://adminportal.<region>.<FQDN>` .
+    - Ha a Azure Stack Development Kit használja, az URL-cím: `https://adminportal.local.azurestack.external` .
 
-    Ezután válassza **az + erőforrás** > létrehozása **ajánlatok + csomagok** > **lehetőséget.**
+    Ezután válassza **az + erőforrás létrehozása** > **ajánlatok + csomagok** > **lehetőséget**.
 
-    ![Új ajánlat az Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/1-create-resource-offer.png)
+    ![Képernyőkép, amely bemutatja, hogyan hozhat létre új ajánlatot az Azure Stack hub felügyeleti portálján.](media/tutorial-offer-services/1-create-resource-offer.png)
 
 1. Az **új ajánlat létrehozása** az **alapok** lapon adja meg a **megjelenítendő nevet**, az **erőforrás nevét**, majd válasszon ki egy meglévőt, vagy hozzon létre egy új **erőforráscsoportot**. A megjelenítendő név az ajánlat rövid neve. Csak a Felhőbeli operátor láthatja az erőforrás nevét, amely a rendszergazdák által az ajánlattal Azure Resource Manager erőforrásként használt név.
 
-   ![Megjelenítendő név a Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/2-create-new-offer.png)
+   ![Képernyőkép, amely bemutatja, hogy hol lehet alapszintű információkat hozzáadni Azure Stack hub felügyeleti portálján.](media/tutorial-offer-services/2-create-new-offer.png)
 
 1. Válassza ki az **alapcsomagok** lapot, majd válassza az **új terv létrehozása** lehetőséget új terv létrehozásához. A terv alapcsomagként is hozzá lesz adva az ajánlathoz.
 
-   ![Csomag hozzáadása a Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
+   ![Képernyőkép a Azure Stack hub felügyeleti portálján megjelenő terv felvételéről.](media/tutorial-offer-services/3-create-new-offer-base-plans.png)
 
 1. Az **alapbeállítások** lap **új tervében** adja meg a **megjelenítendő nevet** és az **erőforrás nevét**. A megjelenítendő név a terv felhasználóbarát neve, amelyet a felhasználók látnak. Csak a Felhőbeli operátor láthatja az erőforrás nevét, amely a Felhőbeli operátorok által a csomaggal Azure Resource Manager erőforrásként való együttműködéshez használt név. Az **erőforráscsoport** az ajánlathoz megadott értékre lesz állítva.
 
-   ![A megjelenítendő név megtervezése Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/4-create-new-plan-basics.png)
+   ![A terv megjelenítendő nevét bemutató képernyőkép a Azure Stack hub felügyeleti portálján.](media/tutorial-offer-services/4-create-new-plan-basics.png)
 
 1. Válassza a **szolgáltatások** fület, és megtekintheti a telepített erőforrás-szolgáltatók által elérhető szolgáltatások listáját. Válassza a **Microsoft. számítás**, a **Microsoft. Network**és a **Microsoft. Storage**lehetőséget.
 
-   ![Szolgáltatások megtervezése Azure Stack hub felügyeleti portálon](media/tutorial-offer-services/5-create-new-plan-services.png)
+   ![Képernyőkép a Azure Stack hub felügyeleti portálon megjelenő csomag szolgáltatásairól.](media/tutorial-offer-services/5-create-new-plan-services.png)
 
-1. Válassza a **kvóták** fület, és megtekintheti a csomaghoz engedélyezett szolgáltatások listáját. Válassza az **új létrehozása** lehetőséget a **Microsoft. számítás**egyéni kvótájának megadásához. A kvóta **nevét** kötelező megadni; elfogadhatja vagy módosíthatja az egyes kvóták értékét. Ha elkészült, kattintson az **OK gombra** , majd ismételje meg ezeket a lépéseket a fennmaradó szolgáltatásokhoz.
+1. Válassza a **kvóták** fület, és megtekintheti a csomaghoz engedélyezett szolgáltatások listáját. Válassza az  **új létrehozása** lehetőséget a **Microsoft. számítás**egyéni kvótájának megadásához. A kvóta **nevét** kötelező megadni; elfogadhatja vagy módosíthatja az egyes kvóták értékét. Ha elkészült, kattintson az **OK gombra** , majd ismételje meg ezeket a lépéseket a fennmaradó szolgáltatásokhoz.
 
    ![Számítási kvóta létrehozása Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/6-create-new-plan-quotas.png)
 
@@ -132,10 +132,10 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 1. Jelentkezzen be a felügyeleti portálra egy Felhőbeli rendszergazdai fiókkal.
 
-    - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik a formátum `https://adminportal.<region>.<FQDN>`használatával.
-    - Ha a Azure Stack Development Kit használja, az URL-cím: <https://adminportal.local.azurestack.external>.
+    - Az integrált rendszerek esetében az URL-cím az operátor régiója és a külső tartománynév alapján változik a formátum használatával `https://adminportal.<region>.<FQDN>` .
+    - Ha a Azure Stack Development Kit használja, az URL-cím: `https://adminportal.local.azurestack.external` .
 
-    Ezután válassza **az + erőforrás** > létrehozása **ajánlatok + csomagok** > **lehetőséget.**
+    Ezután válassza **az + erőforrás létrehozása** > **ajánlatok + csomagok** > **lehetőséget**.
 
     ![Új ajánlat az Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/image01.png)
 
@@ -151,7 +151,7 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
    ![A megjelenítendő név megtervezése Azure Stack hub felügyeleti portálján](media/tutorial-offer-services/image04.png)
 
-1. Válassza a **szolgáltatások**lehetőséget. A szolgáltatások listájából válassza a **Microsoft. számítás**, a **Microsoft. Network**és a **Microsoft. Storage**lehetőséget. Válassza a **kiválasztás** lehetőséget, hogy hozzáadja ezeket a szolgáltatásokat a csomaghoz.
+1. Válassza a **szolgáltatások**lehetőséget. A szolgáltatások listájából válassza a  **Microsoft. számítás**, a **Microsoft. Network**és a **Microsoft. Storage**lehetőséget. Válassza a **kiválasztás** lehetőséget, hogy hozzáadja ezeket a szolgáltatásokat a csomaghoz.
 
    ![Szolgáltatások megtervezése Azure Stack hub felügyeleti portálon](media/tutorial-offer-services/image05.png)
 
@@ -185,7 +185,7 @@ Az ajánlat létrehozási folyamata során létre kell hoznia egy ajánlatot és
 
 ::: moniker-end
  
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 

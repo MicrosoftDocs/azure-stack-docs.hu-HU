@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 12de836d74382f26efd49ec8873aaa99a919ecd5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631122"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107087"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Terv létrehozása Azure Stack központban
 
@@ -25,37 +25,37 @@ ms.locfileid: "84631122"
 
 2. Egy olyan csomag és ajánlat létrehozásához, amelyhez a felhasználók előfizethetnek, válassza az **+ erőforrás létrehozása**, majd a **+ csomagok**, majd a **terv**lehetőséget.
   
-   ![Válasszon egy csomagot az Azure Stack hub felügyeleti portálján](media/azure-stack-create-plan/select-plan.png)
+   ![Képernyőkép, amely bemutatja, hogyan választhat ki egy tervet a Azure Stack hub felügyeleti portálján.](media/azure-stack-create-plan/select-plan.png)
 
 3. Megjelenik egy Többlapos felhasználói felület, amely lehetővé teszi a csomag nevének megadását, a szolgáltatások hozzáadását és a kvóták definiálását a kiválasztott szolgáltatásokhoz. A legfontosabb, hogy a létrehozás előtt tekintse át az Ön által létrehozott ajánlat részleteit.
 
    Az **új csomag** ablak **alapismeretek** lapján adja meg a **megjelenítendő nevet** és az **erőforrás nevét**. A megjelenítendő név a terv felhasználóbarát neve, amelyet a kezelők láthatnak. A felügyeleti portálon a részletek csak az operátorok számára láthatók.
 
-   ![Új csomag részleteinek megadása Azure Stack központban](media/azure-stack-create-plan/plan-name.png)
+   ![Képernyőfelvétel: az új csomag részleteinek megadása Azure Stack központban.](media/azure-stack-create-plan/plan-name.png)
 
 4. Hozzon létre egy új **erőforráscsoportot**, vagy válasszon ki egy meglévőt, mint tárolót a csomag számára.
 
-   ![Az új csomaghoz tartozó erőforráscsoport megadása Azure Stack központban](media/azure-stack-create-plan/resource-group.png)
+   ![Képernyőfelvétel: az új tervhez tartozó erőforráscsoport megadásának módja az Azure Stack központban.](media/azure-stack-create-plan/resource-group.png)
 
 5. Válassza a **szolgáltatások** fület, vagy kattintson a **tovább: szolgáltatások >** gombra, majd jelölje be a **Microsoft. számítás**, a **Microsoft. Network**és a **Microsoft. Storage**jelölőnégyzetét.
   
-   ![Új csomaghoz tartozó szolgáltatások kiválasztása Azure Stack központban](media/azure-stack-create-plan/services.png)
+   ![Képernyőkép, amely bemutatja, hogyan választhatók ki szolgáltatások az új csomaghoz Azure Stack hub-ban.](media/azure-stack-create-plan/services.png)
 
 6. Válassza a **kvóták** fület, vagy kattintson a **Tovább: kvóták >** gombra. A **Microsoft. Storage**elem mellett válassza az alapértelmezett kvótát a legördülő listából, vagy válassza az **új létrehozása** lehetőséget a testreszabott kvóta létrehozásához.
   
-   ![Kvóták megadása Azure Stack hub új csomagjához](media/azure-stack-create-plan/quotas.png)
+   ![A Azure Stack hub új csomagjára vonatkozó kvóták megadását bemutató képernyőkép](media/azure-stack-create-plan/quotas.png)
 
 7. Ha új kvótát hoz létre, adja meg a kvóta **nevét** , majd adja meg a kvóta értékeit. A kvóta létrehozásához kattintson **az OK gombra** .
 
-   ![Új kvóta létrehozása új csomaghoz Azure Stack hub-ban](media/azure-stack-create-plan/new-quota.png)
+   ![Képernyőkép, amely bemutatja, hogyan hozhat létre új kvótát az új csomaghoz Azure Stack hub-ban.](media/azure-stack-create-plan/new-quota.png)
 
 8. Ismételje meg a 6. és 7. lépést a **Microsoft. Network** és a **Microsoft. számítási**szolgáltatás kvótáinak létrehozásához és hozzárendeléséhez. Ha mindhárom szolgáltatáshoz kvóták vannak rendelve, a következő példához hasonlóan néznek ki.
 
-   ![Kvóta-hozzárendelések befejezése az új csomaghoz Azure Stack hub-ban](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![A Azure Stack hub új csomagjához tartozó kvóta-hozzárendelések befejezését bemutató képernyőkép.](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. A terv áttekintéséhez válassza a **felülvizsgálat + létrehozás** elemet. Ellenőrizze, hogy helyesek-e az összes érték és kvóta. Az interfész lehetővé teszi, hogy a kiválasztott csomagok kvótái kibontásával egy adott csomag egyes kvótáinak részleteit megtekinthesse. Visszatérhet a szükséges módosítások elvégzéséhez is.
 
-   ![A terv létrehozása Azure Stack központban](media/azure-stack-create-plan/create.png)
+   ![A terv Azure Stack hub-ban való létrehozásának módját bemutató képernyőkép.](media/azure-stack-create-plan/create.png)
 
 10. Ha elkészült, válassza a **Létrehozás** lehetőséget a terv létrehozásához.
 

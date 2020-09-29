@@ -3,16 +3,16 @@ title: A ASDK telepítése a parancssorból a PowerShell használatával
 description: Megtudhatja, hogyan helyezheti üzembe a ASDK a parancssorból a PowerShell használatával.
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/23/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847146"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106930"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -26,8 +26,6 @@ A ASDK üzembe helyezése előtt győződjön meg arról, hogy a tervezett ASDK-
 
 **[Tekintse át a ASDK telepítési követelményeit és szempontjait](asdk-deploy-considerations.md)**.
 
-> [!TIP]
-> Az operációs rendszer telepítése után a [Azure stack központi telepítési követelmények ellenőrzése eszköz](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) segítségével ellenőrizheti, hogy a hardver megfelel-e az összes követelménynek.
 
 ## <a name="download-and-extract-the-deployment-package"></a>Töltse le és csomagolja ki a központi telepítési csomagot
 Miután meggyőződött arról, hogy a ASDK-gazdagép megfelel a ASDK telepítésének alapvető követelményeinek, a következő lépés a ASDK telepítési csomag letöltése és kibontása. A központi telepítési csomag tartalmazza a Cloudbuilder. vhdx fájlt, amely egy rendszerindító operációs rendszert és a Azure Stack telepítési fájlokat tartalmazó virtuális merevlemez.
@@ -45,13 +43,13 @@ A ASDK gazdagép számítógépének beállítása a CloudBuilder. vhdx rendszer
 
   1. Nyisson meg egy parancssort rendszergazdaként.
   2. Futtassa az `bcdedit /copy {current} /d "Azure Stack"` parancsot.
-  3. Másolás (CTRL + C) a visszaadott CLSID-érték, beleértve a szükséges kapcsos zárójeleket (`{}`). Ezt az értéket nevezik, `{CLSID}` és be kell illeszteni a (CTRL + V vagy a jobb gombbal kattintva) a hátralévő lépésekben.
-  4. Futtassa az `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` parancsot.
-  5. Futtassa az `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` parancsot.
-  6. Futtassa az `bcdedit /set {CLSID} detecthal on` parancsot.
-  7. Futtassa az `bcdedit /default {CLSID}` parancsot.
-  8. A rendszerindítási beállítások ellenőrzéséhez futtassa a parancsot `bcdedit`.
-  9. Győződjön meg arról, hogy a CloudBuilder. vhdx fájl át lett helyezve a C:\ gyökerébe Indítsa el`C:\CloudBuilder.vhdx`a meghajtót (), és indítsa újra a ASDK-gazdagépet. A ASDK-gazda számítógép újraindításakor a rendszer a CloudBuilder. vhdx virtuális gép (VM) merevlemezéről indítja el a ASDK telepítésének megkezdéséhez.
+  3. Másolás (CTRL + C) a visszaadott CLSID-érték, beleértve a szükséges kapcsos zárójeleket ( `{}` ). Ezt az értéket nevezik, és be kell `{CLSID}` illeszteni a (CTRL + V vagy a jobb gombbal kattintva) a hátralévő lépésekben.
+  4. Futtatja a `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` parancsot.
+  5. Futtatja a `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` parancsot.
+  6. Futtatja a `bcdedit /set {CLSID} detecthal on` parancsot.
+  7. Futtatja a `bcdedit /default {CLSID}` parancsot.
+  8. A rendszerindítási beállítások ellenőrzéséhez futtassa a parancsot `bcdedit` .
+  9. Győződjön meg arról, hogy a CloudBuilder. vhdx fájl át lett helyezve a C:\ gyökerébe Indítsa el `C:\CloudBuilder.vhdx` a meghajtót (), és indítsa újra a ASDK-gazdagépet. A ASDK-gazda számítógép újraindításakor a rendszer a CloudBuilder. vhdx virtuális gép (VM) merevlemezéről indítja el a ASDK telepítésének megkezdéséhez.
 
 > [!IMPORTANT]
 > A számítógép újraindítása előtt győződjön meg arról, hogy közvetlen fizikai vagy KVM-hozzáféréssel rendelkezik a ASDK-gazdagéphez. A virtuális gép első elindításakor a rendszer felszólítja a Windows Server telepítésének befejezésére. Adja meg a ASDK-gazdaszámítógépre való bejelentkezéshez használt rendszergazdai hitelesítő adatokat.
@@ -70,7 +68,7 @@ Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa az ebben a 
 Az Azure Stack az Azure AD-vel vagy a Windows Server AD FS identitás-szolgáltatóként is üzembe helyezhető. A Azure Stack, az erőforrás-szolgáltatók és más alkalmazások ugyanúgy működnek, mint a kettő.
 
 > [!TIP]
-> Ha nem ad meg telepítési paramétereket (lásd a InstallAzureStackPOC. ps1 választható paramétereket és példákat alább), a rendszer kéri a szükséges paramétereket.
+> Ha nem adja meg a telepítési paramétereket (lásd alább InstallAzureStackPOC.ps1 választható paramétereket és példákat), a rendszer kéri a szükséges paramétereket.
 
 ### <a name="deploy-azure-stack-using-azure-ad"></a>Azure Stack üzembe helyezése az Azure AD-vel 
 Azure Stack az Azure AD-vel való üzembe helyezéséhez **használja az identitás-szolgáltatót**, vagy közvetlenül, vagy egy transzparens proxyn keresztül kell kapcsolódnia. 
@@ -88,7 +86,7 @@ A ASDK telepítése néhány percet vesz igénybe az Azure AD-beli hitelesítő 
 Az üzembe helyezést követően Azure Active Directory globális rendszergazdai jogosultság nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Azure Stack üzembe helyezése AD FS használatával 
-Ha a ASDK a **AD FS használatával**szeretné központilag telepíteni az identitás-szolgáltatóként, futtassa a következő PowerShell-parancsokat (csak hozzá kell adnia a-UseADFS paramétert):
+Ha a ASDK a  **AD FS használatával**szeretné központilag telepíteni az identitás-szolgáltatóként, futtassa a következő PowerShell-parancsokat (csak hozzá kell adnia a-UseADFS paramétert):
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -96,7 +94,7 @@ Ha a ASDK a **AD FS használatával**szeretné központilag telepíteni az ident
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -UseADFS
   ```
 
-AD FS üzemelő példányok esetében az alapértelmezett Stamp Directory szolgáltatást használja az identitás-szolgáltatóként. A bejelentkezéshez használt alapértelmezett fiók azurestackadmin@azurestack.local, és a jelszó a PowerShell telepítési parancsainak részeként megadott értékre van állítva.
+AD FS üzemelő példányok esetében az alapértelmezett Stamp Directory szolgáltatást használja az identitás-szolgáltatóként. A bejelentkezéshez használt alapértelmezett fiók azurestackadmin@azurestack.local , és a jelszó a PowerShell telepítési parancsainak részeként megadott értékre van állítva.
 
 Az üzembe helyezési folyamat néhány órát is igénybe vehet, amíg a rendszer egyszer automatikusan újraindul. Ha az üzembe helyezés sikeres, a PowerShell-konzol a következőt jeleníti meg: **Befejezés: művelet "központi telepítés"**. Ha az üzembe helyezés sikertelen, próbálja meg újból futtatni a parancsfájlt az-újra paraméter használatával. Vagy újból üzembe helyezheti a [ASDK](asdk-redeploy.md) a semmiből.
 
@@ -129,17 +127,17 @@ Ha a környezet nem rendelkezik engedélyezve DHCP-vel, akkor a fenti lehetősé
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
-### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC. ps1 választható paraméterek
+### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 választható paraméterek
 
-|Paraméter|Kötelező vagy nem kötelező|Description|
+|Paraméter|Kötelező vagy nem kötelező|Leírás|
 |-----|-----|-----|
 |AdminPassword|Kötelező|Beállítja a helyi rendszergazdai fiókot és az összes többi felhasználói fiókot a ASDK-telepítés részeként létrehozott összes virtuális gépen. Ennek a jelszónak meg kell egyeznie a gazdagép aktuális helyi rendszergazdai jelszavával.|
 |InfraAzureDirectoryTenantName|Kötelező|Beállítja a bérlői könyvtárat. Ezzel a paraméterrel megadhat egy adott könyvtárat, amelyben az Azure AD-fiók rendelkezik a több könyvtár felügyeletéhez szükséges engedélyekkel. Egy Azure AD-bérlő teljes neve. onmicrosoft.com vagy egy Azure AD által ellenőrzött egyéni tartománynév.|
 |TimeServer|Kötelező|Ezzel a paraméterrel adható meg egy adott időkiszolgáló. Ezt a paramétert érvényes Time Server IP-címnek kell megadni. A kiszolgálók nevei nem támogatottak.|
-|InfraAzureDirectoryTenantAdminCredential|Optional|Beállítja a Azure Active Directory felhasználónevét és jelszavát. Ezeknek az Azure-beli hitelesítő adatoknak szervezeti AZONOSÍTÓnak kell lenniük.|
-|InfraAzureEnvironment|Optional|Válassza ki azt az Azure-környezetet, amellyel regisztrálni szeretné ezt az Azure Stack-telepítést. A lehetőségek közé tartozik a globális Azure, az Azure-Kína, az Azure-USA kormánya.|
-|DNSForwarder|Optional|A rendszer a Azure Stack központi telepítésének részeként létrehoz egy DNS-kiszolgálót. Annak engedélyezéséhez, hogy a megoldásban lévő számítógépek a bélyegzőn kívül is feloldják a neveket, adja meg a meglévő infrastruktúra DNS-kiszolgálóját. A in-Stamp DNS-kiszolgáló ismeretlen névfeloldási kérelmeket továbbít erre a kiszolgálóra.|
-|Újrafuttatás|Optional|Használja ezt a jelzőt a központi telepítés újrafuttatásához. Minden korábbi bemenet használatban van. A korábban megadott adatok újbóli megadása nem támogatott, mert több egyedi érték jön létre és használatos az üzembe helyezéshez.|
+|InfraAzureDirectoryTenantAdminCredential|Választható|Beállítja a Azure Active Directory felhasználónevét és jelszavát. Ezeknek az Azure-beli hitelesítő adatoknak szervezeti AZONOSÍTÓnak kell lenniük.|
+|InfraAzureEnvironment|Választható|Válassza ki azt az Azure-környezetet, amellyel regisztrálni szeretné ezt az Azure Stack-telepítést. A lehetőségek közé tartozik a globális Azure, az Azure-Kína, az Azure-USA kormánya.|
+|DNSForwarder|Választható|A rendszer a Azure Stack központi telepítésének részeként létrehoz egy DNS-kiszolgálót. Annak engedélyezéséhez, hogy a megoldásban lévő számítógépek a bélyegzőn kívül is feloldják a neveket, adja meg a meglévő infrastruktúra DNS-kiszolgálóját. A in-Stamp DNS-kiszolgáló ismeretlen névfeloldási kérelmeket továbbít erre a kiszolgálóra.|
+|Újrafuttatás|Választható|Használja ezt a jelzőt a központi telepítés újrafuttatásához. Minden korábbi bemenet használatban van. A korábban megadott adatok újbóli megadása nem támogatott, mert több egyedi érték jön létre és használatos az üzembe helyezéshez.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Üzembe helyezés utáni konfigurációk végrehajtása
@@ -155,10 +153,10 @@ Javasoljuk, hogy állítsa alaphelyzetbe a jelszó lejárati házirendjét, hogy
 ## <a name="register-with-azure"></a>Regisztrálás az Azure-ban
 Regisztrálnia kell Azure Stack az Azure-ban, hogy [le tudja tölteni az Azure Marketplace-elemeket](../operator/azure-stack-create-and-publish-marketplace-item.md) a Azure Stackba.
 
-**[Azure Stack regisztrálása az Azure-ban](asdk-register.md)**
+**[Az Azure Stack regisztrálása az Azure-ban](asdk-register.md)**
 
-## <a name="next-steps"></a>További lépések
-Gratulálunk! A lépések elvégzése után egy ASDK-környezettel fog rendelkezni `https://adminportal.local.azurestack.external` , amely `https://portal.local.azurestack.external` rendszergazdai és felhasználói portálokkal is rendelkezik. 
+## <a name="next-steps"></a>Következő lépések
+Gratulálunk! A lépések elvégzése után egy ASDK-környezettel fog rendelkezni, amely rendszergazdai `https://adminportal.local.azurestack.external` és felhasználói `https://portal.local.azurestack.external` portálokkal is rendelkezik. 
 
 [ASDK-telepítési konfigurációs feladatok közzététele](asdk-post-deploy.md)
 

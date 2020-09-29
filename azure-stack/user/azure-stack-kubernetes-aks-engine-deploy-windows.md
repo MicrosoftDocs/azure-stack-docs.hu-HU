@@ -3,16 +3,16 @@ title: Az AK-motor üzembe helyezése Windows rendszeren Azure Stack hub-ban
 description: Megtudhatja, hogyan helyezhet üzembe és kezelhet egy Kubernetes-fürtöt egy Windows rendszerű gépen az Azure Stack hub-ban az AK-motor üzemeltetéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: a68736088f8da95b0a7851007b8add4038c8199c
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533739"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717960"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
 
@@ -31,7 +31,7 @@ Az ügyfélszámítógép kiválasztásakor vegye figyelembe a következőket:
 
 Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére egy, az internethez csatlakozó Azure Stack hub használatával.
 
-1. Hozzon létre egy Windows rendszerű virtuális gépet az Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal).
+1. Hozzon létre egy Windows rendszerű virtuális gépet az Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](./azure-stack-quick-windows-portal.md).
 2. Kapcsolódjon a virtuális géphez.
 3. [A chocolatey telepítése a PowerShell-utasítások használatával](https://chocolatey.org/install#install-with-powershellexe). 
 
@@ -40,10 +40,10 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 5. Futtassa a következő parancsot egy emelt szintű parancssorból, és adja meg a verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
-> [!Note]  
+> [!NOTE]  
 > Ha ez a telepítési módszer meghiúsul, kipróbálhatja a [leválasztott környezetben](#install-in-a-disconnected-environment)megjelenő lépéseket, vagy [kipróbálhatja a GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish), egy másik csomagkezelő-kezelőt.
 
 ## <a name="install-in-a-disconnected-environment"></a>Telepítés leválasztott környezetben
@@ -52,9 +52,9 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 
 1.  Egy internettel rendelkező gépről nyissa meg a GitHub [Azure/AK-Engine-](https://github.com/Azure/aks-engine/releases/latest)t. Töltse le a Windows rendszerű gépek archívumát (*. tar. gz), például: `aks-engine-v0.38.8-windows-amd64.tar.gz` .
 
-2.  Hozzon létre egy Storage-fiókot a Azure Stack hub-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer Azure stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se).
+2.  Hozzon létre egy Storage-fiókot a Azure Stack hub-példányban, hogy feltöltse az archív fájlt (*. tar. gz) az KABAi motor bináris fájljával. A Azure Storage Explorer használatával kapcsolatos utasításokért lásd: [Azure Storage Explorer Azure stack hub](./azure-stack-storage-connect-se.md).
 
-3. Hozzon létre egy Windows rendszerű virtuális gépet az Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. Hozzon létre egy Windows rendszerű virtuális gépet az Azure Stack hub-ban. Útmutatásért lásd: gyors útmutató [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](./azure-stack-quick-windows-portal.md)
 
 4.  Töltse le a fájlt a felügyeleti virtuális gépre a Azure Stack hub Storage-fiók blob URL-címéről, amelybe feltöltötte az archív fájlt (*. tar. gz). Bontsa ki az archívumot egy olyan könyvtárba, amelyhez hozzáféréssel rendelkezik a parancssorból.
 
@@ -65,7 +65,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
 7.  Futtassa a következő parancsot egy emelt szintű parancssorból. Adja meg a megfelelő verziószámot:
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 ## <a name="verify-the-installation"></a>A telepítés ellenőrzése
@@ -79,17 +79,17 @@ Ha az ügyfél virtuális gépe be van állítva, győződjön meg arról, hogy 
     aks-engine version
     ```
 
-Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuális gépén, tekintse meg a következő témakört: az [AK-motor telepítésének](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuális gépén, tekintse meg a következőt: az [AK-motor telepítésének hibája](azure-stack-kubernetes-aks-engine-troubleshoot.md).
 
 
 ## <a name="asdk-installation"></a>ASDK-telepítés
 
-Hozzá kell adnia egy tanúsítványt, amikor a ASDK kívüli gépen futtatja az ASDK-os motorhoz tartozó ügyfél virtuális gépet. Ha a ASDK-környezeten belül egy Windows rendszerű virtuális gépet használ, a gép már megbízik az ASDK-tanúsítványban. Ha az ügyfélszámítógép kívül esik a ASDK, ki kell bontania a tanúsítványt a ASDK, és fel kell vennie azt a Windows rendszerű gépre.
+Hozzá kell adnia egy tanúsítványt, amikor a ASDK kívüli gépen futtatja az ASDK-os motorhoz tartozó ügyfél virtuális gépet. Ha a ASDK-környezeten belül egy Windows rendszerű virtuális gépet használ, a gép már megbízik az ASDK-tanúsítványban. Ha az ügyfélszámítógép kívül esik a ASDK, ki kell bontania a tanúsítványt a ASDK, és fel kell vennie a Windows rendszerű gépre.
 
-Ha ASDK használ, a Azure Resource Manager végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható.
+Ha ASDK használ, az Azure Resource Manager-végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható.
 
-1. Exportálja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Útmutatásért lásd: [az Azure stack hub hitelesítésszolgáltatói főtanúsítványának exportálása](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate)
-2. Bízza a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát. Útmutatásért tekintse meg [az Azure stack hub hitelesítésszolgáltatói főtanúsítvány megbízhatósága](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate)című témakört.
+1. Exportálja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Útmutatásért lásd: [az Azure stack hub hitelesítésszolgáltatói főtanúsítványának exportálása](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Bízza a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát. Útmutatásért tekintse meg [az Azure stack hub hitelesítésszolgáltatói főtanúsítvány megbízhatósága](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate)című témakört.
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -7,22 +7,22 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4a4a284b1f4e02399a8030e0338b83ccf44ae1fe
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 50594cd976fc502d25f3e54c980fd2cf3702d046
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146631"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574074"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 
-Ebben a megoldásban a Azure Stack hub Resource Manager-sablonnal csatlakoztathat két Azure Stack hub-virtuális hálózatok ugyanazon a Azure Stack hub-környezetben belül. [Azure stack hub-virtuális hálózatok nem csatlakoztatható](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) a beépített Virtual Network átjáró használatával. Egyelőre a Network Virtual Appliances (NVA) s használatával VPN-alagutat kell létrehoznia két Azure Stack hub-virtuális hálózatok között. A megoldás sablonja két Windows Server 2016 virtuális gépet telepít, amelyeken az RRAS telepítve van. A megoldás úgy konfigurálja a két RRAS-kiszolgálót, hogy S2SVPN IKEv2 alagutat használjanak a két virtuális hálózatok között. A megfelelő NSG-és UDR-szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes, **belsőként** kijelölt VNET. 
+Ebben a megoldásban a Azure Stack hub Resource Manager-sablonnal csatlakoztathat két Azure Stack hub-virtuális hálózatok ugyanazon a Azure Stack hub-környezetben belül. [Azure stack hub-virtuális hálózatok nem csatlakoztatható](./azure-stack-network-differences.md) a beépített Virtual Network átjáró használatával. Egyelőre a Network Virtual Appliances (NVA) s használatával VPN-alagutat kell létrehoznia két Azure Stack hub-virtuális hálózatok között. A megoldás sablonja két Windows Server 2016 virtuális gépet telepít, amelyeken az RRAS telepítve van. A megoldás úgy konfigurálja a két RRAS-kiszolgálót, hogy S2SVPN IKEv2 alagutat használjanak a két virtuális hálózatok között. A megfelelő NSG-és UDR-szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes, **belsőként** kijelölt VNET. 
 
 Ez a megoldás az az alapja, amely lehetővé teszi, hogy a VPN-alagutak ne csak Azure Stack hub-példányon belül jöjjenek létre, hanem Azure Stack hub-példányok és más erőforrások, például a Windows RRAS S2S VPN-alagutak használatát használó helyszíni hálózatok számára is.
 
 A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub-tárházában találja. A sablon az **RRAS-GRE-vnet-vnet** mappában található. 
 
-![helyettesítő szöveg](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
+![A diagram egy olyan implementációt mutat be, amely VPN-alagutat biztosít két virtuális hálózatok között. Minden VNET van egy RRAS-kiszolgáló, valamint egy belső alhálózat és egy alagút-alhálózat is.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
 
 ## <a name="requirements"></a>Követelmények
 
@@ -48,9 +48,9 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 - A blob Storage-fiókját és az SAS-tokent a _artifactsLocation és a _artifactsLocationSasToken paraméterek használatával is használhatja
 - Ennek a sablonnak két kimenete van a INTERNALSUBNETREFVNET1 és a INTERNALSUBNETREFVNET2, amely a belső alhálózatok erőforrás-azonosítói, ha ezt szeretné használni egy folyamat típusú telepítési mintában.
 
-Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tartalmazza.  A rendszergazdának (rrasadmin) jelszót kell használnia, és a saját tárolási blobját is használhatja SAS-token használatával.  Ügyeljen arra, hogy ezeket az értékeket a jogi tartományokon belül tárolja, mivel a telepítés sikertelen lehet.  A PowerShell DSC-csomag minden RRAS virtuális gépen fut, és az Útválasztás és az összes szükséges függő szolgáltatás és szolgáltatás telepítése történik.  Ezt a DSC-t szükség esetén tovább lehet testreszabni.  Az egyéni szkriptek bővítménye a következő parancsfájlt futtatja, és a Add-Site2SiteIKE. ps1 a két RRAS-kiszolgáló között megosztott kulccsal konfigurálja a VPNS2S-alagutat.  Az egyéni szkriptek bővítményének részletes kimenetét megtekintve megtekintheti a VPN-alagút konfigurációjának eredményét.
+Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tartalmazza.  A rendszergazdának (rrasadmin) jelszót kell használnia, és a saját tárolási blobját is használhatja SAS-token használatával.  Ügyeljen arra, hogy ezeket az értékeket a jogi tartományokon belül tárolja, mivel a telepítés sikertelen lehet.  A PowerShell DSC-csomag minden RRAS virtuális gépen fut, és az Útválasztás és az összes szükséges függő szolgáltatás és szolgáltatás telepítése történik.  Ezt a DSC-t szükség esetén tovább lehet testreszabni.  Az egyéni szkriptek bővítménye a következő parancsfájlt futtatja, és Add-Site2SiteIKE.ps1 konfigurálja a VPNS2S-alagutat a két RRAS-kiszolgáló között egy megosztott kulccsal.  Az egyéni szkriptek bővítményének részletes kimenetét megtekintve megtekintheti a VPN-alagút konfigurációjának eredményét.
 
-![helyettesítő szöveg](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![A S2SVPNTunnel című diagram két, helyek közötti VPN-alagúthoz csatlakoztatott virtuális hálózatok mutat be.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
 ## <a name="next-steps"></a>Következő lépések
 

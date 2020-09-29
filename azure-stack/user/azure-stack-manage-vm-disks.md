@@ -3,16 +3,16 @@ title: VIRTUÁLIS gépek lemezes tárolásának létrehozása Azure Stack közpo
 description: Lemezek létrehozása a Azure Stack hub virtuális gépei számára.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 757b978012fc1b17362343309d57c0df09862a98
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: 7da3f2b488444e0868099cfe34e6ebfff56926ea
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032841"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107159"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>VIRTUÁLIS gépek lemezes tárolásának létrehozása Azure Stack központban
 
@@ -40,7 +40,7 @@ Virtuális gépek létrehozásakor ugyanazt a Storage-fiókot használhatja mind
 
 A következő táblázat összefoglalja, hogyan adhat hozzá lemezeket a portál használatával és a PowerShell használatával:
 
-| Módszer | Beállítások
+| Metódus | Beállítások
 |-|-|
 |Felhasználói portál| -Új adatlemezek hozzáadása egy meglévő virtuális géphez. Az új lemezeket Azure Stack hub hozza létre. </br> </br> -Meglévő lemez (. vhd) fájl hozzáadása egy korábban létrehozott virtuális géphez. Ehhez elő kell készítenie a. vhd fájlt, majd fel kell töltenie Azure Stack hubhoz. |
 |[PowerShell](#use-powershell-to-add-multiple-disks-to-a-vm) | – Hozzon létre egy új virtuális gépet operációsrendszer-lemezzel, és egy időben adjon hozzá egy vagy több adatlemezt a virtuális géphez. |
@@ -54,7 +54,7 @@ Miután létrehozta a virtuális gépet, a portálon a következőket végezheti
 * Hozzon létre egy új adatlemezt, és csatolja a virtuális géphez.
 * Töltsön fel egy meglévő adatlemezt, és csatolja a virtuális géphez.
 
-Minden hozzáadott nem felügyelt lemezt külön tárolóba kell helyezni.
+Minden nem felügyelt lemezt helyezzen el egy külön tárolóba.
 
 > [!NOTE]  
 > Az Azure által létrehozott és kezelt lemezeket [felügyelt lemeznek](/azure/virtual-machines/windows/managed-disks-overview)nevezzük.
@@ -65,15 +65,15 @@ Minden hozzáadott nem felügyelt lemezt külön tárolóba kell helyezni.
    ![Példa: VM-irányítópult](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2. Válasszon ki egy korábban létrehozott virtuális gépet.
-   ![Példa: válasszon egy virtuális gépet az irányítópulton](media/azure-stack-manage-vm-disks/select-a-vm.png)
+   ![A kiválasztott virtuális gépet bemutató képernyőkép.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. A virtuális gép esetében válassza a **lemezek**elemet, majd **adja hozzá az adatlemezt**.
-   ![Példa: új lemez csatolása a virtuális géphez](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   ![Képernyőkép, amely bemutatja, hogyan csatolhat egy új lemezt a virtuális géphez.](media/azure-stack-manage-vm-disks/Attach-disks.png)
 
 4. Adatlemez esetén:
    * Adja meg a **LUN**-t. A logikai egységnek érvényes számnak kell lennie.
    * Válassza a **lemez létrehozása**lehetőséget.
-   ![Példa: új lemez csatolása a virtuális géphez](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+   ![Képernyőkép, amely bemutatja, hogyan hozhat létre egy új adatlemezt.](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
 5. A **felügyelt lemez létrehozása** panelen:
    * Adja meg a lemez **nevét** .
@@ -114,26 +114,26 @@ További információ a Azure Stack hub Storage-fiókjainak használatáról: [a
 2. Válassza ki azt a **tárolót** , ahová az adatlemezt helyezni kívánja. A **tárolók** panelen új tárolót hozhat létre, ha szeretné. Ezután módosíthatja az új lemez helyét a saját tárolóján. Ha az egyes lemezekhez külön tárolót használ, a teljesítményt javító adatlemez elhelyezését terjeszti.
 3. Válassza **a kijelölés lehetőséget** a kijelölés mentéséhez.
 
-    ![Példa: válasszon egy tárolót](media/azure-stack-manage-vm-disks/select-container.png)
+    ![A tároló kiválasztását bemutató képernyőkép.](media/azure-stack-manage-vm-disks/select-container.png)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Meglévő adatlemez csatolása egy virtuális géphez
 
 1. [Készítse elő a](/azure/virtual-machines/windows/classic/createupload-vhd) virtuális gép adatlemezként való használatára szolgáló. vhd-fájlt. Töltse fel a. vhd fájlt egy olyan Storage-fiókba, amelyet azzal a virtuális géppel használ, amelyhez csatlakoztatni kívánja a. vhd-fájlt.
 
     - Tervezze meg egy másik tároló használatát, hogy a. vhd fájlt tárolja, mint az operációsrendszer-lemezt tartalmazó tároló.  
-    - A virtuális merevlemezek Azure-ba való feltöltése előtt kövesse az Azure-ba való [feltöltéshez szükséges Windows VHD vagy VHDX előkészítését](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)ismertető témakört.
-    - A Migrálás megkezdése előtt tekintse át [a Managed Disks áttelepítésének tervét](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+    - A virtuális merevlemezek Azure-ba való feltöltése előtt kövesse az Azure-ba való [feltöltéshez szükséges Windows VHD vagy VHDX előkészítését](/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)ismertető témakört.
+    - A Migrálás megkezdése előtt tekintse át [a Managed Disks áttelepítésének tervét](/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks) [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview).
 
     ![Példa: VHD-fájl feltöltése](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2. A. vhd-fájl feltöltése után készen áll a virtuális merevlemez csatlakoztatására egy virtuális géphez. A bal oldali menüben válassza a **virtuális gépek**lehetőséget.  
- ![Példa: válasszon egy virtuális gépet az irányítópulton](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+2. A. vhd-fájl feltöltése után készen áll a virtuális merevlemez csatlakoztatására egy virtuális géphez. A bal oldali menüben válassza a  **virtuális gépek**lehetőséget.  
+ ![A kiválasztott virtuális gépeket bemutató képernyőkép.](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3. Válassza ki a virtuális gépet a listából.
 
     ![Példa: válasszon egy virtuális gépet az irányítópulton](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4. A virtuális gép lapján válassza a **lemezek**, majd a **meglévő csatolása**lehetőséget.
+4. A virtuális gép lapján válassza a **lemezek**, majd a  **meglévő csatolása**lehetőséget.
 
     ![Példa: meglévő lemez csatolása](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
@@ -209,7 +209,7 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
 
 #### <a name="add-managed-disks"></a>Felügyelt lemezek hozzáadása
 
-A következő három parancs felügyelt adatlemezeket ad hozzá a szolgáltatásban `$VirtualMachine`tárolt virtuális géphez. Az egyes parancsok a lemez nevét és további tulajdonságait határozzák meg:
+A következő három parancs felügyelt adatlemezeket ad hozzá a szolgáltatásban tárolt virtuális géphez `$VirtualMachine` . Az egyes parancsok a lemez nevét és további tulajdonságait határozzák meg:
 
 ```powershell
 $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
@@ -229,7 +229,7 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                                         -CreateOption Empty
 ```
 
-A következő parancs egy operációsrendszer-lemezt telepít felügyelt lemezként a-ben `$VirtualMachine`tárolt virtuális géphez.
+A következő parancs egy operációsrendszer-lemezt telepít felügyelt lemezként a-ben tárolt virtuális géphez `$VirtualMachine` .
 
 ```powershell
 # Set OS Disk
@@ -240,7 +240,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
 
 #### <a name="add-unmanaged-disks"></a>Nem felügyelt lemezek hozzáadása
 
-A következő három parancs három nem felügyelt adatlemez elérési útját rendeli `$DataDiskVhdUri02`hozzá a `$DataDiskVhdUri03` , a és a `$DataDiskVhdUri01`változóhoz. Adjon meg másik elérési utat az URL-címben a lemezek különböző tárolókra való terjesztéséhez:
+A következő három parancs három nem felügyelt adatlemez elérési útját rendeli hozzá a `$DataDiskVhdUri01` , a `$DataDiskVhdUri02` és a `$DataDiskVhdUri03` változóhoz. Adjon meg másik elérési utat az URL-címben a lemezek különböző tárolókra való terjesztéséhez:
 
 ```powershell
 $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
@@ -254,7 +254,7 @@ $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.
 $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
 ```
 
-A következő három parancs adatlemezeket ad hozzá a szolgáltatásban tárolt `$VirtualMachine`virtuális géphez. Az egyes parancsok a lemez nevét és további tulajdonságait határozzák meg. Az egyes lemezek URI- `$DataDiskVhdUri01`ja a (z `$DataDiskVhdUri02`), `$DataDiskVhdUri03`és rendszerekben tárolódik:
+A következő három parancs adatlemezeket ad hozzá a szolgáltatásban tárolt virtuális géphez `$VirtualMachine` . Az egyes parancsok a lemez nevét és további tulajdonságait határozzák meg. Az egyes lemezek URI-ja a (z), és rendszerekben tárolódik `$DataDiskVhdUri01` `$DataDiskVhdUri02` `$DataDiskVhdUri03` :
 
 ```powershell
 $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
@@ -274,7 +274,7 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                                         -VhdUri $DataDiskVhdUri03 -CreateOption Empty
 ```
 
-A következő parancsok egy nem felügyelt operációsrendszer-lemezt vesznek fel a ben `$VirtualMachine`tárolt virtuális gépre.
+A következő parancsok egy nem felügyelt operációsrendszer-lemezt vesznek fel a ben tárolt virtuális gépre `$VirtualMachine` .
 
 ```powershell
 # Set OS Disk
@@ -303,7 +303,7 @@ Az alábbi példák a PowerShell-parancsok használatával három adatlemezt ves
 
 #### <a name="get-virtual-machine"></a>Virtuális gép beolvasása
 
- Az első parancs lekéri a **VirtualMachine** nevű virtuális gépet a **Get-AzureRmVM** parancsmag használatával. A parancs a (z) `$VirtualMachine` változóban tárolja a virtuális gépet:
+ Az első parancs lekéri a **VirtualMachine** nevű virtuális gépet a **Get-AzureRmVM** parancsmag használatával. A parancs a (z) változóban tárolja a virtuális gépet `$VirtualMachine` :
 
 ```powershell
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
@@ -312,7 +312,7 @@ $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
 
 #### <a name="add-managed-disk"></a>Felügyelt lemez hozzáadása
 
-A következő három parancs hozzáadja a felügyelt adatlemezeket a `$VirtualMachine` változóban tárolt virtuális géphez. Az egyes parancsok a lemez nevét és további tulajdonságait határozzák meg:
+A következő három parancs hozzáadja a felügyelt adatlemezeket a változóban tárolt virtuális géphez `$VirtualMachine` . Az egyes parancsok a lemez nevét és további tulajdonságait határozzák meg:
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" -Lun 0 `
@@ -331,7 +331,7 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
 
 #### <a name="add-unmanaged-disk"></a>Nem felügyelt lemez hozzáadása
 
-A következő három parancs három adatlemez elérési útját rendeli `$DataDiskVhdUri02`hozzá a `$DataDiskVhdUri03` , a és a `$DataDiskVhdUri01`változóhoz. A VHD URI-k különböző elérési útjai különböző tárolókat jeleznek a lemez elhelyezéséhez:
+A következő három parancs három adatlemez elérési útját rendeli hozzá a `$DataDiskVhdUri01` , a `$DataDiskVhdUri02` és a `$DataDiskVhdUri03` változóhoz. A VHD URI-k különböző elérési útjai különböző tárolókat jeleznek a lemez elhelyezéséhez:
 
 ```powershell
 $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
@@ -345,7 +345,7 @@ $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.
 $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
 ```
 
-A következő három parancs hozzáadja az adatlemezeket a `$VirtualMachine` változóban tárolt virtuális géphez. Az egyes parancsok a lemez nevét, helyét és további tulajdonságait határozzák meg. Az egyes lemezek URI- `$DataDiskVhdUri01`ja a (z `$DataDiskVhdUri02`), `$DataDiskVhdUri03`és rendszerekben tárolódik:
+A következő három parancs hozzáadja az adatlemezeket a változóban tárolt virtuális géphez `$VirtualMachine` . Az egyes parancsok a lemez nevét, helyét és további tulajdonságait határozzák meg. Az egyes lemezek URI-ja a (z), és rendszerekben tárolódik `$DataDiskVhdUri01` `$DataDiskVhdUri02` `$DataDiskVhdUri03` :
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" `
@@ -367,12 +367,12 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
 
 #### <a name="update-virtual-machine-state"></a>Virtuális gép állapotának frissítése
 
-Ez a parancs frissíti a ben tárolt `$VirtualMachine` virtuális gép állapotát: `-ResourceGroupName`
+Ez a parancs frissíti a ben tárolt virtuális gép állapotát `$VirtualMachine` `-ResourceGroupName` :
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért tekintse meg az [Azure stack Hub Virtual Machinesával kapcsolatos szempontokat](azure-stack-vm-considerations.md).
