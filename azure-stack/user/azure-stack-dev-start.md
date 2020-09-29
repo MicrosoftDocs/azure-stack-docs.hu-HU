@@ -3,16 +3,16 @@ title: Fejlesztési környezet beállítása Azure Stack központban
 description: Ismerkedjen meg Azure Stack hub-alkalmazások fejlesztésével.
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 7/23/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d86797e7239b32e779567942b2c53c1ae58d94c8
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661005"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920678"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Fejlesztési környezet beállítása Azure Stack központban 
 
@@ -106,7 +106,7 @@ Ha Windows 10 rendszerű gépet használ, a PowerShell 5,0 és a Visual Studio s
 
 Ha Linux rendszerű gépet használ, használhatja az Azure CLI-t, a Visual Studio Code-ot vagy a saját előnyben részesített integrált fejlesztői környezetét. 
 
-> [!Note]   
+> [!NOTE]   
 > Ha Linux rendszerű gépet használ a ASDK, a távoli gépnek ugyanabban a hálózaton kell lennie, mint a ASDK. Nem lehet csatlakozni virtuális magánhálózati kapcsolat használatával. 
 
 ### <a name="set-up-your-tools"></a>Az eszközök beállítása 
@@ -135,7 +135,7 @@ Ha Linux rendszerű gépet használ, használhatja az Azure CLI-t, a Visual Stud
 
 A macOS rendszerű gépek lehetővé teszik az Azure CLI és a Visual Studio Code vagy a saját előnyben részesített integrált fejlesztési környezet használatát. 
 
-> [!Note]   
+> [!NOTE]   
 > Ha macOS rendszerű gépet használ a ASDK, a távoli gépnek ugyanabban a hálózaton kell lennie, mint a ASDK. Nem lehet csatlakozni virtuális magánhálózati kapcsolat használatával. 
 
 ### <a name="set-up-your-tools"></a>Az eszközök beállítása 
@@ -160,6 +160,6 @@ A macOS rendszerű gépek lehetővé teszik az Azure CLI és a Visual Studio Cod
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 
 Ha Azure Stack hub erőforrásait szeretné központilag telepíteni, tekintse meg [az Azure stack hub általános telepítéseit](azure-stack-dev-start-deploy-app.md)ismertető témakört.

@@ -3,20 +3,20 @@ title: Azure Monitor használata a tárolók számára Azure Stack központban
 description: Megtudhatja, hogyan használhatja a Azure Monitor for containers szolgáltatást Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 9/2/2020
+ms.openlocfilehash: 3535a60a7689250e88b9839a071265d8f28eb92a
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068992"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472782"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Monitor használata a tárolók számára Azure Stack központban
 
-Az [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) for containers használatával figyelheti a tárolókat egy Kubernetes-fürtben a Azure stack hub-ban. 
+Az [Azure monitor](/azure/azure-monitor/) for containers használatával figyelheti a tárolókat egy Kubernetes-fürtben a Azure stack hub-ban. 
 
 > [!IMPORTANT]
 > A Azure Stack hub tárolók Azure Monitor jelenleg nyilvános előzetes verzióban érhető el.
@@ -38,7 +38,7 @@ A rendszer a [Helm](https://helm.sh/) diagram segítségével is telepítheti a 
 
 Megadhat egy **addont** az AK-motor fürt specifikációjának JSON-fájljában. Ezt a fájlt API-modellnek is nevezik. Ebben az addonban adja meg az Azure Log Analytics munkaterület **WorkspaceGUID** és **WorkspaceKey** Base64 kódolású verzióját, ahol a figyelési adatokat tárolni fogja.
 
-Az Azure Stack hub-fürt támogatott API-definíciói a következő példában találhatók: [kubernetes-Container-monitoring_existing_workspace_id_and_key. JSON](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Pontosabban keresse meg az **addons** tulajdonságot a **kubernetesConfig**-ben:
+Az Azure Stack hub-fürt támogatott API-definíciói a következő példában találhatók: [kubernetes-container-monitoring_existing_workspace_id_and_key.js](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Pontosabban keresse meg az **addons** tulajdonságot a **kubernetesConfig**-ben:
 
 ```JSON  
  "orchestratorType": "Kubernetes",
@@ -56,7 +56,7 @@ Az Azure Stack hub-fürt támogatott API-definíciói a következő példában t
        }
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
-- További információ a [tárolók Azure monitoráról – áttekintés](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
+- További információ a [tárolók Azure monitoráról – áttekintés](/azure/azure-monitor/insights/container-insights-overview)

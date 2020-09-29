@@ -3,28 +3,28 @@ title: Ismerkedés a Azure Stack HCI és a Windows felügyeleti központ haszná
 description: Gyorsan csatlakozhat egy meglévő Azure Stack HCI-fürthöz, és a Windows felügyeleti központ segítségével figyelheti a fürt és a tároló teljesítményét.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: efd0922639f628bfea0f2c78755b10de0053bc1f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: 67ba53d7daf5bb335283f328579439f192d0020b
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80986388"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742418"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Ismerkedés a Azure Stack HCI és a Windows felügyeleti központ használatába
 
-> A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör útmutatást nyújt a Windows felügyeleti központ telepítéséhez, a Azure Stack HCI-fürthöz való csatlakozáshoz, valamint a fürt és a tárolók teljesítményének figyeléséhez.
+Ez a témakör útmutatást nyújt egy Azure Stack HCI-fürthöz való csatlakozáshoz, valamint a fürt és a tároló teljesítményének figyeléséhez. Ha még nem állított be fürtöt, [töltse le Azure stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/) -t, és tekintse meg az [üzembe helyezés áttekintése](deploy/deployment-overview.md) című témakört.
 
 ## <a name="install-windows-admin-center"></a>A Windows felügyeleti központ telepítése
 
-A Windows felügyeleti központ telepítésének legegyszerűbb módja egy helyi Windows 10 rendszerű számítógép, bár a helyi rendszergazda csoport tagjának kell lennie.
+A Windows felügyeleti központ egy helyileg üzembe helyezett, böngészőalapú alkalmazás Azure Stack HCI kezeléséhez. A [Windows felügyeleti központ telepítésének](/windows-server/manage/windows-admin-center/deploy/install) legegyszerűbb módja a helyi felügyeleti számítógép (asztali mód), de telepítheti is a kiszolgálót (szolgáltatási mód).
 
-1. Töltse le a [Windows felügyeleti központot](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) a Microsoft próbaverziós központból. Annak ellenére, hogy "megkezdi a kiértékelését", ez a Windows Server-licenc részét képező általánosan elérhető verzió éles használatra.
-2. Futtassa a WindowsAdminCenter. msi fájlt a telepítéshez.
-3. Amikor első alkalommal indítja el a Windows felügyeleti központot, egy ikon jelenik meg az asztal értesítési területén. Kattintson a jobb gombbal erre az ikonra, majd válassza a Megnyitás lehetőséget az eszköz megnyitásához az alapértelmezett böngészőben. Győződjön meg arról, hogy a Windows felügyeleti központ ügyféltanúsítványt választja, amikor a rendszer rákérdez a tanúsítvány kiválasztására.
+Ha a Windows felügyeleti központot egy kiszolgálóra telepíti, a CredSSP igénylő feladatokat (például a fürtök létrehozását és a frissítések és bővítmények telepítését) olyan fiókkal kell megkövetelni, amely az átjáró-rendszergazdák csoport tagja a Windows felügyeleti központ kiszolgálóján. További információkért tekintse meg a [felhasználói Access Control és engedélyek konfigurálásának](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)első két fejezetét.
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Azure Stack HCI-fürt hozzáadása és kapcsolódás
 
@@ -35,7 +35,7 @@ A Windows felügyeleti központ telepítésének befejezése után hozzáadhat e
     :::image type="content" source="media/get-started/addcluster.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 2. Válasszon egy Windows Server-fürtöt:
-    
+
     :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="A kapcsolattípus kiválasztása képernyőfelvétel":::
 
 3. Írja be a kezelendő fürt nevét, és kattintson a **Hozzáadás**gombra. A rendszer hozzáadja a fürtöt a kapcsolatok listájához az Áttekintés oldalon.
@@ -112,15 +112,15 @@ A Teljesítményfigyelő eszközzel valós időben tekintheti meg és hasonlíth
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>Azure Monitor használata figyeléshez és riasztásokhoz
 
-Használhatja a [Azure monitor](/windows-server/manage/windows-admin-center/azure/azure-monitor) (Azure-előfizetést igényel) az események és teljesítményszámlálók elemzéshez és jelentéskészítéshez való gyűjtéséhez, műveleteket hajthat végre egy adott feltétel észlelésekor, és e-mailben fogadja az értesítéseket. Kattintson az **eszközök** menü **Azure monitor** elemére, hogy közvetlenül kapcsolódjon az Azure-hoz a Windows felügyeleti központból.
+Az elemzéshez és jelentéskészítéshez [Azure monitor](manage/azure-monitor.md) is használhatja az események és teljesítményszámlálók összegyűjtéséhez, műveleteket hajthat végre egy adott feltétel észlelésekor, és e-mailben fogadhat értesítéseket. Kattintson az **eszközök** menü **Azure monitor** elemére, hogy közvetlenül kapcsolódjon az Azure-hoz a Windows felügyeleti központból.
 
 ## <a name="collect-diagnostics-information"></a>Diagnosztikai adatok gyűjtése
 
 Válassza az **eszközök** menü **diagnosztika** elemét, hogy információkat gyűjtsön a fürttel kapcsolatos hibaelhárítási problémákról. Ha Microsoft ügyfélszolgálata hív meg, kérheti ezeket az adatokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-A Teljesítményfigyelés mélyebb betekintést nyújt a következő helyen:
+Az Azure Stack HCI-fürtök monitorozásával kapcsolatos további információkért lásd még:
 
 - [Közvetlen tárolóhelyek teljesítményének előzményei](/windows-server/storage/storage-spaces/performance-history)
 - [Azure Stack HCI figyelése Azure Monitor](manage/azure-monitor.md)

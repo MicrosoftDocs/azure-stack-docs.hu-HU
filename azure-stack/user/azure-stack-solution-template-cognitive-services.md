@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780772"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920627"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 
@@ -55,7 +55,7 @@ A tárolók támogatása jelenleg nyilvános előzetes verzióban érhető el az
 
 Az Azure Stack hub-ban a magas rendelkezésre állás és a rugalmas skálázás érdekében helyezzen üzembe Cognitive Services tárolókat egy Kubernetes-fürtön, valamint az alkalmazás-tárolókat. A kognitív szolgáltatásokat a App Services, a functions, a blob Storage, az SQL vagy a mySQL-adatbázisokra épülő összetevőkkel kombinálva fejlesztheti alkalmazásait.
 
-A Cognitive Services tárolókkal kapcsolatos további információkért nyissa meg a [tárolók támogatása az Azure-ban Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
+A Cognitive Services tárolókkal kapcsolatos további információkért nyissa meg a [tárolók támogatása az Azure-ban Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
 ## <a name="deploy-the-azure-face-api"></a>Az Azure Face API üzembe helyezése
 
@@ -65,7 +65,7 @@ Ez a cikk azt ismerteti, hogyan helyezhető üzembe az Azure Face API egy Kubern
 
 A Kezdés előtt a következőket kell tennie:
 
-1.  Kérje a tároló beállításjegyzékének elérését, hogy az Azure Cognitive Services Container Registryról olvassa el a Face Container-lemezképeket. Részletekért lásd: [hozzáférés kérése a Private Container registryhez](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
+1.  Kérje a tároló beállításjegyzékének elérését, hogy az Azure Cognitive Services Container Registryról olvassa el a Face Container-lemezképeket. Részletekért lásd: [hozzáférés kérése a Private Container registryhez](/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry).
 
 2.  Készítse elő a Kubernetes-fürtöt Azure Stack hub-on. A [Kubernetes üzembe helyezése Azure stack hubhoz című](azure-stack-solution-template-kubernetes-deploy.md)cikkben olvashat.
 
@@ -73,9 +73,9 @@ A Kezdés előtt a következőket kell tennie:
 
 Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, LUIS vagy szövegfelismerés tárolók előzetes verziójának megtekintéséhez. Az erőforrásból az előfizetési kulcs és a végpont URL-címét kell használnia a kognitív szolgáltatás tárolóinak létrehozásához.
 
-1. Hozzon létre egy Azure-erőforrást a Azure Portal. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Hozzon létre egy Azure-erőforrást a Azure Portal. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](/azure/cognitive-services/cognitive-services-apis-create-account).
 
-   > [!Note]
+   > [!NOTE]
    >  Az arc vagy Computer Vision erőforrásnak a F0 díjszabási szintjét kell használnia.
 
 2. Az Azure-erőforrás végponti URL-címének és előfizetési kulcsának beolvasása. Miután létrehozta az Azure-erőforrást, az adott erőforrás előfizetési kulcs és végpont URL-címe alapján hozza létre a megfelelő Face, LUIS vagy szövegfelismerés tárolót az előzetes verzióhoz.
@@ -144,10 +144,10 @@ Ebben a YAML konfigurálja a fájlt, és használja azt a titkot, amellyel beolv
 
 A legfontosabb mezők részletei:
 
-| Mező | Megjegyzések |
+| Mező | Jegyzetek |
 | --- | --- |
 | replicaNumber | Meghatározza a létrehozandó példányok kezdeti replikáit. A telepítést később is méretezheti. |
-| ImageLocation | Azt jelzi, hogy az adott kognitív szolgáltatás tárolójának képe hol található az ACR-ben. Például a Face szolgáltatás:`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
+| ImageLocation | Azt jelzi, hogy az adott kognitív szolgáltatás tárolójának képe hol található az ACR-ben. Például a Face szolgáltatás: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett végpont URL-címe |
 | ApiKey | Az [Azure-erőforrás létrehozása](#create-azure-resources) lépésben feljegyzett előfizetési kulcs |
 | SecretName | A [Kubernetes titkos kulcs létrehozása](#create-a-kubernetes-secret) című lépésben létrehozott titkos név |
@@ -168,7 +168,7 @@ A következő parancs használata az üzembe helyezésének figyelésére:
 
 A munkavégző csomópontoknak proxyra és SSL-re van szükségük. Ha HTTP-proxyt szeretne konfigurálni a kimenő kérelmek végrehajtásához, használja a következő két argumentumot:
 
-- **HTTP_PROXY** – a használni kívánt proxy, például:`https://proxy:8888`
+- **HTTP_PROXY** – a használni kívánt proxy, például: `https://proxy:8888`
 - **HTTP_PROXY_CREDS** – a proxyn való hitelesítéshez szükséges hitelesítő adatok, például: `username:password` .
 
 ### <a name="set-up-the-proxy"></a>A proxy beállítása
@@ -205,7 +205,7 @@ A külső IP-címet a következő paranccsal kérheti le:
 
 ## <a name="try-the-services-with-python"></a>A szolgáltatások kipróbálása a Pythonral
 
-Néhány egyszerű Python-szkript futtatásával megpróbálhatja érvényesíteni a Azure Stack hub kognitív szolgáltatásait. Az Ön referenciájának [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), [text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)és [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (Luis) hivatalos Python gyors példákat tartalmaz.
+Néhány egyszerű Python-szkript futtatásával megpróbálhatja érvényesíteni a Azure Stack hub kognitív szolgáltatásait. Az Ön referenciájának [Computer Vision](/azure/cognitive-services/computer-vision/home), [Face](/azure/cognitive-services/face/overview), [text Analytics](/azure/cognitive-services/text-analytics/overview)és [Language Understanding](/azure/cognitive-services/luis/luis-container-howto) (Luis) hivatalos Python gyors példákat tartalmaz.
 
 Két dolgot kell szem előtt tartani, amikor Python-alkalmazásokat használ a tárolókban futó szolgáltatások ellenőrzésére: 
 1. A tárolókban a kognitív szolgáltatásoknak nincs szükségük alárendelt kulcsokra a hitelesítéshez, de az SDK-nak megfelelő karakterláncot kell megadnia helyőrzőként. 
@@ -232,12 +232,12 @@ print(faces)
 
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Computer Vision API tárolók telepítése és futtatása.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+[Computer Vision API tárolók telepítése és futtatása.](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[Face API tárolók telepítése és futtatása](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
+[Face API tárolók telepítése és futtatása](/azure/cognitive-services/face/face-how-to-install-containers)
 
-[Text Analytics API tárolók telepítése és futtatása](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
+[Text Analytics API tárolók telepítése és futtatása](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
-[Language Understanding-(LIUS-) tárolók telepítése és futtatása](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)
+[Language Understanding-(LIUS-) tárolók telepítése és futtatása](/azure/cognitive-services/luis/luis-container-howto)

@@ -3,39 +3,39 @@ title: Kötetek megtervezése Azure Stack HCI-ben
 description: A tárolási kötetek megtervezése Azure Stack HCI-ben.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/06/2020
-ms.openlocfilehash: c6410e4f0d60138ce773f7f0abfae1a5c1850bd2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/27/2020
+ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79095014"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742539"
 ---
-# <a name="planning-volumes-in-storage-spaces-direct"></a>Kötetek tervezése Közvetlen tárolóhelyek
+# <a name="plan-volumes-in-azure-stack-hci"></a>Kötetek megtervezése Azure Stack HCI-ben
 
-> A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör útmutatást nyújt a kötetek Közvetlen tárolóhelyekban történő megtervezéséhez a számítási feladatok teljesítményének és kapacitásának kielégítése érdekében, beleértve a fájlrendszer, a rugalmasság típusa és a méret kiválasztását.
+Ez a témakör útmutatást nyújt a kötetek Azure Stack HCI-ben történő megtervezéséhez, hogy megfeleljenek a számítási feladatok teljesítményének és kapacitásának, például a fájlrendszer, a rugalmasság típusa és a méret kiválasztásával.
 
 ## <a name="review-what-are-volumes"></a>Áttekintés: Mik a kötetek?
 
-A köteteken a számítási feladatok szükségesek, például VHD-vagy VHDX-fájlok a Hyper-V virtuális gépekhez. A kötetek egyesítik a tároló meghajtóit, hogy bevezessék a hibatűrést, a méretezhetőséget és a Közvetlen tárolóhelyek teljesítményének előnyeit.
+A köteteken a számítási feladatok szükségesek, például VHD-vagy VHDX-fájlok a Hyper-V virtuális gépekhez. A kötetek egyesítik a Storage-készlet meghajtóit, hogy bevezessék a hibatűrést, a méretezhetőséget és a [közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)teljesítményének előnyeit, valamint a Azure stack HCI mögötti szoftver által meghatározott tárolási technológiát.
 
    >[!NOTE]
    > A Közvetlen tárolóhelyek dokumentációjában a "kötet" kifejezést használjuk, hogy közösen hivatkozzon a kötetre és a virtuális lemezre, beleértve a más beépített Windows-funkciók, például a fürt megosztott kötetei (CSV) és a ReFS által nyújtott funkciókat is. A megvalósítási szintű különbségtétel nem szükséges a Közvetlen tárolóhelyek sikeres tervezéséhez és üzembe helyezéséhez.
 
-![Mik a kötetek](media/plan-volumes/what-are-volumes.png)
+![A diagram három olyan mappát mutat be, amelyek kötetként címkézett virtuális lemezzel vannak társítva, amelyek mindegyike egy közös tárolóeszközhöz van társítva.](media/plan-volumes/what-are-volumes.png)
 
-Minden kötet a fürt összes kiszolgálója számára elérhető. A létrehozás után a **C:\ClusterStorage\\ ** az összes kiszolgálón megjelennek.
+Minden kötet a fürt összes kiszolgálója számára elérhető. A létrehozás után a **C:\ClusterStorage \\ ** az összes kiszolgálón megjelennek.
 
-![CSV-mappa – képernyőfelvétel](media/plan-volumes/csv-folder-screenshot.png)
+![A képernyőfelvételen egy ClusterStorage nevű fájlkezelő ablak látható, amely a Volume1, a indítása kötet2 és a Volume3 nevű köteteket tartalmazza.](media/plan-volumes/csv-folder-screenshot.png)
 
 ## <a name="choosing-how-many-volumes-to-create"></a>A létrehozandó kötetek számának kiválasztása
 
 Azt javasoljuk, hogy a kötetek számát a fürtben lévő kiszolgálók számának többszörösére állítsa. Ha például 4 kiszolgálóval rendelkezik, akkor a 4 teljes kötettel konzisztens teljesítményt fog tapasztalni, mint 3 vagy 5. Ez lehetővé teszi a fürt számára, hogy a "tulajdonos" kötetet (az egyik kiszolgáló kezeli az egyes kötetek metaadat-összehangolása) egyenletesen a kiszolgálók között.
 
-Javasoljuk, hogy a Windows Server 2019 rendszerű kötetek teljes számát 64 kötetre korlátozza.
+Azt javasoljuk, hogy fürtre korlátozza a kötetek teljes számát 64 kötetre.
 
 ## <a name="choosing-the-filesystem"></a>A fájlrendszer kiválasztása
 
@@ -55,21 +55,21 @@ A Közvetlen tárolóhelyekban lévő kötetek rugalmasságot biztosítanak a ha
 
 ### <a name="with-two-servers"></a>Két kiszolgálóval
 
-A fürt két kiszolgálójának használatával kétirányú tükrözést használhat. Ha a Windows Server 2019-et futtatja, beágyazott rugalmasságot is használhat.
+A fürt két kiszolgálójának használatával kétirányú tükrözést használhat, vagy használhat beágyazott rugalmasságot is.
 
 A kétirányú tükrözés az összes adattal két példányt tart, egy példányt az egyes kiszolgálókon lévő meghajtókon. A tároló hatékonysága 50%; 1 TB-nyi adat írásához legalább 2 TB fizikai tárolási kapacitásra van szükség a Storage-készletben. A kétirányú tükrözések biztonságosan tolerálják az egyik hardverhiba (egy kiszolgáló vagy meghajtó) számára.
 
-![Kétirányú tükrözés](media/plan-volumes/two-way-mirror.png)
+![A diagramon látható, hogy az adatmennyiség és a másolás körkörös nyíllal történt, és mindkét kötet társítva van a kiszolgálók egyik bankjának a kötetei közé.](media/plan-volumes/two-way-mirror.png)
 
-Beágyazott rugalmasság (csak Windows Server 2019 rendszeren érhető el) adatrugalmasságot biztosít a kiszolgálók között kétirányú tükrözéssel, majd a rugalmasságot egy olyan kiszolgálón belül, amely kétirányú tükrözéssel vagy tükrözéssel gyorsított paritással rendelkezik. A beágyazás az adatrugalmasságot is biztosítja, még akkor is, ha az egyik kiszolgáló újraindul vagy elérhetetlenné válik. A tároló hatékonysága 25%, beágyazott, kétutas tükrözéssel és körülbelül 35-40%-kal a beágyazott tükrözött felgyorsított paritáson. A beágyazott rugalmasság a két hardverhiba (két meghajtó, a kiszolgáló és a megmaradt kiszolgáló meghajtója) esetében képes biztonságosan tolerálni. A hozzáadott adatrugalmasság miatt javasoljuk, hogy beágyazott rugalmasságot használjon két kiszolgálóból álló fürtök éles üzembe helyezéséhez, ha a Windows Server 2019 rendszert futtatja. További információ: [beágyazott rugalmasság](/windows-server/storage/storage-spaces/nested-resiliency).
+A beágyazott rugalmasság biztosítja az adatrugalmasságot a kiszolgálók között kétirányú tükrözéssel, majd rugalmasságot biztosít a kiszolgálón a kétirányú tükrözéssel vagy a tükrözött gyorsítású paritással. A beágyazás az adatrugalmasságot is biztosítja, még akkor is, ha az egyik kiszolgáló újraindul vagy elérhetetlenné válik. A tároló hatékonysága 25%, beágyazott, kétutas tükrözéssel és körülbelül 35-40%-kal a beágyazott tükrözött felgyorsított paritáson. A beágyazott rugalmasság a két hardverhiba (két meghajtó, a kiszolgáló és a megmaradt kiszolgáló meghajtója) esetében képes biztonságosan tolerálni. A hozzáadott adatrugalmasság miatt javasoljuk, hogy beágyazott rugalmasságot használjon két kiszolgálóból álló fürtök éles üzembe helyezéséhez. További információ: [beágyazott rugalmasság](/windows-server/storage/storage-spaces/nested-resiliency).
 
-![Beágyazott tükrözött, gyorsított paritás](media/plan-volumes/nested-mirror-accelerated-parity.png)
+![A diagram a beágyazott tükrözött felgyorsított paritást jeleníti meg, kétirányú tükrözéssel az egyes kiszolgálókon belül az egyes kiszolgálók paritási rétegéhez tartozó kétirányú tükrözéssel.](media/plan-volumes/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Három kiszolgálóval
 
 Három kiszolgáló esetén a jobb hibatűrés és teljesítmény érdekében háromutas tükrözést kell használni. A háromutas tükrözés az összes adattal három példányt tart, egy példányt az egyes kiszolgálókon található meghajtókon. A tárterület hatékonysága 33,3 százalék – 1 TB adat írásához legalább 3 TB fizikai tárolási kapacitásra van szükség a Storage-készletben. A háromutas tükrözés képes biztonságosan elviselni [legalább két hardveres problémát (meghajtó vagy kiszolgáló)](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#examples)egyszerre. Ha 2 csomópont elérhetetlenné válik, a tároló elveszíti a kvórumot, mivel a lemezek 2/3 nem érhető el, és a virtuális lemezek nem lesznek elérhetők. A csomópontok azonban leállíthatók, és egy vagy több lemez egy másik csomóponton meghiúsulhat, és a virtuális lemezek online állapotban maradnak. Ha például egy kiszolgáló újraindításakor hirtelen egy másik meghajtó vagy kiszolgáló meghibásodik, az összes adat biztonságban és folyamatosan elérhető marad.
 
-![háromutas tükrözés](media/plan-volumes/three-way-mirror.png)
+![A diagramon egy, a fizikai lemezeket tartalmazó kiszolgálóhoz társított minden kötethez tartozó, a kötet címkével ellátott és a két címkével ellátott másolat látható.](media/plan-volumes/three-way-mirror.png)
 
 ### <a name="with-four-or-more-servers"></a>Négy vagy több kiszolgálóval
 
@@ -77,7 +77,7 @@ Négy vagy több kiszolgáló esetén az egyes kötetek esetében választhat, h
 
 A kettős paritás ugyanolyan hibatűrést biztosít, mint a háromutas tükrözés, de a jobb tárolási hatékonyságot. Négy kiszolgáló esetén a tároló hatékonysága 50,0%; 2 TB-nyi adat tárolásához a Storage-készletben 4 TB fizikai tárolókapacitás szükséges. Ez 66,7 százalékkal növeli a tárolási hatékonyságot hét kiszolgálóval, és akár 80,0%-os tárolási hatékonyságot is biztosít. A kompromisszum az, hogy a paritásos kódolás nagyobb számítási igényű, ami korlátozhatja a teljesítményét.
 
-![kettős paritású](media/plan-volumes/dual-parity.png)
+![A diagramon két, a fizikai lemezeket tartalmazó kiszolgálóhoz társított kötettel rendelkező, két kötet címkézett adatai és két címkézett paritás látható.](media/plan-volumes/dual-parity.png)
 
 A használni kívánt rugalmassági típus a munkaterhelés igényeitől függ. Az alábbi táblázat összefoglalja, hogy mely számítási feladatok alkalmasak minden rugalmassági típushoz, valamint az egyes rugalmassági típusok teljesítményének és tárolásának hatékonyságát.
 
@@ -131,7 +131,7 @@ A méret különbözik a kötet *lábnyomával*, a tárterület teljes fizikai t
 
 A kötetek lábnyomait el kell helyezni a tárolóban.
 
-![méret és lábnyom](media/plan-volumes/size-versus-footprint.png)
+![A diagram egy 2 TB-os kötetet mutat be a Storage-készletben lévő 6 TB-os adatforgalomhoz képest, három megadott szorzóval.](media/plan-volumes/size-versus-footprint.png)
 
 ### <a name="reserve-capacity"></a>Kapacitás foglalása
 
@@ -139,7 +139,7 @@ Ha a tárolóban lévő egyes kapacitások nem vannak lefoglalva, a meghajtók m
 
 Javasoljuk, hogy kiszolgálóként, legfeljebb 4 meghajtón egy kapacitású meghajtó megfelelőjét őrizze meg. Saját belátása szerint továbbra is fenntarthatja magát, de ez a minimális javaslat azonnali, helyi, párhuzamos javítást tesz elérhetővé a meghajtó meghibásodása után.
 
-![tartalék](media/plan-volumes/reserve.png)
+![A diagram egy tárolóban található több lemezhez társított kötetet, valamint a tartalékként megjelölt nem társított lemezeket jeleníti meg.](media/plan-volumes/reserve.png)
 
 Ha például 2 kiszolgálóval rendelkezik, és 1 TB kapacitású meghajtókat használ, a készletbe 2 x 1 = 2 TB-ot kell kivonni tartalékként. Ha 3 kiszolgálóval és 1 TB kapacitású meghajtóval rendelkezik, állítsa 3 x 1 = 3 TB tartalékként. Ha 4 vagy több kiszolgálóval és 1 TB kapacitású meghajtóval rendelkezik, állítsa be a 4 x 1 = 4 TB-ot tartalékként.
 
@@ -176,7 +176,7 @@ A *Volume3* és a *VOLUME4* egyaránt 12 TB x 50,0 százalékos hatékonyságot 
 
 A négy kötet pontosan illeszkedik a készletben elérhető fizikai tárolási kapacitáshoz. Tökéletes!
 
-![például](media/plan-volumes/example.png)
+![A diagramon a 2 12 TB-os háromutas tükrözött kötetek láthatók 120, amelyek mindegyike a 36 TB tárterülethez és a 2 12 TB-os kettős paritású kötetekhez kapcsolódik, amelyek mindegyike 24 TB-ra van társítva.](media/plan-volumes/example.png)
 
    >[!TIP]
    > Nem kell azonnal létrehoznia az összes kötetet. Később bármikor kiterjesztheti a köteteket, vagy új köteteket hozhat létre.
@@ -187,10 +187,9 @@ Az egyszerűség kedvéért ez a példa decimális (Base-10) egységeket haszná
 
 Lásd: [kötetek létrehozása Azure stack HCI-ben](../manage/create-volumes.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információért lásd még:
 
-- [Azure Stack HCI – áttekintés](../overview.md)
 - [Meghajtók kiválasztása Közvetlen tárolóhelyekhoz](choose-drives.md)
 - [Hibatűrés és a tárolás hatékonysága](fault-tolerance.md)

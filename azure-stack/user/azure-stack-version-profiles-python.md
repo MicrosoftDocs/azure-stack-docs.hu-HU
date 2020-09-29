@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a Python használatával Azure S
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Python használatával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 88c2ecd1448a210daddd1d7da34ffea03c67a6b1
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835900"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448639"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Python használatával Azure Stack hub-ban
 
@@ -37,7 +37,7 @@ A Python SDK a következő API-profilokat támogatja:
 
 ## <a name="install-the-azure-python-sdk"></a>Az Azure Python SDK telepítése
 
-1. Telepítse a git-t [a hivatalos webhelyről](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. [Telepítse a git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)-t.
 2. A Python SDK telepítésével kapcsolatos útmutatásért lásd: az [Azure Python-fejlesztőknek](/python/azure/python-sdk-azure-install?view=azure-python).
 3. Ha nem érhető el, hozzon létre egy előfizetést, és mentse az előfizetés-azonosítót későbbi használatra. Az előfizetések létrehozásával kapcsolatos utasításokért lásd: [előfizetések létrehozása Azure stack hub-beli ajánlatokhoz](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Hozzon létre egy egyszerű szolgáltatásnevet, és mentse az azonosítót és a titkos kulcsot. Az Azure Stack hub szolgáltatáshoz való létrehozásával kapcsolatos utasításokért lásd: [alkalmazások Azure stack hub elérésének biztosítása](../operator/azure-stack-create-service-principals.md).
@@ -47,7 +47,7 @@ A Python SDK a következő API-profilokat támogatja:
 
 Ha Azure Stack hubhoz szeretné használni a Python Azure SDK-t, a következő értékeket kell megadnia, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az adott operációs rendszerre vonatkozó utasításokat az alábbi táblázatban leírtak szerint.
 
-| Érték | Környezeti változók | Description |
+| Érték | Környezeti változók | Leírás |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Bérlőazonosító | `AZURE_TENANT_ID` | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md). |
 | Ügyfél-azonosító | `AZURE_CLIENT_ID` | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. |
@@ -102,7 +102,7 @@ Ha a ASDK használja, explicit módon meg kell bíznia a távoli gépen lévő H
     ```
 
 > [!NOTE]  
-> Ha a **virtualenv** -t használja a Python SDK-hoz való fejlesztéshez, ahogy azt a [Python minta futtatása](#run-the-python-sample) szakaszban is említettük, az előző tanúsítványt hozzá kell adnia a virtuális környezet tanúsítványtárolóhoz. Az elérési út a következőhöz `..\mytestenv\Lib\site-packages\certifi\cacert.pem`hasonló lehet:.
+> Ha a **virtualenv** -t használja a Python SDK-hoz való fejlesztéshez, ahogy azt a [Python minta futtatása](#run-the-python-sample) szakaszban is említettük, az előző tanúsítványt hozzá kell adnia a virtuális környezet tanúsítványtárolóhoz. Az elérési út a következőhöz hasonló lehet: `..\mytestenv\Lib\site-packages\certifi\cacert.pem` .
 
 ## <a name="python-samples-for-azure-stack-hub"></a>Python-minták az Azure Stack hub-hoz
 
@@ -185,8 +185,8 @@ Az egyes műveletek egyértelműen egy megjegyzéssel és egy Print függvénnye
     python example.py
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Az Azure Python fejlesztői központja](https://azure.microsoft.com/develop/python/)
+- [Azure Python fejlesztői központ](https://azure.microsoft.com/develop/python/)
 - [Az Azure Virtual Machines dokumentációja](https://azure.microsoft.com/services/virtual-machines/)
 - [Képzési terv Virtual Machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/)

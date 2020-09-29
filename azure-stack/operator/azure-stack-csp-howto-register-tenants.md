@@ -3,16 +3,16 @@ title: Bérlők hozzáadása a Azure Stack hubhoz való használathoz és száml
 description: Megtudhatja, hogyan adhat hozzá bérlőt a használathoz és a számlázáshoz Azure Stack hub-ra.
 author: sethmanheim
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158384"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448571"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Bérlő hozzáadása a Azure Stack hubhoz való használathoz és számlázáshoz
 
@@ -74,7 +74,7 @@ A következő szakasz a **New-AzureRmResource** parancsmag paramétereit ismerte
 |registrationSubscriptionID | Az Azure Stack hub kezdeti regisztrálásához használt Azure-előfizetés.|
 | customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést az Azure Stack hub-ba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket. |
 | resourceGroup | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
-| registrationName | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum. 
+| registrationName | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum.
 
 > [!NOTE]  
 > A bérlőket az általuk használt Azure Stack-hubhoz kell regisztrálni. Ha két Azure Stack hub üzemelő példánya van, és a bérlő mindkettőt használja, frissítenie kell az egyes üzemelő példányok kezdeti regisztrációját a bérlői előfizetéssel.

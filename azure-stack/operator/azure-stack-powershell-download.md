@@ -3,16 +3,16 @@ title: Azure Stack hub-eszközök letöltése a GitHubról
 description: Megtudhatja, hogyan töltheti le az Azure Stack hub használatához szükséges eszközöket.
 author: mattbriggs
 ms.topic: article
-ms.date: 6/13/2020
+ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 6/13/2020
-ms.openlocfilehash: 2ab627803b1c811f131694ab58a8c53da6104774
-ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
+ms.lastreviewed: 8/28/2020
+ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84766371"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448452"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Azure Stack hub-eszközök letöltése a GitHubról
 
@@ -20,7 +20,7 @@ A **AzureStack-Tools** egy [GitHub-tárház](https://github.com/Azure/AzureStack
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Eszközök beszerzése Azure Stack hub AzureRM modulhoz
 
-Ezen eszközök beszerzéséhez klónozott a GitHub-tárházat a `master` fiókirodából, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl futtatásával:
+Ezen eszközök beszerzéséhez klónozott a GitHub-tárházat a `master` fiókirodából, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl egy emelt szintű PowerShell-parancssorból történő futtatásával:
 
 ```powershell
 # Change directory to the root directory.
@@ -55,10 +55,10 @@ cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile master.zip
+  -OutFile az.zip
 
 # Expand the downloaded files.
-expand-archive master.zip `
+expand-archive az.zip `
   -DestinationPath . `
   -Force
 
@@ -73,7 +73,7 @@ További információ az az modul Azure Stack hub-hoz való használatáról: a 
 
 A **AzureStack-Tools** adattár PowerShell-modulokkal rendelkezik, amelyek támogatják az Azure stack hub következő funkcióit:  
 
-| Funkció | Description | Kik használhatják ezt a modult? |
+| Funkció | Leírás | Kik használhatják ezt a modult? |
 | --- | --- | --- |
 | [Felhőalapú képességek](../user/azure-stack-validate-templates.md) | Ez a modul a felhő Felhőbeli képességeinek beszerzésére használható. Például olyan Felhőbeli funkciókat érhet el, mint az API-verzió és a Azure Resource Manager erőforrás. Azure Stack hub és az Azure-felhők virtuálisgép-bővítményeit is lekérheti. | Felhőalapú operátorok és felhasználók |
 | [Resource Manager-szabályzat Azure Stack hubhoz](../user/azure-stack-policy-module.md) | Ezzel a modullal konfigurálhat egy Azure-előfizetést vagy egy Azure-erőforráscsoportot ugyanazzal a verziószámozással és szolgáltatással, mint Azure Stack hub. | Felhőalapú operátorok és felhasználók |

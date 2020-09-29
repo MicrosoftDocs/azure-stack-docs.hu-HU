@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: af5aa752d48fd51712695056d771ddf333a34df0
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666387"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274109"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Kvóta típusai Azure Stack központban
 
@@ -37,17 +37,17 @@ A [kvóták](service-plan-offer-subscription-overview.md#plans) határozzák meg
 
 ## <a name="storage-quota-types"></a>Tárolási kvóták típusai
 
-| **Item** | **Alapértelmezett érték** | **Leírás** |
+| **Elem** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
 | Maximális kapacitás (GB) |2048 |Az ezen a helyen lévő előfizetések által felhasználható tárterület teljes kapacitása. Ez az érték az összes blob (beleértve a nem felügyelt lemezeket is) és az összes hozzá tartozó pillanatkép, tábla és várólista felhasznált méretének teljes mérete. |
 | A Storage-fiókok teljes száma |20 |Az előfizetés által az adott helyen létrehozható tárolási fiókok maximális száma. |
 
 > [!NOTE]
-> Ha egy előfizetésben túllépi a **maximális kapacitást (GB)** , nem hozhat létre új tárolási erőforrást ebben az előfizetésben. A virtuális gépeken ebben az előfizetésben létrehozott nem felügyelt lemezeket azonban folyamatosan használhatja, ami a kvótán kívüli teljes kapacitást is kihasználhatja.<br>A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Ezt az értéket **számítási kvótákban**állíthatja be.
+> Ha túllépte az előfizetés **maximális kapacitását (GB)** , nem hozhat létre új tárolási erőforrást az előfizetésben. Bár továbbra is létrehozhat virtuális gépeket a nem felügyelt lemezekkel, így a teljes felhasznált kapacitás túllépheti a kvóta korlátját.<br>A felügyelt lemezek maximális kapacitása el van különítve a teljes tárolási kvótától. Megadhatja a teljes tárolási kvótát a **számítási kvótákban**.
 
 ## <a name="network-quota-types"></a>Hálózati kvóták típusai
 
-| **Item** | **Alapértelmezett érték** | **Leírás** |
+| **Elem** | **Alapértelmezett érték** | **Leírás** |
 | --- | --- | --- |
 | Virtuális hálózatok maximális száma |50 |Azon virtuális hálózatok maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |
 | Virtuális hálózati átjárók maximális száma |1 |Azon virtuális hálózati átjárók (VPN-átjárók) maximális száma, amelyekhez az előfizetés létre tud hozni ezen a helyen. |

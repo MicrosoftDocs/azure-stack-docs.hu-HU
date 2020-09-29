@@ -3,16 +3,16 @@ title: Marketplace-elemek létrehozása és közzététele Azure Stack központb
 description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
-ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
+ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069136"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621316"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -22,10 +22,14 @@ Az Azure Stack hub piactéren közzétett minden elem az Azure Gallery-csomag (.
 
 A jelen cikkben szereplő példák bemutatják, hogyan hozhat létre Windows vagy Linux típusú, egyetlen virtuálisgép-Piactéri ajánlatot.
 
-## <a name="create-a-marketplace-item"></a>Piactér-elemek létrehozása
+### <a name="prerequisites"></a>Előfeltételek
 
-> [!IMPORTANT]
-> A virtuálisgép-Piactéri elem létrehozása előtt töltse fel az egyéni virtuálisgép-rendszerképet az Azure Stack hub-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása Azure stack hub-hoz](azure-stack-add-vm-image.md)című témakör útmutatását. Ezután kövesse a cikk utasításait a rendszerkép (. azpkg létrehozása) becsomagolásához, majd töltse fel az Azure Stack hub piactérre.
+A virtuális gép Marketplace-elemének létrehozása előtt tegye a következőket:
+
+1. Töltse fel az egyéni virtuálisgép-rendszerképet a Azure Stack hub-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása Azure stack hub-hoz](azure-stack-add-vm-image.md)című témakör útmutatását. 
+2. A cikk utasításait követve csomagolja ki a rendszerképet (hozzon létre egy. azpkg), és töltse fel az Azure Stack hub piactérre.
+
+## <a name="create-a-marketplace-item"></a>Piactér-elemek létrehozása
 
 Egyéni Piactéri elem létrehozásához tegye a következőket:
 
@@ -41,10 +45,12 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
    ![Képernyőfelvétel a telepítési sablonok struktúrájáról](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Cserélje le a következő Kiemelt értékeket (számokat) a sablon Manifest.jsaz [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md)megadott értékre.
+4. Cserélje le a következő Kiemelt értékeket (számokat) a sablon Manifest.jsaz [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md#add-a-platform-image)megadott értékre.
 
    > [!NOTE]  
    > A Azure Resource Manager sablonban soha ne végezzen semmilyen titkos kulcsot, például a termékkulcsot, a jelszót vagy az ügyfél által azonosítható adatokat. A sablon JSON-fájljai a katalógusban közzétett egyszeri hitelesítés nélkül érhetők el. Tárolja [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) összes titkát, és hívja meg őket a sablonból.
+
+   Javasoljuk, hogy a saját egyéni sablon közzététele előtt próbálja meg közzétenni a mintát, és ellenőrizze, hogy működik-e a környezetben. Miután ellenőrizte, hogy ez a lépés működik, törölje a mintát a katalógusból, és ismételje meg az ismétlődő módosításokat, amíg az eredmény nem teljesül.
 
    A következő sablon a fájl Manifest.jsmintája:
 
@@ -61,29 +67,19 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
         { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -113,10 +109,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     - (4) – a név, amelyet az ügyfelek látnak.
     - (5) – a közzétevő neve, amelyet az ügyfelek látnak.
     - (6) – a közzétevő jogi neve.
-    - (7) – a **UIDefinition.js** fájl tárolási helyének elérési útja.  
-    - (8) – a JSON fő sablonfájl elérési útja és neve.
-    - (9) – azoknak a kategóriáknak a neve, amelyekben ez a sablon megjelenik.
-    - (10) – az egyes ikonok elérési útja és neve.
+    - (7) – az egyes ikonok elérési útja és neve.
 
 5. Az **MS-Resource**értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterlánc/resources.js** fájlon belül:
 
@@ -130,8 +123,6 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     "documentationLink": "Documentation"
     }
     ```
-
-    ![Csomag megjelenítési ](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![ csomagja](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont az [Azure stack hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
 
@@ -186,12 +177,12 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 6. Miután sikeresen közzétette az elemet a piactéren, törölheti a tartalmat a Storage-fiókból.
 
-   > [!CAUTION]  
-   > Az alapértelmezett katalógus-összetevők és az egyéni katalógus-összetevők mostantól hitelesítés nélkül elérhetők a következő URL-címeken keresztül:  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   Az alapértelmezett katalógus-összetevők és az egyéni katalógus-összetevők mostantól hitelesítés nélkül elérhetők a következő URL-címeken keresztül:
 
-6. A Piactéri elemeket a **Remove-AzureRMGalleryItem** parancsmag használatával távolíthatja el. Például:
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. A Piactéri elemeket a **Remove-AzureRMGalleryItem** parancsmag használatával távolíthatja el. Például:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -208,7 +199,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 | Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
-| Name |X |Sztring |[A-Za-z0-9] + | |
+| Név |X |Sztring |[A-Za-z0-9] + | |
 | Publisher |X |Sztring |[A-Za-z0-9] + | |
 | Verzió |X |Sztring |[SemVer v2](https://semver.org/) | |
 
@@ -227,7 +218,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 A piactér a következő ikonokat használja:
 
-| Name | Szélesség | Height (Magasság) | Megjegyzések |
+| Name | Szélesség | Magasság | Jegyzetek |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
@@ -275,7 +266,7 @@ A Marketplace-elemek ikonjai és szövege a Azure Stack hub-portálon látható 
 
 ![Azure Stack hub Marketplace-elemek részletei panel](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub Marketplace – áttekintés](azure-stack-marketplace.md)
 - [Marketplace-elemek letöltése](azure-stack-download-azure-marketplace-item.md)

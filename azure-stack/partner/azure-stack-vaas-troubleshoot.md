@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack hub-szolgáltatás érvényesítésének hibája.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 06e9958d2311d456e977d72fe37eb88d18008092
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146971"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764800"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>A szolgáltatás érvényesítésének megoldása
 
@@ -59,7 +59,7 @@ Tekintse meg az alábbi szakaszt a **lassú hálózati kapcsolat kezeléséhez**
 
 1. Töltse le a AzCopy a következő címről: [vaasexternaldependencies (AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip).
 
-2. Bontsa ki a AzCopy. zip fájlt, és váltson a-t tartalmazó könyvtárba `AzCopy.exe` .
+2. Bontsa ki a AzCopy.zip és váltson át a-t tartalmazó könyvtárba `AzCopy.exe` .
 
 3. Nyissa meg a Windows PowerShellt egy emelt szintű parancssorból. Futtassa az alábbi parancsot:
 

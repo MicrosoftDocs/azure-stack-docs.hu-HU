@@ -4,16 +4,16 @@ description: Ismerkedjen meg az Azure Stack hub-profilok által támogatott Azur
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: a70ef2865b43732dcc7f546106d6584284762f88
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 16e34ffaeb32e4652c83a3ee668235e79190b74d
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780734"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089660"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 
@@ -55,7 +55,7 @@ A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a sze
 | Erőforrástípusok | API-verziók |
 |---------------------|--------------------|
 | Zárolások | 2016-09-01 |
-| Műveletek | 2015-07-01 |
+| Üzemeltetés | 2015-07-01 |
 | Engedélyek | 2015-07-01 |
 | Szabályzat-hozzárendelések | 2016-12-01 |
 | Szabályzatdefiníciók | 2016-12-01 |
@@ -70,7 +70,7 @@ A szerepköralapú hozzáférés-vezérlés lehetővé teszi, hogy kezelje a sze
 | Delegált szolgáltatói előfizetések | 2015-06-01 – előzetes verzió |
 | Delegált használati összesítések | 2015-06-01 – előzetes verzió |
 | Erőforrás-ráfordítás becslése | 2015-06-01 – előzetes verzió |
-| Műveletek | 2015-06-01 – előzetes verzió |
+| Üzemeltetés | 2015-06-01 – előzetes verzió |
 | Előfizető használati összesítései | 2015-06-01 – előzetes verzió |
 | Használati összesítések | 2015-06-01 – előzetes verzió |
 
@@ -86,8 +86,8 @@ Az Azure Compute API-k programozott hozzáférést biztosítanak a virtuális g�
 | Helyszínek/közzétevők | 2017-12-01 |
 | Helyszínek/használat | 2017-12-01 |
 | Helyszínek/méreteinek listáján | 2017-12-01 |
-| Műveletek | 2017-12-01 |
-| Virtuális gépek | 2017-12-01 |
+| Üzemeltetés | 2017-12-01 |
+| Virtual Machines | 2017-12-01 |
 | Virtual Machines/bővítmények | 2017-12-01 |
 | Virtual Machine Scale Sets | 2017-12-01 |
 | Virtual Machine Scale Sets/bővítmények | 2017-12-01 |
@@ -103,19 +103,19 @@ Az Azure Compute API-k programozott hozzáférést biztosítanak a virtuális g�
 | Kurátori tartalom | 2015-04-01 |
 | Kurátori kivonat | 2015-04-01 |
 | Gyűjtemény elemei | 2015-04-01 |
-| Műveletek | 2015-04-01 |
+| Üzemeltetés | 2015-04-01 |
 | Portál | 2015-04-01 |
 | Keresés | 2015-04-01 |
-| Javaslom | 2015-04-01 |
+| Ajánlás | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft. bepillantások
 
 | Erőforrástípusok | API-verziók |
 |--------------------|--------------------|
-| Műveletek | 2015-04-01 |
+| Üzemeltetés | 2015-04-01 |
 | Események típusai | 2015-04-01 |
 | Események kategóriái | 2015-04-01 |
-| Metrika-definíciók | 2018-01-01 |
+| Metrikadefiníciók | 2018-01-01 |
 | Mérőszámok | 2018-01-01 |
 | Diagnosztikai beállítások | 2017-05-01 – előzetes verzió |
 | Diagnosztikai beállítások kategóriái | 2017-05-01 – előzetes verzió |
@@ -126,8 +126,8 @@ Kezelheti Key Vaultét, valamint a kulcsokat, a titkokat és a tanúsítványoka
 
 | Erőforrástípusok | API-verziók |
 |-------------------------|--------------|
-| Műveletek | 2016-10-01 |
-| Tárolók | 2016-10-01 |
+| Üzemeltetés | 2016-10-01 |
+| Kulcstartók | 2016-10-01 |
 | Tárolók/hozzáférési szabályzatok | 2016-10-01 |
 | Tárolók/titkok | 2016-10-01 |
 
@@ -147,7 +147,7 @@ A műveleti hívás eredménye az elérhető hálózati Felhőbeli műveletek li
 | Helyszínek/használat |2017-10-01 |
 | Hálózati illesztők | 2017-10-01 |
 | Network Security Groups (Hálózati biztonsági csoportok) | 2017-10-01 |
-| Műveletek | 2017-10-01 |
+| Üzemeltetés | 2017-10-01 |
 | Nyilvános IP-cím | 2017-10-01 |
 | Útvonaltáblák | 2017-10-01 |
 | Virtuális hálózati átjáró | 2017-10-01 |
@@ -163,7 +163,7 @@ Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájá
 | Üzembe helyezések/műveletek | 2018-05-01 |
 | Hivatkozások | 2018-05-01 |
 | Helyek | 2018-05-01 |
-| Műveletek | 2018-05-01 |
+| Üzemeltetés | 2018-05-01 |
 | Szolgáltatók | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
 | További források | 2018-05-01 |
@@ -187,11 +187,11 @@ A Storage erőforrás-szolgáltató (összegző csomag) lehetővé teszi a Stora
 | CheckNameAvailability | 2017-10-01 |
 | Helyek | 2017-10-01 |
 | Helyszínek/kvóták | 2017-10-01 |
-| Műveletek | 2017-10-01 |
+| Üzemeltetés | 2017-10-01 |
 | StorageAccounts | 2017-10-01 |
 | Használat | 2017-10-01 |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
 - [Az Azure Stack hub PowerShell-környezet konfigurálása](azure-stack-powershell-configure-user.md)  

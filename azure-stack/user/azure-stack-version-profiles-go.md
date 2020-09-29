@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a GO in Azure Stack hub használ
 description: Ismerje meg, hogyan használható az API-verziók profiljai a GO in Azure Stack hub használatával.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836189"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448673"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
 
@@ -58,9 +58,9 @@ Ha Azure Stack hub-beli go Code-mintát szeretne futtatni, kövesse az alábbi l
 2. A metaadatok információinak beolvasása a Resource Manager-végpontból. A végpont egy JSON-fájlt ad vissza, amely a go-kód futtatásához szükséges információval rendelkezik.
 
    > [!NOTE]  
-   > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő:`https://management.local.azurestack.external/`  
-   > Az integrált rendszerek **ResourceManagerUrl** :`https://management.<region>.<fqdn>/`  
-   > A szükséges metaadatok beolvasása:`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+   > A Azure Stack Development Kit **ResourceManagerUrl** (ASDK) a következő: `https://management.local.azurestack.external/`  
+   > Az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/`  
+   > A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    Példa JSON-fájlra:
 
@@ -145,9 +145,9 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
    }
    ```
 
-   A `<activeDirectoryEndpoint>` `loginEndpoint` tulajdonság értékeként a dokumentum előző szakaszában beolvasott `ResourceManagerUrl` metaadatok értékét adja meg. Állítsa be `<tenantID>` az értéket az Azure stack hub-BÉRLŐi azonosítóra.
+   A `<activeDirectoryEndpoint>` tulajdonság értékeként a `loginEndpoint` `ResourceManagerUrl` dokumentum előző szakaszában beolvasott metaadatok értékét adja meg. Állítsa be az `<tenantID>` értéket az Azure stack hub-bérlői azonosítóra.
 
-4. Végül hozzon létre egy egyszerű szolgáltatásnevet a **adal** modul `NewServicePrincipalToken` metódusának használatával:
+4. Végül hozzon létre egy egyszerű szolgáltatásnevet a `NewServicePrincipalToken` **adal** modul metódusának használatával:
 
    ```go
    package main
@@ -166,8 +166,8 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
    ```
 
     A `<activeDirectoryResourceID>` "célközönség" listában szereplő értékek egyikére állítsa be a jelen cikk előző szakaszában lekért **ResourceManagerUrl** -metaadatokat.
-    Állítsa `<clientID>` be az egyszerű szolgáltatásnév alkalmazás-azonosítóját, amely akkor lett mentve, amikor a szolgáltatás a jelen cikk előző szakaszában lett létrehozva.
-    Állítsa `<clientSecret>` be az egyszerű szolgáltatásnév alkalmazás titkos kulcsát, amelyet a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentett.
+    Állítsa be `<clientID>` az egyszerű szolgáltatásnév alkalmazás-azonosítóját, amely akkor lett mentve, amikor a szolgáltatás a jelen cikk előző szakaszában lett létrehozva.
+    Állítsa be `<clientSecret>` az egyszerű szolgáltatásnév alkalmazás titkos kulcsát, amelyet a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentett.
 
 ## <a name="example"></a>Példa
 
@@ -222,7 +222,7 @@ Ez a példa egy olyan go-kódot mutat be, amely egy virtuális hálózatot hoz l
    }
    ```
 
-4. Adja hozzá `main` a metódust. A `main` metódus először egy tokent kap az előző lépésben megadott metódus használatával. Ezután létrehoz egy ügyfelet egy hálózati modul használatával a profilból. Végül létrehoz egy virtuális hálózatot.
+4. Adja hozzá a `main` metódust. A `main` metódus először egy tokent kap az előző lépésben megadott metódus használatával. Ezután létrehoz egy ügyfelet egy hálózati modul használatával a profilból. Végül létrehoz egy virtuális hálózatot.
 
    ```go
    package main
@@ -297,7 +297,7 @@ A go SDK-val a Azure Stack hub számára elérhető mintakód-minták a követke
 - [Tárolási Adatsík](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
 - [Managed Disks használata](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (a 2019-03-01 profilt használó minta, amely az Azure stack hub által támogatott legújabb API-verziókat célozza)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423887"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274075"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
 
@@ -75,6 +75,9 @@ A Csomagok egy vagy több szolgáltatás csoportjai. Azure Stack hub-kezelőkén
 
 Ajánlat létrehozásakor a szolgáltatás rendszergazdája egy alapcsomagot is tartalmazhat. Ezek az alapcsomagok alapértelmezés szerint bekerülnek, amikor egy felhasználó Előfizet erre az ajánlatra. Amikor egy felhasználó előfizet, hozzáfér az ezen alapcsomagokban megadott összes erőforrás-szolgáltatóhoz (a megfelelő kvótákkal együtt).
 
+> [!NOTE]
+> Ha egy ajánlat több alapcsomaggal rendelkezik, a csomagok együttes tárolókapacitása nem haladhatja meg a tárolási kvótát.
+
 ### <a name="add-on-plans"></a>Kiegészítő csomagok
 
 A kiegészítő csomagok az ajánlathoz hozzáadott opcionális csomagok. Alapértelmezés szerint az előfizetés nem tartalmazza a bővítmények csomagjait. A kiegészítő csomagok olyan ajánlatokban elérhető további csomagok (kvótákkal), amelyeket az előfizető hozzáadhat az előfizetésekhez. Létrehozhat például egy alapszintű csomagot korlátozott erőforrásokkal a próbaverzióhoz, valamint egy kiegészítő tervet, amely nagyobb mennyiségű erőforrást biztosít a szolgáltatás bevezetését elfogadó ügyfeleknek.
@@ -99,10 +102,14 @@ Az előfizetések lehetővé teszik a felhasználóknak az ajánlatok elérésé
 
 A felhasználók új előfizetéseket hoznak létre, és hozzáférést kapnak a meglévő előfizetésekhez Azure Stack hubhoz való bejelentkezéssel. Az egyes előfizetések egyetlen ajánlattal való társítást jelölnek. Az egyik előfizetéshez rendelt ajánlat (és annak csomagjai és kvótái) nem oszthatók meg más előfizetésekkel. A felhasználó által létrehozott összes erőforrás egy előfizetéshez van társítva.
 
+Azure Stack hub-kezelőként megtekintheti a bérlői előfizetésekkel kapcsolatos információkat, de nem férhet hozzá az előfizetések tartalmához, ha az adott előfizetés bérlői rendszergazdája explicit módon hozzáadja a RBAC-hez. Ez lehetővé teszi, hogy a bérlők a Azure Stack hub-kezelő és a bérlői szóközök között kikényszerítsék a hatalom és a felelősség elkülönítését. 
+
+Ez alól kivételt képez az az eset, amikor az előfizetés tulajdonosa nem tudja biztosítani az operátornak az előfizetéshez való hozzáférést, így a rendszergazdának el kell fogadnia az előfizetést, ahogy azt a [Azure stack hub felhasználói előfizetés számlázási tulajdonosának módosítása](azure-stack-change-subscription-owner.md)című cikkben ismertetett módon tárgyaljuk.
+
 ### <a name="default-provider-subscription"></a>Alapértelmezett szolgáltatói előfizetés
 
 A ASDK telepítésekor a rendszer automatikusan létrehozza az alapértelmezett szolgáltatói előfizetést. Ez az előfizetés használható Azure Stack hub kezelésére, további erőforrás-szolgáltatók üzembe helyezésére, valamint csomagok és ajánlatok létrehozására a felhasználók számára. Biztonsági és licencelési okokból nem használható az ügyfél-munkaterhelések és alkalmazások futtatására. Az alapértelmezett szolgáltatói előfizetés kvótája nem módosítható.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha többet szeretne megtudni a csomagok, ajánlatok és előfizetések létrehozásáról, kezdje a [terv létrehozásával](azure-stack-create-plan.md).

@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 description: Ismerje meg, hogyan használható az API-verziók profiljai a .NET SDK-val Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: f7b0aaf51e8e1b5f14e54762c710cd24ed25d5f1
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: cd3251e560cc7caa158cc3ea6f3bbd33b662bc3e
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631099"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089626"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 
@@ -60,7 +60,7 @@ Az alkalmazás összes beállítását egyesítheti.
 
 Ha Azure Stack hubhoz szeretné használni a .NET Azure SDK-t, a következő értékeket kell megadnia, majd az értékeket környezeti változókkal kell beállítania. A környezeti változók megadásához tekintse meg az adott operációs rendszer táblázatát követő utasításokat.
 
-| Érték                     | Környezeti változók   | Description                                                                                                             |
+| Érték                     | Környezeti változók   | Leírás                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Bérlőazonosító                 | `AZURE_TENANT_ID `      | Az Azure Stack hub- [*bérlő azonosítójának*][]értéke.                                                                          |
 | Ügyfél-azonosító                 | `AZURE_CLIENT_ID `      | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. |

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan érvényesítheti az OEM-csomagokat Azure Stack hub-érvényesítés szolgáltatásként.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d62dcd1414edbc38b4407d980b7af974190c390
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: e475b498895d2c1398ffddb13b1af7baa10d2e90
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661414"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764868"
 ---
 # <a name="validate-oem-packages"></a>OEM-csomagok ellenőrzése
 
@@ -48,7 +48,7 @@ Hozzon létre egy tárolót a Storage-fiókban a csomagok Blobok számára. Ez a
 1. Készítse elő az érvényesíteni kívánt csomagot. Ez egy olyan `.zip` fájl, amelynek tartalmának meg kell egyeznie az [OEM-csomag létrehozása](azure-stack-vaas-create-oem-package.md)című témakörben leírt struktúrával.
 
     > [!NOTE]
-    > Győződjön meg arról, `.zip` hogy a tartalom a `.zip` fájl gyökerébe kerül. A csomagban nem lehetnek almappák.
+    > Győződjön meg arról, hogy a `.zip` tartalom a fájl gyökerébe kerül `.zip` . A csomagban nem lehetnek almappák.
 
 1. A [Azure Portal](https://portal.azure.com)válassza ki a csomag tárolót, és töltse fel a csomagot a menüsávon a **feltöltés** lehetőség kiválasztásával.
 
@@ -62,11 +62,11 @@ Ha a **csomag-ellenőrzési** munkafolyamatot az Azure-portálon hozza létre, m
 
 Az az Varga által igényelt minimális hozzáférési szint attól függ, hogy a csomag-ellenőrzési munkafolyamatot hozza létre, vagy *interaktív* tesztet ütemez.
 
-A **privát** és a **blob** -hozzáférési szintek esetében átmenetileg hozzáférést kell biztosítania a csomag blobjának a [közös hozzáférési aláírás](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS) megadásával. A **tároló** hozzáférési szintjének nem kell sas URL-címeket előállítania, de lehetővé teszi a nem hitelesített hozzáférést a tárolóhoz és a blobokhoz.
+A **privát** és a **blob** -hozzáférési szintek esetében átmenetileg hozzáférést kell biztosítania a csomag blobjának a [közös hozzáférési aláírás](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) megadásával. A **tároló** hozzáférési szintjének nem kell sas URL-címeket előállítania, de lehetővé teszi a nem hitelesített hozzáférést a tárolóhoz és a blobokhoz.
 
 |Hozzáférési szint | Munkafolyamat-követelmény | Tesztelési követelmény |
 |---|---------|---------|
-|Privát | SAS URL-cím létrehozása csomag blobján ([1. lehetőség](#option-1-generate-a-blob-sas-url)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
+|Személyes | SAS URL-cím létrehozása csomag blobján ([1. lehetőség](#option-1-generate-a-blob-sas-url)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
 |Blob | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)). | Állítson elő SAS URL-címet a fiók szintjén, és manuálisan adja hozzá a csomag blobjának nevét ([2. lehetőség](#option-2-construct-a-container-sas-url)). |
 |Tároló | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)). | Adja meg a blob URL-tulajdonságát ([3. lehetőség](#option-3-grant-public-read-access)).
 
@@ -106,9 +106,9 @@ Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szint
 1. Válassza ki a **kezdési időt** az aktuális idő és a **Befejezés időpontja** szerint legalább 14 napig a **kezdési időpontból**. Ha más teszteket is futtat ugyanazzal a csomaggal, érdemes megfontolnia a tesztelési **idő** hosszának növelését. Az összes, a **befejezési időpont** utáni ütemezett teszt sikertelen lesz, és új sas-t kell létrehozni.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    A formátumnak így kell kinéznie:`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+    A formátumnak így kell kinéznie: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. Módosítsa a generált SAS URL-címét, hogy tartalmazza a `{containername}`csomag tárolóját, és a csomag blobjának `{mypackage.zip}`nevét. tetszik:`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+1. Módosítsa a generált SAS URL-címét, hogy tartalmazza a csomag tárolóját, `{containername}` és a csomag blobjának nevét `{mypackage.zip}` . tetszik: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
     Akkor használja ezt az értéket, ha a csomag blob URL-címét adja meg a portálon.
 
@@ -119,7 +119,7 @@ Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára
 > [!CAUTION]
 > Ez a beállítás megnyitja a blob (oka) t a névtelen írásvédett hozzáféréshez.
 
-1. Állítsa a csomag tárolójának hozzáférési szintjét **blob** vagy **tároló**értékre. További információ: [névtelen felhasználók engedélyeinek engedélyezése tárolók és Blobok](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)számára.
+1. Állítsa a csomag tárolójának hozzáférési szintjét **blob** vagy **tároló**értékre. További információ: [névtelen felhasználók engedélyeinek engedélyezése tárolók és Blobok](/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)számára.
 
     > [!NOTE]
     > Ha a csomag URL-címét egy *interaktív* teszthez adja meg, a tesztelés folytatásához **teljes nyilvános olvasási hozzáférést** kell biztosítania a tárolóhoz.
@@ -149,7 +149,7 @@ Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára
     > [!NOTE]
     > Másolja a Azure Stack hub Update és az OEM Update **két külön** könyvtárba.
 
-8. `RequireDigitalSignature`-adja meg az **igaz** értéket, ha a csomagnak a Microsoft által aláírtnak kell lennie (OEM-ellenőrzési munkafolyamat futtatása). Ha a legújabb Azure Stack hub-frissítéssel érvényesít egy Microsoft által aláírt csomagot, ezt az értéket false (a havi Azure Stack hub Update ellenőrzésének futtatása) értékre kell tenni.
+8. `RequireDigitalSignature` -adja meg az **igaz** értéket, ha a csomagnak a Microsoft által aláírtnak kell lennie (OEM-ellenőrzési munkafolyamat futtatása). Ha a legújabb Azure Stack hub-frissítéssel érvényesít egy Microsoft által aláírt csomagot, ezt az értéket false (a havi Azure Stack hub Update ellenőrzésének futtatása) értékre kell tenni.
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -185,8 +185,8 @@ Az OEM-csomagok érvényesítéséhez a következő tesztek szükségesek:
 
 5. Tekintse át a **szükséges** tesztek eredményét.
 
-A csomag-aláírási kérelem elküldéséhez küldjön egy [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) e-mailt a futtatáshoz társított megoldás neve és csomag-érvényesítési nevével.
+A csomag-aláírási kérelem elküldéséhez küldjön egy e-mailt [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) a futtatáshoz társított megoldás neve és csomag-érvényesítési nevével.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

@@ -7,20 +7,23 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
-ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
+ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203119"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510938"
 ---
-# <a name="troubleshoot-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok hibáinak megoldása
+# <a name="troubleshoot-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok hibaelhárítása
 
 Ez a cikk a helyek közötti (S2S) VPN-kapcsolat helyszíni hálózat és egy Azure Stack hub virtuális hálózat közötti konfigurálását követően elvégezhető hibaelhárítási lépéseket ismerteti, és a kapcsolat hirtelen leáll, és nem lehet újracsatlakozni.
 
 Ha a Azure Stack hub-probléma nem szerepel ebben a cikkben, látogasson el az [Azure stack hub MSDN fórumára](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
 Azure-támogatási kérelmet is küldhet. Tekintse meg [Azure stack hub támogatását](../operator/azure-stack-manage-basics.md#where-to-get-support).
+
+> [!NOTE]
+> Két Azure Stack hub üzemelő példány között csak egy helyek közötti VPN-kapcsolat hozható létre. Ennek oka a platform olyan korlátozása, amely csak egyetlen VPN-kapcsolat használatát teszi lehetővé ugyanahhoz az IP-címhez. Mivel Azure Stack hub kihasználja a több-bérlős átjárót, amely egyetlen nyilvános IP-címet használ a Azure Stack hub rendszer összes VPN-átjárója számára, csak egy VPN-kapcsolat lehet két Azure Stack hub-rendszer között. Ez a korlátozás arra az esetre is vonatkozik, ha egynél több helyek közötti VPN-kapcsolatot csatlakoztat egy olyan VPN-átjáróhoz, amely egyetlen IP-címet használ. Azure Stack hub nem teszi lehetővé, hogy egynél több helyi hálózati átjáró-erőforrást hozzon létre ugyanazzal az IP-címmel.
 
 ## <a name="initial-troubleshooting-steps"></a>Első hibaelhárítási lépések
 
@@ -77,4 +80,4 @@ Az IPsec/IKEV2 Azure Stack hub alapértelmezett paraméterei [a 1910-es buildtel
 
 ## <a name="create-a-support-ticket"></a>Támogatási jegy létrehozása
 
-Ha a fenti lépések egyike sem oldja meg a problémát, hozzon létre egy [támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support) , és használja a [on demand log Collection eszközt](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md) a naplók biztosításához.
+Ha a fenti lépések egyike sem oldja meg a problémát, hozzon létre egy [támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support) , és használja a [on demand log Collection eszközt](../operator/azure-stack-diagnostic-log-collection-overview.md) a naplók biztosításához.

@@ -3,22 +3,22 @@ title: Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Javával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 2e37d8f977a89e9a0207ef094273e9838a54d23a
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836155"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448656"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 
 A Azure Stack hub Resource Managerhez készült Java SDK eszközöket biztosít az infrastruktúra kiépítéséhez és kezeléséhez. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, a App Services és a [Key Vault](/azure/key-vault/key-vault-whatis).
 
-A Java SDK API-profilokat tartalmaz, a **Pom. XML** fájlban lévő függőségekkel együtt, amelyek betöltik a megfelelő modulokat a **. Java** fájlban. Ugyanakkor több profilt is hozzáadhat függőségként, például az **2019-03-01-Hybrid**vagy a **Latest**Azure-profilként. Ezeknek a függőségeknek a használatával a megfelelő modult tölti be, így az erőforrástípus létrehozásakor kiválaszthatja, hogy melyik API-verziót szeretné használni. Ez lehetővé teszi, hogy a legújabb verziókat használja az Azure-ban, miközben az Azure Stack hub legújabb API-verzióit fejleszti.
+A Java SDK az API-profilokat tartalmazza, a **Pom.xml** fájlban lévő függőségekkel együtt, amelyek betöltik a megfelelő modulokat a **. Java** -fájlban. Ugyanakkor több profilt is hozzáadhat függőségként, például az **2019-03-01-Hybrid**vagy a **Latest**Azure-profilként. Ezeknek a függőségeknek a használatával a megfelelő modult tölti be, így az erőforrástípus létrehozásakor kiválaszthatja, hogy melyik API-verziót szeretné használni. Ez lehetővé teszi, hogy a legújabb verziókat használja az Azure-ban, miközben az Azure Stack hub legújabb API-verzióit fejleszti.
 
 A Java SDK használata lehetővé teszi a hibrid felhőalapú fejlesztői élményt. A Java SDK-ban található API-profilok lehetővé teszik a hibrid felhőalapú fejlesztést azáltal, hogy a Azure Stack hub globális Azure-erőforrásai és-erőforrásai közötti váltást segítik.
 
@@ -30,9 +30,9 @@ Az API-profilok erőforrás-szolgáltatók és API-verziók kombinációja. Az e
 
   - A legújabb profil használatához a függőség a következő: **com. microsoft. Azure**.
 
-  - A Azure Stack hub-ban elérhető legújabb támogatott szolgáltatások használatához használja a **com. microsoft. Azure. profile\_2019\_03\_01\_hibrid** profilt.
+  - A Azure Stack hub-ban elérhető legújabb támogatott szolgáltatások használatához használja a **com. microsoft. Azure. profile \_ 2019 \_ 03 \_ 01 \_ hibrid** profilt.
 
-    - A profil a **Pom. XML** fájlban van megadva függőségként, amely automatikusan betölti a modulokat, ha a legördülő listából kiválasztja a megfelelő osztályt (a .net-tel együtt).
+    - A profil a **Pom.xml** fájlban függőségként van megadva, amely automatikusan betölti a modulokat, ha a legördülő listából kiválasztja a megfelelő osztályt (a .net-tel együtt).
 
   - A függőségek az alábbiak szerint jelennek meg:
 
@@ -54,9 +54,9 @@ A Java SDK telepítéséhez kövesse az alábbi lépéseket:
 
 1. A git telepítéséhez kövesse a hivatalos utasításokat. Lásd: [első lépések – a git telepítése](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2. A [Java SDK](https://zulu.org/download/) és a [Maven](https://maven.apache.org/)telepítéséhez kövesse az utasításokat. A megfelelő verzió a Java Developer Kit 8-as verziója. Az Apache Maven megfelelő verziója 3,0 vagy újabb. A rövid útmutató elvégzéséhez `JAVA_HOME` a környezeti változót a Java Development Kit telepítési helyére kell beállítani. További információ: [az első függvény létrehozása a Java és a Maven](/azure/azure-functions/functions-create-first-java-maven)használatával.
+2. A [Java SDK](https://zulu.org/download/) és a [Maven](https://maven.apache.org/)telepítéséhez kövesse az utasításokat. A megfelelő verzió a Java Developer Kit 8-as verziója. Az Apache Maven megfelelő verziója 3,0 vagy újabb. A rövid útmutató elvégzéséhez a `JAVA_HOME` környezeti változót a Java Development Kit telepítési helyére kell beállítani. További információ: [az első függvény létrehozása a Java és a Maven](/azure/azure-functions/functions-create-first-java-maven)használatával.
 
-3. A megfelelő függőségi csomagok telepítéséhez nyissa meg a **Pom. XML** fájlt a Java-alkalmazásban. Vegyen fel egy függőséget, ahogy az a következő kódban látható:
+3. A megfelelő függőségi csomagok telepítéséhez nyissa meg a **Pom.xml** fájlt a Java-alkalmazásban. Vegyen fel egy függőséget, ahogy az a következő kódban látható:
 
    ```xml  
    <dependency>
@@ -68,7 +68,7 @@ A Java SDK telepítéséhez kövesse az alábbi lépéseket:
 
 4. A telepítendő csomagok készlete a használni kívánt profil verziójától függ. A profilok nevei a következők:
 
-   - **com. microsoft. Azure. profil\_2019\_03\_01\_Hybrid**
+   - **com. microsoft. Azure. profil \_ 2019 \_ 03 \_ 01 \_ Hybrid**
    - **com. microsoft. Azure**
      - **legújabb**
 
@@ -82,7 +82,7 @@ A Java SDK telepítéséhez kövesse az alábbi lépéseket:
 
 Ha az Azure Java SDK-t Azure Stack hubhoz szeretné használni, meg kell adnia a következő értékeket, majd értékeket kell beállítania környezeti változókkal. A környezeti változók megadásához tekintse meg az operációs rendszer táblázatának utasításait.
 
-| Érték                     | Környezeti változók | Description                                                                                                                                                                                                          |
+| Érték                     | Környezeti változók | Leírás                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Bérlőazonosító                 | `AZURE_TENANT_ID`            | Az Azure Stack hub- [bérlő azonosítója](../operator/azure-stack-identity-overview.md).                                                          |
 | Ügyfél-azonosító                 | `AZURE_CLIENT_ID`             | Az egyszerű szolgáltatásnév alkalmazásának azonosítója, amely akkor lett mentve, amikor a szolgáltatásnév az előző szakaszban lett létrehozva.                                                                                              |
@@ -117,7 +117,7 @@ Ha a Azure Stack Development Kit (ASDK) használja, meg kell bíznia a távoli g
 
 1. Exportálja az Azure Stack hub önaláírt tanúsítványát az asztalra.
 
-1. A parancssorban módosítsa a könyvtárat a következőre `%JAVA_HOME%\bin`:.
+1. A parancssorban módosítsa a könyvtárat a következőre: `%JAVA_HOME%\bin` .
 
 1. Futtassa az alábbi parancsot:
 
@@ -133,11 +133,11 @@ A metaadat-információkat a Resource Manager-végpontból kérheti le. A végpo
 
 Vegye figyelembe az alábbi szempontokat:
 
-- A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/`.
+- A ASDK lévő **ResourceManagerUrl** a következőket eredményezi: `https://management.local.azurestack.external/` .
 
-- Az integrált rendszerek **ResourceManagerUrl** a (z `https://management.region.<fqdn>/`): `<fqdn>` , ahol a a teljes tartománynév.
+- Az integrált rendszerek **ResourceManagerUrl** a (z `https://management.region.<fqdn>/` ):, ahol a a `<fqdn>` teljes tartománynév.
 
-A szükséges metaadatok beolvasása `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`:.
+A szükséges metaadatok beolvasása: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` .
 
 Példa JSON-fájlra:
 
@@ -156,9 +156,9 @@ Példa JSON-fájlra:
 
 ## <a name="existing-api-profiles"></a>Meglévő API-profilok
 
-- **com. microsoft. Azure.\_Profile\_2019\_03\_01 Hybrid**: Azure stack hub-hoz készült legújabb profil. Ezt a profilt olyan szolgáltatásokhoz használhatja, amelyek kompatibilisek Azure Stack hubhoz, feltéve, hogy az 1904-es vagy újabb verzióban van.
+- **com. microsoft. Azure. profile \_ 2019 \_ 03 \_ 01 \_ Hybrid**: Azure stack hub-hoz készült legújabb profil. Ezt a profilt olyan szolgáltatásokhoz használhatja, amelyek kompatibilisek Azure Stack hubhoz, feltéve, hogy az 1904-es vagy újabb verzióban van.
 
-- **com. microsoft. Azure.\_Profile\_2018\_03\_01 Hybrid**: az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások kompatibilisek legyenek Azure Stack hub 1808-es vagy újabb verziójával.
+- **com. microsoft. Azure. profile \_ 2018 \_ 03 \_ 01 \_ Hybrid**: az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások kompatibilisek legyenek Azure Stack hub 1808-es vagy újabb verziójával.
 
 - **com. microsoft. Azure**: profil, amely az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
 
@@ -286,14 +286,14 @@ Használja a következő GitHub-mintákat referenciáként a .NET-és Azure Stac
 
    A Windows rendszerben az **Exportálás**helyett a **készletet** használja.
 
-5. Az Azure Resource Manager `getActiveDirectorySettings` metaadat-végpontok beolvasásához használja a függvényt.
+5. Az `getActiveDirectorySettings` Azure Resource Manager metaadat-végpontok beolvasásához használja a függvényt.
 
     ```java
     // Get Azure Stack Hub cloud endpoints
     final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
     ```
 
-6. A **Pom. XML** fájlban adja hozzá a következő függőséget a Azure Stack hub **2019-03-01-Hybrid** profiljának használatához. Ez a függőség telepíti a profilhoz társított modulokat a számítási, hálózati, tárolási, Key Vault és App Services erőforrás-szolgáltatók számára:
+6. A **Pom.xml** fájlban adja hozzá a következő függőséget a Azure Stack hub **2019-03-01-Hybrid** profiljának használatához. Ez a függőség telepíti a profilhoz társított modulokat a számítási, hálózati, tárolási, Key Vault és App Services erőforrás-szolgáltatók számára:
 
     ```xml
     <dependency>
@@ -309,7 +309,7 @@ Használja a következő GitHub-mintákat referenciáként a .NET-és Azure Stac
    mvn clean compile exec:java
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az API-profilokról további információt a következő témakörben talál:
 

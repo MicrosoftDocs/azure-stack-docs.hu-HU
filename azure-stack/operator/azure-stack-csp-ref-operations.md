@@ -3,16 +3,16 @@ title: Bérlők regisztrálása a használat nyomon követéséhez Azure Stack k
 description: Megtudhatja, hogyan regisztrálhat bérlőket, és hogyan követheti nyomon a bérlők használatát Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: 66a21943e19cef13aa7a3986b6a058f69cc85793
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158367"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285498"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Bérlők regisztrálása a használat nyomon követéséhez Azure Stack központban
 
@@ -49,7 +49,7 @@ Az Azure Stack hub-és API-profilokkal kapcsolatos további információkért l�
 
 ### <a name="powershell"></a>PowerShell
 
-Bérlő hozzáadásához használja a **New-AzureRmResource** parancsmagot. [Kapcsolódjon Azure stack hubhoz](azure-stack-powershell-configure-admin.md), majd egy emelt szintű parancssorból használja a következő parancsmagot:
+Bérlő hozzáadásához használja a **New-AzureRmResource** parancsmagot. [Kapcsolódjon az Azure-hoz](/powershell/azure/get-started-azureps), majd egy emelt szintű parancssorból futtassa a következő parancsot:
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -58,7 +58,7 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 ### <a name="api-call"></a>API-hívás
 
 **Művelet**: Put  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Válasz**: 201 létrehozva  
 **Válasz törzse**: üres  
 
@@ -90,7 +90,7 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 A lekérési művelettel lekérheti az összes bérlői hozzárendelés listáját.
 
 **Művelet**: Get  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **Válasz**: 200  
 **Válasz törzse**:
 
@@ -139,7 +139,7 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 A TÖRLÉSi művelettel eltávolíthatja a bérlői leképezéseket.
 
 **Művelet**: törlés  
-**RequestURI**:`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Válasz**: 204 nincs tartalom  
 **Válasz törzse**: üres
 

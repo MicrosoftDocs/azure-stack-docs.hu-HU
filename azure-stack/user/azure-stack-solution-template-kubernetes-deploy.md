@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 789f516355407a5b1c69c4c359b8377a63e06123
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 38b73bb6237b8467f04ff21fd6769e26a49a8b63
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111420"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920134"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>A Kubernetes üzembe helyezése a tárolók Azure Stack hubhoz való használatához
 
-> [!Note]  
+> [!NOTE]  
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A cikk lépéseit követve üzembe helyezheti és állíthatja be a Kubernetes erőforrásait egyetlen, koordinált műveletben. A lépések Azure Resource Manager megoldási sablont használnak. Össze kell gyűjtenie az Azure Stack hub telepítésére vonatkozó szükséges információkat, elő kell állítania a sablont, majd üzembe kell helyeznie a felhőben. Az Azure Stack hub-sablon nem ugyanazt a felügyelt AK-szolgáltatást használja, mint a globális Azure-ban.
@@ -59,4 +59,4 @@ A **Helm** csomagkezelő is hasznos lehet az alkalmazások fürtön való telep�
 
 [Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával](azure-stack-solution-template-kubernetes-adfs.md)
 
-[A Kubernetes az Azure-on](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[A Kubernetes az Azure-on](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

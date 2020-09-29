@@ -3,16 +3,16 @@ title: Kubernetes-fürt frissítése Azure Stack hub-on
 description: Ismerje meg, hogyan frissíthet egy Kubernetes-fürtöt Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 347d790a4e70e37e83be43019f25b875b7ff2302
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533722"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473044"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
 
@@ -42,7 +42,7 @@ Az üzembe helyezett fürtök frissítéseinek fedele:
 
 ## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>Új Kubernetes-verzióra való frissítés lépései
 
-> [!Note]  
+> [!NOTE]  
 > Az AK alaprendszerképe is frissülni fog, ha az AK-motor újabb verzióját használja, és a rendszerkép elérhető a piactéren.
 
 Az alábbi utasítások a frissítés végrehajtásához szükséges minimális lépéseket használják. Ha további részleteket szeretne látni, tekintse meg a [Kubernetes-fürtök frissítése](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)című cikket.
@@ -50,11 +50,10 @@ Az alábbi utasítások a frissítés végrehajtásához szükséges minimális 
 1. Először meg kell határoznia a frissítés céljára megcélzott verziókat. Ez a verzió a jelenleg használt verziótól függ, és ezt a verziószámot használja a frissítés elvégzéséhez. A legújabb frissítésekben támogatott Kubernetes-verziók a következők: 1.14.7 és 1.15.10. Kövesse ezt a táblázatot az elérhető frissítésekhez:
 
 | Aktuális verzió | Frissítés érhető el |
-| --- | --- |
-|1.14.7 | 1.15.10 |
-|1.14.8 | 1.15.10 |
-|1.15.4 | 1.15.10 |
-|1.15.5 | 1.15.10 |
+| ------------------------- | ----------------------- |
+| 1.15.10 | 1.15.12 |
+| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
+| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
 Az AK-motor teljes leképezéséhez az AK alaprendszerkép-és Kubernetes-verzióit lásd: [támogatott AK-motor-verziók](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
 
@@ -65,8 +64,8 @@ Az AK-motor teljes leképezéséhez az AK alaprendszerkép-és Kubernetes-verzi�
     | Azure – env | AzureStackCloud | Annak jelzése, hogy a célként megadott platform Azure Stack hub által használt AK-motor `AzureStackCloud` . |
     | location | helyi | Az Azure Stack hub régiójának neve. A ASDK esetében a régió a következőre van beállítva: `local` . |
     | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
-    | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
-    | API – modell | ./kubernetes-azurestack.json | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
+    | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. További információ: [előfizetés egy ajánlatra](./azure-stack-subscribe-services.md#subscribe-to-an-offer) |
+    | API – modell | ./kubernetes-azurestack.jsbekapcsolva | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
     | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
     | ügyfél – titok | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatás titkos kulcsát. Ez a szolgáltatás létrehozásakor beállított ügyfél-titkos kulcs. |
     | identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |

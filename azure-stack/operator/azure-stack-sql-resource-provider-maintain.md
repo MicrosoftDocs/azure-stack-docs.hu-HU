@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 134839230eef3bb76c8df82cb2bd79b5127dfed9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697263"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364830"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
-Az SQL erőforrás-szolgáltató zárolt virtuális gépen (VM) fut. A karbantartási műveletek engedélyezéséhez frissítenie kell a virtuális gép biztonságát. Ehhez a legalacsonyabb jogosultsági szintű rendszerbiztonsági tag használatával hajtsa végre a [PowerShell elég adminisztrációs (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) végpont *DBAdapterMaintenance*. Az erőforrás-szolgáltató telepítési csomagja tartalmaz egy parancsfájlt ehhez a művelethez.
+Az SQL erőforrás-szolgáltató zárolt virtuális gépen (VM) fut. A karbantartási műveletek engedélyezéséhez frissítenie kell a virtuális gép biztonságát. Ehhez a legalacsonyabb jogosultsági szintű rendszerbiztonsági tag használatával hajtsa végre a [PowerShell elég adminisztrációs (JEA)](/powershell/scripting/learn/remoting/jea/overview) végpont *DBAdapterMaintenance*. Az erőforrás-szolgáltató telepítési csomagja tartalmaz egy parancsfájlt ehhez a művelethez.
 
 ## <a name="patching-and-updating"></a>Javítás és frissítés
 
@@ -35,7 +35,7 @@ A beállítások módosításához válassza a **Tallózás** &gt; **felügyelet
 
 ![SQL-rendszergazdai jelszó frissítése](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
-## <a name="secrets-rotation"></a>Titkok rotációja
+## <a name="secrets-rotation"></a>Titkos kulcsok rotálása
 
 *Ezek az utasítások csak Azure Stack hub integrált rendszerekre vonatkoznak.*
 
@@ -44,6 +44,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 - Az [üzembe helyezés során megadott](azure-stack-pki-certs.md)külső SSL-tanúsítvány.
 - Az erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának jelszava az üzembe helyezés során.
 - Erőforrás-szolgáltató diagnosztikai felhasználói (dbadapterdiag) jelszava.
+- (verzió: >= 1.1.47.0) Key Vault az üzembe helyezés során generált tanúsítvány.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-példák a titkok elforgatására
 
@@ -57,7 +58,8 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd  `
-    -VMLocalCredential $localCreds
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **A diagnosztikai felhasználó jelszavának módosítása.**
@@ -91,18 +93,30 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider. ps1 paraméterek
+**Módosítsa a Key Vault tanúsítvány jelszavát.**
 
-|Paraméter|Leírás|
-|-----|-----|
-|AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|
-|CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|
-|PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|
-|DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|
-|VMLocalCredential|Helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|
-|DefaultSSLCertificatePassword|Az alapértelmezett SSL-tanúsítvány (* pfx) jelszava.|
-|DependencyFilesLocalPath|Függőségi fájlok helyi elérési útja|
-|     |     |
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 paraméterek
+
+|Paraméter|Leírás|Megjegyzés|
+|-----|-----|-----|
+|AzureEnvironment|Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud**használatával.|Választható|
+|AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|Kötelező|
+|CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|Kötelező|
+|PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|Kötelező|
+|DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|Választható|
+|VMLocalCredential|Helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|Választható|
+|DefaultSSLCertificatePassword|Az alapértelmezett SSL-tanúsítvány (*. pfx) jelszava.|Választható|
+|DependencyFilesLocalPath|Függőségi fájlok helyi elérési útja|Választható|
+|KeyVaultPfxPassword|Az adatbázis-adapter Key Vault tanúsítványának létrehozásához használt jelszó.|Választható|
+|     |     |     |
 
 ### <a name="known-issues"></a>Ismert problémák
 
@@ -110,7 +124,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 Titkok rotációs naplói. A titkok elforgatásának naplói nem lesznek automatikusan begyűjtve, ha a titkos kód egyéni parancsfájl futtatása sikertelen.
 
 **Áthidaló megoldás**:<br>
-A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, a C:\Logs. mentett adatokat.
+A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, a C:\Logs.-ben mentett adatokat
 
 ## <a name="update-the-vm-operating-system"></a>A virtuális gép operációs rendszerének frissítése
 
@@ -127,7 +141,7 @@ A Windows Defender-definíciók frissítése:
 
    A definíciók frissítése lapon görgessen le a "frissítés manuális letöltése" gombra. Töltse le a "Windows Defender Antivirus for Windows 10 és a Windows 8,1" 64 bites fájlt.
 
-   [Ezt a közvetlen hivatkozást](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) is használhatja a fpam-fe. exe fájl letöltéséhez/futtatásához.
+   [Ezt a közvetlen hivatkozást](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) is használhatja a fpam-fe.exe fájl letöltéséhez/futtatásához.
 
 2. Hozzon létre egy PowerShell-munkamenetet az SQL Resource Provider-adapter virtuális gép karbantartási végpontján.
 
@@ -226,14 +240,14 @@ $session | Remove-PSSession
 ## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató Azure Diagnostics-bővítményének konfigurálása
 A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van az SQL Resource Provider adapter virtuális gépén. A következő lépések bemutatják, hogyan szabhatja testre a bővítményt az SQL erőforrás-szolgáltató operatív eseménynaplóinak és az IIS-naplóknak a hibaelhárítás és a naplózás céljából történő összegyűjtéséhez.
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 
 2. A bal oldali ablaktáblán válassza a **virtuális gépek** lehetőséget, keresse meg az SQL Resource Provider adapter virtuális gépet, és válassza ki a virtuális gépet.
 
 3. A virtuális gép **diagnosztikai beállításainál** lépjen a **naplók** lapra, és az **Egyéni** elemre kattintva testreszabhatja az eseménynaplók gyűjtését.
 ![A diagnosztikai beállítások keresése](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/\* Operational!** SQL erőforrás-szolgáltató operatív eseménynaplóinak gyűjtéséhez.
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!** SQL erőforrás-szolgáltató operatív eseménynaplóinak gyűjtéséhez.
 ![Eseménynaplók hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
 5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az **IIS-naplók** és a **Sikertelen kérelmek naplói**című témakört.
@@ -245,6 +259,6 @@ Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [SQL Server üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)

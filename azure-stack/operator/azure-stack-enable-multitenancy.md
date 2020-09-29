@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107158"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857496"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 
@@ -24,16 +24,17 @@ Azure Stack hub-t úgy konfigurálhatja, hogy támogassa a több Azure Active Di
 
 Ez az útmutató ismerteti a szükséges lépéseket a forgatókönyv kontextusában a Azure Stack hub több-bérlős szolgáltatásának konfigurálásához. Ebben az esetben Önnek és Mária-nek végre kell hajtania a lépéseket, amelyek lehetővé teszik a fabrikam számára, hogy bejelentkezzenek és felhasználják a szolgáltatásait a contoso Azure Stack hub üzembe helyezésével.
 
+Ha Ön egy felhőalapú megoldás-szolgáltató (CSP), akkor további módon [konfigurálhatja és kezelheti a több-bérlős Azure stack hubot](azure-stack-add-manage-billing-as-a-csp.md). 
+
 ## <a name="enable-multi-tenancy"></a>A több-bérlős üzemmód engedélyezése
 
 A Azure Stack hub-beli több bérlő konfigurálása előtt néhány előfeltételt kell figyelembe vennie:
   
  - Önnek és Mary-nek koordinálnia kell a felügyeleti lépéseket mind a Directory Azure Stack hub (contoso), mind a Guest Directory (Fabrikam) között.
  - Győződjön meg arról, hogy [telepítette](azure-stack-powershell-install.md) és [konfigurálta](azure-stack-powershell-configure-admin.md) a PowerShellt Azure stack hubhoz.
- - [Töltse le az Azure stack hub-eszközöket](azure-stack-powershell-download.md), és importálja a csatlakozási és Identity modulokat:
+ - [Töltse le az Azure stack hub-eszközöket](azure-stack-powershell-download.md), és importálja az Identity modulokat:
 
     ```powershell
-    Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
@@ -168,10 +169,9 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>Azure AD-bérlői engedélyek frissítése
 
-Ez a művelet törli a riasztást Azure Stack központban, ami azt jelzi, hogy a címtárnak frissítésre van szüksége. Futtassa a következő parancsokat a **Azurestack-Tools-Master/Identity** mappában:
+Ez a művelet törli a riasztást Azure Stack központban, ami azt jelzi, hogy a címtárnak frissítésre van szüksége. Futtassa a következő parancsot a **Azurestack-Tools-Master/Identity** mappában:
 
 ```powershell
-Import-Module ..\Connect\AzureStack.Connect.psm1
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
@@ -185,7 +185,7 @@ Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManage
 
 A parancsfájl rendszergazdai hitelesítő adatokat kér az Azure AD-bérlőn, és több percet is igénybe vehet. A riasztást a parancsmag futtatása után törölni kell.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Delegált szolgáltatók kezelése](azure-stack-delegated-provider.md)
 - [Azure Stack hub főbb fogalmak](azure-stack-overview.md)

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Megtudhatja, hogyan lehet elhárítani a Azure Stack hubot, beleértve a virtuális gépekkel, a tárolással és a App Serviceekkel kapcsolatos problémákat.
 author: justinha
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 07/21/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.lastreviewed: 07/21/2020
+ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819514"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041621"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -23,30 +23,30 @@ Ez a dokumentum a Azure Stack hub integrált környezetek hibaelhárítási info
 
 Ezek a fejezetek olyan dokumentumokra mutató hivatkozásokat tartalmaznak, amelyek a Microsoft ügyfélszolgálata eljuttatott gyakori kérdésekre vonatkoznak.
 
-### <a name="purchase-considerations"></a>Vásárlási szempontok
+### <a name="purchase-considerations"></a>A vásárláskor megfontolandó szempontok
 
 * [A vásárlás menete](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
 * [Azure Stack hub áttekintése](azure-stack-overview.md)
 
 ### <a name="updates-and-diagnostics"></a>Frissítések és diagnosztika
 
-* [Diagnosztikai eszközök használata az Azure Stack hub-ban](azure-stack-diagnostics.md)
+* [Diagnosztikai eszközök használata az Azure Stack hub-ban](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
 * [Azure Stack hub rendszerállapotának ellenőrzése](azure-stack-diagnostic-test.md)
 * [A csomag kiadási ritmusának frissítése](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Csomópont állapotának ellenőrzése és hibakeresése](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>A vendég virtuális gépek által támogatott operációs rendszerek és méretek
 
-* [Azure Stack hub által támogatott vendég operációs rendszerek](azure-stack-supported-os.md)
+* [Az Azure Stack Hub által támogatott vendég operációs rendszerek](azure-stack-supported-os.md)
 * [Azure Stack hub által támogatott virtuálisgép-méretek](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure Piactér
 
-* [Azure Stack hub számára elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
+* [Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek](azure-stack-marketplace-azure-items.md)
 
 ### <a name="manage-capacity"></a>Kapacitás kezelése
 
-#### <a name="memory"></a>Memory (Memória)
+#### <a name="memory"></a>Memória
 
 Azure Stack hub teljes rendelkezésre álló memória-kapacitásának növeléséhez további memóriát adhat hozzá. Azure Stack hub-ban a fizikai kiszolgálót a skálázási egység csomópontjának is nevezzük. Az ugyanahhoz a skálázási egységhez tartozó skálázásiegység-csomópontokhoz [azonos mennyiségű memóriát](azure-stack-manage-storage-physical-memory-capacity.md) kell hozzárendelni.
 
@@ -66,7 +66,7 @@ Azure Stack hub egyik felhasználója lehet olvasó, tulajdonos vagy közreműk�
 
 Ha az Azure-erőforrások beépített szerepkörei nem felelnek meg a szervezet igényeinek, saját egyéni szerepköröket is létrehozhat. Ebben az oktatóanyagban egy Reader Support Tickets (Olvasó – Támogatási jegyek) nevű egyéni szerepkört fog létrehozni az Azure PowerShell-lel.
 
-* [Oktatóanyag: egyéni szerepkör létrehozása Azure-erőforrásokhoz Azure PowerShell használatával](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+* [Oktatóanyag: egyéni szerepkör létrehozása Azure-erőforrásokhoz Azure PowerShell használatával](/azure/role-based-access-control/tutorial-custom-role-powershell)
 
 ### <a name="manage-usage-and-billing-as-a-csp"></a>Használat és számlázás kezelése felhőszolgáltatóként
 
@@ -92,6 +92,78 @@ További információ: [Azure stack hub Diagnostics](azure-stack-get-azurestackl
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>Virtuális gépek (VM-EK) hibáinak megoldása
 
+### <a name="reset-linux-vm-password"></a>Jelszó visszaállítása Linux rendszerű virtuális gépen
+
+Ha elfelejti a Linux rendszerű virtuális gép jelszavát, és a **jelszó alaphelyzetbe állítása** lehetőség nem működik a VMAccess-bővítménysel kapcsolatos problémák miatt, a következő lépések végrehajtásával állíthatja vissza:
+
+1. Válassza ki a Linux rendszerű virtuális gépet helyreállítási virtuális gépként való használatra.
+
+1. Jelentkezzen be a felhasználói portálra:
+   1. Jegyezze fel a virtuális gép méretét, a hálózati adaptert, a nyilvános IP-címet, a NSG és az adatlemezeket.
+   1. Állítsa le az érintett virtuális gépet.
+   1. Távolítsa el az érintett virtuális gépet.
+   1. Csatlakoztassa a lemezt az érintett virtuális gépről adatlemezként a helyreállítási virtuális gépen (ez eltarthat néhány percig, amíg a lemez elérhetővé válik).
+
+1. Jelentkezzen be a helyreállítási virtuális gépre, és futtassa a következő parancsot:
+
+   ```
+   sudo su –
+   mkdir /tempmount
+   fdisk -l
+   mount /dev/sdc2 /tempmount /*adjust /dev/sdc2 as necessary*/
+   chroot /tempmount/
+   passwd root /*substitute root with the user whose password you want to reset*/
+   rm -f /.autorelabel /*Remove the .autorelabel file to prevent a time consuming SELinux relabel of the disk*/
+   exit /*to exit the chroot environment*/
+   umount /tempmount
+   ```
+
+1. Jelentkezzen be a felhasználói portálra:
+
+   1. Válassza le a lemezt a helyreállítási virtuális gépről.
+   1. Hozza létre újra a virtuális gépet a lemezről.
+   1. Ügyeljen arra, hogy a nyilvános IP-címet az előző virtuális gépről vigye át, csatolja az adatlemezeket stb.
+
+
+Elkészítheti az eredeti lemez pillanatképét is, és létrehozhat egy új lemezt, ahelyett, hogy közvetlenül az eredeti lemezen hajtja végre a módosításokat. További információt az alábbi témakörökben talál:
+
+- [Új jelszó létrehozása](/azure/virtual-machines/troubleshooting/reset-password)
+- [Lemez létrehozása pillanatképből](/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux#create-a-disk-from-the-snapshot)
+- [A gyökér jelszavának módosítása és alaphelyzetbe állítása](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Changing_and_Resetting_the_Root_Password)
+
+
+### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>A licenc aktiválása sikertelen a Windows Server 2012 R2-ben a kiépítés során
+
+Ebben az esetben a Windows nem aktiválja az aktiválást, és a képernyő jobb alsó sarkában egy vízjelet fog látni. A C:\Windows\Panther alatt található WaSetup.xml naplók a következő eseményt tartalmazzák:
+
+```xml
+<Event time="2019-05-16T21:32:58.660Z" category="ERROR" source="Unattend">
+    <UnhandledError>
+        <Message>InstrumentProcedure: Failed to execute 'Call ConfigureLicensing()'. Will raise error to caller</Message>
+        <Number>-2147221500</Number>
+        <Description>Could not find the VOLUME_KMSCLIENT product</Description>
+        <Source>Licensing.wsf</Source>
+    </UnhandledError>
+</Event>
+```
+
+
+A licenc aktiválásához másolja az aktiválni kívánt SKU automatikus virtuálisgép-aktiválási (AVMA) kulcsát.
+
+|Kiadás|AVMA kulcs|
+|-|-|
+|Adatközpont|Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW|
+|Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
+|Alapvető erőforrások|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
+
+Futtassa a következő parancsot a virtuális gépen:
+
+```powershell
+slmgr /ipk <AVMA_key>
+```
+
+A részletekért lásd: [virtuális gép aktiválása](/windows-server/get-started-19/vm-activation-19).
+
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
 
 A virtuális gépek Azure Stack központban való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
@@ -115,7 +187,7 @@ Akár 14 órát is igénybe vehet a visszaigényelt kapacitás a portálon való
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Storage Explorer nem működik Azure Stack hub-vel
 
-Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet ( `/` ) a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](/azure-stack/user/azure-stack-storage-connect-se).
+Ha egy integrált rendszer egy leválasztott forgatókönyvben van használatban, ajánlott vállalati hitelesítésszolgáltató (CA) használata. Exportálja a főtanúsítványt Base-64 formátumban, majd importálja Azure Storage Explorerba. Győződjön meg arról, hogy eltávolítja a záró perjelet ( `/` ) a Resource Manager-végpontból. További információ: [felkészülés a Azure stack hubhoz való csatlakozásra](../user/azure-stack-storage-connect-se.md).
 
 ## <a name="troubleshoot-app-service"></a>Hibakeresés App Service
 
@@ -127,11 +199,11 @@ Ha a App Service szükséges Create-AADIdentityApp.ps1 parancsfájl nem sikerül
 
 Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, hogy a kezelők következetes és áramvonalas módon alkalmazzák a frissítési csomagokat. Habár nem gyakori, a javítások és a frissítési folyamat során problémák léphetnek fel. A javítási és frissítési folyamat során a következő lépések ajánlottak:
 
-0. **Előfeltételek**: Győződjön meg arról, hogy követte a [frissítési tevékenység ellenőrzőlistáját](release-notes-checklist.md) , és engedélyezze az előjelzéses [naplók gyűjtését](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md).
+0. **Előfeltételek**: Győződjön meg arról, hogy követte a [frissítési tevékenység ellenőrzőlistáját](release-notes-checklist.md) , és engedélyezze az előjelzéses [naplók gyűjtését](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
 
 1. Ha a frissítés sikertelen volt, kövesse a sikertelen riasztások által létrehozott hibaelhárítási lépéseket.
 
-2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](azure-stack-help-and-support-overview-tzl.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) az időtartományhoz.
+2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md?view=azs-2002). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) az időtartományhoz.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
 
@@ -146,3 +218,13 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 **Szervizelés**: a probléma megkerüléséhez kattintson a **Telepítés most** lehetőségre. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) szakaszt követve manuálisan töltse fel a frissítési csomagot.
 
 **Előfordulás**: gyakori
+
+::: moniker range="azs-2002"
+### <a name="2002-update-failed"></a>2002 frissítés nem sikerült
+
+**Alkalmazható**: Ez a probléma csak az 2002-es kiadásra vonatkozik.
+
+**OK**: a 2002-es frissítés megkísérlése során előfordulhat, hogy a frissítés sikertelen lesz, és a következő üzenet jelenik meg: `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` .
+
+**Szervizelés**: [hozzon létre egy privát belső hálózatot](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network).
+::: moniker-end

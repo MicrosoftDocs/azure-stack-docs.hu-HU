@@ -4,19 +4,19 @@ description: Megtudhatja, hogyan lehet elhárítani a Kubernetes központi telep
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631080"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920763"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Az Azure Stack hub Kubernetes-telepítésének hibáinak megoldása
 
-> [!Note]  
+> [!NOTE]  
 > A fürtök Kubernetes való üzembe helyezéséhez csak az Azure Stack hub Marketplace-elemmel használható. Azure Stack hub támogatott Kubernetes-fürtök esetén használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 Ez a cikk azt ismerteti, hogyan lehet elhárítani a Kubernetes-fürtöt. A hibaelhárítás megkezdéséhez tekintse át a központi telepítéshez szükséges elemeket. Előfordulhat, hogy össze kell gyűjtenie az üzembe helyezési naplókat Azure Stack hub-ból vagy a Kubernetes-t futtató linuxos virtuális gépekről. A naplók felügyeleti végpontból való lekéréséhez forduljon a Azure Stack hub rendszergazdájához.
@@ -155,7 +155,7 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
 
     A log Collector parancsfájl a naplófájlokban is hibákat keres, és hibaelhárítási lépéseket is tartalmaz, ha ismert problémát talál. Győződjön meg arról, hogy a szkript legújabb verzióját futtatja, hogy növelje az ismert problémák megtalálásának esélyét.
 
-> [!Note]  
+> [!NOTE]  
 > Tekintse meg ezt a GitHub- [tárházat](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) a log Collector parancsfájl további részleteinek megismeréséhez.
 
 ## <a name="next-steps"></a>Következő lépések
@@ -164,4 +164,4 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
 
 [Kubernetes-fürt hozzáadása a piactérhez (az Azure Stack hub-kezelőhöz)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[A Kubernetes az Azure-on](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[A Kubernetes az Azure-on](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

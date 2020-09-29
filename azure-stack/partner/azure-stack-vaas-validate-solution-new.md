@@ -3,17 +3,17 @@ title: Megoldás ellenőrzése Azure Stack központban
 description: Ismerje meg, hogyan érvényesítheti az új Azure Stack hub-megoldást a megoldás-ellenőrzési munkafolyamattal.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2d47450af602928eb9220238ae945610fd9f0477
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 65984da8615d9146db98800c710efee004f021c2
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661160"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764885"
 ---
 # <a name="validate-a-solution-in-azure-stack-hub"></a>Megoldás ellenőrzése Azure Stack központban
 
@@ -21,7 +21,7 @@ ms.locfileid: "81661160"
 
 Ismerje meg, hogyan ellenőrizheti a **megoldás-ellenőrzési** munkafolyamatot az új Azure stack hub-megoldások ellenőrzéséhez.
 
-Az Azure Stack hub-megoldás olyan hardveres anyagjegyzék (AJ), amely a Microsoft és a partner között közösen egyetértett a Windows Server-embléma minősítési követelményeinek teljesítése után. A megoldást újra hitelesíteni kell, ha a hardveres anyagjegyzék módosult. Ha további kérdése van a megoldások újraellenőrzésével kapcsolatban, lépjen kapcsolatba a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)csapatával a következő címen:.
+Az Azure Stack hub-megoldás olyan hardveres anyagjegyzék (AJ), amely a Microsoft és a partner között közösen egyetértett a Windows Server-embléma minősítési követelményeinek teljesítése után. A megoldást újra hitelesíteni kell, ha a hardveres anyagjegyzék módosult. Ha további kérdése van a megoldások újraellenőrzésével kapcsolatban, lépjen kapcsolatba a csapatával a következő címen: [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) .
 
 A megoldás érvényesítéséhez futtassa kétszer a megoldás-ellenőrzési munkafolyamatot. Egyszer futtassa egyszer a *minimálisan* támogatott konfigurációhoz. Futtassa még egyszer a *maximálisan* támogatott konfigurációhoz. A Microsoft ellenőrzi a megoldást, ha mindkét konfiguráció átadja az összes tesztet.
 
@@ -75,6 +75,6 @@ Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva
 
 ![Megoldás-ellenőrzési teszt ütemezett ellenőrzése](media/workflow_validation-solution_schedule-test.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

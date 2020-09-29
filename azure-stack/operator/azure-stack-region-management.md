@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Az Azure Stack hub régió-felügyeletének áttekintése.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: e04f6a6baca7b834a248bc40835d05f0773fd5b4
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: e40d79dcac58035172d4e292461fd0950ee77979
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777848"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041638"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Területi felügyelet Azure Stack központban
 
@@ -23,7 +23,7 @@ Egy integrált rendszertelepítés (más néven *Azure stack hub-felhő*) egyetl
 
 ## <a name="information-available-through-the-region-management-tile"></a>A régió-felügyeleti csempén keresztül elérhető információk
 
-Azure Stack hub **a régió-felügyeleti csempén** belül elérhető régió-felügyeleti képességekkel rendelkezik. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján lévő Azure Stack hub-operátor számára érhető el. Ezen a csempén nyomon követheti és frissítheti Azure Stack hub-régióját és összetevőit, amelyek régió-specifikusak.
+Azure Stack hub **a régió-felügyeleti csempén** belül elérhető régió-felügyeleti képességekkel rendelkezik. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján lévő Azure Stack hub-operátor számára érhető el. Ezen a képernyőn nyomon követheti és frissítheti Azure Stack hub-régióját és összetevőit, amelyek régió-specifikusak.
 
 ![A régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-region-management/image1.png)
 
@@ -43,7 +43,7 @@ Ha kiválaszt egy régiót a **régió kezelése** csempén, akkor a következő
 
 6. **Properties (Tulajdonságok**): a környezet regisztrációjának állapota és adatai a régió kezelése panelen. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**. Ha regisztrálva van, akkor az Azure Stack hub regisztrálásához használt Azure-előfizetés AZONOSÍTÓját is megjeleníti a regisztrációs erőforráscsoport és a név mellett.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Állapot és riasztások figyelése Azure Stack központban](azure-stack-monitor-health.md)
-- [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
+- [Állapot- és riasztásmonitorozás az Azure Stack Hubban](azure-stack-monitor-health.md)
+- [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)

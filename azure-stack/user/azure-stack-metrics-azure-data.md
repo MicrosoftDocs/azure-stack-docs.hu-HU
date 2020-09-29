@@ -6,24 +6,24 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112033"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920779"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
 
 Ez a cikk az Azure Stack hub Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor Azure Stack hub-beli használatáról szóló további információkat.
 
-A Azure Monitor áttekintését lásd: a globális Azure-cikk első [lépései Azure monitor on Azure stack hub](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+A Azure Monitor áttekintését lásd: a globális Azure-cikk első [lépései Azure monitor on Azure stack hub](/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Azure Stack hub monitor panel](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
 A Azure Monitor egy olyan platform-szolgáltatás, amely egyetlen forrást biztosít az Azure-erőforrások monitorozásához. Azure Monitor lehetővé teszi az Azure-ban lévő erőforrásokból származó mérőszámokkal és naplókkal kapcsolatos egyéb műveletek megjelenítését, lekérdezését, továbbítását, archiválását és elvégzését. Ezekkel az adatokkal a Azure Stack hub felügyeleti portálján, a PowerShell-parancsmagok, a platformfüggetlen CLI vagy a Azure Monitor REST API-k használatával is dolgozhat. Az Azure Stack hub által támogatott adott kapcsolathoz lásd: [figyelési adatok felhasználása Azure stack hub-ból](azure-stack-metrics-monitor.md).
 
-> [!Note]
+> [!NOTE]
 > A metrikák és diagnosztikai naplók nem érhetők el a Azure Stack Development Kit számára.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Az Azure Stack hub Azure Monitor előfeltételei
@@ -45,7 +45,7 @@ Az Azure-ban az Azure Monitorhoz hasonlóan a Azure Monitor a Azure Stack hub al
 ![Azure Monitor Azure Stack hub-forrásokon – számítási részhalmaz](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
 A Azure Stack hub **Microsoft. számítási** erőforrás-szolgáltatója a következőket tartalmazza:
- - Virtual machines (Virtuális gépek) 
+ - Virtuális gépek 
  - Virtuálisgép-méretezési csoportok
 
 ### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>Alkalmazás-diagnosztikai naplók, alkalmazás-naplók és metrikák
@@ -59,10 +59,10 @@ A mértékek típusai a következők:
  - .NET-esemény forrása
  - IIS-naplók
  - jegyzékalapú ETW.
- - összeomlási memóriaképek,
+ - Összeomlási memóriaképek
  - Felhasználói hibák naplói
 
-> [!Note]  
+> [!NOTE]  
 > Azure Stack hub Linux Diagnostics bővítménye nem támogatott.
 
 ### <a name="host-and-guest-vm-metrics"></a>Gazda és vendég virtuális gépek metrikái
@@ -71,7 +71,7 @@ A korábban felsorolt számítási erőforrások dedikált gazda virtuális gép
 
 ### <a name="activity-log"></a>Tevékenységnapló
 
-A Azure Stack hub-infrastruktúra által látott számítási erőforrásokra vonatkozó információkat a tevékenység naplóiban keresheti meg. A napló például az erőforrások létrehozási és megszüntetési időpontjaival kapcsolatos információkat tartalmaz. Az Azure Stack hub tevékenység-naplói konzisztensek az Azure-ban. További információ: a [műveletnapló áttekintése az Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)-ban. 
+A Azure Stack hub-infrastruktúra által látott számítási erőforrásokra vonatkozó információkat a tevékenység naplóiban keresheti meg. A napló például az erőforrások létrehozási és megszüntetési időpontjaival kapcsolatos információkat tartalmaz. Az Azure Stack hub tevékenység-naplói konzisztensek az Azure-ban. További információ: a [műveletnapló áttekintése az Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)-ban. 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure monitor-források: minden más
@@ -113,10 +113,10 @@ Néhány vizualizációs módszer:
 
 Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztással és a lekéréssel. Nem mindegyik módszer érhető el mindegyik művelet és adattípus esetében. 
 
- - [Azure Stack hub felhasználói portál](azure-stack-use-portal.md)
- - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [Platformfüggetlen parancssori felület (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST API](https://docs.microsoft.com/rest/api/monitor)
+ - [Azure Stack hub felhasználói portál ](azure-stack-use-portal.md)
+ - [PowerShell](/azure/monitoring-and-diagnostics/insights-powershell-samples)
+ - [Platformfüggetlen parancssori felület (CLI)](/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [REST API](/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  

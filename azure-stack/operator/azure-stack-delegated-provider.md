@@ -3,16 +3,16 @@ title: Ajánlatok delegálása Azure Stack központban
 description: Megtudhatja, hogyan delegálhat olyan feladatokat, mint az ajánlatok létrehozása és a felhasználók regisztrálása.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4f32bc3e12689f75ad5c7e5b04e7fb36049271b3
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 8cbbf5f2694b714ff5fdf71786a91e6e03522f58
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742518"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857579"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Ajánlatok delegálása Azure Stack központban
 
@@ -150,6 +150,6 @@ Az előfizetések áthelyezése akkor hasznos, ha:
 * Egy új csapattagot kell bevezetni, amely a delegált szolgáltatói szerepkörbe kerül, és az alapértelmezett szolgáltatói előfizetésben korábban létrehozott, a csapattagok felhasználói előfizetéseit kívánja hozzárendelni.
 * Több delegált szolgáltatói előfizetése van ugyanabban a címtár-bérlőben (Azure AD), és felhasználói előfizetéseket kell áthelyeznie közöttük. Ez a helyzet akkor fordulhat elő, ha egy csapattag a csapatok és az előfizetésük között van kiosztva az új csapatnak.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép kiépítése](../user/azure-stack-create-vm-template.md)

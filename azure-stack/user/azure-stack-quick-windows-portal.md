@@ -3,16 +3,16 @@ title: Windows rendszerű virtuális gép létrehozása Azure Stack hub-portálo
 description: Megtudhatja, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az Azure Stack hub Portal használatával.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5e34a943984583ab1e6d3a83a4aa5e4e7d302d5c
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: bbf0ad658100457c9d7b6b47e9f89b2af48e0e1f
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631257"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88819167"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 
@@ -60,7 +60,7 @@ Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe a
 
 ![VIRTUÁLIS gép létrehozása – virtuális gép keresése](./media/azure-stack-quick-windows-portal/image7.png)
 
-## <a name="clean-up-resources"></a>Erőforrások felszabadítása
+## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
 Ha végzett a virtuális gép használatával, törölje a virtuális gépet és annak erőforrásait. Ehhez válassza ki az erőforráscsoportot a virtuális gép lapon, és válassza a **Törlés**lehetőséget.
 

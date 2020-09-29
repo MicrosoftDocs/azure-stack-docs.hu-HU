@@ -3,16 +3,16 @@ title: Skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 description: Megtudhatja, hogyan adhat hozzá méretezési egység csomópontjait Azure Stack hub egységéhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 09/09/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.lastreviewed: 08/03/2020
+ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772585"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621299"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
@@ -27,14 +27,14 @@ A következő folyamatábra a méretezési egység csomópontjának általános 
 
 Az új csomópont hozzáadásának művelete több órát vagy napot is igénybe vehet. A rendszeren futó munkaterhelések egyike sem befolyásolja a további méretezési egység csomópont hozzáadását.
 
-> [!Note]  
+> [!NOTE]  
 > Ne kísérelje meg a következő műveletek egyikét sem, amíg egy méretezési egység hozzáadása csomópont-művelet már folyamatban van:
 >
 >  - Azure Stack hub frissítése
 >  - Tanúsítványok váltása
 >  - Azure Stack hub leállítása
 >  - Méretezési egység csomópontjának javítása
-
+>  - Adjon hozzá egy másik csomópontot (az előző bővítmény-csomópont műveleti hiba is folyamatban van)
 
 ## <a name="add-scale-unit-nodes"></a>Skálázási egység csomópontjainak hozzáadása
 
@@ -51,23 +51,23 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 
 Új csomópontok hozzáadásához a felügyeleti portált vagy a PowerShellt használhatja. A csomópont hozzáadása művelet először hozzáadja az új méretezési egység csomópontot elérhető számítási kapacitásként, majd automatikusan kiterjeszti a tárolókapacitást. A kapacitás kibontása automatikusan megtörténik, mivel Azure Stack hub egy hiperkonvergens rendszer, ahol a *számítási* és a *tárolási* skálázás együttesen történik.
 
-### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
+### <a name="administrator-portal"></a>[Felügyeleti portál](#tab/portal)
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálra Azure Stack hub-operátorként.
-2. Navigáljon a **+ erőforrás** > -**kapacitás** > **skálázási egység csomópontjának**létrehozására.
+2. Navigáljon a **+ erőforrás**-  >  **kapacitás**  >  **skálázási egység csomópontjának**létrehozására.
    ![Méretezési egység csomópontja](media/azure-stack-add-scale-node/select-node1.png)
 3. A **Csomópont hozzáadása** panelen válassza ki a *régiót*, majd válassza ki azt a *méretezési egységet* , amelyhez hozzá szeretné adni a csomópontot. Adja meg a hozzá tartozó méretezési egység csomópontjának *bmc IP-címét* is. Egyszerre csak egy csomópontot lehet hozzáadni.
    ![Csomópont hozzáadása – részletek](media/azure-stack-add-scale-node/select-node2.png)
  
 
-### <a name="use-powershell"></a>A PowerShell használata
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 Csomópont hozzáadásához használja a **New-AzsScaleUnitNodeObject** parancsmagot.  
 
 Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket a *csomópontok neveire* és az *IP-címekre* az Azure stack hub-környezet értékeivel.
 
   > [!Note]  
-  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket: `\` `/` `:` `*` `?` `"` `<` `>`,,,,,,,, `|`, `\` `~`,, `!`, `@` `#`,, `$`, `%`, `^`, `&` `(` `)`,,, `{`, `}`,. `_`
+  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket:,,,,,,,,,,,,,, `\` `/` `:` `*` `?` `"` `<` `>` `|` `\` `~` `!` `@` `#` `$` , `%` , `^` , `&` `(` `)` `{` `}` `_` ,,,,,.
 
 **Csomópont hozzáadása:**
   ```powershell
@@ -77,11 +77,28 @@ Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélj
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+Csomópont hozzáadásához használja az **Add-AzsScaleUnitNode** parancsmagot.  
+
+Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node*,  *name_of_scale_unit_cluster*, *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
+
+  > [!Note]  
+  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket:,,,,,,,,,,,,,, `\` `/` `:` `*` `?` `"` `<` `>` `|` `\` `~` `!` `@` `#` `$` , `%` , `^` , `&` `(` `)` `{` `}` `_` ,,,,,.
+
+**Csomópont hozzáadása:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
+---
+
 ## <a name="monitor-add-node-operations"></a>Csomópont-hozzáadási műveletek figyelése 
 A csomópont hozzáadása művelet állapotának beolvasásához használja a felügyeleti portált vagy a PowerShellt. A csomópont-műveletek hozzáadása több órát is igénybe vehet.
 
 ### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata 
-Új csomópont hozzáadásának figyeléséhez tekintse át a méretezési egység vagy a skálázási egység csomópont objektumait a felügyeleti portálon. Ehhez nyissa meg a **régió-felügyeleti** > **méretezési egységeket**. Ezután válassza ki az áttekinteni kívánt méretezési egységet vagy méretezési egység csomópontot. 
+Új csomópont hozzáadásának figyeléséhez tekintse át a méretezési egység vagy a skálázási egység csomópont objektumait a felügyeleti portálon. Ehhez nyissa meg a **régió-felügyeleti**  >  **méretezési egységeket**. Ezután válassza ki az áttekinteni kívánt méretezési egységet vagy méretezési egység csomópontot. 
 
 ### <a name="use-powershell"></a>A PowerShell használata
 A skálázási egység és a skálázási egység csomópontjainak állapota a PowerShell használatával kérhető le a következő módon:
@@ -96,9 +113,9 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 ### <a name="status-for-the-add-node-operation"></a>A csomópont hozzáadása művelet állapota 
 **Méretezési egység esetén:**
 
-|status               |Leírás  |
+|Állapot               |Leírás  |
 |---------------------|---------|
-|Fut              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
+|Futó              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva              |A skálázási egység csomópontja vagy le van zárva, vagy nem érhető el.|
 |Bővülő            |Egy vagy több méretezési egység csomópontja jelenleg számítási kapacitásként van hozzáadva.|
 |Tároló konfigurálása  |A számítási kapacitás ki lett bontva, és a tárolási konfiguráció fut.|
@@ -107,9 +124,9 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 
 **Méretezési egység csomópont esetén:**
 
-|status                |Leírás  |
+|Állapot                |Leírás  |
 |----------------------|---------|
-|Fut               |A csomópont aktívan részt vesz a skálázási egységben.|
+|Futó               |A csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva               |A csomópont nem érhető el.|
 |Hozzáadása                |A csomópontot aktívan felveszik a méretezési egységbe.|
 |Javítása             |A csomópont aktívan javítás alatt áll.|
@@ -133,5 +150,5 @@ A csomópontok hozzáadásakor a következő gyakori problémák észlelhetők.
 - Szervizelés: ebben az esetben a tárolási konfigurációs feladat meghiúsult. Ehhez a problémához kapcsolatba kell lépnie a támogatási szolgálattal.
 
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 [Nyilvános IP-címek hozzáadása](azure-stack-add-ips.md) 

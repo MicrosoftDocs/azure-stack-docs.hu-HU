@@ -48,12 +48,12 @@
                 - name: Azure Stack hub PowerShell – áttekintés
                   href: azure-stack-powershell-overview.md
                 - name: Azure Stack hub PowerShell telepítése
-                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Kapcsolódás a PowerShell-lel
                   href: azure-stack-powershell-configure-user.md
                 - name: Azure Stack hub-eszközök letöltése
-                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-powershell-download.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: A PowerShell futtatása a Docker használatával
                   href: azure-stack-powershell-user-docker.md
@@ -118,7 +118,7 @@
             - name: Szerepköralapú hozzáférés-vezérlés alkalmazása
               href: azure-stack-manage-permissions.md
             - name: Alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez
-              href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatások használata
           items:
             - name: Compute
@@ -129,16 +129,34 @@
                   href: azure-stack-vm-considerations.md
                 - name: A virtuális gépek mérete
                   href: azure-stack-vm-sizes.md
+                - name: Támogatott GPU-beli virtuális gépek
+                  href: gpu-vms-about.md
                 - name: VM-lemezek kezelése
                   href: azure-stack-manage-vm-disks.md
                 - name: Felügyelt lemezek szempontjai
                   href: azure-stack-managed-disk-considerations.md
+                - name: Felügyelt lemezek sablonjai
+                  href: virtual-machines-use-managed-disks-template.md
+                - name: Függőségekkel rendelkező virtuális gép törlése
+                  href: delete-vm.md
                 - name: A virtuális gépek védelme
                   href: azure-stack-manage-vm-protect.md
+                - name: Ismert virtuális gépekkel kapcsolatos problémák
+                  href: troubleshoot-vm-known-issues.md
                 - name: VIRTUÁLIS gépek frissítése és kezelése
                   href: vm-update-management.md
                 - name: SQL Server VM megfontolások
                   href: azure-stack-sql-server-vm-considerations.md
+                - name: Virtuális gép migrálása
+                  items:
+                    - name: Virtuális gépek áttelepítésének áttekintése
+                      href: vm-move-overview.md
+                    - name: Virtuális gép az Azure-ból
+                      href: vm-move-from-azure.md
+                    - name: Helyszíni speciális virtuális gép
+                      href: vm-move-specialized.md
+                    - name: Általános célú virtuális gép
+                      href: vm-move-generalized.md
             - name: Storage
               items:
                 - name: Áttekintés
@@ -235,7 +253,9 @@
                     - name: Az KABAi motor hibáinak megoldása
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Tárolók Azure Monitor használata
-                      href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
+                      href: /azure/azure-monitor/insights/container-insights-hybrid-setup
+                    - name: Ismert problémák az Azure Stack hub-beli AK-motorral
+                      href: azure-stack-kubernetes-aks-engine-known-issues.md
                 - name: Marketplace-tétel
                   items:
                     - name: Kubernetes-fürt üzembe helyezése
@@ -254,7 +274,7 @@
               href: azure-stack-solution-template-cognitive-services.md
     - name: Alkalmazások telepítése
       items:
-        - name: 'C#-alapú webalkalmazás üzembe helyezése Windows rendszerű virtuális gépen'
+        - name: C#-alapú webalkalmazás üzembe helyezése Windows rendszerű virtuális gépen
           href: azure-stack-dev-start-howto-vm-dotnet.md
         - name: Webalkalmazás üzembe helyezése Linux rendszerű virtuális gépen
           items:
@@ -326,23 +346,25 @@
 - name: Referencia
   items:
     - name: Azure Stack hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: /powershell/azure/azure-stack/overview
     - name: Azure Stack hub-rendszergazda REST API-k
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+      href: /cli/azure/reference-index?view=azure-cli-latest
 - name: Kapcsolódó témakörök
   items:
     - name: Azure Stack hub-kezelő dokumentációja
-      href: /azure-stack/operator/
+      href: ../operator/index.yml
     - name: A ASDK dokumentációja
-      href: /azure-stack/asdk/
+      href: ../asdk/index.yml
+    - name: A hibrid Azure-felhő dokumentációja
+      href: /hybrid
 - name: További források
   items:
     - name: Azure Stack hub közúti Térkép
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
-    - name: Azure Stack hub MSDN fórum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure Stack hub Microsoft Q&A
+      href: /answers/questions/topics/single/50514.html
     - name: Azure Stack hub dokumentációs visszajelzése
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Díjszabási információk
@@ -350,4 +372,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: Képzés és tanúsítványok
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md

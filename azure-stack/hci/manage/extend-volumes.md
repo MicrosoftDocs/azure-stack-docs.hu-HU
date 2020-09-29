@@ -3,19 +3,20 @@ title: Kötetek kiterjesztése Azure Stack HCI-ben
 description: A kötetek átméretezése Azure Stack HCI-ben a Windows felügyeleti központ és a PowerShell használatával.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/10/2020
-ms.openlocfilehash: 703931b0dccb533b2b924847eb3302f0efa46d1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: c6f874fb7bd8641933722631d9faac0dc513b5e3
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79089297"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742290"
 ---
-# <a name="extending-volumes-in-storage-spaces-direct"></a>Kötetek kiterjesztése a Közvetlen tárolóhelyekban
-> A következőkre vonatkozik: Windows Server 2019
+# <a name="extending-volumes-in-azure-stack-hci"></a>Kötetek kiterjesztése Azure Stack HCI-ben
 
-Ez a témakör útmutatást nyújt a kötetek [közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) -fürtön való átméretezéséhez a Windows felügyeleti központ használatával.
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+
+Ez a témakör útmutatást nyújt a kötetek átméretezéséhez egy Azure Stack HCI-fürtön a Windows felügyeleti központ használatával.
 
 > [!WARNING]
 > **Nem támogatott: az Közvetlen tárolóhelyek által használt mögöttes tárterület átméretezése.** Ha a Közvetlen tárolóhelyekt virtualizált tárolási környezetben, például az Azure-ban futtatja, akkor a virtuális gépek által használt tárolóeszközök jellemzőinek átméretezése vagy módosítása nem támogatott, és az adatok elérhetetlenné válnak. Ehelyett kövesse a [kiszolgálók vagy meghajtók hozzáadása](/windows-server/storage/storage-spaces/add-nodes) szakaszban található utasításokat a kötetek kiterjesztése előtt további kapacitás hozzáadásához.
@@ -26,7 +27,7 @@ Tekintse meg a kötetek átméretezésével kapcsolatos gyors videót.
 
 ## <a name="extending-volumes-using-windows-admin-center"></a>Kötetek kiterjesztése a Windows felügyeleti központtal
 
-1. A Windows felügyeleti központban kapcsolódjon egy Közvetlen tárolóhelyek fürthöz, majd válassza a **kötetek** elemet az **eszközök** ablaktáblán.
+1. A Windows felügyeleti központban kapcsolódjon egy Azure Stack HCI-fürthöz, majd válassza a **kötetek** lehetőséget az **eszközök** ablaktáblán.
 2. A **kötetek** lapon válassza a **leltár** fület, majd válassza ki az átméretezni kívánt kötetet.
 
     A kötet részletei lapon a kötet tárolókapacitása szerepel. A kötetek részletei lapot közvetlenül az irányítópultról is megnyithatja. Az irányítópulton, a riasztások ablaktáblán válassza ki a riasztást, amely értesíti, ha egy köteten kevés a tárolókapacitás, majd válassza a **Ugrás kötetre**lehetőséget.
@@ -46,7 +47,7 @@ A kötetek átméretezése előtt győződjön meg arról, hogy elegendő kapaci
 
 Közvetlen tárolóhelyek minden kötet több halmozott objektumból áll: a fürt megosztott kötete (CSV), amely egy kötet; a partíció; a lemez, amely egy virtuális lemez; és egy vagy több tárolási réteg (ha van ilyen). A kötetek átméretezéséhez át kell méreteznie ezeket az objektumokat.
 
-![kötetek – SMAPI](media/extend-volumes/volumes-in-smapi.png)
+![Ábrán egy kötet rétegei láthatók, beleértve a fürt szegmensének kötetét, a kötetet, a partíciót, a lemezt, a virtuális lemezt és a tárolási rétegeket.](media/extend-volumes/volumes-in-smapi.png)
 
 Ha szeretne megismerkedni velük, próbálja meg a **Get-** with a megfelelő főnév futtatását a PowerShellben.
 
@@ -61,7 +62,7 @@ A veremben lévő objektumok közötti társítások követéséhez az egyik **G
 Tegyük fel például, hogy a virtuális lemezről a kötetre kell beolvasnia:
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
+Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume
 ```
 
 ### <a name="step-1--resize-the-virtual-disk"></a>1. lépés – a virtuális lemez átméretezése
@@ -71,7 +72,7 @@ A virtuális lemez tárolási szinteket használhat, vagy nem, attól függően,
 A következő parancsmag futtatásával ellenőrizhető:
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-StorageTier 
+Get-VirtualDisk <FriendlyName> | Get-StorageTier
 ```
 
 Ha a parancsmag nem ad vissza semmit, a virtuális lemez nem használ tárolási szinteket.
@@ -88,7 +89,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 A **VirtualDisk**átméretezése után a **lemez** automatikusan megjelenik, és a mérete is módosul.
 
-![Átméretezés – VirtualDisk](media/extend-volumes/Resize-VirtualDisk.gif)
+![Az animált diagram azt mutatja, hogy egy kötet virtuális lemeze nagyobb lesz, miközben az azonnal megjelenő lemez mérete automatikusan megnő.](media/extend-volumes/Resize-VirtualDisk.gif)
 
 #### <a name="with-storage-tiers"></a>Tárolási rétegek
 
@@ -111,7 +112,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 Ha átméretezi a **StorageTier**(ka) t, a **VirtualDisk** és a **lemez** automatikusan elvégzi a méretezést, és átméretezi őket.
 
-![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![Az animált diagram azt mutatja, hogy először egy másik tárolási réteg lesz nagy, miközben a virtuális lemez rétege és a fenti lemez rétege is nagyobb.](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>2. lépés – a partíció átméretezése
 
@@ -126,23 +127,23 @@ $VirtualDisk = Get-VirtualDisk <FriendlyName>
 # Get its partition
 $Partition = $VirtualDisk | Get-Disk | Get-Partition | Where PartitionNumber -Eq 2
 
-# Resize to its maximum supported size 
+# Resize to its maximum supported size
 $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).SizeMax
 ```
 
 A **partíció**átméretezése után a **kötet** és a **ClusterSharedVolume** automatikusan követhető, és a rendszer is átméretezi őket.
 
-![Átméretezés – partíció](media/extend-volumes/Resize-Partition.gif)
+![Az animált ábrán látható, hogy a virtuális lemez réteg a kötet alján nő, és az egyes rétegek nagyobb mértékben növekednek.](media/extend-volumes/Resize-Partition.gif)
 
 Ennyi az egész!
 
 > [!TIP]
 > A **Get-Volume**futtatásával ellenőrizheti, hogy a köteten van-e új méret.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A további alapvető tárolási felügyeleti feladatokkal kapcsolatos részletes útmutatásért lásd még:
 
-- [Kötetek tervezése Közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/plan-volumes)
-- [Kötetek létrehozása a Közvetlen tárolóhelyekban](/windows-server/storage/storage-spaces/create-volumes)
-- [Kötetek törlése Közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/delete-volumes)
+- [Kötetek megtervezése](../concepts/plan-volumes.md)
+- [Kötetek létrehozása](create-volumes.md)
+- [Kötetek törlése](delete-volumes.md)

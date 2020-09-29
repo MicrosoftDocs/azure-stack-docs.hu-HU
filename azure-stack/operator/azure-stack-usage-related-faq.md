@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 540fce92723c434ec5c8cb5ee7a2be0dd04b3639
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742415"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857491"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -41,22 +41,22 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Fogyasztásmérő neve**: TableCapacity  
-**Egység**: GB\*óra  
+**Egység**: GB \* óra  
 **Megjegyzések**: a táblák által felhasznált teljes kapacitás.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B5C15376-6C94-4FDD-B655-1A69D138ACA3  
 **Fogyasztásmérő neve**: PageBlobCapacity  
-**Egység**: GB\*óra  
+**Egység**: GB \* óra  
 **Megjegyzések**: az oldal Blobok által felhasznált teljes kapacitás.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B03C6AE7-B080-4BFA-84A3-22C800F315C6  
 **Fogyasztásmérő neve**: QueueCapacity  
-**Egység**: GB\*óra  
+**Egység**: GB \* óra  
 **Megjegyzések**: a várólista által felhasznált teljes kapacitás.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 09F8879E-87E9-4305-A572-4B7BE209F857  
 **Fogyasztásmérő neve**: BlockBlobCapacity  
-**Egység**: GB\*óra  
+**Egység**: GB \* óra  
 **Megjegyzések**: a blokk Blobok által felhasznált teljes kapacitás.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90  
@@ -121,93 +121,93 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: virtuális gép órája  
 **Megjegyzések**: az alapszintű és a Windows RENDSZERű virtuális gépeket is rögzíti. Nem igazodik a magokhoz.  
   
-### <a name="managed-disks"></a>Felügyelt lemezek
+### <a name="managed-disks"></a>Managed Disks
 
-**MÉRŐSZÁM azonosítója**: 380874F9-300c-48e0-95a0-d2d9a21ade8f **-fogyasztásmérő neve**: S4 **egység**: lemezek\*száma hónap **Megjegyzés**: standard szintű felügyelt lemez – 32 GB
+Mérőszám **azonosítója**: 380874F9-300c-48e0-95a0-d2d9a21ade8f- **fogyasztásmérő neve**: S4 **egység**: lemezek száma \* hónap **megjegyzés**: standard szintű felügyelt lemez – 32 GB
 
-Mérőszám **azonosítója**: 1b77d90f-427b-4435-b4f1-d78adec53222 mérőszám **neve**: S6 **egység**: a lemezek\*száma hónap **megjegyzései**: standard szintű felügyelt lemez – 64 GB
+Mérőszám **azonosítója**: 1b77d90f-427b-4435-b4f1-d78adec53222 mérőszám **neve**: S6 **egység**: a lemezek száma \* hónap **megjegyzései**: standard szintű felügyelt lemez – 64 GB
 
-Mérőszám **azonosítója**: D5f7731b-f639-404A-89d0-e46186e22c8d **-fogyasztásmérő neve**: S10- **egység**: a\*lemezek száma hónap **Megjegyzés**: standard szintű felügyelt lemez – 128 GB
+Mérőszám **azonosítója**: D5f7731b-f639-404A-89d0-e46186e22c8d- **fogyasztásmérő neve**: S10- **egység**: a lemezek száma \* hónap **megjegyzés**: standard szintű felügyelt lemez – 128 GB
 
-**MÉRŐSZÁM azonosítója**: Ff85ef31-da5b-4eac-95dd-a69d6f97b18a **-fogyasztásmérő neve**: S15 **egység**: lemezek\*havi száma **Megjegyzés**: standard szintű felügyelt lemez – 256 GB
+Mérőszám **azonosítója**: Ff85ef31-da5b-4eac-95dd-a69d6f97b18a- **fogyasztásmérő neve**: S15 **egység**: lemezek havi száma \* **megjegyzés**: standard szintű felügyelt lemez – 256 GB
 
-**FOGYASZTÁSMÉRŐ azonosítója**: 88ea9228-457a-4091-adc9-ad5194f30b6e mérőszám **neve**: S20 **egység**: a lemezek\*száma hónap **Megjegyzés**: standard szintű felügyelt lemez – 512 GB
+**FOGYASZTÁSMÉRŐ azonosítója**: 88ea9228-457a-4091-adc9-ad5194f30b6e mérőszám **neve**: S20 **egység**: a lemezek száma \* hónap **megjegyzés**: standard szintű felügyelt lemez – 512 GB
 
-**MÉRŐSZÁM azonosítója**: 5B1db88a-8596-4002-8052-347947c26940 **-fogyasztásmérő neve**: S30 **egység**: lemezek\*havi száma **Megjegyzés**: standard szintű felügyelt lemez – 1024 GB
+Mérőszám **azonosítója**: 5B1db88a-8596-4002-8052-347947c26940- **fogyasztásmérő neve**: S30 **egység**: lemezek havi száma \* **megjegyzés**: standard szintű felügyelt lemez – 1024 GB
 
-**FOGYASZTÁSMÉRŐ azonosítója**: 7660B45b-b29d-49cb-b816-59f30fbab011- **fogyasztásmérő neve**: P4 **egység**: lemezek\*száma hónap **Megjegyzés**: prémium szintű felügyelt lemez – 32 GB
+**FOGYASZTÁSMÉRŐ azonosítója**: 7660B45b-b29d-49cb-b816-59f30fbab011- **fogyasztásmérő neve**: P4 **egység**: lemezek száma \* hónap **megjegyzés**: prémium szintű felügyelt lemez – 32 GB
 
-**MÉRŐSZÁM azonosítója**: 817007Fd-a077-477f-bc01-b876f27205fd **-fogyasztásmérő neve**: P6 **egység**: lemezek\*havi száma **Megjegyzés**: prémium szintű felügyelt lemez – 64 GB
+Mérőszám **azonosítója**: 817007Fd-a077-477f-bc01-b876f27205fd- **fogyasztásmérő neve**: P6 **egység**: lemezek havi száma \* **megjegyzés**: prémium szintű felügyelt lemez – 64 GB
 
-**FOGYASZTÁSMÉRŐ azonosítója**: e554b6bc-96cd-4938-a5b5-0da990278519 mérőszám **neve**: P10 **egység**: lemezek\*száma hónap **Megjegyzés**: prémium szintű felügyelt lemez – 128 GB  
+**FOGYASZTÁSMÉRŐ azonosítója**: e554b6bc-96cd-4938-a5b5-0da990278519 mérőszám **neve**: P10 **egység**: lemezek száma \* hónap **megjegyzés**: prémium szintű felügyelt lemez – 128 GB  
 
-**MÉRŐSZÁM azonosítója**: Cdc0f53a-62a9-4472-a06c-e99a23b02907 **-fogyasztásmérő neve**: P15 **egység**: lemezek\*havi száma **Megjegyzés**: prémium szintű felügyelt lemez – 256 GB
+Mérőszám **azonosítója**: Cdc0f53a-62a9-4472-a06c-e99a23b02907- **fogyasztásmérő neve**: P15 **egység**: lemezek havi száma \* **megjegyzés**: prémium szintű felügyelt lemez – 256 GB
 
-**MÉRŐSZÁM azonosítója**: B9cb2d1a-84c2-4275-aa8b-70d2145d59aa **-fogyasztásmérő neve**: P20 **egység**: lemezek\*havi száma **Megjegyzés**: prémium szintű felügyelt lemez – 512 GB
+Mérőszám **azonosítója**: B9cb2d1a-84c2-4275-aa8b-70d2145d59aa- **fogyasztásmérő neve**: P20 **egység**: lemezek havi száma \* **megjegyzés**: prémium szintű felügyelt lemez – 512 GB
 
-**MÉRŐSZÁM azonosítója**: 06Bde724-9f94-43c0-84c3-d0fc54538369 **-fogyasztásmérő neve**: P30 **egység**: lemezek\*havi száma **Megjegyzés**: prémium szintű felügyelt lemez – 1024 GB
+Mérőszám **azonosítója**: 06Bde724-9f94-43c0-84c3-d0fc54538369- **fogyasztásmérő neve**: P30 **egység**: lemezek havi száma \* **megjegyzés**: prémium szintű felügyelt lemez – 1024 GB
 
-**FOGYASZTÁSMÉRŐ azonosítója**: 7Ba084ec-ef9c-4d64-a179-7732c6cb5e28- **fogyasztásmérő neve**: ActualStandardDiskSize **egység**:\*GB hónap **Megjegyzés**: a normál felügyelt lemez lemezének tényleges mérete.
+**FOGYASZTÁSMÉRŐ azonosítója**: 7Ba084ec-ef9c-4d64-a179-7732c6cb5e28- **fogyasztásmérő neve**: ActualStandardDiskSize **egység**: GB \* hónap **Megjegyzés**: a normál felügyelt lemez lemezének tényleges mérete.
 
 **FOGYASZTÁSMÉRŐ azonosítója**: daef389a-06e5-4684-a7f7-8813d9f792d5  
-Mérőszám **neve**: ActualPremiumDiskSize **egység**: GB\*havi **Megjegyzések**: a prémium szintű felügyelt lemez tényleges mérete.
+Mérőszám **neve**: ActualPremiumDiskSize **egység**: GB \* havi **Megjegyzések**: a prémium szintű felügyelt lemez tényleges mérete.
 
 **FOGYASZTÁSMÉRŐ azonosítója**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
-Mérőszám **neve**: ActualStandardSnapshotSize **egység**: GB\*hónap **megjegyzései**: a felügyelt normál pillanatkép méretének tényleges mérete.  
+Mérőszám **neve**: ActualStandardSnapshotSize **egység**: GB \* hónap **megjegyzései**: a felügyelt normál pillanatkép méretének tényleges mérete.  
 
-**MÉRŐSZÁM azonosítója**: 578Ae51d-4ef9-42f9-85ae-42b52d3d83ac **-fogyasztásmérő neve**: ActualPremiumSnapshotSize **egység**:\*GB hónap **Megjegyzés**: a felügyelt prémium pillanatkép lemezének tényleges mérete.
+Mérőszám **azonosítója**: 578Ae51d-4ef9-42f9-85ae-42b52d3d83ac- **fogyasztásmérő neve**: ActualPremiumSnapshotSize **egység**: GB \* hónap **Megjegyzés**: a felügyelt prémium pillanatkép lemezének tényleges mérete.
 
-Mérőszám **azonosítója**: 5D76e09f-4567-452a-94cc-7d1f097761f0 **-fogyasztásmérő neve**: S4- **egység**: lemezes\*órák száma, **Megjegyzések**: standard szintű felügyelt lemez – 32 GB (elavult)
+Mérőszám **azonosítója**: 5D76e09f-4567-452a-94cc-7d1f097761f0- **fogyasztásmérő neve**: S4- **egység**: lemezes órák száma, \* **megjegyzések**: standard szintű felügyelt lemez – 32 GB (elavult)
 
-Mérőszám **azonosítója**: dc9fc6a9-0782-432a-b8dc-978130457494 **fogyasztásmérő neve**: S6- **egység**: a lemez\*órája **megjegyzései**: standard szintű felügyelt lemez – 64 GB (elavult)
+Mérőszám **azonosítója**: dc9fc6a9-0782-432a-b8dc-978130457494 **fogyasztásmérő neve**: S6- **egység**: a lemez \* órája **megjegyzései**: standard szintű felügyelt lemez – 64 GB (elavult)
 
-Mérőszám **azonosítója**: E5572fce-9f58-49d7-840c-b168c0f01fff **-fogyasztásmérő neve**: S10- **egység**: a\*lemezek száma óránkénti **Megjegyzés**: standard szintű felügyelt lemez – 128 GB (elavult)
+Mérőszám **azonosítója**: E5572fce-9f58-49d7-840c-b168c0f01fff- **fogyasztásmérő neve**: S10- **egység**: a lemezek száma \* óránkénti **megjegyzés**: standard szintű felügyelt lemez – 128 GB (elavult)
 
-**MÉRŐSZÁM azonosítója**: 9A8caedd-1195-4cd5-80b4-a4c22f9302b8 **-fogyasztásmérő neve**: S15 **egység**: a lemezek\*száma óránkénti **Megjegyzés**: standard szintű felügyelt lemez – 256 GB (elavult)
+Mérőszám **azonosítója**: 9A8caedd-1195-4cd5-80b4-a4c22f9302b8- **fogyasztásmérő neve**: S15 **egység**: a lemezek száma \* óránkénti **megjegyzés**: standard szintű felügyelt lemez – 256 GB (elavult)
 
-**MÉRŐSZÁM azonosítója**: 5938F8da-0ecd-4C48-8d5a-c7c6c23546be **-fogyasztásmérő neve**: S20 **egység**: a lemezek\*száma óránkénti **Megjegyzés**: standard szintű felügyelt lemez – 512 GB (elavult)
+Mérőszám **azonosítója**: 5938F8da-0ecd-4C48-8d5a-c7c6c23546be- **fogyasztásmérő neve**: S20 **egység**: a lemezek száma \* óránkénti **megjegyzés**: standard szintű felügyelt lemez – 512 GB (elavult)
 
-**MÉRŐSZÁM azonosítója**: 7705A158-bd8b-4b2b-b4c2-0782343b81e6 **-fogyasztásmérő neve**: S30 **egység**: a lemezek\*száma óránkénti **Megjegyzés**: standard szintű felügyelt lemez – 1024 GB (elavult)
+Mérőszám **azonosítója**: 7705A158-bd8b-4b2b-b4c2-0782343b81e6- **fogyasztásmérő neve**: S30 **egység**: a lemezek száma \* óránkénti **megjegyzés**: standard szintű felügyelt lemez – 1024 GB (elavult)
 
-Mérőszám **azonosítója**: 5C105f5f-cbdf-435c-b49b-3c7174856dcc **-fogyasztásmérő neve**: P4- **egység**: a\*lemezek száma óránkénti **Megjegyzés**: prémium szintű felügyelt lemez – 32 GB (elavult)
+Mérőszám **azonosítója**: 5C105f5f-cbdf-435c-b49b-3c7174856dcc- **fogyasztásmérő neve**: P4- **egység**: a lemezek száma \* óránkénti **megjegyzés**: prémium szintű felügyelt lemez – 32 GB (elavult)
 
-**MÉRŐSZÁM azonosítója**: 518B412b-1927-4f25-985f-4aea24e55c4f **-fogyasztásmérő neve**: P6 **egység**: a lemezek\*száma óránkénti **Megjegyzés**: prémium szintű felügyelt lemez – 64 GB (elavult)
+Mérőszám **azonosítója**: 518B412b-1927-4f25-985f-4aea24e55c4f- **fogyasztásmérő neve**: P6 **egység**: a lemezek száma \* óránkénti **megjegyzés**: prémium szintű felügyelt lemez – 64 GB (elavult)
 
-**MÉRŐSZÁM azonosítója**: 5Cfb1fed-0902-49e3-8217-9add946fd624 **-fogyasztásmérő neve**: P10 **egység**: a lemezek\*száma óránkénti **Megjegyzés**: prémium szintű felügyelt lemez – 128 GB (elavult)  
+Mérőszám **azonosítója**: 5Cfb1fed-0902-49e3-8217-9add946fd624- **fogyasztásmérő neve**: P10 **egység**: a lemezek száma \* óránkénti **megjegyzés**: prémium szintű felügyelt lemez – 128 GB (elavult)  
 
 Mérőszám **azonosítója**: 8De91c94-f740-4d9a-b665-bd5974fa08d4- **fogyasztásmérő neve**: P15  
-**Egység**: lemezes\*órák száma **Megjegyzések**: prémium szintű felügyelt lemez – 256 GB (elavult)
+**Egység**: lemezes \* órák száma **Megjegyzések**: prémium szintű felügyelt lemez – 256 GB (elavult)
 
-Mérőszám **azonosítója**: c7e7839c-293b-4761-ae4c-848eda91130b-mérőszám **neve**: P20 **egység**: a lemezek\*órája **Megjegyzés**: prémium szintű felügyelt lemez – 512 GB (elavult)
+Mérőszám **azonosítója**: c7e7839c-293b-4761-ae4c-848eda91130b-mérőszám **neve**: P20 **egység**: a lemezek \* órája **megjegyzés**: prémium szintű felügyelt lemez – 512 GB (elavult)
 
-**MÉRŐSZÁM azonosítója**: 9F502103-adf4-4488-b494-456c95d23a9f **-fogyasztásmérő neve**: P30 **egység**: a lemezek\*száma óránkénti **Megjegyzés**: prémium szintű felügyelt lemez – 1024 GB (elavult)
+Mérőszám **azonosítója**: 9F502103-adf4-4488-b494-456c95d23a9f- **fogyasztásmérő neve**: P30 **egység**: a lemezek száma \* óránkénti **megjegyzés**: prémium szintű felügyelt lemez – 1024 GB (elavult)
 
-**FOGYASZTÁSMÉRŐ azonosítója**: 8A409390-1913-40ae-917b-08d0f16f3c38- **fogyasztásmérő neve**: ActualStandardDiskSize **egység**:\*byte hours **Megjegyzés**: a normál felügyelt lemez (elavult) lemezének tényleges mérete.  
+**FOGYASZTÁSMÉRŐ azonosítója**: 8A409390-1913-40ae-917b-08d0f16f3c38- **fogyasztásmérő neve**: ActualStandardDiskSize **egység**: byte \* hours **Megjegyzés**: a normál felügyelt lemez (elavult) lemezének tényleges mérete.  
 
 **FOGYASZTÁSMÉRŐ azonosítója**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
-**Fogyasztásmérő neve**: ActualPremiumDiskSize **egység**: byte\*hours **Megjegyzés**: a prémium szintű felügyelt lemez (elavult) lemezének tényleges mérete.
+**Fogyasztásmérő neve**: ActualPremiumDiskSize **egység**: byte \* hours **Megjegyzés**: a prémium szintű felügyelt lemez (elavult) lemezének tényleges mérete.
 
 **FOGYASZTÁSMÉRŐ azonosítója**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
-**Fogyasztásmérő neve**: ActualStandardSnapshotSize **egység**: byte\*hours **Megjegyzés**: a felügyelt standard pillanatkép (elavult) lemezének tényleges mérete.
+**Fogyasztásmérő neve**: ActualStandardSnapshotSize **egység**: byte \* hours **Megjegyzés**: a felügyelt standard pillanatkép (elavult) lemezének tényleges mérete.
 
-**MÉRŐSZÁM azonosítója**: 95B0c03f-8a82-4524-8961-ccfbf575f536 **-fogyasztásmérő neve**: ActualPremiumSnapshotSize **egység**:\*byte hours **Megjegyzés**: a felügyelt prémium pillanatkép (elavult) lemezének tényleges mérete.
+Mérőszám **azonosítója**: 95B0c03f-8a82-4524-8961-ccfbf575f536- **fogyasztásmérő neve**: ActualPremiumSnapshotSize **egység**: byte \* hours **Megjegyzés**: a felügyelt prémium pillanatkép (elavult) lemezének tényleges mérete.
 
-**MÉRŐSZÁM azonosítója**: 75D4b707-1027-4403-9986-6ec7c05579c8 **-fogyasztásmérő neve**: ActualStandardSnapshotSize **egység**:\*GB hónap **Megjegyzés**: a felügyelt standard pillanatkép (elavult) lemezének tényleges mérete.
+Mérőszám **azonosítója**: 75D4b707-1027-4403-9986-6ec7c05579c8- **fogyasztásmérő neve**: ActualStandardSnapshotSize **egység**: GB \* hónap **Megjegyzés**: a felügyelt standard pillanatkép (elavult) lemezének tényleges mérete.
 
-**FOGYASZTÁSMÉRŐ azonosítója**: 5Ca1cbb9-6f14-4e76-8be8-1ca91547965e- **fogyasztásmérő neve**: ActualPremiumSnapshotSize **egység**:\*GB hónap **Megjegyzés**: a felügyelt prémium pillanatkép (elavult) lemezének tényleges mérete.
+**FOGYASZTÁSMÉRŐ azonosítója**: 5Ca1cbb9-6f14-4e76-8be8-1ca91547965e- **fogyasztásmérő neve**: ActualPremiumSnapshotSize **egység**: GB \* hónap **Megjegyzés**: a felügyelt prémium pillanatkép (elavult) lemezének tényleges mérete.
 
 ### <a name="sql-rp"></a>SQL RP
   
 **FOGYASZTÁSMÉRŐ azonosítója**: CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
 **Fogyasztásmérő neve**: DatabaseSizeHourSqlMeter  
-**Egység**: MB\*óra  
+**Egység**: MB \* óra  
 **Megjegyzések**: az adatbázis teljes kapacitása a létrehozáskor. Ha napi részletességgel hívja meg a használati API-t, a mérő a MB-ot adja meg, szorozva az órák számával.  
   
 ### <a name="mysql-rp"></a>MySql RP
   
 **FOGYASZTÁSMÉRŐ azonosítója**: E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
 **Fogyasztásmérő neve**: DatabaseSizeHourMySqlMeter  
-**Egység**: MB\*óra  
+**Egység**: MB \* óra  
 **Megjegyzések**: az adatbázis teljes kapacitása a létrehozáskor. Ha napi részletességgel hívja meg a használati API-t, a mérő a MB-ot adja meg, szorozva az órák számával.
 
 ### <a name="key-vault"></a>Key Vault
@@ -264,8 +264,8 @@ Mérőszám **azonosítója**: c7e7839c-293b-4761-ae4c-848eda91130b-mérőszám 
   
 ### <a name="custom-worker-tiers"></a>Egyéni feldolgozói szintek
   
-**Fogyasztásmérő azonosítója**: *Egyéni feldolgozói rétegek*
-mérőszámának**neve**: egyéni feldolgozói szintek  
+**Fogyasztásmérő azonosítója**: *Egyéni feldolgozói rétegek*mérőszámának 
+ **neve**: egyéni feldolgozói szintek  
 **Egység**: óra **Megjegyzés**: az DETERMINISZTIKUS mérőszám azonosítója az SKU és az egyéni feldolgozói rétegek neve alapján jön létre. Ez a mérőszám-azonosító minden egyéni feldolgozói szinten egyedi.  
   
 **FOGYASZTÁSMÉRŐ azonosítója**: 264ACB47-AD38-47F8-ADD3-47F01DC4F473  
@@ -285,7 +285,7 @@ Mérőszám **neve**: IP SSL **egység**:/IP-alapú SSL-kötési **Megjegyzések
 **Egység**: GB  
 **Megjegyzések**: összes bejövő kérelemre adott válasz bájtjai és összes kimenő kérelem bájtjainak száma + összes bejövő FTP-kérelemre adott válasz bájtjai és a teljes beérkező webes üzembe helyezési kérelmekre adott válasz bájtjai.  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Hogyan hasonlítható össze az Azure Stack hub használati API-k az [Azure használati API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) -val (jelenleg nyilvános előzetes verzióban)?
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Hogyan hasonlítható össze az Azure Stack hub használati API-k az [Azure használati API](/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) -val (jelenleg nyilvános előzetes verzióban)?
 
 * A bérlői használati API konzisztens az Azure API-val, egyetlen kivétellel: az Azure Stack hub jelenleg nem támogatja a *showDetails* jelzőt.
 * A szolgáltatói használati API csak Azure Stack hubhoz vonatkozik.
@@ -328,7 +328,7 @@ Azt is megteheti, hogy a REST API-kat használja a [szolgáltatói erőforrás-h
 
 A használati rekordok közé tartozik a **AdditionalInfo**nevű tulajdonság, amely tartalmazza az Azure stack hub előfizetés-azonosítóját. Ez az azonosító a megfelelő használati rekordot kibocsátó felhasználói előfizetés.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ügyfél számlázása és jóváírása Azure Stack központban](azure-stack-billing-and-chargeback.md)
 * [Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)

@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 59c8cfdaf13b84f7ba27e633731f4d1587cf63b8
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 9f86466ebacaebc74b7799ec1145cc405faf1b7d
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375017"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364694"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL Resource Provider 1.1.47.0 kibocsátási megjegyzései
 
@@ -40,7 +40,7 @@ Kövesse az erőforrás-szolgáltató frissítési folyamatát az SQL Resource P
 
 ## <a name="known-issues"></a>Ismert problémák
 
-Nincsenek.
+Azure Stack hub integrált rendszerek [tanúsítványának elforgatásakor](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) a KeyVaultPfxPassword argumentum akkor is mendatory, ha nincs szándéka a Key Vault tanúsítvány jelszavának frissítésére.
 
 ## <a name="next-steps"></a>Következő lépések
 

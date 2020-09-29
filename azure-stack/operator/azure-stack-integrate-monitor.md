@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243880"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428549"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -69,6 +69,9 @@ A beépülő modul Pythonban van megírva, és kihasználja az állapot erőforr
 
 Az 1,2-es verzióban az Azure Stack hub – a Nagios beépülő modul a Microsoft ADAL-függvénytárat használja, és támogatja a hitelesítést egy titkos vagy tanúsítvánnyal rendelkező egyszerű szolgáltatásnév használatával. Emellett a konfigurációt egy új paraméterekkel rendelkező, egyetlen konfigurációs fájllal egyszerűsítettük. Mostantól támogatja Azure Stack hub üzemelő példányait az Azure AD-vel, és az identitásrendszer AD FS.
 
+> [!IMPORTANT]
+> AD FS csak az interaktív bejelentkezési munkameneteket támogatja. Ha nem interaktív bejelentkezésre van szüksége egy automatikus forgatókönyvhöz, SPN-t kell használnia.
+
 A beépülő modul az 4x-es és a XI-as verzióval működik. A beépülő modul letöltéséhez lásd: [Azure stack hub-riasztások figyelése](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). A letöltési hely tartalmazza a telepítési és konfigurációs adatokat is.
 
 ### <a name="requirements-for-nagios"></a>A Nagios követelményei
@@ -97,9 +100,9 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1. Másolja a beépülő `azurestack_plugin.py` modult a következő könyvtárba `/usr/local/nagios/libexec`:.
+1. Másolja a beépülő modult `azurestack_plugin.py` a következő könyvtárba: `/usr/local/nagios/libexec` .
 
-2. Másolja a kezelőt `azurestack_handler.sh` a következő könyvtárba: `/usr/local/nagios/libexec/eventhandlers`.
+2. Másolja a kezelőt `azurestack_handler.sh` a következő könyvtárba: `/usr/local/nagios/libexec/eventhandlers` .
 
 3. Győződjön meg arról, hogy a beépülő modul fájlja végrehajtható:
 
@@ -121,12 +124,12 @@ Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további informác
 | * * tenant_id: * * | Bérlőazonosító\* |    |
 | client_id: | Ügyfél-azonosító | SPN titkos kulccsal |
 | client_secret: | Ügyfél jelszava | SPN titkos kulccsal |
-| client_cert\*\*: | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
-| client_cert_thumbprint\*\*: | Tanúsítvány ujjlenyomata | SPN tanúsítvánnyal |
+| client_cert \* \* : | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
+| client_cert_thumbprint \* \* : | Tanúsítvány ujjlenyomata | SPN tanúsítvánnyal |
 
 \*A bérlői azonosító nem szükséges Azure Stack központi telepítéshez AD FS.
 
-\*\*Az ügyfél titkos kulcsa és az ügyfél tanúsítványa kölcsönösen kizárják egymást.
+\*\* Az ügyfél titkos kulcsa és az ügyfél tanúsítványa kölcsönösen kizárják egymást.
 
 A többi konfigurációs fájl opcionális konfigurációs beállításokat tartalmaz, mivel azok a Nagios-ben is konfigurálhatók.
 
@@ -144,7 +147,7 @@ A többi konfigurációs fájl opcionális konfigurációs beállításokat tart
 
 1. Módosítsa a konfigurációs fájlt.
 
-2. Másolja a módosított konfigurációs fájlokat a következő mappába: `/usr/local/nagios/etc/objects`.
+2. Másolja a módosított konfigurációs fájlokat a következő mappába: `/usr/local/nagios/etc/objects` .
 
 ### <a name="update-nagios-configuration"></a>A Nagios konfigurációjának frissítése
 
@@ -156,7 +159,7 @@ A Nagios konfigurációját frissíteni kell az Azure Stack hub – a Nagios be�
    /usr/local/nagios/etc/nagios.cfg
    ```
 
-2. Adja hozzá a következő bejegyzést:
+2. Szúrja be a következő bejegyzést:
 
    ```bash  
    # Load the Azure Stack Hub Plugin Configuration
@@ -198,7 +201,7 @@ A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja me
 
 Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a PowerShell segítségével számos figyelési megoldást engedélyezhet a Azure Stack hub-nal való integráláshoz.
 
-1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack hub-kezelő környezethez. Telepítse a PowerShellt egy helyi számítógépre, amely elérheti a Resource Manager-(rendszergazdaihttps://adminmanagement) végpontot (. [ régió]. [External_FQDN]).
+1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack hub-kezelő környezethez. Telepítse a PowerShellt egy helyi számítógépre, amely elérheti a Resource Manager-(rendszergazdai) végpontot ( https://adminmanagement . [ régió]. [External_FQDN]).
 
 2. Futtassa a következő parancsokat az Azure Stack hub-környezethez Azure Stack hub-operátorként való kapcsolódáshoz:
 
@@ -232,10 +235,10 @@ Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a 
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudjon meg többet
 
 További információ a beépített állapot-figyelésről: [az állapot és a riasztások figyelése Azure stack központban](azure-stack-monitor-health.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Biztonsági integráció](azure-stack-integrate-security.md)

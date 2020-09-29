@@ -3,16 +3,16 @@ title: Mi a Azure Stack hub AK-motorja?
 description: Megtudhatja, hogyan helyezhet üzembe és kezelhet Kubernetes-fürtöt az Azure-ban és Azure Stack hub-ban az AK motor parancssori eszköz használatával.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ac4604d438cf0be03e2dd8c2d6050456ff2ac3a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: da77872f4b80d3885a903bbd62497af68e148c01
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068980"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473010"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Mi a Azure Stack hub AK-motorja?
 
@@ -48,7 +48,7 @@ Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on:
      - [Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban](azure-stack-kubernetes-aks-engine-deploy-linux.md)
 3. [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor előfeltételeinek beállítása](azure-stack-kubernetes-aks-engine-set-up.md)

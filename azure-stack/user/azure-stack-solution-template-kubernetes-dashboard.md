@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631191"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920491"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>A Kubernetes-irányítópult elérése Azure Stack központban 
 
-> [!Note]   
+> [!NOTE]   
 > A fürtök Kubernetes való üzembe helyezése csak a Azure Stack Marketplace-elemmel használható. Azure Stack támogatott Kubernetes-fürtök esetében használja [az AK-motort](azure-stack-kubernetes-aks-engine-overview.md).
 
 A Kubernetes tartalmaz egy webes irányítópultot, amely alapszintű felügyeleti műveletekhez használható. Ez az irányítópult lehetővé teszi az alkalmazások alapvető állapotának és mérőszámának megtekintését, szolgáltatások létrehozását és üzembe helyezését, valamint meglévő alkalmazások szerkesztését. Ez a cikk bemutatja, hogyan állíthatja be a Kubernetes-irányítópultot Azure Stack hub-ra.
@@ -29,7 +29,7 @@ A Kubernetes tartalmaz egy webes irányítópultot, amely alapszintű felügyele
 
 * SSH-ügyfél
 
-    Szüksége lesz egy SSH-ügyfélre a fürt fő csomópontjának biztonsági összekapcsolásához. Ha Windows rendszert használ, használhatja a [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm)-t. Szüksége lesz a Kubernetes-fürt üzembe helyezésekor használt titkos kulcsra.
+    Szüksége lesz egy SSH-ügyfélre a fürt fő csomópontjának biztonsági összekapcsolásához. Ha Windows rendszert használ, használhatja a [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm)-t. Szüksége lesz a Kubernetes-fürt üzembe helyezésekor használt titkos kulcsra.
 
 * FTP (PSCP)
 
@@ -50,9 +50,9 @@ Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
     - Jelentkezzen be az Azure Stack hub portálra `https://portal.local.azurestack.external/` .
     - Válassza **a minden szolgáltatás**  >  **minden erőforrás**elemet. Keresse meg a főkiszolgálót a fürterőforrás-csoportban. A főkiszolgáló neve `k8s-master-<sequence-of-numbers>` . 
 
-2. Nyissa meg a fő csomópontot a portálon. Másolja a **nyilvános IP-** címet. Kattintson a **Kapcsolódás** gombra a Felhasználónév beolvasásához a **Bejelentkezés a virtuális gép helyi fiókjával jelölőnégyzet használatával** . Ez ugyanaz a Felhasználónév, amelyet a fürt létrehozásakor beállított. A nyilvános IP-cím helyett használja a kapcsolat panelen felsorolt magánhálózati IP-címet.
+2. Nyissa meg a fő csomópontot a portálon. Másolja a **nyilvános IP-** címet. Kattintson a **Kapcsolódás** gombra a Felhasználónév beolvasásához a  **Bejelentkezés a virtuális gép helyi fiókjával jelölőnégyzet használatával** . Ez ugyanaz a Felhasználónév, amelyet a fürt létrehozásakor beállított. A nyilvános IP-cím helyett használja a kapcsolat panelen felsorolt magánhálózati IP-címet.
 
-3.  Nyisson meg egy SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. Ha Windows rendszeren dolgozik, a [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) segítségével hozhatja létre a kapcsolódást. A főcsomóponthoz tartozó nyilvános IP-címet, a felhasználónevet és a fürt létrehozásakor használt titkos kulcsot kell felvennie.
+3.  Nyisson meg egy SSH-ügyfelet a főkiszolgálóhoz való kapcsolódáshoz. Ha Windows rendszeren dolgozik, a [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) segítségével hozhatja létre a kapcsolódást. A főcsomóponthoz tartozó nyilvános IP-címet, a felhasználónevet és a fürt létrehozásakor használt titkos kulcsot kell felvennie.
 
 4.  Amikor a terminál csatlakozik, írja be `kubectl` a parancsot a Kubernetes parancssori ügyfél megnyitásához.
 
@@ -61,7 +61,7 @@ Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Keresse meg az irányítópult URL-címét. Például:`https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Keresse meg az irányítópult URL-címét. Például:  `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Bontsa ki az önaláírt tanúsítványt, és alakítsa át a PFX formátumba. Futtassa az alábbi parancsot:
 
@@ -93,7 +93,7 @@ Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
     - a titkos titok
     - Az **SFTP-SSH File Transfer Protocol** használata
 
-2. Másolja `/etc/kubernetes/certs/client.pfx` `/etc/kubernetes/certs/ca.crt` Az Azure stack hub felügyeleti gépre.
+2. Másolja `/etc/kubernetes/certs/client.pfx`  `/etc/kubernetes/certs/ca.crt` Az Azure stack hub felügyeleti gépre.
 
 3. Jegyezze fel a fájlok helyét. Frissítse a parancsfájlt a helyekkel, majd nyissa meg a PowerShellt egy emelt szintű parancssorral. Futtassa a frissített parancsfájlt:  
 
@@ -116,7 +116,7 @@ Az irányítópult URL-címét a fürt fő csomópontjában kérheti le.
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
 
-    A parancsfájl `kubernetes-dashboard` Felhőbeli rendszergazdai jogosultságokat biztosít. További információ: [RBAC-kompatibilis fürtök](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
+    A parancsfájl `kubernetes-dashboard` Felhőbeli rendszergazdai jogosultságokat biztosít. További információ: [RBAC-kompatibilis fürtök](/azure/aks/kubernetes-dashboard).
 
 Használhatja az irányítópultot. A Kubernetes-irányítópulttal kapcsolatos további információkért lásd: [Kubernetes webes felhasználói felület irányítópultja](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
@@ -126,7 +126,7 @@ Használhatja az irányítópultot. A Kubernetes-irányítópulttal kapcsolatos 
 
 ### <a name="custom-virtual-networks"></a>Egyéni virtuális hálózatok
 
-Ha a Kubernetes-irányítópulthoz való kapcsolódás során problémákba ütközik a Kubernetes [Egyéni virtuális hálózatra](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet)való telepítése után, győződjön meg arról, hogy a célként megadott alhálózatok az AK-motor által létrehozott útválasztási táblázathoz és hálózati biztonsági csoport erőforrásaihoz vannak társítva.
+Ha a Kubernetes-irányítópulthoz való kapcsolódás során problémákba ütközik a Kubernetes [Egyéni virtuális hálózatra](./kubernetes-aks-engine-custom-vnet.md)való telepítése után, győződjön meg arról, hogy a célként megadott alhálózatok az AK-motor által létrehozott útválasztási táblázathoz és hálózati biztonsági csoport erőforrásaihoz vannak társítva.
 
 Győződjön meg arról, hogy a hálózati biztonsági csoport szabályai lehetővé teszik a főcsomópontok és a Kubernetes Dashboard Pod IP közötti kommunikációt. Ezt a fő csomópont ping parancsával lehet érvényesíteni.
 
@@ -136,4 +136,4 @@ Győződjön meg arról, hogy a hálózati biztonsági csoport szabályai lehet�
 
 [Kubernetes-fürt hozzáadása a piactérhez (az Azure Stack hub-kezelőhöz)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
-[A Kubernetes az Azure-on](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  
+[A Kubernetes az Azure-on](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  
