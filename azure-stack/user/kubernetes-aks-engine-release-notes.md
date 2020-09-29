@@ -3,16 +3,16 @@ title: Az Azure Kubernetes Service (ak) motor kibocsátási megjegyzései Azure 
 description: Megtudhatja, milyen lépéseket kell végrehajtania a Azure Stack hub-ban lévő AK-os motor frissítéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.lastreviewed: 09/28/2020
+ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717937"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495762"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
 ::: moniker range=">=azs-2002"
@@ -103,6 +103,7 @@ Az API-modell JSON-fájljában adja meg a kiadási és verziószám-értékeket 
 
 ## <a name="whats-new"></a>Újdonságok
 
+- Azure Stack linuxos VHD frissítése a 2020.09.14 #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - A K8s v 1.17.11 támogatását adja meg Azure Stack [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - A K8s v 1.16.14 támogatását adja meg Azure Stack [#3704](https://github.com/Azure/aks-engine/pull/3704)
 - A 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750) linuxos VHD frissítése
@@ -278,6 +279,6 @@ Ez az Azure-hoz és Azure Stack hub-hoz készült kibocsátási megjegyzések te
 -   https://github.com/Azure/aks-engine/releases/tag/v0.47.0
 -   https://github.com/Azure/aks-engine/releases/tag/v0.48.0
 ::: moniker-end
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)

@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 65b8abb532b9016a23fffe4ec2515df022bfb526
-ms.sourcegitcommit: f2d16c3148da50d679940e024267995b85ce6332
+ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91407786"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495796"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -20,11 +20,11 @@ Ez a cikk Azure Stack hub frissítési csomagjainak tartalmát ismerteti. A fris
 
 Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal oldali tartalomjegyzéknél használja a verziószám legördülő menüt.
 
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 > [!IMPORTANT]  
 > Ez a frissítési csomag csak Azure Stack hub integrált rendszerekhez használható. Ezt a frissítési csomagot ne alkalmazza a Azure Stack Development Kitra (ASDK).
 ::: moniker-end
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 > [!IMPORTANT]  
 > Ha a Azure Stack hub-példánya több mint két frissítés mögött van, akkor az nem felel meg a megfelelőségnek. A [támogatás fogadásához legalább a támogatott verzióra kell frissítenie](azure-stack-servicing-policy.md#keep-your-system-under-support).
 ::: moniker-end
@@ -50,9 +50,6 @@ Az Azure Stack hub frissítési csomagot [az Azure stack hub Update Downloader T
 ## <a name="2005-build-reference"></a>2005-Build referenciája
 
 Az Azure Stack hub 2005 Update Build száma **1.2005.6.53**.
-
-> [!IMPORTANT]  
-> Az Azure Stack hub 2002-es [kiadásával](release-notes.md?view=azs-2002) , valamint a világ azon tagjainak támogatásával, akik válaszolnak a COVID-19-re, és akik fontos döntéseket hozhatnak Azure stack hub-rendszerekkel kapcsolatban, a Microsoft átmenetileg kiterjesztheti a támogatási szabályzatot, hogy tartalmazza az előző három korábbi frissítési verziót (N-3). A 2005-es kiadással további 45 nap (a 2020. szeptember 25. között) folytatjuk ezt a bővítményt. Ennek eredményeképpen az újonnan kiadott 2005-es frissítés és a három korábbi frissítési verzió (2002, 1910 és 1908, vagy N-3) közül bármelyiket támogatja a rendszer. Ezen 45 nap után (2020. szeptember 25. után) visszatérünk a standard támogatási szabályzatba, ami azt jelenti, hogy a támogatott verziók a következő lesz: 2005, 2002 és 1910, vagy N-2.
 
 ### <a name="update-type"></a>Frissítéstípus
 
@@ -436,88 +433,12 @@ A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítás
 - [Azure Stack hub gyorsjavítási 1.1910.63.186](https://support.microsoft.com/help/4574735)
 ::: moniker-end
 
-::: moniker range="azs-1908"
-## <a name="1908-build-reference"></a>1908-Build referenciája
-
-Az Azure Stack hub 1908 Update Build száma **1.1908.4.33**.
-
-### <a name="update-type"></a>Frissítéstípus
-
-1908 esetében a Azure Stack hub futtatására szolgáló operációs rendszer a Windows Server 2019-re frissült. Ez a frissítés lehetővé teszi az alapszintű fejlesztéseket és az Azure Stack hub további képességeinek kihasználását.
-
-Az Azure Stack hub 1908 Update Build típusa **megtelt**. Ennek eredményeképpen az 1908-es frissítés hosszabb futtatókörnyezettel rendelkezik, mint az expressz frissítések, például a 1906 és a 1907. A teljes frissítésekhez tartozó pontos futtatókörnyezetek általában az Azure Stack hub-példány által tartalmazott csomópontok számától függenek, a rendszer által a bérlői munkaterhelések által használt kapacitástól, a rendszer hálózati kapcsolataitól (ha az internethez csatlakozik), valamint a rendszer hardverének konfigurációját. Az 1908-es frissítés a belső tesztelés következő várt futtatókörnyezeteit használta: 4 csomópont – 42 óra, 8 csomópont – 50 óra, 12 csomópont – 60 óra, 16 csomópont – 70 óra. A várt értéknél hosszabb ideig tartó frissítési futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek műveletet Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul.
-
-További információ a frissítési buildek típusairól: [frissítések kezelése Azure stack hub-ban](azure-stack-updates.md).
-
-- A pontos frissítési futtatókörnyezetek jellemzően a rendszeren a bérlői munkaterhelések, a rendszer hálózati kapcsolata (ha az internethez csatlakoztatva) és a rendszer hardveres konfigurációja alapján használt kapacitástól függenek.
-- A vártnál hosszabb ideig tartó futtatókörnyezetek nem ritkán fordulnak elő, és nem igényelnek beavatkozást Azure Stack hub-operátorok, kivéve, ha a frissítés meghiúsul.
-- Ez a futtatókörnyezeti közelítés az 1908-es frissítésre vonatkozik, és nem hasonlítható össze más Azure Stack hub-frissítésekkel.
-
-<!-- ## What's in this update -->
-
-<!-- The current theme (if any) of this release. -->
-
-### <a name="whats-new"></a>Újdonságok
-
-<!-- What's new, also net new experiences and features. -->
-
-- 1908 esetében vegye figyelembe, hogy a Azure Stack hub futtatására szolgáló operációs rendszer a Windows Server 2019-re frissült. Ez a frissítés lehetővé teszi az alapszintű fejlesztéseket és az Azure Stack hub további képességeinek kihasználását.
-- Az Azure Stack hub-infrastruktúra összes összetevője FIPS 140-2 módban működik.
-- A Azure Stack hub-operátorok mostantól eltávolíthatják a portál felhasználói adatfájljait. További információ: [a portál felhasználói adatainak törlése Azure stack hub-ból](azure-stack-portal-clear.md).
-
-### <a name="improvements"></a>Fejlesztései
-
-<!-- Changes and product improvements with tangible customer-facing value. -->
-- Az Azure Stack hub Rest-titkosításával kapcsolatos adatok fejlesztése a titkoknak a fizikai csomópontok hardveres platformmegbízhatósági modul (TPM) való megőrzése érdekében.
-
-### <a name="changes"></a>Módosítások
-
-- A hardveres szolgáltatók a 2,1-es vagy újabb OEM-bővítményt a 1908-es Azure Stack hub-verzióval megegyező időpontban szabadítják fel. A 2,1-es vagy újabb OEM-bővítmény előfeltétele Azure Stack hub 1908-es verziójának. Az OEM-bővítmény 2,1-es vagy újabb verziójának letöltésével kapcsolatos további információkért forduljon a rendszer hardver-szolgáltatójához, és tekintse meg az [OEM-frissítések](azure-stack-update-oem.md#oem-contact-information) című cikket.  
-
-### <a name="fixes"></a>Javítások
-
-- A jövőbeli Azure Stack hub OEM-frissítésekkel való kompatibilitással és az ügyfél felhasználói lemezképeit használó VM-telepítéssel kapcsolatos probléma javítva. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)  
-- Kijavított egy problémát az OEM belső vezérlőprogram frissítésével, és javította a AzureStack a Fabric Ring Health szolgáltatásban. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)
-- Kijavított egy problémát az OEM belső vezérlőprogram frissítési folyamatával kapcsolatban. Ez a probléma a 1907-es verzióban található, és javítva lett a gyorsjavítások [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37)
-
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
-
-## <a name="security-updates"></a>Biztonsági frissítések
-
-További információ a Azure Stack hub ezen frissítésében található biztonsági frissítésekről: [Azure stack hub biztonsági frissítései](release-notes-security-updates.md).
-
-A kiadás Qualys biztonsági réseit tartalmazó jelentés letölthető a [Qualys webhelyről](https://www.qualys.com/azure-stack/).
-
-## <a name="download-the-update"></a>A frissítés letöltése
-
-Az Azure Stack hub 1908 frissítési csomagot [a Azure stack hub letöltési oldaláról](https://aka.ms/azurestackupdatedownload)töltheti le.
-
-## <a name="hotfixes"></a>Gyorsjavítások
-
-Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a 1907-es legújabb Azure Stack hub gyorsjavítását telepíti a 1908-es Azure Stack hub frissítése előtt.
-
-Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne próbálja meg telepíteni a gyorsjavításokat a ASDK.
-
-### <a name="prerequisites-before-applying-the-1908-update"></a>Előfeltételek: az 1908-es frissítés alkalmazása előtt
-
-Azure Stack hub 1908-es kiadását a 1907-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1907.29.80](https://support.microsoft.com/help/4555650)
-
-Az Azure Stack hub 1908 Update **Azure stack hub OEM 2,1-es vagy újabb verziójára** van szükség a rendszer hardver-szolgáltatójától. Az OEM-frissítések a Azure Stack hub rendszerhardverének illesztőprogram-és belső vezérlőprogram-frissítéseit tartalmazzák. Az OEM-frissítések alkalmazásával kapcsolatos további információkért lásd: [Azure stack hub eredeti berendezések gyártói frissítéseinek alkalmazása](azure-stack-update-oem.md)
-
-### <a name="after-successfully-applying-the-1908-update"></a>Az 1908-es frissítés sikeres alkalmazása után
-
-A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1908.51.133](https://support.microsoft.com/help/4574734)
-::: moniker-end
-
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1908"
+## <a name="1908-archived-release-notes"></a>1908 archivált kibocsátási megjegyzések
+::: moniker-end
 ::: moniker range="azs-1907"
 ## <a name="1907-archived-release-notes"></a>1907 archivált kibocsátási megjegyzések
 ::: moniker-end
@@ -564,6 +485,6 @@ A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítás
 ## <a name="1802-archived-release-notes"></a>1802 archivált kibocsátási megjegyzések
 ::: moniker-end
 
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 [A Azure stack hub kibocsátási megjegyzésének régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 ::: moniker-end

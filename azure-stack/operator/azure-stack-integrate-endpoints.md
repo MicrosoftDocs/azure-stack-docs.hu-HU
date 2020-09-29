@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub-szolgáltatások közzététele az adatközpontban
 description: Ismerje meg, hogyan tehet közzé Azure Stack hub-szolgáltatásokat az adatközpontjában.
-author: daniellefoto
+author: myoung
 ms.topic: article
 ms.date: 09/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 860c254c5f013f72e18fd2e9727d8bac66c1742f
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: ed9f2a8eeeeb2cfdfcc4e96c1672d7da8fff64b2
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230597"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495745"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban
 
@@ -93,13 +93,13 @@ Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-intercep
 |LDAP GC|A Graph-integrációhoz megadott Active Directory erdő|TCP|3268|Nyilvános VIP-/27|
 |LDAP GC SSL|A Graph-integrációhoz megadott Active Directory erdő|TCP|3269|Nyilvános VIP-/27|
 |AD FS|AD FS-integrációhoz megadott AD FS metaadat-végpont|TCP|443|Nyilvános VIP-/27|
-| Diagnosztikai naplók gyűjteménye |https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Nyilvános VIP-/27 |
+| Diagnosztikai naplók gyűjteménye |https://*. blob. Core. Windows. net<br>https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Nyilvános VIP-/27 |
 |     |     |     |     |     |
 
 A kimenő URL-címek terheléselosztása az Azure Traffic Managerrel történik, hogy a lehető legjobb kapcsolatot biztosítsa a földrajzi hely alapján. Elosztott terhelésű URL-címek esetén a Microsoft a háttérbeli végpontokat a felhasználók befolyásolása nélkül tudja frissíteni és módosítani. A Microsoft nem osztja meg a terheléselosztási URL-címek IP-címeinek listáját. Használjon olyan eszközt, amely támogatja az URL-címek szerinti szűrést, nem pedig az IP-címet.
 
 A kimenő DNS-t mindig kötelező megadni; a változó a külső DNS lekérdezési forrását, valamint az identitás-integráció típusát választotta. Egy csatlakoztatott forgatókönyv esetén a BMC-hálózaton található DVM kimenő hozzáférésre van szüksége. Az üzembe helyezést követően azonban a DNS szolgáltatás olyan belső összetevőre kerül, amely nyilvános VIP-en keresztül küld lekérdezéseket. Ekkor a BMC-hálózaton keresztüli kimenő DNS-hozzáférés el lehet távolítani, de a DNS-kiszolgálóhoz való nyilvános VIP-hozzáférésnek továbbra is meg kell maradnia, vagy más hitelesítés sikertelen lesz.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub PKI-követelményei](azure-stack-pki-certs.md)
